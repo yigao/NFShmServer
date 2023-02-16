@@ -3,14 +3,14 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message buttonbutton
+message E_ButtonButton
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "按钮id"];
-	optional int32 time = 2[(yd_fieldoptions.field_cname) = "读条时间"];
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "按钮id"];
+	optional int32 m_time = 2[(yd_fieldoptions.field_cname) = "读条时间"];
 }
 
 
-message Sheet_buttonbutton
+message Sheet_ButtonButton
 {
-	repeated buttonbutton buttonbutton_List = 1[(yd_fieldoptions.field_arysize)=80];
+	repeated E_ButtonButton E_ButtonButton_List = 1[(yd_fieldoptions.field_arysize)=80];
 }

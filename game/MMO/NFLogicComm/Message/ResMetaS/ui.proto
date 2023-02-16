@@ -3,14 +3,14 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message uieffect
+message E_UiEffect
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "特效ID"];
-	optional int32 time = 2[(yd_fieldoptions.field_cname) = "播放时间"];
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "特效ID"];
+	optional int32 m_time = 2[(yd_fieldoptions.field_cname) = "播放时间"];
 }
 
 
-message Sheet_uieffect
+message Sheet_UiEffect
 {
-	repeated uieffect uieffect_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_UiEffect E_UiEffect_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

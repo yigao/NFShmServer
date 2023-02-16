@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "fashion.pb.h"
@@ -10,75 +10,75 @@
 
 namespace proto_ff_s {
 
-	struct fashionfashionattributeDesc_s : public NFDescStoreSeqOP {
-		fashionfashionattributeDesc_s();
-		virtual ~fashionfashionattributeDesc_s(){}
+	struct E_FashionFashionAttributeDesc_s : public NFDescStoreSeqOP {
+		E_FashionFashionAttributeDesc_s();
+		virtual ~E_FashionFashionAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::fashionfashionattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::fashionfashionattributeDesc & msg);
-		static ::proto_ff::fashionfashionattributeDesc* new_pbmsg(){ return new ::proto_ff::fashionfashionattributeDesc(); }
-		static ::proto_ff::fashionfashionattributeDesc make_pbmsg(){ return ::proto_ff::fashionfashionattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FashionFashionAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FashionFashionAttributeDesc & msg);
+		static ::proto_ff::E_FashionFashionAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_FashionFashionAttributeDesc(); }
+		static ::proto_ff::E_FashionFashionAttributeDesc make_pbmsg(){ return ::proto_ff::E_FashionFashionAttributeDesc(); }
 	};
-	typedef struct fashionfashionattributeDesc_s fashionfashionattributeDesc_t;
+	typedef struct E_FashionFashionAttributeDesc_s E_FashionFashionAttributeDesc_t;
 
-	struct fashionfashionActiveAttributeDesc_s : public NFDescStoreSeqOP {
-		fashionfashionActiveAttributeDesc_s();
-		virtual ~fashionfashionActiveAttributeDesc_s(){}
+	struct E_FashionFashionActiveattributeDesc_s : public NFDescStoreSeqOP {
+		E_FashionFashionActiveattributeDesc_s();
+		virtual ~E_FashionFashionActiveattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::fashionfashionActiveAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::fashionfashionActiveAttributeDesc & msg);
-		static ::proto_ff::fashionfashionActiveAttributeDesc* new_pbmsg(){ return new ::proto_ff::fashionfashionActiveAttributeDesc(); }
-		static ::proto_ff::fashionfashionActiveAttributeDesc make_pbmsg(){ return ::proto_ff::fashionfashionActiveAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FashionFashionActiveattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FashionFashionActiveattributeDesc & msg);
+		static ::proto_ff::E_FashionFashionActiveattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FashionFashionActiveattributeDesc(); }
+		static ::proto_ff::E_FashionFashionActiveattributeDesc make_pbmsg(){ return ::proto_ff::E_FashionFashionActiveattributeDesc(); }
 	};
-	typedef struct fashionfashionActiveAttributeDesc_s fashionfashionActiveAttributeDesc_t;
+	typedef struct E_FashionFashionActiveattributeDesc_s E_FashionFashionActiveattributeDesc_t;
 
-	struct fashionfashion_s : public NFDescStoreSeqOP {
-		fashionfashion_s();
-		virtual ~fashionfashion_s(){}
+	struct E_FashionFashion_s : public NFDescStoreSeqOP {
+		E_FashionFashion_s();
+		virtual ~E_FashionFashion_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
-		NFShmString<60> name;
-		int32_t type;
-		int32_t quality;
-		NFShmString<60> professionLimit;
-		int64_t activationItem;
-		int32_t activationNum;
-		int64_t starId;
-		NFShmString<300> starNum;
-		int32_t starUp;
-		int32_t starBer;
-		NFArray<struct fashionfashionattributeDesc_s, 5> attribute;
-		NFArray<struct fashionfashionActiveAttributeDesc_s, 6> ActiveAttribute;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_type;
+		int32_t m_quality;
+		NFShmString<60> m_professionlimit;
+		int64_t m_activationitem;
+		int32_t m_activationnum;
+		int64_t m_starid;
+		NFShmString<300> m_starnum;
+		int32_t m_starup;
+		int32_t m_starber;
+		NFShmVector<struct E_FashionFashionAttributeDesc_s, 5> m_attribute;
+		NFShmVector<struct E_FashionFashionActiveattributeDesc_s, 6> m_activeattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::fashionfashion & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::fashionfashion & msg);
-		static ::proto_ff::fashionfashion* new_pbmsg(){ return new ::proto_ff::fashionfashion(); }
-		static ::proto_ff::fashionfashion make_pbmsg(){ return ::proto_ff::fashionfashion(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FashionFashion & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FashionFashion & msg);
+		static ::proto_ff::E_FashionFashion* new_pbmsg(){ return new ::proto_ff::E_FashionFashion(); }
+		static ::proto_ff::E_FashionFashion make_pbmsg(){ return ::proto_ff::E_FashionFashion(); }
 	};
-	typedef struct fashionfashion_s fashionfashion_t;
+	typedef struct E_FashionFashion_s E_FashionFashion_t;
 
-	struct Sheet_fashionfashion_s : public NFDescStoreSeqOP {
-		Sheet_fashionfashion_s();
-		virtual ~Sheet_fashionfashion_s(){}
+	struct Sheet_FashionFashion_s : public NFDescStoreSeqOP {
+		Sheet_FashionFashion_s();
+		virtual ~Sheet_FashionFashion_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct fashionfashion_s, 20> fashionfashion_List;
+		NFShmVector<struct E_FashionFashion_s, 20> E_FashionFashion_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_fashionfashion & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_fashionfashion & msg);
-		static ::proto_ff::Sheet_fashionfashion* new_pbmsg(){ return new ::proto_ff::Sheet_fashionfashion(); }
-		static ::proto_ff::Sheet_fashionfashion make_pbmsg(){ return ::proto_ff::Sheet_fashionfashion(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FashionFashion & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FashionFashion & msg);
+		static ::proto_ff::Sheet_FashionFashion* new_pbmsg(){ return new ::proto_ff::Sheet_FashionFashion(); }
+		static ::proto_ff::Sheet_FashionFashion make_pbmsg(){ return ::proto_ff::Sheet_FashionFashion(); }
 	};
-	typedef struct Sheet_fashionfashion_s Sheet_fashionfashion_t;
+	typedef struct Sheet_FashionFashion_s Sheet_FashionFashion_t;
 
 }
 

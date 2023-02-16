@@ -14,9 +14,9 @@ public:
 	virtual ~TaskdynamicTaskcomcondDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::taskdynamictaskcomcond_s* GetDesc(int id) const;
-	proto_ff_s::taskdynamictaskcomcond_s* GetDesc(int id);
+	const proto_ff_s::E_TaskdynamicTaskcomcond_s* GetDesc(int id) const;
+	proto_ff_s::E_TaskdynamicTaskcomcond_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::taskdynamictaskcomcond_s, taskdynamictaskcomcond, MAX_TASKDYNAMIC_TASKCOMCOND_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_TaskdynamicTaskcomcond_s, taskdynamictaskcomcond, MAX_TASKDYNAMIC_TASKCOMCOND_NUM);
 DECLARE_IDCREATE(TaskdynamicTaskcomcondDesc);
 };

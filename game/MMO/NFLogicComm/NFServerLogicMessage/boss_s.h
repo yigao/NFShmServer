@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "boss.pb.h"
@@ -10,165 +10,165 @@
 
 namespace proto_ff_s {
 
-	struct bossrareItem_s : public NFDescStoreSeqOP {
-		bossrareItem_s();
-		virtual ~bossrareItem_s(){}
+	struct E_BossRareitem_s : public NFDescStoreSeqOP {
+		E_BossRareitem_s();
+		virtual ~E_BossRareitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t itemID;
-		int32_t top;
+		int64_t m_itemid;
+		int32_t m_top;
 
-		virtual void write_to_pbmsg(::proto_ff::bossrareItem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::bossrareItem & msg);
-		static ::proto_ff::bossrareItem* new_pbmsg(){ return new ::proto_ff::bossrareItem(); }
-		static ::proto_ff::bossrareItem make_pbmsg(){ return ::proto_ff::bossrareItem(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BossRareitem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BossRareitem & msg);
+		static ::proto_ff::E_BossRareitem* new_pbmsg(){ return new ::proto_ff::E_BossRareitem(); }
+		static ::proto_ff::E_BossRareitem make_pbmsg(){ return ::proto_ff::E_BossRareitem(); }
 	};
-	typedef struct bossrareItem_s bossrareItem_t;
+	typedef struct E_BossRareitem_s E_BossRareitem_t;
 
-	struct Sheet_bossrareItem_s : public NFDescStoreSeqOP {
-		Sheet_bossrareItem_s();
-		virtual ~Sheet_bossrareItem_s(){}
+	struct Sheet_BossRareitem_s : public NFDescStoreSeqOP {
+		Sheet_BossRareitem_s();
+		virtual ~Sheet_BossRareitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct bossrareItem_s, 600> bossrareItem_List;
+		NFShmVector<struct E_BossRareitem_s, 600> E_BossRareitem_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_bossrareItem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_bossrareItem & msg);
-		static ::proto_ff::Sheet_bossrareItem* new_pbmsg(){ return new ::proto_ff::Sheet_bossrareItem(); }
-		static ::proto_ff::Sheet_bossrareItem make_pbmsg(){ return ::proto_ff::Sheet_bossrareItem(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BossRareitem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossRareitem & msg);
+		static ::proto_ff::Sheet_BossRareitem* new_pbmsg(){ return new ::proto_ff::Sheet_BossRareitem(); }
+		static ::proto_ff::Sheet_BossRareitem make_pbmsg(){ return ::proto_ff::Sheet_BossRareitem(); }
 	};
-	typedef struct Sheet_bossrareItem_s Sheet_bossrareItem_t;
+	typedef struct Sheet_BossRareitem_s Sheet_BossRareitem_t;
 
-	struct bossboss_s : public NFDescStoreSeqOP {
-		bossboss_s();
-		virtual ~bossboss_s(){}
+	struct E_BossBoss_s : public NFDescStoreSeqOP {
+		E_BossBoss_s();
+		virtual ~E_BossBoss_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t bossType;
-		int32_t monsterID;
-		int32_t classOrder;
-		int32_t sceneOrder;
-		int32_t duplicateID;
-		int32_t peaceMask;
-		int32_t pointID;
-		int32_t group_type;
-		int32_t flashTime;
-		int32_t retrieveGiftID;
-		int32_t noTimes;
+		int32_t m_id;
+		int32_t m_bosstype;
+		int32_t m_monsterid;
+		int32_t m_classorder;
+		int32_t m_sceneorder;
+		int32_t m_duplicateid;
+		int32_t m_peacemask;
+		int32_t m_pointid;
+		int32_t m_group_type;
+		int32_t m_flashtime;
+		int32_t m_retrievegiftid;
+		int32_t m_notimes;
 
-		virtual void write_to_pbmsg(::proto_ff::bossboss & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::bossboss & msg);
-		static ::proto_ff::bossboss* new_pbmsg(){ return new ::proto_ff::bossboss(); }
-		static ::proto_ff::bossboss make_pbmsg(){ return ::proto_ff::bossboss(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BossBoss & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BossBoss & msg);
+		static ::proto_ff::E_BossBoss* new_pbmsg(){ return new ::proto_ff::E_BossBoss(); }
+		static ::proto_ff::E_BossBoss make_pbmsg(){ return ::proto_ff::E_BossBoss(); }
 	};
-	typedef struct bossboss_s bossboss_t;
+	typedef struct E_BossBoss_s E_BossBoss_t;
 
-	struct Sheet_bossboss_s : public NFDescStoreSeqOP {
-		Sheet_bossboss_s();
-		virtual ~Sheet_bossboss_s(){}
+	struct Sheet_BossBoss_s : public NFDescStoreSeqOP {
+		Sheet_BossBoss_s();
+		virtual ~Sheet_BossBoss_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct bossboss_s, 80> bossboss_List;
+		NFShmVector<struct E_BossBoss_s, 80> E_BossBoss_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_bossboss & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_bossboss & msg);
-		static ::proto_ff::Sheet_bossboss* new_pbmsg(){ return new ::proto_ff::Sheet_bossboss(); }
-		static ::proto_ff::Sheet_bossboss make_pbmsg(){ return ::proto_ff::Sheet_bossboss(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg);
+		static ::proto_ff::Sheet_BossBoss* new_pbmsg(){ return new ::proto_ff::Sheet_BossBoss(); }
+		static ::proto_ff::Sheet_BossBoss make_pbmsg(){ return ::proto_ff::Sheet_BossBoss(); }
 	};
-	typedef struct Sheet_bossboss_s Sheet_bossboss_t;
+	typedef struct Sheet_BossBoss_s Sheet_BossBoss_t;
 
-	struct bossbosstypegroupDesc_s : public NFDescStoreSeqOP {
-		bossbosstypegroupDesc_s();
-		virtual ~bossbosstypegroupDesc_s(){}
+	struct E_BossBosstypeGroupDesc_s : public NFDescStoreSeqOP {
+		E_BossBosstypeGroupDesc_s();
+		virtual ~E_BossBosstypeGroupDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t times;
+		int32_t m_type;
+		int32_t m_times;
 
-		virtual void write_to_pbmsg(::proto_ff::bossbosstypegroupDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::bossbosstypegroupDesc & msg);
-		static ::proto_ff::bossbosstypegroupDesc* new_pbmsg(){ return new ::proto_ff::bossbosstypegroupDesc(); }
-		static ::proto_ff::bossbosstypegroupDesc make_pbmsg(){ return ::proto_ff::bossbosstypegroupDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BossBosstypeGroupDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BossBosstypeGroupDesc & msg);
+		static ::proto_ff::E_BossBosstypeGroupDesc* new_pbmsg(){ return new ::proto_ff::E_BossBosstypeGroupDesc(); }
+		static ::proto_ff::E_BossBosstypeGroupDesc make_pbmsg(){ return ::proto_ff::E_BossBosstypeGroupDesc(); }
 	};
-	typedef struct bossbosstypegroupDesc_s bossbosstypegroupDesc_t;
+	typedef struct E_BossBosstypeGroupDesc_s E_BossBosstypeGroupDesc_t;
 
-	struct bossbosstype_s : public NFDescStoreSeqOP {
-		bossbosstype_s();
-		virtual ~bossbosstype_s(){}
+	struct E_BossBosstype_s : public NFDescStoreSeqOP {
+		E_BossBosstype_s();
+		virtual ~E_BossBosstype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t bossType;
-		int32_t mapType;
-		int32_t functionId;
-		int32_t duplicateGroupID;
-		int32_t privilegeType;
-		int64_t callingCardId;
-		int32_t enterTimes;
-		int32_t costitem;
-		NFShmString<60> costnum;
-		int32_t bossTimes;
-		int32_t addItemID;
-		int32_t canhelp;
-		int32_t qkill;
-		int32_t retrievedDays;
-		int32_t skill;
-		NFArray<struct bossbosstypegroupDesc_s, 3> group;
+		int32_t m_bosstype;
+		int32_t m_maptype;
+		int32_t m_functionid;
+		int32_t m_duplicategroupid;
+		int32_t m_privilegetype;
+		int64_t m_callingcardid;
+		int32_t m_entertimes;
+		int32_t m_costitem;
+		NFShmString<60> m_costnum;
+		int32_t m_bosstimes;
+		int32_t m_additemid;
+		int32_t m_canhelp;
+		int32_t m_qkill;
+		int32_t m_retrieveddays;
+		int32_t m_skill;
+		NFShmVector<struct E_BossBosstypeGroupDesc_s, 3> m_group;
 
-		virtual void write_to_pbmsg(::proto_ff::bossbosstype & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::bossbosstype & msg);
-		static ::proto_ff::bossbosstype* new_pbmsg(){ return new ::proto_ff::bossbosstype(); }
-		static ::proto_ff::bossbosstype make_pbmsg(){ return ::proto_ff::bossbosstype(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BossBosstype & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BossBosstype & msg);
+		static ::proto_ff::E_BossBosstype* new_pbmsg(){ return new ::proto_ff::E_BossBosstype(); }
+		static ::proto_ff::E_BossBosstype make_pbmsg(){ return ::proto_ff::E_BossBosstype(); }
 	};
-	typedef struct bossbosstype_s bossbosstype_t;
+	typedef struct E_BossBosstype_s E_BossBosstype_t;
 
-	struct Sheet_bossbosstype_s : public NFDescStoreSeqOP {
-		Sheet_bossbosstype_s();
-		virtual ~Sheet_bossbosstype_s(){}
+	struct Sheet_BossBosstype_s : public NFDescStoreSeqOP {
+		Sheet_BossBosstype_s();
+		virtual ~Sheet_BossBosstype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct bossbosstype_s, 20> bossbosstype_List;
+		NFShmVector<struct E_BossBosstype_s, 20> E_BossBosstype_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_bossbosstype & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_bossbosstype & msg);
-		static ::proto_ff::Sheet_bossbosstype* new_pbmsg(){ return new ::proto_ff::Sheet_bossbosstype(); }
-		static ::proto_ff::Sheet_bossbosstype make_pbmsg(){ return ::proto_ff::Sheet_bossbosstype(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBosstype & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBosstype & msg);
+		static ::proto_ff::Sheet_BossBosstype* new_pbmsg(){ return new ::proto_ff::Sheet_BossBosstype(); }
+		static ::proto_ff::Sheet_BossBosstype make_pbmsg(){ return ::proto_ff::Sheet_BossBosstype(); }
 	};
-	typedef struct Sheet_bossbosstype_s Sheet_bossbosstype_t;
+	typedef struct Sheet_BossBosstype_s Sheet_BossBosstype_t;
 
-	struct bosslayer_s : public NFDescStoreSeqOP {
-		bosslayer_s();
-		virtual ~bosslayer_s(){}
+	struct E_BossLayer_s : public NFDescStoreSeqOP {
+		E_BossLayer_s();
+		virtual ~E_BossLayer_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t bossType;
-		int32_t order;
-		NFShmString<60> name;
-		NFShmString<60> enterCondition;
-		NFShmString<60> unlockCondition;
-		int32_t mapID;
+		int32_t m_id;
+		int32_t m_bosstype;
+		int32_t m_order;
+		NFShmString<60> m_name;
+		NFShmString<60> m_entercondition;
+		NFShmString<60> m_unlockcondition;
+		int32_t m_mapid;
 
-		virtual void write_to_pbmsg(::proto_ff::bosslayer & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::bosslayer & msg);
-		static ::proto_ff::bosslayer* new_pbmsg(){ return new ::proto_ff::bosslayer(); }
-		static ::proto_ff::bosslayer make_pbmsg(){ return ::proto_ff::bosslayer(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BossLayer & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BossLayer & msg);
+		static ::proto_ff::E_BossLayer* new_pbmsg(){ return new ::proto_ff::E_BossLayer(); }
+		static ::proto_ff::E_BossLayer make_pbmsg(){ return ::proto_ff::E_BossLayer(); }
 	};
-	typedef struct bosslayer_s bosslayer_t;
+	typedef struct E_BossLayer_s E_BossLayer_t;
 
-	struct Sheet_bosslayer_s : public NFDescStoreSeqOP {
-		Sheet_bosslayer_s();
-		virtual ~Sheet_bosslayer_s(){}
+	struct Sheet_BossLayer_s : public NFDescStoreSeqOP {
+		Sheet_BossLayer_s();
+		virtual ~Sheet_BossLayer_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct bosslayer_s, 20> bosslayer_List;
+		NFShmVector<struct E_BossLayer_s, 20> E_BossLayer_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_bosslayer & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_bosslayer & msg);
-		static ::proto_ff::Sheet_bosslayer* new_pbmsg(){ return new ::proto_ff::Sheet_bosslayer(); }
-		static ::proto_ff::Sheet_bosslayer make_pbmsg(){ return ::proto_ff::Sheet_bosslayer(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BossLayer & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossLayer & msg);
+		static ::proto_ff::Sheet_BossLayer* new_pbmsg(){ return new ::proto_ff::Sheet_BossLayer(); }
+		static ::proto_ff::Sheet_BossLayer make_pbmsg(){ return ::proto_ff::Sheet_BossLayer(); }
 	};
-	typedef struct Sheet_bosslayer_s Sheet_bosslayer_t;
+	typedef struct Sheet_BossLayer_s Sheet_BossLayer_t;
 
 }
 

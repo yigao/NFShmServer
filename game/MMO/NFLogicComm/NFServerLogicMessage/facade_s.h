@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "facade.pb.h"
@@ -10,508 +10,508 @@
 
 namespace proto_ff_s {
 
-	struct facadedisplaymaterialDesc_s : public NFDescStoreSeqOP {
-		facadedisplaymaterialDesc_s();
-		virtual ~facadedisplaymaterialDesc_s(){}
+	struct E_FacadeDisplayMaterialDesc_s : public NFDescStoreSeqOP {
+		E_FacadeDisplayMaterialDesc_s();
+		virtual ~E_FacadeDisplayMaterialDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t exp;
+		int64_t m_id;
+		int32_t m_exp;
 
-		virtual void write_to_pbmsg(::proto_ff::facadedisplaymaterialDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadedisplaymaterialDesc & msg);
-		static ::proto_ff::facadedisplaymaterialDesc* new_pbmsg(){ return new ::proto_ff::facadedisplaymaterialDesc(); }
-		static ::proto_ff::facadedisplaymaterialDesc make_pbmsg(){ return ::proto_ff::facadedisplaymaterialDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeDisplayMaterialDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeDisplayMaterialDesc & msg);
+		static ::proto_ff::E_FacadeDisplayMaterialDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeDisplayMaterialDesc(); }
+		static ::proto_ff::E_FacadeDisplayMaterialDesc make_pbmsg(){ return ::proto_ff::E_FacadeDisplayMaterialDesc(); }
 	};
-	typedef struct facadedisplaymaterialDesc_s facadedisplaymaterialDesc_t;
+	typedef struct E_FacadeDisplayMaterialDesc_s E_FacadeDisplayMaterialDesc_t;
 
-	struct facadedisplay_s : public NFDescStoreSeqOP {
-		facadedisplay_s();
-		virtual ~facadedisplay_s(){}
+	struct E_FacadeDisplay_s : public NFDescStoreSeqOP {
+		E_FacadeDisplay_s();
+		virtual ~E_FacadeDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t type;
-		NFShmString<60> resource;
-		NFShmString<60> name;
-		NFShmString<100> activeDesc;
-		NFShmString<60> professionID;
-		NFShmString<80> skillID;
-		int32_t soulItemID;
-		NFArray<struct facadedisplaymaterialDesc_s, 3> material;
-		NFArray<int64_t, 3> fragmentID;
+		int64_t m_id;
+		int32_t m_type;
+		NFShmString<60> m_resource;
+		NFShmString<60> m_name;
+		NFShmString<100> m_activedesc;
+		NFShmString<60> m_professionid;
+		NFShmString<80> m_skillid;
+		int32_t m_soulitemid;
+		NFShmVector<struct E_FacadeDisplayMaterialDesc_s, 3> m_material;
+		NFShmVector<int64_t, 3> m_fragmentid;
 
-		virtual void write_to_pbmsg(::proto_ff::facadedisplay & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadedisplay & msg);
-		static ::proto_ff::facadedisplay* new_pbmsg(){ return new ::proto_ff::facadedisplay(); }
-		static ::proto_ff::facadedisplay make_pbmsg(){ return ::proto_ff::facadedisplay(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeDisplay & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeDisplay & msg);
+		static ::proto_ff::E_FacadeDisplay* new_pbmsg(){ return new ::proto_ff::E_FacadeDisplay(); }
+		static ::proto_ff::E_FacadeDisplay make_pbmsg(){ return ::proto_ff::E_FacadeDisplay(); }
 	};
-	typedef struct facadedisplay_s facadedisplay_t;
+	typedef struct E_FacadeDisplay_s E_FacadeDisplay_t;
 
-	struct Sheet_facadedisplay_s : public NFDescStoreSeqOP {
-		Sheet_facadedisplay_s();
-		virtual ~Sheet_facadedisplay_s(){}
+	struct Sheet_FacadeDisplay_s : public NFDescStoreSeqOP {
+		Sheet_FacadeDisplay_s();
+		virtual ~Sheet_FacadeDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadedisplay_s, 20> facadedisplay_List;
+		NFShmVector<struct E_FacadeDisplay_s, 20> E_FacadeDisplay_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadedisplay & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadedisplay & msg);
-		static ::proto_ff::Sheet_facadedisplay* new_pbmsg(){ return new ::proto_ff::Sheet_facadedisplay(); }
-		static ::proto_ff::Sheet_facadedisplay make_pbmsg(){ return ::proto_ff::Sheet_facadedisplay(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeDisplay & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeDisplay & msg);
+		static ::proto_ff::Sheet_FacadeDisplay* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeDisplay(); }
+		static ::proto_ff::Sheet_FacadeDisplay make_pbmsg(){ return ::proto_ff::Sheet_FacadeDisplay(); }
 	};
-	typedef struct Sheet_facadedisplay_s Sheet_facadedisplay_t;
+	typedef struct Sheet_FacadeDisplay_s Sheet_FacadeDisplay_t;
 
-	struct facadevaluetreasureAttributeDesc_s : public NFDescStoreSeqOP {
-		facadevaluetreasureAttributeDesc_s();
-		virtual ~facadevaluetreasureAttributeDesc_s(){}
+	struct E_FacadeValueTreasureattributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeValueTreasureattributeDesc_s();
+		virtual ~E_FacadeValueTreasureattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadevaluetreasureAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadevaluetreasureAttributeDesc & msg);
-		static ::proto_ff::facadevaluetreasureAttributeDesc* new_pbmsg(){ return new ::proto_ff::facadevaluetreasureAttributeDesc(); }
-		static ::proto_ff::facadevaluetreasureAttributeDesc make_pbmsg(){ return ::proto_ff::facadevaluetreasureAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeValueTreasureattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValueTreasureattributeDesc & msg);
+		static ::proto_ff::E_FacadeValueTreasureattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeValueTreasureattributeDesc(); }
+		static ::proto_ff::E_FacadeValueTreasureattributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeValueTreasureattributeDesc(); }
 	};
-	typedef struct facadevaluetreasureAttributeDesc_s facadevaluetreasureAttributeDesc_t;
+	typedef struct E_FacadeValueTreasureattributeDesc_s E_FacadeValueTreasureattributeDesc_t;
 
-	struct facadevalueArtifactAttributeDesc_s : public NFDescStoreSeqOP {
-		facadevalueArtifactAttributeDesc_s();
-		virtual ~facadevalueArtifactAttributeDesc_s(){}
+	struct E_FacadeValueArtifactattributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeValueArtifactattributeDesc_s();
+		virtual ~E_FacadeValueArtifactattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadevalueArtifactAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadevalueArtifactAttributeDesc & msg);
-		static ::proto_ff::facadevalueArtifactAttributeDesc* new_pbmsg(){ return new ::proto_ff::facadevalueArtifactAttributeDesc(); }
-		static ::proto_ff::facadevalueArtifactAttributeDesc make_pbmsg(){ return ::proto_ff::facadevalueArtifactAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeValueArtifactattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValueArtifactattributeDesc & msg);
+		static ::proto_ff::E_FacadeValueArtifactattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeValueArtifactattributeDesc(); }
+		static ::proto_ff::E_FacadeValueArtifactattributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeValueArtifactattributeDesc(); }
 	};
-	typedef struct facadevalueArtifactAttributeDesc_s facadevalueArtifactAttributeDesc_t;
+	typedef struct E_FacadeValueArtifactattributeDesc_s E_FacadeValueArtifactattributeDesc_t;
 
-	struct facadevalueBladeAttributeDesc_s : public NFDescStoreSeqOP {
-		facadevalueBladeAttributeDesc_s();
-		virtual ~facadevalueBladeAttributeDesc_s(){}
+	struct E_FacadeValueBladeattributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeValueBladeattributeDesc_s();
+		virtual ~E_FacadeValueBladeattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadevalueBladeAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadevalueBladeAttributeDesc & msg);
-		static ::proto_ff::facadevalueBladeAttributeDesc* new_pbmsg(){ return new ::proto_ff::facadevalueBladeAttributeDesc(); }
-		static ::proto_ff::facadevalueBladeAttributeDesc make_pbmsg(){ return ::proto_ff::facadevalueBladeAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeValueBladeattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValueBladeattributeDesc & msg);
+		static ::proto_ff::E_FacadeValueBladeattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeValueBladeattributeDesc(); }
+		static ::proto_ff::E_FacadeValueBladeattributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeValueBladeattributeDesc(); }
 	};
-	typedef struct facadevalueBladeAttributeDesc_s facadevalueBladeAttributeDesc_t;
+	typedef struct E_FacadeValueBladeattributeDesc_s E_FacadeValueBladeattributeDesc_t;
 
-	struct facadevaluewingAttributeDesc_s : public NFDescStoreSeqOP {
-		facadevaluewingAttributeDesc_s();
-		virtual ~facadevaluewingAttributeDesc_s(){}
+	struct E_FacadeValueWingattributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeValueWingattributeDesc_s();
+		virtual ~E_FacadeValueWingattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadevaluewingAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadevaluewingAttributeDesc & msg);
-		static ::proto_ff::facadevaluewingAttributeDesc* new_pbmsg(){ return new ::proto_ff::facadevaluewingAttributeDesc(); }
-		static ::proto_ff::facadevaluewingAttributeDesc make_pbmsg(){ return ::proto_ff::facadevaluewingAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeValueWingattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValueWingattributeDesc & msg);
+		static ::proto_ff::E_FacadeValueWingattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeValueWingattributeDesc(); }
+		static ::proto_ff::E_FacadeValueWingattributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeValueWingattributeDesc(); }
 	};
-	typedef struct facadevaluewingAttributeDesc_s facadevaluewingAttributeDesc_t;
+	typedef struct E_FacadeValueWingattributeDesc_s E_FacadeValueWingattributeDesc_t;
 
-	struct facadevalue_s : public NFDescStoreSeqOP {
-		facadevalue_s();
-		virtual ~facadevalue_s(){}
+	struct E_FacadeValue_s : public NFDescStoreSeqOP {
+		E_FacadeValue_s();
+		virtual ~E_FacadeValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int64_t wingExp;
-		int64_t treasureExp;
-		int64_t ArtifactExp;
-		int64_t BladeExp;
-		NFArray<struct facadevaluetreasureAttributeDesc_s, 5> treasureAttribute;
-		NFArray<struct facadevalueArtifactAttributeDesc_s, 6> ArtifactAttribute;
-		NFArray<struct facadevalueBladeAttributeDesc_s, 6> BladeAttribute;
-		NFArray<struct facadevaluewingAttributeDesc_s, 4> wingAttribute;
+		int32_t m_lv;
+		int64_t m_wingexp;
+		int64_t m_treasureexp;
+		int64_t m_artifactexp;
+		int64_t m_bladeexp;
+		NFShmVector<struct E_FacadeValueTreasureattributeDesc_s, 5> m_treasureattribute;
+		NFShmVector<struct E_FacadeValueArtifactattributeDesc_s, 6> m_artifactattribute;
+		NFShmVector<struct E_FacadeValueBladeattributeDesc_s, 6> m_bladeattribute;
+		NFShmVector<struct E_FacadeValueWingattributeDesc_s, 4> m_wingattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::facadevalue & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadevalue & msg);
-		static ::proto_ff::facadevalue* new_pbmsg(){ return new ::proto_ff::facadevalue(); }
-		static ::proto_ff::facadevalue make_pbmsg(){ return ::proto_ff::facadevalue(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeValue & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValue & msg);
+		static ::proto_ff::E_FacadeValue* new_pbmsg(){ return new ::proto_ff::E_FacadeValue(); }
+		static ::proto_ff::E_FacadeValue make_pbmsg(){ return ::proto_ff::E_FacadeValue(); }
 	};
-	typedef struct facadevalue_s facadevalue_t;
+	typedef struct E_FacadeValue_s E_FacadeValue_t;
 
-	struct Sheet_facadevalue_s : public NFDescStoreSeqOP {
-		Sheet_facadevalue_s();
-		virtual ~Sheet_facadevalue_s(){}
+	struct Sheet_FacadeValue_s : public NFDescStoreSeqOP {
+		Sheet_FacadeValue_s();
+		virtual ~Sheet_FacadeValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadevalue_s, 500> facadevalue_List;
+		NFShmVector<struct E_FacadeValue_s, 500> E_FacadeValue_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadevalue & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadevalue & msg);
-		static ::proto_ff::Sheet_facadevalue* new_pbmsg(){ return new ::proto_ff::Sheet_facadevalue(); }
-		static ::proto_ff::Sheet_facadevalue make_pbmsg(){ return ::proto_ff::Sheet_facadevalue(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeValue & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeValue & msg);
+		static ::proto_ff::Sheet_FacadeValue* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeValue(); }
+		static ::proto_ff::Sheet_FacadeValue make_pbmsg(){ return ::proto_ff::Sheet_FacadeValue(); }
 	};
-	typedef struct Sheet_facadevalue_s Sheet_facadevalue_t;
+	typedef struct Sheet_FacadeValue_s Sheet_FacadeValue_t;
 
-	struct facadetype_s : public NFDescStoreSeqOP {
-		facadetype_s();
-		virtual ~facadetype_s(){}
+	struct E_FacadeType_s : public NFDescStoreSeqOP {
+		E_FacadeType_s();
+		virtual ~E_FacadeType_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		NFShmString<60> souceName;
+		int32_t m_id;
+		NFShmString<60> m_soucename;
 
-		virtual void write_to_pbmsg(::proto_ff::facadetype & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadetype & msg);
-		static ::proto_ff::facadetype* new_pbmsg(){ return new ::proto_ff::facadetype(); }
-		static ::proto_ff::facadetype make_pbmsg(){ return ::proto_ff::facadetype(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeType & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeType & msg);
+		static ::proto_ff::E_FacadeType* new_pbmsg(){ return new ::proto_ff::E_FacadeType(); }
+		static ::proto_ff::E_FacadeType make_pbmsg(){ return ::proto_ff::E_FacadeType(); }
 	};
-	typedef struct facadetype_s facadetype_t;
+	typedef struct E_FacadeType_s E_FacadeType_t;
 
-	struct Sheet_facadetype_s : public NFDescStoreSeqOP {
-		Sheet_facadetype_s();
-		virtual ~Sheet_facadetype_s(){}
+	struct Sheet_FacadeType_s : public NFDescStoreSeqOP {
+		Sheet_FacadeType_s();
+		virtual ~Sheet_FacadeType_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadetype_s, 20> facadetype_List;
+		NFShmVector<struct E_FacadeType_s, 20> E_FacadeType_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadetype & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadetype & msg);
-		static ::proto_ff::Sheet_facadetype* new_pbmsg(){ return new ::proto_ff::Sheet_facadetype(); }
-		static ::proto_ff::Sheet_facadetype make_pbmsg(){ return ::proto_ff::Sheet_facadetype(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeType & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeType & msg);
+		static ::proto_ff::Sheet_FacadeType* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeType(); }
+		static ::proto_ff::Sheet_FacadeType make_pbmsg(){ return ::proto_ff::Sheet_FacadeType(); }
 	};
-	typedef struct Sheet_facadetype_s Sheet_facadetype_t;
+	typedef struct Sheet_FacadeType_s Sheet_FacadeType_t;
 
-	struct facadefragmentattributeDesc_s : public NFDescStoreSeqOP {
-		facadefragmentattributeDesc_s();
-		virtual ~facadefragmentattributeDesc_s(){}
+	struct E_FacadeFragmentAttributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeFragmentAttributeDesc_s();
+		virtual ~E_FacadeFragmentAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadefragmentattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadefragmentattributeDesc & msg);
-		static ::proto_ff::facadefragmentattributeDesc* new_pbmsg(){ return new ::proto_ff::facadefragmentattributeDesc(); }
-		static ::proto_ff::facadefragmentattributeDesc make_pbmsg(){ return ::proto_ff::facadefragmentattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeFragmentAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeFragmentAttributeDesc & msg);
+		static ::proto_ff::E_FacadeFragmentAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeFragmentAttributeDesc(); }
+		static ::proto_ff::E_FacadeFragmentAttributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeFragmentAttributeDesc(); }
 	};
-	typedef struct facadefragmentattributeDesc_s facadefragmentattributeDesc_t;
+	typedef struct E_FacadeFragmentAttributeDesc_s E_FacadeFragmentAttributeDesc_t;
 
-	struct facadefragment_s : public NFDescStoreSeqOP {
-		facadefragment_s();
-		virtual ~facadefragment_s(){}
+	struct E_FacadeFragment_s : public NFDescStoreSeqOP {
+		E_FacadeFragment_s();
+		virtual ~E_FacadeFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t fragmentID;
-		int64_t item;
-		int32_t itemNum;
-		NFArray<struct facadefragmentattributeDesc_s, 3> attribute;
+		int64_t m_fragmentid;
+		int64_t m_item;
+		int32_t m_itemnum;
+		NFShmVector<struct E_FacadeFragmentAttributeDesc_s, 3> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::facadefragment & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadefragment & msg);
-		static ::proto_ff::facadefragment* new_pbmsg(){ return new ::proto_ff::facadefragment(); }
-		static ::proto_ff::facadefragment make_pbmsg(){ return ::proto_ff::facadefragment(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeFragment & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeFragment & msg);
+		static ::proto_ff::E_FacadeFragment* new_pbmsg(){ return new ::proto_ff::E_FacadeFragment(); }
+		static ::proto_ff::E_FacadeFragment make_pbmsg(){ return ::proto_ff::E_FacadeFragment(); }
 	};
-	typedef struct facadefragment_s facadefragment_t;
+	typedef struct E_FacadeFragment_s E_FacadeFragment_t;
 
-	struct Sheet_facadefragment_s : public NFDescStoreSeqOP {
-		Sheet_facadefragment_s();
-		virtual ~Sheet_facadefragment_s(){}
+	struct Sheet_FacadeFragment_s : public NFDescStoreSeqOP {
+		Sheet_FacadeFragment_s();
+		virtual ~Sheet_FacadeFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadefragment_s, 20> facadefragment_List;
+		NFShmVector<struct E_FacadeFragment_s, 20> E_FacadeFragment_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadefragment & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadefragment & msg);
-		static ::proto_ff::Sheet_facadefragment* new_pbmsg(){ return new ::proto_ff::Sheet_facadefragment(); }
-		static ::proto_ff::Sheet_facadefragment make_pbmsg(){ return ::proto_ff::Sheet_facadefragment(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeFragment & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeFragment & msg);
+		static ::proto_ff::Sheet_FacadeFragment* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeFragment(); }
+		static ::proto_ff::Sheet_FacadeFragment make_pbmsg(){ return ::proto_ff::Sheet_FacadeFragment(); }
 	};
-	typedef struct Sheet_facadefragment_s Sheet_facadefragment_t;
+	typedef struct Sheet_FacadeFragment_s Sheet_FacadeFragment_t;
 
-	struct facadechangeattributeDesc_s : public NFDescStoreSeqOP {
-		facadechangeattributeDesc_s();
-		virtual ~facadechangeattributeDesc_s(){}
+	struct E_FacadeChangeAttributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeChangeAttributeDesc_s();
+		virtual ~E_FacadeChangeAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadechangeattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadechangeattributeDesc & msg);
-		static ::proto_ff::facadechangeattributeDesc* new_pbmsg(){ return new ::proto_ff::facadechangeattributeDesc(); }
-		static ::proto_ff::facadechangeattributeDesc make_pbmsg(){ return ::proto_ff::facadechangeattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeChangeAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeChangeAttributeDesc & msg);
+		static ::proto_ff::E_FacadeChangeAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeChangeAttributeDesc(); }
+		static ::proto_ff::E_FacadeChangeAttributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeChangeAttributeDesc(); }
 	};
-	typedef struct facadechangeattributeDesc_s facadechangeattributeDesc_t;
+	typedef struct E_FacadeChangeAttributeDesc_s E_FacadeChangeAttributeDesc_t;
 
-	struct facadechangeActiveAttributeDesc_s : public NFDescStoreSeqOP {
-		facadechangeActiveAttributeDesc_s();
-		virtual ~facadechangeActiveAttributeDesc_s(){}
+	struct E_FacadeChangeActiveattributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeChangeActiveattributeDesc_s();
+		virtual ~E_FacadeChangeActiveattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadechangeActiveAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadechangeActiveAttributeDesc & msg);
-		static ::proto_ff::facadechangeActiveAttributeDesc* new_pbmsg(){ return new ::proto_ff::facadechangeActiveAttributeDesc(); }
-		static ::proto_ff::facadechangeActiveAttributeDesc make_pbmsg(){ return ::proto_ff::facadechangeActiveAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeChangeActiveattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeChangeActiveattributeDesc & msg);
+		static ::proto_ff::E_FacadeChangeActiveattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeChangeActiveattributeDesc(); }
+		static ::proto_ff::E_FacadeChangeActiveattributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeChangeActiveattributeDesc(); }
 	};
-	typedef struct facadechangeActiveAttributeDesc_s facadechangeActiveAttributeDesc_t;
+	typedef struct E_FacadeChangeActiveattributeDesc_s E_FacadeChangeActiveattributeDesc_t;
 
-	struct facadechange_s : public NFDescStoreSeqOP {
-		facadechange_s();
-		virtual ~facadechange_s(){}
+	struct E_FacadeChange_s : public NFDescStoreSeqOP {
+		E_FacadeChange_s();
+		virtual ~E_FacadeChange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t type;
-		NFShmString<60> resource;
-		NFShmString<60> professionID;
-		NFShmString<60> name;
-		NFShmString<160> activeDesc;
-		int32_t quality;
-		int64_t activationItem;
-		int32_t activationNum;
-		int64_t starId;
-		NFShmString<300> starNum;
-		int32_t starUp;
-		int32_t starBer;
-		int64_t upAttributeId;
-		int32_t activeSkill;
-		NFArray<struct facadechangeattributeDesc_s, 5> attribute;
-		NFArray<struct facadechangeActiveAttributeDesc_s, 6> ActiveAttribute;
+		int64_t m_id;
+		int32_t m_type;
+		NFShmString<60> m_resource;
+		NFShmString<60> m_professionid;
+		NFShmString<60> m_name;
+		NFShmString<160> m_activedesc;
+		int32_t m_quality;
+		int64_t m_activationitem;
+		int32_t m_activationnum;
+		int64_t m_starid;
+		NFShmString<300> m_starnum;
+		int32_t m_starup;
+		int32_t m_starber;
+		int64_t m_upattributeid;
+		int32_t m_activeskill;
+		NFShmVector<struct E_FacadeChangeAttributeDesc_s, 5> m_attribute;
+		NFShmVector<struct E_FacadeChangeActiveattributeDesc_s, 6> m_activeattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::facadechange & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadechange & msg);
-		static ::proto_ff::facadechange* new_pbmsg(){ return new ::proto_ff::facadechange(); }
-		static ::proto_ff::facadechange make_pbmsg(){ return ::proto_ff::facadechange(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeChange & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeChange & msg);
+		static ::proto_ff::E_FacadeChange* new_pbmsg(){ return new ::proto_ff::E_FacadeChange(); }
+		static ::proto_ff::E_FacadeChange make_pbmsg(){ return ::proto_ff::E_FacadeChange(); }
 	};
-	typedef struct facadechange_s facadechange_t;
+	typedef struct E_FacadeChange_s E_FacadeChange_t;
 
-	struct Sheet_facadechange_s : public NFDescStoreSeqOP {
-		Sheet_facadechange_s();
-		virtual ~Sheet_facadechange_s(){}
+	struct Sheet_FacadeChange_s : public NFDescStoreSeqOP {
+		Sheet_FacadeChange_s();
+		virtual ~Sheet_FacadeChange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadechange_s, 60> facadechange_List;
+		NFShmVector<struct E_FacadeChange_s, 60> E_FacadeChange_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadechange & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadechange & msg);
-		static ::proto_ff::Sheet_facadechange* new_pbmsg(){ return new ::proto_ff::Sheet_facadechange(); }
-		static ::proto_ff::Sheet_facadechange make_pbmsg(){ return ::proto_ff::Sheet_facadechange(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeChange & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeChange & msg);
+		static ::proto_ff::Sheet_FacadeChange* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeChange(); }
+		static ::proto_ff::Sheet_FacadeChange make_pbmsg(){ return ::proto_ff::Sheet_FacadeChange(); }
 	};
-	typedef struct Sheet_facadechange_s Sheet_facadechange_t;
+	typedef struct Sheet_FacadeChange_s Sheet_FacadeChange_t;
 
-	struct facadestarUpupAttributeDesc_s : public NFDescStoreSeqOP {
-		facadestarUpupAttributeDesc_s();
-		virtual ~facadestarUpupAttributeDesc_s(){}
+	struct E_FacadeStarupUpattributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeStarupUpattributeDesc_s();
+		virtual ~E_FacadeStarupUpattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadestarUpupAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadestarUpupAttributeDesc & msg);
-		static ::proto_ff::facadestarUpupAttributeDesc* new_pbmsg(){ return new ::proto_ff::facadestarUpupAttributeDesc(); }
-		static ::proto_ff::facadestarUpupAttributeDesc make_pbmsg(){ return ::proto_ff::facadestarUpupAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeStarupUpattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeStarupUpattributeDesc & msg);
+		static ::proto_ff::E_FacadeStarupUpattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeStarupUpattributeDesc(); }
+		static ::proto_ff::E_FacadeStarupUpattributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeStarupUpattributeDesc(); }
 	};
-	typedef struct facadestarUpupAttributeDesc_s facadestarUpupAttributeDesc_t;
+	typedef struct E_FacadeStarupUpattributeDesc_s E_FacadeStarupUpattributeDesc_t;
 
-	struct facadestarUp_s : public NFDescStoreSeqOP {
-		facadestarUp_s();
-		virtual ~facadestarUp_s(){}
+	struct E_FacadeStarup_s : public NFDescStoreSeqOP {
+		E_FacadeStarup_s();
+		virtual ~E_FacadeStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int64_t upAttributeId;
-		int32_t starID;
-		int32_t skillID;
-		NFArray<struct facadestarUpupAttributeDesc_s, 3> upAttribute;
+		int32_t m_id;
+		int64_t m_upattributeid;
+		int32_t m_starid;
+		int32_t m_skillid;
+		NFShmVector<struct E_FacadeStarupUpattributeDesc_s, 3> m_upattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::facadestarUp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadestarUp & msg);
-		static ::proto_ff::facadestarUp* new_pbmsg(){ return new ::proto_ff::facadestarUp(); }
-		static ::proto_ff::facadestarUp make_pbmsg(){ return ::proto_ff::facadestarUp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeStarup & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeStarup & msg);
+		static ::proto_ff::E_FacadeStarup* new_pbmsg(){ return new ::proto_ff::E_FacadeStarup(); }
+		static ::proto_ff::E_FacadeStarup make_pbmsg(){ return ::proto_ff::E_FacadeStarup(); }
 	};
-	typedef struct facadestarUp_s facadestarUp_t;
+	typedef struct E_FacadeStarup_s E_FacadeStarup_t;
 
-	struct Sheet_facadestarUp_s : public NFDescStoreSeqOP {
-		Sheet_facadestarUp_s();
-		virtual ~Sheet_facadestarUp_s(){}
+	struct Sheet_FacadeStarup_s : public NFDescStoreSeqOP {
+		Sheet_FacadeStarup_s();
+		virtual ~Sheet_FacadeStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadestarUp_s, 40> facadestarUp_List;
+		NFShmVector<struct E_FacadeStarup_s, 40> E_FacadeStarup_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadestarUp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadestarUp & msg);
-		static ::proto_ff::Sheet_facadestarUp* new_pbmsg(){ return new ::proto_ff::Sheet_facadestarUp(); }
-		static ::proto_ff::Sheet_facadestarUp make_pbmsg(){ return ::proto_ff::Sheet_facadestarUp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeStarup & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeStarup & msg);
+		static ::proto_ff::Sheet_FacadeStarup* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeStarup(); }
+		static ::proto_ff::Sheet_FacadeStarup make_pbmsg(){ return ::proto_ff::Sheet_FacadeStarup(); }
 	};
-	typedef struct Sheet_facadestarUp_s Sheet_facadestarUp_t;
+	typedef struct Sheet_FacadeStarup_s Sheet_FacadeStarup_t;
 
-	struct facadesoulattributeDesc_s : public NFDescStoreSeqOP {
-		facadesoulattributeDesc_s();
-		virtual ~facadesoulattributeDesc_s(){}
+	struct E_FacadeSoulAttributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeSoulAttributeDesc_s();
+		virtual ~E_FacadeSoulAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadesoulattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadesoulattributeDesc & msg);
-		static ::proto_ff::facadesoulattributeDesc* new_pbmsg(){ return new ::proto_ff::facadesoulattributeDesc(); }
-		static ::proto_ff::facadesoulattributeDesc make_pbmsg(){ return ::proto_ff::facadesoulattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoulAttributeDesc & msg);
+		static ::proto_ff::E_FacadeSoulAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeSoulAttributeDesc(); }
+		static ::proto_ff::E_FacadeSoulAttributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeSoulAttributeDesc(); }
 	};
-	typedef struct facadesoulattributeDesc_s facadesoulattributeDesc_t;
+	typedef struct E_FacadeSoulAttributeDesc_s E_FacadeSoulAttributeDesc_t;
 
-	struct facadesoul_s : public NFDescStoreSeqOP {
-		facadesoul_s();
-		virtual ~facadesoul_s(){}
+	struct E_FacadeSoul_s : public NFDescStoreSeqOP {
+		E_FacadeSoul_s();
+		virtual ~E_FacadeSoul_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t rechargeID;
-		int32_t mainSkill;
-		NFArray<struct facadesoulattributeDesc_s, 4> attribute;
-		NFArray<int32_t, 8> minorSkill;
+		int64_t m_id;
+		int32_t m_rechargeid;
+		int32_t m_mainskill;
+		NFShmVector<struct E_FacadeSoulAttributeDesc_s, 4> m_attribute;
+		NFShmVector<int32_t, 8> m_minorskill;
 
-		virtual void write_to_pbmsg(::proto_ff::facadesoul & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadesoul & msg);
-		static ::proto_ff::facadesoul* new_pbmsg(){ return new ::proto_ff::facadesoul(); }
-		static ::proto_ff::facadesoul make_pbmsg(){ return ::proto_ff::facadesoul(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoul & msg);
+		static ::proto_ff::E_FacadeSoul* new_pbmsg(){ return new ::proto_ff::E_FacadeSoul(); }
+		static ::proto_ff::E_FacadeSoul make_pbmsg(){ return ::proto_ff::E_FacadeSoul(); }
 	};
-	typedef struct facadesoul_s facadesoul_t;
+	typedef struct E_FacadeSoul_s E_FacadeSoul_t;
 
-	struct Sheet_facadesoul_s : public NFDescStoreSeqOP {
-		Sheet_facadesoul_s();
-		virtual ~Sheet_facadesoul_s(){}
+	struct Sheet_FacadeSoul_s : public NFDescStoreSeqOP {
+		Sheet_FacadeSoul_s();
+		virtual ~Sheet_FacadeSoul_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadesoul_s, 20> facadesoul_List;
+		NFShmVector<struct E_FacadeSoul_s, 20> E_FacadeSoul_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadesoul & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadesoul & msg);
-		static ::proto_ff::Sheet_facadesoul* new_pbmsg(){ return new ::proto_ff::Sheet_facadesoul(); }
-		static ::proto_ff::Sheet_facadesoul make_pbmsg(){ return ::proto_ff::Sheet_facadesoul(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoul & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoul & msg);
+		static ::proto_ff::Sheet_FacadeSoul* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeSoul(); }
+		static ::proto_ff::Sheet_FacadeSoul make_pbmsg(){ return ::proto_ff::Sheet_FacadeSoul(); }
 	};
-	typedef struct Sheet_facadesoul_s Sheet_facadesoul_t;
+	typedef struct Sheet_FacadeSoul_s Sheet_FacadeSoul_t;
 
-	struct facadesoulActive_s : public NFDescStoreSeqOP {
-		facadesoulActive_s();
-		virtual ~facadesoulActive_s(){}
+	struct E_FacadeSoulactive_s : public NFDescStoreSeqOP {
+		E_FacadeSoulactive_s();
+		virtual ~E_FacadeSoulactive_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		NFArray<NFShmString<60>, 2> parama;
-		NFArray<int32_t, 2> condition;
+		int64_t m_id;
+		NFShmVector<NFShmString<60>, 2> m_parama;
+		NFShmVector<int32_t, 2> m_condition;
 
-		virtual void write_to_pbmsg(::proto_ff::facadesoulActive & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadesoulActive & msg);
-		static ::proto_ff::facadesoulActive* new_pbmsg(){ return new ::proto_ff::facadesoulActive(); }
-		static ::proto_ff::facadesoulActive make_pbmsg(){ return ::proto_ff::facadesoulActive(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulactive & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoulactive & msg);
+		static ::proto_ff::E_FacadeSoulactive* new_pbmsg(){ return new ::proto_ff::E_FacadeSoulactive(); }
+		static ::proto_ff::E_FacadeSoulactive make_pbmsg(){ return ::proto_ff::E_FacadeSoulactive(); }
 	};
-	typedef struct facadesoulActive_s facadesoulActive_t;
+	typedef struct E_FacadeSoulactive_s E_FacadeSoulactive_t;
 
-	struct Sheet_facadesoulActive_s : public NFDescStoreSeqOP {
-		Sheet_facadesoulActive_s();
-		virtual ~Sheet_facadesoulActive_s(){}
+	struct Sheet_FacadeSoulactive_s : public NFDescStoreSeqOP {
+		Sheet_FacadeSoulactive_s();
+		virtual ~Sheet_FacadeSoulactive_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadesoulActive_s, 40> facadesoulActive_List;
+		NFShmVector<struct E_FacadeSoulactive_s, 40> E_FacadeSoulactive_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadesoulActive & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadesoulActive & msg);
-		static ::proto_ff::Sheet_facadesoulActive* new_pbmsg(){ return new ::proto_ff::Sheet_facadesoulActive(); }
-		static ::proto_ff::Sheet_facadesoulActive make_pbmsg(){ return ::proto_ff::Sheet_facadesoulActive(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoulactive & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoulactive & msg);
+		static ::proto_ff::Sheet_FacadeSoulactive* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeSoulactive(); }
+		static ::proto_ff::Sheet_FacadeSoulactive make_pbmsg(){ return ::proto_ff::Sheet_FacadeSoulactive(); }
 	};
-	typedef struct Sheet_facadesoulActive_s Sheet_facadesoulActive_t;
+	typedef struct Sheet_FacadeSoulactive_s Sheet_FacadeSoulactive_t;
 
-	struct facadesoulLvattributeDesc_s : public NFDescStoreSeqOP {
-		facadesoulLvattributeDesc_s();
-		virtual ~facadesoulLvattributeDesc_s(){}
+	struct E_FacadeSoullvAttributeDesc_s : public NFDescStoreSeqOP {
+		E_FacadeSoullvAttributeDesc_s();
+		virtual ~E_FacadeSoullvAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::facadesoulLvattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadesoulLvattributeDesc & msg);
-		static ::proto_ff::facadesoulLvattributeDesc* new_pbmsg(){ return new ::proto_ff::facadesoulLvattributeDesc(); }
-		static ::proto_ff::facadesoulLvattributeDesc make_pbmsg(){ return ::proto_ff::facadesoulLvattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoullvAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoullvAttributeDesc & msg);
+		static ::proto_ff::E_FacadeSoullvAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeSoullvAttributeDesc(); }
+		static ::proto_ff::E_FacadeSoullvAttributeDesc make_pbmsg(){ return ::proto_ff::E_FacadeSoullvAttributeDesc(); }
 	};
-	typedef struct facadesoulLvattributeDesc_s facadesoulLvattributeDesc_t;
+	typedef struct E_FacadeSoullvAttributeDesc_s E_FacadeSoullvAttributeDesc_t;
 
-	struct facadesoulLv_s : public NFDescStoreSeqOP {
-		facadesoulLv_s();
-		virtual ~facadesoulLv_s(){}
+	struct E_FacadeSoullv_s : public NFDescStoreSeqOP {
+		E_FacadeSoullv_s();
+		virtual ~E_FacadeSoullv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t soulID;
-		int32_t itemID;
-		int32_t num;
-		int32_t successRate;
-		int32_t downLv;
-		NFArray<struct facadesoulLvattributeDesc_s, 7> attribute;
+		int64_t m_id;
+		int32_t m_soulid;
+		int32_t m_itemid;
+		int32_t m_num;
+		int32_t m_successrate;
+		int32_t m_downlv;
+		NFShmVector<struct E_FacadeSoullvAttributeDesc_s, 7> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::facadesoulLv & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadesoulLv & msg);
-		static ::proto_ff::facadesoulLv* new_pbmsg(){ return new ::proto_ff::facadesoulLv(); }
-		static ::proto_ff::facadesoulLv make_pbmsg(){ return ::proto_ff::facadesoulLv(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoullv & msg);
+		static ::proto_ff::E_FacadeSoullv* new_pbmsg(){ return new ::proto_ff::E_FacadeSoullv(); }
+		static ::proto_ff::E_FacadeSoullv make_pbmsg(){ return ::proto_ff::E_FacadeSoullv(); }
 	};
-	typedef struct facadesoulLv_s facadesoulLv_t;
+	typedef struct E_FacadeSoullv_s E_FacadeSoullv_t;
 
-	struct Sheet_facadesoulLv_s : public NFDescStoreSeqOP {
-		Sheet_facadesoulLv_s();
-		virtual ~Sheet_facadesoulLv_s(){}
+	struct Sheet_FacadeSoullv_s : public NFDescStoreSeqOP {
+		Sheet_FacadeSoullv_s();
+		virtual ~Sheet_FacadeSoullv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadesoulLv_s, 140> facadesoulLv_List;
+		NFShmVector<struct E_FacadeSoullv_s, 140> E_FacadeSoullv_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadesoulLv & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadesoulLv & msg);
-		static ::proto_ff::Sheet_facadesoulLv* new_pbmsg(){ return new ::proto_ff::Sheet_facadesoulLv(); }
-		static ::proto_ff::Sheet_facadesoulLv make_pbmsg(){ return ::proto_ff::Sheet_facadesoulLv(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoullv & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoullv & msg);
+		static ::proto_ff::Sheet_FacadeSoullv* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeSoullv(); }
+		static ::proto_ff::Sheet_FacadeSoullv make_pbmsg(){ return ::proto_ff::Sheet_FacadeSoullv(); }
 	};
-	typedef struct Sheet_facadesoulLv_s Sheet_facadesoulLv_t;
+	typedef struct Sheet_FacadeSoullv_s Sheet_FacadeSoullv_t;
 
-	struct facadesoulAchievement_s : public NFDescStoreSeqOP {
-		facadesoulAchievement_s();
-		virtual ~facadesoulAchievement_s(){}
+	struct E_FacadeSoulachievement_s : public NFDescStoreSeqOP {
+		E_FacadeSoulachievement_s();
+		virtual ~E_FacadeSoulachievement_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t soulID;
-		int32_t type;
-		int32_t parama;
-		int32_t itemID;
-		int32_t num;
+		int64_t m_id;
+		int32_t m_soulid;
+		int32_t m_type;
+		int32_t m_parama;
+		int32_t m_itemid;
+		int32_t m_num;
 
-		virtual void write_to_pbmsg(::proto_ff::facadesoulAchievement & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::facadesoulAchievement & msg);
-		static ::proto_ff::facadesoulAchievement* new_pbmsg(){ return new ::proto_ff::facadesoulAchievement(); }
-		static ::proto_ff::facadesoulAchievement make_pbmsg(){ return ::proto_ff::facadesoulAchievement(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulachievement & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoulachievement & msg);
+		static ::proto_ff::E_FacadeSoulachievement* new_pbmsg(){ return new ::proto_ff::E_FacadeSoulachievement(); }
+		static ::proto_ff::E_FacadeSoulachievement make_pbmsg(){ return ::proto_ff::E_FacadeSoulachievement(); }
 	};
-	typedef struct facadesoulAchievement_s facadesoulAchievement_t;
+	typedef struct E_FacadeSoulachievement_s E_FacadeSoulachievement_t;
 
-	struct Sheet_facadesoulAchievement_s : public NFDescStoreSeqOP {
-		Sheet_facadesoulAchievement_s();
-		virtual ~Sheet_facadesoulAchievement_s(){}
+	struct Sheet_FacadeSoulachievement_s : public NFDescStoreSeqOP {
+		Sheet_FacadeSoulachievement_s();
+		virtual ~Sheet_FacadeSoulachievement_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct facadesoulAchievement_s, 160> facadesoulAchievement_List;
+		NFShmVector<struct E_FacadeSoulachievement_s, 160> E_FacadeSoulachievement_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_facadesoulAchievement & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_facadesoulAchievement & msg);
-		static ::proto_ff::Sheet_facadesoulAchievement* new_pbmsg(){ return new ::proto_ff::Sheet_facadesoulAchievement(); }
-		static ::proto_ff::Sheet_facadesoulAchievement make_pbmsg(){ return ::proto_ff::Sheet_facadesoulAchievement(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoulachievement & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoulachievement & msg);
+		static ::proto_ff::Sheet_FacadeSoulachievement* new_pbmsg(){ return new ::proto_ff::Sheet_FacadeSoulachievement(); }
+		static ::proto_ff::Sheet_FacadeSoulachievement make_pbmsg(){ return ::proto_ff::Sheet_FacadeSoulachievement(); }
 	};
-	typedef struct Sheet_facadesoulAchievement_s Sheet_facadesoulAchievement_t;
+	typedef struct Sheet_FacadeSoulachievement_s Sheet_FacadeSoulachievement_t;
 
 }
 

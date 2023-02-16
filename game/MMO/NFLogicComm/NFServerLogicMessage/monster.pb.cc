@@ -20,39 +20,39 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* monstermonster_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_MonsterMonster_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  monstermonster_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_monstermonster_descriptor_ = NULL;
+  E_MonsterMonster_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_MonsterMonster_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_monstermonster_reflection_ = NULL;
-const ::google::protobuf::Descriptor* monsterdisplayskillDesc_descriptor_ = NULL;
+  Sheet_MonsterMonster_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MonsterDisplaySkillDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  monsterdisplayskillDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* monsterdisplay_descriptor_ = NULL;
+  E_MonsterDisplaySkillDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MonsterDisplay_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  monsterdisplay_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_monsterdisplay_descriptor_ = NULL;
+  E_MonsterDisplay_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_MonsterDisplay_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_monsterdisplay_reflection_ = NULL;
-const ::google::protobuf::Descriptor* monstervalue_descriptor_ = NULL;
+  Sheet_MonsterDisplay_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MonsterValue_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  monstervalue_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_monstervalue_descriptor_ = NULL;
+  E_MonsterValue_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_MonsterValue_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_monstervalue_reflection_ = NULL;
-const ::google::protobuf::Descriptor* monstervalueParam_descriptor_ = NULL;
+  Sheet_MonsterValue_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MonsterValueparam_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  monstervalueParam_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_monstervalueParam_descriptor_ = NULL;
+  E_MonsterValueparam_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_MonsterValueparam_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_monstervalueParam_reflection_ = NULL;
-const ::google::protobuf::Descriptor* monsterdrop_descriptor_ = NULL;
+  Sheet_MonsterValueparam_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MonsterDrop_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  monsterdrop_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_monsterdrop_descriptor_ = NULL;
+  E_MonsterDrop_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_MonsterDrop_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_monsterdrop_reflection_ = NULL;
+  Sheet_MonsterDrop_reflection_ = NULL;
 
 }  // namespace
 
@@ -63,352 +63,352 @@ void protobuf_AssignDesc_monster_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "monster.proto");
   GOOGLE_CHECK(file != NULL);
-  monstermonster_descriptor_ = file->message_type(0);
-  static const int monstermonster_offsets_[26] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, monsterid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, monstername_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, functiontype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, functionvalue_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, profession_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, damageaddtype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, monsterlv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, droplimit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, displayid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, valuetype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, valueparam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, aiid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, hpsectionnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, breedprob_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, breedmonid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, breedmonlive_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, itemcost_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, isbornactionon_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, belongshow_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, dropgroupid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, harmdrop_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, joninper_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, btnrange_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, btnid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, drivepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, corpseid_),
+  E_MonsterMonster_descriptor_ = file->message_type(0);
+  static const int E_MonsterMonster_offsets_[26] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_monsterid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_monstername_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_functiontype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_functionvalue_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_profession_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_damageaddtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_monsterlv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_droplimit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_displayid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_valuetype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_valueparam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_aiid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_hpsectionnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_breedprob_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_breedmonid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_breedmonlive_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_itemcost_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_isbornactionon_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_belongshow_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_dropgroupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_harmdrop_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_joninper_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_btnrange_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_btnid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_drivepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, m_corpseid_),
   };
-  monstermonster_reflection_ =
+  E_MonsterMonster_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      monstermonster_descriptor_,
-      monstermonster::default_instance_,
-      monstermonster_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstermonster, _unknown_fields_),
+      E_MonsterMonster_descriptor_,
+      E_MonsterMonster::default_instance_,
+      E_MonsterMonster_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterMonster, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(monstermonster));
-  Sheet_monstermonster_descriptor_ = file->message_type(1);
-  static const int Sheet_monstermonster_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstermonster, monstermonster_list_),
+      sizeof(E_MonsterMonster));
+  Sheet_MonsterMonster_descriptor_ = file->message_type(1);
+  static const int Sheet_MonsterMonster_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterMonster, e_monstermonster_list_),
   };
-  Sheet_monstermonster_reflection_ =
+  Sheet_MonsterMonster_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_monstermonster_descriptor_,
-      Sheet_monstermonster::default_instance_,
-      Sheet_monstermonster_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstermonster, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstermonster, _unknown_fields_),
+      Sheet_MonsterMonster_descriptor_,
+      Sheet_MonsterMonster::default_instance_,
+      Sheet_MonsterMonster_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterMonster, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterMonster, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_monstermonster));
-  monsterdisplayskillDesc_descriptor_ = file->message_type(2);
-  static const int monsterdisplayskillDesc_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplayskillDesc, id_),
+      sizeof(Sheet_MonsterMonster));
+  E_MonsterDisplaySkillDesc_descriptor_ = file->message_type(2);
+  static const int E_MonsterDisplaySkillDesc_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplaySkillDesc, m_id_),
   };
-  monsterdisplayskillDesc_reflection_ =
+  E_MonsterDisplaySkillDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      monsterdisplayskillDesc_descriptor_,
-      monsterdisplayskillDesc::default_instance_,
-      monsterdisplayskillDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplayskillDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplayskillDesc, _unknown_fields_),
+      E_MonsterDisplaySkillDesc_descriptor_,
+      E_MonsterDisplaySkillDesc::default_instance_,
+      E_MonsterDisplaySkillDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplaySkillDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplaySkillDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(monsterdisplayskillDesc));
-  monsterdisplay_descriptor_ = file->message_type(3);
-  static const int monsterdisplay_offsets_[9] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, displayid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, modeloffsetsx_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, modeloffsetsy_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, modelscale_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, modelradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, pathradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, collisionradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, rspeed_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, skill_),
+      sizeof(E_MonsterDisplaySkillDesc));
+  E_MonsterDisplay_descriptor_ = file->message_type(3);
+  static const int E_MonsterDisplay_offsets_[9] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_displayid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_modeloffsetsx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_modeloffsetsy_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_modelscale_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_modelradius_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_pathradius_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_collisionradius_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_rspeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, m_skill_),
   };
-  monsterdisplay_reflection_ =
+  E_MonsterDisplay_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      monsterdisplay_descriptor_,
-      monsterdisplay::default_instance_,
-      monsterdisplay_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdisplay, _unknown_fields_),
+      E_MonsterDisplay_descriptor_,
+      E_MonsterDisplay::default_instance_,
+      E_MonsterDisplay_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDisplay, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(monsterdisplay));
-  Sheet_monsterdisplay_descriptor_ = file->message_type(4);
-  static const int Sheet_monsterdisplay_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monsterdisplay, monsterdisplay_list_),
+      sizeof(E_MonsterDisplay));
+  Sheet_MonsterDisplay_descriptor_ = file->message_type(4);
+  static const int Sheet_MonsterDisplay_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterDisplay, e_monsterdisplay_list_),
   };
-  Sheet_monsterdisplay_reflection_ =
+  Sheet_MonsterDisplay_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_monsterdisplay_descriptor_,
-      Sheet_monsterdisplay::default_instance_,
-      Sheet_monsterdisplay_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monsterdisplay, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monsterdisplay, _unknown_fields_),
+      Sheet_MonsterDisplay_descriptor_,
+      Sheet_MonsterDisplay::default_instance_,
+      Sheet_MonsterDisplay_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterDisplay, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterDisplay, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_monsterdisplay));
-  monstervalue_descriptor_ = file->message_type(5);
-  static const int monstervalue_offsets_[74] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, monsterlv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, max_hp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, atk_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, def_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, brk_armor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, five_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, five_armor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, thump_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, thump_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, sky_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, sky_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, sky_redu_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, sky_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, kill_god_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, god_body_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, mortal_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, mortal_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, fairy_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, fairy_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, god_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, god_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, crit_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, crit_resit_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, crit_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, crit_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, batter_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, batter_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, batter_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, batter_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, brkdown_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, brkdown_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, dam_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, dam_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, all_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, all_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, skill_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, skill_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, rebound_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, hp_steal_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, dodge_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, hit_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, blk_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, brk_blk_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, blk_free_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, blk_pierce_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, rel_armor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, rel_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, five_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, five_resist_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, fire_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, fire_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, ice_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, ice_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, thunder_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, thunder_rdu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, player_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, player_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, leader_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, leader_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, mon_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, mon_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, var_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, var_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, unusual_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, unusual_hit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, hp_recover_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, unusual_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, fix_recover_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, high_hp_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, recover_hp_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, week_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, shield_),
+      sizeof(Sheet_MonsterDisplay));
+  E_MonsterValue_descriptor_ = file->message_type(5);
+  static const int E_MonsterValue_offsets_[74] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_monsterlv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_max_hp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_atk_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_def_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_brk_armor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_five_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_five_armor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_thump_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_thump_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_sky_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_sky_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_sky_redu_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_sky_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_kill_god_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_god_body_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_mortal_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_mortal_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_fairy_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_fairy_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_god_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_god_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_crit_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_crit_resit_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_crit_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_crit_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_batter_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_batter_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_batter_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_batter_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_brkdown_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_brkdown_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_dam_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_dam_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_all_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_all_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_skill_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_skill_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_rebound_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_hp_steal_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_dodge_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_hit_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_blk_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_brk_blk_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_blk_free_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_blk_pierce_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_rel_armor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_rel_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_five_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_five_resist_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_fire_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_fire_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_ice_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_ice_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_thunder_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_thunder_rdu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_player_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_player_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_leader_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_leader_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_mon_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_mon_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_var_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_var_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_unusual_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_unusual_hit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_hp_recover_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_unusual_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_fix_recover_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_high_hp_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_recover_hp_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_week_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, m_shield_),
   };
-  monstervalue_reflection_ =
+  E_MonsterValue_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      monstervalue_descriptor_,
-      monstervalue::default_instance_,
-      monstervalue_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalue, _unknown_fields_),
+      E_MonsterValue_descriptor_,
+      E_MonsterValue::default_instance_,
+      E_MonsterValue_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValue, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(monstervalue));
-  Sheet_monstervalue_descriptor_ = file->message_type(6);
-  static const int Sheet_monstervalue_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstervalue, monstervalue_list_),
+      sizeof(E_MonsterValue));
+  Sheet_MonsterValue_descriptor_ = file->message_type(6);
+  static const int Sheet_MonsterValue_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterValue, e_monstervalue_list_),
   };
-  Sheet_monstervalue_reflection_ =
+  Sheet_MonsterValue_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_monstervalue_descriptor_,
-      Sheet_monstervalue::default_instance_,
-      Sheet_monstervalue_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstervalue, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstervalue, _unknown_fields_),
+      Sheet_MonsterValue_descriptor_,
+      Sheet_MonsterValue::default_instance_,
+      Sheet_MonsterValue_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterValue, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterValue, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_monstervalue));
-  monstervalueParam_descriptor_ = file->message_type(7);
-  static const int monstervalueParam_offsets_[72] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_max_hp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_atk_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_def_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_brk_armor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_five_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_five_armor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_thump_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_thump_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_sky_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_sky_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_sky_redu_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_sky_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_kill_god_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_god_body_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_mortal_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_mortal_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_fairy_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_fairy_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_god_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_god_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_crit_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_crit_resit_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_crit_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_crit_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_batter_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_batter_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_batter_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_batter_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_brkdown_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_brkdown_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_dam_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_dam_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_all_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_all_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_skill_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_skill_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_rebound_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_hp_steal_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_dodge_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_hit_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_blk_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_brk_blk_rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_blk_free_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_blk_pierce_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_rel_armor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_rel_dam_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_five_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_five_resist_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_fire_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_fire_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_ice_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_ice_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_thunder_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_thunder_rdu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_player_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_player_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_leader_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_leader_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_mon_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_mon_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_var_redu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_var_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_unusual_resist_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_unusual_hit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_hp_recover_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_unusual_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_fix_recover_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_high_hp_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_recover_hp_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, p_week_add_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, shield_),
+      sizeof(Sheet_MonsterValue));
+  E_MonsterValueparam_descriptor_ = file->message_type(7);
+  static const int E_MonsterValueparam_offsets_[72] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_max_hp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_atk_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_def_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_brk_armor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_five_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_five_armor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_thump_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_thump_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_sky_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_sky_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_sky_redu_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_sky_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_kill_god_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_god_body_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_mortal_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_mortal_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_fairy_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_fairy_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_god_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_god_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_crit_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_crit_resit_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_crit_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_crit_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_batter_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_batter_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_batter_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_batter_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_brkdown_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_brkdown_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_dam_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_dam_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_all_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_all_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_skill_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_skill_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_rebound_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_hp_steal_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_dodge_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_hit_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_blk_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_brk_blk_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_blk_free_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_blk_pierce_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_rel_armor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_rel_dam_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_five_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_five_resist_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_fire_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_fire_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_ice_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_ice_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_thunder_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_thunder_rdu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_player_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_player_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_leader_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_leader_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_mon_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_mon_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_var_redu_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_var_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_unusual_resist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_unusual_hit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_hp_recover_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_unusual_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_fix_recover_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_high_hp_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_recover_hp_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_p_week_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, m_shield_),
   };
-  monstervalueParam_reflection_ =
+  E_MonsterValueparam_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      monstervalueParam_descriptor_,
-      monstervalueParam::default_instance_,
-      monstervalueParam_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monstervalueParam, _unknown_fields_),
+      E_MonsterValueparam_descriptor_,
+      E_MonsterValueparam::default_instance_,
+      E_MonsterValueparam_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterValueparam, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(monstervalueParam));
-  Sheet_monstervalueParam_descriptor_ = file->message_type(8);
-  static const int Sheet_monstervalueParam_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstervalueParam, monstervalueparam_list_),
+      sizeof(E_MonsterValueparam));
+  Sheet_MonsterValueparam_descriptor_ = file->message_type(8);
+  static const int Sheet_MonsterValueparam_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterValueparam, e_monstervalueparam_list_),
   };
-  Sheet_monstervalueParam_reflection_ =
+  Sheet_MonsterValueparam_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_monstervalueParam_descriptor_,
-      Sheet_monstervalueParam::default_instance_,
-      Sheet_monstervalueParam_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstervalueParam, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monstervalueParam, _unknown_fields_),
+      Sheet_MonsterValueparam_descriptor_,
+      Sheet_MonsterValueparam::default_instance_,
+      Sheet_MonsterValueparam_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterValueparam, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterValueparam, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_monstervalueParam));
-  monsterdrop_descriptor_ = file->message_type(9);
-  static const int monsterdrop_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, group_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, own_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, boxid_),
+      sizeof(Sheet_MonsterValueparam));
+  E_MonsterDrop_descriptor_ = file->message_type(9);
+  static const int E_MonsterDrop_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_group_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_own_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_boxid_),
   };
-  monsterdrop_reflection_ =
+  E_MonsterDrop_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      monsterdrop_descriptor_,
-      monsterdrop::default_instance_,
-      monsterdrop_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(monsterdrop, _unknown_fields_),
+      E_MonsterDrop_descriptor_,
+      E_MonsterDrop::default_instance_,
+      E_MonsterDrop_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(monsterdrop));
-  Sheet_monsterdrop_descriptor_ = file->message_type(10);
-  static const int Sheet_monsterdrop_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monsterdrop, monsterdrop_list_),
+      sizeof(E_MonsterDrop));
+  Sheet_MonsterDrop_descriptor_ = file->message_type(10);
+  static const int Sheet_MonsterDrop_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterDrop, e_monsterdrop_list_),
   };
-  Sheet_monsterdrop_reflection_ =
+  Sheet_MonsterDrop_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_monsterdrop_descriptor_,
-      Sheet_monsterdrop::default_instance_,
-      Sheet_monsterdrop_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monsterdrop, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_monsterdrop, _unknown_fields_),
+      Sheet_MonsterDrop_descriptor_,
+      Sheet_MonsterDrop::default_instance_,
+      Sheet_MonsterDrop_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterDrop, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MonsterDrop, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_monsterdrop));
+      sizeof(Sheet_MonsterDrop));
 }
 
 namespace {
@@ -422,54 +422,54 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    monstermonster_descriptor_, &monstermonster::default_instance());
+    E_MonsterMonster_descriptor_, &E_MonsterMonster::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_monstermonster_descriptor_, &Sheet_monstermonster::default_instance());
+    Sheet_MonsterMonster_descriptor_, &Sheet_MonsterMonster::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    monsterdisplayskillDesc_descriptor_, &monsterdisplayskillDesc::default_instance());
+    E_MonsterDisplaySkillDesc_descriptor_, &E_MonsterDisplaySkillDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    monsterdisplay_descriptor_, &monsterdisplay::default_instance());
+    E_MonsterDisplay_descriptor_, &E_MonsterDisplay::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_monsterdisplay_descriptor_, &Sheet_monsterdisplay::default_instance());
+    Sheet_MonsterDisplay_descriptor_, &Sheet_MonsterDisplay::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    monstervalue_descriptor_, &monstervalue::default_instance());
+    E_MonsterValue_descriptor_, &E_MonsterValue::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_monstervalue_descriptor_, &Sheet_monstervalue::default_instance());
+    Sheet_MonsterValue_descriptor_, &Sheet_MonsterValue::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    monstervalueParam_descriptor_, &monstervalueParam::default_instance());
+    E_MonsterValueparam_descriptor_, &E_MonsterValueparam::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_monstervalueParam_descriptor_, &Sheet_monstervalueParam::default_instance());
+    Sheet_MonsterValueparam_descriptor_, &Sheet_MonsterValueparam::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    monsterdrop_descriptor_, &monsterdrop::default_instance());
+    E_MonsterDrop_descriptor_, &E_MonsterDrop::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_monsterdrop_descriptor_, &Sheet_monsterdrop::default_instance());
+    Sheet_MonsterDrop_descriptor_, &Sheet_MonsterDrop::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_monster_2eproto() {
-  delete monstermonster::default_instance_;
-  delete monstermonster_reflection_;
-  delete Sheet_monstermonster::default_instance_;
-  delete Sheet_monstermonster_reflection_;
-  delete monsterdisplayskillDesc::default_instance_;
-  delete monsterdisplayskillDesc_reflection_;
-  delete monsterdisplay::default_instance_;
-  delete monsterdisplay_reflection_;
-  delete Sheet_monsterdisplay::default_instance_;
-  delete Sheet_monsterdisplay_reflection_;
-  delete monstervalue::default_instance_;
-  delete monstervalue_reflection_;
-  delete Sheet_monstervalue::default_instance_;
-  delete Sheet_monstervalue_reflection_;
-  delete monstervalueParam::default_instance_;
-  delete monstervalueParam_reflection_;
-  delete Sheet_monstervalueParam::default_instance_;
-  delete Sheet_monstervalueParam_reflection_;
-  delete monsterdrop::default_instance_;
-  delete monsterdrop_reflection_;
-  delete Sheet_monsterdrop::default_instance_;
-  delete Sheet_monsterdrop_reflection_;
+  delete E_MonsterMonster::default_instance_;
+  delete E_MonsterMonster_reflection_;
+  delete Sheet_MonsterMonster::default_instance_;
+  delete Sheet_MonsterMonster_reflection_;
+  delete E_MonsterDisplaySkillDesc::default_instance_;
+  delete E_MonsterDisplaySkillDesc_reflection_;
+  delete E_MonsterDisplay::default_instance_;
+  delete E_MonsterDisplay_reflection_;
+  delete Sheet_MonsterDisplay::default_instance_;
+  delete Sheet_MonsterDisplay_reflection_;
+  delete E_MonsterValue::default_instance_;
+  delete E_MonsterValue_reflection_;
+  delete Sheet_MonsterValue::default_instance_;
+  delete Sheet_MonsterValue_reflection_;
+  delete E_MonsterValueparam::default_instance_;
+  delete E_MonsterValueparam_reflection_;
+  delete Sheet_MonsterValueparam::default_instance_;
+  delete Sheet_MonsterValueparam_reflection_;
+  delete E_MonsterDrop::default_instance_;
+  delete E_MonsterDrop_reflection_;
+  delete Sheet_MonsterDrop::default_instance_;
+  delete Sheet_MonsterDrop_reflection_;
 }
 
 void protobuf_AddDesc_monster_2eproto() {
@@ -481,223 +481,233 @@ void protobuf_AddDesc_monster_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rmonster.proto\022\010proto_ff\032\025yd_fieldoptio"
-    "ns.proto\"\266\010\n\016monstermonster\022\037\n\tmonsterID"
-    "\030\001 \001(\003B\014\302\377\024\010\346\200\252\347\211\251ID\022&\n\013monsterName\030\002 \001("
-    "\tB\021\302\377\024\t\346\200\252\347\211\251\345\220\215\220\301\024<\022&\n\014functionType\030\003 \001"
-    "(\005B\020\302\377\024\014\345\212\237\350\203\275\347\261\273\345\236\213\022\'\n\rfunctionValue\030\004 "
-    "\001(\003B\020\302\377\024\014\345\212\237\350\203\275\345\217\202\346\225\260\022$\n\nprofession\030\005 \001("
-    "\005B\020\302\377\024\014\346\200\252\347\211\251\350\201\214\344\270\232\022-\n\rdamageAddType\030\006 \001"
-    "(\005B\026\302\377\024\022\344\274\244\345\256\263\345\212\240\346\210\220\347\261\273\345\236\213\022#\n\tmonsterLV\030"
-    "\007 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\255\211\347\272\247\022)\n\tdroplimit\030\010 \001"
-    "(\005B\026\302\377\024\022\346\234\200\345\244\247\346\216\211\350\220\275\347\255\211\347\272\247\022(\n\tdisplayID\030"
-    "\t \001(\003B\025\302\377\024\021\350\265\204\346\272\220\344\270\216\350\241\250\347\216\260ID\022#\n\tvaluetyp"
-    "e\030\n \001(\003B\020\302\377\024\014\346\225\260\345\200\274\347\261\273\345\236\213\022$\n\nvalueParam\030"
-    "\013 \001(\005B\020\302\377\024\014\346\225\260\345\200\274\345\217\202\346\225\260\022\031\n\004aiId\030\014 \001(\003B\013\302"
-    "\377\024\007AI\350\241\250ID\022,\n\014hpSectionNum\030\r \001(\005B\026\302\377\024\022\346\200"
-    "\252\347\211\251\350\241\200\346\235\241\346\256\265\346\225\260\0222\n\tbreedProb\030\016 \001(\005B\037\302\377\024"
-    "\033\346\255\273\344\272\241\350\247\246\345\217\221\346\226\260\346\200\252\347\211\251\345\207\240\347\216\207\022,\n\nbreedMon"
-    "ID\030\017 \001(\003B\030\302\377\024\024\350\247\246\345\217\221\347\224\237\346\210\220\346\200\252\347\211\251ID\022,\n\014br"
-    "eedMonLive\030\020 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345\255\230\346\264\273\346\227\266\351\227\264"
-    "\022&\n\010itemCost\030\021 \001(\tB\024\302\377\024\014\351\201\223\345\205\267\346\266\210\350\200\227\220\301\024<"
-    "\0224\n\016isBornActionOn\030\022 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345\220\257\347"
-    "\224\250\345\207\272\347\224\237\345\212\250\344\275\234\0226\n\nbelongshow\030\023 \001(\005B\"\302\377\024\036"
-    "\346\200\252\347\211\251\346\216\211\350\220\275\345\275\222\345\261\236\346\230\257\345\220\246\346\230\276\347\244\272\022!\n\013dropGr"
-    "oupID\030\024 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022-\n\rharmdrop_ty"
-    "pe\030\025 \001(\005B\026\302\377\024\022\344\274\244\345\256\263\350\256\241\347\256\227\346\226\271\345\274\217\022.\n\010joni"
-    "nper\030\026 \001(\005B\034\302\377\024\030\345\217\202\344\270\216\345\245\226\346\234\200\344\275\216\347\231\276\345\210\206\346\257\224"
-    "\022\"\n\010btnRange\030\027 \001(\005B\020\302\377\024\014\346\214\211\351\222\256\350\214\203\345\233\264\022\033\n\005"
-    "btnId\030\030 \001(\003B\014\302\377\024\010\346\214\211\351\222\256ID\022\036\n\ndrivePoint\030"
-    "\031 \001(\005B\n\302\377\024\006\346\200\222\346\260\224\022\036\n\010corpseID\030\032 \001(\005B\014\302\377\024"
-    "\010\345\260\270\344\275\223ID\"T\n\024Sheet_monstermonster\022<\n\023mon"
-    "stermonster_List\030\001 \003(\0132\030.proto_ff.monste"
-    "rmonsterB\005\210\301\024\310\001\"-\n\027monsterdisplayskillDe"
-    "sc\022\022\n\002id\030\001 \001(\003B\006\302\377\024\002id\"\256\003\n\016monsterdispla"
-    "y\022(\n\tdisplayID\030\001 \001(\003B\025\302\377\024\021\350\265\204\346\272\220\344\270\216\350\241\250\347\216"
-    "\260ID\0220\n\rmodelOffsetsX\030\002 \001(\005B\031\302\377\024\025UI\346\250\241\345\236\213"
-    "X\345\235\220\346\240\207\345\201\217\347\247\273\0220\n\rmodelOffsetsY\030\003 \001(\005B\031\302\377"
-    "\024\025UI\346\250\241\345\236\213Y\345\235\220\346\240\207\345\201\217\347\247\273\022,\n\nmodelScale\030\004 "
-    "\001(\005B\030\302\377\024\024UI\346\250\241\345\236\213\347\274\251\346\224\276\346\257\224\344\276\213\022+\n\013modelRa"
-    "dius\030\005 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\346\250\241\345\236\213\345\215\212\345\276\204\022$\n\npa"
-    "thRadius\030\006 \001(\005B\020\302\377\024\014\345\257\273\350\267\257\345\215\212\345\276\204\022)\n\017coll"
-    "isionRadius\030\007 \001(\005B\020\302\377\024\014\345\257\273\350\267\257\345\215\212\345\276\204\022 \n\006r"
-    "Speed\030\010 \001(\005B\020\302\377\024\014\350\267\221\346\255\245\351\200\237\345\272\246\022@\n\005skill\030\t"
-    " \003(\0132!.proto_ff.monsterdisplayskillDescB"
-    "\016\302\377\024\006\346\212\200\350\203\275\210\301\024\007\"S\n\024Sheet_monsterdisplay\022"
-    ";\n\023monsterdisplay_List\030\001 \003(\0132\030.proto_ff."
-    "monsterdisplayB\004\210\301\024P\"\254\025\n\014monstervalue\022\030\n"
-    "\002ID\030\001 \001(\003B\014\302\377\024\010\346\225\260\345\200\274ID\022\036\n\004type\030\002 \001(\005B\020\302"
-    "\377\024\014\346\200\252\347\211\251\347\261\273\345\236\213\022#\n\tmonsterLV\030\003 \001(\005B\020\302\377\024\014"
-    "\346\200\252\347\211\251\347\255\211\347\272\247\022 \n\006max_Hp\030\004 \001(\003B\020\302\377\024\014\346\234\200\345\244\247"
-    "\347\224\237\345\221\275\022\027\n\003atk\030\005 \001(\003B\n\302\377\024\006\346\224\273\345\207\273\022\027\n\003def\030\006"
-    " \001(\003B\n\302\377\024\006\351\230\262\345\276\241\022\035\n\tbrk_Armor\030\007 \001(\003B\n\302\377\024"
-    "\006\347\240\264\347\224\262\022\"\n\010five_Dam\030\010 \001(\003B\020\302\377\024\014\344\272\224\350\241\214\344\274\244"
-    "\345\256\263\022$\n\nfive_Armor\030\t \001(\003B\020\302\377\024\014\344\272\224\350\241\214\346\212\244\347\224"
-    "\262\022$\n\nthump_Rate\030\n \001(\003B\020\302\377\024\014\351\207\215\345\207\273\345\207\240\347\216\207\022"
-    "&\n\014thump_Resist\030\013 \001(\003B\020\302\377\024\014\351\207\215\345\207\273\346\212\265\346\212\227\022"
-    "\027\n\003sky\030\014 \001(\003B\n\302\377\024\006\345\244\251\351\201\223\022!\n\007sky_Dam\030\r \001("
-    "\003B\020\302\377\024\014\345\244\251\351\201\223\344\274\244\345\256\263\022)\n\017sky_Redu_Resist\030\016"
-    " \001(\003B\020\302\377\024\014\345\244\251\351\201\223\345\207\217\346\212\227\022$\n\nsky_Resist\030\017 \001"
-    "(\003B\020\302\377\024\014\345\244\251\351\201\223\346\212\227\346\200\247\022\034\n\010kill_God\030\020 \001(\003B\n"
-    "\302\377\024\006\345\274\221\347\245\236\022\034\n\010god_Body\030\021 \001(\003B\n\302\377\024\006\347\245\236\344\275\223"
-    "\022%\n\013mortal_Rate\030\022 \001(\003B\020\302\377\024\014\345\207\241\345\205\215\345\207\240\347\216\207\022"
-    "\'\n\rmortal_Resist\030\023 \001(\003B\020\302\377\024\014\345\207\241\345\205\215\346\212\227\346\200\247"
-    "\022$\n\nfairy_Rate\030\024 \001(\003B\020\302\377\024\014\344\273\231\345\205\215\345\207\240\347\216\207\022&"
-    "\n\014fairy_Resist\030\025 \001(\003B\020\302\377\024\014\344\273\231\345\205\215\346\212\227\346\200\247\022\""
-    "\n\010god_Rate\030\026 \001(\003B\020\302\377\024\014\347\245\236\345\205\215\345\207\240\347\216\207\022$\n\ngo"
-    "d_Resist\030\027 \001(\003B\020\302\377\024\014\347\245\236\345\205\215\346\212\227\346\200\247\022#\n\tcrit"
-    "_Rate\030\030 \001(\003B\020\302\377\024\014\346\232\264\345\207\273\345\207\240\347\216\207\022)\n\017crit_re"
-    "sit_Rate\030\031 \001(\003B\020\302\377\024\014\346\212\227\346\232\264\345\207\240\347\216\207\022\"\n\010crit"
-    "_Dam\030\032 \001(\003B\020\302\377\024\014\346\232\264\345\207\273\344\274\244\345\256\263\022#\n\tcrit_Red"
-    "u\030\033 \001(\003B\020\302\377\024\014\346\232\264\345\207\273\345\207\217\345\205\215\022%\n\013batter_Rate"
-    "\030\034 \001(\003B\020\302\377\024\014\350\277\236\345\207\273\345\207\240\347\216\207\022\'\n\rbatter_Resis"
-    "t\030\035 \001(\003B\020\302\377\024\014\350\277\236\345\207\273\346\212\265\346\212\227\022$\n\nbatter_Dam\030"
-    "\036 \001(\003B\020\302\377\024\014\350\277\236\345\207\273\344\274\244\345\256\263\022%\n\013batter_Redu\030\037"
-    " \001(\003B\020\302\377\024\014\350\277\236\345\207\273\345\207\217\345\205\215\022&\n\014brkdown_Rate\030 "
-    " \001(\003B\020\302\377\024\014\345\207\273\347\251\277\345\207\240\347\216\207\022(\n\016brkdown_Resist"
-    "\030! \001(\003B\020\302\377\024\014\345\207\273\347\251\277\346\212\265\346\212\227\022!\n\007dam_Add\030\" \001("
-    "\003B\020\302\377\024\014\344\274\244\345\256\263\345\212\240\346\210\220\022\"\n\010dam_Redu\030# \001(\003B\020\302"
-    "\377\024\014\344\274\244\345\256\263\345\207\217\345\205\215\022!\n\007all_Add\030$ \001(\003B\020\302\377\024\014\345\205"
-    "\250\350\203\275\345\242\236\344\274\244\022\"\n\010all_Redu\030% \001(\003B\020\302\377\024\014\345\205\250\350\203\275"
-    "\345\207\217\345\205\215\022#\n\tskill_Add\030& \001(\003B\020\302\377\024\014\346\212\200\350\203\275\345\242\236"
-    "\344\274\244\022$\n\nskill_Redu\030\' \001(\003B\020\302\377\024\014\346\212\200\350\203\275\345\207\217\344\274"
-    "\244\022%\n\013rebound_Dam\030( \001(\003B\020\302\377\024\014\345\217\215\345\274\271\344\274\244\345\256\263"
-    "\022\"\n\010hp_Steal\030) \001(\003B\020\302\377\024\014\347\224\237\345\221\275\347\252\203\345\217\226\022$\n\n"
-    "dodge_Rate\030* \001(\003B\020\302\377\024\014\351\227\252\351\201\277\345\207\240\347\216\207\022\"\n\010hi"
-    "t_Rate\030+ \001(\003B\020\302\377\024\014\345\221\275\344\270\255\345\207\240\347\216\207\022\"\n\010blk_Ra"
-    "te\030, \001(\003B\020\302\377\024\014\346\240\274\346\214\241\345\207\240\347\216\207\022&\n\014brk_blk_Ra"
-    "te\030- \001(\003B\020\302\377\024\014\347\240\264\346\241\243\345\207\240\347\216\207\022\"\n\010blk_Free\030."
-    " \001(\003B\020\302\377\024\014\346\240\274\346\214\241\345\205\215\344\274\244\022$\n\nblk_Pierce\030/ \001"
-    "(\003B\020\302\377\024\014\346\240\274\346\214\241\347\251\277\351\200\217\022#\n\trel_Armor\0300 \001(\003B"
-    "\020\302\377\024\014\347\234\237\345\256\236\346\212\244\347\224\262\022!\n\007rel_Dam\0301 \001(\003B\020\302\377\024\014"
-    "\347\234\237\345\256\236\344\274\244\345\256\263\022%\n\013five_Resist\0302 \001(\003B\020\302\377\024\014\344"
-    "\272\224\350\241\214\346\212\227\346\200\247\022*\n\020five_resist_Redu\0303 \001(\003B\020\302"
-    "\377\024\014\344\272\224\350\241\214\345\207\217\346\212\227\022\"\n\010fire_Add\0304 \001(\003B\020\302\377\024\014\347"
-    "\246\273\347\201\253\345\242\236\344\274\244\022#\n\tfire_Redu\0305 \001(\003B\020\302\377\024\014\347\246\273\347"
-    "\201\253\345\207\217\344\274\244\022!\n\007ice_Add\0306 \001(\003B\020\302\377\024\014\347\216\204\345\206\260\345\242\236"
-    "\344\274\244\022\"\n\010ice_Redu\0307 \001(\003B\020\302\377\024\014\347\216\204\345\206\260\345\207\217\344\274\244\022"
-    "%\n\013thunder_Add\0308 \001(\003B\020\302\377\024\014\351\233\267\347\275\232\345\242\236\344\274\244\022%"
-    "\n\013thunder_Rdu\0309 \001(\003B\020\302\377\024\014\351\233\267\347\275\232\345\207\217\344\274\244\022$\n"
-    "\nplayer_Add\030: \001(\003B\020\302\377\024\014\347\216\251\345\256\266\345\207\217\344\274\244\022%\n\013p"
-    "layer_Redu\030; \001(\003B\020\302\377\024\014\347\216\251\345\256\266\345\242\236\344\274\244\022$\n\nle"
-    "ader_Add\030< \001(\003B\020\302\377\024\014\351\246\226\351\242\206\345\207\217\344\274\244\022%\n\013lead"
-    "er_Redu\030= \001(\003B\020\302\377\024\014\351\246\226\351\242\206\345\242\236\344\274\244\022!\n\007mon_A"
-    "dd\030> \001(\003B\020\302\377\024\014\346\200\252\347\211\251\345\207\217\344\274\244\022\"\n\010mon_Redu\030\?"
-    " \001(\003B\020\302\377\024\014\346\200\252\347\211\251\345\242\236\344\274\244\022\"\n\010var_Redu\030@ \001(\003"
-    "B\020\302\377\024\014\345\217\230\350\272\253\345\207\217\344\274\244\022!\n\007var_Add\030A \001(\003B\020\302\377\024"
-    "\014\345\217\230\350\272\253\345\242\236\344\274\244\022(\n\016unusual_Resist\030B \001(\003B\020\302"
-    "\377\024\014\345\274\202\345\270\270\346\212\265\346\212\227\022%\n\013unusual_Hit\030C \001(\003B\020\302\377"
-    "\024\014\345\274\202\345\270\270\345\221\275\344\270\255\022$\n\nhp_Recover\030D \001(\003B\020\302\377\024\014"
-    "\347\224\237\345\221\275\346\201\242\345\244\215\022%\n\013unusual_Add\030E \001(\003B\020\302\377\024\014\345"
-    "\274\202\345\270\270\345\242\236\344\274\244\022%\n\013fix_Recover\030F \001(\003B\020\302\377\024\014\345\233"
-    "\272\345\256\232\345\233\236\345\244\215\022%\n\013high_hp_Add\030G \001(\003B\020\302\377\024\014\351\253\230"
-    "\350\241\200\345\242\236\344\274\244\022(\n\016recover_hp_Add\030H \001(\003B\020\302\377\024\014\345"
-    "\233\236\350\241\200\345\242\236\346\225\210\022\"\n\010week_Add\030I \001(\003B\020\302\377\024\014\350\231\232\345\274"
-    "\261\345\242\236\344\274\244\022\032\n\006shield\030J \001(\003B\n\302\377\024\006\346\212\244\347\233\276\"N\n\022S"
-    "heet_monstervalue\0228\n\021monstervalue_List\030\001"
-    " \003(\0132\026.proto_ff.monstervalueB\005\210\301\024\310\001\"\362\025\n\021"
-    "monstervalueParam\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022\"\n"
-    "\010P_max_Hp\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\347\224\237\345\221\275\022\031\n\005P_a"
-    "tk\030\003 \001(\005B\n\302\377\024\006\346\224\273\345\207\273\022\031\n\005P_def\030\004 \001(\005B\n\302\377\024"
-    "\006\351\230\262\345\276\241\022\037\n\013P_brk_Armor\030\005 \001(\005B\n\302\377\024\006\347\240\264\347\224\262"
-    "\022$\n\nP_five_Dam\030\006 \001(\005B\020\302\377\024\014\344\272\224\350\241\214\344\274\244\345\256\263\022&"
-    "\n\014P_five_Armor\030\007 \001(\005B\020\302\377\024\014\344\272\224\350\241\214\346\212\244\347\224\262\022&"
-    "\n\014P_thump_Rate\030\010 \001(\005B\020\302\377\024\014\351\207\215\345\207\273\345\207\240\347\216\207\022("
-    "\n\016P_thump_Resist\030\t \001(\005B\020\302\377\024\014\351\207\215\345\207\273\346\212\265\346\212\227"
-    "\022\031\n\005P_sky\030\n \001(\005B\n\302\377\024\006\345\244\251\351\201\223\022#\n\tP_sky_Dam"
-    "\030\013 \001(\005B\020\302\377\024\014\345\244\251\351\201\223\344\274\244\345\256\263\022+\n\021P_sky_Redu_R"
-    "esist\030\014 \001(\005B\020\302\377\024\014\345\244\251\351\201\223\345\207\217\346\212\227\022&\n\014P_sky_R"
-    "esist\030\r \001(\005B\020\302\377\024\014\345\244\251\351\201\223\346\212\227\346\200\247\022\036\n\nP_kill_"
-    "God\030\016 \001(\005B\n\302\377\024\006\345\274\221\347\245\236\022\036\n\nP_god_Body\030\017 \001("
-    "\005B\n\302\377\024\006\347\245\236\344\275\223\022\'\n\rP_mortal_Rate\030\020 \001(\005B\020\302\377"
-    "\024\014\345\207\241\345\205\215\345\207\240\347\216\207\022)\n\017P_mortal_Resist\030\021 \001(\005B"
-    "\020\302\377\024\014\345\207\241\345\205\215\346\212\227\346\200\247\022&\n\014P_fairy_Rate\030\022 \001(\005B"
-    "\020\302\377\024\014\344\273\231\345\205\215\345\207\240\347\216\207\022(\n\016P_fairy_Resist\030\023 \001("
-    "\005B\020\302\377\024\014\344\273\231\345\205\215\346\212\227\346\200\247\022$\n\nP_god_Rate\030\024 \001(\005B"
-    "\020\302\377\024\014\347\245\236\345\205\215\345\207\240\347\216\207\022&\n\014P_god_Resist\030\025 \001(\005B"
-    "\020\302\377\024\014\347\245\236\345\205\215\346\212\227\346\200\247\022%\n\013P_crit_Rate\030\026 \001(\005B\020"
-    "\302\377\024\014\346\232\264\345\207\273\345\207\240\347\216\207\022+\n\021P_crit_resit_Rate\030\027 "
-    "\001(\005B\020\302\377\024\014\346\212\227\346\232\264\345\207\240\347\216\207\022$\n\nP_crit_Dam\030\030 \001("
-    "\005B\020\302\377\024\014\346\232\264\345\207\273\344\274\244\345\256\263\022%\n\013P_crit_Redu\030\031 \001(\005"
-    "B\020\302\377\024\014\346\232\264\345\207\273\345\207\217\345\205\215\022\'\n\rP_batter_Rate\030\032 \001("
-    "\005B\020\302\377\024\014\350\277\236\345\207\273\345\207\240\347\216\207\022)\n\017P_batter_Resist\030\033"
-    " \001(\005B\020\302\377\024\014\350\277\236\345\207\273\346\212\265\346\212\227\022&\n\014P_batter_Dam\030\034"
-    " \001(\005B\020\302\377\024\014\350\277\236\345\207\273\344\274\244\345\256\263\022\'\n\rP_batter_Redu\030"
-    "\035 \001(\005B\020\302\377\024\014\350\277\236\345\207\273\345\207\217\345\205\215\022(\n\016P_brkdown_Rat"
-    "e\030\036 \001(\005B\020\302\377\024\014\345\207\273\347\251\277\345\207\240\347\216\207\022*\n\020P_brkdown_R"
-    "esist\030\037 \001(\005B\020\302\377\024\014\345\207\273\347\251\277\346\212\265\346\212\227\022#\n\tP_dam_A"
-    "dd\030  \001(\005B\020\302\377\024\014\344\274\244\345\256\263\345\212\240\346\210\220\022$\n\nP_dam_Redu"
-    "\030! \001(\005B\020\302\377\024\014\344\274\244\345\256\263\345\207\217\345\205\215\022#\n\tP_all_Add\030\" "
-    "\001(\005B\020\302\377\024\014\345\205\250\350\203\275\345\242\236\344\274\244\022$\n\nP_all_Redu\030# \001("
-    "\005B\020\302\377\024\014\345\205\250\350\203\275\345\207\217\345\205\215\022%\n\013P_skill_Add\030$ \001(\005"
-    "B\020\302\377\024\014\346\212\200\350\203\275\345\242\236\344\274\244\022&\n\014P_skill_Redu\030% \001(\005"
-    "B\020\302\377\024\014\346\212\200\350\203\275\345\207\217\344\274\244\022\'\n\rP_rebound_Dam\030& \001("
-    "\005B\020\302\377\024\014\345\217\215\345\274\271\344\274\244\345\256\263\022$\n\nP_hp_Steal\030\' \001(\005B"
-    "\020\302\377\024\014\347\224\237\345\221\275\347\252\203\345\217\226\022&\n\014P_dodge_Rate\030( \001(\005B"
-    "\020\302\377\024\014\351\227\252\351\201\277\345\207\240\347\216\207\022$\n\nP_hit_Rate\030) \001(\005B\020\302"
-    "\377\024\014\345\221\275\344\270\255\345\207\240\347\216\207\022$\n\nP_blk_Rate\030* \001(\005B\020\302\377\024"
-    "\014\346\240\274\346\214\241\345\207\240\347\216\207\022(\n\016P_brk_blk_Rate\030+ \001(\005B\020\302"
-    "\377\024\014\347\240\264\346\241\243\345\207\240\347\216\207\022$\n\nP_blk_Free\030, \001(\005B\020\302\377\024"
-    "\014\346\240\274\346\214\241\345\205\215\344\274\244\022&\n\014P_blk_Pierce\030- \001(\005B\020\302\377\024"
-    "\014\346\240\274\346\214\241\347\251\277\351\200\217\022%\n\013P_rel_Armor\030. \001(\005B\020\302\377\024\014"
-    "\347\234\237\345\256\236\346\212\244\347\224\262\022#\n\tP_rel_Dam\030/ \001(\005B\020\302\377\024\014\347\234\237"
-    "\345\256\236\344\274\244\345\256\263\022\'\n\rP_five_Resist\0300 \001(\005B\020\302\377\024\014\344\272"
-    "\224\350\241\214\346\212\227\346\200\247\022,\n\022P_five_resist_Redu\0301 \001(\005B\020"
-    "\302\377\024\014\344\272\224\350\241\214\345\207\217\346\212\227\022$\n\nP_fire_Add\0302 \001(\005B\020\302\377"
-    "\024\014\347\246\273\347\201\253\345\242\236\344\274\244\022%\n\013P_fire_Redu\0303 \001(\005B\020\302\377\024"
-    "\014\347\246\273\347\201\253\345\207\217\344\274\244\022#\n\tP_ice_Add\0304 \001(\005B\020\302\377\024\014\347\216"
-    "\204\345\206\260\345\242\236\344\274\244\022$\n\nP_ice_Redu\0305 \001(\005B\020\302\377\024\014\347\216\204\345"
-    "\206\260\345\207\217\344\274\244\022\'\n\rP_thunder_Add\0306 \001(\005B\020\302\377\024\014\351\233\267"
-    "\347\275\232\345\242\236\344\274\244\022\'\n\rP_thunder_Rdu\0307 \001(\005B\020\302\377\024\014\351\233"
-    "\267\347\275\232\345\207\217\344\274\244\022&\n\014P_player_Add\0308 \001(\005B\020\302\377\024\014\347\216"
-    "\251\345\256\266\345\207\217\344\274\244\022\'\n\rP_player_Redu\0309 \001(\005B\020\302\377\024\014\347"
-    "\216\251\345\256\266\345\242\236\344\274\244\022&\n\014P_leader_Add\030: \001(\005B\020\302\377\024\014\351"
-    "\246\226\351\242\206\345\207\217\344\274\244\022\'\n\rP_leader_Redu\030; \001(\005B\020\302\377\024\014"
-    "\351\246\226\351\242\206\345\242\236\344\274\244\022#\n\tP_mon_Add\030< \001(\005B\020\302\377\024\014\346\200\252"
-    "\347\211\251\345\207\217\344\274\244\022$\n\nP_mon_Redu\030= \001(\005B\020\302\377\024\014\346\200\252\347\211"
-    "\251\345\242\236\344\274\244\022$\n\nP_var_Redu\030> \001(\005B\020\302\377\024\014\345\217\230\350\272\253\345"
-    "\207\217\344\274\244\022#\n\tP_var_Add\030\? \001(\005B\020\302\377\024\014\345\217\230\350\272\253\345\242\236\344"
-    "\274\244\022*\n\020P_unusual_Resist\030@ \001(\005B\020\302\377\024\014\345\274\202\345\270\270"
-    "\346\212\265\346\212\227\022\'\n\rP_unusual_Hit\030A \001(\005B\020\302\377\024\014\345\274\202\345\270"
-    "\270\345\221\275\344\270\255\022&\n\014P_hp_Recover\030B \001(\005B\020\302\377\024\014\347\224\237\345\221"
-    "\275\346\201\242\345\244\215\022\'\n\rP_unusual_Add\030C \001(\005B\020\302\377\024\014\345\274\202\345"
-    "\270\270\345\242\236\344\274\244\022\'\n\rP_fix_Recover\030D \001(\005B\020\302\377\024\014\345\233\272"
-    "\345\256\232\345\233\236\345\244\215\022\'\n\rP_high_hp_Add\030E \001(\005B\020\302\377\024\014\351\253"
-    "\230\350\241\200\345\242\236\344\274\244\022*\n\020P_recover_hp_Add\030F \001(\005B\020\302\377"
-    "\024\014\345\233\236\350\241\200\345\242\236\346\225\210\022$\n\nP_week_Add\030G \001(\005B\020\302\377\024\014"
-    "\350\231\232\345\274\261\345\242\236\344\274\244\022\032\n\006shield\030H \001(\003B\n\302\377\024\006\346\212\244\347\233\276"
-    "\"\\\n\027Sheet_monstervalueParam\022A\n\026monsterva"
-    "lueParam_List\030\001 \003(\0132\033.proto_ff.monsterva"
-    "lueParamB\004\210\301\024\024\"\240\001\n\013monsterdrop\022\033\n\002id\030\001 \001"
-    "(\005B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022\034\n\005group\030\002 \001(\005B\r\302\377\024\t"
-    "\346\216\211\350\220\275\347\273\204\022\032\n\003own\030\003 \001(\005B\r\302\377\024\t\345\275\222\345\261\236\346\235\203\022\036\n"
-    "\004type\030\004 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\346\226\271\345\274\217\022\032\n\005boxID\030\005"
-    " \003(\003B\013\302\377\024\003box\210\301\024\005\"J\n\021Sheet_monsterdrop\0225"
-    "\n\020monsterdrop_List\030\001 \003(\0132\025.proto_ff.mons"
-    "terdropB\004\210\301\024\024", 7733);
+    "ns.proto\"\354\010\n\020E_MonsterMonster\022!\n\013m_monst"
+    "erid\030\001 \001(\003B\014\302\377\024\010\346\200\252\347\211\251ID\022(\n\rm_monsternam"
+    "e\030\002 \001(\tB\021\302\377\024\t\346\200\252\347\211\251\345\220\215\220\301\024<\022(\n\016m_function"
+    "type\030\003 \001(\005B\020\302\377\024\014\345\212\237\350\203\275\347\261\273\345\236\213\022)\n\017m_functi"
+    "onvalue\030\004 \001(\003B\020\302\377\024\014\345\212\237\350\203\275\345\217\202\346\225\260\022&\n\014m_pro"
+    "fession\030\005 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\350\201\214\344\270\232\022/\n\017m_dam"
+    "ageaddtype\030\006 \001(\005B\026\302\377\024\022\344\274\244\345\256\263\345\212\240\346\210\220\347\261\273\345\236\213"
+    "\022%\n\013m_monsterlv\030\007 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\255\211\347\272\247\022"
+    "+\n\013m_droplimit\030\010 \001(\005B\026\302\377\024\022\346\234\200\345\244\247\346\216\211\350\220\275\347\255"
+    "\211\347\272\247\022*\n\013m_displayid\030\t \001(\003B\025\302\377\024\021\350\265\204\346\272\220\344\270\216"
+    "\350\241\250\347\216\260ID\022%\n\013m_valuetype\030\n \001(\003B\020\302\377\024\014\346\225\260\345\200"
+    "\274\347\261\273\345\236\213\022&\n\014m_valueparam\030\013 \001(\005B\020\302\377\024\014\346\225\260\345\200"
+    "\274\345\217\202\346\225\260\022\033\n\006m_aiid\030\014 \001(\003B\013\302\377\024\007AI\350\241\250ID\022.\n\016"
+    "m_hpsectionnum\030\r \001(\005B\026\302\377\024\022\346\200\252\347\211\251\350\241\200\346\235\241\346\256"
+    "\265\346\225\260\0224\n\013m_breedprob\030\016 \001(\005B\037\302\377\024\033\346\255\273\344\272\241\350\247\246"
+    "\345\217\221\346\226\260\346\200\252\347\211\251\345\207\240\347\216\207\022.\n\014m_breedmonid\030\017 \001(\003"
+    "B\030\302\377\024\024\350\247\246\345\217\221\347\224\237\346\210\220\346\200\252\347\211\251ID\022.\n\016m_breedmon"
+    "live\030\020 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345\255\230\346\264\273\346\227\266\351\227\264\022(\n\nm_"
+    "itemcost\030\021 \001(\tB\024\302\377\024\014\351\201\223\345\205\267\346\266\210\350\200\227\220\301\024<\0226\n\020"
+    "m_isbornactionon\030\022 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345\220\257\347\224\250"
+    "\345\207\272\347\224\237\345\212\250\344\275\234\0228\n\014m_belongshow\030\023 \001(\005B\"\302\377\024\036"
+    "\346\200\252\347\211\251\346\216\211\350\220\275\345\275\222\345\261\236\346\230\257\345\220\246\346\230\276\347\244\272\022#\n\rm_drop"
+    "groupid\030\024 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022/\n\017m_harmdro"
+    "p_type\030\025 \001(\005B\026\302\377\024\022\344\274\244\345\256\263\350\256\241\347\256\227\346\226\271\345\274\217\0220\n\n"
+    "m_joninper\030\026 \001(\005B\034\302\377\024\030\345\217\202\344\270\216\345\245\226\346\234\200\344\275\216\347\231\276"
+    "\345\210\206\346\257\224\022$\n\nm_btnrange\030\027 \001(\005B\020\302\377\024\014\346\214\211\351\222\256\350\214"
+    "\203\345\233\264\022\035\n\007m_btnid\030\030 \001(\003B\014\302\377\024\010\346\214\211\351\222\256ID\022 \n\014m"
+    "_drivepoint\030\031 \001(\005B\n\302\377\024\006\346\200\222\346\260\224\022 \n\nm_corps"
+    "eid\030\032 \001(\005B\014\302\377\024\010\345\260\270\344\275\223ID\"X\n\024Sheet_Monster"
+    "Monster\022@\n\025E_MonsterMonster_List\030\001 \003(\0132\032"
+    ".proto_ff.E_MonsterMonsterB\005\210\301\024\310\001\"1\n\031E_M"
+    "onsterDisplaySkillDesc\022\024\n\004m_id\030\001 \001(\003B\006\302\377"
+    "\024\002id\"\304\003\n\020E_MonsterDisplay\022*\n\013m_displayid"
+    "\030\001 \001(\003B\025\302\377\024\021\350\265\204\346\272\220\344\270\216\350\241\250\347\216\260ID\0222\n\017m_model"
+    "offsetsx\030\002 \001(\005B\031\302\377\024\025UI\346\250\241\345\236\213X\345\235\220\346\240\207\345\201\217\347\247"
+    "\273\0222\n\017m_modeloffsetsy\030\003 \001(\005B\031\302\377\024\025UI\346\250\241\345\236\213"
+    "Y\345\235\220\346\240\207\345\201\217\347\247\273\022.\n\014m_modelscale\030\004 \001(\005B\030\302\377\024"
+    "\024UI\346\250\241\345\236\213\347\274\251\346\224\276\346\257\224\344\276\213\022-\n\rm_modelradius\030\005"
+    " \001(\005B\026\302\377\024\022\346\200\252\347\211\251\346\250\241\345\236\213\345\215\212\345\276\204\022&\n\014m_pathra"
+    "dius\030\006 \001(\005B\020\302\377\024\014\345\257\273\350\267\257\345\215\212\345\276\204\022+\n\021m_collis"
+    "ionradius\030\007 \001(\005B\020\302\377\024\014\345\257\273\350\267\257\345\215\212\345\276\204\022\"\n\010m_r"
+    "speed\030\010 \001(\005B\020\302\377\024\014\350\267\221\346\255\245\351\200\237\345\272\246\022D\n\007m_skill"
+    "\030\t \003(\0132#.proto_ff.E_MonsterDisplaySkillD"
+    "escB\016\302\377\024\006\346\212\200\350\203\275\210\301\024\007\"W\n\024Sheet_MonsterDisp"
+    "lay\022\?\n\025E_MonsterDisplay_List\030\001 \003(\0132\032.pro"
+    "to_ff.E_MonsterDisplayB\004\210\301\024P\"\302\026\n\016E_Monst"
+    "erValue\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\225\260\345\200\274ID\022 \n\006m"
+    "_type\030\002 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\261\273\345\236\213\022%\n\013m_monst"
+    "erlv\030\003 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\255\211\347\272\247\022\"\n\010m_max_hp"
+    "\030\004 \001(\003B\020\302\377\024\014\346\234\200\345\244\247\347\224\237\345\221\275\022\031\n\005m_atk\030\005 \001(\003B"
+    "\n\302\377\024\006\346\224\273\345\207\273\022\031\n\005m_def\030\006 \001(\003B\n\302\377\024\006\351\230\262\345\276\241\022\037"
+    "\n\013m_brk_armor\030\007 \001(\003B\n\302\377\024\006\347\240\264\347\224\262\022$\n\nm_fiv"
+    "e_dam\030\010 \001(\003B\020\302\377\024\014\344\272\224\350\241\214\344\274\244\345\256\263\022&\n\014m_five_"
+    "armor\030\t \001(\003B\020\302\377\024\014\344\272\224\350\241\214\346\212\244\347\224\262\022&\n\014m_thump"
+    "_rate\030\n \001(\003B\020\302\377\024\014\351\207\215\345\207\273\345\207\240\347\216\207\022(\n\016m_thump"
+    "_resist\030\013 \001(\003B\020\302\377\024\014\351\207\215\345\207\273\346\212\265\346\212\227\022\031\n\005m_sky"
+    "\030\014 \001(\003B\n\302\377\024\006\345\244\251\351\201\223\022#\n\tm_sky_dam\030\r \001(\003B\020\302"
+    "\377\024\014\345\244\251\351\201\223\344\274\244\345\256\263\022+\n\021m_sky_redu_resist\030\016 \001"
+    "(\003B\020\302\377\024\014\345\244\251\351\201\223\345\207\217\346\212\227\022&\n\014m_sky_resist\030\017 \001"
+    "(\003B\020\302\377\024\014\345\244\251\351\201\223\346\212\227\346\200\247\022\036\n\nm_kill_god\030\020 \001(\003"
+    "B\n\302\377\024\006\345\274\221\347\245\236\022\036\n\nm_god_body\030\021 \001(\003B\n\302\377\024\006\347\245"
+    "\236\344\275\223\022\'\n\rm_mortal_rate\030\022 \001(\003B\020\302\377\024\014\345\207\241\345\205\215\345"
+    "\207\240\347\216\207\022)\n\017m_mortal_resist\030\023 \001(\003B\020\302\377\024\014\345\207\241\345"
+    "\205\215\346\212\227\346\200\247\022&\n\014m_fairy_rate\030\024 \001(\003B\020\302\377\024\014\344\273\231\345"
+    "\205\215\345\207\240\347\216\207\022(\n\016m_fairy_resist\030\025 \001(\003B\020\302\377\024\014\344\273"
+    "\231\345\205\215\346\212\227\346\200\247\022$\n\nm_god_rate\030\026 \001(\003B\020\302\377\024\014\347\245\236\345"
+    "\205\215\345\207\240\347\216\207\022&\n\014m_god_resist\030\027 \001(\003B\020\302\377\024\014\347\245\236\345"
+    "\205\215\346\212\227\346\200\247\022%\n\013m_crit_rate\030\030 \001(\003B\020\302\377\024\014\346\232\264\345\207"
+    "\273\345\207\240\347\216\207\022+\n\021m_crit_resit_rate\030\031 \001(\003B\020\302\377\024\014"
+    "\346\212\227\346\232\264\345\207\240\347\216\207\022$\n\nm_crit_dam\030\032 \001(\003B\020\302\377\024\014\346\232"
+    "\264\345\207\273\344\274\244\345\256\263\022%\n\013m_crit_redu\030\033 \001(\003B\020\302\377\024\014\346\232\264"
+    "\345\207\273\345\207\217\345\205\215\022\'\n\rm_batter_rate\030\034 \001(\003B\020\302\377\024\014\350\277"
+    "\236\345\207\273\345\207\240\347\216\207\022)\n\017m_batter_resist\030\035 \001(\003B\020\302\377\024"
+    "\014\350\277\236\345\207\273\346\212\265\346\212\227\022&\n\014m_batter_dam\030\036 \001(\003B\020\302\377\024"
+    "\014\350\277\236\345\207\273\344\274\244\345\256\263\022\'\n\rm_batter_redu\030\037 \001(\003B\020\302\377"
+    "\024\014\350\277\236\345\207\273\345\207\217\345\205\215\022(\n\016m_brkdown_rate\030  \001(\003B\020"
+    "\302\377\024\014\345\207\273\347\251\277\345\207\240\347\216\207\022*\n\020m_brkdown_resist\030! \001"
+    "(\003B\020\302\377\024\014\345\207\273\347\251\277\346\212\265\346\212\227\022#\n\tm_dam_add\030\" \001(\003B"
+    "\020\302\377\024\014\344\274\244\345\256\263\345\212\240\346\210\220\022$\n\nm_dam_redu\030# \001(\003B\020\302"
+    "\377\024\014\344\274\244\345\256\263\345\207\217\345\205\215\022#\n\tm_all_add\030$ \001(\003B\020\302\377\024\014"
+    "\345\205\250\350\203\275\345\242\236\344\274\244\022$\n\nm_all_redu\030% \001(\003B\020\302\377\024\014\345\205"
+    "\250\350\203\275\345\207\217\345\205\215\022%\n\013m_skill_add\030& \001(\003B\020\302\377\024\014\346\212\200"
+    "\350\203\275\345\242\236\344\274\244\022&\n\014m_skill_redu\030\' \001(\003B\020\302\377\024\014\346\212\200"
+    "\350\203\275\345\207\217\344\274\244\022\'\n\rm_rebound_dam\030( \001(\003B\020\302\377\024\014\345\217"
+    "\215\345\274\271\344\274\244\345\256\263\022$\n\nm_hp_steal\030) \001(\003B\020\302\377\024\014\347\224\237\345"
+    "\221\275\347\252\203\345\217\226\022&\n\014m_dodge_rate\030* \001(\003B\020\302\377\024\014\351\227\252\351"
+    "\201\277\345\207\240\347\216\207\022$\n\nm_hit_rate\030+ \001(\003B\020\302\377\024\014\345\221\275\344\270\255"
+    "\345\207\240\347\216\207\022$\n\nm_blk_rate\030, \001(\003B\020\302\377\024\014\346\240\274\346\214\241\345\207"
+    "\240\347\216\207\022(\n\016m_brk_blk_rate\030- \001(\003B\020\302\377\024\014\347\240\264\346\241\243"
+    "\345\207\240\347\216\207\022$\n\nm_blk_free\030. \001(\003B\020\302\377\024\014\346\240\274\346\214\241\345\205"
+    "\215\344\274\244\022&\n\014m_blk_pierce\030/ \001(\003B\020\302\377\024\014\346\240\274\346\214\241\347\251"
+    "\277\351\200\217\022%\n\013m_rel_armor\0300 \001(\003B\020\302\377\024\014\347\234\237\345\256\236\346\212\244"
+    "\347\224\262\022#\n\tm_rel_dam\0301 \001(\003B\020\302\377\024\014\347\234\237\345\256\236\344\274\244\345\256\263"
+    "\022\'\n\rm_five_resist\0302 \001(\003B\020\302\377\024\014\344\272\224\350\241\214\346\212\227\346\200"
+    "\247\022,\n\022m_five_resist_redu\0303 \001(\003B\020\302\377\024\014\344\272\224\350\241"
+    "\214\345\207\217\346\212\227\022$\n\nm_fire_add\0304 \001(\003B\020\302\377\024\014\347\246\273\347\201\253\345"
+    "\242\236\344\274\244\022%\n\013m_fire_redu\0305 \001(\003B\020\302\377\024\014\347\246\273\347\201\253\345\207"
+    "\217\344\274\244\022#\n\tm_ice_add\0306 \001(\003B\020\302\377\024\014\347\216\204\345\206\260\345\242\236\344\274"
+    "\244\022$\n\nm_ice_redu\0307 \001(\003B\020\302\377\024\014\347\216\204\345\206\260\345\207\217\344\274\244\022"
+    "\'\n\rm_thunder_add\0308 \001(\003B\020\302\377\024\014\351\233\267\347\275\232\345\242\236\344\274\244"
+    "\022\'\n\rm_thunder_rdu\0309 \001(\003B\020\302\377\024\014\351\233\267\347\275\232\345\207\217\344\274"
+    "\244\022&\n\014m_player_add\030: \001(\003B\020\302\377\024\014\347\216\251\345\256\266\345\207\217\344\274"
+    "\244\022\'\n\rm_player_redu\030; \001(\003B\020\302\377\024\014\347\216\251\345\256\266\345\242\236\344"
+    "\274\244\022&\n\014m_leader_add\030< \001(\003B\020\302\377\024\014\351\246\226\351\242\206\345\207\217\344"
+    "\274\244\022\'\n\rm_leader_redu\030= \001(\003B\020\302\377\024\014\351\246\226\351\242\206\345\242\236"
+    "\344\274\244\022#\n\tm_mon_add\030> \001(\003B\020\302\377\024\014\346\200\252\347\211\251\345\207\217\344\274\244"
+    "\022$\n\nm_mon_redu\030\? \001(\003B\020\302\377\024\014\346\200\252\347\211\251\345\242\236\344\274\244\022$"
+    "\n\nm_var_redu\030@ \001(\003B\020\302\377\024\014\345\217\230\350\272\253\345\207\217\344\274\244\022#\n\t"
+    "m_var_add\030A \001(\003B\020\302\377\024\014\345\217\230\350\272\253\345\242\236\344\274\244\022*\n\020m_u"
+    "nusual_resist\030B \001(\003B\020\302\377\024\014\345\274\202\345\270\270\346\212\265\346\212\227\022\'\n"
+    "\rm_unusual_hit\030C \001(\003B\020\302\377\024\014\345\274\202\345\270\270\345\221\275\344\270\255\022&"
+    "\n\014m_hp_recover\030D \001(\003B\020\302\377\024\014\347\224\237\345\221\275\346\201\242\345\244\215\022\'"
+    "\n\rm_unusual_add\030E \001(\003B\020\302\377\024\014\345\274\202\345\270\270\345\242\236\344\274\244\022"
+    "\'\n\rm_fix_recover\030F \001(\003B\020\302\377\024\014\345\233\272\345\256\232\345\233\236\345\244\215"
+    "\022\'\n\rm_high_hp_add\030G \001(\003B\020\302\377\024\014\351\253\230\350\241\200\345\242\236\344\274"
+    "\244\022*\n\020m_recover_hp_add\030H \001(\003B\020\302\377\024\014\345\233\236\350\241\200\345"
+    "\242\236\346\225\210\022$\n\nm_week_add\030I \001(\003B\020\302\377\024\014\350\231\232\345\274\261\345\242\236"
+    "\344\274\244\022\034\n\010m_shield\030J \001(\003B\n\302\377\024\006\346\212\244\347\233\276\"R\n\022She"
+    "et_MonsterValue\022<\n\023E_MonsterValue_List\030\001"
+    " \003(\0132\030.proto_ff.E_MonsterValueB\005\210\301\024\310\001\"\204\027"
+    "\n\023E_MonsterValueparam\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
+    "\002id\022$\n\nm_p_max_hp\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\347\224\237\345\221"
+    "\275\022\033\n\007m_p_atk\030\003 \001(\005B\n\302\377\024\006\346\224\273\345\207\273\022\033\n\007m_p_de"
+    "f\030\004 \001(\005B\n\302\377\024\006\351\230\262\345\276\241\022!\n\rm_p_brk_armor\030\005 \001"
+    "(\005B\n\302\377\024\006\347\240\264\347\224\262\022&\n\014m_p_five_dam\030\006 \001(\005B\020\302\377"
+    "\024\014\344\272\224\350\241\214\344\274\244\345\256\263\022(\n\016m_p_five_armor\030\007 \001(\005B\020"
+    "\302\377\024\014\344\272\224\350\241\214\346\212\244\347\224\262\022(\n\016m_p_thump_rate\030\010 \001(\005"
+    "B\020\302\377\024\014\351\207\215\345\207\273\345\207\240\347\216\207\022*\n\020m_p_thump_resist\030\t"
+    " \001(\005B\020\302\377\024\014\351\207\215\345\207\273\346\212\265\346\212\227\022\033\n\007m_p_sky\030\n \001(\005B"
+    "\n\302\377\024\006\345\244\251\351\201\223\022%\n\013m_p_sky_dam\030\013 \001(\005B\020\302\377\024\014\345\244"
+    "\251\351\201\223\344\274\244\345\256\263\022-\n\023m_p_sky_redu_resist\030\014 \001(\005B"
+    "\020\302\377\024\014\345\244\251\351\201\223\345\207\217\346\212\227\022(\n\016m_p_sky_resist\030\r \001("
+    "\005B\020\302\377\024\014\345\244\251\351\201\223\346\212\227\346\200\247\022 \n\014m_p_kill_god\030\016 \001("
+    "\005B\n\302\377\024\006\345\274\221\347\245\236\022 \n\014m_p_god_body\030\017 \001(\005B\n\302\377\024"
+    "\006\347\245\236\344\275\223\022)\n\017m_p_mortal_rate\030\020 \001(\005B\020\302\377\024\014\345\207"
+    "\241\345\205\215\345\207\240\347\216\207\022+\n\021m_p_mortal_resist\030\021 \001(\005B\020\302"
+    "\377\024\014\345\207\241\345\205\215\346\212\227\346\200\247\022(\n\016m_p_fairy_rate\030\022 \001(\005B"
+    "\020\302\377\024\014\344\273\231\345\205\215\345\207\240\347\216\207\022*\n\020m_p_fairy_resist\030\023 "
+    "\001(\005B\020\302\377\024\014\344\273\231\345\205\215\346\212\227\346\200\247\022&\n\014m_p_god_rate\030\024 "
+    "\001(\005B\020\302\377\024\014\347\245\236\345\205\215\345\207\240\347\216\207\022(\n\016m_p_god_resist\030"
+    "\025 \001(\005B\020\302\377\024\014\347\245\236\345\205\215\346\212\227\346\200\247\022\'\n\rm_p_crit_rate"
+    "\030\026 \001(\005B\020\302\377\024\014\346\232\264\345\207\273\345\207\240\347\216\207\022-\n\023m_p_crit_res"
+    "it_rate\030\027 \001(\005B\020\302\377\024\014\346\212\227\346\232\264\345\207\240\347\216\207\022&\n\014m_p_c"
+    "rit_dam\030\030 \001(\005B\020\302\377\024\014\346\232\264\345\207\273\344\274\244\345\256\263\022\'\n\rm_p_c"
+    "rit_redu\030\031 \001(\005B\020\302\377\024\014\346\232\264\345\207\273\345\207\217\345\205\215\022)\n\017m_p_"
+    "batter_rate\030\032 \001(\005B\020\302\377\024\014\350\277\236\345\207\273\345\207\240\347\216\207\022+\n\021m"
+    "_p_batter_resist\030\033 \001(\005B\020\302\377\024\014\350\277\236\345\207\273\346\212\265\346\212\227"
+    "\022(\n\016m_p_batter_dam\030\034 \001(\005B\020\302\377\024\014\350\277\236\345\207\273\344\274\244\345"
+    "\256\263\022)\n\017m_p_batter_redu\030\035 \001(\005B\020\302\377\024\014\350\277\236\345\207\273\345"
+    "\207\217\345\205\215\022*\n\020m_p_brkdown_rate\030\036 \001(\005B\020\302\377\024\014\345\207\273"
+    "\347\251\277\345\207\240\347\216\207\022,\n\022m_p_brkdown_resist\030\037 \001(\005B\020\302"
+    "\377\024\014\345\207\273\347\251\277\346\212\265\346\212\227\022%\n\013m_p_dam_add\030  \001(\005B\020\302\377"
+    "\024\014\344\274\244\345\256\263\345\212\240\346\210\220\022&\n\014m_p_dam_redu\030! \001(\005B\020\302\377"
+    "\024\014\344\274\244\345\256\263\345\207\217\345\205\215\022%\n\013m_p_all_add\030\" \001(\005B\020\302\377\024"
+    "\014\345\205\250\350\203\275\345\242\236\344\274\244\022&\n\014m_p_all_redu\030# \001(\005B\020\302\377\024"
+    "\014\345\205\250\350\203\275\345\207\217\345\205\215\022\'\n\rm_p_skill_add\030$ \001(\005B\020\302\377"
+    "\024\014\346\212\200\350\203\275\345\242\236\344\274\244\022(\n\016m_p_skill_redu\030% \001(\005B\020"
+    "\302\377\024\014\346\212\200\350\203\275\345\207\217\344\274\244\022)\n\017m_p_rebound_dam\030& \001("
+    "\005B\020\302\377\024\014\345\217\215\345\274\271\344\274\244\345\256\263\022&\n\014m_p_hp_steal\030\' \001("
+    "\005B\020\302\377\024\014\347\224\237\345\221\275\347\252\203\345\217\226\022(\n\016m_p_dodge_rate\030( "
+    "\001(\005B\020\302\377\024\014\351\227\252\351\201\277\345\207\240\347\216\207\022&\n\014m_p_hit_rate\030) "
+    "\001(\005B\020\302\377\024\014\345\221\275\344\270\255\345\207\240\347\216\207\022&\n\014m_p_blk_rate\030* "
+    "\001(\005B\020\302\377\024\014\346\240\274\346\214\241\345\207\240\347\216\207\022*\n\020m_p_brk_blk_rat"
+    "e\030+ \001(\005B\020\302\377\024\014\347\240\264\346\241\243\345\207\240\347\216\207\022&\n\014m_p_blk_fre"
+    "e\030, \001(\005B\020\302\377\024\014\346\240\274\346\214\241\345\205\215\344\274\244\022(\n\016m_p_blk_pie"
+    "rce\030- \001(\005B\020\302\377\024\014\346\240\274\346\214\241\347\251\277\351\200\217\022\'\n\rm_p_rel_a"
+    "rmor\030. \001(\005B\020\302\377\024\014\347\234\237\345\256\236\346\212\244\347\224\262\022%\n\013m_p_rel_"
+    "dam\030/ \001(\005B\020\302\377\024\014\347\234\237\345\256\236\344\274\244\345\256\263\022)\n\017m_p_five_"
+    "resist\0300 \001(\005B\020\302\377\024\014\344\272\224\350\241\214\346\212\227\346\200\247\022.\n\024m_p_fi"
+    "ve_resist_redu\0301 \001(\005B\020\302\377\024\014\344\272\224\350\241\214\345\207\217\346\212\227\022&"
+    "\n\014m_p_fire_add\0302 \001(\005B\020\302\377\024\014\347\246\273\347\201\253\345\242\236\344\274\244\022\'"
+    "\n\rm_p_fire_redu\0303 \001(\005B\020\302\377\024\014\347\246\273\347\201\253\345\207\217\344\274\244\022"
+    "%\n\013m_p_ice_add\0304 \001(\005B\020\302\377\024\014\347\216\204\345\206\260\345\242\236\344\274\244\022&"
+    "\n\014m_p_ice_redu\0305 \001(\005B\020\302\377\024\014\347\216\204\345\206\260\345\207\217\344\274\244\022)"
+    "\n\017m_p_thunder_add\0306 \001(\005B\020\302\377\024\014\351\233\267\347\275\232\345\242\236\344\274"
+    "\244\022)\n\017m_p_thunder_rdu\0307 \001(\005B\020\302\377\024\014\351\233\267\347\275\232\345\207"
+    "\217\344\274\244\022(\n\016m_p_player_add\0308 \001(\005B\020\302\377\024\014\347\216\251\345\256\266"
+    "\345\207\217\344\274\244\022)\n\017m_p_player_redu\0309 \001(\005B\020\302\377\024\014\347\216\251"
+    "\345\256\266\345\242\236\344\274\244\022(\n\016m_p_leader_add\030: \001(\005B\020\302\377\024\014\351"
+    "\246\226\351\242\206\345\207\217\344\274\244\022)\n\017m_p_leader_redu\030; \001(\005B\020\302\377"
+    "\024\014\351\246\226\351\242\206\345\242\236\344\274\244\022%\n\013m_p_mon_add\030< \001(\005B\020\302\377\024"
+    "\014\346\200\252\347\211\251\345\207\217\344\274\244\022&\n\014m_p_mon_redu\030= \001(\005B\020\302\377\024"
+    "\014\346\200\252\347\211\251\345\242\236\344\274\244\022&\n\014m_p_var_redu\030> \001(\005B\020\302\377\024"
+    "\014\345\217\230\350\272\253\345\207\217\344\274\244\022%\n\013m_p_var_add\030\? \001(\005B\020\302\377\024\014"
+    "\345\217\230\350\272\253\345\242\236\344\274\244\022,\n\022m_p_unusual_resist\030@ \001(\005"
+    "B\020\302\377\024\014\345\274\202\345\270\270\346\212\265\346\212\227\022)\n\017m_p_unusual_hit\030A "
+    "\001(\005B\020\302\377\024\014\345\274\202\345\270\270\345\221\275\344\270\255\022(\n\016m_p_hp_recover\030"
+    "B \001(\005B\020\302\377\024\014\347\224\237\345\221\275\346\201\242\345\244\215\022)\n\017m_p_unusual_a"
+    "dd\030C \001(\005B\020\302\377\024\014\345\274\202\345\270\270\345\242\236\344\274\244\022)\n\017m_p_fix_re"
+    "cover\030D \001(\005B\020\302\377\024\014\345\233\272\345\256\232\345\233\236\345\244\215\022)\n\017m_p_hig"
+    "h_hp_add\030E \001(\005B\020\302\377\024\014\351\253\230\350\241\200\345\242\236\344\274\244\022,\n\022m_p_"
+    "recover_hp_add\030F \001(\005B\020\302\377\024\014\345\233\236\350\241\200\345\242\236\346\225\210\022&"
+    "\n\014m_p_week_add\030G \001(\005B\020\302\377\024\014\350\231\232\345\274\261\345\242\236\344\274\244\022\034"
+    "\n\010m_shield\030H \001(\003B\n\302\377\024\006\346\212\244\347\233\276\"`\n\027Sheet_Mo"
+    "nsterValueparam\022E\n\030E_MonsterValueparam_L"
+    "ist\030\001 \003(\0132\035.proto_ff.E_MonsterValueparam"
+    "B\004\210\301\024\024\"\254\001\n\rE_MonsterDrop\022\035\n\004m_id\030\001 \001(\005B\017"
+    "\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022\036\n\007m_group\030\002 \001(\005B\r\302\377\024\t\346\216"
+    "\211\350\220\275\347\273\204\022\034\n\005m_own\030\003 \001(\005B\r\302\377\024\t\345\275\222\345\261\236\346\235\203\022 \n"
+    "\006m_type\030\004 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\346\226\271\345\274\217\022\034\n\007m_box"
+    "id\030\005 \003(\003B\013\302\377\024\003box\210\301\024\005\"N\n\021Sheet_MonsterDr"
+    "op\0229\n\022E_MonsterDrop_List\030\001 \003(\0132\027.proto_f"
+    "f.E_MonsterDropB\004\210\301\024\024", 8141);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "monster.proto", &protobuf_RegisterTypes);
-  monstermonster::default_instance_ = new monstermonster();
-  Sheet_monstermonster::default_instance_ = new Sheet_monstermonster();
-  monsterdisplayskillDesc::default_instance_ = new monsterdisplayskillDesc();
-  monsterdisplay::default_instance_ = new monsterdisplay();
-  Sheet_monsterdisplay::default_instance_ = new Sheet_monsterdisplay();
-  monstervalue::default_instance_ = new monstervalue();
-  Sheet_monstervalue::default_instance_ = new Sheet_monstervalue();
-  monstervalueParam::default_instance_ = new monstervalueParam();
-  Sheet_monstervalueParam::default_instance_ = new Sheet_monstervalueParam();
-  monsterdrop::default_instance_ = new monsterdrop();
-  Sheet_monsterdrop::default_instance_ = new Sheet_monsterdrop();
-  monstermonster::default_instance_->InitAsDefaultInstance();
-  Sheet_monstermonster::default_instance_->InitAsDefaultInstance();
-  monsterdisplayskillDesc::default_instance_->InitAsDefaultInstance();
-  monsterdisplay::default_instance_->InitAsDefaultInstance();
-  Sheet_monsterdisplay::default_instance_->InitAsDefaultInstance();
-  monstervalue::default_instance_->InitAsDefaultInstance();
-  Sheet_monstervalue::default_instance_->InitAsDefaultInstance();
-  monstervalueParam::default_instance_->InitAsDefaultInstance();
-  Sheet_monstervalueParam::default_instance_->InitAsDefaultInstance();
-  monsterdrop::default_instance_->InitAsDefaultInstance();
-  Sheet_monsterdrop::default_instance_->InitAsDefaultInstance();
+  E_MonsterMonster::default_instance_ = new E_MonsterMonster();
+  Sheet_MonsterMonster::default_instance_ = new Sheet_MonsterMonster();
+  E_MonsterDisplaySkillDesc::default_instance_ = new E_MonsterDisplaySkillDesc();
+  E_MonsterDisplay::default_instance_ = new E_MonsterDisplay();
+  Sheet_MonsterDisplay::default_instance_ = new Sheet_MonsterDisplay();
+  E_MonsterValue::default_instance_ = new E_MonsterValue();
+  Sheet_MonsterValue::default_instance_ = new Sheet_MonsterValue();
+  E_MonsterValueparam::default_instance_ = new E_MonsterValueparam();
+  Sheet_MonsterValueparam::default_instance_ = new Sheet_MonsterValueparam();
+  E_MonsterDrop::default_instance_ = new E_MonsterDrop();
+  Sheet_MonsterDrop::default_instance_ = new Sheet_MonsterDrop();
+  E_MonsterMonster::default_instance_->InitAsDefaultInstance();
+  Sheet_MonsterMonster::default_instance_->InitAsDefaultInstance();
+  E_MonsterDisplaySkillDesc::default_instance_->InitAsDefaultInstance();
+  E_MonsterDisplay::default_instance_->InitAsDefaultInstance();
+  Sheet_MonsterDisplay::default_instance_->InitAsDefaultInstance();
+  E_MonsterValue::default_instance_->InitAsDefaultInstance();
+  Sheet_MonsterValue::default_instance_->InitAsDefaultInstance();
+  E_MonsterValueparam::default_instance_->InitAsDefaultInstance();
+  Sheet_MonsterValueparam::default_instance_->InitAsDefaultInstance();
+  E_MonsterDrop::default_instance_->InitAsDefaultInstance();
+  Sheet_MonsterDrop::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_monster_2eproto);
 }
 
@@ -711,578 +721,578 @@ struct StaticDescriptorInitializer_monster_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int monstermonster::kMonsterIDFieldNumber;
-const int monstermonster::kMonsterNameFieldNumber;
-const int monstermonster::kFunctionTypeFieldNumber;
-const int monstermonster::kFunctionValueFieldNumber;
-const int monstermonster::kProfessionFieldNumber;
-const int monstermonster::kDamageAddTypeFieldNumber;
-const int monstermonster::kMonsterLVFieldNumber;
-const int monstermonster::kDroplimitFieldNumber;
-const int monstermonster::kDisplayIDFieldNumber;
-const int monstermonster::kValuetypeFieldNumber;
-const int monstermonster::kValueParamFieldNumber;
-const int monstermonster::kAiIdFieldNumber;
-const int monstermonster::kHpSectionNumFieldNumber;
-const int monstermonster::kBreedProbFieldNumber;
-const int monstermonster::kBreedMonIDFieldNumber;
-const int monstermonster::kBreedMonLiveFieldNumber;
-const int monstermonster::kItemCostFieldNumber;
-const int monstermonster::kIsBornActionOnFieldNumber;
-const int monstermonster::kBelongshowFieldNumber;
-const int monstermonster::kDropGroupIDFieldNumber;
-const int monstermonster::kHarmdropTypeFieldNumber;
-const int monstermonster::kJoninperFieldNumber;
-const int monstermonster::kBtnRangeFieldNumber;
-const int monstermonster::kBtnIdFieldNumber;
-const int monstermonster::kDrivePointFieldNumber;
-const int monstermonster::kCorpseIDFieldNumber;
+const int E_MonsterMonster::kMMonsteridFieldNumber;
+const int E_MonsterMonster::kMMonsternameFieldNumber;
+const int E_MonsterMonster::kMFunctiontypeFieldNumber;
+const int E_MonsterMonster::kMFunctionvalueFieldNumber;
+const int E_MonsterMonster::kMProfessionFieldNumber;
+const int E_MonsterMonster::kMDamageaddtypeFieldNumber;
+const int E_MonsterMonster::kMMonsterlvFieldNumber;
+const int E_MonsterMonster::kMDroplimitFieldNumber;
+const int E_MonsterMonster::kMDisplayidFieldNumber;
+const int E_MonsterMonster::kMValuetypeFieldNumber;
+const int E_MonsterMonster::kMValueparamFieldNumber;
+const int E_MonsterMonster::kMAiidFieldNumber;
+const int E_MonsterMonster::kMHpsectionnumFieldNumber;
+const int E_MonsterMonster::kMBreedprobFieldNumber;
+const int E_MonsterMonster::kMBreedmonidFieldNumber;
+const int E_MonsterMonster::kMBreedmonliveFieldNumber;
+const int E_MonsterMonster::kMItemcostFieldNumber;
+const int E_MonsterMonster::kMIsbornactiononFieldNumber;
+const int E_MonsterMonster::kMBelongshowFieldNumber;
+const int E_MonsterMonster::kMDropgroupidFieldNumber;
+const int E_MonsterMonster::kMHarmdropTypeFieldNumber;
+const int E_MonsterMonster::kMJoninperFieldNumber;
+const int E_MonsterMonster::kMBtnrangeFieldNumber;
+const int E_MonsterMonster::kMBtnidFieldNumber;
+const int E_MonsterMonster::kMDrivepointFieldNumber;
+const int E_MonsterMonster::kMCorpseidFieldNumber;
 #endif  // !_MSC_VER
 
-monstermonster::monstermonster()
+E_MonsterMonster::E_MonsterMonster()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void monstermonster::InitAsDefaultInstance() {
+void E_MonsterMonster::InitAsDefaultInstance() {
 }
 
-monstermonster::monstermonster(const monstermonster& from)
+E_MonsterMonster::E_MonsterMonster(const E_MonsterMonster& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void monstermonster::SharedCtor() {
+void E_MonsterMonster::SharedCtor() {
   _cached_size_ = 0;
-  monsterid_ = GOOGLE_LONGLONG(0);
-  monstername_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  functiontype_ = 0;
-  functionvalue_ = GOOGLE_LONGLONG(0);
-  profession_ = 0;
-  damageaddtype_ = 0;
-  monsterlv_ = 0;
-  droplimit_ = 0;
-  displayid_ = GOOGLE_LONGLONG(0);
-  valuetype_ = GOOGLE_LONGLONG(0);
-  valueparam_ = 0;
-  aiid_ = GOOGLE_LONGLONG(0);
-  hpsectionnum_ = 0;
-  breedprob_ = 0;
-  breedmonid_ = GOOGLE_LONGLONG(0);
-  breedmonlive_ = 0;
-  itemcost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  isbornactionon_ = 0;
-  belongshow_ = 0;
-  dropgroupid_ = 0;
-  harmdrop_type_ = 0;
-  joninper_ = 0;
-  btnrange_ = 0;
-  btnid_ = GOOGLE_LONGLONG(0);
-  drivepoint_ = 0;
-  corpseid_ = 0;
+  m_monsterid_ = GOOGLE_LONGLONG(0);
+  m_monstername_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_functiontype_ = 0;
+  m_functionvalue_ = GOOGLE_LONGLONG(0);
+  m_profession_ = 0;
+  m_damageaddtype_ = 0;
+  m_monsterlv_ = 0;
+  m_droplimit_ = 0;
+  m_displayid_ = GOOGLE_LONGLONG(0);
+  m_valuetype_ = GOOGLE_LONGLONG(0);
+  m_valueparam_ = 0;
+  m_aiid_ = GOOGLE_LONGLONG(0);
+  m_hpsectionnum_ = 0;
+  m_breedprob_ = 0;
+  m_breedmonid_ = GOOGLE_LONGLONG(0);
+  m_breedmonlive_ = 0;
+  m_itemcost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_isbornactionon_ = 0;
+  m_belongshow_ = 0;
+  m_dropgroupid_ = 0;
+  m_harmdrop_type_ = 0;
+  m_joninper_ = 0;
+  m_btnrange_ = 0;
+  m_btnid_ = GOOGLE_LONGLONG(0);
+  m_drivepoint_ = 0;
+  m_corpseid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-monstermonster::~monstermonster() {
+E_MonsterMonster::~E_MonsterMonster() {
   SharedDtor();
 }
 
-void monstermonster::SharedDtor() {
-  if (monstername_ != &::google::protobuf::internal::kEmptyString) {
-    delete monstername_;
+void E_MonsterMonster::SharedDtor() {
+  if (m_monstername_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_monstername_;
   }
-  if (itemcost_ != &::google::protobuf::internal::kEmptyString) {
-    delete itemcost_;
+  if (m_itemcost_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_itemcost_;
   }
   if (this != default_instance_) {
   }
 }
 
-void monstermonster::SetCachedSize(int size) const {
+void E_MonsterMonster::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* monstermonster::descriptor() {
+const ::google::protobuf::Descriptor* E_MonsterMonster::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return monstermonster_descriptor_;
+  return E_MonsterMonster_descriptor_;
 }
 
-const monstermonster& monstermonster::default_instance() {
+const E_MonsterMonster& E_MonsterMonster::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-monstermonster* monstermonster::default_instance_ = NULL;
+E_MonsterMonster* E_MonsterMonster::default_instance_ = NULL;
 
-monstermonster* monstermonster::New() const {
-  return new monstermonster;
+E_MonsterMonster* E_MonsterMonster::New() const {
+  return new E_MonsterMonster;
 }
 
-void monstermonster::Clear() {
+void E_MonsterMonster::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    monsterid_ = GOOGLE_LONGLONG(0);
-    if (has_monstername()) {
-      if (monstername_ != &::google::protobuf::internal::kEmptyString) {
-        monstername_->clear();
+    m_monsterid_ = GOOGLE_LONGLONG(0);
+    if (has_m_monstername()) {
+      if (m_monstername_ != &::google::protobuf::internal::kEmptyString) {
+        m_monstername_->clear();
       }
     }
-    functiontype_ = 0;
-    functionvalue_ = GOOGLE_LONGLONG(0);
-    profession_ = 0;
-    damageaddtype_ = 0;
-    monsterlv_ = 0;
-    droplimit_ = 0;
+    m_functiontype_ = 0;
+    m_functionvalue_ = GOOGLE_LONGLONG(0);
+    m_profession_ = 0;
+    m_damageaddtype_ = 0;
+    m_monsterlv_ = 0;
+    m_droplimit_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    displayid_ = GOOGLE_LONGLONG(0);
-    valuetype_ = GOOGLE_LONGLONG(0);
-    valueparam_ = 0;
-    aiid_ = GOOGLE_LONGLONG(0);
-    hpsectionnum_ = 0;
-    breedprob_ = 0;
-    breedmonid_ = GOOGLE_LONGLONG(0);
-    breedmonlive_ = 0;
+    m_displayid_ = GOOGLE_LONGLONG(0);
+    m_valuetype_ = GOOGLE_LONGLONG(0);
+    m_valueparam_ = 0;
+    m_aiid_ = GOOGLE_LONGLONG(0);
+    m_hpsectionnum_ = 0;
+    m_breedprob_ = 0;
+    m_breedmonid_ = GOOGLE_LONGLONG(0);
+    m_breedmonlive_ = 0;
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (has_itemcost()) {
-      if (itemcost_ != &::google::protobuf::internal::kEmptyString) {
-        itemcost_->clear();
+    if (has_m_itemcost()) {
+      if (m_itemcost_ != &::google::protobuf::internal::kEmptyString) {
+        m_itemcost_->clear();
       }
     }
-    isbornactionon_ = 0;
-    belongshow_ = 0;
-    dropgroupid_ = 0;
-    harmdrop_type_ = 0;
-    joninper_ = 0;
-    btnrange_ = 0;
-    btnid_ = GOOGLE_LONGLONG(0);
+    m_isbornactionon_ = 0;
+    m_belongshow_ = 0;
+    m_dropgroupid_ = 0;
+    m_harmdrop_type_ = 0;
+    m_joninper_ = 0;
+    m_btnrange_ = 0;
+    m_btnid_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    drivepoint_ = 0;
-    corpseid_ = 0;
+    m_drivepoint_ = 0;
+    m_corpseid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool monstermonster::MergePartialFromCodedStream(
+bool E_MonsterMonster::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 monsterID = 1;
+      // optional int64 m_monsterid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &monsterid_)));
-          set_has_monsterid();
+                 input, &m_monsterid_)));
+          set_has_m_monsterid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_monsterName;
+        if (input->ExpectTag(18)) goto parse_m_monstername;
         break;
       }
 
-      // optional string monsterName = 2;
+      // optional string m_monstername = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_monsterName:
+         parse_m_monstername:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_monstername()));
+                input, this->mutable_m_monstername()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->monstername().data(), this->monstername().length(),
+            this->m_monstername().data(), this->m_monstername().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_functionType;
+        if (input->ExpectTag(24)) goto parse_m_functiontype;
         break;
       }
 
-      // optional int32 functionType = 3;
+      // optional int32 m_functiontype = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_functionType:
+         parse_m_functiontype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &functiontype_)));
-          set_has_functiontype();
+                 input, &m_functiontype_)));
+          set_has_m_functiontype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_functionValue;
+        if (input->ExpectTag(32)) goto parse_m_functionvalue;
         break;
       }
 
-      // optional int64 functionValue = 4;
+      // optional int64 m_functionvalue = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_functionValue:
+         parse_m_functionvalue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &functionvalue_)));
-          set_has_functionvalue();
+                 input, &m_functionvalue_)));
+          set_has_m_functionvalue();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_profession;
+        if (input->ExpectTag(40)) goto parse_m_profession;
         break;
       }
 
-      // optional int32 profession = 5;
+      // optional int32 m_profession = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_profession:
+         parse_m_profession:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &profession_)));
-          set_has_profession();
+                 input, &m_profession_)));
+          set_has_m_profession();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_damageAddType;
+        if (input->ExpectTag(48)) goto parse_m_damageaddtype;
         break;
       }
 
-      // optional int32 damageAddType = 6;
+      // optional int32 m_damageaddtype = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_damageAddType:
+         parse_m_damageaddtype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &damageaddtype_)));
-          set_has_damageaddtype();
+                 input, &m_damageaddtype_)));
+          set_has_m_damageaddtype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_monsterLV;
+        if (input->ExpectTag(56)) goto parse_m_monsterlv;
         break;
       }
 
-      // optional int32 monsterLV = 7;
+      // optional int32 m_monsterlv = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_monsterLV:
+         parse_m_monsterlv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &monsterlv_)));
-          set_has_monsterlv();
+                 input, &m_monsterlv_)));
+          set_has_m_monsterlv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_droplimit;
+        if (input->ExpectTag(64)) goto parse_m_droplimit;
         break;
       }
 
-      // optional int32 droplimit = 8;
+      // optional int32 m_droplimit = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_droplimit:
+         parse_m_droplimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &droplimit_)));
-          set_has_droplimit();
+                 input, &m_droplimit_)));
+          set_has_m_droplimit();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_displayID;
+        if (input->ExpectTag(72)) goto parse_m_displayid;
         break;
       }
 
-      // optional int64 displayID = 9;
+      // optional int64 m_displayid = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_displayID:
+         parse_m_displayid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &displayid_)));
-          set_has_displayid();
+                 input, &m_displayid_)));
+          set_has_m_displayid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_valuetype;
+        if (input->ExpectTag(80)) goto parse_m_valuetype;
         break;
       }
 
-      // optional int64 valuetype = 10;
+      // optional int64 m_valuetype = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_valuetype:
+         parse_m_valuetype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &valuetype_)));
-          set_has_valuetype();
+                 input, &m_valuetype_)));
+          set_has_m_valuetype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_valueParam;
+        if (input->ExpectTag(88)) goto parse_m_valueparam;
         break;
       }
 
-      // optional int32 valueParam = 11;
+      // optional int32 m_valueparam = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_valueParam:
+         parse_m_valueparam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &valueparam_)));
-          set_has_valueparam();
+                 input, &m_valueparam_)));
+          set_has_m_valueparam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_aiId;
+        if (input->ExpectTag(96)) goto parse_m_aiid;
         break;
       }
 
-      // optional int64 aiId = 12;
+      // optional int64 m_aiid = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_aiId:
+         parse_m_aiid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &aiid_)));
-          set_has_aiid();
+                 input, &m_aiid_)));
+          set_has_m_aiid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_hpSectionNum;
+        if (input->ExpectTag(104)) goto parse_m_hpsectionnum;
         break;
       }
 
-      // optional int32 hpSectionNum = 13;
+      // optional int32 m_hpsectionnum = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_hpSectionNum:
+         parse_m_hpsectionnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &hpsectionnum_)));
-          set_has_hpsectionnum();
+                 input, &m_hpsectionnum_)));
+          set_has_m_hpsectionnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_breedProb;
+        if (input->ExpectTag(112)) goto parse_m_breedprob;
         break;
       }
 
-      // optional int32 breedProb = 14;
+      // optional int32 m_breedprob = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_breedProb:
+         parse_m_breedprob:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &breedprob_)));
-          set_has_breedprob();
+                 input, &m_breedprob_)));
+          set_has_m_breedprob();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_breedMonID;
+        if (input->ExpectTag(120)) goto parse_m_breedmonid;
         break;
       }
 
-      // optional int64 breedMonID = 15;
+      // optional int64 m_breedmonid = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_breedMonID:
+         parse_m_breedmonid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &breedmonid_)));
-          set_has_breedmonid();
+                 input, &m_breedmonid_)));
+          set_has_m_breedmonid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_breedMonLive;
+        if (input->ExpectTag(128)) goto parse_m_breedmonlive;
         break;
       }
 
-      // optional int32 breedMonLive = 16;
+      // optional int32 m_breedmonlive = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_breedMonLive:
+         parse_m_breedmonlive:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &breedmonlive_)));
-          set_has_breedmonlive();
+                 input, &m_breedmonlive_)));
+          set_has_m_breedmonlive();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(138)) goto parse_itemCost;
+        if (input->ExpectTag(138)) goto parse_m_itemcost;
         break;
       }
 
-      // optional string itemCost = 17;
+      // optional string m_itemcost = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_itemCost:
+         parse_m_itemcost:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_itemcost()));
+                input, this->mutable_m_itemcost()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->itemcost().data(), this->itemcost().length(),
+            this->m_itemcost().data(), this->m_itemcost().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_isBornActionOn;
+        if (input->ExpectTag(144)) goto parse_m_isbornactionon;
         break;
       }
 
-      // optional int32 isBornActionOn = 18;
+      // optional int32 m_isbornactionon = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_isBornActionOn:
+         parse_m_isbornactionon:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &isbornactionon_)));
-          set_has_isbornactionon();
+                 input, &m_isbornactionon_)));
+          set_has_m_isbornactionon();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_belongshow;
+        if (input->ExpectTag(152)) goto parse_m_belongshow;
         break;
       }
 
-      // optional int32 belongshow = 19;
+      // optional int32 m_belongshow = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_belongshow:
+         parse_m_belongshow:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &belongshow_)));
-          set_has_belongshow();
+                 input, &m_belongshow_)));
+          set_has_m_belongshow();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_dropGroupID;
+        if (input->ExpectTag(160)) goto parse_m_dropgroupid;
         break;
       }
 
-      // optional int32 dropGroupID = 20;
+      // optional int32 m_dropgroupid = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dropGroupID:
+         parse_m_dropgroupid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &dropgroupid_)));
-          set_has_dropgroupid();
+                 input, &m_dropgroupid_)));
+          set_has_m_dropgroupid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_harmdrop_type;
+        if (input->ExpectTag(168)) goto parse_m_harmdrop_type;
         break;
       }
 
-      // optional int32 harmdrop_type = 21;
+      // optional int32 m_harmdrop_type = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_harmdrop_type:
+         parse_m_harmdrop_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &harmdrop_type_)));
-          set_has_harmdrop_type();
+                 input, &m_harmdrop_type_)));
+          set_has_m_harmdrop_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(176)) goto parse_joninper;
+        if (input->ExpectTag(176)) goto parse_m_joninper;
         break;
       }
 
-      // optional int32 joninper = 22;
+      // optional int32 m_joninper = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_joninper:
+         parse_m_joninper:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &joninper_)));
-          set_has_joninper();
+                 input, &m_joninper_)));
+          set_has_m_joninper();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_btnRange;
+        if (input->ExpectTag(184)) goto parse_m_btnrange;
         break;
       }
 
-      // optional int32 btnRange = 23;
+      // optional int32 m_btnrange = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_btnRange:
+         parse_m_btnrange:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &btnrange_)));
-          set_has_btnrange();
+                 input, &m_btnrange_)));
+          set_has_m_btnrange();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_btnId;
+        if (input->ExpectTag(192)) goto parse_m_btnid;
         break;
       }
 
-      // optional int64 btnId = 24;
+      // optional int64 m_btnid = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_btnId:
+         parse_m_btnid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &btnid_)));
-          set_has_btnid();
+                 input, &m_btnid_)));
+          set_has_m_btnid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_drivePoint;
+        if (input->ExpectTag(200)) goto parse_m_drivepoint;
         break;
       }
 
-      // optional int32 drivePoint = 25;
+      // optional int32 m_drivepoint = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_drivePoint:
+         parse_m_drivepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &drivepoint_)));
-          set_has_drivepoint();
+                 input, &m_drivepoint_)));
+          set_has_m_drivepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_corpseID;
+        if (input->ExpectTag(208)) goto parse_m_corpseid;
         break;
       }
 
-      // optional int32 corpseID = 26;
+      // optional int32 m_corpseid = 26;
       case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_corpseID:
+         parse_m_corpseid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &corpseid_)));
-          set_has_corpseid();
+                 input, &m_corpseid_)));
+          set_has_m_corpseid();
         } else {
           goto handle_uninterpreted;
         }
@@ -1306,144 +1316,144 @@ bool monstermonster::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void monstermonster::SerializeWithCachedSizes(
+void E_MonsterMonster::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 monsterID = 1;
-  if (has_monsterid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->monsterid(), output);
+  // optional int64 m_monsterid = 1;
+  if (has_m_monsterid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_monsterid(), output);
   }
 
-  // optional string monsterName = 2;
-  if (has_monstername()) {
+  // optional string m_monstername = 2;
+  if (has_m_monstername()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->monstername().data(), this->monstername().length(),
+      this->m_monstername().data(), this->m_monstername().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->monstername(), output);
+      2, this->m_monstername(), output);
   }
 
-  // optional int32 functionType = 3;
-  if (has_functiontype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->functiontype(), output);
+  // optional int32 m_functiontype = 3;
+  if (has_m_functiontype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_functiontype(), output);
   }
 
-  // optional int64 functionValue = 4;
-  if (has_functionvalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->functionvalue(), output);
+  // optional int64 m_functionvalue = 4;
+  if (has_m_functionvalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_functionvalue(), output);
   }
 
-  // optional int32 profession = 5;
-  if (has_profession()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->profession(), output);
+  // optional int32 m_profession = 5;
+  if (has_m_profession()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_profession(), output);
   }
 
-  // optional int32 damageAddType = 6;
-  if (has_damageaddtype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->damageaddtype(), output);
+  // optional int32 m_damageaddtype = 6;
+  if (has_m_damageaddtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_damageaddtype(), output);
   }
 
-  // optional int32 monsterLV = 7;
-  if (has_monsterlv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->monsterlv(), output);
+  // optional int32 m_monsterlv = 7;
+  if (has_m_monsterlv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_monsterlv(), output);
   }
 
-  // optional int32 droplimit = 8;
-  if (has_droplimit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->droplimit(), output);
+  // optional int32 m_droplimit = 8;
+  if (has_m_droplimit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_droplimit(), output);
   }
 
-  // optional int64 displayID = 9;
-  if (has_displayid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->displayid(), output);
+  // optional int64 m_displayid = 9;
+  if (has_m_displayid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->m_displayid(), output);
   }
 
-  // optional int64 valuetype = 10;
-  if (has_valuetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->valuetype(), output);
+  // optional int64 m_valuetype = 10;
+  if (has_m_valuetype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->m_valuetype(), output);
   }
 
-  // optional int32 valueParam = 11;
-  if (has_valueparam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->valueparam(), output);
+  // optional int32 m_valueparam = 11;
+  if (has_m_valueparam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_valueparam(), output);
   }
 
-  // optional int64 aiId = 12;
-  if (has_aiid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->aiid(), output);
+  // optional int64 m_aiid = 12;
+  if (has_m_aiid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->m_aiid(), output);
   }
 
-  // optional int32 hpSectionNum = 13;
-  if (has_hpsectionnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->hpsectionnum(), output);
+  // optional int32 m_hpsectionnum = 13;
+  if (has_m_hpsectionnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_hpsectionnum(), output);
   }
 
-  // optional int32 breedProb = 14;
-  if (has_breedprob()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->breedprob(), output);
+  // optional int32 m_breedprob = 14;
+  if (has_m_breedprob()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_breedprob(), output);
   }
 
-  // optional int64 breedMonID = 15;
-  if (has_breedmonid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(15, this->breedmonid(), output);
+  // optional int64 m_breedmonid = 15;
+  if (has_m_breedmonid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(15, this->m_breedmonid(), output);
   }
 
-  // optional int32 breedMonLive = 16;
-  if (has_breedmonlive()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->breedmonlive(), output);
+  // optional int32 m_breedmonlive = 16;
+  if (has_m_breedmonlive()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_breedmonlive(), output);
   }
 
-  // optional string itemCost = 17;
-  if (has_itemcost()) {
+  // optional string m_itemcost = 17;
+  if (has_m_itemcost()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->itemcost().data(), this->itemcost().length(),
+      this->m_itemcost().data(), this->m_itemcost().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      17, this->itemcost(), output);
+      17, this->m_itemcost(), output);
   }
 
-  // optional int32 isBornActionOn = 18;
-  if (has_isbornactionon()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->isbornactionon(), output);
+  // optional int32 m_isbornactionon = 18;
+  if (has_m_isbornactionon()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_isbornactionon(), output);
   }
 
-  // optional int32 belongshow = 19;
-  if (has_belongshow()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->belongshow(), output);
+  // optional int32 m_belongshow = 19;
+  if (has_m_belongshow()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_belongshow(), output);
   }
 
-  // optional int32 dropGroupID = 20;
-  if (has_dropgroupid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->dropgroupid(), output);
+  // optional int32 m_dropgroupid = 20;
+  if (has_m_dropgroupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_dropgroupid(), output);
   }
 
-  // optional int32 harmdrop_type = 21;
-  if (has_harmdrop_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->harmdrop_type(), output);
+  // optional int32 m_harmdrop_type = 21;
+  if (has_m_harmdrop_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_harmdrop_type(), output);
   }
 
-  // optional int32 joninper = 22;
-  if (has_joninper()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->joninper(), output);
+  // optional int32 m_joninper = 22;
+  if (has_m_joninper()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_joninper(), output);
   }
 
-  // optional int32 btnRange = 23;
-  if (has_btnrange()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->btnrange(), output);
+  // optional int32 m_btnrange = 23;
+  if (has_m_btnrange()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->m_btnrange(), output);
   }
 
-  // optional int64 btnId = 24;
-  if (has_btnid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->btnid(), output);
+  // optional int64 m_btnid = 24;
+  if (has_m_btnid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->m_btnid(), output);
   }
 
-  // optional int32 drivePoint = 25;
-  if (has_drivepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->drivepoint(), output);
+  // optional int32 m_drivepoint = 25;
+  if (has_m_drivepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_drivepoint(), output);
   }
 
-  // optional int32 corpseID = 26;
-  if (has_corpseid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->corpseid(), output);
+  // optional int32 m_corpseid = 26;
+  if (has_m_corpseid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_corpseid(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1452,146 +1462,146 @@ void monstermonster::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* monstermonster::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MonsterMonster::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 monsterID = 1;
-  if (has_monsterid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->monsterid(), target);
+  // optional int64 m_monsterid = 1;
+  if (has_m_monsterid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_monsterid(), target);
   }
 
-  // optional string monsterName = 2;
-  if (has_monstername()) {
+  // optional string m_monstername = 2;
+  if (has_m_monstername()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->monstername().data(), this->monstername().length(),
+      this->m_monstername().data(), this->m_monstername().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->monstername(), target);
+        2, this->m_monstername(), target);
   }
 
-  // optional int32 functionType = 3;
-  if (has_functiontype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->functiontype(), target);
+  // optional int32 m_functiontype = 3;
+  if (has_m_functiontype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_functiontype(), target);
   }
 
-  // optional int64 functionValue = 4;
-  if (has_functionvalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->functionvalue(), target);
+  // optional int64 m_functionvalue = 4;
+  if (has_m_functionvalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_functionvalue(), target);
   }
 
-  // optional int32 profession = 5;
-  if (has_profession()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->profession(), target);
+  // optional int32 m_profession = 5;
+  if (has_m_profession()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_profession(), target);
   }
 
-  // optional int32 damageAddType = 6;
-  if (has_damageaddtype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->damageaddtype(), target);
+  // optional int32 m_damageaddtype = 6;
+  if (has_m_damageaddtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_damageaddtype(), target);
   }
 
-  // optional int32 monsterLV = 7;
-  if (has_monsterlv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->monsterlv(), target);
+  // optional int32 m_monsterlv = 7;
+  if (has_m_monsterlv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_monsterlv(), target);
   }
 
-  // optional int32 droplimit = 8;
-  if (has_droplimit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->droplimit(), target);
+  // optional int32 m_droplimit = 8;
+  if (has_m_droplimit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_droplimit(), target);
   }
 
-  // optional int64 displayID = 9;
-  if (has_displayid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->displayid(), target);
+  // optional int64 m_displayid = 9;
+  if (has_m_displayid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->m_displayid(), target);
   }
 
-  // optional int64 valuetype = 10;
-  if (has_valuetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->valuetype(), target);
+  // optional int64 m_valuetype = 10;
+  if (has_m_valuetype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->m_valuetype(), target);
   }
 
-  // optional int32 valueParam = 11;
-  if (has_valueparam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->valueparam(), target);
+  // optional int32 m_valueparam = 11;
+  if (has_m_valueparam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_valueparam(), target);
   }
 
-  // optional int64 aiId = 12;
-  if (has_aiid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->aiid(), target);
+  // optional int64 m_aiid = 12;
+  if (has_m_aiid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->m_aiid(), target);
   }
 
-  // optional int32 hpSectionNum = 13;
-  if (has_hpsectionnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->hpsectionnum(), target);
+  // optional int32 m_hpsectionnum = 13;
+  if (has_m_hpsectionnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_hpsectionnum(), target);
   }
 
-  // optional int32 breedProb = 14;
-  if (has_breedprob()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->breedprob(), target);
+  // optional int32 m_breedprob = 14;
+  if (has_m_breedprob()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_breedprob(), target);
   }
 
-  // optional int64 breedMonID = 15;
-  if (has_breedmonid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(15, this->breedmonid(), target);
+  // optional int64 m_breedmonid = 15;
+  if (has_m_breedmonid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(15, this->m_breedmonid(), target);
   }
 
-  // optional int32 breedMonLive = 16;
-  if (has_breedmonlive()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->breedmonlive(), target);
+  // optional int32 m_breedmonlive = 16;
+  if (has_m_breedmonlive()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_breedmonlive(), target);
   }
 
-  // optional string itemCost = 17;
-  if (has_itemcost()) {
+  // optional string m_itemcost = 17;
+  if (has_m_itemcost()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->itemcost().data(), this->itemcost().length(),
+      this->m_itemcost().data(), this->m_itemcost().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        17, this->itemcost(), target);
+        17, this->m_itemcost(), target);
   }
 
-  // optional int32 isBornActionOn = 18;
-  if (has_isbornactionon()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->isbornactionon(), target);
+  // optional int32 m_isbornactionon = 18;
+  if (has_m_isbornactionon()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_isbornactionon(), target);
   }
 
-  // optional int32 belongshow = 19;
-  if (has_belongshow()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->belongshow(), target);
+  // optional int32 m_belongshow = 19;
+  if (has_m_belongshow()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_belongshow(), target);
   }
 
-  // optional int32 dropGroupID = 20;
-  if (has_dropgroupid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->dropgroupid(), target);
+  // optional int32 m_dropgroupid = 20;
+  if (has_m_dropgroupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_dropgroupid(), target);
   }
 
-  // optional int32 harmdrop_type = 21;
-  if (has_harmdrop_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->harmdrop_type(), target);
+  // optional int32 m_harmdrop_type = 21;
+  if (has_m_harmdrop_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_harmdrop_type(), target);
   }
 
-  // optional int32 joninper = 22;
-  if (has_joninper()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->joninper(), target);
+  // optional int32 m_joninper = 22;
+  if (has_m_joninper()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_joninper(), target);
   }
 
-  // optional int32 btnRange = 23;
-  if (has_btnrange()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->btnrange(), target);
+  // optional int32 m_btnrange = 23;
+  if (has_m_btnrange()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->m_btnrange(), target);
   }
 
-  // optional int64 btnId = 24;
-  if (has_btnid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->btnid(), target);
+  // optional int64 m_btnid = 24;
+  if (has_m_btnid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->m_btnid(), target);
   }
 
-  // optional int32 drivePoint = 25;
-  if (has_drivepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->drivepoint(), target);
+  // optional int32 m_drivepoint = 25;
+  if (has_m_drivepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_drivepoint(), target);
   }
 
-  // optional int32 corpseID = 26;
-  if (has_corpseid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->corpseid(), target);
+  // optional int32 m_corpseid = 26;
+  if (has_m_corpseid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_corpseid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1601,196 +1611,196 @@ void monstermonster::SerializeWithCachedSizes(
   return target;
 }
 
-int monstermonster::ByteSize() const {
+int E_MonsterMonster::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 monsterID = 1;
-    if (has_monsterid()) {
+    // optional int64 m_monsterid = 1;
+    if (has_m_monsterid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->monsterid());
+          this->m_monsterid());
     }
 
-    // optional string monsterName = 2;
-    if (has_monstername()) {
+    // optional string m_monstername = 2;
+    if (has_m_monstername()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->monstername());
+          this->m_monstername());
     }
 
-    // optional int32 functionType = 3;
-    if (has_functiontype()) {
+    // optional int32 m_functiontype = 3;
+    if (has_m_functiontype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->functiontype());
+          this->m_functiontype());
     }
 
-    // optional int64 functionValue = 4;
-    if (has_functionvalue()) {
+    // optional int64 m_functionvalue = 4;
+    if (has_m_functionvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->functionvalue());
+          this->m_functionvalue());
     }
 
-    // optional int32 profession = 5;
-    if (has_profession()) {
+    // optional int32 m_profession = 5;
+    if (has_m_profession()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->profession());
+          this->m_profession());
     }
 
-    // optional int32 damageAddType = 6;
-    if (has_damageaddtype()) {
+    // optional int32 m_damageaddtype = 6;
+    if (has_m_damageaddtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->damageaddtype());
+          this->m_damageaddtype());
     }
 
-    // optional int32 monsterLV = 7;
-    if (has_monsterlv()) {
+    // optional int32 m_monsterlv = 7;
+    if (has_m_monsterlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->monsterlv());
+          this->m_monsterlv());
     }
 
-    // optional int32 droplimit = 8;
-    if (has_droplimit()) {
+    // optional int32 m_droplimit = 8;
+    if (has_m_droplimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->droplimit());
+          this->m_droplimit());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int64 displayID = 9;
-    if (has_displayid()) {
+    // optional int64 m_displayid = 9;
+    if (has_m_displayid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->displayid());
+          this->m_displayid());
     }
 
-    // optional int64 valuetype = 10;
-    if (has_valuetype()) {
+    // optional int64 m_valuetype = 10;
+    if (has_m_valuetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->valuetype());
+          this->m_valuetype());
     }
 
-    // optional int32 valueParam = 11;
-    if (has_valueparam()) {
+    // optional int32 m_valueparam = 11;
+    if (has_m_valueparam()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->valueparam());
+          this->m_valueparam());
     }
 
-    // optional int64 aiId = 12;
-    if (has_aiid()) {
+    // optional int64 m_aiid = 12;
+    if (has_m_aiid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->aiid());
+          this->m_aiid());
     }
 
-    // optional int32 hpSectionNum = 13;
-    if (has_hpsectionnum()) {
+    // optional int32 m_hpsectionnum = 13;
+    if (has_m_hpsectionnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->hpsectionnum());
+          this->m_hpsectionnum());
     }
 
-    // optional int32 breedProb = 14;
-    if (has_breedprob()) {
+    // optional int32 m_breedprob = 14;
+    if (has_m_breedprob()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->breedprob());
+          this->m_breedprob());
     }
 
-    // optional int64 breedMonID = 15;
-    if (has_breedmonid()) {
+    // optional int64 m_breedmonid = 15;
+    if (has_m_breedmonid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->breedmonid());
+          this->m_breedmonid());
     }
 
-    // optional int32 breedMonLive = 16;
-    if (has_breedmonlive()) {
+    // optional int32 m_breedmonlive = 16;
+    if (has_m_breedmonlive()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->breedmonlive());
+          this->m_breedmonlive());
     }
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional string itemCost = 17;
-    if (has_itemcost()) {
+    // optional string m_itemcost = 17;
+    if (has_m_itemcost()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->itemcost());
+          this->m_itemcost());
     }
 
-    // optional int32 isBornActionOn = 18;
-    if (has_isbornactionon()) {
+    // optional int32 m_isbornactionon = 18;
+    if (has_m_isbornactionon()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->isbornactionon());
+          this->m_isbornactionon());
     }
 
-    // optional int32 belongshow = 19;
-    if (has_belongshow()) {
+    // optional int32 m_belongshow = 19;
+    if (has_m_belongshow()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->belongshow());
+          this->m_belongshow());
     }
 
-    // optional int32 dropGroupID = 20;
-    if (has_dropgroupid()) {
+    // optional int32 m_dropgroupid = 20;
+    if (has_m_dropgroupid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->dropgroupid());
+          this->m_dropgroupid());
     }
 
-    // optional int32 harmdrop_type = 21;
-    if (has_harmdrop_type()) {
+    // optional int32 m_harmdrop_type = 21;
+    if (has_m_harmdrop_type()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->harmdrop_type());
+          this->m_harmdrop_type());
     }
 
-    // optional int32 joninper = 22;
-    if (has_joninper()) {
+    // optional int32 m_joninper = 22;
+    if (has_m_joninper()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->joninper());
+          this->m_joninper());
     }
 
-    // optional int32 btnRange = 23;
-    if (has_btnrange()) {
+    // optional int32 m_btnrange = 23;
+    if (has_m_btnrange()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->btnrange());
+          this->m_btnrange());
     }
 
-    // optional int64 btnId = 24;
-    if (has_btnid()) {
+    // optional int64 m_btnid = 24;
+    if (has_m_btnid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->btnid());
+          this->m_btnid());
     }
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int32 drivePoint = 25;
-    if (has_drivepoint()) {
+    // optional int32 m_drivepoint = 25;
+    if (has_m_drivepoint()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->drivepoint());
+          this->m_drivepoint());
     }
 
-    // optional int32 corpseID = 26;
-    if (has_corpseid()) {
+    // optional int32 m_corpseid = 26;
+    if (has_m_corpseid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->corpseid());
+          this->m_corpseid());
     }
 
   }
@@ -1805,10 +1815,10 @@ int monstermonster::ByteSize() const {
   return total_size;
 }
 
-void monstermonster::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MonsterMonster::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const monstermonster* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const monstermonster*>(
+  const E_MonsterMonster* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MonsterMonster*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1817,153 +1827,153 @@ void monstermonster::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void monstermonster::MergeFrom(const monstermonster& from) {
+void E_MonsterMonster::MergeFrom(const E_MonsterMonster& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_monsterid()) {
-      set_monsterid(from.monsterid());
+    if (from.has_m_monsterid()) {
+      set_m_monsterid(from.m_monsterid());
     }
-    if (from.has_monstername()) {
-      set_monstername(from.monstername());
+    if (from.has_m_monstername()) {
+      set_m_monstername(from.m_monstername());
     }
-    if (from.has_functiontype()) {
-      set_functiontype(from.functiontype());
+    if (from.has_m_functiontype()) {
+      set_m_functiontype(from.m_functiontype());
     }
-    if (from.has_functionvalue()) {
-      set_functionvalue(from.functionvalue());
+    if (from.has_m_functionvalue()) {
+      set_m_functionvalue(from.m_functionvalue());
     }
-    if (from.has_profession()) {
-      set_profession(from.profession());
+    if (from.has_m_profession()) {
+      set_m_profession(from.m_profession());
     }
-    if (from.has_damageaddtype()) {
-      set_damageaddtype(from.damageaddtype());
+    if (from.has_m_damageaddtype()) {
+      set_m_damageaddtype(from.m_damageaddtype());
     }
-    if (from.has_monsterlv()) {
-      set_monsterlv(from.monsterlv());
+    if (from.has_m_monsterlv()) {
+      set_m_monsterlv(from.m_monsterlv());
     }
-    if (from.has_droplimit()) {
-      set_droplimit(from.droplimit());
+    if (from.has_m_droplimit()) {
+      set_m_droplimit(from.m_droplimit());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_displayid()) {
-      set_displayid(from.displayid());
+    if (from.has_m_displayid()) {
+      set_m_displayid(from.m_displayid());
     }
-    if (from.has_valuetype()) {
-      set_valuetype(from.valuetype());
+    if (from.has_m_valuetype()) {
+      set_m_valuetype(from.m_valuetype());
     }
-    if (from.has_valueparam()) {
-      set_valueparam(from.valueparam());
+    if (from.has_m_valueparam()) {
+      set_m_valueparam(from.m_valueparam());
     }
-    if (from.has_aiid()) {
-      set_aiid(from.aiid());
+    if (from.has_m_aiid()) {
+      set_m_aiid(from.m_aiid());
     }
-    if (from.has_hpsectionnum()) {
-      set_hpsectionnum(from.hpsectionnum());
+    if (from.has_m_hpsectionnum()) {
+      set_m_hpsectionnum(from.m_hpsectionnum());
     }
-    if (from.has_breedprob()) {
-      set_breedprob(from.breedprob());
+    if (from.has_m_breedprob()) {
+      set_m_breedprob(from.m_breedprob());
     }
-    if (from.has_breedmonid()) {
-      set_breedmonid(from.breedmonid());
+    if (from.has_m_breedmonid()) {
+      set_m_breedmonid(from.m_breedmonid());
     }
-    if (from.has_breedmonlive()) {
-      set_breedmonlive(from.breedmonlive());
+    if (from.has_m_breedmonlive()) {
+      set_m_breedmonlive(from.m_breedmonlive());
     }
   }
   if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (from.has_itemcost()) {
-      set_itemcost(from.itemcost());
+    if (from.has_m_itemcost()) {
+      set_m_itemcost(from.m_itemcost());
     }
-    if (from.has_isbornactionon()) {
-      set_isbornactionon(from.isbornactionon());
+    if (from.has_m_isbornactionon()) {
+      set_m_isbornactionon(from.m_isbornactionon());
     }
-    if (from.has_belongshow()) {
-      set_belongshow(from.belongshow());
+    if (from.has_m_belongshow()) {
+      set_m_belongshow(from.m_belongshow());
     }
-    if (from.has_dropgroupid()) {
-      set_dropgroupid(from.dropgroupid());
+    if (from.has_m_dropgroupid()) {
+      set_m_dropgroupid(from.m_dropgroupid());
     }
-    if (from.has_harmdrop_type()) {
-      set_harmdrop_type(from.harmdrop_type());
+    if (from.has_m_harmdrop_type()) {
+      set_m_harmdrop_type(from.m_harmdrop_type());
     }
-    if (from.has_joninper()) {
-      set_joninper(from.joninper());
+    if (from.has_m_joninper()) {
+      set_m_joninper(from.m_joninper());
     }
-    if (from.has_btnrange()) {
-      set_btnrange(from.btnrange());
+    if (from.has_m_btnrange()) {
+      set_m_btnrange(from.m_btnrange());
     }
-    if (from.has_btnid()) {
-      set_btnid(from.btnid());
+    if (from.has_m_btnid()) {
+      set_m_btnid(from.m_btnid());
     }
   }
   if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    if (from.has_drivepoint()) {
-      set_drivepoint(from.drivepoint());
+    if (from.has_m_drivepoint()) {
+      set_m_drivepoint(from.m_drivepoint());
     }
-    if (from.has_corpseid()) {
-      set_corpseid(from.corpseid());
+    if (from.has_m_corpseid()) {
+      set_m_corpseid(from.m_corpseid());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void monstermonster::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MonsterMonster::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void monstermonster::CopyFrom(const monstermonster& from) {
+void E_MonsterMonster::CopyFrom(const E_MonsterMonster& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool monstermonster::IsInitialized() const {
+bool E_MonsterMonster::IsInitialized() const {
 
   return true;
 }
 
-void monstermonster::Swap(monstermonster* other) {
+void E_MonsterMonster::Swap(E_MonsterMonster* other) {
   if (other != this) {
-    std::swap(monsterid_, other->monsterid_);
-    std::swap(monstername_, other->monstername_);
-    std::swap(functiontype_, other->functiontype_);
-    std::swap(functionvalue_, other->functionvalue_);
-    std::swap(profession_, other->profession_);
-    std::swap(damageaddtype_, other->damageaddtype_);
-    std::swap(monsterlv_, other->monsterlv_);
-    std::swap(droplimit_, other->droplimit_);
-    std::swap(displayid_, other->displayid_);
-    std::swap(valuetype_, other->valuetype_);
-    std::swap(valueparam_, other->valueparam_);
-    std::swap(aiid_, other->aiid_);
-    std::swap(hpsectionnum_, other->hpsectionnum_);
-    std::swap(breedprob_, other->breedprob_);
-    std::swap(breedmonid_, other->breedmonid_);
-    std::swap(breedmonlive_, other->breedmonlive_);
-    std::swap(itemcost_, other->itemcost_);
-    std::swap(isbornactionon_, other->isbornactionon_);
-    std::swap(belongshow_, other->belongshow_);
-    std::swap(dropgroupid_, other->dropgroupid_);
-    std::swap(harmdrop_type_, other->harmdrop_type_);
-    std::swap(joninper_, other->joninper_);
-    std::swap(btnrange_, other->btnrange_);
-    std::swap(btnid_, other->btnid_);
-    std::swap(drivepoint_, other->drivepoint_);
-    std::swap(corpseid_, other->corpseid_);
+    std::swap(m_monsterid_, other->m_monsterid_);
+    std::swap(m_monstername_, other->m_monstername_);
+    std::swap(m_functiontype_, other->m_functiontype_);
+    std::swap(m_functionvalue_, other->m_functionvalue_);
+    std::swap(m_profession_, other->m_profession_);
+    std::swap(m_damageaddtype_, other->m_damageaddtype_);
+    std::swap(m_monsterlv_, other->m_monsterlv_);
+    std::swap(m_droplimit_, other->m_droplimit_);
+    std::swap(m_displayid_, other->m_displayid_);
+    std::swap(m_valuetype_, other->m_valuetype_);
+    std::swap(m_valueparam_, other->m_valueparam_);
+    std::swap(m_aiid_, other->m_aiid_);
+    std::swap(m_hpsectionnum_, other->m_hpsectionnum_);
+    std::swap(m_breedprob_, other->m_breedprob_);
+    std::swap(m_breedmonid_, other->m_breedmonid_);
+    std::swap(m_breedmonlive_, other->m_breedmonlive_);
+    std::swap(m_itemcost_, other->m_itemcost_);
+    std::swap(m_isbornactionon_, other->m_isbornactionon_);
+    std::swap(m_belongshow_, other->m_belongshow_);
+    std::swap(m_dropgroupid_, other->m_dropgroupid_);
+    std::swap(m_harmdrop_type_, other->m_harmdrop_type_);
+    std::swap(m_joninper_, other->m_joninper_);
+    std::swap(m_btnrange_, other->m_btnrange_);
+    std::swap(m_btnid_, other->m_btnid_);
+    std::swap(m_drivepoint_, other->m_drivepoint_);
+    std::swap(m_corpseid_, other->m_corpseid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata monstermonster::GetMetadata() const {
+::google::protobuf::Metadata E_MonsterMonster::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = monstermonster_descriptor_;
-  metadata.reflection = monstermonster_reflection_;
+  metadata.descriptor = E_MonsterMonster_descriptor_;
+  metadata.reflection = E_MonsterMonster_reflection_;
   return metadata;
 }
 
@@ -1971,81 +1981,81 @@ void monstermonster::Swap(monstermonster* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_monstermonster::kMonstermonsterListFieldNumber;
+const int Sheet_MonsterMonster::kEMonsterMonsterListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_monstermonster::Sheet_monstermonster()
+Sheet_MonsterMonster::Sheet_MonsterMonster()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_monstermonster::InitAsDefaultInstance() {
+void Sheet_MonsterMonster::InitAsDefaultInstance() {
 }
 
-Sheet_monstermonster::Sheet_monstermonster(const Sheet_monstermonster& from)
+Sheet_MonsterMonster::Sheet_MonsterMonster(const Sheet_MonsterMonster& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_monstermonster::SharedCtor() {
+void Sheet_MonsterMonster::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_monstermonster::~Sheet_monstermonster() {
+Sheet_MonsterMonster::~Sheet_MonsterMonster() {
   SharedDtor();
 }
 
-void Sheet_monstermonster::SharedDtor() {
+void Sheet_MonsterMonster::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_monstermonster::SetCachedSize(int size) const {
+void Sheet_MonsterMonster::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_monstermonster::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_MonsterMonster::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_monstermonster_descriptor_;
+  return Sheet_MonsterMonster_descriptor_;
 }
 
-const Sheet_monstermonster& Sheet_monstermonster::default_instance() {
+const Sheet_MonsterMonster& Sheet_MonsterMonster::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-Sheet_monstermonster* Sheet_monstermonster::default_instance_ = NULL;
+Sheet_MonsterMonster* Sheet_MonsterMonster::default_instance_ = NULL;
 
-Sheet_monstermonster* Sheet_monstermonster::New() const {
-  return new Sheet_monstermonster;
+Sheet_MonsterMonster* Sheet_MonsterMonster::New() const {
+  return new Sheet_MonsterMonster;
 }
 
-void Sheet_monstermonster::Clear() {
-  monstermonster_list_.Clear();
+void Sheet_MonsterMonster::Clear() {
+  e_monstermonster_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_monstermonster::MergePartialFromCodedStream(
+bool Sheet_MonsterMonster::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.monstermonster monstermonster_List = 1;
+      // repeated .proto_ff.E_MonsterMonster E_MonsterMonster_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_monstermonster_List:
+         parse_E_MonsterMonster_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_monstermonster_list()));
+                input, add_e_monstermonster_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_monstermonster_List;
+        if (input->ExpectTag(10)) goto parse_E_MonsterMonster_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2066,12 +2076,12 @@ bool Sheet_monstermonster::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_monstermonster::SerializeWithCachedSizes(
+void Sheet_MonsterMonster::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.monstermonster monstermonster_List = 1;
-  for (int i = 0; i < this->monstermonster_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterMonster E_MonsterMonster_List = 1;
+  for (int i = 0; i < this->e_monstermonster_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->monstermonster_list(i), output);
+      1, this->e_monstermonster_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2080,13 +2090,13 @@ void Sheet_monstermonster::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_monstermonster::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_MonsterMonster::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.monstermonster monstermonster_List = 1;
-  for (int i = 0; i < this->monstermonster_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterMonster E_MonsterMonster_List = 1;
+  for (int i = 0; i < this->e_monstermonster_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->monstermonster_list(i), target);
+        1, this->e_monstermonster_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2096,15 +2106,15 @@ void Sheet_monstermonster::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_monstermonster::ByteSize() const {
+int Sheet_MonsterMonster::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.monstermonster monstermonster_List = 1;
-  total_size += 1 * this->monstermonster_list_size();
-  for (int i = 0; i < this->monstermonster_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterMonster E_MonsterMonster_List = 1;
+  total_size += 1 * this->e_monstermonster_list_size();
+  for (int i = 0; i < this->e_monstermonster_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->monstermonster_list(i));
+        this->e_monstermonster_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2118,10 +2128,10 @@ int Sheet_monstermonster::ByteSize() const {
   return total_size;
 }
 
-void Sheet_monstermonster::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterMonster::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_monstermonster* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_monstermonster*>(
+  const Sheet_MonsterMonster* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_MonsterMonster*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2130,43 +2140,43 @@ void Sheet_monstermonster::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_monstermonster::MergeFrom(const Sheet_monstermonster& from) {
+void Sheet_MonsterMonster::MergeFrom(const Sheet_MonsterMonster& from) {
   GOOGLE_CHECK_NE(&from, this);
-  monstermonster_list_.MergeFrom(from.monstermonster_list_);
+  e_monstermonster_list_.MergeFrom(from.e_monstermonster_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_monstermonster::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterMonster::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_monstermonster::CopyFrom(const Sheet_monstermonster& from) {
+void Sheet_MonsterMonster::CopyFrom(const Sheet_MonsterMonster& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_monstermonster::IsInitialized() const {
+bool Sheet_MonsterMonster::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_monstermonster::Swap(Sheet_monstermonster* other) {
+void Sheet_MonsterMonster::Swap(Sheet_MonsterMonster* other) {
   if (other != this) {
-    monstermonster_list_.Swap(&other->monstermonster_list_);
+    e_monstermonster_list_.Swap(&other->e_monstermonster_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_monstermonster::GetMetadata() const {
+::google::protobuf::Metadata Sheet_MonsterMonster::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_monstermonster_descriptor_;
-  metadata.reflection = Sheet_monstermonster_reflection_;
+  metadata.descriptor = Sheet_MonsterMonster_descriptor_;
+  metadata.reflection = Sheet_MonsterMonster_reflection_;
   return metadata;
 }
 
@@ -2174,81 +2184,81 @@ void Sheet_monstermonster::Swap(Sheet_monstermonster* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int monsterdisplayskillDesc::kIdFieldNumber;
+const int E_MonsterDisplaySkillDesc::kMIdFieldNumber;
 #endif  // !_MSC_VER
 
-monsterdisplayskillDesc::monsterdisplayskillDesc()
+E_MonsterDisplaySkillDesc::E_MonsterDisplaySkillDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void monsterdisplayskillDesc::InitAsDefaultInstance() {
+void E_MonsterDisplaySkillDesc::InitAsDefaultInstance() {
 }
 
-monsterdisplayskillDesc::monsterdisplayskillDesc(const monsterdisplayskillDesc& from)
+E_MonsterDisplaySkillDesc::E_MonsterDisplaySkillDesc(const E_MonsterDisplaySkillDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void monsterdisplayskillDesc::SharedCtor() {
+void E_MonsterDisplaySkillDesc::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
+  m_id_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-monsterdisplayskillDesc::~monsterdisplayskillDesc() {
+E_MonsterDisplaySkillDesc::~E_MonsterDisplaySkillDesc() {
   SharedDtor();
 }
 
-void monsterdisplayskillDesc::SharedDtor() {
+void E_MonsterDisplaySkillDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void monsterdisplayskillDesc::SetCachedSize(int size) const {
+void E_MonsterDisplaySkillDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* monsterdisplayskillDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_MonsterDisplaySkillDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return monsterdisplayskillDesc_descriptor_;
+  return E_MonsterDisplaySkillDesc_descriptor_;
 }
 
-const monsterdisplayskillDesc& monsterdisplayskillDesc::default_instance() {
+const E_MonsterDisplaySkillDesc& E_MonsterDisplaySkillDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-monsterdisplayskillDesc* monsterdisplayskillDesc::default_instance_ = NULL;
+E_MonsterDisplaySkillDesc* E_MonsterDisplaySkillDesc::default_instance_ = NULL;
 
-monsterdisplayskillDesc* monsterdisplayskillDesc::New() const {
-  return new monsterdisplayskillDesc;
+E_MonsterDisplaySkillDesc* E_MonsterDisplaySkillDesc::New() const {
+  return new E_MonsterDisplaySkillDesc;
 }
 
-void monsterdisplayskillDesc::Clear() {
+void E_MonsterDisplaySkillDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
+    m_id_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool monsterdisplayskillDesc::MergePartialFromCodedStream(
+bool E_MonsterDisplaySkillDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -2272,11 +2282,11 @@ bool monsterdisplayskillDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void monsterdisplayskillDesc::SerializeWithCachedSizes(
+void E_MonsterDisplaySkillDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2285,11 +2295,11 @@ void monsterdisplayskillDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* monsterdisplayskillDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MonsterDisplaySkillDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2299,15 +2309,15 @@ void monsterdisplayskillDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int monsterdisplayskillDesc::ByteSize() const {
+int E_MonsterDisplaySkillDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
   }
@@ -2322,10 +2332,10 @@ int monsterdisplayskillDesc::ByteSize() const {
   return total_size;
 }
 
-void monsterdisplayskillDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MonsterDisplaySkillDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const monsterdisplayskillDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const monsterdisplayskillDesc*>(
+  const E_MonsterDisplaySkillDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MonsterDisplaySkillDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2334,47 +2344,47 @@ void monsterdisplayskillDesc::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void monsterdisplayskillDesc::MergeFrom(const monsterdisplayskillDesc& from) {
+void E_MonsterDisplaySkillDesc::MergeFrom(const E_MonsterDisplaySkillDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void monsterdisplayskillDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MonsterDisplaySkillDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void monsterdisplayskillDesc::CopyFrom(const monsterdisplayskillDesc& from) {
+void E_MonsterDisplaySkillDesc::CopyFrom(const E_MonsterDisplaySkillDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool monsterdisplayskillDesc::IsInitialized() const {
+bool E_MonsterDisplaySkillDesc::IsInitialized() const {
 
   return true;
 }
 
-void monsterdisplayskillDesc::Swap(monsterdisplayskillDesc* other) {
+void E_MonsterDisplaySkillDesc::Swap(E_MonsterDisplaySkillDesc* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
+    std::swap(m_id_, other->m_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata monsterdisplayskillDesc::GetMetadata() const {
+::google::protobuf::Metadata E_MonsterDisplaySkillDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = monsterdisplayskillDesc_descriptor_;
-  metadata.reflection = monsterdisplayskillDesc_reflection_;
+  metadata.descriptor = E_MonsterDisplaySkillDesc_descriptor_;
+  metadata.reflection = E_MonsterDisplaySkillDesc_reflection_;
   return metadata;
 }
 
@@ -2382,234 +2392,234 @@ void monsterdisplayskillDesc::Swap(monsterdisplayskillDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int monsterdisplay::kDisplayIDFieldNumber;
-const int monsterdisplay::kModelOffsetsXFieldNumber;
-const int monsterdisplay::kModelOffsetsYFieldNumber;
-const int monsterdisplay::kModelScaleFieldNumber;
-const int monsterdisplay::kModelRadiusFieldNumber;
-const int monsterdisplay::kPathRadiusFieldNumber;
-const int monsterdisplay::kCollisionRadiusFieldNumber;
-const int monsterdisplay::kRSpeedFieldNumber;
-const int monsterdisplay::kSkillFieldNumber;
+const int E_MonsterDisplay::kMDisplayidFieldNumber;
+const int E_MonsterDisplay::kMModeloffsetsxFieldNumber;
+const int E_MonsterDisplay::kMModeloffsetsyFieldNumber;
+const int E_MonsterDisplay::kMModelscaleFieldNumber;
+const int E_MonsterDisplay::kMModelradiusFieldNumber;
+const int E_MonsterDisplay::kMPathradiusFieldNumber;
+const int E_MonsterDisplay::kMCollisionradiusFieldNumber;
+const int E_MonsterDisplay::kMRspeedFieldNumber;
+const int E_MonsterDisplay::kMSkillFieldNumber;
 #endif  // !_MSC_VER
 
-monsterdisplay::monsterdisplay()
+E_MonsterDisplay::E_MonsterDisplay()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void monsterdisplay::InitAsDefaultInstance() {
+void E_MonsterDisplay::InitAsDefaultInstance() {
 }
 
-monsterdisplay::monsterdisplay(const monsterdisplay& from)
+E_MonsterDisplay::E_MonsterDisplay(const E_MonsterDisplay& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void monsterdisplay::SharedCtor() {
+void E_MonsterDisplay::SharedCtor() {
   _cached_size_ = 0;
-  displayid_ = GOOGLE_LONGLONG(0);
-  modeloffsetsx_ = 0;
-  modeloffsetsy_ = 0;
-  modelscale_ = 0;
-  modelradius_ = 0;
-  pathradius_ = 0;
-  collisionradius_ = 0;
-  rspeed_ = 0;
+  m_displayid_ = GOOGLE_LONGLONG(0);
+  m_modeloffsetsx_ = 0;
+  m_modeloffsetsy_ = 0;
+  m_modelscale_ = 0;
+  m_modelradius_ = 0;
+  m_pathradius_ = 0;
+  m_collisionradius_ = 0;
+  m_rspeed_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-monsterdisplay::~monsterdisplay() {
+E_MonsterDisplay::~E_MonsterDisplay() {
   SharedDtor();
 }
 
-void monsterdisplay::SharedDtor() {
+void E_MonsterDisplay::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void monsterdisplay::SetCachedSize(int size) const {
+void E_MonsterDisplay::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* monsterdisplay::descriptor() {
+const ::google::protobuf::Descriptor* E_MonsterDisplay::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return monsterdisplay_descriptor_;
+  return E_MonsterDisplay_descriptor_;
 }
 
-const monsterdisplay& monsterdisplay::default_instance() {
+const E_MonsterDisplay& E_MonsterDisplay::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-monsterdisplay* monsterdisplay::default_instance_ = NULL;
+E_MonsterDisplay* E_MonsterDisplay::default_instance_ = NULL;
 
-monsterdisplay* monsterdisplay::New() const {
-  return new monsterdisplay;
+E_MonsterDisplay* E_MonsterDisplay::New() const {
+  return new E_MonsterDisplay;
 }
 
-void monsterdisplay::Clear() {
+void E_MonsterDisplay::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    displayid_ = GOOGLE_LONGLONG(0);
-    modeloffsetsx_ = 0;
-    modeloffsetsy_ = 0;
-    modelscale_ = 0;
-    modelradius_ = 0;
-    pathradius_ = 0;
-    collisionradius_ = 0;
-    rspeed_ = 0;
+    m_displayid_ = GOOGLE_LONGLONG(0);
+    m_modeloffsetsx_ = 0;
+    m_modeloffsetsy_ = 0;
+    m_modelscale_ = 0;
+    m_modelradius_ = 0;
+    m_pathradius_ = 0;
+    m_collisionradius_ = 0;
+    m_rspeed_ = 0;
   }
-  skill_.Clear();
+  m_skill_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool monsterdisplay::MergePartialFromCodedStream(
+bool E_MonsterDisplay::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 displayID = 1;
+      // optional int64 m_displayid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &displayid_)));
-          set_has_displayid();
+                 input, &m_displayid_)));
+          set_has_m_displayid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_modelOffsetsX;
+        if (input->ExpectTag(16)) goto parse_m_modeloffsetsx;
         break;
       }
 
-      // optional int32 modelOffsetsX = 2;
+      // optional int32 m_modeloffsetsx = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_modelOffsetsX:
+         parse_m_modeloffsetsx:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &modeloffsetsx_)));
-          set_has_modeloffsetsx();
+                 input, &m_modeloffsetsx_)));
+          set_has_m_modeloffsetsx();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_modelOffsetsY;
+        if (input->ExpectTag(24)) goto parse_m_modeloffsetsy;
         break;
       }
 
-      // optional int32 modelOffsetsY = 3;
+      // optional int32 m_modeloffsetsy = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_modelOffsetsY:
+         parse_m_modeloffsetsy:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &modeloffsetsy_)));
-          set_has_modeloffsetsy();
+                 input, &m_modeloffsetsy_)));
+          set_has_m_modeloffsetsy();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_modelScale;
+        if (input->ExpectTag(32)) goto parse_m_modelscale;
         break;
       }
 
-      // optional int32 modelScale = 4;
+      // optional int32 m_modelscale = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_modelScale:
+         parse_m_modelscale:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &modelscale_)));
-          set_has_modelscale();
+                 input, &m_modelscale_)));
+          set_has_m_modelscale();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_modelRadius;
+        if (input->ExpectTag(40)) goto parse_m_modelradius;
         break;
       }
 
-      // optional int32 modelRadius = 5;
+      // optional int32 m_modelradius = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_modelRadius:
+         parse_m_modelradius:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &modelradius_)));
-          set_has_modelradius();
+                 input, &m_modelradius_)));
+          set_has_m_modelradius();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_pathRadius;
+        if (input->ExpectTag(48)) goto parse_m_pathradius;
         break;
       }
 
-      // optional int32 pathRadius = 6;
+      // optional int32 m_pathradius = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_pathRadius:
+         parse_m_pathradius:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &pathradius_)));
-          set_has_pathradius();
+                 input, &m_pathradius_)));
+          set_has_m_pathradius();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_collisionRadius;
+        if (input->ExpectTag(56)) goto parse_m_collisionradius;
         break;
       }
 
-      // optional int32 collisionRadius = 7;
+      // optional int32 m_collisionradius = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_collisionRadius:
+         parse_m_collisionradius:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &collisionradius_)));
-          set_has_collisionradius();
+                 input, &m_collisionradius_)));
+          set_has_m_collisionradius();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_rSpeed;
+        if (input->ExpectTag(64)) goto parse_m_rspeed;
         break;
       }
 
-      // optional int32 rSpeed = 8;
+      // optional int32 m_rspeed = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rSpeed:
+         parse_m_rspeed:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rspeed_)));
-          set_has_rspeed();
+                 input, &m_rspeed_)));
+          set_has_m_rspeed();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_skill;
+        if (input->ExpectTag(74)) goto parse_m_skill;
         break;
       }
 
-      // repeated .proto_ff.monsterdisplayskillDesc skill = 9;
+      // repeated .proto_ff.E_MonsterDisplaySkillDesc m_skill = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_skill:
+         parse_m_skill:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_skill()));
+                input, add_m_skill()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_skill;
+        if (input->ExpectTag(74)) goto parse_m_skill;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2630,52 +2640,52 @@ bool monsterdisplay::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void monsterdisplay::SerializeWithCachedSizes(
+void E_MonsterDisplay::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 displayID = 1;
-  if (has_displayid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->displayid(), output);
+  // optional int64 m_displayid = 1;
+  if (has_m_displayid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_displayid(), output);
   }
 
-  // optional int32 modelOffsetsX = 2;
-  if (has_modeloffsetsx()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->modeloffsetsx(), output);
+  // optional int32 m_modeloffsetsx = 2;
+  if (has_m_modeloffsetsx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_modeloffsetsx(), output);
   }
 
-  // optional int32 modelOffsetsY = 3;
-  if (has_modeloffsetsy()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->modeloffsetsy(), output);
+  // optional int32 m_modeloffsetsy = 3;
+  if (has_m_modeloffsetsy()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_modeloffsetsy(), output);
   }
 
-  // optional int32 modelScale = 4;
-  if (has_modelscale()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->modelscale(), output);
+  // optional int32 m_modelscale = 4;
+  if (has_m_modelscale()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_modelscale(), output);
   }
 
-  // optional int32 modelRadius = 5;
-  if (has_modelradius()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->modelradius(), output);
+  // optional int32 m_modelradius = 5;
+  if (has_m_modelradius()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_modelradius(), output);
   }
 
-  // optional int32 pathRadius = 6;
-  if (has_pathradius()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->pathradius(), output);
+  // optional int32 m_pathradius = 6;
+  if (has_m_pathradius()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_pathradius(), output);
   }
 
-  // optional int32 collisionRadius = 7;
-  if (has_collisionradius()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->collisionradius(), output);
+  // optional int32 m_collisionradius = 7;
+  if (has_m_collisionradius()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_collisionradius(), output);
   }
 
-  // optional int32 rSpeed = 8;
-  if (has_rspeed()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->rspeed(), output);
+  // optional int32 m_rspeed = 8;
+  if (has_m_rspeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_rspeed(), output);
   }
 
-  // repeated .proto_ff.monsterdisplayskillDesc skill = 9;
-  for (int i = 0; i < this->skill_size(); i++) {
+  // repeated .proto_ff.E_MonsterDisplaySkillDesc m_skill = 9;
+  for (int i = 0; i < this->m_skill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->skill(i), output);
+      9, this->m_skill(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2684,53 +2694,53 @@ void monsterdisplay::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* monsterdisplay::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MonsterDisplay::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 displayID = 1;
-  if (has_displayid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->displayid(), target);
+  // optional int64 m_displayid = 1;
+  if (has_m_displayid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_displayid(), target);
   }
 
-  // optional int32 modelOffsetsX = 2;
-  if (has_modeloffsetsx()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->modeloffsetsx(), target);
+  // optional int32 m_modeloffsetsx = 2;
+  if (has_m_modeloffsetsx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_modeloffsetsx(), target);
   }
 
-  // optional int32 modelOffsetsY = 3;
-  if (has_modeloffsetsy()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->modeloffsetsy(), target);
+  // optional int32 m_modeloffsetsy = 3;
+  if (has_m_modeloffsetsy()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_modeloffsetsy(), target);
   }
 
-  // optional int32 modelScale = 4;
-  if (has_modelscale()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->modelscale(), target);
+  // optional int32 m_modelscale = 4;
+  if (has_m_modelscale()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_modelscale(), target);
   }
 
-  // optional int32 modelRadius = 5;
-  if (has_modelradius()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->modelradius(), target);
+  // optional int32 m_modelradius = 5;
+  if (has_m_modelradius()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_modelradius(), target);
   }
 
-  // optional int32 pathRadius = 6;
-  if (has_pathradius()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->pathradius(), target);
+  // optional int32 m_pathradius = 6;
+  if (has_m_pathradius()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_pathradius(), target);
   }
 
-  // optional int32 collisionRadius = 7;
-  if (has_collisionradius()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->collisionradius(), target);
+  // optional int32 m_collisionradius = 7;
+  if (has_m_collisionradius()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_collisionradius(), target);
   }
 
-  // optional int32 rSpeed = 8;
-  if (has_rspeed()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->rspeed(), target);
+  // optional int32 m_rspeed = 8;
+  if (has_m_rspeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_rspeed(), target);
   }
 
-  // repeated .proto_ff.monsterdisplayskillDesc skill = 9;
-  for (int i = 0; i < this->skill_size(); i++) {
+  // repeated .proto_ff.E_MonsterDisplaySkillDesc m_skill = 9;
+  for (int i = 0; i < this->m_skill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        9, this->skill(i), target);
+        9, this->m_skill(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2740,73 +2750,73 @@ void monsterdisplay::SerializeWithCachedSizes(
   return target;
 }
 
-int monsterdisplay::ByteSize() const {
+int E_MonsterDisplay::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 displayID = 1;
-    if (has_displayid()) {
+    // optional int64 m_displayid = 1;
+    if (has_m_displayid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->displayid());
+          this->m_displayid());
     }
 
-    // optional int32 modelOffsetsX = 2;
-    if (has_modeloffsetsx()) {
+    // optional int32 m_modeloffsetsx = 2;
+    if (has_m_modeloffsetsx()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->modeloffsetsx());
+          this->m_modeloffsetsx());
     }
 
-    // optional int32 modelOffsetsY = 3;
-    if (has_modeloffsetsy()) {
+    // optional int32 m_modeloffsetsy = 3;
+    if (has_m_modeloffsetsy()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->modeloffsetsy());
+          this->m_modeloffsetsy());
     }
 
-    // optional int32 modelScale = 4;
-    if (has_modelscale()) {
+    // optional int32 m_modelscale = 4;
+    if (has_m_modelscale()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->modelscale());
+          this->m_modelscale());
     }
 
-    // optional int32 modelRadius = 5;
-    if (has_modelradius()) {
+    // optional int32 m_modelradius = 5;
+    if (has_m_modelradius()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->modelradius());
+          this->m_modelradius());
     }
 
-    // optional int32 pathRadius = 6;
-    if (has_pathradius()) {
+    // optional int32 m_pathradius = 6;
+    if (has_m_pathradius()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->pathradius());
+          this->m_pathradius());
     }
 
-    // optional int32 collisionRadius = 7;
-    if (has_collisionradius()) {
+    // optional int32 m_collisionradius = 7;
+    if (has_m_collisionradius()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->collisionradius());
+          this->m_collisionradius());
     }
 
-    // optional int32 rSpeed = 8;
-    if (has_rspeed()) {
+    // optional int32 m_rspeed = 8;
+    if (has_m_rspeed()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rspeed());
+          this->m_rspeed());
     }
 
   }
-  // repeated .proto_ff.monsterdisplayskillDesc skill = 9;
-  total_size += 1 * this->skill_size();
-  for (int i = 0; i < this->skill_size(); i++) {
+  // repeated .proto_ff.E_MonsterDisplaySkillDesc m_skill = 9;
+  total_size += 1 * this->m_skill_size();
+  for (int i = 0; i < this->m_skill_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->skill(i));
+        this->m_skill(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2820,10 +2830,10 @@ int monsterdisplay::ByteSize() const {
   return total_size;
 }
 
-void monsterdisplay::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MonsterDisplay::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const monsterdisplay* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const monsterdisplay*>(
+  const E_MonsterDisplay* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MonsterDisplay*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2832,77 +2842,77 @@ void monsterdisplay::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void monsterdisplay::MergeFrom(const monsterdisplay& from) {
+void E_MonsterDisplay::MergeFrom(const E_MonsterDisplay& from) {
   GOOGLE_CHECK_NE(&from, this);
-  skill_.MergeFrom(from.skill_);
+  m_skill_.MergeFrom(from.m_skill_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_displayid()) {
-      set_displayid(from.displayid());
+    if (from.has_m_displayid()) {
+      set_m_displayid(from.m_displayid());
     }
-    if (from.has_modeloffsetsx()) {
-      set_modeloffsetsx(from.modeloffsetsx());
+    if (from.has_m_modeloffsetsx()) {
+      set_m_modeloffsetsx(from.m_modeloffsetsx());
     }
-    if (from.has_modeloffsetsy()) {
-      set_modeloffsetsy(from.modeloffsetsy());
+    if (from.has_m_modeloffsetsy()) {
+      set_m_modeloffsetsy(from.m_modeloffsetsy());
     }
-    if (from.has_modelscale()) {
-      set_modelscale(from.modelscale());
+    if (from.has_m_modelscale()) {
+      set_m_modelscale(from.m_modelscale());
     }
-    if (from.has_modelradius()) {
-      set_modelradius(from.modelradius());
+    if (from.has_m_modelradius()) {
+      set_m_modelradius(from.m_modelradius());
     }
-    if (from.has_pathradius()) {
-      set_pathradius(from.pathradius());
+    if (from.has_m_pathradius()) {
+      set_m_pathradius(from.m_pathradius());
     }
-    if (from.has_collisionradius()) {
-      set_collisionradius(from.collisionradius());
+    if (from.has_m_collisionradius()) {
+      set_m_collisionradius(from.m_collisionradius());
     }
-    if (from.has_rspeed()) {
-      set_rspeed(from.rspeed());
+    if (from.has_m_rspeed()) {
+      set_m_rspeed(from.m_rspeed());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void monsterdisplay::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MonsterDisplay::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void monsterdisplay::CopyFrom(const monsterdisplay& from) {
+void E_MonsterDisplay::CopyFrom(const E_MonsterDisplay& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool monsterdisplay::IsInitialized() const {
+bool E_MonsterDisplay::IsInitialized() const {
 
   return true;
 }
 
-void monsterdisplay::Swap(monsterdisplay* other) {
+void E_MonsterDisplay::Swap(E_MonsterDisplay* other) {
   if (other != this) {
-    std::swap(displayid_, other->displayid_);
-    std::swap(modeloffsetsx_, other->modeloffsetsx_);
-    std::swap(modeloffsetsy_, other->modeloffsetsy_);
-    std::swap(modelscale_, other->modelscale_);
-    std::swap(modelradius_, other->modelradius_);
-    std::swap(pathradius_, other->pathradius_);
-    std::swap(collisionradius_, other->collisionradius_);
-    std::swap(rspeed_, other->rspeed_);
-    skill_.Swap(&other->skill_);
+    std::swap(m_displayid_, other->m_displayid_);
+    std::swap(m_modeloffsetsx_, other->m_modeloffsetsx_);
+    std::swap(m_modeloffsetsy_, other->m_modeloffsetsy_);
+    std::swap(m_modelscale_, other->m_modelscale_);
+    std::swap(m_modelradius_, other->m_modelradius_);
+    std::swap(m_pathradius_, other->m_pathradius_);
+    std::swap(m_collisionradius_, other->m_collisionradius_);
+    std::swap(m_rspeed_, other->m_rspeed_);
+    m_skill_.Swap(&other->m_skill_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata monsterdisplay::GetMetadata() const {
+::google::protobuf::Metadata E_MonsterDisplay::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = monsterdisplay_descriptor_;
-  metadata.reflection = monsterdisplay_reflection_;
+  metadata.descriptor = E_MonsterDisplay_descriptor_;
+  metadata.reflection = E_MonsterDisplay_reflection_;
   return metadata;
 }
 
@@ -2910,81 +2920,81 @@ void monsterdisplay::Swap(monsterdisplay* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_monsterdisplay::kMonsterdisplayListFieldNumber;
+const int Sheet_MonsterDisplay::kEMonsterDisplayListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_monsterdisplay::Sheet_monsterdisplay()
+Sheet_MonsterDisplay::Sheet_MonsterDisplay()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_monsterdisplay::InitAsDefaultInstance() {
+void Sheet_MonsterDisplay::InitAsDefaultInstance() {
 }
 
-Sheet_monsterdisplay::Sheet_monsterdisplay(const Sheet_monsterdisplay& from)
+Sheet_MonsterDisplay::Sheet_MonsterDisplay(const Sheet_MonsterDisplay& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_monsterdisplay::SharedCtor() {
+void Sheet_MonsterDisplay::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_monsterdisplay::~Sheet_monsterdisplay() {
+Sheet_MonsterDisplay::~Sheet_MonsterDisplay() {
   SharedDtor();
 }
 
-void Sheet_monsterdisplay::SharedDtor() {
+void Sheet_MonsterDisplay::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_monsterdisplay::SetCachedSize(int size) const {
+void Sheet_MonsterDisplay::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_monsterdisplay::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_MonsterDisplay::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_monsterdisplay_descriptor_;
+  return Sheet_MonsterDisplay_descriptor_;
 }
 
-const Sheet_monsterdisplay& Sheet_monsterdisplay::default_instance() {
+const Sheet_MonsterDisplay& Sheet_MonsterDisplay::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-Sheet_monsterdisplay* Sheet_monsterdisplay::default_instance_ = NULL;
+Sheet_MonsterDisplay* Sheet_MonsterDisplay::default_instance_ = NULL;
 
-Sheet_monsterdisplay* Sheet_monsterdisplay::New() const {
-  return new Sheet_monsterdisplay;
+Sheet_MonsterDisplay* Sheet_MonsterDisplay::New() const {
+  return new Sheet_MonsterDisplay;
 }
 
-void Sheet_monsterdisplay::Clear() {
-  monsterdisplay_list_.Clear();
+void Sheet_MonsterDisplay::Clear() {
+  e_monsterdisplay_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_monsterdisplay::MergePartialFromCodedStream(
+bool Sheet_MonsterDisplay::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.monsterdisplay monsterdisplay_List = 1;
+      // repeated .proto_ff.E_MonsterDisplay E_MonsterDisplay_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_monsterdisplay_List:
+         parse_E_MonsterDisplay_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_monsterdisplay_list()));
+                input, add_e_monsterdisplay_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_monsterdisplay_List;
+        if (input->ExpectTag(10)) goto parse_E_MonsterDisplay_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3005,12 +3015,12 @@ bool Sheet_monsterdisplay::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_monsterdisplay::SerializeWithCachedSizes(
+void Sheet_MonsterDisplay::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.monsterdisplay monsterdisplay_List = 1;
-  for (int i = 0; i < this->monsterdisplay_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterDisplay E_MonsterDisplay_List = 1;
+  for (int i = 0; i < this->e_monsterdisplay_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->monsterdisplay_list(i), output);
+      1, this->e_monsterdisplay_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3019,13 +3029,13 @@ void Sheet_monsterdisplay::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_monsterdisplay::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_MonsterDisplay::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.monsterdisplay monsterdisplay_List = 1;
-  for (int i = 0; i < this->monsterdisplay_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterDisplay E_MonsterDisplay_List = 1;
+  for (int i = 0; i < this->e_monsterdisplay_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->monsterdisplay_list(i), target);
+        1, this->e_monsterdisplay_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3035,15 +3045,15 @@ void Sheet_monsterdisplay::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_monsterdisplay::ByteSize() const {
+int Sheet_MonsterDisplay::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.monsterdisplay monsterdisplay_List = 1;
-  total_size += 1 * this->monsterdisplay_list_size();
-  for (int i = 0; i < this->monsterdisplay_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterDisplay E_MonsterDisplay_List = 1;
+  total_size += 1 * this->e_monsterdisplay_list_size();
+  for (int i = 0; i < this->e_monsterdisplay_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->monsterdisplay_list(i));
+        this->e_monsterdisplay_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3057,10 +3067,10 @@ int Sheet_monsterdisplay::ByteSize() const {
   return total_size;
 }
 
-void Sheet_monsterdisplay::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterDisplay::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_monsterdisplay* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_monsterdisplay*>(
+  const Sheet_MonsterDisplay* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_MonsterDisplay*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3069,43 +3079,43 @@ void Sheet_monsterdisplay::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_monsterdisplay::MergeFrom(const Sheet_monsterdisplay& from) {
+void Sheet_MonsterDisplay::MergeFrom(const Sheet_MonsterDisplay& from) {
   GOOGLE_CHECK_NE(&from, this);
-  monsterdisplay_list_.MergeFrom(from.monsterdisplay_list_);
+  e_monsterdisplay_list_.MergeFrom(from.e_monsterdisplay_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_monsterdisplay::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterDisplay::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_monsterdisplay::CopyFrom(const Sheet_monsterdisplay& from) {
+void Sheet_MonsterDisplay::CopyFrom(const Sheet_MonsterDisplay& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_monsterdisplay::IsInitialized() const {
+bool Sheet_MonsterDisplay::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_monsterdisplay::Swap(Sheet_monsterdisplay* other) {
+void Sheet_MonsterDisplay::Swap(Sheet_MonsterDisplay* other) {
   if (other != this) {
-    monsterdisplay_list_.Swap(&other->monsterdisplay_list_);
+    e_monsterdisplay_list_.Swap(&other->e_monsterdisplay_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_monsterdisplay::GetMetadata() const {
+::google::protobuf::Metadata Sheet_MonsterDisplay::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_monsterdisplay_descriptor_;
-  metadata.reflection = Sheet_monsterdisplay_reflection_;
+  metadata.descriptor = Sheet_MonsterDisplay_descriptor_;
+  metadata.reflection = Sheet_MonsterDisplay_reflection_;
   return metadata;
 }
 
@@ -3113,1486 +3123,1486 @@ void Sheet_monsterdisplay::Swap(Sheet_monsterdisplay* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int monstervalue::kIDFieldNumber;
-const int monstervalue::kTypeFieldNumber;
-const int monstervalue::kMonsterLVFieldNumber;
-const int monstervalue::kMaxHpFieldNumber;
-const int monstervalue::kAtkFieldNumber;
-const int monstervalue::kDefFieldNumber;
-const int monstervalue::kBrkArmorFieldNumber;
-const int monstervalue::kFiveDamFieldNumber;
-const int monstervalue::kFiveArmorFieldNumber;
-const int monstervalue::kThumpRateFieldNumber;
-const int monstervalue::kThumpResistFieldNumber;
-const int monstervalue::kSkyFieldNumber;
-const int monstervalue::kSkyDamFieldNumber;
-const int monstervalue::kSkyReduResistFieldNumber;
-const int monstervalue::kSkyResistFieldNumber;
-const int monstervalue::kKillGodFieldNumber;
-const int monstervalue::kGodBodyFieldNumber;
-const int monstervalue::kMortalRateFieldNumber;
-const int monstervalue::kMortalResistFieldNumber;
-const int monstervalue::kFairyRateFieldNumber;
-const int monstervalue::kFairyResistFieldNumber;
-const int monstervalue::kGodRateFieldNumber;
-const int monstervalue::kGodResistFieldNumber;
-const int monstervalue::kCritRateFieldNumber;
-const int monstervalue::kCritResitRateFieldNumber;
-const int monstervalue::kCritDamFieldNumber;
-const int monstervalue::kCritReduFieldNumber;
-const int monstervalue::kBatterRateFieldNumber;
-const int monstervalue::kBatterResistFieldNumber;
-const int monstervalue::kBatterDamFieldNumber;
-const int monstervalue::kBatterReduFieldNumber;
-const int monstervalue::kBrkdownRateFieldNumber;
-const int monstervalue::kBrkdownResistFieldNumber;
-const int monstervalue::kDamAddFieldNumber;
-const int monstervalue::kDamReduFieldNumber;
-const int monstervalue::kAllAddFieldNumber;
-const int monstervalue::kAllReduFieldNumber;
-const int monstervalue::kSkillAddFieldNumber;
-const int monstervalue::kSkillReduFieldNumber;
-const int monstervalue::kReboundDamFieldNumber;
-const int monstervalue::kHpStealFieldNumber;
-const int monstervalue::kDodgeRateFieldNumber;
-const int monstervalue::kHitRateFieldNumber;
-const int monstervalue::kBlkRateFieldNumber;
-const int monstervalue::kBrkBlkRateFieldNumber;
-const int monstervalue::kBlkFreeFieldNumber;
-const int monstervalue::kBlkPierceFieldNumber;
-const int monstervalue::kRelArmorFieldNumber;
-const int monstervalue::kRelDamFieldNumber;
-const int monstervalue::kFiveResistFieldNumber;
-const int monstervalue::kFiveResistReduFieldNumber;
-const int monstervalue::kFireAddFieldNumber;
-const int monstervalue::kFireReduFieldNumber;
-const int monstervalue::kIceAddFieldNumber;
-const int monstervalue::kIceReduFieldNumber;
-const int monstervalue::kThunderAddFieldNumber;
-const int monstervalue::kThunderRduFieldNumber;
-const int monstervalue::kPlayerAddFieldNumber;
-const int monstervalue::kPlayerReduFieldNumber;
-const int monstervalue::kLeaderAddFieldNumber;
-const int monstervalue::kLeaderReduFieldNumber;
-const int monstervalue::kMonAddFieldNumber;
-const int monstervalue::kMonReduFieldNumber;
-const int monstervalue::kVarReduFieldNumber;
-const int monstervalue::kVarAddFieldNumber;
-const int monstervalue::kUnusualResistFieldNumber;
-const int monstervalue::kUnusualHitFieldNumber;
-const int monstervalue::kHpRecoverFieldNumber;
-const int monstervalue::kUnusualAddFieldNumber;
-const int monstervalue::kFixRecoverFieldNumber;
-const int monstervalue::kHighHpAddFieldNumber;
-const int monstervalue::kRecoverHpAddFieldNumber;
-const int monstervalue::kWeekAddFieldNumber;
-const int monstervalue::kShieldFieldNumber;
+const int E_MonsterValue::kMIdFieldNumber;
+const int E_MonsterValue::kMTypeFieldNumber;
+const int E_MonsterValue::kMMonsterlvFieldNumber;
+const int E_MonsterValue::kMMaxHpFieldNumber;
+const int E_MonsterValue::kMAtkFieldNumber;
+const int E_MonsterValue::kMDefFieldNumber;
+const int E_MonsterValue::kMBrkArmorFieldNumber;
+const int E_MonsterValue::kMFiveDamFieldNumber;
+const int E_MonsterValue::kMFiveArmorFieldNumber;
+const int E_MonsterValue::kMThumpRateFieldNumber;
+const int E_MonsterValue::kMThumpResistFieldNumber;
+const int E_MonsterValue::kMSkyFieldNumber;
+const int E_MonsterValue::kMSkyDamFieldNumber;
+const int E_MonsterValue::kMSkyReduResistFieldNumber;
+const int E_MonsterValue::kMSkyResistFieldNumber;
+const int E_MonsterValue::kMKillGodFieldNumber;
+const int E_MonsterValue::kMGodBodyFieldNumber;
+const int E_MonsterValue::kMMortalRateFieldNumber;
+const int E_MonsterValue::kMMortalResistFieldNumber;
+const int E_MonsterValue::kMFairyRateFieldNumber;
+const int E_MonsterValue::kMFairyResistFieldNumber;
+const int E_MonsterValue::kMGodRateFieldNumber;
+const int E_MonsterValue::kMGodResistFieldNumber;
+const int E_MonsterValue::kMCritRateFieldNumber;
+const int E_MonsterValue::kMCritResitRateFieldNumber;
+const int E_MonsterValue::kMCritDamFieldNumber;
+const int E_MonsterValue::kMCritReduFieldNumber;
+const int E_MonsterValue::kMBatterRateFieldNumber;
+const int E_MonsterValue::kMBatterResistFieldNumber;
+const int E_MonsterValue::kMBatterDamFieldNumber;
+const int E_MonsterValue::kMBatterReduFieldNumber;
+const int E_MonsterValue::kMBrkdownRateFieldNumber;
+const int E_MonsterValue::kMBrkdownResistFieldNumber;
+const int E_MonsterValue::kMDamAddFieldNumber;
+const int E_MonsterValue::kMDamReduFieldNumber;
+const int E_MonsterValue::kMAllAddFieldNumber;
+const int E_MonsterValue::kMAllReduFieldNumber;
+const int E_MonsterValue::kMSkillAddFieldNumber;
+const int E_MonsterValue::kMSkillReduFieldNumber;
+const int E_MonsterValue::kMReboundDamFieldNumber;
+const int E_MonsterValue::kMHpStealFieldNumber;
+const int E_MonsterValue::kMDodgeRateFieldNumber;
+const int E_MonsterValue::kMHitRateFieldNumber;
+const int E_MonsterValue::kMBlkRateFieldNumber;
+const int E_MonsterValue::kMBrkBlkRateFieldNumber;
+const int E_MonsterValue::kMBlkFreeFieldNumber;
+const int E_MonsterValue::kMBlkPierceFieldNumber;
+const int E_MonsterValue::kMRelArmorFieldNumber;
+const int E_MonsterValue::kMRelDamFieldNumber;
+const int E_MonsterValue::kMFiveResistFieldNumber;
+const int E_MonsterValue::kMFiveResistReduFieldNumber;
+const int E_MonsterValue::kMFireAddFieldNumber;
+const int E_MonsterValue::kMFireReduFieldNumber;
+const int E_MonsterValue::kMIceAddFieldNumber;
+const int E_MonsterValue::kMIceReduFieldNumber;
+const int E_MonsterValue::kMThunderAddFieldNumber;
+const int E_MonsterValue::kMThunderRduFieldNumber;
+const int E_MonsterValue::kMPlayerAddFieldNumber;
+const int E_MonsterValue::kMPlayerReduFieldNumber;
+const int E_MonsterValue::kMLeaderAddFieldNumber;
+const int E_MonsterValue::kMLeaderReduFieldNumber;
+const int E_MonsterValue::kMMonAddFieldNumber;
+const int E_MonsterValue::kMMonReduFieldNumber;
+const int E_MonsterValue::kMVarReduFieldNumber;
+const int E_MonsterValue::kMVarAddFieldNumber;
+const int E_MonsterValue::kMUnusualResistFieldNumber;
+const int E_MonsterValue::kMUnusualHitFieldNumber;
+const int E_MonsterValue::kMHpRecoverFieldNumber;
+const int E_MonsterValue::kMUnusualAddFieldNumber;
+const int E_MonsterValue::kMFixRecoverFieldNumber;
+const int E_MonsterValue::kMHighHpAddFieldNumber;
+const int E_MonsterValue::kMRecoverHpAddFieldNumber;
+const int E_MonsterValue::kMWeekAddFieldNumber;
+const int E_MonsterValue::kMShieldFieldNumber;
 #endif  // !_MSC_VER
 
-monstervalue::monstervalue()
+E_MonsterValue::E_MonsterValue()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void monstervalue::InitAsDefaultInstance() {
+void E_MonsterValue::InitAsDefaultInstance() {
 }
 
-monstervalue::monstervalue(const monstervalue& from)
+E_MonsterValue::E_MonsterValue(const E_MonsterValue& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void monstervalue::SharedCtor() {
+void E_MonsterValue::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  type_ = 0;
-  monsterlv_ = 0;
-  max_hp_ = GOOGLE_LONGLONG(0);
-  atk_ = GOOGLE_LONGLONG(0);
-  def_ = GOOGLE_LONGLONG(0);
-  brk_armor_ = GOOGLE_LONGLONG(0);
-  five_dam_ = GOOGLE_LONGLONG(0);
-  five_armor_ = GOOGLE_LONGLONG(0);
-  thump_rate_ = GOOGLE_LONGLONG(0);
-  thump_resist_ = GOOGLE_LONGLONG(0);
-  sky_ = GOOGLE_LONGLONG(0);
-  sky_dam_ = GOOGLE_LONGLONG(0);
-  sky_redu_resist_ = GOOGLE_LONGLONG(0);
-  sky_resist_ = GOOGLE_LONGLONG(0);
-  kill_god_ = GOOGLE_LONGLONG(0);
-  god_body_ = GOOGLE_LONGLONG(0);
-  mortal_rate_ = GOOGLE_LONGLONG(0);
-  mortal_resist_ = GOOGLE_LONGLONG(0);
-  fairy_rate_ = GOOGLE_LONGLONG(0);
-  fairy_resist_ = GOOGLE_LONGLONG(0);
-  god_rate_ = GOOGLE_LONGLONG(0);
-  god_resist_ = GOOGLE_LONGLONG(0);
-  crit_rate_ = GOOGLE_LONGLONG(0);
-  crit_resit_rate_ = GOOGLE_LONGLONG(0);
-  crit_dam_ = GOOGLE_LONGLONG(0);
-  crit_redu_ = GOOGLE_LONGLONG(0);
-  batter_rate_ = GOOGLE_LONGLONG(0);
-  batter_resist_ = GOOGLE_LONGLONG(0);
-  batter_dam_ = GOOGLE_LONGLONG(0);
-  batter_redu_ = GOOGLE_LONGLONG(0);
-  brkdown_rate_ = GOOGLE_LONGLONG(0);
-  brkdown_resist_ = GOOGLE_LONGLONG(0);
-  dam_add_ = GOOGLE_LONGLONG(0);
-  dam_redu_ = GOOGLE_LONGLONG(0);
-  all_add_ = GOOGLE_LONGLONG(0);
-  all_redu_ = GOOGLE_LONGLONG(0);
-  skill_add_ = GOOGLE_LONGLONG(0);
-  skill_redu_ = GOOGLE_LONGLONG(0);
-  rebound_dam_ = GOOGLE_LONGLONG(0);
-  hp_steal_ = GOOGLE_LONGLONG(0);
-  dodge_rate_ = GOOGLE_LONGLONG(0);
-  hit_rate_ = GOOGLE_LONGLONG(0);
-  blk_rate_ = GOOGLE_LONGLONG(0);
-  brk_blk_rate_ = GOOGLE_LONGLONG(0);
-  blk_free_ = GOOGLE_LONGLONG(0);
-  blk_pierce_ = GOOGLE_LONGLONG(0);
-  rel_armor_ = GOOGLE_LONGLONG(0);
-  rel_dam_ = GOOGLE_LONGLONG(0);
-  five_resist_ = GOOGLE_LONGLONG(0);
-  five_resist_redu_ = GOOGLE_LONGLONG(0);
-  fire_add_ = GOOGLE_LONGLONG(0);
-  fire_redu_ = GOOGLE_LONGLONG(0);
-  ice_add_ = GOOGLE_LONGLONG(0);
-  ice_redu_ = GOOGLE_LONGLONG(0);
-  thunder_add_ = GOOGLE_LONGLONG(0);
-  thunder_rdu_ = GOOGLE_LONGLONG(0);
-  player_add_ = GOOGLE_LONGLONG(0);
-  player_redu_ = GOOGLE_LONGLONG(0);
-  leader_add_ = GOOGLE_LONGLONG(0);
-  leader_redu_ = GOOGLE_LONGLONG(0);
-  mon_add_ = GOOGLE_LONGLONG(0);
-  mon_redu_ = GOOGLE_LONGLONG(0);
-  var_redu_ = GOOGLE_LONGLONG(0);
-  var_add_ = GOOGLE_LONGLONG(0);
-  unusual_resist_ = GOOGLE_LONGLONG(0);
-  unusual_hit_ = GOOGLE_LONGLONG(0);
-  hp_recover_ = GOOGLE_LONGLONG(0);
-  unusual_add_ = GOOGLE_LONGLONG(0);
-  fix_recover_ = GOOGLE_LONGLONG(0);
-  high_hp_add_ = GOOGLE_LONGLONG(0);
-  recover_hp_add_ = GOOGLE_LONGLONG(0);
-  week_add_ = GOOGLE_LONGLONG(0);
-  shield_ = GOOGLE_LONGLONG(0);
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_type_ = 0;
+  m_monsterlv_ = 0;
+  m_max_hp_ = GOOGLE_LONGLONG(0);
+  m_atk_ = GOOGLE_LONGLONG(0);
+  m_def_ = GOOGLE_LONGLONG(0);
+  m_brk_armor_ = GOOGLE_LONGLONG(0);
+  m_five_dam_ = GOOGLE_LONGLONG(0);
+  m_five_armor_ = GOOGLE_LONGLONG(0);
+  m_thump_rate_ = GOOGLE_LONGLONG(0);
+  m_thump_resist_ = GOOGLE_LONGLONG(0);
+  m_sky_ = GOOGLE_LONGLONG(0);
+  m_sky_dam_ = GOOGLE_LONGLONG(0);
+  m_sky_redu_resist_ = GOOGLE_LONGLONG(0);
+  m_sky_resist_ = GOOGLE_LONGLONG(0);
+  m_kill_god_ = GOOGLE_LONGLONG(0);
+  m_god_body_ = GOOGLE_LONGLONG(0);
+  m_mortal_rate_ = GOOGLE_LONGLONG(0);
+  m_mortal_resist_ = GOOGLE_LONGLONG(0);
+  m_fairy_rate_ = GOOGLE_LONGLONG(0);
+  m_fairy_resist_ = GOOGLE_LONGLONG(0);
+  m_god_rate_ = GOOGLE_LONGLONG(0);
+  m_god_resist_ = GOOGLE_LONGLONG(0);
+  m_crit_rate_ = GOOGLE_LONGLONG(0);
+  m_crit_resit_rate_ = GOOGLE_LONGLONG(0);
+  m_crit_dam_ = GOOGLE_LONGLONG(0);
+  m_crit_redu_ = GOOGLE_LONGLONG(0);
+  m_batter_rate_ = GOOGLE_LONGLONG(0);
+  m_batter_resist_ = GOOGLE_LONGLONG(0);
+  m_batter_dam_ = GOOGLE_LONGLONG(0);
+  m_batter_redu_ = GOOGLE_LONGLONG(0);
+  m_brkdown_rate_ = GOOGLE_LONGLONG(0);
+  m_brkdown_resist_ = GOOGLE_LONGLONG(0);
+  m_dam_add_ = GOOGLE_LONGLONG(0);
+  m_dam_redu_ = GOOGLE_LONGLONG(0);
+  m_all_add_ = GOOGLE_LONGLONG(0);
+  m_all_redu_ = GOOGLE_LONGLONG(0);
+  m_skill_add_ = GOOGLE_LONGLONG(0);
+  m_skill_redu_ = GOOGLE_LONGLONG(0);
+  m_rebound_dam_ = GOOGLE_LONGLONG(0);
+  m_hp_steal_ = GOOGLE_LONGLONG(0);
+  m_dodge_rate_ = GOOGLE_LONGLONG(0);
+  m_hit_rate_ = GOOGLE_LONGLONG(0);
+  m_blk_rate_ = GOOGLE_LONGLONG(0);
+  m_brk_blk_rate_ = GOOGLE_LONGLONG(0);
+  m_blk_free_ = GOOGLE_LONGLONG(0);
+  m_blk_pierce_ = GOOGLE_LONGLONG(0);
+  m_rel_armor_ = GOOGLE_LONGLONG(0);
+  m_rel_dam_ = GOOGLE_LONGLONG(0);
+  m_five_resist_ = GOOGLE_LONGLONG(0);
+  m_five_resist_redu_ = GOOGLE_LONGLONG(0);
+  m_fire_add_ = GOOGLE_LONGLONG(0);
+  m_fire_redu_ = GOOGLE_LONGLONG(0);
+  m_ice_add_ = GOOGLE_LONGLONG(0);
+  m_ice_redu_ = GOOGLE_LONGLONG(0);
+  m_thunder_add_ = GOOGLE_LONGLONG(0);
+  m_thunder_rdu_ = GOOGLE_LONGLONG(0);
+  m_player_add_ = GOOGLE_LONGLONG(0);
+  m_player_redu_ = GOOGLE_LONGLONG(0);
+  m_leader_add_ = GOOGLE_LONGLONG(0);
+  m_leader_redu_ = GOOGLE_LONGLONG(0);
+  m_mon_add_ = GOOGLE_LONGLONG(0);
+  m_mon_redu_ = GOOGLE_LONGLONG(0);
+  m_var_redu_ = GOOGLE_LONGLONG(0);
+  m_var_add_ = GOOGLE_LONGLONG(0);
+  m_unusual_resist_ = GOOGLE_LONGLONG(0);
+  m_unusual_hit_ = GOOGLE_LONGLONG(0);
+  m_hp_recover_ = GOOGLE_LONGLONG(0);
+  m_unusual_add_ = GOOGLE_LONGLONG(0);
+  m_fix_recover_ = GOOGLE_LONGLONG(0);
+  m_high_hp_add_ = GOOGLE_LONGLONG(0);
+  m_recover_hp_add_ = GOOGLE_LONGLONG(0);
+  m_week_add_ = GOOGLE_LONGLONG(0);
+  m_shield_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-monstervalue::~monstervalue() {
+E_MonsterValue::~E_MonsterValue() {
   SharedDtor();
 }
 
-void monstervalue::SharedDtor() {
+void E_MonsterValue::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void monstervalue::SetCachedSize(int size) const {
+void E_MonsterValue::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* monstervalue::descriptor() {
+const ::google::protobuf::Descriptor* E_MonsterValue::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return monstervalue_descriptor_;
+  return E_MonsterValue_descriptor_;
 }
 
-const monstervalue& monstervalue::default_instance() {
+const E_MonsterValue& E_MonsterValue::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-monstervalue* monstervalue::default_instance_ = NULL;
+E_MonsterValue* E_MonsterValue::default_instance_ = NULL;
 
-monstervalue* monstervalue::New() const {
-  return new monstervalue;
+E_MonsterValue* E_MonsterValue::New() const {
+  return new E_MonsterValue;
 }
 
-void monstervalue::Clear() {
+void E_MonsterValue::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    type_ = 0;
-    monsterlv_ = 0;
-    max_hp_ = GOOGLE_LONGLONG(0);
-    atk_ = GOOGLE_LONGLONG(0);
-    def_ = GOOGLE_LONGLONG(0);
-    brk_armor_ = GOOGLE_LONGLONG(0);
-    five_dam_ = GOOGLE_LONGLONG(0);
+    m_id_ = GOOGLE_LONGLONG(0);
+    m_type_ = 0;
+    m_monsterlv_ = 0;
+    m_max_hp_ = GOOGLE_LONGLONG(0);
+    m_atk_ = GOOGLE_LONGLONG(0);
+    m_def_ = GOOGLE_LONGLONG(0);
+    m_brk_armor_ = GOOGLE_LONGLONG(0);
+    m_five_dam_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    five_armor_ = GOOGLE_LONGLONG(0);
-    thump_rate_ = GOOGLE_LONGLONG(0);
-    thump_resist_ = GOOGLE_LONGLONG(0);
-    sky_ = GOOGLE_LONGLONG(0);
-    sky_dam_ = GOOGLE_LONGLONG(0);
-    sky_redu_resist_ = GOOGLE_LONGLONG(0);
-    sky_resist_ = GOOGLE_LONGLONG(0);
-    kill_god_ = GOOGLE_LONGLONG(0);
+    m_five_armor_ = GOOGLE_LONGLONG(0);
+    m_thump_rate_ = GOOGLE_LONGLONG(0);
+    m_thump_resist_ = GOOGLE_LONGLONG(0);
+    m_sky_ = GOOGLE_LONGLONG(0);
+    m_sky_dam_ = GOOGLE_LONGLONG(0);
+    m_sky_redu_resist_ = GOOGLE_LONGLONG(0);
+    m_sky_resist_ = GOOGLE_LONGLONG(0);
+    m_kill_god_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    god_body_ = GOOGLE_LONGLONG(0);
-    mortal_rate_ = GOOGLE_LONGLONG(0);
-    mortal_resist_ = GOOGLE_LONGLONG(0);
-    fairy_rate_ = GOOGLE_LONGLONG(0);
-    fairy_resist_ = GOOGLE_LONGLONG(0);
-    god_rate_ = GOOGLE_LONGLONG(0);
-    god_resist_ = GOOGLE_LONGLONG(0);
-    crit_rate_ = GOOGLE_LONGLONG(0);
+    m_god_body_ = GOOGLE_LONGLONG(0);
+    m_mortal_rate_ = GOOGLE_LONGLONG(0);
+    m_mortal_resist_ = GOOGLE_LONGLONG(0);
+    m_fairy_rate_ = GOOGLE_LONGLONG(0);
+    m_fairy_resist_ = GOOGLE_LONGLONG(0);
+    m_god_rate_ = GOOGLE_LONGLONG(0);
+    m_god_resist_ = GOOGLE_LONGLONG(0);
+    m_crit_rate_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    crit_resit_rate_ = GOOGLE_LONGLONG(0);
-    crit_dam_ = GOOGLE_LONGLONG(0);
-    crit_redu_ = GOOGLE_LONGLONG(0);
-    batter_rate_ = GOOGLE_LONGLONG(0);
-    batter_resist_ = GOOGLE_LONGLONG(0);
-    batter_dam_ = GOOGLE_LONGLONG(0);
-    batter_redu_ = GOOGLE_LONGLONG(0);
-    brkdown_rate_ = GOOGLE_LONGLONG(0);
+    m_crit_resit_rate_ = GOOGLE_LONGLONG(0);
+    m_crit_dam_ = GOOGLE_LONGLONG(0);
+    m_crit_redu_ = GOOGLE_LONGLONG(0);
+    m_batter_rate_ = GOOGLE_LONGLONG(0);
+    m_batter_resist_ = GOOGLE_LONGLONG(0);
+    m_batter_dam_ = GOOGLE_LONGLONG(0);
+    m_batter_redu_ = GOOGLE_LONGLONG(0);
+    m_brkdown_rate_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    brkdown_resist_ = GOOGLE_LONGLONG(0);
-    dam_add_ = GOOGLE_LONGLONG(0);
-    dam_redu_ = GOOGLE_LONGLONG(0);
-    all_add_ = GOOGLE_LONGLONG(0);
-    all_redu_ = GOOGLE_LONGLONG(0);
-    skill_add_ = GOOGLE_LONGLONG(0);
-    skill_redu_ = GOOGLE_LONGLONG(0);
-    rebound_dam_ = GOOGLE_LONGLONG(0);
+    m_brkdown_resist_ = GOOGLE_LONGLONG(0);
+    m_dam_add_ = GOOGLE_LONGLONG(0);
+    m_dam_redu_ = GOOGLE_LONGLONG(0);
+    m_all_add_ = GOOGLE_LONGLONG(0);
+    m_all_redu_ = GOOGLE_LONGLONG(0);
+    m_skill_add_ = GOOGLE_LONGLONG(0);
+    m_skill_redu_ = GOOGLE_LONGLONG(0);
+    m_rebound_dam_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    hp_steal_ = GOOGLE_LONGLONG(0);
-    dodge_rate_ = GOOGLE_LONGLONG(0);
-    hit_rate_ = GOOGLE_LONGLONG(0);
-    blk_rate_ = GOOGLE_LONGLONG(0);
-    brk_blk_rate_ = GOOGLE_LONGLONG(0);
-    blk_free_ = GOOGLE_LONGLONG(0);
-    blk_pierce_ = GOOGLE_LONGLONG(0);
-    rel_armor_ = GOOGLE_LONGLONG(0);
+    m_hp_steal_ = GOOGLE_LONGLONG(0);
+    m_dodge_rate_ = GOOGLE_LONGLONG(0);
+    m_hit_rate_ = GOOGLE_LONGLONG(0);
+    m_blk_rate_ = GOOGLE_LONGLONG(0);
+    m_brk_blk_rate_ = GOOGLE_LONGLONG(0);
+    m_blk_free_ = GOOGLE_LONGLONG(0);
+    m_blk_pierce_ = GOOGLE_LONGLONG(0);
+    m_rel_armor_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    rel_dam_ = GOOGLE_LONGLONG(0);
-    five_resist_ = GOOGLE_LONGLONG(0);
-    five_resist_redu_ = GOOGLE_LONGLONG(0);
-    fire_add_ = GOOGLE_LONGLONG(0);
-    fire_redu_ = GOOGLE_LONGLONG(0);
-    ice_add_ = GOOGLE_LONGLONG(0);
-    ice_redu_ = GOOGLE_LONGLONG(0);
-    thunder_add_ = GOOGLE_LONGLONG(0);
+    m_rel_dam_ = GOOGLE_LONGLONG(0);
+    m_five_resist_ = GOOGLE_LONGLONG(0);
+    m_five_resist_redu_ = GOOGLE_LONGLONG(0);
+    m_fire_add_ = GOOGLE_LONGLONG(0);
+    m_fire_redu_ = GOOGLE_LONGLONG(0);
+    m_ice_add_ = GOOGLE_LONGLONG(0);
+    m_ice_redu_ = GOOGLE_LONGLONG(0);
+    m_thunder_add_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    thunder_rdu_ = GOOGLE_LONGLONG(0);
-    player_add_ = GOOGLE_LONGLONG(0);
-    player_redu_ = GOOGLE_LONGLONG(0);
-    leader_add_ = GOOGLE_LONGLONG(0);
-    leader_redu_ = GOOGLE_LONGLONG(0);
-    mon_add_ = GOOGLE_LONGLONG(0);
-    mon_redu_ = GOOGLE_LONGLONG(0);
-    var_redu_ = GOOGLE_LONGLONG(0);
+    m_thunder_rdu_ = GOOGLE_LONGLONG(0);
+    m_player_add_ = GOOGLE_LONGLONG(0);
+    m_player_redu_ = GOOGLE_LONGLONG(0);
+    m_leader_add_ = GOOGLE_LONGLONG(0);
+    m_leader_redu_ = GOOGLE_LONGLONG(0);
+    m_mon_add_ = GOOGLE_LONGLONG(0);
+    m_mon_redu_ = GOOGLE_LONGLONG(0);
+    m_var_redu_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    var_add_ = GOOGLE_LONGLONG(0);
-    unusual_resist_ = GOOGLE_LONGLONG(0);
-    unusual_hit_ = GOOGLE_LONGLONG(0);
-    hp_recover_ = GOOGLE_LONGLONG(0);
-    unusual_add_ = GOOGLE_LONGLONG(0);
-    fix_recover_ = GOOGLE_LONGLONG(0);
-    high_hp_add_ = GOOGLE_LONGLONG(0);
-    recover_hp_add_ = GOOGLE_LONGLONG(0);
+    m_var_add_ = GOOGLE_LONGLONG(0);
+    m_unusual_resist_ = GOOGLE_LONGLONG(0);
+    m_unusual_hit_ = GOOGLE_LONGLONG(0);
+    m_hp_recover_ = GOOGLE_LONGLONG(0);
+    m_unusual_add_ = GOOGLE_LONGLONG(0);
+    m_fix_recover_ = GOOGLE_LONGLONG(0);
+    m_high_hp_add_ = GOOGLE_LONGLONG(0);
+    m_recover_hp_add_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[72 / 32] & (0xffu << (72 % 32))) {
-    week_add_ = GOOGLE_LONGLONG(0);
-    shield_ = GOOGLE_LONGLONG(0);
+    m_week_add_ = GOOGLE_LONGLONG(0);
+    m_shield_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool monstervalue::MergePartialFromCodedStream(
+bool E_MonsterValue::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 ID = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_type;
+        if (input->ExpectTag(16)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 2;
+      // optional int32 m_type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_monsterLV;
+        if (input->ExpectTag(24)) goto parse_m_monsterlv;
         break;
       }
 
-      // optional int32 monsterLV = 3;
+      // optional int32 m_monsterlv = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_monsterLV:
+         parse_m_monsterlv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &monsterlv_)));
-          set_has_monsterlv();
+                 input, &m_monsterlv_)));
+          set_has_m_monsterlv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_max_Hp;
+        if (input->ExpectTag(32)) goto parse_m_max_hp;
         break;
       }
 
-      // optional int64 max_Hp = 4;
+      // optional int64 m_max_hp = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_max_Hp:
+         parse_m_max_hp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &max_hp_)));
-          set_has_max_hp();
+                 input, &m_max_hp_)));
+          set_has_m_max_hp();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_atk;
+        if (input->ExpectTag(40)) goto parse_m_atk;
         break;
       }
 
-      // optional int64 atk = 5;
+      // optional int64 m_atk = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_atk:
+         parse_m_atk:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &atk_)));
-          set_has_atk();
+                 input, &m_atk_)));
+          set_has_m_atk();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_def;
+        if (input->ExpectTag(48)) goto parse_m_def;
         break;
       }
 
-      // optional int64 def = 6;
+      // optional int64 m_def = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_def:
+         parse_m_def:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &def_)));
-          set_has_def();
+                 input, &m_def_)));
+          set_has_m_def();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_brk_Armor;
+        if (input->ExpectTag(56)) goto parse_m_brk_armor;
         break;
       }
 
-      // optional int64 brk_Armor = 7;
+      // optional int64 m_brk_armor = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_brk_Armor:
+         parse_m_brk_armor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &brk_armor_)));
-          set_has_brk_armor();
+                 input, &m_brk_armor_)));
+          set_has_m_brk_armor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_five_Dam;
+        if (input->ExpectTag(64)) goto parse_m_five_dam;
         break;
       }
 
-      // optional int64 five_Dam = 8;
+      // optional int64 m_five_dam = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_five_Dam:
+         parse_m_five_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &five_dam_)));
-          set_has_five_dam();
+                 input, &m_five_dam_)));
+          set_has_m_five_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_five_Armor;
+        if (input->ExpectTag(72)) goto parse_m_five_armor;
         break;
       }
 
-      // optional int64 five_Armor = 9;
+      // optional int64 m_five_armor = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_five_Armor:
+         parse_m_five_armor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &five_armor_)));
-          set_has_five_armor();
+                 input, &m_five_armor_)));
+          set_has_m_five_armor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_thump_Rate;
+        if (input->ExpectTag(80)) goto parse_m_thump_rate;
         break;
       }
 
-      // optional int64 thump_Rate = 10;
+      // optional int64 m_thump_rate = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_thump_Rate:
+         parse_m_thump_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &thump_rate_)));
-          set_has_thump_rate();
+                 input, &m_thump_rate_)));
+          set_has_m_thump_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_thump_Resist;
+        if (input->ExpectTag(88)) goto parse_m_thump_resist;
         break;
       }
 
-      // optional int64 thump_Resist = 11;
+      // optional int64 m_thump_resist = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_thump_Resist:
+         parse_m_thump_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &thump_resist_)));
-          set_has_thump_resist();
+                 input, &m_thump_resist_)));
+          set_has_m_thump_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_sky;
+        if (input->ExpectTag(96)) goto parse_m_sky;
         break;
       }
 
-      // optional int64 sky = 12;
+      // optional int64 m_sky = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sky:
+         parse_m_sky:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &sky_)));
-          set_has_sky();
+                 input, &m_sky_)));
+          set_has_m_sky();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_sky_Dam;
+        if (input->ExpectTag(104)) goto parse_m_sky_dam;
         break;
       }
 
-      // optional int64 sky_Dam = 13;
+      // optional int64 m_sky_dam = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sky_Dam:
+         parse_m_sky_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &sky_dam_)));
-          set_has_sky_dam();
+                 input, &m_sky_dam_)));
+          set_has_m_sky_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_sky_Redu_Resist;
+        if (input->ExpectTag(112)) goto parse_m_sky_redu_resist;
         break;
       }
 
-      // optional int64 sky_Redu_Resist = 14;
+      // optional int64 m_sky_redu_resist = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sky_Redu_Resist:
+         parse_m_sky_redu_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &sky_redu_resist_)));
-          set_has_sky_redu_resist();
+                 input, &m_sky_redu_resist_)));
+          set_has_m_sky_redu_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_sky_Resist;
+        if (input->ExpectTag(120)) goto parse_m_sky_resist;
         break;
       }
 
-      // optional int64 sky_Resist = 15;
+      // optional int64 m_sky_resist = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sky_Resist:
+         parse_m_sky_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &sky_resist_)));
-          set_has_sky_resist();
+                 input, &m_sky_resist_)));
+          set_has_m_sky_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_kill_God;
+        if (input->ExpectTag(128)) goto parse_m_kill_god;
         break;
       }
 
-      // optional int64 kill_God = 16;
+      // optional int64 m_kill_god = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_kill_God:
+         parse_m_kill_god:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &kill_god_)));
-          set_has_kill_god();
+                 input, &m_kill_god_)));
+          set_has_m_kill_god();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_god_Body;
+        if (input->ExpectTag(136)) goto parse_m_god_body;
         break;
       }
 
-      // optional int64 god_Body = 17;
+      // optional int64 m_god_body = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_god_Body:
+         parse_m_god_body:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &god_body_)));
-          set_has_god_body();
+                 input, &m_god_body_)));
+          set_has_m_god_body();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_mortal_Rate;
+        if (input->ExpectTag(144)) goto parse_m_mortal_rate;
         break;
       }
 
-      // optional int64 mortal_Rate = 18;
+      // optional int64 m_mortal_rate = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mortal_Rate:
+         parse_m_mortal_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &mortal_rate_)));
-          set_has_mortal_rate();
+                 input, &m_mortal_rate_)));
+          set_has_m_mortal_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_mortal_Resist;
+        if (input->ExpectTag(152)) goto parse_m_mortal_resist;
         break;
       }
 
-      // optional int64 mortal_Resist = 19;
+      // optional int64 m_mortal_resist = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mortal_Resist:
+         parse_m_mortal_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &mortal_resist_)));
-          set_has_mortal_resist();
+                 input, &m_mortal_resist_)));
+          set_has_m_mortal_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_fairy_Rate;
+        if (input->ExpectTag(160)) goto parse_m_fairy_rate;
         break;
       }
 
-      // optional int64 fairy_Rate = 20;
+      // optional int64 m_fairy_rate = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_fairy_Rate:
+         parse_m_fairy_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &fairy_rate_)));
-          set_has_fairy_rate();
+                 input, &m_fairy_rate_)));
+          set_has_m_fairy_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_fairy_Resist;
+        if (input->ExpectTag(168)) goto parse_m_fairy_resist;
         break;
       }
 
-      // optional int64 fairy_Resist = 21;
+      // optional int64 m_fairy_resist = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_fairy_Resist:
+         parse_m_fairy_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &fairy_resist_)));
-          set_has_fairy_resist();
+                 input, &m_fairy_resist_)));
+          set_has_m_fairy_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(176)) goto parse_god_Rate;
+        if (input->ExpectTag(176)) goto parse_m_god_rate;
         break;
       }
 
-      // optional int64 god_Rate = 22;
+      // optional int64 m_god_rate = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_god_Rate:
+         parse_m_god_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &god_rate_)));
-          set_has_god_rate();
+                 input, &m_god_rate_)));
+          set_has_m_god_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_god_Resist;
+        if (input->ExpectTag(184)) goto parse_m_god_resist;
         break;
       }
 
-      // optional int64 god_Resist = 23;
+      // optional int64 m_god_resist = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_god_Resist:
+         parse_m_god_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &god_resist_)));
-          set_has_god_resist();
+                 input, &m_god_resist_)));
+          set_has_m_god_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_crit_Rate;
+        if (input->ExpectTag(192)) goto parse_m_crit_rate;
         break;
       }
 
-      // optional int64 crit_Rate = 24;
+      // optional int64 m_crit_rate = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_crit_Rate:
+         parse_m_crit_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &crit_rate_)));
-          set_has_crit_rate();
+                 input, &m_crit_rate_)));
+          set_has_m_crit_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_crit_resit_Rate;
+        if (input->ExpectTag(200)) goto parse_m_crit_resit_rate;
         break;
       }
 
-      // optional int64 crit_resit_Rate = 25;
+      // optional int64 m_crit_resit_rate = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_crit_resit_Rate:
+         parse_m_crit_resit_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &crit_resit_rate_)));
-          set_has_crit_resit_rate();
+                 input, &m_crit_resit_rate_)));
+          set_has_m_crit_resit_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_crit_Dam;
+        if (input->ExpectTag(208)) goto parse_m_crit_dam;
         break;
       }
 
-      // optional int64 crit_Dam = 26;
+      // optional int64 m_crit_dam = 26;
       case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_crit_Dam:
+         parse_m_crit_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &crit_dam_)));
-          set_has_crit_dam();
+                 input, &m_crit_dam_)));
+          set_has_m_crit_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_crit_Redu;
+        if (input->ExpectTag(216)) goto parse_m_crit_redu;
         break;
       }
 
-      // optional int64 crit_Redu = 27;
+      // optional int64 m_crit_redu = 27;
       case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_crit_Redu:
+         parse_m_crit_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &crit_redu_)));
-          set_has_crit_redu();
+                 input, &m_crit_redu_)));
+          set_has_m_crit_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_batter_Rate;
+        if (input->ExpectTag(224)) goto parse_m_batter_rate;
         break;
       }
 
-      // optional int64 batter_Rate = 28;
+      // optional int64 m_batter_rate = 28;
       case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_batter_Rate:
+         parse_m_batter_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &batter_rate_)));
-          set_has_batter_rate();
+                 input, &m_batter_rate_)));
+          set_has_m_batter_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(232)) goto parse_batter_Resist;
+        if (input->ExpectTag(232)) goto parse_m_batter_resist;
         break;
       }
 
-      // optional int64 batter_Resist = 29;
+      // optional int64 m_batter_resist = 29;
       case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_batter_Resist:
+         parse_m_batter_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &batter_resist_)));
-          set_has_batter_resist();
+                 input, &m_batter_resist_)));
+          set_has_m_batter_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_batter_Dam;
+        if (input->ExpectTag(240)) goto parse_m_batter_dam;
         break;
       }
 
-      // optional int64 batter_Dam = 30;
+      // optional int64 m_batter_dam = 30;
       case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_batter_Dam:
+         parse_m_batter_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &batter_dam_)));
-          set_has_batter_dam();
+                 input, &m_batter_dam_)));
+          set_has_m_batter_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(248)) goto parse_batter_Redu;
+        if (input->ExpectTag(248)) goto parse_m_batter_redu;
         break;
       }
 
-      // optional int64 batter_Redu = 31;
+      // optional int64 m_batter_redu = 31;
       case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_batter_Redu:
+         parse_m_batter_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &batter_redu_)));
-          set_has_batter_redu();
+                 input, &m_batter_redu_)));
+          set_has_m_batter_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(256)) goto parse_brkdown_Rate;
+        if (input->ExpectTag(256)) goto parse_m_brkdown_rate;
         break;
       }
 
-      // optional int64 brkdown_Rate = 32;
+      // optional int64 m_brkdown_rate = 32;
       case 32: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_brkdown_Rate:
+         parse_m_brkdown_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &brkdown_rate_)));
-          set_has_brkdown_rate();
+                 input, &m_brkdown_rate_)));
+          set_has_m_brkdown_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(264)) goto parse_brkdown_Resist;
+        if (input->ExpectTag(264)) goto parse_m_brkdown_resist;
         break;
       }
 
-      // optional int64 brkdown_Resist = 33;
+      // optional int64 m_brkdown_resist = 33;
       case 33: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_brkdown_Resist:
+         parse_m_brkdown_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &brkdown_resist_)));
-          set_has_brkdown_resist();
+                 input, &m_brkdown_resist_)));
+          set_has_m_brkdown_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(272)) goto parse_dam_Add;
+        if (input->ExpectTag(272)) goto parse_m_dam_add;
         break;
       }
 
-      // optional int64 dam_Add = 34;
+      // optional int64 m_dam_add = 34;
       case 34: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dam_Add:
+         parse_m_dam_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &dam_add_)));
-          set_has_dam_add();
+                 input, &m_dam_add_)));
+          set_has_m_dam_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(280)) goto parse_dam_Redu;
+        if (input->ExpectTag(280)) goto parse_m_dam_redu;
         break;
       }
 
-      // optional int64 dam_Redu = 35;
+      // optional int64 m_dam_redu = 35;
       case 35: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dam_Redu:
+         parse_m_dam_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &dam_redu_)));
-          set_has_dam_redu();
+                 input, &m_dam_redu_)));
+          set_has_m_dam_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(288)) goto parse_all_Add;
+        if (input->ExpectTag(288)) goto parse_m_all_add;
         break;
       }
 
-      // optional int64 all_Add = 36;
+      // optional int64 m_all_add = 36;
       case 36: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_all_Add:
+         parse_m_all_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &all_add_)));
-          set_has_all_add();
+                 input, &m_all_add_)));
+          set_has_m_all_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(296)) goto parse_all_Redu;
+        if (input->ExpectTag(296)) goto parse_m_all_redu;
         break;
       }
 
-      // optional int64 all_Redu = 37;
+      // optional int64 m_all_redu = 37;
       case 37: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_all_Redu:
+         parse_m_all_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &all_redu_)));
-          set_has_all_redu();
+                 input, &m_all_redu_)));
+          set_has_m_all_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(304)) goto parse_skill_Add;
+        if (input->ExpectTag(304)) goto parse_m_skill_add;
         break;
       }
 
-      // optional int64 skill_Add = 38;
+      // optional int64 m_skill_add = 38;
       case 38: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skill_Add:
+         parse_m_skill_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &skill_add_)));
-          set_has_skill_add();
+                 input, &m_skill_add_)));
+          set_has_m_skill_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(312)) goto parse_skill_Redu;
+        if (input->ExpectTag(312)) goto parse_m_skill_redu;
         break;
       }
 
-      // optional int64 skill_Redu = 39;
+      // optional int64 m_skill_redu = 39;
       case 39: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skill_Redu:
+         parse_m_skill_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &skill_redu_)));
-          set_has_skill_redu();
+                 input, &m_skill_redu_)));
+          set_has_m_skill_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(320)) goto parse_rebound_Dam;
+        if (input->ExpectTag(320)) goto parse_m_rebound_dam;
         break;
       }
 
-      // optional int64 rebound_Dam = 40;
+      // optional int64 m_rebound_dam = 40;
       case 40: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rebound_Dam:
+         parse_m_rebound_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &rebound_dam_)));
-          set_has_rebound_dam();
+                 input, &m_rebound_dam_)));
+          set_has_m_rebound_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(328)) goto parse_hp_Steal;
+        if (input->ExpectTag(328)) goto parse_m_hp_steal;
         break;
       }
 
-      // optional int64 hp_Steal = 41;
+      // optional int64 m_hp_steal = 41;
       case 41: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_hp_Steal:
+         parse_m_hp_steal:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &hp_steal_)));
-          set_has_hp_steal();
+                 input, &m_hp_steal_)));
+          set_has_m_hp_steal();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(336)) goto parse_dodge_Rate;
+        if (input->ExpectTag(336)) goto parse_m_dodge_rate;
         break;
       }
 
-      // optional int64 dodge_Rate = 42;
+      // optional int64 m_dodge_rate = 42;
       case 42: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dodge_Rate:
+         parse_m_dodge_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &dodge_rate_)));
-          set_has_dodge_rate();
+                 input, &m_dodge_rate_)));
+          set_has_m_dodge_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(344)) goto parse_hit_Rate;
+        if (input->ExpectTag(344)) goto parse_m_hit_rate;
         break;
       }
 
-      // optional int64 hit_Rate = 43;
+      // optional int64 m_hit_rate = 43;
       case 43: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_hit_Rate:
+         parse_m_hit_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &hit_rate_)));
-          set_has_hit_rate();
+                 input, &m_hit_rate_)));
+          set_has_m_hit_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(352)) goto parse_blk_Rate;
+        if (input->ExpectTag(352)) goto parse_m_blk_rate;
         break;
       }
 
-      // optional int64 blk_Rate = 44;
+      // optional int64 m_blk_rate = 44;
       case 44: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_blk_Rate:
+         parse_m_blk_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &blk_rate_)));
-          set_has_blk_rate();
+                 input, &m_blk_rate_)));
+          set_has_m_blk_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(360)) goto parse_brk_blk_Rate;
+        if (input->ExpectTag(360)) goto parse_m_brk_blk_rate;
         break;
       }
 
-      // optional int64 brk_blk_Rate = 45;
+      // optional int64 m_brk_blk_rate = 45;
       case 45: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_brk_blk_Rate:
+         parse_m_brk_blk_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &brk_blk_rate_)));
-          set_has_brk_blk_rate();
+                 input, &m_brk_blk_rate_)));
+          set_has_m_brk_blk_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(368)) goto parse_blk_Free;
+        if (input->ExpectTag(368)) goto parse_m_blk_free;
         break;
       }
 
-      // optional int64 blk_Free = 46;
+      // optional int64 m_blk_free = 46;
       case 46: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_blk_Free:
+         parse_m_blk_free:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &blk_free_)));
-          set_has_blk_free();
+                 input, &m_blk_free_)));
+          set_has_m_blk_free();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(376)) goto parse_blk_Pierce;
+        if (input->ExpectTag(376)) goto parse_m_blk_pierce;
         break;
       }
 
-      // optional int64 blk_Pierce = 47;
+      // optional int64 m_blk_pierce = 47;
       case 47: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_blk_Pierce:
+         parse_m_blk_pierce:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &blk_pierce_)));
-          set_has_blk_pierce();
+                 input, &m_blk_pierce_)));
+          set_has_m_blk_pierce();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(384)) goto parse_rel_Armor;
+        if (input->ExpectTag(384)) goto parse_m_rel_armor;
         break;
       }
 
-      // optional int64 rel_Armor = 48;
+      // optional int64 m_rel_armor = 48;
       case 48: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rel_Armor:
+         parse_m_rel_armor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &rel_armor_)));
-          set_has_rel_armor();
+                 input, &m_rel_armor_)));
+          set_has_m_rel_armor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(392)) goto parse_rel_Dam;
+        if (input->ExpectTag(392)) goto parse_m_rel_dam;
         break;
       }
 
-      // optional int64 rel_Dam = 49;
+      // optional int64 m_rel_dam = 49;
       case 49: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rel_Dam:
+         parse_m_rel_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &rel_dam_)));
-          set_has_rel_dam();
+                 input, &m_rel_dam_)));
+          set_has_m_rel_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(400)) goto parse_five_Resist;
+        if (input->ExpectTag(400)) goto parse_m_five_resist;
         break;
       }
 
-      // optional int64 five_Resist = 50;
+      // optional int64 m_five_resist = 50;
       case 50: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_five_Resist:
+         parse_m_five_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &five_resist_)));
-          set_has_five_resist();
+                 input, &m_five_resist_)));
+          set_has_m_five_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(408)) goto parse_five_resist_Redu;
+        if (input->ExpectTag(408)) goto parse_m_five_resist_redu;
         break;
       }
 
-      // optional int64 five_resist_Redu = 51;
+      // optional int64 m_five_resist_redu = 51;
       case 51: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_five_resist_Redu:
+         parse_m_five_resist_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &five_resist_redu_)));
-          set_has_five_resist_redu();
+                 input, &m_five_resist_redu_)));
+          set_has_m_five_resist_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(416)) goto parse_fire_Add;
+        if (input->ExpectTag(416)) goto parse_m_fire_add;
         break;
       }
 
-      // optional int64 fire_Add = 52;
+      // optional int64 m_fire_add = 52;
       case 52: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_fire_Add:
+         parse_m_fire_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &fire_add_)));
-          set_has_fire_add();
+                 input, &m_fire_add_)));
+          set_has_m_fire_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(424)) goto parse_fire_Redu;
+        if (input->ExpectTag(424)) goto parse_m_fire_redu;
         break;
       }
 
-      // optional int64 fire_Redu = 53;
+      // optional int64 m_fire_redu = 53;
       case 53: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_fire_Redu:
+         parse_m_fire_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &fire_redu_)));
-          set_has_fire_redu();
+                 input, &m_fire_redu_)));
+          set_has_m_fire_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(432)) goto parse_ice_Add;
+        if (input->ExpectTag(432)) goto parse_m_ice_add;
         break;
       }
 
-      // optional int64 ice_Add = 54;
+      // optional int64 m_ice_add = 54;
       case 54: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_ice_Add:
+         parse_m_ice_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &ice_add_)));
-          set_has_ice_add();
+                 input, &m_ice_add_)));
+          set_has_m_ice_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(440)) goto parse_ice_Redu;
+        if (input->ExpectTag(440)) goto parse_m_ice_redu;
         break;
       }
 
-      // optional int64 ice_Redu = 55;
+      // optional int64 m_ice_redu = 55;
       case 55: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_ice_Redu:
+         parse_m_ice_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &ice_redu_)));
-          set_has_ice_redu();
+                 input, &m_ice_redu_)));
+          set_has_m_ice_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(448)) goto parse_thunder_Add;
+        if (input->ExpectTag(448)) goto parse_m_thunder_add;
         break;
       }
 
-      // optional int64 thunder_Add = 56;
+      // optional int64 m_thunder_add = 56;
       case 56: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_thunder_Add:
+         parse_m_thunder_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &thunder_add_)));
-          set_has_thunder_add();
+                 input, &m_thunder_add_)));
+          set_has_m_thunder_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(456)) goto parse_thunder_Rdu;
+        if (input->ExpectTag(456)) goto parse_m_thunder_rdu;
         break;
       }
 
-      // optional int64 thunder_Rdu = 57;
+      // optional int64 m_thunder_rdu = 57;
       case 57: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_thunder_Rdu:
+         parse_m_thunder_rdu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &thunder_rdu_)));
-          set_has_thunder_rdu();
+                 input, &m_thunder_rdu_)));
+          set_has_m_thunder_rdu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(464)) goto parse_player_Add;
+        if (input->ExpectTag(464)) goto parse_m_player_add;
         break;
       }
 
-      // optional int64 player_Add = 58;
+      // optional int64 m_player_add = 58;
       case 58: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_player_Add:
+         parse_m_player_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &player_add_)));
-          set_has_player_add();
+                 input, &m_player_add_)));
+          set_has_m_player_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(472)) goto parse_player_Redu;
+        if (input->ExpectTag(472)) goto parse_m_player_redu;
         break;
       }
 
-      // optional int64 player_Redu = 59;
+      // optional int64 m_player_redu = 59;
       case 59: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_player_Redu:
+         parse_m_player_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &player_redu_)));
-          set_has_player_redu();
+                 input, &m_player_redu_)));
+          set_has_m_player_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(480)) goto parse_leader_Add;
+        if (input->ExpectTag(480)) goto parse_m_leader_add;
         break;
       }
 
-      // optional int64 leader_Add = 60;
+      // optional int64 m_leader_add = 60;
       case 60: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_leader_Add:
+         parse_m_leader_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &leader_add_)));
-          set_has_leader_add();
+                 input, &m_leader_add_)));
+          set_has_m_leader_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(488)) goto parse_leader_Redu;
+        if (input->ExpectTag(488)) goto parse_m_leader_redu;
         break;
       }
 
-      // optional int64 leader_Redu = 61;
+      // optional int64 m_leader_redu = 61;
       case 61: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_leader_Redu:
+         parse_m_leader_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &leader_redu_)));
-          set_has_leader_redu();
+                 input, &m_leader_redu_)));
+          set_has_m_leader_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(496)) goto parse_mon_Add;
+        if (input->ExpectTag(496)) goto parse_m_mon_add;
         break;
       }
 
-      // optional int64 mon_Add = 62;
+      // optional int64 m_mon_add = 62;
       case 62: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mon_Add:
+         parse_m_mon_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &mon_add_)));
-          set_has_mon_add();
+                 input, &m_mon_add_)));
+          set_has_m_mon_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(504)) goto parse_mon_Redu;
+        if (input->ExpectTag(504)) goto parse_m_mon_redu;
         break;
       }
 
-      // optional int64 mon_Redu = 63;
+      // optional int64 m_mon_redu = 63;
       case 63: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mon_Redu:
+         parse_m_mon_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &mon_redu_)));
-          set_has_mon_redu();
+                 input, &m_mon_redu_)));
+          set_has_m_mon_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(512)) goto parse_var_Redu;
+        if (input->ExpectTag(512)) goto parse_m_var_redu;
         break;
       }
 
-      // optional int64 var_Redu = 64;
+      // optional int64 m_var_redu = 64;
       case 64: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_var_Redu:
+         parse_m_var_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &var_redu_)));
-          set_has_var_redu();
+                 input, &m_var_redu_)));
+          set_has_m_var_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(520)) goto parse_var_Add;
+        if (input->ExpectTag(520)) goto parse_m_var_add;
         break;
       }
 
-      // optional int64 var_Add = 65;
+      // optional int64 m_var_add = 65;
       case 65: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_var_Add:
+         parse_m_var_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &var_add_)));
-          set_has_var_add();
+                 input, &m_var_add_)));
+          set_has_m_var_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(528)) goto parse_unusual_Resist;
+        if (input->ExpectTag(528)) goto parse_m_unusual_resist;
         break;
       }
 
-      // optional int64 unusual_Resist = 66;
+      // optional int64 m_unusual_resist = 66;
       case 66: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_unusual_Resist:
+         parse_m_unusual_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &unusual_resist_)));
-          set_has_unusual_resist();
+                 input, &m_unusual_resist_)));
+          set_has_m_unusual_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(536)) goto parse_unusual_Hit;
+        if (input->ExpectTag(536)) goto parse_m_unusual_hit;
         break;
       }
 
-      // optional int64 unusual_Hit = 67;
+      // optional int64 m_unusual_hit = 67;
       case 67: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_unusual_Hit:
+         parse_m_unusual_hit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &unusual_hit_)));
-          set_has_unusual_hit();
+                 input, &m_unusual_hit_)));
+          set_has_m_unusual_hit();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(544)) goto parse_hp_Recover;
+        if (input->ExpectTag(544)) goto parse_m_hp_recover;
         break;
       }
 
-      // optional int64 hp_Recover = 68;
+      // optional int64 m_hp_recover = 68;
       case 68: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_hp_Recover:
+         parse_m_hp_recover:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &hp_recover_)));
-          set_has_hp_recover();
+                 input, &m_hp_recover_)));
+          set_has_m_hp_recover();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(552)) goto parse_unusual_Add;
+        if (input->ExpectTag(552)) goto parse_m_unusual_add;
         break;
       }
 
-      // optional int64 unusual_Add = 69;
+      // optional int64 m_unusual_add = 69;
       case 69: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_unusual_Add:
+         parse_m_unusual_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &unusual_add_)));
-          set_has_unusual_add();
+                 input, &m_unusual_add_)));
+          set_has_m_unusual_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(560)) goto parse_fix_Recover;
+        if (input->ExpectTag(560)) goto parse_m_fix_recover;
         break;
       }
 
-      // optional int64 fix_Recover = 70;
+      // optional int64 m_fix_recover = 70;
       case 70: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_fix_Recover:
+         parse_m_fix_recover:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &fix_recover_)));
-          set_has_fix_recover();
+                 input, &m_fix_recover_)));
+          set_has_m_fix_recover();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(568)) goto parse_high_hp_Add;
+        if (input->ExpectTag(568)) goto parse_m_high_hp_add;
         break;
       }
 
-      // optional int64 high_hp_Add = 71;
+      // optional int64 m_high_hp_add = 71;
       case 71: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_high_hp_Add:
+         parse_m_high_hp_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &high_hp_add_)));
-          set_has_high_hp_add();
+                 input, &m_high_hp_add_)));
+          set_has_m_high_hp_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(576)) goto parse_recover_hp_Add;
+        if (input->ExpectTag(576)) goto parse_m_recover_hp_add;
         break;
       }
 
-      // optional int64 recover_hp_Add = 72;
+      // optional int64 m_recover_hp_add = 72;
       case 72: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_recover_hp_Add:
+         parse_m_recover_hp_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &recover_hp_add_)));
-          set_has_recover_hp_add();
+                 input, &m_recover_hp_add_)));
+          set_has_m_recover_hp_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(584)) goto parse_week_Add;
+        if (input->ExpectTag(584)) goto parse_m_week_add;
         break;
       }
 
-      // optional int64 week_Add = 73;
+      // optional int64 m_week_add = 73;
       case 73: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_week_Add:
+         parse_m_week_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &week_add_)));
-          set_has_week_add();
+                 input, &m_week_add_)));
+          set_has_m_week_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(592)) goto parse_shield;
+        if (input->ExpectTag(592)) goto parse_m_shield;
         break;
       }
 
-      // optional int64 shield = 74;
+      // optional int64 m_shield = 74;
       case 74: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_shield:
+         parse_m_shield:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &shield_)));
-          set_has_shield();
+                 input, &m_shield_)));
+          set_has_m_shield();
         } else {
           goto handle_uninterpreted;
         }
@@ -4616,376 +4626,376 @@ bool monstervalue::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void monstervalue::SerializeWithCachedSizes(
+void E_MonsterValue::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 monsterLV = 3;
-  if (has_monsterlv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->monsterlv(), output);
+  // optional int32 m_monsterlv = 3;
+  if (has_m_monsterlv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_monsterlv(), output);
   }
 
-  // optional int64 max_Hp = 4;
-  if (has_max_hp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->max_hp(), output);
+  // optional int64 m_max_hp = 4;
+  if (has_m_max_hp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_max_hp(), output);
   }
 
-  // optional int64 atk = 5;
-  if (has_atk()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->atk(), output);
+  // optional int64 m_atk = 5;
+  if (has_m_atk()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->m_atk(), output);
   }
 
-  // optional int64 def = 6;
-  if (has_def()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->def(), output);
+  // optional int64 m_def = 6;
+  if (has_m_def()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_def(), output);
   }
 
-  // optional int64 brk_Armor = 7;
-  if (has_brk_armor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->brk_armor(), output);
+  // optional int64 m_brk_armor = 7;
+  if (has_m_brk_armor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->m_brk_armor(), output);
   }
 
-  // optional int64 five_Dam = 8;
-  if (has_five_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->five_dam(), output);
+  // optional int64 m_five_dam = 8;
+  if (has_m_five_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_five_dam(), output);
   }
 
-  // optional int64 five_Armor = 9;
-  if (has_five_armor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->five_armor(), output);
+  // optional int64 m_five_armor = 9;
+  if (has_m_five_armor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->m_five_armor(), output);
   }
 
-  // optional int64 thump_Rate = 10;
-  if (has_thump_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->thump_rate(), output);
+  // optional int64 m_thump_rate = 10;
+  if (has_m_thump_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->m_thump_rate(), output);
   }
 
-  // optional int64 thump_Resist = 11;
-  if (has_thump_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->thump_resist(), output);
+  // optional int64 m_thump_resist = 11;
+  if (has_m_thump_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->m_thump_resist(), output);
   }
 
-  // optional int64 sky = 12;
-  if (has_sky()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->sky(), output);
+  // optional int64 m_sky = 12;
+  if (has_m_sky()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->m_sky(), output);
   }
 
-  // optional int64 sky_Dam = 13;
-  if (has_sky_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(13, this->sky_dam(), output);
+  // optional int64 m_sky_dam = 13;
+  if (has_m_sky_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(13, this->m_sky_dam(), output);
   }
 
-  // optional int64 sky_Redu_Resist = 14;
-  if (has_sky_redu_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(14, this->sky_redu_resist(), output);
+  // optional int64 m_sky_redu_resist = 14;
+  if (has_m_sky_redu_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(14, this->m_sky_redu_resist(), output);
   }
 
-  // optional int64 sky_Resist = 15;
-  if (has_sky_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(15, this->sky_resist(), output);
+  // optional int64 m_sky_resist = 15;
+  if (has_m_sky_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(15, this->m_sky_resist(), output);
   }
 
-  // optional int64 kill_God = 16;
-  if (has_kill_god()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(16, this->kill_god(), output);
+  // optional int64 m_kill_god = 16;
+  if (has_m_kill_god()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(16, this->m_kill_god(), output);
   }
 
-  // optional int64 god_Body = 17;
-  if (has_god_body()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(17, this->god_body(), output);
+  // optional int64 m_god_body = 17;
+  if (has_m_god_body()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(17, this->m_god_body(), output);
   }
 
-  // optional int64 mortal_Rate = 18;
-  if (has_mortal_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->mortal_rate(), output);
+  // optional int64 m_mortal_rate = 18;
+  if (has_m_mortal_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->m_mortal_rate(), output);
   }
 
-  // optional int64 mortal_Resist = 19;
-  if (has_mortal_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(19, this->mortal_resist(), output);
+  // optional int64 m_mortal_resist = 19;
+  if (has_m_mortal_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(19, this->m_mortal_resist(), output);
   }
 
-  // optional int64 fairy_Rate = 20;
-  if (has_fairy_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(20, this->fairy_rate(), output);
+  // optional int64 m_fairy_rate = 20;
+  if (has_m_fairy_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(20, this->m_fairy_rate(), output);
   }
 
-  // optional int64 fairy_Resist = 21;
-  if (has_fairy_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(21, this->fairy_resist(), output);
+  // optional int64 m_fairy_resist = 21;
+  if (has_m_fairy_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(21, this->m_fairy_resist(), output);
   }
 
-  // optional int64 god_Rate = 22;
-  if (has_god_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(22, this->god_rate(), output);
+  // optional int64 m_god_rate = 22;
+  if (has_m_god_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(22, this->m_god_rate(), output);
   }
 
-  // optional int64 god_Resist = 23;
-  if (has_god_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->god_resist(), output);
+  // optional int64 m_god_resist = 23;
+  if (has_m_god_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->m_god_resist(), output);
   }
 
-  // optional int64 crit_Rate = 24;
-  if (has_crit_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->crit_rate(), output);
+  // optional int64 m_crit_rate = 24;
+  if (has_m_crit_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->m_crit_rate(), output);
   }
 
-  // optional int64 crit_resit_Rate = 25;
-  if (has_crit_resit_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->crit_resit_rate(), output);
+  // optional int64 m_crit_resit_rate = 25;
+  if (has_m_crit_resit_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->m_crit_resit_rate(), output);
   }
 
-  // optional int64 crit_Dam = 26;
-  if (has_crit_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(26, this->crit_dam(), output);
+  // optional int64 m_crit_dam = 26;
+  if (has_m_crit_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(26, this->m_crit_dam(), output);
   }
 
-  // optional int64 crit_Redu = 27;
-  if (has_crit_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(27, this->crit_redu(), output);
+  // optional int64 m_crit_redu = 27;
+  if (has_m_crit_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(27, this->m_crit_redu(), output);
   }
 
-  // optional int64 batter_Rate = 28;
-  if (has_batter_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(28, this->batter_rate(), output);
+  // optional int64 m_batter_rate = 28;
+  if (has_m_batter_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(28, this->m_batter_rate(), output);
   }
 
-  // optional int64 batter_Resist = 29;
-  if (has_batter_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(29, this->batter_resist(), output);
+  // optional int64 m_batter_resist = 29;
+  if (has_m_batter_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(29, this->m_batter_resist(), output);
   }
 
-  // optional int64 batter_Dam = 30;
-  if (has_batter_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(30, this->batter_dam(), output);
+  // optional int64 m_batter_dam = 30;
+  if (has_m_batter_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(30, this->m_batter_dam(), output);
   }
 
-  // optional int64 batter_Redu = 31;
-  if (has_batter_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(31, this->batter_redu(), output);
+  // optional int64 m_batter_redu = 31;
+  if (has_m_batter_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(31, this->m_batter_redu(), output);
   }
 
-  // optional int64 brkdown_Rate = 32;
-  if (has_brkdown_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(32, this->brkdown_rate(), output);
+  // optional int64 m_brkdown_rate = 32;
+  if (has_m_brkdown_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(32, this->m_brkdown_rate(), output);
   }
 
-  // optional int64 brkdown_Resist = 33;
-  if (has_brkdown_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(33, this->brkdown_resist(), output);
+  // optional int64 m_brkdown_resist = 33;
+  if (has_m_brkdown_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(33, this->m_brkdown_resist(), output);
   }
 
-  // optional int64 dam_Add = 34;
-  if (has_dam_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(34, this->dam_add(), output);
+  // optional int64 m_dam_add = 34;
+  if (has_m_dam_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(34, this->m_dam_add(), output);
   }
 
-  // optional int64 dam_Redu = 35;
-  if (has_dam_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(35, this->dam_redu(), output);
+  // optional int64 m_dam_redu = 35;
+  if (has_m_dam_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(35, this->m_dam_redu(), output);
   }
 
-  // optional int64 all_Add = 36;
-  if (has_all_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(36, this->all_add(), output);
+  // optional int64 m_all_add = 36;
+  if (has_m_all_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(36, this->m_all_add(), output);
   }
 
-  // optional int64 all_Redu = 37;
-  if (has_all_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(37, this->all_redu(), output);
+  // optional int64 m_all_redu = 37;
+  if (has_m_all_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(37, this->m_all_redu(), output);
   }
 
-  // optional int64 skill_Add = 38;
-  if (has_skill_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(38, this->skill_add(), output);
+  // optional int64 m_skill_add = 38;
+  if (has_m_skill_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(38, this->m_skill_add(), output);
   }
 
-  // optional int64 skill_Redu = 39;
-  if (has_skill_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(39, this->skill_redu(), output);
+  // optional int64 m_skill_redu = 39;
+  if (has_m_skill_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(39, this->m_skill_redu(), output);
   }
 
-  // optional int64 rebound_Dam = 40;
-  if (has_rebound_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(40, this->rebound_dam(), output);
+  // optional int64 m_rebound_dam = 40;
+  if (has_m_rebound_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(40, this->m_rebound_dam(), output);
   }
 
-  // optional int64 hp_Steal = 41;
-  if (has_hp_steal()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(41, this->hp_steal(), output);
+  // optional int64 m_hp_steal = 41;
+  if (has_m_hp_steal()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(41, this->m_hp_steal(), output);
   }
 
-  // optional int64 dodge_Rate = 42;
-  if (has_dodge_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(42, this->dodge_rate(), output);
+  // optional int64 m_dodge_rate = 42;
+  if (has_m_dodge_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(42, this->m_dodge_rate(), output);
   }
 
-  // optional int64 hit_Rate = 43;
-  if (has_hit_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(43, this->hit_rate(), output);
+  // optional int64 m_hit_rate = 43;
+  if (has_m_hit_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(43, this->m_hit_rate(), output);
   }
 
-  // optional int64 blk_Rate = 44;
-  if (has_blk_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(44, this->blk_rate(), output);
+  // optional int64 m_blk_rate = 44;
+  if (has_m_blk_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(44, this->m_blk_rate(), output);
   }
 
-  // optional int64 brk_blk_Rate = 45;
-  if (has_brk_blk_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(45, this->brk_blk_rate(), output);
+  // optional int64 m_brk_blk_rate = 45;
+  if (has_m_brk_blk_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(45, this->m_brk_blk_rate(), output);
   }
 
-  // optional int64 blk_Free = 46;
-  if (has_blk_free()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(46, this->blk_free(), output);
+  // optional int64 m_blk_free = 46;
+  if (has_m_blk_free()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(46, this->m_blk_free(), output);
   }
 
-  // optional int64 blk_Pierce = 47;
-  if (has_blk_pierce()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(47, this->blk_pierce(), output);
+  // optional int64 m_blk_pierce = 47;
+  if (has_m_blk_pierce()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(47, this->m_blk_pierce(), output);
   }
 
-  // optional int64 rel_Armor = 48;
-  if (has_rel_armor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(48, this->rel_armor(), output);
+  // optional int64 m_rel_armor = 48;
+  if (has_m_rel_armor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(48, this->m_rel_armor(), output);
   }
 
-  // optional int64 rel_Dam = 49;
-  if (has_rel_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(49, this->rel_dam(), output);
+  // optional int64 m_rel_dam = 49;
+  if (has_m_rel_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(49, this->m_rel_dam(), output);
   }
 
-  // optional int64 five_Resist = 50;
-  if (has_five_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(50, this->five_resist(), output);
+  // optional int64 m_five_resist = 50;
+  if (has_m_five_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(50, this->m_five_resist(), output);
   }
 
-  // optional int64 five_resist_Redu = 51;
-  if (has_five_resist_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(51, this->five_resist_redu(), output);
+  // optional int64 m_five_resist_redu = 51;
+  if (has_m_five_resist_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(51, this->m_five_resist_redu(), output);
   }
 
-  // optional int64 fire_Add = 52;
-  if (has_fire_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(52, this->fire_add(), output);
+  // optional int64 m_fire_add = 52;
+  if (has_m_fire_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(52, this->m_fire_add(), output);
   }
 
-  // optional int64 fire_Redu = 53;
-  if (has_fire_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(53, this->fire_redu(), output);
+  // optional int64 m_fire_redu = 53;
+  if (has_m_fire_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(53, this->m_fire_redu(), output);
   }
 
-  // optional int64 ice_Add = 54;
-  if (has_ice_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(54, this->ice_add(), output);
+  // optional int64 m_ice_add = 54;
+  if (has_m_ice_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(54, this->m_ice_add(), output);
   }
 
-  // optional int64 ice_Redu = 55;
-  if (has_ice_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(55, this->ice_redu(), output);
+  // optional int64 m_ice_redu = 55;
+  if (has_m_ice_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(55, this->m_ice_redu(), output);
   }
 
-  // optional int64 thunder_Add = 56;
-  if (has_thunder_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(56, this->thunder_add(), output);
+  // optional int64 m_thunder_add = 56;
+  if (has_m_thunder_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(56, this->m_thunder_add(), output);
   }
 
-  // optional int64 thunder_Rdu = 57;
-  if (has_thunder_rdu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(57, this->thunder_rdu(), output);
+  // optional int64 m_thunder_rdu = 57;
+  if (has_m_thunder_rdu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(57, this->m_thunder_rdu(), output);
   }
 
-  // optional int64 player_Add = 58;
-  if (has_player_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(58, this->player_add(), output);
+  // optional int64 m_player_add = 58;
+  if (has_m_player_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(58, this->m_player_add(), output);
   }
 
-  // optional int64 player_Redu = 59;
-  if (has_player_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(59, this->player_redu(), output);
+  // optional int64 m_player_redu = 59;
+  if (has_m_player_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(59, this->m_player_redu(), output);
   }
 
-  // optional int64 leader_Add = 60;
-  if (has_leader_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(60, this->leader_add(), output);
+  // optional int64 m_leader_add = 60;
+  if (has_m_leader_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(60, this->m_leader_add(), output);
   }
 
-  // optional int64 leader_Redu = 61;
-  if (has_leader_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(61, this->leader_redu(), output);
+  // optional int64 m_leader_redu = 61;
+  if (has_m_leader_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(61, this->m_leader_redu(), output);
   }
 
-  // optional int64 mon_Add = 62;
-  if (has_mon_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(62, this->mon_add(), output);
+  // optional int64 m_mon_add = 62;
+  if (has_m_mon_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(62, this->m_mon_add(), output);
   }
 
-  // optional int64 mon_Redu = 63;
-  if (has_mon_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(63, this->mon_redu(), output);
+  // optional int64 m_mon_redu = 63;
+  if (has_m_mon_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(63, this->m_mon_redu(), output);
   }
 
-  // optional int64 var_Redu = 64;
-  if (has_var_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(64, this->var_redu(), output);
+  // optional int64 m_var_redu = 64;
+  if (has_m_var_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(64, this->m_var_redu(), output);
   }
 
-  // optional int64 var_Add = 65;
-  if (has_var_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(65, this->var_add(), output);
+  // optional int64 m_var_add = 65;
+  if (has_m_var_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(65, this->m_var_add(), output);
   }
 
-  // optional int64 unusual_Resist = 66;
-  if (has_unusual_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(66, this->unusual_resist(), output);
+  // optional int64 m_unusual_resist = 66;
+  if (has_m_unusual_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(66, this->m_unusual_resist(), output);
   }
 
-  // optional int64 unusual_Hit = 67;
-  if (has_unusual_hit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(67, this->unusual_hit(), output);
+  // optional int64 m_unusual_hit = 67;
+  if (has_m_unusual_hit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(67, this->m_unusual_hit(), output);
   }
 
-  // optional int64 hp_Recover = 68;
-  if (has_hp_recover()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(68, this->hp_recover(), output);
+  // optional int64 m_hp_recover = 68;
+  if (has_m_hp_recover()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(68, this->m_hp_recover(), output);
   }
 
-  // optional int64 unusual_Add = 69;
-  if (has_unusual_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(69, this->unusual_add(), output);
+  // optional int64 m_unusual_add = 69;
+  if (has_m_unusual_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(69, this->m_unusual_add(), output);
   }
 
-  // optional int64 fix_Recover = 70;
-  if (has_fix_recover()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(70, this->fix_recover(), output);
+  // optional int64 m_fix_recover = 70;
+  if (has_m_fix_recover()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(70, this->m_fix_recover(), output);
   }
 
-  // optional int64 high_hp_Add = 71;
-  if (has_high_hp_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(71, this->high_hp_add(), output);
+  // optional int64 m_high_hp_add = 71;
+  if (has_m_high_hp_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(71, this->m_high_hp_add(), output);
   }
 
-  // optional int64 recover_hp_Add = 72;
-  if (has_recover_hp_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(72, this->recover_hp_add(), output);
+  // optional int64 m_recover_hp_add = 72;
+  if (has_m_recover_hp_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(72, this->m_recover_hp_add(), output);
   }
 
-  // optional int64 week_Add = 73;
-  if (has_week_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(73, this->week_add(), output);
+  // optional int64 m_week_add = 73;
+  if (has_m_week_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(73, this->m_week_add(), output);
   }
 
-  // optional int64 shield = 74;
-  if (has_shield()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(74, this->shield(), output);
+  // optional int64 m_shield = 74;
+  if (has_m_shield()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(74, this->m_shield(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4994,376 +5004,376 @@ void monstervalue::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* monstervalue::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MonsterValue::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 monsterLV = 3;
-  if (has_monsterlv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->monsterlv(), target);
+  // optional int32 m_monsterlv = 3;
+  if (has_m_monsterlv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_monsterlv(), target);
   }
 
-  // optional int64 max_Hp = 4;
-  if (has_max_hp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->max_hp(), target);
+  // optional int64 m_max_hp = 4;
+  if (has_m_max_hp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_max_hp(), target);
   }
 
-  // optional int64 atk = 5;
-  if (has_atk()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->atk(), target);
+  // optional int64 m_atk = 5;
+  if (has_m_atk()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->m_atk(), target);
   }
 
-  // optional int64 def = 6;
-  if (has_def()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->def(), target);
+  // optional int64 m_def = 6;
+  if (has_m_def()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_def(), target);
   }
 
-  // optional int64 brk_Armor = 7;
-  if (has_brk_armor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->brk_armor(), target);
+  // optional int64 m_brk_armor = 7;
+  if (has_m_brk_armor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->m_brk_armor(), target);
   }
 
-  // optional int64 five_Dam = 8;
-  if (has_five_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->five_dam(), target);
+  // optional int64 m_five_dam = 8;
+  if (has_m_five_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_five_dam(), target);
   }
 
-  // optional int64 five_Armor = 9;
-  if (has_five_armor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->five_armor(), target);
+  // optional int64 m_five_armor = 9;
+  if (has_m_five_armor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->m_five_armor(), target);
   }
 
-  // optional int64 thump_Rate = 10;
-  if (has_thump_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->thump_rate(), target);
+  // optional int64 m_thump_rate = 10;
+  if (has_m_thump_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->m_thump_rate(), target);
   }
 
-  // optional int64 thump_Resist = 11;
-  if (has_thump_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->thump_resist(), target);
+  // optional int64 m_thump_resist = 11;
+  if (has_m_thump_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->m_thump_resist(), target);
   }
 
-  // optional int64 sky = 12;
-  if (has_sky()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->sky(), target);
+  // optional int64 m_sky = 12;
+  if (has_m_sky()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->m_sky(), target);
   }
 
-  // optional int64 sky_Dam = 13;
-  if (has_sky_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(13, this->sky_dam(), target);
+  // optional int64 m_sky_dam = 13;
+  if (has_m_sky_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(13, this->m_sky_dam(), target);
   }
 
-  // optional int64 sky_Redu_Resist = 14;
-  if (has_sky_redu_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(14, this->sky_redu_resist(), target);
+  // optional int64 m_sky_redu_resist = 14;
+  if (has_m_sky_redu_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(14, this->m_sky_redu_resist(), target);
   }
 
-  // optional int64 sky_Resist = 15;
-  if (has_sky_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(15, this->sky_resist(), target);
+  // optional int64 m_sky_resist = 15;
+  if (has_m_sky_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(15, this->m_sky_resist(), target);
   }
 
-  // optional int64 kill_God = 16;
-  if (has_kill_god()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(16, this->kill_god(), target);
+  // optional int64 m_kill_god = 16;
+  if (has_m_kill_god()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(16, this->m_kill_god(), target);
   }
 
-  // optional int64 god_Body = 17;
-  if (has_god_body()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(17, this->god_body(), target);
+  // optional int64 m_god_body = 17;
+  if (has_m_god_body()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(17, this->m_god_body(), target);
   }
 
-  // optional int64 mortal_Rate = 18;
-  if (has_mortal_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->mortal_rate(), target);
+  // optional int64 m_mortal_rate = 18;
+  if (has_m_mortal_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->m_mortal_rate(), target);
   }
 
-  // optional int64 mortal_Resist = 19;
-  if (has_mortal_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(19, this->mortal_resist(), target);
+  // optional int64 m_mortal_resist = 19;
+  if (has_m_mortal_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(19, this->m_mortal_resist(), target);
   }
 
-  // optional int64 fairy_Rate = 20;
-  if (has_fairy_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(20, this->fairy_rate(), target);
+  // optional int64 m_fairy_rate = 20;
+  if (has_m_fairy_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(20, this->m_fairy_rate(), target);
   }
 
-  // optional int64 fairy_Resist = 21;
-  if (has_fairy_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(21, this->fairy_resist(), target);
+  // optional int64 m_fairy_resist = 21;
+  if (has_m_fairy_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(21, this->m_fairy_resist(), target);
   }
 
-  // optional int64 god_Rate = 22;
-  if (has_god_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(22, this->god_rate(), target);
+  // optional int64 m_god_rate = 22;
+  if (has_m_god_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(22, this->m_god_rate(), target);
   }
 
-  // optional int64 god_Resist = 23;
-  if (has_god_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->god_resist(), target);
+  // optional int64 m_god_resist = 23;
+  if (has_m_god_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->m_god_resist(), target);
   }
 
-  // optional int64 crit_Rate = 24;
-  if (has_crit_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->crit_rate(), target);
+  // optional int64 m_crit_rate = 24;
+  if (has_m_crit_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->m_crit_rate(), target);
   }
 
-  // optional int64 crit_resit_Rate = 25;
-  if (has_crit_resit_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->crit_resit_rate(), target);
+  // optional int64 m_crit_resit_rate = 25;
+  if (has_m_crit_resit_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->m_crit_resit_rate(), target);
   }
 
-  // optional int64 crit_Dam = 26;
-  if (has_crit_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(26, this->crit_dam(), target);
+  // optional int64 m_crit_dam = 26;
+  if (has_m_crit_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(26, this->m_crit_dam(), target);
   }
 
-  // optional int64 crit_Redu = 27;
-  if (has_crit_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(27, this->crit_redu(), target);
+  // optional int64 m_crit_redu = 27;
+  if (has_m_crit_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(27, this->m_crit_redu(), target);
   }
 
-  // optional int64 batter_Rate = 28;
-  if (has_batter_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(28, this->batter_rate(), target);
+  // optional int64 m_batter_rate = 28;
+  if (has_m_batter_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(28, this->m_batter_rate(), target);
   }
 
-  // optional int64 batter_Resist = 29;
-  if (has_batter_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(29, this->batter_resist(), target);
+  // optional int64 m_batter_resist = 29;
+  if (has_m_batter_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(29, this->m_batter_resist(), target);
   }
 
-  // optional int64 batter_Dam = 30;
-  if (has_batter_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(30, this->batter_dam(), target);
+  // optional int64 m_batter_dam = 30;
+  if (has_m_batter_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(30, this->m_batter_dam(), target);
   }
 
-  // optional int64 batter_Redu = 31;
-  if (has_batter_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(31, this->batter_redu(), target);
+  // optional int64 m_batter_redu = 31;
+  if (has_m_batter_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(31, this->m_batter_redu(), target);
   }
 
-  // optional int64 brkdown_Rate = 32;
-  if (has_brkdown_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(32, this->brkdown_rate(), target);
+  // optional int64 m_brkdown_rate = 32;
+  if (has_m_brkdown_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(32, this->m_brkdown_rate(), target);
   }
 
-  // optional int64 brkdown_Resist = 33;
-  if (has_brkdown_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(33, this->brkdown_resist(), target);
+  // optional int64 m_brkdown_resist = 33;
+  if (has_m_brkdown_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(33, this->m_brkdown_resist(), target);
   }
 
-  // optional int64 dam_Add = 34;
-  if (has_dam_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(34, this->dam_add(), target);
+  // optional int64 m_dam_add = 34;
+  if (has_m_dam_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(34, this->m_dam_add(), target);
   }
 
-  // optional int64 dam_Redu = 35;
-  if (has_dam_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(35, this->dam_redu(), target);
+  // optional int64 m_dam_redu = 35;
+  if (has_m_dam_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(35, this->m_dam_redu(), target);
   }
 
-  // optional int64 all_Add = 36;
-  if (has_all_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(36, this->all_add(), target);
+  // optional int64 m_all_add = 36;
+  if (has_m_all_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(36, this->m_all_add(), target);
   }
 
-  // optional int64 all_Redu = 37;
-  if (has_all_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(37, this->all_redu(), target);
+  // optional int64 m_all_redu = 37;
+  if (has_m_all_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(37, this->m_all_redu(), target);
   }
 
-  // optional int64 skill_Add = 38;
-  if (has_skill_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(38, this->skill_add(), target);
+  // optional int64 m_skill_add = 38;
+  if (has_m_skill_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(38, this->m_skill_add(), target);
   }
 
-  // optional int64 skill_Redu = 39;
-  if (has_skill_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(39, this->skill_redu(), target);
+  // optional int64 m_skill_redu = 39;
+  if (has_m_skill_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(39, this->m_skill_redu(), target);
   }
 
-  // optional int64 rebound_Dam = 40;
-  if (has_rebound_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(40, this->rebound_dam(), target);
+  // optional int64 m_rebound_dam = 40;
+  if (has_m_rebound_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(40, this->m_rebound_dam(), target);
   }
 
-  // optional int64 hp_Steal = 41;
-  if (has_hp_steal()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(41, this->hp_steal(), target);
+  // optional int64 m_hp_steal = 41;
+  if (has_m_hp_steal()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(41, this->m_hp_steal(), target);
   }
 
-  // optional int64 dodge_Rate = 42;
-  if (has_dodge_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(42, this->dodge_rate(), target);
+  // optional int64 m_dodge_rate = 42;
+  if (has_m_dodge_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(42, this->m_dodge_rate(), target);
   }
 
-  // optional int64 hit_Rate = 43;
-  if (has_hit_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(43, this->hit_rate(), target);
+  // optional int64 m_hit_rate = 43;
+  if (has_m_hit_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(43, this->m_hit_rate(), target);
   }
 
-  // optional int64 blk_Rate = 44;
-  if (has_blk_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(44, this->blk_rate(), target);
+  // optional int64 m_blk_rate = 44;
+  if (has_m_blk_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(44, this->m_blk_rate(), target);
   }
 
-  // optional int64 brk_blk_Rate = 45;
-  if (has_brk_blk_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(45, this->brk_blk_rate(), target);
+  // optional int64 m_brk_blk_rate = 45;
+  if (has_m_brk_blk_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(45, this->m_brk_blk_rate(), target);
   }
 
-  // optional int64 blk_Free = 46;
-  if (has_blk_free()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(46, this->blk_free(), target);
+  // optional int64 m_blk_free = 46;
+  if (has_m_blk_free()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(46, this->m_blk_free(), target);
   }
 
-  // optional int64 blk_Pierce = 47;
-  if (has_blk_pierce()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(47, this->blk_pierce(), target);
+  // optional int64 m_blk_pierce = 47;
+  if (has_m_blk_pierce()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(47, this->m_blk_pierce(), target);
   }
 
-  // optional int64 rel_Armor = 48;
-  if (has_rel_armor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(48, this->rel_armor(), target);
+  // optional int64 m_rel_armor = 48;
+  if (has_m_rel_armor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(48, this->m_rel_armor(), target);
   }
 
-  // optional int64 rel_Dam = 49;
-  if (has_rel_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(49, this->rel_dam(), target);
+  // optional int64 m_rel_dam = 49;
+  if (has_m_rel_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(49, this->m_rel_dam(), target);
   }
 
-  // optional int64 five_Resist = 50;
-  if (has_five_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(50, this->five_resist(), target);
+  // optional int64 m_five_resist = 50;
+  if (has_m_five_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(50, this->m_five_resist(), target);
   }
 
-  // optional int64 five_resist_Redu = 51;
-  if (has_five_resist_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(51, this->five_resist_redu(), target);
+  // optional int64 m_five_resist_redu = 51;
+  if (has_m_five_resist_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(51, this->m_five_resist_redu(), target);
   }
 
-  // optional int64 fire_Add = 52;
-  if (has_fire_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(52, this->fire_add(), target);
+  // optional int64 m_fire_add = 52;
+  if (has_m_fire_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(52, this->m_fire_add(), target);
   }
 
-  // optional int64 fire_Redu = 53;
-  if (has_fire_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(53, this->fire_redu(), target);
+  // optional int64 m_fire_redu = 53;
+  if (has_m_fire_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(53, this->m_fire_redu(), target);
   }
 
-  // optional int64 ice_Add = 54;
-  if (has_ice_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(54, this->ice_add(), target);
+  // optional int64 m_ice_add = 54;
+  if (has_m_ice_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(54, this->m_ice_add(), target);
   }
 
-  // optional int64 ice_Redu = 55;
-  if (has_ice_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(55, this->ice_redu(), target);
+  // optional int64 m_ice_redu = 55;
+  if (has_m_ice_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(55, this->m_ice_redu(), target);
   }
 
-  // optional int64 thunder_Add = 56;
-  if (has_thunder_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(56, this->thunder_add(), target);
+  // optional int64 m_thunder_add = 56;
+  if (has_m_thunder_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(56, this->m_thunder_add(), target);
   }
 
-  // optional int64 thunder_Rdu = 57;
-  if (has_thunder_rdu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(57, this->thunder_rdu(), target);
+  // optional int64 m_thunder_rdu = 57;
+  if (has_m_thunder_rdu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(57, this->m_thunder_rdu(), target);
   }
 
-  // optional int64 player_Add = 58;
-  if (has_player_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(58, this->player_add(), target);
+  // optional int64 m_player_add = 58;
+  if (has_m_player_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(58, this->m_player_add(), target);
   }
 
-  // optional int64 player_Redu = 59;
-  if (has_player_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(59, this->player_redu(), target);
+  // optional int64 m_player_redu = 59;
+  if (has_m_player_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(59, this->m_player_redu(), target);
   }
 
-  // optional int64 leader_Add = 60;
-  if (has_leader_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(60, this->leader_add(), target);
+  // optional int64 m_leader_add = 60;
+  if (has_m_leader_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(60, this->m_leader_add(), target);
   }
 
-  // optional int64 leader_Redu = 61;
-  if (has_leader_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(61, this->leader_redu(), target);
+  // optional int64 m_leader_redu = 61;
+  if (has_m_leader_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(61, this->m_leader_redu(), target);
   }
 
-  // optional int64 mon_Add = 62;
-  if (has_mon_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(62, this->mon_add(), target);
+  // optional int64 m_mon_add = 62;
+  if (has_m_mon_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(62, this->m_mon_add(), target);
   }
 
-  // optional int64 mon_Redu = 63;
-  if (has_mon_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(63, this->mon_redu(), target);
+  // optional int64 m_mon_redu = 63;
+  if (has_m_mon_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(63, this->m_mon_redu(), target);
   }
 
-  // optional int64 var_Redu = 64;
-  if (has_var_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(64, this->var_redu(), target);
+  // optional int64 m_var_redu = 64;
+  if (has_m_var_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(64, this->m_var_redu(), target);
   }
 
-  // optional int64 var_Add = 65;
-  if (has_var_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(65, this->var_add(), target);
+  // optional int64 m_var_add = 65;
+  if (has_m_var_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(65, this->m_var_add(), target);
   }
 
-  // optional int64 unusual_Resist = 66;
-  if (has_unusual_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(66, this->unusual_resist(), target);
+  // optional int64 m_unusual_resist = 66;
+  if (has_m_unusual_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(66, this->m_unusual_resist(), target);
   }
 
-  // optional int64 unusual_Hit = 67;
-  if (has_unusual_hit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(67, this->unusual_hit(), target);
+  // optional int64 m_unusual_hit = 67;
+  if (has_m_unusual_hit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(67, this->m_unusual_hit(), target);
   }
 
-  // optional int64 hp_Recover = 68;
-  if (has_hp_recover()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(68, this->hp_recover(), target);
+  // optional int64 m_hp_recover = 68;
+  if (has_m_hp_recover()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(68, this->m_hp_recover(), target);
   }
 
-  // optional int64 unusual_Add = 69;
-  if (has_unusual_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(69, this->unusual_add(), target);
+  // optional int64 m_unusual_add = 69;
+  if (has_m_unusual_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(69, this->m_unusual_add(), target);
   }
 
-  // optional int64 fix_Recover = 70;
-  if (has_fix_recover()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(70, this->fix_recover(), target);
+  // optional int64 m_fix_recover = 70;
+  if (has_m_fix_recover()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(70, this->m_fix_recover(), target);
   }
 
-  // optional int64 high_hp_Add = 71;
-  if (has_high_hp_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(71, this->high_hp_add(), target);
+  // optional int64 m_high_hp_add = 71;
+  if (has_m_high_hp_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(71, this->m_high_hp_add(), target);
   }
 
-  // optional int64 recover_hp_Add = 72;
-  if (has_recover_hp_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(72, this->recover_hp_add(), target);
+  // optional int64 m_recover_hp_add = 72;
+  if (has_m_recover_hp_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(72, this->m_recover_hp_add(), target);
   }
 
-  // optional int64 week_Add = 73;
-  if (has_week_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(73, this->week_add(), target);
+  // optional int64 m_week_add = 73;
+  if (has_m_week_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(73, this->m_week_add(), target);
   }
 
-  // optional int64 shield = 74;
-  if (has_shield()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(74, this->shield(), target);
+  // optional int64 m_shield = 74;
+  if (has_m_shield()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(74, this->m_shield(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5373,544 +5383,544 @@ void monstervalue::SerializeWithCachedSizes(
   return target;
 }
 
-int monstervalue::ByteSize() const {
+int E_MonsterValue::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 ID = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 type = 2;
-    if (has_type()) {
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 monsterLV = 3;
-    if (has_monsterlv()) {
+    // optional int32 m_monsterlv = 3;
+    if (has_m_monsterlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->monsterlv());
+          this->m_monsterlv());
     }
 
-    // optional int64 max_Hp = 4;
-    if (has_max_hp()) {
+    // optional int64 m_max_hp = 4;
+    if (has_m_max_hp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->max_hp());
+          this->m_max_hp());
     }
 
-    // optional int64 atk = 5;
-    if (has_atk()) {
+    // optional int64 m_atk = 5;
+    if (has_m_atk()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->atk());
+          this->m_atk());
     }
 
-    // optional int64 def = 6;
-    if (has_def()) {
+    // optional int64 m_def = 6;
+    if (has_m_def()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->def());
+          this->m_def());
     }
 
-    // optional int64 brk_Armor = 7;
-    if (has_brk_armor()) {
+    // optional int64 m_brk_armor = 7;
+    if (has_m_brk_armor()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->brk_armor());
+          this->m_brk_armor());
     }
 
-    // optional int64 five_Dam = 8;
-    if (has_five_dam()) {
+    // optional int64 m_five_dam = 8;
+    if (has_m_five_dam()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->five_dam());
+          this->m_five_dam());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int64 five_Armor = 9;
-    if (has_five_armor()) {
+    // optional int64 m_five_armor = 9;
+    if (has_m_five_armor()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->five_armor());
+          this->m_five_armor());
     }
 
-    // optional int64 thump_Rate = 10;
-    if (has_thump_rate()) {
+    // optional int64 m_thump_rate = 10;
+    if (has_m_thump_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->thump_rate());
+          this->m_thump_rate());
     }
 
-    // optional int64 thump_Resist = 11;
-    if (has_thump_resist()) {
+    // optional int64 m_thump_resist = 11;
+    if (has_m_thump_resist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->thump_resist());
+          this->m_thump_resist());
     }
 
-    // optional int64 sky = 12;
-    if (has_sky()) {
+    // optional int64 m_sky = 12;
+    if (has_m_sky()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->sky());
+          this->m_sky());
     }
 
-    // optional int64 sky_Dam = 13;
-    if (has_sky_dam()) {
+    // optional int64 m_sky_dam = 13;
+    if (has_m_sky_dam()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->sky_dam());
+          this->m_sky_dam());
     }
 
-    // optional int64 sky_Redu_Resist = 14;
-    if (has_sky_redu_resist()) {
+    // optional int64 m_sky_redu_resist = 14;
+    if (has_m_sky_redu_resist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->sky_redu_resist());
+          this->m_sky_redu_resist());
     }
 
-    // optional int64 sky_Resist = 15;
-    if (has_sky_resist()) {
+    // optional int64 m_sky_resist = 15;
+    if (has_m_sky_resist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->sky_resist());
+          this->m_sky_resist());
     }
 
-    // optional int64 kill_God = 16;
-    if (has_kill_god()) {
+    // optional int64 m_kill_god = 16;
+    if (has_m_kill_god()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->kill_god());
+          this->m_kill_god());
     }
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int64 god_Body = 17;
-    if (has_god_body()) {
+    // optional int64 m_god_body = 17;
+    if (has_m_god_body()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->god_body());
+          this->m_god_body());
     }
 
-    // optional int64 mortal_Rate = 18;
-    if (has_mortal_rate()) {
+    // optional int64 m_mortal_rate = 18;
+    if (has_m_mortal_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->mortal_rate());
+          this->m_mortal_rate());
     }
 
-    // optional int64 mortal_Resist = 19;
-    if (has_mortal_resist()) {
+    // optional int64 m_mortal_resist = 19;
+    if (has_m_mortal_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->mortal_resist());
+          this->m_mortal_resist());
     }
 
-    // optional int64 fairy_Rate = 20;
-    if (has_fairy_rate()) {
+    // optional int64 m_fairy_rate = 20;
+    if (has_m_fairy_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->fairy_rate());
+          this->m_fairy_rate());
     }
 
-    // optional int64 fairy_Resist = 21;
-    if (has_fairy_resist()) {
+    // optional int64 m_fairy_resist = 21;
+    if (has_m_fairy_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->fairy_resist());
+          this->m_fairy_resist());
     }
 
-    // optional int64 god_Rate = 22;
-    if (has_god_rate()) {
+    // optional int64 m_god_rate = 22;
+    if (has_m_god_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->god_rate());
+          this->m_god_rate());
     }
 
-    // optional int64 god_Resist = 23;
-    if (has_god_resist()) {
+    // optional int64 m_god_resist = 23;
+    if (has_m_god_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->god_resist());
+          this->m_god_resist());
     }
 
-    // optional int64 crit_Rate = 24;
-    if (has_crit_rate()) {
+    // optional int64 m_crit_rate = 24;
+    if (has_m_crit_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->crit_rate());
+          this->m_crit_rate());
     }
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int64 crit_resit_Rate = 25;
-    if (has_crit_resit_rate()) {
+    // optional int64 m_crit_resit_rate = 25;
+    if (has_m_crit_resit_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->crit_resit_rate());
+          this->m_crit_resit_rate());
     }
 
-    // optional int64 crit_Dam = 26;
-    if (has_crit_dam()) {
+    // optional int64 m_crit_dam = 26;
+    if (has_m_crit_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->crit_dam());
+          this->m_crit_dam());
     }
 
-    // optional int64 crit_Redu = 27;
-    if (has_crit_redu()) {
+    // optional int64 m_crit_redu = 27;
+    if (has_m_crit_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->crit_redu());
+          this->m_crit_redu());
     }
 
-    // optional int64 batter_Rate = 28;
-    if (has_batter_rate()) {
+    // optional int64 m_batter_rate = 28;
+    if (has_m_batter_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->batter_rate());
+          this->m_batter_rate());
     }
 
-    // optional int64 batter_Resist = 29;
-    if (has_batter_resist()) {
+    // optional int64 m_batter_resist = 29;
+    if (has_m_batter_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->batter_resist());
+          this->m_batter_resist());
     }
 
-    // optional int64 batter_Dam = 30;
-    if (has_batter_dam()) {
+    // optional int64 m_batter_dam = 30;
+    if (has_m_batter_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->batter_dam());
+          this->m_batter_dam());
     }
 
-    // optional int64 batter_Redu = 31;
-    if (has_batter_redu()) {
+    // optional int64 m_batter_redu = 31;
+    if (has_m_batter_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->batter_redu());
+          this->m_batter_redu());
     }
 
-    // optional int64 brkdown_Rate = 32;
-    if (has_brkdown_rate()) {
+    // optional int64 m_brkdown_rate = 32;
+    if (has_m_brkdown_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->brkdown_rate());
+          this->m_brkdown_rate());
     }
 
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    // optional int64 brkdown_Resist = 33;
-    if (has_brkdown_resist()) {
+    // optional int64 m_brkdown_resist = 33;
+    if (has_m_brkdown_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->brkdown_resist());
+          this->m_brkdown_resist());
     }
 
-    // optional int64 dam_Add = 34;
-    if (has_dam_add()) {
+    // optional int64 m_dam_add = 34;
+    if (has_m_dam_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->dam_add());
+          this->m_dam_add());
     }
 
-    // optional int64 dam_Redu = 35;
-    if (has_dam_redu()) {
+    // optional int64 m_dam_redu = 35;
+    if (has_m_dam_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->dam_redu());
+          this->m_dam_redu());
     }
 
-    // optional int64 all_Add = 36;
-    if (has_all_add()) {
+    // optional int64 m_all_add = 36;
+    if (has_m_all_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->all_add());
+          this->m_all_add());
     }
 
-    // optional int64 all_Redu = 37;
-    if (has_all_redu()) {
+    // optional int64 m_all_redu = 37;
+    if (has_m_all_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->all_redu());
+          this->m_all_redu());
     }
 
-    // optional int64 skill_Add = 38;
-    if (has_skill_add()) {
+    // optional int64 m_skill_add = 38;
+    if (has_m_skill_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->skill_add());
+          this->m_skill_add());
     }
 
-    // optional int64 skill_Redu = 39;
-    if (has_skill_redu()) {
+    // optional int64 m_skill_redu = 39;
+    if (has_m_skill_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->skill_redu());
+          this->m_skill_redu());
     }
 
-    // optional int64 rebound_Dam = 40;
-    if (has_rebound_dam()) {
+    // optional int64 m_rebound_dam = 40;
+    if (has_m_rebound_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->rebound_dam());
+          this->m_rebound_dam());
     }
 
   }
   if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    // optional int64 hp_Steal = 41;
-    if (has_hp_steal()) {
+    // optional int64 m_hp_steal = 41;
+    if (has_m_hp_steal()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->hp_steal());
+          this->m_hp_steal());
     }
 
-    // optional int64 dodge_Rate = 42;
-    if (has_dodge_rate()) {
+    // optional int64 m_dodge_rate = 42;
+    if (has_m_dodge_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->dodge_rate());
+          this->m_dodge_rate());
     }
 
-    // optional int64 hit_Rate = 43;
-    if (has_hit_rate()) {
+    // optional int64 m_hit_rate = 43;
+    if (has_m_hit_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->hit_rate());
+          this->m_hit_rate());
     }
 
-    // optional int64 blk_Rate = 44;
-    if (has_blk_rate()) {
+    // optional int64 m_blk_rate = 44;
+    if (has_m_blk_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->blk_rate());
+          this->m_blk_rate());
     }
 
-    // optional int64 brk_blk_Rate = 45;
-    if (has_brk_blk_rate()) {
+    // optional int64 m_brk_blk_rate = 45;
+    if (has_m_brk_blk_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->brk_blk_rate());
+          this->m_brk_blk_rate());
     }
 
-    // optional int64 blk_Free = 46;
-    if (has_blk_free()) {
+    // optional int64 m_blk_free = 46;
+    if (has_m_blk_free()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->blk_free());
+          this->m_blk_free());
     }
 
-    // optional int64 blk_Pierce = 47;
-    if (has_blk_pierce()) {
+    // optional int64 m_blk_pierce = 47;
+    if (has_m_blk_pierce()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->blk_pierce());
+          this->m_blk_pierce());
     }
 
-    // optional int64 rel_Armor = 48;
-    if (has_rel_armor()) {
+    // optional int64 m_rel_armor = 48;
+    if (has_m_rel_armor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->rel_armor());
+          this->m_rel_armor());
     }
 
   }
   if (_has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    // optional int64 rel_Dam = 49;
-    if (has_rel_dam()) {
+    // optional int64 m_rel_dam = 49;
+    if (has_m_rel_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->rel_dam());
+          this->m_rel_dam());
     }
 
-    // optional int64 five_Resist = 50;
-    if (has_five_resist()) {
+    // optional int64 m_five_resist = 50;
+    if (has_m_five_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->five_resist());
+          this->m_five_resist());
     }
 
-    // optional int64 five_resist_Redu = 51;
-    if (has_five_resist_redu()) {
+    // optional int64 m_five_resist_redu = 51;
+    if (has_m_five_resist_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->five_resist_redu());
+          this->m_five_resist_redu());
     }
 
-    // optional int64 fire_Add = 52;
-    if (has_fire_add()) {
+    // optional int64 m_fire_add = 52;
+    if (has_m_fire_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->fire_add());
+          this->m_fire_add());
     }
 
-    // optional int64 fire_Redu = 53;
-    if (has_fire_redu()) {
+    // optional int64 m_fire_redu = 53;
+    if (has_m_fire_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->fire_redu());
+          this->m_fire_redu());
     }
 
-    // optional int64 ice_Add = 54;
-    if (has_ice_add()) {
+    // optional int64 m_ice_add = 54;
+    if (has_m_ice_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->ice_add());
+          this->m_ice_add());
     }
 
-    // optional int64 ice_Redu = 55;
-    if (has_ice_redu()) {
+    // optional int64 m_ice_redu = 55;
+    if (has_m_ice_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->ice_redu());
+          this->m_ice_redu());
     }
 
-    // optional int64 thunder_Add = 56;
-    if (has_thunder_add()) {
+    // optional int64 m_thunder_add = 56;
+    if (has_m_thunder_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->thunder_add());
+          this->m_thunder_add());
     }
 
   }
   if (_has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    // optional int64 thunder_Rdu = 57;
-    if (has_thunder_rdu()) {
+    // optional int64 m_thunder_rdu = 57;
+    if (has_m_thunder_rdu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->thunder_rdu());
+          this->m_thunder_rdu());
     }
 
-    // optional int64 player_Add = 58;
-    if (has_player_add()) {
+    // optional int64 m_player_add = 58;
+    if (has_m_player_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->player_add());
+          this->m_player_add());
     }
 
-    // optional int64 player_Redu = 59;
-    if (has_player_redu()) {
+    // optional int64 m_player_redu = 59;
+    if (has_m_player_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->player_redu());
+          this->m_player_redu());
     }
 
-    // optional int64 leader_Add = 60;
-    if (has_leader_add()) {
+    // optional int64 m_leader_add = 60;
+    if (has_m_leader_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->leader_add());
+          this->m_leader_add());
     }
 
-    // optional int64 leader_Redu = 61;
-    if (has_leader_redu()) {
+    // optional int64 m_leader_redu = 61;
+    if (has_m_leader_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->leader_redu());
+          this->m_leader_redu());
     }
 
-    // optional int64 mon_Add = 62;
-    if (has_mon_add()) {
+    // optional int64 m_mon_add = 62;
+    if (has_m_mon_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->mon_add());
+          this->m_mon_add());
     }
 
-    // optional int64 mon_Redu = 63;
-    if (has_mon_redu()) {
+    // optional int64 m_mon_redu = 63;
+    if (has_m_mon_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->mon_redu());
+          this->m_mon_redu());
     }
 
-    // optional int64 var_Redu = 64;
-    if (has_var_redu()) {
+    // optional int64 m_var_redu = 64;
+    if (has_m_var_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->var_redu());
+          this->m_var_redu());
     }
 
   }
   if (_has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    // optional int64 var_Add = 65;
-    if (has_var_add()) {
+    // optional int64 m_var_add = 65;
+    if (has_m_var_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->var_add());
+          this->m_var_add());
     }
 
-    // optional int64 unusual_Resist = 66;
-    if (has_unusual_resist()) {
+    // optional int64 m_unusual_resist = 66;
+    if (has_m_unusual_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->unusual_resist());
+          this->m_unusual_resist());
     }
 
-    // optional int64 unusual_Hit = 67;
-    if (has_unusual_hit()) {
+    // optional int64 m_unusual_hit = 67;
+    if (has_m_unusual_hit()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->unusual_hit());
+          this->m_unusual_hit());
     }
 
-    // optional int64 hp_Recover = 68;
-    if (has_hp_recover()) {
+    // optional int64 m_hp_recover = 68;
+    if (has_m_hp_recover()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->hp_recover());
+          this->m_hp_recover());
     }
 
-    // optional int64 unusual_Add = 69;
-    if (has_unusual_add()) {
+    // optional int64 m_unusual_add = 69;
+    if (has_m_unusual_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->unusual_add());
+          this->m_unusual_add());
     }
 
-    // optional int64 fix_Recover = 70;
-    if (has_fix_recover()) {
+    // optional int64 m_fix_recover = 70;
+    if (has_m_fix_recover()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->fix_recover());
+          this->m_fix_recover());
     }
 
-    // optional int64 high_hp_Add = 71;
-    if (has_high_hp_add()) {
+    // optional int64 m_high_hp_add = 71;
+    if (has_m_high_hp_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->high_hp_add());
+          this->m_high_hp_add());
     }
 
-    // optional int64 recover_hp_Add = 72;
-    if (has_recover_hp_add()) {
+    // optional int64 m_recover_hp_add = 72;
+    if (has_m_recover_hp_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->recover_hp_add());
+          this->m_recover_hp_add());
     }
 
   }
   if (_has_bits_[72 / 32] & (0xffu << (72 % 32))) {
-    // optional int64 week_Add = 73;
-    if (has_week_add()) {
+    // optional int64 m_week_add = 73;
+    if (has_m_week_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->week_add());
+          this->m_week_add());
     }
 
-    // optional int64 shield = 74;
-    if (has_shield()) {
+    // optional int64 m_shield = 74;
+    if (has_m_shield()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->shield());
+          this->m_shield());
     }
 
   }
@@ -5925,10 +5935,10 @@ int monstervalue::ByteSize() const {
   return total_size;
 }
 
-void monstervalue::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MonsterValue::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const monstervalue* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const monstervalue*>(
+  const E_MonsterValue* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MonsterValue*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5937,346 +5947,346 @@ void monstervalue::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void monstervalue::MergeFrom(const monstervalue& from) {
+void E_MonsterValue::MergeFrom(const E_MonsterValue& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_monsterlv()) {
-      set_monsterlv(from.monsterlv());
+    if (from.has_m_monsterlv()) {
+      set_m_monsterlv(from.m_monsterlv());
     }
-    if (from.has_max_hp()) {
-      set_max_hp(from.max_hp());
+    if (from.has_m_max_hp()) {
+      set_m_max_hp(from.m_max_hp());
     }
-    if (from.has_atk()) {
-      set_atk(from.atk());
+    if (from.has_m_atk()) {
+      set_m_atk(from.m_atk());
     }
-    if (from.has_def()) {
-      set_def(from.def());
+    if (from.has_m_def()) {
+      set_m_def(from.m_def());
     }
-    if (from.has_brk_armor()) {
-      set_brk_armor(from.brk_armor());
+    if (from.has_m_brk_armor()) {
+      set_m_brk_armor(from.m_brk_armor());
     }
-    if (from.has_five_dam()) {
-      set_five_dam(from.five_dam());
+    if (from.has_m_five_dam()) {
+      set_m_five_dam(from.m_five_dam());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_five_armor()) {
-      set_five_armor(from.five_armor());
+    if (from.has_m_five_armor()) {
+      set_m_five_armor(from.m_five_armor());
     }
-    if (from.has_thump_rate()) {
-      set_thump_rate(from.thump_rate());
+    if (from.has_m_thump_rate()) {
+      set_m_thump_rate(from.m_thump_rate());
     }
-    if (from.has_thump_resist()) {
-      set_thump_resist(from.thump_resist());
+    if (from.has_m_thump_resist()) {
+      set_m_thump_resist(from.m_thump_resist());
     }
-    if (from.has_sky()) {
-      set_sky(from.sky());
+    if (from.has_m_sky()) {
+      set_m_sky(from.m_sky());
     }
-    if (from.has_sky_dam()) {
-      set_sky_dam(from.sky_dam());
+    if (from.has_m_sky_dam()) {
+      set_m_sky_dam(from.m_sky_dam());
     }
-    if (from.has_sky_redu_resist()) {
-      set_sky_redu_resist(from.sky_redu_resist());
+    if (from.has_m_sky_redu_resist()) {
+      set_m_sky_redu_resist(from.m_sky_redu_resist());
     }
-    if (from.has_sky_resist()) {
-      set_sky_resist(from.sky_resist());
+    if (from.has_m_sky_resist()) {
+      set_m_sky_resist(from.m_sky_resist());
     }
-    if (from.has_kill_god()) {
-      set_kill_god(from.kill_god());
+    if (from.has_m_kill_god()) {
+      set_m_kill_god(from.m_kill_god());
     }
   }
   if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (from.has_god_body()) {
-      set_god_body(from.god_body());
+    if (from.has_m_god_body()) {
+      set_m_god_body(from.m_god_body());
     }
-    if (from.has_mortal_rate()) {
-      set_mortal_rate(from.mortal_rate());
+    if (from.has_m_mortal_rate()) {
+      set_m_mortal_rate(from.m_mortal_rate());
     }
-    if (from.has_mortal_resist()) {
-      set_mortal_resist(from.mortal_resist());
+    if (from.has_m_mortal_resist()) {
+      set_m_mortal_resist(from.m_mortal_resist());
     }
-    if (from.has_fairy_rate()) {
-      set_fairy_rate(from.fairy_rate());
+    if (from.has_m_fairy_rate()) {
+      set_m_fairy_rate(from.m_fairy_rate());
     }
-    if (from.has_fairy_resist()) {
-      set_fairy_resist(from.fairy_resist());
+    if (from.has_m_fairy_resist()) {
+      set_m_fairy_resist(from.m_fairy_resist());
     }
-    if (from.has_god_rate()) {
-      set_god_rate(from.god_rate());
+    if (from.has_m_god_rate()) {
+      set_m_god_rate(from.m_god_rate());
     }
-    if (from.has_god_resist()) {
-      set_god_resist(from.god_resist());
+    if (from.has_m_god_resist()) {
+      set_m_god_resist(from.m_god_resist());
     }
-    if (from.has_crit_rate()) {
-      set_crit_rate(from.crit_rate());
+    if (from.has_m_crit_rate()) {
+      set_m_crit_rate(from.m_crit_rate());
     }
   }
   if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    if (from.has_crit_resit_rate()) {
-      set_crit_resit_rate(from.crit_resit_rate());
+    if (from.has_m_crit_resit_rate()) {
+      set_m_crit_resit_rate(from.m_crit_resit_rate());
     }
-    if (from.has_crit_dam()) {
-      set_crit_dam(from.crit_dam());
+    if (from.has_m_crit_dam()) {
+      set_m_crit_dam(from.m_crit_dam());
     }
-    if (from.has_crit_redu()) {
-      set_crit_redu(from.crit_redu());
+    if (from.has_m_crit_redu()) {
+      set_m_crit_redu(from.m_crit_redu());
     }
-    if (from.has_batter_rate()) {
-      set_batter_rate(from.batter_rate());
+    if (from.has_m_batter_rate()) {
+      set_m_batter_rate(from.m_batter_rate());
     }
-    if (from.has_batter_resist()) {
-      set_batter_resist(from.batter_resist());
+    if (from.has_m_batter_resist()) {
+      set_m_batter_resist(from.m_batter_resist());
     }
-    if (from.has_batter_dam()) {
-      set_batter_dam(from.batter_dam());
+    if (from.has_m_batter_dam()) {
+      set_m_batter_dam(from.m_batter_dam());
     }
-    if (from.has_batter_redu()) {
-      set_batter_redu(from.batter_redu());
+    if (from.has_m_batter_redu()) {
+      set_m_batter_redu(from.m_batter_redu());
     }
-    if (from.has_brkdown_rate()) {
-      set_brkdown_rate(from.brkdown_rate());
+    if (from.has_m_brkdown_rate()) {
+      set_m_brkdown_rate(from.m_brkdown_rate());
     }
   }
   if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    if (from.has_brkdown_resist()) {
-      set_brkdown_resist(from.brkdown_resist());
+    if (from.has_m_brkdown_resist()) {
+      set_m_brkdown_resist(from.m_brkdown_resist());
     }
-    if (from.has_dam_add()) {
-      set_dam_add(from.dam_add());
+    if (from.has_m_dam_add()) {
+      set_m_dam_add(from.m_dam_add());
     }
-    if (from.has_dam_redu()) {
-      set_dam_redu(from.dam_redu());
+    if (from.has_m_dam_redu()) {
+      set_m_dam_redu(from.m_dam_redu());
     }
-    if (from.has_all_add()) {
-      set_all_add(from.all_add());
+    if (from.has_m_all_add()) {
+      set_m_all_add(from.m_all_add());
     }
-    if (from.has_all_redu()) {
-      set_all_redu(from.all_redu());
+    if (from.has_m_all_redu()) {
+      set_m_all_redu(from.m_all_redu());
     }
-    if (from.has_skill_add()) {
-      set_skill_add(from.skill_add());
+    if (from.has_m_skill_add()) {
+      set_m_skill_add(from.m_skill_add());
     }
-    if (from.has_skill_redu()) {
-      set_skill_redu(from.skill_redu());
+    if (from.has_m_skill_redu()) {
+      set_m_skill_redu(from.m_skill_redu());
     }
-    if (from.has_rebound_dam()) {
-      set_rebound_dam(from.rebound_dam());
+    if (from.has_m_rebound_dam()) {
+      set_m_rebound_dam(from.m_rebound_dam());
     }
   }
   if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    if (from.has_hp_steal()) {
-      set_hp_steal(from.hp_steal());
+    if (from.has_m_hp_steal()) {
+      set_m_hp_steal(from.m_hp_steal());
     }
-    if (from.has_dodge_rate()) {
-      set_dodge_rate(from.dodge_rate());
+    if (from.has_m_dodge_rate()) {
+      set_m_dodge_rate(from.m_dodge_rate());
     }
-    if (from.has_hit_rate()) {
-      set_hit_rate(from.hit_rate());
+    if (from.has_m_hit_rate()) {
+      set_m_hit_rate(from.m_hit_rate());
     }
-    if (from.has_blk_rate()) {
-      set_blk_rate(from.blk_rate());
+    if (from.has_m_blk_rate()) {
+      set_m_blk_rate(from.m_blk_rate());
     }
-    if (from.has_brk_blk_rate()) {
-      set_brk_blk_rate(from.brk_blk_rate());
+    if (from.has_m_brk_blk_rate()) {
+      set_m_brk_blk_rate(from.m_brk_blk_rate());
     }
-    if (from.has_blk_free()) {
-      set_blk_free(from.blk_free());
+    if (from.has_m_blk_free()) {
+      set_m_blk_free(from.m_blk_free());
     }
-    if (from.has_blk_pierce()) {
-      set_blk_pierce(from.blk_pierce());
+    if (from.has_m_blk_pierce()) {
+      set_m_blk_pierce(from.m_blk_pierce());
     }
-    if (from.has_rel_armor()) {
-      set_rel_armor(from.rel_armor());
+    if (from.has_m_rel_armor()) {
+      set_m_rel_armor(from.m_rel_armor());
     }
   }
   if (from._has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    if (from.has_rel_dam()) {
-      set_rel_dam(from.rel_dam());
+    if (from.has_m_rel_dam()) {
+      set_m_rel_dam(from.m_rel_dam());
     }
-    if (from.has_five_resist()) {
-      set_five_resist(from.five_resist());
+    if (from.has_m_five_resist()) {
+      set_m_five_resist(from.m_five_resist());
     }
-    if (from.has_five_resist_redu()) {
-      set_five_resist_redu(from.five_resist_redu());
+    if (from.has_m_five_resist_redu()) {
+      set_m_five_resist_redu(from.m_five_resist_redu());
     }
-    if (from.has_fire_add()) {
-      set_fire_add(from.fire_add());
+    if (from.has_m_fire_add()) {
+      set_m_fire_add(from.m_fire_add());
     }
-    if (from.has_fire_redu()) {
-      set_fire_redu(from.fire_redu());
+    if (from.has_m_fire_redu()) {
+      set_m_fire_redu(from.m_fire_redu());
     }
-    if (from.has_ice_add()) {
-      set_ice_add(from.ice_add());
+    if (from.has_m_ice_add()) {
+      set_m_ice_add(from.m_ice_add());
     }
-    if (from.has_ice_redu()) {
-      set_ice_redu(from.ice_redu());
+    if (from.has_m_ice_redu()) {
+      set_m_ice_redu(from.m_ice_redu());
     }
-    if (from.has_thunder_add()) {
-      set_thunder_add(from.thunder_add());
+    if (from.has_m_thunder_add()) {
+      set_m_thunder_add(from.m_thunder_add());
     }
   }
   if (from._has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    if (from.has_thunder_rdu()) {
-      set_thunder_rdu(from.thunder_rdu());
+    if (from.has_m_thunder_rdu()) {
+      set_m_thunder_rdu(from.m_thunder_rdu());
     }
-    if (from.has_player_add()) {
-      set_player_add(from.player_add());
+    if (from.has_m_player_add()) {
+      set_m_player_add(from.m_player_add());
     }
-    if (from.has_player_redu()) {
-      set_player_redu(from.player_redu());
+    if (from.has_m_player_redu()) {
+      set_m_player_redu(from.m_player_redu());
     }
-    if (from.has_leader_add()) {
-      set_leader_add(from.leader_add());
+    if (from.has_m_leader_add()) {
+      set_m_leader_add(from.m_leader_add());
     }
-    if (from.has_leader_redu()) {
-      set_leader_redu(from.leader_redu());
+    if (from.has_m_leader_redu()) {
+      set_m_leader_redu(from.m_leader_redu());
     }
-    if (from.has_mon_add()) {
-      set_mon_add(from.mon_add());
+    if (from.has_m_mon_add()) {
+      set_m_mon_add(from.m_mon_add());
     }
-    if (from.has_mon_redu()) {
-      set_mon_redu(from.mon_redu());
+    if (from.has_m_mon_redu()) {
+      set_m_mon_redu(from.m_mon_redu());
     }
-    if (from.has_var_redu()) {
-      set_var_redu(from.var_redu());
+    if (from.has_m_var_redu()) {
+      set_m_var_redu(from.m_var_redu());
     }
   }
   if (from._has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    if (from.has_var_add()) {
-      set_var_add(from.var_add());
+    if (from.has_m_var_add()) {
+      set_m_var_add(from.m_var_add());
     }
-    if (from.has_unusual_resist()) {
-      set_unusual_resist(from.unusual_resist());
+    if (from.has_m_unusual_resist()) {
+      set_m_unusual_resist(from.m_unusual_resist());
     }
-    if (from.has_unusual_hit()) {
-      set_unusual_hit(from.unusual_hit());
+    if (from.has_m_unusual_hit()) {
+      set_m_unusual_hit(from.m_unusual_hit());
     }
-    if (from.has_hp_recover()) {
-      set_hp_recover(from.hp_recover());
+    if (from.has_m_hp_recover()) {
+      set_m_hp_recover(from.m_hp_recover());
     }
-    if (from.has_unusual_add()) {
-      set_unusual_add(from.unusual_add());
+    if (from.has_m_unusual_add()) {
+      set_m_unusual_add(from.m_unusual_add());
     }
-    if (from.has_fix_recover()) {
-      set_fix_recover(from.fix_recover());
+    if (from.has_m_fix_recover()) {
+      set_m_fix_recover(from.m_fix_recover());
     }
-    if (from.has_high_hp_add()) {
-      set_high_hp_add(from.high_hp_add());
+    if (from.has_m_high_hp_add()) {
+      set_m_high_hp_add(from.m_high_hp_add());
     }
-    if (from.has_recover_hp_add()) {
-      set_recover_hp_add(from.recover_hp_add());
+    if (from.has_m_recover_hp_add()) {
+      set_m_recover_hp_add(from.m_recover_hp_add());
     }
   }
   if (from._has_bits_[72 / 32] & (0xffu << (72 % 32))) {
-    if (from.has_week_add()) {
-      set_week_add(from.week_add());
+    if (from.has_m_week_add()) {
+      set_m_week_add(from.m_week_add());
     }
-    if (from.has_shield()) {
-      set_shield(from.shield());
+    if (from.has_m_shield()) {
+      set_m_shield(from.m_shield());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void monstervalue::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MonsterValue::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void monstervalue::CopyFrom(const monstervalue& from) {
+void E_MonsterValue::CopyFrom(const E_MonsterValue& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool monstervalue::IsInitialized() const {
+bool E_MonsterValue::IsInitialized() const {
 
   return true;
 }
 
-void monstervalue::Swap(monstervalue* other) {
+void E_MonsterValue::Swap(E_MonsterValue* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(type_, other->type_);
-    std::swap(monsterlv_, other->monsterlv_);
-    std::swap(max_hp_, other->max_hp_);
-    std::swap(atk_, other->atk_);
-    std::swap(def_, other->def_);
-    std::swap(brk_armor_, other->brk_armor_);
-    std::swap(five_dam_, other->five_dam_);
-    std::swap(five_armor_, other->five_armor_);
-    std::swap(thump_rate_, other->thump_rate_);
-    std::swap(thump_resist_, other->thump_resist_);
-    std::swap(sky_, other->sky_);
-    std::swap(sky_dam_, other->sky_dam_);
-    std::swap(sky_redu_resist_, other->sky_redu_resist_);
-    std::swap(sky_resist_, other->sky_resist_);
-    std::swap(kill_god_, other->kill_god_);
-    std::swap(god_body_, other->god_body_);
-    std::swap(mortal_rate_, other->mortal_rate_);
-    std::swap(mortal_resist_, other->mortal_resist_);
-    std::swap(fairy_rate_, other->fairy_rate_);
-    std::swap(fairy_resist_, other->fairy_resist_);
-    std::swap(god_rate_, other->god_rate_);
-    std::swap(god_resist_, other->god_resist_);
-    std::swap(crit_rate_, other->crit_rate_);
-    std::swap(crit_resit_rate_, other->crit_resit_rate_);
-    std::swap(crit_dam_, other->crit_dam_);
-    std::swap(crit_redu_, other->crit_redu_);
-    std::swap(batter_rate_, other->batter_rate_);
-    std::swap(batter_resist_, other->batter_resist_);
-    std::swap(batter_dam_, other->batter_dam_);
-    std::swap(batter_redu_, other->batter_redu_);
-    std::swap(brkdown_rate_, other->brkdown_rate_);
-    std::swap(brkdown_resist_, other->brkdown_resist_);
-    std::swap(dam_add_, other->dam_add_);
-    std::swap(dam_redu_, other->dam_redu_);
-    std::swap(all_add_, other->all_add_);
-    std::swap(all_redu_, other->all_redu_);
-    std::swap(skill_add_, other->skill_add_);
-    std::swap(skill_redu_, other->skill_redu_);
-    std::swap(rebound_dam_, other->rebound_dam_);
-    std::swap(hp_steal_, other->hp_steal_);
-    std::swap(dodge_rate_, other->dodge_rate_);
-    std::swap(hit_rate_, other->hit_rate_);
-    std::swap(blk_rate_, other->blk_rate_);
-    std::swap(brk_blk_rate_, other->brk_blk_rate_);
-    std::swap(blk_free_, other->blk_free_);
-    std::swap(blk_pierce_, other->blk_pierce_);
-    std::swap(rel_armor_, other->rel_armor_);
-    std::swap(rel_dam_, other->rel_dam_);
-    std::swap(five_resist_, other->five_resist_);
-    std::swap(five_resist_redu_, other->five_resist_redu_);
-    std::swap(fire_add_, other->fire_add_);
-    std::swap(fire_redu_, other->fire_redu_);
-    std::swap(ice_add_, other->ice_add_);
-    std::swap(ice_redu_, other->ice_redu_);
-    std::swap(thunder_add_, other->thunder_add_);
-    std::swap(thunder_rdu_, other->thunder_rdu_);
-    std::swap(player_add_, other->player_add_);
-    std::swap(player_redu_, other->player_redu_);
-    std::swap(leader_add_, other->leader_add_);
-    std::swap(leader_redu_, other->leader_redu_);
-    std::swap(mon_add_, other->mon_add_);
-    std::swap(mon_redu_, other->mon_redu_);
-    std::swap(var_redu_, other->var_redu_);
-    std::swap(var_add_, other->var_add_);
-    std::swap(unusual_resist_, other->unusual_resist_);
-    std::swap(unusual_hit_, other->unusual_hit_);
-    std::swap(hp_recover_, other->hp_recover_);
-    std::swap(unusual_add_, other->unusual_add_);
-    std::swap(fix_recover_, other->fix_recover_);
-    std::swap(high_hp_add_, other->high_hp_add_);
-    std::swap(recover_hp_add_, other->recover_hp_add_);
-    std::swap(week_add_, other->week_add_);
-    std::swap(shield_, other->shield_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_monsterlv_, other->m_monsterlv_);
+    std::swap(m_max_hp_, other->m_max_hp_);
+    std::swap(m_atk_, other->m_atk_);
+    std::swap(m_def_, other->m_def_);
+    std::swap(m_brk_armor_, other->m_brk_armor_);
+    std::swap(m_five_dam_, other->m_five_dam_);
+    std::swap(m_five_armor_, other->m_five_armor_);
+    std::swap(m_thump_rate_, other->m_thump_rate_);
+    std::swap(m_thump_resist_, other->m_thump_resist_);
+    std::swap(m_sky_, other->m_sky_);
+    std::swap(m_sky_dam_, other->m_sky_dam_);
+    std::swap(m_sky_redu_resist_, other->m_sky_redu_resist_);
+    std::swap(m_sky_resist_, other->m_sky_resist_);
+    std::swap(m_kill_god_, other->m_kill_god_);
+    std::swap(m_god_body_, other->m_god_body_);
+    std::swap(m_mortal_rate_, other->m_mortal_rate_);
+    std::swap(m_mortal_resist_, other->m_mortal_resist_);
+    std::swap(m_fairy_rate_, other->m_fairy_rate_);
+    std::swap(m_fairy_resist_, other->m_fairy_resist_);
+    std::swap(m_god_rate_, other->m_god_rate_);
+    std::swap(m_god_resist_, other->m_god_resist_);
+    std::swap(m_crit_rate_, other->m_crit_rate_);
+    std::swap(m_crit_resit_rate_, other->m_crit_resit_rate_);
+    std::swap(m_crit_dam_, other->m_crit_dam_);
+    std::swap(m_crit_redu_, other->m_crit_redu_);
+    std::swap(m_batter_rate_, other->m_batter_rate_);
+    std::swap(m_batter_resist_, other->m_batter_resist_);
+    std::swap(m_batter_dam_, other->m_batter_dam_);
+    std::swap(m_batter_redu_, other->m_batter_redu_);
+    std::swap(m_brkdown_rate_, other->m_brkdown_rate_);
+    std::swap(m_brkdown_resist_, other->m_brkdown_resist_);
+    std::swap(m_dam_add_, other->m_dam_add_);
+    std::swap(m_dam_redu_, other->m_dam_redu_);
+    std::swap(m_all_add_, other->m_all_add_);
+    std::swap(m_all_redu_, other->m_all_redu_);
+    std::swap(m_skill_add_, other->m_skill_add_);
+    std::swap(m_skill_redu_, other->m_skill_redu_);
+    std::swap(m_rebound_dam_, other->m_rebound_dam_);
+    std::swap(m_hp_steal_, other->m_hp_steal_);
+    std::swap(m_dodge_rate_, other->m_dodge_rate_);
+    std::swap(m_hit_rate_, other->m_hit_rate_);
+    std::swap(m_blk_rate_, other->m_blk_rate_);
+    std::swap(m_brk_blk_rate_, other->m_brk_blk_rate_);
+    std::swap(m_blk_free_, other->m_blk_free_);
+    std::swap(m_blk_pierce_, other->m_blk_pierce_);
+    std::swap(m_rel_armor_, other->m_rel_armor_);
+    std::swap(m_rel_dam_, other->m_rel_dam_);
+    std::swap(m_five_resist_, other->m_five_resist_);
+    std::swap(m_five_resist_redu_, other->m_five_resist_redu_);
+    std::swap(m_fire_add_, other->m_fire_add_);
+    std::swap(m_fire_redu_, other->m_fire_redu_);
+    std::swap(m_ice_add_, other->m_ice_add_);
+    std::swap(m_ice_redu_, other->m_ice_redu_);
+    std::swap(m_thunder_add_, other->m_thunder_add_);
+    std::swap(m_thunder_rdu_, other->m_thunder_rdu_);
+    std::swap(m_player_add_, other->m_player_add_);
+    std::swap(m_player_redu_, other->m_player_redu_);
+    std::swap(m_leader_add_, other->m_leader_add_);
+    std::swap(m_leader_redu_, other->m_leader_redu_);
+    std::swap(m_mon_add_, other->m_mon_add_);
+    std::swap(m_mon_redu_, other->m_mon_redu_);
+    std::swap(m_var_redu_, other->m_var_redu_);
+    std::swap(m_var_add_, other->m_var_add_);
+    std::swap(m_unusual_resist_, other->m_unusual_resist_);
+    std::swap(m_unusual_hit_, other->m_unusual_hit_);
+    std::swap(m_hp_recover_, other->m_hp_recover_);
+    std::swap(m_unusual_add_, other->m_unusual_add_);
+    std::swap(m_fix_recover_, other->m_fix_recover_);
+    std::swap(m_high_hp_add_, other->m_high_hp_add_);
+    std::swap(m_recover_hp_add_, other->m_recover_hp_add_);
+    std::swap(m_week_add_, other->m_week_add_);
+    std::swap(m_shield_, other->m_shield_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     std::swap(_has_bits_[2], other->_has_bits_[2]);
@@ -6285,11 +6295,11 @@ void monstervalue::Swap(monstervalue* other) {
   }
 }
 
-::google::protobuf::Metadata monstervalue::GetMetadata() const {
+::google::protobuf::Metadata E_MonsterValue::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = monstervalue_descriptor_;
-  metadata.reflection = monstervalue_reflection_;
+  metadata.descriptor = E_MonsterValue_descriptor_;
+  metadata.reflection = E_MonsterValue_reflection_;
   return metadata;
 }
 
@@ -6297,81 +6307,81 @@ void monstervalue::Swap(monstervalue* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_monstervalue::kMonstervalueListFieldNumber;
+const int Sheet_MonsterValue::kEMonsterValueListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_monstervalue::Sheet_monstervalue()
+Sheet_MonsterValue::Sheet_MonsterValue()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_monstervalue::InitAsDefaultInstance() {
+void Sheet_MonsterValue::InitAsDefaultInstance() {
 }
 
-Sheet_monstervalue::Sheet_monstervalue(const Sheet_monstervalue& from)
+Sheet_MonsterValue::Sheet_MonsterValue(const Sheet_MonsterValue& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_monstervalue::SharedCtor() {
+void Sheet_MonsterValue::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_monstervalue::~Sheet_monstervalue() {
+Sheet_MonsterValue::~Sheet_MonsterValue() {
   SharedDtor();
 }
 
-void Sheet_monstervalue::SharedDtor() {
+void Sheet_MonsterValue::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_monstervalue::SetCachedSize(int size) const {
+void Sheet_MonsterValue::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_monstervalue::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_MonsterValue::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_monstervalue_descriptor_;
+  return Sheet_MonsterValue_descriptor_;
 }
 
-const Sheet_monstervalue& Sheet_monstervalue::default_instance() {
+const Sheet_MonsterValue& Sheet_MonsterValue::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-Sheet_monstervalue* Sheet_monstervalue::default_instance_ = NULL;
+Sheet_MonsterValue* Sheet_MonsterValue::default_instance_ = NULL;
 
-Sheet_monstervalue* Sheet_monstervalue::New() const {
-  return new Sheet_monstervalue;
+Sheet_MonsterValue* Sheet_MonsterValue::New() const {
+  return new Sheet_MonsterValue;
 }
 
-void Sheet_monstervalue::Clear() {
-  monstervalue_list_.Clear();
+void Sheet_MonsterValue::Clear() {
+  e_monstervalue_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_monstervalue::MergePartialFromCodedStream(
+bool Sheet_MonsterValue::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.monstervalue monstervalue_List = 1;
+      // repeated .proto_ff.E_MonsterValue E_MonsterValue_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_monstervalue_List:
+         parse_E_MonsterValue_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_monstervalue_list()));
+                input, add_e_monstervalue_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_monstervalue_List;
+        if (input->ExpectTag(10)) goto parse_E_MonsterValue_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6392,12 +6402,12 @@ bool Sheet_monstervalue::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_monstervalue::SerializeWithCachedSizes(
+void Sheet_MonsterValue::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.monstervalue monstervalue_List = 1;
-  for (int i = 0; i < this->monstervalue_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterValue E_MonsterValue_List = 1;
+  for (int i = 0; i < this->e_monstervalue_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->monstervalue_list(i), output);
+      1, this->e_monstervalue_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6406,13 +6416,13 @@ void Sheet_monstervalue::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_monstervalue::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_MonsterValue::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.monstervalue monstervalue_List = 1;
-  for (int i = 0; i < this->monstervalue_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterValue E_MonsterValue_List = 1;
+  for (int i = 0; i < this->e_monstervalue_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->monstervalue_list(i), target);
+        1, this->e_monstervalue_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6422,15 +6432,15 @@ void Sheet_monstervalue::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_monstervalue::ByteSize() const {
+int Sheet_MonsterValue::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.monstervalue monstervalue_List = 1;
-  total_size += 1 * this->monstervalue_list_size();
-  for (int i = 0; i < this->monstervalue_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterValue E_MonsterValue_List = 1;
+  total_size += 1 * this->e_monstervalue_list_size();
+  for (int i = 0; i < this->e_monstervalue_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->monstervalue_list(i));
+        this->e_monstervalue_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -6444,10 +6454,10 @@ int Sheet_monstervalue::ByteSize() const {
   return total_size;
 }
 
-void Sheet_monstervalue::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterValue::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_monstervalue* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_monstervalue*>(
+  const Sheet_MonsterValue* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_MonsterValue*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -6456,43 +6466,43 @@ void Sheet_monstervalue::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_monstervalue::MergeFrom(const Sheet_monstervalue& from) {
+void Sheet_MonsterValue::MergeFrom(const Sheet_MonsterValue& from) {
   GOOGLE_CHECK_NE(&from, this);
-  monstervalue_list_.MergeFrom(from.monstervalue_list_);
+  e_monstervalue_list_.MergeFrom(from.e_monstervalue_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_monstervalue::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterValue::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_monstervalue::CopyFrom(const Sheet_monstervalue& from) {
+void Sheet_MonsterValue::CopyFrom(const Sheet_MonsterValue& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_monstervalue::IsInitialized() const {
+bool Sheet_MonsterValue::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_monstervalue::Swap(Sheet_monstervalue* other) {
+void Sheet_MonsterValue::Swap(Sheet_MonsterValue* other) {
   if (other != this) {
-    monstervalue_list_.Swap(&other->monstervalue_list_);
+    e_monstervalue_list_.Swap(&other->e_monstervalue_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_monstervalue::GetMetadata() const {
+::google::protobuf::Metadata Sheet_MonsterValue::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_monstervalue_descriptor_;
-  metadata.reflection = Sheet_monstervalue_reflection_;
+  metadata.descriptor = Sheet_MonsterValue_descriptor_;
+  metadata.reflection = Sheet_MonsterValue_reflection_;
   return metadata;
 }
 
@@ -6500,1446 +6510,1446 @@ void Sheet_monstervalue::Swap(Sheet_monstervalue* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int monstervalueParam::kIdFieldNumber;
-const int monstervalueParam::kPMaxHpFieldNumber;
-const int monstervalueParam::kPAtkFieldNumber;
-const int monstervalueParam::kPDefFieldNumber;
-const int monstervalueParam::kPBrkArmorFieldNumber;
-const int monstervalueParam::kPFiveDamFieldNumber;
-const int monstervalueParam::kPFiveArmorFieldNumber;
-const int monstervalueParam::kPThumpRateFieldNumber;
-const int monstervalueParam::kPThumpResistFieldNumber;
-const int monstervalueParam::kPSkyFieldNumber;
-const int monstervalueParam::kPSkyDamFieldNumber;
-const int monstervalueParam::kPSkyReduResistFieldNumber;
-const int monstervalueParam::kPSkyResistFieldNumber;
-const int monstervalueParam::kPKillGodFieldNumber;
-const int monstervalueParam::kPGodBodyFieldNumber;
-const int monstervalueParam::kPMortalRateFieldNumber;
-const int monstervalueParam::kPMortalResistFieldNumber;
-const int monstervalueParam::kPFairyRateFieldNumber;
-const int monstervalueParam::kPFairyResistFieldNumber;
-const int monstervalueParam::kPGodRateFieldNumber;
-const int monstervalueParam::kPGodResistFieldNumber;
-const int monstervalueParam::kPCritRateFieldNumber;
-const int monstervalueParam::kPCritResitRateFieldNumber;
-const int monstervalueParam::kPCritDamFieldNumber;
-const int monstervalueParam::kPCritReduFieldNumber;
-const int monstervalueParam::kPBatterRateFieldNumber;
-const int monstervalueParam::kPBatterResistFieldNumber;
-const int monstervalueParam::kPBatterDamFieldNumber;
-const int monstervalueParam::kPBatterReduFieldNumber;
-const int monstervalueParam::kPBrkdownRateFieldNumber;
-const int monstervalueParam::kPBrkdownResistFieldNumber;
-const int monstervalueParam::kPDamAddFieldNumber;
-const int monstervalueParam::kPDamReduFieldNumber;
-const int monstervalueParam::kPAllAddFieldNumber;
-const int monstervalueParam::kPAllReduFieldNumber;
-const int monstervalueParam::kPSkillAddFieldNumber;
-const int monstervalueParam::kPSkillReduFieldNumber;
-const int monstervalueParam::kPReboundDamFieldNumber;
-const int monstervalueParam::kPHpStealFieldNumber;
-const int monstervalueParam::kPDodgeRateFieldNumber;
-const int monstervalueParam::kPHitRateFieldNumber;
-const int monstervalueParam::kPBlkRateFieldNumber;
-const int monstervalueParam::kPBrkBlkRateFieldNumber;
-const int monstervalueParam::kPBlkFreeFieldNumber;
-const int monstervalueParam::kPBlkPierceFieldNumber;
-const int monstervalueParam::kPRelArmorFieldNumber;
-const int monstervalueParam::kPRelDamFieldNumber;
-const int monstervalueParam::kPFiveResistFieldNumber;
-const int monstervalueParam::kPFiveResistReduFieldNumber;
-const int monstervalueParam::kPFireAddFieldNumber;
-const int monstervalueParam::kPFireReduFieldNumber;
-const int monstervalueParam::kPIceAddFieldNumber;
-const int monstervalueParam::kPIceReduFieldNumber;
-const int monstervalueParam::kPThunderAddFieldNumber;
-const int monstervalueParam::kPThunderRduFieldNumber;
-const int monstervalueParam::kPPlayerAddFieldNumber;
-const int monstervalueParam::kPPlayerReduFieldNumber;
-const int monstervalueParam::kPLeaderAddFieldNumber;
-const int monstervalueParam::kPLeaderReduFieldNumber;
-const int monstervalueParam::kPMonAddFieldNumber;
-const int monstervalueParam::kPMonReduFieldNumber;
-const int monstervalueParam::kPVarReduFieldNumber;
-const int monstervalueParam::kPVarAddFieldNumber;
-const int monstervalueParam::kPUnusualResistFieldNumber;
-const int monstervalueParam::kPUnusualHitFieldNumber;
-const int monstervalueParam::kPHpRecoverFieldNumber;
-const int monstervalueParam::kPUnusualAddFieldNumber;
-const int monstervalueParam::kPFixRecoverFieldNumber;
-const int monstervalueParam::kPHighHpAddFieldNumber;
-const int monstervalueParam::kPRecoverHpAddFieldNumber;
-const int monstervalueParam::kPWeekAddFieldNumber;
-const int monstervalueParam::kShieldFieldNumber;
+const int E_MonsterValueparam::kMIdFieldNumber;
+const int E_MonsterValueparam::kMPMaxHpFieldNumber;
+const int E_MonsterValueparam::kMPAtkFieldNumber;
+const int E_MonsterValueparam::kMPDefFieldNumber;
+const int E_MonsterValueparam::kMPBrkArmorFieldNumber;
+const int E_MonsterValueparam::kMPFiveDamFieldNumber;
+const int E_MonsterValueparam::kMPFiveArmorFieldNumber;
+const int E_MonsterValueparam::kMPThumpRateFieldNumber;
+const int E_MonsterValueparam::kMPThumpResistFieldNumber;
+const int E_MonsterValueparam::kMPSkyFieldNumber;
+const int E_MonsterValueparam::kMPSkyDamFieldNumber;
+const int E_MonsterValueparam::kMPSkyReduResistFieldNumber;
+const int E_MonsterValueparam::kMPSkyResistFieldNumber;
+const int E_MonsterValueparam::kMPKillGodFieldNumber;
+const int E_MonsterValueparam::kMPGodBodyFieldNumber;
+const int E_MonsterValueparam::kMPMortalRateFieldNumber;
+const int E_MonsterValueparam::kMPMortalResistFieldNumber;
+const int E_MonsterValueparam::kMPFairyRateFieldNumber;
+const int E_MonsterValueparam::kMPFairyResistFieldNumber;
+const int E_MonsterValueparam::kMPGodRateFieldNumber;
+const int E_MonsterValueparam::kMPGodResistFieldNumber;
+const int E_MonsterValueparam::kMPCritRateFieldNumber;
+const int E_MonsterValueparam::kMPCritResitRateFieldNumber;
+const int E_MonsterValueparam::kMPCritDamFieldNumber;
+const int E_MonsterValueparam::kMPCritReduFieldNumber;
+const int E_MonsterValueparam::kMPBatterRateFieldNumber;
+const int E_MonsterValueparam::kMPBatterResistFieldNumber;
+const int E_MonsterValueparam::kMPBatterDamFieldNumber;
+const int E_MonsterValueparam::kMPBatterReduFieldNumber;
+const int E_MonsterValueparam::kMPBrkdownRateFieldNumber;
+const int E_MonsterValueparam::kMPBrkdownResistFieldNumber;
+const int E_MonsterValueparam::kMPDamAddFieldNumber;
+const int E_MonsterValueparam::kMPDamReduFieldNumber;
+const int E_MonsterValueparam::kMPAllAddFieldNumber;
+const int E_MonsterValueparam::kMPAllReduFieldNumber;
+const int E_MonsterValueparam::kMPSkillAddFieldNumber;
+const int E_MonsterValueparam::kMPSkillReduFieldNumber;
+const int E_MonsterValueparam::kMPReboundDamFieldNumber;
+const int E_MonsterValueparam::kMPHpStealFieldNumber;
+const int E_MonsterValueparam::kMPDodgeRateFieldNumber;
+const int E_MonsterValueparam::kMPHitRateFieldNumber;
+const int E_MonsterValueparam::kMPBlkRateFieldNumber;
+const int E_MonsterValueparam::kMPBrkBlkRateFieldNumber;
+const int E_MonsterValueparam::kMPBlkFreeFieldNumber;
+const int E_MonsterValueparam::kMPBlkPierceFieldNumber;
+const int E_MonsterValueparam::kMPRelArmorFieldNumber;
+const int E_MonsterValueparam::kMPRelDamFieldNumber;
+const int E_MonsterValueparam::kMPFiveResistFieldNumber;
+const int E_MonsterValueparam::kMPFiveResistReduFieldNumber;
+const int E_MonsterValueparam::kMPFireAddFieldNumber;
+const int E_MonsterValueparam::kMPFireReduFieldNumber;
+const int E_MonsterValueparam::kMPIceAddFieldNumber;
+const int E_MonsterValueparam::kMPIceReduFieldNumber;
+const int E_MonsterValueparam::kMPThunderAddFieldNumber;
+const int E_MonsterValueparam::kMPThunderRduFieldNumber;
+const int E_MonsterValueparam::kMPPlayerAddFieldNumber;
+const int E_MonsterValueparam::kMPPlayerReduFieldNumber;
+const int E_MonsterValueparam::kMPLeaderAddFieldNumber;
+const int E_MonsterValueparam::kMPLeaderReduFieldNumber;
+const int E_MonsterValueparam::kMPMonAddFieldNumber;
+const int E_MonsterValueparam::kMPMonReduFieldNumber;
+const int E_MonsterValueparam::kMPVarReduFieldNumber;
+const int E_MonsterValueparam::kMPVarAddFieldNumber;
+const int E_MonsterValueparam::kMPUnusualResistFieldNumber;
+const int E_MonsterValueparam::kMPUnusualHitFieldNumber;
+const int E_MonsterValueparam::kMPHpRecoverFieldNumber;
+const int E_MonsterValueparam::kMPUnusualAddFieldNumber;
+const int E_MonsterValueparam::kMPFixRecoverFieldNumber;
+const int E_MonsterValueparam::kMPHighHpAddFieldNumber;
+const int E_MonsterValueparam::kMPRecoverHpAddFieldNumber;
+const int E_MonsterValueparam::kMPWeekAddFieldNumber;
+const int E_MonsterValueparam::kMShieldFieldNumber;
 #endif  // !_MSC_VER
 
-monstervalueParam::monstervalueParam()
+E_MonsterValueparam::E_MonsterValueparam()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void monstervalueParam::InitAsDefaultInstance() {
+void E_MonsterValueparam::InitAsDefaultInstance() {
 }
 
-monstervalueParam::monstervalueParam(const monstervalueParam& from)
+E_MonsterValueparam::E_MonsterValueparam(const E_MonsterValueparam& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void monstervalueParam::SharedCtor() {
+void E_MonsterValueparam::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  p_max_hp_ = 0;
-  p_atk_ = 0;
-  p_def_ = 0;
-  p_brk_armor_ = 0;
-  p_five_dam_ = 0;
-  p_five_armor_ = 0;
-  p_thump_rate_ = 0;
-  p_thump_resist_ = 0;
-  p_sky_ = 0;
-  p_sky_dam_ = 0;
-  p_sky_redu_resist_ = 0;
-  p_sky_resist_ = 0;
-  p_kill_god_ = 0;
-  p_god_body_ = 0;
-  p_mortal_rate_ = 0;
-  p_mortal_resist_ = 0;
-  p_fairy_rate_ = 0;
-  p_fairy_resist_ = 0;
-  p_god_rate_ = 0;
-  p_god_resist_ = 0;
-  p_crit_rate_ = 0;
-  p_crit_resit_rate_ = 0;
-  p_crit_dam_ = 0;
-  p_crit_redu_ = 0;
-  p_batter_rate_ = 0;
-  p_batter_resist_ = 0;
-  p_batter_dam_ = 0;
-  p_batter_redu_ = 0;
-  p_brkdown_rate_ = 0;
-  p_brkdown_resist_ = 0;
-  p_dam_add_ = 0;
-  p_dam_redu_ = 0;
-  p_all_add_ = 0;
-  p_all_redu_ = 0;
-  p_skill_add_ = 0;
-  p_skill_redu_ = 0;
-  p_rebound_dam_ = 0;
-  p_hp_steal_ = 0;
-  p_dodge_rate_ = 0;
-  p_hit_rate_ = 0;
-  p_blk_rate_ = 0;
-  p_brk_blk_rate_ = 0;
-  p_blk_free_ = 0;
-  p_blk_pierce_ = 0;
-  p_rel_armor_ = 0;
-  p_rel_dam_ = 0;
-  p_five_resist_ = 0;
-  p_five_resist_redu_ = 0;
-  p_fire_add_ = 0;
-  p_fire_redu_ = 0;
-  p_ice_add_ = 0;
-  p_ice_redu_ = 0;
-  p_thunder_add_ = 0;
-  p_thunder_rdu_ = 0;
-  p_player_add_ = 0;
-  p_player_redu_ = 0;
-  p_leader_add_ = 0;
-  p_leader_redu_ = 0;
-  p_mon_add_ = 0;
-  p_mon_redu_ = 0;
-  p_var_redu_ = 0;
-  p_var_add_ = 0;
-  p_unusual_resist_ = 0;
-  p_unusual_hit_ = 0;
-  p_hp_recover_ = 0;
-  p_unusual_add_ = 0;
-  p_fix_recover_ = 0;
-  p_high_hp_add_ = 0;
-  p_recover_hp_add_ = 0;
-  p_week_add_ = 0;
-  shield_ = GOOGLE_LONGLONG(0);
+  m_id_ = 0;
+  m_p_max_hp_ = 0;
+  m_p_atk_ = 0;
+  m_p_def_ = 0;
+  m_p_brk_armor_ = 0;
+  m_p_five_dam_ = 0;
+  m_p_five_armor_ = 0;
+  m_p_thump_rate_ = 0;
+  m_p_thump_resist_ = 0;
+  m_p_sky_ = 0;
+  m_p_sky_dam_ = 0;
+  m_p_sky_redu_resist_ = 0;
+  m_p_sky_resist_ = 0;
+  m_p_kill_god_ = 0;
+  m_p_god_body_ = 0;
+  m_p_mortal_rate_ = 0;
+  m_p_mortal_resist_ = 0;
+  m_p_fairy_rate_ = 0;
+  m_p_fairy_resist_ = 0;
+  m_p_god_rate_ = 0;
+  m_p_god_resist_ = 0;
+  m_p_crit_rate_ = 0;
+  m_p_crit_resit_rate_ = 0;
+  m_p_crit_dam_ = 0;
+  m_p_crit_redu_ = 0;
+  m_p_batter_rate_ = 0;
+  m_p_batter_resist_ = 0;
+  m_p_batter_dam_ = 0;
+  m_p_batter_redu_ = 0;
+  m_p_brkdown_rate_ = 0;
+  m_p_brkdown_resist_ = 0;
+  m_p_dam_add_ = 0;
+  m_p_dam_redu_ = 0;
+  m_p_all_add_ = 0;
+  m_p_all_redu_ = 0;
+  m_p_skill_add_ = 0;
+  m_p_skill_redu_ = 0;
+  m_p_rebound_dam_ = 0;
+  m_p_hp_steal_ = 0;
+  m_p_dodge_rate_ = 0;
+  m_p_hit_rate_ = 0;
+  m_p_blk_rate_ = 0;
+  m_p_brk_blk_rate_ = 0;
+  m_p_blk_free_ = 0;
+  m_p_blk_pierce_ = 0;
+  m_p_rel_armor_ = 0;
+  m_p_rel_dam_ = 0;
+  m_p_five_resist_ = 0;
+  m_p_five_resist_redu_ = 0;
+  m_p_fire_add_ = 0;
+  m_p_fire_redu_ = 0;
+  m_p_ice_add_ = 0;
+  m_p_ice_redu_ = 0;
+  m_p_thunder_add_ = 0;
+  m_p_thunder_rdu_ = 0;
+  m_p_player_add_ = 0;
+  m_p_player_redu_ = 0;
+  m_p_leader_add_ = 0;
+  m_p_leader_redu_ = 0;
+  m_p_mon_add_ = 0;
+  m_p_mon_redu_ = 0;
+  m_p_var_redu_ = 0;
+  m_p_var_add_ = 0;
+  m_p_unusual_resist_ = 0;
+  m_p_unusual_hit_ = 0;
+  m_p_hp_recover_ = 0;
+  m_p_unusual_add_ = 0;
+  m_p_fix_recover_ = 0;
+  m_p_high_hp_add_ = 0;
+  m_p_recover_hp_add_ = 0;
+  m_p_week_add_ = 0;
+  m_shield_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-monstervalueParam::~monstervalueParam() {
+E_MonsterValueparam::~E_MonsterValueparam() {
   SharedDtor();
 }
 
-void monstervalueParam::SharedDtor() {
+void E_MonsterValueparam::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void monstervalueParam::SetCachedSize(int size) const {
+void E_MonsterValueparam::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* monstervalueParam::descriptor() {
+const ::google::protobuf::Descriptor* E_MonsterValueparam::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return monstervalueParam_descriptor_;
+  return E_MonsterValueparam_descriptor_;
 }
 
-const monstervalueParam& monstervalueParam::default_instance() {
+const E_MonsterValueparam& E_MonsterValueparam::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-monstervalueParam* monstervalueParam::default_instance_ = NULL;
+E_MonsterValueparam* E_MonsterValueparam::default_instance_ = NULL;
 
-monstervalueParam* monstervalueParam::New() const {
-  return new monstervalueParam;
+E_MonsterValueparam* E_MonsterValueparam::New() const {
+  return new E_MonsterValueparam;
 }
 
-void monstervalueParam::Clear() {
+void E_MonsterValueparam::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    p_max_hp_ = 0;
-    p_atk_ = 0;
-    p_def_ = 0;
-    p_brk_armor_ = 0;
-    p_five_dam_ = 0;
-    p_five_armor_ = 0;
-    p_thump_rate_ = 0;
+    m_id_ = 0;
+    m_p_max_hp_ = 0;
+    m_p_atk_ = 0;
+    m_p_def_ = 0;
+    m_p_brk_armor_ = 0;
+    m_p_five_dam_ = 0;
+    m_p_five_armor_ = 0;
+    m_p_thump_rate_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    p_thump_resist_ = 0;
-    p_sky_ = 0;
-    p_sky_dam_ = 0;
-    p_sky_redu_resist_ = 0;
-    p_sky_resist_ = 0;
-    p_kill_god_ = 0;
-    p_god_body_ = 0;
-    p_mortal_rate_ = 0;
+    m_p_thump_resist_ = 0;
+    m_p_sky_ = 0;
+    m_p_sky_dam_ = 0;
+    m_p_sky_redu_resist_ = 0;
+    m_p_sky_resist_ = 0;
+    m_p_kill_god_ = 0;
+    m_p_god_body_ = 0;
+    m_p_mortal_rate_ = 0;
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    p_mortal_resist_ = 0;
-    p_fairy_rate_ = 0;
-    p_fairy_resist_ = 0;
-    p_god_rate_ = 0;
-    p_god_resist_ = 0;
-    p_crit_rate_ = 0;
-    p_crit_resit_rate_ = 0;
-    p_crit_dam_ = 0;
+    m_p_mortal_resist_ = 0;
+    m_p_fairy_rate_ = 0;
+    m_p_fairy_resist_ = 0;
+    m_p_god_rate_ = 0;
+    m_p_god_resist_ = 0;
+    m_p_crit_rate_ = 0;
+    m_p_crit_resit_rate_ = 0;
+    m_p_crit_dam_ = 0;
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    p_crit_redu_ = 0;
-    p_batter_rate_ = 0;
-    p_batter_resist_ = 0;
-    p_batter_dam_ = 0;
-    p_batter_redu_ = 0;
-    p_brkdown_rate_ = 0;
-    p_brkdown_resist_ = 0;
-    p_dam_add_ = 0;
+    m_p_crit_redu_ = 0;
+    m_p_batter_rate_ = 0;
+    m_p_batter_resist_ = 0;
+    m_p_batter_dam_ = 0;
+    m_p_batter_redu_ = 0;
+    m_p_brkdown_rate_ = 0;
+    m_p_brkdown_resist_ = 0;
+    m_p_dam_add_ = 0;
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    p_dam_redu_ = 0;
-    p_all_add_ = 0;
-    p_all_redu_ = 0;
-    p_skill_add_ = 0;
-    p_skill_redu_ = 0;
-    p_rebound_dam_ = 0;
-    p_hp_steal_ = 0;
-    p_dodge_rate_ = 0;
+    m_p_dam_redu_ = 0;
+    m_p_all_add_ = 0;
+    m_p_all_redu_ = 0;
+    m_p_skill_add_ = 0;
+    m_p_skill_redu_ = 0;
+    m_p_rebound_dam_ = 0;
+    m_p_hp_steal_ = 0;
+    m_p_dodge_rate_ = 0;
   }
   if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    p_hit_rate_ = 0;
-    p_blk_rate_ = 0;
-    p_brk_blk_rate_ = 0;
-    p_blk_free_ = 0;
-    p_blk_pierce_ = 0;
-    p_rel_armor_ = 0;
-    p_rel_dam_ = 0;
-    p_five_resist_ = 0;
+    m_p_hit_rate_ = 0;
+    m_p_blk_rate_ = 0;
+    m_p_brk_blk_rate_ = 0;
+    m_p_blk_free_ = 0;
+    m_p_blk_pierce_ = 0;
+    m_p_rel_armor_ = 0;
+    m_p_rel_dam_ = 0;
+    m_p_five_resist_ = 0;
   }
   if (_has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    p_five_resist_redu_ = 0;
-    p_fire_add_ = 0;
-    p_fire_redu_ = 0;
-    p_ice_add_ = 0;
-    p_ice_redu_ = 0;
-    p_thunder_add_ = 0;
-    p_thunder_rdu_ = 0;
-    p_player_add_ = 0;
+    m_p_five_resist_redu_ = 0;
+    m_p_fire_add_ = 0;
+    m_p_fire_redu_ = 0;
+    m_p_ice_add_ = 0;
+    m_p_ice_redu_ = 0;
+    m_p_thunder_add_ = 0;
+    m_p_thunder_rdu_ = 0;
+    m_p_player_add_ = 0;
   }
   if (_has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    p_player_redu_ = 0;
-    p_leader_add_ = 0;
-    p_leader_redu_ = 0;
-    p_mon_add_ = 0;
-    p_mon_redu_ = 0;
-    p_var_redu_ = 0;
-    p_var_add_ = 0;
-    p_unusual_resist_ = 0;
+    m_p_player_redu_ = 0;
+    m_p_leader_add_ = 0;
+    m_p_leader_redu_ = 0;
+    m_p_mon_add_ = 0;
+    m_p_mon_redu_ = 0;
+    m_p_var_redu_ = 0;
+    m_p_var_add_ = 0;
+    m_p_unusual_resist_ = 0;
   }
   if (_has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    p_unusual_hit_ = 0;
-    p_hp_recover_ = 0;
-    p_unusual_add_ = 0;
-    p_fix_recover_ = 0;
-    p_high_hp_add_ = 0;
-    p_recover_hp_add_ = 0;
-    p_week_add_ = 0;
-    shield_ = GOOGLE_LONGLONG(0);
+    m_p_unusual_hit_ = 0;
+    m_p_hp_recover_ = 0;
+    m_p_unusual_add_ = 0;
+    m_p_fix_recover_ = 0;
+    m_p_high_hp_add_ = 0;
+    m_p_recover_hp_add_ = 0;
+    m_p_week_add_ = 0;
+    m_shield_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool monstervalueParam::MergePartialFromCodedStream(
+bool E_MonsterValueparam::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_P_max_Hp;
+        if (input->ExpectTag(16)) goto parse_m_p_max_hp;
         break;
       }
 
-      // optional int32 P_max_Hp = 2;
+      // optional int32 m_p_max_hp = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_max_Hp:
+         parse_m_p_max_hp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_max_hp_)));
-          set_has_p_max_hp();
+                 input, &m_p_max_hp_)));
+          set_has_m_p_max_hp();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_P_atk;
+        if (input->ExpectTag(24)) goto parse_m_p_atk;
         break;
       }
 
-      // optional int32 P_atk = 3;
+      // optional int32 m_p_atk = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_atk:
+         parse_m_p_atk:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_atk_)));
-          set_has_p_atk();
+                 input, &m_p_atk_)));
+          set_has_m_p_atk();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_P_def;
+        if (input->ExpectTag(32)) goto parse_m_p_def;
         break;
       }
 
-      // optional int32 P_def = 4;
+      // optional int32 m_p_def = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_def:
+         parse_m_p_def:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_def_)));
-          set_has_p_def();
+                 input, &m_p_def_)));
+          set_has_m_p_def();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_P_brk_Armor;
+        if (input->ExpectTag(40)) goto parse_m_p_brk_armor;
         break;
       }
 
-      // optional int32 P_brk_Armor = 5;
+      // optional int32 m_p_brk_armor = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_brk_Armor:
+         parse_m_p_brk_armor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_brk_armor_)));
-          set_has_p_brk_armor();
+                 input, &m_p_brk_armor_)));
+          set_has_m_p_brk_armor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_P_five_Dam;
+        if (input->ExpectTag(48)) goto parse_m_p_five_dam;
         break;
       }
 
-      // optional int32 P_five_Dam = 6;
+      // optional int32 m_p_five_dam = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_five_Dam:
+         parse_m_p_five_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_five_dam_)));
-          set_has_p_five_dam();
+                 input, &m_p_five_dam_)));
+          set_has_m_p_five_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_P_five_Armor;
+        if (input->ExpectTag(56)) goto parse_m_p_five_armor;
         break;
       }
 
-      // optional int32 P_five_Armor = 7;
+      // optional int32 m_p_five_armor = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_five_Armor:
+         parse_m_p_five_armor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_five_armor_)));
-          set_has_p_five_armor();
+                 input, &m_p_five_armor_)));
+          set_has_m_p_five_armor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_P_thump_Rate;
+        if (input->ExpectTag(64)) goto parse_m_p_thump_rate;
         break;
       }
 
-      // optional int32 P_thump_Rate = 8;
+      // optional int32 m_p_thump_rate = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_thump_Rate:
+         parse_m_p_thump_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_thump_rate_)));
-          set_has_p_thump_rate();
+                 input, &m_p_thump_rate_)));
+          set_has_m_p_thump_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_P_thump_Resist;
+        if (input->ExpectTag(72)) goto parse_m_p_thump_resist;
         break;
       }
 
-      // optional int32 P_thump_Resist = 9;
+      // optional int32 m_p_thump_resist = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_thump_Resist:
+         parse_m_p_thump_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_thump_resist_)));
-          set_has_p_thump_resist();
+                 input, &m_p_thump_resist_)));
+          set_has_m_p_thump_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_P_sky;
+        if (input->ExpectTag(80)) goto parse_m_p_sky;
         break;
       }
 
-      // optional int32 P_sky = 10;
+      // optional int32 m_p_sky = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_sky:
+         parse_m_p_sky:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_sky_)));
-          set_has_p_sky();
+                 input, &m_p_sky_)));
+          set_has_m_p_sky();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_P_sky_Dam;
+        if (input->ExpectTag(88)) goto parse_m_p_sky_dam;
         break;
       }
 
-      // optional int32 P_sky_Dam = 11;
+      // optional int32 m_p_sky_dam = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_sky_Dam:
+         parse_m_p_sky_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_sky_dam_)));
-          set_has_p_sky_dam();
+                 input, &m_p_sky_dam_)));
+          set_has_m_p_sky_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_P_sky_Redu_Resist;
+        if (input->ExpectTag(96)) goto parse_m_p_sky_redu_resist;
         break;
       }
 
-      // optional int32 P_sky_Redu_Resist = 12;
+      // optional int32 m_p_sky_redu_resist = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_sky_Redu_Resist:
+         parse_m_p_sky_redu_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_sky_redu_resist_)));
-          set_has_p_sky_redu_resist();
+                 input, &m_p_sky_redu_resist_)));
+          set_has_m_p_sky_redu_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_P_sky_Resist;
+        if (input->ExpectTag(104)) goto parse_m_p_sky_resist;
         break;
       }
 
-      // optional int32 P_sky_Resist = 13;
+      // optional int32 m_p_sky_resist = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_sky_Resist:
+         parse_m_p_sky_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_sky_resist_)));
-          set_has_p_sky_resist();
+                 input, &m_p_sky_resist_)));
+          set_has_m_p_sky_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_P_kill_God;
+        if (input->ExpectTag(112)) goto parse_m_p_kill_god;
         break;
       }
 
-      // optional int32 P_kill_God = 14;
+      // optional int32 m_p_kill_god = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_kill_God:
+         parse_m_p_kill_god:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_kill_god_)));
-          set_has_p_kill_god();
+                 input, &m_p_kill_god_)));
+          set_has_m_p_kill_god();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_P_god_Body;
+        if (input->ExpectTag(120)) goto parse_m_p_god_body;
         break;
       }
 
-      // optional int32 P_god_Body = 15;
+      // optional int32 m_p_god_body = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_god_Body:
+         parse_m_p_god_body:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_god_body_)));
-          set_has_p_god_body();
+                 input, &m_p_god_body_)));
+          set_has_m_p_god_body();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_P_mortal_Rate;
+        if (input->ExpectTag(128)) goto parse_m_p_mortal_rate;
         break;
       }
 
-      // optional int32 P_mortal_Rate = 16;
+      // optional int32 m_p_mortal_rate = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_mortal_Rate:
+         parse_m_p_mortal_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_mortal_rate_)));
-          set_has_p_mortal_rate();
+                 input, &m_p_mortal_rate_)));
+          set_has_m_p_mortal_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_P_mortal_Resist;
+        if (input->ExpectTag(136)) goto parse_m_p_mortal_resist;
         break;
       }
 
-      // optional int32 P_mortal_Resist = 17;
+      // optional int32 m_p_mortal_resist = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_mortal_Resist:
+         parse_m_p_mortal_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_mortal_resist_)));
-          set_has_p_mortal_resist();
+                 input, &m_p_mortal_resist_)));
+          set_has_m_p_mortal_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_P_fairy_Rate;
+        if (input->ExpectTag(144)) goto parse_m_p_fairy_rate;
         break;
       }
 
-      // optional int32 P_fairy_Rate = 18;
+      // optional int32 m_p_fairy_rate = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_fairy_Rate:
+         parse_m_p_fairy_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_fairy_rate_)));
-          set_has_p_fairy_rate();
+                 input, &m_p_fairy_rate_)));
+          set_has_m_p_fairy_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_P_fairy_Resist;
+        if (input->ExpectTag(152)) goto parse_m_p_fairy_resist;
         break;
       }
 
-      // optional int32 P_fairy_Resist = 19;
+      // optional int32 m_p_fairy_resist = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_fairy_Resist:
+         parse_m_p_fairy_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_fairy_resist_)));
-          set_has_p_fairy_resist();
+                 input, &m_p_fairy_resist_)));
+          set_has_m_p_fairy_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_P_god_Rate;
+        if (input->ExpectTag(160)) goto parse_m_p_god_rate;
         break;
       }
 
-      // optional int32 P_god_Rate = 20;
+      // optional int32 m_p_god_rate = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_god_Rate:
+         parse_m_p_god_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_god_rate_)));
-          set_has_p_god_rate();
+                 input, &m_p_god_rate_)));
+          set_has_m_p_god_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_P_god_Resist;
+        if (input->ExpectTag(168)) goto parse_m_p_god_resist;
         break;
       }
 
-      // optional int32 P_god_Resist = 21;
+      // optional int32 m_p_god_resist = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_god_Resist:
+         parse_m_p_god_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_god_resist_)));
-          set_has_p_god_resist();
+                 input, &m_p_god_resist_)));
+          set_has_m_p_god_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(176)) goto parse_P_crit_Rate;
+        if (input->ExpectTag(176)) goto parse_m_p_crit_rate;
         break;
       }
 
-      // optional int32 P_crit_Rate = 22;
+      // optional int32 m_p_crit_rate = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_crit_Rate:
+         parse_m_p_crit_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_crit_rate_)));
-          set_has_p_crit_rate();
+                 input, &m_p_crit_rate_)));
+          set_has_m_p_crit_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_P_crit_resit_Rate;
+        if (input->ExpectTag(184)) goto parse_m_p_crit_resit_rate;
         break;
       }
 
-      // optional int32 P_crit_resit_Rate = 23;
+      // optional int32 m_p_crit_resit_rate = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_crit_resit_Rate:
+         parse_m_p_crit_resit_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_crit_resit_rate_)));
-          set_has_p_crit_resit_rate();
+                 input, &m_p_crit_resit_rate_)));
+          set_has_m_p_crit_resit_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_P_crit_Dam;
+        if (input->ExpectTag(192)) goto parse_m_p_crit_dam;
         break;
       }
 
-      // optional int32 P_crit_Dam = 24;
+      // optional int32 m_p_crit_dam = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_crit_Dam:
+         parse_m_p_crit_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_crit_dam_)));
-          set_has_p_crit_dam();
+                 input, &m_p_crit_dam_)));
+          set_has_m_p_crit_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_P_crit_Redu;
+        if (input->ExpectTag(200)) goto parse_m_p_crit_redu;
         break;
       }
 
-      // optional int32 P_crit_Redu = 25;
+      // optional int32 m_p_crit_redu = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_crit_Redu:
+         parse_m_p_crit_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_crit_redu_)));
-          set_has_p_crit_redu();
+                 input, &m_p_crit_redu_)));
+          set_has_m_p_crit_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_P_batter_Rate;
+        if (input->ExpectTag(208)) goto parse_m_p_batter_rate;
         break;
       }
 
-      // optional int32 P_batter_Rate = 26;
+      // optional int32 m_p_batter_rate = 26;
       case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_batter_Rate:
+         parse_m_p_batter_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_batter_rate_)));
-          set_has_p_batter_rate();
+                 input, &m_p_batter_rate_)));
+          set_has_m_p_batter_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_P_batter_Resist;
+        if (input->ExpectTag(216)) goto parse_m_p_batter_resist;
         break;
       }
 
-      // optional int32 P_batter_Resist = 27;
+      // optional int32 m_p_batter_resist = 27;
       case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_batter_Resist:
+         parse_m_p_batter_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_batter_resist_)));
-          set_has_p_batter_resist();
+                 input, &m_p_batter_resist_)));
+          set_has_m_p_batter_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_P_batter_Dam;
+        if (input->ExpectTag(224)) goto parse_m_p_batter_dam;
         break;
       }
 
-      // optional int32 P_batter_Dam = 28;
+      // optional int32 m_p_batter_dam = 28;
       case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_batter_Dam:
+         parse_m_p_batter_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_batter_dam_)));
-          set_has_p_batter_dam();
+                 input, &m_p_batter_dam_)));
+          set_has_m_p_batter_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(232)) goto parse_P_batter_Redu;
+        if (input->ExpectTag(232)) goto parse_m_p_batter_redu;
         break;
       }
 
-      // optional int32 P_batter_Redu = 29;
+      // optional int32 m_p_batter_redu = 29;
       case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_batter_Redu:
+         parse_m_p_batter_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_batter_redu_)));
-          set_has_p_batter_redu();
+                 input, &m_p_batter_redu_)));
+          set_has_m_p_batter_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_P_brkdown_Rate;
+        if (input->ExpectTag(240)) goto parse_m_p_brkdown_rate;
         break;
       }
 
-      // optional int32 P_brkdown_Rate = 30;
+      // optional int32 m_p_brkdown_rate = 30;
       case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_brkdown_Rate:
+         parse_m_p_brkdown_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_brkdown_rate_)));
-          set_has_p_brkdown_rate();
+                 input, &m_p_brkdown_rate_)));
+          set_has_m_p_brkdown_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(248)) goto parse_P_brkdown_Resist;
+        if (input->ExpectTag(248)) goto parse_m_p_brkdown_resist;
         break;
       }
 
-      // optional int32 P_brkdown_Resist = 31;
+      // optional int32 m_p_brkdown_resist = 31;
       case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_brkdown_Resist:
+         parse_m_p_brkdown_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_brkdown_resist_)));
-          set_has_p_brkdown_resist();
+                 input, &m_p_brkdown_resist_)));
+          set_has_m_p_brkdown_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(256)) goto parse_P_dam_Add;
+        if (input->ExpectTag(256)) goto parse_m_p_dam_add;
         break;
       }
 
-      // optional int32 P_dam_Add = 32;
+      // optional int32 m_p_dam_add = 32;
       case 32: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_dam_Add:
+         parse_m_p_dam_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_dam_add_)));
-          set_has_p_dam_add();
+                 input, &m_p_dam_add_)));
+          set_has_m_p_dam_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(264)) goto parse_P_dam_Redu;
+        if (input->ExpectTag(264)) goto parse_m_p_dam_redu;
         break;
       }
 
-      // optional int32 P_dam_Redu = 33;
+      // optional int32 m_p_dam_redu = 33;
       case 33: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_dam_Redu:
+         parse_m_p_dam_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_dam_redu_)));
-          set_has_p_dam_redu();
+                 input, &m_p_dam_redu_)));
+          set_has_m_p_dam_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(272)) goto parse_P_all_Add;
+        if (input->ExpectTag(272)) goto parse_m_p_all_add;
         break;
       }
 
-      // optional int32 P_all_Add = 34;
+      // optional int32 m_p_all_add = 34;
       case 34: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_all_Add:
+         parse_m_p_all_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_all_add_)));
-          set_has_p_all_add();
+                 input, &m_p_all_add_)));
+          set_has_m_p_all_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(280)) goto parse_P_all_Redu;
+        if (input->ExpectTag(280)) goto parse_m_p_all_redu;
         break;
       }
 
-      // optional int32 P_all_Redu = 35;
+      // optional int32 m_p_all_redu = 35;
       case 35: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_all_Redu:
+         parse_m_p_all_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_all_redu_)));
-          set_has_p_all_redu();
+                 input, &m_p_all_redu_)));
+          set_has_m_p_all_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(288)) goto parse_P_skill_Add;
+        if (input->ExpectTag(288)) goto parse_m_p_skill_add;
         break;
       }
 
-      // optional int32 P_skill_Add = 36;
+      // optional int32 m_p_skill_add = 36;
       case 36: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_skill_Add:
+         parse_m_p_skill_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_skill_add_)));
-          set_has_p_skill_add();
+                 input, &m_p_skill_add_)));
+          set_has_m_p_skill_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(296)) goto parse_P_skill_Redu;
+        if (input->ExpectTag(296)) goto parse_m_p_skill_redu;
         break;
       }
 
-      // optional int32 P_skill_Redu = 37;
+      // optional int32 m_p_skill_redu = 37;
       case 37: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_skill_Redu:
+         parse_m_p_skill_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_skill_redu_)));
-          set_has_p_skill_redu();
+                 input, &m_p_skill_redu_)));
+          set_has_m_p_skill_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(304)) goto parse_P_rebound_Dam;
+        if (input->ExpectTag(304)) goto parse_m_p_rebound_dam;
         break;
       }
 
-      // optional int32 P_rebound_Dam = 38;
+      // optional int32 m_p_rebound_dam = 38;
       case 38: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_rebound_Dam:
+         parse_m_p_rebound_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_rebound_dam_)));
-          set_has_p_rebound_dam();
+                 input, &m_p_rebound_dam_)));
+          set_has_m_p_rebound_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(312)) goto parse_P_hp_Steal;
+        if (input->ExpectTag(312)) goto parse_m_p_hp_steal;
         break;
       }
 
-      // optional int32 P_hp_Steal = 39;
+      // optional int32 m_p_hp_steal = 39;
       case 39: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_hp_Steal:
+         parse_m_p_hp_steal:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_hp_steal_)));
-          set_has_p_hp_steal();
+                 input, &m_p_hp_steal_)));
+          set_has_m_p_hp_steal();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(320)) goto parse_P_dodge_Rate;
+        if (input->ExpectTag(320)) goto parse_m_p_dodge_rate;
         break;
       }
 
-      // optional int32 P_dodge_Rate = 40;
+      // optional int32 m_p_dodge_rate = 40;
       case 40: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_dodge_Rate:
+         parse_m_p_dodge_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_dodge_rate_)));
-          set_has_p_dodge_rate();
+                 input, &m_p_dodge_rate_)));
+          set_has_m_p_dodge_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(328)) goto parse_P_hit_Rate;
+        if (input->ExpectTag(328)) goto parse_m_p_hit_rate;
         break;
       }
 
-      // optional int32 P_hit_Rate = 41;
+      // optional int32 m_p_hit_rate = 41;
       case 41: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_hit_Rate:
+         parse_m_p_hit_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_hit_rate_)));
-          set_has_p_hit_rate();
+                 input, &m_p_hit_rate_)));
+          set_has_m_p_hit_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(336)) goto parse_P_blk_Rate;
+        if (input->ExpectTag(336)) goto parse_m_p_blk_rate;
         break;
       }
 
-      // optional int32 P_blk_Rate = 42;
+      // optional int32 m_p_blk_rate = 42;
       case 42: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_blk_Rate:
+         parse_m_p_blk_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_blk_rate_)));
-          set_has_p_blk_rate();
+                 input, &m_p_blk_rate_)));
+          set_has_m_p_blk_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(344)) goto parse_P_brk_blk_Rate;
+        if (input->ExpectTag(344)) goto parse_m_p_brk_blk_rate;
         break;
       }
 
-      // optional int32 P_brk_blk_Rate = 43;
+      // optional int32 m_p_brk_blk_rate = 43;
       case 43: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_brk_blk_Rate:
+         parse_m_p_brk_blk_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_brk_blk_rate_)));
-          set_has_p_brk_blk_rate();
+                 input, &m_p_brk_blk_rate_)));
+          set_has_m_p_brk_blk_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(352)) goto parse_P_blk_Free;
+        if (input->ExpectTag(352)) goto parse_m_p_blk_free;
         break;
       }
 
-      // optional int32 P_blk_Free = 44;
+      // optional int32 m_p_blk_free = 44;
       case 44: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_blk_Free:
+         parse_m_p_blk_free:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_blk_free_)));
-          set_has_p_blk_free();
+                 input, &m_p_blk_free_)));
+          set_has_m_p_blk_free();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(360)) goto parse_P_blk_Pierce;
+        if (input->ExpectTag(360)) goto parse_m_p_blk_pierce;
         break;
       }
 
-      // optional int32 P_blk_Pierce = 45;
+      // optional int32 m_p_blk_pierce = 45;
       case 45: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_blk_Pierce:
+         parse_m_p_blk_pierce:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_blk_pierce_)));
-          set_has_p_blk_pierce();
+                 input, &m_p_blk_pierce_)));
+          set_has_m_p_blk_pierce();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(368)) goto parse_P_rel_Armor;
+        if (input->ExpectTag(368)) goto parse_m_p_rel_armor;
         break;
       }
 
-      // optional int32 P_rel_Armor = 46;
+      // optional int32 m_p_rel_armor = 46;
       case 46: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_rel_Armor:
+         parse_m_p_rel_armor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_rel_armor_)));
-          set_has_p_rel_armor();
+                 input, &m_p_rel_armor_)));
+          set_has_m_p_rel_armor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(376)) goto parse_P_rel_Dam;
+        if (input->ExpectTag(376)) goto parse_m_p_rel_dam;
         break;
       }
 
-      // optional int32 P_rel_Dam = 47;
+      // optional int32 m_p_rel_dam = 47;
       case 47: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_rel_Dam:
+         parse_m_p_rel_dam:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_rel_dam_)));
-          set_has_p_rel_dam();
+                 input, &m_p_rel_dam_)));
+          set_has_m_p_rel_dam();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(384)) goto parse_P_five_Resist;
+        if (input->ExpectTag(384)) goto parse_m_p_five_resist;
         break;
       }
 
-      // optional int32 P_five_Resist = 48;
+      // optional int32 m_p_five_resist = 48;
       case 48: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_five_Resist:
+         parse_m_p_five_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_five_resist_)));
-          set_has_p_five_resist();
+                 input, &m_p_five_resist_)));
+          set_has_m_p_five_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(392)) goto parse_P_five_resist_Redu;
+        if (input->ExpectTag(392)) goto parse_m_p_five_resist_redu;
         break;
       }
 
-      // optional int32 P_five_resist_Redu = 49;
+      // optional int32 m_p_five_resist_redu = 49;
       case 49: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_five_resist_Redu:
+         parse_m_p_five_resist_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_five_resist_redu_)));
-          set_has_p_five_resist_redu();
+                 input, &m_p_five_resist_redu_)));
+          set_has_m_p_five_resist_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(400)) goto parse_P_fire_Add;
+        if (input->ExpectTag(400)) goto parse_m_p_fire_add;
         break;
       }
 
-      // optional int32 P_fire_Add = 50;
+      // optional int32 m_p_fire_add = 50;
       case 50: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_fire_Add:
+         parse_m_p_fire_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_fire_add_)));
-          set_has_p_fire_add();
+                 input, &m_p_fire_add_)));
+          set_has_m_p_fire_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(408)) goto parse_P_fire_Redu;
+        if (input->ExpectTag(408)) goto parse_m_p_fire_redu;
         break;
       }
 
-      // optional int32 P_fire_Redu = 51;
+      // optional int32 m_p_fire_redu = 51;
       case 51: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_fire_Redu:
+         parse_m_p_fire_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_fire_redu_)));
-          set_has_p_fire_redu();
+                 input, &m_p_fire_redu_)));
+          set_has_m_p_fire_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(416)) goto parse_P_ice_Add;
+        if (input->ExpectTag(416)) goto parse_m_p_ice_add;
         break;
       }
 
-      // optional int32 P_ice_Add = 52;
+      // optional int32 m_p_ice_add = 52;
       case 52: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_ice_Add:
+         parse_m_p_ice_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_ice_add_)));
-          set_has_p_ice_add();
+                 input, &m_p_ice_add_)));
+          set_has_m_p_ice_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(424)) goto parse_P_ice_Redu;
+        if (input->ExpectTag(424)) goto parse_m_p_ice_redu;
         break;
       }
 
-      // optional int32 P_ice_Redu = 53;
+      // optional int32 m_p_ice_redu = 53;
       case 53: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_ice_Redu:
+         parse_m_p_ice_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_ice_redu_)));
-          set_has_p_ice_redu();
+                 input, &m_p_ice_redu_)));
+          set_has_m_p_ice_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(432)) goto parse_P_thunder_Add;
+        if (input->ExpectTag(432)) goto parse_m_p_thunder_add;
         break;
       }
 
-      // optional int32 P_thunder_Add = 54;
+      // optional int32 m_p_thunder_add = 54;
       case 54: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_thunder_Add:
+         parse_m_p_thunder_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_thunder_add_)));
-          set_has_p_thunder_add();
+                 input, &m_p_thunder_add_)));
+          set_has_m_p_thunder_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(440)) goto parse_P_thunder_Rdu;
+        if (input->ExpectTag(440)) goto parse_m_p_thunder_rdu;
         break;
       }
 
-      // optional int32 P_thunder_Rdu = 55;
+      // optional int32 m_p_thunder_rdu = 55;
       case 55: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_thunder_Rdu:
+         parse_m_p_thunder_rdu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_thunder_rdu_)));
-          set_has_p_thunder_rdu();
+                 input, &m_p_thunder_rdu_)));
+          set_has_m_p_thunder_rdu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(448)) goto parse_P_player_Add;
+        if (input->ExpectTag(448)) goto parse_m_p_player_add;
         break;
       }
 
-      // optional int32 P_player_Add = 56;
+      // optional int32 m_p_player_add = 56;
       case 56: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_player_Add:
+         parse_m_p_player_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_player_add_)));
-          set_has_p_player_add();
+                 input, &m_p_player_add_)));
+          set_has_m_p_player_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(456)) goto parse_P_player_Redu;
+        if (input->ExpectTag(456)) goto parse_m_p_player_redu;
         break;
       }
 
-      // optional int32 P_player_Redu = 57;
+      // optional int32 m_p_player_redu = 57;
       case 57: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_player_Redu:
+         parse_m_p_player_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_player_redu_)));
-          set_has_p_player_redu();
+                 input, &m_p_player_redu_)));
+          set_has_m_p_player_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(464)) goto parse_P_leader_Add;
+        if (input->ExpectTag(464)) goto parse_m_p_leader_add;
         break;
       }
 
-      // optional int32 P_leader_Add = 58;
+      // optional int32 m_p_leader_add = 58;
       case 58: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_leader_Add:
+         parse_m_p_leader_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_leader_add_)));
-          set_has_p_leader_add();
+                 input, &m_p_leader_add_)));
+          set_has_m_p_leader_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(472)) goto parse_P_leader_Redu;
+        if (input->ExpectTag(472)) goto parse_m_p_leader_redu;
         break;
       }
 
-      // optional int32 P_leader_Redu = 59;
+      // optional int32 m_p_leader_redu = 59;
       case 59: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_leader_Redu:
+         parse_m_p_leader_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_leader_redu_)));
-          set_has_p_leader_redu();
+                 input, &m_p_leader_redu_)));
+          set_has_m_p_leader_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(480)) goto parse_P_mon_Add;
+        if (input->ExpectTag(480)) goto parse_m_p_mon_add;
         break;
       }
 
-      // optional int32 P_mon_Add = 60;
+      // optional int32 m_p_mon_add = 60;
       case 60: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_mon_Add:
+         parse_m_p_mon_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_mon_add_)));
-          set_has_p_mon_add();
+                 input, &m_p_mon_add_)));
+          set_has_m_p_mon_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(488)) goto parse_P_mon_Redu;
+        if (input->ExpectTag(488)) goto parse_m_p_mon_redu;
         break;
       }
 
-      // optional int32 P_mon_Redu = 61;
+      // optional int32 m_p_mon_redu = 61;
       case 61: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_mon_Redu:
+         parse_m_p_mon_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_mon_redu_)));
-          set_has_p_mon_redu();
+                 input, &m_p_mon_redu_)));
+          set_has_m_p_mon_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(496)) goto parse_P_var_Redu;
+        if (input->ExpectTag(496)) goto parse_m_p_var_redu;
         break;
       }
 
-      // optional int32 P_var_Redu = 62;
+      // optional int32 m_p_var_redu = 62;
       case 62: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_var_Redu:
+         parse_m_p_var_redu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_var_redu_)));
-          set_has_p_var_redu();
+                 input, &m_p_var_redu_)));
+          set_has_m_p_var_redu();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(504)) goto parse_P_var_Add;
+        if (input->ExpectTag(504)) goto parse_m_p_var_add;
         break;
       }
 
-      // optional int32 P_var_Add = 63;
+      // optional int32 m_p_var_add = 63;
       case 63: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_var_Add:
+         parse_m_p_var_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_var_add_)));
-          set_has_p_var_add();
+                 input, &m_p_var_add_)));
+          set_has_m_p_var_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(512)) goto parse_P_unusual_Resist;
+        if (input->ExpectTag(512)) goto parse_m_p_unusual_resist;
         break;
       }
 
-      // optional int32 P_unusual_Resist = 64;
+      // optional int32 m_p_unusual_resist = 64;
       case 64: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_unusual_Resist:
+         parse_m_p_unusual_resist:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_unusual_resist_)));
-          set_has_p_unusual_resist();
+                 input, &m_p_unusual_resist_)));
+          set_has_m_p_unusual_resist();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(520)) goto parse_P_unusual_Hit;
+        if (input->ExpectTag(520)) goto parse_m_p_unusual_hit;
         break;
       }
 
-      // optional int32 P_unusual_Hit = 65;
+      // optional int32 m_p_unusual_hit = 65;
       case 65: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_unusual_Hit:
+         parse_m_p_unusual_hit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_unusual_hit_)));
-          set_has_p_unusual_hit();
+                 input, &m_p_unusual_hit_)));
+          set_has_m_p_unusual_hit();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(528)) goto parse_P_hp_Recover;
+        if (input->ExpectTag(528)) goto parse_m_p_hp_recover;
         break;
       }
 
-      // optional int32 P_hp_Recover = 66;
+      // optional int32 m_p_hp_recover = 66;
       case 66: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_hp_Recover:
+         parse_m_p_hp_recover:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_hp_recover_)));
-          set_has_p_hp_recover();
+                 input, &m_p_hp_recover_)));
+          set_has_m_p_hp_recover();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(536)) goto parse_P_unusual_Add;
+        if (input->ExpectTag(536)) goto parse_m_p_unusual_add;
         break;
       }
 
-      // optional int32 P_unusual_Add = 67;
+      // optional int32 m_p_unusual_add = 67;
       case 67: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_unusual_Add:
+         parse_m_p_unusual_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_unusual_add_)));
-          set_has_p_unusual_add();
+                 input, &m_p_unusual_add_)));
+          set_has_m_p_unusual_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(544)) goto parse_P_fix_Recover;
+        if (input->ExpectTag(544)) goto parse_m_p_fix_recover;
         break;
       }
 
-      // optional int32 P_fix_Recover = 68;
+      // optional int32 m_p_fix_recover = 68;
       case 68: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_fix_Recover:
+         parse_m_p_fix_recover:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_fix_recover_)));
-          set_has_p_fix_recover();
+                 input, &m_p_fix_recover_)));
+          set_has_m_p_fix_recover();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(552)) goto parse_P_high_hp_Add;
+        if (input->ExpectTag(552)) goto parse_m_p_high_hp_add;
         break;
       }
 
-      // optional int32 P_high_hp_Add = 69;
+      // optional int32 m_p_high_hp_add = 69;
       case 69: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_high_hp_Add:
+         parse_m_p_high_hp_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_high_hp_add_)));
-          set_has_p_high_hp_add();
+                 input, &m_p_high_hp_add_)));
+          set_has_m_p_high_hp_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(560)) goto parse_P_recover_hp_Add;
+        if (input->ExpectTag(560)) goto parse_m_p_recover_hp_add;
         break;
       }
 
-      // optional int32 P_recover_hp_Add = 70;
+      // optional int32 m_p_recover_hp_add = 70;
       case 70: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_recover_hp_Add:
+         parse_m_p_recover_hp_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_recover_hp_add_)));
-          set_has_p_recover_hp_add();
+                 input, &m_p_recover_hp_add_)));
+          set_has_m_p_recover_hp_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(568)) goto parse_P_week_Add;
+        if (input->ExpectTag(568)) goto parse_m_p_week_add;
         break;
       }
 
-      // optional int32 P_week_Add = 71;
+      // optional int32 m_p_week_add = 71;
       case 71: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_P_week_Add:
+         parse_m_p_week_add:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &p_week_add_)));
-          set_has_p_week_add();
+                 input, &m_p_week_add_)));
+          set_has_m_p_week_add();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(576)) goto parse_shield;
+        if (input->ExpectTag(576)) goto parse_m_shield;
         break;
       }
 
-      // optional int64 shield = 72;
+      // optional int64 m_shield = 72;
       case 72: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_shield:
+         parse_m_shield:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &shield_)));
-          set_has_shield();
+                 input, &m_shield_)));
+          set_has_m_shield();
         } else {
           goto handle_uninterpreted;
         }
@@ -7963,366 +7973,366 @@ bool monstervalueParam::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void monstervalueParam::SerializeWithCachedSizes(
+void E_MonsterValueparam::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 P_max_Hp = 2;
-  if (has_p_max_hp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->p_max_hp(), output);
+  // optional int32 m_p_max_hp = 2;
+  if (has_m_p_max_hp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_p_max_hp(), output);
   }
 
-  // optional int32 P_atk = 3;
-  if (has_p_atk()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->p_atk(), output);
+  // optional int32 m_p_atk = 3;
+  if (has_m_p_atk()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_p_atk(), output);
   }
 
-  // optional int32 P_def = 4;
-  if (has_p_def()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->p_def(), output);
+  // optional int32 m_p_def = 4;
+  if (has_m_p_def()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_p_def(), output);
   }
 
-  // optional int32 P_brk_Armor = 5;
-  if (has_p_brk_armor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->p_brk_armor(), output);
+  // optional int32 m_p_brk_armor = 5;
+  if (has_m_p_brk_armor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_p_brk_armor(), output);
   }
 
-  // optional int32 P_five_Dam = 6;
-  if (has_p_five_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->p_five_dam(), output);
+  // optional int32 m_p_five_dam = 6;
+  if (has_m_p_five_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_p_five_dam(), output);
   }
 
-  // optional int32 P_five_Armor = 7;
-  if (has_p_five_armor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->p_five_armor(), output);
+  // optional int32 m_p_five_armor = 7;
+  if (has_m_p_five_armor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_p_five_armor(), output);
   }
 
-  // optional int32 P_thump_Rate = 8;
-  if (has_p_thump_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->p_thump_rate(), output);
+  // optional int32 m_p_thump_rate = 8;
+  if (has_m_p_thump_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_p_thump_rate(), output);
   }
 
-  // optional int32 P_thump_Resist = 9;
-  if (has_p_thump_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->p_thump_resist(), output);
+  // optional int32 m_p_thump_resist = 9;
+  if (has_m_p_thump_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_p_thump_resist(), output);
   }
 
-  // optional int32 P_sky = 10;
-  if (has_p_sky()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->p_sky(), output);
+  // optional int32 m_p_sky = 10;
+  if (has_m_p_sky()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_p_sky(), output);
   }
 
-  // optional int32 P_sky_Dam = 11;
-  if (has_p_sky_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->p_sky_dam(), output);
+  // optional int32 m_p_sky_dam = 11;
+  if (has_m_p_sky_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_p_sky_dam(), output);
   }
 
-  // optional int32 P_sky_Redu_Resist = 12;
-  if (has_p_sky_redu_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->p_sky_redu_resist(), output);
+  // optional int32 m_p_sky_redu_resist = 12;
+  if (has_m_p_sky_redu_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_p_sky_redu_resist(), output);
   }
 
-  // optional int32 P_sky_Resist = 13;
-  if (has_p_sky_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->p_sky_resist(), output);
+  // optional int32 m_p_sky_resist = 13;
+  if (has_m_p_sky_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_p_sky_resist(), output);
   }
 
-  // optional int32 P_kill_God = 14;
-  if (has_p_kill_god()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->p_kill_god(), output);
+  // optional int32 m_p_kill_god = 14;
+  if (has_m_p_kill_god()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_p_kill_god(), output);
   }
 
-  // optional int32 P_god_Body = 15;
-  if (has_p_god_body()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->p_god_body(), output);
+  // optional int32 m_p_god_body = 15;
+  if (has_m_p_god_body()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_p_god_body(), output);
   }
 
-  // optional int32 P_mortal_Rate = 16;
-  if (has_p_mortal_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->p_mortal_rate(), output);
+  // optional int32 m_p_mortal_rate = 16;
+  if (has_m_p_mortal_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_p_mortal_rate(), output);
   }
 
-  // optional int32 P_mortal_Resist = 17;
-  if (has_p_mortal_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->p_mortal_resist(), output);
+  // optional int32 m_p_mortal_resist = 17;
+  if (has_m_p_mortal_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_p_mortal_resist(), output);
   }
 
-  // optional int32 P_fairy_Rate = 18;
-  if (has_p_fairy_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->p_fairy_rate(), output);
+  // optional int32 m_p_fairy_rate = 18;
+  if (has_m_p_fairy_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_p_fairy_rate(), output);
   }
 
-  // optional int32 P_fairy_Resist = 19;
-  if (has_p_fairy_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->p_fairy_resist(), output);
+  // optional int32 m_p_fairy_resist = 19;
+  if (has_m_p_fairy_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_p_fairy_resist(), output);
   }
 
-  // optional int32 P_god_Rate = 20;
-  if (has_p_god_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->p_god_rate(), output);
+  // optional int32 m_p_god_rate = 20;
+  if (has_m_p_god_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_p_god_rate(), output);
   }
 
-  // optional int32 P_god_Resist = 21;
-  if (has_p_god_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->p_god_resist(), output);
+  // optional int32 m_p_god_resist = 21;
+  if (has_m_p_god_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_p_god_resist(), output);
   }
 
-  // optional int32 P_crit_Rate = 22;
-  if (has_p_crit_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->p_crit_rate(), output);
+  // optional int32 m_p_crit_rate = 22;
+  if (has_m_p_crit_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_p_crit_rate(), output);
   }
 
-  // optional int32 P_crit_resit_Rate = 23;
-  if (has_p_crit_resit_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->p_crit_resit_rate(), output);
+  // optional int32 m_p_crit_resit_rate = 23;
+  if (has_m_p_crit_resit_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->m_p_crit_resit_rate(), output);
   }
 
-  // optional int32 P_crit_Dam = 24;
-  if (has_p_crit_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->p_crit_dam(), output);
+  // optional int32 m_p_crit_dam = 24;
+  if (has_m_p_crit_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->m_p_crit_dam(), output);
   }
 
-  // optional int32 P_crit_Redu = 25;
-  if (has_p_crit_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->p_crit_redu(), output);
+  // optional int32 m_p_crit_redu = 25;
+  if (has_m_p_crit_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_p_crit_redu(), output);
   }
 
-  // optional int32 P_batter_Rate = 26;
-  if (has_p_batter_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->p_batter_rate(), output);
+  // optional int32 m_p_batter_rate = 26;
+  if (has_m_p_batter_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_p_batter_rate(), output);
   }
 
-  // optional int32 P_batter_Resist = 27;
-  if (has_p_batter_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->p_batter_resist(), output);
+  // optional int32 m_p_batter_resist = 27;
+  if (has_m_p_batter_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->m_p_batter_resist(), output);
   }
 
-  // optional int32 P_batter_Dam = 28;
-  if (has_p_batter_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->p_batter_dam(), output);
+  // optional int32 m_p_batter_dam = 28;
+  if (has_m_p_batter_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->m_p_batter_dam(), output);
   }
 
-  // optional int32 P_batter_Redu = 29;
-  if (has_p_batter_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(29, this->p_batter_redu(), output);
+  // optional int32 m_p_batter_redu = 29;
+  if (has_m_p_batter_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(29, this->m_p_batter_redu(), output);
   }
 
-  // optional int32 P_brkdown_Rate = 30;
-  if (has_p_brkdown_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->p_brkdown_rate(), output);
+  // optional int32 m_p_brkdown_rate = 30;
+  if (has_m_p_brkdown_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->m_p_brkdown_rate(), output);
   }
 
-  // optional int32 P_brkdown_Resist = 31;
-  if (has_p_brkdown_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(31, this->p_brkdown_resist(), output);
+  // optional int32 m_p_brkdown_resist = 31;
+  if (has_m_p_brkdown_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(31, this->m_p_brkdown_resist(), output);
   }
 
-  // optional int32 P_dam_Add = 32;
-  if (has_p_dam_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->p_dam_add(), output);
+  // optional int32 m_p_dam_add = 32;
+  if (has_m_p_dam_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->m_p_dam_add(), output);
   }
 
-  // optional int32 P_dam_Redu = 33;
-  if (has_p_dam_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->p_dam_redu(), output);
+  // optional int32 m_p_dam_redu = 33;
+  if (has_m_p_dam_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->m_p_dam_redu(), output);
   }
 
-  // optional int32 P_all_Add = 34;
-  if (has_p_all_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->p_all_add(), output);
+  // optional int32 m_p_all_add = 34;
+  if (has_m_p_all_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_p_all_add(), output);
   }
 
-  // optional int32 P_all_Redu = 35;
-  if (has_p_all_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(35, this->p_all_redu(), output);
+  // optional int32 m_p_all_redu = 35;
+  if (has_m_p_all_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(35, this->m_p_all_redu(), output);
   }
 
-  // optional int32 P_skill_Add = 36;
-  if (has_p_skill_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->p_skill_add(), output);
+  // optional int32 m_p_skill_add = 36;
+  if (has_m_p_skill_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->m_p_skill_add(), output);
   }
 
-  // optional int32 P_skill_Redu = 37;
-  if (has_p_skill_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->p_skill_redu(), output);
+  // optional int32 m_p_skill_redu = 37;
+  if (has_m_p_skill_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->m_p_skill_redu(), output);
   }
 
-  // optional int32 P_rebound_Dam = 38;
-  if (has_p_rebound_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->p_rebound_dam(), output);
+  // optional int32 m_p_rebound_dam = 38;
+  if (has_m_p_rebound_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->m_p_rebound_dam(), output);
   }
 
-  // optional int32 P_hp_Steal = 39;
-  if (has_p_hp_steal()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->p_hp_steal(), output);
+  // optional int32 m_p_hp_steal = 39;
+  if (has_m_p_hp_steal()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->m_p_hp_steal(), output);
   }
 
-  // optional int32 P_dodge_Rate = 40;
-  if (has_p_dodge_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->p_dodge_rate(), output);
+  // optional int32 m_p_dodge_rate = 40;
+  if (has_m_p_dodge_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->m_p_dodge_rate(), output);
   }
 
-  // optional int32 P_hit_Rate = 41;
-  if (has_p_hit_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->p_hit_rate(), output);
+  // optional int32 m_p_hit_rate = 41;
+  if (has_m_p_hit_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->m_p_hit_rate(), output);
   }
 
-  // optional int32 P_blk_Rate = 42;
-  if (has_p_blk_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(42, this->p_blk_rate(), output);
+  // optional int32 m_p_blk_rate = 42;
+  if (has_m_p_blk_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(42, this->m_p_blk_rate(), output);
   }
 
-  // optional int32 P_brk_blk_Rate = 43;
-  if (has_p_brk_blk_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(43, this->p_brk_blk_rate(), output);
+  // optional int32 m_p_brk_blk_rate = 43;
+  if (has_m_p_brk_blk_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(43, this->m_p_brk_blk_rate(), output);
   }
 
-  // optional int32 P_blk_Free = 44;
-  if (has_p_blk_free()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(44, this->p_blk_free(), output);
+  // optional int32 m_p_blk_free = 44;
+  if (has_m_p_blk_free()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(44, this->m_p_blk_free(), output);
   }
 
-  // optional int32 P_blk_Pierce = 45;
-  if (has_p_blk_pierce()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(45, this->p_blk_pierce(), output);
+  // optional int32 m_p_blk_pierce = 45;
+  if (has_m_p_blk_pierce()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(45, this->m_p_blk_pierce(), output);
   }
 
-  // optional int32 P_rel_Armor = 46;
-  if (has_p_rel_armor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(46, this->p_rel_armor(), output);
+  // optional int32 m_p_rel_armor = 46;
+  if (has_m_p_rel_armor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(46, this->m_p_rel_armor(), output);
   }
 
-  // optional int32 P_rel_Dam = 47;
-  if (has_p_rel_dam()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(47, this->p_rel_dam(), output);
+  // optional int32 m_p_rel_dam = 47;
+  if (has_m_p_rel_dam()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(47, this->m_p_rel_dam(), output);
   }
 
-  // optional int32 P_five_Resist = 48;
-  if (has_p_five_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(48, this->p_five_resist(), output);
+  // optional int32 m_p_five_resist = 48;
+  if (has_m_p_five_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(48, this->m_p_five_resist(), output);
   }
 
-  // optional int32 P_five_resist_Redu = 49;
-  if (has_p_five_resist_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(49, this->p_five_resist_redu(), output);
+  // optional int32 m_p_five_resist_redu = 49;
+  if (has_m_p_five_resist_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(49, this->m_p_five_resist_redu(), output);
   }
 
-  // optional int32 P_fire_Add = 50;
-  if (has_p_fire_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(50, this->p_fire_add(), output);
+  // optional int32 m_p_fire_add = 50;
+  if (has_m_p_fire_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(50, this->m_p_fire_add(), output);
   }
 
-  // optional int32 P_fire_Redu = 51;
-  if (has_p_fire_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(51, this->p_fire_redu(), output);
+  // optional int32 m_p_fire_redu = 51;
+  if (has_m_p_fire_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(51, this->m_p_fire_redu(), output);
   }
 
-  // optional int32 P_ice_Add = 52;
-  if (has_p_ice_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(52, this->p_ice_add(), output);
+  // optional int32 m_p_ice_add = 52;
+  if (has_m_p_ice_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(52, this->m_p_ice_add(), output);
   }
 
-  // optional int32 P_ice_Redu = 53;
-  if (has_p_ice_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(53, this->p_ice_redu(), output);
+  // optional int32 m_p_ice_redu = 53;
+  if (has_m_p_ice_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(53, this->m_p_ice_redu(), output);
   }
 
-  // optional int32 P_thunder_Add = 54;
-  if (has_p_thunder_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(54, this->p_thunder_add(), output);
+  // optional int32 m_p_thunder_add = 54;
+  if (has_m_p_thunder_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(54, this->m_p_thunder_add(), output);
   }
 
-  // optional int32 P_thunder_Rdu = 55;
-  if (has_p_thunder_rdu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(55, this->p_thunder_rdu(), output);
+  // optional int32 m_p_thunder_rdu = 55;
+  if (has_m_p_thunder_rdu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(55, this->m_p_thunder_rdu(), output);
   }
 
-  // optional int32 P_player_Add = 56;
-  if (has_p_player_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(56, this->p_player_add(), output);
+  // optional int32 m_p_player_add = 56;
+  if (has_m_p_player_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(56, this->m_p_player_add(), output);
   }
 
-  // optional int32 P_player_Redu = 57;
-  if (has_p_player_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(57, this->p_player_redu(), output);
+  // optional int32 m_p_player_redu = 57;
+  if (has_m_p_player_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(57, this->m_p_player_redu(), output);
   }
 
-  // optional int32 P_leader_Add = 58;
-  if (has_p_leader_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(58, this->p_leader_add(), output);
+  // optional int32 m_p_leader_add = 58;
+  if (has_m_p_leader_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(58, this->m_p_leader_add(), output);
   }
 
-  // optional int32 P_leader_Redu = 59;
-  if (has_p_leader_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(59, this->p_leader_redu(), output);
+  // optional int32 m_p_leader_redu = 59;
+  if (has_m_p_leader_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(59, this->m_p_leader_redu(), output);
   }
 
-  // optional int32 P_mon_Add = 60;
-  if (has_p_mon_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(60, this->p_mon_add(), output);
+  // optional int32 m_p_mon_add = 60;
+  if (has_m_p_mon_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(60, this->m_p_mon_add(), output);
   }
 
-  // optional int32 P_mon_Redu = 61;
-  if (has_p_mon_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(61, this->p_mon_redu(), output);
+  // optional int32 m_p_mon_redu = 61;
+  if (has_m_p_mon_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(61, this->m_p_mon_redu(), output);
   }
 
-  // optional int32 P_var_Redu = 62;
-  if (has_p_var_redu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(62, this->p_var_redu(), output);
+  // optional int32 m_p_var_redu = 62;
+  if (has_m_p_var_redu()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(62, this->m_p_var_redu(), output);
   }
 
-  // optional int32 P_var_Add = 63;
-  if (has_p_var_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(63, this->p_var_add(), output);
+  // optional int32 m_p_var_add = 63;
+  if (has_m_p_var_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(63, this->m_p_var_add(), output);
   }
 
-  // optional int32 P_unusual_Resist = 64;
-  if (has_p_unusual_resist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(64, this->p_unusual_resist(), output);
+  // optional int32 m_p_unusual_resist = 64;
+  if (has_m_p_unusual_resist()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(64, this->m_p_unusual_resist(), output);
   }
 
-  // optional int32 P_unusual_Hit = 65;
-  if (has_p_unusual_hit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(65, this->p_unusual_hit(), output);
+  // optional int32 m_p_unusual_hit = 65;
+  if (has_m_p_unusual_hit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(65, this->m_p_unusual_hit(), output);
   }
 
-  // optional int32 P_hp_Recover = 66;
-  if (has_p_hp_recover()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(66, this->p_hp_recover(), output);
+  // optional int32 m_p_hp_recover = 66;
+  if (has_m_p_hp_recover()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(66, this->m_p_hp_recover(), output);
   }
 
-  // optional int32 P_unusual_Add = 67;
-  if (has_p_unusual_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(67, this->p_unusual_add(), output);
+  // optional int32 m_p_unusual_add = 67;
+  if (has_m_p_unusual_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(67, this->m_p_unusual_add(), output);
   }
 
-  // optional int32 P_fix_Recover = 68;
-  if (has_p_fix_recover()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(68, this->p_fix_recover(), output);
+  // optional int32 m_p_fix_recover = 68;
+  if (has_m_p_fix_recover()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(68, this->m_p_fix_recover(), output);
   }
 
-  // optional int32 P_high_hp_Add = 69;
-  if (has_p_high_hp_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(69, this->p_high_hp_add(), output);
+  // optional int32 m_p_high_hp_add = 69;
+  if (has_m_p_high_hp_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(69, this->m_p_high_hp_add(), output);
   }
 
-  // optional int32 P_recover_hp_Add = 70;
-  if (has_p_recover_hp_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(70, this->p_recover_hp_add(), output);
+  // optional int32 m_p_recover_hp_add = 70;
+  if (has_m_p_recover_hp_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(70, this->m_p_recover_hp_add(), output);
   }
 
-  // optional int32 P_week_Add = 71;
-  if (has_p_week_add()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(71, this->p_week_add(), output);
+  // optional int32 m_p_week_add = 71;
+  if (has_m_p_week_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(71, this->m_p_week_add(), output);
   }
 
-  // optional int64 shield = 72;
-  if (has_shield()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(72, this->shield(), output);
+  // optional int64 m_shield = 72;
+  if (has_m_shield()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(72, this->m_shield(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8331,366 +8341,366 @@ void monstervalueParam::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* monstervalueParam::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MonsterValueparam::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 P_max_Hp = 2;
-  if (has_p_max_hp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->p_max_hp(), target);
+  // optional int32 m_p_max_hp = 2;
+  if (has_m_p_max_hp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_p_max_hp(), target);
   }
 
-  // optional int32 P_atk = 3;
-  if (has_p_atk()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->p_atk(), target);
+  // optional int32 m_p_atk = 3;
+  if (has_m_p_atk()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_p_atk(), target);
   }
 
-  // optional int32 P_def = 4;
-  if (has_p_def()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->p_def(), target);
+  // optional int32 m_p_def = 4;
+  if (has_m_p_def()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_p_def(), target);
   }
 
-  // optional int32 P_brk_Armor = 5;
-  if (has_p_brk_armor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->p_brk_armor(), target);
+  // optional int32 m_p_brk_armor = 5;
+  if (has_m_p_brk_armor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_p_brk_armor(), target);
   }
 
-  // optional int32 P_five_Dam = 6;
-  if (has_p_five_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->p_five_dam(), target);
+  // optional int32 m_p_five_dam = 6;
+  if (has_m_p_five_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_p_five_dam(), target);
   }
 
-  // optional int32 P_five_Armor = 7;
-  if (has_p_five_armor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->p_five_armor(), target);
+  // optional int32 m_p_five_armor = 7;
+  if (has_m_p_five_armor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_p_five_armor(), target);
   }
 
-  // optional int32 P_thump_Rate = 8;
-  if (has_p_thump_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->p_thump_rate(), target);
+  // optional int32 m_p_thump_rate = 8;
+  if (has_m_p_thump_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_p_thump_rate(), target);
   }
 
-  // optional int32 P_thump_Resist = 9;
-  if (has_p_thump_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->p_thump_resist(), target);
+  // optional int32 m_p_thump_resist = 9;
+  if (has_m_p_thump_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_p_thump_resist(), target);
   }
 
-  // optional int32 P_sky = 10;
-  if (has_p_sky()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->p_sky(), target);
+  // optional int32 m_p_sky = 10;
+  if (has_m_p_sky()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_p_sky(), target);
   }
 
-  // optional int32 P_sky_Dam = 11;
-  if (has_p_sky_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->p_sky_dam(), target);
+  // optional int32 m_p_sky_dam = 11;
+  if (has_m_p_sky_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_p_sky_dam(), target);
   }
 
-  // optional int32 P_sky_Redu_Resist = 12;
-  if (has_p_sky_redu_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->p_sky_redu_resist(), target);
+  // optional int32 m_p_sky_redu_resist = 12;
+  if (has_m_p_sky_redu_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_p_sky_redu_resist(), target);
   }
 
-  // optional int32 P_sky_Resist = 13;
-  if (has_p_sky_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->p_sky_resist(), target);
+  // optional int32 m_p_sky_resist = 13;
+  if (has_m_p_sky_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_p_sky_resist(), target);
   }
 
-  // optional int32 P_kill_God = 14;
-  if (has_p_kill_god()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->p_kill_god(), target);
+  // optional int32 m_p_kill_god = 14;
+  if (has_m_p_kill_god()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_p_kill_god(), target);
   }
 
-  // optional int32 P_god_Body = 15;
-  if (has_p_god_body()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->p_god_body(), target);
+  // optional int32 m_p_god_body = 15;
+  if (has_m_p_god_body()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_p_god_body(), target);
   }
 
-  // optional int32 P_mortal_Rate = 16;
-  if (has_p_mortal_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->p_mortal_rate(), target);
+  // optional int32 m_p_mortal_rate = 16;
+  if (has_m_p_mortal_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_p_mortal_rate(), target);
   }
 
-  // optional int32 P_mortal_Resist = 17;
-  if (has_p_mortal_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->p_mortal_resist(), target);
+  // optional int32 m_p_mortal_resist = 17;
+  if (has_m_p_mortal_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_p_mortal_resist(), target);
   }
 
-  // optional int32 P_fairy_Rate = 18;
-  if (has_p_fairy_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->p_fairy_rate(), target);
+  // optional int32 m_p_fairy_rate = 18;
+  if (has_m_p_fairy_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_p_fairy_rate(), target);
   }
 
-  // optional int32 P_fairy_Resist = 19;
-  if (has_p_fairy_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->p_fairy_resist(), target);
+  // optional int32 m_p_fairy_resist = 19;
+  if (has_m_p_fairy_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_p_fairy_resist(), target);
   }
 
-  // optional int32 P_god_Rate = 20;
-  if (has_p_god_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->p_god_rate(), target);
+  // optional int32 m_p_god_rate = 20;
+  if (has_m_p_god_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_p_god_rate(), target);
   }
 
-  // optional int32 P_god_Resist = 21;
-  if (has_p_god_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->p_god_resist(), target);
+  // optional int32 m_p_god_resist = 21;
+  if (has_m_p_god_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_p_god_resist(), target);
   }
 
-  // optional int32 P_crit_Rate = 22;
-  if (has_p_crit_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->p_crit_rate(), target);
+  // optional int32 m_p_crit_rate = 22;
+  if (has_m_p_crit_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_p_crit_rate(), target);
   }
 
-  // optional int32 P_crit_resit_Rate = 23;
-  if (has_p_crit_resit_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->p_crit_resit_rate(), target);
+  // optional int32 m_p_crit_resit_rate = 23;
+  if (has_m_p_crit_resit_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->m_p_crit_resit_rate(), target);
   }
 
-  // optional int32 P_crit_Dam = 24;
-  if (has_p_crit_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->p_crit_dam(), target);
+  // optional int32 m_p_crit_dam = 24;
+  if (has_m_p_crit_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->m_p_crit_dam(), target);
   }
 
-  // optional int32 P_crit_Redu = 25;
-  if (has_p_crit_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->p_crit_redu(), target);
+  // optional int32 m_p_crit_redu = 25;
+  if (has_m_p_crit_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_p_crit_redu(), target);
   }
 
-  // optional int32 P_batter_Rate = 26;
-  if (has_p_batter_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->p_batter_rate(), target);
+  // optional int32 m_p_batter_rate = 26;
+  if (has_m_p_batter_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_p_batter_rate(), target);
   }
 
-  // optional int32 P_batter_Resist = 27;
-  if (has_p_batter_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->p_batter_resist(), target);
+  // optional int32 m_p_batter_resist = 27;
+  if (has_m_p_batter_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->m_p_batter_resist(), target);
   }
 
-  // optional int32 P_batter_Dam = 28;
-  if (has_p_batter_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->p_batter_dam(), target);
+  // optional int32 m_p_batter_dam = 28;
+  if (has_m_p_batter_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->m_p_batter_dam(), target);
   }
 
-  // optional int32 P_batter_Redu = 29;
-  if (has_p_batter_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(29, this->p_batter_redu(), target);
+  // optional int32 m_p_batter_redu = 29;
+  if (has_m_p_batter_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(29, this->m_p_batter_redu(), target);
   }
 
-  // optional int32 P_brkdown_Rate = 30;
-  if (has_p_brkdown_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->p_brkdown_rate(), target);
+  // optional int32 m_p_brkdown_rate = 30;
+  if (has_m_p_brkdown_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->m_p_brkdown_rate(), target);
   }
 
-  // optional int32 P_brkdown_Resist = 31;
-  if (has_p_brkdown_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(31, this->p_brkdown_resist(), target);
+  // optional int32 m_p_brkdown_resist = 31;
+  if (has_m_p_brkdown_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(31, this->m_p_brkdown_resist(), target);
   }
 
-  // optional int32 P_dam_Add = 32;
-  if (has_p_dam_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->p_dam_add(), target);
+  // optional int32 m_p_dam_add = 32;
+  if (has_m_p_dam_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->m_p_dam_add(), target);
   }
 
-  // optional int32 P_dam_Redu = 33;
-  if (has_p_dam_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->p_dam_redu(), target);
+  // optional int32 m_p_dam_redu = 33;
+  if (has_m_p_dam_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->m_p_dam_redu(), target);
   }
 
-  // optional int32 P_all_Add = 34;
-  if (has_p_all_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->p_all_add(), target);
+  // optional int32 m_p_all_add = 34;
+  if (has_m_p_all_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_p_all_add(), target);
   }
 
-  // optional int32 P_all_Redu = 35;
-  if (has_p_all_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(35, this->p_all_redu(), target);
+  // optional int32 m_p_all_redu = 35;
+  if (has_m_p_all_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(35, this->m_p_all_redu(), target);
   }
 
-  // optional int32 P_skill_Add = 36;
-  if (has_p_skill_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->p_skill_add(), target);
+  // optional int32 m_p_skill_add = 36;
+  if (has_m_p_skill_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->m_p_skill_add(), target);
   }
 
-  // optional int32 P_skill_Redu = 37;
-  if (has_p_skill_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->p_skill_redu(), target);
+  // optional int32 m_p_skill_redu = 37;
+  if (has_m_p_skill_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->m_p_skill_redu(), target);
   }
 
-  // optional int32 P_rebound_Dam = 38;
-  if (has_p_rebound_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->p_rebound_dam(), target);
+  // optional int32 m_p_rebound_dam = 38;
+  if (has_m_p_rebound_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->m_p_rebound_dam(), target);
   }
 
-  // optional int32 P_hp_Steal = 39;
-  if (has_p_hp_steal()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->p_hp_steal(), target);
+  // optional int32 m_p_hp_steal = 39;
+  if (has_m_p_hp_steal()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->m_p_hp_steal(), target);
   }
 
-  // optional int32 P_dodge_Rate = 40;
-  if (has_p_dodge_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->p_dodge_rate(), target);
+  // optional int32 m_p_dodge_rate = 40;
+  if (has_m_p_dodge_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->m_p_dodge_rate(), target);
   }
 
-  // optional int32 P_hit_Rate = 41;
-  if (has_p_hit_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->p_hit_rate(), target);
+  // optional int32 m_p_hit_rate = 41;
+  if (has_m_p_hit_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->m_p_hit_rate(), target);
   }
 
-  // optional int32 P_blk_Rate = 42;
-  if (has_p_blk_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(42, this->p_blk_rate(), target);
+  // optional int32 m_p_blk_rate = 42;
+  if (has_m_p_blk_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(42, this->m_p_blk_rate(), target);
   }
 
-  // optional int32 P_brk_blk_Rate = 43;
-  if (has_p_brk_blk_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(43, this->p_brk_blk_rate(), target);
+  // optional int32 m_p_brk_blk_rate = 43;
+  if (has_m_p_brk_blk_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(43, this->m_p_brk_blk_rate(), target);
   }
 
-  // optional int32 P_blk_Free = 44;
-  if (has_p_blk_free()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(44, this->p_blk_free(), target);
+  // optional int32 m_p_blk_free = 44;
+  if (has_m_p_blk_free()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(44, this->m_p_blk_free(), target);
   }
 
-  // optional int32 P_blk_Pierce = 45;
-  if (has_p_blk_pierce()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(45, this->p_blk_pierce(), target);
+  // optional int32 m_p_blk_pierce = 45;
+  if (has_m_p_blk_pierce()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(45, this->m_p_blk_pierce(), target);
   }
 
-  // optional int32 P_rel_Armor = 46;
-  if (has_p_rel_armor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(46, this->p_rel_armor(), target);
+  // optional int32 m_p_rel_armor = 46;
+  if (has_m_p_rel_armor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(46, this->m_p_rel_armor(), target);
   }
 
-  // optional int32 P_rel_Dam = 47;
-  if (has_p_rel_dam()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(47, this->p_rel_dam(), target);
+  // optional int32 m_p_rel_dam = 47;
+  if (has_m_p_rel_dam()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(47, this->m_p_rel_dam(), target);
   }
 
-  // optional int32 P_five_Resist = 48;
-  if (has_p_five_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(48, this->p_five_resist(), target);
+  // optional int32 m_p_five_resist = 48;
+  if (has_m_p_five_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(48, this->m_p_five_resist(), target);
   }
 
-  // optional int32 P_five_resist_Redu = 49;
-  if (has_p_five_resist_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(49, this->p_five_resist_redu(), target);
+  // optional int32 m_p_five_resist_redu = 49;
+  if (has_m_p_five_resist_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(49, this->m_p_five_resist_redu(), target);
   }
 
-  // optional int32 P_fire_Add = 50;
-  if (has_p_fire_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(50, this->p_fire_add(), target);
+  // optional int32 m_p_fire_add = 50;
+  if (has_m_p_fire_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(50, this->m_p_fire_add(), target);
   }
 
-  // optional int32 P_fire_Redu = 51;
-  if (has_p_fire_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(51, this->p_fire_redu(), target);
+  // optional int32 m_p_fire_redu = 51;
+  if (has_m_p_fire_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(51, this->m_p_fire_redu(), target);
   }
 
-  // optional int32 P_ice_Add = 52;
-  if (has_p_ice_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(52, this->p_ice_add(), target);
+  // optional int32 m_p_ice_add = 52;
+  if (has_m_p_ice_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(52, this->m_p_ice_add(), target);
   }
 
-  // optional int32 P_ice_Redu = 53;
-  if (has_p_ice_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(53, this->p_ice_redu(), target);
+  // optional int32 m_p_ice_redu = 53;
+  if (has_m_p_ice_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(53, this->m_p_ice_redu(), target);
   }
 
-  // optional int32 P_thunder_Add = 54;
-  if (has_p_thunder_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(54, this->p_thunder_add(), target);
+  // optional int32 m_p_thunder_add = 54;
+  if (has_m_p_thunder_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(54, this->m_p_thunder_add(), target);
   }
 
-  // optional int32 P_thunder_Rdu = 55;
-  if (has_p_thunder_rdu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(55, this->p_thunder_rdu(), target);
+  // optional int32 m_p_thunder_rdu = 55;
+  if (has_m_p_thunder_rdu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(55, this->m_p_thunder_rdu(), target);
   }
 
-  // optional int32 P_player_Add = 56;
-  if (has_p_player_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(56, this->p_player_add(), target);
+  // optional int32 m_p_player_add = 56;
+  if (has_m_p_player_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(56, this->m_p_player_add(), target);
   }
 
-  // optional int32 P_player_Redu = 57;
-  if (has_p_player_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(57, this->p_player_redu(), target);
+  // optional int32 m_p_player_redu = 57;
+  if (has_m_p_player_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(57, this->m_p_player_redu(), target);
   }
 
-  // optional int32 P_leader_Add = 58;
-  if (has_p_leader_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(58, this->p_leader_add(), target);
+  // optional int32 m_p_leader_add = 58;
+  if (has_m_p_leader_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(58, this->m_p_leader_add(), target);
   }
 
-  // optional int32 P_leader_Redu = 59;
-  if (has_p_leader_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(59, this->p_leader_redu(), target);
+  // optional int32 m_p_leader_redu = 59;
+  if (has_m_p_leader_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(59, this->m_p_leader_redu(), target);
   }
 
-  // optional int32 P_mon_Add = 60;
-  if (has_p_mon_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(60, this->p_mon_add(), target);
+  // optional int32 m_p_mon_add = 60;
+  if (has_m_p_mon_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(60, this->m_p_mon_add(), target);
   }
 
-  // optional int32 P_mon_Redu = 61;
-  if (has_p_mon_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(61, this->p_mon_redu(), target);
+  // optional int32 m_p_mon_redu = 61;
+  if (has_m_p_mon_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(61, this->m_p_mon_redu(), target);
   }
 
-  // optional int32 P_var_Redu = 62;
-  if (has_p_var_redu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(62, this->p_var_redu(), target);
+  // optional int32 m_p_var_redu = 62;
+  if (has_m_p_var_redu()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(62, this->m_p_var_redu(), target);
   }
 
-  // optional int32 P_var_Add = 63;
-  if (has_p_var_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(63, this->p_var_add(), target);
+  // optional int32 m_p_var_add = 63;
+  if (has_m_p_var_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(63, this->m_p_var_add(), target);
   }
 
-  // optional int32 P_unusual_Resist = 64;
-  if (has_p_unusual_resist()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(64, this->p_unusual_resist(), target);
+  // optional int32 m_p_unusual_resist = 64;
+  if (has_m_p_unusual_resist()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(64, this->m_p_unusual_resist(), target);
   }
 
-  // optional int32 P_unusual_Hit = 65;
-  if (has_p_unusual_hit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(65, this->p_unusual_hit(), target);
+  // optional int32 m_p_unusual_hit = 65;
+  if (has_m_p_unusual_hit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(65, this->m_p_unusual_hit(), target);
   }
 
-  // optional int32 P_hp_Recover = 66;
-  if (has_p_hp_recover()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(66, this->p_hp_recover(), target);
+  // optional int32 m_p_hp_recover = 66;
+  if (has_m_p_hp_recover()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(66, this->m_p_hp_recover(), target);
   }
 
-  // optional int32 P_unusual_Add = 67;
-  if (has_p_unusual_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(67, this->p_unusual_add(), target);
+  // optional int32 m_p_unusual_add = 67;
+  if (has_m_p_unusual_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(67, this->m_p_unusual_add(), target);
   }
 
-  // optional int32 P_fix_Recover = 68;
-  if (has_p_fix_recover()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(68, this->p_fix_recover(), target);
+  // optional int32 m_p_fix_recover = 68;
+  if (has_m_p_fix_recover()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(68, this->m_p_fix_recover(), target);
   }
 
-  // optional int32 P_high_hp_Add = 69;
-  if (has_p_high_hp_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(69, this->p_high_hp_add(), target);
+  // optional int32 m_p_high_hp_add = 69;
+  if (has_m_p_high_hp_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(69, this->m_p_high_hp_add(), target);
   }
 
-  // optional int32 P_recover_hp_Add = 70;
-  if (has_p_recover_hp_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(70, this->p_recover_hp_add(), target);
+  // optional int32 m_p_recover_hp_add = 70;
+  if (has_m_p_recover_hp_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(70, this->m_p_recover_hp_add(), target);
   }
 
-  // optional int32 P_week_Add = 71;
-  if (has_p_week_add()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(71, this->p_week_add(), target);
+  // optional int32 m_p_week_add = 71;
+  if (has_m_p_week_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(71, this->m_p_week_add(), target);
   }
 
-  // optional int64 shield = 72;
-  if (has_shield()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(72, this->shield(), target);
+  // optional int64 m_shield = 72;
+  if (has_m_shield()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(72, this->m_shield(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8700,528 +8710,528 @@ void monstervalueParam::SerializeWithCachedSizes(
   return target;
 }
 
-int monstervalueParam::ByteSize() const {
+int E_MonsterValueparam::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 P_max_Hp = 2;
-    if (has_p_max_hp()) {
+    // optional int32 m_p_max_hp = 2;
+    if (has_m_p_max_hp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_max_hp());
+          this->m_p_max_hp());
     }
 
-    // optional int32 P_atk = 3;
-    if (has_p_atk()) {
+    // optional int32 m_p_atk = 3;
+    if (has_m_p_atk()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_atk());
+          this->m_p_atk());
     }
 
-    // optional int32 P_def = 4;
-    if (has_p_def()) {
+    // optional int32 m_p_def = 4;
+    if (has_m_p_def()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_def());
+          this->m_p_def());
     }
 
-    // optional int32 P_brk_Armor = 5;
-    if (has_p_brk_armor()) {
+    // optional int32 m_p_brk_armor = 5;
+    if (has_m_p_brk_armor()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_brk_armor());
+          this->m_p_brk_armor());
     }
 
-    // optional int32 P_five_Dam = 6;
-    if (has_p_five_dam()) {
+    // optional int32 m_p_five_dam = 6;
+    if (has_m_p_five_dam()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_five_dam());
+          this->m_p_five_dam());
     }
 
-    // optional int32 P_five_Armor = 7;
-    if (has_p_five_armor()) {
+    // optional int32 m_p_five_armor = 7;
+    if (has_m_p_five_armor()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_five_armor());
+          this->m_p_five_armor());
     }
 
-    // optional int32 P_thump_Rate = 8;
-    if (has_p_thump_rate()) {
+    // optional int32 m_p_thump_rate = 8;
+    if (has_m_p_thump_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_thump_rate());
+          this->m_p_thump_rate());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 P_thump_Resist = 9;
-    if (has_p_thump_resist()) {
+    // optional int32 m_p_thump_resist = 9;
+    if (has_m_p_thump_resist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_thump_resist());
+          this->m_p_thump_resist());
     }
 
-    // optional int32 P_sky = 10;
-    if (has_p_sky()) {
+    // optional int32 m_p_sky = 10;
+    if (has_m_p_sky()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_sky());
+          this->m_p_sky());
     }
 
-    // optional int32 P_sky_Dam = 11;
-    if (has_p_sky_dam()) {
+    // optional int32 m_p_sky_dam = 11;
+    if (has_m_p_sky_dam()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_sky_dam());
+          this->m_p_sky_dam());
     }
 
-    // optional int32 P_sky_Redu_Resist = 12;
-    if (has_p_sky_redu_resist()) {
+    // optional int32 m_p_sky_redu_resist = 12;
+    if (has_m_p_sky_redu_resist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_sky_redu_resist());
+          this->m_p_sky_redu_resist());
     }
 
-    // optional int32 P_sky_Resist = 13;
-    if (has_p_sky_resist()) {
+    // optional int32 m_p_sky_resist = 13;
+    if (has_m_p_sky_resist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_sky_resist());
+          this->m_p_sky_resist());
     }
 
-    // optional int32 P_kill_God = 14;
-    if (has_p_kill_god()) {
+    // optional int32 m_p_kill_god = 14;
+    if (has_m_p_kill_god()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_kill_god());
+          this->m_p_kill_god());
     }
 
-    // optional int32 P_god_Body = 15;
-    if (has_p_god_body()) {
+    // optional int32 m_p_god_body = 15;
+    if (has_m_p_god_body()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_god_body());
+          this->m_p_god_body());
     }
 
-    // optional int32 P_mortal_Rate = 16;
-    if (has_p_mortal_rate()) {
+    // optional int32 m_p_mortal_rate = 16;
+    if (has_m_p_mortal_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_mortal_rate());
+          this->m_p_mortal_rate());
     }
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 P_mortal_Resist = 17;
-    if (has_p_mortal_resist()) {
+    // optional int32 m_p_mortal_resist = 17;
+    if (has_m_p_mortal_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_mortal_resist());
+          this->m_p_mortal_resist());
     }
 
-    // optional int32 P_fairy_Rate = 18;
-    if (has_p_fairy_rate()) {
+    // optional int32 m_p_fairy_rate = 18;
+    if (has_m_p_fairy_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_fairy_rate());
+          this->m_p_fairy_rate());
     }
 
-    // optional int32 P_fairy_Resist = 19;
-    if (has_p_fairy_resist()) {
+    // optional int32 m_p_fairy_resist = 19;
+    if (has_m_p_fairy_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_fairy_resist());
+          this->m_p_fairy_resist());
     }
 
-    // optional int32 P_god_Rate = 20;
-    if (has_p_god_rate()) {
+    // optional int32 m_p_god_rate = 20;
+    if (has_m_p_god_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_god_rate());
+          this->m_p_god_rate());
     }
 
-    // optional int32 P_god_Resist = 21;
-    if (has_p_god_resist()) {
+    // optional int32 m_p_god_resist = 21;
+    if (has_m_p_god_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_god_resist());
+          this->m_p_god_resist());
     }
 
-    // optional int32 P_crit_Rate = 22;
-    if (has_p_crit_rate()) {
+    // optional int32 m_p_crit_rate = 22;
+    if (has_m_p_crit_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_crit_rate());
+          this->m_p_crit_rate());
     }
 
-    // optional int32 P_crit_resit_Rate = 23;
-    if (has_p_crit_resit_rate()) {
+    // optional int32 m_p_crit_resit_rate = 23;
+    if (has_m_p_crit_resit_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_crit_resit_rate());
+          this->m_p_crit_resit_rate());
     }
 
-    // optional int32 P_crit_Dam = 24;
-    if (has_p_crit_dam()) {
+    // optional int32 m_p_crit_dam = 24;
+    if (has_m_p_crit_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_crit_dam());
+          this->m_p_crit_dam());
     }
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int32 P_crit_Redu = 25;
-    if (has_p_crit_redu()) {
+    // optional int32 m_p_crit_redu = 25;
+    if (has_m_p_crit_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_crit_redu());
+          this->m_p_crit_redu());
     }
 
-    // optional int32 P_batter_Rate = 26;
-    if (has_p_batter_rate()) {
+    // optional int32 m_p_batter_rate = 26;
+    if (has_m_p_batter_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_batter_rate());
+          this->m_p_batter_rate());
     }
 
-    // optional int32 P_batter_Resist = 27;
-    if (has_p_batter_resist()) {
+    // optional int32 m_p_batter_resist = 27;
+    if (has_m_p_batter_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_batter_resist());
+          this->m_p_batter_resist());
     }
 
-    // optional int32 P_batter_Dam = 28;
-    if (has_p_batter_dam()) {
+    // optional int32 m_p_batter_dam = 28;
+    if (has_m_p_batter_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_batter_dam());
+          this->m_p_batter_dam());
     }
 
-    // optional int32 P_batter_Redu = 29;
-    if (has_p_batter_redu()) {
+    // optional int32 m_p_batter_redu = 29;
+    if (has_m_p_batter_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_batter_redu());
+          this->m_p_batter_redu());
     }
 
-    // optional int32 P_brkdown_Rate = 30;
-    if (has_p_brkdown_rate()) {
+    // optional int32 m_p_brkdown_rate = 30;
+    if (has_m_p_brkdown_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_brkdown_rate());
+          this->m_p_brkdown_rate());
     }
 
-    // optional int32 P_brkdown_Resist = 31;
-    if (has_p_brkdown_resist()) {
+    // optional int32 m_p_brkdown_resist = 31;
+    if (has_m_p_brkdown_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_brkdown_resist());
+          this->m_p_brkdown_resist());
     }
 
-    // optional int32 P_dam_Add = 32;
-    if (has_p_dam_add()) {
+    // optional int32 m_p_dam_add = 32;
+    if (has_m_p_dam_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_dam_add());
+          this->m_p_dam_add());
     }
 
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    // optional int32 P_dam_Redu = 33;
-    if (has_p_dam_redu()) {
+    // optional int32 m_p_dam_redu = 33;
+    if (has_m_p_dam_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_dam_redu());
+          this->m_p_dam_redu());
     }
 
-    // optional int32 P_all_Add = 34;
-    if (has_p_all_add()) {
+    // optional int32 m_p_all_add = 34;
+    if (has_m_p_all_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_all_add());
+          this->m_p_all_add());
     }
 
-    // optional int32 P_all_Redu = 35;
-    if (has_p_all_redu()) {
+    // optional int32 m_p_all_redu = 35;
+    if (has_m_p_all_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_all_redu());
+          this->m_p_all_redu());
     }
 
-    // optional int32 P_skill_Add = 36;
-    if (has_p_skill_add()) {
+    // optional int32 m_p_skill_add = 36;
+    if (has_m_p_skill_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_skill_add());
+          this->m_p_skill_add());
     }
 
-    // optional int32 P_skill_Redu = 37;
-    if (has_p_skill_redu()) {
+    // optional int32 m_p_skill_redu = 37;
+    if (has_m_p_skill_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_skill_redu());
+          this->m_p_skill_redu());
     }
 
-    // optional int32 P_rebound_Dam = 38;
-    if (has_p_rebound_dam()) {
+    // optional int32 m_p_rebound_dam = 38;
+    if (has_m_p_rebound_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_rebound_dam());
+          this->m_p_rebound_dam());
     }
 
-    // optional int32 P_hp_Steal = 39;
-    if (has_p_hp_steal()) {
+    // optional int32 m_p_hp_steal = 39;
+    if (has_m_p_hp_steal()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_hp_steal());
+          this->m_p_hp_steal());
     }
 
-    // optional int32 P_dodge_Rate = 40;
-    if (has_p_dodge_rate()) {
+    // optional int32 m_p_dodge_rate = 40;
+    if (has_m_p_dodge_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_dodge_rate());
+          this->m_p_dodge_rate());
     }
 
   }
   if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    // optional int32 P_hit_Rate = 41;
-    if (has_p_hit_rate()) {
+    // optional int32 m_p_hit_rate = 41;
+    if (has_m_p_hit_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_hit_rate());
+          this->m_p_hit_rate());
     }
 
-    // optional int32 P_blk_Rate = 42;
-    if (has_p_blk_rate()) {
+    // optional int32 m_p_blk_rate = 42;
+    if (has_m_p_blk_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_blk_rate());
+          this->m_p_blk_rate());
     }
 
-    // optional int32 P_brk_blk_Rate = 43;
-    if (has_p_brk_blk_rate()) {
+    // optional int32 m_p_brk_blk_rate = 43;
+    if (has_m_p_brk_blk_rate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_brk_blk_rate());
+          this->m_p_brk_blk_rate());
     }
 
-    // optional int32 P_blk_Free = 44;
-    if (has_p_blk_free()) {
+    // optional int32 m_p_blk_free = 44;
+    if (has_m_p_blk_free()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_blk_free());
+          this->m_p_blk_free());
     }
 
-    // optional int32 P_blk_Pierce = 45;
-    if (has_p_blk_pierce()) {
+    // optional int32 m_p_blk_pierce = 45;
+    if (has_m_p_blk_pierce()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_blk_pierce());
+          this->m_p_blk_pierce());
     }
 
-    // optional int32 P_rel_Armor = 46;
-    if (has_p_rel_armor()) {
+    // optional int32 m_p_rel_armor = 46;
+    if (has_m_p_rel_armor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_rel_armor());
+          this->m_p_rel_armor());
     }
 
-    // optional int32 P_rel_Dam = 47;
-    if (has_p_rel_dam()) {
+    // optional int32 m_p_rel_dam = 47;
+    if (has_m_p_rel_dam()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_rel_dam());
+          this->m_p_rel_dam());
     }
 
-    // optional int32 P_five_Resist = 48;
-    if (has_p_five_resist()) {
+    // optional int32 m_p_five_resist = 48;
+    if (has_m_p_five_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_five_resist());
+          this->m_p_five_resist());
     }
 
   }
   if (_has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    // optional int32 P_five_resist_Redu = 49;
-    if (has_p_five_resist_redu()) {
+    // optional int32 m_p_five_resist_redu = 49;
+    if (has_m_p_five_resist_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_five_resist_redu());
+          this->m_p_five_resist_redu());
     }
 
-    // optional int32 P_fire_Add = 50;
-    if (has_p_fire_add()) {
+    // optional int32 m_p_fire_add = 50;
+    if (has_m_p_fire_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_fire_add());
+          this->m_p_fire_add());
     }
 
-    // optional int32 P_fire_Redu = 51;
-    if (has_p_fire_redu()) {
+    // optional int32 m_p_fire_redu = 51;
+    if (has_m_p_fire_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_fire_redu());
+          this->m_p_fire_redu());
     }
 
-    // optional int32 P_ice_Add = 52;
-    if (has_p_ice_add()) {
+    // optional int32 m_p_ice_add = 52;
+    if (has_m_p_ice_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_ice_add());
+          this->m_p_ice_add());
     }
 
-    // optional int32 P_ice_Redu = 53;
-    if (has_p_ice_redu()) {
+    // optional int32 m_p_ice_redu = 53;
+    if (has_m_p_ice_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_ice_redu());
+          this->m_p_ice_redu());
     }
 
-    // optional int32 P_thunder_Add = 54;
-    if (has_p_thunder_add()) {
+    // optional int32 m_p_thunder_add = 54;
+    if (has_m_p_thunder_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_thunder_add());
+          this->m_p_thunder_add());
     }
 
-    // optional int32 P_thunder_Rdu = 55;
-    if (has_p_thunder_rdu()) {
+    // optional int32 m_p_thunder_rdu = 55;
+    if (has_m_p_thunder_rdu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_thunder_rdu());
+          this->m_p_thunder_rdu());
     }
 
-    // optional int32 P_player_Add = 56;
-    if (has_p_player_add()) {
+    // optional int32 m_p_player_add = 56;
+    if (has_m_p_player_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_player_add());
+          this->m_p_player_add());
     }
 
   }
   if (_has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    // optional int32 P_player_Redu = 57;
-    if (has_p_player_redu()) {
+    // optional int32 m_p_player_redu = 57;
+    if (has_m_p_player_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_player_redu());
+          this->m_p_player_redu());
     }
 
-    // optional int32 P_leader_Add = 58;
-    if (has_p_leader_add()) {
+    // optional int32 m_p_leader_add = 58;
+    if (has_m_p_leader_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_leader_add());
+          this->m_p_leader_add());
     }
 
-    // optional int32 P_leader_Redu = 59;
-    if (has_p_leader_redu()) {
+    // optional int32 m_p_leader_redu = 59;
+    if (has_m_p_leader_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_leader_redu());
+          this->m_p_leader_redu());
     }
 
-    // optional int32 P_mon_Add = 60;
-    if (has_p_mon_add()) {
+    // optional int32 m_p_mon_add = 60;
+    if (has_m_p_mon_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_mon_add());
+          this->m_p_mon_add());
     }
 
-    // optional int32 P_mon_Redu = 61;
-    if (has_p_mon_redu()) {
+    // optional int32 m_p_mon_redu = 61;
+    if (has_m_p_mon_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_mon_redu());
+          this->m_p_mon_redu());
     }
 
-    // optional int32 P_var_Redu = 62;
-    if (has_p_var_redu()) {
+    // optional int32 m_p_var_redu = 62;
+    if (has_m_p_var_redu()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_var_redu());
+          this->m_p_var_redu());
     }
 
-    // optional int32 P_var_Add = 63;
-    if (has_p_var_add()) {
+    // optional int32 m_p_var_add = 63;
+    if (has_m_p_var_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_var_add());
+          this->m_p_var_add());
     }
 
-    // optional int32 P_unusual_Resist = 64;
-    if (has_p_unusual_resist()) {
+    // optional int32 m_p_unusual_resist = 64;
+    if (has_m_p_unusual_resist()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_unusual_resist());
+          this->m_p_unusual_resist());
     }
 
   }
   if (_has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    // optional int32 P_unusual_Hit = 65;
-    if (has_p_unusual_hit()) {
+    // optional int32 m_p_unusual_hit = 65;
+    if (has_m_p_unusual_hit()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_unusual_hit());
+          this->m_p_unusual_hit());
     }
 
-    // optional int32 P_hp_Recover = 66;
-    if (has_p_hp_recover()) {
+    // optional int32 m_p_hp_recover = 66;
+    if (has_m_p_hp_recover()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_hp_recover());
+          this->m_p_hp_recover());
     }
 
-    // optional int32 P_unusual_Add = 67;
-    if (has_p_unusual_add()) {
+    // optional int32 m_p_unusual_add = 67;
+    if (has_m_p_unusual_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_unusual_add());
+          this->m_p_unusual_add());
     }
 
-    // optional int32 P_fix_Recover = 68;
-    if (has_p_fix_recover()) {
+    // optional int32 m_p_fix_recover = 68;
+    if (has_m_p_fix_recover()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_fix_recover());
+          this->m_p_fix_recover());
     }
 
-    // optional int32 P_high_hp_Add = 69;
-    if (has_p_high_hp_add()) {
+    // optional int32 m_p_high_hp_add = 69;
+    if (has_m_p_high_hp_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_high_hp_add());
+          this->m_p_high_hp_add());
     }
 
-    // optional int32 P_recover_hp_Add = 70;
-    if (has_p_recover_hp_add()) {
+    // optional int32 m_p_recover_hp_add = 70;
+    if (has_m_p_recover_hp_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_recover_hp_add());
+          this->m_p_recover_hp_add());
     }
 
-    // optional int32 P_week_Add = 71;
-    if (has_p_week_add()) {
+    // optional int32 m_p_week_add = 71;
+    if (has_m_p_week_add()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->p_week_add());
+          this->m_p_week_add());
     }
 
-    // optional int64 shield = 72;
-    if (has_shield()) {
+    // optional int64 m_shield = 72;
+    if (has_m_shield()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->shield());
+          this->m_shield());
     }
 
   }
@@ -9236,10 +9246,10 @@ int monstervalueParam::ByteSize() const {
   return total_size;
 }
 
-void monstervalueParam::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MonsterValueparam::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const monstervalueParam* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const monstervalueParam*>(
+  const E_MonsterValueparam* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MonsterValueparam*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -9248,336 +9258,336 @@ void monstervalueParam::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void monstervalueParam::MergeFrom(const monstervalueParam& from) {
+void E_MonsterValueparam::MergeFrom(const E_MonsterValueparam& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_p_max_hp()) {
-      set_p_max_hp(from.p_max_hp());
+    if (from.has_m_p_max_hp()) {
+      set_m_p_max_hp(from.m_p_max_hp());
     }
-    if (from.has_p_atk()) {
-      set_p_atk(from.p_atk());
+    if (from.has_m_p_atk()) {
+      set_m_p_atk(from.m_p_atk());
     }
-    if (from.has_p_def()) {
-      set_p_def(from.p_def());
+    if (from.has_m_p_def()) {
+      set_m_p_def(from.m_p_def());
     }
-    if (from.has_p_brk_armor()) {
-      set_p_brk_armor(from.p_brk_armor());
+    if (from.has_m_p_brk_armor()) {
+      set_m_p_brk_armor(from.m_p_brk_armor());
     }
-    if (from.has_p_five_dam()) {
-      set_p_five_dam(from.p_five_dam());
+    if (from.has_m_p_five_dam()) {
+      set_m_p_five_dam(from.m_p_five_dam());
     }
-    if (from.has_p_five_armor()) {
-      set_p_five_armor(from.p_five_armor());
+    if (from.has_m_p_five_armor()) {
+      set_m_p_five_armor(from.m_p_five_armor());
     }
-    if (from.has_p_thump_rate()) {
-      set_p_thump_rate(from.p_thump_rate());
+    if (from.has_m_p_thump_rate()) {
+      set_m_p_thump_rate(from.m_p_thump_rate());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_p_thump_resist()) {
-      set_p_thump_resist(from.p_thump_resist());
+    if (from.has_m_p_thump_resist()) {
+      set_m_p_thump_resist(from.m_p_thump_resist());
     }
-    if (from.has_p_sky()) {
-      set_p_sky(from.p_sky());
+    if (from.has_m_p_sky()) {
+      set_m_p_sky(from.m_p_sky());
     }
-    if (from.has_p_sky_dam()) {
-      set_p_sky_dam(from.p_sky_dam());
+    if (from.has_m_p_sky_dam()) {
+      set_m_p_sky_dam(from.m_p_sky_dam());
     }
-    if (from.has_p_sky_redu_resist()) {
-      set_p_sky_redu_resist(from.p_sky_redu_resist());
+    if (from.has_m_p_sky_redu_resist()) {
+      set_m_p_sky_redu_resist(from.m_p_sky_redu_resist());
     }
-    if (from.has_p_sky_resist()) {
-      set_p_sky_resist(from.p_sky_resist());
+    if (from.has_m_p_sky_resist()) {
+      set_m_p_sky_resist(from.m_p_sky_resist());
     }
-    if (from.has_p_kill_god()) {
-      set_p_kill_god(from.p_kill_god());
+    if (from.has_m_p_kill_god()) {
+      set_m_p_kill_god(from.m_p_kill_god());
     }
-    if (from.has_p_god_body()) {
-      set_p_god_body(from.p_god_body());
+    if (from.has_m_p_god_body()) {
+      set_m_p_god_body(from.m_p_god_body());
     }
-    if (from.has_p_mortal_rate()) {
-      set_p_mortal_rate(from.p_mortal_rate());
+    if (from.has_m_p_mortal_rate()) {
+      set_m_p_mortal_rate(from.m_p_mortal_rate());
     }
   }
   if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (from.has_p_mortal_resist()) {
-      set_p_mortal_resist(from.p_mortal_resist());
+    if (from.has_m_p_mortal_resist()) {
+      set_m_p_mortal_resist(from.m_p_mortal_resist());
     }
-    if (from.has_p_fairy_rate()) {
-      set_p_fairy_rate(from.p_fairy_rate());
+    if (from.has_m_p_fairy_rate()) {
+      set_m_p_fairy_rate(from.m_p_fairy_rate());
     }
-    if (from.has_p_fairy_resist()) {
-      set_p_fairy_resist(from.p_fairy_resist());
+    if (from.has_m_p_fairy_resist()) {
+      set_m_p_fairy_resist(from.m_p_fairy_resist());
     }
-    if (from.has_p_god_rate()) {
-      set_p_god_rate(from.p_god_rate());
+    if (from.has_m_p_god_rate()) {
+      set_m_p_god_rate(from.m_p_god_rate());
     }
-    if (from.has_p_god_resist()) {
-      set_p_god_resist(from.p_god_resist());
+    if (from.has_m_p_god_resist()) {
+      set_m_p_god_resist(from.m_p_god_resist());
     }
-    if (from.has_p_crit_rate()) {
-      set_p_crit_rate(from.p_crit_rate());
+    if (from.has_m_p_crit_rate()) {
+      set_m_p_crit_rate(from.m_p_crit_rate());
     }
-    if (from.has_p_crit_resit_rate()) {
-      set_p_crit_resit_rate(from.p_crit_resit_rate());
+    if (from.has_m_p_crit_resit_rate()) {
+      set_m_p_crit_resit_rate(from.m_p_crit_resit_rate());
     }
-    if (from.has_p_crit_dam()) {
-      set_p_crit_dam(from.p_crit_dam());
+    if (from.has_m_p_crit_dam()) {
+      set_m_p_crit_dam(from.m_p_crit_dam());
     }
   }
   if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    if (from.has_p_crit_redu()) {
-      set_p_crit_redu(from.p_crit_redu());
+    if (from.has_m_p_crit_redu()) {
+      set_m_p_crit_redu(from.m_p_crit_redu());
     }
-    if (from.has_p_batter_rate()) {
-      set_p_batter_rate(from.p_batter_rate());
+    if (from.has_m_p_batter_rate()) {
+      set_m_p_batter_rate(from.m_p_batter_rate());
     }
-    if (from.has_p_batter_resist()) {
-      set_p_batter_resist(from.p_batter_resist());
+    if (from.has_m_p_batter_resist()) {
+      set_m_p_batter_resist(from.m_p_batter_resist());
     }
-    if (from.has_p_batter_dam()) {
-      set_p_batter_dam(from.p_batter_dam());
+    if (from.has_m_p_batter_dam()) {
+      set_m_p_batter_dam(from.m_p_batter_dam());
     }
-    if (from.has_p_batter_redu()) {
-      set_p_batter_redu(from.p_batter_redu());
+    if (from.has_m_p_batter_redu()) {
+      set_m_p_batter_redu(from.m_p_batter_redu());
     }
-    if (from.has_p_brkdown_rate()) {
-      set_p_brkdown_rate(from.p_brkdown_rate());
+    if (from.has_m_p_brkdown_rate()) {
+      set_m_p_brkdown_rate(from.m_p_brkdown_rate());
     }
-    if (from.has_p_brkdown_resist()) {
-      set_p_brkdown_resist(from.p_brkdown_resist());
+    if (from.has_m_p_brkdown_resist()) {
+      set_m_p_brkdown_resist(from.m_p_brkdown_resist());
     }
-    if (from.has_p_dam_add()) {
-      set_p_dam_add(from.p_dam_add());
+    if (from.has_m_p_dam_add()) {
+      set_m_p_dam_add(from.m_p_dam_add());
     }
   }
   if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    if (from.has_p_dam_redu()) {
-      set_p_dam_redu(from.p_dam_redu());
+    if (from.has_m_p_dam_redu()) {
+      set_m_p_dam_redu(from.m_p_dam_redu());
     }
-    if (from.has_p_all_add()) {
-      set_p_all_add(from.p_all_add());
+    if (from.has_m_p_all_add()) {
+      set_m_p_all_add(from.m_p_all_add());
     }
-    if (from.has_p_all_redu()) {
-      set_p_all_redu(from.p_all_redu());
+    if (from.has_m_p_all_redu()) {
+      set_m_p_all_redu(from.m_p_all_redu());
     }
-    if (from.has_p_skill_add()) {
-      set_p_skill_add(from.p_skill_add());
+    if (from.has_m_p_skill_add()) {
+      set_m_p_skill_add(from.m_p_skill_add());
     }
-    if (from.has_p_skill_redu()) {
-      set_p_skill_redu(from.p_skill_redu());
+    if (from.has_m_p_skill_redu()) {
+      set_m_p_skill_redu(from.m_p_skill_redu());
     }
-    if (from.has_p_rebound_dam()) {
-      set_p_rebound_dam(from.p_rebound_dam());
+    if (from.has_m_p_rebound_dam()) {
+      set_m_p_rebound_dam(from.m_p_rebound_dam());
     }
-    if (from.has_p_hp_steal()) {
-      set_p_hp_steal(from.p_hp_steal());
+    if (from.has_m_p_hp_steal()) {
+      set_m_p_hp_steal(from.m_p_hp_steal());
     }
-    if (from.has_p_dodge_rate()) {
-      set_p_dodge_rate(from.p_dodge_rate());
+    if (from.has_m_p_dodge_rate()) {
+      set_m_p_dodge_rate(from.m_p_dodge_rate());
     }
   }
   if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    if (from.has_p_hit_rate()) {
-      set_p_hit_rate(from.p_hit_rate());
+    if (from.has_m_p_hit_rate()) {
+      set_m_p_hit_rate(from.m_p_hit_rate());
     }
-    if (from.has_p_blk_rate()) {
-      set_p_blk_rate(from.p_blk_rate());
+    if (from.has_m_p_blk_rate()) {
+      set_m_p_blk_rate(from.m_p_blk_rate());
     }
-    if (from.has_p_brk_blk_rate()) {
-      set_p_brk_blk_rate(from.p_brk_blk_rate());
+    if (from.has_m_p_brk_blk_rate()) {
+      set_m_p_brk_blk_rate(from.m_p_brk_blk_rate());
     }
-    if (from.has_p_blk_free()) {
-      set_p_blk_free(from.p_blk_free());
+    if (from.has_m_p_blk_free()) {
+      set_m_p_blk_free(from.m_p_blk_free());
     }
-    if (from.has_p_blk_pierce()) {
-      set_p_blk_pierce(from.p_blk_pierce());
+    if (from.has_m_p_blk_pierce()) {
+      set_m_p_blk_pierce(from.m_p_blk_pierce());
     }
-    if (from.has_p_rel_armor()) {
-      set_p_rel_armor(from.p_rel_armor());
+    if (from.has_m_p_rel_armor()) {
+      set_m_p_rel_armor(from.m_p_rel_armor());
     }
-    if (from.has_p_rel_dam()) {
-      set_p_rel_dam(from.p_rel_dam());
+    if (from.has_m_p_rel_dam()) {
+      set_m_p_rel_dam(from.m_p_rel_dam());
     }
-    if (from.has_p_five_resist()) {
-      set_p_five_resist(from.p_five_resist());
+    if (from.has_m_p_five_resist()) {
+      set_m_p_five_resist(from.m_p_five_resist());
     }
   }
   if (from._has_bits_[48 / 32] & (0xffu << (48 % 32))) {
-    if (from.has_p_five_resist_redu()) {
-      set_p_five_resist_redu(from.p_five_resist_redu());
+    if (from.has_m_p_five_resist_redu()) {
+      set_m_p_five_resist_redu(from.m_p_five_resist_redu());
     }
-    if (from.has_p_fire_add()) {
-      set_p_fire_add(from.p_fire_add());
+    if (from.has_m_p_fire_add()) {
+      set_m_p_fire_add(from.m_p_fire_add());
     }
-    if (from.has_p_fire_redu()) {
-      set_p_fire_redu(from.p_fire_redu());
+    if (from.has_m_p_fire_redu()) {
+      set_m_p_fire_redu(from.m_p_fire_redu());
     }
-    if (from.has_p_ice_add()) {
-      set_p_ice_add(from.p_ice_add());
+    if (from.has_m_p_ice_add()) {
+      set_m_p_ice_add(from.m_p_ice_add());
     }
-    if (from.has_p_ice_redu()) {
-      set_p_ice_redu(from.p_ice_redu());
+    if (from.has_m_p_ice_redu()) {
+      set_m_p_ice_redu(from.m_p_ice_redu());
     }
-    if (from.has_p_thunder_add()) {
-      set_p_thunder_add(from.p_thunder_add());
+    if (from.has_m_p_thunder_add()) {
+      set_m_p_thunder_add(from.m_p_thunder_add());
     }
-    if (from.has_p_thunder_rdu()) {
-      set_p_thunder_rdu(from.p_thunder_rdu());
+    if (from.has_m_p_thunder_rdu()) {
+      set_m_p_thunder_rdu(from.m_p_thunder_rdu());
     }
-    if (from.has_p_player_add()) {
-      set_p_player_add(from.p_player_add());
+    if (from.has_m_p_player_add()) {
+      set_m_p_player_add(from.m_p_player_add());
     }
   }
   if (from._has_bits_[56 / 32] & (0xffu << (56 % 32))) {
-    if (from.has_p_player_redu()) {
-      set_p_player_redu(from.p_player_redu());
+    if (from.has_m_p_player_redu()) {
+      set_m_p_player_redu(from.m_p_player_redu());
     }
-    if (from.has_p_leader_add()) {
-      set_p_leader_add(from.p_leader_add());
+    if (from.has_m_p_leader_add()) {
+      set_m_p_leader_add(from.m_p_leader_add());
     }
-    if (from.has_p_leader_redu()) {
-      set_p_leader_redu(from.p_leader_redu());
+    if (from.has_m_p_leader_redu()) {
+      set_m_p_leader_redu(from.m_p_leader_redu());
     }
-    if (from.has_p_mon_add()) {
-      set_p_mon_add(from.p_mon_add());
+    if (from.has_m_p_mon_add()) {
+      set_m_p_mon_add(from.m_p_mon_add());
     }
-    if (from.has_p_mon_redu()) {
-      set_p_mon_redu(from.p_mon_redu());
+    if (from.has_m_p_mon_redu()) {
+      set_m_p_mon_redu(from.m_p_mon_redu());
     }
-    if (from.has_p_var_redu()) {
-      set_p_var_redu(from.p_var_redu());
+    if (from.has_m_p_var_redu()) {
+      set_m_p_var_redu(from.m_p_var_redu());
     }
-    if (from.has_p_var_add()) {
-      set_p_var_add(from.p_var_add());
+    if (from.has_m_p_var_add()) {
+      set_m_p_var_add(from.m_p_var_add());
     }
-    if (from.has_p_unusual_resist()) {
-      set_p_unusual_resist(from.p_unusual_resist());
+    if (from.has_m_p_unusual_resist()) {
+      set_m_p_unusual_resist(from.m_p_unusual_resist());
     }
   }
   if (from._has_bits_[64 / 32] & (0xffu << (64 % 32))) {
-    if (from.has_p_unusual_hit()) {
-      set_p_unusual_hit(from.p_unusual_hit());
+    if (from.has_m_p_unusual_hit()) {
+      set_m_p_unusual_hit(from.m_p_unusual_hit());
     }
-    if (from.has_p_hp_recover()) {
-      set_p_hp_recover(from.p_hp_recover());
+    if (from.has_m_p_hp_recover()) {
+      set_m_p_hp_recover(from.m_p_hp_recover());
     }
-    if (from.has_p_unusual_add()) {
-      set_p_unusual_add(from.p_unusual_add());
+    if (from.has_m_p_unusual_add()) {
+      set_m_p_unusual_add(from.m_p_unusual_add());
     }
-    if (from.has_p_fix_recover()) {
-      set_p_fix_recover(from.p_fix_recover());
+    if (from.has_m_p_fix_recover()) {
+      set_m_p_fix_recover(from.m_p_fix_recover());
     }
-    if (from.has_p_high_hp_add()) {
-      set_p_high_hp_add(from.p_high_hp_add());
+    if (from.has_m_p_high_hp_add()) {
+      set_m_p_high_hp_add(from.m_p_high_hp_add());
     }
-    if (from.has_p_recover_hp_add()) {
-      set_p_recover_hp_add(from.p_recover_hp_add());
+    if (from.has_m_p_recover_hp_add()) {
+      set_m_p_recover_hp_add(from.m_p_recover_hp_add());
     }
-    if (from.has_p_week_add()) {
-      set_p_week_add(from.p_week_add());
+    if (from.has_m_p_week_add()) {
+      set_m_p_week_add(from.m_p_week_add());
     }
-    if (from.has_shield()) {
-      set_shield(from.shield());
+    if (from.has_m_shield()) {
+      set_m_shield(from.m_shield());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void monstervalueParam::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MonsterValueparam::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void monstervalueParam::CopyFrom(const monstervalueParam& from) {
+void E_MonsterValueparam::CopyFrom(const E_MonsterValueparam& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool monstervalueParam::IsInitialized() const {
+bool E_MonsterValueparam::IsInitialized() const {
 
   return true;
 }
 
-void monstervalueParam::Swap(monstervalueParam* other) {
+void E_MonsterValueparam::Swap(E_MonsterValueparam* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(p_max_hp_, other->p_max_hp_);
-    std::swap(p_atk_, other->p_atk_);
-    std::swap(p_def_, other->p_def_);
-    std::swap(p_brk_armor_, other->p_brk_armor_);
-    std::swap(p_five_dam_, other->p_five_dam_);
-    std::swap(p_five_armor_, other->p_five_armor_);
-    std::swap(p_thump_rate_, other->p_thump_rate_);
-    std::swap(p_thump_resist_, other->p_thump_resist_);
-    std::swap(p_sky_, other->p_sky_);
-    std::swap(p_sky_dam_, other->p_sky_dam_);
-    std::swap(p_sky_redu_resist_, other->p_sky_redu_resist_);
-    std::swap(p_sky_resist_, other->p_sky_resist_);
-    std::swap(p_kill_god_, other->p_kill_god_);
-    std::swap(p_god_body_, other->p_god_body_);
-    std::swap(p_mortal_rate_, other->p_mortal_rate_);
-    std::swap(p_mortal_resist_, other->p_mortal_resist_);
-    std::swap(p_fairy_rate_, other->p_fairy_rate_);
-    std::swap(p_fairy_resist_, other->p_fairy_resist_);
-    std::swap(p_god_rate_, other->p_god_rate_);
-    std::swap(p_god_resist_, other->p_god_resist_);
-    std::swap(p_crit_rate_, other->p_crit_rate_);
-    std::swap(p_crit_resit_rate_, other->p_crit_resit_rate_);
-    std::swap(p_crit_dam_, other->p_crit_dam_);
-    std::swap(p_crit_redu_, other->p_crit_redu_);
-    std::swap(p_batter_rate_, other->p_batter_rate_);
-    std::swap(p_batter_resist_, other->p_batter_resist_);
-    std::swap(p_batter_dam_, other->p_batter_dam_);
-    std::swap(p_batter_redu_, other->p_batter_redu_);
-    std::swap(p_brkdown_rate_, other->p_brkdown_rate_);
-    std::swap(p_brkdown_resist_, other->p_brkdown_resist_);
-    std::swap(p_dam_add_, other->p_dam_add_);
-    std::swap(p_dam_redu_, other->p_dam_redu_);
-    std::swap(p_all_add_, other->p_all_add_);
-    std::swap(p_all_redu_, other->p_all_redu_);
-    std::swap(p_skill_add_, other->p_skill_add_);
-    std::swap(p_skill_redu_, other->p_skill_redu_);
-    std::swap(p_rebound_dam_, other->p_rebound_dam_);
-    std::swap(p_hp_steal_, other->p_hp_steal_);
-    std::swap(p_dodge_rate_, other->p_dodge_rate_);
-    std::swap(p_hit_rate_, other->p_hit_rate_);
-    std::swap(p_blk_rate_, other->p_blk_rate_);
-    std::swap(p_brk_blk_rate_, other->p_brk_blk_rate_);
-    std::swap(p_blk_free_, other->p_blk_free_);
-    std::swap(p_blk_pierce_, other->p_blk_pierce_);
-    std::swap(p_rel_armor_, other->p_rel_armor_);
-    std::swap(p_rel_dam_, other->p_rel_dam_);
-    std::swap(p_five_resist_, other->p_five_resist_);
-    std::swap(p_five_resist_redu_, other->p_five_resist_redu_);
-    std::swap(p_fire_add_, other->p_fire_add_);
-    std::swap(p_fire_redu_, other->p_fire_redu_);
-    std::swap(p_ice_add_, other->p_ice_add_);
-    std::swap(p_ice_redu_, other->p_ice_redu_);
-    std::swap(p_thunder_add_, other->p_thunder_add_);
-    std::swap(p_thunder_rdu_, other->p_thunder_rdu_);
-    std::swap(p_player_add_, other->p_player_add_);
-    std::swap(p_player_redu_, other->p_player_redu_);
-    std::swap(p_leader_add_, other->p_leader_add_);
-    std::swap(p_leader_redu_, other->p_leader_redu_);
-    std::swap(p_mon_add_, other->p_mon_add_);
-    std::swap(p_mon_redu_, other->p_mon_redu_);
-    std::swap(p_var_redu_, other->p_var_redu_);
-    std::swap(p_var_add_, other->p_var_add_);
-    std::swap(p_unusual_resist_, other->p_unusual_resist_);
-    std::swap(p_unusual_hit_, other->p_unusual_hit_);
-    std::swap(p_hp_recover_, other->p_hp_recover_);
-    std::swap(p_unusual_add_, other->p_unusual_add_);
-    std::swap(p_fix_recover_, other->p_fix_recover_);
-    std::swap(p_high_hp_add_, other->p_high_hp_add_);
-    std::swap(p_recover_hp_add_, other->p_recover_hp_add_);
-    std::swap(p_week_add_, other->p_week_add_);
-    std::swap(shield_, other->shield_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_p_max_hp_, other->m_p_max_hp_);
+    std::swap(m_p_atk_, other->m_p_atk_);
+    std::swap(m_p_def_, other->m_p_def_);
+    std::swap(m_p_brk_armor_, other->m_p_brk_armor_);
+    std::swap(m_p_five_dam_, other->m_p_five_dam_);
+    std::swap(m_p_five_armor_, other->m_p_five_armor_);
+    std::swap(m_p_thump_rate_, other->m_p_thump_rate_);
+    std::swap(m_p_thump_resist_, other->m_p_thump_resist_);
+    std::swap(m_p_sky_, other->m_p_sky_);
+    std::swap(m_p_sky_dam_, other->m_p_sky_dam_);
+    std::swap(m_p_sky_redu_resist_, other->m_p_sky_redu_resist_);
+    std::swap(m_p_sky_resist_, other->m_p_sky_resist_);
+    std::swap(m_p_kill_god_, other->m_p_kill_god_);
+    std::swap(m_p_god_body_, other->m_p_god_body_);
+    std::swap(m_p_mortal_rate_, other->m_p_mortal_rate_);
+    std::swap(m_p_mortal_resist_, other->m_p_mortal_resist_);
+    std::swap(m_p_fairy_rate_, other->m_p_fairy_rate_);
+    std::swap(m_p_fairy_resist_, other->m_p_fairy_resist_);
+    std::swap(m_p_god_rate_, other->m_p_god_rate_);
+    std::swap(m_p_god_resist_, other->m_p_god_resist_);
+    std::swap(m_p_crit_rate_, other->m_p_crit_rate_);
+    std::swap(m_p_crit_resit_rate_, other->m_p_crit_resit_rate_);
+    std::swap(m_p_crit_dam_, other->m_p_crit_dam_);
+    std::swap(m_p_crit_redu_, other->m_p_crit_redu_);
+    std::swap(m_p_batter_rate_, other->m_p_batter_rate_);
+    std::swap(m_p_batter_resist_, other->m_p_batter_resist_);
+    std::swap(m_p_batter_dam_, other->m_p_batter_dam_);
+    std::swap(m_p_batter_redu_, other->m_p_batter_redu_);
+    std::swap(m_p_brkdown_rate_, other->m_p_brkdown_rate_);
+    std::swap(m_p_brkdown_resist_, other->m_p_brkdown_resist_);
+    std::swap(m_p_dam_add_, other->m_p_dam_add_);
+    std::swap(m_p_dam_redu_, other->m_p_dam_redu_);
+    std::swap(m_p_all_add_, other->m_p_all_add_);
+    std::swap(m_p_all_redu_, other->m_p_all_redu_);
+    std::swap(m_p_skill_add_, other->m_p_skill_add_);
+    std::swap(m_p_skill_redu_, other->m_p_skill_redu_);
+    std::swap(m_p_rebound_dam_, other->m_p_rebound_dam_);
+    std::swap(m_p_hp_steal_, other->m_p_hp_steal_);
+    std::swap(m_p_dodge_rate_, other->m_p_dodge_rate_);
+    std::swap(m_p_hit_rate_, other->m_p_hit_rate_);
+    std::swap(m_p_blk_rate_, other->m_p_blk_rate_);
+    std::swap(m_p_brk_blk_rate_, other->m_p_brk_blk_rate_);
+    std::swap(m_p_blk_free_, other->m_p_blk_free_);
+    std::swap(m_p_blk_pierce_, other->m_p_blk_pierce_);
+    std::swap(m_p_rel_armor_, other->m_p_rel_armor_);
+    std::swap(m_p_rel_dam_, other->m_p_rel_dam_);
+    std::swap(m_p_five_resist_, other->m_p_five_resist_);
+    std::swap(m_p_five_resist_redu_, other->m_p_five_resist_redu_);
+    std::swap(m_p_fire_add_, other->m_p_fire_add_);
+    std::swap(m_p_fire_redu_, other->m_p_fire_redu_);
+    std::swap(m_p_ice_add_, other->m_p_ice_add_);
+    std::swap(m_p_ice_redu_, other->m_p_ice_redu_);
+    std::swap(m_p_thunder_add_, other->m_p_thunder_add_);
+    std::swap(m_p_thunder_rdu_, other->m_p_thunder_rdu_);
+    std::swap(m_p_player_add_, other->m_p_player_add_);
+    std::swap(m_p_player_redu_, other->m_p_player_redu_);
+    std::swap(m_p_leader_add_, other->m_p_leader_add_);
+    std::swap(m_p_leader_redu_, other->m_p_leader_redu_);
+    std::swap(m_p_mon_add_, other->m_p_mon_add_);
+    std::swap(m_p_mon_redu_, other->m_p_mon_redu_);
+    std::swap(m_p_var_redu_, other->m_p_var_redu_);
+    std::swap(m_p_var_add_, other->m_p_var_add_);
+    std::swap(m_p_unusual_resist_, other->m_p_unusual_resist_);
+    std::swap(m_p_unusual_hit_, other->m_p_unusual_hit_);
+    std::swap(m_p_hp_recover_, other->m_p_hp_recover_);
+    std::swap(m_p_unusual_add_, other->m_p_unusual_add_);
+    std::swap(m_p_fix_recover_, other->m_p_fix_recover_);
+    std::swap(m_p_high_hp_add_, other->m_p_high_hp_add_);
+    std::swap(m_p_recover_hp_add_, other->m_p_recover_hp_add_);
+    std::swap(m_p_week_add_, other->m_p_week_add_);
+    std::swap(m_shield_, other->m_shield_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     std::swap(_has_bits_[2], other->_has_bits_[2]);
@@ -9586,11 +9596,11 @@ void monstervalueParam::Swap(monstervalueParam* other) {
   }
 }
 
-::google::protobuf::Metadata monstervalueParam::GetMetadata() const {
+::google::protobuf::Metadata E_MonsterValueparam::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = monstervalueParam_descriptor_;
-  metadata.reflection = monstervalueParam_reflection_;
+  metadata.descriptor = E_MonsterValueparam_descriptor_;
+  metadata.reflection = E_MonsterValueparam_reflection_;
   return metadata;
 }
 
@@ -9598,81 +9608,81 @@ void monstervalueParam::Swap(monstervalueParam* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_monstervalueParam::kMonstervalueParamListFieldNumber;
+const int Sheet_MonsterValueparam::kEMonsterValueparamListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_monstervalueParam::Sheet_monstervalueParam()
+Sheet_MonsterValueparam::Sheet_MonsterValueparam()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_monstervalueParam::InitAsDefaultInstance() {
+void Sheet_MonsterValueparam::InitAsDefaultInstance() {
 }
 
-Sheet_monstervalueParam::Sheet_monstervalueParam(const Sheet_monstervalueParam& from)
+Sheet_MonsterValueparam::Sheet_MonsterValueparam(const Sheet_MonsterValueparam& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_monstervalueParam::SharedCtor() {
+void Sheet_MonsterValueparam::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_monstervalueParam::~Sheet_monstervalueParam() {
+Sheet_MonsterValueparam::~Sheet_MonsterValueparam() {
   SharedDtor();
 }
 
-void Sheet_monstervalueParam::SharedDtor() {
+void Sheet_MonsterValueparam::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_monstervalueParam::SetCachedSize(int size) const {
+void Sheet_MonsterValueparam::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_monstervalueParam::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_MonsterValueparam::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_monstervalueParam_descriptor_;
+  return Sheet_MonsterValueparam_descriptor_;
 }
 
-const Sheet_monstervalueParam& Sheet_monstervalueParam::default_instance() {
+const Sheet_MonsterValueparam& Sheet_MonsterValueparam::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-Sheet_monstervalueParam* Sheet_monstervalueParam::default_instance_ = NULL;
+Sheet_MonsterValueparam* Sheet_MonsterValueparam::default_instance_ = NULL;
 
-Sheet_monstervalueParam* Sheet_monstervalueParam::New() const {
-  return new Sheet_monstervalueParam;
+Sheet_MonsterValueparam* Sheet_MonsterValueparam::New() const {
+  return new Sheet_MonsterValueparam;
 }
 
-void Sheet_monstervalueParam::Clear() {
-  monstervalueparam_list_.Clear();
+void Sheet_MonsterValueparam::Clear() {
+  e_monstervalueparam_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_monstervalueParam::MergePartialFromCodedStream(
+bool Sheet_MonsterValueparam::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.monstervalueParam monstervalueParam_List = 1;
+      // repeated .proto_ff.E_MonsterValueparam E_MonsterValueparam_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_monstervalueParam_List:
+         parse_E_MonsterValueparam_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_monstervalueparam_list()));
+                input, add_e_monstervalueparam_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_monstervalueParam_List;
+        if (input->ExpectTag(10)) goto parse_E_MonsterValueparam_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9693,12 +9703,12 @@ bool Sheet_monstervalueParam::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_monstervalueParam::SerializeWithCachedSizes(
+void Sheet_MonsterValueparam::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.monstervalueParam monstervalueParam_List = 1;
-  for (int i = 0; i < this->monstervalueparam_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterValueparam E_MonsterValueparam_List = 1;
+  for (int i = 0; i < this->e_monstervalueparam_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->monstervalueparam_list(i), output);
+      1, this->e_monstervalueparam_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9707,13 +9717,13 @@ void Sheet_monstervalueParam::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_monstervalueParam::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_MonsterValueparam::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.monstervalueParam monstervalueParam_List = 1;
-  for (int i = 0; i < this->monstervalueparam_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterValueparam E_MonsterValueparam_List = 1;
+  for (int i = 0; i < this->e_monstervalueparam_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->monstervalueparam_list(i), target);
+        1, this->e_monstervalueparam_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9723,15 +9733,15 @@ void Sheet_monstervalueParam::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_monstervalueParam::ByteSize() const {
+int Sheet_MonsterValueparam::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.monstervalueParam monstervalueParam_List = 1;
-  total_size += 1 * this->monstervalueparam_list_size();
-  for (int i = 0; i < this->monstervalueparam_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterValueparam E_MonsterValueparam_List = 1;
+  total_size += 1 * this->e_monstervalueparam_list_size();
+  for (int i = 0; i < this->e_monstervalueparam_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->monstervalueparam_list(i));
+        this->e_monstervalueparam_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -9745,10 +9755,10 @@ int Sheet_monstervalueParam::ByteSize() const {
   return total_size;
 }
 
-void Sheet_monstervalueParam::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterValueparam::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_monstervalueParam* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_monstervalueParam*>(
+  const Sheet_MonsterValueparam* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_MonsterValueparam*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -9757,43 +9767,43 @@ void Sheet_monstervalueParam::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void Sheet_monstervalueParam::MergeFrom(const Sheet_monstervalueParam& from) {
+void Sheet_MonsterValueparam::MergeFrom(const Sheet_MonsterValueparam& from) {
   GOOGLE_CHECK_NE(&from, this);
-  monstervalueparam_list_.MergeFrom(from.monstervalueparam_list_);
+  e_monstervalueparam_list_.MergeFrom(from.e_monstervalueparam_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_monstervalueParam::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterValueparam::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_monstervalueParam::CopyFrom(const Sheet_monstervalueParam& from) {
+void Sheet_MonsterValueparam::CopyFrom(const Sheet_MonsterValueparam& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_monstervalueParam::IsInitialized() const {
+bool Sheet_MonsterValueparam::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_monstervalueParam::Swap(Sheet_monstervalueParam* other) {
+void Sheet_MonsterValueparam::Swap(Sheet_MonsterValueparam* other) {
   if (other != this) {
-    monstervalueparam_list_.Swap(&other->monstervalueparam_list_);
+    e_monstervalueparam_list_.Swap(&other->e_monstervalueparam_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_monstervalueParam::GetMetadata() const {
+::google::protobuf::Metadata Sheet_MonsterValueparam::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_monstervalueParam_descriptor_;
-  metadata.reflection = Sheet_monstervalueParam_reflection_;
+  metadata.descriptor = Sheet_MonsterValueparam_descriptor_;
+  metadata.reflection = Sheet_MonsterValueparam_reflection_;
   return metadata;
 }
 
@@ -9801,165 +9811,165 @@ void Sheet_monstervalueParam::Swap(Sheet_monstervalueParam* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int monsterdrop::kIdFieldNumber;
-const int monsterdrop::kGroupFieldNumber;
-const int monsterdrop::kOwnFieldNumber;
-const int monsterdrop::kTypeFieldNumber;
-const int monsterdrop::kBoxIDFieldNumber;
+const int E_MonsterDrop::kMIdFieldNumber;
+const int E_MonsterDrop::kMGroupFieldNumber;
+const int E_MonsterDrop::kMOwnFieldNumber;
+const int E_MonsterDrop::kMTypeFieldNumber;
+const int E_MonsterDrop::kMBoxidFieldNumber;
 #endif  // !_MSC_VER
 
-monsterdrop::monsterdrop()
+E_MonsterDrop::E_MonsterDrop()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void monsterdrop::InitAsDefaultInstance() {
+void E_MonsterDrop::InitAsDefaultInstance() {
 }
 
-monsterdrop::monsterdrop(const monsterdrop& from)
+E_MonsterDrop::E_MonsterDrop(const E_MonsterDrop& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void monsterdrop::SharedCtor() {
+void E_MonsterDrop::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  group_ = 0;
-  own_ = 0;
-  type_ = 0;
+  m_id_ = 0;
+  m_group_ = 0;
+  m_own_ = 0;
+  m_type_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-monsterdrop::~monsterdrop() {
+E_MonsterDrop::~E_MonsterDrop() {
   SharedDtor();
 }
 
-void monsterdrop::SharedDtor() {
+void E_MonsterDrop::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void monsterdrop::SetCachedSize(int size) const {
+void E_MonsterDrop::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* monsterdrop::descriptor() {
+const ::google::protobuf::Descriptor* E_MonsterDrop::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return monsterdrop_descriptor_;
+  return E_MonsterDrop_descriptor_;
 }
 
-const monsterdrop& monsterdrop::default_instance() {
+const E_MonsterDrop& E_MonsterDrop::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-monsterdrop* monsterdrop::default_instance_ = NULL;
+E_MonsterDrop* E_MonsterDrop::default_instance_ = NULL;
 
-monsterdrop* monsterdrop::New() const {
-  return new monsterdrop;
+E_MonsterDrop* E_MonsterDrop::New() const {
+  return new E_MonsterDrop;
 }
 
-void monsterdrop::Clear() {
+void E_MonsterDrop::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    group_ = 0;
-    own_ = 0;
-    type_ = 0;
+    m_id_ = 0;
+    m_group_ = 0;
+    m_own_ = 0;
+    m_type_ = 0;
   }
-  boxid_.Clear();
+  m_boxid_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool monsterdrop::MergePartialFromCodedStream(
+bool E_MonsterDrop::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_group;
+        if (input->ExpectTag(16)) goto parse_m_group;
         break;
       }
 
-      // optional int32 group = 2;
+      // optional int32 m_group = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_group:
+         parse_m_group:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &group_)));
-          set_has_group();
+                 input, &m_group_)));
+          set_has_m_group();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_own;
+        if (input->ExpectTag(24)) goto parse_m_own;
         break;
       }
 
-      // optional int32 own = 3;
+      // optional int32 m_own = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_own:
+         parse_m_own:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &own_)));
-          set_has_own();
+                 input, &m_own_)));
+          set_has_m_own();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_type;
+        if (input->ExpectTag(32)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 4;
+      // optional int32 m_type = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_boxID;
+        if (input->ExpectTag(40)) goto parse_m_boxid;
         break;
       }
 
-      // repeated int64 boxID = 5;
+      // repeated int64 m_boxid = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_boxID:
+         parse_m_boxid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 40, input, this->mutable_boxid())));
+                 1, 40, input, this->mutable_m_boxid())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_boxid())));
+                 input, this->mutable_m_boxid())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_boxID;
+        if (input->ExpectTag(40)) goto parse_m_boxid;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9980,32 +9990,32 @@ bool monsterdrop::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void monsterdrop::SerializeWithCachedSizes(
+void E_MonsterDrop::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 group = 2;
-  if (has_group()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->group(), output);
+  // optional int32 m_group = 2;
+  if (has_m_group()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_group(), output);
   }
 
-  // optional int32 own = 3;
-  if (has_own()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->own(), output);
+  // optional int32 m_own = 3;
+  if (has_m_own()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_own(), output);
   }
 
-  // optional int32 type = 4;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->type(), output);
+  // optional int32 m_type = 4;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_type(), output);
   }
 
-  // repeated int64 boxID = 5;
-  for (int i = 0; i < this->boxid_size(); i++) {
+  // repeated int64 m_boxid = 5;
+  for (int i = 0; i < this->m_boxid_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      5, this->boxid(i), output);
+      5, this->m_boxid(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -10014,32 +10024,32 @@ void monsterdrop::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* monsterdrop::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MonsterDrop::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 group = 2;
-  if (has_group()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->group(), target);
+  // optional int32 m_group = 2;
+  if (has_m_group()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_group(), target);
   }
 
-  // optional int32 own = 3;
-  if (has_own()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->own(), target);
+  // optional int32 m_own = 3;
+  if (has_m_own()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_own(), target);
   }
 
-  // optional int32 type = 4;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->type(), target);
+  // optional int32 m_type = 4;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_type(), target);
   }
 
-  // repeated int64 boxID = 5;
-  for (int i = 0; i < this->boxid_size(); i++) {
+  // repeated int64 m_boxid = 5;
+  for (int i = 0; i < this->m_boxid_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(5, this->boxid(i), target);
+      WriteInt64ToArray(5, this->m_boxid(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10049,47 +10059,47 @@ void monsterdrop::SerializeWithCachedSizes(
   return target;
 }
 
-int monsterdrop::ByteSize() const {
+int E_MonsterDrop::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 group = 2;
-    if (has_group()) {
+    // optional int32 m_group = 2;
+    if (has_m_group()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->group());
+          this->m_group());
     }
 
-    // optional int32 own = 3;
-    if (has_own()) {
+    // optional int32 m_own = 3;
+    if (has_m_own()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->own());
+          this->m_own());
     }
 
-    // optional int32 type = 4;
-    if (has_type()) {
+    // optional int32 m_type = 4;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
   }
-  // repeated int64 boxID = 5;
+  // repeated int64 m_boxid = 5;
   {
     int data_size = 0;
-    for (int i = 0; i < this->boxid_size(); i++) {
+    for (int i = 0; i < this->m_boxid_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->boxid(i));
+        Int64Size(this->m_boxid(i));
     }
-    total_size += 1 * this->boxid_size() + data_size;
+    total_size += 1 * this->m_boxid_size() + data_size;
   }
 
   if (!unknown_fields().empty()) {
@@ -10103,10 +10113,10 @@ int monsterdrop::ByteSize() const {
   return total_size;
 }
 
-void monsterdrop::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MonsterDrop::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const monsterdrop* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const monsterdrop*>(
+  const E_MonsterDrop* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MonsterDrop*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -10115,61 +10125,61 @@ void monsterdrop::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void monsterdrop::MergeFrom(const monsterdrop& from) {
+void E_MonsterDrop::MergeFrom(const E_MonsterDrop& from) {
   GOOGLE_CHECK_NE(&from, this);
-  boxid_.MergeFrom(from.boxid_);
+  m_boxid_.MergeFrom(from.m_boxid_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_group()) {
-      set_group(from.group());
+    if (from.has_m_group()) {
+      set_m_group(from.m_group());
     }
-    if (from.has_own()) {
-      set_own(from.own());
+    if (from.has_m_own()) {
+      set_m_own(from.m_own());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void monsterdrop::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MonsterDrop::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void monsterdrop::CopyFrom(const monsterdrop& from) {
+void E_MonsterDrop::CopyFrom(const E_MonsterDrop& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool monsterdrop::IsInitialized() const {
+bool E_MonsterDrop::IsInitialized() const {
 
   return true;
 }
 
-void monsterdrop::Swap(monsterdrop* other) {
+void E_MonsterDrop::Swap(E_MonsterDrop* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(group_, other->group_);
-    std::swap(own_, other->own_);
-    std::swap(type_, other->type_);
-    boxid_.Swap(&other->boxid_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_group_, other->m_group_);
+    std::swap(m_own_, other->m_own_);
+    std::swap(m_type_, other->m_type_);
+    m_boxid_.Swap(&other->m_boxid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata monsterdrop::GetMetadata() const {
+::google::protobuf::Metadata E_MonsterDrop::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = monsterdrop_descriptor_;
-  metadata.reflection = monsterdrop_reflection_;
+  metadata.descriptor = E_MonsterDrop_descriptor_;
+  metadata.reflection = E_MonsterDrop_reflection_;
   return metadata;
 }
 
@@ -10177,81 +10187,81 @@ void monsterdrop::Swap(monsterdrop* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_monsterdrop::kMonsterdropListFieldNumber;
+const int Sheet_MonsterDrop::kEMonsterDropListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_monsterdrop::Sheet_monsterdrop()
+Sheet_MonsterDrop::Sheet_MonsterDrop()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_monsterdrop::InitAsDefaultInstance() {
+void Sheet_MonsterDrop::InitAsDefaultInstance() {
 }
 
-Sheet_monsterdrop::Sheet_monsterdrop(const Sheet_monsterdrop& from)
+Sheet_MonsterDrop::Sheet_MonsterDrop(const Sheet_MonsterDrop& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_monsterdrop::SharedCtor() {
+void Sheet_MonsterDrop::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_monsterdrop::~Sheet_monsterdrop() {
+Sheet_MonsterDrop::~Sheet_MonsterDrop() {
   SharedDtor();
 }
 
-void Sheet_monsterdrop::SharedDtor() {
+void Sheet_MonsterDrop::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_monsterdrop::SetCachedSize(int size) const {
+void Sheet_MonsterDrop::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_monsterdrop::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_MonsterDrop::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_monsterdrop_descriptor_;
+  return Sheet_MonsterDrop_descriptor_;
 }
 
-const Sheet_monsterdrop& Sheet_monsterdrop::default_instance() {
+const Sheet_MonsterDrop& Sheet_MonsterDrop::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_monster_2eproto();
   return *default_instance_;
 }
 
-Sheet_monsterdrop* Sheet_monsterdrop::default_instance_ = NULL;
+Sheet_MonsterDrop* Sheet_MonsterDrop::default_instance_ = NULL;
 
-Sheet_monsterdrop* Sheet_monsterdrop::New() const {
-  return new Sheet_monsterdrop;
+Sheet_MonsterDrop* Sheet_MonsterDrop::New() const {
+  return new Sheet_MonsterDrop;
 }
 
-void Sheet_monsterdrop::Clear() {
-  monsterdrop_list_.Clear();
+void Sheet_MonsterDrop::Clear() {
+  e_monsterdrop_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_monsterdrop::MergePartialFromCodedStream(
+bool Sheet_MonsterDrop::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.monsterdrop monsterdrop_List = 1;
+      // repeated .proto_ff.E_MonsterDrop E_MonsterDrop_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_monsterdrop_List:
+         parse_E_MonsterDrop_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_monsterdrop_list()));
+                input, add_e_monsterdrop_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_monsterdrop_List;
+        if (input->ExpectTag(10)) goto parse_E_MonsterDrop_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10272,12 +10282,12 @@ bool Sheet_monsterdrop::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_monsterdrop::SerializeWithCachedSizes(
+void Sheet_MonsterDrop::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.monsterdrop monsterdrop_List = 1;
-  for (int i = 0; i < this->monsterdrop_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterDrop E_MonsterDrop_List = 1;
+  for (int i = 0; i < this->e_monsterdrop_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->monsterdrop_list(i), output);
+      1, this->e_monsterdrop_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -10286,13 +10296,13 @@ void Sheet_monsterdrop::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_monsterdrop::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_MonsterDrop::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.monsterdrop monsterdrop_List = 1;
-  for (int i = 0; i < this->monsterdrop_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterDrop E_MonsterDrop_List = 1;
+  for (int i = 0; i < this->e_monsterdrop_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->monsterdrop_list(i), target);
+        1, this->e_monsterdrop_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10302,15 +10312,15 @@ void Sheet_monsterdrop::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_monsterdrop::ByteSize() const {
+int Sheet_MonsterDrop::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.monsterdrop monsterdrop_List = 1;
-  total_size += 1 * this->monsterdrop_list_size();
-  for (int i = 0; i < this->monsterdrop_list_size(); i++) {
+  // repeated .proto_ff.E_MonsterDrop E_MonsterDrop_List = 1;
+  total_size += 1 * this->e_monsterdrop_list_size();
+  for (int i = 0; i < this->e_monsterdrop_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->monsterdrop_list(i));
+        this->e_monsterdrop_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -10324,10 +10334,10 @@ int Sheet_monsterdrop::ByteSize() const {
   return total_size;
 }
 
-void Sheet_monsterdrop::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterDrop::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_monsterdrop* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_monsterdrop*>(
+  const Sheet_MonsterDrop* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_MonsterDrop*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -10336,43 +10346,43 @@ void Sheet_monsterdrop::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_monsterdrop::MergeFrom(const Sheet_monsterdrop& from) {
+void Sheet_MonsterDrop::MergeFrom(const Sheet_MonsterDrop& from) {
   GOOGLE_CHECK_NE(&from, this);
-  monsterdrop_list_.MergeFrom(from.monsterdrop_list_);
+  e_monsterdrop_list_.MergeFrom(from.e_monsterdrop_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_monsterdrop::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_MonsterDrop::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_monsterdrop::CopyFrom(const Sheet_monsterdrop& from) {
+void Sheet_MonsterDrop::CopyFrom(const Sheet_MonsterDrop& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_monsterdrop::IsInitialized() const {
+bool Sheet_MonsterDrop::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_monsterdrop::Swap(Sheet_monsterdrop* other) {
+void Sheet_MonsterDrop::Swap(Sheet_MonsterDrop* other) {
   if (other != this) {
-    monsterdrop_list_.Swap(&other->monsterdrop_list_);
+    e_monsterdrop_list_.Swap(&other->e_monsterdrop_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_monsterdrop::GetMetadata() const {
+::google::protobuf::Metadata Sheet_MonsterDrop::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_monsterdrop_descriptor_;
-  metadata.reflection = Sheet_monsterdrop_reflection_;
+  metadata.descriptor = Sheet_MonsterDrop_descriptor_;
+  metadata.reflection = Sheet_MonsterDrop_reflection_;
   return metadata;
 }
 

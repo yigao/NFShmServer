@@ -84,7 +84,7 @@ int RoleDBBaseData_s::ResumeInit() {
 }
 
 void RoleDBBaseData_s::write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const {
-	msg.set_name((const char*)name.Get());
+	msg.set_name((const char*)name.data());
 	msg.set_prof((uint32_t)prof);
 	msg.set_level((uint32_t)level);
 	msg.set_exp((int64_t)exp);
@@ -120,7 +120,7 @@ void RoleDBBaseData_s::write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const {
 
 void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleDBBaseData_s));
-	name.Copy(msg.name());
+	name = msg.name();
 	prof = msg.prof();
 	level = msg.level();
 	exp = msg.exp();
@@ -172,7 +172,7 @@ int BagItemsDBData_s::ResumeInit() {
 }
 
 void BagItemsDBData_s::write_to_pbmsg(::proto_ff::BagItemsDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)data.GetSize() && i < data.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		::proto_ff::ItemProtoInfo* temp_data = msg.add_data();
 		data[i].write_to_pbmsg(*temp_data);
 	}
@@ -181,8 +181,8 @@ void BagItemsDBData_s::write_to_pbmsg(::proto_ff::BagItemsDBData & msg) const {
 
 void BagItemsDBData_s::read_from_pbmsg(const ::proto_ff::BagItemsDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BagItemsDBData_s));
-	data.SetSize(msg.data_size() > data.GetMaxSize() ? data.GetMaxSize() : msg.data_size());
-	for(int32_t i = 0; i < (int32_t)data.GetSize(); ++i) {
+	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::ItemProtoInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
 	}
@@ -235,10 +235,10 @@ int RoleDBUnitBagData_s::ResumeInit() {
 }
 
 void RoleDBUnitBagData_s::write_to_pbmsg(::proto_ff::RoleDBUnitBagData & msg) const {
-	msg.set_table_name((const char*)table_name.Get());
+	msg.set_table_name((const char*)table_name.data());
 	::proto_ff::BagDBSimpleData* temp_simple = msg.mutable_simple();
 	simple.write_to_pbmsg(*temp_simple);
-	for(int32_t i = 0; i < (int32_t)parts.GetSize() && i < parts.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)parts.size(); ++i) {
 		::proto_ff::BagItemsDBData* temp_parts = msg.add_parts();
 		parts[i].write_to_pbmsg(*temp_parts);
 	}
@@ -246,11 +246,11 @@ void RoleDBUnitBagData_s::write_to_pbmsg(::proto_ff::RoleDBUnitBagData & msg) co
 
 void RoleDBUnitBagData_s::read_from_pbmsg(const ::proto_ff::RoleDBUnitBagData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleDBUnitBagData_s));
-	table_name.Copy(msg.table_name());
+	table_name = msg.table_name();
 	const ::proto_ff::BagDBSimpleData & temp_simple = msg.simple();
 	simple.read_from_pbmsg(temp_simple);
-	parts.SetSize(msg.parts_size() > parts.GetMaxSize() ? parts.GetMaxSize() : msg.parts_size());
-	for(int32_t i = 0; i < (int32_t)parts.GetSize(); ++i) {
+	parts.resize((int)msg.parts_size() > (int)parts.max_size() ? parts.max_size() : msg.parts_size());
+	for(int32_t i = 0; i < (int32_t)parts.size(); ++i) {
 		const ::proto_ff::BagItemsDBData & temp_parts = msg.parts(i);
 		parts[i].read_from_pbmsg(temp_parts);
 	}
@@ -273,7 +273,7 @@ int RoleDBBagData_s::ResumeInit() {
 }
 
 void RoleDBBagData_s::write_to_pbmsg(::proto_ff::RoleDBBagData & msg) const {
-	for(int32_t i = 0; i < (int32_t)bags.GetSize() && i < bags.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)bags.size(); ++i) {
 		::proto_ff::RoleDBUnitBagData* temp_bags = msg.add_bags();
 		bags[i].write_to_pbmsg(*temp_bags);
 	}
@@ -281,8 +281,8 @@ void RoleDBBagData_s::write_to_pbmsg(::proto_ff::RoleDBBagData & msg) const {
 
 void RoleDBBagData_s::read_from_pbmsg(const ::proto_ff::RoleDBBagData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleDBBagData_s));
-	bags.SetSize(msg.bags_size() > bags.GetMaxSize() ? bags.GetMaxSize() : msg.bags_size());
-	for(int32_t i = 0; i < (int32_t)bags.GetSize(); ++i) {
+	bags.resize((int)msg.bags_size() > (int)bags.max_size() ? bags.max_size() : msg.bags_size());
+	for(int32_t i = 0; i < (int32_t)bags.size(); ++i) {
 		const ::proto_ff::RoleDBUnitBagData & temp_bags = msg.bags(i);
 		bags[i].read_from_pbmsg(temp_bags);
 	}
@@ -305,7 +305,7 @@ int RoleDBEquipData_s::ResumeInit() {
 }
 
 void RoleDBEquipData_s::write_to_pbmsg(::proto_ff::RoleDBEquipData & msg) const {
-	for(int32_t i = 0; i < (int32_t)infos.GetSize() && i < infos.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
 		::proto_ff::EquipInfo* temp_infos = msg.add_infos();
 		infos[i].write_to_pbmsg(*temp_infos);
 	}
@@ -313,8 +313,8 @@ void RoleDBEquipData_s::write_to_pbmsg(::proto_ff::RoleDBEquipData & msg) const 
 
 void RoleDBEquipData_s::read_from_pbmsg(const ::proto_ff::RoleDBEquipData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleDBEquipData_s));
-	infos.SetSize(msg.infos_size() > infos.GetMaxSize() ? infos.GetMaxSize() : msg.infos_size());
-	for(int32_t i = 0; i < (int32_t)infos.GetSize(); ++i) {
+	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
 		const ::proto_ff::EquipInfo & temp_infos = msg.infos(i);
 		infos[i].read_from_pbmsg(temp_infos);
 	}
@@ -392,7 +392,7 @@ int GrowPartDBData_s::ResumeInit() {
 
 void GrowPartDBData_s::write_to_pbmsg(::proto_ff::GrowPartDBData & msg) const {
 	msg.set_type((int32_t)type);
-	for(int32_t i = 0; i < (int32_t)entrys.GetSize() && i < entrys.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
 		::proto_ff::GrowPartEntryDBInfo* temp_entrys = msg.add_entrys();
 		entrys[i].write_to_pbmsg(*temp_entrys);
 	}
@@ -402,8 +402,8 @@ void GrowPartDBData_s::write_to_pbmsg(::proto_ff::GrowPartDBData & msg) const {
 void GrowPartDBData_s::read_from_pbmsg(const ::proto_ff::GrowPartDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GrowPartDBData_s));
 	type = msg.type();
-	entrys.SetSize(msg.entrys_size() > entrys.GetMaxSize() ? entrys.GetMaxSize() : msg.entrys_size());
-	for(int32_t i = 0; i < (int32_t)entrys.GetSize(); ++i) {
+	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
 		const ::proto_ff::GrowPartEntryDBInfo & temp_entrys = msg.entrys(i);
 		entrys[i].read_from_pbmsg(temp_entrys);
 	}
@@ -427,7 +427,7 @@ int GrowDBData_s::ResumeInit() {
 }
 
 void GrowDBData_s::write_to_pbmsg(::proto_ff::GrowDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)parts.GetSize() && i < parts.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)parts.size(); ++i) {
 		::proto_ff::GrowPartDBData* temp_parts = msg.add_parts();
 		parts[i].write_to_pbmsg(*temp_parts);
 	}
@@ -435,8 +435,8 @@ void GrowDBData_s::write_to_pbmsg(::proto_ff::GrowDBData & msg) const {
 
 void GrowDBData_s::read_from_pbmsg(const ::proto_ff::GrowDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GrowDBData_s));
-	parts.SetSize(msg.parts_size() > parts.GetMaxSize() ? parts.GetMaxSize() : msg.parts_size());
-	for(int32_t i = 0; i < (int32_t)parts.GetSize(); ++i) {
+	parts.resize((int)msg.parts_size() > (int)parts.max_size() ? parts.max_size() : msg.parts_size());
+	for(int32_t i = 0; i < (int32_t)parts.size(); ++i) {
 		const ::proto_ff::GrowPartDBData & temp_parts = msg.parts(i);
 		parts[i].read_from_pbmsg(temp_parts);
 	}
@@ -459,7 +459,7 @@ int DayUseItemData_s::ResumeInit() {
 }
 
 void DayUseItemData_s::write_to_pbmsg(::proto_ff::DayUseItemData & msg) const {
-	for(int32_t i = 0; i < (int32_t)info.GetSize() && i < info.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		::proto_ff::ComPair64* temp_info = msg.add_info();
 		info[i].write_to_pbmsg(*temp_info);
 	}
@@ -467,8 +467,8 @@ void DayUseItemData_s::write_to_pbmsg(::proto_ff::DayUseItemData & msg) const {
 
 void DayUseItemData_s::read_from_pbmsg(const ::proto_ff::DayUseItemData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DayUseItemData_s));
-	info.SetSize(msg.info_size() > info.GetMaxSize() ? info.GetMaxSize() : msg.info_size());
-	for(int32_t i = 0; i < (int32_t)info.GetSize(); ++i) {
+	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::ComPair64 & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
@@ -535,15 +535,15 @@ void FacadeDataInfo_s::write_to_pbmsg(::proto_ff::FacadeDataInfo & msg) const {
 	msg.set_use_soul_item((bool)use_soul_item);
 	msg.set_use_facade((bool)use_facade);
 	msg.set_equip_fantasy_id((uint64_t)equip_fantasy_id);
-	for(int32_t i = 0; i < (int32_t)fantasy_map.GetSize() && i < fantasy_map.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
 		::proto_ff::FacadeFantasyData* temp_fantasy_map = msg.add_fantasy_map();
 		fantasy_map[i].write_to_pbmsg(*temp_fantasy_map);
 	}
-	for(int32_t i = 0; i < (int32_t)fragment_map.GetSize() && i < fragment_map.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
 		::proto_ff::FacadeFragmentData* temp_fragment_map = msg.add_fragment_map();
 		fragment_map[i].write_to_pbmsg(*temp_fragment_map);
 	}
-	for(int32_t i = 0; i < (int32_t)skill_data.GetSize() && i < skill_data.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
 		::proto_ff::FacadeSkillData* temp_skill_data = msg.add_skill_data();
 		skill_data[i].write_to_pbmsg(*temp_skill_data);
 	}
@@ -558,18 +558,18 @@ void FacadeDataInfo_s::read_from_pbmsg(const ::proto_ff::FacadeDataInfo & msg) {
 	use_soul_item = msg.use_soul_item();
 	use_facade = msg.use_facade();
 	equip_fantasy_id = msg.equip_fantasy_id();
-	fantasy_map.SetSize(msg.fantasy_map_size() > fantasy_map.GetMaxSize() ? fantasy_map.GetMaxSize() : msg.fantasy_map_size());
-	for(int32_t i = 0; i < (int32_t)fantasy_map.GetSize(); ++i) {
+	fantasy_map.resize((int)msg.fantasy_map_size() > (int)fantasy_map.max_size() ? fantasy_map.max_size() : msg.fantasy_map_size());
+	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
 		const ::proto_ff::FacadeFantasyData & temp_fantasy_map = msg.fantasy_map(i);
 		fantasy_map[i].read_from_pbmsg(temp_fantasy_map);
 	}
-	fragment_map.SetSize(msg.fragment_map_size() > fragment_map.GetMaxSize() ? fragment_map.GetMaxSize() : msg.fragment_map_size());
-	for(int32_t i = 0; i < (int32_t)fragment_map.GetSize(); ++i) {
+	fragment_map.resize((int)msg.fragment_map_size() > (int)fragment_map.max_size() ? fragment_map.max_size() : msg.fragment_map_size());
+	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
 		const ::proto_ff::FacadeFragmentData & temp_fragment_map = msg.fragment_map(i);
 		fragment_map[i].read_from_pbmsg(temp_fragment_map);
 	}
-	skill_data.SetSize(msg.skill_data_size() > skill_data.GetMaxSize() ? skill_data.GetMaxSize() : msg.skill_data_size());
-	for(int32_t i = 0; i < (int32_t)skill_data.GetSize(); ++i) {
+	skill_data.resize((int)msg.skill_data_size() > (int)skill_data.max_size() ? skill_data.max_size() : msg.skill_data_size());
+	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
 		const ::proto_ff::FacadeSkillData & temp_skill_data = msg.skill_data(i);
 		skill_data[i].read_from_pbmsg(temp_skill_data);
 	}
@@ -592,7 +592,7 @@ int FacadeDBData_s::ResumeInit() {
 }
 
 void FacadeDBData_s::write_to_pbmsg(::proto_ff::FacadeDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)data.GetSize() && i < data.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		::proto_ff::FacadeDataInfo* temp_data = msg.add_data();
 		data[i].write_to_pbmsg(*temp_data);
 	}
@@ -600,8 +600,8 @@ void FacadeDBData_s::write_to_pbmsg(::proto_ff::FacadeDBData & msg) const {
 
 void FacadeDBData_s::read_from_pbmsg(const ::proto_ff::FacadeDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FacadeDBData_s));
-	data.SetSize(msg.data_size() > data.GetMaxSize() ? data.GetMaxSize() : msg.data_size());
-	for(int32_t i = 0; i < (int32_t)data.GetSize(); ++i) {
+	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::FacadeDataInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
 	}
@@ -695,7 +695,7 @@ int SkillDBGroup_s::ResumeInit() {
 void SkillDBGroup_s::write_to_pbmsg(::proto_ff::SkillDBGroup & msg) const {
 	msg.set_group((uint32_t)group);
 	msg.set_chg((int32_t)chg);
-	for(int32_t i = 0; i < (int32_t)pos_lst.GetSize() && i < pos_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)pos_lst.size(); ++i) {
 		::proto_ff::SkillDBPos* temp_pos_lst = msg.add_pos_lst();
 		pos_lst[i].write_to_pbmsg(*temp_pos_lst);
 	}
@@ -705,8 +705,8 @@ void SkillDBGroup_s::read_from_pbmsg(const ::proto_ff::SkillDBGroup & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBGroup_s));
 	group = msg.group();
 	chg = msg.chg();
-	pos_lst.SetSize(msg.pos_lst_size() > pos_lst.GetMaxSize() ? pos_lst.GetMaxSize() : msg.pos_lst_size());
-	for(int32_t i = 0; i < (int32_t)pos_lst.GetSize(); ++i) {
+	pos_lst.resize((int)msg.pos_lst_size() > (int)pos_lst.max_size() ? pos_lst.max_size() : msg.pos_lst_size());
+	for(int32_t i = 0; i < (int32_t)pos_lst.size(); ++i) {
 		const ::proto_ff::SkillDBPos & temp_pos_lst = msg.pos_lst(i);
 		pos_lst[i].read_from_pbmsg(temp_pos_lst);
 	}
@@ -731,11 +731,11 @@ int SkillDBData_s::ResumeInit() {
 }
 
 void SkillDBData_s::write_to_pbmsg(::proto_ff::SkillDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize() && i < info_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		::proto_ff::SkillDBInfo* temp_info_lst = msg.add_info_lst();
 		info_lst[i].write_to_pbmsg(*temp_info_lst);
 	}
-	for(int32_t i = 0; i < (int32_t)group_lst.GetSize() && i < group_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)group_lst.size(); ++i) {
 		::proto_ff::SkillDBGroup* temp_group_lst = msg.add_group_lst();
 		group_lst[i].write_to_pbmsg(*temp_group_lst);
 	}
@@ -745,13 +745,13 @@ void SkillDBData_s::write_to_pbmsg(::proto_ff::SkillDBData & msg) const {
 
 void SkillDBData_s::read_from_pbmsg(const ::proto_ff::SkillDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBData_s));
-	info_lst.SetSize(msg.info_lst_size() > info_lst.GetMaxSize() ? info_lst.GetMaxSize() : msg.info_lst_size());
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize(); ++i) {
+	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::SkillDBInfo & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	group_lst.SetSize(msg.group_lst_size() > group_lst.GetMaxSize() ? group_lst.GetMaxSize() : msg.group_lst_size());
-	for(int32_t i = 0; i < (int32_t)group_lst.GetSize(); ++i) {
+	group_lst.resize((int)msg.group_lst_size() > (int)group_lst.max_size() ? group_lst.max_size() : msg.group_lst_size());
+	for(int32_t i = 0; i < (int32_t)group_lst.size(); ++i) {
 		const ::proto_ff::SkillDBGroup & temp_group_lst = msg.group_lst(i);
 		group_lst[i].read_from_pbmsg(temp_group_lst);
 	}
@@ -777,7 +777,7 @@ int GodRelicsActivityData_s::ResumeInit() {
 }
 
 void GodRelicsActivityData_s::write_to_pbmsg(::proto_ff::GodRelicsActivityData & msg) const {
-	for(int32_t i = 0; i < (int32_t)group_data.GetSize() && i < group_data.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)group_data.size(); ++i) {
 		::proto_ff::GodRelicsTaskGroupEntry* temp_group_data = msg.add_group_data();
 		group_data[i].write_to_pbmsg(*temp_group_data);
 	}
@@ -786,8 +786,8 @@ void GodRelicsActivityData_s::write_to_pbmsg(::proto_ff::GodRelicsActivityData &
 
 void GodRelicsActivityData_s::read_from_pbmsg(const ::proto_ff::GodRelicsActivityData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GodRelicsActivityData_s));
-	group_data.SetSize(msg.group_data_size() > group_data.GetMaxSize() ? group_data.GetMaxSize() : msg.group_data_size());
-	for(int32_t i = 0; i < (int32_t)group_data.GetSize(); ++i) {
+	group_data.resize((int)msg.group_data_size() > (int)group_data.max_size() ? group_data.max_size() : msg.group_data_size());
+	for(int32_t i = 0; i < (int32_t)group_data.size(); ++i) {
 		const ::proto_ff::GodRelicsTaskGroupEntry & temp_group_data = msg.group_data(i);
 		group_data[i].read_from_pbmsg(temp_group_data);
 	}
@@ -911,14 +911,14 @@ int DupTowerDBRecordEntry_s::ResumeInit() {
 }
 
 void DupTowerDBRecordEntry_s::write_to_pbmsg(::proto_ff::DupTowerDBRecordEntry & msg) const {
-	msg.set_name((const char*)name.Get());
+	msg.set_name((const char*)name.data());
 	msg.set_time((uint64_t)time);
 	msg.set_cid((uint64_t)cid);
 }
 
 void DupTowerDBRecordEntry_s::read_from_pbmsg(const ::proto_ff::DupTowerDBRecordEntry & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupTowerDBRecordEntry_s));
-	name.Copy(msg.name());
+	name = msg.name();
 	time = msg.time();
 	cid = msg.cid();
 }
@@ -942,7 +942,7 @@ int DupTowerDBRecord_s::ResumeInit() {
 
 void DupTowerDBRecord_s::write_to_pbmsg(::proto_ff::DupTowerDBRecord & msg) const {
 	msg.set_id((uint64_t)id);
-	for(int32_t i = 0; i < (int32_t)entrys.GetSize() && i < entrys.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
 		::proto_ff::DupTowerDBRecordEntry* temp_entrys = msg.add_entrys();
 		entrys[i].write_to_pbmsg(*temp_entrys);
 	}
@@ -951,8 +951,8 @@ void DupTowerDBRecord_s::write_to_pbmsg(::proto_ff::DupTowerDBRecord & msg) cons
 void DupTowerDBRecord_s::read_from_pbmsg(const ::proto_ff::DupTowerDBRecord & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupTowerDBRecord_s));
 	id = msg.id();
-	entrys.SetSize(msg.entrys_size() > entrys.GetMaxSize() ? entrys.GetMaxSize() : msg.entrys_size());
-	for(int32_t i = 0; i < (int32_t)entrys.GetSize(); ++i) {
+	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
 		const ::proto_ff::DupTowerDBRecordEntry & temp_entrys = msg.entrys(i);
 		entrys[i].read_from_pbmsg(temp_entrys);
 	}
@@ -977,7 +977,7 @@ int DupTowerDBData_s::ResumeInit() {
 
 void DupTowerDBData_s::write_to_pbmsg(::proto_ff::DupTowerDBData & msg) const {
 	msg.set_pass_dupid((uint64_t)pass_dupId);
-	for(int32_t i = 0; i < (int32_t)ids.GetSize() && i < ids.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)ids.size(); ++i) {
 		msg.add_ids((uint64_t)ids[i]);
 	}
 }
@@ -985,8 +985,8 @@ void DupTowerDBData_s::write_to_pbmsg(::proto_ff::DupTowerDBData & msg) const {
 void DupTowerDBData_s::read_from_pbmsg(const ::proto_ff::DupTowerDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupTowerDBData_s));
 	pass_dupId = msg.pass_dupid();
-	ids.SetSize(msg.ids_size() > ids.GetMaxSize() ? ids.GetMaxSize() : msg.ids_size());
-	for(int32_t i = 0; i < (int32_t)ids.GetSize(); ++i) {
+	ids.resize((int)msg.ids_size() > (int)ids.max_size() ? ids.max_size() : msg.ids_size());
+	for(int32_t i = 0; i < (int32_t)ids.size(); ++i) {
 		ids[i] = msg.ids(i);
 	}
 }
@@ -1037,11 +1037,11 @@ int DupDBData_s::ResumeInit() {
 }
 
 void DupDBData_s::write_to_pbmsg(::proto_ff::DupDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)record.GetSize() && i < record.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
 		::proto_ff::DupRecord* temp_record = msg.add_record();
 		record[i].write_to_pbmsg(*temp_record);
 	}
-	for(int32_t i = 0; i < (int32_t)groups.GetSize() && i < groups.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)groups.size(); ++i) {
 		::proto_ff::DupGroupData* temp_groups = msg.add_groups();
 		groups[i].write_to_pbmsg(*temp_groups);
 	}
@@ -1053,13 +1053,13 @@ void DupDBData_s::write_to_pbmsg(::proto_ff::DupDBData & msg) const {
 
 void DupDBData_s::read_from_pbmsg(const ::proto_ff::DupDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupDBData_s));
-	record.SetSize(msg.record_size() > record.GetMaxSize() ? record.GetMaxSize() : msg.record_size());
-	for(int32_t i = 0; i < (int32_t)record.GetSize(); ++i) {
+	record.resize((int)msg.record_size() > (int)record.max_size() ? record.max_size() : msg.record_size());
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
 		const ::proto_ff::DupRecord & temp_record = msg.record(i);
 		record[i].read_from_pbmsg(temp_record);
 	}
-	groups.SetSize(msg.groups_size() > groups.GetMaxSize() ? groups.GetMaxSize() : msg.groups_size());
-	for(int32_t i = 0; i < (int32_t)groups.GetSize(); ++i) {
+	groups.resize((int)msg.groups_size() > (int)groups.max_size() ? groups.max_size() : msg.groups_size());
+	for(int32_t i = 0; i < (int32_t)groups.size(); ++i) {
 		const ::proto_ff::DupGroupData & temp_groups = msg.groups(i);
 		groups[i].read_from_pbmsg(temp_groups);
 	}
@@ -1168,11 +1168,11 @@ int BuffDBData_s::ResumeInit() {
 }
 
 void BuffDBData_s::write_to_pbmsg(::proto_ff::BuffDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize() && i < info_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		::proto_ff::BuffDBInfo* temp_info_lst = msg.add_info_lst();
 		info_lst[i].write_to_pbmsg(*temp_info_lst);
 	}
-	for(int32_t i = 0; i < (int32_t)cd_lst.GetSize() && i < cd_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)cd_lst.size(); ++i) {
 		::proto_ff::BuffDBCdInfo* temp_cd_lst = msg.add_cd_lst();
 		cd_lst[i].write_to_pbmsg(*temp_cd_lst);
 	}
@@ -1180,13 +1180,13 @@ void BuffDBData_s::write_to_pbmsg(::proto_ff::BuffDBData & msg) const {
 
 void BuffDBData_s::read_from_pbmsg(const ::proto_ff::BuffDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BuffDBData_s));
-	info_lst.SetSize(msg.info_lst_size() > info_lst.GetMaxSize() ? info_lst.GetMaxSize() : msg.info_lst_size());
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize(); ++i) {
+	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::BuffDBInfo & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	cd_lst.SetSize(msg.cd_lst_size() > cd_lst.GetMaxSize() ? cd_lst.GetMaxSize() : msg.cd_lst_size());
-	for(int32_t i = 0; i < (int32_t)cd_lst.GetSize(); ++i) {
+	cd_lst.resize((int)msg.cd_lst_size() > (int)cd_lst.max_size() ? cd_lst.max_size() : msg.cd_lst_size());
+	for(int32_t i = 0; i < (int32_t)cd_lst.size(); ++i) {
 		const ::proto_ff::BuffDBCdInfo & temp_cd_lst = msg.cd_lst(i);
 		cd_lst[i].read_from_pbmsg(temp_cd_lst);
 	}
@@ -1251,26 +1251,26 @@ int BossDBData_s::ResumeInit() {
 }
 
 void BossDBData_s::write_to_pbmsg(::proto_ff::BossDBData & msg) const {
-	for(int32_t i = 0; i < (int32_t)infos.GetSize() && i < infos.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
 		::proto_ff::BossSimpleInfoDB* temp_infos = msg.add_infos();
 		infos[i].write_to_pbmsg(*temp_infos);
 	}
 	msg.set_lasttime((uint64_t)lastTime);
-	for(int32_t i = 0; i < (int32_t)attents.GetSize() && i < attents.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)attents.size(); ++i) {
 		msg.add_attents((int64_t)attents[i]);
 	}
 }
 
 void BossDBData_s::read_from_pbmsg(const ::proto_ff::BossDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BossDBData_s));
-	infos.SetSize(msg.infos_size() > infos.GetMaxSize() ? infos.GetMaxSize() : msg.infos_size());
-	for(int32_t i = 0; i < (int32_t)infos.GetSize(); ++i) {
+	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
 		const ::proto_ff::BossSimpleInfoDB & temp_infos = msg.infos(i);
 		infos[i].read_from_pbmsg(temp_infos);
 	}
 	lastTime = msg.lasttime();
-	attents.SetSize(msg.attents_size() > attents.GetMaxSize() ? attents.GetMaxSize() : msg.attents_size());
-	for(int32_t i = 0; i < (int32_t)attents.GetSize(); ++i) {
+	attents.resize((int)msg.attents_size() > (int)attents.max_size() ? attents.max_size() : msg.attents_size());
+	for(int32_t i = 0; i < (int32_t)attents.size(); ++i) {
 		attents[i] = msg.attents(i);
 	}
 }
@@ -1476,7 +1476,7 @@ void RoleListDBRsp_s::write_to_pbmsg(::proto_ff::RoleListDBRsp & msg) const {
 	msg.set_reqid((uint64_t)reqid);
 	msg.set_uid((uint32_t)uid);
 	msg.set_gateid((uint32_t)gateid);
-	for(int32_t i = 0; i < (int32_t)role_lst.GetSize() && i < role_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)role_lst.size(); ++i) {
 		::proto_ff::RoleListDBProto* temp_role_lst = msg.add_role_lst();
 		role_lst[i].write_to_pbmsg(*temp_role_lst);
 	}
@@ -1489,8 +1489,8 @@ void RoleListDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleListDBRsp & msg) {
 	reqid = msg.reqid();
 	uid = msg.uid();
 	gateid = msg.gateid();
-	role_lst.SetSize(msg.role_lst_size() > role_lst.GetMaxSize() ? role_lst.GetMaxSize() : msg.role_lst_size());
-	for(int32_t i = 0; i < (int32_t)role_lst.GetSize(); ++i) {
+	role_lst.resize((int)msg.role_lst_size() > (int)role_lst.max_size() ? role_lst.max_size() : msg.role_lst_size());
+	for(int32_t i = 0; i < (int32_t)role_lst.size(); ++i) {
 		const ::proto_ff::RoleListDBProto & temp_role_lst = msg.role_lst(i);
 		role_lst[i].read_from_pbmsg(temp_role_lst);
 	}
@@ -1714,13 +1714,13 @@ int RoleChgNameDBReq_s::ResumeInit() {
 
 void RoleChgNameDBReq_s::write_to_pbmsg(::proto_ff::RoleChgNameDBReq & msg) const {
 	msg.set_cid((uint64_t)cid);
-	msg.set_name((const char*)name.Get());
+	msg.set_name((const char*)name.data());
 }
 
 void RoleChgNameDBReq_s::read_from_pbmsg(const ::proto_ff::RoleChgNameDBReq & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleChgNameDBReq_s));
 	cid = msg.cid();
-	name.Copy(msg.name());
+	name = msg.name();
 }
 
 RoleChgNameDBRsp_s::RoleChgNameDBRsp_s() {
@@ -1744,14 +1744,14 @@ int RoleChgNameDBRsp_s::ResumeInit() {
 void RoleChgNameDBRsp_s::write_to_pbmsg(::proto_ff::RoleChgNameDBRsp & msg) const {
 	msg.set_ret((int32_t)ret);
 	msg.set_cid((uint64_t)cid);
-	msg.set_name((const char*)name.Get());
+	msg.set_name((const char*)name.data());
 }
 
 void RoleChgNameDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleChgNameDBRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleChgNameDBRsp_s));
 	ret = msg.ret();
 	cid = msg.cid();
-	name.Copy(msg.name());
+	name = msg.name();
 }
 
 RoleSimpleListDBReq_s::RoleSimpleListDBReq_s() {
@@ -1797,7 +1797,7 @@ int RoleSimpleListDBRsp_s::ResumeInit() {
 
 void RoleSimpleListDBRsp_s::write_to_pbmsg(::proto_ff::RoleSimpleListDBRsp & msg) const {
 	msg.set_ret((int32_t)ret);
-	for(int32_t i = 0; i < (int32_t)info.GetSize() && i < info.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		::proto_ff::CenterRoleProto* temp_info = msg.add_info();
 		info[i].write_to_pbmsg(*temp_info);
 	}
@@ -1807,8 +1807,8 @@ void RoleSimpleListDBRsp_s::write_to_pbmsg(::proto_ff::RoleSimpleListDBRsp & msg
 void RoleSimpleListDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleSimpleListDBRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleSimpleListDBRsp_s));
 	ret = msg.ret();
-	info.SetSize(msg.info_size() > info.GetMaxSize() ? info.GetMaxSize() : msg.info_size());
-	for(int32_t i = 0; i < (int32_t)info.GetSize(); ++i) {
+	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::CenterRoleProto & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
@@ -1832,12 +1832,12 @@ int CreatureTransLogicDBReq_s::ResumeInit() {
 }
 
 void CreatureTransLogicDBReq_s::write_to_pbmsg(::proto_ff::CreatureTransLogicDBReq & msg) const {
-	msg.set_trans_data((const char*)trans_data.Get());
+	msg.set_trans_data((const char*)trans_data.data());
 }
 
 void CreatureTransLogicDBReq_s::read_from_pbmsg(const ::proto_ff::CreatureTransLogicDBReq & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CreatureTransLogicDBReq_s));
-	trans_data.Copy(msg.trans_data());
+	trans_data = msg.trans_data();
 }
 
 CreatureTransLogicDBRsp_s::CreatureTransLogicDBRsp_s() {
@@ -1887,7 +1887,7 @@ int NewMailDBInfo_s::ResumeInit() {
 }
 
 void NewMailDBInfo_s::write_to_pbmsg(::proto_ff::NewMailDBInfo & msg) const {
-	for(int32_t i = 0; i < (int32_t)data.GetSize() && i < data.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		::proto_ff::MailInfo* temp_data = msg.add_data();
 		data[i].write_to_pbmsg(*temp_data);
 	}
@@ -1896,8 +1896,8 @@ void NewMailDBInfo_s::write_to_pbmsg(::proto_ff::NewMailDBInfo & msg) const {
 
 void NewMailDBInfo_s::read_from_pbmsg(const ::proto_ff::NewMailDBInfo & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct NewMailDBInfo_s));
-	data.SetSize(msg.data_size() > data.GetMaxSize() ? data.GetMaxSize() : msg.data_size());
-	for(int32_t i = 0; i < (int32_t)data.GetSize(); ++i) {
+	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::MailInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
 	}
@@ -1922,7 +1922,7 @@ int MailDBOperateInfo_s::ResumeInit() {
 }
 
 void MailDBOperateInfo_s::write_to_pbmsg(::proto_ff::MailDBOperateInfo & msg) const {
-	for(int32_t i = 0; i < (int32_t)mid_lst.GetSize() && i < mid_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)mid_lst.size(); ++i) {
 		msg.add_mid_lst((uint32_t)mid_lst[i]);
 	}
 	msg.set_result((int32_t)result);
@@ -1930,8 +1930,8 @@ void MailDBOperateInfo_s::write_to_pbmsg(::proto_ff::MailDBOperateInfo & msg) co
 
 void MailDBOperateInfo_s::read_from_pbmsg(const ::proto_ff::MailDBOperateInfo & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct MailDBOperateInfo_s));
-	mid_lst.SetSize(msg.mid_lst_size() > mid_lst.GetMaxSize() ? mid_lst.GetMaxSize() : msg.mid_lst_size());
-	for(int32_t i = 0; i < (int32_t)mid_lst.GetSize(); ++i) {
+	mid_lst.resize((int)msg.mid_lst_size() > (int)mid_lst.max_size() ? mid_lst.max_size() : msg.mid_lst_size());
+	for(int32_t i = 0; i < (int32_t)mid_lst.size(); ++i) {
 		mid_lst[i] = msg.mid_lst(i);
 	}
 	result = msg.result();
@@ -2084,7 +2084,7 @@ int CharacterMailDBResponse_s::ResumeInit() {
 
 void CharacterMailDBResponse_s::write_to_pbmsg(::proto_ff::CharacterMailDBResponse & msg) const {
 	msg.set_charid((uint64_t)charID);
-	for(int32_t i = 0; i < (int32_t)info.GetSize() && i < info.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		::proto_ff::MailInfo* temp_info = msg.add_info();
 		info[i].write_to_pbmsg(*temp_info);
 	}
@@ -2096,8 +2096,8 @@ void CharacterMailDBResponse_s::write_to_pbmsg(::proto_ff::CharacterMailDBRespon
 void CharacterMailDBResponse_s::read_from_pbmsg(const ::proto_ff::CharacterMailDBResponse & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CharacterMailDBResponse_s));
 	charID = msg.charid();
-	info.SetSize(msg.info_size() > info.GetMaxSize() ? info.GetMaxSize() : msg.info_size());
-	for(int32_t i = 0; i < (int32_t)info.GetSize(); ++i) {
+	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::MailInfo & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
@@ -2258,7 +2258,7 @@ int ZoneMailTransCharacterMailRsp_s::ResumeInit() {
 
 void ZoneMailTransCharacterMailRsp_s::write_to_pbmsg(::proto_ff::ZoneMailTransCharacterMailRsp & msg) const {
 	msg.set_cid((uint64_t)cid);
-	for(int32_t i = 0; i < (int32_t)data.GetSize() && i < data.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		::proto_ff::MailInfo* temp_data = msg.add_data();
 		data[i].write_to_pbmsg(*temp_data);
 	}
@@ -2267,8 +2267,8 @@ void ZoneMailTransCharacterMailRsp_s::write_to_pbmsg(::proto_ff::ZoneMailTransCh
 void ZoneMailTransCharacterMailRsp_s::read_from_pbmsg(const ::proto_ff::ZoneMailTransCharacterMailRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ZoneMailTransCharacterMailRsp_s));
 	cid = msg.cid();
-	data.SetSize(msg.data_size() > data.GetMaxSize() ? data.GetMaxSize() : msg.data_size());
-	for(int32_t i = 0; i < (int32_t)data.GetSize(); ++i) {
+	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::MailInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
 	}
@@ -2299,10 +2299,10 @@ void WebMailDBDataReq_s::write_to_pbmsg(::proto_ff::WebMailDBDataReq & msg) cons
 	msg.set_cid((uint64_t)cid);
 	msg.set_pernum((uint32_t)pernum);
 	msg.set_curpage((uint32_t)curpage);
-	for(int32_t i = 0; i < (int32_t)id_lst.GetSize() && i < id_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)id_lst.size(); ++i) {
 		msg.add_id_lst((uint32_t)id_lst[i]);
 	}
-	msg.set_webid((const char*)webId.Get());
+	msg.set_webid((const char*)webId.data());
 }
 
 void WebMailDBDataReq_s::read_from_pbmsg(const ::proto_ff::WebMailDBDataReq & msg) {
@@ -2311,11 +2311,11 @@ void WebMailDBDataReq_s::read_from_pbmsg(const ::proto_ff::WebMailDBDataReq & ms
 	cid = msg.cid();
 	pernum = msg.pernum();
 	curpage = msg.curpage();
-	id_lst.SetSize(msg.id_lst_size() > id_lst.GetMaxSize() ? id_lst.GetMaxSize() : msg.id_lst_size());
-	for(int32_t i = 0; i < (int32_t)id_lst.GetSize(); ++i) {
+	id_lst.resize((int)msg.id_lst_size() > (int)id_lst.max_size() ? id_lst.max_size() : msg.id_lst_size());
+	for(int32_t i = 0; i < (int32_t)id_lst.size(); ++i) {
 		id_lst[i] = msg.id_lst(i);
 	}
-	webId.Copy(msg.webid());
+	webId = msg.webid();
 }
 
 WebMailDBDataRsp_s::WebMailDBDataRsp_s() {
@@ -2343,14 +2343,14 @@ void WebMailDBDataRsp_s::write_to_pbmsg(::proto_ff::WebMailDBDataRsp & msg) cons
 	msg.set_cid((uint64_t)cid);
 	msg.set_curpage((uint32_t)curpage);
 	msg.set_totalcount((uint32_t)totalcount);
-	for(int32_t i = 0; i < (int32_t)id_lst.GetSize() && i < id_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)id_lst.size(); ++i) {
 		msg.add_id_lst((uint32_t)id_lst[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize() && i < info_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		::proto_ff::WebMailDataProto* temp_info_lst = msg.add_info_lst();
 		info_lst[i].write_to_pbmsg(*temp_info_lst);
 	}
-	msg.set_webid((const char*)webId.Get());
+	msg.set_webid((const char*)webId.data());
 }
 
 void WebMailDBDataRsp_s::read_from_pbmsg(const ::proto_ff::WebMailDBDataRsp & msg) {
@@ -2359,16 +2359,16 @@ void WebMailDBDataRsp_s::read_from_pbmsg(const ::proto_ff::WebMailDBDataRsp & ms
 	cid = msg.cid();
 	curpage = msg.curpage();
 	totalcount = msg.totalcount();
-	id_lst.SetSize(msg.id_lst_size() > id_lst.GetMaxSize() ? id_lst.GetMaxSize() : msg.id_lst_size());
-	for(int32_t i = 0; i < (int32_t)id_lst.GetSize(); ++i) {
+	id_lst.resize((int)msg.id_lst_size() > (int)id_lst.max_size() ? id_lst.max_size() : msg.id_lst_size());
+	for(int32_t i = 0; i < (int32_t)id_lst.size(); ++i) {
 		id_lst[i] = msg.id_lst(i);
 	}
-	info_lst.SetSize(msg.info_lst_size() > info_lst.GetMaxSize() ? info_lst.GetMaxSize() : msg.info_lst_size());
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize(); ++i) {
+	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::WebMailDataProto & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	webId.Copy(msg.webid());
+	webId = msg.webid();
 }
 
 FriendDBInfo_s::FriendDBInfo_s() {
@@ -2422,23 +2422,23 @@ int FriendDBRequest_s::ResumeInit() {
 
 void FriendDBRequest_s::write_to_pbmsg(::proto_ff::FriendDBRequest & msg) const {
 	msg.set_charid((uint64_t)charid);
-	for(int32_t i = 0; i < (int32_t)dstid_lst.GetSize() && i < dstid_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)dstid_lst.size(); ++i) {
 		msg.add_dstid_lst((uint64_t)dstid_lst[i]);
 	}
 	msg.set_operate_type((uint32_t)operate_type);
-	msg.set_data(data.Get());
+	msg.set_data(data.data());
 	msg.set_query_times((uint32_t)query_times);
 }
 
 void FriendDBRequest_s::read_from_pbmsg(const ::proto_ff::FriendDBRequest & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FriendDBRequest_s));
 	charid = msg.charid();
-	dstid_lst.SetSize(msg.dstid_lst_size() > dstid_lst.GetMaxSize() ? dstid_lst.GetMaxSize() : msg.dstid_lst_size());
-	for(int32_t i = 0; i < (int32_t)dstid_lst.GetSize(); ++i) {
+	dstid_lst.resize((int)msg.dstid_lst_size() > (int)dstid_lst.max_size() ? dstid_lst.max_size() : msg.dstid_lst_size());
+	for(int32_t i = 0; i < (int32_t)dstid_lst.size(); ++i) {
 		dstid_lst[i] = msg.dstid_lst(i);
 	}
 	operate_type = msg.operate_type();
-	data.Copy(msg.data());
+	data = msg.data();
 	query_times = msg.query_times();
 }
 
@@ -2466,14 +2466,14 @@ void FriendDBResponse_s::write_to_pbmsg(::proto_ff::FriendDBResponse & msg) cons
 	msg.set_retcode((int32_t)retcode);
 	msg.set_charid((uint64_t)charid);
 	msg.set_operate_type((uint32_t)operate_type);
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize() && i < info_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		::proto_ff::FriendDBInfo* temp_info_lst = msg.add_info_lst();
 		info_lst[i].write_to_pbmsg(*temp_info_lst);
 	}
-	for(int32_t i = 0; i < (int32_t)last_lst.GetSize() && i < last_lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)last_lst.size(); ++i) {
 		msg.add_last_lst((uint64_t)last_lst[i]);
 	}
-	msg.set_data(data.Get());
+	msg.set_data(data.data());
 	msg.set_query_times((uint32_t)query_times);
 }
 
@@ -2482,16 +2482,16 @@ void FriendDBResponse_s::read_from_pbmsg(const ::proto_ff::FriendDBResponse & ms
 	retcode = msg.retcode();
 	charid = msg.charid();
 	operate_type = msg.operate_type();
-	info_lst.SetSize(msg.info_lst_size() > info_lst.GetMaxSize() ? info_lst.GetMaxSize() : msg.info_lst_size());
-	for(int32_t i = 0; i < (int32_t)info_lst.GetSize(); ++i) {
+	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::FriendDBInfo & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	last_lst.SetSize(msg.last_lst_size() > last_lst.GetMaxSize() ? last_lst.GetMaxSize() : msg.last_lst_size());
-	for(int32_t i = 0; i < (int32_t)last_lst.GetSize(); ++i) {
+	last_lst.resize((int)msg.last_lst_size() > (int)last_lst.max_size() ? last_lst.max_size() : msg.last_lst_size());
+	for(int32_t i = 0; i < (int32_t)last_lst.size(); ++i) {
 		last_lst[i] = msg.last_lst(i);
 	}
-	data.Copy(msg.data());
+	data = msg.data();
 	query_times = msg.query_times();
 }
 
@@ -2542,7 +2542,7 @@ int AllFriendDBResponse_s::ResumeInit() {
 void AllFriendDBResponse_s::write_to_pbmsg(::proto_ff::AllFriendDBResponse & msg) const {
 	msg.set_retcode((int32_t)retcode);
 	msg.set_offset((int32_t)offset);
-	for(int32_t i = 0; i < (int32_t)info.GetSize() && i < info.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		::proto_ff::FriendDBInfo* temp_info = msg.add_info();
 		info[i].write_to_pbmsg(*temp_info);
 	}
@@ -2552,8 +2552,8 @@ void AllFriendDBResponse_s::read_from_pbmsg(const ::proto_ff::AllFriendDBRespons
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct AllFriendDBResponse_s));
 	retcode = msg.retcode();
 	offset = msg.offset();
-	info.SetSize(msg.info_size() > info.GetMaxSize() ? info.GetMaxSize() : msg.info_size());
-	for(int32_t i = 0; i < (int32_t)info.GetSize(); ++i) {
+	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::FriendDBInfo & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
@@ -2576,7 +2576,7 @@ int SaveFriendDBRequest_s::ResumeInit() {
 }
 
 void SaveFriendDBRequest_s::write_to_pbmsg(::proto_ff::SaveFriendDBRequest & msg) const {
-	for(int32_t i = 0; i < (int32_t)info.GetSize() && i < info.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		::proto_ff::FriendDBInfo* temp_info = msg.add_info();
 		info[i].write_to_pbmsg(*temp_info);
 	}
@@ -2584,8 +2584,8 @@ void SaveFriendDBRequest_s::write_to_pbmsg(::proto_ff::SaveFriendDBRequest & msg
 
 void SaveFriendDBRequest_s::read_from_pbmsg(const ::proto_ff::SaveFriendDBRequest & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SaveFriendDBRequest_s));
-	info.SetSize(msg.info_size() > info.GetMaxSize() ? info.GetMaxSize() : msg.info_size());
-	for(int32_t i = 0; i < (int32_t)info.GetSize(); ++i) {
+	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::FriendDBInfo & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
@@ -2664,6 +2664,7 @@ void GlobalDBEntry_s::write_to_pbmsg(::proto_ff::GlobalDBEntry & msg) const {
 void GlobalDBEntry_s::read_from_pbmsg(const ::proto_ff::GlobalDBEntry & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GlobalDBEntry_s));
 	type_id = msg.type_id();
+	data = msg.data();
 }
 
 GlobalDBResponse_s::GlobalDBResponse_s() {
@@ -2684,7 +2685,7 @@ int GlobalDBResponse_s::ResumeInit() {
 }
 
 void GlobalDBResponse_s::write_to_pbmsg(::proto_ff::GlobalDBResponse & msg) const {
-	for(int32_t i = 0; i < (int32_t)entry.GetSize() && i < entry.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)entry.size(); ++i) {
 		::proto_ff::GlobalDBEntry* temp_entry = msg.add_entry();
 		entry[i].write_to_pbmsg(*temp_entry);
 	}
@@ -2693,8 +2694,8 @@ void GlobalDBResponse_s::write_to_pbmsg(::proto_ff::GlobalDBResponse & msg) cons
 
 void GlobalDBResponse_s::read_from_pbmsg(const ::proto_ff::GlobalDBResponse & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GlobalDBResponse_s));
-	entry.SetSize(msg.entry_size() > entry.GetMaxSize() ? entry.GetMaxSize() : msg.entry_size());
-	for(int32_t i = 0; i < (int32_t)entry.GetSize(); ++i) {
+	entry.resize((int)msg.entry_size() > (int)entry.max_size() ? entry.max_size() : msg.entry_size());
+	for(int32_t i = 0; i < (int32_t)entry.size(); ++i) {
 		const ::proto_ff::GlobalDBEntry & temp_entry = msg.entry(i);
 		entry[i].read_from_pbmsg(temp_entry);
 	}
@@ -2725,6 +2726,7 @@ void GlobalDBSetRequest_s::write_to_pbmsg(::proto_ff::GlobalDBSetRequest & msg) 
 void GlobalDBSetRequest_s::read_from_pbmsg(const ::proto_ff::GlobalDBSetRequest & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GlobalDBSetRequest_s));
 	type_id = msg.type_id();
+	data = msg.data();
 }
 
 GlobalDBSetResponse_s::GlobalDBSetResponse_s() {
@@ -2773,7 +2775,7 @@ int GlobalComData_s::ResumeInit() {
 }
 
 void GlobalComData_s::write_to_pbmsg(::proto_ff::GlobalComData & msg) const {
-	for(int32_t i = 0; i < (int32_t)towerDupReward.GetSize() && i < towerDupReward.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)towerDupReward.size(); ++i) {
 		::proto_ff::DupTowerDBRecord* temp_towerdupreward = msg.add_towerdupreward();
 		towerDupReward[i].write_to_pbmsg(*temp_towerdupreward);
 	}
@@ -2781,8 +2783,8 @@ void GlobalComData_s::write_to_pbmsg(::proto_ff::GlobalComData & msg) const {
 
 void GlobalComData_s::read_from_pbmsg(const ::proto_ff::GlobalComData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GlobalComData_s));
-	towerDupReward.SetSize(msg.towerdupreward_size() > towerDupReward.GetMaxSize() ? towerDupReward.GetMaxSize() : msg.towerdupreward_size());
-	for(int32_t i = 0; i < (int32_t)towerDupReward.GetSize(); ++i) {
+	towerDupReward.resize((int)msg.towerdupreward_size() > (int)towerDupReward.max_size() ? towerDupReward.max_size() : msg.towerdupreward_size());
+	for(int32_t i = 0; i < (int32_t)towerDupReward.size(); ++i) {
 		const ::proto_ff::DupTowerDBRecord & temp_towerdupreward = msg.towerdupreward(i);
 		towerDupReward[i].read_from_pbmsg(temp_towerdupreward);
 	}
@@ -2860,7 +2862,7 @@ int ActDBRsp_s::ResumeInit() {
 }
 
 void ActDBRsp_s::write_to_pbmsg(::proto_ff::ActDBRsp & msg) const {
-	for(int32_t i = 0; i < (int32_t)lst.GetSize() && i < lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
 		::proto_ff::ActDBProto* temp_lst = msg.add_lst();
 		lst[i].write_to_pbmsg(*temp_lst);
 	}
@@ -2868,8 +2870,8 @@ void ActDBRsp_s::write_to_pbmsg(::proto_ff::ActDBRsp & msg) const {
 
 void ActDBRsp_s::read_from_pbmsg(const ::proto_ff::ActDBRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ActDBRsp_s));
-	lst.SetSize(msg.lst_size() > lst.GetMaxSize() ? lst.GetMaxSize() : msg.lst_size());
-	for(int32_t i = 0; i < (int32_t)lst.GetSize(); ++i) {
+	lst.resize((int)msg.lst_size() > (int)lst.max_size() ? lst.max_size() : msg.lst_size());
+	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
 		const ::proto_ff::ActDBProto & temp_lst = msg.lst(i);
 		lst[i].read_from_pbmsg(temp_lst);
 	}
@@ -2892,7 +2894,7 @@ int ActSaveDBReq_s::ResumeInit() {
 }
 
 void ActSaveDBReq_s::write_to_pbmsg(::proto_ff::ActSaveDBReq & msg) const {
-	for(int32_t i = 0; i < (int32_t)lst.GetSize() && i < lst.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
 		::proto_ff::ActDBProto* temp_lst = msg.add_lst();
 		lst[i].write_to_pbmsg(*temp_lst);
 	}
@@ -2900,8 +2902,8 @@ void ActSaveDBReq_s::write_to_pbmsg(::proto_ff::ActSaveDBReq & msg) const {
 
 void ActSaveDBReq_s::read_from_pbmsg(const ::proto_ff::ActSaveDBReq & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ActSaveDBReq_s));
-	lst.SetSize(msg.lst_size() > lst.GetMaxSize() ? lst.GetMaxSize() : msg.lst_size());
-	for(int32_t i = 0; i < (int32_t)lst.GetSize(); ++i) {
+	lst.resize((int)msg.lst_size() > (int)lst.max_size() ? lst.max_size() : msg.lst_size());
+	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
 		const ::proto_ff::ActDBProto & temp_lst = msg.lst(i);
 		lst[i].read_from_pbmsg(temp_lst);
 	}

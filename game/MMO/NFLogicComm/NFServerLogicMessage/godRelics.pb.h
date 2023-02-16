@@ -34,21 +34,21 @@ void  protobuf_AddDesc_godRelics_2eproto();
 void protobuf_AssignDesc_godRelics_2eproto();
 void protobuf_ShutdownFile_godRelics_2eproto();
 
-class godRelicsgodRelics;
-class Sheet_godRelicsgodRelics;
-class godRelicscondition;
-class Sheet_godRelicscondition;
+class E_GodrelicsGodrelics;
+class Sheet_GodrelicsGodrelics;
+class E_GodrelicsCondition;
+class Sheet_GodrelicsCondition;
 
 // ===================================================================
 
-class godRelicsgodRelics : public ::google::protobuf::Message {
+class E_GodrelicsGodrelics : public ::google::protobuf::Message {
  public:
-  godRelicsgodRelics();
-  virtual ~godRelicsgodRelics();
+  E_GodrelicsGodrelics();
+  virtual ~E_GodrelicsGodrelics();
 
-  godRelicsgodRelics(const godRelicsgodRelics& from);
+  E_GodrelicsGodrelics(const E_GodrelicsGodrelics& from);
 
-  inline godRelicsgodRelics& operator=(const godRelicsgodRelics& from) {
+  inline E_GodrelicsGodrelics& operator=(const E_GodrelicsGodrelics& from) {
     CopyFrom(from);
     return *this;
   }
@@ -62,17 +62,17 @@ class godRelicsgodRelics : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const godRelicsgodRelics& default_instance();
+  static const E_GodrelicsGodrelics& default_instance();
 
-  void Swap(godRelicsgodRelics* other);
+  void Swap(E_GodrelicsGodrelics* other);
 
   // implements Message ----------------------------------------------
 
-  godRelicsgodRelics* New() const;
+  E_GodrelicsGodrelics* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const godRelicsgodRelics& from);
-  void MergeFrom(const godRelicsgodRelics& from);
+  void CopyFrom(const E_GodrelicsGodrelics& from);
+  void MergeFrom(const E_GodrelicsGodrelics& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -95,51 +95,51 @@ class godRelicsgodRelics : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 functionId = 2;
-  inline bool has_functionid() const;
-  inline void clear_functionid();
-  static const int kFunctionIdFieldNumber = 2;
-  inline ::google::protobuf::int32 functionid() const;
-  inline void set_functionid(::google::protobuf::int32 value);
+  // optional int32 m_functionid = 2;
+  inline bool has_m_functionid() const;
+  inline void clear_m_functionid();
+  static const int kMFunctionidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_functionid() const;
+  inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional int32 group = 3;
-  inline bool has_group() const;
-  inline void clear_group();
-  static const int kGroupFieldNumber = 3;
-  inline ::google::protobuf::int32 group() const;
-  inline void set_group(::google::protobuf::int32 value);
+  // optional int32 m_group = 3;
+  inline bool has_m_group() const;
+  inline void clear_m_group();
+  static const int kMGroupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_group() const;
+  inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 skillID = 4;
-  inline bool has_skillid() const;
-  inline void clear_skillid();
-  static const int kSkillIDFieldNumber = 4;
-  inline ::google::protobuf::int32 skillid() const;
-  inline void set_skillid(::google::protobuf::int32 value);
+  // optional int32 m_skillid = 4;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillidFieldNumber = 4;
+  inline ::google::protobuf::int32 m_skillid() const;
+  inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.godRelicsgodRelics)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GodrelicsGodrelics)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_functionid();
-  inline void clear_has_functionid();
-  inline void set_has_group();
-  inline void clear_has_group();
-  inline void set_has_skillid();
-  inline void clear_has_skillid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_functionid();
+  inline void clear_has_m_functionid();
+  inline void set_has_m_group();
+  inline void clear_has_m_group();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 functionid_;
-  ::google::protobuf::int32 group_;
-  ::google::protobuf::int32 skillid_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_functionid_;
+  ::google::protobuf::int32 m_group_;
+  ::google::protobuf::int32 m_skillid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -149,18 +149,18 @@ class godRelicsgodRelics : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_godRelics_2eproto();
 
   void InitAsDefaultInstance();
-  static godRelicsgodRelics* default_instance_;
+  static E_GodrelicsGodrelics* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_godRelicsgodRelics : public ::google::protobuf::Message {
+class Sheet_GodrelicsGodrelics : public ::google::protobuf::Message {
  public:
-  Sheet_godRelicsgodRelics();
-  virtual ~Sheet_godRelicsgodRelics();
+  Sheet_GodrelicsGodrelics();
+  virtual ~Sheet_GodrelicsGodrelics();
 
-  Sheet_godRelicsgodRelics(const Sheet_godRelicsgodRelics& from);
+  Sheet_GodrelicsGodrelics(const Sheet_GodrelicsGodrelics& from);
 
-  inline Sheet_godRelicsgodRelics& operator=(const Sheet_godRelicsgodRelics& from) {
+  inline Sheet_GodrelicsGodrelics& operator=(const Sheet_GodrelicsGodrelics& from) {
     CopyFrom(from);
     return *this;
   }
@@ -174,17 +174,17 @@ class Sheet_godRelicsgodRelics : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_godRelicsgodRelics& default_instance();
+  static const Sheet_GodrelicsGodrelics& default_instance();
 
-  void Swap(Sheet_godRelicsgodRelics* other);
+  void Swap(Sheet_GodrelicsGodrelics* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_godRelicsgodRelics* New() const;
+  Sheet_GodrelicsGodrelics* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_godRelicsgodRelics& from);
-  void MergeFrom(const Sheet_godRelicsgodRelics& from);
+  void CopyFrom(const Sheet_GodrelicsGodrelics& from);
+  void MergeFrom(const Sheet_GodrelicsGodrelics& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -207,24 +207,24 @@ class Sheet_godRelicsgodRelics : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.godRelicsgodRelics godRelicsgodRelics_List = 1;
-  inline int godrelicsgodrelics_list_size() const;
-  inline void clear_godrelicsgodrelics_list();
-  static const int kGodRelicsgodRelicsListFieldNumber = 1;
-  inline const ::proto_ff::godRelicsgodRelics& godrelicsgodrelics_list(int index) const;
-  inline ::proto_ff::godRelicsgodRelics* mutable_godrelicsgodrelics_list(int index);
-  inline ::proto_ff::godRelicsgodRelics* add_godrelicsgodrelics_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicsgodRelics >&
-      godrelicsgodrelics_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicsgodRelics >*
-      mutable_godrelicsgodrelics_list();
+  // repeated .proto_ff.E_GodrelicsGodrelics E_GodrelicsGodrelics_List = 1;
+  inline int e_godrelicsgodrelics_list_size() const;
+  inline void clear_e_godrelicsgodrelics_list();
+  static const int kEGodrelicsGodrelicsListFieldNumber = 1;
+  inline const ::proto_ff::E_GodrelicsGodrelics& e_godrelicsgodrelics_list(int index) const;
+  inline ::proto_ff::E_GodrelicsGodrelics* mutable_e_godrelicsgodrelics_list(int index);
+  inline ::proto_ff::E_GodrelicsGodrelics* add_e_godrelicsgodrelics_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsGodrelics >&
+      e_godrelicsgodrelics_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsGodrelics >*
+      mutable_e_godrelicsgodrelics_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_godRelicsgodRelics)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GodrelicsGodrelics)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicsgodRelics > godrelicsgodrelics_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsGodrelics > e_godrelicsgodrelics_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -234,18 +234,18 @@ class Sheet_godRelicsgodRelics : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_godRelics_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_godRelicsgodRelics* default_instance_;
+  static Sheet_GodrelicsGodrelics* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class godRelicscondition : public ::google::protobuf::Message {
+class E_GodrelicsCondition : public ::google::protobuf::Message {
  public:
-  godRelicscondition();
-  virtual ~godRelicscondition();
+  E_GodrelicsCondition();
+  virtual ~E_GodrelicsCondition();
 
-  godRelicscondition(const godRelicscondition& from);
+  E_GodrelicsCondition(const E_GodrelicsCondition& from);
 
-  inline godRelicscondition& operator=(const godRelicscondition& from) {
+  inline E_GodrelicsCondition& operator=(const E_GodrelicsCondition& from) {
     CopyFrom(from);
     return *this;
   }
@@ -259,17 +259,17 @@ class godRelicscondition : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const godRelicscondition& default_instance();
+  static const E_GodrelicsCondition& default_instance();
 
-  void Swap(godRelicscondition* other);
+  void Swap(E_GodrelicsCondition* other);
 
   // implements Message ----------------------------------------------
 
-  godRelicscondition* New() const;
+  E_GodrelicsCondition* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const godRelicscondition& from);
-  void MergeFrom(const godRelicscondition& from);
+  void CopyFrom(const E_GodrelicsCondition& from);
+  void MergeFrom(const E_GodrelicsCondition& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -292,86 +292,86 @@ class godRelicscondition : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 group = 2;
-  inline bool has_group() const;
-  inline void clear_group();
-  static const int kGroupFieldNumber = 2;
-  inline ::google::protobuf::int32 group() const;
-  inline void set_group(::google::protobuf::int32 value);
+  // optional int32 m_group = 2;
+  inline bool has_m_group() const;
+  inline void clear_m_group();
+  static const int kMGroupFieldNumber = 2;
+  inline ::google::protobuf::int32 m_group() const;
+  inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 conditon = 3;
-  inline bool has_conditon() const;
-  inline void clear_conditon();
-  static const int kConditonFieldNumber = 3;
-  inline ::google::protobuf::int32 conditon() const;
-  inline void set_conditon(::google::protobuf::int32 value);
+  // optional int32 m_conditon = 3;
+  inline bool has_m_conditon() const;
+  inline void clear_m_conditon();
+  static const int kMConditonFieldNumber = 3;
+  inline ::google::protobuf::int32 m_conditon() const;
+  inline void set_m_conditon(::google::protobuf::int32 value);
 
-  // optional string parama = 4;
-  inline bool has_parama() const;
-  inline void clear_parama();
-  static const int kParamaFieldNumber = 4;
-  inline const ::std::string& parama() const;
-  inline void set_parama(const ::std::string& value);
-  inline void set_parama(const char* value);
-  inline void set_parama(const char* value, size_t size);
-  inline ::std::string* mutable_parama();
-  inline ::std::string* release_parama();
-  inline void set_allocated_parama(::std::string* parama);
+  // optional string m_parama = 4;
+  inline bool has_m_parama() const;
+  inline void clear_m_parama();
+  static const int kMParamaFieldNumber = 4;
+  inline const ::std::string& m_parama() const;
+  inline void set_m_parama(const ::std::string& value);
+  inline void set_m_parama(const char* value);
+  inline void set_m_parama(const char* value, size_t size);
+  inline ::std::string* mutable_m_parama();
+  inline ::std::string* release_m_parama();
+  inline void set_allocated_m_parama(::std::string* m_parama);
 
-  // optional int32 count = 5;
-  inline bool has_count() const;
-  inline void clear_count();
-  static const int kCountFieldNumber = 5;
-  inline ::google::protobuf::int32 count() const;
-  inline void set_count(::google::protobuf::int32 value);
+  // optional int32 m_count = 5;
+  inline bool has_m_count() const;
+  inline void clear_m_count();
+  static const int kMCountFieldNumber = 5;
+  inline ::google::protobuf::int32 m_count() const;
+  inline void set_m_count(::google::protobuf::int32 value);
 
-  // optional int32 rewardItem = 6;
-  inline bool has_rewarditem() const;
-  inline void clear_rewarditem();
-  static const int kRewardItemFieldNumber = 6;
-  inline ::google::protobuf::int32 rewarditem() const;
-  inline void set_rewarditem(::google::protobuf::int32 value);
+  // optional int32 m_rewarditem = 6;
+  inline bool has_m_rewarditem() const;
+  inline void clear_m_rewarditem();
+  static const int kMRewarditemFieldNumber = 6;
+  inline ::google::protobuf::int32 m_rewarditem() const;
+  inline void set_m_rewarditem(::google::protobuf::int32 value);
 
-  // optional int32 rewardNumber = 7;
-  inline bool has_rewardnumber() const;
-  inline void clear_rewardnumber();
-  static const int kRewardNumberFieldNumber = 7;
-  inline ::google::protobuf::int32 rewardnumber() const;
-  inline void set_rewardnumber(::google::protobuf::int32 value);
+  // optional int32 m_rewardnumber = 7;
+  inline bool has_m_rewardnumber() const;
+  inline void clear_m_rewardnumber();
+  static const int kMRewardnumberFieldNumber = 7;
+  inline ::google::protobuf::int32 m_rewardnumber() const;
+  inline void set_m_rewardnumber(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.godRelicscondition)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GodrelicsCondition)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_group();
-  inline void clear_has_group();
-  inline void set_has_conditon();
-  inline void clear_has_conditon();
-  inline void set_has_parama();
-  inline void clear_has_parama();
-  inline void set_has_count();
-  inline void clear_has_count();
-  inline void set_has_rewarditem();
-  inline void clear_has_rewarditem();
-  inline void set_has_rewardnumber();
-  inline void clear_has_rewardnumber();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_group();
+  inline void clear_has_m_group();
+  inline void set_has_m_conditon();
+  inline void clear_has_m_conditon();
+  inline void set_has_m_parama();
+  inline void clear_has_m_parama();
+  inline void set_has_m_count();
+  inline void clear_has_m_count();
+  inline void set_has_m_rewarditem();
+  inline void clear_has_m_rewarditem();
+  inline void set_has_m_rewardnumber();
+  inline void clear_has_m_rewardnumber();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 group_;
-  ::std::string* parama_;
-  ::google::protobuf::int32 conditon_;
-  ::google::protobuf::int32 count_;
-  ::google::protobuf::int32 rewarditem_;
-  ::google::protobuf::int32 rewardnumber_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_group_;
+  ::std::string* m_parama_;
+  ::google::protobuf::int32 m_conditon_;
+  ::google::protobuf::int32 m_count_;
+  ::google::protobuf::int32 m_rewarditem_;
+  ::google::protobuf::int32 m_rewardnumber_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -381,18 +381,18 @@ class godRelicscondition : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_godRelics_2eproto();
 
   void InitAsDefaultInstance();
-  static godRelicscondition* default_instance_;
+  static E_GodrelicsCondition* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_godRelicscondition : public ::google::protobuf::Message {
+class Sheet_GodrelicsCondition : public ::google::protobuf::Message {
  public:
-  Sheet_godRelicscondition();
-  virtual ~Sheet_godRelicscondition();
+  Sheet_GodrelicsCondition();
+  virtual ~Sheet_GodrelicsCondition();
 
-  Sheet_godRelicscondition(const Sheet_godRelicscondition& from);
+  Sheet_GodrelicsCondition(const Sheet_GodrelicsCondition& from);
 
-  inline Sheet_godRelicscondition& operator=(const Sheet_godRelicscondition& from) {
+  inline Sheet_GodrelicsCondition& operator=(const Sheet_GodrelicsCondition& from) {
     CopyFrom(from);
     return *this;
   }
@@ -406,17 +406,17 @@ class Sheet_godRelicscondition : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_godRelicscondition& default_instance();
+  static const Sheet_GodrelicsCondition& default_instance();
 
-  void Swap(Sheet_godRelicscondition* other);
+  void Swap(Sheet_GodrelicsCondition* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_godRelicscondition* New() const;
+  Sheet_GodrelicsCondition* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_godRelicscondition& from);
-  void MergeFrom(const Sheet_godRelicscondition& from);
+  void CopyFrom(const Sheet_GodrelicsCondition& from);
+  void MergeFrom(const Sheet_GodrelicsCondition& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -439,24 +439,24 @@ class Sheet_godRelicscondition : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.godRelicscondition godRelicscondition_List = 1;
-  inline int godrelicscondition_list_size() const;
-  inline void clear_godrelicscondition_list();
-  static const int kGodRelicsconditionListFieldNumber = 1;
-  inline const ::proto_ff::godRelicscondition& godrelicscondition_list(int index) const;
-  inline ::proto_ff::godRelicscondition* mutable_godrelicscondition_list(int index);
-  inline ::proto_ff::godRelicscondition* add_godrelicscondition_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicscondition >&
-      godrelicscondition_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicscondition >*
-      mutable_godrelicscondition_list();
+  // repeated .proto_ff.E_GodrelicsCondition E_GodrelicsCondition_List = 1;
+  inline int e_godrelicscondition_list_size() const;
+  inline void clear_e_godrelicscondition_list();
+  static const int kEGodrelicsConditionListFieldNumber = 1;
+  inline const ::proto_ff::E_GodrelicsCondition& e_godrelicscondition_list(int index) const;
+  inline ::proto_ff::E_GodrelicsCondition* mutable_e_godrelicscondition_list(int index);
+  inline ::proto_ff::E_GodrelicsCondition* add_e_godrelicscondition_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsCondition >&
+      e_godrelicscondition_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsCondition >*
+      mutable_e_godrelicscondition_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_godRelicscondition)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GodrelicsCondition)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicscondition > godrelicscondition_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsCondition > e_godrelicscondition_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -466,365 +466,365 @@ class Sheet_godRelicscondition : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_godRelics_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_godRelicscondition* default_instance_;
+  static Sheet_GodrelicsCondition* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// godRelicsgodRelics
+// E_GodrelicsGodrelics
 
-// optional int32 id = 1;
-inline bool godRelicsgodRelics::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_GodrelicsGodrelics::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void godRelicsgodRelics::set_has_id() {
+inline void E_GodrelicsGodrelics::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void godRelicsgodRelics::clear_has_id() {
+inline void E_GodrelicsGodrelics::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void godRelicsgodRelics::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_GodrelicsGodrelics::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 godRelicsgodRelics::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_GodrelicsGodrelics::m_id() const {
+  return m_id_;
 }
-inline void godRelicsgodRelics::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_GodrelicsGodrelics::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 functionId = 2;
-inline bool godRelicsgodRelics::has_functionid() const {
+// optional int32 m_functionid = 2;
+inline bool E_GodrelicsGodrelics::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void godRelicsgodRelics::set_has_functionid() {
+inline void E_GodrelicsGodrelics::set_has_m_functionid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void godRelicsgodRelics::clear_has_functionid() {
+inline void E_GodrelicsGodrelics::clear_has_m_functionid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void godRelicsgodRelics::clear_functionid() {
-  functionid_ = 0;
-  clear_has_functionid();
+inline void E_GodrelicsGodrelics::clear_m_functionid() {
+  m_functionid_ = 0;
+  clear_has_m_functionid();
 }
-inline ::google::protobuf::int32 godRelicsgodRelics::functionid() const {
-  return functionid_;
+inline ::google::protobuf::int32 E_GodrelicsGodrelics::m_functionid() const {
+  return m_functionid_;
 }
-inline void godRelicsgodRelics::set_functionid(::google::protobuf::int32 value) {
-  set_has_functionid();
-  functionid_ = value;
+inline void E_GodrelicsGodrelics::set_m_functionid(::google::protobuf::int32 value) {
+  set_has_m_functionid();
+  m_functionid_ = value;
 }
 
-// optional int32 group = 3;
-inline bool godRelicsgodRelics::has_group() const {
+// optional int32 m_group = 3;
+inline bool E_GodrelicsGodrelics::has_m_group() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void godRelicsgodRelics::set_has_group() {
+inline void E_GodrelicsGodrelics::set_has_m_group() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void godRelicsgodRelics::clear_has_group() {
+inline void E_GodrelicsGodrelics::clear_has_m_group() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void godRelicsgodRelics::clear_group() {
-  group_ = 0;
-  clear_has_group();
+inline void E_GodrelicsGodrelics::clear_m_group() {
+  m_group_ = 0;
+  clear_has_m_group();
 }
-inline ::google::protobuf::int32 godRelicsgodRelics::group() const {
-  return group_;
+inline ::google::protobuf::int32 E_GodrelicsGodrelics::m_group() const {
+  return m_group_;
 }
-inline void godRelicsgodRelics::set_group(::google::protobuf::int32 value) {
-  set_has_group();
-  group_ = value;
+inline void E_GodrelicsGodrelics::set_m_group(::google::protobuf::int32 value) {
+  set_has_m_group();
+  m_group_ = value;
 }
 
-// optional int32 skillID = 4;
-inline bool godRelicsgodRelics::has_skillid() const {
+// optional int32 m_skillid = 4;
+inline bool E_GodrelicsGodrelics::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void godRelicsgodRelics::set_has_skillid() {
+inline void E_GodrelicsGodrelics::set_has_m_skillid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void godRelicsgodRelics::clear_has_skillid() {
+inline void E_GodrelicsGodrelics::clear_has_m_skillid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void godRelicsgodRelics::clear_skillid() {
-  skillid_ = 0;
-  clear_has_skillid();
+inline void E_GodrelicsGodrelics::clear_m_skillid() {
+  m_skillid_ = 0;
+  clear_has_m_skillid();
 }
-inline ::google::protobuf::int32 godRelicsgodRelics::skillid() const {
-  return skillid_;
+inline ::google::protobuf::int32 E_GodrelicsGodrelics::m_skillid() const {
+  return m_skillid_;
 }
-inline void godRelicsgodRelics::set_skillid(::google::protobuf::int32 value) {
-  set_has_skillid();
-  skillid_ = value;
+inline void E_GodrelicsGodrelics::set_m_skillid(::google::protobuf::int32 value) {
+  set_has_m_skillid();
+  m_skillid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_godRelicsgodRelics
+// Sheet_GodrelicsGodrelics
 
-// repeated .proto_ff.godRelicsgodRelics godRelicsgodRelics_List = 1;
-inline int Sheet_godRelicsgodRelics::godrelicsgodrelics_list_size() const {
-  return godrelicsgodrelics_list_.size();
+// repeated .proto_ff.E_GodrelicsGodrelics E_GodrelicsGodrelics_List = 1;
+inline int Sheet_GodrelicsGodrelics::e_godrelicsgodrelics_list_size() const {
+  return e_godrelicsgodrelics_list_.size();
 }
-inline void Sheet_godRelicsgodRelics::clear_godrelicsgodrelics_list() {
-  godrelicsgodrelics_list_.Clear();
+inline void Sheet_GodrelicsGodrelics::clear_e_godrelicsgodrelics_list() {
+  e_godrelicsgodrelics_list_.Clear();
 }
-inline const ::proto_ff::godRelicsgodRelics& Sheet_godRelicsgodRelics::godrelicsgodrelics_list(int index) const {
-  return godrelicsgodrelics_list_.Get(index);
+inline const ::proto_ff::E_GodrelicsGodrelics& Sheet_GodrelicsGodrelics::e_godrelicsgodrelics_list(int index) const {
+  return e_godrelicsgodrelics_list_.Get(index);
 }
-inline ::proto_ff::godRelicsgodRelics* Sheet_godRelicsgodRelics::mutable_godrelicsgodrelics_list(int index) {
-  return godrelicsgodrelics_list_.Mutable(index);
+inline ::proto_ff::E_GodrelicsGodrelics* Sheet_GodrelicsGodrelics::mutable_e_godrelicsgodrelics_list(int index) {
+  return e_godrelicsgodrelics_list_.Mutable(index);
 }
-inline ::proto_ff::godRelicsgodRelics* Sheet_godRelicsgodRelics::add_godrelicsgodrelics_list() {
-  return godrelicsgodrelics_list_.Add();
+inline ::proto_ff::E_GodrelicsGodrelics* Sheet_GodrelicsGodrelics::add_e_godrelicsgodrelics_list() {
+  return e_godrelicsgodrelics_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicsgodRelics >&
-Sheet_godRelicsgodRelics::godrelicsgodrelics_list() const {
-  return godrelicsgodrelics_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsGodrelics >&
+Sheet_GodrelicsGodrelics::e_godrelicsgodrelics_list() const {
+  return e_godrelicsgodrelics_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicsgodRelics >*
-Sheet_godRelicsgodRelics::mutable_godrelicsgodrelics_list() {
-  return &godrelicsgodrelics_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsGodrelics >*
+Sheet_GodrelicsGodrelics::mutable_e_godrelicsgodrelics_list() {
+  return &e_godrelicsgodrelics_list_;
 }
 
 // -------------------------------------------------------------------
 
-// godRelicscondition
+// E_GodrelicsCondition
 
-// optional int32 id = 1;
-inline bool godRelicscondition::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_GodrelicsCondition::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void godRelicscondition::set_has_id() {
+inline void E_GodrelicsCondition::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void godRelicscondition::clear_has_id() {
+inline void E_GodrelicsCondition::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void godRelicscondition::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_GodrelicsCondition::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 godRelicscondition::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_id() const {
+  return m_id_;
 }
-inline void godRelicscondition::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_GodrelicsCondition::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 group = 2;
-inline bool godRelicscondition::has_group() const {
+// optional int32 m_group = 2;
+inline bool E_GodrelicsCondition::has_m_group() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void godRelicscondition::set_has_group() {
+inline void E_GodrelicsCondition::set_has_m_group() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void godRelicscondition::clear_has_group() {
+inline void E_GodrelicsCondition::clear_has_m_group() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void godRelicscondition::clear_group() {
-  group_ = 0;
-  clear_has_group();
+inline void E_GodrelicsCondition::clear_m_group() {
+  m_group_ = 0;
+  clear_has_m_group();
 }
-inline ::google::protobuf::int32 godRelicscondition::group() const {
-  return group_;
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_group() const {
+  return m_group_;
 }
-inline void godRelicscondition::set_group(::google::protobuf::int32 value) {
-  set_has_group();
-  group_ = value;
+inline void E_GodrelicsCondition::set_m_group(::google::protobuf::int32 value) {
+  set_has_m_group();
+  m_group_ = value;
 }
 
-// optional int32 conditon = 3;
-inline bool godRelicscondition::has_conditon() const {
+// optional int32 m_conditon = 3;
+inline bool E_GodrelicsCondition::has_m_conditon() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void godRelicscondition::set_has_conditon() {
+inline void E_GodrelicsCondition::set_has_m_conditon() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void godRelicscondition::clear_has_conditon() {
+inline void E_GodrelicsCondition::clear_has_m_conditon() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void godRelicscondition::clear_conditon() {
-  conditon_ = 0;
-  clear_has_conditon();
+inline void E_GodrelicsCondition::clear_m_conditon() {
+  m_conditon_ = 0;
+  clear_has_m_conditon();
 }
-inline ::google::protobuf::int32 godRelicscondition::conditon() const {
-  return conditon_;
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_conditon() const {
+  return m_conditon_;
 }
-inline void godRelicscondition::set_conditon(::google::protobuf::int32 value) {
-  set_has_conditon();
-  conditon_ = value;
+inline void E_GodrelicsCondition::set_m_conditon(::google::protobuf::int32 value) {
+  set_has_m_conditon();
+  m_conditon_ = value;
 }
 
-// optional string parama = 4;
-inline bool godRelicscondition::has_parama() const {
+// optional string m_parama = 4;
+inline bool E_GodrelicsCondition::has_m_parama() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void godRelicscondition::set_has_parama() {
+inline void E_GodrelicsCondition::set_has_m_parama() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void godRelicscondition::clear_has_parama() {
+inline void E_GodrelicsCondition::clear_has_m_parama() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void godRelicscondition::clear_parama() {
-  if (parama_ != &::google::protobuf::internal::kEmptyString) {
-    parama_->clear();
+inline void E_GodrelicsCondition::clear_m_parama() {
+  if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+    m_parama_->clear();
   }
-  clear_has_parama();
+  clear_has_m_parama();
 }
-inline const ::std::string& godRelicscondition::parama() const {
-  return *parama_;
+inline const ::std::string& E_GodrelicsCondition::m_parama() const {
+  return *m_parama_;
 }
-inline void godRelicscondition::set_parama(const ::std::string& value) {
-  set_has_parama();
-  if (parama_ == &::google::protobuf::internal::kEmptyString) {
-    parama_ = new ::std::string;
+inline void E_GodrelicsCondition::set_m_parama(const ::std::string& value) {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
   }
-  parama_->assign(value);
+  m_parama_->assign(value);
 }
-inline void godRelicscondition::set_parama(const char* value) {
-  set_has_parama();
-  if (parama_ == &::google::protobuf::internal::kEmptyString) {
-    parama_ = new ::std::string;
+inline void E_GodrelicsCondition::set_m_parama(const char* value) {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
   }
-  parama_->assign(value);
+  m_parama_->assign(value);
 }
-inline void godRelicscondition::set_parama(const char* value, size_t size) {
-  set_has_parama();
-  if (parama_ == &::google::protobuf::internal::kEmptyString) {
-    parama_ = new ::std::string;
+inline void E_GodrelicsCondition::set_m_parama(const char* value, size_t size) {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
   }
-  parama_->assign(reinterpret_cast<const char*>(value), size);
+  m_parama_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* godRelicscondition::mutable_parama() {
-  set_has_parama();
-  if (parama_ == &::google::protobuf::internal::kEmptyString) {
-    parama_ = new ::std::string;
+inline ::std::string* E_GodrelicsCondition::mutable_m_parama() {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
   }
-  return parama_;
+  return m_parama_;
 }
-inline ::std::string* godRelicscondition::release_parama() {
-  clear_has_parama();
-  if (parama_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_GodrelicsCondition::release_m_parama() {
+  clear_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = parama_;
-    parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_parama_;
+    m_parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void godRelicscondition::set_allocated_parama(::std::string* parama) {
-  if (parama_ != &::google::protobuf::internal::kEmptyString) {
-    delete parama_;
+inline void E_GodrelicsCondition::set_allocated_m_parama(::std::string* m_parama) {
+  if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_parama_;
   }
-  if (parama) {
-    set_has_parama();
-    parama_ = parama;
+  if (m_parama) {
+    set_has_m_parama();
+    m_parama_ = m_parama;
   } else {
-    clear_has_parama();
-    parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_parama();
+    m_parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 count = 5;
-inline bool godRelicscondition::has_count() const {
+// optional int32 m_count = 5;
+inline bool E_GodrelicsCondition::has_m_count() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void godRelicscondition::set_has_count() {
+inline void E_GodrelicsCondition::set_has_m_count() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void godRelicscondition::clear_has_count() {
+inline void E_GodrelicsCondition::clear_has_m_count() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void godRelicscondition::clear_count() {
-  count_ = 0;
-  clear_has_count();
+inline void E_GodrelicsCondition::clear_m_count() {
+  m_count_ = 0;
+  clear_has_m_count();
 }
-inline ::google::protobuf::int32 godRelicscondition::count() const {
-  return count_;
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_count() const {
+  return m_count_;
 }
-inline void godRelicscondition::set_count(::google::protobuf::int32 value) {
-  set_has_count();
-  count_ = value;
+inline void E_GodrelicsCondition::set_m_count(::google::protobuf::int32 value) {
+  set_has_m_count();
+  m_count_ = value;
 }
 
-// optional int32 rewardItem = 6;
-inline bool godRelicscondition::has_rewarditem() const {
+// optional int32 m_rewarditem = 6;
+inline bool E_GodrelicsCondition::has_m_rewarditem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void godRelicscondition::set_has_rewarditem() {
+inline void E_GodrelicsCondition::set_has_m_rewarditem() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void godRelicscondition::clear_has_rewarditem() {
+inline void E_GodrelicsCondition::clear_has_m_rewarditem() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void godRelicscondition::clear_rewarditem() {
-  rewarditem_ = 0;
-  clear_has_rewarditem();
+inline void E_GodrelicsCondition::clear_m_rewarditem() {
+  m_rewarditem_ = 0;
+  clear_has_m_rewarditem();
 }
-inline ::google::protobuf::int32 godRelicscondition::rewarditem() const {
-  return rewarditem_;
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_rewarditem() const {
+  return m_rewarditem_;
 }
-inline void godRelicscondition::set_rewarditem(::google::protobuf::int32 value) {
-  set_has_rewarditem();
-  rewarditem_ = value;
+inline void E_GodrelicsCondition::set_m_rewarditem(::google::protobuf::int32 value) {
+  set_has_m_rewarditem();
+  m_rewarditem_ = value;
 }
 
-// optional int32 rewardNumber = 7;
-inline bool godRelicscondition::has_rewardnumber() const {
+// optional int32 m_rewardnumber = 7;
+inline bool E_GodrelicsCondition::has_m_rewardnumber() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void godRelicscondition::set_has_rewardnumber() {
+inline void E_GodrelicsCondition::set_has_m_rewardnumber() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void godRelicscondition::clear_has_rewardnumber() {
+inline void E_GodrelicsCondition::clear_has_m_rewardnumber() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void godRelicscondition::clear_rewardnumber() {
-  rewardnumber_ = 0;
-  clear_has_rewardnumber();
+inline void E_GodrelicsCondition::clear_m_rewardnumber() {
+  m_rewardnumber_ = 0;
+  clear_has_m_rewardnumber();
 }
-inline ::google::protobuf::int32 godRelicscondition::rewardnumber() const {
-  return rewardnumber_;
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_rewardnumber() const {
+  return m_rewardnumber_;
 }
-inline void godRelicscondition::set_rewardnumber(::google::protobuf::int32 value) {
-  set_has_rewardnumber();
-  rewardnumber_ = value;
+inline void E_GodrelicsCondition::set_m_rewardnumber(::google::protobuf::int32 value) {
+  set_has_m_rewardnumber();
+  m_rewardnumber_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_godRelicscondition
+// Sheet_GodrelicsCondition
 
-// repeated .proto_ff.godRelicscondition godRelicscondition_List = 1;
-inline int Sheet_godRelicscondition::godrelicscondition_list_size() const {
-  return godrelicscondition_list_.size();
+// repeated .proto_ff.E_GodrelicsCondition E_GodrelicsCondition_List = 1;
+inline int Sheet_GodrelicsCondition::e_godrelicscondition_list_size() const {
+  return e_godrelicscondition_list_.size();
 }
-inline void Sheet_godRelicscondition::clear_godrelicscondition_list() {
-  godrelicscondition_list_.Clear();
+inline void Sheet_GodrelicsCondition::clear_e_godrelicscondition_list() {
+  e_godrelicscondition_list_.Clear();
 }
-inline const ::proto_ff::godRelicscondition& Sheet_godRelicscondition::godrelicscondition_list(int index) const {
-  return godrelicscondition_list_.Get(index);
+inline const ::proto_ff::E_GodrelicsCondition& Sheet_GodrelicsCondition::e_godrelicscondition_list(int index) const {
+  return e_godrelicscondition_list_.Get(index);
 }
-inline ::proto_ff::godRelicscondition* Sheet_godRelicscondition::mutable_godrelicscondition_list(int index) {
-  return godrelicscondition_list_.Mutable(index);
+inline ::proto_ff::E_GodrelicsCondition* Sheet_GodrelicsCondition::mutable_e_godrelicscondition_list(int index) {
+  return e_godrelicscondition_list_.Mutable(index);
 }
-inline ::proto_ff::godRelicscondition* Sheet_godRelicscondition::add_godrelicscondition_list() {
-  return godrelicscondition_list_.Add();
+inline ::proto_ff::E_GodrelicsCondition* Sheet_GodrelicsCondition::add_e_godrelicscondition_list() {
+  return e_godrelicscondition_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicscondition >&
-Sheet_godRelicscondition::godrelicscondition_list() const {
-  return godrelicscondition_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsCondition >&
+Sheet_GodrelicsCondition::e_godrelicscondition_list() const {
+  return e_godrelicscondition_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::godRelicscondition >*
-Sheet_godRelicscondition::mutable_godrelicscondition_list() {
-  return &godrelicscondition_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodrelicsCondition >*
+Sheet_GodrelicsCondition::mutable_e_godrelicscondition_list() {
+  return &e_godrelicscondition_list_;
 }
 
 

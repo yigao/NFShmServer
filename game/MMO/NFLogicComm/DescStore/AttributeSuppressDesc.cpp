@@ -33,9 +33,9 @@ int AttributeSuppressDesc::Load(NFResDB *pDB)
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "AttributeSuppressDesc::Load() strFileName = {}", GetFileName());
 
-	proto_ff::Sheet_attributesuppress table;
+	proto_ff::Sheet_AttributeSuppress table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
 	CHECK_EXPR(pResTable != NULL, -1, "pTable == NULL, GetTable:{} Error", GetFileName());
 
@@ -46,33 +46,33 @@ int AttributeSuppressDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.attributesuppress_list_size() < 0) || (table.attributesuppress_list_size() > (int)(m_astDesc.size())))
+	if ((table.e_attributesuppress_list_size() < 0) || (table.e_attributesuppress_list_size() > (int)(m_astDesc.size())))
 	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.attributesuppress_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_attributesuppress_list_size());
 		return -2;
 	}
 
-	m_astDesc.resize(table.attributesuppress_list_size());
+	m_astDesc.resize(table.e_attributesuppress_list_size());
 	m_astDescIndex.resize(m_astDescIndex.max_size());
 	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
 	{
 		m_astDescIndex[i] = -1;
 	}
-	for (int i = 0; i < (int)table.attributesuppress_list_size(); i++)
+	for (int i = 0; i < (int)table.e_attributesuppress_list_size(); i++)
 	{
-		const proto_ff::attributesuppress& desc = table.attributesuppress_list(i);
-		if (desc.has_lvldiff() == false && desc.ByteSize() == 0)
+		const proto_ff::E_AttributeSuppress& desc = table.e_attributesuppress_list(i);
+		if (desc.has_m_lvldiff() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.lvldiff());
+		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_lvldiff());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.lvldiff(), i);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.lvldiff());
-		uint64_t hashKey = desc.lvldiff();
+		auto iter = m_astDescMap.emplace_hint(desc.m_lvldiff(), i);
+		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_lvldiff());
+		uint64_t hashKey = desc.m_lvldiff();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{
 			if (m_astDescIndex[hashKey] != -1)
@@ -91,7 +91,7 @@ int AttributeSuppressDesc::Load(NFResDB *pDB)
 		}
 	}
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.attributesuppress_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_attributesuppress_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
@@ -101,7 +101,7 @@ int AttributeSuppressDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::attributesuppress_s * AttributeSuppressDesc::GetDesc(int id) const
+const proto_ff_s::E_AttributeSuppress_s * AttributeSuppressDesc::GetDesc(int id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -124,8 +124,8 @@ const proto_ff_s::attributesuppress_s * AttributeSuppressDesc::GetDesc(int id) c
 	return NULL;
 }
 
-proto_ff_s::attributesuppress_s * AttributeSuppressDesc::GetDesc(int id)
+proto_ff_s::E_AttributeSuppress_s * AttributeSuppressDesc::GetDesc(int id)
 {
-	return const_cast<proto_ff_s::attributesuppress_s *>((static_cast<const AttributeSuppressDesc*>(this))->GetDesc(id));
+	return const_cast<proto_ff_s::E_AttributeSuppress_s *>((static_cast<const AttributeSuppressDesc*>(this))->GetDesc(id));
 }
 

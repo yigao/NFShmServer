@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-GMCommandGMCommand_s::GMCommandGMCommand_s() {
+E_GmcommandGmcommand_s::E_GmcommandGmcommand_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,32 +10,32 @@ GMCommandGMCommand_s::GMCommandGMCommand_s() {
 	}
 }
 
-int GMCommandGMCommand_s::CreateInit() {
-	ID = (int32_t)0;
-	ParamCount = (int32_t)0;
+int E_GmcommandGmcommand_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_paramcount = (int32_t)0;
 	return 0;
 }
 
-int GMCommandGMCommand_s::ResumeInit() {
+int E_GmcommandGmcommand_s::ResumeInit() {
 	return 0;
 }
 
-void GMCommandGMCommand_s::write_to_pbmsg(::proto_ff::GMCommandGMCommand & msg) const {
-	msg.set_id((int32_t)ID);
-	msg.set_key((const char*)Key.Get());
-	msg.set_paramcount((int32_t)ParamCount);
-	msg.set_des((const char*)Des.Get());
+void E_GmcommandGmcommand_s::write_to_pbmsg(::proto_ff::E_GmcommandGmcommand & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_key((const char*)m_key.data());
+	msg.set_m_paramcount((int32_t)m_paramcount);
+	msg.set_m_des((const char*)m_des.data());
 }
 
-void GMCommandGMCommand_s::read_from_pbmsg(const ::proto_ff::GMCommandGMCommand & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GMCommandGMCommand_s));
-	ID = msg.id();
-	Key.Copy(msg.key());
-	ParamCount = msg.paramcount();
-	Des.Copy(msg.des());
+void E_GmcommandGmcommand_s::read_from_pbmsg(const ::proto_ff::E_GmcommandGmcommand & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_GmcommandGmcommand_s));
+	m_id = msg.m_id();
+	m_key = msg.m_key();
+	m_paramcount = msg.m_paramcount();
+	m_des = msg.m_des();
 }
 
-Sheet_GMCommandGMCommand_s::Sheet_GMCommandGMCommand_s() {
+Sheet_GmcommandGmcommand_s::Sheet_GmcommandGmcommand_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -43,27 +43,27 @@ Sheet_GMCommandGMCommand_s::Sheet_GMCommandGMCommand_s() {
 	}
 }
 
-int Sheet_GMCommandGMCommand_s::CreateInit() {
+int Sheet_GmcommandGmcommand_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_GMCommandGMCommand_s::ResumeInit() {
+int Sheet_GmcommandGmcommand_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_GMCommandGMCommand_s::write_to_pbmsg(::proto_ff::Sheet_GMCommandGMCommand & msg) const {
-	for(int32_t i = 0; i < (int32_t)GMCommandGMCommand_List.GetSize() && i < GMCommandGMCommand_List.GetMaxSize(); ++i) {
-		::proto_ff::GMCommandGMCommand* temp_gmcommandgmcommand_list = msg.add_gmcommandgmcommand_list();
-		GMCommandGMCommand_List[i].write_to_pbmsg(*temp_gmcommandgmcommand_list);
+void Sheet_GmcommandGmcommand_s::write_to_pbmsg(::proto_ff::Sheet_GmcommandGmcommand & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_GmcommandGmcommand_List.size(); ++i) {
+		::proto_ff::E_GmcommandGmcommand* temp_e_gmcommandgmcommand_list = msg.add_e_gmcommandgmcommand_list();
+		E_GmcommandGmcommand_List[i].write_to_pbmsg(*temp_e_gmcommandgmcommand_list);
 	}
 }
 
-void Sheet_GMCommandGMCommand_s::read_from_pbmsg(const ::proto_ff::Sheet_GMCommandGMCommand & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_GMCommandGMCommand_s));
-	GMCommandGMCommand_List.SetSize(msg.gmcommandgmcommand_list_size() > GMCommandGMCommand_List.GetMaxSize() ? GMCommandGMCommand_List.GetMaxSize() : msg.gmcommandgmcommand_list_size());
-	for(int32_t i = 0; i < (int32_t)GMCommandGMCommand_List.GetSize(); ++i) {
-		const ::proto_ff::GMCommandGMCommand & temp_gmcommandgmcommand_list = msg.gmcommandgmcommand_list(i);
-		GMCommandGMCommand_List[i].read_from_pbmsg(temp_gmcommandgmcommand_list);
+void Sheet_GmcommandGmcommand_s::read_from_pbmsg(const ::proto_ff::Sheet_GmcommandGmcommand & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_GmcommandGmcommand_s));
+	E_GmcommandGmcommand_List.resize((int)msg.e_gmcommandgmcommand_list_size() > (int)E_GmcommandGmcommand_List.max_size() ? E_GmcommandGmcommand_List.max_size() : msg.e_gmcommandgmcommand_list_size());
+	for(int32_t i = 0; i < (int32_t)E_GmcommandGmcommand_List.size(); ++i) {
+		const ::proto_ff::E_GmcommandGmcommand & temp_e_gmcommandgmcommand_list = msg.e_gmcommandgmcommand_list(i);
+		E_GmcommandGmcommand_List[i].read_from_pbmsg(temp_e_gmcommandgmcommand_list);
 	}
 }
 

@@ -34,19 +34,19 @@ void  protobuf_AddDesc_ui_2eproto();
 void protobuf_AssignDesc_ui_2eproto();
 void protobuf_ShutdownFile_ui_2eproto();
 
-class uieffect;
-class Sheet_uieffect;
+class E_UiEffect;
+class Sheet_UiEffect;
 
 // ===================================================================
 
-class uieffect : public ::google::protobuf::Message {
+class E_UiEffect : public ::google::protobuf::Message {
  public:
-  uieffect();
-  virtual ~uieffect();
+  E_UiEffect();
+  virtual ~E_UiEffect();
 
-  uieffect(const uieffect& from);
+  E_UiEffect(const E_UiEffect& from);
 
-  inline uieffect& operator=(const uieffect& from) {
+  inline E_UiEffect& operator=(const E_UiEffect& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class uieffect : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const uieffect& default_instance();
+  static const E_UiEffect& default_instance();
 
-  void Swap(uieffect* other);
+  void Swap(E_UiEffect* other);
 
   // implements Message ----------------------------------------------
 
-  uieffect* New() const;
+  E_UiEffect* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const uieffect& from);
-  void MergeFrom(const uieffect& from);
+  void CopyFrom(const E_UiEffect& from);
+  void MergeFrom(const E_UiEffect& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,31 +93,31 @@ class uieffect : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 time = 2;
-  inline bool has_time() const;
-  inline void clear_time();
-  static const int kTimeFieldNumber = 2;
-  inline ::google::protobuf::int32 time() const;
-  inline void set_time(::google::protobuf::int32 value);
+  // optional int32 m_time = 2;
+  inline bool has_m_time() const;
+  inline void clear_m_time();
+  static const int kMTimeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_time() const;
+  inline void set_m_time(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.uieffect)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_UiEffect)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_time();
-  inline void clear_has_time();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_time();
+  inline void clear_has_m_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 time_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_time_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -127,18 +127,18 @@ class uieffect : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ui_2eproto();
 
   void InitAsDefaultInstance();
-  static uieffect* default_instance_;
+  static E_UiEffect* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_uieffect : public ::google::protobuf::Message {
+class Sheet_UiEffect : public ::google::protobuf::Message {
  public:
-  Sheet_uieffect();
-  virtual ~Sheet_uieffect();
+  Sheet_UiEffect();
+  virtual ~Sheet_UiEffect();
 
-  Sheet_uieffect(const Sheet_uieffect& from);
+  Sheet_UiEffect(const Sheet_UiEffect& from);
 
-  inline Sheet_uieffect& operator=(const Sheet_uieffect& from) {
+  inline Sheet_UiEffect& operator=(const Sheet_UiEffect& from) {
     CopyFrom(from);
     return *this;
   }
@@ -152,17 +152,17 @@ class Sheet_uieffect : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_uieffect& default_instance();
+  static const Sheet_UiEffect& default_instance();
 
-  void Swap(Sheet_uieffect* other);
+  void Swap(Sheet_UiEffect* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_uieffect* New() const;
+  Sheet_UiEffect* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_uieffect& from);
-  void MergeFrom(const Sheet_uieffect& from);
+  void CopyFrom(const Sheet_UiEffect& from);
+  void MergeFrom(const Sheet_UiEffect& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -185,24 +185,24 @@ class Sheet_uieffect : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.uieffect uieffect_List = 1;
-  inline int uieffect_list_size() const;
-  inline void clear_uieffect_list();
-  static const int kUieffectListFieldNumber = 1;
-  inline const ::proto_ff::uieffect& uieffect_list(int index) const;
-  inline ::proto_ff::uieffect* mutable_uieffect_list(int index);
-  inline ::proto_ff::uieffect* add_uieffect_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::uieffect >&
-      uieffect_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::uieffect >*
-      mutable_uieffect_list();
+  // repeated .proto_ff.E_UiEffect E_UiEffect_List = 1;
+  inline int e_uieffect_list_size() const;
+  inline void clear_e_uieffect_list();
+  static const int kEUiEffectListFieldNumber = 1;
+  inline const ::proto_ff::E_UiEffect& e_uieffect_list(int index) const;
+  inline ::proto_ff::E_UiEffect* mutable_e_uieffect_list(int index);
+  inline ::proto_ff::E_UiEffect* add_e_uieffect_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_UiEffect >&
+      e_uieffect_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_UiEffect >*
+      mutable_e_uieffect_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_uieffect)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_UiEffect)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::uieffect > uieffect_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_UiEffect > e_uieffect_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -212,86 +212,86 @@ class Sheet_uieffect : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ui_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_uieffect* default_instance_;
+  static Sheet_UiEffect* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// uieffect
+// E_UiEffect
 
-// optional int64 id = 1;
-inline bool uieffect::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_UiEffect::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void uieffect::set_has_id() {
+inline void E_UiEffect::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void uieffect::clear_has_id() {
+inline void E_UiEffect::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void uieffect::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_UiEffect::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 uieffect::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_UiEffect::m_id() const {
+  return m_id_;
 }
-inline void uieffect::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_UiEffect::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 time = 2;
-inline bool uieffect::has_time() const {
+// optional int32 m_time = 2;
+inline bool E_UiEffect::has_m_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void uieffect::set_has_time() {
+inline void E_UiEffect::set_has_m_time() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void uieffect::clear_has_time() {
+inline void E_UiEffect::clear_has_m_time() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void uieffect::clear_time() {
-  time_ = 0;
-  clear_has_time();
+inline void E_UiEffect::clear_m_time() {
+  m_time_ = 0;
+  clear_has_m_time();
 }
-inline ::google::protobuf::int32 uieffect::time() const {
-  return time_;
+inline ::google::protobuf::int32 E_UiEffect::m_time() const {
+  return m_time_;
 }
-inline void uieffect::set_time(::google::protobuf::int32 value) {
-  set_has_time();
-  time_ = value;
+inline void E_UiEffect::set_m_time(::google::protobuf::int32 value) {
+  set_has_m_time();
+  m_time_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_uieffect
+// Sheet_UiEffect
 
-// repeated .proto_ff.uieffect uieffect_List = 1;
-inline int Sheet_uieffect::uieffect_list_size() const {
-  return uieffect_list_.size();
+// repeated .proto_ff.E_UiEffect E_UiEffect_List = 1;
+inline int Sheet_UiEffect::e_uieffect_list_size() const {
+  return e_uieffect_list_.size();
 }
-inline void Sheet_uieffect::clear_uieffect_list() {
-  uieffect_list_.Clear();
+inline void Sheet_UiEffect::clear_e_uieffect_list() {
+  e_uieffect_list_.Clear();
 }
-inline const ::proto_ff::uieffect& Sheet_uieffect::uieffect_list(int index) const {
-  return uieffect_list_.Get(index);
+inline const ::proto_ff::E_UiEffect& Sheet_UiEffect::e_uieffect_list(int index) const {
+  return e_uieffect_list_.Get(index);
 }
-inline ::proto_ff::uieffect* Sheet_uieffect::mutable_uieffect_list(int index) {
-  return uieffect_list_.Mutable(index);
+inline ::proto_ff::E_UiEffect* Sheet_UiEffect::mutable_e_uieffect_list(int index) {
+  return e_uieffect_list_.Mutable(index);
 }
-inline ::proto_ff::uieffect* Sheet_uieffect::add_uieffect_list() {
-  return uieffect_list_.Add();
+inline ::proto_ff::E_UiEffect* Sheet_UiEffect::add_e_uieffect_list() {
+  return e_uieffect_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::uieffect >&
-Sheet_uieffect::uieffect_list() const {
-  return uieffect_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_UiEffect >&
+Sheet_UiEffect::e_uieffect_list() const {
+  return e_uieffect_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::uieffect >*
-Sheet_uieffect::mutable_uieffect_list() {
-  return &uieffect_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_UiEffect >*
+Sheet_UiEffect::mutable_e_uieffect_list() {
+  return &e_uieffect_list_;
 }
 
 

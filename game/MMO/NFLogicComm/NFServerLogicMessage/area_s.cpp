@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-areaarea_s::areaarea_s() {
+E_AreaArea_s::E_AreaArea_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,37 +10,37 @@ areaarea_s::areaarea_s() {
 	}
 }
 
-int areaarea_s::CreateInit() {
-	id = (int64_t)0;
-	subType = (int32_t)0;
-	belongToSceneID = (int64_t)0;
-	shapeType = (int32_t)0;
-	isNotice = (int32_t)0;
+int E_AreaArea_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_subtype = (int32_t)0;
+	m_belongtosceneid = (int64_t)0;
+	m_shapetype = (int32_t)0;
+	m_isnotice = (int32_t)0;
 	return 0;
 }
 
-int areaarea_s::ResumeInit() {
+int E_AreaArea_s::ResumeInit() {
 	return 0;
 }
 
-void areaarea_s::write_to_pbmsg(::proto_ff::areaarea & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_subtype((int32_t)subType);
-	msg.set_belongtosceneid((int64_t)belongToSceneID);
-	msg.set_shapetype((int32_t)shapeType);
-	msg.set_isnotice((int32_t)isNotice);
+void E_AreaArea_s::write_to_pbmsg(::proto_ff::E_AreaArea & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_subtype((int32_t)m_subtype);
+	msg.set_m_belongtosceneid((int64_t)m_belongtosceneid);
+	msg.set_m_shapetype((int32_t)m_shapetype);
+	msg.set_m_isnotice((int32_t)m_isnotice);
 }
 
-void areaarea_s::read_from_pbmsg(const ::proto_ff::areaarea & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct areaarea_s));
-	id = msg.id();
-	subType = msg.subtype();
-	belongToSceneID = msg.belongtosceneid();
-	shapeType = msg.shapetype();
-	isNotice = msg.isnotice();
+void E_AreaArea_s::read_from_pbmsg(const ::proto_ff::E_AreaArea & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_AreaArea_s));
+	m_id = msg.m_id();
+	m_subtype = msg.m_subtype();
+	m_belongtosceneid = msg.m_belongtosceneid();
+	m_shapetype = msg.m_shapetype();
+	m_isnotice = msg.m_isnotice();
 }
 
-Sheet_areaarea_s::Sheet_areaarea_s() {
+Sheet_AreaArea_s::Sheet_AreaArea_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -48,27 +48,27 @@ Sheet_areaarea_s::Sheet_areaarea_s() {
 	}
 }
 
-int Sheet_areaarea_s::CreateInit() {
+int Sheet_AreaArea_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_areaarea_s::ResumeInit() {
+int Sheet_AreaArea_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_areaarea_s::write_to_pbmsg(::proto_ff::Sheet_areaarea & msg) const {
-	for(int32_t i = 0; i < (int32_t)areaarea_List.GetSize() && i < areaarea_List.GetMaxSize(); ++i) {
-		::proto_ff::areaarea* temp_areaarea_list = msg.add_areaarea_list();
-		areaarea_List[i].write_to_pbmsg(*temp_areaarea_list);
+void Sheet_AreaArea_s::write_to_pbmsg(::proto_ff::Sheet_AreaArea & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_AreaArea_List.size(); ++i) {
+		::proto_ff::E_AreaArea* temp_e_areaarea_list = msg.add_e_areaarea_list();
+		E_AreaArea_List[i].write_to_pbmsg(*temp_e_areaarea_list);
 	}
 }
 
-void Sheet_areaarea_s::read_from_pbmsg(const ::proto_ff::Sheet_areaarea & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_areaarea_s));
-	areaarea_List.SetSize(msg.areaarea_list_size() > areaarea_List.GetMaxSize() ? areaarea_List.GetMaxSize() : msg.areaarea_list_size());
-	for(int32_t i = 0; i < (int32_t)areaarea_List.GetSize(); ++i) {
-		const ::proto_ff::areaarea & temp_areaarea_list = msg.areaarea_list(i);
-		areaarea_List[i].read_from_pbmsg(temp_areaarea_list);
+void Sheet_AreaArea_s::read_from_pbmsg(const ::proto_ff::Sheet_AreaArea & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_AreaArea_s));
+	E_AreaArea_List.resize((int)msg.e_areaarea_list_size() > (int)E_AreaArea_List.max_size() ? E_AreaArea_List.max_size() : msg.e_areaarea_list_size());
+	for(int32_t i = 0; i < (int32_t)E_AreaArea_List.size(); ++i) {
+		const ::proto_ff::E_AreaArea & temp_e_areaarea_list = msg.e_areaarea_list(i);
+		E_AreaArea_List[i].read_from_pbmsg(temp_e_areaarea_list);
 	}
 }
 

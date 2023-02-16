@@ -34,48 +34,48 @@ void  protobuf_AddDesc_facade_2eproto();
 void protobuf_AssignDesc_facade_2eproto();
 void protobuf_ShutdownFile_facade_2eproto();
 
-class facadedisplaymaterialDesc;
-class facadedisplay;
-class Sheet_facadedisplay;
-class facadevaluetreasureAttributeDesc;
-class facadevalueArtifactAttributeDesc;
-class facadevalueBladeAttributeDesc;
-class facadevaluewingAttributeDesc;
-class facadevalue;
-class Sheet_facadevalue;
-class facadetype;
-class Sheet_facadetype;
-class facadefragmentattributeDesc;
-class facadefragment;
-class Sheet_facadefragment;
-class facadechangeattributeDesc;
-class facadechangeActiveAttributeDesc;
-class facadechange;
-class Sheet_facadechange;
-class facadestarUpupAttributeDesc;
-class facadestarUp;
-class Sheet_facadestarUp;
-class facadesoulattributeDesc;
-class facadesoul;
-class Sheet_facadesoul;
-class facadesoulActive;
-class Sheet_facadesoulActive;
-class facadesoulLvattributeDesc;
-class facadesoulLv;
-class Sheet_facadesoulLv;
-class facadesoulAchievement;
-class Sheet_facadesoulAchievement;
+class E_FacadeDisplayMaterialDesc;
+class E_FacadeDisplay;
+class Sheet_FacadeDisplay;
+class E_FacadeValueTreasureattributeDesc;
+class E_FacadeValueArtifactattributeDesc;
+class E_FacadeValueBladeattributeDesc;
+class E_FacadeValueWingattributeDesc;
+class E_FacadeValue;
+class Sheet_FacadeValue;
+class E_FacadeType;
+class Sheet_FacadeType;
+class E_FacadeFragmentAttributeDesc;
+class E_FacadeFragment;
+class Sheet_FacadeFragment;
+class E_FacadeChangeAttributeDesc;
+class E_FacadeChangeActiveattributeDesc;
+class E_FacadeChange;
+class Sheet_FacadeChange;
+class E_FacadeStarupUpattributeDesc;
+class E_FacadeStarup;
+class Sheet_FacadeStarup;
+class E_FacadeSoulAttributeDesc;
+class E_FacadeSoul;
+class Sheet_FacadeSoul;
+class E_FacadeSoulactive;
+class Sheet_FacadeSoulactive;
+class E_FacadeSoullvAttributeDesc;
+class E_FacadeSoullv;
+class Sheet_FacadeSoullv;
+class E_FacadeSoulachievement;
+class Sheet_FacadeSoulachievement;
 
 // ===================================================================
 
-class facadedisplaymaterialDesc : public ::google::protobuf::Message {
+class E_FacadeDisplayMaterialDesc : public ::google::protobuf::Message {
  public:
-  facadedisplaymaterialDesc();
-  virtual ~facadedisplaymaterialDesc();
+  E_FacadeDisplayMaterialDesc();
+  virtual ~E_FacadeDisplayMaterialDesc();
 
-  facadedisplaymaterialDesc(const facadedisplaymaterialDesc& from);
+  E_FacadeDisplayMaterialDesc(const E_FacadeDisplayMaterialDesc& from);
 
-  inline facadedisplaymaterialDesc& operator=(const facadedisplaymaterialDesc& from) {
+  inline E_FacadeDisplayMaterialDesc& operator=(const E_FacadeDisplayMaterialDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -89,17 +89,17 @@ class facadedisplaymaterialDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadedisplaymaterialDesc& default_instance();
+  static const E_FacadeDisplayMaterialDesc& default_instance();
 
-  void Swap(facadedisplaymaterialDesc* other);
+  void Swap(E_FacadeDisplayMaterialDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadedisplaymaterialDesc* New() const;
+  E_FacadeDisplayMaterialDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadedisplaymaterialDesc& from);
-  void MergeFrom(const facadedisplaymaterialDesc& from);
+  void CopyFrom(const E_FacadeDisplayMaterialDesc& from);
+  void MergeFrom(const E_FacadeDisplayMaterialDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -122,31 +122,31 @@ class facadedisplaymaterialDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 exp = 2;
-  inline bool has_exp() const;
-  inline void clear_exp();
-  static const int kExpFieldNumber = 2;
-  inline ::google::protobuf::int32 exp() const;
-  inline void set_exp(::google::protobuf::int32 value);
+  // optional int32 m_exp = 2;
+  inline bool has_m_exp() const;
+  inline void clear_m_exp();
+  static const int kMExpFieldNumber = 2;
+  inline ::google::protobuf::int32 m_exp() const;
+  inline void set_m_exp(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadedisplaymaterialDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeDisplayMaterialDesc)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_exp();
-  inline void clear_has_exp();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_exp();
+  inline void clear_has_m_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 exp_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_exp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -156,18 +156,18 @@ class facadedisplaymaterialDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadedisplaymaterialDesc* default_instance_;
+  static E_FacadeDisplayMaterialDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadedisplay : public ::google::protobuf::Message {
+class E_FacadeDisplay : public ::google::protobuf::Message {
  public:
-  facadedisplay();
-  virtual ~facadedisplay();
+  E_FacadeDisplay();
+  virtual ~E_FacadeDisplay();
 
-  facadedisplay(const facadedisplay& from);
+  E_FacadeDisplay(const E_FacadeDisplay& from);
 
-  inline facadedisplay& operator=(const facadedisplay& from) {
+  inline E_FacadeDisplay& operator=(const E_FacadeDisplay& from) {
     CopyFrom(from);
     return *this;
   }
@@ -181,17 +181,17 @@ class facadedisplay : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadedisplay& default_instance();
+  static const E_FacadeDisplay& default_instance();
 
-  void Swap(facadedisplay* other);
+  void Swap(E_FacadeDisplay* other);
 
   // implements Message ----------------------------------------------
 
-  facadedisplay* New() const;
+  E_FacadeDisplay* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadedisplay& from);
-  void MergeFrom(const facadedisplay& from);
+  void CopyFrom(const E_FacadeDisplay& from);
+  void MergeFrom(const E_FacadeDisplay& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -214,142 +214,142 @@ class facadedisplay : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional string resource = 3;
-  inline bool has_resource() const;
-  inline void clear_resource();
-  static const int kResourceFieldNumber = 3;
-  inline const ::std::string& resource() const;
-  inline void set_resource(const ::std::string& value);
-  inline void set_resource(const char* value);
-  inline void set_resource(const char* value, size_t size);
-  inline ::std::string* mutable_resource();
-  inline ::std::string* release_resource();
-  inline void set_allocated_resource(::std::string* resource);
+  // optional string m_resource = 3;
+  inline bool has_m_resource() const;
+  inline void clear_m_resource();
+  static const int kMResourceFieldNumber = 3;
+  inline const ::std::string& m_resource() const;
+  inline void set_m_resource(const ::std::string& value);
+  inline void set_m_resource(const char* value);
+  inline void set_m_resource(const char* value, size_t size);
+  inline ::std::string* mutable_m_resource();
+  inline ::std::string* release_m_resource();
+  inline void set_allocated_m_resource(::std::string* m_resource);
 
-  // optional string name = 4;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 4;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 4;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 4;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string activeDesc = 5;
-  inline bool has_activedesc() const;
-  inline void clear_activedesc();
-  static const int kActiveDescFieldNumber = 5;
-  inline const ::std::string& activedesc() const;
-  inline void set_activedesc(const ::std::string& value);
-  inline void set_activedesc(const char* value);
-  inline void set_activedesc(const char* value, size_t size);
-  inline ::std::string* mutable_activedesc();
-  inline ::std::string* release_activedesc();
-  inline void set_allocated_activedesc(::std::string* activedesc);
+  // optional string m_activedesc = 5;
+  inline bool has_m_activedesc() const;
+  inline void clear_m_activedesc();
+  static const int kMActivedescFieldNumber = 5;
+  inline const ::std::string& m_activedesc() const;
+  inline void set_m_activedesc(const ::std::string& value);
+  inline void set_m_activedesc(const char* value);
+  inline void set_m_activedesc(const char* value, size_t size);
+  inline ::std::string* mutable_m_activedesc();
+  inline ::std::string* release_m_activedesc();
+  inline void set_allocated_m_activedesc(::std::string* m_activedesc);
 
-  // optional string professionID = 6;
-  inline bool has_professionid() const;
-  inline void clear_professionid();
-  static const int kProfessionIDFieldNumber = 6;
-  inline const ::std::string& professionid() const;
-  inline void set_professionid(const ::std::string& value);
-  inline void set_professionid(const char* value);
-  inline void set_professionid(const char* value, size_t size);
-  inline ::std::string* mutable_professionid();
-  inline ::std::string* release_professionid();
-  inline void set_allocated_professionid(::std::string* professionid);
+  // optional string m_professionid = 6;
+  inline bool has_m_professionid() const;
+  inline void clear_m_professionid();
+  static const int kMProfessionidFieldNumber = 6;
+  inline const ::std::string& m_professionid() const;
+  inline void set_m_professionid(const ::std::string& value);
+  inline void set_m_professionid(const char* value);
+  inline void set_m_professionid(const char* value, size_t size);
+  inline ::std::string* mutable_m_professionid();
+  inline ::std::string* release_m_professionid();
+  inline void set_allocated_m_professionid(::std::string* m_professionid);
 
-  // optional string skillID = 7;
-  inline bool has_skillid() const;
-  inline void clear_skillid();
-  static const int kSkillIDFieldNumber = 7;
-  inline const ::std::string& skillid() const;
-  inline void set_skillid(const ::std::string& value);
-  inline void set_skillid(const char* value);
-  inline void set_skillid(const char* value, size_t size);
-  inline ::std::string* mutable_skillid();
-  inline ::std::string* release_skillid();
-  inline void set_allocated_skillid(::std::string* skillid);
+  // optional string m_skillid = 7;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillidFieldNumber = 7;
+  inline const ::std::string& m_skillid() const;
+  inline void set_m_skillid(const ::std::string& value);
+  inline void set_m_skillid(const char* value);
+  inline void set_m_skillid(const char* value, size_t size);
+  inline ::std::string* mutable_m_skillid();
+  inline ::std::string* release_m_skillid();
+  inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional int32 soulItemID = 8;
-  inline bool has_soulitemid() const;
-  inline void clear_soulitemid();
-  static const int kSoulItemIDFieldNumber = 8;
-  inline ::google::protobuf::int32 soulitemid() const;
-  inline void set_soulitemid(::google::protobuf::int32 value);
+  // optional int32 m_soulitemid = 8;
+  inline bool has_m_soulitemid() const;
+  inline void clear_m_soulitemid();
+  static const int kMSoulitemidFieldNumber = 8;
+  inline ::google::protobuf::int32 m_soulitemid() const;
+  inline void set_m_soulitemid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.facadedisplaymaterialDesc material = 9;
-  inline int material_size() const;
-  inline void clear_material();
-  static const int kMaterialFieldNumber = 9;
-  inline const ::proto_ff::facadedisplaymaterialDesc& material(int index) const;
-  inline ::proto_ff::facadedisplaymaterialDesc* mutable_material(int index);
-  inline ::proto_ff::facadedisplaymaterialDesc* add_material();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplaymaterialDesc >&
-      material() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplaymaterialDesc >*
-      mutable_material();
+  // repeated .proto_ff.E_FacadeDisplayMaterialDesc m_material = 9;
+  inline int m_material_size() const;
+  inline void clear_m_material();
+  static const int kMMaterialFieldNumber = 9;
+  inline const ::proto_ff::E_FacadeDisplayMaterialDesc& m_material(int index) const;
+  inline ::proto_ff::E_FacadeDisplayMaterialDesc* mutable_m_material(int index);
+  inline ::proto_ff::E_FacadeDisplayMaterialDesc* add_m_material();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc >&
+      m_material() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc >*
+      mutable_m_material();
 
-  // repeated int64 fragmentID = 10;
-  inline int fragmentid_size() const;
-  inline void clear_fragmentid();
-  static const int kFragmentIDFieldNumber = 10;
-  inline ::google::protobuf::int64 fragmentid(int index) const;
-  inline void set_fragmentid(int index, ::google::protobuf::int64 value);
-  inline void add_fragmentid(::google::protobuf::int64 value);
+  // repeated int64 m_fragmentid = 10;
+  inline int m_fragmentid_size() const;
+  inline void clear_m_fragmentid();
+  static const int kMFragmentidFieldNumber = 10;
+  inline ::google::protobuf::int64 m_fragmentid(int index) const;
+  inline void set_m_fragmentid(int index, ::google::protobuf::int64 value);
+  inline void add_m_fragmentid(::google::protobuf::int64 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      fragmentid() const;
+      m_fragmentid() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_fragmentid();
+      mutable_m_fragmentid();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadedisplay)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeDisplay)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_resource();
-  inline void clear_has_resource();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_activedesc();
-  inline void clear_has_activedesc();
-  inline void set_has_professionid();
-  inline void clear_has_professionid();
-  inline void set_has_skillid();
-  inline void clear_has_skillid();
-  inline void set_has_soulitemid();
-  inline void clear_has_soulitemid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_resource();
+  inline void clear_has_m_resource();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_activedesc();
+  inline void clear_has_m_activedesc();
+  inline void set_has_m_professionid();
+  inline void clear_has_m_professionid();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
+  inline void set_has_m_soulitemid();
+  inline void clear_has_m_soulitemid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* resource_;
-  ::std::string* name_;
-  ::std::string* activedesc_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 soulitemid_;
-  ::std::string* professionid_;
-  ::std::string* skillid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplaymaterialDesc > material_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > fragmentid_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_resource_;
+  ::std::string* m_name_;
+  ::std::string* m_activedesc_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_soulitemid_;
+  ::std::string* m_professionid_;
+  ::std::string* m_skillid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc > m_material_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > m_fragmentid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
@@ -359,18 +359,18 @@ class facadedisplay : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadedisplay* default_instance_;
+  static E_FacadeDisplay* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadedisplay : public ::google::protobuf::Message {
+class Sheet_FacadeDisplay : public ::google::protobuf::Message {
  public:
-  Sheet_facadedisplay();
-  virtual ~Sheet_facadedisplay();
+  Sheet_FacadeDisplay();
+  virtual ~Sheet_FacadeDisplay();
 
-  Sheet_facadedisplay(const Sheet_facadedisplay& from);
+  Sheet_FacadeDisplay(const Sheet_FacadeDisplay& from);
 
-  inline Sheet_facadedisplay& operator=(const Sheet_facadedisplay& from) {
+  inline Sheet_FacadeDisplay& operator=(const Sheet_FacadeDisplay& from) {
     CopyFrom(from);
     return *this;
   }
@@ -384,17 +384,17 @@ class Sheet_facadedisplay : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadedisplay& default_instance();
+  static const Sheet_FacadeDisplay& default_instance();
 
-  void Swap(Sheet_facadedisplay* other);
+  void Swap(Sheet_FacadeDisplay* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadedisplay* New() const;
+  Sheet_FacadeDisplay* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadedisplay& from);
-  void MergeFrom(const Sheet_facadedisplay& from);
+  void CopyFrom(const Sheet_FacadeDisplay& from);
+  void MergeFrom(const Sheet_FacadeDisplay& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -417,24 +417,24 @@ class Sheet_facadedisplay : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadedisplay facadedisplay_List = 1;
-  inline int facadedisplay_list_size() const;
-  inline void clear_facadedisplay_list();
-  static const int kFacadedisplayListFieldNumber = 1;
-  inline const ::proto_ff::facadedisplay& facadedisplay_list(int index) const;
-  inline ::proto_ff::facadedisplay* mutable_facadedisplay_list(int index);
-  inline ::proto_ff::facadedisplay* add_facadedisplay_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplay >&
-      facadedisplay_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplay >*
-      mutable_facadedisplay_list();
+  // repeated .proto_ff.E_FacadeDisplay E_FacadeDisplay_List = 1;
+  inline int e_facadedisplay_list_size() const;
+  inline void clear_e_facadedisplay_list();
+  static const int kEFacadeDisplayListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeDisplay& e_facadedisplay_list(int index) const;
+  inline ::proto_ff::E_FacadeDisplay* mutable_e_facadedisplay_list(int index);
+  inline ::proto_ff::E_FacadeDisplay* add_e_facadedisplay_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplay >&
+      e_facadedisplay_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplay >*
+      mutable_e_facadedisplay_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadedisplay)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeDisplay)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplay > facadedisplay_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplay > e_facadedisplay_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -444,18 +444,18 @@ class Sheet_facadedisplay : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadedisplay* default_instance_;
+  static Sheet_FacadeDisplay* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadevaluetreasureAttributeDesc : public ::google::protobuf::Message {
+class E_FacadeValueTreasureattributeDesc : public ::google::protobuf::Message {
  public:
-  facadevaluetreasureAttributeDesc();
-  virtual ~facadevaluetreasureAttributeDesc();
+  E_FacadeValueTreasureattributeDesc();
+  virtual ~E_FacadeValueTreasureattributeDesc();
 
-  facadevaluetreasureAttributeDesc(const facadevaluetreasureAttributeDesc& from);
+  E_FacadeValueTreasureattributeDesc(const E_FacadeValueTreasureattributeDesc& from);
 
-  inline facadevaluetreasureAttributeDesc& operator=(const facadevaluetreasureAttributeDesc& from) {
+  inline E_FacadeValueTreasureattributeDesc& operator=(const E_FacadeValueTreasureattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -469,17 +469,17 @@ class facadevaluetreasureAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadevaluetreasureAttributeDesc& default_instance();
+  static const E_FacadeValueTreasureattributeDesc& default_instance();
 
-  void Swap(facadevaluetreasureAttributeDesc* other);
+  void Swap(E_FacadeValueTreasureattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadevaluetreasureAttributeDesc* New() const;
+  E_FacadeValueTreasureattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadevaluetreasureAttributeDesc& from);
-  void MergeFrom(const facadevaluetreasureAttributeDesc& from);
+  void CopyFrom(const E_FacadeValueTreasureattributeDesc& from);
+  void MergeFrom(const E_FacadeValueTreasureattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -502,31 +502,31 @@ class facadevaluetreasureAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadevaluetreasureAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeValueTreasureattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -536,18 +536,18 @@ class facadevaluetreasureAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadevaluetreasureAttributeDesc* default_instance_;
+  static E_FacadeValueTreasureattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadevalueArtifactAttributeDesc : public ::google::protobuf::Message {
+class E_FacadeValueArtifactattributeDesc : public ::google::protobuf::Message {
  public:
-  facadevalueArtifactAttributeDesc();
-  virtual ~facadevalueArtifactAttributeDesc();
+  E_FacadeValueArtifactattributeDesc();
+  virtual ~E_FacadeValueArtifactattributeDesc();
 
-  facadevalueArtifactAttributeDesc(const facadevalueArtifactAttributeDesc& from);
+  E_FacadeValueArtifactattributeDesc(const E_FacadeValueArtifactattributeDesc& from);
 
-  inline facadevalueArtifactAttributeDesc& operator=(const facadevalueArtifactAttributeDesc& from) {
+  inline E_FacadeValueArtifactattributeDesc& operator=(const E_FacadeValueArtifactattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -561,17 +561,17 @@ class facadevalueArtifactAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadevalueArtifactAttributeDesc& default_instance();
+  static const E_FacadeValueArtifactattributeDesc& default_instance();
 
-  void Swap(facadevalueArtifactAttributeDesc* other);
+  void Swap(E_FacadeValueArtifactattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadevalueArtifactAttributeDesc* New() const;
+  E_FacadeValueArtifactattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadevalueArtifactAttributeDesc& from);
-  void MergeFrom(const facadevalueArtifactAttributeDesc& from);
+  void CopyFrom(const E_FacadeValueArtifactattributeDesc& from);
+  void MergeFrom(const E_FacadeValueArtifactattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -594,31 +594,31 @@ class facadevalueArtifactAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadevalueArtifactAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeValueArtifactattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -628,18 +628,18 @@ class facadevalueArtifactAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadevalueArtifactAttributeDesc* default_instance_;
+  static E_FacadeValueArtifactattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadevalueBladeAttributeDesc : public ::google::protobuf::Message {
+class E_FacadeValueBladeattributeDesc : public ::google::protobuf::Message {
  public:
-  facadevalueBladeAttributeDesc();
-  virtual ~facadevalueBladeAttributeDesc();
+  E_FacadeValueBladeattributeDesc();
+  virtual ~E_FacadeValueBladeattributeDesc();
 
-  facadevalueBladeAttributeDesc(const facadevalueBladeAttributeDesc& from);
+  E_FacadeValueBladeattributeDesc(const E_FacadeValueBladeattributeDesc& from);
 
-  inline facadevalueBladeAttributeDesc& operator=(const facadevalueBladeAttributeDesc& from) {
+  inline E_FacadeValueBladeattributeDesc& operator=(const E_FacadeValueBladeattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -653,17 +653,17 @@ class facadevalueBladeAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadevalueBladeAttributeDesc& default_instance();
+  static const E_FacadeValueBladeattributeDesc& default_instance();
 
-  void Swap(facadevalueBladeAttributeDesc* other);
+  void Swap(E_FacadeValueBladeattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadevalueBladeAttributeDesc* New() const;
+  E_FacadeValueBladeattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadevalueBladeAttributeDesc& from);
-  void MergeFrom(const facadevalueBladeAttributeDesc& from);
+  void CopyFrom(const E_FacadeValueBladeattributeDesc& from);
+  void MergeFrom(const E_FacadeValueBladeattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -686,31 +686,31 @@ class facadevalueBladeAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadevalueBladeAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeValueBladeattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -720,18 +720,18 @@ class facadevalueBladeAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadevalueBladeAttributeDesc* default_instance_;
+  static E_FacadeValueBladeattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadevaluewingAttributeDesc : public ::google::protobuf::Message {
+class E_FacadeValueWingattributeDesc : public ::google::protobuf::Message {
  public:
-  facadevaluewingAttributeDesc();
-  virtual ~facadevaluewingAttributeDesc();
+  E_FacadeValueWingattributeDesc();
+  virtual ~E_FacadeValueWingattributeDesc();
 
-  facadevaluewingAttributeDesc(const facadevaluewingAttributeDesc& from);
+  E_FacadeValueWingattributeDesc(const E_FacadeValueWingattributeDesc& from);
 
-  inline facadevaluewingAttributeDesc& operator=(const facadevaluewingAttributeDesc& from) {
+  inline E_FacadeValueWingattributeDesc& operator=(const E_FacadeValueWingattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -745,17 +745,17 @@ class facadevaluewingAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadevaluewingAttributeDesc& default_instance();
+  static const E_FacadeValueWingattributeDesc& default_instance();
 
-  void Swap(facadevaluewingAttributeDesc* other);
+  void Swap(E_FacadeValueWingattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadevaluewingAttributeDesc* New() const;
+  E_FacadeValueWingattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadevaluewingAttributeDesc& from);
-  void MergeFrom(const facadevaluewingAttributeDesc& from);
+  void CopyFrom(const E_FacadeValueWingattributeDesc& from);
+  void MergeFrom(const E_FacadeValueWingattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -778,31 +778,31 @@ class facadevaluewingAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadevaluewingAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeValueWingattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -812,18 +812,18 @@ class facadevaluewingAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadevaluewingAttributeDesc* default_instance_;
+  static E_FacadeValueWingattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadevalue : public ::google::protobuf::Message {
+class E_FacadeValue : public ::google::protobuf::Message {
  public:
-  facadevalue();
-  virtual ~facadevalue();
+  E_FacadeValue();
+  virtual ~E_FacadeValue();
 
-  facadevalue(const facadevalue& from);
+  E_FacadeValue(const E_FacadeValue& from);
 
-  inline facadevalue& operator=(const facadevalue& from) {
+  inline E_FacadeValue& operator=(const E_FacadeValue& from) {
     CopyFrom(from);
     return *this;
   }
@@ -837,17 +837,17 @@ class facadevalue : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadevalue& default_instance();
+  static const E_FacadeValue& default_instance();
 
-  void Swap(facadevalue* other);
+  void Swap(E_FacadeValue* other);
 
   // implements Message ----------------------------------------------
 
-  facadevalue* New() const;
+  E_FacadeValue* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadevalue& from);
-  void MergeFrom(const facadevalue& from);
+  void CopyFrom(const E_FacadeValue& from);
+  void MergeFrom(const E_FacadeValue& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -870,113 +870,113 @@ class facadevalue : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int64 wingExp = 2;
-  inline bool has_wingexp() const;
-  inline void clear_wingexp();
-  static const int kWingExpFieldNumber = 2;
-  inline ::google::protobuf::int64 wingexp() const;
-  inline void set_wingexp(::google::protobuf::int64 value);
+  // optional int64 m_wingexp = 2;
+  inline bool has_m_wingexp() const;
+  inline void clear_m_wingexp();
+  static const int kMWingexpFieldNumber = 2;
+  inline ::google::protobuf::int64 m_wingexp() const;
+  inline void set_m_wingexp(::google::protobuf::int64 value);
 
-  // optional int64 treasureExp = 3;
-  inline bool has_treasureexp() const;
-  inline void clear_treasureexp();
-  static const int kTreasureExpFieldNumber = 3;
-  inline ::google::protobuf::int64 treasureexp() const;
-  inline void set_treasureexp(::google::protobuf::int64 value);
+  // optional int64 m_treasureexp = 3;
+  inline bool has_m_treasureexp() const;
+  inline void clear_m_treasureexp();
+  static const int kMTreasureexpFieldNumber = 3;
+  inline ::google::protobuf::int64 m_treasureexp() const;
+  inline void set_m_treasureexp(::google::protobuf::int64 value);
 
-  // optional int64 ArtifactExp = 4;
-  inline bool has_artifactexp() const;
-  inline void clear_artifactexp();
-  static const int kArtifactExpFieldNumber = 4;
-  inline ::google::protobuf::int64 artifactexp() const;
-  inline void set_artifactexp(::google::protobuf::int64 value);
+  // optional int64 m_artifactexp = 4;
+  inline bool has_m_artifactexp() const;
+  inline void clear_m_artifactexp();
+  static const int kMArtifactexpFieldNumber = 4;
+  inline ::google::protobuf::int64 m_artifactexp() const;
+  inline void set_m_artifactexp(::google::protobuf::int64 value);
 
-  // optional int64 BladeExp = 5;
-  inline bool has_bladeexp() const;
-  inline void clear_bladeexp();
-  static const int kBladeExpFieldNumber = 5;
-  inline ::google::protobuf::int64 bladeexp() const;
-  inline void set_bladeexp(::google::protobuf::int64 value);
+  // optional int64 m_bladeexp = 5;
+  inline bool has_m_bladeexp() const;
+  inline void clear_m_bladeexp();
+  static const int kMBladeexpFieldNumber = 5;
+  inline ::google::protobuf::int64 m_bladeexp() const;
+  inline void set_m_bladeexp(::google::protobuf::int64 value);
 
-  // repeated .proto_ff.facadevaluetreasureAttributeDesc treasureAttribute = 6;
-  inline int treasureattribute_size() const;
-  inline void clear_treasureattribute();
-  static const int kTreasureAttributeFieldNumber = 6;
-  inline const ::proto_ff::facadevaluetreasureAttributeDesc& treasureattribute(int index) const;
-  inline ::proto_ff::facadevaluetreasureAttributeDesc* mutable_treasureattribute(int index);
-  inline ::proto_ff::facadevaluetreasureAttributeDesc* add_treasureattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluetreasureAttributeDesc >&
-      treasureattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluetreasureAttributeDesc >*
-      mutable_treasureattribute();
+  // repeated .proto_ff.E_FacadeValueTreasureattributeDesc m_treasureattribute = 6;
+  inline int m_treasureattribute_size() const;
+  inline void clear_m_treasureattribute();
+  static const int kMTreasureattributeFieldNumber = 6;
+  inline const ::proto_ff::E_FacadeValueTreasureattributeDesc& m_treasureattribute(int index) const;
+  inline ::proto_ff::E_FacadeValueTreasureattributeDesc* mutable_m_treasureattribute(int index);
+  inline ::proto_ff::E_FacadeValueTreasureattributeDesc* add_m_treasureattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueTreasureattributeDesc >&
+      m_treasureattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueTreasureattributeDesc >*
+      mutable_m_treasureattribute();
 
-  // repeated .proto_ff.facadevalueArtifactAttributeDesc ArtifactAttribute = 7;
-  inline int artifactattribute_size() const;
-  inline void clear_artifactattribute();
-  static const int kArtifactAttributeFieldNumber = 7;
-  inline const ::proto_ff::facadevalueArtifactAttributeDesc& artifactattribute(int index) const;
-  inline ::proto_ff::facadevalueArtifactAttributeDesc* mutable_artifactattribute(int index);
-  inline ::proto_ff::facadevalueArtifactAttributeDesc* add_artifactattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueArtifactAttributeDesc >&
-      artifactattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueArtifactAttributeDesc >*
-      mutable_artifactattribute();
+  // repeated .proto_ff.E_FacadeValueArtifactattributeDesc m_artifactattribute = 7;
+  inline int m_artifactattribute_size() const;
+  inline void clear_m_artifactattribute();
+  static const int kMArtifactattributeFieldNumber = 7;
+  inline const ::proto_ff::E_FacadeValueArtifactattributeDesc& m_artifactattribute(int index) const;
+  inline ::proto_ff::E_FacadeValueArtifactattributeDesc* mutable_m_artifactattribute(int index);
+  inline ::proto_ff::E_FacadeValueArtifactattributeDesc* add_m_artifactattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueArtifactattributeDesc >&
+      m_artifactattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueArtifactattributeDesc >*
+      mutable_m_artifactattribute();
 
-  // repeated .proto_ff.facadevalueBladeAttributeDesc BladeAttribute = 8;
-  inline int bladeattribute_size() const;
-  inline void clear_bladeattribute();
-  static const int kBladeAttributeFieldNumber = 8;
-  inline const ::proto_ff::facadevalueBladeAttributeDesc& bladeattribute(int index) const;
-  inline ::proto_ff::facadevalueBladeAttributeDesc* mutable_bladeattribute(int index);
-  inline ::proto_ff::facadevalueBladeAttributeDesc* add_bladeattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueBladeAttributeDesc >&
-      bladeattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueBladeAttributeDesc >*
-      mutable_bladeattribute();
+  // repeated .proto_ff.E_FacadeValueBladeattributeDesc m_bladeattribute = 8;
+  inline int m_bladeattribute_size() const;
+  inline void clear_m_bladeattribute();
+  static const int kMBladeattributeFieldNumber = 8;
+  inline const ::proto_ff::E_FacadeValueBladeattributeDesc& m_bladeattribute(int index) const;
+  inline ::proto_ff::E_FacadeValueBladeattributeDesc* mutable_m_bladeattribute(int index);
+  inline ::proto_ff::E_FacadeValueBladeattributeDesc* add_m_bladeattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueBladeattributeDesc >&
+      m_bladeattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueBladeattributeDesc >*
+      mutable_m_bladeattribute();
 
-  // repeated .proto_ff.facadevaluewingAttributeDesc wingAttribute = 9;
-  inline int wingattribute_size() const;
-  inline void clear_wingattribute();
-  static const int kWingAttributeFieldNumber = 9;
-  inline const ::proto_ff::facadevaluewingAttributeDesc& wingattribute(int index) const;
-  inline ::proto_ff::facadevaluewingAttributeDesc* mutable_wingattribute(int index);
-  inline ::proto_ff::facadevaluewingAttributeDesc* add_wingattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluewingAttributeDesc >&
-      wingattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluewingAttributeDesc >*
-      mutable_wingattribute();
+  // repeated .proto_ff.E_FacadeValueWingattributeDesc m_wingattribute = 9;
+  inline int m_wingattribute_size() const;
+  inline void clear_m_wingattribute();
+  static const int kMWingattributeFieldNumber = 9;
+  inline const ::proto_ff::E_FacadeValueWingattributeDesc& m_wingattribute(int index) const;
+  inline ::proto_ff::E_FacadeValueWingattributeDesc* mutable_m_wingattribute(int index);
+  inline ::proto_ff::E_FacadeValueWingattributeDesc* add_m_wingattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueWingattributeDesc >&
+      m_wingattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueWingattributeDesc >*
+      mutable_m_wingattribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadevalue)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeValue)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_wingexp();
-  inline void clear_has_wingexp();
-  inline void set_has_treasureexp();
-  inline void clear_has_treasureexp();
-  inline void set_has_artifactexp();
-  inline void clear_has_artifactexp();
-  inline void set_has_bladeexp();
-  inline void clear_has_bladeexp();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_wingexp();
+  inline void clear_has_m_wingexp();
+  inline void set_has_m_treasureexp();
+  inline void clear_has_m_treasureexp();
+  inline void set_has_m_artifactexp();
+  inline void clear_has_m_artifactexp();
+  inline void set_has_m_bladeexp();
+  inline void clear_has_m_bladeexp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 wingexp_;
-  ::google::protobuf::int64 treasureexp_;
-  ::google::protobuf::int64 artifactexp_;
-  ::google::protobuf::int64 bladeexp_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluetreasureAttributeDesc > treasureattribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueArtifactAttributeDesc > artifactattribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueBladeAttributeDesc > bladeattribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluewingAttributeDesc > wingattribute_;
-  ::google::protobuf::int32 lv_;
+  ::google::protobuf::int64 m_wingexp_;
+  ::google::protobuf::int64 m_treasureexp_;
+  ::google::protobuf::int64 m_artifactexp_;
+  ::google::protobuf::int64 m_bladeexp_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueTreasureattributeDesc > m_treasureattribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueArtifactattributeDesc > m_artifactattribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueBladeattributeDesc > m_bladeattribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueWingattributeDesc > m_wingattribute_;
+  ::google::protobuf::int32 m_lv_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
@@ -986,18 +986,18 @@ class facadevalue : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadevalue* default_instance_;
+  static E_FacadeValue* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadevalue : public ::google::protobuf::Message {
+class Sheet_FacadeValue : public ::google::protobuf::Message {
  public:
-  Sheet_facadevalue();
-  virtual ~Sheet_facadevalue();
+  Sheet_FacadeValue();
+  virtual ~Sheet_FacadeValue();
 
-  Sheet_facadevalue(const Sheet_facadevalue& from);
+  Sheet_FacadeValue(const Sheet_FacadeValue& from);
 
-  inline Sheet_facadevalue& operator=(const Sheet_facadevalue& from) {
+  inline Sheet_FacadeValue& operator=(const Sheet_FacadeValue& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1011,17 +1011,17 @@ class Sheet_facadevalue : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadevalue& default_instance();
+  static const Sheet_FacadeValue& default_instance();
 
-  void Swap(Sheet_facadevalue* other);
+  void Swap(Sheet_FacadeValue* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadevalue* New() const;
+  Sheet_FacadeValue* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadevalue& from);
-  void MergeFrom(const Sheet_facadevalue& from);
+  void CopyFrom(const Sheet_FacadeValue& from);
+  void MergeFrom(const Sheet_FacadeValue& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1044,24 +1044,24 @@ class Sheet_facadevalue : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadevalue facadevalue_List = 1;
-  inline int facadevalue_list_size() const;
-  inline void clear_facadevalue_list();
-  static const int kFacadevalueListFieldNumber = 1;
-  inline const ::proto_ff::facadevalue& facadevalue_list(int index) const;
-  inline ::proto_ff::facadevalue* mutable_facadevalue_list(int index);
-  inline ::proto_ff::facadevalue* add_facadevalue_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalue >&
-      facadevalue_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalue >*
-      mutable_facadevalue_list();
+  // repeated .proto_ff.E_FacadeValue E_FacadeValue_List = 1;
+  inline int e_facadevalue_list_size() const;
+  inline void clear_e_facadevalue_list();
+  static const int kEFacadeValueListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeValue& e_facadevalue_list(int index) const;
+  inline ::proto_ff::E_FacadeValue* mutable_e_facadevalue_list(int index);
+  inline ::proto_ff::E_FacadeValue* add_e_facadevalue_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValue >&
+      e_facadevalue_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValue >*
+      mutable_e_facadevalue_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadevalue)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeValue)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalue > facadevalue_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValue > e_facadevalue_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1071,18 +1071,18 @@ class Sheet_facadevalue : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadevalue* default_instance_;
+  static Sheet_FacadeValue* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadetype : public ::google::protobuf::Message {
+class E_FacadeType : public ::google::protobuf::Message {
  public:
-  facadetype();
-  virtual ~facadetype();
+  E_FacadeType();
+  virtual ~E_FacadeType();
 
-  facadetype(const facadetype& from);
+  E_FacadeType(const E_FacadeType& from);
 
-  inline facadetype& operator=(const facadetype& from) {
+  inline E_FacadeType& operator=(const E_FacadeType& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1096,17 +1096,17 @@ class facadetype : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadetype& default_instance();
+  static const E_FacadeType& default_instance();
 
-  void Swap(facadetype* other);
+  void Swap(E_FacadeType* other);
 
   // implements Message ----------------------------------------------
 
-  facadetype* New() const;
+  E_FacadeType* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadetype& from);
-  void MergeFrom(const facadetype& from);
+  void CopyFrom(const E_FacadeType& from);
+  void MergeFrom(const E_FacadeType& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1129,36 +1129,36 @@ class facadetype : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string souceName = 2;
-  inline bool has_soucename() const;
-  inline void clear_soucename();
-  static const int kSouceNameFieldNumber = 2;
-  inline const ::std::string& soucename() const;
-  inline void set_soucename(const ::std::string& value);
-  inline void set_soucename(const char* value);
-  inline void set_soucename(const char* value, size_t size);
-  inline ::std::string* mutable_soucename();
-  inline ::std::string* release_soucename();
-  inline void set_allocated_soucename(::std::string* soucename);
+  // optional string m_soucename = 2;
+  inline bool has_m_soucename() const;
+  inline void clear_m_soucename();
+  static const int kMSoucenameFieldNumber = 2;
+  inline const ::std::string& m_soucename() const;
+  inline void set_m_soucename(const ::std::string& value);
+  inline void set_m_soucename(const char* value);
+  inline void set_m_soucename(const char* value, size_t size);
+  inline ::std::string* mutable_m_soucename();
+  inline ::std::string* release_m_soucename();
+  inline void set_allocated_m_soucename(::std::string* m_soucename);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadetype)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeType)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_soucename();
-  inline void clear_has_soucename();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_soucename();
+  inline void clear_has_m_soucename();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* soucename_;
-  ::google::protobuf::int32 id_;
+  ::std::string* m_soucename_;
+  ::google::protobuf::int32 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1168,18 +1168,18 @@ class facadetype : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadetype* default_instance_;
+  static E_FacadeType* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadetype : public ::google::protobuf::Message {
+class Sheet_FacadeType : public ::google::protobuf::Message {
  public:
-  Sheet_facadetype();
-  virtual ~Sheet_facadetype();
+  Sheet_FacadeType();
+  virtual ~Sheet_FacadeType();
 
-  Sheet_facadetype(const Sheet_facadetype& from);
+  Sheet_FacadeType(const Sheet_FacadeType& from);
 
-  inline Sheet_facadetype& operator=(const Sheet_facadetype& from) {
+  inline Sheet_FacadeType& operator=(const Sheet_FacadeType& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1193,17 +1193,17 @@ class Sheet_facadetype : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadetype& default_instance();
+  static const Sheet_FacadeType& default_instance();
 
-  void Swap(Sheet_facadetype* other);
+  void Swap(Sheet_FacadeType* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadetype* New() const;
+  Sheet_FacadeType* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadetype& from);
-  void MergeFrom(const Sheet_facadetype& from);
+  void CopyFrom(const Sheet_FacadeType& from);
+  void MergeFrom(const Sheet_FacadeType& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1226,24 +1226,24 @@ class Sheet_facadetype : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadetype facadetype_List = 1;
-  inline int facadetype_list_size() const;
-  inline void clear_facadetype_list();
-  static const int kFacadetypeListFieldNumber = 1;
-  inline const ::proto_ff::facadetype& facadetype_list(int index) const;
-  inline ::proto_ff::facadetype* mutable_facadetype_list(int index);
-  inline ::proto_ff::facadetype* add_facadetype_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadetype >&
-      facadetype_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadetype >*
-      mutable_facadetype_list();
+  // repeated .proto_ff.E_FacadeType E_FacadeType_List = 1;
+  inline int e_facadetype_list_size() const;
+  inline void clear_e_facadetype_list();
+  static const int kEFacadeTypeListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeType& e_facadetype_list(int index) const;
+  inline ::proto_ff::E_FacadeType* mutable_e_facadetype_list(int index);
+  inline ::proto_ff::E_FacadeType* add_e_facadetype_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeType >&
+      e_facadetype_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeType >*
+      mutable_e_facadetype_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadetype)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeType)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadetype > facadetype_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeType > e_facadetype_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1253,18 +1253,18 @@ class Sheet_facadetype : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadetype* default_instance_;
+  static Sheet_FacadeType* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadefragmentattributeDesc : public ::google::protobuf::Message {
+class E_FacadeFragmentAttributeDesc : public ::google::protobuf::Message {
  public:
-  facadefragmentattributeDesc();
-  virtual ~facadefragmentattributeDesc();
+  E_FacadeFragmentAttributeDesc();
+  virtual ~E_FacadeFragmentAttributeDesc();
 
-  facadefragmentattributeDesc(const facadefragmentattributeDesc& from);
+  E_FacadeFragmentAttributeDesc(const E_FacadeFragmentAttributeDesc& from);
 
-  inline facadefragmentattributeDesc& operator=(const facadefragmentattributeDesc& from) {
+  inline E_FacadeFragmentAttributeDesc& operator=(const E_FacadeFragmentAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1278,17 +1278,17 @@ class facadefragmentattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadefragmentattributeDesc& default_instance();
+  static const E_FacadeFragmentAttributeDesc& default_instance();
 
-  void Swap(facadefragmentattributeDesc* other);
+  void Swap(E_FacadeFragmentAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadefragmentattributeDesc* New() const;
+  E_FacadeFragmentAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadefragmentattributeDesc& from);
-  void MergeFrom(const facadefragmentattributeDesc& from);
+  void CopyFrom(const E_FacadeFragmentAttributeDesc& from);
+  void MergeFrom(const E_FacadeFragmentAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1311,31 +1311,31 @@ class facadefragmentattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadefragmentattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeFragmentAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1345,18 +1345,18 @@ class facadefragmentattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadefragmentattributeDesc* default_instance_;
+  static E_FacadeFragmentAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadefragment : public ::google::protobuf::Message {
+class E_FacadeFragment : public ::google::protobuf::Message {
  public:
-  facadefragment();
-  virtual ~facadefragment();
+  E_FacadeFragment();
+  virtual ~E_FacadeFragment();
 
-  facadefragment(const facadefragment& from);
+  E_FacadeFragment(const E_FacadeFragment& from);
 
-  inline facadefragment& operator=(const facadefragment& from) {
+  inline E_FacadeFragment& operator=(const E_FacadeFragment& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1370,17 +1370,17 @@ class facadefragment : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadefragment& default_instance();
+  static const E_FacadeFragment& default_instance();
 
-  void Swap(facadefragment* other);
+  void Swap(E_FacadeFragment* other);
 
   // implements Message ----------------------------------------------
 
-  facadefragment* New() const;
+  E_FacadeFragment* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadefragment& from);
-  void MergeFrom(const facadefragment& from);
+  void CopyFrom(const E_FacadeFragment& from);
+  void MergeFrom(const E_FacadeFragment& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1403,54 +1403,54 @@ class facadefragment : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 fragmentID = 1;
-  inline bool has_fragmentid() const;
-  inline void clear_fragmentid();
-  static const int kFragmentIDFieldNumber = 1;
-  inline ::google::protobuf::int64 fragmentid() const;
-  inline void set_fragmentid(::google::protobuf::int64 value);
+  // optional int64 m_fragmentid = 1;
+  inline bool has_m_fragmentid() const;
+  inline void clear_m_fragmentid();
+  static const int kMFragmentidFieldNumber = 1;
+  inline ::google::protobuf::int64 m_fragmentid() const;
+  inline void set_m_fragmentid(::google::protobuf::int64 value);
 
-  // optional int64 item = 2;
-  inline bool has_item() const;
-  inline void clear_item();
-  static const int kItemFieldNumber = 2;
-  inline ::google::protobuf::int64 item() const;
-  inline void set_item(::google::protobuf::int64 value);
+  // optional int64 m_item = 2;
+  inline bool has_m_item() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 2;
+  inline ::google::protobuf::int64 m_item() const;
+  inline void set_m_item(::google::protobuf::int64 value);
 
-  // optional int32 itemNum = 3;
-  inline bool has_itemnum() const;
-  inline void clear_itemnum();
-  static const int kItemNumFieldNumber = 3;
-  inline ::google::protobuf::int32 itemnum() const;
-  inline void set_itemnum(::google::protobuf::int32 value);
+  // optional int32 m_itemnum = 3;
+  inline bool has_m_itemnum() const;
+  inline void clear_m_itemnum();
+  static const int kMItemnumFieldNumber = 3;
+  inline ::google::protobuf::int32 m_itemnum() const;
+  inline void set_m_itemnum(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.facadefragmentattributeDesc attribute = 4;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 4;
-  inline const ::proto_ff::facadefragmentattributeDesc& attribute(int index) const;
-  inline ::proto_ff::facadefragmentattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::facadefragmentattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragmentattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragmentattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_FacadeFragmentAttributeDesc m_attribute = 4;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 4;
+  inline const ::proto_ff::E_FacadeFragmentAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_FacadeFragmentAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_FacadeFragmentAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragmentAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragmentAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadefragment)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeFragment)
  private:
-  inline void set_has_fragmentid();
-  inline void clear_has_fragmentid();
-  inline void set_has_item();
-  inline void clear_has_item();
-  inline void set_has_itemnum();
-  inline void clear_has_itemnum();
+  inline void set_has_m_fragmentid();
+  inline void clear_has_m_fragmentid();
+  inline void set_has_m_item();
+  inline void clear_has_m_item();
+  inline void set_has_m_itemnum();
+  inline void clear_has_m_itemnum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 fragmentid_;
-  ::google::protobuf::int64 item_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragmentattributeDesc > attribute_;
-  ::google::protobuf::int32 itemnum_;
+  ::google::protobuf::int64 m_fragmentid_;
+  ::google::protobuf::int64 m_item_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragmentAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_itemnum_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -1460,18 +1460,18 @@ class facadefragment : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadefragment* default_instance_;
+  static E_FacadeFragment* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadefragment : public ::google::protobuf::Message {
+class Sheet_FacadeFragment : public ::google::protobuf::Message {
  public:
-  Sheet_facadefragment();
-  virtual ~Sheet_facadefragment();
+  Sheet_FacadeFragment();
+  virtual ~Sheet_FacadeFragment();
 
-  Sheet_facadefragment(const Sheet_facadefragment& from);
+  Sheet_FacadeFragment(const Sheet_FacadeFragment& from);
 
-  inline Sheet_facadefragment& operator=(const Sheet_facadefragment& from) {
+  inline Sheet_FacadeFragment& operator=(const Sheet_FacadeFragment& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1485,17 +1485,17 @@ class Sheet_facadefragment : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadefragment& default_instance();
+  static const Sheet_FacadeFragment& default_instance();
 
-  void Swap(Sheet_facadefragment* other);
+  void Swap(Sheet_FacadeFragment* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadefragment* New() const;
+  Sheet_FacadeFragment* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadefragment& from);
-  void MergeFrom(const Sheet_facadefragment& from);
+  void CopyFrom(const Sheet_FacadeFragment& from);
+  void MergeFrom(const Sheet_FacadeFragment& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1518,24 +1518,24 @@ class Sheet_facadefragment : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadefragment facadefragment_List = 1;
-  inline int facadefragment_list_size() const;
-  inline void clear_facadefragment_list();
-  static const int kFacadefragmentListFieldNumber = 1;
-  inline const ::proto_ff::facadefragment& facadefragment_list(int index) const;
-  inline ::proto_ff::facadefragment* mutable_facadefragment_list(int index);
-  inline ::proto_ff::facadefragment* add_facadefragment_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragment >&
-      facadefragment_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragment >*
-      mutable_facadefragment_list();
+  // repeated .proto_ff.E_FacadeFragment E_FacadeFragment_List = 1;
+  inline int e_facadefragment_list_size() const;
+  inline void clear_e_facadefragment_list();
+  static const int kEFacadeFragmentListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeFragment& e_facadefragment_list(int index) const;
+  inline ::proto_ff::E_FacadeFragment* mutable_e_facadefragment_list(int index);
+  inline ::proto_ff::E_FacadeFragment* add_e_facadefragment_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragment >&
+      e_facadefragment_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragment >*
+      mutable_e_facadefragment_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadefragment)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeFragment)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragment > facadefragment_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragment > e_facadefragment_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1545,18 +1545,18 @@ class Sheet_facadefragment : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadefragment* default_instance_;
+  static Sheet_FacadeFragment* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadechangeattributeDesc : public ::google::protobuf::Message {
+class E_FacadeChangeAttributeDesc : public ::google::protobuf::Message {
  public:
-  facadechangeattributeDesc();
-  virtual ~facadechangeattributeDesc();
+  E_FacadeChangeAttributeDesc();
+  virtual ~E_FacadeChangeAttributeDesc();
 
-  facadechangeattributeDesc(const facadechangeattributeDesc& from);
+  E_FacadeChangeAttributeDesc(const E_FacadeChangeAttributeDesc& from);
 
-  inline facadechangeattributeDesc& operator=(const facadechangeattributeDesc& from) {
+  inline E_FacadeChangeAttributeDesc& operator=(const E_FacadeChangeAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1570,17 +1570,17 @@ class facadechangeattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadechangeattributeDesc& default_instance();
+  static const E_FacadeChangeAttributeDesc& default_instance();
 
-  void Swap(facadechangeattributeDesc* other);
+  void Swap(E_FacadeChangeAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadechangeattributeDesc* New() const;
+  E_FacadeChangeAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadechangeattributeDesc& from);
-  void MergeFrom(const facadechangeattributeDesc& from);
+  void CopyFrom(const E_FacadeChangeAttributeDesc& from);
+  void MergeFrom(const E_FacadeChangeAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1603,31 +1603,31 @@ class facadechangeattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadechangeattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeChangeAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1637,18 +1637,18 @@ class facadechangeattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadechangeattributeDesc* default_instance_;
+  static E_FacadeChangeAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadechangeActiveAttributeDesc : public ::google::protobuf::Message {
+class E_FacadeChangeActiveattributeDesc : public ::google::protobuf::Message {
  public:
-  facadechangeActiveAttributeDesc();
-  virtual ~facadechangeActiveAttributeDesc();
+  E_FacadeChangeActiveattributeDesc();
+  virtual ~E_FacadeChangeActiveattributeDesc();
 
-  facadechangeActiveAttributeDesc(const facadechangeActiveAttributeDesc& from);
+  E_FacadeChangeActiveattributeDesc(const E_FacadeChangeActiveattributeDesc& from);
 
-  inline facadechangeActiveAttributeDesc& operator=(const facadechangeActiveAttributeDesc& from) {
+  inline E_FacadeChangeActiveattributeDesc& operator=(const E_FacadeChangeActiveattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1662,17 +1662,17 @@ class facadechangeActiveAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadechangeActiveAttributeDesc& default_instance();
+  static const E_FacadeChangeActiveattributeDesc& default_instance();
 
-  void Swap(facadechangeActiveAttributeDesc* other);
+  void Swap(E_FacadeChangeActiveattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadechangeActiveAttributeDesc* New() const;
+  E_FacadeChangeActiveattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadechangeActiveAttributeDesc& from);
-  void MergeFrom(const facadechangeActiveAttributeDesc& from);
+  void CopyFrom(const E_FacadeChangeActiveattributeDesc& from);
+  void MergeFrom(const E_FacadeChangeActiveattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1695,31 +1695,31 @@ class facadechangeActiveAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadechangeActiveAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeChangeActiveattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1729,18 +1729,18 @@ class facadechangeActiveAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadechangeActiveAttributeDesc* default_instance_;
+  static E_FacadeChangeActiveattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadechange : public ::google::protobuf::Message {
+class E_FacadeChange : public ::google::protobuf::Message {
  public:
-  facadechange();
-  virtual ~facadechange();
+  E_FacadeChange();
+  virtual ~E_FacadeChange();
 
-  facadechange(const facadechange& from);
+  E_FacadeChange(const E_FacadeChange& from);
 
-  inline facadechange& operator=(const facadechange& from) {
+  inline E_FacadeChange& operator=(const E_FacadeChange& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1754,17 +1754,17 @@ class facadechange : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadechange& default_instance();
+  static const E_FacadeChange& default_instance();
 
-  void Swap(facadechange* other);
+  void Swap(E_FacadeChange* other);
 
   // implements Message ----------------------------------------------
 
-  facadechange* New() const;
+  E_FacadeChange* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadechange& from);
-  void MergeFrom(const facadechange& from);
+  void CopyFrom(const E_FacadeChange& from);
+  void MergeFrom(const E_FacadeChange& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1787,212 +1787,212 @@ class facadechange : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional string resource = 3;
-  inline bool has_resource() const;
-  inline void clear_resource();
-  static const int kResourceFieldNumber = 3;
-  inline const ::std::string& resource() const;
-  inline void set_resource(const ::std::string& value);
-  inline void set_resource(const char* value);
-  inline void set_resource(const char* value, size_t size);
-  inline ::std::string* mutable_resource();
-  inline ::std::string* release_resource();
-  inline void set_allocated_resource(::std::string* resource);
+  // optional string m_resource = 3;
+  inline bool has_m_resource() const;
+  inline void clear_m_resource();
+  static const int kMResourceFieldNumber = 3;
+  inline const ::std::string& m_resource() const;
+  inline void set_m_resource(const ::std::string& value);
+  inline void set_m_resource(const char* value);
+  inline void set_m_resource(const char* value, size_t size);
+  inline ::std::string* mutable_m_resource();
+  inline ::std::string* release_m_resource();
+  inline void set_allocated_m_resource(::std::string* m_resource);
 
-  // optional string professionID = 4;
-  inline bool has_professionid() const;
-  inline void clear_professionid();
-  static const int kProfessionIDFieldNumber = 4;
-  inline const ::std::string& professionid() const;
-  inline void set_professionid(const ::std::string& value);
-  inline void set_professionid(const char* value);
-  inline void set_professionid(const char* value, size_t size);
-  inline ::std::string* mutable_professionid();
-  inline ::std::string* release_professionid();
-  inline void set_allocated_professionid(::std::string* professionid);
+  // optional string m_professionid = 4;
+  inline bool has_m_professionid() const;
+  inline void clear_m_professionid();
+  static const int kMProfessionidFieldNumber = 4;
+  inline const ::std::string& m_professionid() const;
+  inline void set_m_professionid(const ::std::string& value);
+  inline void set_m_professionid(const char* value);
+  inline void set_m_professionid(const char* value, size_t size);
+  inline ::std::string* mutable_m_professionid();
+  inline ::std::string* release_m_professionid();
+  inline void set_allocated_m_professionid(::std::string* m_professionid);
 
-  // optional string name = 5;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 5;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 5;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 5;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string activeDesc = 6;
-  inline bool has_activedesc() const;
-  inline void clear_activedesc();
-  static const int kActiveDescFieldNumber = 6;
-  inline const ::std::string& activedesc() const;
-  inline void set_activedesc(const ::std::string& value);
-  inline void set_activedesc(const char* value);
-  inline void set_activedesc(const char* value, size_t size);
-  inline ::std::string* mutable_activedesc();
-  inline ::std::string* release_activedesc();
-  inline void set_allocated_activedesc(::std::string* activedesc);
+  // optional string m_activedesc = 6;
+  inline bool has_m_activedesc() const;
+  inline void clear_m_activedesc();
+  static const int kMActivedescFieldNumber = 6;
+  inline const ::std::string& m_activedesc() const;
+  inline void set_m_activedesc(const ::std::string& value);
+  inline void set_m_activedesc(const char* value);
+  inline void set_m_activedesc(const char* value, size_t size);
+  inline ::std::string* mutable_m_activedesc();
+  inline ::std::string* release_m_activedesc();
+  inline void set_allocated_m_activedesc(::std::string* m_activedesc);
 
-  // optional int32 quality = 7;
-  inline bool has_quality() const;
-  inline void clear_quality();
-  static const int kQualityFieldNumber = 7;
-  inline ::google::protobuf::int32 quality() const;
-  inline void set_quality(::google::protobuf::int32 value);
+  // optional int32 m_quality = 7;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 7;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int64 activationItem = 8;
-  inline bool has_activationitem() const;
-  inline void clear_activationitem();
-  static const int kActivationItemFieldNumber = 8;
-  inline ::google::protobuf::int64 activationitem() const;
-  inline void set_activationitem(::google::protobuf::int64 value);
+  // optional int64 m_activationitem = 8;
+  inline bool has_m_activationitem() const;
+  inline void clear_m_activationitem();
+  static const int kMActivationitemFieldNumber = 8;
+  inline ::google::protobuf::int64 m_activationitem() const;
+  inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 activationNum = 9;
-  inline bool has_activationnum() const;
-  inline void clear_activationnum();
-  static const int kActivationNumFieldNumber = 9;
-  inline ::google::protobuf::int32 activationnum() const;
-  inline void set_activationnum(::google::protobuf::int32 value);
+  // optional int32 m_activationnum = 9;
+  inline bool has_m_activationnum() const;
+  inline void clear_m_activationnum();
+  static const int kMActivationnumFieldNumber = 9;
+  inline ::google::protobuf::int32 m_activationnum() const;
+  inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 starId = 10;
-  inline bool has_starid() const;
-  inline void clear_starid();
-  static const int kStarIdFieldNumber = 10;
-  inline ::google::protobuf::int64 starid() const;
-  inline void set_starid(::google::protobuf::int64 value);
+  // optional int64 m_starid = 10;
+  inline bool has_m_starid() const;
+  inline void clear_m_starid();
+  static const int kMStaridFieldNumber = 10;
+  inline ::google::protobuf::int64 m_starid() const;
+  inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string starNum = 11;
-  inline bool has_starnum() const;
-  inline void clear_starnum();
-  static const int kStarNumFieldNumber = 11;
-  inline const ::std::string& starnum() const;
-  inline void set_starnum(const ::std::string& value);
-  inline void set_starnum(const char* value);
-  inline void set_starnum(const char* value, size_t size);
-  inline ::std::string* mutable_starnum();
-  inline ::std::string* release_starnum();
-  inline void set_allocated_starnum(::std::string* starnum);
+  // optional string m_starnum = 11;
+  inline bool has_m_starnum() const;
+  inline void clear_m_starnum();
+  static const int kMStarnumFieldNumber = 11;
+  inline const ::std::string& m_starnum() const;
+  inline void set_m_starnum(const ::std::string& value);
+  inline void set_m_starnum(const char* value);
+  inline void set_m_starnum(const char* value, size_t size);
+  inline ::std::string* mutable_m_starnum();
+  inline ::std::string* release_m_starnum();
+  inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 starUp = 12;
-  inline bool has_starup() const;
-  inline void clear_starup();
-  static const int kStarUpFieldNumber = 12;
-  inline ::google::protobuf::int32 starup() const;
-  inline void set_starup(::google::protobuf::int32 value);
+  // optional int32 m_starup = 12;
+  inline bool has_m_starup() const;
+  inline void clear_m_starup();
+  static const int kMStarupFieldNumber = 12;
+  inline ::google::protobuf::int32 m_starup() const;
+  inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 starBer = 13;
-  inline bool has_starber() const;
-  inline void clear_starber();
-  static const int kStarBerFieldNumber = 13;
-  inline ::google::protobuf::int32 starber() const;
-  inline void set_starber(::google::protobuf::int32 value);
+  // optional int32 m_starber = 13;
+  inline bool has_m_starber() const;
+  inline void clear_m_starber();
+  static const int kMStarberFieldNumber = 13;
+  inline ::google::protobuf::int32 m_starber() const;
+  inline void set_m_starber(::google::protobuf::int32 value);
 
-  // optional int64 upAttributeId = 14;
-  inline bool has_upattributeid() const;
-  inline void clear_upattributeid();
-  static const int kUpAttributeIdFieldNumber = 14;
-  inline ::google::protobuf::int64 upattributeid() const;
-  inline void set_upattributeid(::google::protobuf::int64 value);
+  // optional int64 m_upattributeid = 14;
+  inline bool has_m_upattributeid() const;
+  inline void clear_m_upattributeid();
+  static const int kMUpattributeidFieldNumber = 14;
+  inline ::google::protobuf::int64 m_upattributeid() const;
+  inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 activeSkill = 15;
-  inline bool has_activeskill() const;
-  inline void clear_activeskill();
-  static const int kActiveSkillFieldNumber = 15;
-  inline ::google::protobuf::int32 activeskill() const;
-  inline void set_activeskill(::google::protobuf::int32 value);
+  // optional int32 m_activeskill = 15;
+  inline bool has_m_activeskill() const;
+  inline void clear_m_activeskill();
+  static const int kMActiveskillFieldNumber = 15;
+  inline ::google::protobuf::int32 m_activeskill() const;
+  inline void set_m_activeskill(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.facadechangeattributeDesc attribute = 16;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 16;
-  inline const ::proto_ff::facadechangeattributeDesc& attribute(int index) const;
-  inline ::proto_ff::facadechangeattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::facadechangeattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_FacadeChangeAttributeDesc m_attribute = 16;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 16;
+  inline const ::proto_ff::E_FacadeChangeAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_FacadeChangeAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_FacadeChangeAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeAttributeDesc >*
+      mutable_m_attribute();
 
-  // repeated .proto_ff.facadechangeActiveAttributeDesc ActiveAttribute = 17;
-  inline int activeattribute_size() const;
-  inline void clear_activeattribute();
-  static const int kActiveAttributeFieldNumber = 17;
-  inline const ::proto_ff::facadechangeActiveAttributeDesc& activeattribute(int index) const;
-  inline ::proto_ff::facadechangeActiveAttributeDesc* mutable_activeattribute(int index);
-  inline ::proto_ff::facadechangeActiveAttributeDesc* add_activeattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeActiveAttributeDesc >&
-      activeattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeActiveAttributeDesc >*
-      mutable_activeattribute();
+  // repeated .proto_ff.E_FacadeChangeActiveattributeDesc m_activeattribute = 17;
+  inline int m_activeattribute_size() const;
+  inline void clear_m_activeattribute();
+  static const int kMActiveattributeFieldNumber = 17;
+  inline const ::proto_ff::E_FacadeChangeActiveattributeDesc& m_activeattribute(int index) const;
+  inline ::proto_ff::E_FacadeChangeActiveattributeDesc* mutable_m_activeattribute(int index);
+  inline ::proto_ff::E_FacadeChangeActiveattributeDesc* add_m_activeattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeActiveattributeDesc >&
+      m_activeattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeActiveattributeDesc >*
+      mutable_m_activeattribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadechange)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeChange)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_resource();
-  inline void clear_has_resource();
-  inline void set_has_professionid();
-  inline void clear_has_professionid();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_activedesc();
-  inline void clear_has_activedesc();
-  inline void set_has_quality();
-  inline void clear_has_quality();
-  inline void set_has_activationitem();
-  inline void clear_has_activationitem();
-  inline void set_has_activationnum();
-  inline void clear_has_activationnum();
-  inline void set_has_starid();
-  inline void clear_has_starid();
-  inline void set_has_starnum();
-  inline void clear_has_starnum();
-  inline void set_has_starup();
-  inline void clear_has_starup();
-  inline void set_has_starber();
-  inline void clear_has_starber();
-  inline void set_has_upattributeid();
-  inline void clear_has_upattributeid();
-  inline void set_has_activeskill();
-  inline void clear_has_activeskill();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_resource();
+  inline void clear_has_m_resource();
+  inline void set_has_m_professionid();
+  inline void clear_has_m_professionid();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_activedesc();
+  inline void clear_has_m_activedesc();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+  inline void set_has_m_activationitem();
+  inline void clear_has_m_activationitem();
+  inline void set_has_m_activationnum();
+  inline void clear_has_m_activationnum();
+  inline void set_has_m_starid();
+  inline void clear_has_m_starid();
+  inline void set_has_m_starnum();
+  inline void clear_has_m_starnum();
+  inline void set_has_m_starup();
+  inline void clear_has_m_starup();
+  inline void set_has_m_starber();
+  inline void clear_has_m_starber();
+  inline void set_has_m_upattributeid();
+  inline void clear_has_m_upattributeid();
+  inline void set_has_m_activeskill();
+  inline void clear_has_m_activeskill();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* resource_;
-  ::std::string* professionid_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 quality_;
-  ::std::string* name_;
-  ::std::string* activedesc_;
-  ::google::protobuf::int64 activationitem_;
-  ::google::protobuf::int64 starid_;
-  ::google::protobuf::int32 activationnum_;
-  ::google::protobuf::int32 starup_;
-  ::std::string* starnum_;
-  ::google::protobuf::int64 upattributeid_;
-  ::google::protobuf::int32 starber_;
-  ::google::protobuf::int32 activeskill_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeattributeDesc > attribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeActiveAttributeDesc > activeattribute_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_resource_;
+  ::std::string* m_professionid_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_quality_;
+  ::std::string* m_name_;
+  ::std::string* m_activedesc_;
+  ::google::protobuf::int64 m_activationitem_;
+  ::google::protobuf::int64 m_starid_;
+  ::google::protobuf::int32 m_activationnum_;
+  ::google::protobuf::int32 m_starup_;
+  ::std::string* m_starnum_;
+  ::google::protobuf::int64 m_upattributeid_;
+  ::google::protobuf::int32 m_starber_;
+  ::google::protobuf::int32 m_activeskill_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeActiveattributeDesc > m_activeattribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
@@ -2002,18 +2002,18 @@ class facadechange : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadechange* default_instance_;
+  static E_FacadeChange* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadechange : public ::google::protobuf::Message {
+class Sheet_FacadeChange : public ::google::protobuf::Message {
  public:
-  Sheet_facadechange();
-  virtual ~Sheet_facadechange();
+  Sheet_FacadeChange();
+  virtual ~Sheet_FacadeChange();
 
-  Sheet_facadechange(const Sheet_facadechange& from);
+  Sheet_FacadeChange(const Sheet_FacadeChange& from);
 
-  inline Sheet_facadechange& operator=(const Sheet_facadechange& from) {
+  inline Sheet_FacadeChange& operator=(const Sheet_FacadeChange& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2027,17 +2027,17 @@ class Sheet_facadechange : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadechange& default_instance();
+  static const Sheet_FacadeChange& default_instance();
 
-  void Swap(Sheet_facadechange* other);
+  void Swap(Sheet_FacadeChange* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadechange* New() const;
+  Sheet_FacadeChange* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadechange& from);
-  void MergeFrom(const Sheet_facadechange& from);
+  void CopyFrom(const Sheet_FacadeChange& from);
+  void MergeFrom(const Sheet_FacadeChange& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2060,24 +2060,24 @@ class Sheet_facadechange : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadechange facadechange_List = 1;
-  inline int facadechange_list_size() const;
-  inline void clear_facadechange_list();
-  static const int kFacadechangeListFieldNumber = 1;
-  inline const ::proto_ff::facadechange& facadechange_list(int index) const;
-  inline ::proto_ff::facadechange* mutable_facadechange_list(int index);
-  inline ::proto_ff::facadechange* add_facadechange_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechange >&
-      facadechange_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechange >*
-      mutable_facadechange_list();
+  // repeated .proto_ff.E_FacadeChange E_FacadeChange_List = 1;
+  inline int e_facadechange_list_size() const;
+  inline void clear_e_facadechange_list();
+  static const int kEFacadeChangeListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeChange& e_facadechange_list(int index) const;
+  inline ::proto_ff::E_FacadeChange* mutable_e_facadechange_list(int index);
+  inline ::proto_ff::E_FacadeChange* add_e_facadechange_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChange >&
+      e_facadechange_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChange >*
+      mutable_e_facadechange_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadechange)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeChange)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechange > facadechange_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChange > e_facadechange_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2087,18 +2087,18 @@ class Sheet_facadechange : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadechange* default_instance_;
+  static Sheet_FacadeChange* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadestarUpupAttributeDesc : public ::google::protobuf::Message {
+class E_FacadeStarupUpattributeDesc : public ::google::protobuf::Message {
  public:
-  facadestarUpupAttributeDesc();
-  virtual ~facadestarUpupAttributeDesc();
+  E_FacadeStarupUpattributeDesc();
+  virtual ~E_FacadeStarupUpattributeDesc();
 
-  facadestarUpupAttributeDesc(const facadestarUpupAttributeDesc& from);
+  E_FacadeStarupUpattributeDesc(const E_FacadeStarupUpattributeDesc& from);
 
-  inline facadestarUpupAttributeDesc& operator=(const facadestarUpupAttributeDesc& from) {
+  inline E_FacadeStarupUpattributeDesc& operator=(const E_FacadeStarupUpattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2112,17 +2112,17 @@ class facadestarUpupAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadestarUpupAttributeDesc& default_instance();
+  static const E_FacadeStarupUpattributeDesc& default_instance();
 
-  void Swap(facadestarUpupAttributeDesc* other);
+  void Swap(E_FacadeStarupUpattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadestarUpupAttributeDesc* New() const;
+  E_FacadeStarupUpattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadestarUpupAttributeDesc& from);
-  void MergeFrom(const facadestarUpupAttributeDesc& from);
+  void CopyFrom(const E_FacadeStarupUpattributeDesc& from);
+  void MergeFrom(const E_FacadeStarupUpattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2145,31 +2145,31 @@ class facadestarUpupAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadestarUpupAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeStarupUpattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2179,18 +2179,18 @@ class facadestarUpupAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadestarUpupAttributeDesc* default_instance_;
+  static E_FacadeStarupUpattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadestarUp : public ::google::protobuf::Message {
+class E_FacadeStarup : public ::google::protobuf::Message {
  public:
-  facadestarUp();
-  virtual ~facadestarUp();
+  E_FacadeStarup();
+  virtual ~E_FacadeStarup();
 
-  facadestarUp(const facadestarUp& from);
+  E_FacadeStarup(const E_FacadeStarup& from);
 
-  inline facadestarUp& operator=(const facadestarUp& from) {
+  inline E_FacadeStarup& operator=(const E_FacadeStarup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2204,17 +2204,17 @@ class facadestarUp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadestarUp& default_instance();
+  static const E_FacadeStarup& default_instance();
 
-  void Swap(facadestarUp* other);
+  void Swap(E_FacadeStarup* other);
 
   // implements Message ----------------------------------------------
 
-  facadestarUp* New() const;
+  E_FacadeStarup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadestarUp& from);
-  void MergeFrom(const facadestarUp& from);
+  void CopyFrom(const E_FacadeStarup& from);
+  void MergeFrom(const E_FacadeStarup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2237,64 +2237,64 @@ class facadestarUp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 upAttributeId = 2;
-  inline bool has_upattributeid() const;
-  inline void clear_upattributeid();
-  static const int kUpAttributeIdFieldNumber = 2;
-  inline ::google::protobuf::int64 upattributeid() const;
-  inline void set_upattributeid(::google::protobuf::int64 value);
+  // optional int64 m_upattributeid = 2;
+  inline bool has_m_upattributeid() const;
+  inline void clear_m_upattributeid();
+  static const int kMUpattributeidFieldNumber = 2;
+  inline ::google::protobuf::int64 m_upattributeid() const;
+  inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 starID = 3;
-  inline bool has_starid() const;
-  inline void clear_starid();
-  static const int kStarIDFieldNumber = 3;
-  inline ::google::protobuf::int32 starid() const;
-  inline void set_starid(::google::protobuf::int32 value);
+  // optional int32 m_starid = 3;
+  inline bool has_m_starid() const;
+  inline void clear_m_starid();
+  static const int kMStaridFieldNumber = 3;
+  inline ::google::protobuf::int32 m_starid() const;
+  inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional int32 skillID = 4;
-  inline bool has_skillid() const;
-  inline void clear_skillid();
-  static const int kSkillIDFieldNumber = 4;
-  inline ::google::protobuf::int32 skillid() const;
-  inline void set_skillid(::google::protobuf::int32 value);
+  // optional int32 m_skillid = 4;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillidFieldNumber = 4;
+  inline ::google::protobuf::int32 m_skillid() const;
+  inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.facadestarUpupAttributeDesc upAttribute = 5;
-  inline int upattribute_size() const;
-  inline void clear_upattribute();
-  static const int kUpAttributeFieldNumber = 5;
-  inline const ::proto_ff::facadestarUpupAttributeDesc& upattribute(int index) const;
-  inline ::proto_ff::facadestarUpupAttributeDesc* mutable_upattribute(int index);
-  inline ::proto_ff::facadestarUpupAttributeDesc* add_upattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUpupAttributeDesc >&
-      upattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUpupAttributeDesc >*
-      mutable_upattribute();
+  // repeated .proto_ff.E_FacadeStarupUpattributeDesc m_upattribute = 5;
+  inline int m_upattribute_size() const;
+  inline void clear_m_upattribute();
+  static const int kMUpattributeFieldNumber = 5;
+  inline const ::proto_ff::E_FacadeStarupUpattributeDesc& m_upattribute(int index) const;
+  inline ::proto_ff::E_FacadeStarupUpattributeDesc* mutable_m_upattribute(int index);
+  inline ::proto_ff::E_FacadeStarupUpattributeDesc* add_m_upattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarupUpattributeDesc >&
+      m_upattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarupUpattributeDesc >*
+      mutable_m_upattribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadestarUp)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeStarup)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_upattributeid();
-  inline void clear_has_upattributeid();
-  inline void set_has_starid();
-  inline void clear_has_starid();
-  inline void set_has_skillid();
-  inline void clear_has_skillid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_upattributeid();
+  inline void clear_has_m_upattributeid();
+  inline void set_has_m_starid();
+  inline void clear_has_m_starid();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 upattributeid_;
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 starid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUpupAttributeDesc > upattribute_;
-  ::google::protobuf::int32 skillid_;
+  ::google::protobuf::int64 m_upattributeid_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_starid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarupUpattributeDesc > m_upattribute_;
+  ::google::protobuf::int32 m_skillid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -2304,18 +2304,18 @@ class facadestarUp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadestarUp* default_instance_;
+  static E_FacadeStarup* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadestarUp : public ::google::protobuf::Message {
+class Sheet_FacadeStarup : public ::google::protobuf::Message {
  public:
-  Sheet_facadestarUp();
-  virtual ~Sheet_facadestarUp();
+  Sheet_FacadeStarup();
+  virtual ~Sheet_FacadeStarup();
 
-  Sheet_facadestarUp(const Sheet_facadestarUp& from);
+  Sheet_FacadeStarup(const Sheet_FacadeStarup& from);
 
-  inline Sheet_facadestarUp& operator=(const Sheet_facadestarUp& from) {
+  inline Sheet_FacadeStarup& operator=(const Sheet_FacadeStarup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2329,17 +2329,17 @@ class Sheet_facadestarUp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadestarUp& default_instance();
+  static const Sheet_FacadeStarup& default_instance();
 
-  void Swap(Sheet_facadestarUp* other);
+  void Swap(Sheet_FacadeStarup* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadestarUp* New() const;
+  Sheet_FacadeStarup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadestarUp& from);
-  void MergeFrom(const Sheet_facadestarUp& from);
+  void CopyFrom(const Sheet_FacadeStarup& from);
+  void MergeFrom(const Sheet_FacadeStarup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2362,24 +2362,24 @@ class Sheet_facadestarUp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadestarUp facadestarUp_List = 1;
-  inline int facadestarup_list_size() const;
-  inline void clear_facadestarup_list();
-  static const int kFacadestarUpListFieldNumber = 1;
-  inline const ::proto_ff::facadestarUp& facadestarup_list(int index) const;
-  inline ::proto_ff::facadestarUp* mutable_facadestarup_list(int index);
-  inline ::proto_ff::facadestarUp* add_facadestarup_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUp >&
-      facadestarup_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUp >*
-      mutable_facadestarup_list();
+  // repeated .proto_ff.E_FacadeStarup E_FacadeStarup_List = 1;
+  inline int e_facadestarup_list_size() const;
+  inline void clear_e_facadestarup_list();
+  static const int kEFacadeStarupListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeStarup& e_facadestarup_list(int index) const;
+  inline ::proto_ff::E_FacadeStarup* mutable_e_facadestarup_list(int index);
+  inline ::proto_ff::E_FacadeStarup* add_e_facadestarup_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarup >&
+      e_facadestarup_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarup >*
+      mutable_e_facadestarup_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadestarUp)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeStarup)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUp > facadestarup_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarup > e_facadestarup_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2389,18 +2389,18 @@ class Sheet_facadestarUp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadestarUp* default_instance_;
+  static Sheet_FacadeStarup* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadesoulattributeDesc : public ::google::protobuf::Message {
+class E_FacadeSoulAttributeDesc : public ::google::protobuf::Message {
  public:
-  facadesoulattributeDesc();
-  virtual ~facadesoulattributeDesc();
+  E_FacadeSoulAttributeDesc();
+  virtual ~E_FacadeSoulAttributeDesc();
 
-  facadesoulattributeDesc(const facadesoulattributeDesc& from);
+  E_FacadeSoulAttributeDesc(const E_FacadeSoulAttributeDesc& from);
 
-  inline facadesoulattributeDesc& operator=(const facadesoulattributeDesc& from) {
+  inline E_FacadeSoulAttributeDesc& operator=(const E_FacadeSoulAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2414,17 +2414,17 @@ class facadesoulattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadesoulattributeDesc& default_instance();
+  static const E_FacadeSoulAttributeDesc& default_instance();
 
-  void Swap(facadesoulattributeDesc* other);
+  void Swap(E_FacadeSoulAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadesoulattributeDesc* New() const;
+  E_FacadeSoulAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadesoulattributeDesc& from);
-  void MergeFrom(const facadesoulattributeDesc& from);
+  void CopyFrom(const E_FacadeSoulAttributeDesc& from);
+  void MergeFrom(const E_FacadeSoulAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2447,31 +2447,31 @@ class facadesoulattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadesoulattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoulAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2481,18 +2481,18 @@ class facadesoulattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadesoulattributeDesc* default_instance_;
+  static E_FacadeSoulAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadesoul : public ::google::protobuf::Message {
+class E_FacadeSoul : public ::google::protobuf::Message {
  public:
-  facadesoul();
-  virtual ~facadesoul();
+  E_FacadeSoul();
+  virtual ~E_FacadeSoul();
 
-  facadesoul(const facadesoul& from);
+  E_FacadeSoul(const E_FacadeSoul& from);
 
-  inline facadesoul& operator=(const facadesoul& from) {
+  inline E_FacadeSoul& operator=(const E_FacadeSoul& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2506,17 +2506,17 @@ class facadesoul : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadesoul& default_instance();
+  static const E_FacadeSoul& default_instance();
 
-  void Swap(facadesoul* other);
+  void Swap(E_FacadeSoul* other);
 
   // implements Message ----------------------------------------------
 
-  facadesoul* New() const;
+  E_FacadeSoul* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadesoul& from);
-  void MergeFrom(const facadesoul& from);
+  void CopyFrom(const E_FacadeSoul& from);
+  void MergeFrom(const E_FacadeSoul& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2539,67 +2539,67 @@ class facadesoul : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 rechargeID = 2;
-  inline bool has_rechargeid() const;
-  inline void clear_rechargeid();
-  static const int kRechargeIDFieldNumber = 2;
-  inline ::google::protobuf::int32 rechargeid() const;
-  inline void set_rechargeid(::google::protobuf::int32 value);
+  // optional int32 m_rechargeid = 2;
+  inline bool has_m_rechargeid() const;
+  inline void clear_m_rechargeid();
+  static const int kMRechargeidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_rechargeid() const;
+  inline void set_m_rechargeid(::google::protobuf::int32 value);
 
-  // optional int32 mainSkill = 3;
-  inline bool has_mainskill() const;
-  inline void clear_mainskill();
-  static const int kMainSkillFieldNumber = 3;
-  inline ::google::protobuf::int32 mainskill() const;
-  inline void set_mainskill(::google::protobuf::int32 value);
+  // optional int32 m_mainskill = 3;
+  inline bool has_m_mainskill() const;
+  inline void clear_m_mainskill();
+  static const int kMMainskillFieldNumber = 3;
+  inline ::google::protobuf::int32 m_mainskill() const;
+  inline void set_m_mainskill(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.facadesoulattributeDesc attribute = 4;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 4;
-  inline const ::proto_ff::facadesoulattributeDesc& attribute(int index) const;
-  inline ::proto_ff::facadesoulattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::facadesoulattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 4;
+  inline const ::proto_ff::E_FacadeSoulAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_FacadeSoulAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_FacadeSoulAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc >*
+      mutable_m_attribute();
 
-  // repeated int32 minorSkill = 5;
-  inline int minorskill_size() const;
-  inline void clear_minorskill();
-  static const int kMinorSkillFieldNumber = 5;
-  inline ::google::protobuf::int32 minorskill(int index) const;
-  inline void set_minorskill(int index, ::google::protobuf::int32 value);
-  inline void add_minorskill(::google::protobuf::int32 value);
+  // repeated int32 m_minorskill = 5;
+  inline int m_minorskill_size() const;
+  inline void clear_m_minorskill();
+  static const int kMMinorskillFieldNumber = 5;
+  inline ::google::protobuf::int32 m_minorskill(int index) const;
+  inline void set_m_minorskill(int index, ::google::protobuf::int32 value);
+  inline void add_m_minorskill(::google::protobuf::int32 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      minorskill() const;
+      m_minorskill() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_minorskill();
+      mutable_m_minorskill();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadesoul)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoul)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_rechargeid();
-  inline void clear_has_rechargeid();
-  inline void set_has_mainskill();
-  inline void clear_has_mainskill();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_rechargeid();
+  inline void clear_has_m_rechargeid();
+  inline void set_has_m_mainskill();
+  inline void clear_has_m_mainskill();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 rechargeid_;
-  ::google::protobuf::int32 mainskill_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulattributeDesc > attribute_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > minorskill_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_rechargeid_;
+  ::google::protobuf::int32 m_mainskill_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_minorskill_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -2609,18 +2609,18 @@ class facadesoul : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadesoul* default_instance_;
+  static E_FacadeSoul* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadesoul : public ::google::protobuf::Message {
+class Sheet_FacadeSoul : public ::google::protobuf::Message {
  public:
-  Sheet_facadesoul();
-  virtual ~Sheet_facadesoul();
+  Sheet_FacadeSoul();
+  virtual ~Sheet_FacadeSoul();
 
-  Sheet_facadesoul(const Sheet_facadesoul& from);
+  Sheet_FacadeSoul(const Sheet_FacadeSoul& from);
 
-  inline Sheet_facadesoul& operator=(const Sheet_facadesoul& from) {
+  inline Sheet_FacadeSoul& operator=(const Sheet_FacadeSoul& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2634,17 +2634,17 @@ class Sheet_facadesoul : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadesoul& default_instance();
+  static const Sheet_FacadeSoul& default_instance();
 
-  void Swap(Sheet_facadesoul* other);
+  void Swap(Sheet_FacadeSoul* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadesoul* New() const;
+  Sheet_FacadeSoul* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadesoul& from);
-  void MergeFrom(const Sheet_facadesoul& from);
+  void CopyFrom(const Sheet_FacadeSoul& from);
+  void MergeFrom(const Sheet_FacadeSoul& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2667,24 +2667,24 @@ class Sheet_facadesoul : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadesoul facadesoul_List = 1;
-  inline int facadesoul_list_size() const;
-  inline void clear_facadesoul_list();
-  static const int kFacadesoulListFieldNumber = 1;
-  inline const ::proto_ff::facadesoul& facadesoul_list(int index) const;
-  inline ::proto_ff::facadesoul* mutable_facadesoul_list(int index);
-  inline ::proto_ff::facadesoul* add_facadesoul_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoul >&
-      facadesoul_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoul >*
-      mutable_facadesoul_list();
+  // repeated .proto_ff.E_FacadeSoul E_FacadeSoul_List = 1;
+  inline int e_facadesoul_list_size() const;
+  inline void clear_e_facadesoul_list();
+  static const int kEFacadeSoulListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeSoul& e_facadesoul_list(int index) const;
+  inline ::proto_ff::E_FacadeSoul* mutable_e_facadesoul_list(int index);
+  inline ::proto_ff::E_FacadeSoul* add_e_facadesoul_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoul >&
+      e_facadesoul_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoul >*
+      mutable_e_facadesoul_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadesoul)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeSoul)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoul > facadesoul_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoul > e_facadesoul_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2694,18 +2694,18 @@ class Sheet_facadesoul : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadesoul* default_instance_;
+  static Sheet_FacadeSoul* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadesoulActive : public ::google::protobuf::Message {
+class E_FacadeSoulactive : public ::google::protobuf::Message {
  public:
-  facadesoulActive();
-  virtual ~facadesoulActive();
+  E_FacadeSoulactive();
+  virtual ~E_FacadeSoulactive();
 
-  facadesoulActive(const facadesoulActive& from);
+  E_FacadeSoulactive(const E_FacadeSoulactive& from);
 
-  inline facadesoulActive& operator=(const facadesoulActive& from) {
+  inline E_FacadeSoulactive& operator=(const E_FacadeSoulactive& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2719,17 +2719,17 @@ class facadesoulActive : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadesoulActive& default_instance();
+  static const E_FacadeSoulactive& default_instance();
 
-  void Swap(facadesoulActive* other);
+  void Swap(E_FacadeSoulactive* other);
 
   // implements Message ----------------------------------------------
 
-  facadesoulActive* New() const;
+  E_FacadeSoulactive* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadesoulActive& from);
-  void MergeFrom(const facadesoulActive& from);
+  void CopyFrom(const E_FacadeSoulactive& from);
+  void MergeFrom(const E_FacadeSoulactive& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2752,51 +2752,51 @@ class facadesoulActive : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // repeated string parama = 2;
-  inline int parama_size() const;
-  inline void clear_parama();
-  static const int kParamaFieldNumber = 2;
-  inline const ::std::string& parama(int index) const;
-  inline ::std::string* mutable_parama(int index);
-  inline void set_parama(int index, const ::std::string& value);
-  inline void set_parama(int index, const char* value);
-  inline void set_parama(int index, const char* value, size_t size);
-  inline ::std::string* add_parama();
-  inline void add_parama(const ::std::string& value);
-  inline void add_parama(const char* value);
-  inline void add_parama(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& parama() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_parama();
+  // repeated string m_parama = 2;
+  inline int m_parama_size() const;
+  inline void clear_m_parama();
+  static const int kMParamaFieldNumber = 2;
+  inline const ::std::string& m_parama(int index) const;
+  inline ::std::string* mutable_m_parama(int index);
+  inline void set_m_parama(int index, const ::std::string& value);
+  inline void set_m_parama(int index, const char* value);
+  inline void set_m_parama(int index, const char* value, size_t size);
+  inline ::std::string* add_m_parama();
+  inline void add_m_parama(const ::std::string& value);
+  inline void add_m_parama(const char* value);
+  inline void add_m_parama(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_parama() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_parama();
 
-  // repeated int32 condition = 3;
-  inline int condition_size() const;
-  inline void clear_condition();
-  static const int kConditionFieldNumber = 3;
-  inline ::google::protobuf::int32 condition(int index) const;
-  inline void set_condition(int index, ::google::protobuf::int32 value);
-  inline void add_condition(::google::protobuf::int32 value);
+  // repeated int32 m_condition = 3;
+  inline int m_condition_size() const;
+  inline void clear_m_condition();
+  static const int kMConditionFieldNumber = 3;
+  inline ::google::protobuf::int32 m_condition(int index) const;
+  inline void set_m_condition(int index, ::google::protobuf::int32 value);
+  inline void add_m_condition(::google::protobuf::int32 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      condition() const;
+      m_condition() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_condition();
+      mutable_m_condition();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadesoulActive)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoulactive)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> parama_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > condition_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> m_parama_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_condition_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -2806,18 +2806,18 @@ class facadesoulActive : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadesoulActive* default_instance_;
+  static E_FacadeSoulactive* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadesoulActive : public ::google::protobuf::Message {
+class Sheet_FacadeSoulactive : public ::google::protobuf::Message {
  public:
-  Sheet_facadesoulActive();
-  virtual ~Sheet_facadesoulActive();
+  Sheet_FacadeSoulactive();
+  virtual ~Sheet_FacadeSoulactive();
 
-  Sheet_facadesoulActive(const Sheet_facadesoulActive& from);
+  Sheet_FacadeSoulactive(const Sheet_FacadeSoulactive& from);
 
-  inline Sheet_facadesoulActive& operator=(const Sheet_facadesoulActive& from) {
+  inline Sheet_FacadeSoulactive& operator=(const Sheet_FacadeSoulactive& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2831,17 +2831,17 @@ class Sheet_facadesoulActive : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadesoulActive& default_instance();
+  static const Sheet_FacadeSoulactive& default_instance();
 
-  void Swap(Sheet_facadesoulActive* other);
+  void Swap(Sheet_FacadeSoulactive* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadesoulActive* New() const;
+  Sheet_FacadeSoulactive* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadesoulActive& from);
-  void MergeFrom(const Sheet_facadesoulActive& from);
+  void CopyFrom(const Sheet_FacadeSoulactive& from);
+  void MergeFrom(const Sheet_FacadeSoulactive& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2864,24 +2864,24 @@ class Sheet_facadesoulActive : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadesoulActive facadesoulActive_List = 1;
-  inline int facadesoulactive_list_size() const;
-  inline void clear_facadesoulactive_list();
-  static const int kFacadesoulActiveListFieldNumber = 1;
-  inline const ::proto_ff::facadesoulActive& facadesoulactive_list(int index) const;
-  inline ::proto_ff::facadesoulActive* mutable_facadesoulactive_list(int index);
-  inline ::proto_ff::facadesoulActive* add_facadesoulactive_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulActive >&
-      facadesoulactive_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulActive >*
-      mutable_facadesoulactive_list();
+  // repeated .proto_ff.E_FacadeSoulactive E_FacadeSoulactive_List = 1;
+  inline int e_facadesoulactive_list_size() const;
+  inline void clear_e_facadesoulactive_list();
+  static const int kEFacadeSoulactiveListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeSoulactive& e_facadesoulactive_list(int index) const;
+  inline ::proto_ff::E_FacadeSoulactive* mutable_e_facadesoulactive_list(int index);
+  inline ::proto_ff::E_FacadeSoulactive* add_e_facadesoulactive_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactive >&
+      e_facadesoulactive_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactive >*
+      mutable_e_facadesoulactive_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadesoulActive)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeSoulactive)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulActive > facadesoulactive_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactive > e_facadesoulactive_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2891,18 +2891,18 @@ class Sheet_facadesoulActive : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadesoulActive* default_instance_;
+  static Sheet_FacadeSoulactive* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadesoulLvattributeDesc : public ::google::protobuf::Message {
+class E_FacadeSoullvAttributeDesc : public ::google::protobuf::Message {
  public:
-  facadesoulLvattributeDesc();
-  virtual ~facadesoulLvattributeDesc();
+  E_FacadeSoullvAttributeDesc();
+  virtual ~E_FacadeSoullvAttributeDesc();
 
-  facadesoulLvattributeDesc(const facadesoulLvattributeDesc& from);
+  E_FacadeSoullvAttributeDesc(const E_FacadeSoullvAttributeDesc& from);
 
-  inline facadesoulLvattributeDesc& operator=(const facadesoulLvattributeDesc& from) {
+  inline E_FacadeSoullvAttributeDesc& operator=(const E_FacadeSoullvAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2916,17 +2916,17 @@ class facadesoulLvattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadesoulLvattributeDesc& default_instance();
+  static const E_FacadeSoullvAttributeDesc& default_instance();
 
-  void Swap(facadesoulLvattributeDesc* other);
+  void Swap(E_FacadeSoullvAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  facadesoulLvattributeDesc* New() const;
+  E_FacadeSoullvAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadesoulLvattributeDesc& from);
-  void MergeFrom(const facadesoulLvattributeDesc& from);
+  void CopyFrom(const E_FacadeSoullvAttributeDesc& from);
+  void MergeFrom(const E_FacadeSoullvAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2949,31 +2949,31 @@ class facadesoulLvattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadesoulLvattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoullvAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2983,18 +2983,18 @@ class facadesoulLvattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadesoulLvattributeDesc* default_instance_;
+  static E_FacadeSoullvAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadesoulLv : public ::google::protobuf::Message {
+class E_FacadeSoullv : public ::google::protobuf::Message {
  public:
-  facadesoulLv();
-  virtual ~facadesoulLv();
+  E_FacadeSoullv();
+  virtual ~E_FacadeSoullv();
 
-  facadesoulLv(const facadesoulLv& from);
+  E_FacadeSoullv(const E_FacadeSoullv& from);
 
-  inline facadesoulLv& operator=(const facadesoulLv& from) {
+  inline E_FacadeSoullv& operator=(const E_FacadeSoullv& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3008,17 +3008,17 @@ class facadesoulLv : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadesoulLv& default_instance();
+  static const E_FacadeSoullv& default_instance();
 
-  void Swap(facadesoulLv* other);
+  void Swap(E_FacadeSoullv* other);
 
   // implements Message ----------------------------------------------
 
-  facadesoulLv* New() const;
+  E_FacadeSoullv* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadesoulLv& from);
-  void MergeFrom(const facadesoulLv& from);
+  void CopyFrom(const E_FacadeSoullv& from);
+  void MergeFrom(const E_FacadeSoullv& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3041,84 +3041,84 @@ class facadesoulLv : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 soulID = 2;
-  inline bool has_soulid() const;
-  inline void clear_soulid();
-  static const int kSoulIDFieldNumber = 2;
-  inline ::google::protobuf::int32 soulid() const;
-  inline void set_soulid(::google::protobuf::int32 value);
+  // optional int32 m_soulid = 2;
+  inline bool has_m_soulid() const;
+  inline void clear_m_soulid();
+  static const int kMSoulidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_soulid() const;
+  inline void set_m_soulid(::google::protobuf::int32 value);
 
-  // optional int32 itemID = 3;
-  inline bool has_itemid() const;
-  inline void clear_itemid();
-  static const int kItemIDFieldNumber = 3;
-  inline ::google::protobuf::int32 itemid() const;
-  inline void set_itemid(::google::protobuf::int32 value);
+  // optional int32 m_itemid = 3;
+  inline bool has_m_itemid() const;
+  inline void clear_m_itemid();
+  static const int kMItemidFieldNumber = 3;
+  inline ::google::protobuf::int32 m_itemid() const;
+  inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 num = 4;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 4;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
+  // optional int32 m_num = 4;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 4;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 successRate = 5;
-  inline bool has_successrate() const;
-  inline void clear_successrate();
-  static const int kSuccessRateFieldNumber = 5;
-  inline ::google::protobuf::int32 successrate() const;
-  inline void set_successrate(::google::protobuf::int32 value);
+  // optional int32 m_successrate = 5;
+  inline bool has_m_successrate() const;
+  inline void clear_m_successrate();
+  static const int kMSuccessrateFieldNumber = 5;
+  inline ::google::protobuf::int32 m_successrate() const;
+  inline void set_m_successrate(::google::protobuf::int32 value);
 
-  // optional int32 downLv = 6;
-  inline bool has_downlv() const;
-  inline void clear_downlv();
-  static const int kDownLvFieldNumber = 6;
-  inline ::google::protobuf::int32 downlv() const;
-  inline void set_downlv(::google::protobuf::int32 value);
+  // optional int32 m_downlv = 6;
+  inline bool has_m_downlv() const;
+  inline void clear_m_downlv();
+  static const int kMDownlvFieldNumber = 6;
+  inline ::google::protobuf::int32 m_downlv() const;
+  inline void set_m_downlv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.facadesoulLvattributeDesc attribute = 7;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 7;
-  inline const ::proto_ff::facadesoulLvattributeDesc& attribute(int index) const;
-  inline ::proto_ff::facadesoulLvattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::facadesoulLvattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLvattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLvattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 7;
+  inline const ::proto_ff::E_FacadeSoullvAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_FacadeSoullvAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_FacadeSoullvAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadesoulLv)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoullv)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_soulid();
-  inline void clear_has_soulid();
-  inline void set_has_itemid();
-  inline void clear_has_itemid();
-  inline void set_has_num();
-  inline void clear_has_num();
-  inline void set_has_successrate();
-  inline void clear_has_successrate();
-  inline void set_has_downlv();
-  inline void clear_has_downlv();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_soulid();
+  inline void clear_has_m_soulid();
+  inline void set_has_m_itemid();
+  inline void clear_has_m_itemid();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_successrate();
+  inline void clear_has_m_successrate();
+  inline void set_has_m_downlv();
+  inline void clear_has_m_downlv();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 soulid_;
-  ::google::protobuf::int32 itemid_;
-  ::google::protobuf::int32 num_;
-  ::google::protobuf::int32 successrate_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLvattributeDesc > attribute_;
-  ::google::protobuf::int32 downlv_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_soulid_;
+  ::google::protobuf::int32 m_itemid_;
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_successrate_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_downlv_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -3128,18 +3128,18 @@ class facadesoulLv : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadesoulLv* default_instance_;
+  static E_FacadeSoullv* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadesoulLv : public ::google::protobuf::Message {
+class Sheet_FacadeSoullv : public ::google::protobuf::Message {
  public:
-  Sheet_facadesoulLv();
-  virtual ~Sheet_facadesoulLv();
+  Sheet_FacadeSoullv();
+  virtual ~Sheet_FacadeSoullv();
 
-  Sheet_facadesoulLv(const Sheet_facadesoulLv& from);
+  Sheet_FacadeSoullv(const Sheet_FacadeSoullv& from);
 
-  inline Sheet_facadesoulLv& operator=(const Sheet_facadesoulLv& from) {
+  inline Sheet_FacadeSoullv& operator=(const Sheet_FacadeSoullv& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3153,17 +3153,17 @@ class Sheet_facadesoulLv : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadesoulLv& default_instance();
+  static const Sheet_FacadeSoullv& default_instance();
 
-  void Swap(Sheet_facadesoulLv* other);
+  void Swap(Sheet_FacadeSoullv* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadesoulLv* New() const;
+  Sheet_FacadeSoullv* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadesoulLv& from);
-  void MergeFrom(const Sheet_facadesoulLv& from);
+  void CopyFrom(const Sheet_FacadeSoullv& from);
+  void MergeFrom(const Sheet_FacadeSoullv& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3186,24 +3186,24 @@ class Sheet_facadesoulLv : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadesoulLv facadesoulLv_List = 1;
-  inline int facadesoullv_list_size() const;
-  inline void clear_facadesoullv_list();
-  static const int kFacadesoulLvListFieldNumber = 1;
-  inline const ::proto_ff::facadesoulLv& facadesoullv_list(int index) const;
-  inline ::proto_ff::facadesoulLv* mutable_facadesoullv_list(int index);
-  inline ::proto_ff::facadesoulLv* add_facadesoullv_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLv >&
-      facadesoullv_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLv >*
-      mutable_facadesoullv_list();
+  // repeated .proto_ff.E_FacadeSoullv E_FacadeSoullv_List = 1;
+  inline int e_facadesoullv_list_size() const;
+  inline void clear_e_facadesoullv_list();
+  static const int kEFacadeSoullvListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeSoullv& e_facadesoullv_list(int index) const;
+  inline ::proto_ff::E_FacadeSoullv* mutable_e_facadesoullv_list(int index);
+  inline ::proto_ff::E_FacadeSoullv* add_e_facadesoullv_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullv >&
+      e_facadesoullv_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullv >*
+      mutable_e_facadesoullv_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadesoulLv)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeSoullv)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLv > facadesoullv_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullv > e_facadesoullv_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3213,18 +3213,18 @@ class Sheet_facadesoulLv : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadesoulLv* default_instance_;
+  static Sheet_FacadeSoullv* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class facadesoulAchievement : public ::google::protobuf::Message {
+class E_FacadeSoulachievement : public ::google::protobuf::Message {
  public:
-  facadesoulAchievement();
-  virtual ~facadesoulAchievement();
+  E_FacadeSoulachievement();
+  virtual ~E_FacadeSoulachievement();
 
-  facadesoulAchievement(const facadesoulAchievement& from);
+  E_FacadeSoulachievement(const E_FacadeSoulachievement& from);
 
-  inline facadesoulAchievement& operator=(const facadesoulAchievement& from) {
+  inline E_FacadeSoulachievement& operator=(const E_FacadeSoulachievement& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3238,17 +3238,17 @@ class facadesoulAchievement : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const facadesoulAchievement& default_instance();
+  static const E_FacadeSoulachievement& default_instance();
 
-  void Swap(facadesoulAchievement* other);
+  void Swap(E_FacadeSoulachievement* other);
 
   // implements Message ----------------------------------------------
 
-  facadesoulAchievement* New() const;
+  E_FacadeSoulachievement* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const facadesoulAchievement& from);
-  void MergeFrom(const facadesoulAchievement& from);
+  void CopyFrom(const E_FacadeSoulachievement& from);
+  void MergeFrom(const E_FacadeSoulachievement& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3271,71 +3271,71 @@ class facadesoulAchievement : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 soulID = 2;
-  inline bool has_soulid() const;
-  inline void clear_soulid();
-  static const int kSoulIDFieldNumber = 2;
-  inline ::google::protobuf::int32 soulid() const;
-  inline void set_soulid(::google::protobuf::int32 value);
+  // optional int32 m_soulid = 2;
+  inline bool has_m_soulid() const;
+  inline void clear_m_soulid();
+  static const int kMSoulidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_soulid() const;
+  inline void set_m_soulid(::google::protobuf::int32 value);
 
-  // optional int32 type = 3;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 parama = 4;
-  inline bool has_parama() const;
-  inline void clear_parama();
-  static const int kParamaFieldNumber = 4;
-  inline ::google::protobuf::int32 parama() const;
-  inline void set_parama(::google::protobuf::int32 value);
+  // optional int32 m_parama = 4;
+  inline bool has_m_parama() const;
+  inline void clear_m_parama();
+  static const int kMParamaFieldNumber = 4;
+  inline ::google::protobuf::int32 m_parama() const;
+  inline void set_m_parama(::google::protobuf::int32 value);
 
-  // optional int32 itemID = 5;
-  inline bool has_itemid() const;
-  inline void clear_itemid();
-  static const int kItemIDFieldNumber = 5;
-  inline ::google::protobuf::int32 itemid() const;
-  inline void set_itemid(::google::protobuf::int32 value);
+  // optional int32 m_itemid = 5;
+  inline bool has_m_itemid() const;
+  inline void clear_m_itemid();
+  static const int kMItemidFieldNumber = 5;
+  inline ::google::protobuf::int32 m_itemid() const;
+  inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 num = 6;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 6;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
+  // optional int32 m_num = 6;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 6;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.facadesoulAchievement)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoulachievement)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_soulid();
-  inline void clear_has_soulid();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_parama();
-  inline void clear_has_parama();
-  inline void set_has_itemid();
-  inline void clear_has_itemid();
-  inline void set_has_num();
-  inline void clear_has_num();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_soulid();
+  inline void clear_has_m_soulid();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_parama();
+  inline void clear_has_m_parama();
+  inline void set_has_m_itemid();
+  inline void clear_has_m_itemid();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 soulid_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 parama_;
-  ::google::protobuf::int32 itemid_;
-  ::google::protobuf::int32 num_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_soulid_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_parama_;
+  ::google::protobuf::int32 m_itemid_;
+  ::google::protobuf::int32 m_num_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -3345,18 +3345,18 @@ class facadesoulAchievement : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static facadesoulAchievement* default_instance_;
+  static E_FacadeSoulachievement* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_facadesoulAchievement : public ::google::protobuf::Message {
+class Sheet_FacadeSoulachievement : public ::google::protobuf::Message {
  public:
-  Sheet_facadesoulAchievement();
-  virtual ~Sheet_facadesoulAchievement();
+  Sheet_FacadeSoulachievement();
+  virtual ~Sheet_FacadeSoulachievement();
 
-  Sheet_facadesoulAchievement(const Sheet_facadesoulAchievement& from);
+  Sheet_FacadeSoulachievement(const Sheet_FacadeSoulachievement& from);
 
-  inline Sheet_facadesoulAchievement& operator=(const Sheet_facadesoulAchievement& from) {
+  inline Sheet_FacadeSoulachievement& operator=(const Sheet_FacadeSoulachievement& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3370,17 +3370,17 @@ class Sheet_facadesoulAchievement : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_facadesoulAchievement& default_instance();
+  static const Sheet_FacadeSoulachievement& default_instance();
 
-  void Swap(Sheet_facadesoulAchievement* other);
+  void Swap(Sheet_FacadeSoulachievement* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_facadesoulAchievement* New() const;
+  Sheet_FacadeSoulachievement* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_facadesoulAchievement& from);
-  void MergeFrom(const Sheet_facadesoulAchievement& from);
+  void CopyFrom(const Sheet_FacadeSoulachievement& from);
+  void MergeFrom(const Sheet_FacadeSoulachievement& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3403,24 +3403,24 @@ class Sheet_facadesoulAchievement : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.facadesoulAchievement facadesoulAchievement_List = 1;
-  inline int facadesoulachievement_list_size() const;
-  inline void clear_facadesoulachievement_list();
-  static const int kFacadesoulAchievementListFieldNumber = 1;
-  inline const ::proto_ff::facadesoulAchievement& facadesoulachievement_list(int index) const;
-  inline ::proto_ff::facadesoulAchievement* mutable_facadesoulachievement_list(int index);
-  inline ::proto_ff::facadesoulAchievement* add_facadesoulachievement_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulAchievement >&
-      facadesoulachievement_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulAchievement >*
-      mutable_facadesoulachievement_list();
+  // repeated .proto_ff.E_FacadeSoulachievement E_FacadeSoulachievement_List = 1;
+  inline int e_facadesoulachievement_list_size() const;
+  inline void clear_e_facadesoulachievement_list();
+  static const int kEFacadeSoulachievementListFieldNumber = 1;
+  inline const ::proto_ff::E_FacadeSoulachievement& e_facadesoulachievement_list(int index) const;
+  inline ::proto_ff::E_FacadeSoulachievement* mutable_e_facadesoulachievement_list(int index);
+  inline ::proto_ff::E_FacadeSoulachievement* add_e_facadesoulachievement_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulachievement >&
+      e_facadesoulachievement_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulachievement >*
+      mutable_e_facadesoulachievement_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_facadesoulAchievement)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FacadeSoulachievement)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulAchievement > facadesoulachievement_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulachievement > e_facadesoulachievement_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3430,2955 +3430,2955 @@ class Sheet_facadesoulAchievement : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_facade_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_facadesoulAchievement* default_instance_;
+  static Sheet_FacadeSoulachievement* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// facadedisplaymaterialDesc
+// E_FacadeDisplayMaterialDesc
 
-// optional int64 id = 1;
-inline bool facadedisplaymaterialDesc::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FacadeDisplayMaterialDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadedisplaymaterialDesc::set_has_id() {
+inline void E_FacadeDisplayMaterialDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadedisplaymaterialDesc::clear_has_id() {
+inline void E_FacadeDisplayMaterialDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadedisplaymaterialDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeDisplayMaterialDesc::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadedisplaymaterialDesc::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeDisplayMaterialDesc::m_id() const {
+  return m_id_;
 }
-inline void facadedisplaymaterialDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeDisplayMaterialDesc::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 exp = 2;
-inline bool facadedisplaymaterialDesc::has_exp() const {
+// optional int32 m_exp = 2;
+inline bool E_FacadeDisplayMaterialDesc::has_m_exp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadedisplaymaterialDesc::set_has_exp() {
+inline void E_FacadeDisplayMaterialDesc::set_has_m_exp() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadedisplaymaterialDesc::clear_has_exp() {
+inline void E_FacadeDisplayMaterialDesc::clear_has_m_exp() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadedisplaymaterialDesc::clear_exp() {
-  exp_ = 0;
-  clear_has_exp();
+inline void E_FacadeDisplayMaterialDesc::clear_m_exp() {
+  m_exp_ = 0;
+  clear_has_m_exp();
 }
-inline ::google::protobuf::int32 facadedisplaymaterialDesc::exp() const {
-  return exp_;
+inline ::google::protobuf::int32 E_FacadeDisplayMaterialDesc::m_exp() const {
+  return m_exp_;
 }
-inline void facadedisplaymaterialDesc::set_exp(::google::protobuf::int32 value) {
-  set_has_exp();
-  exp_ = value;
+inline void E_FacadeDisplayMaterialDesc::set_m_exp(::google::protobuf::int32 value) {
+  set_has_m_exp();
+  m_exp_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadedisplay
+// E_FacadeDisplay
 
-// optional int64 id = 1;
-inline bool facadedisplay::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FacadeDisplay::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadedisplay::set_has_id() {
+inline void E_FacadeDisplay::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadedisplay::clear_has_id() {
+inline void E_FacadeDisplay::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadedisplay::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeDisplay::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadedisplay::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeDisplay::m_id() const {
+  return m_id_;
 }
-inline void facadedisplay::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeDisplay::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 type = 2;
-inline bool facadedisplay::has_type() const {
+// optional int32 m_type = 2;
+inline bool E_FacadeDisplay::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadedisplay::set_has_type() {
+inline void E_FacadeDisplay::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadedisplay::clear_has_type() {
+inline void E_FacadeDisplay::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadedisplay::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeDisplay::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadedisplay::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeDisplay::m_type() const {
+  return m_type_;
 }
-inline void facadedisplay::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeDisplay::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional string resource = 3;
-inline bool facadedisplay::has_resource() const {
+// optional string m_resource = 3;
+inline bool E_FacadeDisplay::has_m_resource() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadedisplay::set_has_resource() {
+inline void E_FacadeDisplay::set_has_m_resource() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadedisplay::clear_has_resource() {
+inline void E_FacadeDisplay::clear_has_m_resource() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadedisplay::clear_resource() {
-  if (resource_ != &::google::protobuf::internal::kEmptyString) {
-    resource_->clear();
+inline void E_FacadeDisplay::clear_m_resource() {
+  if (m_resource_ != &::google::protobuf::internal::kEmptyString) {
+    m_resource_->clear();
   }
-  clear_has_resource();
+  clear_has_m_resource();
 }
-inline const ::std::string& facadedisplay::resource() const {
-  return *resource_;
+inline const ::std::string& E_FacadeDisplay::m_resource() const {
+  return *m_resource_;
 }
-inline void facadedisplay::set_resource(const ::std::string& value) {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_resource(const ::std::string& value) {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  resource_->assign(value);
+  m_resource_->assign(value);
 }
-inline void facadedisplay::set_resource(const char* value) {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_resource(const char* value) {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  resource_->assign(value);
+  m_resource_->assign(value);
 }
-inline void facadedisplay::set_resource(const char* value, size_t size) {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_resource(const char* value, size_t size) {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  resource_->assign(reinterpret_cast<const char*>(value), size);
+  m_resource_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadedisplay::mutable_resource() {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline ::std::string* E_FacadeDisplay::mutable_m_resource() {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  return resource_;
+  return m_resource_;
 }
-inline ::std::string* facadedisplay::release_resource() {
-  clear_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeDisplay::release_m_resource() {
+  clear_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = resource_;
-    resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_resource_;
+    m_resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadedisplay::set_allocated_resource(::std::string* resource) {
-  if (resource_ != &::google::protobuf::internal::kEmptyString) {
-    delete resource_;
+inline void E_FacadeDisplay::set_allocated_m_resource(::std::string* m_resource) {
+  if (m_resource_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_resource_;
   }
-  if (resource) {
-    set_has_resource();
-    resource_ = resource;
+  if (m_resource) {
+    set_has_m_resource();
+    m_resource_ = m_resource;
   } else {
-    clear_has_resource();
-    resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_resource();
+    m_resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string name = 4;
-inline bool facadedisplay::has_name() const {
+// optional string m_name = 4;
+inline bool E_FacadeDisplay::has_m_name() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void facadedisplay::set_has_name() {
+inline void E_FacadeDisplay::set_has_m_name() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void facadedisplay::clear_has_name() {
+inline void E_FacadeDisplay::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void facadedisplay::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_FacadeDisplay::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& facadedisplay::name() const {
-  return *name_;
+inline const ::std::string& E_FacadeDisplay::m_name() const {
+  return *m_name_;
 }
-inline void facadedisplay::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void facadedisplay::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void facadedisplay::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadedisplay::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_FacadeDisplay::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* facadedisplay::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeDisplay::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadedisplay::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_FacadeDisplay::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string activeDesc = 5;
-inline bool facadedisplay::has_activedesc() const {
+// optional string m_activedesc = 5;
+inline bool E_FacadeDisplay::has_m_activedesc() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void facadedisplay::set_has_activedesc() {
+inline void E_FacadeDisplay::set_has_m_activedesc() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void facadedisplay::clear_has_activedesc() {
+inline void E_FacadeDisplay::clear_has_m_activedesc() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void facadedisplay::clear_activedesc() {
-  if (activedesc_ != &::google::protobuf::internal::kEmptyString) {
-    activedesc_->clear();
+inline void E_FacadeDisplay::clear_m_activedesc() {
+  if (m_activedesc_ != &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_->clear();
   }
-  clear_has_activedesc();
+  clear_has_m_activedesc();
 }
-inline const ::std::string& facadedisplay::activedesc() const {
-  return *activedesc_;
+inline const ::std::string& E_FacadeDisplay::m_activedesc() const {
+  return *m_activedesc_;
 }
-inline void facadedisplay::set_activedesc(const ::std::string& value) {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_activedesc(const ::std::string& value) {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  activedesc_->assign(value);
+  m_activedesc_->assign(value);
 }
-inline void facadedisplay::set_activedesc(const char* value) {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_activedesc(const char* value) {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  activedesc_->assign(value);
+  m_activedesc_->assign(value);
 }
-inline void facadedisplay::set_activedesc(const char* value, size_t size) {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_activedesc(const char* value, size_t size) {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  activedesc_->assign(reinterpret_cast<const char*>(value), size);
+  m_activedesc_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadedisplay::mutable_activedesc() {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline ::std::string* E_FacadeDisplay::mutable_m_activedesc() {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  return activedesc_;
+  return m_activedesc_;
 }
-inline ::std::string* facadedisplay::release_activedesc() {
-  clear_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeDisplay::release_m_activedesc() {
+  clear_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = activedesc_;
-    activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_activedesc_;
+    m_activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadedisplay::set_allocated_activedesc(::std::string* activedesc) {
-  if (activedesc_ != &::google::protobuf::internal::kEmptyString) {
-    delete activedesc_;
+inline void E_FacadeDisplay::set_allocated_m_activedesc(::std::string* m_activedesc) {
+  if (m_activedesc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_activedesc_;
   }
-  if (activedesc) {
-    set_has_activedesc();
-    activedesc_ = activedesc;
+  if (m_activedesc) {
+    set_has_m_activedesc();
+    m_activedesc_ = m_activedesc;
   } else {
-    clear_has_activedesc();
-    activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_activedesc();
+    m_activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string professionID = 6;
-inline bool facadedisplay::has_professionid() const {
+// optional string m_professionid = 6;
+inline bool E_FacadeDisplay::has_m_professionid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void facadedisplay::set_has_professionid() {
+inline void E_FacadeDisplay::set_has_m_professionid() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void facadedisplay::clear_has_professionid() {
+inline void E_FacadeDisplay::clear_has_m_professionid() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void facadedisplay::clear_professionid() {
-  if (professionid_ != &::google::protobuf::internal::kEmptyString) {
-    professionid_->clear();
+inline void E_FacadeDisplay::clear_m_professionid() {
+  if (m_professionid_ != &::google::protobuf::internal::kEmptyString) {
+    m_professionid_->clear();
   }
-  clear_has_professionid();
+  clear_has_m_professionid();
 }
-inline const ::std::string& facadedisplay::professionid() const {
-  return *professionid_;
+inline const ::std::string& E_FacadeDisplay::m_professionid() const {
+  return *m_professionid_;
 }
-inline void facadedisplay::set_professionid(const ::std::string& value) {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_professionid(const ::std::string& value) {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  professionid_->assign(value);
+  m_professionid_->assign(value);
 }
-inline void facadedisplay::set_professionid(const char* value) {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_professionid(const char* value) {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  professionid_->assign(value);
+  m_professionid_->assign(value);
 }
-inline void facadedisplay::set_professionid(const char* value, size_t size) {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_professionid(const char* value, size_t size) {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  professionid_->assign(reinterpret_cast<const char*>(value), size);
+  m_professionid_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadedisplay::mutable_professionid() {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline ::std::string* E_FacadeDisplay::mutable_m_professionid() {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  return professionid_;
+  return m_professionid_;
 }
-inline ::std::string* facadedisplay::release_professionid() {
-  clear_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeDisplay::release_m_professionid() {
+  clear_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = professionid_;
-    professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_professionid_;
+    m_professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadedisplay::set_allocated_professionid(::std::string* professionid) {
-  if (professionid_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionid_;
+inline void E_FacadeDisplay::set_allocated_m_professionid(::std::string* m_professionid) {
+  if (m_professionid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionid_;
   }
-  if (professionid) {
-    set_has_professionid();
-    professionid_ = professionid;
+  if (m_professionid) {
+    set_has_m_professionid();
+    m_professionid_ = m_professionid;
   } else {
-    clear_has_professionid();
-    professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_professionid();
+    m_professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string skillID = 7;
-inline bool facadedisplay::has_skillid() const {
+// optional string m_skillid = 7;
+inline bool E_FacadeDisplay::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void facadedisplay::set_has_skillid() {
+inline void E_FacadeDisplay::set_has_m_skillid() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void facadedisplay::clear_has_skillid() {
+inline void E_FacadeDisplay::clear_has_m_skillid() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void facadedisplay::clear_skillid() {
-  if (skillid_ != &::google::protobuf::internal::kEmptyString) {
-    skillid_->clear();
+inline void E_FacadeDisplay::clear_m_skillid() {
+  if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
+    m_skillid_->clear();
   }
-  clear_has_skillid();
+  clear_has_m_skillid();
 }
-inline const ::std::string& facadedisplay::skillid() const {
-  return *skillid_;
+inline const ::std::string& E_FacadeDisplay::m_skillid() const {
+  return *m_skillid_;
 }
-inline void facadedisplay::set_skillid(const ::std::string& value) {
-  set_has_skillid();
-  if (skillid_ == &::google::protobuf::internal::kEmptyString) {
-    skillid_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_skillid(const ::std::string& value) {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
   }
-  skillid_->assign(value);
+  m_skillid_->assign(value);
 }
-inline void facadedisplay::set_skillid(const char* value) {
-  set_has_skillid();
-  if (skillid_ == &::google::protobuf::internal::kEmptyString) {
-    skillid_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_skillid(const char* value) {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
   }
-  skillid_->assign(value);
+  m_skillid_->assign(value);
 }
-inline void facadedisplay::set_skillid(const char* value, size_t size) {
-  set_has_skillid();
-  if (skillid_ == &::google::protobuf::internal::kEmptyString) {
-    skillid_ = new ::std::string;
+inline void E_FacadeDisplay::set_m_skillid(const char* value, size_t size) {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
   }
-  skillid_->assign(reinterpret_cast<const char*>(value), size);
+  m_skillid_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadedisplay::mutable_skillid() {
-  set_has_skillid();
-  if (skillid_ == &::google::protobuf::internal::kEmptyString) {
-    skillid_ = new ::std::string;
+inline ::std::string* E_FacadeDisplay::mutable_m_skillid() {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
   }
-  return skillid_;
+  return m_skillid_;
 }
-inline ::std::string* facadedisplay::release_skillid() {
-  clear_has_skillid();
-  if (skillid_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeDisplay::release_m_skillid() {
+  clear_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = skillid_;
-    skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_skillid_;
+    m_skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadedisplay::set_allocated_skillid(::std::string* skillid) {
-  if (skillid_ != &::google::protobuf::internal::kEmptyString) {
-    delete skillid_;
+inline void E_FacadeDisplay::set_allocated_m_skillid(::std::string* m_skillid) {
+  if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_skillid_;
   }
-  if (skillid) {
-    set_has_skillid();
-    skillid_ = skillid;
+  if (m_skillid) {
+    set_has_m_skillid();
+    m_skillid_ = m_skillid;
   } else {
-    clear_has_skillid();
-    skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_skillid();
+    m_skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 soulItemID = 8;
-inline bool facadedisplay::has_soulitemid() const {
+// optional int32 m_soulitemid = 8;
+inline bool E_FacadeDisplay::has_m_soulitemid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void facadedisplay::set_has_soulitemid() {
+inline void E_FacadeDisplay::set_has_m_soulitemid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void facadedisplay::clear_has_soulitemid() {
+inline void E_FacadeDisplay::clear_has_m_soulitemid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void facadedisplay::clear_soulitemid() {
-  soulitemid_ = 0;
-  clear_has_soulitemid();
+inline void E_FacadeDisplay::clear_m_soulitemid() {
+  m_soulitemid_ = 0;
+  clear_has_m_soulitemid();
 }
-inline ::google::protobuf::int32 facadedisplay::soulitemid() const {
-  return soulitemid_;
+inline ::google::protobuf::int32 E_FacadeDisplay::m_soulitemid() const {
+  return m_soulitemid_;
 }
-inline void facadedisplay::set_soulitemid(::google::protobuf::int32 value) {
-  set_has_soulitemid();
-  soulitemid_ = value;
-}
-
-// repeated .proto_ff.facadedisplaymaterialDesc material = 9;
-inline int facadedisplay::material_size() const {
-  return material_.size();
-}
-inline void facadedisplay::clear_material() {
-  material_.Clear();
-}
-inline const ::proto_ff::facadedisplaymaterialDesc& facadedisplay::material(int index) const {
-  return material_.Get(index);
-}
-inline ::proto_ff::facadedisplaymaterialDesc* facadedisplay::mutable_material(int index) {
-  return material_.Mutable(index);
-}
-inline ::proto_ff::facadedisplaymaterialDesc* facadedisplay::add_material() {
-  return material_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplaymaterialDesc >&
-facadedisplay::material() const {
-  return material_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplaymaterialDesc >*
-facadedisplay::mutable_material() {
-  return &material_;
+inline void E_FacadeDisplay::set_m_soulitemid(::google::protobuf::int32 value) {
+  set_has_m_soulitemid();
+  m_soulitemid_ = value;
 }
 
-// repeated int64 fragmentID = 10;
-inline int facadedisplay::fragmentid_size() const {
-  return fragmentid_.size();
+// repeated .proto_ff.E_FacadeDisplayMaterialDesc m_material = 9;
+inline int E_FacadeDisplay::m_material_size() const {
+  return m_material_.size();
 }
-inline void facadedisplay::clear_fragmentid() {
-  fragmentid_.Clear();
+inline void E_FacadeDisplay::clear_m_material() {
+  m_material_.Clear();
 }
-inline ::google::protobuf::int64 facadedisplay::fragmentid(int index) const {
-  return fragmentid_.Get(index);
+inline const ::proto_ff::E_FacadeDisplayMaterialDesc& E_FacadeDisplay::m_material(int index) const {
+  return m_material_.Get(index);
 }
-inline void facadedisplay::set_fragmentid(int index, ::google::protobuf::int64 value) {
-  fragmentid_.Set(index, value);
+inline ::proto_ff::E_FacadeDisplayMaterialDesc* E_FacadeDisplay::mutable_m_material(int index) {
+  return m_material_.Mutable(index);
 }
-inline void facadedisplay::add_fragmentid(::google::protobuf::int64 value) {
-  fragmentid_.Add(value);
+inline ::proto_ff::E_FacadeDisplayMaterialDesc* E_FacadeDisplay::add_m_material() {
+  return m_material_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc >&
+E_FacadeDisplay::m_material() const {
+  return m_material_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc >*
+E_FacadeDisplay::mutable_m_material() {
+  return &m_material_;
+}
+
+// repeated int64 m_fragmentid = 10;
+inline int E_FacadeDisplay::m_fragmentid_size() const {
+  return m_fragmentid_.size();
+}
+inline void E_FacadeDisplay::clear_m_fragmentid() {
+  m_fragmentid_.Clear();
+}
+inline ::google::protobuf::int64 E_FacadeDisplay::m_fragmentid(int index) const {
+  return m_fragmentid_.Get(index);
+}
+inline void E_FacadeDisplay::set_m_fragmentid(int index, ::google::protobuf::int64 value) {
+  m_fragmentid_.Set(index, value);
+}
+inline void E_FacadeDisplay::add_m_fragmentid(::google::protobuf::int64 value) {
+  m_fragmentid_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-facadedisplay::fragmentid() const {
-  return fragmentid_;
+E_FacadeDisplay::m_fragmentid() const {
+  return m_fragmentid_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-facadedisplay::mutable_fragmentid() {
-  return &fragmentid_;
+E_FacadeDisplay::mutable_m_fragmentid() {
+  return &m_fragmentid_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_facadedisplay
+// Sheet_FacadeDisplay
 
-// repeated .proto_ff.facadedisplay facadedisplay_List = 1;
-inline int Sheet_facadedisplay::facadedisplay_list_size() const {
-  return facadedisplay_list_.size();
+// repeated .proto_ff.E_FacadeDisplay E_FacadeDisplay_List = 1;
+inline int Sheet_FacadeDisplay::e_facadedisplay_list_size() const {
+  return e_facadedisplay_list_.size();
 }
-inline void Sheet_facadedisplay::clear_facadedisplay_list() {
-  facadedisplay_list_.Clear();
+inline void Sheet_FacadeDisplay::clear_e_facadedisplay_list() {
+  e_facadedisplay_list_.Clear();
 }
-inline const ::proto_ff::facadedisplay& Sheet_facadedisplay::facadedisplay_list(int index) const {
-  return facadedisplay_list_.Get(index);
+inline const ::proto_ff::E_FacadeDisplay& Sheet_FacadeDisplay::e_facadedisplay_list(int index) const {
+  return e_facadedisplay_list_.Get(index);
 }
-inline ::proto_ff::facadedisplay* Sheet_facadedisplay::mutable_facadedisplay_list(int index) {
-  return facadedisplay_list_.Mutable(index);
+inline ::proto_ff::E_FacadeDisplay* Sheet_FacadeDisplay::mutable_e_facadedisplay_list(int index) {
+  return e_facadedisplay_list_.Mutable(index);
 }
-inline ::proto_ff::facadedisplay* Sheet_facadedisplay::add_facadedisplay_list() {
-  return facadedisplay_list_.Add();
+inline ::proto_ff::E_FacadeDisplay* Sheet_FacadeDisplay::add_e_facadedisplay_list() {
+  return e_facadedisplay_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplay >&
-Sheet_facadedisplay::facadedisplay_list() const {
-  return facadedisplay_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplay >&
+Sheet_FacadeDisplay::e_facadedisplay_list() const {
+  return e_facadedisplay_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadedisplay >*
-Sheet_facadedisplay::mutable_facadedisplay_list() {
-  return &facadedisplay_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplay >*
+Sheet_FacadeDisplay::mutable_e_facadedisplay_list() {
+  return &e_facadedisplay_list_;
 }
 
 // -------------------------------------------------------------------
 
-// facadevaluetreasureAttributeDesc
+// E_FacadeValueTreasureattributeDesc
 
-// optional int32 type = 1;
-inline bool facadevaluetreasureAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeValueTreasureattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadevaluetreasureAttributeDesc::set_has_type() {
+inline void E_FacadeValueTreasureattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadevaluetreasureAttributeDesc::clear_has_type() {
+inline void E_FacadeValueTreasureattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadevaluetreasureAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeValueTreasureattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadevaluetreasureAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeValueTreasureattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadevaluetreasureAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeValueTreasureattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadevaluetreasureAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeValueTreasureattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadevaluetreasureAttributeDesc::set_has_value() {
+inline void E_FacadeValueTreasureattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadevaluetreasureAttributeDesc::clear_has_value() {
+inline void E_FacadeValueTreasureattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadevaluetreasureAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeValueTreasureattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadevaluetreasureAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeValueTreasureattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadevaluetreasureAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeValueTreasureattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadevalueArtifactAttributeDesc
+// E_FacadeValueArtifactattributeDesc
 
-// optional int32 type = 1;
-inline bool facadevalueArtifactAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeValueArtifactattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadevalueArtifactAttributeDesc::set_has_type() {
+inline void E_FacadeValueArtifactattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadevalueArtifactAttributeDesc::clear_has_type() {
+inline void E_FacadeValueArtifactattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadevalueArtifactAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeValueArtifactattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadevalueArtifactAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeValueArtifactattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadevalueArtifactAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeValueArtifactattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadevalueArtifactAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeValueArtifactattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadevalueArtifactAttributeDesc::set_has_value() {
+inline void E_FacadeValueArtifactattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadevalueArtifactAttributeDesc::clear_has_value() {
+inline void E_FacadeValueArtifactattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadevalueArtifactAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeValueArtifactattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadevalueArtifactAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeValueArtifactattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadevalueArtifactAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeValueArtifactattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadevalueBladeAttributeDesc
+// E_FacadeValueBladeattributeDesc
 
-// optional int32 type = 1;
-inline bool facadevalueBladeAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeValueBladeattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadevalueBladeAttributeDesc::set_has_type() {
+inline void E_FacadeValueBladeattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadevalueBladeAttributeDesc::clear_has_type() {
+inline void E_FacadeValueBladeattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadevalueBladeAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeValueBladeattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadevalueBladeAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeValueBladeattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadevalueBladeAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeValueBladeattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadevalueBladeAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeValueBladeattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadevalueBladeAttributeDesc::set_has_value() {
+inline void E_FacadeValueBladeattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadevalueBladeAttributeDesc::clear_has_value() {
+inline void E_FacadeValueBladeattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadevalueBladeAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeValueBladeattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadevalueBladeAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeValueBladeattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadevalueBladeAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeValueBladeattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadevaluewingAttributeDesc
+// E_FacadeValueWingattributeDesc
 
-// optional int32 type = 1;
-inline bool facadevaluewingAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeValueWingattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadevaluewingAttributeDesc::set_has_type() {
+inline void E_FacadeValueWingattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadevaluewingAttributeDesc::clear_has_type() {
+inline void E_FacadeValueWingattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadevaluewingAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeValueWingattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadevaluewingAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeValueWingattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadevaluewingAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeValueWingattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadevaluewingAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeValueWingattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadevaluewingAttributeDesc::set_has_value() {
+inline void E_FacadeValueWingattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadevaluewingAttributeDesc::clear_has_value() {
+inline void E_FacadeValueWingattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadevaluewingAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeValueWingattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadevaluewingAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeValueWingattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadevaluewingAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeValueWingattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadevalue
+// E_FacadeValue
 
-// optional int32 lv = 1;
-inline bool facadevalue::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_FacadeValue::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadevalue::set_has_lv() {
+inline void E_FacadeValue::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadevalue::clear_has_lv() {
+inline void E_FacadeValue::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadevalue::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_FacadeValue::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 facadevalue::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_FacadeValue::m_lv() const {
+  return m_lv_;
 }
-inline void facadevalue::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_FacadeValue::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int64 wingExp = 2;
-inline bool facadevalue::has_wingexp() const {
+// optional int64 m_wingexp = 2;
+inline bool E_FacadeValue::has_m_wingexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadevalue::set_has_wingexp() {
+inline void E_FacadeValue::set_has_m_wingexp() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadevalue::clear_has_wingexp() {
+inline void E_FacadeValue::clear_has_m_wingexp() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadevalue::clear_wingexp() {
-  wingexp_ = GOOGLE_LONGLONG(0);
-  clear_has_wingexp();
+inline void E_FacadeValue::clear_m_wingexp() {
+  m_wingexp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_wingexp();
 }
-inline ::google::protobuf::int64 facadevalue::wingexp() const {
-  return wingexp_;
+inline ::google::protobuf::int64 E_FacadeValue::m_wingexp() const {
+  return m_wingexp_;
 }
-inline void facadevalue::set_wingexp(::google::protobuf::int64 value) {
-  set_has_wingexp();
-  wingexp_ = value;
+inline void E_FacadeValue::set_m_wingexp(::google::protobuf::int64 value) {
+  set_has_m_wingexp();
+  m_wingexp_ = value;
 }
 
-// optional int64 treasureExp = 3;
-inline bool facadevalue::has_treasureexp() const {
+// optional int64 m_treasureexp = 3;
+inline bool E_FacadeValue::has_m_treasureexp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadevalue::set_has_treasureexp() {
+inline void E_FacadeValue::set_has_m_treasureexp() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadevalue::clear_has_treasureexp() {
+inline void E_FacadeValue::clear_has_m_treasureexp() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadevalue::clear_treasureexp() {
-  treasureexp_ = GOOGLE_LONGLONG(0);
-  clear_has_treasureexp();
+inline void E_FacadeValue::clear_m_treasureexp() {
+  m_treasureexp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_treasureexp();
 }
-inline ::google::protobuf::int64 facadevalue::treasureexp() const {
-  return treasureexp_;
+inline ::google::protobuf::int64 E_FacadeValue::m_treasureexp() const {
+  return m_treasureexp_;
 }
-inline void facadevalue::set_treasureexp(::google::protobuf::int64 value) {
-  set_has_treasureexp();
-  treasureexp_ = value;
+inline void E_FacadeValue::set_m_treasureexp(::google::protobuf::int64 value) {
+  set_has_m_treasureexp();
+  m_treasureexp_ = value;
 }
 
-// optional int64 ArtifactExp = 4;
-inline bool facadevalue::has_artifactexp() const {
+// optional int64 m_artifactexp = 4;
+inline bool E_FacadeValue::has_m_artifactexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void facadevalue::set_has_artifactexp() {
+inline void E_FacadeValue::set_has_m_artifactexp() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void facadevalue::clear_has_artifactexp() {
+inline void E_FacadeValue::clear_has_m_artifactexp() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void facadevalue::clear_artifactexp() {
-  artifactexp_ = GOOGLE_LONGLONG(0);
-  clear_has_artifactexp();
+inline void E_FacadeValue::clear_m_artifactexp() {
+  m_artifactexp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_artifactexp();
 }
-inline ::google::protobuf::int64 facadevalue::artifactexp() const {
-  return artifactexp_;
+inline ::google::protobuf::int64 E_FacadeValue::m_artifactexp() const {
+  return m_artifactexp_;
 }
-inline void facadevalue::set_artifactexp(::google::protobuf::int64 value) {
-  set_has_artifactexp();
-  artifactexp_ = value;
+inline void E_FacadeValue::set_m_artifactexp(::google::protobuf::int64 value) {
+  set_has_m_artifactexp();
+  m_artifactexp_ = value;
 }
 
-// optional int64 BladeExp = 5;
-inline bool facadevalue::has_bladeexp() const {
+// optional int64 m_bladeexp = 5;
+inline bool E_FacadeValue::has_m_bladeexp() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void facadevalue::set_has_bladeexp() {
+inline void E_FacadeValue::set_has_m_bladeexp() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void facadevalue::clear_has_bladeexp() {
+inline void E_FacadeValue::clear_has_m_bladeexp() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void facadevalue::clear_bladeexp() {
-  bladeexp_ = GOOGLE_LONGLONG(0);
-  clear_has_bladeexp();
+inline void E_FacadeValue::clear_m_bladeexp() {
+  m_bladeexp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_bladeexp();
 }
-inline ::google::protobuf::int64 facadevalue::bladeexp() const {
-  return bladeexp_;
+inline ::google::protobuf::int64 E_FacadeValue::m_bladeexp() const {
+  return m_bladeexp_;
 }
-inline void facadevalue::set_bladeexp(::google::protobuf::int64 value) {
-  set_has_bladeexp();
-  bladeexp_ = value;
-}
-
-// repeated .proto_ff.facadevaluetreasureAttributeDesc treasureAttribute = 6;
-inline int facadevalue::treasureattribute_size() const {
-  return treasureattribute_.size();
-}
-inline void facadevalue::clear_treasureattribute() {
-  treasureattribute_.Clear();
-}
-inline const ::proto_ff::facadevaluetreasureAttributeDesc& facadevalue::treasureattribute(int index) const {
-  return treasureattribute_.Get(index);
-}
-inline ::proto_ff::facadevaluetreasureAttributeDesc* facadevalue::mutable_treasureattribute(int index) {
-  return treasureattribute_.Mutable(index);
-}
-inline ::proto_ff::facadevaluetreasureAttributeDesc* facadevalue::add_treasureattribute() {
-  return treasureattribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluetreasureAttributeDesc >&
-facadevalue::treasureattribute() const {
-  return treasureattribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluetreasureAttributeDesc >*
-facadevalue::mutable_treasureattribute() {
-  return &treasureattribute_;
+inline void E_FacadeValue::set_m_bladeexp(::google::protobuf::int64 value) {
+  set_has_m_bladeexp();
+  m_bladeexp_ = value;
 }
 
-// repeated .proto_ff.facadevalueArtifactAttributeDesc ArtifactAttribute = 7;
-inline int facadevalue::artifactattribute_size() const {
-  return artifactattribute_.size();
+// repeated .proto_ff.E_FacadeValueTreasureattributeDesc m_treasureattribute = 6;
+inline int E_FacadeValue::m_treasureattribute_size() const {
+  return m_treasureattribute_.size();
 }
-inline void facadevalue::clear_artifactattribute() {
-  artifactattribute_.Clear();
+inline void E_FacadeValue::clear_m_treasureattribute() {
+  m_treasureattribute_.Clear();
 }
-inline const ::proto_ff::facadevalueArtifactAttributeDesc& facadevalue::artifactattribute(int index) const {
-  return artifactattribute_.Get(index);
+inline const ::proto_ff::E_FacadeValueTreasureattributeDesc& E_FacadeValue::m_treasureattribute(int index) const {
+  return m_treasureattribute_.Get(index);
 }
-inline ::proto_ff::facadevalueArtifactAttributeDesc* facadevalue::mutable_artifactattribute(int index) {
-  return artifactattribute_.Mutable(index);
+inline ::proto_ff::E_FacadeValueTreasureattributeDesc* E_FacadeValue::mutable_m_treasureattribute(int index) {
+  return m_treasureattribute_.Mutable(index);
 }
-inline ::proto_ff::facadevalueArtifactAttributeDesc* facadevalue::add_artifactattribute() {
-  return artifactattribute_.Add();
+inline ::proto_ff::E_FacadeValueTreasureattributeDesc* E_FacadeValue::add_m_treasureattribute() {
+  return m_treasureattribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueArtifactAttributeDesc >&
-facadevalue::artifactattribute() const {
-  return artifactattribute_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueTreasureattributeDesc >&
+E_FacadeValue::m_treasureattribute() const {
+  return m_treasureattribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueArtifactAttributeDesc >*
-facadevalue::mutable_artifactattribute() {
-  return &artifactattribute_;
-}
-
-// repeated .proto_ff.facadevalueBladeAttributeDesc BladeAttribute = 8;
-inline int facadevalue::bladeattribute_size() const {
-  return bladeattribute_.size();
-}
-inline void facadevalue::clear_bladeattribute() {
-  bladeattribute_.Clear();
-}
-inline const ::proto_ff::facadevalueBladeAttributeDesc& facadevalue::bladeattribute(int index) const {
-  return bladeattribute_.Get(index);
-}
-inline ::proto_ff::facadevalueBladeAttributeDesc* facadevalue::mutable_bladeattribute(int index) {
-  return bladeattribute_.Mutable(index);
-}
-inline ::proto_ff::facadevalueBladeAttributeDesc* facadevalue::add_bladeattribute() {
-  return bladeattribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueBladeAttributeDesc >&
-facadevalue::bladeattribute() const {
-  return bladeattribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalueBladeAttributeDesc >*
-facadevalue::mutable_bladeattribute() {
-  return &bladeattribute_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueTreasureattributeDesc >*
+E_FacadeValue::mutable_m_treasureattribute() {
+  return &m_treasureattribute_;
 }
 
-// repeated .proto_ff.facadevaluewingAttributeDesc wingAttribute = 9;
-inline int facadevalue::wingattribute_size() const {
-  return wingattribute_.size();
+// repeated .proto_ff.E_FacadeValueArtifactattributeDesc m_artifactattribute = 7;
+inline int E_FacadeValue::m_artifactattribute_size() const {
+  return m_artifactattribute_.size();
 }
-inline void facadevalue::clear_wingattribute() {
-  wingattribute_.Clear();
+inline void E_FacadeValue::clear_m_artifactattribute() {
+  m_artifactattribute_.Clear();
 }
-inline const ::proto_ff::facadevaluewingAttributeDesc& facadevalue::wingattribute(int index) const {
-  return wingattribute_.Get(index);
+inline const ::proto_ff::E_FacadeValueArtifactattributeDesc& E_FacadeValue::m_artifactattribute(int index) const {
+  return m_artifactattribute_.Get(index);
 }
-inline ::proto_ff::facadevaluewingAttributeDesc* facadevalue::mutable_wingattribute(int index) {
-  return wingattribute_.Mutable(index);
+inline ::proto_ff::E_FacadeValueArtifactattributeDesc* E_FacadeValue::mutable_m_artifactattribute(int index) {
+  return m_artifactattribute_.Mutable(index);
 }
-inline ::proto_ff::facadevaluewingAttributeDesc* facadevalue::add_wingattribute() {
-  return wingattribute_.Add();
+inline ::proto_ff::E_FacadeValueArtifactattributeDesc* E_FacadeValue::add_m_artifactattribute() {
+  return m_artifactattribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluewingAttributeDesc >&
-facadevalue::wingattribute() const {
-  return wingattribute_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueArtifactattributeDesc >&
+E_FacadeValue::m_artifactattribute() const {
+  return m_artifactattribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevaluewingAttributeDesc >*
-facadevalue::mutable_wingattribute() {
-  return &wingattribute_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueArtifactattributeDesc >*
+E_FacadeValue::mutable_m_artifactattribute() {
+  return &m_artifactattribute_;
 }
 
-// -------------------------------------------------------------------
+// repeated .proto_ff.E_FacadeValueBladeattributeDesc m_bladeattribute = 8;
+inline int E_FacadeValue::m_bladeattribute_size() const {
+  return m_bladeattribute_.size();
+}
+inline void E_FacadeValue::clear_m_bladeattribute() {
+  m_bladeattribute_.Clear();
+}
+inline const ::proto_ff::E_FacadeValueBladeattributeDesc& E_FacadeValue::m_bladeattribute(int index) const {
+  return m_bladeattribute_.Get(index);
+}
+inline ::proto_ff::E_FacadeValueBladeattributeDesc* E_FacadeValue::mutable_m_bladeattribute(int index) {
+  return m_bladeattribute_.Mutable(index);
+}
+inline ::proto_ff::E_FacadeValueBladeattributeDesc* E_FacadeValue::add_m_bladeattribute() {
+  return m_bladeattribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueBladeattributeDesc >&
+E_FacadeValue::m_bladeattribute() const {
+  return m_bladeattribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueBladeattributeDesc >*
+E_FacadeValue::mutable_m_bladeattribute() {
+  return &m_bladeattribute_;
+}
 
-// Sheet_facadevalue
-
-// repeated .proto_ff.facadevalue facadevalue_List = 1;
-inline int Sheet_facadevalue::facadevalue_list_size() const {
-  return facadevalue_list_.size();
+// repeated .proto_ff.E_FacadeValueWingattributeDesc m_wingattribute = 9;
+inline int E_FacadeValue::m_wingattribute_size() const {
+  return m_wingattribute_.size();
 }
-inline void Sheet_facadevalue::clear_facadevalue_list() {
-  facadevalue_list_.Clear();
+inline void E_FacadeValue::clear_m_wingattribute() {
+  m_wingattribute_.Clear();
 }
-inline const ::proto_ff::facadevalue& Sheet_facadevalue::facadevalue_list(int index) const {
-  return facadevalue_list_.Get(index);
+inline const ::proto_ff::E_FacadeValueWingattributeDesc& E_FacadeValue::m_wingattribute(int index) const {
+  return m_wingattribute_.Get(index);
 }
-inline ::proto_ff::facadevalue* Sheet_facadevalue::mutable_facadevalue_list(int index) {
-  return facadevalue_list_.Mutable(index);
+inline ::proto_ff::E_FacadeValueWingattributeDesc* E_FacadeValue::mutable_m_wingattribute(int index) {
+  return m_wingattribute_.Mutable(index);
 }
-inline ::proto_ff::facadevalue* Sheet_facadevalue::add_facadevalue_list() {
-  return facadevalue_list_.Add();
+inline ::proto_ff::E_FacadeValueWingattributeDesc* E_FacadeValue::add_m_wingattribute() {
+  return m_wingattribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalue >&
-Sheet_facadevalue::facadevalue_list() const {
-  return facadevalue_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueWingattributeDesc >&
+E_FacadeValue::m_wingattribute() const {
+  return m_wingattribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadevalue >*
-Sheet_facadevalue::mutable_facadevalue_list() {
-  return &facadevalue_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueWingattributeDesc >*
+E_FacadeValue::mutable_m_wingattribute() {
+  return &m_wingattribute_;
 }
 
 // -------------------------------------------------------------------
 
-// facadetype
+// Sheet_FacadeValue
 
-// optional int32 id = 1;
-inline bool facadetype::has_id() const {
+// repeated .proto_ff.E_FacadeValue E_FacadeValue_List = 1;
+inline int Sheet_FacadeValue::e_facadevalue_list_size() const {
+  return e_facadevalue_list_.size();
+}
+inline void Sheet_FacadeValue::clear_e_facadevalue_list() {
+  e_facadevalue_list_.Clear();
+}
+inline const ::proto_ff::E_FacadeValue& Sheet_FacadeValue::e_facadevalue_list(int index) const {
+  return e_facadevalue_list_.Get(index);
+}
+inline ::proto_ff::E_FacadeValue* Sheet_FacadeValue::mutable_e_facadevalue_list(int index) {
+  return e_facadevalue_list_.Mutable(index);
+}
+inline ::proto_ff::E_FacadeValue* Sheet_FacadeValue::add_e_facadevalue_list() {
+  return e_facadevalue_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValue >&
+Sheet_FacadeValue::e_facadevalue_list() const {
+  return e_facadevalue_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValue >*
+Sheet_FacadeValue::mutable_e_facadevalue_list() {
+  return &e_facadevalue_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FacadeType
+
+// optional int32 m_id = 1;
+inline bool E_FacadeType::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadetype::set_has_id() {
+inline void E_FacadeType::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadetype::clear_has_id() {
+inline void E_FacadeType::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadetype::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_FacadeType::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 facadetype::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_FacadeType::m_id() const {
+  return m_id_;
 }
-inline void facadetype::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeType::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string souceName = 2;
-inline bool facadetype::has_soucename() const {
+// optional string m_soucename = 2;
+inline bool E_FacadeType::has_m_soucename() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadetype::set_has_soucename() {
+inline void E_FacadeType::set_has_m_soucename() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadetype::clear_has_soucename() {
+inline void E_FacadeType::clear_has_m_soucename() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadetype::clear_soucename() {
-  if (soucename_ != &::google::protobuf::internal::kEmptyString) {
-    soucename_->clear();
+inline void E_FacadeType::clear_m_soucename() {
+  if (m_soucename_ != &::google::protobuf::internal::kEmptyString) {
+    m_soucename_->clear();
   }
-  clear_has_soucename();
+  clear_has_m_soucename();
 }
-inline const ::std::string& facadetype::soucename() const {
-  return *soucename_;
+inline const ::std::string& E_FacadeType::m_soucename() const {
+  return *m_soucename_;
 }
-inline void facadetype::set_soucename(const ::std::string& value) {
-  set_has_soucename();
-  if (soucename_ == &::google::protobuf::internal::kEmptyString) {
-    soucename_ = new ::std::string;
+inline void E_FacadeType::set_m_soucename(const ::std::string& value) {
+  set_has_m_soucename();
+  if (m_soucename_ == &::google::protobuf::internal::kEmptyString) {
+    m_soucename_ = new ::std::string;
   }
-  soucename_->assign(value);
+  m_soucename_->assign(value);
 }
-inline void facadetype::set_soucename(const char* value) {
-  set_has_soucename();
-  if (soucename_ == &::google::protobuf::internal::kEmptyString) {
-    soucename_ = new ::std::string;
+inline void E_FacadeType::set_m_soucename(const char* value) {
+  set_has_m_soucename();
+  if (m_soucename_ == &::google::protobuf::internal::kEmptyString) {
+    m_soucename_ = new ::std::string;
   }
-  soucename_->assign(value);
+  m_soucename_->assign(value);
 }
-inline void facadetype::set_soucename(const char* value, size_t size) {
-  set_has_soucename();
-  if (soucename_ == &::google::protobuf::internal::kEmptyString) {
-    soucename_ = new ::std::string;
+inline void E_FacadeType::set_m_soucename(const char* value, size_t size) {
+  set_has_m_soucename();
+  if (m_soucename_ == &::google::protobuf::internal::kEmptyString) {
+    m_soucename_ = new ::std::string;
   }
-  soucename_->assign(reinterpret_cast<const char*>(value), size);
+  m_soucename_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadetype::mutable_soucename() {
-  set_has_soucename();
-  if (soucename_ == &::google::protobuf::internal::kEmptyString) {
-    soucename_ = new ::std::string;
+inline ::std::string* E_FacadeType::mutable_m_soucename() {
+  set_has_m_soucename();
+  if (m_soucename_ == &::google::protobuf::internal::kEmptyString) {
+    m_soucename_ = new ::std::string;
   }
-  return soucename_;
+  return m_soucename_;
 }
-inline ::std::string* facadetype::release_soucename() {
-  clear_has_soucename();
-  if (soucename_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeType::release_m_soucename() {
+  clear_has_m_soucename();
+  if (m_soucename_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = soucename_;
-    soucename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_soucename_;
+    m_soucename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadetype::set_allocated_soucename(::std::string* soucename) {
-  if (soucename_ != &::google::protobuf::internal::kEmptyString) {
-    delete soucename_;
+inline void E_FacadeType::set_allocated_m_soucename(::std::string* m_soucename) {
+  if (m_soucename_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_soucename_;
   }
-  if (soucename) {
-    set_has_soucename();
-    soucename_ = soucename;
+  if (m_soucename) {
+    set_has_m_soucename();
+    m_soucename_ = m_soucename;
   } else {
-    clear_has_soucename();
-    soucename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_soucename();
+    m_soucename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_facadetype
+// Sheet_FacadeType
 
-// repeated .proto_ff.facadetype facadetype_List = 1;
-inline int Sheet_facadetype::facadetype_list_size() const {
-  return facadetype_list_.size();
+// repeated .proto_ff.E_FacadeType E_FacadeType_List = 1;
+inline int Sheet_FacadeType::e_facadetype_list_size() const {
+  return e_facadetype_list_.size();
 }
-inline void Sheet_facadetype::clear_facadetype_list() {
-  facadetype_list_.Clear();
+inline void Sheet_FacadeType::clear_e_facadetype_list() {
+  e_facadetype_list_.Clear();
 }
-inline const ::proto_ff::facadetype& Sheet_facadetype::facadetype_list(int index) const {
-  return facadetype_list_.Get(index);
+inline const ::proto_ff::E_FacadeType& Sheet_FacadeType::e_facadetype_list(int index) const {
+  return e_facadetype_list_.Get(index);
 }
-inline ::proto_ff::facadetype* Sheet_facadetype::mutable_facadetype_list(int index) {
-  return facadetype_list_.Mutable(index);
+inline ::proto_ff::E_FacadeType* Sheet_FacadeType::mutable_e_facadetype_list(int index) {
+  return e_facadetype_list_.Mutable(index);
 }
-inline ::proto_ff::facadetype* Sheet_facadetype::add_facadetype_list() {
-  return facadetype_list_.Add();
+inline ::proto_ff::E_FacadeType* Sheet_FacadeType::add_e_facadetype_list() {
+  return e_facadetype_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadetype >&
-Sheet_facadetype::facadetype_list() const {
-  return facadetype_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeType >&
+Sheet_FacadeType::e_facadetype_list() const {
+  return e_facadetype_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadetype >*
-Sheet_facadetype::mutable_facadetype_list() {
-  return &facadetype_list_;
-}
-
-// -------------------------------------------------------------------
-
-// facadefragmentattributeDesc
-
-// optional int32 type = 1;
-inline bool facadefragmentattributeDesc::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void facadefragmentattributeDesc::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void facadefragmentattributeDesc::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void facadefragmentattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
-}
-inline ::google::protobuf::int32 facadefragmentattributeDesc::type() const {
-  return type_;
-}
-inline void facadefragmentattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
-}
-
-// optional int32 value = 2;
-inline bool facadefragmentattributeDesc::has_value() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void facadefragmentattributeDesc::set_has_value() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void facadefragmentattributeDesc::clear_has_value() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void facadefragmentattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
-}
-inline ::google::protobuf::int32 facadefragmentattributeDesc::value() const {
-  return value_;
-}
-inline void facadefragmentattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeType >*
+Sheet_FacadeType::mutable_e_facadetype_list() {
+  return &e_facadetype_list_;
 }
 
 // -------------------------------------------------------------------
 
-// facadefragment
+// E_FacadeFragmentAttributeDesc
 
-// optional int64 fragmentID = 1;
-inline bool facadefragment::has_fragmentid() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeFragmentAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadefragment::set_has_fragmentid() {
+inline void E_FacadeFragmentAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadefragment::clear_has_fragmentid() {
+inline void E_FacadeFragmentAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadefragment::clear_fragmentid() {
-  fragmentid_ = GOOGLE_LONGLONG(0);
-  clear_has_fragmentid();
+inline void E_FacadeFragmentAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int64 facadefragment::fragmentid() const {
-  return fragmentid_;
+inline ::google::protobuf::int32 E_FacadeFragmentAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadefragment::set_fragmentid(::google::protobuf::int64 value) {
-  set_has_fragmentid();
-  fragmentid_ = value;
+inline void E_FacadeFragmentAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int64 item = 2;
-inline bool facadefragment::has_item() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeFragmentAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadefragment::set_has_item() {
+inline void E_FacadeFragmentAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadefragment::clear_has_item() {
+inline void E_FacadeFragmentAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadefragment::clear_item() {
-  item_ = GOOGLE_LONGLONG(0);
-  clear_has_item();
+inline void E_FacadeFragmentAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int64 facadefragment::item() const {
-  return item_;
+inline ::google::protobuf::int32 E_FacadeFragmentAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadefragment::set_item(::google::protobuf::int64 value) {
-  set_has_item();
-  item_ = value;
+inline void E_FacadeFragmentAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
-// optional int32 itemNum = 3;
-inline bool facadefragment::has_itemnum() const {
+// -------------------------------------------------------------------
+
+// E_FacadeFragment
+
+// optional int64 m_fragmentid = 1;
+inline bool E_FacadeFragment::has_m_fragmentid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FacadeFragment::set_has_m_fragmentid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FacadeFragment::clear_has_m_fragmentid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FacadeFragment::clear_m_fragmentid() {
+  m_fragmentid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_fragmentid();
+}
+inline ::google::protobuf::int64 E_FacadeFragment::m_fragmentid() const {
+  return m_fragmentid_;
+}
+inline void E_FacadeFragment::set_m_fragmentid(::google::protobuf::int64 value) {
+  set_has_m_fragmentid();
+  m_fragmentid_ = value;
+}
+
+// optional int64 m_item = 2;
+inline bool E_FacadeFragment::has_m_item() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FacadeFragment::set_has_m_item() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FacadeFragment::clear_has_m_item() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FacadeFragment::clear_m_item() {
+  m_item_ = GOOGLE_LONGLONG(0);
+  clear_has_m_item();
+}
+inline ::google::protobuf::int64 E_FacadeFragment::m_item() const {
+  return m_item_;
+}
+inline void E_FacadeFragment::set_m_item(::google::protobuf::int64 value) {
+  set_has_m_item();
+  m_item_ = value;
+}
+
+// optional int32 m_itemnum = 3;
+inline bool E_FacadeFragment::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadefragment::set_has_itemnum() {
+inline void E_FacadeFragment::set_has_m_itemnum() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadefragment::clear_has_itemnum() {
+inline void E_FacadeFragment::clear_has_m_itemnum() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadefragment::clear_itemnum() {
-  itemnum_ = 0;
-  clear_has_itemnum();
+inline void E_FacadeFragment::clear_m_itemnum() {
+  m_itemnum_ = 0;
+  clear_has_m_itemnum();
 }
-inline ::google::protobuf::int32 facadefragment::itemnum() const {
-  return itemnum_;
+inline ::google::protobuf::int32 E_FacadeFragment::m_itemnum() const {
+  return m_itemnum_;
 }
-inline void facadefragment::set_itemnum(::google::protobuf::int32 value) {
-  set_has_itemnum();
-  itemnum_ = value;
-}
-
-// repeated .proto_ff.facadefragmentattributeDesc attribute = 4;
-inline int facadefragment::attribute_size() const {
-  return attribute_.size();
-}
-inline void facadefragment::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::facadefragmentattributeDesc& facadefragment::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::facadefragmentattributeDesc* facadefragment::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::facadefragmentattributeDesc* facadefragment::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragmentattributeDesc >&
-facadefragment::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragmentattributeDesc >*
-facadefragment::mutable_attribute() {
-  return &attribute_;
+inline void E_FacadeFragment::set_m_itemnum(::google::protobuf::int32 value) {
+  set_has_m_itemnum();
+  m_itemnum_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_facadefragment
-
-// repeated .proto_ff.facadefragment facadefragment_List = 1;
-inline int Sheet_facadefragment::facadefragment_list_size() const {
-  return facadefragment_list_.size();
+// repeated .proto_ff.E_FacadeFragmentAttributeDesc m_attribute = 4;
+inline int E_FacadeFragment::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_facadefragment::clear_facadefragment_list() {
-  facadefragment_list_.Clear();
+inline void E_FacadeFragment::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::facadefragment& Sheet_facadefragment::facadefragment_list(int index) const {
-  return facadefragment_list_.Get(index);
+inline const ::proto_ff::E_FacadeFragmentAttributeDesc& E_FacadeFragment::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::facadefragment* Sheet_facadefragment::mutable_facadefragment_list(int index) {
-  return facadefragment_list_.Mutable(index);
+inline ::proto_ff::E_FacadeFragmentAttributeDesc* E_FacadeFragment::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::facadefragment* Sheet_facadefragment::add_facadefragment_list() {
-  return facadefragment_list_.Add();
+inline ::proto_ff::E_FacadeFragmentAttributeDesc* E_FacadeFragment::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragment >&
-Sheet_facadefragment::facadefragment_list() const {
-  return facadefragment_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragmentAttributeDesc >&
+E_FacadeFragment::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadefragment >*
-Sheet_facadefragment::mutable_facadefragment_list() {
-  return &facadefragment_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragmentAttributeDesc >*
+E_FacadeFragment::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// facadechangeattributeDesc
+// Sheet_FacadeFragment
 
-// optional int32 type = 1;
-inline bool facadechangeattributeDesc::has_type() const {
+// repeated .proto_ff.E_FacadeFragment E_FacadeFragment_List = 1;
+inline int Sheet_FacadeFragment::e_facadefragment_list_size() const {
+  return e_facadefragment_list_.size();
+}
+inline void Sheet_FacadeFragment::clear_e_facadefragment_list() {
+  e_facadefragment_list_.Clear();
+}
+inline const ::proto_ff::E_FacadeFragment& Sheet_FacadeFragment::e_facadefragment_list(int index) const {
+  return e_facadefragment_list_.Get(index);
+}
+inline ::proto_ff::E_FacadeFragment* Sheet_FacadeFragment::mutable_e_facadefragment_list(int index) {
+  return e_facadefragment_list_.Mutable(index);
+}
+inline ::proto_ff::E_FacadeFragment* Sheet_FacadeFragment::add_e_facadefragment_list() {
+  return e_facadefragment_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragment >&
+Sheet_FacadeFragment::e_facadefragment_list() const {
+  return e_facadefragment_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeFragment >*
+Sheet_FacadeFragment::mutable_e_facadefragment_list() {
+  return &e_facadefragment_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FacadeChangeAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_FacadeChangeAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadechangeattributeDesc::set_has_type() {
+inline void E_FacadeChangeAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadechangeattributeDesc::clear_has_type() {
+inline void E_FacadeChangeAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadechangeattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeChangeAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadechangeattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeChangeAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadechangeattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeChangeAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadechangeattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeChangeAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadechangeattributeDesc::set_has_value() {
+inline void E_FacadeChangeAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadechangeattributeDesc::clear_has_value() {
+inline void E_FacadeChangeAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadechangeattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeChangeAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadechangeattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeChangeAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadechangeattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeChangeAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadechangeActiveAttributeDesc
+// E_FacadeChangeActiveattributeDesc
 
-// optional int32 type = 1;
-inline bool facadechangeActiveAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeChangeActiveattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadechangeActiveAttributeDesc::set_has_type() {
+inline void E_FacadeChangeActiveattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadechangeActiveAttributeDesc::clear_has_type() {
+inline void E_FacadeChangeActiveattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadechangeActiveAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeChangeActiveattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadechangeActiveAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeChangeActiveattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadechangeActiveAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeChangeActiveattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadechangeActiveAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeChangeActiveattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadechangeActiveAttributeDesc::set_has_value() {
+inline void E_FacadeChangeActiveattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadechangeActiveAttributeDesc::clear_has_value() {
+inline void E_FacadeChangeActiveattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadechangeActiveAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeChangeActiveattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadechangeActiveAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeChangeActiveattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadechangeActiveAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeChangeActiveattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadechange
+// E_FacadeChange
 
-// optional int64 id = 1;
-inline bool facadechange::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FacadeChange::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadechange::set_has_id() {
+inline void E_FacadeChange::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadechange::clear_has_id() {
+inline void E_FacadeChange::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadechange::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeChange::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadechange::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeChange::m_id() const {
+  return m_id_;
 }
-inline void facadechange::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeChange::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 type = 2;
-inline bool facadechange::has_type() const {
+// optional int32 m_type = 2;
+inline bool E_FacadeChange::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadechange::set_has_type() {
+inline void E_FacadeChange::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadechange::clear_has_type() {
+inline void E_FacadeChange::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadechange::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeChange::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadechange::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeChange::m_type() const {
+  return m_type_;
 }
-inline void facadechange::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeChange::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional string resource = 3;
-inline bool facadechange::has_resource() const {
+// optional string m_resource = 3;
+inline bool E_FacadeChange::has_m_resource() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadechange::set_has_resource() {
+inline void E_FacadeChange::set_has_m_resource() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadechange::clear_has_resource() {
+inline void E_FacadeChange::clear_has_m_resource() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadechange::clear_resource() {
-  if (resource_ != &::google::protobuf::internal::kEmptyString) {
-    resource_->clear();
+inline void E_FacadeChange::clear_m_resource() {
+  if (m_resource_ != &::google::protobuf::internal::kEmptyString) {
+    m_resource_->clear();
   }
-  clear_has_resource();
+  clear_has_m_resource();
 }
-inline const ::std::string& facadechange::resource() const {
-  return *resource_;
+inline const ::std::string& E_FacadeChange::m_resource() const {
+  return *m_resource_;
 }
-inline void facadechange::set_resource(const ::std::string& value) {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline void E_FacadeChange::set_m_resource(const ::std::string& value) {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  resource_->assign(value);
+  m_resource_->assign(value);
 }
-inline void facadechange::set_resource(const char* value) {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline void E_FacadeChange::set_m_resource(const char* value) {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  resource_->assign(value);
+  m_resource_->assign(value);
 }
-inline void facadechange::set_resource(const char* value, size_t size) {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline void E_FacadeChange::set_m_resource(const char* value, size_t size) {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  resource_->assign(reinterpret_cast<const char*>(value), size);
+  m_resource_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadechange::mutable_resource() {
-  set_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
-    resource_ = new ::std::string;
+inline ::std::string* E_FacadeChange::mutable_m_resource() {
+  set_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
+    m_resource_ = new ::std::string;
   }
-  return resource_;
+  return m_resource_;
 }
-inline ::std::string* facadechange::release_resource() {
-  clear_has_resource();
-  if (resource_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeChange::release_m_resource() {
+  clear_has_m_resource();
+  if (m_resource_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = resource_;
-    resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_resource_;
+    m_resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadechange::set_allocated_resource(::std::string* resource) {
-  if (resource_ != &::google::protobuf::internal::kEmptyString) {
-    delete resource_;
+inline void E_FacadeChange::set_allocated_m_resource(::std::string* m_resource) {
+  if (m_resource_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_resource_;
   }
-  if (resource) {
-    set_has_resource();
-    resource_ = resource;
+  if (m_resource) {
+    set_has_m_resource();
+    m_resource_ = m_resource;
   } else {
-    clear_has_resource();
-    resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_resource();
+    m_resource_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string professionID = 4;
-inline bool facadechange::has_professionid() const {
+// optional string m_professionid = 4;
+inline bool E_FacadeChange::has_m_professionid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void facadechange::set_has_professionid() {
+inline void E_FacadeChange::set_has_m_professionid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void facadechange::clear_has_professionid() {
+inline void E_FacadeChange::clear_has_m_professionid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void facadechange::clear_professionid() {
-  if (professionid_ != &::google::protobuf::internal::kEmptyString) {
-    professionid_->clear();
+inline void E_FacadeChange::clear_m_professionid() {
+  if (m_professionid_ != &::google::protobuf::internal::kEmptyString) {
+    m_professionid_->clear();
   }
-  clear_has_professionid();
+  clear_has_m_professionid();
 }
-inline const ::std::string& facadechange::professionid() const {
-  return *professionid_;
+inline const ::std::string& E_FacadeChange::m_professionid() const {
+  return *m_professionid_;
 }
-inline void facadechange::set_professionid(const ::std::string& value) {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline void E_FacadeChange::set_m_professionid(const ::std::string& value) {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  professionid_->assign(value);
+  m_professionid_->assign(value);
 }
-inline void facadechange::set_professionid(const char* value) {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline void E_FacadeChange::set_m_professionid(const char* value) {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  professionid_->assign(value);
+  m_professionid_->assign(value);
 }
-inline void facadechange::set_professionid(const char* value, size_t size) {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline void E_FacadeChange::set_m_professionid(const char* value, size_t size) {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  professionid_->assign(reinterpret_cast<const char*>(value), size);
+  m_professionid_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadechange::mutable_professionid() {
-  set_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
-    professionid_ = new ::std::string;
+inline ::std::string* E_FacadeChange::mutable_m_professionid() {
+  set_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionid_ = new ::std::string;
   }
-  return professionid_;
+  return m_professionid_;
 }
-inline ::std::string* facadechange::release_professionid() {
-  clear_has_professionid();
-  if (professionid_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeChange::release_m_professionid() {
+  clear_has_m_professionid();
+  if (m_professionid_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = professionid_;
-    professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_professionid_;
+    m_professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadechange::set_allocated_professionid(::std::string* professionid) {
-  if (professionid_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionid_;
+inline void E_FacadeChange::set_allocated_m_professionid(::std::string* m_professionid) {
+  if (m_professionid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionid_;
   }
-  if (professionid) {
-    set_has_professionid();
-    professionid_ = professionid;
+  if (m_professionid) {
+    set_has_m_professionid();
+    m_professionid_ = m_professionid;
   } else {
-    clear_has_professionid();
-    professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_professionid();
+    m_professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string name = 5;
-inline bool facadechange::has_name() const {
+// optional string m_name = 5;
+inline bool E_FacadeChange::has_m_name() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void facadechange::set_has_name() {
+inline void E_FacadeChange::set_has_m_name() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void facadechange::clear_has_name() {
+inline void E_FacadeChange::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void facadechange::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_FacadeChange::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& facadechange::name() const {
-  return *name_;
+inline const ::std::string& E_FacadeChange::m_name() const {
+  return *m_name_;
 }
-inline void facadechange::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FacadeChange::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void facadechange::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FacadeChange::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void facadechange::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FacadeChange::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadechange::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_FacadeChange::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* facadechange::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeChange::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadechange::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_FacadeChange::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string activeDesc = 6;
-inline bool facadechange::has_activedesc() const {
+// optional string m_activedesc = 6;
+inline bool E_FacadeChange::has_m_activedesc() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void facadechange::set_has_activedesc() {
+inline void E_FacadeChange::set_has_m_activedesc() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void facadechange::clear_has_activedesc() {
+inline void E_FacadeChange::clear_has_m_activedesc() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void facadechange::clear_activedesc() {
-  if (activedesc_ != &::google::protobuf::internal::kEmptyString) {
-    activedesc_->clear();
+inline void E_FacadeChange::clear_m_activedesc() {
+  if (m_activedesc_ != &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_->clear();
   }
-  clear_has_activedesc();
+  clear_has_m_activedesc();
 }
-inline const ::std::string& facadechange::activedesc() const {
-  return *activedesc_;
+inline const ::std::string& E_FacadeChange::m_activedesc() const {
+  return *m_activedesc_;
 }
-inline void facadechange::set_activedesc(const ::std::string& value) {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline void E_FacadeChange::set_m_activedesc(const ::std::string& value) {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  activedesc_->assign(value);
+  m_activedesc_->assign(value);
 }
-inline void facadechange::set_activedesc(const char* value) {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline void E_FacadeChange::set_m_activedesc(const char* value) {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  activedesc_->assign(value);
+  m_activedesc_->assign(value);
 }
-inline void facadechange::set_activedesc(const char* value, size_t size) {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline void E_FacadeChange::set_m_activedesc(const char* value, size_t size) {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  activedesc_->assign(reinterpret_cast<const char*>(value), size);
+  m_activedesc_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadechange::mutable_activedesc() {
-  set_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
-    activedesc_ = new ::std::string;
+inline ::std::string* E_FacadeChange::mutable_m_activedesc() {
+  set_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_activedesc_ = new ::std::string;
   }
-  return activedesc_;
+  return m_activedesc_;
 }
-inline ::std::string* facadechange::release_activedesc() {
-  clear_has_activedesc();
-  if (activedesc_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeChange::release_m_activedesc() {
+  clear_has_m_activedesc();
+  if (m_activedesc_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = activedesc_;
-    activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_activedesc_;
+    m_activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadechange::set_allocated_activedesc(::std::string* activedesc) {
-  if (activedesc_ != &::google::protobuf::internal::kEmptyString) {
-    delete activedesc_;
+inline void E_FacadeChange::set_allocated_m_activedesc(::std::string* m_activedesc) {
+  if (m_activedesc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_activedesc_;
   }
-  if (activedesc) {
-    set_has_activedesc();
-    activedesc_ = activedesc;
+  if (m_activedesc) {
+    set_has_m_activedesc();
+    m_activedesc_ = m_activedesc;
   } else {
-    clear_has_activedesc();
-    activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_activedesc();
+    m_activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 quality = 7;
-inline bool facadechange::has_quality() const {
+// optional int32 m_quality = 7;
+inline bool E_FacadeChange::has_m_quality() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void facadechange::set_has_quality() {
+inline void E_FacadeChange::set_has_m_quality() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void facadechange::clear_has_quality() {
+inline void E_FacadeChange::clear_has_m_quality() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void facadechange::clear_quality() {
-  quality_ = 0;
-  clear_has_quality();
+inline void E_FacadeChange::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
 }
-inline ::google::protobuf::int32 facadechange::quality() const {
-  return quality_;
+inline ::google::protobuf::int32 E_FacadeChange::m_quality() const {
+  return m_quality_;
 }
-inline void facadechange::set_quality(::google::protobuf::int32 value) {
-  set_has_quality();
-  quality_ = value;
+inline void E_FacadeChange::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
 }
 
-// optional int64 activationItem = 8;
-inline bool facadechange::has_activationitem() const {
+// optional int64 m_activationitem = 8;
+inline bool E_FacadeChange::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void facadechange::set_has_activationitem() {
+inline void E_FacadeChange::set_has_m_activationitem() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void facadechange::clear_has_activationitem() {
+inline void E_FacadeChange::clear_has_m_activationitem() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void facadechange::clear_activationitem() {
-  activationitem_ = GOOGLE_LONGLONG(0);
-  clear_has_activationitem();
+inline void E_FacadeChange::clear_m_activationitem() {
+  m_activationitem_ = GOOGLE_LONGLONG(0);
+  clear_has_m_activationitem();
 }
-inline ::google::protobuf::int64 facadechange::activationitem() const {
-  return activationitem_;
+inline ::google::protobuf::int64 E_FacadeChange::m_activationitem() const {
+  return m_activationitem_;
 }
-inline void facadechange::set_activationitem(::google::protobuf::int64 value) {
-  set_has_activationitem();
-  activationitem_ = value;
+inline void E_FacadeChange::set_m_activationitem(::google::protobuf::int64 value) {
+  set_has_m_activationitem();
+  m_activationitem_ = value;
 }
 
-// optional int32 activationNum = 9;
-inline bool facadechange::has_activationnum() const {
+// optional int32 m_activationnum = 9;
+inline bool E_FacadeChange::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void facadechange::set_has_activationnum() {
+inline void E_FacadeChange::set_has_m_activationnum() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void facadechange::clear_has_activationnum() {
+inline void E_FacadeChange::clear_has_m_activationnum() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void facadechange::clear_activationnum() {
-  activationnum_ = 0;
-  clear_has_activationnum();
+inline void E_FacadeChange::clear_m_activationnum() {
+  m_activationnum_ = 0;
+  clear_has_m_activationnum();
 }
-inline ::google::protobuf::int32 facadechange::activationnum() const {
-  return activationnum_;
+inline ::google::protobuf::int32 E_FacadeChange::m_activationnum() const {
+  return m_activationnum_;
 }
-inline void facadechange::set_activationnum(::google::protobuf::int32 value) {
-  set_has_activationnum();
-  activationnum_ = value;
+inline void E_FacadeChange::set_m_activationnum(::google::protobuf::int32 value) {
+  set_has_m_activationnum();
+  m_activationnum_ = value;
 }
 
-// optional int64 starId = 10;
-inline bool facadechange::has_starid() const {
+// optional int64 m_starid = 10;
+inline bool E_FacadeChange::has_m_starid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void facadechange::set_has_starid() {
+inline void E_FacadeChange::set_has_m_starid() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void facadechange::clear_has_starid() {
+inline void E_FacadeChange::clear_has_m_starid() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void facadechange::clear_starid() {
-  starid_ = GOOGLE_LONGLONG(0);
-  clear_has_starid();
+inline void E_FacadeChange::clear_m_starid() {
+  m_starid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_starid();
 }
-inline ::google::protobuf::int64 facadechange::starid() const {
-  return starid_;
+inline ::google::protobuf::int64 E_FacadeChange::m_starid() const {
+  return m_starid_;
 }
-inline void facadechange::set_starid(::google::protobuf::int64 value) {
-  set_has_starid();
-  starid_ = value;
+inline void E_FacadeChange::set_m_starid(::google::protobuf::int64 value) {
+  set_has_m_starid();
+  m_starid_ = value;
 }
 
-// optional string starNum = 11;
-inline bool facadechange::has_starnum() const {
+// optional string m_starnum = 11;
+inline bool E_FacadeChange::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void facadechange::set_has_starnum() {
+inline void E_FacadeChange::set_has_m_starnum() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void facadechange::clear_has_starnum() {
+inline void E_FacadeChange::clear_has_m_starnum() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void facadechange::clear_starnum() {
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    starnum_->clear();
+inline void E_FacadeChange::clear_m_starnum() {
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    m_starnum_->clear();
   }
-  clear_has_starnum();
+  clear_has_m_starnum();
 }
-inline const ::std::string& facadechange::starnum() const {
-  return *starnum_;
+inline const ::std::string& E_FacadeChange::m_starnum() const {
+  return *m_starnum_;
 }
-inline void facadechange::set_starnum(const ::std::string& value) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_FacadeChange::set_m_starnum(const ::std::string& value) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(value);
+  m_starnum_->assign(value);
 }
-inline void facadechange::set_starnum(const char* value) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_FacadeChange::set_m_starnum(const char* value) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(value);
+  m_starnum_->assign(value);
 }
-inline void facadechange::set_starnum(const char* value, size_t size) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_FacadeChange::set_m_starnum(const char* value, size_t size) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(reinterpret_cast<const char*>(value), size);
+  m_starnum_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadechange::mutable_starnum() {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline ::std::string* E_FacadeChange::mutable_m_starnum() {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  return starnum_;
+  return m_starnum_;
 }
-inline ::std::string* facadechange::release_starnum() {
-  clear_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FacadeChange::release_m_starnum() {
+  clear_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = starnum_;
-    starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_starnum_;
+    m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void facadechange::set_allocated_starnum(::std::string* starnum) {
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete starnum_;
+inline void E_FacadeChange::set_allocated_m_starnum(::std::string* m_starnum) {
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_starnum_;
   }
-  if (starnum) {
-    set_has_starnum();
-    starnum_ = starnum;
+  if (m_starnum) {
+    set_has_m_starnum();
+    m_starnum_ = m_starnum;
   } else {
-    clear_has_starnum();
-    starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_starnum();
+    m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 starUp = 12;
-inline bool facadechange::has_starup() const {
+// optional int32 m_starup = 12;
+inline bool E_FacadeChange::has_m_starup() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void facadechange::set_has_starup() {
+inline void E_FacadeChange::set_has_m_starup() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void facadechange::clear_has_starup() {
+inline void E_FacadeChange::clear_has_m_starup() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void facadechange::clear_starup() {
-  starup_ = 0;
-  clear_has_starup();
+inline void E_FacadeChange::clear_m_starup() {
+  m_starup_ = 0;
+  clear_has_m_starup();
 }
-inline ::google::protobuf::int32 facadechange::starup() const {
-  return starup_;
+inline ::google::protobuf::int32 E_FacadeChange::m_starup() const {
+  return m_starup_;
 }
-inline void facadechange::set_starup(::google::protobuf::int32 value) {
-  set_has_starup();
-  starup_ = value;
+inline void E_FacadeChange::set_m_starup(::google::protobuf::int32 value) {
+  set_has_m_starup();
+  m_starup_ = value;
 }
 
-// optional int32 starBer = 13;
-inline bool facadechange::has_starber() const {
+// optional int32 m_starber = 13;
+inline bool E_FacadeChange::has_m_starber() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void facadechange::set_has_starber() {
+inline void E_FacadeChange::set_has_m_starber() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void facadechange::clear_has_starber() {
+inline void E_FacadeChange::clear_has_m_starber() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void facadechange::clear_starber() {
-  starber_ = 0;
-  clear_has_starber();
+inline void E_FacadeChange::clear_m_starber() {
+  m_starber_ = 0;
+  clear_has_m_starber();
 }
-inline ::google::protobuf::int32 facadechange::starber() const {
-  return starber_;
+inline ::google::protobuf::int32 E_FacadeChange::m_starber() const {
+  return m_starber_;
 }
-inline void facadechange::set_starber(::google::protobuf::int32 value) {
-  set_has_starber();
-  starber_ = value;
+inline void E_FacadeChange::set_m_starber(::google::protobuf::int32 value) {
+  set_has_m_starber();
+  m_starber_ = value;
 }
 
-// optional int64 upAttributeId = 14;
-inline bool facadechange::has_upattributeid() const {
+// optional int64 m_upattributeid = 14;
+inline bool E_FacadeChange::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void facadechange::set_has_upattributeid() {
+inline void E_FacadeChange::set_has_m_upattributeid() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void facadechange::clear_has_upattributeid() {
+inline void E_FacadeChange::clear_has_m_upattributeid() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void facadechange::clear_upattributeid() {
-  upattributeid_ = GOOGLE_LONGLONG(0);
-  clear_has_upattributeid();
+inline void E_FacadeChange::clear_m_upattributeid() {
+  m_upattributeid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_upattributeid();
 }
-inline ::google::protobuf::int64 facadechange::upattributeid() const {
-  return upattributeid_;
+inline ::google::protobuf::int64 E_FacadeChange::m_upattributeid() const {
+  return m_upattributeid_;
 }
-inline void facadechange::set_upattributeid(::google::protobuf::int64 value) {
-  set_has_upattributeid();
-  upattributeid_ = value;
+inline void E_FacadeChange::set_m_upattributeid(::google::protobuf::int64 value) {
+  set_has_m_upattributeid();
+  m_upattributeid_ = value;
 }
 
-// optional int32 activeSkill = 15;
-inline bool facadechange::has_activeskill() const {
+// optional int32 m_activeskill = 15;
+inline bool E_FacadeChange::has_m_activeskill() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void facadechange::set_has_activeskill() {
+inline void E_FacadeChange::set_has_m_activeskill() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void facadechange::clear_has_activeskill() {
+inline void E_FacadeChange::clear_has_m_activeskill() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void facadechange::clear_activeskill() {
-  activeskill_ = 0;
-  clear_has_activeskill();
+inline void E_FacadeChange::clear_m_activeskill() {
+  m_activeskill_ = 0;
+  clear_has_m_activeskill();
 }
-inline ::google::protobuf::int32 facadechange::activeskill() const {
-  return activeskill_;
+inline ::google::protobuf::int32 E_FacadeChange::m_activeskill() const {
+  return m_activeskill_;
 }
-inline void facadechange::set_activeskill(::google::protobuf::int32 value) {
-  set_has_activeskill();
-  activeskill_ = value;
-}
-
-// repeated .proto_ff.facadechangeattributeDesc attribute = 16;
-inline int facadechange::attribute_size() const {
-  return attribute_.size();
-}
-inline void facadechange::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::facadechangeattributeDesc& facadechange::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::facadechangeattributeDesc* facadechange::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::facadechangeattributeDesc* facadechange::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeattributeDesc >&
-facadechange::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeattributeDesc >*
-facadechange::mutable_attribute() {
-  return &attribute_;
+inline void E_FacadeChange::set_m_activeskill(::google::protobuf::int32 value) {
+  set_has_m_activeskill();
+  m_activeskill_ = value;
 }
 
-// repeated .proto_ff.facadechangeActiveAttributeDesc ActiveAttribute = 17;
-inline int facadechange::activeattribute_size() const {
-  return activeattribute_.size();
+// repeated .proto_ff.E_FacadeChangeAttributeDesc m_attribute = 16;
+inline int E_FacadeChange::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void facadechange::clear_activeattribute() {
-  activeattribute_.Clear();
+inline void E_FacadeChange::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::facadechangeActiveAttributeDesc& facadechange::activeattribute(int index) const {
-  return activeattribute_.Get(index);
+inline const ::proto_ff::E_FacadeChangeAttributeDesc& E_FacadeChange::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::facadechangeActiveAttributeDesc* facadechange::mutable_activeattribute(int index) {
-  return activeattribute_.Mutable(index);
+inline ::proto_ff::E_FacadeChangeAttributeDesc* E_FacadeChange::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::facadechangeActiveAttributeDesc* facadechange::add_activeattribute() {
-  return activeattribute_.Add();
+inline ::proto_ff::E_FacadeChangeAttributeDesc* E_FacadeChange::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeActiveAttributeDesc >&
-facadechange::activeattribute() const {
-  return activeattribute_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeAttributeDesc >&
+E_FacadeChange::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechangeActiveAttributeDesc >*
-facadechange::mutable_activeattribute() {
-  return &activeattribute_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeAttributeDesc >*
+E_FacadeChange::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_facadechange
-
-// repeated .proto_ff.facadechange facadechange_List = 1;
-inline int Sheet_facadechange::facadechange_list_size() const {
-  return facadechange_list_.size();
+// repeated .proto_ff.E_FacadeChangeActiveattributeDesc m_activeattribute = 17;
+inline int E_FacadeChange::m_activeattribute_size() const {
+  return m_activeattribute_.size();
 }
-inline void Sheet_facadechange::clear_facadechange_list() {
-  facadechange_list_.Clear();
+inline void E_FacadeChange::clear_m_activeattribute() {
+  m_activeattribute_.Clear();
 }
-inline const ::proto_ff::facadechange& Sheet_facadechange::facadechange_list(int index) const {
-  return facadechange_list_.Get(index);
+inline const ::proto_ff::E_FacadeChangeActiveattributeDesc& E_FacadeChange::m_activeattribute(int index) const {
+  return m_activeattribute_.Get(index);
 }
-inline ::proto_ff::facadechange* Sheet_facadechange::mutable_facadechange_list(int index) {
-  return facadechange_list_.Mutable(index);
+inline ::proto_ff::E_FacadeChangeActiveattributeDesc* E_FacadeChange::mutable_m_activeattribute(int index) {
+  return m_activeattribute_.Mutable(index);
 }
-inline ::proto_ff::facadechange* Sheet_facadechange::add_facadechange_list() {
-  return facadechange_list_.Add();
+inline ::proto_ff::E_FacadeChangeActiveattributeDesc* E_FacadeChange::add_m_activeattribute() {
+  return m_activeattribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechange >&
-Sheet_facadechange::facadechange_list() const {
-  return facadechange_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeActiveattributeDesc >&
+E_FacadeChange::m_activeattribute() const {
+  return m_activeattribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadechange >*
-Sheet_facadechange::mutable_facadechange_list() {
-  return &facadechange_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeActiveattributeDesc >*
+E_FacadeChange::mutable_m_activeattribute() {
+  return &m_activeattribute_;
 }
 
 // -------------------------------------------------------------------
 
-// facadestarUpupAttributeDesc
+// Sheet_FacadeChange
 
-// optional int32 type = 1;
-inline bool facadestarUpupAttributeDesc::has_type() const {
+// repeated .proto_ff.E_FacadeChange E_FacadeChange_List = 1;
+inline int Sheet_FacadeChange::e_facadechange_list_size() const {
+  return e_facadechange_list_.size();
+}
+inline void Sheet_FacadeChange::clear_e_facadechange_list() {
+  e_facadechange_list_.Clear();
+}
+inline const ::proto_ff::E_FacadeChange& Sheet_FacadeChange::e_facadechange_list(int index) const {
+  return e_facadechange_list_.Get(index);
+}
+inline ::proto_ff::E_FacadeChange* Sheet_FacadeChange::mutable_e_facadechange_list(int index) {
+  return e_facadechange_list_.Mutable(index);
+}
+inline ::proto_ff::E_FacadeChange* Sheet_FacadeChange::add_e_facadechange_list() {
+  return e_facadechange_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChange >&
+Sheet_FacadeChange::e_facadechange_list() const {
+  return e_facadechange_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChange >*
+Sheet_FacadeChange::mutable_e_facadechange_list() {
+  return &e_facadechange_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FacadeStarupUpattributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_FacadeStarupUpattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadestarUpupAttributeDesc::set_has_type() {
+inline void E_FacadeStarupUpattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadestarUpupAttributeDesc::clear_has_type() {
+inline void E_FacadeStarupUpattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadestarUpupAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeStarupUpattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadestarUpupAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeStarupUpattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadestarUpupAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeStarupUpattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadestarUpupAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeStarupUpattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadestarUpupAttributeDesc::set_has_value() {
+inline void E_FacadeStarupUpattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadestarUpupAttributeDesc::clear_has_value() {
+inline void E_FacadeStarupUpattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadestarUpupAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeStarupUpattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadestarUpupAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeStarupUpattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadestarUpupAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeStarupUpattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadestarUp
+// E_FacadeStarup
 
-// optional int32 ID = 1;
-inline bool facadestarUp::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_FacadeStarup::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadestarUp::set_has_id() {
+inline void E_FacadeStarup::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadestarUp::clear_has_id() {
+inline void E_FacadeStarup::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadestarUp::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_FacadeStarup::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 facadestarUp::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_FacadeStarup::m_id() const {
+  return m_id_;
 }
-inline void facadestarUp::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeStarup::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int64 upAttributeId = 2;
-inline bool facadestarUp::has_upattributeid() const {
+// optional int64 m_upattributeid = 2;
+inline bool E_FacadeStarup::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadestarUp::set_has_upattributeid() {
+inline void E_FacadeStarup::set_has_m_upattributeid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadestarUp::clear_has_upattributeid() {
+inline void E_FacadeStarup::clear_has_m_upattributeid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadestarUp::clear_upattributeid() {
-  upattributeid_ = GOOGLE_LONGLONG(0);
-  clear_has_upattributeid();
+inline void E_FacadeStarup::clear_m_upattributeid() {
+  m_upattributeid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_upattributeid();
 }
-inline ::google::protobuf::int64 facadestarUp::upattributeid() const {
-  return upattributeid_;
+inline ::google::protobuf::int64 E_FacadeStarup::m_upattributeid() const {
+  return m_upattributeid_;
 }
-inline void facadestarUp::set_upattributeid(::google::protobuf::int64 value) {
-  set_has_upattributeid();
-  upattributeid_ = value;
+inline void E_FacadeStarup::set_m_upattributeid(::google::protobuf::int64 value) {
+  set_has_m_upattributeid();
+  m_upattributeid_ = value;
 }
 
-// optional int32 starID = 3;
-inline bool facadestarUp::has_starid() const {
+// optional int32 m_starid = 3;
+inline bool E_FacadeStarup::has_m_starid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadestarUp::set_has_starid() {
+inline void E_FacadeStarup::set_has_m_starid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadestarUp::clear_has_starid() {
+inline void E_FacadeStarup::clear_has_m_starid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadestarUp::clear_starid() {
-  starid_ = 0;
-  clear_has_starid();
+inline void E_FacadeStarup::clear_m_starid() {
+  m_starid_ = 0;
+  clear_has_m_starid();
 }
-inline ::google::protobuf::int32 facadestarUp::starid() const {
-  return starid_;
+inline ::google::protobuf::int32 E_FacadeStarup::m_starid() const {
+  return m_starid_;
 }
-inline void facadestarUp::set_starid(::google::protobuf::int32 value) {
-  set_has_starid();
-  starid_ = value;
+inline void E_FacadeStarup::set_m_starid(::google::protobuf::int32 value) {
+  set_has_m_starid();
+  m_starid_ = value;
 }
 
-// optional int32 skillID = 4;
-inline bool facadestarUp::has_skillid() const {
+// optional int32 m_skillid = 4;
+inline bool E_FacadeStarup::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void facadestarUp::set_has_skillid() {
+inline void E_FacadeStarup::set_has_m_skillid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void facadestarUp::clear_has_skillid() {
+inline void E_FacadeStarup::clear_has_m_skillid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void facadestarUp::clear_skillid() {
-  skillid_ = 0;
-  clear_has_skillid();
+inline void E_FacadeStarup::clear_m_skillid() {
+  m_skillid_ = 0;
+  clear_has_m_skillid();
 }
-inline ::google::protobuf::int32 facadestarUp::skillid() const {
-  return skillid_;
+inline ::google::protobuf::int32 E_FacadeStarup::m_skillid() const {
+  return m_skillid_;
 }
-inline void facadestarUp::set_skillid(::google::protobuf::int32 value) {
-  set_has_skillid();
-  skillid_ = value;
-}
-
-// repeated .proto_ff.facadestarUpupAttributeDesc upAttribute = 5;
-inline int facadestarUp::upattribute_size() const {
-  return upattribute_.size();
-}
-inline void facadestarUp::clear_upattribute() {
-  upattribute_.Clear();
-}
-inline const ::proto_ff::facadestarUpupAttributeDesc& facadestarUp::upattribute(int index) const {
-  return upattribute_.Get(index);
-}
-inline ::proto_ff::facadestarUpupAttributeDesc* facadestarUp::mutable_upattribute(int index) {
-  return upattribute_.Mutable(index);
-}
-inline ::proto_ff::facadestarUpupAttributeDesc* facadestarUp::add_upattribute() {
-  return upattribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUpupAttributeDesc >&
-facadestarUp::upattribute() const {
-  return upattribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUpupAttributeDesc >*
-facadestarUp::mutable_upattribute() {
-  return &upattribute_;
+inline void E_FacadeStarup::set_m_skillid(::google::protobuf::int32 value) {
+  set_has_m_skillid();
+  m_skillid_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_facadestarUp
-
-// repeated .proto_ff.facadestarUp facadestarUp_List = 1;
-inline int Sheet_facadestarUp::facadestarup_list_size() const {
-  return facadestarup_list_.size();
+// repeated .proto_ff.E_FacadeStarupUpattributeDesc m_upattribute = 5;
+inline int E_FacadeStarup::m_upattribute_size() const {
+  return m_upattribute_.size();
 }
-inline void Sheet_facadestarUp::clear_facadestarup_list() {
-  facadestarup_list_.Clear();
+inline void E_FacadeStarup::clear_m_upattribute() {
+  m_upattribute_.Clear();
 }
-inline const ::proto_ff::facadestarUp& Sheet_facadestarUp::facadestarup_list(int index) const {
-  return facadestarup_list_.Get(index);
+inline const ::proto_ff::E_FacadeStarupUpattributeDesc& E_FacadeStarup::m_upattribute(int index) const {
+  return m_upattribute_.Get(index);
 }
-inline ::proto_ff::facadestarUp* Sheet_facadestarUp::mutable_facadestarup_list(int index) {
-  return facadestarup_list_.Mutable(index);
+inline ::proto_ff::E_FacadeStarupUpattributeDesc* E_FacadeStarup::mutable_m_upattribute(int index) {
+  return m_upattribute_.Mutable(index);
 }
-inline ::proto_ff::facadestarUp* Sheet_facadestarUp::add_facadestarup_list() {
-  return facadestarup_list_.Add();
+inline ::proto_ff::E_FacadeStarupUpattributeDesc* E_FacadeStarup::add_m_upattribute() {
+  return m_upattribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUp >&
-Sheet_facadestarUp::facadestarup_list() const {
-  return facadestarup_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarupUpattributeDesc >&
+E_FacadeStarup::m_upattribute() const {
+  return m_upattribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadestarUp >*
-Sheet_facadestarUp::mutable_facadestarup_list() {
-  return &facadestarup_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarupUpattributeDesc >*
+E_FacadeStarup::mutable_m_upattribute() {
+  return &m_upattribute_;
 }
 
 // -------------------------------------------------------------------
 
-// facadesoulattributeDesc
+// Sheet_FacadeStarup
 
-// optional int32 type = 1;
-inline bool facadesoulattributeDesc::has_type() const {
+// repeated .proto_ff.E_FacadeStarup E_FacadeStarup_List = 1;
+inline int Sheet_FacadeStarup::e_facadestarup_list_size() const {
+  return e_facadestarup_list_.size();
+}
+inline void Sheet_FacadeStarup::clear_e_facadestarup_list() {
+  e_facadestarup_list_.Clear();
+}
+inline const ::proto_ff::E_FacadeStarup& Sheet_FacadeStarup::e_facadestarup_list(int index) const {
+  return e_facadestarup_list_.Get(index);
+}
+inline ::proto_ff::E_FacadeStarup* Sheet_FacadeStarup::mutable_e_facadestarup_list(int index) {
+  return e_facadestarup_list_.Mutable(index);
+}
+inline ::proto_ff::E_FacadeStarup* Sheet_FacadeStarup::add_e_facadestarup_list() {
+  return e_facadestarup_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarup >&
+Sheet_FacadeStarup::e_facadestarup_list() const {
+  return e_facadestarup_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeStarup >*
+Sheet_FacadeStarup::mutable_e_facadestarup_list() {
+  return &e_facadestarup_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FacadeSoulAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_FacadeSoulAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadesoulattributeDesc::set_has_type() {
+inline void E_FacadeSoulAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadesoulattributeDesc::clear_has_type() {
+inline void E_FacadeSoulAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadesoulattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeSoulAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadesoulattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeSoulAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadesoulattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeSoulAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadesoulattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeSoulAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadesoulattributeDesc::set_has_value() {
+inline void E_FacadeSoulAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadesoulattributeDesc::clear_has_value() {
+inline void E_FacadeSoulAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadesoulattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeSoulAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadesoulattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeSoulAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadesoulattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeSoulAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadesoul
+// E_FacadeSoul
 
-// optional int64 id = 1;
-inline bool facadesoul::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FacadeSoul::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadesoul::set_has_id() {
+inline void E_FacadeSoul::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadesoul::clear_has_id() {
+inline void E_FacadeSoul::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadesoul::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeSoul::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadesoul::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeSoul::m_id() const {
+  return m_id_;
 }
-inline void facadesoul::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeSoul::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 rechargeID = 2;
-inline bool facadesoul::has_rechargeid() const {
+// optional int32 m_rechargeid = 2;
+inline bool E_FacadeSoul::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadesoul::set_has_rechargeid() {
+inline void E_FacadeSoul::set_has_m_rechargeid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadesoul::clear_has_rechargeid() {
+inline void E_FacadeSoul::clear_has_m_rechargeid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadesoul::clear_rechargeid() {
-  rechargeid_ = 0;
-  clear_has_rechargeid();
+inline void E_FacadeSoul::clear_m_rechargeid() {
+  m_rechargeid_ = 0;
+  clear_has_m_rechargeid();
 }
-inline ::google::protobuf::int32 facadesoul::rechargeid() const {
-  return rechargeid_;
+inline ::google::protobuf::int32 E_FacadeSoul::m_rechargeid() const {
+  return m_rechargeid_;
 }
-inline void facadesoul::set_rechargeid(::google::protobuf::int32 value) {
-  set_has_rechargeid();
-  rechargeid_ = value;
+inline void E_FacadeSoul::set_m_rechargeid(::google::protobuf::int32 value) {
+  set_has_m_rechargeid();
+  m_rechargeid_ = value;
 }
 
-// optional int32 mainSkill = 3;
-inline bool facadesoul::has_mainskill() const {
+// optional int32 m_mainskill = 3;
+inline bool E_FacadeSoul::has_m_mainskill() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadesoul::set_has_mainskill() {
+inline void E_FacadeSoul::set_has_m_mainskill() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadesoul::clear_has_mainskill() {
+inline void E_FacadeSoul::clear_has_m_mainskill() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadesoul::clear_mainskill() {
-  mainskill_ = 0;
-  clear_has_mainskill();
+inline void E_FacadeSoul::clear_m_mainskill() {
+  m_mainskill_ = 0;
+  clear_has_m_mainskill();
 }
-inline ::google::protobuf::int32 facadesoul::mainskill() const {
-  return mainskill_;
+inline ::google::protobuf::int32 E_FacadeSoul::m_mainskill() const {
+  return m_mainskill_;
 }
-inline void facadesoul::set_mainskill(::google::protobuf::int32 value) {
-  set_has_mainskill();
-  mainskill_ = value;
-}
-
-// repeated .proto_ff.facadesoulattributeDesc attribute = 4;
-inline int facadesoul::attribute_size() const {
-  return attribute_.size();
-}
-inline void facadesoul::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::facadesoulattributeDesc& facadesoul::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::facadesoulattributeDesc* facadesoul::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::facadesoulattributeDesc* facadesoul::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulattributeDesc >&
-facadesoul::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulattributeDesc >*
-facadesoul::mutable_attribute() {
-  return &attribute_;
+inline void E_FacadeSoul::set_m_mainskill(::google::protobuf::int32 value) {
+  set_has_m_mainskill();
+  m_mainskill_ = value;
 }
 
-// repeated int32 minorSkill = 5;
-inline int facadesoul::minorskill_size() const {
-  return minorskill_.size();
+// repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+inline int E_FacadeSoul::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void facadesoul::clear_minorskill() {
-  minorskill_.Clear();
+inline void E_FacadeSoul::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline ::google::protobuf::int32 facadesoul::minorskill(int index) const {
-  return minorskill_.Get(index);
+inline const ::proto_ff::E_FacadeSoulAttributeDesc& E_FacadeSoul::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline void facadesoul::set_minorskill(int index, ::google::protobuf::int32 value) {
-  minorskill_.Set(index, value);
+inline ::proto_ff::E_FacadeSoulAttributeDesc* E_FacadeSoul::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline void facadesoul::add_minorskill(::google::protobuf::int32 value) {
-  minorskill_.Add(value);
+inline ::proto_ff::E_FacadeSoulAttributeDesc* E_FacadeSoul::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc >&
+E_FacadeSoul::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc >*
+E_FacadeSoul::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// repeated int32 m_minorskill = 5;
+inline int E_FacadeSoul::m_minorskill_size() const {
+  return m_minorskill_.size();
+}
+inline void E_FacadeSoul::clear_m_minorskill() {
+  m_minorskill_.Clear();
+}
+inline ::google::protobuf::int32 E_FacadeSoul::m_minorskill(int index) const {
+  return m_minorskill_.Get(index);
+}
+inline void E_FacadeSoul::set_m_minorskill(int index, ::google::protobuf::int32 value) {
+  m_minorskill_.Set(index, value);
+}
+inline void E_FacadeSoul::add_m_minorskill(::google::protobuf::int32 value) {
+  m_minorskill_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-facadesoul::minorskill() const {
-  return minorskill_;
+E_FacadeSoul::m_minorskill() const {
+  return m_minorskill_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-facadesoul::mutable_minorskill() {
-  return &minorskill_;
+E_FacadeSoul::mutable_m_minorskill() {
+  return &m_minorskill_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_facadesoul
+// Sheet_FacadeSoul
 
-// repeated .proto_ff.facadesoul facadesoul_List = 1;
-inline int Sheet_facadesoul::facadesoul_list_size() const {
-  return facadesoul_list_.size();
+// repeated .proto_ff.E_FacadeSoul E_FacadeSoul_List = 1;
+inline int Sheet_FacadeSoul::e_facadesoul_list_size() const {
+  return e_facadesoul_list_.size();
 }
-inline void Sheet_facadesoul::clear_facadesoul_list() {
-  facadesoul_list_.Clear();
+inline void Sheet_FacadeSoul::clear_e_facadesoul_list() {
+  e_facadesoul_list_.Clear();
 }
-inline const ::proto_ff::facadesoul& Sheet_facadesoul::facadesoul_list(int index) const {
-  return facadesoul_list_.Get(index);
+inline const ::proto_ff::E_FacadeSoul& Sheet_FacadeSoul::e_facadesoul_list(int index) const {
+  return e_facadesoul_list_.Get(index);
 }
-inline ::proto_ff::facadesoul* Sheet_facadesoul::mutable_facadesoul_list(int index) {
-  return facadesoul_list_.Mutable(index);
+inline ::proto_ff::E_FacadeSoul* Sheet_FacadeSoul::mutable_e_facadesoul_list(int index) {
+  return e_facadesoul_list_.Mutable(index);
 }
-inline ::proto_ff::facadesoul* Sheet_facadesoul::add_facadesoul_list() {
-  return facadesoul_list_.Add();
+inline ::proto_ff::E_FacadeSoul* Sheet_FacadeSoul::add_e_facadesoul_list() {
+  return e_facadesoul_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoul >&
-Sheet_facadesoul::facadesoul_list() const {
-  return facadesoul_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoul >&
+Sheet_FacadeSoul::e_facadesoul_list() const {
+  return e_facadesoul_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoul >*
-Sheet_facadesoul::mutable_facadesoul_list() {
-  return &facadesoul_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoul >*
+Sheet_FacadeSoul::mutable_e_facadesoul_list() {
+  return &e_facadesoul_list_;
 }
 
 // -------------------------------------------------------------------
 
-// facadesoulActive
+// E_FacadeSoulactive
 
-// optional int64 id = 1;
-inline bool facadesoulActive::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FacadeSoulactive::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadesoulActive::set_has_id() {
+inline void E_FacadeSoulactive::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadesoulActive::clear_has_id() {
+inline void E_FacadeSoulactive::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadesoulActive::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeSoulactive::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadesoulActive::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeSoulactive::m_id() const {
+  return m_id_;
 }
-inline void facadesoulActive::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeSoulactive::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// repeated string parama = 2;
-inline int facadesoulActive::parama_size() const {
-  return parama_.size();
+// repeated string m_parama = 2;
+inline int E_FacadeSoulactive::m_parama_size() const {
+  return m_parama_.size();
 }
-inline void facadesoulActive::clear_parama() {
-  parama_.Clear();
+inline void E_FacadeSoulactive::clear_m_parama() {
+  m_parama_.Clear();
 }
-inline const ::std::string& facadesoulActive::parama(int index) const {
-  return parama_.Get(index);
+inline const ::std::string& E_FacadeSoulactive::m_parama(int index) const {
+  return m_parama_.Get(index);
 }
-inline ::std::string* facadesoulActive::mutable_parama(int index) {
-  return parama_.Mutable(index);
+inline ::std::string* E_FacadeSoulactive::mutable_m_parama(int index) {
+  return m_parama_.Mutable(index);
 }
-inline void facadesoulActive::set_parama(int index, const ::std::string& value) {
-  parama_.Mutable(index)->assign(value);
+inline void E_FacadeSoulactive::set_m_parama(int index, const ::std::string& value) {
+  m_parama_.Mutable(index)->assign(value);
 }
-inline void facadesoulActive::set_parama(int index, const char* value) {
-  parama_.Mutable(index)->assign(value);
+inline void E_FacadeSoulactive::set_m_parama(int index, const char* value) {
+  m_parama_.Mutable(index)->assign(value);
 }
-inline void facadesoulActive::set_parama(int index, const char* value, size_t size) {
-  parama_.Mutable(index)->assign(
+inline void E_FacadeSoulactive::set_m_parama(int index, const char* value, size_t size) {
+  m_parama_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* facadesoulActive::add_parama() {
-  return parama_.Add();
+inline ::std::string* E_FacadeSoulactive::add_m_parama() {
+  return m_parama_.Add();
 }
-inline void facadesoulActive::add_parama(const ::std::string& value) {
-  parama_.Add()->assign(value);
+inline void E_FacadeSoulactive::add_m_parama(const ::std::string& value) {
+  m_parama_.Add()->assign(value);
 }
-inline void facadesoulActive::add_parama(const char* value) {
-  parama_.Add()->assign(value);
+inline void E_FacadeSoulactive::add_m_parama(const char* value) {
+  m_parama_.Add()->assign(value);
 }
-inline void facadesoulActive::add_parama(const char* value, size_t size) {
-  parama_.Add()->assign(reinterpret_cast<const char*>(value), size);
+inline void E_FacadeSoulactive::add_m_parama(const char* value, size_t size) {
+  m_parama_.Add()->assign(reinterpret_cast<const char*>(value), size);
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-facadesoulActive::parama() const {
-  return parama_;
+E_FacadeSoulactive::m_parama() const {
+  return m_parama_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-facadesoulActive::mutable_parama() {
-  return &parama_;
+E_FacadeSoulactive::mutable_m_parama() {
+  return &m_parama_;
 }
 
-// repeated int32 condition = 3;
-inline int facadesoulActive::condition_size() const {
-  return condition_.size();
+// repeated int32 m_condition = 3;
+inline int E_FacadeSoulactive::m_condition_size() const {
+  return m_condition_.size();
 }
-inline void facadesoulActive::clear_condition() {
-  condition_.Clear();
+inline void E_FacadeSoulactive::clear_m_condition() {
+  m_condition_.Clear();
 }
-inline ::google::protobuf::int32 facadesoulActive::condition(int index) const {
-  return condition_.Get(index);
+inline ::google::protobuf::int32 E_FacadeSoulactive::m_condition(int index) const {
+  return m_condition_.Get(index);
 }
-inline void facadesoulActive::set_condition(int index, ::google::protobuf::int32 value) {
-  condition_.Set(index, value);
+inline void E_FacadeSoulactive::set_m_condition(int index, ::google::protobuf::int32 value) {
+  m_condition_.Set(index, value);
 }
-inline void facadesoulActive::add_condition(::google::protobuf::int32 value) {
-  condition_.Add(value);
+inline void E_FacadeSoulactive::add_m_condition(::google::protobuf::int32 value) {
+  m_condition_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-facadesoulActive::condition() const {
-  return condition_;
+E_FacadeSoulactive::m_condition() const {
+  return m_condition_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-facadesoulActive::mutable_condition() {
-  return &condition_;
+E_FacadeSoulactive::mutable_m_condition() {
+  return &m_condition_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_facadesoulActive
+// Sheet_FacadeSoulactive
 
-// repeated .proto_ff.facadesoulActive facadesoulActive_List = 1;
-inline int Sheet_facadesoulActive::facadesoulactive_list_size() const {
-  return facadesoulactive_list_.size();
+// repeated .proto_ff.E_FacadeSoulactive E_FacadeSoulactive_List = 1;
+inline int Sheet_FacadeSoulactive::e_facadesoulactive_list_size() const {
+  return e_facadesoulactive_list_.size();
 }
-inline void Sheet_facadesoulActive::clear_facadesoulactive_list() {
-  facadesoulactive_list_.Clear();
+inline void Sheet_FacadeSoulactive::clear_e_facadesoulactive_list() {
+  e_facadesoulactive_list_.Clear();
 }
-inline const ::proto_ff::facadesoulActive& Sheet_facadesoulActive::facadesoulactive_list(int index) const {
-  return facadesoulactive_list_.Get(index);
+inline const ::proto_ff::E_FacadeSoulactive& Sheet_FacadeSoulactive::e_facadesoulactive_list(int index) const {
+  return e_facadesoulactive_list_.Get(index);
 }
-inline ::proto_ff::facadesoulActive* Sheet_facadesoulActive::mutable_facadesoulactive_list(int index) {
-  return facadesoulactive_list_.Mutable(index);
+inline ::proto_ff::E_FacadeSoulactive* Sheet_FacadeSoulactive::mutable_e_facadesoulactive_list(int index) {
+  return e_facadesoulactive_list_.Mutable(index);
 }
-inline ::proto_ff::facadesoulActive* Sheet_facadesoulActive::add_facadesoulactive_list() {
-  return facadesoulactive_list_.Add();
+inline ::proto_ff::E_FacadeSoulactive* Sheet_FacadeSoulactive::add_e_facadesoulactive_list() {
+  return e_facadesoulactive_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulActive >&
-Sheet_facadesoulActive::facadesoulactive_list() const {
-  return facadesoulactive_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactive >&
+Sheet_FacadeSoulactive::e_facadesoulactive_list() const {
+  return e_facadesoulactive_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulActive >*
-Sheet_facadesoulActive::mutable_facadesoulactive_list() {
-  return &facadesoulactive_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactive >*
+Sheet_FacadeSoulactive::mutable_e_facadesoulactive_list() {
+  return &e_facadesoulactive_list_;
 }
 
 // -------------------------------------------------------------------
 
-// facadesoulLvattributeDesc
+// E_FacadeSoullvAttributeDesc
 
-// optional int32 type = 1;
-inline bool facadesoulLvattributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FacadeSoullvAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadesoulLvattributeDesc::set_has_type() {
+inline void E_FacadeSoullvAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadesoulLvattributeDesc::clear_has_type() {
+inline void E_FacadeSoullvAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadesoulLvattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeSoullvAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadesoulLvattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeSoullvAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void facadesoulLvattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeSoullvAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool facadesoulLvattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FacadeSoullvAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadesoulLvattributeDesc::set_has_value() {
+inline void E_FacadeSoullvAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadesoulLvattributeDesc::clear_has_value() {
+inline void E_FacadeSoullvAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadesoulLvattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FacadeSoullvAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 facadesoulLvattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FacadeSoullvAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void facadesoulLvattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FacadeSoullvAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// facadesoulLv
+// E_FacadeSoullv
 
-// optional int64 id = 1;
-inline bool facadesoulLv::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FacadeSoullv::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadesoulLv::set_has_id() {
+inline void E_FacadeSoullv::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadesoulLv::clear_has_id() {
+inline void E_FacadeSoullv::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadesoulLv::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeSoullv::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadesoulLv::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeSoullv::m_id() const {
+  return m_id_;
 }
-inline void facadesoulLv::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeSoullv::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 soulID = 2;
-inline bool facadesoulLv::has_soulid() const {
+// optional int32 m_soulid = 2;
+inline bool E_FacadeSoullv::has_m_soulid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadesoulLv::set_has_soulid() {
+inline void E_FacadeSoullv::set_has_m_soulid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadesoulLv::clear_has_soulid() {
+inline void E_FacadeSoullv::clear_has_m_soulid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadesoulLv::clear_soulid() {
-  soulid_ = 0;
-  clear_has_soulid();
+inline void E_FacadeSoullv::clear_m_soulid() {
+  m_soulid_ = 0;
+  clear_has_m_soulid();
 }
-inline ::google::protobuf::int32 facadesoulLv::soulid() const {
-  return soulid_;
+inline ::google::protobuf::int32 E_FacadeSoullv::m_soulid() const {
+  return m_soulid_;
 }
-inline void facadesoulLv::set_soulid(::google::protobuf::int32 value) {
-  set_has_soulid();
-  soulid_ = value;
+inline void E_FacadeSoullv::set_m_soulid(::google::protobuf::int32 value) {
+  set_has_m_soulid();
+  m_soulid_ = value;
 }
 
-// optional int32 itemID = 3;
-inline bool facadesoulLv::has_itemid() const {
+// optional int32 m_itemid = 3;
+inline bool E_FacadeSoullv::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadesoulLv::set_has_itemid() {
+inline void E_FacadeSoullv::set_has_m_itemid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadesoulLv::clear_has_itemid() {
+inline void E_FacadeSoullv::clear_has_m_itemid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadesoulLv::clear_itemid() {
-  itemid_ = 0;
-  clear_has_itemid();
+inline void E_FacadeSoullv::clear_m_itemid() {
+  m_itemid_ = 0;
+  clear_has_m_itemid();
 }
-inline ::google::protobuf::int32 facadesoulLv::itemid() const {
-  return itemid_;
+inline ::google::protobuf::int32 E_FacadeSoullv::m_itemid() const {
+  return m_itemid_;
 }
-inline void facadesoulLv::set_itemid(::google::protobuf::int32 value) {
-  set_has_itemid();
-  itemid_ = value;
+inline void E_FacadeSoullv::set_m_itemid(::google::protobuf::int32 value) {
+  set_has_m_itemid();
+  m_itemid_ = value;
 }
 
-// optional int32 num = 4;
-inline bool facadesoulLv::has_num() const {
+// optional int32 m_num = 4;
+inline bool E_FacadeSoullv::has_m_num() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void facadesoulLv::set_has_num() {
+inline void E_FacadeSoullv::set_has_m_num() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void facadesoulLv::clear_has_num() {
+inline void E_FacadeSoullv::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void facadesoulLv::clear_num() {
-  num_ = 0;
-  clear_has_num();
+inline void E_FacadeSoullv::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
 }
-inline ::google::protobuf::int32 facadesoulLv::num() const {
-  return num_;
+inline ::google::protobuf::int32 E_FacadeSoullv::m_num() const {
+  return m_num_;
 }
-inline void facadesoulLv::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
+inline void E_FacadeSoullv::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
 }
 
-// optional int32 successRate = 5;
-inline bool facadesoulLv::has_successrate() const {
+// optional int32 m_successrate = 5;
+inline bool E_FacadeSoullv::has_m_successrate() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void facadesoulLv::set_has_successrate() {
+inline void E_FacadeSoullv::set_has_m_successrate() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void facadesoulLv::clear_has_successrate() {
+inline void E_FacadeSoullv::clear_has_m_successrate() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void facadesoulLv::clear_successrate() {
-  successrate_ = 0;
-  clear_has_successrate();
+inline void E_FacadeSoullv::clear_m_successrate() {
+  m_successrate_ = 0;
+  clear_has_m_successrate();
 }
-inline ::google::protobuf::int32 facadesoulLv::successrate() const {
-  return successrate_;
+inline ::google::protobuf::int32 E_FacadeSoullv::m_successrate() const {
+  return m_successrate_;
 }
-inline void facadesoulLv::set_successrate(::google::protobuf::int32 value) {
-  set_has_successrate();
-  successrate_ = value;
+inline void E_FacadeSoullv::set_m_successrate(::google::protobuf::int32 value) {
+  set_has_m_successrate();
+  m_successrate_ = value;
 }
 
-// optional int32 downLv = 6;
-inline bool facadesoulLv::has_downlv() const {
+// optional int32 m_downlv = 6;
+inline bool E_FacadeSoullv::has_m_downlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void facadesoulLv::set_has_downlv() {
+inline void E_FacadeSoullv::set_has_m_downlv() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void facadesoulLv::clear_has_downlv() {
+inline void E_FacadeSoullv::clear_has_m_downlv() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void facadesoulLv::clear_downlv() {
-  downlv_ = 0;
-  clear_has_downlv();
+inline void E_FacadeSoullv::clear_m_downlv() {
+  m_downlv_ = 0;
+  clear_has_m_downlv();
 }
-inline ::google::protobuf::int32 facadesoulLv::downlv() const {
-  return downlv_;
+inline ::google::protobuf::int32 E_FacadeSoullv::m_downlv() const {
+  return m_downlv_;
 }
-inline void facadesoulLv::set_downlv(::google::protobuf::int32 value) {
-  set_has_downlv();
-  downlv_ = value;
-}
-
-// repeated .proto_ff.facadesoulLvattributeDesc attribute = 7;
-inline int facadesoulLv::attribute_size() const {
-  return attribute_.size();
-}
-inline void facadesoulLv::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::facadesoulLvattributeDesc& facadesoulLv::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::facadesoulLvattributeDesc* facadesoulLv::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::facadesoulLvattributeDesc* facadesoulLv::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLvattributeDesc >&
-facadesoulLv::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLvattributeDesc >*
-facadesoulLv::mutable_attribute() {
-  return &attribute_;
+inline void E_FacadeSoullv::set_m_downlv(::google::protobuf::int32 value) {
+  set_has_m_downlv();
+  m_downlv_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_facadesoulLv
-
-// repeated .proto_ff.facadesoulLv facadesoulLv_List = 1;
-inline int Sheet_facadesoulLv::facadesoullv_list_size() const {
-  return facadesoullv_list_.size();
+// repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+inline int E_FacadeSoullv::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_facadesoulLv::clear_facadesoullv_list() {
-  facadesoullv_list_.Clear();
+inline void E_FacadeSoullv::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::facadesoulLv& Sheet_facadesoulLv::facadesoullv_list(int index) const {
-  return facadesoullv_list_.Get(index);
+inline const ::proto_ff::E_FacadeSoullvAttributeDesc& E_FacadeSoullv::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::facadesoulLv* Sheet_facadesoulLv::mutable_facadesoullv_list(int index) {
-  return facadesoullv_list_.Mutable(index);
+inline ::proto_ff::E_FacadeSoullvAttributeDesc* E_FacadeSoullv::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::facadesoulLv* Sheet_facadesoulLv::add_facadesoullv_list() {
-  return facadesoullv_list_.Add();
+inline ::proto_ff::E_FacadeSoullvAttributeDesc* E_FacadeSoullv::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLv >&
-Sheet_facadesoulLv::facadesoullv_list() const {
-  return facadesoullv_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc >&
+E_FacadeSoullv::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulLv >*
-Sheet_facadesoulLv::mutable_facadesoullv_list() {
-  return &facadesoullv_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc >*
+E_FacadeSoullv::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// facadesoulAchievement
+// Sheet_FacadeSoullv
 
-// optional int64 id = 1;
-inline bool facadesoulAchievement::has_id() const {
+// repeated .proto_ff.E_FacadeSoullv E_FacadeSoullv_List = 1;
+inline int Sheet_FacadeSoullv::e_facadesoullv_list_size() const {
+  return e_facadesoullv_list_.size();
+}
+inline void Sheet_FacadeSoullv::clear_e_facadesoullv_list() {
+  e_facadesoullv_list_.Clear();
+}
+inline const ::proto_ff::E_FacadeSoullv& Sheet_FacadeSoullv::e_facadesoullv_list(int index) const {
+  return e_facadesoullv_list_.Get(index);
+}
+inline ::proto_ff::E_FacadeSoullv* Sheet_FacadeSoullv::mutable_e_facadesoullv_list(int index) {
+  return e_facadesoullv_list_.Mutable(index);
+}
+inline ::proto_ff::E_FacadeSoullv* Sheet_FacadeSoullv::add_e_facadesoullv_list() {
+  return e_facadesoullv_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullv >&
+Sheet_FacadeSoullv::e_facadesoullv_list() const {
+  return e_facadesoullv_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullv >*
+Sheet_FacadeSoullv::mutable_e_facadesoullv_list() {
+  return &e_facadesoullv_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FacadeSoulachievement
+
+// optional int64 m_id = 1;
+inline bool E_FacadeSoulachievement::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void facadesoulAchievement::set_has_id() {
+inline void E_FacadeSoulachievement::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void facadesoulAchievement::clear_has_id() {
+inline void E_FacadeSoulachievement::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void facadesoulAchievement::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FacadeSoulachievement::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 facadesoulAchievement::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FacadeSoulachievement::m_id() const {
+  return m_id_;
 }
-inline void facadesoulAchievement::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FacadeSoulachievement::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 soulID = 2;
-inline bool facadesoulAchievement::has_soulid() const {
+// optional int32 m_soulid = 2;
+inline bool E_FacadeSoulachievement::has_m_soulid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void facadesoulAchievement::set_has_soulid() {
+inline void E_FacadeSoulachievement::set_has_m_soulid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void facadesoulAchievement::clear_has_soulid() {
+inline void E_FacadeSoulachievement::clear_has_m_soulid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void facadesoulAchievement::clear_soulid() {
-  soulid_ = 0;
-  clear_has_soulid();
+inline void E_FacadeSoulachievement::clear_m_soulid() {
+  m_soulid_ = 0;
+  clear_has_m_soulid();
 }
-inline ::google::protobuf::int32 facadesoulAchievement::soulid() const {
-  return soulid_;
+inline ::google::protobuf::int32 E_FacadeSoulachievement::m_soulid() const {
+  return m_soulid_;
 }
-inline void facadesoulAchievement::set_soulid(::google::protobuf::int32 value) {
-  set_has_soulid();
-  soulid_ = value;
+inline void E_FacadeSoulachievement::set_m_soulid(::google::protobuf::int32 value) {
+  set_has_m_soulid();
+  m_soulid_ = value;
 }
 
-// optional int32 type = 3;
-inline bool facadesoulAchievement::has_type() const {
+// optional int32 m_type = 3;
+inline bool E_FacadeSoulachievement::has_m_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void facadesoulAchievement::set_has_type() {
+inline void E_FacadeSoulachievement::set_has_m_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void facadesoulAchievement::clear_has_type() {
+inline void E_FacadeSoulachievement::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void facadesoulAchievement::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FacadeSoulachievement::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 facadesoulAchievement::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FacadeSoulachievement::m_type() const {
+  return m_type_;
 }
-inline void facadesoulAchievement::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FacadeSoulachievement::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 parama = 4;
-inline bool facadesoulAchievement::has_parama() const {
+// optional int32 m_parama = 4;
+inline bool E_FacadeSoulachievement::has_m_parama() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void facadesoulAchievement::set_has_parama() {
+inline void E_FacadeSoulachievement::set_has_m_parama() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void facadesoulAchievement::clear_has_parama() {
+inline void E_FacadeSoulachievement::clear_has_m_parama() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void facadesoulAchievement::clear_parama() {
-  parama_ = 0;
-  clear_has_parama();
+inline void E_FacadeSoulachievement::clear_m_parama() {
+  m_parama_ = 0;
+  clear_has_m_parama();
 }
-inline ::google::protobuf::int32 facadesoulAchievement::parama() const {
-  return parama_;
+inline ::google::protobuf::int32 E_FacadeSoulachievement::m_parama() const {
+  return m_parama_;
 }
-inline void facadesoulAchievement::set_parama(::google::protobuf::int32 value) {
-  set_has_parama();
-  parama_ = value;
+inline void E_FacadeSoulachievement::set_m_parama(::google::protobuf::int32 value) {
+  set_has_m_parama();
+  m_parama_ = value;
 }
 
-// optional int32 itemID = 5;
-inline bool facadesoulAchievement::has_itemid() const {
+// optional int32 m_itemid = 5;
+inline bool E_FacadeSoulachievement::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void facadesoulAchievement::set_has_itemid() {
+inline void E_FacadeSoulachievement::set_has_m_itemid() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void facadesoulAchievement::clear_has_itemid() {
+inline void E_FacadeSoulachievement::clear_has_m_itemid() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void facadesoulAchievement::clear_itemid() {
-  itemid_ = 0;
-  clear_has_itemid();
+inline void E_FacadeSoulachievement::clear_m_itemid() {
+  m_itemid_ = 0;
+  clear_has_m_itemid();
 }
-inline ::google::protobuf::int32 facadesoulAchievement::itemid() const {
-  return itemid_;
+inline ::google::protobuf::int32 E_FacadeSoulachievement::m_itemid() const {
+  return m_itemid_;
 }
-inline void facadesoulAchievement::set_itemid(::google::protobuf::int32 value) {
-  set_has_itemid();
-  itemid_ = value;
+inline void E_FacadeSoulachievement::set_m_itemid(::google::protobuf::int32 value) {
+  set_has_m_itemid();
+  m_itemid_ = value;
 }
 
-// optional int32 num = 6;
-inline bool facadesoulAchievement::has_num() const {
+// optional int32 m_num = 6;
+inline bool E_FacadeSoulachievement::has_m_num() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void facadesoulAchievement::set_has_num() {
+inline void E_FacadeSoulachievement::set_has_m_num() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void facadesoulAchievement::clear_has_num() {
+inline void E_FacadeSoulachievement::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void facadesoulAchievement::clear_num() {
-  num_ = 0;
-  clear_has_num();
+inline void E_FacadeSoulachievement::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
 }
-inline ::google::protobuf::int32 facadesoulAchievement::num() const {
-  return num_;
+inline ::google::protobuf::int32 E_FacadeSoulachievement::m_num() const {
+  return m_num_;
 }
-inline void facadesoulAchievement::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
+inline void E_FacadeSoulachievement::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_facadesoulAchievement
+// Sheet_FacadeSoulachievement
 
-// repeated .proto_ff.facadesoulAchievement facadesoulAchievement_List = 1;
-inline int Sheet_facadesoulAchievement::facadesoulachievement_list_size() const {
-  return facadesoulachievement_list_.size();
+// repeated .proto_ff.E_FacadeSoulachievement E_FacadeSoulachievement_List = 1;
+inline int Sheet_FacadeSoulachievement::e_facadesoulachievement_list_size() const {
+  return e_facadesoulachievement_list_.size();
 }
-inline void Sheet_facadesoulAchievement::clear_facadesoulachievement_list() {
-  facadesoulachievement_list_.Clear();
+inline void Sheet_FacadeSoulachievement::clear_e_facadesoulachievement_list() {
+  e_facadesoulachievement_list_.Clear();
 }
-inline const ::proto_ff::facadesoulAchievement& Sheet_facadesoulAchievement::facadesoulachievement_list(int index) const {
-  return facadesoulachievement_list_.Get(index);
+inline const ::proto_ff::E_FacadeSoulachievement& Sheet_FacadeSoulachievement::e_facadesoulachievement_list(int index) const {
+  return e_facadesoulachievement_list_.Get(index);
 }
-inline ::proto_ff::facadesoulAchievement* Sheet_facadesoulAchievement::mutable_facadesoulachievement_list(int index) {
-  return facadesoulachievement_list_.Mutable(index);
+inline ::proto_ff::E_FacadeSoulachievement* Sheet_FacadeSoulachievement::mutable_e_facadesoulachievement_list(int index) {
+  return e_facadesoulachievement_list_.Mutable(index);
 }
-inline ::proto_ff::facadesoulAchievement* Sheet_facadesoulAchievement::add_facadesoulachievement_list() {
-  return facadesoulachievement_list_.Add();
+inline ::proto_ff::E_FacadeSoulachievement* Sheet_FacadeSoulachievement::add_e_facadesoulachievement_list() {
+  return e_facadesoulachievement_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulAchievement >&
-Sheet_facadesoulAchievement::facadesoulachievement_list() const {
-  return facadesoulachievement_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulachievement >&
+Sheet_FacadeSoulachievement::e_facadesoulachievement_list() const {
+  return e_facadesoulachievement_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::facadesoulAchievement >*
-Sheet_facadesoulAchievement::mutable_facadesoulachievement_list() {
-  return &facadesoulachievement_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulachievement >*
+Sheet_FacadeSoulachievement::mutable_e_facadesoulachievement_list() {
+  return &e_facadesoulachievement_list_;
 }
 
 

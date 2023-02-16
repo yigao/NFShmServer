@@ -3,17 +3,17 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message areaarea
+message E_AreaArea
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "区域ID"];
-	optional int32 subType = 2[(yd_fieldoptions.field_cname) = "细分类型"];
-	optional int64 belongToSceneID = 3[(yd_fieldoptions.field_cname) = "所属场景"];
-	optional int32 shapeType = 4[(yd_fieldoptions.field_cname) = "形状类型"];
-	optional int32 isNotice = 5[(yd_fieldoptions.field_cname) = "是否进出提示"];
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "区域ID"];
+	optional int32 m_subtype = 2[(yd_fieldoptions.field_cname) = "细分类型"];
+	optional int64 m_belongtosceneid = 3[(yd_fieldoptions.field_cname) = "所属场景"];
+	optional int32 m_shapetype = 4[(yd_fieldoptions.field_cname) = "形状类型"];
+	optional int32 m_isnotice = 5[(yd_fieldoptions.field_cname) = "是否进出提示"];
 }
 
 
-message Sheet_areaarea
+message Sheet_AreaArea
 {
-	repeated areaarea areaarea_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_AreaArea E_AreaArea_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

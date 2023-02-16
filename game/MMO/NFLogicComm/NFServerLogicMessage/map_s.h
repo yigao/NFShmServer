@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "map.pb.h"
@@ -10,128 +10,128 @@
 
 namespace proto_ff_s {
 
-	struct mapmap_s : public NFDescStoreSeqOP {
-		mapmap_s();
-		virtual ~mapmap_s(){}
+	struct E_MapMap_s : public NFDescStoreSeqOP {
+		E_MapMap_s();
+		virtual ~E_MapMap_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t mapId;
-		int32_t levelLimit;
-		NFShmString<60> adviceLv;
-		int32_t mapType;
-		int32_t mapSubType;
-		int32_t clearanceTime;
-		int32_t mapPkmode;
-		int32_t pklock;
-		int32_t pk;
-		int32_t killValue;
-		int32_t BanGroup;
-		int32_t reviveTime;
-		int32_t mapWide;
-		int32_t mapHeight;
-		NFShmString<60> mapResources;
-		int64_t reviveSkill;
-		int32_t reviveInPlaceType;
-		int32_t isHangUp;
-		int32_t itemDropType;
-		NFShmString<60> itemDropID;
-		int64_t linkOffLine;
-		int32_t banOnHook;
-		int32_t Rewait;
-		int32_t REtime;
-		int32_t HREBan;
-		int32_t Retiered;
-		int32_t REskillid;
-		int32_t Reteimes;
-		int32_t drivePoint;
-		int32_t dieDP;
-		int32_t timeDP;
-		int32_t meditation;
+		int64_t m_mapid;
+		int32_t m_levellimit;
+		NFShmString<60> m_advicelv;
+		int32_t m_maptype;
+		int32_t m_mapsubtype;
+		int32_t m_clearancetime;
+		int32_t m_mappkmode;
+		int32_t m_pklock;
+		int32_t m_pk;
+		int32_t m_killvalue;
+		int32_t m_bangroup;
+		int32_t m_revivetime;
+		int32_t m_mapwide;
+		int32_t m_mapheight;
+		NFShmString<60> m_mapresources;
+		int64_t m_reviveskill;
+		int32_t m_reviveinplacetype;
+		int32_t m_ishangup;
+		int32_t m_itemdroptype;
+		NFShmString<60> m_itemdropid;
+		int64_t m_linkoffline;
+		int32_t m_banonhook;
+		int32_t m_rewait;
+		int32_t m_retime;
+		int32_t m_hreban;
+		int32_t m_retiered;
+		int32_t m_reskillid;
+		int32_t m_reteimes;
+		int32_t m_drivepoint;
+		int32_t m_diedp;
+		int32_t m_timedp;
+		int32_t m_meditation;
 
-		virtual void write_to_pbmsg(::proto_ff::mapmap & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::mapmap & msg);
-		static ::proto_ff::mapmap* new_pbmsg(){ return new ::proto_ff::mapmap(); }
-		static ::proto_ff::mapmap make_pbmsg(){ return ::proto_ff::mapmap(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MapMap & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MapMap & msg);
+		static ::proto_ff::E_MapMap* new_pbmsg(){ return new ::proto_ff::E_MapMap(); }
+		static ::proto_ff::E_MapMap make_pbmsg(){ return ::proto_ff::E_MapMap(); }
 	};
-	typedef struct mapmap_s mapmap_t;
+	typedef struct E_MapMap_s E_MapMap_t;
 
-	struct Sheet_mapmap_s : public NFDescStoreSeqOP {
-		Sheet_mapmap_s();
-		virtual ~Sheet_mapmap_s(){}
+	struct Sheet_MapMap_s : public NFDescStoreSeqOP {
+		Sheet_MapMap_s();
+		virtual ~Sheet_MapMap_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapmap_s, 40> mapmap_List;
+		NFShmVector<struct E_MapMap_s, 40> E_MapMap_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_mapmap & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapmap & msg);
-		static ::proto_ff::Sheet_mapmap* new_pbmsg(){ return new ::proto_ff::Sheet_mapmap(); }
-		static ::proto_ff::Sheet_mapmap make_pbmsg(){ return ::proto_ff::Sheet_mapmap(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_MapMap & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapMap & msg);
+		static ::proto_ff::Sheet_MapMap* new_pbmsg(){ return new ::proto_ff::Sheet_MapMap(); }
+		static ::proto_ff::Sheet_MapMap make_pbmsg(){ return ::proto_ff::Sheet_MapMap(); }
 	};
-	typedef struct Sheet_mapmap_s Sheet_mapmap_t;
+	typedef struct Sheet_MapMap_s Sheet_MapMap_t;
 
-	struct mapitemdrop_s : public NFDescStoreSeqOP {
-		mapitemdrop_s();
-		virtual ~mapitemdrop_s(){}
+	struct E_MapItemdrop_s : public NFDescStoreSeqOP {
+		E_MapItemdrop_s();
+		virtual ~E_MapItemdrop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t itemDropID;
-		int32_t dropType;
-		int32_t odds;
-		int32_t dropvaluea;
-		int32_t dropvalueb;
-		int32_t dropvaluec;
-		int32_t dropvalued;
-		int32_t dropvaluee;
-		int32_t dropvaluef;
+		int32_t m_itemdropid;
+		int32_t m_droptype;
+		int32_t m_odds;
+		int32_t m_dropvaluea;
+		int32_t m_dropvalueb;
+		int32_t m_dropvaluec;
+		int32_t m_dropvalued;
+		int32_t m_dropvaluee;
+		int32_t m_dropvaluef;
 
-		virtual void write_to_pbmsg(::proto_ff::mapitemdrop & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::mapitemdrop & msg);
-		static ::proto_ff::mapitemdrop* new_pbmsg(){ return new ::proto_ff::mapitemdrop(); }
-		static ::proto_ff::mapitemdrop make_pbmsg(){ return ::proto_ff::mapitemdrop(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MapItemdrop & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MapItemdrop & msg);
+		static ::proto_ff::E_MapItemdrop* new_pbmsg(){ return new ::proto_ff::E_MapItemdrop(); }
+		static ::proto_ff::E_MapItemdrop make_pbmsg(){ return ::proto_ff::E_MapItemdrop(); }
 	};
-	typedef struct mapitemdrop_s mapitemdrop_t;
+	typedef struct E_MapItemdrop_s E_MapItemdrop_t;
 
-	struct Sheet_mapitemdrop_s : public NFDescStoreSeqOP {
-		Sheet_mapitemdrop_s();
-		virtual ~Sheet_mapitemdrop_s(){}
+	struct Sheet_MapItemdrop_s : public NFDescStoreSeqOP {
+		Sheet_MapItemdrop_s();
+		virtual ~Sheet_MapItemdrop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapitemdrop_s, 40> mapitemdrop_List;
+		NFShmVector<struct E_MapItemdrop_s, 40> E_MapItemdrop_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_mapitemdrop & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapitemdrop & msg);
-		static ::proto_ff::Sheet_mapitemdrop* new_pbmsg(){ return new ::proto_ff::Sheet_mapitemdrop(); }
-		static ::proto_ff::Sheet_mapitemdrop make_pbmsg(){ return ::proto_ff::Sheet_mapitemdrop(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_MapItemdrop & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapItemdrop & msg);
+		static ::proto_ff::Sheet_MapItemdrop* new_pbmsg(){ return new ::proto_ff::Sheet_MapItemdrop(); }
+		static ::proto_ff::Sheet_MapItemdrop make_pbmsg(){ return ::proto_ff::Sheet_MapItemdrop(); }
 	};
-	typedef struct Sheet_mapitemdrop_s Sheet_mapitemdrop_t;
+	typedef struct Sheet_MapItemdrop_s Sheet_MapItemdrop_t;
 
-	struct mapdestroyitem_s : public NFDescStoreSeqOP {
-		mapdestroyitem_s();
-		virtual ~mapdestroyitem_s(){}
+	struct E_MapDestroyitem_s : public NFDescStoreSeqOP {
+		E_MapDestroyitem_s();
+		virtual ~E_MapDestroyitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t destroyitemID;
+		int64_t m_destroyitemid;
 
-		virtual void write_to_pbmsg(::proto_ff::mapdestroyitem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::mapdestroyitem & msg);
-		static ::proto_ff::mapdestroyitem* new_pbmsg(){ return new ::proto_ff::mapdestroyitem(); }
-		static ::proto_ff::mapdestroyitem make_pbmsg(){ return ::proto_ff::mapdestroyitem(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MapDestroyitem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MapDestroyitem & msg);
+		static ::proto_ff::E_MapDestroyitem* new_pbmsg(){ return new ::proto_ff::E_MapDestroyitem(); }
+		static ::proto_ff::E_MapDestroyitem make_pbmsg(){ return ::proto_ff::E_MapDestroyitem(); }
 	};
-	typedef struct mapdestroyitem_s mapdestroyitem_t;
+	typedef struct E_MapDestroyitem_s E_MapDestroyitem_t;
 
-	struct Sheet_mapdestroyitem_s : public NFDescStoreSeqOP {
-		Sheet_mapdestroyitem_s();
-		virtual ~Sheet_mapdestroyitem_s(){}
+	struct Sheet_MapDestroyitem_s : public NFDescStoreSeqOP {
+		Sheet_MapDestroyitem_s();
+		virtual ~Sheet_MapDestroyitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct mapdestroyitem_s, 200> mapdestroyitem_List;
+		NFShmVector<struct E_MapDestroyitem_s, 200> E_MapDestroyitem_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_mapdestroyitem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_mapdestroyitem & msg);
-		static ::proto_ff::Sheet_mapdestroyitem* new_pbmsg(){ return new ::proto_ff::Sheet_mapdestroyitem(); }
-		static ::proto_ff::Sheet_mapdestroyitem make_pbmsg(){ return ::proto_ff::Sheet_mapdestroyitem(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_MapDestroyitem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapDestroyitem & msg);
+		static ::proto_ff::Sheet_MapDestroyitem* new_pbmsg(){ return new ::proto_ff::Sheet_MapDestroyitem(); }
+		static ::proto_ff::Sheet_MapDestroyitem make_pbmsg(){ return ::proto_ff::Sheet_MapDestroyitem(); }
 	};
-	typedef struct Sheet_mapdestroyitem_s Sheet_mapdestroyitem_t;
+	typedef struct Sheet_MapDestroyitem_s Sheet_MapDestroyitem_t;
 
 }
 

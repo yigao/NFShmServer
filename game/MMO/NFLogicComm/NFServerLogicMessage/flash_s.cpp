@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-flashflashmonsterDesc_s::flashflashmonsterDesc_s() {
+E_FlashFlashMonsterDesc_s::E_FlashFlashMonsterDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ flashflashmonsterDesc_s::flashflashmonsterDesc_s() {
 	}
 }
 
-int flashflashmonsterDesc_s::CreateInit() {
-	Num = (int32_t)0;
-	ID = (int64_t)0;
+int E_FlashFlashMonsterDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_id = (int64_t)0;
 	return 0;
 }
 
-int flashflashmonsterDesc_s::ResumeInit() {
+int E_FlashFlashMonsterDesc_s::ResumeInit() {
 	return 0;
 }
 
-void flashflashmonsterDesc_s::write_to_pbmsg(::proto_ff::flashflashmonsterDesc & msg) const {
-	msg.set_num((int32_t)Num);
-	msg.set_id((int64_t)ID);
+void E_FlashFlashMonsterDesc_s::write_to_pbmsg(::proto_ff::E_FlashFlashMonsterDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_id((int64_t)m_id);
 }
 
-void flashflashmonsterDesc_s::read_from_pbmsg(const ::proto_ff::flashflashmonsterDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct flashflashmonsterDesc_s));
-	Num = msg.num();
-	ID = msg.id();
+void E_FlashFlashMonsterDesc_s::read_from_pbmsg(const ::proto_ff::E_FlashFlashMonsterDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FlashFlashMonsterDesc_s));
+	m_num = msg.m_num();
+	m_id = msg.m_id();
 }
 
-flashflash_s::flashflash_s() {
+E_FlashFlash_s::E_FlashFlash_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,52 +39,52 @@ flashflash_s::flashflash_s() {
 	}
 }
 
-int flashflash_s::CreateInit() {
-	id = (int64_t)0;
-	isLevelDynamic = (int32_t)0;
-	miniLevel = (int32_t)0;
-	levelCheck = (int32_t)0;
-	pointID = (int64_t)0;
-	monster_Type = (int32_t)0;
-	monsterRefreshTime = (int32_t)0;
+int E_FlashFlash_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_isleveldynamic = (int32_t)0;
+	m_minilevel = (int32_t)0;
+	m_levelcheck = (int32_t)0;
+	m_pointid = (int64_t)0;
+	m_monster_type = (int32_t)0;
+	m_monsterrefreshtime = (int32_t)0;
 	return 0;
 }
 
-int flashflash_s::ResumeInit() {
+int E_FlashFlash_s::ResumeInit() {
 	return 0;
 }
 
-void flashflash_s::write_to_pbmsg(::proto_ff::flashflash & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_isleveldynamic((int32_t)isLevelDynamic);
-	msg.set_minilevel((int32_t)miniLevel);
-	msg.set_levelcheck((int32_t)levelCheck);
-	msg.set_pointid((int64_t)pointID);
-	msg.set_monster_type((int32_t)monster_Type);
-	msg.set_monsterrefreshtime((int32_t)monsterRefreshTime);
-	for(int32_t i = 0; i < (int32_t)monster.GetSize() && i < monster.GetMaxSize(); ++i) {
-		::proto_ff::flashflashmonsterDesc* temp_monster = msg.add_monster();
-		monster[i].write_to_pbmsg(*temp_monster);
+void E_FlashFlash_s::write_to_pbmsg(::proto_ff::E_FlashFlash & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_isleveldynamic((int32_t)m_isleveldynamic);
+	msg.set_m_minilevel((int32_t)m_minilevel);
+	msg.set_m_levelcheck((int32_t)m_levelcheck);
+	msg.set_m_pointid((int64_t)m_pointid);
+	msg.set_m_monster_type((int32_t)m_monster_type);
+	msg.set_m_monsterrefreshtime((int32_t)m_monsterrefreshtime);
+	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
+		::proto_ff::E_FlashFlashMonsterDesc* temp_m_monster = msg.add_m_monster();
+		m_monster[i].write_to_pbmsg(*temp_m_monster);
 	}
 }
 
-void flashflash_s::read_from_pbmsg(const ::proto_ff::flashflash & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct flashflash_s));
-	id = msg.id();
-	isLevelDynamic = msg.isleveldynamic();
-	miniLevel = msg.minilevel();
-	levelCheck = msg.levelcheck();
-	pointID = msg.pointid();
-	monster_Type = msg.monster_type();
-	monsterRefreshTime = msg.monsterrefreshtime();
-	monster.SetSize(msg.monster_size() > monster.GetMaxSize() ? monster.GetMaxSize() : msg.monster_size());
-	for(int32_t i = 0; i < (int32_t)monster.GetSize(); ++i) {
-		const ::proto_ff::flashflashmonsterDesc & temp_monster = msg.monster(i);
-		monster[i].read_from_pbmsg(temp_monster);
+void E_FlashFlash_s::read_from_pbmsg(const ::proto_ff::E_FlashFlash & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FlashFlash_s));
+	m_id = msg.m_id();
+	m_isleveldynamic = msg.m_isleveldynamic();
+	m_minilevel = msg.m_minilevel();
+	m_levelcheck = msg.m_levelcheck();
+	m_pointid = msg.m_pointid();
+	m_monster_type = msg.m_monster_type();
+	m_monsterrefreshtime = msg.m_monsterrefreshtime();
+	m_monster.resize((int)msg.m_monster_size() > (int)m_monster.max_size() ? m_monster.max_size() : msg.m_monster_size());
+	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
+		const ::proto_ff::E_FlashFlashMonsterDesc & temp_m_monster = msg.m_monster(i);
+		m_monster[i].read_from_pbmsg(temp_m_monster);
 	}
 }
 
-Sheet_flashflash_s::Sheet_flashflash_s() {
+Sheet_FlashFlash_s::Sheet_FlashFlash_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -92,31 +92,31 @@ Sheet_flashflash_s::Sheet_flashflash_s() {
 	}
 }
 
-int Sheet_flashflash_s::CreateInit() {
+int Sheet_FlashFlash_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_flashflash_s::ResumeInit() {
+int Sheet_FlashFlash_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_flashflash_s::write_to_pbmsg(::proto_ff::Sheet_flashflash & msg) const {
-	for(int32_t i = 0; i < (int32_t)flashflash_List.GetSize() && i < flashflash_List.GetMaxSize(); ++i) {
-		::proto_ff::flashflash* temp_flashflash_list = msg.add_flashflash_list();
-		flashflash_List[i].write_to_pbmsg(*temp_flashflash_list);
+void Sheet_FlashFlash_s::write_to_pbmsg(::proto_ff::Sheet_FlashFlash & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FlashFlash_List.size(); ++i) {
+		::proto_ff::E_FlashFlash* temp_e_flashflash_list = msg.add_e_flashflash_list();
+		E_FlashFlash_List[i].write_to_pbmsg(*temp_e_flashflash_list);
 	}
 }
 
-void Sheet_flashflash_s::read_from_pbmsg(const ::proto_ff::Sheet_flashflash & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_flashflash_s));
-	flashflash_List.SetSize(msg.flashflash_list_size() > flashflash_List.GetMaxSize() ? flashflash_List.GetMaxSize() : msg.flashflash_list_size());
-	for(int32_t i = 0; i < (int32_t)flashflash_List.GetSize(); ++i) {
-		const ::proto_ff::flashflash & temp_flashflash_list = msg.flashflash_list(i);
-		flashflash_List[i].read_from_pbmsg(temp_flashflash_list);
+void Sheet_FlashFlash_s::read_from_pbmsg(const ::proto_ff::Sheet_FlashFlash & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FlashFlash_s));
+	E_FlashFlash_List.resize((int)msg.e_flashflash_list_size() > (int)E_FlashFlash_List.max_size() ? E_FlashFlash_List.max_size() : msg.e_flashflash_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FlashFlash_List.size(); ++i) {
+		const ::proto_ff::E_FlashFlash & temp_e_flashflash_list = msg.e_flashflash_list(i);
+		E_FlashFlash_List[i].read_from_pbmsg(temp_e_flashflash_list);
 	}
 }
 
-flashitemFlashmonsterDesc_s::flashitemFlashmonsterDesc_s() {
+E_FlashItemflashMonsterDesc_s::E_FlashItemflashMonsterDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -124,28 +124,28 @@ flashitemFlashmonsterDesc_s::flashitemFlashmonsterDesc_s() {
 	}
 }
 
-int flashitemFlashmonsterDesc_s::CreateInit() {
-	Id = (int64_t)0;
-	weight = (int32_t)0;
+int E_FlashItemflashMonsterDesc_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_weight = (int32_t)0;
 	return 0;
 }
 
-int flashitemFlashmonsterDesc_s::ResumeInit() {
+int E_FlashItemflashMonsterDesc_s::ResumeInit() {
 	return 0;
 }
 
-void flashitemFlashmonsterDesc_s::write_to_pbmsg(::proto_ff::flashitemFlashmonsterDesc & msg) const {
-	msg.set_id((int64_t)Id);
-	msg.set_weight((int32_t)weight);
+void E_FlashItemflashMonsterDesc_s::write_to_pbmsg(::proto_ff::E_FlashItemflashMonsterDesc & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_weight((int32_t)m_weight);
 }
 
-void flashitemFlashmonsterDesc_s::read_from_pbmsg(const ::proto_ff::flashitemFlashmonsterDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct flashitemFlashmonsterDesc_s));
-	Id = msg.id();
-	weight = msg.weight();
+void E_FlashItemflashMonsterDesc_s::read_from_pbmsg(const ::proto_ff::E_FlashItemflashMonsterDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FlashItemflashMonsterDesc_s));
+	m_id = msg.m_id();
+	m_weight = msg.m_weight();
 }
 
-flashitemFlash_s::flashitemFlash_s() {
+E_FlashItemflash_s::E_FlashItemflash_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -153,45 +153,45 @@ flashitemFlash_s::flashitemFlash_s() {
 	}
 }
 
-int flashitemFlash_s::CreateInit() {
-	id = (int64_t)0;
-	live = (int32_t)0;
-	levelwave = (int32_t)0;
-	flashNum = (int32_t)0;
+int E_FlashItemflash_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_live = (int32_t)0;
+	m_levelwave = (int32_t)0;
+	m_flashnum = (int32_t)0;
 	return 0;
 }
 
-int flashitemFlash_s::ResumeInit() {
+int E_FlashItemflash_s::ResumeInit() {
 	return 0;
 }
 
-void flashitemFlash_s::write_to_pbmsg(::proto_ff::flashitemFlash & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_usemap((const char*)useMap.Get());
-	msg.set_live((int32_t)live);
-	msg.set_levelwave((int32_t)levelwave);
-	msg.set_flashnum((int32_t)flashNum);
-	for(int32_t i = 0; i < (int32_t)monster.GetSize() && i < monster.GetMaxSize(); ++i) {
-		::proto_ff::flashitemFlashmonsterDesc* temp_monster = msg.add_monster();
-		monster[i].write_to_pbmsg(*temp_monster);
+void E_FlashItemflash_s::write_to_pbmsg(::proto_ff::E_FlashItemflash & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_usemap((const char*)m_usemap.data());
+	msg.set_m_live((int32_t)m_live);
+	msg.set_m_levelwave((int32_t)m_levelwave);
+	msg.set_m_flashnum((int32_t)m_flashnum);
+	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
+		::proto_ff::E_FlashItemflashMonsterDesc* temp_m_monster = msg.add_m_monster();
+		m_monster[i].write_to_pbmsg(*temp_m_monster);
 	}
 }
 
-void flashitemFlash_s::read_from_pbmsg(const ::proto_ff::flashitemFlash & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct flashitemFlash_s));
-	id = msg.id();
-	useMap.Copy(msg.usemap());
-	live = msg.live();
-	levelwave = msg.levelwave();
-	flashNum = msg.flashnum();
-	monster.SetSize(msg.monster_size() > monster.GetMaxSize() ? monster.GetMaxSize() : msg.monster_size());
-	for(int32_t i = 0; i < (int32_t)monster.GetSize(); ++i) {
-		const ::proto_ff::flashitemFlashmonsterDesc & temp_monster = msg.monster(i);
-		monster[i].read_from_pbmsg(temp_monster);
+void E_FlashItemflash_s::read_from_pbmsg(const ::proto_ff::E_FlashItemflash & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FlashItemflash_s));
+	m_id = msg.m_id();
+	m_usemap = msg.m_usemap();
+	m_live = msg.m_live();
+	m_levelwave = msg.m_levelwave();
+	m_flashnum = msg.m_flashnum();
+	m_monster.resize((int)msg.m_monster_size() > (int)m_monster.max_size() ? m_monster.max_size() : msg.m_monster_size());
+	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
+		const ::proto_ff::E_FlashItemflashMonsterDesc & temp_m_monster = msg.m_monster(i);
+		m_monster[i].read_from_pbmsg(temp_m_monster);
 	}
 }
 
-Sheet_flashitemFlash_s::Sheet_flashitemFlash_s() {
+Sheet_FlashItemflash_s::Sheet_FlashItemflash_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -199,27 +199,27 @@ Sheet_flashitemFlash_s::Sheet_flashitemFlash_s() {
 	}
 }
 
-int Sheet_flashitemFlash_s::CreateInit() {
+int Sheet_FlashItemflash_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_flashitemFlash_s::ResumeInit() {
+int Sheet_FlashItemflash_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_flashitemFlash_s::write_to_pbmsg(::proto_ff::Sheet_flashitemFlash & msg) const {
-	for(int32_t i = 0; i < (int32_t)flashitemFlash_List.GetSize() && i < flashitemFlash_List.GetMaxSize(); ++i) {
-		::proto_ff::flashitemFlash* temp_flashitemflash_list = msg.add_flashitemflash_list();
-		flashitemFlash_List[i].write_to_pbmsg(*temp_flashitemflash_list);
+void Sheet_FlashItemflash_s::write_to_pbmsg(::proto_ff::Sheet_FlashItemflash & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FlashItemflash_List.size(); ++i) {
+		::proto_ff::E_FlashItemflash* temp_e_flashitemflash_list = msg.add_e_flashitemflash_list();
+		E_FlashItemflash_List[i].write_to_pbmsg(*temp_e_flashitemflash_list);
 	}
 }
 
-void Sheet_flashitemFlash_s::read_from_pbmsg(const ::proto_ff::Sheet_flashitemFlash & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_flashitemFlash_s));
-	flashitemFlash_List.SetSize(msg.flashitemflash_list_size() > flashitemFlash_List.GetMaxSize() ? flashitemFlash_List.GetMaxSize() : msg.flashitemflash_list_size());
-	for(int32_t i = 0; i < (int32_t)flashitemFlash_List.GetSize(); ++i) {
-		const ::proto_ff::flashitemFlash & temp_flashitemflash_list = msg.flashitemflash_list(i);
-		flashitemFlash_List[i].read_from_pbmsg(temp_flashitemflash_list);
+void Sheet_FlashItemflash_s::read_from_pbmsg(const ::proto_ff::Sheet_FlashItemflash & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FlashItemflash_s));
+	E_FlashItemflash_List.resize((int)msg.e_flashitemflash_list_size() > (int)E_FlashItemflash_List.max_size() ? E_FlashItemflash_List.max_size() : msg.e_flashitemflash_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FlashItemflash_List.size(); ++i) {
+		const ::proto_ff::E_FlashItemflash & temp_e_flashitemflash_list = msg.e_flashitemflash_list(i);
+		E_FlashItemflash_List[i].read_from_pbmsg(temp_e_flashitemflash_list);
 	}
 }
 

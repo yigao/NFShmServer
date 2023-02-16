@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-buttonbutton_s::buttonbutton_s() {
+E_ButtonButton_s::E_ButtonButton_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ buttonbutton_s::buttonbutton_s() {
 	}
 }
 
-int buttonbutton_s::CreateInit() {
-	id = (int64_t)0;
-	time = (int32_t)0;
+int E_ButtonButton_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_time = (int32_t)0;
 	return 0;
 }
 
-int buttonbutton_s::ResumeInit() {
+int E_ButtonButton_s::ResumeInit() {
 	return 0;
 }
 
-void buttonbutton_s::write_to_pbmsg(::proto_ff::buttonbutton & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_time((int32_t)time);
+void E_ButtonButton_s::write_to_pbmsg(::proto_ff::E_ButtonButton & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_time((int32_t)m_time);
 }
 
-void buttonbutton_s::read_from_pbmsg(const ::proto_ff::buttonbutton & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct buttonbutton_s));
-	id = msg.id();
-	time = msg.time();
+void E_ButtonButton_s::read_from_pbmsg(const ::proto_ff::E_ButtonButton & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_ButtonButton_s));
+	m_id = msg.m_id();
+	m_time = msg.m_time();
 }
 
-Sheet_buttonbutton_s::Sheet_buttonbutton_s() {
+Sheet_ButtonButton_s::Sheet_ButtonButton_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,27 +39,27 @@ Sheet_buttonbutton_s::Sheet_buttonbutton_s() {
 	}
 }
 
-int Sheet_buttonbutton_s::CreateInit() {
+int Sheet_ButtonButton_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_buttonbutton_s::ResumeInit() {
+int Sheet_ButtonButton_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_buttonbutton_s::write_to_pbmsg(::proto_ff::Sheet_buttonbutton & msg) const {
-	for(int32_t i = 0; i < (int32_t)buttonbutton_List.GetSize() && i < buttonbutton_List.GetMaxSize(); ++i) {
-		::proto_ff::buttonbutton* temp_buttonbutton_list = msg.add_buttonbutton_list();
-		buttonbutton_List[i].write_to_pbmsg(*temp_buttonbutton_list);
+void Sheet_ButtonButton_s::write_to_pbmsg(::proto_ff::Sheet_ButtonButton & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_ButtonButton_List.size(); ++i) {
+		::proto_ff::E_ButtonButton* temp_e_buttonbutton_list = msg.add_e_buttonbutton_list();
+		E_ButtonButton_List[i].write_to_pbmsg(*temp_e_buttonbutton_list);
 	}
 }
 
-void Sheet_buttonbutton_s::read_from_pbmsg(const ::proto_ff::Sheet_buttonbutton & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_buttonbutton_s));
-	buttonbutton_List.SetSize(msg.buttonbutton_list_size() > buttonbutton_List.GetMaxSize() ? buttonbutton_List.GetMaxSize() : msg.buttonbutton_list_size());
-	for(int32_t i = 0; i < (int32_t)buttonbutton_List.GetSize(); ++i) {
-		const ::proto_ff::buttonbutton & temp_buttonbutton_list = msg.buttonbutton_list(i);
-		buttonbutton_List[i].read_from_pbmsg(temp_buttonbutton_list);
+void Sheet_ButtonButton_s::read_from_pbmsg(const ::proto_ff::Sheet_ButtonButton & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_ButtonButton_s));
+	E_ButtonButton_List.resize((int)msg.e_buttonbutton_list_size() > (int)E_ButtonButton_List.max_size() ? E_ButtonButton_List.max_size() : msg.e_buttonbutton_list_size());
+	for(int32_t i = 0; i < (int32_t)E_ButtonButton_List.size(); ++i) {
+		const ::proto_ff::E_ButtonButton & temp_e_buttonbutton_list = msg.e_buttonbutton_list(i);
+		E_ButtonButton_List[i].read_from_pbmsg(temp_e_buttonbutton_list);
 	}
 }
 

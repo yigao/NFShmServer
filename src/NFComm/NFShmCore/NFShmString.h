@@ -127,6 +127,16 @@ public:
         return Get();
     }
 
+    const char *data() const
+    {
+        return Data();
+    }
+
+    char *data()
+    {
+        return Data();
+    }
+
     const char *Get() const
     {
         return (const char *) m_szBuf;
@@ -147,6 +157,11 @@ public:
         return sizeof(m_szBuf);
     }
 
+    int max_size() const
+    {
+        return sizeof(m_szBuf);
+    }
+
     int Length() const
     {
         return (int) strlen(Get());
@@ -162,7 +177,17 @@ public:
         return (int) strlen(Get());
     }
 
+    int size() const
+    {
+        return (int) strlen(Get());
+    }
+
     void SetSize(int iLen)
+    {
+        SetLength(iLen);
+    }
+
+    void resize(int iLen)
     {
         SetLength(iLen);
     }
@@ -355,12 +380,27 @@ public:
         return (char *) m_szBuf;
     }
 
+    char *data() const
+    {
+        return (char *) m_szBuf;
+    }
+
     int Size() const
     {
         return m_iSize;
     }
 
+    int size() const
+    {
+        return m_iSize;
+    }
+
     int GetMaxSize() const
+    {
+        return SIZE;
+    }
+
+    int max_size() const
     {
         return SIZE;
     }

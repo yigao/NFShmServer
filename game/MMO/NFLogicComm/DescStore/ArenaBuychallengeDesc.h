@@ -14,9 +14,9 @@ public:
 	virtual ~ArenaBuychallengeDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::arenabuychallenge_s* GetDesc(int id) const;
-	proto_ff_s::arenabuychallenge_s* GetDesc(int id);
+	const proto_ff_s::E_ArenaBuychallenge_s* GetDesc(int id) const;
+	proto_ff_s::E_ArenaBuychallenge_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::arenabuychallenge_s, arenabuychallenge, MAX_ARENA_BUYCHALLENGE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaBuychallenge_s, arenabuychallenge, MAX_ARENA_BUYCHALLENGE_NUM);
 DECLARE_IDCREATE(ArenaBuychallengeDesc);
 };

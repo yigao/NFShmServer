@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "offline.pb.h"
@@ -10,82 +10,82 @@
 
 namespace proto_ff_s {
 
-	struct offlineoffline_s : public NFDescStoreSeqOP {
-		offlineoffline_s();
-		virtual ~offlineoffline_s(){}
+	struct E_OfflineOffline_s : public NFDescStoreSeqOP {
+		E_OfflineOffline_s();
+		virtual ~E_OfflineOffline_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int64_t offlineExp;
+		int32_t m_lv;
+		int64_t m_offlineexp;
 
-		virtual void write_to_pbmsg(::proto_ff::offlineoffline & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::offlineoffline & msg);
-		static ::proto_ff::offlineoffline* new_pbmsg(){ return new ::proto_ff::offlineoffline(); }
-		static ::proto_ff::offlineoffline make_pbmsg(){ return ::proto_ff::offlineoffline(); }
+		virtual void write_to_pbmsg(::proto_ff::E_OfflineOffline & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_OfflineOffline & msg);
+		static ::proto_ff::E_OfflineOffline* new_pbmsg(){ return new ::proto_ff::E_OfflineOffline(); }
+		static ::proto_ff::E_OfflineOffline make_pbmsg(){ return ::proto_ff::E_OfflineOffline(); }
 	};
-	typedef struct offlineoffline_s offlineoffline_t;
+	typedef struct E_OfflineOffline_s E_OfflineOffline_t;
 
-	struct Sheet_offlineoffline_s : public NFDescStoreSeqOP {
-		Sheet_offlineoffline_s();
-		virtual ~Sheet_offlineoffline_s(){}
+	struct Sheet_OfflineOffline_s : public NFDescStoreSeqOP {
+		Sheet_OfflineOffline_s();
+		virtual ~Sheet_OfflineOffline_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct offlineoffline_s, 2000> offlineoffline_List;
+		NFShmVector<struct E_OfflineOffline_s, 2000> E_OfflineOffline_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_offlineoffline & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_offlineoffline & msg);
-		static ::proto_ff::Sheet_offlineoffline* new_pbmsg(){ return new ::proto_ff::Sheet_offlineoffline(); }
-		static ::proto_ff::Sheet_offlineoffline make_pbmsg(){ return ::proto_ff::Sheet_offlineoffline(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_OfflineOffline & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OfflineOffline & msg);
+		static ::proto_ff::Sheet_OfflineOffline* new_pbmsg(){ return new ::proto_ff::Sheet_OfflineOffline(); }
+		static ::proto_ff::Sheet_OfflineOffline make_pbmsg(){ return ::proto_ff::Sheet_OfflineOffline(); }
 	};
-	typedef struct Sheet_offlineoffline_s Sheet_offlineoffline_t;
+	typedef struct Sheet_OfflineOffline_s Sheet_OfflineOffline_t;
 
-	struct offlineitemlistitemDesc_s : public NFDescStoreSeqOP {
-		offlineitemlistitemDesc_s();
-		virtual ~offlineitemlistitemDesc_s(){}
+	struct E_OfflineItemlistItemDesc_s : public NFDescStoreSeqOP {
+		E_OfflineItemlistItemDesc_s();
+		virtual ~E_OfflineItemlistItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Num;
-		int32_t Vle;
-		int64_t ID;
+		int32_t m_num;
+		int32_t m_vle;
+		int64_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::offlineitemlistitemDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::offlineitemlistitemDesc & msg);
-		static ::proto_ff::offlineitemlistitemDesc* new_pbmsg(){ return new ::proto_ff::offlineitemlistitemDesc(); }
-		static ::proto_ff::offlineitemlistitemDesc make_pbmsg(){ return ::proto_ff::offlineitemlistitemDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_OfflineItemlistItemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_OfflineItemlistItemDesc & msg);
+		static ::proto_ff::E_OfflineItemlistItemDesc* new_pbmsg(){ return new ::proto_ff::E_OfflineItemlistItemDesc(); }
+		static ::proto_ff::E_OfflineItemlistItemDesc make_pbmsg(){ return ::proto_ff::E_OfflineItemlistItemDesc(); }
 	};
-	typedef struct offlineitemlistitemDesc_s offlineitemlistitemDesc_t;
+	typedef struct E_OfflineItemlistItemDesc_s E_OfflineItemlistItemDesc_t;
 
-	struct offlineitemlist_s : public NFDescStoreSeqOP {
-		offlineitemlist_s();
-		virtual ~offlineitemlist_s(){}
+	struct E_OfflineItemlist_s : public NFDescStoreSeqOP {
+		E_OfflineItemlist_s();
+		virtual ~E_OfflineItemlist_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t Lvdown;
-		int32_t Lvup;
-		int32_t daoju;
-		NFArray<struct offlineitemlistitemDesc_s, 22> item;
+		int32_t m_id;
+		int32_t m_lvdown;
+		int32_t m_lvup;
+		int32_t m_daoju;
+		NFShmVector<struct E_OfflineItemlistItemDesc_s, 22> m_item;
 
-		virtual void write_to_pbmsg(::proto_ff::offlineitemlist & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::offlineitemlist & msg);
-		static ::proto_ff::offlineitemlist* new_pbmsg(){ return new ::proto_ff::offlineitemlist(); }
-		static ::proto_ff::offlineitemlist make_pbmsg(){ return ::proto_ff::offlineitemlist(); }
+		virtual void write_to_pbmsg(::proto_ff::E_OfflineItemlist & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_OfflineItemlist & msg);
+		static ::proto_ff::E_OfflineItemlist* new_pbmsg(){ return new ::proto_ff::E_OfflineItemlist(); }
+		static ::proto_ff::E_OfflineItemlist make_pbmsg(){ return ::proto_ff::E_OfflineItemlist(); }
 	};
-	typedef struct offlineitemlist_s offlineitemlist_t;
+	typedef struct E_OfflineItemlist_s E_OfflineItemlist_t;
 
-	struct Sheet_offlineitemlist_s : public NFDescStoreSeqOP {
-		Sheet_offlineitemlist_s();
-		virtual ~Sheet_offlineitemlist_s(){}
+	struct Sheet_OfflineItemlist_s : public NFDescStoreSeqOP {
+		Sheet_OfflineItemlist_s();
+		virtual ~Sheet_OfflineItemlist_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct offlineitemlist_s, 60> offlineitemlist_List;
+		NFShmVector<struct E_OfflineItemlist_s, 60> E_OfflineItemlist_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_offlineitemlist & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_offlineitemlist & msg);
-		static ::proto_ff::Sheet_offlineitemlist* new_pbmsg(){ return new ::proto_ff::Sheet_offlineitemlist(); }
-		static ::proto_ff::Sheet_offlineitemlist make_pbmsg(){ return ::proto_ff::Sheet_offlineitemlist(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_OfflineItemlist & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OfflineItemlist & msg);
+		static ::proto_ff::Sheet_OfflineItemlist* new_pbmsg(){ return new ::proto_ff::Sheet_OfflineItemlist(); }
+		static ::proto_ff::Sheet_OfflineItemlist make_pbmsg(){ return ::proto_ff::Sheet_OfflineItemlist(); }
 	};
-	typedef struct Sheet_offlineitemlist_s Sheet_offlineitemlist_t;
+	typedef struct Sheet_OfflineItemlist_s Sheet_OfflineItemlist_t;
 
 }
 

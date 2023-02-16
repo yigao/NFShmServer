@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "chat.pb.h"
@@ -10,69 +10,69 @@
 
 namespace proto_ff_s {
 
-	struct chatchat_s : public NFDescStoreSeqOP {
-		chatchat_s();
-		virtual ~chatchat_s(){}
+	struct E_ChatChat_s : public NFDescStoreSeqOP {
+		E_ChatChat_s();
+		virtual ~E_ChatChat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t chatId;
-		int32_t chatType;
-		int32_t showTime;
-		NFShmString<200> chatContent;
-		int32_t channel;
-		int32_t CrossService;
+		int64_t m_chatid;
+		int32_t m_chattype;
+		int32_t m_showtime;
+		NFShmString<200> m_chatcontent;
+		int32_t m_channel;
+		int32_t m_crossservice;
 
-		virtual void write_to_pbmsg(::proto_ff::chatchat & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::chatchat & msg);
-		static ::proto_ff::chatchat* new_pbmsg(){ return new ::proto_ff::chatchat(); }
-		static ::proto_ff::chatchat make_pbmsg(){ return ::proto_ff::chatchat(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ChatChat & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ChatChat & msg);
+		static ::proto_ff::E_ChatChat* new_pbmsg(){ return new ::proto_ff::E_ChatChat(); }
+		static ::proto_ff::E_ChatChat make_pbmsg(){ return ::proto_ff::E_ChatChat(); }
 	};
-	typedef struct chatchat_s chatchat_t;
+	typedef struct E_ChatChat_s E_ChatChat_t;
 
-	struct Sheet_chatchat_s : public NFDescStoreSeqOP {
-		Sheet_chatchat_s();
-		virtual ~Sheet_chatchat_s(){}
+	struct Sheet_ChatChat_s : public NFDescStoreSeqOP {
+		Sheet_ChatChat_s();
+		virtual ~Sheet_ChatChat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct chatchat_s, 40> chatchat_List;
+		NFShmVector<struct E_ChatChat_s, 40> E_ChatChat_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_chatchat & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_chatchat & msg);
-		static ::proto_ff::Sheet_chatchat* new_pbmsg(){ return new ::proto_ff::Sheet_chatchat(); }
-		static ::proto_ff::Sheet_chatchat make_pbmsg(){ return ::proto_ff::Sheet_chatchat(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ChatChat & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ChatChat & msg);
+		static ::proto_ff::Sheet_ChatChat* new_pbmsg(){ return new ::proto_ff::Sheet_ChatChat(); }
+		static ::proto_ff::Sheet_ChatChat make_pbmsg(){ return ::proto_ff::Sheet_ChatChat(); }
 	};
-	typedef struct Sheet_chatchat_s Sheet_chatchat_t;
+	typedef struct Sheet_ChatChat_s Sheet_ChatChat_t;
 
-	struct chatspecialchat_s : public NFDescStoreSeqOP {
-		chatspecialchat_s();
-		virtual ~chatspecialchat_s(){}
+	struct E_ChatSpecialchat_s : public NFDescStoreSeqOP {
+		E_ChatSpecialchat_s();
+		virtual ~E_ChatSpecialchat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		NFShmString<60> parama;
-		NFShmString<140> paramb;
-		int64_t chat_Id;
+		int32_t m_type;
+		NFShmString<60> m_parama;
+		NFShmString<140> m_paramb;
+		int64_t m_chat_id;
 
-		virtual void write_to_pbmsg(::proto_ff::chatspecialchat & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::chatspecialchat & msg);
-		static ::proto_ff::chatspecialchat* new_pbmsg(){ return new ::proto_ff::chatspecialchat(); }
-		static ::proto_ff::chatspecialchat make_pbmsg(){ return ::proto_ff::chatspecialchat(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ChatSpecialchat & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ChatSpecialchat & msg);
+		static ::proto_ff::E_ChatSpecialchat* new_pbmsg(){ return new ::proto_ff::E_ChatSpecialchat(); }
+		static ::proto_ff::E_ChatSpecialchat make_pbmsg(){ return ::proto_ff::E_ChatSpecialchat(); }
 	};
-	typedef struct chatspecialchat_s chatspecialchat_t;
+	typedef struct E_ChatSpecialchat_s E_ChatSpecialchat_t;
 
-	struct Sheet_chatspecialchat_s : public NFDescStoreSeqOP {
-		Sheet_chatspecialchat_s();
-		virtual ~Sheet_chatspecialchat_s(){}
+	struct Sheet_ChatSpecialchat_s : public NFDescStoreSeqOP {
+		Sheet_ChatSpecialchat_s();
+		virtual ~Sheet_ChatSpecialchat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct chatspecialchat_s, 20> chatspecialchat_List;
+		NFShmVector<struct E_ChatSpecialchat_s, 20> E_ChatSpecialchat_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_chatspecialchat & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_chatspecialchat & msg);
-		static ::proto_ff::Sheet_chatspecialchat* new_pbmsg(){ return new ::proto_ff::Sheet_chatspecialchat(); }
-		static ::proto_ff::Sheet_chatspecialchat make_pbmsg(){ return ::proto_ff::Sheet_chatspecialchat(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ChatSpecialchat & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ChatSpecialchat & msg);
+		static ::proto_ff::Sheet_ChatSpecialchat* new_pbmsg(){ return new ::proto_ff::Sheet_ChatSpecialchat(); }
+		static ::proto_ff::Sheet_ChatSpecialchat make_pbmsg(){ return ::proto_ff::Sheet_ChatSpecialchat(); }
 	};
-	typedef struct Sheet_chatspecialchat_s Sheet_chatspecialchat_t;
+	typedef struct Sheet_ChatSpecialchat_s Sheet_ChatSpecialchat_t;
 
 }
 

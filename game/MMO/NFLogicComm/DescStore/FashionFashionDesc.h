@@ -14,9 +14,9 @@ public:
 	virtual ~FashionFashionDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::fashionfashion_s* GetDesc(int id) const;
-	proto_ff_s::fashionfashion_s* GetDesc(int id);
+	const proto_ff_s::E_FashionFashion_s* GetDesc(int id) const;
+	proto_ff_s::E_FashionFashion_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::fashionfashion_s, fashionfashion, MAX_FASHION_FASHION_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_FashionFashion_s, fashionfashion, MAX_FASHION_FASHION_NUM);
 DECLARE_IDCREATE(FashionFashionDesc);
 };

@@ -34,19 +34,19 @@ void  protobuf_AddDesc_point_2eproto();
 void protobuf_AssignDesc_point_2eproto();
 void protobuf_ShutdownFile_point_2eproto();
 
-class pointpoint;
-class Sheet_pointpoint;
+class E_PointPoint;
+class Sheet_PointPoint;
 
 // ===================================================================
 
-class pointpoint : public ::google::protobuf::Message {
+class E_PointPoint : public ::google::protobuf::Message {
  public:
-  pointpoint();
-  virtual ~pointpoint();
+  E_PointPoint();
+  virtual ~E_PointPoint();
 
-  pointpoint(const pointpoint& from);
+  E_PointPoint(const E_PointPoint& from);
 
-  inline pointpoint& operator=(const pointpoint& from) {
+  inline E_PointPoint& operator=(const E_PointPoint& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class pointpoint : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const pointpoint& default_instance();
+  static const E_PointPoint& default_instance();
 
-  void Swap(pointpoint* other);
+  void Swap(E_PointPoint* other);
 
   // implements Message ----------------------------------------------
 
-  pointpoint* New() const;
+  E_PointPoint* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const pointpoint& from);
-  void MergeFrom(const pointpoint& from);
+  void CopyFrom(const E_PointPoint& from);
+  void MergeFrom(const E_PointPoint& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,31 +93,31 @@ class pointpoint : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int64 belongToSceneID = 2;
-  inline bool has_belongtosceneid() const;
-  inline void clear_belongtosceneid();
-  static const int kBelongToSceneIDFieldNumber = 2;
-  inline ::google::protobuf::int64 belongtosceneid() const;
-  inline void set_belongtosceneid(::google::protobuf::int64 value);
+  // optional int64 m_belongtosceneid = 2;
+  inline bool has_m_belongtosceneid() const;
+  inline void clear_m_belongtosceneid();
+  static const int kMBelongtosceneidFieldNumber = 2;
+  inline ::google::protobuf::int64 m_belongtosceneid() const;
+  inline void set_m_belongtosceneid(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.pointpoint)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_PointPoint)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_belongtosceneid();
-  inline void clear_has_belongtosceneid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_belongtosceneid();
+  inline void clear_has_m_belongtosceneid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int64 belongtosceneid_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int64 m_belongtosceneid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -127,18 +127,18 @@ class pointpoint : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_point_2eproto();
 
   void InitAsDefaultInstance();
-  static pointpoint* default_instance_;
+  static E_PointPoint* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_pointpoint : public ::google::protobuf::Message {
+class Sheet_PointPoint : public ::google::protobuf::Message {
  public:
-  Sheet_pointpoint();
-  virtual ~Sheet_pointpoint();
+  Sheet_PointPoint();
+  virtual ~Sheet_PointPoint();
 
-  Sheet_pointpoint(const Sheet_pointpoint& from);
+  Sheet_PointPoint(const Sheet_PointPoint& from);
 
-  inline Sheet_pointpoint& operator=(const Sheet_pointpoint& from) {
+  inline Sheet_PointPoint& operator=(const Sheet_PointPoint& from) {
     CopyFrom(from);
     return *this;
   }
@@ -152,17 +152,17 @@ class Sheet_pointpoint : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_pointpoint& default_instance();
+  static const Sheet_PointPoint& default_instance();
 
-  void Swap(Sheet_pointpoint* other);
+  void Swap(Sheet_PointPoint* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_pointpoint* New() const;
+  Sheet_PointPoint* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_pointpoint& from);
-  void MergeFrom(const Sheet_pointpoint& from);
+  void CopyFrom(const Sheet_PointPoint& from);
+  void MergeFrom(const Sheet_PointPoint& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -185,24 +185,24 @@ class Sheet_pointpoint : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.pointpoint pointpoint_List = 1;
-  inline int pointpoint_list_size() const;
-  inline void clear_pointpoint_list();
-  static const int kPointpointListFieldNumber = 1;
-  inline const ::proto_ff::pointpoint& pointpoint_list(int index) const;
-  inline ::proto_ff::pointpoint* mutable_pointpoint_list(int index);
-  inline ::proto_ff::pointpoint* add_pointpoint_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pointpoint >&
-      pointpoint_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pointpoint >*
-      mutable_pointpoint_list();
+  // repeated .proto_ff.E_PointPoint E_PointPoint_List = 1;
+  inline int e_pointpoint_list_size() const;
+  inline void clear_e_pointpoint_list();
+  static const int kEPointPointListFieldNumber = 1;
+  inline const ::proto_ff::E_PointPoint& e_pointpoint_list(int index) const;
+  inline ::proto_ff::E_PointPoint* mutable_e_pointpoint_list(int index);
+  inline ::proto_ff::E_PointPoint* add_e_pointpoint_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PointPoint >&
+      e_pointpoint_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PointPoint >*
+      mutable_e_pointpoint_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_pointpoint)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_PointPoint)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::pointpoint > pointpoint_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PointPoint > e_pointpoint_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -212,86 +212,86 @@ class Sheet_pointpoint : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_point_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_pointpoint* default_instance_;
+  static Sheet_PointPoint* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// pointpoint
+// E_PointPoint
 
-// optional int64 id = 1;
-inline bool pointpoint::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_PointPoint::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void pointpoint::set_has_id() {
+inline void E_PointPoint::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void pointpoint::clear_has_id() {
+inline void E_PointPoint::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void pointpoint::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_PointPoint::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 pointpoint::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_PointPoint::m_id() const {
+  return m_id_;
 }
-inline void pointpoint::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_PointPoint::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int64 belongToSceneID = 2;
-inline bool pointpoint::has_belongtosceneid() const {
+// optional int64 m_belongtosceneid = 2;
+inline bool E_PointPoint::has_m_belongtosceneid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void pointpoint::set_has_belongtosceneid() {
+inline void E_PointPoint::set_has_m_belongtosceneid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void pointpoint::clear_has_belongtosceneid() {
+inline void E_PointPoint::clear_has_m_belongtosceneid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void pointpoint::clear_belongtosceneid() {
-  belongtosceneid_ = GOOGLE_LONGLONG(0);
-  clear_has_belongtosceneid();
+inline void E_PointPoint::clear_m_belongtosceneid() {
+  m_belongtosceneid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_belongtosceneid();
 }
-inline ::google::protobuf::int64 pointpoint::belongtosceneid() const {
-  return belongtosceneid_;
+inline ::google::protobuf::int64 E_PointPoint::m_belongtosceneid() const {
+  return m_belongtosceneid_;
 }
-inline void pointpoint::set_belongtosceneid(::google::protobuf::int64 value) {
-  set_has_belongtosceneid();
-  belongtosceneid_ = value;
+inline void E_PointPoint::set_m_belongtosceneid(::google::protobuf::int64 value) {
+  set_has_m_belongtosceneid();
+  m_belongtosceneid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_pointpoint
+// Sheet_PointPoint
 
-// repeated .proto_ff.pointpoint pointpoint_List = 1;
-inline int Sheet_pointpoint::pointpoint_list_size() const {
-  return pointpoint_list_.size();
+// repeated .proto_ff.E_PointPoint E_PointPoint_List = 1;
+inline int Sheet_PointPoint::e_pointpoint_list_size() const {
+  return e_pointpoint_list_.size();
 }
-inline void Sheet_pointpoint::clear_pointpoint_list() {
-  pointpoint_list_.Clear();
+inline void Sheet_PointPoint::clear_e_pointpoint_list() {
+  e_pointpoint_list_.Clear();
 }
-inline const ::proto_ff::pointpoint& Sheet_pointpoint::pointpoint_list(int index) const {
-  return pointpoint_list_.Get(index);
+inline const ::proto_ff::E_PointPoint& Sheet_PointPoint::e_pointpoint_list(int index) const {
+  return e_pointpoint_list_.Get(index);
 }
-inline ::proto_ff::pointpoint* Sheet_pointpoint::mutable_pointpoint_list(int index) {
-  return pointpoint_list_.Mutable(index);
+inline ::proto_ff::E_PointPoint* Sheet_PointPoint::mutable_e_pointpoint_list(int index) {
+  return e_pointpoint_list_.Mutable(index);
 }
-inline ::proto_ff::pointpoint* Sheet_pointpoint::add_pointpoint_list() {
-  return pointpoint_list_.Add();
+inline ::proto_ff::E_PointPoint* Sheet_PointPoint::add_e_pointpoint_list() {
+  return e_pointpoint_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pointpoint >&
-Sheet_pointpoint::pointpoint_list() const {
-  return pointpoint_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PointPoint >&
+Sheet_PointPoint::e_pointpoint_list() const {
+  return e_pointpoint_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pointpoint >*
-Sheet_pointpoint::mutable_pointpoint_list() {
-  return &pointpoint_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PointPoint >*
+Sheet_PointPoint::mutable_e_pointpoint_list() {
+  return &e_pointpoint_list_;
 }
 
 

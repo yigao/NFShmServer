@@ -34,23 +34,23 @@ void  protobuf_AddDesc_attribute_2eproto();
 void protobuf_AssignDesc_attribute_2eproto();
 void protobuf_ShutdownFile_attribute_2eproto();
 
-class attributeattribute;
-class Sheet_attributeattribute;
-class attributesuppress;
-class Sheet_attributesuppress;
-class attributepowersup;
-class Sheet_attributepowersup;
+class E_AttributeAttribute;
+class Sheet_AttributeAttribute;
+class E_AttributeSuppress;
+class Sheet_AttributeSuppress;
+class E_AttributePowersup;
+class Sheet_AttributePowersup;
 
 // ===================================================================
 
-class attributeattribute : public ::google::protobuf::Message {
+class E_AttributeAttribute : public ::google::protobuf::Message {
  public:
-  attributeattribute();
-  virtual ~attributeattribute();
+  E_AttributeAttribute();
+  virtual ~E_AttributeAttribute();
 
-  attributeattribute(const attributeattribute& from);
+  E_AttributeAttribute(const E_AttributeAttribute& from);
 
-  inline attributeattribute& operator=(const attributeattribute& from) {
+  inline E_AttributeAttribute& operator=(const E_AttributeAttribute& from) {
     CopyFrom(from);
     return *this;
   }
@@ -64,17 +64,17 @@ class attributeattribute : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const attributeattribute& default_instance();
+  static const E_AttributeAttribute& default_instance();
 
-  void Swap(attributeattribute* other);
+  void Swap(E_AttributeAttribute* other);
 
   // implements Message ----------------------------------------------
 
-  attributeattribute* New() const;
+  E_AttributeAttribute* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const attributeattribute& from);
-  void MergeFrom(const attributeattribute& from);
+  void CopyFrom(const E_AttributeAttribute& from);
+  void MergeFrom(const E_AttributeAttribute& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -97,41 +97,41 @@ class attributeattribute : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 percent = 2;
-  inline bool has_percent() const;
-  inline void clear_percent();
-  static const int kPercentFieldNumber = 2;
-  inline ::google::protobuf::int32 percent() const;
-  inline void set_percent(::google::protobuf::int32 value);
+  // optional int32 m_percent = 2;
+  inline bool has_m_percent() const;
+  inline void clear_m_percent();
+  static const int kMPercentFieldNumber = 2;
+  inline ::google::protobuf::int32 m_percent() const;
+  inline void set_m_percent(::google::protobuf::int32 value);
 
-  // optional float power = 3;
-  inline bool has_power() const;
-  inline void clear_power();
-  static const int kPowerFieldNumber = 3;
-  inline float power() const;
-  inline void set_power(float value);
+  // optional float m_power = 3;
+  inline bool has_m_power() const;
+  inline void clear_m_power();
+  static const int kMPowerFieldNumber = 3;
+  inline float m_power() const;
+  inline void set_m_power(float value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.attributeattribute)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AttributeAttribute)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_percent();
-  inline void clear_has_percent();
-  inline void set_has_power();
-  inline void clear_has_power();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_percent();
+  inline void clear_has_m_percent();
+  inline void set_has_m_power();
+  inline void clear_has_m_power();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 percent_;
-  float power_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_percent_;
+  float m_power_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -141,18 +141,18 @@ class attributeattribute : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_attribute_2eproto();
 
   void InitAsDefaultInstance();
-  static attributeattribute* default_instance_;
+  static E_AttributeAttribute* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_attributeattribute : public ::google::protobuf::Message {
+class Sheet_AttributeAttribute : public ::google::protobuf::Message {
  public:
-  Sheet_attributeattribute();
-  virtual ~Sheet_attributeattribute();
+  Sheet_AttributeAttribute();
+  virtual ~Sheet_AttributeAttribute();
 
-  Sheet_attributeattribute(const Sheet_attributeattribute& from);
+  Sheet_AttributeAttribute(const Sheet_AttributeAttribute& from);
 
-  inline Sheet_attributeattribute& operator=(const Sheet_attributeattribute& from) {
+  inline Sheet_AttributeAttribute& operator=(const Sheet_AttributeAttribute& from) {
     CopyFrom(from);
     return *this;
   }
@@ -166,17 +166,17 @@ class Sheet_attributeattribute : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_attributeattribute& default_instance();
+  static const Sheet_AttributeAttribute& default_instance();
 
-  void Swap(Sheet_attributeattribute* other);
+  void Swap(Sheet_AttributeAttribute* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_attributeattribute* New() const;
+  Sheet_AttributeAttribute* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_attributeattribute& from);
-  void MergeFrom(const Sheet_attributeattribute& from);
+  void CopyFrom(const Sheet_AttributeAttribute& from);
+  void MergeFrom(const Sheet_AttributeAttribute& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -199,24 +199,24 @@ class Sheet_attributeattribute : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.attributeattribute attributeattribute_List = 1;
-  inline int attributeattribute_list_size() const;
-  inline void clear_attributeattribute_list();
-  static const int kAttributeattributeListFieldNumber = 1;
-  inline const ::proto_ff::attributeattribute& attributeattribute_list(int index) const;
-  inline ::proto_ff::attributeattribute* mutable_attributeattribute_list(int index);
-  inline ::proto_ff::attributeattribute* add_attributeattribute_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::attributeattribute >&
-      attributeattribute_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::attributeattribute >*
-      mutable_attributeattribute_list();
+  // repeated .proto_ff.E_AttributeAttribute E_AttributeAttribute_List = 1;
+  inline int e_attributeattribute_list_size() const;
+  inline void clear_e_attributeattribute_list();
+  static const int kEAttributeAttributeListFieldNumber = 1;
+  inline const ::proto_ff::E_AttributeAttribute& e_attributeattribute_list(int index) const;
+  inline ::proto_ff::E_AttributeAttribute* mutable_e_attributeattribute_list(int index);
+  inline ::proto_ff::E_AttributeAttribute* add_e_attributeattribute_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeAttribute >&
+      e_attributeattribute_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeAttribute >*
+      mutable_e_attributeattribute_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_attributeattribute)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AttributeAttribute)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::attributeattribute > attributeattribute_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeAttribute > e_attributeattribute_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -226,18 +226,18 @@ class Sheet_attributeattribute : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_attribute_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_attributeattribute* default_instance_;
+  static Sheet_AttributeAttribute* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class attributesuppress : public ::google::protobuf::Message {
+class E_AttributeSuppress : public ::google::protobuf::Message {
  public:
-  attributesuppress();
-  virtual ~attributesuppress();
+  E_AttributeSuppress();
+  virtual ~E_AttributeSuppress();
 
-  attributesuppress(const attributesuppress& from);
+  E_AttributeSuppress(const E_AttributeSuppress& from);
 
-  inline attributesuppress& operator=(const attributesuppress& from) {
+  inline E_AttributeSuppress& operator=(const E_AttributeSuppress& from) {
     CopyFrom(from);
     return *this;
   }
@@ -251,17 +251,17 @@ class attributesuppress : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const attributesuppress& default_instance();
+  static const E_AttributeSuppress& default_instance();
 
-  void Swap(attributesuppress* other);
+  void Swap(E_AttributeSuppress* other);
 
   // implements Message ----------------------------------------------
 
-  attributesuppress* New() const;
+  E_AttributeSuppress* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const attributesuppress& from);
-  void MergeFrom(const attributesuppress& from);
+  void CopyFrom(const E_AttributeSuppress& from);
+  void MergeFrom(const E_AttributeSuppress& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -284,121 +284,121 @@ class attributesuppress : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lvlDiff = 1;
-  inline bool has_lvldiff() const;
-  inline void clear_lvldiff();
-  static const int kLvlDiffFieldNumber = 1;
-  inline ::google::protobuf::int32 lvldiff() const;
-  inline void set_lvldiff(::google::protobuf::int32 value);
+  // optional int32 m_lvldiff = 1;
+  inline bool has_m_lvldiff() const;
+  inline void clear_m_lvldiff();
+  static const int kMLvldiffFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lvldiff() const;
+  inline void set_m_lvldiff(::google::protobuf::int32 value);
 
-  // optional int32 hitSupPve = 2;
-  inline bool has_hitsuppve() const;
-  inline void clear_hitsuppve();
-  static const int kHitSupPveFieldNumber = 2;
-  inline ::google::protobuf::int32 hitsuppve() const;
-  inline void set_hitsuppve(::google::protobuf::int32 value);
+  // optional int32 m_hitsuppve = 2;
+  inline bool has_m_hitsuppve() const;
+  inline void clear_m_hitsuppve();
+  static const int kMHitsuppveFieldNumber = 2;
+  inline ::google::protobuf::int32 m_hitsuppve() const;
+  inline void set_m_hitsuppve(::google::protobuf::int32 value);
 
-  // optional int32 critSupPve = 3;
-  inline bool has_critsuppve() const;
-  inline void clear_critsuppve();
-  static const int kCritSupPveFieldNumber = 3;
-  inline ::google::protobuf::int32 critsuppve() const;
-  inline void set_critsuppve(::google::protobuf::int32 value);
+  // optional int32 m_critsuppve = 3;
+  inline bool has_m_critsuppve() const;
+  inline void clear_m_critsuppve();
+  static const int kMCritsuppveFieldNumber = 3;
+  inline ::google::protobuf::int32 m_critsuppve() const;
+  inline void set_m_critsuppve(::google::protobuf::int32 value);
 
-  // optional int32 killSupPve = 4;
-  inline bool has_killsuppve() const;
-  inline void clear_killsuppve();
-  static const int kKillSupPveFieldNumber = 4;
-  inline ::google::protobuf::int32 killsuppve() const;
-  inline void set_killsuppve(::google::protobuf::int32 value);
+  // optional int32 m_killsuppve = 4;
+  inline bool has_m_killsuppve() const;
+  inline void clear_m_killsuppve();
+  static const int kMKillsuppveFieldNumber = 4;
+  inline ::google::protobuf::int32 m_killsuppve() const;
+  inline void set_m_killsuppve(::google::protobuf::int32 value);
 
-  // optional int32 stateSupPve = 5;
-  inline bool has_statesuppve() const;
-  inline void clear_statesuppve();
-  static const int kStateSupPveFieldNumber = 5;
-  inline ::google::protobuf::int32 statesuppve() const;
-  inline void set_statesuppve(::google::protobuf::int32 value);
+  // optional int32 m_statesuppve = 5;
+  inline bool has_m_statesuppve() const;
+  inline void clear_m_statesuppve();
+  static const int kMStatesuppveFieldNumber = 5;
+  inline ::google::protobuf::int32 m_statesuppve() const;
+  inline void set_m_statesuppve(::google::protobuf::int32 value);
 
-  // optional int32 lvSupPve = 6;
-  inline bool has_lvsuppve() const;
-  inline void clear_lvsuppve();
-  static const int kLvSupPveFieldNumber = 6;
-  inline ::google::protobuf::int32 lvsuppve() const;
-  inline void set_lvsuppve(::google::protobuf::int32 value);
+  // optional int32 m_lvsuppve = 6;
+  inline bool has_m_lvsuppve() const;
+  inline void clear_m_lvsuppve();
+  static const int kMLvsuppveFieldNumber = 6;
+  inline ::google::protobuf::int32 m_lvsuppve() const;
+  inline void set_m_lvsuppve(::google::protobuf::int32 value);
 
-  // optional int32 hitSupPvp = 7;
-  inline bool has_hitsuppvp() const;
-  inline void clear_hitsuppvp();
-  static const int kHitSupPvpFieldNumber = 7;
-  inline ::google::protobuf::int32 hitsuppvp() const;
-  inline void set_hitsuppvp(::google::protobuf::int32 value);
+  // optional int32 m_hitsuppvp = 7;
+  inline bool has_m_hitsuppvp() const;
+  inline void clear_m_hitsuppvp();
+  static const int kMHitsuppvpFieldNumber = 7;
+  inline ::google::protobuf::int32 m_hitsuppvp() const;
+  inline void set_m_hitsuppvp(::google::protobuf::int32 value);
 
-  // optional int32 critSupPvp = 8;
-  inline bool has_critsuppvp() const;
-  inline void clear_critsuppvp();
-  static const int kCritSupPvpFieldNumber = 8;
-  inline ::google::protobuf::int32 critsuppvp() const;
-  inline void set_critsuppvp(::google::protobuf::int32 value);
+  // optional int32 m_critsuppvp = 8;
+  inline bool has_m_critsuppvp() const;
+  inline void clear_m_critsuppvp();
+  static const int kMCritsuppvpFieldNumber = 8;
+  inline ::google::protobuf::int32 m_critsuppvp() const;
+  inline void set_m_critsuppvp(::google::protobuf::int32 value);
 
-  // optional int32 killSupPvp = 9;
-  inline bool has_killsuppvp() const;
-  inline void clear_killsuppvp();
-  static const int kKillSupPvpFieldNumber = 9;
-  inline ::google::protobuf::int32 killsuppvp() const;
-  inline void set_killsuppvp(::google::protobuf::int32 value);
+  // optional int32 m_killsuppvp = 9;
+  inline bool has_m_killsuppvp() const;
+  inline void clear_m_killsuppvp();
+  static const int kMKillsuppvpFieldNumber = 9;
+  inline ::google::protobuf::int32 m_killsuppvp() const;
+  inline void set_m_killsuppvp(::google::protobuf::int32 value);
 
-  // optional int32 stateSupPvp = 10;
-  inline bool has_statesuppvp() const;
-  inline void clear_statesuppvp();
-  static const int kStateSupPvpFieldNumber = 10;
-  inline ::google::protobuf::int32 statesuppvp() const;
-  inline void set_statesuppvp(::google::protobuf::int32 value);
+  // optional int32 m_statesuppvp = 10;
+  inline bool has_m_statesuppvp() const;
+  inline void clear_m_statesuppvp();
+  static const int kMStatesuppvpFieldNumber = 10;
+  inline ::google::protobuf::int32 m_statesuppvp() const;
+  inline void set_m_statesuppvp(::google::protobuf::int32 value);
 
-  // optional int32 lvSupPvp = 11;
-  inline bool has_lvsuppvp() const;
-  inline void clear_lvsuppvp();
-  static const int kLvSupPvpFieldNumber = 11;
-  inline ::google::protobuf::int32 lvsuppvp() const;
-  inline void set_lvsuppvp(::google::protobuf::int32 value);
+  // optional int32 m_lvsuppvp = 11;
+  inline bool has_m_lvsuppvp() const;
+  inline void clear_m_lvsuppvp();
+  static const int kMLvsuppvpFieldNumber = 11;
+  inline ::google::protobuf::int32 m_lvsuppvp() const;
+  inline void set_m_lvsuppvp(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.attributesuppress)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AttributeSuppress)
  private:
-  inline void set_has_lvldiff();
-  inline void clear_has_lvldiff();
-  inline void set_has_hitsuppve();
-  inline void clear_has_hitsuppve();
-  inline void set_has_critsuppve();
-  inline void clear_has_critsuppve();
-  inline void set_has_killsuppve();
-  inline void clear_has_killsuppve();
-  inline void set_has_statesuppve();
-  inline void clear_has_statesuppve();
-  inline void set_has_lvsuppve();
-  inline void clear_has_lvsuppve();
-  inline void set_has_hitsuppvp();
-  inline void clear_has_hitsuppvp();
-  inline void set_has_critsuppvp();
-  inline void clear_has_critsuppvp();
-  inline void set_has_killsuppvp();
-  inline void clear_has_killsuppvp();
-  inline void set_has_statesuppvp();
-  inline void clear_has_statesuppvp();
-  inline void set_has_lvsuppvp();
-  inline void clear_has_lvsuppvp();
+  inline void set_has_m_lvldiff();
+  inline void clear_has_m_lvldiff();
+  inline void set_has_m_hitsuppve();
+  inline void clear_has_m_hitsuppve();
+  inline void set_has_m_critsuppve();
+  inline void clear_has_m_critsuppve();
+  inline void set_has_m_killsuppve();
+  inline void clear_has_m_killsuppve();
+  inline void set_has_m_statesuppve();
+  inline void clear_has_m_statesuppve();
+  inline void set_has_m_lvsuppve();
+  inline void clear_has_m_lvsuppve();
+  inline void set_has_m_hitsuppvp();
+  inline void clear_has_m_hitsuppvp();
+  inline void set_has_m_critsuppvp();
+  inline void clear_has_m_critsuppvp();
+  inline void set_has_m_killsuppvp();
+  inline void clear_has_m_killsuppvp();
+  inline void set_has_m_statesuppvp();
+  inline void clear_has_m_statesuppvp();
+  inline void set_has_m_lvsuppvp();
+  inline void clear_has_m_lvsuppvp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lvldiff_;
-  ::google::protobuf::int32 hitsuppve_;
-  ::google::protobuf::int32 critsuppve_;
-  ::google::protobuf::int32 killsuppve_;
-  ::google::protobuf::int32 statesuppve_;
-  ::google::protobuf::int32 lvsuppve_;
-  ::google::protobuf::int32 hitsuppvp_;
-  ::google::protobuf::int32 critsuppvp_;
-  ::google::protobuf::int32 killsuppvp_;
-  ::google::protobuf::int32 statesuppvp_;
-  ::google::protobuf::int32 lvsuppvp_;
+  ::google::protobuf::int32 m_lvldiff_;
+  ::google::protobuf::int32 m_hitsuppve_;
+  ::google::protobuf::int32 m_critsuppve_;
+  ::google::protobuf::int32 m_killsuppve_;
+  ::google::protobuf::int32 m_statesuppve_;
+  ::google::protobuf::int32 m_lvsuppve_;
+  ::google::protobuf::int32 m_hitsuppvp_;
+  ::google::protobuf::int32 m_critsuppvp_;
+  ::google::protobuf::int32 m_killsuppvp_;
+  ::google::protobuf::int32 m_statesuppvp_;
+  ::google::protobuf::int32 m_lvsuppvp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
@@ -408,18 +408,18 @@ class attributesuppress : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_attribute_2eproto();
 
   void InitAsDefaultInstance();
-  static attributesuppress* default_instance_;
+  static E_AttributeSuppress* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_attributesuppress : public ::google::protobuf::Message {
+class Sheet_AttributeSuppress : public ::google::protobuf::Message {
  public:
-  Sheet_attributesuppress();
-  virtual ~Sheet_attributesuppress();
+  Sheet_AttributeSuppress();
+  virtual ~Sheet_AttributeSuppress();
 
-  Sheet_attributesuppress(const Sheet_attributesuppress& from);
+  Sheet_AttributeSuppress(const Sheet_AttributeSuppress& from);
 
-  inline Sheet_attributesuppress& operator=(const Sheet_attributesuppress& from) {
+  inline Sheet_AttributeSuppress& operator=(const Sheet_AttributeSuppress& from) {
     CopyFrom(from);
     return *this;
   }
@@ -433,17 +433,17 @@ class Sheet_attributesuppress : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_attributesuppress& default_instance();
+  static const Sheet_AttributeSuppress& default_instance();
 
-  void Swap(Sheet_attributesuppress* other);
+  void Swap(Sheet_AttributeSuppress* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_attributesuppress* New() const;
+  Sheet_AttributeSuppress* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_attributesuppress& from);
-  void MergeFrom(const Sheet_attributesuppress& from);
+  void CopyFrom(const Sheet_AttributeSuppress& from);
+  void MergeFrom(const Sheet_AttributeSuppress& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -466,24 +466,24 @@ class Sheet_attributesuppress : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.attributesuppress attributesuppress_List = 1;
-  inline int attributesuppress_list_size() const;
-  inline void clear_attributesuppress_list();
-  static const int kAttributesuppressListFieldNumber = 1;
-  inline const ::proto_ff::attributesuppress& attributesuppress_list(int index) const;
-  inline ::proto_ff::attributesuppress* mutable_attributesuppress_list(int index);
-  inline ::proto_ff::attributesuppress* add_attributesuppress_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::attributesuppress >&
-      attributesuppress_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::attributesuppress >*
-      mutable_attributesuppress_list();
+  // repeated .proto_ff.E_AttributeSuppress E_AttributeSuppress_List = 1;
+  inline int e_attributesuppress_list_size() const;
+  inline void clear_e_attributesuppress_list();
+  static const int kEAttributeSuppressListFieldNumber = 1;
+  inline const ::proto_ff::E_AttributeSuppress& e_attributesuppress_list(int index) const;
+  inline ::proto_ff::E_AttributeSuppress* mutable_e_attributesuppress_list(int index);
+  inline ::proto_ff::E_AttributeSuppress* add_e_attributesuppress_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeSuppress >&
+      e_attributesuppress_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeSuppress >*
+      mutable_e_attributesuppress_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_attributesuppress)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AttributeSuppress)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::attributesuppress > attributesuppress_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeSuppress > e_attributesuppress_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -493,18 +493,18 @@ class Sheet_attributesuppress : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_attribute_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_attributesuppress* default_instance_;
+  static Sheet_AttributeSuppress* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class attributepowersup : public ::google::protobuf::Message {
+class E_AttributePowersup : public ::google::protobuf::Message {
  public:
-  attributepowersup();
-  virtual ~attributepowersup();
+  E_AttributePowersup();
+  virtual ~E_AttributePowersup();
 
-  attributepowersup(const attributepowersup& from);
+  E_AttributePowersup(const E_AttributePowersup& from);
 
-  inline attributepowersup& operator=(const attributepowersup& from) {
+  inline E_AttributePowersup& operator=(const E_AttributePowersup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -518,17 +518,17 @@ class attributepowersup : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const attributepowersup& default_instance();
+  static const E_AttributePowersup& default_instance();
 
-  void Swap(attributepowersup* other);
+  void Swap(E_AttributePowersup* other);
 
   // implements Message ----------------------------------------------
 
-  attributepowersup* New() const;
+  E_AttributePowersup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const attributepowersup& from);
-  void MergeFrom(const attributepowersup& from);
+  void CopyFrom(const E_AttributePowersup& from);
+  void MergeFrom(const E_AttributePowersup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -551,41 +551,41 @@ class attributepowersup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 powerDiff = 1;
-  inline bool has_powerdiff() const;
-  inline void clear_powerdiff();
-  static const int kPowerDiffFieldNumber = 1;
-  inline ::google::protobuf::int32 powerdiff() const;
-  inline void set_powerdiff(::google::protobuf::int32 value);
+  // optional int32 m_powerdiff = 1;
+  inline bool has_m_powerdiff() const;
+  inline void clear_m_powerdiff();
+  static const int kMPowerdiffFieldNumber = 1;
+  inline ::google::protobuf::int32 m_powerdiff() const;
+  inline void set_m_powerdiff(::google::protobuf::int32 value);
 
-  // optional int32 powerSupPve = 2;
-  inline bool has_powersuppve() const;
-  inline void clear_powersuppve();
-  static const int kPowerSupPveFieldNumber = 2;
-  inline ::google::protobuf::int32 powersuppve() const;
-  inline void set_powersuppve(::google::protobuf::int32 value);
+  // optional int32 m_powersuppve = 2;
+  inline bool has_m_powersuppve() const;
+  inline void clear_m_powersuppve();
+  static const int kMPowersuppveFieldNumber = 2;
+  inline ::google::protobuf::int32 m_powersuppve() const;
+  inline void set_m_powersuppve(::google::protobuf::int32 value);
 
-  // optional int32 powerSupPvp = 3;
-  inline bool has_powersuppvp() const;
-  inline void clear_powersuppvp();
-  static const int kPowerSupPvpFieldNumber = 3;
-  inline ::google::protobuf::int32 powersuppvp() const;
-  inline void set_powersuppvp(::google::protobuf::int32 value);
+  // optional int32 m_powersuppvp = 3;
+  inline bool has_m_powersuppvp() const;
+  inline void clear_m_powersuppvp();
+  static const int kMPowersuppvpFieldNumber = 3;
+  inline ::google::protobuf::int32 m_powersuppvp() const;
+  inline void set_m_powersuppvp(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.attributepowersup)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AttributePowersup)
  private:
-  inline void set_has_powerdiff();
-  inline void clear_has_powerdiff();
-  inline void set_has_powersuppve();
-  inline void clear_has_powersuppve();
-  inline void set_has_powersuppvp();
-  inline void clear_has_powersuppvp();
+  inline void set_has_m_powerdiff();
+  inline void clear_has_m_powerdiff();
+  inline void set_has_m_powersuppve();
+  inline void clear_has_m_powersuppve();
+  inline void set_has_m_powersuppvp();
+  inline void clear_has_m_powersuppvp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 powerdiff_;
-  ::google::protobuf::int32 powersuppve_;
-  ::google::protobuf::int32 powersuppvp_;
+  ::google::protobuf::int32 m_powerdiff_;
+  ::google::protobuf::int32 m_powersuppve_;
+  ::google::protobuf::int32 m_powersuppvp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -595,18 +595,18 @@ class attributepowersup : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_attribute_2eproto();
 
   void InitAsDefaultInstance();
-  static attributepowersup* default_instance_;
+  static E_AttributePowersup* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_attributepowersup : public ::google::protobuf::Message {
+class Sheet_AttributePowersup : public ::google::protobuf::Message {
  public:
-  Sheet_attributepowersup();
-  virtual ~Sheet_attributepowersup();
+  Sheet_AttributePowersup();
+  virtual ~Sheet_AttributePowersup();
 
-  Sheet_attributepowersup(const Sheet_attributepowersup& from);
+  Sheet_AttributePowersup(const Sheet_AttributePowersup& from);
 
-  inline Sheet_attributepowersup& operator=(const Sheet_attributepowersup& from) {
+  inline Sheet_AttributePowersup& operator=(const Sheet_AttributePowersup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -620,17 +620,17 @@ class Sheet_attributepowersup : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_attributepowersup& default_instance();
+  static const Sheet_AttributePowersup& default_instance();
 
-  void Swap(Sheet_attributepowersup* other);
+  void Swap(Sheet_AttributePowersup* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_attributepowersup* New() const;
+  Sheet_AttributePowersup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_attributepowersup& from);
-  void MergeFrom(const Sheet_attributepowersup& from);
+  void CopyFrom(const Sheet_AttributePowersup& from);
+  void MergeFrom(const Sheet_AttributePowersup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -653,24 +653,24 @@ class Sheet_attributepowersup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.attributepowersup attributepowersup_List = 1;
-  inline int attributepowersup_list_size() const;
-  inline void clear_attributepowersup_list();
-  static const int kAttributepowersupListFieldNumber = 1;
-  inline const ::proto_ff::attributepowersup& attributepowersup_list(int index) const;
-  inline ::proto_ff::attributepowersup* mutable_attributepowersup_list(int index);
-  inline ::proto_ff::attributepowersup* add_attributepowersup_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::attributepowersup >&
-      attributepowersup_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::attributepowersup >*
-      mutable_attributepowersup_list();
+  // repeated .proto_ff.E_AttributePowersup E_AttributePowersup_List = 1;
+  inline int e_attributepowersup_list_size() const;
+  inline void clear_e_attributepowersup_list();
+  static const int kEAttributePowersupListFieldNumber = 1;
+  inline const ::proto_ff::E_AttributePowersup& e_attributepowersup_list(int index) const;
+  inline ::proto_ff::E_AttributePowersup* mutable_e_attributepowersup_list(int index);
+  inline ::proto_ff::E_AttributePowersup* add_e_attributepowersup_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributePowersup >&
+      e_attributepowersup_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributePowersup >*
+      mutable_e_attributepowersup_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_attributepowersup)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AttributePowersup)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::attributepowersup > attributepowersup_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributePowersup > e_attributepowersup_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -680,482 +680,482 @@ class Sheet_attributepowersup : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_attribute_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_attributepowersup* default_instance_;
+  static Sheet_AttributePowersup* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// attributeattribute
+// E_AttributeAttribute
 
-// optional int32 id = 1;
-inline bool attributeattribute::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_AttributeAttribute::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void attributeattribute::set_has_id() {
+inline void E_AttributeAttribute::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void attributeattribute::clear_has_id() {
+inline void E_AttributeAttribute::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void attributeattribute::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_AttributeAttribute::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 attributeattribute::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_AttributeAttribute::m_id() const {
+  return m_id_;
 }
-inline void attributeattribute::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_AttributeAttribute::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 percent = 2;
-inline bool attributeattribute::has_percent() const {
+// optional int32 m_percent = 2;
+inline bool E_AttributeAttribute::has_m_percent() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void attributeattribute::set_has_percent() {
+inline void E_AttributeAttribute::set_has_m_percent() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void attributeattribute::clear_has_percent() {
+inline void E_AttributeAttribute::clear_has_m_percent() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void attributeattribute::clear_percent() {
-  percent_ = 0;
-  clear_has_percent();
+inline void E_AttributeAttribute::clear_m_percent() {
+  m_percent_ = 0;
+  clear_has_m_percent();
 }
-inline ::google::protobuf::int32 attributeattribute::percent() const {
-  return percent_;
+inline ::google::protobuf::int32 E_AttributeAttribute::m_percent() const {
+  return m_percent_;
 }
-inline void attributeattribute::set_percent(::google::protobuf::int32 value) {
-  set_has_percent();
-  percent_ = value;
+inline void E_AttributeAttribute::set_m_percent(::google::protobuf::int32 value) {
+  set_has_m_percent();
+  m_percent_ = value;
 }
 
-// optional float power = 3;
-inline bool attributeattribute::has_power() const {
+// optional float m_power = 3;
+inline bool E_AttributeAttribute::has_m_power() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void attributeattribute::set_has_power() {
+inline void E_AttributeAttribute::set_has_m_power() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void attributeattribute::clear_has_power() {
+inline void E_AttributeAttribute::clear_has_m_power() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void attributeattribute::clear_power() {
-  power_ = 0;
-  clear_has_power();
+inline void E_AttributeAttribute::clear_m_power() {
+  m_power_ = 0;
+  clear_has_m_power();
 }
-inline float attributeattribute::power() const {
-  return power_;
+inline float E_AttributeAttribute::m_power() const {
+  return m_power_;
 }
-inline void attributeattribute::set_power(float value) {
-  set_has_power();
-  power_ = value;
+inline void E_AttributeAttribute::set_m_power(float value) {
+  set_has_m_power();
+  m_power_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_attributeattribute
+// Sheet_AttributeAttribute
 
-// repeated .proto_ff.attributeattribute attributeattribute_List = 1;
-inline int Sheet_attributeattribute::attributeattribute_list_size() const {
-  return attributeattribute_list_.size();
+// repeated .proto_ff.E_AttributeAttribute E_AttributeAttribute_List = 1;
+inline int Sheet_AttributeAttribute::e_attributeattribute_list_size() const {
+  return e_attributeattribute_list_.size();
 }
-inline void Sheet_attributeattribute::clear_attributeattribute_list() {
-  attributeattribute_list_.Clear();
+inline void Sheet_AttributeAttribute::clear_e_attributeattribute_list() {
+  e_attributeattribute_list_.Clear();
 }
-inline const ::proto_ff::attributeattribute& Sheet_attributeattribute::attributeattribute_list(int index) const {
-  return attributeattribute_list_.Get(index);
+inline const ::proto_ff::E_AttributeAttribute& Sheet_AttributeAttribute::e_attributeattribute_list(int index) const {
+  return e_attributeattribute_list_.Get(index);
 }
-inline ::proto_ff::attributeattribute* Sheet_attributeattribute::mutable_attributeattribute_list(int index) {
-  return attributeattribute_list_.Mutable(index);
+inline ::proto_ff::E_AttributeAttribute* Sheet_AttributeAttribute::mutable_e_attributeattribute_list(int index) {
+  return e_attributeattribute_list_.Mutable(index);
 }
-inline ::proto_ff::attributeattribute* Sheet_attributeattribute::add_attributeattribute_list() {
-  return attributeattribute_list_.Add();
+inline ::proto_ff::E_AttributeAttribute* Sheet_AttributeAttribute::add_e_attributeattribute_list() {
+  return e_attributeattribute_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::attributeattribute >&
-Sheet_attributeattribute::attributeattribute_list() const {
-  return attributeattribute_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeAttribute >&
+Sheet_AttributeAttribute::e_attributeattribute_list() const {
+  return e_attributeattribute_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::attributeattribute >*
-Sheet_attributeattribute::mutable_attributeattribute_list() {
-  return &attributeattribute_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeAttribute >*
+Sheet_AttributeAttribute::mutable_e_attributeattribute_list() {
+  return &e_attributeattribute_list_;
 }
 
 // -------------------------------------------------------------------
 
-// attributesuppress
+// E_AttributeSuppress
 
-// optional int32 lvlDiff = 1;
-inline bool attributesuppress::has_lvldiff() const {
+// optional int32 m_lvldiff = 1;
+inline bool E_AttributeSuppress::has_m_lvldiff() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void attributesuppress::set_has_lvldiff() {
+inline void E_AttributeSuppress::set_has_m_lvldiff() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void attributesuppress::clear_has_lvldiff() {
+inline void E_AttributeSuppress::clear_has_m_lvldiff() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void attributesuppress::clear_lvldiff() {
-  lvldiff_ = 0;
-  clear_has_lvldiff();
+inline void E_AttributeSuppress::clear_m_lvldiff() {
+  m_lvldiff_ = 0;
+  clear_has_m_lvldiff();
 }
-inline ::google::protobuf::int32 attributesuppress::lvldiff() const {
-  return lvldiff_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_lvldiff() const {
+  return m_lvldiff_;
 }
-inline void attributesuppress::set_lvldiff(::google::protobuf::int32 value) {
-  set_has_lvldiff();
-  lvldiff_ = value;
+inline void E_AttributeSuppress::set_m_lvldiff(::google::protobuf::int32 value) {
+  set_has_m_lvldiff();
+  m_lvldiff_ = value;
 }
 
-// optional int32 hitSupPve = 2;
-inline bool attributesuppress::has_hitsuppve() const {
+// optional int32 m_hitsuppve = 2;
+inline bool E_AttributeSuppress::has_m_hitsuppve() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void attributesuppress::set_has_hitsuppve() {
+inline void E_AttributeSuppress::set_has_m_hitsuppve() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void attributesuppress::clear_has_hitsuppve() {
+inline void E_AttributeSuppress::clear_has_m_hitsuppve() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void attributesuppress::clear_hitsuppve() {
-  hitsuppve_ = 0;
-  clear_has_hitsuppve();
+inline void E_AttributeSuppress::clear_m_hitsuppve() {
+  m_hitsuppve_ = 0;
+  clear_has_m_hitsuppve();
 }
-inline ::google::protobuf::int32 attributesuppress::hitsuppve() const {
-  return hitsuppve_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_hitsuppve() const {
+  return m_hitsuppve_;
 }
-inline void attributesuppress::set_hitsuppve(::google::protobuf::int32 value) {
-  set_has_hitsuppve();
-  hitsuppve_ = value;
+inline void E_AttributeSuppress::set_m_hitsuppve(::google::protobuf::int32 value) {
+  set_has_m_hitsuppve();
+  m_hitsuppve_ = value;
 }
 
-// optional int32 critSupPve = 3;
-inline bool attributesuppress::has_critsuppve() const {
+// optional int32 m_critsuppve = 3;
+inline bool E_AttributeSuppress::has_m_critsuppve() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void attributesuppress::set_has_critsuppve() {
+inline void E_AttributeSuppress::set_has_m_critsuppve() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void attributesuppress::clear_has_critsuppve() {
+inline void E_AttributeSuppress::clear_has_m_critsuppve() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void attributesuppress::clear_critsuppve() {
-  critsuppve_ = 0;
-  clear_has_critsuppve();
+inline void E_AttributeSuppress::clear_m_critsuppve() {
+  m_critsuppve_ = 0;
+  clear_has_m_critsuppve();
 }
-inline ::google::protobuf::int32 attributesuppress::critsuppve() const {
-  return critsuppve_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_critsuppve() const {
+  return m_critsuppve_;
 }
-inline void attributesuppress::set_critsuppve(::google::protobuf::int32 value) {
-  set_has_critsuppve();
-  critsuppve_ = value;
+inline void E_AttributeSuppress::set_m_critsuppve(::google::protobuf::int32 value) {
+  set_has_m_critsuppve();
+  m_critsuppve_ = value;
 }
 
-// optional int32 killSupPve = 4;
-inline bool attributesuppress::has_killsuppve() const {
+// optional int32 m_killsuppve = 4;
+inline bool E_AttributeSuppress::has_m_killsuppve() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void attributesuppress::set_has_killsuppve() {
+inline void E_AttributeSuppress::set_has_m_killsuppve() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void attributesuppress::clear_has_killsuppve() {
+inline void E_AttributeSuppress::clear_has_m_killsuppve() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void attributesuppress::clear_killsuppve() {
-  killsuppve_ = 0;
-  clear_has_killsuppve();
+inline void E_AttributeSuppress::clear_m_killsuppve() {
+  m_killsuppve_ = 0;
+  clear_has_m_killsuppve();
 }
-inline ::google::protobuf::int32 attributesuppress::killsuppve() const {
-  return killsuppve_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_killsuppve() const {
+  return m_killsuppve_;
 }
-inline void attributesuppress::set_killsuppve(::google::protobuf::int32 value) {
-  set_has_killsuppve();
-  killsuppve_ = value;
+inline void E_AttributeSuppress::set_m_killsuppve(::google::protobuf::int32 value) {
+  set_has_m_killsuppve();
+  m_killsuppve_ = value;
 }
 
-// optional int32 stateSupPve = 5;
-inline bool attributesuppress::has_statesuppve() const {
+// optional int32 m_statesuppve = 5;
+inline bool E_AttributeSuppress::has_m_statesuppve() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void attributesuppress::set_has_statesuppve() {
+inline void E_AttributeSuppress::set_has_m_statesuppve() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void attributesuppress::clear_has_statesuppve() {
+inline void E_AttributeSuppress::clear_has_m_statesuppve() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void attributesuppress::clear_statesuppve() {
-  statesuppve_ = 0;
-  clear_has_statesuppve();
+inline void E_AttributeSuppress::clear_m_statesuppve() {
+  m_statesuppve_ = 0;
+  clear_has_m_statesuppve();
 }
-inline ::google::protobuf::int32 attributesuppress::statesuppve() const {
-  return statesuppve_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_statesuppve() const {
+  return m_statesuppve_;
 }
-inline void attributesuppress::set_statesuppve(::google::protobuf::int32 value) {
-  set_has_statesuppve();
-  statesuppve_ = value;
+inline void E_AttributeSuppress::set_m_statesuppve(::google::protobuf::int32 value) {
+  set_has_m_statesuppve();
+  m_statesuppve_ = value;
 }
 
-// optional int32 lvSupPve = 6;
-inline bool attributesuppress::has_lvsuppve() const {
+// optional int32 m_lvsuppve = 6;
+inline bool E_AttributeSuppress::has_m_lvsuppve() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void attributesuppress::set_has_lvsuppve() {
+inline void E_AttributeSuppress::set_has_m_lvsuppve() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void attributesuppress::clear_has_lvsuppve() {
+inline void E_AttributeSuppress::clear_has_m_lvsuppve() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void attributesuppress::clear_lvsuppve() {
-  lvsuppve_ = 0;
-  clear_has_lvsuppve();
+inline void E_AttributeSuppress::clear_m_lvsuppve() {
+  m_lvsuppve_ = 0;
+  clear_has_m_lvsuppve();
 }
-inline ::google::protobuf::int32 attributesuppress::lvsuppve() const {
-  return lvsuppve_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_lvsuppve() const {
+  return m_lvsuppve_;
 }
-inline void attributesuppress::set_lvsuppve(::google::protobuf::int32 value) {
-  set_has_lvsuppve();
-  lvsuppve_ = value;
+inline void E_AttributeSuppress::set_m_lvsuppve(::google::protobuf::int32 value) {
+  set_has_m_lvsuppve();
+  m_lvsuppve_ = value;
 }
 
-// optional int32 hitSupPvp = 7;
-inline bool attributesuppress::has_hitsuppvp() const {
+// optional int32 m_hitsuppvp = 7;
+inline bool E_AttributeSuppress::has_m_hitsuppvp() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void attributesuppress::set_has_hitsuppvp() {
+inline void E_AttributeSuppress::set_has_m_hitsuppvp() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void attributesuppress::clear_has_hitsuppvp() {
+inline void E_AttributeSuppress::clear_has_m_hitsuppvp() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void attributesuppress::clear_hitsuppvp() {
-  hitsuppvp_ = 0;
-  clear_has_hitsuppvp();
+inline void E_AttributeSuppress::clear_m_hitsuppvp() {
+  m_hitsuppvp_ = 0;
+  clear_has_m_hitsuppvp();
 }
-inline ::google::protobuf::int32 attributesuppress::hitsuppvp() const {
-  return hitsuppvp_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_hitsuppvp() const {
+  return m_hitsuppvp_;
 }
-inline void attributesuppress::set_hitsuppvp(::google::protobuf::int32 value) {
-  set_has_hitsuppvp();
-  hitsuppvp_ = value;
+inline void E_AttributeSuppress::set_m_hitsuppvp(::google::protobuf::int32 value) {
+  set_has_m_hitsuppvp();
+  m_hitsuppvp_ = value;
 }
 
-// optional int32 critSupPvp = 8;
-inline bool attributesuppress::has_critsuppvp() const {
+// optional int32 m_critsuppvp = 8;
+inline bool E_AttributeSuppress::has_m_critsuppvp() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void attributesuppress::set_has_critsuppvp() {
+inline void E_AttributeSuppress::set_has_m_critsuppvp() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void attributesuppress::clear_has_critsuppvp() {
+inline void E_AttributeSuppress::clear_has_m_critsuppvp() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void attributesuppress::clear_critsuppvp() {
-  critsuppvp_ = 0;
-  clear_has_critsuppvp();
+inline void E_AttributeSuppress::clear_m_critsuppvp() {
+  m_critsuppvp_ = 0;
+  clear_has_m_critsuppvp();
 }
-inline ::google::protobuf::int32 attributesuppress::critsuppvp() const {
-  return critsuppvp_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_critsuppvp() const {
+  return m_critsuppvp_;
 }
-inline void attributesuppress::set_critsuppvp(::google::protobuf::int32 value) {
-  set_has_critsuppvp();
-  critsuppvp_ = value;
+inline void E_AttributeSuppress::set_m_critsuppvp(::google::protobuf::int32 value) {
+  set_has_m_critsuppvp();
+  m_critsuppvp_ = value;
 }
 
-// optional int32 killSupPvp = 9;
-inline bool attributesuppress::has_killsuppvp() const {
+// optional int32 m_killsuppvp = 9;
+inline bool E_AttributeSuppress::has_m_killsuppvp() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void attributesuppress::set_has_killsuppvp() {
+inline void E_AttributeSuppress::set_has_m_killsuppvp() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void attributesuppress::clear_has_killsuppvp() {
+inline void E_AttributeSuppress::clear_has_m_killsuppvp() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void attributesuppress::clear_killsuppvp() {
-  killsuppvp_ = 0;
-  clear_has_killsuppvp();
+inline void E_AttributeSuppress::clear_m_killsuppvp() {
+  m_killsuppvp_ = 0;
+  clear_has_m_killsuppvp();
 }
-inline ::google::protobuf::int32 attributesuppress::killsuppvp() const {
-  return killsuppvp_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_killsuppvp() const {
+  return m_killsuppvp_;
 }
-inline void attributesuppress::set_killsuppvp(::google::protobuf::int32 value) {
-  set_has_killsuppvp();
-  killsuppvp_ = value;
+inline void E_AttributeSuppress::set_m_killsuppvp(::google::protobuf::int32 value) {
+  set_has_m_killsuppvp();
+  m_killsuppvp_ = value;
 }
 
-// optional int32 stateSupPvp = 10;
-inline bool attributesuppress::has_statesuppvp() const {
+// optional int32 m_statesuppvp = 10;
+inline bool E_AttributeSuppress::has_m_statesuppvp() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void attributesuppress::set_has_statesuppvp() {
+inline void E_AttributeSuppress::set_has_m_statesuppvp() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void attributesuppress::clear_has_statesuppvp() {
+inline void E_AttributeSuppress::clear_has_m_statesuppvp() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void attributesuppress::clear_statesuppvp() {
-  statesuppvp_ = 0;
-  clear_has_statesuppvp();
+inline void E_AttributeSuppress::clear_m_statesuppvp() {
+  m_statesuppvp_ = 0;
+  clear_has_m_statesuppvp();
 }
-inline ::google::protobuf::int32 attributesuppress::statesuppvp() const {
-  return statesuppvp_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_statesuppvp() const {
+  return m_statesuppvp_;
 }
-inline void attributesuppress::set_statesuppvp(::google::protobuf::int32 value) {
-  set_has_statesuppvp();
-  statesuppvp_ = value;
+inline void E_AttributeSuppress::set_m_statesuppvp(::google::protobuf::int32 value) {
+  set_has_m_statesuppvp();
+  m_statesuppvp_ = value;
 }
 
-// optional int32 lvSupPvp = 11;
-inline bool attributesuppress::has_lvsuppvp() const {
+// optional int32 m_lvsuppvp = 11;
+inline bool E_AttributeSuppress::has_m_lvsuppvp() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void attributesuppress::set_has_lvsuppvp() {
+inline void E_AttributeSuppress::set_has_m_lvsuppvp() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void attributesuppress::clear_has_lvsuppvp() {
+inline void E_AttributeSuppress::clear_has_m_lvsuppvp() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void attributesuppress::clear_lvsuppvp() {
-  lvsuppvp_ = 0;
-  clear_has_lvsuppvp();
+inline void E_AttributeSuppress::clear_m_lvsuppvp() {
+  m_lvsuppvp_ = 0;
+  clear_has_m_lvsuppvp();
 }
-inline ::google::protobuf::int32 attributesuppress::lvsuppvp() const {
-  return lvsuppvp_;
+inline ::google::protobuf::int32 E_AttributeSuppress::m_lvsuppvp() const {
+  return m_lvsuppvp_;
 }
-inline void attributesuppress::set_lvsuppvp(::google::protobuf::int32 value) {
-  set_has_lvsuppvp();
-  lvsuppvp_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_attributesuppress
-
-// repeated .proto_ff.attributesuppress attributesuppress_List = 1;
-inline int Sheet_attributesuppress::attributesuppress_list_size() const {
-  return attributesuppress_list_.size();
-}
-inline void Sheet_attributesuppress::clear_attributesuppress_list() {
-  attributesuppress_list_.Clear();
-}
-inline const ::proto_ff::attributesuppress& Sheet_attributesuppress::attributesuppress_list(int index) const {
-  return attributesuppress_list_.Get(index);
-}
-inline ::proto_ff::attributesuppress* Sheet_attributesuppress::mutable_attributesuppress_list(int index) {
-  return attributesuppress_list_.Mutable(index);
-}
-inline ::proto_ff::attributesuppress* Sheet_attributesuppress::add_attributesuppress_list() {
-  return attributesuppress_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::attributesuppress >&
-Sheet_attributesuppress::attributesuppress_list() const {
-  return attributesuppress_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::attributesuppress >*
-Sheet_attributesuppress::mutable_attributesuppress_list() {
-  return &attributesuppress_list_;
+inline void E_AttributeSuppress::set_m_lvsuppvp(::google::protobuf::int32 value) {
+  set_has_m_lvsuppvp();
+  m_lvsuppvp_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// attributepowersup
+// Sheet_AttributeSuppress
 
-// optional int32 powerDiff = 1;
-inline bool attributepowersup::has_powerdiff() const {
+// repeated .proto_ff.E_AttributeSuppress E_AttributeSuppress_List = 1;
+inline int Sheet_AttributeSuppress::e_attributesuppress_list_size() const {
+  return e_attributesuppress_list_.size();
+}
+inline void Sheet_AttributeSuppress::clear_e_attributesuppress_list() {
+  e_attributesuppress_list_.Clear();
+}
+inline const ::proto_ff::E_AttributeSuppress& Sheet_AttributeSuppress::e_attributesuppress_list(int index) const {
+  return e_attributesuppress_list_.Get(index);
+}
+inline ::proto_ff::E_AttributeSuppress* Sheet_AttributeSuppress::mutable_e_attributesuppress_list(int index) {
+  return e_attributesuppress_list_.Mutable(index);
+}
+inline ::proto_ff::E_AttributeSuppress* Sheet_AttributeSuppress::add_e_attributesuppress_list() {
+  return e_attributesuppress_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeSuppress >&
+Sheet_AttributeSuppress::e_attributesuppress_list() const {
+  return e_attributesuppress_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributeSuppress >*
+Sheet_AttributeSuppress::mutable_e_attributesuppress_list() {
+  return &e_attributesuppress_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_AttributePowersup
+
+// optional int32 m_powerdiff = 1;
+inline bool E_AttributePowersup::has_m_powerdiff() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void attributepowersup::set_has_powerdiff() {
+inline void E_AttributePowersup::set_has_m_powerdiff() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void attributepowersup::clear_has_powerdiff() {
+inline void E_AttributePowersup::clear_has_m_powerdiff() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void attributepowersup::clear_powerdiff() {
-  powerdiff_ = 0;
-  clear_has_powerdiff();
+inline void E_AttributePowersup::clear_m_powerdiff() {
+  m_powerdiff_ = 0;
+  clear_has_m_powerdiff();
 }
-inline ::google::protobuf::int32 attributepowersup::powerdiff() const {
-  return powerdiff_;
+inline ::google::protobuf::int32 E_AttributePowersup::m_powerdiff() const {
+  return m_powerdiff_;
 }
-inline void attributepowersup::set_powerdiff(::google::protobuf::int32 value) {
-  set_has_powerdiff();
-  powerdiff_ = value;
+inline void E_AttributePowersup::set_m_powerdiff(::google::protobuf::int32 value) {
+  set_has_m_powerdiff();
+  m_powerdiff_ = value;
 }
 
-// optional int32 powerSupPve = 2;
-inline bool attributepowersup::has_powersuppve() const {
+// optional int32 m_powersuppve = 2;
+inline bool E_AttributePowersup::has_m_powersuppve() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void attributepowersup::set_has_powersuppve() {
+inline void E_AttributePowersup::set_has_m_powersuppve() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void attributepowersup::clear_has_powersuppve() {
+inline void E_AttributePowersup::clear_has_m_powersuppve() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void attributepowersup::clear_powersuppve() {
-  powersuppve_ = 0;
-  clear_has_powersuppve();
+inline void E_AttributePowersup::clear_m_powersuppve() {
+  m_powersuppve_ = 0;
+  clear_has_m_powersuppve();
 }
-inline ::google::protobuf::int32 attributepowersup::powersuppve() const {
-  return powersuppve_;
+inline ::google::protobuf::int32 E_AttributePowersup::m_powersuppve() const {
+  return m_powersuppve_;
 }
-inline void attributepowersup::set_powersuppve(::google::protobuf::int32 value) {
-  set_has_powersuppve();
-  powersuppve_ = value;
+inline void E_AttributePowersup::set_m_powersuppve(::google::protobuf::int32 value) {
+  set_has_m_powersuppve();
+  m_powersuppve_ = value;
 }
 
-// optional int32 powerSupPvp = 3;
-inline bool attributepowersup::has_powersuppvp() const {
+// optional int32 m_powersuppvp = 3;
+inline bool E_AttributePowersup::has_m_powersuppvp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void attributepowersup::set_has_powersuppvp() {
+inline void E_AttributePowersup::set_has_m_powersuppvp() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void attributepowersup::clear_has_powersuppvp() {
+inline void E_AttributePowersup::clear_has_m_powersuppvp() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void attributepowersup::clear_powersuppvp() {
-  powersuppvp_ = 0;
-  clear_has_powersuppvp();
+inline void E_AttributePowersup::clear_m_powersuppvp() {
+  m_powersuppvp_ = 0;
+  clear_has_m_powersuppvp();
 }
-inline ::google::protobuf::int32 attributepowersup::powersuppvp() const {
-  return powersuppvp_;
+inline ::google::protobuf::int32 E_AttributePowersup::m_powersuppvp() const {
+  return m_powersuppvp_;
 }
-inline void attributepowersup::set_powersuppvp(::google::protobuf::int32 value) {
-  set_has_powersuppvp();
-  powersuppvp_ = value;
+inline void E_AttributePowersup::set_m_powersuppvp(::google::protobuf::int32 value) {
+  set_has_m_powersuppvp();
+  m_powersuppvp_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_attributepowersup
+// Sheet_AttributePowersup
 
-// repeated .proto_ff.attributepowersup attributepowersup_List = 1;
-inline int Sheet_attributepowersup::attributepowersup_list_size() const {
-  return attributepowersup_list_.size();
+// repeated .proto_ff.E_AttributePowersup E_AttributePowersup_List = 1;
+inline int Sheet_AttributePowersup::e_attributepowersup_list_size() const {
+  return e_attributepowersup_list_.size();
 }
-inline void Sheet_attributepowersup::clear_attributepowersup_list() {
-  attributepowersup_list_.Clear();
+inline void Sheet_AttributePowersup::clear_e_attributepowersup_list() {
+  e_attributepowersup_list_.Clear();
 }
-inline const ::proto_ff::attributepowersup& Sheet_attributepowersup::attributepowersup_list(int index) const {
-  return attributepowersup_list_.Get(index);
+inline const ::proto_ff::E_AttributePowersup& Sheet_AttributePowersup::e_attributepowersup_list(int index) const {
+  return e_attributepowersup_list_.Get(index);
 }
-inline ::proto_ff::attributepowersup* Sheet_attributepowersup::mutable_attributepowersup_list(int index) {
-  return attributepowersup_list_.Mutable(index);
+inline ::proto_ff::E_AttributePowersup* Sheet_AttributePowersup::mutable_e_attributepowersup_list(int index) {
+  return e_attributepowersup_list_.Mutable(index);
 }
-inline ::proto_ff::attributepowersup* Sheet_attributepowersup::add_attributepowersup_list() {
-  return attributepowersup_list_.Add();
+inline ::proto_ff::E_AttributePowersup* Sheet_AttributePowersup::add_e_attributepowersup_list() {
+  return e_attributepowersup_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::attributepowersup >&
-Sheet_attributepowersup::attributepowersup_list() const {
-  return attributepowersup_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributePowersup >&
+Sheet_AttributePowersup::e_attributepowersup_list() const {
+  return e_attributepowersup_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::attributepowersup >*
-Sheet_attributepowersup::mutable_attributepowersup_list() {
-  return &attributepowersup_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AttributePowersup >*
+Sheet_AttributePowersup::mutable_e_attributepowersup_list() {
+  return &e_attributepowersup_list_;
 }
 
 

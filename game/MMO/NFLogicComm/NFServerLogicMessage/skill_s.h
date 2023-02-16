@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "skill.pb.h"
@@ -10,298 +10,298 @@
 
 namespace proto_ff_s {
 
-	struct skillbuff_s : public NFDescStoreSeqOP {
-		skillbuff_s();
-		virtual ~skillbuff_s(){}
+	struct E_SkillBuff_s : public NFDescStoreSeqOP {
+		E_SkillBuff_s();
+		virtual ~E_SkillBuff_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t buffID;
-		NFShmString<60> buffName;
-		NFShmString<60> buffIcon;
-		NFShmString<60> effectResources;
-		int32_t showTpye;
-		int32_t startProbability;
-		int32_t Probability_up;
-		int32_t startType;
-		NFShmString<60> startTypeValue;
-		int32_t endType;
-		NFShmString<60> endTypeValue;
-		int32_t group;
-		NFShmString<60> buffRule;
-		NFShmString<60> immune;
-		NFShmString<60> dispel;
-		int32_t buffCd;
-		int32_t effect_Time;
-		int32_t effect_Type;
-		NFShmString<60> effect_Param;
-		int32_t effect_up;
+		int64_t m_buffid;
+		NFShmString<60> m_buffname;
+		NFShmString<60> m_bufficon;
+		NFShmString<60> m_effectresources;
+		int32_t m_showtpye;
+		int32_t m_startprobability;
+		int32_t m_probability_up;
+		int32_t m_starttype;
+		NFShmString<60> m_starttypevalue;
+		int32_t m_endtype;
+		NFShmString<60> m_endtypevalue;
+		int32_t m_group;
+		NFShmString<60> m_buffrule;
+		NFShmString<60> m_immune;
+		NFShmString<60> m_dispel;
+		int32_t m_buffcd;
+		int32_t m_effect_time;
+		int32_t m_effect_type;
+		NFShmString<60> m_effect_param;
+		int32_t m_effect_up;
 
-		virtual void write_to_pbmsg(::proto_ff::skillbuff & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillbuff & msg);
-		static ::proto_ff::skillbuff* new_pbmsg(){ return new ::proto_ff::skillbuff(); }
-		static ::proto_ff::skillbuff make_pbmsg(){ return ::proto_ff::skillbuff(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillBuff & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillBuff & msg);
+		static ::proto_ff::E_SkillBuff* new_pbmsg(){ return new ::proto_ff::E_SkillBuff(); }
+		static ::proto_ff::E_SkillBuff make_pbmsg(){ return ::proto_ff::E_SkillBuff(); }
 	};
-	typedef struct skillbuff_s skillbuff_t;
+	typedef struct E_SkillBuff_s E_SkillBuff_t;
 
-	struct Sheet_skillbuff_s : public NFDescStoreSeqOP {
-		Sheet_skillbuff_s();
-		virtual ~Sheet_skillbuff_s(){}
+	struct Sheet_SkillBuff_s : public NFDescStoreSeqOP {
+		Sheet_SkillBuff_s();
+		virtual ~Sheet_SkillBuff_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillbuff_s, 100> skillbuff_List;
+		NFShmVector<struct E_SkillBuff_s, 100> E_SkillBuff_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_skillbuff & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillbuff & msg);
-		static ::proto_ff::Sheet_skillbuff* new_pbmsg(){ return new ::proto_ff::Sheet_skillbuff(); }
-		static ::proto_ff::Sheet_skillbuff make_pbmsg(){ return ::proto_ff::Sheet_skillbuff(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillBuff & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillBuff & msg);
+		static ::proto_ff::Sheet_SkillBuff* new_pbmsg(){ return new ::proto_ff::Sheet_SkillBuff(); }
+		static ::proto_ff::Sheet_SkillBuff make_pbmsg(){ return ::proto_ff::Sheet_SkillBuff(); }
 	};
-	typedef struct Sheet_skillbuff_s Sheet_skillbuff_t;
+	typedef struct Sheet_SkillBuff_s Sheet_SkillBuff_t;
 
-	struct skillskilladvanceType1buffDesc_s : public NFDescStoreSeqOP {
-		skillskilladvanceType1buffDesc_s();
-		virtual ~skillskilladvanceType1buffDesc_s(){}
+	struct E_SkillSkillAdvancetype1buffDesc_s : public NFDescStoreSeqOP {
+		E_SkillSkillAdvancetype1buffDesc_s();
+		virtual ~E_SkillSkillAdvancetype1buffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
+		int64_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskilladvanceType1buffDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskilladvanceType1buffDesc & msg);
-		static ::proto_ff::skillskilladvanceType1buffDesc* new_pbmsg(){ return new ::proto_ff::skillskilladvanceType1buffDesc(); }
-		static ::proto_ff::skillskilladvanceType1buffDesc make_pbmsg(){ return ::proto_ff::skillskilladvanceType1buffDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAdvancetype1buffDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAdvancetype1buffDesc & msg);
+		static ::proto_ff::E_SkillSkillAdvancetype1buffDesc* new_pbmsg(){ return new ::proto_ff::E_SkillSkillAdvancetype1buffDesc(); }
+		static ::proto_ff::E_SkillSkillAdvancetype1buffDesc make_pbmsg(){ return ::proto_ff::E_SkillSkillAdvancetype1buffDesc(); }
 	};
-	typedef struct skillskilladvanceType1buffDesc_s skillskilladvanceType1buffDesc_t;
+	typedef struct E_SkillSkillAdvancetype1buffDesc_s E_SkillSkillAdvancetype1buffDesc_t;
 
-	struct skillskilladvanceType2buffDesc_s : public NFDescStoreSeqOP {
-		skillskilladvanceType2buffDesc_s();
-		virtual ~skillskilladvanceType2buffDesc_s(){}
+	struct E_SkillSkillAdvancetype2buffDesc_s : public NFDescStoreSeqOP {
+		E_SkillSkillAdvancetype2buffDesc_s();
+		virtual ~E_SkillSkillAdvancetype2buffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
+		int64_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskilladvanceType2buffDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskilladvanceType2buffDesc & msg);
-		static ::proto_ff::skillskilladvanceType2buffDesc* new_pbmsg(){ return new ::proto_ff::skillskilladvanceType2buffDesc(); }
-		static ::proto_ff::skillskilladvanceType2buffDesc make_pbmsg(){ return ::proto_ff::skillskilladvanceType2buffDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAdvancetype2buffDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAdvancetype2buffDesc & msg);
+		static ::proto_ff::E_SkillSkillAdvancetype2buffDesc* new_pbmsg(){ return new ::proto_ff::E_SkillSkillAdvancetype2buffDesc(); }
+		static ::proto_ff::E_SkillSkillAdvancetype2buffDesc make_pbmsg(){ return ::proto_ff::E_SkillSkillAdvancetype2buffDesc(); }
 	};
-	typedef struct skillskilladvanceType2buffDesc_s skillskilladvanceType2buffDesc_t;
+	typedef struct E_SkillSkillAdvancetype2buffDesc_s E_SkillSkillAdvancetype2buffDesc_t;
 
-	struct skillskillawakebuffDesc_s : public NFDescStoreSeqOP {
-		skillskillawakebuffDesc_s();
-		virtual ~skillskillawakebuffDesc_s(){}
+	struct E_SkillSkillAwakebuffDesc_s : public NFDescStoreSeqOP {
+		E_SkillSkillAwakebuffDesc_s();
+		virtual ~E_SkillSkillAwakebuffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
+		int64_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskillawakebuffDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskillawakebuffDesc & msg);
-		static ::proto_ff::skillskillawakebuffDesc* new_pbmsg(){ return new ::proto_ff::skillskillawakebuffDesc(); }
-		static ::proto_ff::skillskillawakebuffDesc make_pbmsg(){ return ::proto_ff::skillskillawakebuffDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAwakebuffDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAwakebuffDesc & msg);
+		static ::proto_ff::E_SkillSkillAwakebuffDesc* new_pbmsg(){ return new ::proto_ff::E_SkillSkillAwakebuffDesc(); }
+		static ::proto_ff::E_SkillSkillAwakebuffDesc make_pbmsg(){ return ::proto_ff::E_SkillSkillAwakebuffDesc(); }
 	};
-	typedef struct skillskillawakebuffDesc_s skillskillawakebuffDesc_t;
+	typedef struct E_SkillSkillAwakebuffDesc_s E_SkillSkillAwakebuffDesc_t;
 
-	struct skillskilladvanceType3buffDesc_s : public NFDescStoreSeqOP {
-		skillskilladvanceType3buffDesc_s();
-		virtual ~skillskilladvanceType3buffDesc_s(){}
+	struct E_SkillSkillAdvancetype3buffDesc_s : public NFDescStoreSeqOP {
+		E_SkillSkillAdvancetype3buffDesc_s();
+		virtual ~E_SkillSkillAdvancetype3buffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
+		int64_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskilladvanceType3buffDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskilladvanceType3buffDesc & msg);
-		static ::proto_ff::skillskilladvanceType3buffDesc* new_pbmsg(){ return new ::proto_ff::skillskilladvanceType3buffDesc(); }
-		static ::proto_ff::skillskilladvanceType3buffDesc make_pbmsg(){ return ::proto_ff::skillskilladvanceType3buffDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAdvancetype3buffDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAdvancetype3buffDesc & msg);
+		static ::proto_ff::E_SkillSkillAdvancetype3buffDesc* new_pbmsg(){ return new ::proto_ff::E_SkillSkillAdvancetype3buffDesc(); }
+		static ::proto_ff::E_SkillSkillAdvancetype3buffDesc make_pbmsg(){ return ::proto_ff::E_SkillSkillAdvancetype3buffDesc(); }
 	};
-	typedef struct skillskilladvanceType3buffDesc_s skillskilladvanceType3buffDesc_t;
+	typedef struct E_SkillSkillAdvancetype3buffDesc_s E_SkillSkillAdvancetype3buffDesc_t;
 
-	struct skillskillbuffDesc_s : public NFDescStoreSeqOP {
-		skillskillbuffDesc_s();
-		virtual ~skillskillbuffDesc_s(){}
+	struct E_SkillSkillBuffDesc_s : public NFDescStoreSeqOP {
+		E_SkillSkillBuffDesc_s();
+		virtual ~E_SkillSkillBuffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Target;
-		int64_t ID;
-		int32_t Point;
+		int32_t m_target;
+		int64_t m_id;
+		int32_t m_point;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskillbuffDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskillbuffDesc & msg);
-		static ::proto_ff::skillskillbuffDesc* new_pbmsg(){ return new ::proto_ff::skillskillbuffDesc(); }
-		static ::proto_ff::skillskillbuffDesc make_pbmsg(){ return ::proto_ff::skillskillbuffDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillBuffDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillBuffDesc & msg);
+		static ::proto_ff::E_SkillSkillBuffDesc* new_pbmsg(){ return new ::proto_ff::E_SkillSkillBuffDesc(); }
+		static ::proto_ff::E_SkillSkillBuffDesc make_pbmsg(){ return ::proto_ff::E_SkillSkillBuffDesc(); }
 	};
-	typedef struct skillskillbuffDesc_s skillskillbuffDesc_t;
+	typedef struct E_SkillSkillBuffDesc_s E_SkillSkillBuffDesc_t;
 
-	struct skillskill_s : public NFDescStoreSeqOP {
-		skillskill_s();
-		virtual ~skillskill_s(){}
+	struct E_SkillSkill_s : public NFDescStoreSeqOP {
+		E_SkillSkill_s();
+		virtual ~E_SkillSkill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t skillID;
-		NFShmString<60> name;
-		int32_t skillType;
-		int32_t group;
-		int32_t position;
-		int32_t displaceTime;
-		int32_t displaceSign;
-		NFShmString<60> displaceSpeed;
-		NFShmString<60> disTimes;
-		int32_t breakType;
-		int32_t cdSkill;
-		int64_t Relation;
-		NFShmString<60> unlockCondition;
-		int32_t type;
-		int32_t cd;
-		int32_t noLock;
-		int32_t priority;
-		NFShmString<60> fighting;
-		float fightingParama;
-		int32_t releaseType;
-		int32_t processTypes;
-		int32_t flySpeed;
-		int32_t actTime;
-		int32_t readyTime;
-		int32_t attackTime;
-		NFShmString<60> damageTime;
-		int32_t attackDistance;
-		int32_t rangeType;
-		NFShmString<60> rangeTypeValue;
-		int32_t warn;
-		int32_t dazeTime;
-		int32_t warnTime;
-		NFShmString<60> infomationId;
-		int32_t attackMinDistance;
-		int32_t goalMaxNum;
-		int32_t goalMaxNumMonster;
-		int32_t damageType;
-		int32_t damageRate;
-		int32_t awakeDamageRate;
-		int32_t advanceType1DamageRate;
-		int32_t advanceType2DamageRate;
-		int32_t advanceType3DamageRate;
-		int32_t damageValue;
-		float damageParama;
-		int32_t addhitrate;
-		int32_t awakeItemId;
-		int32_t awakeCostNum;
-		NFArray<struct skillskilladvanceType1buffDesc_s, 5> advanceType1buff;
-		NFArray<struct skillskilladvanceType2buffDesc_s, 5> advanceType2buff;
-		NFArray<struct skillskillawakebuffDesc_s, 5> awakebuff;
-		NFArray<struct skillskilladvanceType3buffDesc_s, 5> advanceType3buff;
-		NFArray<struct skillskillbuffDesc_s, 5> buff;
+		int64_t m_skillid;
+		NFShmString<60> m_name;
+		int32_t m_skilltype;
+		int32_t m_group;
+		int32_t m_position;
+		int32_t m_displacetime;
+		int32_t m_displacesign;
+		NFShmString<60> m_displacespeed;
+		NFShmString<60> m_distimes;
+		int32_t m_breaktype;
+		int32_t m_cdskill;
+		int64_t m_relation;
+		NFShmString<60> m_unlockcondition;
+		int32_t m_type;
+		int32_t m_cd;
+		int32_t m_nolock;
+		int32_t m_priority;
+		NFShmString<60> m_fighting;
+		float m_fightingparama;
+		int32_t m_releasetype;
+		int32_t m_processtypes;
+		int32_t m_flyspeed;
+		int32_t m_acttime;
+		int32_t m_readytime;
+		int32_t m_attacktime;
+		NFShmString<60> m_damagetime;
+		int32_t m_attackdistance;
+		int32_t m_rangetype;
+		NFShmString<60> m_rangetypevalue;
+		int32_t m_warn;
+		int32_t m_dazetime;
+		int32_t m_warntime;
+		NFShmString<60> m_infomationid;
+		int32_t m_attackmindistance;
+		int32_t m_goalmaxnum;
+		int32_t m_goalmaxnummonster;
+		int32_t m_damagetype;
+		int32_t m_damagerate;
+		int32_t m_awakedamagerate;
+		int32_t m_advancetype1damagerate;
+		int32_t m_advancetype2damagerate;
+		int32_t m_advancetype3damagerate;
+		int32_t m_damagevalue;
+		float m_damageparama;
+		int32_t m_addhitrate;
+		int32_t m_awakeitemid;
+		int32_t m_awakecostnum;
+		NFShmVector<struct E_SkillSkillAdvancetype1buffDesc_s, 5> m_advancetype1buff;
+		NFShmVector<struct E_SkillSkillAdvancetype2buffDesc_s, 5> m_advancetype2buff;
+		NFShmVector<struct E_SkillSkillAwakebuffDesc_s, 5> m_awakebuff;
+		NFShmVector<struct E_SkillSkillAdvancetype3buffDesc_s, 5> m_advancetype3buff;
+		NFShmVector<struct E_SkillSkillBuffDesc_s, 5> m_buff;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskill & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskill & msg);
-		static ::proto_ff::skillskill* new_pbmsg(){ return new ::proto_ff::skillskill(); }
-		static ::proto_ff::skillskill make_pbmsg(){ return ::proto_ff::skillskill(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg);
+		static ::proto_ff::E_SkillSkill* new_pbmsg(){ return new ::proto_ff::E_SkillSkill(); }
+		static ::proto_ff::E_SkillSkill make_pbmsg(){ return ::proto_ff::E_SkillSkill(); }
 	};
-	typedef struct skillskill_s skillskill_t;
+	typedef struct E_SkillSkill_s E_SkillSkill_t;
 
-	struct Sheet_skillskill_s : public NFDescStoreSeqOP {
-		Sheet_skillskill_s();
-		virtual ~Sheet_skillskill_s(){}
+	struct Sheet_SkillSkill_s : public NFDescStoreSeqOP {
+		Sheet_SkillSkill_s();
+		virtual ~Sheet_SkillSkill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillskill_s, 180> skillskill_List;
+		NFShmVector<struct E_SkillSkill_s, 180> E_SkillSkill_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_skillskill & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillskill & msg);
-		static ::proto_ff::Sheet_skillskill* new_pbmsg(){ return new ::proto_ff::Sheet_skillskill(); }
-		static ::proto_ff::Sheet_skillskill make_pbmsg(){ return ::proto_ff::Sheet_skillskill(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkill & msg);
+		static ::proto_ff::Sheet_SkillSkill* new_pbmsg(){ return new ::proto_ff::Sheet_SkillSkill(); }
+		static ::proto_ff::Sheet_SkillSkill make_pbmsg(){ return ::proto_ff::Sheet_SkillSkill(); }
 	};
-	typedef struct Sheet_skillskill_s Sheet_skillskill_t;
+	typedef struct Sheet_SkillSkill_s Sheet_SkillSkill_t;
 
-	struct skillbuffUp_s : public NFDescStoreSeqOP {
-		skillbuffUp_s();
-		virtual ~skillbuffUp_s(){}
+	struct E_SkillBuffup_s : public NFDescStoreSeqOP {
+		E_SkillBuffup_s();
+		virtual ~E_SkillBuffup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t AddStartProbability;
-		int32_t attributeId;
-		int32_t parama;
+		int32_t m_id;
+		int32_t m_addstartprobability;
+		int32_t m_attributeid;
+		int32_t m_parama;
 
-		virtual void write_to_pbmsg(::proto_ff::skillbuffUp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillbuffUp & msg);
-		static ::proto_ff::skillbuffUp* new_pbmsg(){ return new ::proto_ff::skillbuffUp(); }
-		static ::proto_ff::skillbuffUp make_pbmsg(){ return ::proto_ff::skillbuffUp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillBuffup & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillBuffup & msg);
+		static ::proto_ff::E_SkillBuffup* new_pbmsg(){ return new ::proto_ff::E_SkillBuffup(); }
+		static ::proto_ff::E_SkillBuffup make_pbmsg(){ return ::proto_ff::E_SkillBuffup(); }
 	};
-	typedef struct skillbuffUp_s skillbuffUp_t;
+	typedef struct E_SkillBuffup_s E_SkillBuffup_t;
 
-	struct Sheet_skillbuffUp_s : public NFDescStoreSeqOP {
-		Sheet_skillbuffUp_s();
-		virtual ~Sheet_skillbuffUp_s(){}
+	struct Sheet_SkillBuffup_s : public NFDescStoreSeqOP {
+		Sheet_SkillBuffup_s();
+		virtual ~Sheet_SkillBuffup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillbuffUp_s, 40> skillbuffUp_List;
+		NFShmVector<struct E_SkillBuffup_s, 40> E_SkillBuffup_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_skillbuffUp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillbuffUp & msg);
-		static ::proto_ff::Sheet_skillbuffUp* new_pbmsg(){ return new ::proto_ff::Sheet_skillbuffUp(); }
-		static ::proto_ff::Sheet_skillbuffUp make_pbmsg(){ return ::proto_ff::Sheet_skillbuffUp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillBuffup & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillBuffup & msg);
+		static ::proto_ff::Sheet_SkillBuffup* new_pbmsg(){ return new ::proto_ff::Sheet_SkillBuffup(); }
+		static ::proto_ff::Sheet_SkillBuffup make_pbmsg(){ return ::proto_ff::Sheet_SkillBuffup(); }
 	};
-	typedef struct Sheet_skillbuffUp_s Sheet_skillbuffUp_t;
+	typedef struct Sheet_SkillBuffup_s Sheet_SkillBuffup_t;
 
-	struct skillskillUp_s : public NFDescStoreSeqOP {
-		skillskillUp_s();
-		virtual ~skillskillUp_s(){}
+	struct E_SkillSkillup_s : public NFDescStoreSeqOP {
+		E_SkillSkillup_s();
+		virtual ~E_SkillSkillup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t group;
-		int32_t skillLv;
-		NFShmString<80> skillIds;
-		int32_t roleLv;
-		int64_t costItemId;
-		int32_t costNum;
+		int32_t m_id;
+		int32_t m_group;
+		int32_t m_skilllv;
+		NFShmString<80> m_skillids;
+		int32_t m_rolelv;
+		int64_t m_costitemid;
+		int32_t m_costnum;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskillUp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskillUp & msg);
-		static ::proto_ff::skillskillUp* new_pbmsg(){ return new ::proto_ff::skillskillUp(); }
-		static ::proto_ff::skillskillUp make_pbmsg(){ return ::proto_ff::skillskillUp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillup & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillup & msg);
+		static ::proto_ff::E_SkillSkillup* new_pbmsg(){ return new ::proto_ff::E_SkillSkillup(); }
+		static ::proto_ff::E_SkillSkillup make_pbmsg(){ return ::proto_ff::E_SkillSkillup(); }
 	};
-	typedef struct skillskillUp_s skillskillUp_t;
+	typedef struct E_SkillSkillup_s E_SkillSkillup_t;
 
-	struct Sheet_skillskillUp_s : public NFDescStoreSeqOP {
-		Sheet_skillskillUp_s();
-		virtual ~Sheet_skillskillUp_s(){}
+	struct Sheet_SkillSkillup_s : public NFDescStoreSeqOP {
+		Sheet_SkillSkillup_s();
+		virtual ~Sheet_SkillSkillup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillskillUp_s, 140> skillskillUp_List;
+		NFShmVector<struct E_SkillSkillup_s, 140> E_SkillSkillup_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_skillskillUp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillskillUp & msg);
-		static ::proto_ff::Sheet_skillskillUp* new_pbmsg(){ return new ::proto_ff::Sheet_skillskillUp(); }
-		static ::proto_ff::Sheet_skillskillUp make_pbmsg(){ return ::proto_ff::Sheet_skillskillUp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkillup & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkillup & msg);
+		static ::proto_ff::Sheet_SkillSkillup* new_pbmsg(){ return new ::proto_ff::Sheet_SkillSkillup(); }
+		static ::proto_ff::Sheet_SkillSkillup make_pbmsg(){ return ::proto_ff::Sheet_SkillSkillup(); }
 	};
-	typedef struct Sheet_skillskillUp_s Sheet_skillskillUp_t;
+	typedef struct Sheet_SkillSkillup_s Sheet_SkillSkillup_t;
 
-	struct skillskillAwake_s : public NFDescStoreSeqOP {
-		skillskillAwake_s();
-		virtual ~skillskillAwake_s(){}
+	struct E_SkillSkillawake_s : public NFDescStoreSeqOP {
+		E_SkillSkillawake_s();
+		virtual ~E_SkillSkillawake_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t skillId;
-		int32_t costItemId;
-		int32_t costNum;
+		int32_t m_skillid;
+		int32_t m_costitemid;
+		int32_t m_costnum;
 
-		virtual void write_to_pbmsg(::proto_ff::skillskillAwake & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::skillskillAwake & msg);
-		static ::proto_ff::skillskillAwake* new_pbmsg(){ return new ::proto_ff::skillskillAwake(); }
-		static ::proto_ff::skillskillAwake make_pbmsg(){ return ::proto_ff::skillskillAwake(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillawake & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillawake & msg);
+		static ::proto_ff::E_SkillSkillawake* new_pbmsg(){ return new ::proto_ff::E_SkillSkillawake(); }
+		static ::proto_ff::E_SkillSkillawake make_pbmsg(){ return ::proto_ff::E_SkillSkillawake(); }
 	};
-	typedef struct skillskillAwake_s skillskillAwake_t;
+	typedef struct E_SkillSkillawake_s E_SkillSkillawake_t;
 
-	struct Sheet_skillskillAwake_s : public NFDescStoreSeqOP {
-		Sheet_skillskillAwake_s();
-		virtual ~Sheet_skillskillAwake_s(){}
+	struct Sheet_SkillSkillawake_s : public NFDescStoreSeqOP {
+		Sheet_SkillSkillawake_s();
+		virtual ~Sheet_SkillSkillawake_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct skillskillAwake_s, 20> skillskillAwake_List;
+		NFShmVector<struct E_SkillSkillawake_s, 20> E_SkillSkillawake_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_skillskillAwake & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_skillskillAwake & msg);
-		static ::proto_ff::Sheet_skillskillAwake* new_pbmsg(){ return new ::proto_ff::Sheet_skillskillAwake(); }
-		static ::proto_ff::Sheet_skillskillAwake make_pbmsg(){ return ::proto_ff::Sheet_skillskillAwake(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkillawake & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkillawake & msg);
+		static ::proto_ff::Sheet_SkillSkillawake* new_pbmsg(){ return new ::proto_ff::Sheet_SkillSkillawake(); }
+		static ::proto_ff::Sheet_SkillSkillawake make_pbmsg(){ return ::proto_ff::Sheet_SkillSkillawake(); }
 	};
-	typedef struct Sheet_skillskillAwake_s Sheet_skillskillAwake_t;
+	typedef struct Sheet_SkillSkillawake_s Sheet_SkillSkillawake_t;
 
 }
 

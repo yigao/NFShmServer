@@ -14,9 +14,9 @@ public:
 	virtual ~AttributePowersupDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::attributepowersup_s* GetDesc(int id) const;
-	proto_ff_s::attributepowersup_s* GetDesc(int id);
+	const proto_ff_s::E_AttributePowersup_s* GetDesc(int id) const;
+	proto_ff_s::E_AttributePowersup_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::attributepowersup_s, attributepowersup, MAX_ATTRIBUTE_POWERSUP_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_AttributePowersup_s, attributepowersup, MAX_ATTRIBUTE_POWERSUP_NUM);
 DECLARE_IDCREATE(AttributePowersupDesc);
 };

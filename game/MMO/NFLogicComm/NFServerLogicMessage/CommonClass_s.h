@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "CommonClass.pb.h"
@@ -35,11 +35,11 @@ namespace proto_ff_s {
 		virtual ~EquipExt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<int32_t, 10> base_attr;
-		NFArray<int32_t, 10> star_attr;
-		NFArray<int32_t, 10> blue_attr;
-		NFArray<int32_t, 10> god_attr;
-		NFArray<int32_t, 10> special_attr;
+		NFShmVector<int32_t, 10> base_attr;
+		NFShmVector<int32_t, 10> star_attr;
+		NFShmVector<int32_t, 10> blue_attr;
+		NFShmVector<int32_t, 10> god_attr;
+		NFShmVector<int32_t, 10> special_attr;
 
 		virtual void write_to_pbmsg(::proto_ff::EquipExt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::EquipExt & msg);

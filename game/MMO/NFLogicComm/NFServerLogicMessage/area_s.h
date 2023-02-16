@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "area.pb.h"
@@ -10,37 +10,37 @@
 
 namespace proto_ff_s {
 
-	struct areaarea_s : public NFDescStoreSeqOP {
-		areaarea_s();
-		virtual ~areaarea_s(){}
+	struct E_AreaArea_s : public NFDescStoreSeqOP {
+		E_AreaArea_s();
+		virtual ~E_AreaArea_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t subType;
-		int64_t belongToSceneID;
-		int32_t shapeType;
-		int32_t isNotice;
+		int64_t m_id;
+		int32_t m_subtype;
+		int64_t m_belongtosceneid;
+		int32_t m_shapetype;
+		int32_t m_isnotice;
 
-		virtual void write_to_pbmsg(::proto_ff::areaarea & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::areaarea & msg);
-		static ::proto_ff::areaarea* new_pbmsg(){ return new ::proto_ff::areaarea(); }
-		static ::proto_ff::areaarea make_pbmsg(){ return ::proto_ff::areaarea(); }
+		virtual void write_to_pbmsg(::proto_ff::E_AreaArea & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AreaArea & msg);
+		static ::proto_ff::E_AreaArea* new_pbmsg(){ return new ::proto_ff::E_AreaArea(); }
+		static ::proto_ff::E_AreaArea make_pbmsg(){ return ::proto_ff::E_AreaArea(); }
 	};
-	typedef struct areaarea_s areaarea_t;
+	typedef struct E_AreaArea_s E_AreaArea_t;
 
-	struct Sheet_areaarea_s : public NFDescStoreSeqOP {
-		Sheet_areaarea_s();
-		virtual ~Sheet_areaarea_s(){}
+	struct Sheet_AreaArea_s : public NFDescStoreSeqOP {
+		Sheet_AreaArea_s();
+		virtual ~Sheet_AreaArea_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct areaarea_s, 20> areaarea_List;
+		NFShmVector<struct E_AreaArea_s, 20> E_AreaArea_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_areaarea & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_areaarea & msg);
-		static ::proto_ff::Sheet_areaarea* new_pbmsg(){ return new ::proto_ff::Sheet_areaarea(); }
-		static ::proto_ff::Sheet_areaarea make_pbmsg(){ return ::proto_ff::Sheet_areaarea(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_AreaArea & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AreaArea & msg);
+		static ::proto_ff::Sheet_AreaArea* new_pbmsg(){ return new ::proto_ff::Sheet_AreaArea(); }
+		static ::proto_ff::Sheet_AreaArea make_pbmsg(){ return ::proto_ff::Sheet_AreaArea(); }
 	};
-	typedef struct Sheet_areaarea_s Sheet_areaarea_t;
+	typedef struct Sheet_AreaArea_s Sheet_AreaArea_t;
 
 }
 

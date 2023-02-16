@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "flash.pb.h"
@@ -10,103 +10,103 @@
 
 namespace proto_ff_s {
 
-	struct flashflashmonsterDesc_s : public NFDescStoreSeqOP {
-		flashflashmonsterDesc_s();
-		virtual ~flashflashmonsterDesc_s(){}
+	struct E_FlashFlashMonsterDesc_s : public NFDescStoreSeqOP {
+		E_FlashFlashMonsterDesc_s();
+		virtual ~E_FlashFlashMonsterDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Num;
-		int64_t ID;
+		int32_t m_num;
+		int64_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::flashflashmonsterDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::flashflashmonsterDesc & msg);
-		static ::proto_ff::flashflashmonsterDesc* new_pbmsg(){ return new ::proto_ff::flashflashmonsterDesc(); }
-		static ::proto_ff::flashflashmonsterDesc make_pbmsg(){ return ::proto_ff::flashflashmonsterDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FlashFlashMonsterDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FlashFlashMonsterDesc & msg);
+		static ::proto_ff::E_FlashFlashMonsterDesc* new_pbmsg(){ return new ::proto_ff::E_FlashFlashMonsterDesc(); }
+		static ::proto_ff::E_FlashFlashMonsterDesc make_pbmsg(){ return ::proto_ff::E_FlashFlashMonsterDesc(); }
 	};
-	typedef struct flashflashmonsterDesc_s flashflashmonsterDesc_t;
+	typedef struct E_FlashFlashMonsterDesc_s E_FlashFlashMonsterDesc_t;
 
-	struct flashflash_s : public NFDescStoreSeqOP {
-		flashflash_s();
-		virtual ~flashflash_s(){}
+	struct E_FlashFlash_s : public NFDescStoreSeqOP {
+		E_FlashFlash_s();
+		virtual ~E_FlashFlash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t isLevelDynamic;
-		int32_t miniLevel;
-		int32_t levelCheck;
-		int64_t pointID;
-		int32_t monster_Type;
-		int32_t monsterRefreshTime;
-		NFArray<struct flashflashmonsterDesc_s, 5> monster;
+		int64_t m_id;
+		int32_t m_isleveldynamic;
+		int32_t m_minilevel;
+		int32_t m_levelcheck;
+		int64_t m_pointid;
+		int32_t m_monster_type;
+		int32_t m_monsterrefreshtime;
+		NFShmVector<struct E_FlashFlashMonsterDesc_s, 5> m_monster;
 
-		virtual void write_to_pbmsg(::proto_ff::flashflash & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::flashflash & msg);
-		static ::proto_ff::flashflash* new_pbmsg(){ return new ::proto_ff::flashflash(); }
-		static ::proto_ff::flashflash make_pbmsg(){ return ::proto_ff::flashflash(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FlashFlash & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FlashFlash & msg);
+		static ::proto_ff::E_FlashFlash* new_pbmsg(){ return new ::proto_ff::E_FlashFlash(); }
+		static ::proto_ff::E_FlashFlash make_pbmsg(){ return ::proto_ff::E_FlashFlash(); }
 	};
-	typedef struct flashflash_s flashflash_t;
+	typedef struct E_FlashFlash_s E_FlashFlash_t;
 
-	struct Sheet_flashflash_s : public NFDescStoreSeqOP {
-		Sheet_flashflash_s();
-		virtual ~Sheet_flashflash_s(){}
+	struct Sheet_FlashFlash_s : public NFDescStoreSeqOP {
+		Sheet_FlashFlash_s();
+		virtual ~Sheet_FlashFlash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct flashflash_s, 20> flashflash_List;
+		NFShmVector<struct E_FlashFlash_s, 20> E_FlashFlash_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_flashflash & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_flashflash & msg);
-		static ::proto_ff::Sheet_flashflash* new_pbmsg(){ return new ::proto_ff::Sheet_flashflash(); }
-		static ::proto_ff::Sheet_flashflash make_pbmsg(){ return ::proto_ff::Sheet_flashflash(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FlashFlash & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FlashFlash & msg);
+		static ::proto_ff::Sheet_FlashFlash* new_pbmsg(){ return new ::proto_ff::Sheet_FlashFlash(); }
+		static ::proto_ff::Sheet_FlashFlash make_pbmsg(){ return ::proto_ff::Sheet_FlashFlash(); }
 	};
-	typedef struct Sheet_flashflash_s Sheet_flashflash_t;
+	typedef struct Sheet_FlashFlash_s Sheet_FlashFlash_t;
 
-	struct flashitemFlashmonsterDesc_s : public NFDescStoreSeqOP {
-		flashitemFlashmonsterDesc_s();
-		virtual ~flashitemFlashmonsterDesc_s(){}
+	struct E_FlashItemflashMonsterDesc_s : public NFDescStoreSeqOP {
+		E_FlashItemflashMonsterDesc_s();
+		virtual ~E_FlashItemflashMonsterDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t Id;
-		int32_t weight;
+		int64_t m_id;
+		int32_t m_weight;
 
-		virtual void write_to_pbmsg(::proto_ff::flashitemFlashmonsterDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::flashitemFlashmonsterDesc & msg);
-		static ::proto_ff::flashitemFlashmonsterDesc* new_pbmsg(){ return new ::proto_ff::flashitemFlashmonsterDesc(); }
-		static ::proto_ff::flashitemFlashmonsterDesc make_pbmsg(){ return ::proto_ff::flashitemFlashmonsterDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FlashItemflashMonsterDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FlashItemflashMonsterDesc & msg);
+		static ::proto_ff::E_FlashItemflashMonsterDesc* new_pbmsg(){ return new ::proto_ff::E_FlashItemflashMonsterDesc(); }
+		static ::proto_ff::E_FlashItemflashMonsterDesc make_pbmsg(){ return ::proto_ff::E_FlashItemflashMonsterDesc(); }
 	};
-	typedef struct flashitemFlashmonsterDesc_s flashitemFlashmonsterDesc_t;
+	typedef struct E_FlashItemflashMonsterDesc_s E_FlashItemflashMonsterDesc_t;
 
-	struct flashitemFlash_s : public NFDescStoreSeqOP {
-		flashitemFlash_s();
-		virtual ~flashitemFlash_s(){}
+	struct E_FlashItemflash_s : public NFDescStoreSeqOP {
+		E_FlashItemflash_s();
+		virtual ~E_FlashItemflash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		NFShmString<60> useMap;
-		int32_t live;
-		int32_t levelwave;
-		int32_t flashNum;
-		NFArray<struct flashitemFlashmonsterDesc_s, 10> monster;
+		int64_t m_id;
+		NFShmString<60> m_usemap;
+		int32_t m_live;
+		int32_t m_levelwave;
+		int32_t m_flashnum;
+		NFShmVector<struct E_FlashItemflashMonsterDesc_s, 10> m_monster;
 
-		virtual void write_to_pbmsg(::proto_ff::flashitemFlash & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::flashitemFlash & msg);
-		static ::proto_ff::flashitemFlash* new_pbmsg(){ return new ::proto_ff::flashitemFlash(); }
-		static ::proto_ff::flashitemFlash make_pbmsg(){ return ::proto_ff::flashitemFlash(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FlashItemflash & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FlashItemflash & msg);
+		static ::proto_ff::E_FlashItemflash* new_pbmsg(){ return new ::proto_ff::E_FlashItemflash(); }
+		static ::proto_ff::E_FlashItemflash make_pbmsg(){ return ::proto_ff::E_FlashItemflash(); }
 	};
-	typedef struct flashitemFlash_s flashitemFlash_t;
+	typedef struct E_FlashItemflash_s E_FlashItemflash_t;
 
-	struct Sheet_flashitemFlash_s : public NFDescStoreSeqOP {
-		Sheet_flashitemFlash_s();
-		virtual ~Sheet_flashitemFlash_s(){}
+	struct Sheet_FlashItemflash_s : public NFDescStoreSeqOP {
+		Sheet_FlashItemflash_s();
+		virtual ~Sheet_FlashItemflash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct flashitemFlash_s, 20> flashitemFlash_List;
+		NFShmVector<struct E_FlashItemflash_s, 20> E_FlashItemflash_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_flashitemFlash & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_flashitemFlash & msg);
-		static ::proto_ff::Sheet_flashitemFlash* new_pbmsg(){ return new ::proto_ff::Sheet_flashitemFlash(); }
-		static ::proto_ff::Sheet_flashitemFlash make_pbmsg(){ return ::proto_ff::Sheet_flashitemFlash(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FlashItemflash & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FlashItemflash & msg);
+		static ::proto_ff::Sheet_FlashItemflash* new_pbmsg(){ return new ::proto_ff::Sheet_FlashItemflash(); }
+		static ::proto_ff::Sheet_FlashItemflash make_pbmsg(){ return ::proto_ff::Sheet_FlashItemflash(); }
 	};
-	typedef struct Sheet_flashitemFlash_s Sheet_flashitemFlash_t;
+	typedef struct Sheet_FlashItemflash_s Sheet_FlashItemflash_t;
 
 }
 

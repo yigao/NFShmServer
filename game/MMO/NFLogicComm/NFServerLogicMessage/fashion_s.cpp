@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-fashionfashionattributeDesc_s::fashionfashionattributeDesc_s() {
+E_FashionFashionAttributeDesc_s::E_FashionFashionAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ fashionfashionattributeDesc_s::fashionfashionattributeDesc_s() {
 	}
 }
 
-int fashionfashionattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FashionFashionAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int fashionfashionattributeDesc_s::ResumeInit() {
+int E_FashionFashionAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void fashionfashionattributeDesc_s::write_to_pbmsg(::proto_ff::fashionfashionattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FashionFashionAttributeDesc_s::write_to_pbmsg(::proto_ff::E_FashionFashionAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void fashionfashionattributeDesc_s::read_from_pbmsg(const ::proto_ff::fashionfashionattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct fashionfashionattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FashionFashionAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FashionFashionAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FashionFashionAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-fashionfashionActiveAttributeDesc_s::fashionfashionActiveAttributeDesc_s() {
+E_FashionFashionActiveattributeDesc_s::E_FashionFashionActiveattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,28 +39,28 @@ fashionfashionActiveAttributeDesc_s::fashionfashionActiveAttributeDesc_s() {
 	}
 }
 
-int fashionfashionActiveAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FashionFashionActiveattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int fashionfashionActiveAttributeDesc_s::ResumeInit() {
+int E_FashionFashionActiveattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void fashionfashionActiveAttributeDesc_s::write_to_pbmsg(::proto_ff::fashionfashionActiveAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FashionFashionActiveattributeDesc_s::write_to_pbmsg(::proto_ff::E_FashionFashionActiveattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void fashionfashionActiveAttributeDesc_s::read_from_pbmsg(const ::proto_ff::fashionfashionActiveAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct fashionfashionActiveAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FashionFashionActiveattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FashionFashionActiveattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FashionFashionActiveattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-fashionfashion_s::fashionfashion_s() {
+E_FashionFashion_s::E_FashionFashion_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -68,70 +68,70 @@ fashionfashion_s::fashionfashion_s() {
 	}
 }
 
-int fashionfashion_s::CreateInit() {
-	ID = (int64_t)0;
-	type = (int32_t)0;
-	quality = (int32_t)0;
-	activationItem = (int64_t)0;
-	activationNum = (int32_t)0;
-	starId = (int64_t)0;
-	starUp = (int32_t)0;
-	starBer = (int32_t)0;
+int E_FashionFashion_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_activationitem = (int64_t)0;
+	m_activationnum = (int32_t)0;
+	m_starid = (int64_t)0;
+	m_starup = (int32_t)0;
+	m_starber = (int32_t)0;
 	return 0;
 }
 
-int fashionfashion_s::ResumeInit() {
+int E_FashionFashion_s::ResumeInit() {
 	return 0;
 }
 
-void fashionfashion_s::write_to_pbmsg(::proto_ff::fashionfashion & msg) const {
-	msg.set_id((int64_t)ID);
-	msg.set_name((const char*)name.Get());
-	msg.set_type((int32_t)type);
-	msg.set_quality((int32_t)quality);
-	msg.set_professionlimit((const char*)professionLimit.Get());
-	msg.set_activationitem((int64_t)activationItem);
-	msg.set_activationnum((int32_t)activationNum);
-	msg.set_starid((int64_t)starId);
-	msg.set_starnum((const char*)starNum.Get());
-	msg.set_starup((int32_t)starUp);
-	msg.set_starber((int32_t)starBer);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::fashionfashionattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_FashionFashion_s::write_to_pbmsg(::proto_ff::E_FashionFashion & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_professionlimit((const char*)m_professionlimit.data());
+	msg.set_m_activationitem((int64_t)m_activationitem);
+	msg.set_m_activationnum((int32_t)m_activationnum);
+	msg.set_m_starid((int64_t)m_starid);
+	msg.set_m_starnum((const char*)m_starnum.data());
+	msg.set_m_starup((int32_t)m_starup);
+	msg.set_m_starber((int32_t)m_starber);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_FashionFashionAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize() && i < ActiveAttribute.GetMaxSize(); ++i) {
-		::proto_ff::fashionfashionActiveAttributeDesc* temp_activeattribute = msg.add_activeattribute();
-		ActiveAttribute[i].write_to_pbmsg(*temp_activeattribute);
-	}
-}
-
-void fashionfashion_s::read_from_pbmsg(const ::proto_ff::fashionfashion & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct fashionfashion_s));
-	ID = msg.id();
-	name.Copy(msg.name());
-	type = msg.type();
-	quality = msg.quality();
-	professionLimit.Copy(msg.professionlimit());
-	activationItem = msg.activationitem();
-	activationNum = msg.activationnum();
-	starId = msg.starid();
-	starNum.Copy(msg.starnum());
-	starUp = msg.starup();
-	starBer = msg.starber();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::fashionfashionattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
-	}
-	ActiveAttribute.SetSize(msg.activeattribute_size() > ActiveAttribute.GetMaxSize() ? ActiveAttribute.GetMaxSize() : msg.activeattribute_size());
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize(); ++i) {
-		const ::proto_ff::fashionfashionActiveAttributeDesc & temp_activeattribute = msg.activeattribute(i);
-		ActiveAttribute[i].read_from_pbmsg(temp_activeattribute);
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		::proto_ff::E_FashionFashionActiveattributeDesc* temp_m_activeattribute = msg.add_m_activeattribute();
+		m_activeattribute[i].write_to_pbmsg(*temp_m_activeattribute);
 	}
 }
 
-Sheet_fashionfashion_s::Sheet_fashionfashion_s() {
+void E_FashionFashion_s::read_from_pbmsg(const ::proto_ff::E_FashionFashion & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FashionFashion_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_type = msg.m_type();
+	m_quality = msg.m_quality();
+	m_professionlimit = msg.m_professionlimit();
+	m_activationitem = msg.m_activationitem();
+	m_activationnum = msg.m_activationnum();
+	m_starid = msg.m_starid();
+	m_starnum = msg.m_starnum();
+	m_starup = msg.m_starup();
+	m_starber = msg.m_starber();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_FashionFashionAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_activeattribute.resize((int)msg.m_activeattribute_size() > (int)m_activeattribute.max_size() ? m_activeattribute.max_size() : msg.m_activeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		const ::proto_ff::E_FashionFashionActiveattributeDesc & temp_m_activeattribute = msg.m_activeattribute(i);
+		m_activeattribute[i].read_from_pbmsg(temp_m_activeattribute);
+	}
+}
+
+Sheet_FashionFashion_s::Sheet_FashionFashion_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -139,27 +139,27 @@ Sheet_fashionfashion_s::Sheet_fashionfashion_s() {
 	}
 }
 
-int Sheet_fashionfashion_s::CreateInit() {
+int Sheet_FashionFashion_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_fashionfashion_s::ResumeInit() {
+int Sheet_FashionFashion_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_fashionfashion_s::write_to_pbmsg(::proto_ff::Sheet_fashionfashion & msg) const {
-	for(int32_t i = 0; i < (int32_t)fashionfashion_List.GetSize() && i < fashionfashion_List.GetMaxSize(); ++i) {
-		::proto_ff::fashionfashion* temp_fashionfashion_list = msg.add_fashionfashion_list();
-		fashionfashion_List[i].write_to_pbmsg(*temp_fashionfashion_list);
+void Sheet_FashionFashion_s::write_to_pbmsg(::proto_ff::Sheet_FashionFashion & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FashionFashion_List.size(); ++i) {
+		::proto_ff::E_FashionFashion* temp_e_fashionfashion_list = msg.add_e_fashionfashion_list();
+		E_FashionFashion_List[i].write_to_pbmsg(*temp_e_fashionfashion_list);
 	}
 }
 
-void Sheet_fashionfashion_s::read_from_pbmsg(const ::proto_ff::Sheet_fashionfashion & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_fashionfashion_s));
-	fashionfashion_List.SetSize(msg.fashionfashion_list_size() > fashionfashion_List.GetMaxSize() ? fashionfashion_List.GetMaxSize() : msg.fashionfashion_list_size());
-	for(int32_t i = 0; i < (int32_t)fashionfashion_List.GetSize(); ++i) {
-		const ::proto_ff::fashionfashion & temp_fashionfashion_list = msg.fashionfashion_list(i);
-		fashionfashion_List[i].read_from_pbmsg(temp_fashionfashion_list);
+void Sheet_FashionFashion_s::read_from_pbmsg(const ::proto_ff::Sheet_FashionFashion & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FashionFashion_s));
+	E_FashionFashion_List.resize((int)msg.e_fashionfashion_list_size() > (int)E_FashionFashion_List.max_size() ? E_FashionFashion_List.max_size() : msg.e_fashionfashion_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FashionFashion_List.size(); ++i) {
+		const ::proto_ff::E_FashionFashion & temp_e_fashionfashion_list = msg.e_fashionfashion_list(i);
+		E_FashionFashion_List[i].read_from_pbmsg(temp_e_fashionfashion_list);
 	}
 }
 

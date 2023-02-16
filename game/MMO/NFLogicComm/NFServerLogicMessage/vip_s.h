@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "vip.pb.h"
@@ -10,68 +10,68 @@
 
 namespace proto_ff_s {
 
-	struct vipvip_s : public NFDescStoreSeqOP {
-		vipvip_s();
-		virtual ~vipvip_s(){}
+	struct E_VipVip_s : public NFDescStoreSeqOP {
+		E_VipVip_s();
+		virtual ~E_VipVip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t level;
-		int32_t exp;
-		int32_t privilege_group;
+		int32_t m_id;
+		int32_t m_level;
+		int32_t m_exp;
+		int32_t m_privilege_group;
 
-		virtual void write_to_pbmsg(::proto_ff::vipvip & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::vipvip & msg);
-		static ::proto_ff::vipvip* new_pbmsg(){ return new ::proto_ff::vipvip(); }
-		static ::proto_ff::vipvip make_pbmsg(){ return ::proto_ff::vipvip(); }
+		virtual void write_to_pbmsg(::proto_ff::E_VipVip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_VipVip & msg);
+		static ::proto_ff::E_VipVip* new_pbmsg(){ return new ::proto_ff::E_VipVip(); }
+		static ::proto_ff::E_VipVip make_pbmsg(){ return ::proto_ff::E_VipVip(); }
 	};
-	typedef struct vipvip_s vipvip_t;
+	typedef struct E_VipVip_s E_VipVip_t;
 
-	struct Sheet_vipvip_s : public NFDescStoreSeqOP {
-		Sheet_vipvip_s();
-		virtual ~Sheet_vipvip_s(){}
+	struct Sheet_VipVip_s : public NFDescStoreSeqOP {
+		Sheet_VipVip_s();
+		virtual ~Sheet_VipVip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct vipvip_s, 20> vipvip_List;
+		NFShmVector<struct E_VipVip_s, 20> E_VipVip_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_vipvip & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_vipvip & msg);
-		static ::proto_ff::Sheet_vipvip* new_pbmsg(){ return new ::proto_ff::Sheet_vipvip(); }
-		static ::proto_ff::Sheet_vipvip make_pbmsg(){ return ::proto_ff::Sheet_vipvip(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_VipVip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_VipVip & msg);
+		static ::proto_ff::Sheet_VipVip* new_pbmsg(){ return new ::proto_ff::Sheet_VipVip(); }
+		static ::proto_ff::Sheet_VipVip make_pbmsg(){ return ::proto_ff::Sheet_VipVip(); }
 	};
-	typedef struct Sheet_vipvip_s Sheet_vipvip_t;
+	typedef struct Sheet_VipVip_s Sheet_VipVip_t;
 
-	struct vipprivilege_s : public NFDescStoreSeqOP {
-		vipprivilege_s();
-		virtual ~vipprivilege_s(){}
+	struct E_VipPrivilege_s : public NFDescStoreSeqOP {
+		E_VipPrivilege_s();
+		virtual ~E_VipPrivilege_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t group;
-		int32_t type;
-		int32_t arg;
-		NFShmString<60> args;
+		int32_t m_id;
+		int32_t m_group;
+		int32_t m_type;
+		int32_t m_arg;
+		NFShmString<60> m_args;
 
-		virtual void write_to_pbmsg(::proto_ff::vipprivilege & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::vipprivilege & msg);
-		static ::proto_ff::vipprivilege* new_pbmsg(){ return new ::proto_ff::vipprivilege(); }
-		static ::proto_ff::vipprivilege make_pbmsg(){ return ::proto_ff::vipprivilege(); }
+		virtual void write_to_pbmsg(::proto_ff::E_VipPrivilege & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_VipPrivilege & msg);
+		static ::proto_ff::E_VipPrivilege* new_pbmsg(){ return new ::proto_ff::E_VipPrivilege(); }
+		static ::proto_ff::E_VipPrivilege make_pbmsg(){ return ::proto_ff::E_VipPrivilege(); }
 	};
-	typedef struct vipprivilege_s vipprivilege_t;
+	typedef struct E_VipPrivilege_s E_VipPrivilege_t;
 
-	struct Sheet_vipprivilege_s : public NFDescStoreSeqOP {
-		Sheet_vipprivilege_s();
-		virtual ~Sheet_vipprivilege_s(){}
+	struct Sheet_VipPrivilege_s : public NFDescStoreSeqOP {
+		Sheet_VipPrivilege_s();
+		virtual ~Sheet_VipPrivilege_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct vipprivilege_s, 60> vipprivilege_List;
+		NFShmVector<struct E_VipPrivilege_s, 60> E_VipPrivilege_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_vipprivilege & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_vipprivilege & msg);
-		static ::proto_ff::Sheet_vipprivilege* new_pbmsg(){ return new ::proto_ff::Sheet_vipprivilege(); }
-		static ::proto_ff::Sheet_vipprivilege make_pbmsg(){ return ::proto_ff::Sheet_vipprivilege(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_VipPrivilege & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_VipPrivilege & msg);
+		static ::proto_ff::Sheet_VipPrivilege* new_pbmsg(){ return new ::proto_ff::Sheet_VipPrivilege(); }
+		static ::proto_ff::Sheet_VipPrivilege make_pbmsg(){ return ::proto_ff::Sheet_VipPrivilege(); }
 	};
-	typedef struct Sheet_vipprivilege_s Sheet_vipprivilege_t;
+	typedef struct Sheet_VipPrivilege_s Sheet_VipPrivilege_t;
 
 }
 

@@ -14,9 +14,9 @@ public:
 	virtual ~ButtonButtonDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::buttonbutton_s* GetDesc(int id) const;
-	proto_ff_s::buttonbutton_s* GetDesc(int id);
+	const proto_ff_s::E_ButtonButton_s* GetDesc(int id) const;
+	proto_ff_s::E_ButtonButton_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::buttonbutton_s, buttonbutton, MAX_BUTTON_BUTTON_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ButtonButton_s, buttonbutton, MAX_BUTTON_BUTTON_NUM);
 DECLARE_IDCREATE(ButtonButtonDesc);
 };

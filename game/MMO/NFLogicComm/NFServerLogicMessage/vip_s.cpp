@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-vipvip_s::vipvip_s() {
+E_VipVip_s::E_VipVip_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,34 +10,34 @@ vipvip_s::vipvip_s() {
 	}
 }
 
-int vipvip_s::CreateInit() {
-	id = (int32_t)0;
-	level = (int32_t)0;
-	exp = (int32_t)0;
-	privilege_group = (int32_t)0;
+int E_VipVip_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_level = (int32_t)0;
+	m_exp = (int32_t)0;
+	m_privilege_group = (int32_t)0;
 	return 0;
 }
 
-int vipvip_s::ResumeInit() {
+int E_VipVip_s::ResumeInit() {
 	return 0;
 }
 
-void vipvip_s::write_to_pbmsg(::proto_ff::vipvip & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_level((int32_t)level);
-	msg.set_exp((int32_t)exp);
-	msg.set_privilege_group((int32_t)privilege_group);
+void E_VipVip_s::write_to_pbmsg(::proto_ff::E_VipVip & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_level((int32_t)m_level);
+	msg.set_m_exp((int32_t)m_exp);
+	msg.set_m_privilege_group((int32_t)m_privilege_group);
 }
 
-void vipvip_s::read_from_pbmsg(const ::proto_ff::vipvip & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct vipvip_s));
-	id = msg.id();
-	level = msg.level();
-	exp = msg.exp();
-	privilege_group = msg.privilege_group();
+void E_VipVip_s::read_from_pbmsg(const ::proto_ff::E_VipVip & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_VipVip_s));
+	m_id = msg.m_id();
+	m_level = msg.m_level();
+	m_exp = msg.m_exp();
+	m_privilege_group = msg.m_privilege_group();
 }
 
-Sheet_vipvip_s::Sheet_vipvip_s() {
+Sheet_VipVip_s::Sheet_VipVip_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -45,31 +45,31 @@ Sheet_vipvip_s::Sheet_vipvip_s() {
 	}
 }
 
-int Sheet_vipvip_s::CreateInit() {
+int Sheet_VipVip_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_vipvip_s::ResumeInit() {
+int Sheet_VipVip_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_vipvip_s::write_to_pbmsg(::proto_ff::Sheet_vipvip & msg) const {
-	for(int32_t i = 0; i < (int32_t)vipvip_List.GetSize() && i < vipvip_List.GetMaxSize(); ++i) {
-		::proto_ff::vipvip* temp_vipvip_list = msg.add_vipvip_list();
-		vipvip_List[i].write_to_pbmsg(*temp_vipvip_list);
+void Sheet_VipVip_s::write_to_pbmsg(::proto_ff::Sheet_VipVip & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_VipVip_List.size(); ++i) {
+		::proto_ff::E_VipVip* temp_e_vipvip_list = msg.add_e_vipvip_list();
+		E_VipVip_List[i].write_to_pbmsg(*temp_e_vipvip_list);
 	}
 }
 
-void Sheet_vipvip_s::read_from_pbmsg(const ::proto_ff::Sheet_vipvip & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_vipvip_s));
-	vipvip_List.SetSize(msg.vipvip_list_size() > vipvip_List.GetMaxSize() ? vipvip_List.GetMaxSize() : msg.vipvip_list_size());
-	for(int32_t i = 0; i < (int32_t)vipvip_List.GetSize(); ++i) {
-		const ::proto_ff::vipvip & temp_vipvip_list = msg.vipvip_list(i);
-		vipvip_List[i].read_from_pbmsg(temp_vipvip_list);
+void Sheet_VipVip_s::read_from_pbmsg(const ::proto_ff::Sheet_VipVip & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_VipVip_s));
+	E_VipVip_List.resize((int)msg.e_vipvip_list_size() > (int)E_VipVip_List.max_size() ? E_VipVip_List.max_size() : msg.e_vipvip_list_size());
+	for(int32_t i = 0; i < (int32_t)E_VipVip_List.size(); ++i) {
+		const ::proto_ff::E_VipVip & temp_e_vipvip_list = msg.e_vipvip_list(i);
+		E_VipVip_List[i].read_from_pbmsg(temp_e_vipvip_list);
 	}
 }
 
-vipprivilege_s::vipprivilege_s() {
+E_VipPrivilege_s::E_VipPrivilege_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -77,36 +77,36 @@ vipprivilege_s::vipprivilege_s() {
 	}
 }
 
-int vipprivilege_s::CreateInit() {
-	id = (int32_t)0;
-	group = (int32_t)0;
-	type = (int32_t)0;
-	arg = (int32_t)0;
+int E_VipPrivilege_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_group = (int32_t)0;
+	m_type = (int32_t)0;
+	m_arg = (int32_t)0;
 	return 0;
 }
 
-int vipprivilege_s::ResumeInit() {
+int E_VipPrivilege_s::ResumeInit() {
 	return 0;
 }
 
-void vipprivilege_s::write_to_pbmsg(::proto_ff::vipprivilege & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_group((int32_t)group);
-	msg.set_type((int32_t)type);
-	msg.set_arg((int32_t)arg);
-	msg.set_args((const char*)args.Get());
+void E_VipPrivilege_s::write_to_pbmsg(::proto_ff::E_VipPrivilege & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_group((int32_t)m_group);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_arg((int32_t)m_arg);
+	msg.set_m_args((const char*)m_args.data());
 }
 
-void vipprivilege_s::read_from_pbmsg(const ::proto_ff::vipprivilege & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct vipprivilege_s));
-	id = msg.id();
-	group = msg.group();
-	type = msg.type();
-	arg = msg.arg();
-	args.Copy(msg.args());
+void E_VipPrivilege_s::read_from_pbmsg(const ::proto_ff::E_VipPrivilege & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_VipPrivilege_s));
+	m_id = msg.m_id();
+	m_group = msg.m_group();
+	m_type = msg.m_type();
+	m_arg = msg.m_arg();
+	m_args = msg.m_args();
 }
 
-Sheet_vipprivilege_s::Sheet_vipprivilege_s() {
+Sheet_VipPrivilege_s::Sheet_VipPrivilege_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -114,27 +114,27 @@ Sheet_vipprivilege_s::Sheet_vipprivilege_s() {
 	}
 }
 
-int Sheet_vipprivilege_s::CreateInit() {
+int Sheet_VipPrivilege_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_vipprivilege_s::ResumeInit() {
+int Sheet_VipPrivilege_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_vipprivilege_s::write_to_pbmsg(::proto_ff::Sheet_vipprivilege & msg) const {
-	for(int32_t i = 0; i < (int32_t)vipprivilege_List.GetSize() && i < vipprivilege_List.GetMaxSize(); ++i) {
-		::proto_ff::vipprivilege* temp_vipprivilege_list = msg.add_vipprivilege_list();
-		vipprivilege_List[i].write_to_pbmsg(*temp_vipprivilege_list);
+void Sheet_VipPrivilege_s::write_to_pbmsg(::proto_ff::Sheet_VipPrivilege & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_VipPrivilege_List.size(); ++i) {
+		::proto_ff::E_VipPrivilege* temp_e_vipprivilege_list = msg.add_e_vipprivilege_list();
+		E_VipPrivilege_List[i].write_to_pbmsg(*temp_e_vipprivilege_list);
 	}
 }
 
-void Sheet_vipprivilege_s::read_from_pbmsg(const ::proto_ff::Sheet_vipprivilege & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_vipprivilege_s));
-	vipprivilege_List.SetSize(msg.vipprivilege_list_size() > vipprivilege_List.GetMaxSize() ? vipprivilege_List.GetMaxSize() : msg.vipprivilege_list_size());
-	for(int32_t i = 0; i < (int32_t)vipprivilege_List.GetSize(); ++i) {
-		const ::proto_ff::vipprivilege & temp_vipprivilege_list = msg.vipprivilege_list(i);
-		vipprivilege_List[i].read_from_pbmsg(temp_vipprivilege_list);
+void Sheet_VipPrivilege_s::read_from_pbmsg(const ::proto_ff::Sheet_VipPrivilege & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_VipPrivilege_s));
+	E_VipPrivilege_List.resize((int)msg.e_vipprivilege_list_size() > (int)E_VipPrivilege_List.max_size() ? E_VipPrivilege_List.max_size() : msg.e_vipprivilege_list_size());
+	for(int32_t i = 0; i < (int32_t)E_VipPrivilege_List.size(); ++i) {
+		const ::proto_ff::E_VipPrivilege & temp_e_vipprivilege_list = msg.e_vipprivilege_list(i);
+		E_VipPrivilege_List[i].read_from_pbmsg(temp_e_vipprivilege_list);
 	}
 }
 

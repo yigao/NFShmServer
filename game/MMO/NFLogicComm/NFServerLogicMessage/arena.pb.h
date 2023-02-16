@@ -34,31 +34,31 @@ void  protobuf_AddDesc_arena_2eproto();
 void protobuf_AssignDesc_arena_2eproto();
 void protobuf_ShutdownFile_arena_2eproto();
 
-class arenarobotattrDesc;
-class arenarobot;
-class Sheet_arenarobot;
-class arenaarenAwardRewardDesc;
-class arenaarenAward;
-class Sheet_arenaarenAward;
-class arenarankawardRewardDesc;
-class arenarankaward;
-class Sheet_arenarankaward;
-class arenafirstrankRewardDesc;
-class arenafirstrank;
-class Sheet_arenafirstrank;
-class arenabuychallenge;
-class Sheet_arenabuychallenge;
+class E_ArenaRobotAttrDesc;
+class E_ArenaRobot;
+class Sheet_ArenaRobot;
+class E_ArenaArenawardRewardDesc;
+class E_ArenaArenaward;
+class Sheet_ArenaArenaward;
+class E_ArenaRankawardRewardDesc;
+class E_ArenaRankaward;
+class Sheet_ArenaRankaward;
+class E_ArenaFirstrankRewardDesc;
+class E_ArenaFirstrank;
+class Sheet_ArenaFirstrank;
+class E_ArenaBuychallenge;
+class Sheet_ArenaBuychallenge;
 
 // ===================================================================
 
-class arenarobotattrDesc : public ::google::protobuf::Message {
+class E_ArenaRobotAttrDesc : public ::google::protobuf::Message {
  public:
-  arenarobotattrDesc();
-  virtual ~arenarobotattrDesc();
+  E_ArenaRobotAttrDesc();
+  virtual ~E_ArenaRobotAttrDesc();
 
-  arenarobotattrDesc(const arenarobotattrDesc& from);
+  E_ArenaRobotAttrDesc(const E_ArenaRobotAttrDesc& from);
 
-  inline arenarobotattrDesc& operator=(const arenarobotattrDesc& from) {
+  inline E_ArenaRobotAttrDesc& operator=(const E_ArenaRobotAttrDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -72,17 +72,17 @@ class arenarobotattrDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenarobotattrDesc& default_instance();
+  static const E_ArenaRobotAttrDesc& default_instance();
 
-  void Swap(arenarobotattrDesc* other);
+  void Swap(E_ArenaRobotAttrDesc* other);
 
   // implements Message ----------------------------------------------
 
-  arenarobotattrDesc* New() const;
+  E_ArenaRobotAttrDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenarobotattrDesc& from);
-  void MergeFrom(const arenarobotattrDesc& from);
+  void CopyFrom(const E_ArenaRobotAttrDesc& from);
+  void MergeFrom(const E_ArenaRobotAttrDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -105,31 +105,31 @@ class arenarobotattrDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 val = 2;
-  inline bool has_val() const;
-  inline void clear_val();
-  static const int kValFieldNumber = 2;
-  inline ::google::protobuf::int32 val() const;
-  inline void set_val(::google::protobuf::int32 value);
+  // optional int32 m_val = 2;
+  inline bool has_m_val() const;
+  inline void clear_m_val();
+  static const int kMValFieldNumber = 2;
+  inline ::google::protobuf::int32 m_val() const;
+  inline void set_m_val(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenarobotattrDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaRobotAttrDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_val();
-  inline void clear_has_val();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_val();
+  inline void clear_has_m_val();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 val_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_val_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -139,18 +139,18 @@ class arenarobotattrDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenarobotattrDesc* default_instance_;
+  static E_ArenaRobotAttrDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenarobot : public ::google::protobuf::Message {
+class E_ArenaRobot : public ::google::protobuf::Message {
  public:
-  arenarobot();
-  virtual ~arenarobot();
+  E_ArenaRobot();
+  virtual ~E_ArenaRobot();
 
-  arenarobot(const arenarobot& from);
+  E_ArenaRobot(const E_ArenaRobot& from);
 
-  inline arenarobot& operator=(const arenarobot& from) {
+  inline E_ArenaRobot& operator=(const E_ArenaRobot& from) {
     CopyFrom(from);
     return *this;
   }
@@ -164,17 +164,17 @@ class arenarobot : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenarobot& default_instance();
+  static const E_ArenaRobot& default_instance();
 
-  void Swap(arenarobot* other);
+  void Swap(E_ArenaRobot* other);
 
   // implements Message ----------------------------------------------
 
-  arenarobot* New() const;
+  E_ArenaRobot* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenarobot& from);
-  void MergeFrom(const arenarobot& from);
+  void CopyFrom(const E_ArenaRobot& from);
+  void MergeFrom(const E_ArenaRobot& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -197,109 +197,109 @@ class arenarobot : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 arenaId = 1;
-  inline bool has_arenaid() const;
-  inline void clear_arenaid();
-  static const int kArenaIdFieldNumber = 1;
-  inline ::google::protobuf::int32 arenaid() const;
-  inline void set_arenaid(::google::protobuf::int32 value);
+  // optional int32 m_arenaid = 1;
+  inline bool has_m_arenaid() const;
+  inline void clear_m_arenaid();
+  static const int kMArenaidFieldNumber = 1;
+  inline ::google::protobuf::int32 m_arenaid() const;
+  inline void set_m_arenaid(::google::protobuf::int32 value);
 
-  // optional string robotname = 2;
-  inline bool has_robotname() const;
-  inline void clear_robotname();
-  static const int kRobotnameFieldNumber = 2;
-  inline const ::std::string& robotname() const;
-  inline void set_robotname(const ::std::string& value);
-  inline void set_robotname(const char* value);
-  inline void set_robotname(const char* value, size_t size);
-  inline ::std::string* mutable_robotname();
-  inline ::std::string* release_robotname();
-  inline void set_allocated_robotname(::std::string* robotname);
+  // optional string m_robotname = 2;
+  inline bool has_m_robotname() const;
+  inline void clear_m_robotname();
+  static const int kMRobotnameFieldNumber = 2;
+  inline const ::std::string& m_robotname() const;
+  inline void set_m_robotname(const ::std::string& value);
+  inline void set_m_robotname(const char* value);
+  inline void set_m_robotname(const char* value, size_t size);
+  inline ::std::string* mutable_m_robotname();
+  inline ::std::string* release_m_robotname();
+  inline void set_allocated_m_robotname(::std::string* m_robotname);
 
-  // optional int32 aiId = 3;
-  inline bool has_aiid() const;
-  inline void clear_aiid();
-  static const int kAiIdFieldNumber = 3;
-  inline ::google::protobuf::int32 aiid() const;
-  inline void set_aiid(::google::protobuf::int32 value);
+  // optional int32 m_aiid = 3;
+  inline bool has_m_aiid() const;
+  inline void clear_m_aiid();
+  static const int kMAiidFieldNumber = 3;
+  inline ::google::protobuf::int32 m_aiid() const;
+  inline void set_m_aiid(::google::protobuf::int32 value);
 
-  // optional int32 rankId = 4;
-  inline bool has_rankid() const;
-  inline void clear_rankid();
-  static const int kRankIdFieldNumber = 4;
-  inline ::google::protobuf::int32 rankid() const;
-  inline void set_rankid(::google::protobuf::int32 value);
+  // optional int32 m_rankid = 4;
+  inline bool has_m_rankid() const;
+  inline void clear_m_rankid();
+  static const int kMRankidFieldNumber = 4;
+  inline ::google::protobuf::int32 m_rankid() const;
+  inline void set_m_rankid(::google::protobuf::int32 value);
 
-  // optional int32 robotProfession = 5;
-  inline bool has_robotprofession() const;
-  inline void clear_robotprofession();
-  static const int kRobotProfessionFieldNumber = 5;
-  inline ::google::protobuf::int32 robotprofession() const;
-  inline void set_robotprofession(::google::protobuf::int32 value);
+  // optional int32 m_robotprofession = 5;
+  inline bool has_m_robotprofession() const;
+  inline void clear_m_robotprofession();
+  static const int kMRobotprofessionFieldNumber = 5;
+  inline ::google::protobuf::int32 m_robotprofession() const;
+  inline void set_m_robotprofession(::google::protobuf::int32 value);
 
-  // optional int32 robotLv = 6;
-  inline bool has_robotlv() const;
-  inline void clear_robotlv();
-  static const int kRobotLvFieldNumber = 6;
-  inline ::google::protobuf::int32 robotlv() const;
-  inline void set_robotlv(::google::protobuf::int32 value);
+  // optional int32 m_robotlv = 6;
+  inline bool has_m_robotlv() const;
+  inline void clear_m_robotlv();
+  static const int kMRobotlvFieldNumber = 6;
+  inline ::google::protobuf::int32 m_robotlv() const;
+  inline void set_m_robotlv(::google::protobuf::int32 value);
 
-  // optional int32 sword = 7;
-  inline bool has_sword() const;
-  inline void clear_sword();
-  static const int kSwordFieldNumber = 7;
-  inline ::google::protobuf::int32 sword() const;
-  inline void set_sword(::google::protobuf::int32 value);
+  // optional int32 m_sword = 7;
+  inline bool has_m_sword() const;
+  inline void clear_m_sword();
+  static const int kMSwordFieldNumber = 7;
+  inline ::google::protobuf::int32 m_sword() const;
+  inline void set_m_sword(::google::protobuf::int32 value);
 
-  // optional int32 occupationID = 8;
-  inline bool has_occupationid() const;
-  inline void clear_occupationid();
-  static const int kOccupationIDFieldNumber = 8;
-  inline ::google::protobuf::int32 occupationid() const;
-  inline void set_occupationid(::google::protobuf::int32 value);
+  // optional int32 m_occupationid = 8;
+  inline bool has_m_occupationid() const;
+  inline void clear_m_occupationid();
+  static const int kMOccupationidFieldNumber = 8;
+  inline ::google::protobuf::int32 m_occupationid() const;
+  inline void set_m_occupationid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.arenarobotattrDesc attr = 9;
-  inline int attr_size() const;
-  inline void clear_attr();
-  static const int kAttrFieldNumber = 9;
-  inline const ::proto_ff::arenarobotattrDesc& attr(int index) const;
-  inline ::proto_ff::arenarobotattrDesc* mutable_attr(int index);
-  inline ::proto_ff::arenarobotattrDesc* add_attr();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobotattrDesc >&
-      attr() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobotattrDesc >*
-      mutable_attr();
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  inline int m_attr_size() const;
+  inline void clear_m_attr();
+  static const int kMAttrFieldNumber = 9;
+  inline const ::proto_ff::E_ArenaRobotAttrDesc& m_attr(int index) const;
+  inline ::proto_ff::E_ArenaRobotAttrDesc* mutable_m_attr(int index);
+  inline ::proto_ff::E_ArenaRobotAttrDesc* add_m_attr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc >&
+      m_attr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc >*
+      mutable_m_attr();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenarobot)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaRobot)
  private:
-  inline void set_has_arenaid();
-  inline void clear_has_arenaid();
-  inline void set_has_robotname();
-  inline void clear_has_robotname();
-  inline void set_has_aiid();
-  inline void clear_has_aiid();
-  inline void set_has_rankid();
-  inline void clear_has_rankid();
-  inline void set_has_robotprofession();
-  inline void clear_has_robotprofession();
-  inline void set_has_robotlv();
-  inline void clear_has_robotlv();
-  inline void set_has_sword();
-  inline void clear_has_sword();
-  inline void set_has_occupationid();
-  inline void clear_has_occupationid();
+  inline void set_has_m_arenaid();
+  inline void clear_has_m_arenaid();
+  inline void set_has_m_robotname();
+  inline void clear_has_m_robotname();
+  inline void set_has_m_aiid();
+  inline void clear_has_m_aiid();
+  inline void set_has_m_rankid();
+  inline void clear_has_m_rankid();
+  inline void set_has_m_robotprofession();
+  inline void clear_has_m_robotprofession();
+  inline void set_has_m_robotlv();
+  inline void clear_has_m_robotlv();
+  inline void set_has_m_sword();
+  inline void clear_has_m_sword();
+  inline void set_has_m_occupationid();
+  inline void clear_has_m_occupationid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* robotname_;
-  ::google::protobuf::int32 arenaid_;
-  ::google::protobuf::int32 aiid_;
-  ::google::protobuf::int32 rankid_;
-  ::google::protobuf::int32 robotprofession_;
-  ::google::protobuf::int32 robotlv_;
-  ::google::protobuf::int32 sword_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobotattrDesc > attr_;
-  ::google::protobuf::int32 occupationid_;
+  ::std::string* m_robotname_;
+  ::google::protobuf::int32 m_arenaid_;
+  ::google::protobuf::int32 m_aiid_;
+  ::google::protobuf::int32 m_rankid_;
+  ::google::protobuf::int32 m_robotprofession_;
+  ::google::protobuf::int32 m_robotlv_;
+  ::google::protobuf::int32 m_sword_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc > m_attr_;
+  ::google::protobuf::int32 m_occupationid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
@@ -309,18 +309,18 @@ class arenarobot : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenarobot* default_instance_;
+  static E_ArenaRobot* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_arenarobot : public ::google::protobuf::Message {
+class Sheet_ArenaRobot : public ::google::protobuf::Message {
  public:
-  Sheet_arenarobot();
-  virtual ~Sheet_arenarobot();
+  Sheet_ArenaRobot();
+  virtual ~Sheet_ArenaRobot();
 
-  Sheet_arenarobot(const Sheet_arenarobot& from);
+  Sheet_ArenaRobot(const Sheet_ArenaRobot& from);
 
-  inline Sheet_arenarobot& operator=(const Sheet_arenarobot& from) {
+  inline Sheet_ArenaRobot& operator=(const Sheet_ArenaRobot& from) {
     CopyFrom(from);
     return *this;
   }
@@ -334,17 +334,17 @@ class Sheet_arenarobot : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_arenarobot& default_instance();
+  static const Sheet_ArenaRobot& default_instance();
 
-  void Swap(Sheet_arenarobot* other);
+  void Swap(Sheet_ArenaRobot* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_arenarobot* New() const;
+  Sheet_ArenaRobot* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_arenarobot& from);
-  void MergeFrom(const Sheet_arenarobot& from);
+  void CopyFrom(const Sheet_ArenaRobot& from);
+  void MergeFrom(const Sheet_ArenaRobot& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -367,24 +367,24 @@ class Sheet_arenarobot : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.arenarobot arenarobot_List = 1;
-  inline int arenarobot_list_size() const;
-  inline void clear_arenarobot_list();
-  static const int kArenarobotListFieldNumber = 1;
-  inline const ::proto_ff::arenarobot& arenarobot_list(int index) const;
-  inline ::proto_ff::arenarobot* mutable_arenarobot_list(int index);
-  inline ::proto_ff::arenarobot* add_arenarobot_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobot >&
-      arenarobot_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobot >*
-      mutable_arenarobot_list();
+  // repeated .proto_ff.E_ArenaRobot E_ArenaRobot_List = 1;
+  inline int e_arenarobot_list_size() const;
+  inline void clear_e_arenarobot_list();
+  static const int kEArenaRobotListFieldNumber = 1;
+  inline const ::proto_ff::E_ArenaRobot& e_arenarobot_list(int index) const;
+  inline ::proto_ff::E_ArenaRobot* mutable_e_arenarobot_list(int index);
+  inline ::proto_ff::E_ArenaRobot* add_e_arenarobot_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobot >&
+      e_arenarobot_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobot >*
+      mutable_e_arenarobot_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_arenarobot)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ArenaRobot)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobot > arenarobot_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobot > e_arenarobot_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -394,18 +394,18 @@ class Sheet_arenarobot : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_arenarobot* default_instance_;
+  static Sheet_ArenaRobot* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenaarenAwardRewardDesc : public ::google::protobuf::Message {
+class E_ArenaArenawardRewardDesc : public ::google::protobuf::Message {
  public:
-  arenaarenAwardRewardDesc();
-  virtual ~arenaarenAwardRewardDesc();
+  E_ArenaArenawardRewardDesc();
+  virtual ~E_ArenaArenawardRewardDesc();
 
-  arenaarenAwardRewardDesc(const arenaarenAwardRewardDesc& from);
+  E_ArenaArenawardRewardDesc(const E_ArenaArenawardRewardDesc& from);
 
-  inline arenaarenAwardRewardDesc& operator=(const arenaarenAwardRewardDesc& from) {
+  inline E_ArenaArenawardRewardDesc& operator=(const E_ArenaArenawardRewardDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -419,17 +419,17 @@ class arenaarenAwardRewardDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenaarenAwardRewardDesc& default_instance();
+  static const E_ArenaArenawardRewardDesc& default_instance();
 
-  void Swap(arenaarenAwardRewardDesc* other);
+  void Swap(E_ArenaArenawardRewardDesc* other);
 
   // implements Message ----------------------------------------------
 
-  arenaarenAwardRewardDesc* New() const;
+  E_ArenaArenawardRewardDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenaarenAwardRewardDesc& from);
-  void MergeFrom(const arenaarenAwardRewardDesc& from);
+  void CopyFrom(const E_ArenaArenawardRewardDesc& from);
+  void MergeFrom(const E_ArenaArenawardRewardDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -452,31 +452,31 @@ class arenaarenAwardRewardDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenaarenAwardRewardDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaArenawardRewardDesc)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -486,18 +486,18 @@ class arenaarenAwardRewardDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenaarenAwardRewardDesc* default_instance_;
+  static E_ArenaArenawardRewardDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenaarenAward : public ::google::protobuf::Message {
+class E_ArenaArenaward : public ::google::protobuf::Message {
  public:
-  arenaarenAward();
-  virtual ~arenaarenAward();
+  E_ArenaArenaward();
+  virtual ~E_ArenaArenaward();
 
-  arenaarenAward(const arenaarenAward& from);
+  E_ArenaArenaward(const E_ArenaArenaward& from);
 
-  inline arenaarenAward& operator=(const arenaarenAward& from) {
+  inline E_ArenaArenaward& operator=(const E_ArenaArenaward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -511,17 +511,17 @@ class arenaarenAward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenaarenAward& default_instance();
+  static const E_ArenaArenaward& default_instance();
 
-  void Swap(arenaarenAward* other);
+  void Swap(E_ArenaArenaward* other);
 
   // implements Message ----------------------------------------------
 
-  arenaarenAward* New() const;
+  E_ArenaArenaward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenaarenAward& from);
-  void MergeFrom(const arenaarenAward& from);
+  void CopyFrom(const E_ArenaArenaward& from);
+  void MergeFrom(const E_ArenaArenaward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -544,54 +544,54 @@ class arenaarenAward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 lvDown = 2;
-  inline bool has_lvdown() const;
-  inline void clear_lvdown();
-  static const int kLvDownFieldNumber = 2;
-  inline ::google::protobuf::int32 lvdown() const;
-  inline void set_lvdown(::google::protobuf::int32 value);
+  // optional int32 m_lvdown = 2;
+  inline bool has_m_lvdown() const;
+  inline void clear_m_lvdown();
+  static const int kMLvdownFieldNumber = 2;
+  inline ::google::protobuf::int32 m_lvdown() const;
+  inline void set_m_lvdown(::google::protobuf::int32 value);
 
-  // optional int32 lvUp = 3;
-  inline bool has_lvup() const;
-  inline void clear_lvup();
-  static const int kLvUpFieldNumber = 3;
-  inline ::google::protobuf::int32 lvup() const;
-  inline void set_lvup(::google::protobuf::int32 value);
+  // optional int32 m_lvup = 3;
+  inline bool has_m_lvup() const;
+  inline void clear_m_lvup();
+  static const int kMLvupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_lvup() const;
+  inline void set_m_lvup(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.arenaarenAwardRewardDesc Reward = 4;
-  inline int reward_size() const;
-  inline void clear_reward();
-  static const int kRewardFieldNumber = 4;
-  inline const ::proto_ff::arenaarenAwardRewardDesc& reward(int index) const;
-  inline ::proto_ff::arenaarenAwardRewardDesc* mutable_reward(int index);
-  inline ::proto_ff::arenaarenAwardRewardDesc* add_reward();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAwardRewardDesc >&
-      reward() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAwardRewardDesc >*
-      mutable_reward();
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  inline int m_reward_size() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 4;
+  inline const ::proto_ff::E_ArenaArenawardRewardDesc& m_reward(int index) const;
+  inline ::proto_ff::E_ArenaArenawardRewardDesc* mutable_m_reward(int index);
+  inline ::proto_ff::E_ArenaArenawardRewardDesc* add_m_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenawardRewardDesc >&
+      m_reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenawardRewardDesc >*
+      mutable_m_reward();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenaarenAward)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaArenaward)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_lvdown();
-  inline void clear_has_lvdown();
-  inline void set_has_lvup();
-  inline void clear_has_lvup();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_lvdown();
+  inline void clear_has_m_lvdown();
+  inline void set_has_m_lvup();
+  inline void clear_has_m_lvup();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 lvdown_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAwardRewardDesc > reward_;
-  ::google::protobuf::int32 lvup_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_lvdown_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenawardRewardDesc > m_reward_;
+  ::google::protobuf::int32 m_lvup_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -601,18 +601,18 @@ class arenaarenAward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenaarenAward* default_instance_;
+  static E_ArenaArenaward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_arenaarenAward : public ::google::protobuf::Message {
+class Sheet_ArenaArenaward : public ::google::protobuf::Message {
  public:
-  Sheet_arenaarenAward();
-  virtual ~Sheet_arenaarenAward();
+  Sheet_ArenaArenaward();
+  virtual ~Sheet_ArenaArenaward();
 
-  Sheet_arenaarenAward(const Sheet_arenaarenAward& from);
+  Sheet_ArenaArenaward(const Sheet_ArenaArenaward& from);
 
-  inline Sheet_arenaarenAward& operator=(const Sheet_arenaarenAward& from) {
+  inline Sheet_ArenaArenaward& operator=(const Sheet_ArenaArenaward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -626,17 +626,17 @@ class Sheet_arenaarenAward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_arenaarenAward& default_instance();
+  static const Sheet_ArenaArenaward& default_instance();
 
-  void Swap(Sheet_arenaarenAward* other);
+  void Swap(Sheet_ArenaArenaward* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_arenaarenAward* New() const;
+  Sheet_ArenaArenaward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_arenaarenAward& from);
-  void MergeFrom(const Sheet_arenaarenAward& from);
+  void CopyFrom(const Sheet_ArenaArenaward& from);
+  void MergeFrom(const Sheet_ArenaArenaward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -659,24 +659,24 @@ class Sheet_arenaarenAward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.arenaarenAward arenaarenAward_List = 1;
-  inline int arenaarenaward_list_size() const;
-  inline void clear_arenaarenaward_list();
-  static const int kArenaarenAwardListFieldNumber = 1;
-  inline const ::proto_ff::arenaarenAward& arenaarenaward_list(int index) const;
-  inline ::proto_ff::arenaarenAward* mutable_arenaarenaward_list(int index);
-  inline ::proto_ff::arenaarenAward* add_arenaarenaward_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAward >&
-      arenaarenaward_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAward >*
-      mutable_arenaarenaward_list();
+  // repeated .proto_ff.E_ArenaArenaward E_ArenaArenaward_List = 1;
+  inline int e_arenaarenaward_list_size() const;
+  inline void clear_e_arenaarenaward_list();
+  static const int kEArenaArenawardListFieldNumber = 1;
+  inline const ::proto_ff::E_ArenaArenaward& e_arenaarenaward_list(int index) const;
+  inline ::proto_ff::E_ArenaArenaward* mutable_e_arenaarenaward_list(int index);
+  inline ::proto_ff::E_ArenaArenaward* add_e_arenaarenaward_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenaward >&
+      e_arenaarenaward_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenaward >*
+      mutable_e_arenaarenaward_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_arenaarenAward)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ArenaArenaward)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAward > arenaarenaward_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenaward > e_arenaarenaward_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -686,18 +686,18 @@ class Sheet_arenaarenAward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_arenaarenAward* default_instance_;
+  static Sheet_ArenaArenaward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenarankawardRewardDesc : public ::google::protobuf::Message {
+class E_ArenaRankawardRewardDesc : public ::google::protobuf::Message {
  public:
-  arenarankawardRewardDesc();
-  virtual ~arenarankawardRewardDesc();
+  E_ArenaRankawardRewardDesc();
+  virtual ~E_ArenaRankawardRewardDesc();
 
-  arenarankawardRewardDesc(const arenarankawardRewardDesc& from);
+  E_ArenaRankawardRewardDesc(const E_ArenaRankawardRewardDesc& from);
 
-  inline arenarankawardRewardDesc& operator=(const arenarankawardRewardDesc& from) {
+  inline E_ArenaRankawardRewardDesc& operator=(const E_ArenaRankawardRewardDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -711,17 +711,17 @@ class arenarankawardRewardDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenarankawardRewardDesc& default_instance();
+  static const E_ArenaRankawardRewardDesc& default_instance();
 
-  void Swap(arenarankawardRewardDesc* other);
+  void Swap(E_ArenaRankawardRewardDesc* other);
 
   // implements Message ----------------------------------------------
 
-  arenarankawardRewardDesc* New() const;
+  E_ArenaRankawardRewardDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenarankawardRewardDesc& from);
-  void MergeFrom(const arenarankawardRewardDesc& from);
+  void CopyFrom(const E_ArenaRankawardRewardDesc& from);
+  void MergeFrom(const E_ArenaRankawardRewardDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -744,31 +744,31 @@ class arenarankawardRewardDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenarankawardRewardDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaRankawardRewardDesc)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -778,18 +778,18 @@ class arenarankawardRewardDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenarankawardRewardDesc* default_instance_;
+  static E_ArenaRankawardRewardDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenarankaward : public ::google::protobuf::Message {
+class E_ArenaRankaward : public ::google::protobuf::Message {
  public:
-  arenarankaward();
-  virtual ~arenarankaward();
+  E_ArenaRankaward();
+  virtual ~E_ArenaRankaward();
 
-  arenarankaward(const arenarankaward& from);
+  E_ArenaRankaward(const E_ArenaRankaward& from);
 
-  inline arenarankaward& operator=(const arenarankaward& from) {
+  inline E_ArenaRankaward& operator=(const E_ArenaRankaward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -803,17 +803,17 @@ class arenarankaward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenarankaward& default_instance();
+  static const E_ArenaRankaward& default_instance();
 
-  void Swap(arenarankaward* other);
+  void Swap(E_ArenaRankaward* other);
 
   // implements Message ----------------------------------------------
 
-  arenarankaward* New() const;
+  E_ArenaRankaward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenarankaward& from);
-  void MergeFrom(const arenarankaward& from);
+  void CopyFrom(const E_ArenaRankaward& from);
+  void MergeFrom(const E_ArenaRankaward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -836,54 +836,54 @@ class arenarankaward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 PrizeId = 1;
-  inline bool has_prizeid() const;
-  inline void clear_prizeid();
-  static const int kPrizeIdFieldNumber = 1;
-  inline ::google::protobuf::int32 prizeid() const;
-  inline void set_prizeid(::google::protobuf::int32 value);
+  // optional int32 m_prizeid = 1;
+  inline bool has_m_prizeid() const;
+  inline void clear_m_prizeid();
+  static const int kMPrizeidFieldNumber = 1;
+  inline ::google::protobuf::int32 m_prizeid() const;
+  inline void set_m_prizeid(::google::protobuf::int32 value);
 
-  // optional int32 arenaDown = 2;
-  inline bool has_arenadown() const;
-  inline void clear_arenadown();
-  static const int kArenaDownFieldNumber = 2;
-  inline ::google::protobuf::int32 arenadown() const;
-  inline void set_arenadown(::google::protobuf::int32 value);
+  // optional int32 m_arenadown = 2;
+  inline bool has_m_arenadown() const;
+  inline void clear_m_arenadown();
+  static const int kMArenadownFieldNumber = 2;
+  inline ::google::protobuf::int32 m_arenadown() const;
+  inline void set_m_arenadown(::google::protobuf::int32 value);
 
-  // optional int32 arenaUp = 3;
-  inline bool has_arenaup() const;
-  inline void clear_arenaup();
-  static const int kArenaUpFieldNumber = 3;
-  inline ::google::protobuf::int32 arenaup() const;
-  inline void set_arenaup(::google::protobuf::int32 value);
+  // optional int32 m_arenaup = 3;
+  inline bool has_m_arenaup() const;
+  inline void clear_m_arenaup();
+  static const int kMArenaupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_arenaup() const;
+  inline void set_m_arenaup(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.arenarankawardRewardDesc Reward = 4;
-  inline int reward_size() const;
-  inline void clear_reward();
-  static const int kRewardFieldNumber = 4;
-  inline const ::proto_ff::arenarankawardRewardDesc& reward(int index) const;
-  inline ::proto_ff::arenarankawardRewardDesc* mutable_reward(int index);
-  inline ::proto_ff::arenarankawardRewardDesc* add_reward();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankawardRewardDesc >&
-      reward() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankawardRewardDesc >*
-      mutable_reward();
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  inline int m_reward_size() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 4;
+  inline const ::proto_ff::E_ArenaRankawardRewardDesc& m_reward(int index) const;
+  inline ::proto_ff::E_ArenaRankawardRewardDesc* mutable_m_reward(int index);
+  inline ::proto_ff::E_ArenaRankawardRewardDesc* add_m_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankawardRewardDesc >&
+      m_reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankawardRewardDesc >*
+      mutable_m_reward();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenarankaward)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaRankaward)
  private:
-  inline void set_has_prizeid();
-  inline void clear_has_prizeid();
-  inline void set_has_arenadown();
-  inline void clear_has_arenadown();
-  inline void set_has_arenaup();
-  inline void clear_has_arenaup();
+  inline void set_has_m_prizeid();
+  inline void clear_has_m_prizeid();
+  inline void set_has_m_arenadown();
+  inline void clear_has_m_arenadown();
+  inline void set_has_m_arenaup();
+  inline void clear_has_m_arenaup();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 prizeid_;
-  ::google::protobuf::int32 arenadown_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankawardRewardDesc > reward_;
-  ::google::protobuf::int32 arenaup_;
+  ::google::protobuf::int32 m_prizeid_;
+  ::google::protobuf::int32 m_arenadown_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankawardRewardDesc > m_reward_;
+  ::google::protobuf::int32 m_arenaup_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -893,18 +893,18 @@ class arenarankaward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenarankaward* default_instance_;
+  static E_ArenaRankaward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_arenarankaward : public ::google::protobuf::Message {
+class Sheet_ArenaRankaward : public ::google::protobuf::Message {
  public:
-  Sheet_arenarankaward();
-  virtual ~Sheet_arenarankaward();
+  Sheet_ArenaRankaward();
+  virtual ~Sheet_ArenaRankaward();
 
-  Sheet_arenarankaward(const Sheet_arenarankaward& from);
+  Sheet_ArenaRankaward(const Sheet_ArenaRankaward& from);
 
-  inline Sheet_arenarankaward& operator=(const Sheet_arenarankaward& from) {
+  inline Sheet_ArenaRankaward& operator=(const Sheet_ArenaRankaward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -918,17 +918,17 @@ class Sheet_arenarankaward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_arenarankaward& default_instance();
+  static const Sheet_ArenaRankaward& default_instance();
 
-  void Swap(Sheet_arenarankaward* other);
+  void Swap(Sheet_ArenaRankaward* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_arenarankaward* New() const;
+  Sheet_ArenaRankaward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_arenarankaward& from);
-  void MergeFrom(const Sheet_arenarankaward& from);
+  void CopyFrom(const Sheet_ArenaRankaward& from);
+  void MergeFrom(const Sheet_ArenaRankaward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -951,24 +951,24 @@ class Sheet_arenarankaward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.arenarankaward arenarankaward_List = 1;
-  inline int arenarankaward_list_size() const;
-  inline void clear_arenarankaward_list();
-  static const int kArenarankawardListFieldNumber = 1;
-  inline const ::proto_ff::arenarankaward& arenarankaward_list(int index) const;
-  inline ::proto_ff::arenarankaward* mutable_arenarankaward_list(int index);
-  inline ::proto_ff::arenarankaward* add_arenarankaward_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankaward >&
-      arenarankaward_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankaward >*
-      mutable_arenarankaward_list();
+  // repeated .proto_ff.E_ArenaRankaward E_ArenaRankaward_List = 1;
+  inline int e_arenarankaward_list_size() const;
+  inline void clear_e_arenarankaward_list();
+  static const int kEArenaRankawardListFieldNumber = 1;
+  inline const ::proto_ff::E_ArenaRankaward& e_arenarankaward_list(int index) const;
+  inline ::proto_ff::E_ArenaRankaward* mutable_e_arenarankaward_list(int index);
+  inline ::proto_ff::E_ArenaRankaward* add_e_arenarankaward_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankaward >&
+      e_arenarankaward_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankaward >*
+      mutable_e_arenarankaward_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_arenarankaward)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ArenaRankaward)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankaward > arenarankaward_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankaward > e_arenarankaward_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -978,18 +978,18 @@ class Sheet_arenarankaward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_arenarankaward* default_instance_;
+  static Sheet_ArenaRankaward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenafirstrankRewardDesc : public ::google::protobuf::Message {
+class E_ArenaFirstrankRewardDesc : public ::google::protobuf::Message {
  public:
-  arenafirstrankRewardDesc();
-  virtual ~arenafirstrankRewardDesc();
+  E_ArenaFirstrankRewardDesc();
+  virtual ~E_ArenaFirstrankRewardDesc();
 
-  arenafirstrankRewardDesc(const arenafirstrankRewardDesc& from);
+  E_ArenaFirstrankRewardDesc(const E_ArenaFirstrankRewardDesc& from);
 
-  inline arenafirstrankRewardDesc& operator=(const arenafirstrankRewardDesc& from) {
+  inline E_ArenaFirstrankRewardDesc& operator=(const E_ArenaFirstrankRewardDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1003,17 +1003,17 @@ class arenafirstrankRewardDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenafirstrankRewardDesc& default_instance();
+  static const E_ArenaFirstrankRewardDesc& default_instance();
 
-  void Swap(arenafirstrankRewardDesc* other);
+  void Swap(E_ArenaFirstrankRewardDesc* other);
 
   // implements Message ----------------------------------------------
 
-  arenafirstrankRewardDesc* New() const;
+  E_ArenaFirstrankRewardDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenafirstrankRewardDesc& from);
-  void MergeFrom(const arenafirstrankRewardDesc& from);
+  void CopyFrom(const E_ArenaFirstrankRewardDesc& from);
+  void MergeFrom(const E_ArenaFirstrankRewardDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1036,31 +1036,31 @@ class arenafirstrankRewardDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenafirstrankRewardDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaFirstrankRewardDesc)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1070,18 +1070,18 @@ class arenafirstrankRewardDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenafirstrankRewardDesc* default_instance_;
+  static E_ArenaFirstrankRewardDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenafirstrank : public ::google::protobuf::Message {
+class E_ArenaFirstrank : public ::google::protobuf::Message {
  public:
-  arenafirstrank();
-  virtual ~arenafirstrank();
+  E_ArenaFirstrank();
+  virtual ~E_ArenaFirstrank();
 
-  arenafirstrank(const arenafirstrank& from);
+  E_ArenaFirstrank(const E_ArenaFirstrank& from);
 
-  inline arenafirstrank& operator=(const arenafirstrank& from) {
+  inline E_ArenaFirstrank& operator=(const E_ArenaFirstrank& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1095,17 +1095,17 @@ class arenafirstrank : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenafirstrank& default_instance();
+  static const E_ArenaFirstrank& default_instance();
 
-  void Swap(arenafirstrank* other);
+  void Swap(E_ArenaFirstrank* other);
 
   // implements Message ----------------------------------------------
 
-  arenafirstrank* New() const;
+  E_ArenaFirstrank* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenafirstrank& from);
-  void MergeFrom(const arenafirstrank& from);
+  void CopyFrom(const E_ArenaFirstrank& from);
+  void MergeFrom(const E_ArenaFirstrank& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1128,54 +1128,54 @@ class arenafirstrank : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 rankDown = 2;
-  inline bool has_rankdown() const;
-  inline void clear_rankdown();
-  static const int kRankDownFieldNumber = 2;
-  inline ::google::protobuf::int32 rankdown() const;
-  inline void set_rankdown(::google::protobuf::int32 value);
+  // optional int32 m_rankdown = 2;
+  inline bool has_m_rankdown() const;
+  inline void clear_m_rankdown();
+  static const int kMRankdownFieldNumber = 2;
+  inline ::google::protobuf::int32 m_rankdown() const;
+  inline void set_m_rankdown(::google::protobuf::int32 value);
 
-  // optional int32 rankUp = 3;
-  inline bool has_rankup() const;
-  inline void clear_rankup();
-  static const int kRankUpFieldNumber = 3;
-  inline ::google::protobuf::int32 rankup() const;
-  inline void set_rankup(::google::protobuf::int32 value);
+  // optional int32 m_rankup = 3;
+  inline bool has_m_rankup() const;
+  inline void clear_m_rankup();
+  static const int kMRankupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_rankup() const;
+  inline void set_m_rankup(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.arenafirstrankRewardDesc Reward = 4;
-  inline int reward_size() const;
-  inline void clear_reward();
-  static const int kRewardFieldNumber = 4;
-  inline const ::proto_ff::arenafirstrankRewardDesc& reward(int index) const;
-  inline ::proto_ff::arenafirstrankRewardDesc* mutable_reward(int index);
-  inline ::proto_ff::arenafirstrankRewardDesc* add_reward();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrankRewardDesc >&
-      reward() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrankRewardDesc >*
-      mutable_reward();
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  inline int m_reward_size() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 4;
+  inline const ::proto_ff::E_ArenaFirstrankRewardDesc& m_reward(int index) const;
+  inline ::proto_ff::E_ArenaFirstrankRewardDesc* mutable_m_reward(int index);
+  inline ::proto_ff::E_ArenaFirstrankRewardDesc* add_m_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrankRewardDesc >&
+      m_reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrankRewardDesc >*
+      mutable_m_reward();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenafirstrank)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaFirstrank)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_rankdown();
-  inline void clear_has_rankdown();
-  inline void set_has_rankup();
-  inline void clear_has_rankup();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_rankdown();
+  inline void clear_has_m_rankdown();
+  inline void set_has_m_rankup();
+  inline void clear_has_m_rankup();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 rankdown_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrankRewardDesc > reward_;
-  ::google::protobuf::int32 rankup_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_rankdown_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrankRewardDesc > m_reward_;
+  ::google::protobuf::int32 m_rankup_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -1185,18 +1185,18 @@ class arenafirstrank : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenafirstrank* default_instance_;
+  static E_ArenaFirstrank* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_arenafirstrank : public ::google::protobuf::Message {
+class Sheet_ArenaFirstrank : public ::google::protobuf::Message {
  public:
-  Sheet_arenafirstrank();
-  virtual ~Sheet_arenafirstrank();
+  Sheet_ArenaFirstrank();
+  virtual ~Sheet_ArenaFirstrank();
 
-  Sheet_arenafirstrank(const Sheet_arenafirstrank& from);
+  Sheet_ArenaFirstrank(const Sheet_ArenaFirstrank& from);
 
-  inline Sheet_arenafirstrank& operator=(const Sheet_arenafirstrank& from) {
+  inline Sheet_ArenaFirstrank& operator=(const Sheet_ArenaFirstrank& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1210,17 +1210,17 @@ class Sheet_arenafirstrank : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_arenafirstrank& default_instance();
+  static const Sheet_ArenaFirstrank& default_instance();
 
-  void Swap(Sheet_arenafirstrank* other);
+  void Swap(Sheet_ArenaFirstrank* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_arenafirstrank* New() const;
+  Sheet_ArenaFirstrank* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_arenafirstrank& from);
-  void MergeFrom(const Sheet_arenafirstrank& from);
+  void CopyFrom(const Sheet_ArenaFirstrank& from);
+  void MergeFrom(const Sheet_ArenaFirstrank& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1243,24 +1243,24 @@ class Sheet_arenafirstrank : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.arenafirstrank arenafirstrank_List = 1;
-  inline int arenafirstrank_list_size() const;
-  inline void clear_arenafirstrank_list();
-  static const int kArenafirstrankListFieldNumber = 1;
-  inline const ::proto_ff::arenafirstrank& arenafirstrank_list(int index) const;
-  inline ::proto_ff::arenafirstrank* mutable_arenafirstrank_list(int index);
-  inline ::proto_ff::arenafirstrank* add_arenafirstrank_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrank >&
-      arenafirstrank_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrank >*
-      mutable_arenafirstrank_list();
+  // repeated .proto_ff.E_ArenaFirstrank E_ArenaFirstrank_List = 1;
+  inline int e_arenafirstrank_list_size() const;
+  inline void clear_e_arenafirstrank_list();
+  static const int kEArenaFirstrankListFieldNumber = 1;
+  inline const ::proto_ff::E_ArenaFirstrank& e_arenafirstrank_list(int index) const;
+  inline ::proto_ff::E_ArenaFirstrank* mutable_e_arenafirstrank_list(int index);
+  inline ::proto_ff::E_ArenaFirstrank* add_e_arenafirstrank_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrank >&
+      e_arenafirstrank_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrank >*
+      mutable_e_arenafirstrank_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_arenafirstrank)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ArenaFirstrank)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrank > arenafirstrank_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrank > e_arenafirstrank_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1270,18 +1270,18 @@ class Sheet_arenafirstrank : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_arenafirstrank* default_instance_;
+  static Sheet_ArenaFirstrank* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class arenabuychallenge : public ::google::protobuf::Message {
+class E_ArenaBuychallenge : public ::google::protobuf::Message {
  public:
-  arenabuychallenge();
-  virtual ~arenabuychallenge();
+  E_ArenaBuychallenge();
+  virtual ~E_ArenaBuychallenge();
 
-  arenabuychallenge(const arenabuychallenge& from);
+  E_ArenaBuychallenge(const E_ArenaBuychallenge& from);
 
-  inline arenabuychallenge& operator=(const arenabuychallenge& from) {
+  inline E_ArenaBuychallenge& operator=(const E_ArenaBuychallenge& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1295,17 +1295,17 @@ class arenabuychallenge : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const arenabuychallenge& default_instance();
+  static const E_ArenaBuychallenge& default_instance();
 
-  void Swap(arenabuychallenge* other);
+  void Swap(E_ArenaBuychallenge* other);
 
   // implements Message ----------------------------------------------
 
-  arenabuychallenge* New() const;
+  E_ArenaBuychallenge* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const arenabuychallenge& from);
-  void MergeFrom(const arenabuychallenge& from);
+  void CopyFrom(const E_ArenaBuychallenge& from);
+  void MergeFrom(const E_ArenaBuychallenge& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1328,41 +1328,41 @@ class arenabuychallenge : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 count = 1;
-  inline bool has_count() const;
-  inline void clear_count();
-  static const int kCountFieldNumber = 1;
-  inline ::google::protobuf::int32 count() const;
-  inline void set_count(::google::protobuf::int32 value);
+  // optional int32 m_count = 1;
+  inline bool has_m_count() const;
+  inline void clear_m_count();
+  static const int kMCountFieldNumber = 1;
+  inline ::google::protobuf::int32 m_count() const;
+  inline void set_m_count(::google::protobuf::int32 value);
 
-  // optional int32 costType = 2;
-  inline bool has_costtype() const;
-  inline void clear_costtype();
-  static const int kCostTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 costtype() const;
-  inline void set_costtype(::google::protobuf::int32 value);
+  // optional int32 m_costtype = 2;
+  inline bool has_m_costtype() const;
+  inline void clear_m_costtype();
+  static const int kMCosttypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_costtype() const;
+  inline void set_m_costtype(::google::protobuf::int32 value);
 
-  // optional int32 cost = 3;
-  inline bool has_cost() const;
-  inline void clear_cost();
-  static const int kCostFieldNumber = 3;
-  inline ::google::protobuf::int32 cost() const;
-  inline void set_cost(::google::protobuf::int32 value);
+  // optional int32 m_cost = 3;
+  inline bool has_m_cost() const;
+  inline void clear_m_cost();
+  static const int kMCostFieldNumber = 3;
+  inline ::google::protobuf::int32 m_cost() const;
+  inline void set_m_cost(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.arenabuychallenge)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaBuychallenge)
  private:
-  inline void set_has_count();
-  inline void clear_has_count();
-  inline void set_has_costtype();
-  inline void clear_has_costtype();
-  inline void set_has_cost();
-  inline void clear_has_cost();
+  inline void set_has_m_count();
+  inline void clear_has_m_count();
+  inline void set_has_m_costtype();
+  inline void clear_has_m_costtype();
+  inline void set_has_m_cost();
+  inline void clear_has_m_cost();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 count_;
-  ::google::protobuf::int32 costtype_;
-  ::google::protobuf::int32 cost_;
+  ::google::protobuf::int32 m_count_;
+  ::google::protobuf::int32 m_costtype_;
+  ::google::protobuf::int32 m_cost_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -1372,18 +1372,18 @@ class arenabuychallenge : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static arenabuychallenge* default_instance_;
+  static E_ArenaBuychallenge* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_arenabuychallenge : public ::google::protobuf::Message {
+class Sheet_ArenaBuychallenge : public ::google::protobuf::Message {
  public:
-  Sheet_arenabuychallenge();
-  virtual ~Sheet_arenabuychallenge();
+  Sheet_ArenaBuychallenge();
+  virtual ~Sheet_ArenaBuychallenge();
 
-  Sheet_arenabuychallenge(const Sheet_arenabuychallenge& from);
+  Sheet_ArenaBuychallenge(const Sheet_ArenaBuychallenge& from);
 
-  inline Sheet_arenabuychallenge& operator=(const Sheet_arenabuychallenge& from) {
+  inline Sheet_ArenaBuychallenge& operator=(const Sheet_ArenaBuychallenge& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1397,17 +1397,17 @@ class Sheet_arenabuychallenge : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_arenabuychallenge& default_instance();
+  static const Sheet_ArenaBuychallenge& default_instance();
 
-  void Swap(Sheet_arenabuychallenge* other);
+  void Swap(Sheet_ArenaBuychallenge* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_arenabuychallenge* New() const;
+  Sheet_ArenaBuychallenge* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_arenabuychallenge& from);
-  void MergeFrom(const Sheet_arenabuychallenge& from);
+  void CopyFrom(const Sheet_ArenaBuychallenge& from);
+  void MergeFrom(const Sheet_ArenaBuychallenge& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1430,24 +1430,24 @@ class Sheet_arenabuychallenge : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.arenabuychallenge arenabuychallenge_List = 1;
-  inline int arenabuychallenge_list_size() const;
-  inline void clear_arenabuychallenge_list();
-  static const int kArenabuychallengeListFieldNumber = 1;
-  inline const ::proto_ff::arenabuychallenge& arenabuychallenge_list(int index) const;
-  inline ::proto_ff::arenabuychallenge* mutable_arenabuychallenge_list(int index);
-  inline ::proto_ff::arenabuychallenge* add_arenabuychallenge_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenabuychallenge >&
-      arenabuychallenge_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenabuychallenge >*
-      mutable_arenabuychallenge_list();
+  // repeated .proto_ff.E_ArenaBuychallenge E_ArenaBuychallenge_List = 1;
+  inline int e_arenabuychallenge_list_size() const;
+  inline void clear_e_arenabuychallenge_list();
+  static const int kEArenaBuychallengeListFieldNumber = 1;
+  inline const ::proto_ff::E_ArenaBuychallenge& e_arenabuychallenge_list(int index) const;
+  inline ::proto_ff::E_ArenaBuychallenge* mutable_e_arenabuychallenge_list(int index);
+  inline ::proto_ff::E_ArenaBuychallenge* add_e_arenabuychallenge_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaBuychallenge >&
+      e_arenabuychallenge_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaBuychallenge >*
+      mutable_e_arenabuychallenge_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_arenabuychallenge)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ArenaBuychallenge)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::arenabuychallenge > arenabuychallenge_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaBuychallenge > e_arenabuychallenge_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1457,954 +1457,954 @@ class Sheet_arenabuychallenge : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_arena_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_arenabuychallenge* default_instance_;
+  static Sheet_ArenaBuychallenge* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// arenarobotattrDesc
+// E_ArenaRobotAttrDesc
 
-// optional int32 type = 1;
-inline bool arenarobotattrDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_ArenaRobotAttrDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenarobotattrDesc::set_has_type() {
+inline void E_ArenaRobotAttrDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenarobotattrDesc::clear_has_type() {
+inline void E_ArenaRobotAttrDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenarobotattrDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_ArenaRobotAttrDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 arenarobotattrDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_ArenaRobotAttrDesc::m_type() const {
+  return m_type_;
 }
-inline void arenarobotattrDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_ArenaRobotAttrDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 val = 2;
-inline bool arenarobotattrDesc::has_val() const {
+// optional int32 m_val = 2;
+inline bool E_ArenaRobotAttrDesc::has_m_val() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenarobotattrDesc::set_has_val() {
+inline void E_ArenaRobotAttrDesc::set_has_m_val() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenarobotattrDesc::clear_has_val() {
+inline void E_ArenaRobotAttrDesc::clear_has_m_val() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenarobotattrDesc::clear_val() {
-  val_ = 0;
-  clear_has_val();
+inline void E_ArenaRobotAttrDesc::clear_m_val() {
+  m_val_ = 0;
+  clear_has_m_val();
 }
-inline ::google::protobuf::int32 arenarobotattrDesc::val() const {
-  return val_;
+inline ::google::protobuf::int32 E_ArenaRobotAttrDesc::m_val() const {
+  return m_val_;
 }
-inline void arenarobotattrDesc::set_val(::google::protobuf::int32 value) {
-  set_has_val();
-  val_ = value;
+inline void E_ArenaRobotAttrDesc::set_m_val(::google::protobuf::int32 value) {
+  set_has_m_val();
+  m_val_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// arenarobot
+// E_ArenaRobot
 
-// optional int32 arenaId = 1;
-inline bool arenarobot::has_arenaid() const {
+// optional int32 m_arenaid = 1;
+inline bool E_ArenaRobot::has_m_arenaid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenarobot::set_has_arenaid() {
+inline void E_ArenaRobot::set_has_m_arenaid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenarobot::clear_has_arenaid() {
+inline void E_ArenaRobot::clear_has_m_arenaid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenarobot::clear_arenaid() {
-  arenaid_ = 0;
-  clear_has_arenaid();
+inline void E_ArenaRobot::clear_m_arenaid() {
+  m_arenaid_ = 0;
+  clear_has_m_arenaid();
 }
-inline ::google::protobuf::int32 arenarobot::arenaid() const {
-  return arenaid_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_arenaid() const {
+  return m_arenaid_;
 }
-inline void arenarobot::set_arenaid(::google::protobuf::int32 value) {
-  set_has_arenaid();
-  arenaid_ = value;
+inline void E_ArenaRobot::set_m_arenaid(::google::protobuf::int32 value) {
+  set_has_m_arenaid();
+  m_arenaid_ = value;
 }
 
-// optional string robotname = 2;
-inline bool arenarobot::has_robotname() const {
+// optional string m_robotname = 2;
+inline bool E_ArenaRobot::has_m_robotname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenarobot::set_has_robotname() {
+inline void E_ArenaRobot::set_has_m_robotname() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenarobot::clear_has_robotname() {
+inline void E_ArenaRobot::clear_has_m_robotname() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenarobot::clear_robotname() {
-  if (robotname_ != &::google::protobuf::internal::kEmptyString) {
-    robotname_->clear();
+inline void E_ArenaRobot::clear_m_robotname() {
+  if (m_robotname_ != &::google::protobuf::internal::kEmptyString) {
+    m_robotname_->clear();
   }
-  clear_has_robotname();
+  clear_has_m_robotname();
 }
-inline const ::std::string& arenarobot::robotname() const {
-  return *robotname_;
+inline const ::std::string& E_ArenaRobot::m_robotname() const {
+  return *m_robotname_;
 }
-inline void arenarobot::set_robotname(const ::std::string& value) {
-  set_has_robotname();
-  if (robotname_ == &::google::protobuf::internal::kEmptyString) {
-    robotname_ = new ::std::string;
+inline void E_ArenaRobot::set_m_robotname(const ::std::string& value) {
+  set_has_m_robotname();
+  if (m_robotname_ == &::google::protobuf::internal::kEmptyString) {
+    m_robotname_ = new ::std::string;
   }
-  robotname_->assign(value);
+  m_robotname_->assign(value);
 }
-inline void arenarobot::set_robotname(const char* value) {
-  set_has_robotname();
-  if (robotname_ == &::google::protobuf::internal::kEmptyString) {
-    robotname_ = new ::std::string;
+inline void E_ArenaRobot::set_m_robotname(const char* value) {
+  set_has_m_robotname();
+  if (m_robotname_ == &::google::protobuf::internal::kEmptyString) {
+    m_robotname_ = new ::std::string;
   }
-  robotname_->assign(value);
+  m_robotname_->assign(value);
 }
-inline void arenarobot::set_robotname(const char* value, size_t size) {
-  set_has_robotname();
-  if (robotname_ == &::google::protobuf::internal::kEmptyString) {
-    robotname_ = new ::std::string;
+inline void E_ArenaRobot::set_m_robotname(const char* value, size_t size) {
+  set_has_m_robotname();
+  if (m_robotname_ == &::google::protobuf::internal::kEmptyString) {
+    m_robotname_ = new ::std::string;
   }
-  robotname_->assign(reinterpret_cast<const char*>(value), size);
+  m_robotname_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* arenarobot::mutable_robotname() {
-  set_has_robotname();
-  if (robotname_ == &::google::protobuf::internal::kEmptyString) {
-    robotname_ = new ::std::string;
+inline ::std::string* E_ArenaRobot::mutable_m_robotname() {
+  set_has_m_robotname();
+  if (m_robotname_ == &::google::protobuf::internal::kEmptyString) {
+    m_robotname_ = new ::std::string;
   }
-  return robotname_;
+  return m_robotname_;
 }
-inline ::std::string* arenarobot::release_robotname() {
-  clear_has_robotname();
-  if (robotname_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_ArenaRobot::release_m_robotname() {
+  clear_has_m_robotname();
+  if (m_robotname_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = robotname_;
-    robotname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_robotname_;
+    m_robotname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void arenarobot::set_allocated_robotname(::std::string* robotname) {
-  if (robotname_ != &::google::protobuf::internal::kEmptyString) {
-    delete robotname_;
+inline void E_ArenaRobot::set_allocated_m_robotname(::std::string* m_robotname) {
+  if (m_robotname_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_robotname_;
   }
-  if (robotname) {
-    set_has_robotname();
-    robotname_ = robotname;
+  if (m_robotname) {
+    set_has_m_robotname();
+    m_robotname_ = m_robotname;
   } else {
-    clear_has_robotname();
-    robotname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_robotname();
+    m_robotname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 aiId = 3;
-inline bool arenarobot::has_aiid() const {
+// optional int32 m_aiid = 3;
+inline bool E_ArenaRobot::has_m_aiid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void arenarobot::set_has_aiid() {
+inline void E_ArenaRobot::set_has_m_aiid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void arenarobot::clear_has_aiid() {
+inline void E_ArenaRobot::clear_has_m_aiid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void arenarobot::clear_aiid() {
-  aiid_ = 0;
-  clear_has_aiid();
+inline void E_ArenaRobot::clear_m_aiid() {
+  m_aiid_ = 0;
+  clear_has_m_aiid();
 }
-inline ::google::protobuf::int32 arenarobot::aiid() const {
-  return aiid_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_aiid() const {
+  return m_aiid_;
 }
-inline void arenarobot::set_aiid(::google::protobuf::int32 value) {
-  set_has_aiid();
-  aiid_ = value;
+inline void E_ArenaRobot::set_m_aiid(::google::protobuf::int32 value) {
+  set_has_m_aiid();
+  m_aiid_ = value;
 }
 
-// optional int32 rankId = 4;
-inline bool arenarobot::has_rankid() const {
+// optional int32 m_rankid = 4;
+inline bool E_ArenaRobot::has_m_rankid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void arenarobot::set_has_rankid() {
+inline void E_ArenaRobot::set_has_m_rankid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void arenarobot::clear_has_rankid() {
+inline void E_ArenaRobot::clear_has_m_rankid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void arenarobot::clear_rankid() {
-  rankid_ = 0;
-  clear_has_rankid();
+inline void E_ArenaRobot::clear_m_rankid() {
+  m_rankid_ = 0;
+  clear_has_m_rankid();
 }
-inline ::google::protobuf::int32 arenarobot::rankid() const {
-  return rankid_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_rankid() const {
+  return m_rankid_;
 }
-inline void arenarobot::set_rankid(::google::protobuf::int32 value) {
-  set_has_rankid();
-  rankid_ = value;
+inline void E_ArenaRobot::set_m_rankid(::google::protobuf::int32 value) {
+  set_has_m_rankid();
+  m_rankid_ = value;
 }
 
-// optional int32 robotProfession = 5;
-inline bool arenarobot::has_robotprofession() const {
+// optional int32 m_robotprofession = 5;
+inline bool E_ArenaRobot::has_m_robotprofession() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void arenarobot::set_has_robotprofession() {
+inline void E_ArenaRobot::set_has_m_robotprofession() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void arenarobot::clear_has_robotprofession() {
+inline void E_ArenaRobot::clear_has_m_robotprofession() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void arenarobot::clear_robotprofession() {
-  robotprofession_ = 0;
-  clear_has_robotprofession();
+inline void E_ArenaRobot::clear_m_robotprofession() {
+  m_robotprofession_ = 0;
+  clear_has_m_robotprofession();
 }
-inline ::google::protobuf::int32 arenarobot::robotprofession() const {
-  return robotprofession_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_robotprofession() const {
+  return m_robotprofession_;
 }
-inline void arenarobot::set_robotprofession(::google::protobuf::int32 value) {
-  set_has_robotprofession();
-  robotprofession_ = value;
+inline void E_ArenaRobot::set_m_robotprofession(::google::protobuf::int32 value) {
+  set_has_m_robotprofession();
+  m_robotprofession_ = value;
 }
 
-// optional int32 robotLv = 6;
-inline bool arenarobot::has_robotlv() const {
+// optional int32 m_robotlv = 6;
+inline bool E_ArenaRobot::has_m_robotlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void arenarobot::set_has_robotlv() {
+inline void E_ArenaRobot::set_has_m_robotlv() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void arenarobot::clear_has_robotlv() {
+inline void E_ArenaRobot::clear_has_m_robotlv() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void arenarobot::clear_robotlv() {
-  robotlv_ = 0;
-  clear_has_robotlv();
+inline void E_ArenaRobot::clear_m_robotlv() {
+  m_robotlv_ = 0;
+  clear_has_m_robotlv();
 }
-inline ::google::protobuf::int32 arenarobot::robotlv() const {
-  return robotlv_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_robotlv() const {
+  return m_robotlv_;
 }
-inline void arenarobot::set_robotlv(::google::protobuf::int32 value) {
-  set_has_robotlv();
-  robotlv_ = value;
+inline void E_ArenaRobot::set_m_robotlv(::google::protobuf::int32 value) {
+  set_has_m_robotlv();
+  m_robotlv_ = value;
 }
 
-// optional int32 sword = 7;
-inline bool arenarobot::has_sword() const {
+// optional int32 m_sword = 7;
+inline bool E_ArenaRobot::has_m_sword() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void arenarobot::set_has_sword() {
+inline void E_ArenaRobot::set_has_m_sword() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void arenarobot::clear_has_sword() {
+inline void E_ArenaRobot::clear_has_m_sword() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void arenarobot::clear_sword() {
-  sword_ = 0;
-  clear_has_sword();
+inline void E_ArenaRobot::clear_m_sword() {
+  m_sword_ = 0;
+  clear_has_m_sword();
 }
-inline ::google::protobuf::int32 arenarobot::sword() const {
-  return sword_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_sword() const {
+  return m_sword_;
 }
-inline void arenarobot::set_sword(::google::protobuf::int32 value) {
-  set_has_sword();
-  sword_ = value;
+inline void E_ArenaRobot::set_m_sword(::google::protobuf::int32 value) {
+  set_has_m_sword();
+  m_sword_ = value;
 }
 
-// optional int32 occupationID = 8;
-inline bool arenarobot::has_occupationid() const {
+// optional int32 m_occupationid = 8;
+inline bool E_ArenaRobot::has_m_occupationid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void arenarobot::set_has_occupationid() {
+inline void E_ArenaRobot::set_has_m_occupationid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void arenarobot::clear_has_occupationid() {
+inline void E_ArenaRobot::clear_has_m_occupationid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void arenarobot::clear_occupationid() {
-  occupationid_ = 0;
-  clear_has_occupationid();
+inline void E_ArenaRobot::clear_m_occupationid() {
+  m_occupationid_ = 0;
+  clear_has_m_occupationid();
 }
-inline ::google::protobuf::int32 arenarobot::occupationid() const {
-  return occupationid_;
+inline ::google::protobuf::int32 E_ArenaRobot::m_occupationid() const {
+  return m_occupationid_;
 }
-inline void arenarobot::set_occupationid(::google::protobuf::int32 value) {
-  set_has_occupationid();
-  occupationid_ = value;
-}
-
-// repeated .proto_ff.arenarobotattrDesc attr = 9;
-inline int arenarobot::attr_size() const {
-  return attr_.size();
-}
-inline void arenarobot::clear_attr() {
-  attr_.Clear();
-}
-inline const ::proto_ff::arenarobotattrDesc& arenarobot::attr(int index) const {
-  return attr_.Get(index);
-}
-inline ::proto_ff::arenarobotattrDesc* arenarobot::mutable_attr(int index) {
-  return attr_.Mutable(index);
-}
-inline ::proto_ff::arenarobotattrDesc* arenarobot::add_attr() {
-  return attr_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobotattrDesc >&
-arenarobot::attr() const {
-  return attr_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobotattrDesc >*
-arenarobot::mutable_attr() {
-  return &attr_;
+inline void E_ArenaRobot::set_m_occupationid(::google::protobuf::int32 value) {
+  set_has_m_occupationid();
+  m_occupationid_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_arenarobot
-
-// repeated .proto_ff.arenarobot arenarobot_List = 1;
-inline int Sheet_arenarobot::arenarobot_list_size() const {
-  return arenarobot_list_.size();
+// repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+inline int E_ArenaRobot::m_attr_size() const {
+  return m_attr_.size();
 }
-inline void Sheet_arenarobot::clear_arenarobot_list() {
-  arenarobot_list_.Clear();
+inline void E_ArenaRobot::clear_m_attr() {
+  m_attr_.Clear();
 }
-inline const ::proto_ff::arenarobot& Sheet_arenarobot::arenarobot_list(int index) const {
-  return arenarobot_list_.Get(index);
+inline const ::proto_ff::E_ArenaRobotAttrDesc& E_ArenaRobot::m_attr(int index) const {
+  return m_attr_.Get(index);
 }
-inline ::proto_ff::arenarobot* Sheet_arenarobot::mutable_arenarobot_list(int index) {
-  return arenarobot_list_.Mutable(index);
+inline ::proto_ff::E_ArenaRobotAttrDesc* E_ArenaRobot::mutable_m_attr(int index) {
+  return m_attr_.Mutable(index);
 }
-inline ::proto_ff::arenarobot* Sheet_arenarobot::add_arenarobot_list() {
-  return arenarobot_list_.Add();
+inline ::proto_ff::E_ArenaRobotAttrDesc* E_ArenaRobot::add_m_attr() {
+  return m_attr_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobot >&
-Sheet_arenarobot::arenarobot_list() const {
-  return arenarobot_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc >&
+E_ArenaRobot::m_attr() const {
+  return m_attr_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarobot >*
-Sheet_arenarobot::mutable_arenarobot_list() {
-  return &arenarobot_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc >*
+E_ArenaRobot::mutable_m_attr() {
+  return &m_attr_;
 }
 
 // -------------------------------------------------------------------
 
-// arenaarenAwardRewardDesc
+// Sheet_ArenaRobot
 
-// optional int32 ID = 1;
-inline bool arenaarenAwardRewardDesc::has_id() const {
+// repeated .proto_ff.E_ArenaRobot E_ArenaRobot_List = 1;
+inline int Sheet_ArenaRobot::e_arenarobot_list_size() const {
+  return e_arenarobot_list_.size();
+}
+inline void Sheet_ArenaRobot::clear_e_arenarobot_list() {
+  e_arenarobot_list_.Clear();
+}
+inline const ::proto_ff::E_ArenaRobot& Sheet_ArenaRobot::e_arenarobot_list(int index) const {
+  return e_arenarobot_list_.Get(index);
+}
+inline ::proto_ff::E_ArenaRobot* Sheet_ArenaRobot::mutable_e_arenarobot_list(int index) {
+  return e_arenarobot_list_.Mutable(index);
+}
+inline ::proto_ff::E_ArenaRobot* Sheet_ArenaRobot::add_e_arenarobot_list() {
+  return e_arenarobot_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobot >&
+Sheet_ArenaRobot::e_arenarobot_list() const {
+  return e_arenarobot_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobot >*
+Sheet_ArenaRobot::mutable_e_arenarobot_list() {
+  return &e_arenarobot_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_ArenaArenawardRewardDesc
+
+// optional int32 m_id = 1;
+inline bool E_ArenaArenawardRewardDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenaarenAwardRewardDesc::set_has_id() {
+inline void E_ArenaArenawardRewardDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenaarenAwardRewardDesc::clear_has_id() {
+inline void E_ArenaArenawardRewardDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenaarenAwardRewardDesc::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_ArenaArenawardRewardDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 arenaarenAwardRewardDesc::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_ArenaArenawardRewardDesc::m_id() const {
+  return m_id_;
 }
-inline void arenaarenAwardRewardDesc::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_ArenaArenawardRewardDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool arenaarenAwardRewardDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_ArenaArenawardRewardDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenaarenAwardRewardDesc::set_has_value() {
+inline void E_ArenaArenawardRewardDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenaarenAwardRewardDesc::clear_has_value() {
+inline void E_ArenaArenawardRewardDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenaarenAwardRewardDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_ArenaArenawardRewardDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 arenaarenAwardRewardDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_ArenaArenawardRewardDesc::m_value() const {
+  return m_value_;
 }
-inline void arenaarenAwardRewardDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_ArenaArenawardRewardDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// arenaarenAward
+// E_ArenaArenaward
 
-// optional int32 id = 1;
-inline bool arenaarenAward::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_ArenaArenaward::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenaarenAward::set_has_id() {
+inline void E_ArenaArenaward::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenaarenAward::clear_has_id() {
+inline void E_ArenaArenaward::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenaarenAward::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_ArenaArenaward::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 arenaarenAward::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_ArenaArenaward::m_id() const {
+  return m_id_;
 }
-inline void arenaarenAward::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_ArenaArenaward::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 lvDown = 2;
-inline bool arenaarenAward::has_lvdown() const {
+// optional int32 m_lvdown = 2;
+inline bool E_ArenaArenaward::has_m_lvdown() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenaarenAward::set_has_lvdown() {
+inline void E_ArenaArenaward::set_has_m_lvdown() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenaarenAward::clear_has_lvdown() {
+inline void E_ArenaArenaward::clear_has_m_lvdown() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenaarenAward::clear_lvdown() {
-  lvdown_ = 0;
-  clear_has_lvdown();
+inline void E_ArenaArenaward::clear_m_lvdown() {
+  m_lvdown_ = 0;
+  clear_has_m_lvdown();
 }
-inline ::google::protobuf::int32 arenaarenAward::lvdown() const {
-  return lvdown_;
+inline ::google::protobuf::int32 E_ArenaArenaward::m_lvdown() const {
+  return m_lvdown_;
 }
-inline void arenaarenAward::set_lvdown(::google::protobuf::int32 value) {
-  set_has_lvdown();
-  lvdown_ = value;
+inline void E_ArenaArenaward::set_m_lvdown(::google::protobuf::int32 value) {
+  set_has_m_lvdown();
+  m_lvdown_ = value;
 }
 
-// optional int32 lvUp = 3;
-inline bool arenaarenAward::has_lvup() const {
+// optional int32 m_lvup = 3;
+inline bool E_ArenaArenaward::has_m_lvup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void arenaarenAward::set_has_lvup() {
+inline void E_ArenaArenaward::set_has_m_lvup() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void arenaarenAward::clear_has_lvup() {
+inline void E_ArenaArenaward::clear_has_m_lvup() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void arenaarenAward::clear_lvup() {
-  lvup_ = 0;
-  clear_has_lvup();
+inline void E_ArenaArenaward::clear_m_lvup() {
+  m_lvup_ = 0;
+  clear_has_m_lvup();
 }
-inline ::google::protobuf::int32 arenaarenAward::lvup() const {
-  return lvup_;
+inline ::google::protobuf::int32 E_ArenaArenaward::m_lvup() const {
+  return m_lvup_;
 }
-inline void arenaarenAward::set_lvup(::google::protobuf::int32 value) {
-  set_has_lvup();
-  lvup_ = value;
-}
-
-// repeated .proto_ff.arenaarenAwardRewardDesc Reward = 4;
-inline int arenaarenAward::reward_size() const {
-  return reward_.size();
-}
-inline void arenaarenAward::clear_reward() {
-  reward_.Clear();
-}
-inline const ::proto_ff::arenaarenAwardRewardDesc& arenaarenAward::reward(int index) const {
-  return reward_.Get(index);
-}
-inline ::proto_ff::arenaarenAwardRewardDesc* arenaarenAward::mutable_reward(int index) {
-  return reward_.Mutable(index);
-}
-inline ::proto_ff::arenaarenAwardRewardDesc* arenaarenAward::add_reward() {
-  return reward_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAwardRewardDesc >&
-arenaarenAward::reward() const {
-  return reward_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAwardRewardDesc >*
-arenaarenAward::mutable_reward() {
-  return &reward_;
+inline void E_ArenaArenaward::set_m_lvup(::google::protobuf::int32 value) {
+  set_has_m_lvup();
+  m_lvup_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_arenaarenAward
-
-// repeated .proto_ff.arenaarenAward arenaarenAward_List = 1;
-inline int Sheet_arenaarenAward::arenaarenaward_list_size() const {
-  return arenaarenaward_list_.size();
+// repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+inline int E_ArenaArenaward::m_reward_size() const {
+  return m_reward_.size();
 }
-inline void Sheet_arenaarenAward::clear_arenaarenaward_list() {
-  arenaarenaward_list_.Clear();
+inline void E_ArenaArenaward::clear_m_reward() {
+  m_reward_.Clear();
 }
-inline const ::proto_ff::arenaarenAward& Sheet_arenaarenAward::arenaarenaward_list(int index) const {
-  return arenaarenaward_list_.Get(index);
+inline const ::proto_ff::E_ArenaArenawardRewardDesc& E_ArenaArenaward::m_reward(int index) const {
+  return m_reward_.Get(index);
 }
-inline ::proto_ff::arenaarenAward* Sheet_arenaarenAward::mutable_arenaarenaward_list(int index) {
-  return arenaarenaward_list_.Mutable(index);
+inline ::proto_ff::E_ArenaArenawardRewardDesc* E_ArenaArenaward::mutable_m_reward(int index) {
+  return m_reward_.Mutable(index);
 }
-inline ::proto_ff::arenaarenAward* Sheet_arenaarenAward::add_arenaarenaward_list() {
-  return arenaarenaward_list_.Add();
+inline ::proto_ff::E_ArenaArenawardRewardDesc* E_ArenaArenaward::add_m_reward() {
+  return m_reward_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAward >&
-Sheet_arenaarenAward::arenaarenaward_list() const {
-  return arenaarenaward_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenawardRewardDesc >&
+E_ArenaArenaward::m_reward() const {
+  return m_reward_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenaarenAward >*
-Sheet_arenaarenAward::mutable_arenaarenaward_list() {
-  return &arenaarenaward_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenawardRewardDesc >*
+E_ArenaArenaward::mutable_m_reward() {
+  return &m_reward_;
 }
 
 // -------------------------------------------------------------------
 
-// arenarankawardRewardDesc
+// Sheet_ArenaArenaward
 
-// optional int32 ID = 1;
-inline bool arenarankawardRewardDesc::has_id() const {
+// repeated .proto_ff.E_ArenaArenaward E_ArenaArenaward_List = 1;
+inline int Sheet_ArenaArenaward::e_arenaarenaward_list_size() const {
+  return e_arenaarenaward_list_.size();
+}
+inline void Sheet_ArenaArenaward::clear_e_arenaarenaward_list() {
+  e_arenaarenaward_list_.Clear();
+}
+inline const ::proto_ff::E_ArenaArenaward& Sheet_ArenaArenaward::e_arenaarenaward_list(int index) const {
+  return e_arenaarenaward_list_.Get(index);
+}
+inline ::proto_ff::E_ArenaArenaward* Sheet_ArenaArenaward::mutable_e_arenaarenaward_list(int index) {
+  return e_arenaarenaward_list_.Mutable(index);
+}
+inline ::proto_ff::E_ArenaArenaward* Sheet_ArenaArenaward::add_e_arenaarenaward_list() {
+  return e_arenaarenaward_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenaward >&
+Sheet_ArenaArenaward::e_arenaarenaward_list() const {
+  return e_arenaarenaward_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaArenaward >*
+Sheet_ArenaArenaward::mutable_e_arenaarenaward_list() {
+  return &e_arenaarenaward_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_ArenaRankawardRewardDesc
+
+// optional int32 m_id = 1;
+inline bool E_ArenaRankawardRewardDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenarankawardRewardDesc::set_has_id() {
+inline void E_ArenaRankawardRewardDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenarankawardRewardDesc::clear_has_id() {
+inline void E_ArenaRankawardRewardDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenarankawardRewardDesc::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_ArenaRankawardRewardDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 arenarankawardRewardDesc::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_ArenaRankawardRewardDesc::m_id() const {
+  return m_id_;
 }
-inline void arenarankawardRewardDesc::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_ArenaRankawardRewardDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool arenarankawardRewardDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_ArenaRankawardRewardDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenarankawardRewardDesc::set_has_value() {
+inline void E_ArenaRankawardRewardDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenarankawardRewardDesc::clear_has_value() {
+inline void E_ArenaRankawardRewardDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenarankawardRewardDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_ArenaRankawardRewardDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 arenarankawardRewardDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_ArenaRankawardRewardDesc::m_value() const {
+  return m_value_;
 }
-inline void arenarankawardRewardDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_ArenaRankawardRewardDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// arenarankaward
+// E_ArenaRankaward
 
-// optional int32 PrizeId = 1;
-inline bool arenarankaward::has_prizeid() const {
+// optional int32 m_prizeid = 1;
+inline bool E_ArenaRankaward::has_m_prizeid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenarankaward::set_has_prizeid() {
+inline void E_ArenaRankaward::set_has_m_prizeid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenarankaward::clear_has_prizeid() {
+inline void E_ArenaRankaward::clear_has_m_prizeid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenarankaward::clear_prizeid() {
-  prizeid_ = 0;
-  clear_has_prizeid();
+inline void E_ArenaRankaward::clear_m_prizeid() {
+  m_prizeid_ = 0;
+  clear_has_m_prizeid();
 }
-inline ::google::protobuf::int32 arenarankaward::prizeid() const {
-  return prizeid_;
+inline ::google::protobuf::int32 E_ArenaRankaward::m_prizeid() const {
+  return m_prizeid_;
 }
-inline void arenarankaward::set_prizeid(::google::protobuf::int32 value) {
-  set_has_prizeid();
-  prizeid_ = value;
+inline void E_ArenaRankaward::set_m_prizeid(::google::protobuf::int32 value) {
+  set_has_m_prizeid();
+  m_prizeid_ = value;
 }
 
-// optional int32 arenaDown = 2;
-inline bool arenarankaward::has_arenadown() const {
+// optional int32 m_arenadown = 2;
+inline bool E_ArenaRankaward::has_m_arenadown() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenarankaward::set_has_arenadown() {
+inline void E_ArenaRankaward::set_has_m_arenadown() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenarankaward::clear_has_arenadown() {
+inline void E_ArenaRankaward::clear_has_m_arenadown() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenarankaward::clear_arenadown() {
-  arenadown_ = 0;
-  clear_has_arenadown();
+inline void E_ArenaRankaward::clear_m_arenadown() {
+  m_arenadown_ = 0;
+  clear_has_m_arenadown();
 }
-inline ::google::protobuf::int32 arenarankaward::arenadown() const {
-  return arenadown_;
+inline ::google::protobuf::int32 E_ArenaRankaward::m_arenadown() const {
+  return m_arenadown_;
 }
-inline void arenarankaward::set_arenadown(::google::protobuf::int32 value) {
-  set_has_arenadown();
-  arenadown_ = value;
+inline void E_ArenaRankaward::set_m_arenadown(::google::protobuf::int32 value) {
+  set_has_m_arenadown();
+  m_arenadown_ = value;
 }
 
-// optional int32 arenaUp = 3;
-inline bool arenarankaward::has_arenaup() const {
+// optional int32 m_arenaup = 3;
+inline bool E_ArenaRankaward::has_m_arenaup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void arenarankaward::set_has_arenaup() {
+inline void E_ArenaRankaward::set_has_m_arenaup() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void arenarankaward::clear_has_arenaup() {
+inline void E_ArenaRankaward::clear_has_m_arenaup() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void arenarankaward::clear_arenaup() {
-  arenaup_ = 0;
-  clear_has_arenaup();
+inline void E_ArenaRankaward::clear_m_arenaup() {
+  m_arenaup_ = 0;
+  clear_has_m_arenaup();
 }
-inline ::google::protobuf::int32 arenarankaward::arenaup() const {
-  return arenaup_;
+inline ::google::protobuf::int32 E_ArenaRankaward::m_arenaup() const {
+  return m_arenaup_;
 }
-inline void arenarankaward::set_arenaup(::google::protobuf::int32 value) {
-  set_has_arenaup();
-  arenaup_ = value;
-}
-
-// repeated .proto_ff.arenarankawardRewardDesc Reward = 4;
-inline int arenarankaward::reward_size() const {
-  return reward_.size();
-}
-inline void arenarankaward::clear_reward() {
-  reward_.Clear();
-}
-inline const ::proto_ff::arenarankawardRewardDesc& arenarankaward::reward(int index) const {
-  return reward_.Get(index);
-}
-inline ::proto_ff::arenarankawardRewardDesc* arenarankaward::mutable_reward(int index) {
-  return reward_.Mutable(index);
-}
-inline ::proto_ff::arenarankawardRewardDesc* arenarankaward::add_reward() {
-  return reward_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankawardRewardDesc >&
-arenarankaward::reward() const {
-  return reward_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankawardRewardDesc >*
-arenarankaward::mutable_reward() {
-  return &reward_;
+inline void E_ArenaRankaward::set_m_arenaup(::google::protobuf::int32 value) {
+  set_has_m_arenaup();
+  m_arenaup_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_arenarankaward
-
-// repeated .proto_ff.arenarankaward arenarankaward_List = 1;
-inline int Sheet_arenarankaward::arenarankaward_list_size() const {
-  return arenarankaward_list_.size();
+// repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+inline int E_ArenaRankaward::m_reward_size() const {
+  return m_reward_.size();
 }
-inline void Sheet_arenarankaward::clear_arenarankaward_list() {
-  arenarankaward_list_.Clear();
+inline void E_ArenaRankaward::clear_m_reward() {
+  m_reward_.Clear();
 }
-inline const ::proto_ff::arenarankaward& Sheet_arenarankaward::arenarankaward_list(int index) const {
-  return arenarankaward_list_.Get(index);
+inline const ::proto_ff::E_ArenaRankawardRewardDesc& E_ArenaRankaward::m_reward(int index) const {
+  return m_reward_.Get(index);
 }
-inline ::proto_ff::arenarankaward* Sheet_arenarankaward::mutable_arenarankaward_list(int index) {
-  return arenarankaward_list_.Mutable(index);
+inline ::proto_ff::E_ArenaRankawardRewardDesc* E_ArenaRankaward::mutable_m_reward(int index) {
+  return m_reward_.Mutable(index);
 }
-inline ::proto_ff::arenarankaward* Sheet_arenarankaward::add_arenarankaward_list() {
-  return arenarankaward_list_.Add();
+inline ::proto_ff::E_ArenaRankawardRewardDesc* E_ArenaRankaward::add_m_reward() {
+  return m_reward_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankaward >&
-Sheet_arenarankaward::arenarankaward_list() const {
-  return arenarankaward_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankawardRewardDesc >&
+E_ArenaRankaward::m_reward() const {
+  return m_reward_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenarankaward >*
-Sheet_arenarankaward::mutable_arenarankaward_list() {
-  return &arenarankaward_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankawardRewardDesc >*
+E_ArenaRankaward::mutable_m_reward() {
+  return &m_reward_;
 }
 
 // -------------------------------------------------------------------
 
-// arenafirstrankRewardDesc
+// Sheet_ArenaRankaward
 
-// optional int32 ID = 1;
-inline bool arenafirstrankRewardDesc::has_id() const {
+// repeated .proto_ff.E_ArenaRankaward E_ArenaRankaward_List = 1;
+inline int Sheet_ArenaRankaward::e_arenarankaward_list_size() const {
+  return e_arenarankaward_list_.size();
+}
+inline void Sheet_ArenaRankaward::clear_e_arenarankaward_list() {
+  e_arenarankaward_list_.Clear();
+}
+inline const ::proto_ff::E_ArenaRankaward& Sheet_ArenaRankaward::e_arenarankaward_list(int index) const {
+  return e_arenarankaward_list_.Get(index);
+}
+inline ::proto_ff::E_ArenaRankaward* Sheet_ArenaRankaward::mutable_e_arenarankaward_list(int index) {
+  return e_arenarankaward_list_.Mutable(index);
+}
+inline ::proto_ff::E_ArenaRankaward* Sheet_ArenaRankaward::add_e_arenarankaward_list() {
+  return e_arenarankaward_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankaward >&
+Sheet_ArenaRankaward::e_arenarankaward_list() const {
+  return e_arenarankaward_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRankaward >*
+Sheet_ArenaRankaward::mutable_e_arenarankaward_list() {
+  return &e_arenarankaward_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_ArenaFirstrankRewardDesc
+
+// optional int32 m_id = 1;
+inline bool E_ArenaFirstrankRewardDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenafirstrankRewardDesc::set_has_id() {
+inline void E_ArenaFirstrankRewardDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenafirstrankRewardDesc::clear_has_id() {
+inline void E_ArenaFirstrankRewardDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenafirstrankRewardDesc::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_ArenaFirstrankRewardDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 arenafirstrankRewardDesc::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_ArenaFirstrankRewardDesc::m_id() const {
+  return m_id_;
 }
-inline void arenafirstrankRewardDesc::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_ArenaFirstrankRewardDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool arenafirstrankRewardDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_ArenaFirstrankRewardDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenafirstrankRewardDesc::set_has_value() {
+inline void E_ArenaFirstrankRewardDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenafirstrankRewardDesc::clear_has_value() {
+inline void E_ArenaFirstrankRewardDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenafirstrankRewardDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_ArenaFirstrankRewardDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 arenafirstrankRewardDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_ArenaFirstrankRewardDesc::m_value() const {
+  return m_value_;
 }
-inline void arenafirstrankRewardDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_ArenaFirstrankRewardDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// arenafirstrank
+// E_ArenaFirstrank
 
-// optional int32 id = 1;
-inline bool arenafirstrank::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_ArenaFirstrank::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenafirstrank::set_has_id() {
+inline void E_ArenaFirstrank::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenafirstrank::clear_has_id() {
+inline void E_ArenaFirstrank::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenafirstrank::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_ArenaFirstrank::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 arenafirstrank::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_ArenaFirstrank::m_id() const {
+  return m_id_;
 }
-inline void arenafirstrank::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_ArenaFirstrank::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 rankDown = 2;
-inline bool arenafirstrank::has_rankdown() const {
+// optional int32 m_rankdown = 2;
+inline bool E_ArenaFirstrank::has_m_rankdown() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenafirstrank::set_has_rankdown() {
+inline void E_ArenaFirstrank::set_has_m_rankdown() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenafirstrank::clear_has_rankdown() {
+inline void E_ArenaFirstrank::clear_has_m_rankdown() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenafirstrank::clear_rankdown() {
-  rankdown_ = 0;
-  clear_has_rankdown();
+inline void E_ArenaFirstrank::clear_m_rankdown() {
+  m_rankdown_ = 0;
+  clear_has_m_rankdown();
 }
-inline ::google::protobuf::int32 arenafirstrank::rankdown() const {
-  return rankdown_;
+inline ::google::protobuf::int32 E_ArenaFirstrank::m_rankdown() const {
+  return m_rankdown_;
 }
-inline void arenafirstrank::set_rankdown(::google::protobuf::int32 value) {
-  set_has_rankdown();
-  rankdown_ = value;
+inline void E_ArenaFirstrank::set_m_rankdown(::google::protobuf::int32 value) {
+  set_has_m_rankdown();
+  m_rankdown_ = value;
 }
 
-// optional int32 rankUp = 3;
-inline bool arenafirstrank::has_rankup() const {
+// optional int32 m_rankup = 3;
+inline bool E_ArenaFirstrank::has_m_rankup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void arenafirstrank::set_has_rankup() {
+inline void E_ArenaFirstrank::set_has_m_rankup() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void arenafirstrank::clear_has_rankup() {
+inline void E_ArenaFirstrank::clear_has_m_rankup() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void arenafirstrank::clear_rankup() {
-  rankup_ = 0;
-  clear_has_rankup();
+inline void E_ArenaFirstrank::clear_m_rankup() {
+  m_rankup_ = 0;
+  clear_has_m_rankup();
 }
-inline ::google::protobuf::int32 arenafirstrank::rankup() const {
-  return rankup_;
+inline ::google::protobuf::int32 E_ArenaFirstrank::m_rankup() const {
+  return m_rankup_;
 }
-inline void arenafirstrank::set_rankup(::google::protobuf::int32 value) {
-  set_has_rankup();
-  rankup_ = value;
-}
-
-// repeated .proto_ff.arenafirstrankRewardDesc Reward = 4;
-inline int arenafirstrank::reward_size() const {
-  return reward_.size();
-}
-inline void arenafirstrank::clear_reward() {
-  reward_.Clear();
-}
-inline const ::proto_ff::arenafirstrankRewardDesc& arenafirstrank::reward(int index) const {
-  return reward_.Get(index);
-}
-inline ::proto_ff::arenafirstrankRewardDesc* arenafirstrank::mutable_reward(int index) {
-  return reward_.Mutable(index);
-}
-inline ::proto_ff::arenafirstrankRewardDesc* arenafirstrank::add_reward() {
-  return reward_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrankRewardDesc >&
-arenafirstrank::reward() const {
-  return reward_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrankRewardDesc >*
-arenafirstrank::mutable_reward() {
-  return &reward_;
+inline void E_ArenaFirstrank::set_m_rankup(::google::protobuf::int32 value) {
+  set_has_m_rankup();
+  m_rankup_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_arenafirstrank
-
-// repeated .proto_ff.arenafirstrank arenafirstrank_List = 1;
-inline int Sheet_arenafirstrank::arenafirstrank_list_size() const {
-  return arenafirstrank_list_.size();
+// repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+inline int E_ArenaFirstrank::m_reward_size() const {
+  return m_reward_.size();
 }
-inline void Sheet_arenafirstrank::clear_arenafirstrank_list() {
-  arenafirstrank_list_.Clear();
+inline void E_ArenaFirstrank::clear_m_reward() {
+  m_reward_.Clear();
 }
-inline const ::proto_ff::arenafirstrank& Sheet_arenafirstrank::arenafirstrank_list(int index) const {
-  return arenafirstrank_list_.Get(index);
+inline const ::proto_ff::E_ArenaFirstrankRewardDesc& E_ArenaFirstrank::m_reward(int index) const {
+  return m_reward_.Get(index);
 }
-inline ::proto_ff::arenafirstrank* Sheet_arenafirstrank::mutable_arenafirstrank_list(int index) {
-  return arenafirstrank_list_.Mutable(index);
+inline ::proto_ff::E_ArenaFirstrankRewardDesc* E_ArenaFirstrank::mutable_m_reward(int index) {
+  return m_reward_.Mutable(index);
 }
-inline ::proto_ff::arenafirstrank* Sheet_arenafirstrank::add_arenafirstrank_list() {
-  return arenafirstrank_list_.Add();
+inline ::proto_ff::E_ArenaFirstrankRewardDesc* E_ArenaFirstrank::add_m_reward() {
+  return m_reward_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrank >&
-Sheet_arenafirstrank::arenafirstrank_list() const {
-  return arenafirstrank_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrankRewardDesc >&
+E_ArenaFirstrank::m_reward() const {
+  return m_reward_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenafirstrank >*
-Sheet_arenafirstrank::mutable_arenafirstrank_list() {
-  return &arenafirstrank_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrankRewardDesc >*
+E_ArenaFirstrank::mutable_m_reward() {
+  return &m_reward_;
 }
 
 // -------------------------------------------------------------------
 
-// arenabuychallenge
+// Sheet_ArenaFirstrank
 
-// optional int32 count = 1;
-inline bool arenabuychallenge::has_count() const {
+// repeated .proto_ff.E_ArenaFirstrank E_ArenaFirstrank_List = 1;
+inline int Sheet_ArenaFirstrank::e_arenafirstrank_list_size() const {
+  return e_arenafirstrank_list_.size();
+}
+inline void Sheet_ArenaFirstrank::clear_e_arenafirstrank_list() {
+  e_arenafirstrank_list_.Clear();
+}
+inline const ::proto_ff::E_ArenaFirstrank& Sheet_ArenaFirstrank::e_arenafirstrank_list(int index) const {
+  return e_arenafirstrank_list_.Get(index);
+}
+inline ::proto_ff::E_ArenaFirstrank* Sheet_ArenaFirstrank::mutable_e_arenafirstrank_list(int index) {
+  return e_arenafirstrank_list_.Mutable(index);
+}
+inline ::proto_ff::E_ArenaFirstrank* Sheet_ArenaFirstrank::add_e_arenafirstrank_list() {
+  return e_arenafirstrank_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrank >&
+Sheet_ArenaFirstrank::e_arenafirstrank_list() const {
+  return e_arenafirstrank_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaFirstrank >*
+Sheet_ArenaFirstrank::mutable_e_arenafirstrank_list() {
+  return &e_arenafirstrank_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_ArenaBuychallenge
+
+// optional int32 m_count = 1;
+inline bool E_ArenaBuychallenge::has_m_count() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void arenabuychallenge::set_has_count() {
+inline void E_ArenaBuychallenge::set_has_m_count() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void arenabuychallenge::clear_has_count() {
+inline void E_ArenaBuychallenge::clear_has_m_count() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void arenabuychallenge::clear_count() {
-  count_ = 0;
-  clear_has_count();
+inline void E_ArenaBuychallenge::clear_m_count() {
+  m_count_ = 0;
+  clear_has_m_count();
 }
-inline ::google::protobuf::int32 arenabuychallenge::count() const {
-  return count_;
+inline ::google::protobuf::int32 E_ArenaBuychallenge::m_count() const {
+  return m_count_;
 }
-inline void arenabuychallenge::set_count(::google::protobuf::int32 value) {
-  set_has_count();
-  count_ = value;
+inline void E_ArenaBuychallenge::set_m_count(::google::protobuf::int32 value) {
+  set_has_m_count();
+  m_count_ = value;
 }
 
-// optional int32 costType = 2;
-inline bool arenabuychallenge::has_costtype() const {
+// optional int32 m_costtype = 2;
+inline bool E_ArenaBuychallenge::has_m_costtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void arenabuychallenge::set_has_costtype() {
+inline void E_ArenaBuychallenge::set_has_m_costtype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void arenabuychallenge::clear_has_costtype() {
+inline void E_ArenaBuychallenge::clear_has_m_costtype() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void arenabuychallenge::clear_costtype() {
-  costtype_ = 0;
-  clear_has_costtype();
+inline void E_ArenaBuychallenge::clear_m_costtype() {
+  m_costtype_ = 0;
+  clear_has_m_costtype();
 }
-inline ::google::protobuf::int32 arenabuychallenge::costtype() const {
-  return costtype_;
+inline ::google::protobuf::int32 E_ArenaBuychallenge::m_costtype() const {
+  return m_costtype_;
 }
-inline void arenabuychallenge::set_costtype(::google::protobuf::int32 value) {
-  set_has_costtype();
-  costtype_ = value;
+inline void E_ArenaBuychallenge::set_m_costtype(::google::protobuf::int32 value) {
+  set_has_m_costtype();
+  m_costtype_ = value;
 }
 
-// optional int32 cost = 3;
-inline bool arenabuychallenge::has_cost() const {
+// optional int32 m_cost = 3;
+inline bool E_ArenaBuychallenge::has_m_cost() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void arenabuychallenge::set_has_cost() {
+inline void E_ArenaBuychallenge::set_has_m_cost() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void arenabuychallenge::clear_has_cost() {
+inline void E_ArenaBuychallenge::clear_has_m_cost() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void arenabuychallenge::clear_cost() {
-  cost_ = 0;
-  clear_has_cost();
+inline void E_ArenaBuychallenge::clear_m_cost() {
+  m_cost_ = 0;
+  clear_has_m_cost();
 }
-inline ::google::protobuf::int32 arenabuychallenge::cost() const {
-  return cost_;
+inline ::google::protobuf::int32 E_ArenaBuychallenge::m_cost() const {
+  return m_cost_;
 }
-inline void arenabuychallenge::set_cost(::google::protobuf::int32 value) {
-  set_has_cost();
-  cost_ = value;
+inline void E_ArenaBuychallenge::set_m_cost(::google::protobuf::int32 value) {
+  set_has_m_cost();
+  m_cost_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_arenabuychallenge
+// Sheet_ArenaBuychallenge
 
-// repeated .proto_ff.arenabuychallenge arenabuychallenge_List = 1;
-inline int Sheet_arenabuychallenge::arenabuychallenge_list_size() const {
-  return arenabuychallenge_list_.size();
+// repeated .proto_ff.E_ArenaBuychallenge E_ArenaBuychallenge_List = 1;
+inline int Sheet_ArenaBuychallenge::e_arenabuychallenge_list_size() const {
+  return e_arenabuychallenge_list_.size();
 }
-inline void Sheet_arenabuychallenge::clear_arenabuychallenge_list() {
-  arenabuychallenge_list_.Clear();
+inline void Sheet_ArenaBuychallenge::clear_e_arenabuychallenge_list() {
+  e_arenabuychallenge_list_.Clear();
 }
-inline const ::proto_ff::arenabuychallenge& Sheet_arenabuychallenge::arenabuychallenge_list(int index) const {
-  return arenabuychallenge_list_.Get(index);
+inline const ::proto_ff::E_ArenaBuychallenge& Sheet_ArenaBuychallenge::e_arenabuychallenge_list(int index) const {
+  return e_arenabuychallenge_list_.Get(index);
 }
-inline ::proto_ff::arenabuychallenge* Sheet_arenabuychallenge::mutable_arenabuychallenge_list(int index) {
-  return arenabuychallenge_list_.Mutable(index);
+inline ::proto_ff::E_ArenaBuychallenge* Sheet_ArenaBuychallenge::mutable_e_arenabuychallenge_list(int index) {
+  return e_arenabuychallenge_list_.Mutable(index);
 }
-inline ::proto_ff::arenabuychallenge* Sheet_arenabuychallenge::add_arenabuychallenge_list() {
-  return arenabuychallenge_list_.Add();
+inline ::proto_ff::E_ArenaBuychallenge* Sheet_ArenaBuychallenge::add_e_arenabuychallenge_list() {
+  return e_arenabuychallenge_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::arenabuychallenge >&
-Sheet_arenabuychallenge::arenabuychallenge_list() const {
-  return arenabuychallenge_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaBuychallenge >&
+Sheet_ArenaBuychallenge::e_arenabuychallenge_list() const {
+  return e_arenabuychallenge_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::arenabuychallenge >*
-Sheet_arenabuychallenge::mutable_arenabuychallenge_list() {
-  return &arenabuychallenge_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaBuychallenge >*
+Sheet_ArenaBuychallenge::mutable_e_arenabuychallenge_list() {
+  return &e_arenabuychallenge_list_;
 }
 
 

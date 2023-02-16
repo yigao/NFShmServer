@@ -62,9 +62,9 @@ int NFRoleDescStoreEx::Load(NFResDB *pDB)
         auto pDesc = &mapResDesc[i];
         if (pDesc)
         {
-            if (pDesc->lv > (int32_t)m_maxLevel)
+            if (pDesc->m_lv > (int32_t)m_maxLevel)
             {
-                m_maxLevel = pDesc->lv;
+                m_maxLevel = pDesc->m_lv;
             }
         }
     }

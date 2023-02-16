@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "sensitiveword.pb.h"
@@ -10,63 +10,63 @@
 
 namespace proto_ff_s {
 
-	struct sensitivewordsensitive_word_s : public NFDescStoreSeqOP {
-		sensitivewordsensitive_word_s();
-		virtual ~sensitivewordsensitive_word_s(){}
+	struct E_SensitivewordSensitive_word_s : public NFDescStoreSeqOP {
+		E_SensitivewordSensitive_word_s();
+		virtual ~E_SensitivewordSensitive_word_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		NFShmString<60> sensitiveWord;
+		int32_t m_id;
+		NFShmString<60> m_sensitiveword;
 
-		virtual void write_to_pbmsg(::proto_ff::sensitivewordsensitive_word & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::sensitivewordsensitive_word & msg);
-		static ::proto_ff::sensitivewordsensitive_word* new_pbmsg(){ return new ::proto_ff::sensitivewordsensitive_word(); }
-		static ::proto_ff::sensitivewordsensitive_word make_pbmsg(){ return ::proto_ff::sensitivewordsensitive_word(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SensitivewordSensitive_word & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SensitivewordSensitive_word & msg);
+		static ::proto_ff::E_SensitivewordSensitive_word* new_pbmsg(){ return new ::proto_ff::E_SensitivewordSensitive_word(); }
+		static ::proto_ff::E_SensitivewordSensitive_word make_pbmsg(){ return ::proto_ff::E_SensitivewordSensitive_word(); }
 	};
-	typedef struct sensitivewordsensitive_word_s sensitivewordsensitive_word_t;
+	typedef struct E_SensitivewordSensitive_word_s E_SensitivewordSensitive_word_t;
 
-	struct Sheet_sensitivewordsensitive_word_s : public NFDescStoreSeqOP {
-		Sheet_sensitivewordsensitive_word_s();
-		virtual ~Sheet_sensitivewordsensitive_word_s(){}
+	struct Sheet_SensitivewordSensitive_word_s : public NFDescStoreSeqOP {
+		Sheet_SensitivewordSensitive_word_s();
+		virtual ~Sheet_SensitivewordSensitive_word_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct sensitivewordsensitive_word_s, 6000> sensitivewordsensitive_word_List;
+		NFShmVector<struct E_SensitivewordSensitive_word_s, 6000> E_SensitivewordSensitive_word_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_sensitivewordsensitive_word & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_sensitivewordsensitive_word & msg);
-		static ::proto_ff::Sheet_sensitivewordsensitive_word* new_pbmsg(){ return new ::proto_ff::Sheet_sensitivewordsensitive_word(); }
-		static ::proto_ff::Sheet_sensitivewordsensitive_word make_pbmsg(){ return ::proto_ff::Sheet_sensitivewordsensitive_word(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SensitivewordSensitive_word & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SensitivewordSensitive_word & msg);
+		static ::proto_ff::Sheet_SensitivewordSensitive_word* new_pbmsg(){ return new ::proto_ff::Sheet_SensitivewordSensitive_word(); }
+		static ::proto_ff::Sheet_SensitivewordSensitive_word make_pbmsg(){ return ::proto_ff::Sheet_SensitivewordSensitive_word(); }
 	};
-	typedef struct Sheet_sensitivewordsensitive_word_s Sheet_sensitivewordsensitive_word_t;
+	typedef struct Sheet_SensitivewordSensitive_word_s Sheet_SensitivewordSensitive_word_t;
 
-	struct sensitivewordrolesensitive_s : public NFDescStoreSeqOP {
-		sensitivewordrolesensitive_s();
-		virtual ~sensitivewordrolesensitive_s(){}
+	struct E_SensitivewordRolesensitive_s : public NFDescStoreSeqOP {
+		E_SensitivewordRolesensitive_s();
+		virtual ~E_SensitivewordRolesensitive_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		NFShmString<60> sensitiveWord;
+		int32_t m_id;
+		NFShmString<60> m_sensitiveword;
 
-		virtual void write_to_pbmsg(::proto_ff::sensitivewordrolesensitive & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::sensitivewordrolesensitive & msg);
-		static ::proto_ff::sensitivewordrolesensitive* new_pbmsg(){ return new ::proto_ff::sensitivewordrolesensitive(); }
-		static ::proto_ff::sensitivewordrolesensitive make_pbmsg(){ return ::proto_ff::sensitivewordrolesensitive(); }
+		virtual void write_to_pbmsg(::proto_ff::E_SensitivewordRolesensitive & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SensitivewordRolesensitive & msg);
+		static ::proto_ff::E_SensitivewordRolesensitive* new_pbmsg(){ return new ::proto_ff::E_SensitivewordRolesensitive(); }
+		static ::proto_ff::E_SensitivewordRolesensitive make_pbmsg(){ return ::proto_ff::E_SensitivewordRolesensitive(); }
 	};
-	typedef struct sensitivewordrolesensitive_s sensitivewordrolesensitive_t;
+	typedef struct E_SensitivewordRolesensitive_s E_SensitivewordRolesensitive_t;
 
-	struct Sheet_sensitivewordrolesensitive_s : public NFDescStoreSeqOP {
-		Sheet_sensitivewordrolesensitive_s();
-		virtual ~Sheet_sensitivewordrolesensitive_s(){}
+	struct Sheet_SensitivewordRolesensitive_s : public NFDescStoreSeqOP {
+		Sheet_SensitivewordRolesensitive_s();
+		virtual ~Sheet_SensitivewordRolesensitive_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct sensitivewordrolesensitive_s, 300> sensitivewordrolesensitive_List;
+		NFShmVector<struct E_SensitivewordRolesensitive_s, 300> E_SensitivewordRolesensitive_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_sensitivewordrolesensitive & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_sensitivewordrolesensitive & msg);
-		static ::proto_ff::Sheet_sensitivewordrolesensitive* new_pbmsg(){ return new ::proto_ff::Sheet_sensitivewordrolesensitive(); }
-		static ::proto_ff::Sheet_sensitivewordrolesensitive make_pbmsg(){ return ::proto_ff::Sheet_sensitivewordrolesensitive(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SensitivewordRolesensitive & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SensitivewordRolesensitive & msg);
+		static ::proto_ff::Sheet_SensitivewordRolesensitive* new_pbmsg(){ return new ::proto_ff::Sheet_SensitivewordRolesensitive(); }
+		static ::proto_ff::Sheet_SensitivewordRolesensitive make_pbmsg(){ return ::proto_ff::Sheet_SensitivewordRolesensitive(); }
 	};
-	typedef struct Sheet_sensitivewordrolesensitive_s Sheet_sensitivewordrolesensitive_t;
+	typedef struct Sheet_SensitivewordRolesensitive_s Sheet_SensitivewordRolesensitive_t;
 
 }
 

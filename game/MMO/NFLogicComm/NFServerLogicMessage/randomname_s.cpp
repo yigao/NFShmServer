@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-randomnamemanfirst_s::randomnamemanfirst_s() {
+E_RandomnameManfirst_s::E_RandomnameManfirst_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,27 +10,27 @@ randomnamemanfirst_s::randomnamemanfirst_s() {
 	}
 }
 
-int randomnamemanfirst_s::CreateInit() {
-	id = (int32_t)0;
+int E_RandomnameManfirst_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int randomnamemanfirst_s::ResumeInit() {
+int E_RandomnameManfirst_s::ResumeInit() {
 	return 0;
 }
 
-void randomnamemanfirst_s::write_to_pbmsg(::proto_ff::randomnamemanfirst & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
+void E_RandomnameManfirst_s::write_to_pbmsg(::proto_ff::E_RandomnameManfirst & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
 }
 
-void randomnamemanfirst_s::read_from_pbmsg(const ::proto_ff::randomnamemanfirst & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct randomnamemanfirst_s));
-	id = msg.id();
-	name.Copy(msg.name());
+void E_RandomnameManfirst_s::read_from_pbmsg(const ::proto_ff::E_RandomnameManfirst & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RandomnameManfirst_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
 }
 
-Sheet_randomnamemanfirst_s::Sheet_randomnamemanfirst_s() {
+Sheet_RandomnameManfirst_s::Sheet_RandomnameManfirst_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -38,31 +38,31 @@ Sheet_randomnamemanfirst_s::Sheet_randomnamemanfirst_s() {
 	}
 }
 
-int Sheet_randomnamemanfirst_s::CreateInit() {
+int Sheet_RandomnameManfirst_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_randomnamemanfirst_s::ResumeInit() {
+int Sheet_RandomnameManfirst_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_randomnamemanfirst_s::write_to_pbmsg(::proto_ff::Sheet_randomnamemanfirst & msg) const {
-	for(int32_t i = 0; i < (int32_t)randomnamemanfirst_List.GetSize() && i < randomnamemanfirst_List.GetMaxSize(); ++i) {
-		::proto_ff::randomnamemanfirst* temp_randomnamemanfirst_list = msg.add_randomnamemanfirst_list();
-		randomnamemanfirst_List[i].write_to_pbmsg(*temp_randomnamemanfirst_list);
+void Sheet_RandomnameManfirst_s::write_to_pbmsg(::proto_ff::Sheet_RandomnameManfirst & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RandomnameManfirst_List.size(); ++i) {
+		::proto_ff::E_RandomnameManfirst* temp_e_randomnamemanfirst_list = msg.add_e_randomnamemanfirst_list();
+		E_RandomnameManfirst_List[i].write_to_pbmsg(*temp_e_randomnamemanfirst_list);
 	}
 }
 
-void Sheet_randomnamemanfirst_s::read_from_pbmsg(const ::proto_ff::Sheet_randomnamemanfirst & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_randomnamemanfirst_s));
-	randomnamemanfirst_List.SetSize(msg.randomnamemanfirst_list_size() > randomnamemanfirst_List.GetMaxSize() ? randomnamemanfirst_List.GetMaxSize() : msg.randomnamemanfirst_list_size());
-	for(int32_t i = 0; i < (int32_t)randomnamemanfirst_List.GetSize(); ++i) {
-		const ::proto_ff::randomnamemanfirst & temp_randomnamemanfirst_list = msg.randomnamemanfirst_list(i);
-		randomnamemanfirst_List[i].read_from_pbmsg(temp_randomnamemanfirst_list);
+void Sheet_RandomnameManfirst_s::read_from_pbmsg(const ::proto_ff::Sheet_RandomnameManfirst & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RandomnameManfirst_s));
+	E_RandomnameManfirst_List.resize((int)msg.e_randomnamemanfirst_list_size() > (int)E_RandomnameManfirst_List.max_size() ? E_RandomnameManfirst_List.max_size() : msg.e_randomnamemanfirst_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RandomnameManfirst_List.size(); ++i) {
+		const ::proto_ff::E_RandomnameManfirst & temp_e_randomnamemanfirst_list = msg.e_randomnamemanfirst_list(i);
+		E_RandomnameManfirst_List[i].read_from_pbmsg(temp_e_randomnamemanfirst_list);
 	}
 }
 
-randomnamemansecond_s::randomnamemansecond_s() {
+E_RandomnameMansecond_s::E_RandomnameMansecond_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -70,27 +70,27 @@ randomnamemansecond_s::randomnamemansecond_s() {
 	}
 }
 
-int randomnamemansecond_s::CreateInit() {
-	id = (int32_t)0;
+int E_RandomnameMansecond_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int randomnamemansecond_s::ResumeInit() {
+int E_RandomnameMansecond_s::ResumeInit() {
 	return 0;
 }
 
-void randomnamemansecond_s::write_to_pbmsg(::proto_ff::randomnamemansecond & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
+void E_RandomnameMansecond_s::write_to_pbmsg(::proto_ff::E_RandomnameMansecond & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
 }
 
-void randomnamemansecond_s::read_from_pbmsg(const ::proto_ff::randomnamemansecond & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct randomnamemansecond_s));
-	id = msg.id();
-	name.Copy(msg.name());
+void E_RandomnameMansecond_s::read_from_pbmsg(const ::proto_ff::E_RandomnameMansecond & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RandomnameMansecond_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
 }
 
-Sheet_randomnamemansecond_s::Sheet_randomnamemansecond_s() {
+Sheet_RandomnameMansecond_s::Sheet_RandomnameMansecond_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -98,31 +98,31 @@ Sheet_randomnamemansecond_s::Sheet_randomnamemansecond_s() {
 	}
 }
 
-int Sheet_randomnamemansecond_s::CreateInit() {
+int Sheet_RandomnameMansecond_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_randomnamemansecond_s::ResumeInit() {
+int Sheet_RandomnameMansecond_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_randomnamemansecond_s::write_to_pbmsg(::proto_ff::Sheet_randomnamemansecond & msg) const {
-	for(int32_t i = 0; i < (int32_t)randomnamemansecond_List.GetSize() && i < randomnamemansecond_List.GetMaxSize(); ++i) {
-		::proto_ff::randomnamemansecond* temp_randomnamemansecond_list = msg.add_randomnamemansecond_list();
-		randomnamemansecond_List[i].write_to_pbmsg(*temp_randomnamemansecond_list);
+void Sheet_RandomnameMansecond_s::write_to_pbmsg(::proto_ff::Sheet_RandomnameMansecond & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RandomnameMansecond_List.size(); ++i) {
+		::proto_ff::E_RandomnameMansecond* temp_e_randomnamemansecond_list = msg.add_e_randomnamemansecond_list();
+		E_RandomnameMansecond_List[i].write_to_pbmsg(*temp_e_randomnamemansecond_list);
 	}
 }
 
-void Sheet_randomnamemansecond_s::read_from_pbmsg(const ::proto_ff::Sheet_randomnamemansecond & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_randomnamemansecond_s));
-	randomnamemansecond_List.SetSize(msg.randomnamemansecond_list_size() > randomnamemansecond_List.GetMaxSize() ? randomnamemansecond_List.GetMaxSize() : msg.randomnamemansecond_list_size());
-	for(int32_t i = 0; i < (int32_t)randomnamemansecond_List.GetSize(); ++i) {
-		const ::proto_ff::randomnamemansecond & temp_randomnamemansecond_list = msg.randomnamemansecond_list(i);
-		randomnamemansecond_List[i].read_from_pbmsg(temp_randomnamemansecond_list);
+void Sheet_RandomnameMansecond_s::read_from_pbmsg(const ::proto_ff::Sheet_RandomnameMansecond & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RandomnameMansecond_s));
+	E_RandomnameMansecond_List.resize((int)msg.e_randomnamemansecond_list_size() > (int)E_RandomnameMansecond_List.max_size() ? E_RandomnameMansecond_List.max_size() : msg.e_randomnamemansecond_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RandomnameMansecond_List.size(); ++i) {
+		const ::proto_ff::E_RandomnameMansecond & temp_e_randomnamemansecond_list = msg.e_randomnamemansecond_list(i);
+		E_RandomnameMansecond_List[i].read_from_pbmsg(temp_e_randomnamemansecond_list);
 	}
 }
 
-randomnamemanthird_s::randomnamemanthird_s() {
+E_RandomnameManthird_s::E_RandomnameManthird_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -130,27 +130,27 @@ randomnamemanthird_s::randomnamemanthird_s() {
 	}
 }
 
-int randomnamemanthird_s::CreateInit() {
-	id = (int32_t)0;
+int E_RandomnameManthird_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int randomnamemanthird_s::ResumeInit() {
+int E_RandomnameManthird_s::ResumeInit() {
 	return 0;
 }
 
-void randomnamemanthird_s::write_to_pbmsg(::proto_ff::randomnamemanthird & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
+void E_RandomnameManthird_s::write_to_pbmsg(::proto_ff::E_RandomnameManthird & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
 }
 
-void randomnamemanthird_s::read_from_pbmsg(const ::proto_ff::randomnamemanthird & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct randomnamemanthird_s));
-	id = msg.id();
-	name.Copy(msg.name());
+void E_RandomnameManthird_s::read_from_pbmsg(const ::proto_ff::E_RandomnameManthird & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RandomnameManthird_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
 }
 
-Sheet_randomnamemanthird_s::Sheet_randomnamemanthird_s() {
+Sheet_RandomnameManthird_s::Sheet_RandomnameManthird_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -158,31 +158,31 @@ Sheet_randomnamemanthird_s::Sheet_randomnamemanthird_s() {
 	}
 }
 
-int Sheet_randomnamemanthird_s::CreateInit() {
+int Sheet_RandomnameManthird_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_randomnamemanthird_s::ResumeInit() {
+int Sheet_RandomnameManthird_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_randomnamemanthird_s::write_to_pbmsg(::proto_ff::Sheet_randomnamemanthird & msg) const {
-	for(int32_t i = 0; i < (int32_t)randomnamemanthird_List.GetSize() && i < randomnamemanthird_List.GetMaxSize(); ++i) {
-		::proto_ff::randomnamemanthird* temp_randomnamemanthird_list = msg.add_randomnamemanthird_list();
-		randomnamemanthird_List[i].write_to_pbmsg(*temp_randomnamemanthird_list);
+void Sheet_RandomnameManthird_s::write_to_pbmsg(::proto_ff::Sheet_RandomnameManthird & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RandomnameManthird_List.size(); ++i) {
+		::proto_ff::E_RandomnameManthird* temp_e_randomnamemanthird_list = msg.add_e_randomnamemanthird_list();
+		E_RandomnameManthird_List[i].write_to_pbmsg(*temp_e_randomnamemanthird_list);
 	}
 }
 
-void Sheet_randomnamemanthird_s::read_from_pbmsg(const ::proto_ff::Sheet_randomnamemanthird & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_randomnamemanthird_s));
-	randomnamemanthird_List.SetSize(msg.randomnamemanthird_list_size() > randomnamemanthird_List.GetMaxSize() ? randomnamemanthird_List.GetMaxSize() : msg.randomnamemanthird_list_size());
-	for(int32_t i = 0; i < (int32_t)randomnamemanthird_List.GetSize(); ++i) {
-		const ::proto_ff::randomnamemanthird & temp_randomnamemanthird_list = msg.randomnamemanthird_list(i);
-		randomnamemanthird_List[i].read_from_pbmsg(temp_randomnamemanthird_list);
+void Sheet_RandomnameManthird_s::read_from_pbmsg(const ::proto_ff::Sheet_RandomnameManthird & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RandomnameManthird_s));
+	E_RandomnameManthird_List.resize((int)msg.e_randomnamemanthird_list_size() > (int)E_RandomnameManthird_List.max_size() ? E_RandomnameManthird_List.max_size() : msg.e_randomnamemanthird_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RandomnameManthird_List.size(); ++i) {
+		const ::proto_ff::E_RandomnameManthird & temp_e_randomnamemanthird_list = msg.e_randomnamemanthird_list(i);
+		E_RandomnameManthird_List[i].read_from_pbmsg(temp_e_randomnamemanthird_list);
 	}
 }
 
-randomnamewomanfirst_s::randomnamewomanfirst_s() {
+E_RandomnameWomanfirst_s::E_RandomnameWomanfirst_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -190,27 +190,27 @@ randomnamewomanfirst_s::randomnamewomanfirst_s() {
 	}
 }
 
-int randomnamewomanfirst_s::CreateInit() {
-	id = (int32_t)0;
+int E_RandomnameWomanfirst_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int randomnamewomanfirst_s::ResumeInit() {
+int E_RandomnameWomanfirst_s::ResumeInit() {
 	return 0;
 }
 
-void randomnamewomanfirst_s::write_to_pbmsg(::proto_ff::randomnamewomanfirst & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
+void E_RandomnameWomanfirst_s::write_to_pbmsg(::proto_ff::E_RandomnameWomanfirst & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
 }
 
-void randomnamewomanfirst_s::read_from_pbmsg(const ::proto_ff::randomnamewomanfirst & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct randomnamewomanfirst_s));
-	id = msg.id();
-	name.Copy(msg.name());
+void E_RandomnameWomanfirst_s::read_from_pbmsg(const ::proto_ff::E_RandomnameWomanfirst & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RandomnameWomanfirst_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
 }
 
-Sheet_randomnamewomanfirst_s::Sheet_randomnamewomanfirst_s() {
+Sheet_RandomnameWomanfirst_s::Sheet_RandomnameWomanfirst_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -218,31 +218,31 @@ Sheet_randomnamewomanfirst_s::Sheet_randomnamewomanfirst_s() {
 	}
 }
 
-int Sheet_randomnamewomanfirst_s::CreateInit() {
+int Sheet_RandomnameWomanfirst_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_randomnamewomanfirst_s::ResumeInit() {
+int Sheet_RandomnameWomanfirst_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_randomnamewomanfirst_s::write_to_pbmsg(::proto_ff::Sheet_randomnamewomanfirst & msg) const {
-	for(int32_t i = 0; i < (int32_t)randomnamewomanfirst_List.GetSize() && i < randomnamewomanfirst_List.GetMaxSize(); ++i) {
-		::proto_ff::randomnamewomanfirst* temp_randomnamewomanfirst_list = msg.add_randomnamewomanfirst_list();
-		randomnamewomanfirst_List[i].write_to_pbmsg(*temp_randomnamewomanfirst_list);
+void Sheet_RandomnameWomanfirst_s::write_to_pbmsg(::proto_ff::Sheet_RandomnameWomanfirst & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RandomnameWomanfirst_List.size(); ++i) {
+		::proto_ff::E_RandomnameWomanfirst* temp_e_randomnamewomanfirst_list = msg.add_e_randomnamewomanfirst_list();
+		E_RandomnameWomanfirst_List[i].write_to_pbmsg(*temp_e_randomnamewomanfirst_list);
 	}
 }
 
-void Sheet_randomnamewomanfirst_s::read_from_pbmsg(const ::proto_ff::Sheet_randomnamewomanfirst & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_randomnamewomanfirst_s));
-	randomnamewomanfirst_List.SetSize(msg.randomnamewomanfirst_list_size() > randomnamewomanfirst_List.GetMaxSize() ? randomnamewomanfirst_List.GetMaxSize() : msg.randomnamewomanfirst_list_size());
-	for(int32_t i = 0; i < (int32_t)randomnamewomanfirst_List.GetSize(); ++i) {
-		const ::proto_ff::randomnamewomanfirst & temp_randomnamewomanfirst_list = msg.randomnamewomanfirst_list(i);
-		randomnamewomanfirst_List[i].read_from_pbmsg(temp_randomnamewomanfirst_list);
+void Sheet_RandomnameWomanfirst_s::read_from_pbmsg(const ::proto_ff::Sheet_RandomnameWomanfirst & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RandomnameWomanfirst_s));
+	E_RandomnameWomanfirst_List.resize((int)msg.e_randomnamewomanfirst_list_size() > (int)E_RandomnameWomanfirst_List.max_size() ? E_RandomnameWomanfirst_List.max_size() : msg.e_randomnamewomanfirst_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RandomnameWomanfirst_List.size(); ++i) {
+		const ::proto_ff::E_RandomnameWomanfirst & temp_e_randomnamewomanfirst_list = msg.e_randomnamewomanfirst_list(i);
+		E_RandomnameWomanfirst_List[i].read_from_pbmsg(temp_e_randomnamewomanfirst_list);
 	}
 }
 
-randomnamewomansecond_s::randomnamewomansecond_s() {
+E_RandomnameWomansecond_s::E_RandomnameWomansecond_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -250,27 +250,27 @@ randomnamewomansecond_s::randomnamewomansecond_s() {
 	}
 }
 
-int randomnamewomansecond_s::CreateInit() {
-	id = (int32_t)0;
+int E_RandomnameWomansecond_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int randomnamewomansecond_s::ResumeInit() {
+int E_RandomnameWomansecond_s::ResumeInit() {
 	return 0;
 }
 
-void randomnamewomansecond_s::write_to_pbmsg(::proto_ff::randomnamewomansecond & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
+void E_RandomnameWomansecond_s::write_to_pbmsg(::proto_ff::E_RandomnameWomansecond & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
 }
 
-void randomnamewomansecond_s::read_from_pbmsg(const ::proto_ff::randomnamewomansecond & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct randomnamewomansecond_s));
-	id = msg.id();
-	name.Copy(msg.name());
+void E_RandomnameWomansecond_s::read_from_pbmsg(const ::proto_ff::E_RandomnameWomansecond & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RandomnameWomansecond_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
 }
 
-Sheet_randomnamewomansecond_s::Sheet_randomnamewomansecond_s() {
+Sheet_RandomnameWomansecond_s::Sheet_RandomnameWomansecond_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -278,31 +278,31 @@ Sheet_randomnamewomansecond_s::Sheet_randomnamewomansecond_s() {
 	}
 }
 
-int Sheet_randomnamewomansecond_s::CreateInit() {
+int Sheet_RandomnameWomansecond_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_randomnamewomansecond_s::ResumeInit() {
+int Sheet_RandomnameWomansecond_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_randomnamewomansecond_s::write_to_pbmsg(::proto_ff::Sheet_randomnamewomansecond & msg) const {
-	for(int32_t i = 0; i < (int32_t)randomnamewomansecond_List.GetSize() && i < randomnamewomansecond_List.GetMaxSize(); ++i) {
-		::proto_ff::randomnamewomansecond* temp_randomnamewomansecond_list = msg.add_randomnamewomansecond_list();
-		randomnamewomansecond_List[i].write_to_pbmsg(*temp_randomnamewomansecond_list);
+void Sheet_RandomnameWomansecond_s::write_to_pbmsg(::proto_ff::Sheet_RandomnameWomansecond & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RandomnameWomansecond_List.size(); ++i) {
+		::proto_ff::E_RandomnameWomansecond* temp_e_randomnamewomansecond_list = msg.add_e_randomnamewomansecond_list();
+		E_RandomnameWomansecond_List[i].write_to_pbmsg(*temp_e_randomnamewomansecond_list);
 	}
 }
 
-void Sheet_randomnamewomansecond_s::read_from_pbmsg(const ::proto_ff::Sheet_randomnamewomansecond & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_randomnamewomansecond_s));
-	randomnamewomansecond_List.SetSize(msg.randomnamewomansecond_list_size() > randomnamewomansecond_List.GetMaxSize() ? randomnamewomansecond_List.GetMaxSize() : msg.randomnamewomansecond_list_size());
-	for(int32_t i = 0; i < (int32_t)randomnamewomansecond_List.GetSize(); ++i) {
-		const ::proto_ff::randomnamewomansecond & temp_randomnamewomansecond_list = msg.randomnamewomansecond_list(i);
-		randomnamewomansecond_List[i].read_from_pbmsg(temp_randomnamewomansecond_list);
+void Sheet_RandomnameWomansecond_s::read_from_pbmsg(const ::proto_ff::Sheet_RandomnameWomansecond & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RandomnameWomansecond_s));
+	E_RandomnameWomansecond_List.resize((int)msg.e_randomnamewomansecond_list_size() > (int)E_RandomnameWomansecond_List.max_size() ? E_RandomnameWomansecond_List.max_size() : msg.e_randomnamewomansecond_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RandomnameWomansecond_List.size(); ++i) {
+		const ::proto_ff::E_RandomnameWomansecond & temp_e_randomnamewomansecond_list = msg.e_randomnamewomansecond_list(i);
+		E_RandomnameWomansecond_List[i].read_from_pbmsg(temp_e_randomnamewomansecond_list);
 	}
 }
 
-randomnamewomanthird_s::randomnamewomanthird_s() {
+E_RandomnameWomanthird_s::E_RandomnameWomanthird_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -310,27 +310,27 @@ randomnamewomanthird_s::randomnamewomanthird_s() {
 	}
 }
 
-int randomnamewomanthird_s::CreateInit() {
-	id = (int32_t)0;
+int E_RandomnameWomanthird_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int randomnamewomanthird_s::ResumeInit() {
+int E_RandomnameWomanthird_s::ResumeInit() {
 	return 0;
 }
 
-void randomnamewomanthird_s::write_to_pbmsg(::proto_ff::randomnamewomanthird & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
+void E_RandomnameWomanthird_s::write_to_pbmsg(::proto_ff::E_RandomnameWomanthird & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
 }
 
-void randomnamewomanthird_s::read_from_pbmsg(const ::proto_ff::randomnamewomanthird & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct randomnamewomanthird_s));
-	id = msg.id();
-	name.Copy(msg.name());
+void E_RandomnameWomanthird_s::read_from_pbmsg(const ::proto_ff::E_RandomnameWomanthird & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RandomnameWomanthird_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
 }
 
-Sheet_randomnamewomanthird_s::Sheet_randomnamewomanthird_s() {
+Sheet_RandomnameWomanthird_s::Sheet_RandomnameWomanthird_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -338,27 +338,27 @@ Sheet_randomnamewomanthird_s::Sheet_randomnamewomanthird_s() {
 	}
 }
 
-int Sheet_randomnamewomanthird_s::CreateInit() {
+int Sheet_RandomnameWomanthird_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_randomnamewomanthird_s::ResumeInit() {
+int Sheet_RandomnameWomanthird_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_randomnamewomanthird_s::write_to_pbmsg(::proto_ff::Sheet_randomnamewomanthird & msg) const {
-	for(int32_t i = 0; i < (int32_t)randomnamewomanthird_List.GetSize() && i < randomnamewomanthird_List.GetMaxSize(); ++i) {
-		::proto_ff::randomnamewomanthird* temp_randomnamewomanthird_list = msg.add_randomnamewomanthird_list();
-		randomnamewomanthird_List[i].write_to_pbmsg(*temp_randomnamewomanthird_list);
+void Sheet_RandomnameWomanthird_s::write_to_pbmsg(::proto_ff::Sheet_RandomnameWomanthird & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RandomnameWomanthird_List.size(); ++i) {
+		::proto_ff::E_RandomnameWomanthird* temp_e_randomnamewomanthird_list = msg.add_e_randomnamewomanthird_list();
+		E_RandomnameWomanthird_List[i].write_to_pbmsg(*temp_e_randomnamewomanthird_list);
 	}
 }
 
-void Sheet_randomnamewomanthird_s::read_from_pbmsg(const ::proto_ff::Sheet_randomnamewomanthird & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_randomnamewomanthird_s));
-	randomnamewomanthird_List.SetSize(msg.randomnamewomanthird_list_size() > randomnamewomanthird_List.GetMaxSize() ? randomnamewomanthird_List.GetMaxSize() : msg.randomnamewomanthird_list_size());
-	for(int32_t i = 0; i < (int32_t)randomnamewomanthird_List.GetSize(); ++i) {
-		const ::proto_ff::randomnamewomanthird & temp_randomnamewomanthird_list = msg.randomnamewomanthird_list(i);
-		randomnamewomanthird_List[i].read_from_pbmsg(temp_randomnamewomanthird_list);
+void Sheet_RandomnameWomanthird_s::read_from_pbmsg(const ::proto_ff::Sheet_RandomnameWomanthird & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RandomnameWomanthird_s));
+	E_RandomnameWomanthird_List.resize((int)msg.e_randomnamewomanthird_list_size() > (int)E_RandomnameWomanthird_List.max_size() ? E_RandomnameWomanthird_List.max_size() : msg.e_randomnamewomanthird_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RandomnameWomanthird_List.size(); ++i) {
+		const ::proto_ff::E_RandomnameWomanthird & temp_e_randomnamewomanthird_list = msg.e_randomnamewomanthird_list(i);
+		E_RandomnameWomanthird_List[i].read_from_pbmsg(temp_e_randomnamewomanthird_list);
 	}
 }
 

@@ -459,7 +459,7 @@ message MailParamProto
 //邮件字符串信息
 message MailStrProto
 {
-  optional bytes str = 1[(yd_fieldoptions.field_arysize)=10];					//字符串（字符串和参数只会有一个赋值）
+  optional bytes str = 1[(yd_fieldoptions.field_bufsize)=32];					//字符串（字符串和参数只会有一个赋值）
   optional MailParamProto param = 2;		//参数
 }
 
@@ -475,7 +475,7 @@ message MailHead
   optional uint64 mailId							= 1;			//邮件ID
   optional uint32 type							= 2;			//邮件类型
   optional uint64 sendPlayerId					= 3;			//发件人ID
-  optional bytes sendPlayerName					= 4[(yd_fieldoptions.field_arysize)=10];			//发送人的名称
+  optional bytes sendPlayerName					= 4[(yd_fieldoptions.field_bufsize)=32];			//发送人的名称
   optional uint64 destPlayerId					= 5;			//收件人ID
   optional MailStrProto topic						= 6;			//邮件主题
   optional uint64 createTime						= 7;			//邮件创建时间
@@ -528,7 +528,7 @@ message WebMailDataProto
 message UseItemArgProto
 {
   optional int64 int_param = 1;		//整数参数(预留)
-  optional bytes str_param = 2[(yd_fieldoptions.field_arysize)=10];		//字符串参数(预留)
+  optional bytes str_param = 2[(yd_fieldoptions.field_bufsize)=32];		//字符串参数(预留)
   repeated uint64 item_lst = 3[(yd_fieldoptions.field_arysize)=10];		//物品ID列表,对应可选物品box的物品ID列表，每个BOX只能选一个物品
 }
 

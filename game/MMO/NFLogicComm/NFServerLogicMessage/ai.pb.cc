@@ -20,15 +20,15 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* aiaihpDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_AiAiHpDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  aiaihpDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* aiai_descriptor_ = NULL;
+  E_AiAiHpDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AiAi_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  aiai_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_aiai_descriptor_ = NULL;
+  E_AiAi_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AiAi_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_aiai_reflection_ = NULL;
+  Sheet_AiAi_reflection_ = NULL;
 
 }  // namespace
 
@@ -39,67 +39,67 @@ void protobuf_AssignDesc_ai_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "ai.proto");
   GOOGLE_CHECK(file != NULL);
-  aiaihpDesc_descriptor_ = file->message_type(0);
-  static const int aiaihpDesc_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiaihpDesc, skill_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiaihpDesc, percent_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiaihpDesc, chat_),
+  E_AiAiHpDesc_descriptor_ = file->message_type(0);
+  static const int E_AiAiHpDesc_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAiHpDesc, m_skill_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAiHpDesc, m_percent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAiHpDesc, m_chat_),
   };
-  aiaihpDesc_reflection_ =
+  E_AiAiHpDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      aiaihpDesc_descriptor_,
-      aiaihpDesc::default_instance_,
-      aiaihpDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiaihpDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiaihpDesc, _unknown_fields_),
+      E_AiAiHpDesc_descriptor_,
+      E_AiAiHpDesc::default_instance_,
+      E_AiAiHpDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAiHpDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAiHpDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(aiaihpDesc));
-  aiai_descriptor_ = file->message_type(1);
-  static const int aiai_offsets_[15] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, deadhateremain_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, invisibleremain_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, isactive_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, returntype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, view_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, isattackedshowoff_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, pursuerange_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, actionrange_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, wakeupradius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, isaiworkwhennobody_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, borneffectaidelay_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, initskills_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, hp_),
+      sizeof(E_AiAiHpDesc));
+  E_AiAi_descriptor_ = file->message_type(1);
+  static const int E_AiAi_offsets_[15] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_deadhateremain_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_invisibleremain_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_isactive_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_returntype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_view_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_isattackedshowoff_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_pursuerange_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_actionrange_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_wakeupradius_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_isaiworkwhennobody_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_borneffectaidelay_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_initskills_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, m_hp_),
   };
-  aiai_reflection_ =
+  E_AiAi_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      aiai_descriptor_,
-      aiai::default_instance_,
-      aiai_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(aiai, _unknown_fields_),
+      E_AiAi_descriptor_,
+      E_AiAi::default_instance_,
+      E_AiAi_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AiAi, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(aiai));
-  Sheet_aiai_descriptor_ = file->message_type(2);
-  static const int Sheet_aiai_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_aiai, aiai_list_),
+      sizeof(E_AiAi));
+  Sheet_AiAi_descriptor_ = file->message_type(2);
+  static const int Sheet_AiAi_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AiAi, e_aiai_list_),
   };
-  Sheet_aiai_reflection_ =
+  Sheet_AiAi_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_aiai_descriptor_,
-      Sheet_aiai::default_instance_,
-      Sheet_aiai_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_aiai, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_aiai, _unknown_fields_),
+      Sheet_AiAi_descriptor_,
+      Sheet_AiAi::default_instance_,
+      Sheet_AiAi_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AiAi, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AiAi, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_aiai));
+      sizeof(Sheet_AiAi));
 }
 
 namespace {
@@ -113,22 +113,22 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    aiaihpDesc_descriptor_, &aiaihpDesc::default_instance());
+    E_AiAiHpDesc_descriptor_, &E_AiAiHpDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    aiai_descriptor_, &aiai::default_instance());
+    E_AiAi_descriptor_, &E_AiAi::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_aiai_descriptor_, &Sheet_aiai::default_instance());
+    Sheet_AiAi_descriptor_, &Sheet_AiAi::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_ai_2eproto() {
-  delete aiaihpDesc::default_instance_;
-  delete aiaihpDesc_reflection_;
-  delete aiai::default_instance_;
-  delete aiai_reflection_;
-  delete Sheet_aiai::default_instance_;
-  delete Sheet_aiai_reflection_;
+  delete E_AiAiHpDesc::default_instance_;
+  delete E_AiAiHpDesc_reflection_;
+  delete E_AiAi::default_instance_;
+  delete E_AiAi_reflection_;
+  delete Sheet_AiAi::default_instance_;
+  delete Sheet_AiAi_reflection_;
 }
 
 void protobuf_AddDesc_ai_2eproto() {
@@ -140,35 +140,36 @@ void protobuf_AddDesc_ai_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\010ai.proto\022\010proto_ff\032\025yd_fieldoptions.pr"
-    "oto\"g\n\naiaihpDesc\022\031\n\005skill\030\001 \001(\003B\n\302\377\024\006\346\212"
-    "\200\350\203\275\022\036\n\007percent\030\002 \001(\005B\r\302\377\024\t\347\231\276\345\210\206\346\257\224\022\036\n\004"
-    "chat\030\003 \001(\003B\020\302\377\024\014\345\234\272\346\231\257\345\271\277\346\222\255\"\227\005\n\004aiai\022\025\n"
-    "\002id\030\001 \001(\003B\t\302\377\024\005\350\241\250ID\022\032\n\004type\030\002 \001(\005B\014\302\377\024\010"
-    "ai\347\261\273\345\236\213\0222\n\016deadHateRemain\030\003 \001(\tB\032\302\377\024\022\346\255"
-    "\273\344\272\241\344\273\207\346\201\250\344\277\235\347\225\231\220\301\024<\0223\n\017invisibleRemain\030"
-    "\004 \001(\tB\032\302\377\024\022\351\232\220\350\272\253\344\273\207\346\201\250\344\277\235\347\225\231\220\301\024<\022(\n\010isA"
-    "ctive\030\005 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\344\270\272\344\270\273\345\212\250\346\200\252\022$\n\nr"
-    "eturnType\030\006 \001(\005B\020\302\377\024\014\345\233\236\345\275\222\347\261\273\345\236\213\022\030\n\004vie"
-    "w\030\007 \001(\005B\n\302\377\024\006\350\247\206\351\207\216\0227\n\021isAttackedShowOff"
-    "\030\010 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345\205\263\351\227\255\345\217\227\345\207\273\350\241\250\347\216\260\022%\n\013"
-    "pursueRange\030\t \001(\005B\020\302\377\024\014\350\277\275\345\207\273\350\214\203\345\233\264\022+\n\013a"
-    "ctionRange\030\n \001(\005B\026\302\377\024\022\346\200\252\347\211\251\346\264\273\345\212\250\350\214\203\345\233\264"
-    "\022&\n\014wakeupRadius\030\013 \001(\005B\020\302\377\024\014\345\224\244\351\206\222\345\215\212\345\276\204"
-    "\0227\n\022isAIWorkWhenNobody\030\014 \001(\005B\033\302\377\024\027\346\230\257\345\220\246"
-    "\346\227\240\344\272\272\346\227\266\345\220\257\347\224\250AI\022-\n\021bornEffectAIDelay\030\r"
-    " \001(\005B\022\302\377\024\016\345\207\272\347\224\237AI\345\273\266\346\227\266\0224\n\ninitSkills\030\016"
-    " \001(\tB \302\377\024\030\346\212\200\350\203\275\346\261\240\345\210\235\345\247\213\346\212\200\350\203\275\347\273\204\220\301\024d\0226"
-    "\n\002hp\030\017 \003(\0132\024.proto_ff.aiaihpDescB\024\302\377\024\014\350\247"
-    "\246\345\217\221\350\241\200\351\207\217\210\301\024\002\"5\n\nSheet_aiai\022\'\n\taiai_Lis"
-    "t\030\001 \003(\0132\016.proto_ff.aiaiB\004\210\301\024\024", 869);
+    "oto\"o\n\014E_AiAiHpDesc\022\033\n\007m_skill\030\001 \001(\003B\n\302\377"
+    "\024\006\346\212\200\350\203\275\022 \n\tm_percent\030\002 \001(\005B\r\302\377\024\t\347\231\276\345\210\206\346"
+    "\257\224\022 \n\006m_chat\030\003 \001(\003B\020\302\377\024\014\345\234\272\346\231\257\345\271\277\346\222\255\"\271\005\n"
+    "\006E_AiAi\022\027\n\004m_id\030\001 \001(\003B\t\302\377\024\005\350\241\250ID\022\034\n\006m_ty"
+    "pe\030\002 \001(\005B\014\302\377\024\010ai\347\261\273\345\236\213\0224\n\020m_deadhaterema"
+    "in\030\003 \001(\tB\032\302\377\024\022\346\255\273\344\272\241\344\273\207\346\201\250\344\277\235\347\225\231\220\301\024<\0225\n\021"
+    "m_invisibleremain\030\004 \001(\tB\032\302\377\024\022\351\232\220\350\272\253\344\273\207\346\201"
+    "\250\344\277\235\347\225\231\220\301\024<\022*\n\nm_isactive\030\005 \001(\005B\026\302\377\024\022\346\230\257"
+    "\345\220\246\344\270\272\344\270\273\345\212\250\346\200\252\022&\n\014m_returntype\030\006 \001(\005B\020\302"
+    "\377\024\014\345\233\236\345\275\222\347\261\273\345\236\213\022\032\n\006m_view\030\007 \001(\005B\n\302\377\024\006\350\247\206"
+    "\351\207\216\0229\n\023m_isattackedshowoff\030\010 \001(\005B\034\302\377\024\030\346\230"
+    "\257\345\220\246\345\205\263\351\227\255\345\217\227\345\207\273\350\241\250\347\216\260\022\'\n\rm_pursuerange\030"
+    "\t \001(\005B\020\302\377\024\014\350\277\275\345\207\273\350\214\203\345\233\264\022-\n\rm_actionrange"
+    "\030\n \001(\005B\026\302\377\024\022\346\200\252\347\211\251\346\264\273\345\212\250\350\214\203\345\233\264\022(\n\016m_wake"
+    "upradius\030\013 \001(\005B\020\302\377\024\014\345\224\244\351\206\222\345\215\212\345\276\204\0229\n\024m_is"
+    "aiworkwhennobody\030\014 \001(\005B\033\302\377\024\027\346\230\257\345\220\246\346\227\240\344\272\272"
+    "\346\227\266\345\220\257\347\224\250AI\022/\n\023m_borneffectaidelay\030\r \001(\005"
+    "B\022\302\377\024\016\345\207\272\347\224\237AI\345\273\266\346\227\266\0226\n\014m_initskills\030\016 \001"
+    "(\tB \302\377\024\030\346\212\200\350\203\275\346\261\240\345\210\235\345\247\213\346\212\200\350\203\275\347\273\204\220\301\024d\022:\n\004"
+    "m_hp\030\017 \003(\0132\026.proto_ff.E_AiAiHpDescB\024\302\377\024\014"
+    "\350\247\246\345\217\221\350\241\200\351\207\217\210\301\024\002\"9\n\nSheet_AiAi\022+\n\013E_AiAi"
+    "_List\030\001 \003(\0132\020.proto_ff.E_AiAiB\004\210\301\024\024", 915);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ai.proto", &protobuf_RegisterTypes);
-  aiaihpDesc::default_instance_ = new aiaihpDesc();
-  aiai::default_instance_ = new aiai();
-  Sheet_aiai::default_instance_ = new Sheet_aiai();
-  aiaihpDesc::default_instance_->InitAsDefaultInstance();
-  aiai::default_instance_->InitAsDefaultInstance();
-  Sheet_aiai::default_instance_->InitAsDefaultInstance();
+  E_AiAiHpDesc::default_instance_ = new E_AiAiHpDesc();
+  E_AiAi::default_instance_ = new E_AiAi();
+  Sheet_AiAi::default_instance_ = new Sheet_AiAi();
+  E_AiAiHpDesc::default_instance_->InitAsDefaultInstance();
+  E_AiAi::default_instance_->InitAsDefaultInstance();
+  Sheet_AiAi::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ai_2eproto);
 }
 
@@ -182,119 +183,119 @@ struct StaticDescriptorInitializer_ai_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int aiaihpDesc::kSkillFieldNumber;
-const int aiaihpDesc::kPercentFieldNumber;
-const int aiaihpDesc::kChatFieldNumber;
+const int E_AiAiHpDesc::kMSkillFieldNumber;
+const int E_AiAiHpDesc::kMPercentFieldNumber;
+const int E_AiAiHpDesc::kMChatFieldNumber;
 #endif  // !_MSC_VER
 
-aiaihpDesc::aiaihpDesc()
+E_AiAiHpDesc::E_AiAiHpDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void aiaihpDesc::InitAsDefaultInstance() {
+void E_AiAiHpDesc::InitAsDefaultInstance() {
 }
 
-aiaihpDesc::aiaihpDesc(const aiaihpDesc& from)
+E_AiAiHpDesc::E_AiAiHpDesc(const E_AiAiHpDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void aiaihpDesc::SharedCtor() {
+void E_AiAiHpDesc::SharedCtor() {
   _cached_size_ = 0;
-  skill_ = GOOGLE_LONGLONG(0);
-  percent_ = 0;
-  chat_ = GOOGLE_LONGLONG(0);
+  m_skill_ = GOOGLE_LONGLONG(0);
+  m_percent_ = 0;
+  m_chat_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-aiaihpDesc::~aiaihpDesc() {
+E_AiAiHpDesc::~E_AiAiHpDesc() {
   SharedDtor();
 }
 
-void aiaihpDesc::SharedDtor() {
+void E_AiAiHpDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void aiaihpDesc::SetCachedSize(int size) const {
+void E_AiAiHpDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* aiaihpDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_AiAiHpDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return aiaihpDesc_descriptor_;
+  return E_AiAiHpDesc_descriptor_;
 }
 
-const aiaihpDesc& aiaihpDesc::default_instance() {
+const E_AiAiHpDesc& E_AiAiHpDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ai_2eproto();
   return *default_instance_;
 }
 
-aiaihpDesc* aiaihpDesc::default_instance_ = NULL;
+E_AiAiHpDesc* E_AiAiHpDesc::default_instance_ = NULL;
 
-aiaihpDesc* aiaihpDesc::New() const {
-  return new aiaihpDesc;
+E_AiAiHpDesc* E_AiAiHpDesc::New() const {
+  return new E_AiAiHpDesc;
 }
 
-void aiaihpDesc::Clear() {
+void E_AiAiHpDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    skill_ = GOOGLE_LONGLONG(0);
-    percent_ = 0;
-    chat_ = GOOGLE_LONGLONG(0);
+    m_skill_ = GOOGLE_LONGLONG(0);
+    m_percent_ = 0;
+    m_chat_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool aiaihpDesc::MergePartialFromCodedStream(
+bool E_AiAiHpDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 skill = 1;
+      // optional int64 m_skill = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &skill_)));
-          set_has_skill();
+                 input, &m_skill_)));
+          set_has_m_skill();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_percent;
+        if (input->ExpectTag(16)) goto parse_m_percent;
         break;
       }
 
-      // optional int32 percent = 2;
+      // optional int32 m_percent = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_percent:
+         parse_m_percent:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &percent_)));
-          set_has_percent();
+                 input, &m_percent_)));
+          set_has_m_percent();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_chat;
+        if (input->ExpectTag(24)) goto parse_m_chat;
         break;
       }
 
-      // optional int64 chat = 3;
+      // optional int64 m_chat = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_chat:
+         parse_m_chat:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &chat_)));
-          set_has_chat();
+                 input, &m_chat_)));
+          set_has_m_chat();
         } else {
           goto handle_uninterpreted;
         }
@@ -318,21 +319,21 @@ bool aiaihpDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void aiaihpDesc::SerializeWithCachedSizes(
+void E_AiAiHpDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 skill = 1;
-  if (has_skill()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->skill(), output);
+  // optional int64 m_skill = 1;
+  if (has_m_skill()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_skill(), output);
   }
 
-  // optional int32 percent = 2;
-  if (has_percent()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->percent(), output);
+  // optional int32 m_percent = 2;
+  if (has_m_percent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_percent(), output);
   }
 
-  // optional int64 chat = 3;
-  if (has_chat()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->chat(), output);
+  // optional int64 m_chat = 3;
+  if (has_m_chat()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->m_chat(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -341,21 +342,21 @@ void aiaihpDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* aiaihpDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_AiAiHpDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 skill = 1;
-  if (has_skill()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->skill(), target);
+  // optional int64 m_skill = 1;
+  if (has_m_skill()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_skill(), target);
   }
 
-  // optional int32 percent = 2;
-  if (has_percent()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->percent(), target);
+  // optional int32 m_percent = 2;
+  if (has_m_percent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_percent(), target);
   }
 
-  // optional int64 chat = 3;
-  if (has_chat()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->chat(), target);
+  // optional int64 m_chat = 3;
+  if (has_m_chat()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->m_chat(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -365,29 +366,29 @@ void aiaihpDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int aiaihpDesc::ByteSize() const {
+int E_AiAiHpDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 skill = 1;
-    if (has_skill()) {
+    // optional int64 m_skill = 1;
+    if (has_m_skill()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->skill());
+          this->m_skill());
     }
 
-    // optional int32 percent = 2;
-    if (has_percent()) {
+    // optional int32 m_percent = 2;
+    if (has_m_percent()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->percent());
+          this->m_percent());
     }
 
-    // optional int64 chat = 3;
-    if (has_chat()) {
+    // optional int64 m_chat = 3;
+    if (has_m_chat()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->chat());
+          this->m_chat());
     }
 
   }
@@ -402,10 +403,10 @@ int aiaihpDesc::ByteSize() const {
   return total_size;
 }
 
-void aiaihpDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_AiAiHpDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const aiaihpDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const aiaihpDesc*>(
+  const E_AiAiHpDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AiAiHpDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -414,55 +415,55 @@ void aiaihpDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void aiaihpDesc::MergeFrom(const aiaihpDesc& from) {
+void E_AiAiHpDesc::MergeFrom(const E_AiAiHpDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_skill()) {
-      set_skill(from.skill());
+    if (from.has_m_skill()) {
+      set_m_skill(from.m_skill());
     }
-    if (from.has_percent()) {
-      set_percent(from.percent());
+    if (from.has_m_percent()) {
+      set_m_percent(from.m_percent());
     }
-    if (from.has_chat()) {
-      set_chat(from.chat());
+    if (from.has_m_chat()) {
+      set_m_chat(from.m_chat());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void aiaihpDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_AiAiHpDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void aiaihpDesc::CopyFrom(const aiaihpDesc& from) {
+void E_AiAiHpDesc::CopyFrom(const E_AiAiHpDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool aiaihpDesc::IsInitialized() const {
+bool E_AiAiHpDesc::IsInitialized() const {
 
   return true;
 }
 
-void aiaihpDesc::Swap(aiaihpDesc* other) {
+void E_AiAiHpDesc::Swap(E_AiAiHpDesc* other) {
   if (other != this) {
-    std::swap(skill_, other->skill_);
-    std::swap(percent_, other->percent_);
-    std::swap(chat_, other->chat_);
+    std::swap(m_skill_, other->m_skill_);
+    std::swap(m_percent_, other->m_percent_);
+    std::swap(m_chat_, other->m_chat_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata aiaihpDesc::GetMetadata() const {
+::google::protobuf::Metadata E_AiAiHpDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = aiaihpDesc_descriptor_;
-  metadata.reflection = aiaihpDesc_reflection_;
+  metadata.descriptor = E_AiAiHpDesc_descriptor_;
+  metadata.reflection = E_AiAiHpDesc_reflection_;
   return metadata;
 }
 
@@ -470,374 +471,374 @@ void aiaihpDesc::Swap(aiaihpDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int aiai::kIdFieldNumber;
-const int aiai::kTypeFieldNumber;
-const int aiai::kDeadHateRemainFieldNumber;
-const int aiai::kInvisibleRemainFieldNumber;
-const int aiai::kIsActiveFieldNumber;
-const int aiai::kReturnTypeFieldNumber;
-const int aiai::kViewFieldNumber;
-const int aiai::kIsAttackedShowOffFieldNumber;
-const int aiai::kPursueRangeFieldNumber;
-const int aiai::kActionRangeFieldNumber;
-const int aiai::kWakeupRadiusFieldNumber;
-const int aiai::kIsAIWorkWhenNobodyFieldNumber;
-const int aiai::kBornEffectAIDelayFieldNumber;
-const int aiai::kInitSkillsFieldNumber;
-const int aiai::kHpFieldNumber;
+const int E_AiAi::kMIdFieldNumber;
+const int E_AiAi::kMTypeFieldNumber;
+const int E_AiAi::kMDeadhateremainFieldNumber;
+const int E_AiAi::kMInvisibleremainFieldNumber;
+const int E_AiAi::kMIsactiveFieldNumber;
+const int E_AiAi::kMReturntypeFieldNumber;
+const int E_AiAi::kMViewFieldNumber;
+const int E_AiAi::kMIsattackedshowoffFieldNumber;
+const int E_AiAi::kMPursuerangeFieldNumber;
+const int E_AiAi::kMActionrangeFieldNumber;
+const int E_AiAi::kMWakeupradiusFieldNumber;
+const int E_AiAi::kMIsaiworkwhennobodyFieldNumber;
+const int E_AiAi::kMBorneffectaidelayFieldNumber;
+const int E_AiAi::kMInitskillsFieldNumber;
+const int E_AiAi::kMHpFieldNumber;
 #endif  // !_MSC_VER
 
-aiai::aiai()
+E_AiAi::E_AiAi()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void aiai::InitAsDefaultInstance() {
+void E_AiAi::InitAsDefaultInstance() {
 }
 
-aiai::aiai(const aiai& from)
+E_AiAi::E_AiAi(const E_AiAi& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void aiai::SharedCtor() {
+void E_AiAi::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  type_ = 0;
-  deadhateremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  invisibleremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  isactive_ = 0;
-  returntype_ = 0;
-  view_ = 0;
-  isattackedshowoff_ = 0;
-  pursuerange_ = 0;
-  actionrange_ = 0;
-  wakeupradius_ = 0;
-  isaiworkwhennobody_ = 0;
-  borneffectaidelay_ = 0;
-  initskills_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_type_ = 0;
+  m_deadhateremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_invisibleremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_isactive_ = 0;
+  m_returntype_ = 0;
+  m_view_ = 0;
+  m_isattackedshowoff_ = 0;
+  m_pursuerange_ = 0;
+  m_actionrange_ = 0;
+  m_wakeupradius_ = 0;
+  m_isaiworkwhennobody_ = 0;
+  m_borneffectaidelay_ = 0;
+  m_initskills_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-aiai::~aiai() {
+E_AiAi::~E_AiAi() {
   SharedDtor();
 }
 
-void aiai::SharedDtor() {
-  if (deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
-    delete deadhateremain_;
+void E_AiAi::SharedDtor() {
+  if (m_deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_deadhateremain_;
   }
-  if (invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
-    delete invisibleremain_;
+  if (m_invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_invisibleremain_;
   }
-  if (initskills_ != &::google::protobuf::internal::kEmptyString) {
-    delete initskills_;
+  if (m_initskills_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_initskills_;
   }
   if (this != default_instance_) {
   }
 }
 
-void aiai::SetCachedSize(int size) const {
+void E_AiAi::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* aiai::descriptor() {
+const ::google::protobuf::Descriptor* E_AiAi::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return aiai_descriptor_;
+  return E_AiAi_descriptor_;
 }
 
-const aiai& aiai::default_instance() {
+const E_AiAi& E_AiAi::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ai_2eproto();
   return *default_instance_;
 }
 
-aiai* aiai::default_instance_ = NULL;
+E_AiAi* E_AiAi::default_instance_ = NULL;
 
-aiai* aiai::New() const {
-  return new aiai;
+E_AiAi* E_AiAi::New() const {
+  return new E_AiAi;
 }
 
-void aiai::Clear() {
+void E_AiAi::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    type_ = 0;
-    if (has_deadhateremain()) {
-      if (deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
-        deadhateremain_->clear();
+    m_id_ = GOOGLE_LONGLONG(0);
+    m_type_ = 0;
+    if (has_m_deadhateremain()) {
+      if (m_deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
+        m_deadhateremain_->clear();
       }
     }
-    if (has_invisibleremain()) {
-      if (invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
-        invisibleremain_->clear();
+    if (has_m_invisibleremain()) {
+      if (m_invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
+        m_invisibleremain_->clear();
       }
     }
-    isactive_ = 0;
-    returntype_ = 0;
-    view_ = 0;
-    isattackedshowoff_ = 0;
+    m_isactive_ = 0;
+    m_returntype_ = 0;
+    m_view_ = 0;
+    m_isattackedshowoff_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    pursuerange_ = 0;
-    actionrange_ = 0;
-    wakeupradius_ = 0;
-    isaiworkwhennobody_ = 0;
-    borneffectaidelay_ = 0;
-    if (has_initskills()) {
-      if (initskills_ != &::google::protobuf::internal::kEmptyString) {
-        initskills_->clear();
+    m_pursuerange_ = 0;
+    m_actionrange_ = 0;
+    m_wakeupradius_ = 0;
+    m_isaiworkwhennobody_ = 0;
+    m_borneffectaidelay_ = 0;
+    if (has_m_initskills()) {
+      if (m_initskills_ != &::google::protobuf::internal::kEmptyString) {
+        m_initskills_->clear();
       }
     }
   }
-  hp_.Clear();
+  m_hp_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool aiai::MergePartialFromCodedStream(
+bool E_AiAi::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_type;
+        if (input->ExpectTag(16)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 2;
+      // optional int32 m_type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_deadHateRemain;
+        if (input->ExpectTag(26)) goto parse_m_deadhateremain;
         break;
       }
 
-      // optional string deadHateRemain = 3;
+      // optional string m_deadhateremain = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_deadHateRemain:
+         parse_m_deadhateremain:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_deadhateremain()));
+                input, this->mutable_m_deadhateremain()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->deadhateremain().data(), this->deadhateremain().length(),
+            this->m_deadhateremain().data(), this->m_deadhateremain().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_invisibleRemain;
+        if (input->ExpectTag(34)) goto parse_m_invisibleremain;
         break;
       }
 
-      // optional string invisibleRemain = 4;
+      // optional string m_invisibleremain = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_invisibleRemain:
+         parse_m_invisibleremain:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_invisibleremain()));
+                input, this->mutable_m_invisibleremain()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->invisibleremain().data(), this->invisibleremain().length(),
+            this->m_invisibleremain().data(), this->m_invisibleremain().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_isActive;
+        if (input->ExpectTag(40)) goto parse_m_isactive;
         break;
       }
 
-      // optional int32 isActive = 5;
+      // optional int32 m_isactive = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_isActive:
+         parse_m_isactive:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &isactive_)));
-          set_has_isactive();
+                 input, &m_isactive_)));
+          set_has_m_isactive();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_returnType;
+        if (input->ExpectTag(48)) goto parse_m_returntype;
         break;
       }
 
-      // optional int32 returnType = 6;
+      // optional int32 m_returntype = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_returnType:
+         parse_m_returntype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &returntype_)));
-          set_has_returntype();
+                 input, &m_returntype_)));
+          set_has_m_returntype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_view;
+        if (input->ExpectTag(56)) goto parse_m_view;
         break;
       }
 
-      // optional int32 view = 7;
+      // optional int32 m_view = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_view:
+         parse_m_view:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &view_)));
-          set_has_view();
+                 input, &m_view_)));
+          set_has_m_view();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_isAttackedShowOff;
+        if (input->ExpectTag(64)) goto parse_m_isattackedshowoff;
         break;
       }
 
-      // optional int32 isAttackedShowOff = 8;
+      // optional int32 m_isattackedshowoff = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_isAttackedShowOff:
+         parse_m_isattackedshowoff:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &isattackedshowoff_)));
-          set_has_isattackedshowoff();
+                 input, &m_isattackedshowoff_)));
+          set_has_m_isattackedshowoff();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_pursueRange;
+        if (input->ExpectTag(72)) goto parse_m_pursuerange;
         break;
       }
 
-      // optional int32 pursueRange = 9;
+      // optional int32 m_pursuerange = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_pursueRange:
+         parse_m_pursuerange:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &pursuerange_)));
-          set_has_pursuerange();
+                 input, &m_pursuerange_)));
+          set_has_m_pursuerange();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_actionRange;
+        if (input->ExpectTag(80)) goto parse_m_actionrange;
         break;
       }
 
-      // optional int32 actionRange = 10;
+      // optional int32 m_actionrange = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_actionRange:
+         parse_m_actionrange:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &actionrange_)));
-          set_has_actionrange();
+                 input, &m_actionrange_)));
+          set_has_m_actionrange();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_wakeupRadius;
+        if (input->ExpectTag(88)) goto parse_m_wakeupradius;
         break;
       }
 
-      // optional int32 wakeupRadius = 11;
+      // optional int32 m_wakeupradius = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_wakeupRadius:
+         parse_m_wakeupradius:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &wakeupradius_)));
-          set_has_wakeupradius();
+                 input, &m_wakeupradius_)));
+          set_has_m_wakeupradius();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_isAIWorkWhenNobody;
+        if (input->ExpectTag(96)) goto parse_m_isaiworkwhennobody;
         break;
       }
 
-      // optional int32 isAIWorkWhenNobody = 12;
+      // optional int32 m_isaiworkwhennobody = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_isAIWorkWhenNobody:
+         parse_m_isaiworkwhennobody:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &isaiworkwhennobody_)));
-          set_has_isaiworkwhennobody();
+                 input, &m_isaiworkwhennobody_)));
+          set_has_m_isaiworkwhennobody();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_bornEffectAIDelay;
+        if (input->ExpectTag(104)) goto parse_m_borneffectaidelay;
         break;
       }
 
-      // optional int32 bornEffectAIDelay = 13;
+      // optional int32 m_borneffectaidelay = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bornEffectAIDelay:
+         parse_m_borneffectaidelay:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &borneffectaidelay_)));
-          set_has_borneffectaidelay();
+                 input, &m_borneffectaidelay_)));
+          set_has_m_borneffectaidelay();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_initSkills;
+        if (input->ExpectTag(114)) goto parse_m_initskills;
         break;
       }
 
-      // optional string initSkills = 14;
+      // optional string m_initskills = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_initSkills:
+         parse_m_initskills:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_initskills()));
+                input, this->mutable_m_initskills()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->initskills().data(), this->initskills().length(),
+            this->m_initskills().data(), this->m_initskills().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(122)) goto parse_hp;
+        if (input->ExpectTag(122)) goto parse_m_hp;
         break;
       }
 
-      // repeated .proto_ff.aiaihpDesc hp = 15;
+      // repeated .proto_ff.E_AiAiHpDesc m_hp = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_hp:
+         parse_m_hp:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_hp()));
+                input, add_m_hp()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(122)) goto parse_hp;
+        if (input->ExpectTag(122)) goto parse_m_hp;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -858,94 +859,94 @@ bool aiai::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void aiai::SerializeWithCachedSizes(
+void E_AiAi::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional string deadHateRemain = 3;
-  if (has_deadhateremain()) {
+  // optional string m_deadhateremain = 3;
+  if (has_m_deadhateremain()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->deadhateremain().data(), this->deadhateremain().length(),
+      this->m_deadhateremain().data(), this->m_deadhateremain().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->deadhateremain(), output);
+      3, this->m_deadhateremain(), output);
   }
 
-  // optional string invisibleRemain = 4;
-  if (has_invisibleremain()) {
+  // optional string m_invisibleremain = 4;
+  if (has_m_invisibleremain()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->invisibleremain().data(), this->invisibleremain().length(),
+      this->m_invisibleremain().data(), this->m_invisibleremain().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->invisibleremain(), output);
+      4, this->m_invisibleremain(), output);
   }
 
-  // optional int32 isActive = 5;
-  if (has_isactive()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->isactive(), output);
+  // optional int32 m_isactive = 5;
+  if (has_m_isactive()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_isactive(), output);
   }
 
-  // optional int32 returnType = 6;
-  if (has_returntype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->returntype(), output);
+  // optional int32 m_returntype = 6;
+  if (has_m_returntype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_returntype(), output);
   }
 
-  // optional int32 view = 7;
-  if (has_view()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->view(), output);
+  // optional int32 m_view = 7;
+  if (has_m_view()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_view(), output);
   }
 
-  // optional int32 isAttackedShowOff = 8;
-  if (has_isattackedshowoff()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->isattackedshowoff(), output);
+  // optional int32 m_isattackedshowoff = 8;
+  if (has_m_isattackedshowoff()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_isattackedshowoff(), output);
   }
 
-  // optional int32 pursueRange = 9;
-  if (has_pursuerange()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->pursuerange(), output);
+  // optional int32 m_pursuerange = 9;
+  if (has_m_pursuerange()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_pursuerange(), output);
   }
 
-  // optional int32 actionRange = 10;
-  if (has_actionrange()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->actionrange(), output);
+  // optional int32 m_actionrange = 10;
+  if (has_m_actionrange()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_actionrange(), output);
   }
 
-  // optional int32 wakeupRadius = 11;
-  if (has_wakeupradius()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->wakeupradius(), output);
+  // optional int32 m_wakeupradius = 11;
+  if (has_m_wakeupradius()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_wakeupradius(), output);
   }
 
-  // optional int32 isAIWorkWhenNobody = 12;
-  if (has_isaiworkwhennobody()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->isaiworkwhennobody(), output);
+  // optional int32 m_isaiworkwhennobody = 12;
+  if (has_m_isaiworkwhennobody()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_isaiworkwhennobody(), output);
   }
 
-  // optional int32 bornEffectAIDelay = 13;
-  if (has_borneffectaidelay()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->borneffectaidelay(), output);
+  // optional int32 m_borneffectaidelay = 13;
+  if (has_m_borneffectaidelay()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_borneffectaidelay(), output);
   }
 
-  // optional string initSkills = 14;
-  if (has_initskills()) {
+  // optional string m_initskills = 14;
+  if (has_m_initskills()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->initskills().data(), this->initskills().length(),
+      this->m_initskills().data(), this->m_initskills().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      14, this->initskills(), output);
+      14, this->m_initskills(), output);
   }
 
-  // repeated .proto_ff.aiaihpDesc hp = 15;
-  for (int i = 0; i < this->hp_size(); i++) {
+  // repeated .proto_ff.E_AiAiHpDesc m_hp = 15;
+  for (int i = 0; i < this->m_hp_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      15, this->hp(i), output);
+      15, this->m_hp(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -954,98 +955,98 @@ void aiai::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* aiai::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_AiAi::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional string deadHateRemain = 3;
-  if (has_deadhateremain()) {
+  // optional string m_deadhateremain = 3;
+  if (has_m_deadhateremain()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->deadhateremain().data(), this->deadhateremain().length(),
+      this->m_deadhateremain().data(), this->m_deadhateremain().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->deadhateremain(), target);
+        3, this->m_deadhateremain(), target);
   }
 
-  // optional string invisibleRemain = 4;
-  if (has_invisibleremain()) {
+  // optional string m_invisibleremain = 4;
+  if (has_m_invisibleremain()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->invisibleremain().data(), this->invisibleremain().length(),
+      this->m_invisibleremain().data(), this->m_invisibleremain().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->invisibleremain(), target);
+        4, this->m_invisibleremain(), target);
   }
 
-  // optional int32 isActive = 5;
-  if (has_isactive()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->isactive(), target);
+  // optional int32 m_isactive = 5;
+  if (has_m_isactive()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_isactive(), target);
   }
 
-  // optional int32 returnType = 6;
-  if (has_returntype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->returntype(), target);
+  // optional int32 m_returntype = 6;
+  if (has_m_returntype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_returntype(), target);
   }
 
-  // optional int32 view = 7;
-  if (has_view()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->view(), target);
+  // optional int32 m_view = 7;
+  if (has_m_view()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_view(), target);
   }
 
-  // optional int32 isAttackedShowOff = 8;
-  if (has_isattackedshowoff()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->isattackedshowoff(), target);
+  // optional int32 m_isattackedshowoff = 8;
+  if (has_m_isattackedshowoff()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_isattackedshowoff(), target);
   }
 
-  // optional int32 pursueRange = 9;
-  if (has_pursuerange()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->pursuerange(), target);
+  // optional int32 m_pursuerange = 9;
+  if (has_m_pursuerange()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_pursuerange(), target);
   }
 
-  // optional int32 actionRange = 10;
-  if (has_actionrange()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->actionrange(), target);
+  // optional int32 m_actionrange = 10;
+  if (has_m_actionrange()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_actionrange(), target);
   }
 
-  // optional int32 wakeupRadius = 11;
-  if (has_wakeupradius()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->wakeupradius(), target);
+  // optional int32 m_wakeupradius = 11;
+  if (has_m_wakeupradius()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_wakeupradius(), target);
   }
 
-  // optional int32 isAIWorkWhenNobody = 12;
-  if (has_isaiworkwhennobody()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->isaiworkwhennobody(), target);
+  // optional int32 m_isaiworkwhennobody = 12;
+  if (has_m_isaiworkwhennobody()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_isaiworkwhennobody(), target);
   }
 
-  // optional int32 bornEffectAIDelay = 13;
-  if (has_borneffectaidelay()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->borneffectaidelay(), target);
+  // optional int32 m_borneffectaidelay = 13;
+  if (has_m_borneffectaidelay()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_borneffectaidelay(), target);
   }
 
-  // optional string initSkills = 14;
-  if (has_initskills()) {
+  // optional string m_initskills = 14;
+  if (has_m_initskills()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->initskills().data(), this->initskills().length(),
+      this->m_initskills().data(), this->m_initskills().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        14, this->initskills(), target);
+        14, this->m_initskills(), target);
   }
 
-  // repeated .proto_ff.aiaihpDesc hp = 15;
-  for (int i = 0; i < this->hp_size(); i++) {
+  // repeated .proto_ff.E_AiAiHpDesc m_hp = 15;
+  for (int i = 0; i < this->m_hp_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        15, this->hp(i), target);
+        15, this->m_hp(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1055,117 +1056,117 @@ void aiai::SerializeWithCachedSizes(
   return target;
 }
 
-int aiai::ByteSize() const {
+int E_AiAi::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 type = 2;
-    if (has_type()) {
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional string deadHateRemain = 3;
-    if (has_deadhateremain()) {
+    // optional string m_deadhateremain = 3;
+    if (has_m_deadhateremain()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->deadhateremain());
+          this->m_deadhateremain());
     }
 
-    // optional string invisibleRemain = 4;
-    if (has_invisibleremain()) {
+    // optional string m_invisibleremain = 4;
+    if (has_m_invisibleremain()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->invisibleremain());
+          this->m_invisibleremain());
     }
 
-    // optional int32 isActive = 5;
-    if (has_isactive()) {
+    // optional int32 m_isactive = 5;
+    if (has_m_isactive()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->isactive());
+          this->m_isactive());
     }
 
-    // optional int32 returnType = 6;
-    if (has_returntype()) {
+    // optional int32 m_returntype = 6;
+    if (has_m_returntype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->returntype());
+          this->m_returntype());
     }
 
-    // optional int32 view = 7;
-    if (has_view()) {
+    // optional int32 m_view = 7;
+    if (has_m_view()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->view());
+          this->m_view());
     }
 
-    // optional int32 isAttackedShowOff = 8;
-    if (has_isattackedshowoff()) {
+    // optional int32 m_isattackedshowoff = 8;
+    if (has_m_isattackedshowoff()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->isattackedshowoff());
+          this->m_isattackedshowoff());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 pursueRange = 9;
-    if (has_pursuerange()) {
+    // optional int32 m_pursuerange = 9;
+    if (has_m_pursuerange()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->pursuerange());
+          this->m_pursuerange());
     }
 
-    // optional int32 actionRange = 10;
-    if (has_actionrange()) {
+    // optional int32 m_actionrange = 10;
+    if (has_m_actionrange()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->actionrange());
+          this->m_actionrange());
     }
 
-    // optional int32 wakeupRadius = 11;
-    if (has_wakeupradius()) {
+    // optional int32 m_wakeupradius = 11;
+    if (has_m_wakeupradius()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->wakeupradius());
+          this->m_wakeupradius());
     }
 
-    // optional int32 isAIWorkWhenNobody = 12;
-    if (has_isaiworkwhennobody()) {
+    // optional int32 m_isaiworkwhennobody = 12;
+    if (has_m_isaiworkwhennobody()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->isaiworkwhennobody());
+          this->m_isaiworkwhennobody());
     }
 
-    // optional int32 bornEffectAIDelay = 13;
-    if (has_borneffectaidelay()) {
+    // optional int32 m_borneffectaidelay = 13;
+    if (has_m_borneffectaidelay()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->borneffectaidelay());
+          this->m_borneffectaidelay());
     }
 
-    // optional string initSkills = 14;
-    if (has_initskills()) {
+    // optional string m_initskills = 14;
+    if (has_m_initskills()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->initskills());
+          this->m_initskills());
     }
 
   }
-  // repeated .proto_ff.aiaihpDesc hp = 15;
-  total_size += 1 * this->hp_size();
-  for (int i = 0; i < this->hp_size(); i++) {
+  // repeated .proto_ff.E_AiAiHpDesc m_hp = 15;
+  total_size += 1 * this->m_hp_size();
+  for (int i = 0; i < this->m_hp_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->hp(i));
+        this->m_hp(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1179,10 +1180,10 @@ int aiai::ByteSize() const {
   return total_size;
 }
 
-void aiai::MergeFrom(const ::google::protobuf::Message& from) {
+void E_AiAi::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const aiai* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const aiai*>(
+  const E_AiAi* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AiAi*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1191,103 +1192,103 @@ void aiai::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void aiai::MergeFrom(const aiai& from) {
+void E_AiAi::MergeFrom(const E_AiAi& from) {
   GOOGLE_CHECK_NE(&from, this);
-  hp_.MergeFrom(from.hp_);
+  m_hp_.MergeFrom(from.m_hp_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_deadhateremain()) {
-      set_deadhateremain(from.deadhateremain());
+    if (from.has_m_deadhateremain()) {
+      set_m_deadhateremain(from.m_deadhateremain());
     }
-    if (from.has_invisibleremain()) {
-      set_invisibleremain(from.invisibleremain());
+    if (from.has_m_invisibleremain()) {
+      set_m_invisibleremain(from.m_invisibleremain());
     }
-    if (from.has_isactive()) {
-      set_isactive(from.isactive());
+    if (from.has_m_isactive()) {
+      set_m_isactive(from.m_isactive());
     }
-    if (from.has_returntype()) {
-      set_returntype(from.returntype());
+    if (from.has_m_returntype()) {
+      set_m_returntype(from.m_returntype());
     }
-    if (from.has_view()) {
-      set_view(from.view());
+    if (from.has_m_view()) {
+      set_m_view(from.m_view());
     }
-    if (from.has_isattackedshowoff()) {
-      set_isattackedshowoff(from.isattackedshowoff());
+    if (from.has_m_isattackedshowoff()) {
+      set_m_isattackedshowoff(from.m_isattackedshowoff());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_pursuerange()) {
-      set_pursuerange(from.pursuerange());
+    if (from.has_m_pursuerange()) {
+      set_m_pursuerange(from.m_pursuerange());
     }
-    if (from.has_actionrange()) {
-      set_actionrange(from.actionrange());
+    if (from.has_m_actionrange()) {
+      set_m_actionrange(from.m_actionrange());
     }
-    if (from.has_wakeupradius()) {
-      set_wakeupradius(from.wakeupradius());
+    if (from.has_m_wakeupradius()) {
+      set_m_wakeupradius(from.m_wakeupradius());
     }
-    if (from.has_isaiworkwhennobody()) {
-      set_isaiworkwhennobody(from.isaiworkwhennobody());
+    if (from.has_m_isaiworkwhennobody()) {
+      set_m_isaiworkwhennobody(from.m_isaiworkwhennobody());
     }
-    if (from.has_borneffectaidelay()) {
-      set_borneffectaidelay(from.borneffectaidelay());
+    if (from.has_m_borneffectaidelay()) {
+      set_m_borneffectaidelay(from.m_borneffectaidelay());
     }
-    if (from.has_initskills()) {
-      set_initskills(from.initskills());
+    if (from.has_m_initskills()) {
+      set_m_initskills(from.m_initskills());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void aiai::CopyFrom(const ::google::protobuf::Message& from) {
+void E_AiAi::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void aiai::CopyFrom(const aiai& from) {
+void E_AiAi::CopyFrom(const E_AiAi& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool aiai::IsInitialized() const {
+bool E_AiAi::IsInitialized() const {
 
   return true;
 }
 
-void aiai::Swap(aiai* other) {
+void E_AiAi::Swap(E_AiAi* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(type_, other->type_);
-    std::swap(deadhateremain_, other->deadhateremain_);
-    std::swap(invisibleremain_, other->invisibleremain_);
-    std::swap(isactive_, other->isactive_);
-    std::swap(returntype_, other->returntype_);
-    std::swap(view_, other->view_);
-    std::swap(isattackedshowoff_, other->isattackedshowoff_);
-    std::swap(pursuerange_, other->pursuerange_);
-    std::swap(actionrange_, other->actionrange_);
-    std::swap(wakeupradius_, other->wakeupradius_);
-    std::swap(isaiworkwhennobody_, other->isaiworkwhennobody_);
-    std::swap(borneffectaidelay_, other->borneffectaidelay_);
-    std::swap(initskills_, other->initskills_);
-    hp_.Swap(&other->hp_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_deadhateremain_, other->m_deadhateremain_);
+    std::swap(m_invisibleremain_, other->m_invisibleremain_);
+    std::swap(m_isactive_, other->m_isactive_);
+    std::swap(m_returntype_, other->m_returntype_);
+    std::swap(m_view_, other->m_view_);
+    std::swap(m_isattackedshowoff_, other->m_isattackedshowoff_);
+    std::swap(m_pursuerange_, other->m_pursuerange_);
+    std::swap(m_actionrange_, other->m_actionrange_);
+    std::swap(m_wakeupradius_, other->m_wakeupradius_);
+    std::swap(m_isaiworkwhennobody_, other->m_isaiworkwhennobody_);
+    std::swap(m_borneffectaidelay_, other->m_borneffectaidelay_);
+    std::swap(m_initskills_, other->m_initskills_);
+    m_hp_.Swap(&other->m_hp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata aiai::GetMetadata() const {
+::google::protobuf::Metadata E_AiAi::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = aiai_descriptor_;
-  metadata.reflection = aiai_reflection_;
+  metadata.descriptor = E_AiAi_descriptor_;
+  metadata.reflection = E_AiAi_reflection_;
   return metadata;
 }
 
@@ -1295,81 +1296,81 @@ void aiai::Swap(aiai* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_aiai::kAiaiListFieldNumber;
+const int Sheet_AiAi::kEAiAiListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_aiai::Sheet_aiai()
+Sheet_AiAi::Sheet_AiAi()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_aiai::InitAsDefaultInstance() {
+void Sheet_AiAi::InitAsDefaultInstance() {
 }
 
-Sheet_aiai::Sheet_aiai(const Sheet_aiai& from)
+Sheet_AiAi::Sheet_AiAi(const Sheet_AiAi& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_aiai::SharedCtor() {
+void Sheet_AiAi::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_aiai::~Sheet_aiai() {
+Sheet_AiAi::~Sheet_AiAi() {
   SharedDtor();
 }
 
-void Sheet_aiai::SharedDtor() {
+void Sheet_AiAi::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_aiai::SetCachedSize(int size) const {
+void Sheet_AiAi::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_aiai::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_AiAi::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_aiai_descriptor_;
+  return Sheet_AiAi_descriptor_;
 }
 
-const Sheet_aiai& Sheet_aiai::default_instance() {
+const Sheet_AiAi& Sheet_AiAi::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ai_2eproto();
   return *default_instance_;
 }
 
-Sheet_aiai* Sheet_aiai::default_instance_ = NULL;
+Sheet_AiAi* Sheet_AiAi::default_instance_ = NULL;
 
-Sheet_aiai* Sheet_aiai::New() const {
-  return new Sheet_aiai;
+Sheet_AiAi* Sheet_AiAi::New() const {
+  return new Sheet_AiAi;
 }
 
-void Sheet_aiai::Clear() {
-  aiai_list_.Clear();
+void Sheet_AiAi::Clear() {
+  e_aiai_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_aiai::MergePartialFromCodedStream(
+bool Sheet_AiAi::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.aiai aiai_List = 1;
+      // repeated .proto_ff.E_AiAi E_AiAi_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_aiai_List:
+         parse_E_AiAi_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_aiai_list()));
+                input, add_e_aiai_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_aiai_List;
+        if (input->ExpectTag(10)) goto parse_E_AiAi_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1390,12 +1391,12 @@ bool Sheet_aiai::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_aiai::SerializeWithCachedSizes(
+void Sheet_AiAi::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.aiai aiai_List = 1;
-  for (int i = 0; i < this->aiai_list_size(); i++) {
+  // repeated .proto_ff.E_AiAi E_AiAi_List = 1;
+  for (int i = 0; i < this->e_aiai_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->aiai_list(i), output);
+      1, this->e_aiai_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1404,13 +1405,13 @@ void Sheet_aiai::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_aiai::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_AiAi::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.aiai aiai_List = 1;
-  for (int i = 0; i < this->aiai_list_size(); i++) {
+  // repeated .proto_ff.E_AiAi E_AiAi_List = 1;
+  for (int i = 0; i < this->e_aiai_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->aiai_list(i), target);
+        1, this->e_aiai_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1420,15 +1421,15 @@ void Sheet_aiai::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_aiai::ByteSize() const {
+int Sheet_AiAi::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.aiai aiai_List = 1;
-  total_size += 1 * this->aiai_list_size();
-  for (int i = 0; i < this->aiai_list_size(); i++) {
+  // repeated .proto_ff.E_AiAi E_AiAi_List = 1;
+  total_size += 1 * this->e_aiai_list_size();
+  for (int i = 0; i < this->e_aiai_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->aiai_list(i));
+        this->e_aiai_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1442,10 +1443,10 @@ int Sheet_aiai::ByteSize() const {
   return total_size;
 }
 
-void Sheet_aiai::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_AiAi::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_aiai* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_aiai*>(
+  const Sheet_AiAi* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AiAi*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1454,43 +1455,43 @@ void Sheet_aiai::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_aiai::MergeFrom(const Sheet_aiai& from) {
+void Sheet_AiAi::MergeFrom(const Sheet_AiAi& from) {
   GOOGLE_CHECK_NE(&from, this);
-  aiai_list_.MergeFrom(from.aiai_list_);
+  e_aiai_list_.MergeFrom(from.e_aiai_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_aiai::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_AiAi::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_aiai::CopyFrom(const Sheet_aiai& from) {
+void Sheet_AiAi::CopyFrom(const Sheet_AiAi& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_aiai::IsInitialized() const {
+bool Sheet_AiAi::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_aiai::Swap(Sheet_aiai* other) {
+void Sheet_AiAi::Swap(Sheet_AiAi* other) {
   if (other != this) {
-    aiai_list_.Swap(&other->aiai_list_);
+    e_aiai_list_.Swap(&other->e_aiai_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_aiai::GetMetadata() const {
+::google::protobuf::Metadata Sheet_AiAi::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_aiai_descriptor_;
-  metadata.reflection = Sheet_aiai_reflection_;
+  metadata.descriptor = Sheet_AiAi_descriptor_;
+  metadata.reflection = Sheet_AiAi_reflection_;
   return metadata;
 }
 

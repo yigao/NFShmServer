@@ -20,18 +20,18 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* fashionfashionattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_FashionFashionAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  fashionfashionattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* fashionfashionActiveAttributeDesc_descriptor_ = NULL;
+  E_FashionFashionAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FashionFashionActiveattributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  fashionfashionActiveAttributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* fashionfashion_descriptor_ = NULL;
+  E_FashionFashionActiveattributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FashionFashion_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  fashionfashion_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_fashionfashion_descriptor_ = NULL;
+  E_FashionFashion_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FashionFashion_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_fashionfashion_reflection_ = NULL;
+  Sheet_FashionFashion_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,80 +42,80 @@ void protobuf_AssignDesc_fashion_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "fashion.proto");
   GOOGLE_CHECK(file != NULL);
-  fashionfashionattributeDesc_descriptor_ = file->message_type(0);
-  static const int fashionfashionattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionattributeDesc, value_),
+  E_FashionFashionAttributeDesc_descriptor_ = file->message_type(0);
+  static const int E_FashionFashionAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionAttributeDesc, m_value_),
   };
-  fashionfashionattributeDesc_reflection_ =
+  E_FashionFashionAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      fashionfashionattributeDesc_descriptor_,
-      fashionfashionattributeDesc::default_instance_,
-      fashionfashionattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionattributeDesc, _unknown_fields_),
+      E_FashionFashionAttributeDesc_descriptor_,
+      E_FashionFashionAttributeDesc::default_instance_,
+      E_FashionFashionAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(fashionfashionattributeDesc));
-  fashionfashionActiveAttributeDesc_descriptor_ = file->message_type(1);
-  static const int fashionfashionActiveAttributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionActiveAttributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionActiveAttributeDesc, value_),
+      sizeof(E_FashionFashionAttributeDesc));
+  E_FashionFashionActiveattributeDesc_descriptor_ = file->message_type(1);
+  static const int E_FashionFashionActiveattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionActiveattributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionActiveattributeDesc, m_value_),
   };
-  fashionfashionActiveAttributeDesc_reflection_ =
+  E_FashionFashionActiveattributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      fashionfashionActiveAttributeDesc_descriptor_,
-      fashionfashionActiveAttributeDesc::default_instance_,
-      fashionfashionActiveAttributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionActiveAttributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashionActiveAttributeDesc, _unknown_fields_),
+      E_FashionFashionActiveattributeDesc_descriptor_,
+      E_FashionFashionActiveattributeDesc::default_instance_,
+      E_FashionFashionActiveattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionActiveattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashionActiveattributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(fashionfashionActiveAttributeDesc));
-  fashionfashion_descriptor_ = file->message_type(2);
-  static const int fashionfashion_offsets_[13] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, quality_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, professionlimit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, activationitem_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, activationnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, starid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, starnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, starup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, starber_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, attribute_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, activeattribute_),
+      sizeof(E_FashionFashionActiveattributeDesc));
+  E_FashionFashion_descriptor_ = file->message_type(2);
+  static const int E_FashionFashion_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_quality_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_professionlimit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_activationitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_activationnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_starid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_starnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_starup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_starber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_attribute_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, m_activeattribute_),
   };
-  fashionfashion_reflection_ =
+  E_FashionFashion_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      fashionfashion_descriptor_,
-      fashionfashion::default_instance_,
-      fashionfashion_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(fashionfashion, _unknown_fields_),
+      E_FashionFashion_descriptor_,
+      E_FashionFashion::default_instance_,
+      E_FashionFashion_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FashionFashion, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(fashionfashion));
-  Sheet_fashionfashion_descriptor_ = file->message_type(3);
-  static const int Sheet_fashionfashion_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_fashionfashion, fashionfashion_list_),
+      sizeof(E_FashionFashion));
+  Sheet_FashionFashion_descriptor_ = file->message_type(3);
+  static const int Sheet_FashionFashion_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FashionFashion, e_fashionfashion_list_),
   };
-  Sheet_fashionfashion_reflection_ =
+  Sheet_FashionFashion_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_fashionfashion_descriptor_,
-      Sheet_fashionfashion::default_instance_,
-      Sheet_fashionfashion_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_fashionfashion, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_fashionfashion, _unknown_fields_),
+      Sheet_FashionFashion_descriptor_,
+      Sheet_FashionFashion::default_instance_,
+      Sheet_FashionFashion_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FashionFashion, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FashionFashion, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_fashionfashion));
+      sizeof(Sheet_FashionFashion));
 }
 
 namespace {
@@ -129,26 +129,26 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    fashionfashionattributeDesc_descriptor_, &fashionfashionattributeDesc::default_instance());
+    E_FashionFashionAttributeDesc_descriptor_, &E_FashionFashionAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    fashionfashionActiveAttributeDesc_descriptor_, &fashionfashionActiveAttributeDesc::default_instance());
+    E_FashionFashionActiveattributeDesc_descriptor_, &E_FashionFashionActiveattributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    fashionfashion_descriptor_, &fashionfashion::default_instance());
+    E_FashionFashion_descriptor_, &E_FashionFashion::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_fashionfashion_descriptor_, &Sheet_fashionfashion::default_instance());
+    Sheet_FashionFashion_descriptor_, &Sheet_FashionFashion::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_fashion_2eproto() {
-  delete fashionfashionattributeDesc::default_instance_;
-  delete fashionfashionattributeDesc_reflection_;
-  delete fashionfashionActiveAttributeDesc::default_instance_;
-  delete fashionfashionActiveAttributeDesc_reflection_;
-  delete fashionfashion::default_instance_;
-  delete fashionfashion_reflection_;
-  delete Sheet_fashionfashion::default_instance_;
-  delete Sheet_fashionfashion_reflection_;
+  delete E_FashionFashionAttributeDesc::default_instance_;
+  delete E_FashionFashionAttributeDesc_reflection_;
+  delete E_FashionFashionActiveattributeDesc::default_instance_;
+  delete E_FashionFashionActiveattributeDesc_reflection_;
+  delete E_FashionFashion::default_instance_;
+  delete E_FashionFashion_reflection_;
+  delete Sheet_FashionFashion::default_instance_;
+  delete Sheet_FashionFashion_reflection_;
 }
 
 void protobuf_AddDesc_fashion_2eproto() {
@@ -160,39 +160,40 @@ void protobuf_AddDesc_fashion_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rfashion.proto\022\010proto_ff\032\025yd_fieldoptio"
-    "ns.proto\"O\n\033fashionfashionattributeDesc\022"
-    "\030\n\004type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005value\030\002 \001(\005"
-    "B\007\302\377\024\003\345\200\274\"U\n!fashionfashionActiveAttribu"
-    "teDesc\022\030\n\004type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005valu"
-    "e\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\363\004\n\016fashionfashion\022\030\n\002I"
-    "D\030\001 \001(\003B\014\302\377\024\010\346\227\266\350\243\205ID\022\"\n\004name\030\002 \001(\tB\024\302\377\024"
-    "\014\346\227\266\350\243\205\345\220\215\347\247\260\220\301\024<\022\036\n\004type\030\003 \001(\005B\020\302\377\024\014\345\244\226"
-    "\350\247\202\347\261\273\345\236\213\022!\n\007quality\030\004 \001(\005B\020\302\377\024\014\346\227\266\350\243\205\345\223"
-    "\201\350\264\250\022-\n\017professionLimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270"
-    "\232\351\231\220\345\210\266\220\301\024<\022*\n\016activationItem\030\006 \001(\003B\022\302\377\024"
-    "\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022-\n\ractivationNum\030\007 \001(\005B\026"
-    "\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022\"\n\006starId\030\010 \001(\003B\022"
-    "\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022,\n\007starNum\030\t \001(\tB\033\302\377\024"
-    "\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\254\002\022&\n\006starUp\030\n \001(\005"
-    "B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022<\n\007starBer\030\013 \001("
-    "\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345\242\236\345\212\240\347\232\204\347\231\276\345\210\206"
-    "\346\257\224\345\200\274\022H\n\tattribute\030\014 \003(\0132%.proto_ff.fas"
-    "hionfashionattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005"
-    "\022T\n\017ActiveAttribute\030\r \003(\0132+.proto_ff.fas"
-    "hionfashionActiveAttributeDescB\016\302\377\024\006\345\261\236\346"
-    "\200\247\210\301\024\006\"S\n\024Sheet_fashionfashion\022;\n\023fashio"
-    "nfashion_List\030\001 \003(\0132\030.proto_ff.fashionfa"
-    "shionB\004\210\301\024\024", 931);
+    "ns.proto\"U\n\035E_FashionFashionAttributeDes"
+    "c\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value"
+    "\030\002 \001(\005B\007\302\377\024\003\345\200\274\"[\n#E_FashionFashionActiv"
+    "eattributeDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345"
+    "\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\223\005\n\020E_Fashi"
+    "onFashion\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\227\266\350\243\205ID\022$\n"
+    "\006m_name\030\002 \001(\tB\024\302\377\024\014\346\227\266\350\243\205\345\220\215\347\247\260\220\301\024<\022 \n\006m"
+    "_type\030\003 \001(\005B\020\302\377\024\014\345\244\226\350\247\202\347\261\273\345\236\213\022#\n\tm_quali"
+    "ty\030\004 \001(\005B\020\302\377\024\014\346\227\266\350\243\205\345\223\201\350\264\250\022/\n\021m_professi"
+    "onlimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024<\022,\n\020m"
+    "_activationitem\030\006 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267I"
+    "D\022/\n\017m_activationnum\030\007 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201"
+    "\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starid\030\010 \001(\003B\022\302\377\024\016\345\215\207\346\230\237"
+    "\351\201\223\345\205\267id\022.\n\tm_starnum\030\t \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351"
+    "\201\223\345\205\267\346\225\260\351\207\217\220\301\024\254\002\022(\n\010m_starup\030\n \001(\005B\026\302\377\024\022"
+    "\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022>\n\tm_starber\030\013 \001(\005B+\302"
+    "\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345\242\236\345\212\240\347\232\204\347\231\276\345\210\206\346\257\224\345"
+    "\200\274\022L\n\013m_attribute\030\014 \003(\0132\'.proto_ff.E_Fas"
+    "hionFashionAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005"
+    "\022X\n\021m_activeattribute\030\r \003(\0132-.proto_ff.E"
+    "_FashionFashionActiveattributeDescB\016\302\377\024\006"
+    "\345\261\236\346\200\247\210\301\024\006\"W\n\024Sheet_FashionFashion\022\?\n\025E_"
+    "FashionFashion_List\030\001 \003(\0132\032.proto_ff.E_F"
+    "ashionFashionB\004\210\301\024\024", 979);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fashion.proto", &protobuf_RegisterTypes);
-  fashionfashionattributeDesc::default_instance_ = new fashionfashionattributeDesc();
-  fashionfashionActiveAttributeDesc::default_instance_ = new fashionfashionActiveAttributeDesc();
-  fashionfashion::default_instance_ = new fashionfashion();
-  Sheet_fashionfashion::default_instance_ = new Sheet_fashionfashion();
-  fashionfashionattributeDesc::default_instance_->InitAsDefaultInstance();
-  fashionfashionActiveAttributeDesc::default_instance_->InitAsDefaultInstance();
-  fashionfashion::default_instance_->InitAsDefaultInstance();
-  Sheet_fashionfashion::default_instance_->InitAsDefaultInstance();
+  E_FashionFashionAttributeDesc::default_instance_ = new E_FashionFashionAttributeDesc();
+  E_FashionFashionActiveattributeDesc::default_instance_ = new E_FashionFashionActiveattributeDesc();
+  E_FashionFashion::default_instance_ = new E_FashionFashion();
+  Sheet_FashionFashion::default_instance_ = new Sheet_FashionFashion();
+  E_FashionFashionAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_FashionFashionActiveattributeDesc::default_instance_->InitAsDefaultInstance();
+  E_FashionFashion::default_instance_->InitAsDefaultInstance();
+  Sheet_FashionFashion::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_fashion_2eproto);
 }
 
@@ -206,100 +207,100 @@ struct StaticDescriptorInitializer_fashion_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int fashionfashionattributeDesc::kTypeFieldNumber;
-const int fashionfashionattributeDesc::kValueFieldNumber;
+const int E_FashionFashionAttributeDesc::kMTypeFieldNumber;
+const int E_FashionFashionAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-fashionfashionattributeDesc::fashionfashionattributeDesc()
+E_FashionFashionAttributeDesc::E_FashionFashionAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void fashionfashionattributeDesc::InitAsDefaultInstance() {
+void E_FashionFashionAttributeDesc::InitAsDefaultInstance() {
 }
 
-fashionfashionattributeDesc::fashionfashionattributeDesc(const fashionfashionattributeDesc& from)
+E_FashionFashionAttributeDesc::E_FashionFashionAttributeDesc(const E_FashionFashionAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void fashionfashionattributeDesc::SharedCtor() {
+void E_FashionFashionAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-fashionfashionattributeDesc::~fashionfashionattributeDesc() {
+E_FashionFashionAttributeDesc::~E_FashionFashionAttributeDesc() {
   SharedDtor();
 }
 
-void fashionfashionattributeDesc::SharedDtor() {
+void E_FashionFashionAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void fashionfashionattributeDesc::SetCachedSize(int size) const {
+void E_FashionFashionAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* fashionfashionattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_FashionFashionAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return fashionfashionattributeDesc_descriptor_;
+  return E_FashionFashionAttributeDesc_descriptor_;
 }
 
-const fashionfashionattributeDesc& fashionfashionattributeDesc::default_instance() {
+const E_FashionFashionAttributeDesc& E_FashionFashionAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_fashion_2eproto();
   return *default_instance_;
 }
 
-fashionfashionattributeDesc* fashionfashionattributeDesc::default_instance_ = NULL;
+E_FashionFashionAttributeDesc* E_FashionFashionAttributeDesc::default_instance_ = NULL;
 
-fashionfashionattributeDesc* fashionfashionattributeDesc::New() const {
-  return new fashionfashionattributeDesc;
+E_FashionFashionAttributeDesc* E_FashionFashionAttributeDesc::New() const {
+  return new E_FashionFashionAttributeDesc;
 }
 
-void fashionfashionattributeDesc::Clear() {
+void E_FashionFashionAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool fashionfashionattributeDesc::MergePartialFromCodedStream(
+bool E_FashionFashionAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -323,16 +324,16 @@ bool fashionfashionattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void fashionfashionattributeDesc::SerializeWithCachedSizes(
+void E_FashionFashionAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -341,16 +342,16 @@ void fashionfashionattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* fashionfashionattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_FashionFashionAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -360,22 +361,22 @@ void fashionfashionattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int fashionfashionattributeDesc::ByteSize() const {
+int E_FashionFashionAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -390,10 +391,10 @@ int fashionfashionattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void fashionfashionattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_FashionFashionAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const fashionfashionattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const fashionfashionattributeDesc*>(
+  const E_FashionFashionAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FashionFashionAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -402,51 +403,51 @@ void fashionfashionattributeDesc::MergeFrom(const ::google::protobuf::Message& f
   }
 }
 
-void fashionfashionattributeDesc::MergeFrom(const fashionfashionattributeDesc& from) {
+void E_FashionFashionAttributeDesc::MergeFrom(const E_FashionFashionAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void fashionfashionattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_FashionFashionAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void fashionfashionattributeDesc::CopyFrom(const fashionfashionattributeDesc& from) {
+void E_FashionFashionAttributeDesc::CopyFrom(const E_FashionFashionAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool fashionfashionattributeDesc::IsInitialized() const {
+bool E_FashionFashionAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void fashionfashionattributeDesc::Swap(fashionfashionattributeDesc* other) {
+void E_FashionFashionAttributeDesc::Swap(E_FashionFashionAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata fashionfashionattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_FashionFashionAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = fashionfashionattributeDesc_descriptor_;
-  metadata.reflection = fashionfashionattributeDesc_reflection_;
+  metadata.descriptor = E_FashionFashionAttributeDesc_descriptor_;
+  metadata.reflection = E_FashionFashionAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -454,100 +455,100 @@ void fashionfashionattributeDesc::Swap(fashionfashionattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int fashionfashionActiveAttributeDesc::kTypeFieldNumber;
-const int fashionfashionActiveAttributeDesc::kValueFieldNumber;
+const int E_FashionFashionActiveattributeDesc::kMTypeFieldNumber;
+const int E_FashionFashionActiveattributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-fashionfashionActiveAttributeDesc::fashionfashionActiveAttributeDesc()
+E_FashionFashionActiveattributeDesc::E_FashionFashionActiveattributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void fashionfashionActiveAttributeDesc::InitAsDefaultInstance() {
+void E_FashionFashionActiveattributeDesc::InitAsDefaultInstance() {
 }
 
-fashionfashionActiveAttributeDesc::fashionfashionActiveAttributeDesc(const fashionfashionActiveAttributeDesc& from)
+E_FashionFashionActiveattributeDesc::E_FashionFashionActiveattributeDesc(const E_FashionFashionActiveattributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void fashionfashionActiveAttributeDesc::SharedCtor() {
+void E_FashionFashionActiveattributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-fashionfashionActiveAttributeDesc::~fashionfashionActiveAttributeDesc() {
+E_FashionFashionActiveattributeDesc::~E_FashionFashionActiveattributeDesc() {
   SharedDtor();
 }
 
-void fashionfashionActiveAttributeDesc::SharedDtor() {
+void E_FashionFashionActiveattributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void fashionfashionActiveAttributeDesc::SetCachedSize(int size) const {
+void E_FashionFashionActiveattributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* fashionfashionActiveAttributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_FashionFashionActiveattributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return fashionfashionActiveAttributeDesc_descriptor_;
+  return E_FashionFashionActiveattributeDesc_descriptor_;
 }
 
-const fashionfashionActiveAttributeDesc& fashionfashionActiveAttributeDesc::default_instance() {
+const E_FashionFashionActiveattributeDesc& E_FashionFashionActiveattributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_fashion_2eproto();
   return *default_instance_;
 }
 
-fashionfashionActiveAttributeDesc* fashionfashionActiveAttributeDesc::default_instance_ = NULL;
+E_FashionFashionActiveattributeDesc* E_FashionFashionActiveattributeDesc::default_instance_ = NULL;
 
-fashionfashionActiveAttributeDesc* fashionfashionActiveAttributeDesc::New() const {
-  return new fashionfashionActiveAttributeDesc;
+E_FashionFashionActiveattributeDesc* E_FashionFashionActiveattributeDesc::New() const {
+  return new E_FashionFashionActiveattributeDesc;
 }
 
-void fashionfashionActiveAttributeDesc::Clear() {
+void E_FashionFashionActiveattributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool fashionfashionActiveAttributeDesc::MergePartialFromCodedStream(
+bool E_FashionFashionActiveattributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -571,16 +572,16 @@ bool fashionfashionActiveAttributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void fashionfashionActiveAttributeDesc::SerializeWithCachedSizes(
+void E_FashionFashionActiveattributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -589,16 +590,16 @@ void fashionfashionActiveAttributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* fashionfashionActiveAttributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_FashionFashionActiveattributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -608,22 +609,22 @@ void fashionfashionActiveAttributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int fashionfashionActiveAttributeDesc::ByteSize() const {
+int E_FashionFashionActiveattributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -638,10 +639,10 @@ int fashionfashionActiveAttributeDesc::ByteSize() const {
   return total_size;
 }
 
-void fashionfashionActiveAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_FashionFashionActiveattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const fashionfashionActiveAttributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const fashionfashionActiveAttributeDesc*>(
+  const E_FashionFashionActiveattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FashionFashionActiveattributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -650,51 +651,51 @@ void fashionfashionActiveAttributeDesc::MergeFrom(const ::google::protobuf::Mess
   }
 }
 
-void fashionfashionActiveAttributeDesc::MergeFrom(const fashionfashionActiveAttributeDesc& from) {
+void E_FashionFashionActiveattributeDesc::MergeFrom(const E_FashionFashionActiveattributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void fashionfashionActiveAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_FashionFashionActiveattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void fashionfashionActiveAttributeDesc::CopyFrom(const fashionfashionActiveAttributeDesc& from) {
+void E_FashionFashionActiveattributeDesc::CopyFrom(const E_FashionFashionActiveattributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool fashionfashionActiveAttributeDesc::IsInitialized() const {
+bool E_FashionFashionActiveattributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void fashionfashionActiveAttributeDesc::Swap(fashionfashionActiveAttributeDesc* other) {
+void E_FashionFashionActiveattributeDesc::Swap(E_FashionFashionActiveattributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata fashionfashionActiveAttributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_FashionFashionActiveattributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = fashionfashionActiveAttributeDesc_descriptor_;
-  metadata.reflection = fashionfashionActiveAttributeDesc_reflection_;
+  metadata.descriptor = E_FashionFashionActiveattributeDesc_descriptor_;
+  metadata.reflection = E_FashionFashionActiveattributeDesc_reflection_;
   return metadata;
 }
 
@@ -702,334 +703,334 @@ void fashionfashionActiveAttributeDesc::Swap(fashionfashionActiveAttributeDesc* 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int fashionfashion::kIDFieldNumber;
-const int fashionfashion::kNameFieldNumber;
-const int fashionfashion::kTypeFieldNumber;
-const int fashionfashion::kQualityFieldNumber;
-const int fashionfashion::kProfessionLimitFieldNumber;
-const int fashionfashion::kActivationItemFieldNumber;
-const int fashionfashion::kActivationNumFieldNumber;
-const int fashionfashion::kStarIdFieldNumber;
-const int fashionfashion::kStarNumFieldNumber;
-const int fashionfashion::kStarUpFieldNumber;
-const int fashionfashion::kStarBerFieldNumber;
-const int fashionfashion::kAttributeFieldNumber;
-const int fashionfashion::kActiveAttributeFieldNumber;
+const int E_FashionFashion::kMIdFieldNumber;
+const int E_FashionFashion::kMNameFieldNumber;
+const int E_FashionFashion::kMTypeFieldNumber;
+const int E_FashionFashion::kMQualityFieldNumber;
+const int E_FashionFashion::kMProfessionlimitFieldNumber;
+const int E_FashionFashion::kMActivationitemFieldNumber;
+const int E_FashionFashion::kMActivationnumFieldNumber;
+const int E_FashionFashion::kMStaridFieldNumber;
+const int E_FashionFashion::kMStarnumFieldNumber;
+const int E_FashionFashion::kMStarupFieldNumber;
+const int E_FashionFashion::kMStarberFieldNumber;
+const int E_FashionFashion::kMAttributeFieldNumber;
+const int E_FashionFashion::kMActiveattributeFieldNumber;
 #endif  // !_MSC_VER
 
-fashionfashion::fashionfashion()
+E_FashionFashion::E_FashionFashion()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void fashionfashion::InitAsDefaultInstance() {
+void E_FashionFashion::InitAsDefaultInstance() {
 }
 
-fashionfashion::fashionfashion(const fashionfashion& from)
+E_FashionFashion::E_FashionFashion(const E_FashionFashion& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void fashionfashion::SharedCtor() {
+void E_FashionFashion::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  type_ = 0;
-  quality_ = 0;
-  professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  activationitem_ = GOOGLE_LONGLONG(0);
-  activationnum_ = 0;
-  starid_ = GOOGLE_LONGLONG(0);
-  starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  starup_ = 0;
-  starber_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_type_ = 0;
+  m_quality_ = 0;
+  m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_activationitem_ = GOOGLE_LONGLONG(0);
+  m_activationnum_ = 0;
+  m_starid_ = GOOGLE_LONGLONG(0);
+  m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_starup_ = 0;
+  m_starber_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-fashionfashion::~fashionfashion() {
+E_FashionFashion::~E_FashionFashion() {
   SharedDtor();
 }
 
-void fashionfashion::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+void E_FashionFashion::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionlimit_;
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionlimit_;
   }
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete starnum_;
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_starnum_;
   }
   if (this != default_instance_) {
   }
 }
 
-void fashionfashion::SetCachedSize(int size) const {
+void E_FashionFashion::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* fashionfashion::descriptor() {
+const ::google::protobuf::Descriptor* E_FashionFashion::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return fashionfashion_descriptor_;
+  return E_FashionFashion_descriptor_;
 }
 
-const fashionfashion& fashionfashion::default_instance() {
+const E_FashionFashion& E_FashionFashion::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_fashion_2eproto();
   return *default_instance_;
 }
 
-fashionfashion* fashionfashion::default_instance_ = NULL;
+E_FashionFashion* E_FashionFashion::default_instance_ = NULL;
 
-fashionfashion* fashionfashion::New() const {
-  return new fashionfashion;
+E_FashionFashion* E_FashionFashion::New() const {
+  return new E_FashionFashion;
 }
 
-void fashionfashion::Clear() {
+void E_FashionFashion::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
+    m_id_ = GOOGLE_LONGLONG(0);
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
       }
     }
-    type_ = 0;
-    quality_ = 0;
-    if (has_professionlimit()) {
-      if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-        professionlimit_->clear();
+    m_type_ = 0;
+    m_quality_ = 0;
+    if (has_m_professionlimit()) {
+      if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+        m_professionlimit_->clear();
       }
     }
-    activationitem_ = GOOGLE_LONGLONG(0);
-    activationnum_ = 0;
-    starid_ = GOOGLE_LONGLONG(0);
+    m_activationitem_ = GOOGLE_LONGLONG(0);
+    m_activationnum_ = 0;
+    m_starid_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (has_starnum()) {
-      if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-        starnum_->clear();
+    if (has_m_starnum()) {
+      if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+        m_starnum_->clear();
       }
     }
-    starup_ = 0;
-    starber_ = 0;
+    m_starup_ = 0;
+    m_starber_ = 0;
   }
-  attribute_.Clear();
-  activeattribute_.Clear();
+  m_attribute_.Clear();
+  m_activeattribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool fashionfashion::MergePartialFromCodedStream(
+bool E_FashionFashion::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 ID = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_name;
+        if (input->ExpectTag(18)) goto parse_m_name;
         break;
       }
 
-      // optional string name = 2;
+      // optional string m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_name:
+         parse_m_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
+                input, this->mutable_m_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
+            this->m_name().data(), this->m_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_type;
+        if (input->ExpectTag(24)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 3;
+      // optional int32 m_type = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_quality;
+        if (input->ExpectTag(32)) goto parse_m_quality;
         break;
       }
 
-      // optional int32 quality = 4;
+      // optional int32 m_quality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_quality:
+         parse_m_quality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &quality_)));
-          set_has_quality();
+                 input, &m_quality_)));
+          set_has_m_quality();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_professionLimit;
+        if (input->ExpectTag(42)) goto parse_m_professionlimit;
         break;
       }
 
-      // optional string professionLimit = 5;
+      // optional string m_professionlimit = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_professionLimit:
+         parse_m_professionlimit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_professionlimit()));
+                input, this->mutable_m_professionlimit()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->professionlimit().data(), this->professionlimit().length(),
+            this->m_professionlimit().data(), this->m_professionlimit().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_activationItem;
+        if (input->ExpectTag(48)) goto parse_m_activationitem;
         break;
       }
 
-      // optional int64 activationItem = 6;
+      // optional int64 m_activationitem = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activationItem:
+         parse_m_activationitem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &activationitem_)));
-          set_has_activationitem();
+                 input, &m_activationitem_)));
+          set_has_m_activationitem();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_activationNum;
+        if (input->ExpectTag(56)) goto parse_m_activationnum;
         break;
       }
 
-      // optional int32 activationNum = 7;
+      // optional int32 m_activationnum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activationNum:
+         parse_m_activationnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &activationnum_)));
-          set_has_activationnum();
+                 input, &m_activationnum_)));
+          set_has_m_activationnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_starId;
+        if (input->ExpectTag(64)) goto parse_m_starid;
         break;
       }
 
-      // optional int64 starId = 8;
+      // optional int64 m_starid = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starId:
+         parse_m_starid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &starid_)));
-          set_has_starid();
+                 input, &m_starid_)));
+          set_has_m_starid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_starNum;
+        if (input->ExpectTag(74)) goto parse_m_starnum;
         break;
       }
 
-      // optional string starNum = 9;
+      // optional string m_starnum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_starNum:
+         parse_m_starnum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_starnum()));
+                input, this->mutable_m_starnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->starnum().data(), this->starnum().length(),
+            this->m_starnum().data(), this->m_starnum().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_starUp;
+        if (input->ExpectTag(80)) goto parse_m_starup;
         break;
       }
 
-      // optional int32 starUp = 10;
+      // optional int32 m_starup = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starUp:
+         parse_m_starup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &starup_)));
-          set_has_starup();
+                 input, &m_starup_)));
+          set_has_m_starup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_starBer;
+        if (input->ExpectTag(88)) goto parse_m_starber;
         break;
       }
 
-      // optional int32 starBer = 11;
+      // optional int32 m_starber = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starBer:
+         parse_m_starber:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &starber_)));
-          set_has_starber();
+                 input, &m_starber_)));
+          set_has_m_starber();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_attribute;
+        if (input->ExpectTag(98)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.fashionfashionattributeDesc attribute = 12;
+      // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_attribute;
-        if (input->ExpectTag(106)) goto parse_ActiveAttribute;
+        if (input->ExpectTag(98)) goto parse_m_attribute;
+        if (input->ExpectTag(106)) goto parse_m_activeattribute;
         break;
       }
 
-      // repeated .proto_ff.fashionfashionActiveAttributeDesc ActiveAttribute = 13;
+      // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ActiveAttribute:
+         parse_m_activeattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_activeattribute()));
+                input, add_m_activeattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_ActiveAttribute;
+        if (input->ExpectTag(106)) goto parse_m_activeattribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1050,85 +1051,85 @@ bool fashionfashion::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void fashionfashion::SerializeWithCachedSizes(
+void E_FashionFashion::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->name(), output);
+      2, this->m_name(), output);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->type(), output);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 quality = 4;
-  if (has_quality()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->quality(), output);
+  // optional int32 m_quality = 4;
+  if (has_m_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_quality(), output);
   }
 
-  // optional string professionLimit = 5;
-  if (has_professionlimit()) {
+  // optional string m_professionlimit = 5;
+  if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionlimit().data(), this->professionlimit().length(),
+      this->m_professionlimit().data(), this->m_professionlimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->professionlimit(), output);
+      5, this->m_professionlimit(), output);
   }
 
-  // optional int64 activationItem = 6;
-  if (has_activationitem()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->activationitem(), output);
+  // optional int64 m_activationitem = 6;
+  if (has_m_activationitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_activationitem(), output);
   }
 
-  // optional int32 activationNum = 7;
-  if (has_activationnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->activationnum(), output);
+  // optional int32 m_activationnum = 7;
+  if (has_m_activationnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_activationnum(), output);
   }
 
-  // optional int64 starId = 8;
-  if (has_starid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->starid(), output);
+  // optional int64 m_starid = 8;
+  if (has_m_starid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_starid(), output);
   }
 
-  // optional string starNum = 9;
-  if (has_starnum()) {
+  // optional string m_starnum = 9;
+  if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->starnum().data(), this->starnum().length(),
+      this->m_starnum().data(), this->m_starnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->starnum(), output);
+      9, this->m_starnum(), output);
   }
 
-  // optional int32 starUp = 10;
-  if (has_starup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->starup(), output);
+  // optional int32 m_starup = 10;
+  if (has_m_starup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_starup(), output);
   }
 
-  // optional int32 starBer = 11;
-  if (has_starber()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->starber(), output);
+  // optional int32 m_starber = 11;
+  if (has_m_starber()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_starber(), output);
   }
 
-  // repeated .proto_ff.fashionfashionattributeDesc attribute = 12;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      12, this->attribute(i), output);
+      12, this->m_attribute(i), output);
   }
 
-  // repeated .proto_ff.fashionfashionActiveAttributeDesc ActiveAttribute = 13;
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      13, this->activeattribute(i), output);
+      13, this->m_activeattribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1137,90 +1138,90 @@ void fashionfashion::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* fashionfashion::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_FashionFashion::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
+        2, this->m_name(), target);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->type(), target);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 quality = 4;
-  if (has_quality()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->quality(), target);
+  // optional int32 m_quality = 4;
+  if (has_m_quality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_quality(), target);
   }
 
-  // optional string professionLimit = 5;
-  if (has_professionlimit()) {
+  // optional string m_professionlimit = 5;
+  if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionlimit().data(), this->professionlimit().length(),
+      this->m_professionlimit().data(), this->m_professionlimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->professionlimit(), target);
+        5, this->m_professionlimit(), target);
   }
 
-  // optional int64 activationItem = 6;
-  if (has_activationitem()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->activationitem(), target);
+  // optional int64 m_activationitem = 6;
+  if (has_m_activationitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_activationitem(), target);
   }
 
-  // optional int32 activationNum = 7;
-  if (has_activationnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->activationnum(), target);
+  // optional int32 m_activationnum = 7;
+  if (has_m_activationnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_activationnum(), target);
   }
 
-  // optional int64 starId = 8;
-  if (has_starid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->starid(), target);
+  // optional int64 m_starid = 8;
+  if (has_m_starid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_starid(), target);
   }
 
-  // optional string starNum = 9;
-  if (has_starnum()) {
+  // optional string m_starnum = 9;
+  if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->starnum().data(), this->starnum().length(),
+      this->m_starnum().data(), this->m_starnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->starnum(), target);
+        9, this->m_starnum(), target);
   }
 
-  // optional int32 starUp = 10;
-  if (has_starup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->starup(), target);
+  // optional int32 m_starup = 10;
+  if (has_m_starup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_starup(), target);
   }
 
-  // optional int32 starBer = 11;
-  if (has_starber()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->starber(), target);
+  // optional int32 m_starber = 11;
+  if (has_m_starber()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_starber(), target);
   }
 
-  // repeated .proto_ff.fashionfashionattributeDesc attribute = 12;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        12, this->attribute(i), target);
+        12, this->m_attribute(i), target);
   }
 
-  // repeated .proto_ff.fashionfashionActiveAttributeDesc ActiveAttribute = 13;
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        13, this->activeattribute(i), target);
+        13, this->m_activeattribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1230,104 +1231,104 @@ void fashionfashion::SerializeWithCachedSizes(
   return target;
 }
 
-int fashionfashion::ByteSize() const {
+int E_FashionFashion::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 ID = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional string name = 2;
-    if (has_name()) {
+    // optional string m_name = 2;
+    if (has_m_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+          this->m_name());
     }
 
-    // optional int32 type = 3;
-    if (has_type()) {
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 quality = 4;
-    if (has_quality()) {
+    // optional int32 m_quality = 4;
+    if (has_m_quality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->quality());
+          this->m_quality());
     }
 
-    // optional string professionLimit = 5;
-    if (has_professionlimit()) {
+    // optional string m_professionlimit = 5;
+    if (has_m_professionlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->professionlimit());
+          this->m_professionlimit());
     }
 
-    // optional int64 activationItem = 6;
-    if (has_activationitem()) {
+    // optional int64 m_activationitem = 6;
+    if (has_m_activationitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->activationitem());
+          this->m_activationitem());
     }
 
-    // optional int32 activationNum = 7;
-    if (has_activationnum()) {
+    // optional int32 m_activationnum = 7;
+    if (has_m_activationnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->activationnum());
+          this->m_activationnum());
     }
 
-    // optional int64 starId = 8;
-    if (has_starid()) {
+    // optional int64 m_starid = 8;
+    if (has_m_starid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->starid());
+          this->m_starid());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string starNum = 9;
-    if (has_starnum()) {
+    // optional string m_starnum = 9;
+    if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->starnum());
+          this->m_starnum());
     }
 
-    // optional int32 starUp = 10;
-    if (has_starup()) {
+    // optional int32 m_starup = 10;
+    if (has_m_starup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->starup());
+          this->m_starup());
     }
 
-    // optional int32 starBer = 11;
-    if (has_starber()) {
+    // optional int32 m_starber = 11;
+    if (has_m_starber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->starber());
+          this->m_starber());
     }
 
   }
-  // repeated .proto_ff.fashionfashionattributeDesc attribute = 12;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
-  // repeated .proto_ff.fashionfashionActiveAttributeDesc ActiveAttribute = 13;
-  total_size += 1 * this->activeattribute_size();
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+  total_size += 1 * this->m_activeattribute_size();
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->activeattribute(i));
+        this->m_activeattribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1341,10 +1342,10 @@ int fashionfashion::ByteSize() const {
   return total_size;
 }
 
-void fashionfashion::MergeFrom(const ::google::protobuf::Message& from) {
+void E_FashionFashion::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const fashionfashion* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const fashionfashion*>(
+  const E_FashionFashion* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FashionFashion*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1353,93 +1354,93 @@ void fashionfashion::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void fashionfashion::MergeFrom(const fashionfashion& from) {
+void E_FashionFashion::MergeFrom(const E_FashionFashion& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
-  activeattribute_.MergeFrom(from.activeattribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  m_activeattribute_.MergeFrom(from.m_activeattribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_quality()) {
-      set_quality(from.quality());
+    if (from.has_m_quality()) {
+      set_m_quality(from.m_quality());
     }
-    if (from.has_professionlimit()) {
-      set_professionlimit(from.professionlimit());
+    if (from.has_m_professionlimit()) {
+      set_m_professionlimit(from.m_professionlimit());
     }
-    if (from.has_activationitem()) {
-      set_activationitem(from.activationitem());
+    if (from.has_m_activationitem()) {
+      set_m_activationitem(from.m_activationitem());
     }
-    if (from.has_activationnum()) {
-      set_activationnum(from.activationnum());
+    if (from.has_m_activationnum()) {
+      set_m_activationnum(from.m_activationnum());
     }
-    if (from.has_starid()) {
-      set_starid(from.starid());
+    if (from.has_m_starid()) {
+      set_m_starid(from.m_starid());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_starnum()) {
-      set_starnum(from.starnum());
+    if (from.has_m_starnum()) {
+      set_m_starnum(from.m_starnum());
     }
-    if (from.has_starup()) {
-      set_starup(from.starup());
+    if (from.has_m_starup()) {
+      set_m_starup(from.m_starup());
     }
-    if (from.has_starber()) {
-      set_starber(from.starber());
+    if (from.has_m_starber()) {
+      set_m_starber(from.m_starber());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void fashionfashion::CopyFrom(const ::google::protobuf::Message& from) {
+void E_FashionFashion::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void fashionfashion::CopyFrom(const fashionfashion& from) {
+void E_FashionFashion::CopyFrom(const E_FashionFashion& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool fashionfashion::IsInitialized() const {
+bool E_FashionFashion::IsInitialized() const {
 
   return true;
 }
 
-void fashionfashion::Swap(fashionfashion* other) {
+void E_FashionFashion::Swap(E_FashionFashion* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(name_, other->name_);
-    std::swap(type_, other->type_);
-    std::swap(quality_, other->quality_);
-    std::swap(professionlimit_, other->professionlimit_);
-    std::swap(activationitem_, other->activationitem_);
-    std::swap(activationnum_, other->activationnum_);
-    std::swap(starid_, other->starid_);
-    std::swap(starnum_, other->starnum_);
-    std::swap(starup_, other->starup_);
-    std::swap(starber_, other->starber_);
-    attribute_.Swap(&other->attribute_);
-    activeattribute_.Swap(&other->activeattribute_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_name_, other->m_name_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_quality_, other->m_quality_);
+    std::swap(m_professionlimit_, other->m_professionlimit_);
+    std::swap(m_activationitem_, other->m_activationitem_);
+    std::swap(m_activationnum_, other->m_activationnum_);
+    std::swap(m_starid_, other->m_starid_);
+    std::swap(m_starnum_, other->m_starnum_);
+    std::swap(m_starup_, other->m_starup_);
+    std::swap(m_starber_, other->m_starber_);
+    m_attribute_.Swap(&other->m_attribute_);
+    m_activeattribute_.Swap(&other->m_activeattribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata fashionfashion::GetMetadata() const {
+::google::protobuf::Metadata E_FashionFashion::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = fashionfashion_descriptor_;
-  metadata.reflection = fashionfashion_reflection_;
+  metadata.descriptor = E_FashionFashion_descriptor_;
+  metadata.reflection = E_FashionFashion_reflection_;
   return metadata;
 }
 
@@ -1447,81 +1448,81 @@ void fashionfashion::Swap(fashionfashion* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_fashionfashion::kFashionfashionListFieldNumber;
+const int Sheet_FashionFashion::kEFashionFashionListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_fashionfashion::Sheet_fashionfashion()
+Sheet_FashionFashion::Sheet_FashionFashion()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_fashionfashion::InitAsDefaultInstance() {
+void Sheet_FashionFashion::InitAsDefaultInstance() {
 }
 
-Sheet_fashionfashion::Sheet_fashionfashion(const Sheet_fashionfashion& from)
+Sheet_FashionFashion::Sheet_FashionFashion(const Sheet_FashionFashion& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_fashionfashion::SharedCtor() {
+void Sheet_FashionFashion::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_fashionfashion::~Sheet_fashionfashion() {
+Sheet_FashionFashion::~Sheet_FashionFashion() {
   SharedDtor();
 }
 
-void Sheet_fashionfashion::SharedDtor() {
+void Sheet_FashionFashion::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_fashionfashion::SetCachedSize(int size) const {
+void Sheet_FashionFashion::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_fashionfashion::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_FashionFashion::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_fashionfashion_descriptor_;
+  return Sheet_FashionFashion_descriptor_;
 }
 
-const Sheet_fashionfashion& Sheet_fashionfashion::default_instance() {
+const Sheet_FashionFashion& Sheet_FashionFashion::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_fashion_2eproto();
   return *default_instance_;
 }
 
-Sheet_fashionfashion* Sheet_fashionfashion::default_instance_ = NULL;
+Sheet_FashionFashion* Sheet_FashionFashion::default_instance_ = NULL;
 
-Sheet_fashionfashion* Sheet_fashionfashion::New() const {
-  return new Sheet_fashionfashion;
+Sheet_FashionFashion* Sheet_FashionFashion::New() const {
+  return new Sheet_FashionFashion;
 }
 
-void Sheet_fashionfashion::Clear() {
-  fashionfashion_list_.Clear();
+void Sheet_FashionFashion::Clear() {
+  e_fashionfashion_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_fashionfashion::MergePartialFromCodedStream(
+bool Sheet_FashionFashion::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.fashionfashion fashionfashion_List = 1;
+      // repeated .proto_ff.E_FashionFashion E_FashionFashion_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_fashionfashion_List:
+         parse_E_FashionFashion_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_fashionfashion_list()));
+                input, add_e_fashionfashion_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_fashionfashion_List;
+        if (input->ExpectTag(10)) goto parse_E_FashionFashion_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1542,12 +1543,12 @@ bool Sheet_fashionfashion::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_fashionfashion::SerializeWithCachedSizes(
+void Sheet_FashionFashion::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.fashionfashion fashionfashion_List = 1;
-  for (int i = 0; i < this->fashionfashion_list_size(); i++) {
+  // repeated .proto_ff.E_FashionFashion E_FashionFashion_List = 1;
+  for (int i = 0; i < this->e_fashionfashion_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->fashionfashion_list(i), output);
+      1, this->e_fashionfashion_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1556,13 +1557,13 @@ void Sheet_fashionfashion::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_fashionfashion::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_FashionFashion::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.fashionfashion fashionfashion_List = 1;
-  for (int i = 0; i < this->fashionfashion_list_size(); i++) {
+  // repeated .proto_ff.E_FashionFashion E_FashionFashion_List = 1;
+  for (int i = 0; i < this->e_fashionfashion_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->fashionfashion_list(i), target);
+        1, this->e_fashionfashion_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1572,15 +1573,15 @@ void Sheet_fashionfashion::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_fashionfashion::ByteSize() const {
+int Sheet_FashionFashion::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.fashionfashion fashionfashion_List = 1;
-  total_size += 1 * this->fashionfashion_list_size();
-  for (int i = 0; i < this->fashionfashion_list_size(); i++) {
+  // repeated .proto_ff.E_FashionFashion E_FashionFashion_List = 1;
+  total_size += 1 * this->e_fashionfashion_list_size();
+  for (int i = 0; i < this->e_fashionfashion_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->fashionfashion_list(i));
+        this->e_fashionfashion_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1594,10 +1595,10 @@ int Sheet_fashionfashion::ByteSize() const {
   return total_size;
 }
 
-void Sheet_fashionfashion::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_FashionFashion::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_fashionfashion* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_fashionfashion*>(
+  const Sheet_FashionFashion* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FashionFashion*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1606,43 +1607,43 @@ void Sheet_fashionfashion::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_fashionfashion::MergeFrom(const Sheet_fashionfashion& from) {
+void Sheet_FashionFashion::MergeFrom(const Sheet_FashionFashion& from) {
   GOOGLE_CHECK_NE(&from, this);
-  fashionfashion_list_.MergeFrom(from.fashionfashion_list_);
+  e_fashionfashion_list_.MergeFrom(from.e_fashionfashion_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_fashionfashion::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_FashionFashion::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_fashionfashion::CopyFrom(const Sheet_fashionfashion& from) {
+void Sheet_FashionFashion::CopyFrom(const Sheet_FashionFashion& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_fashionfashion::IsInitialized() const {
+bool Sheet_FashionFashion::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_fashionfashion::Swap(Sheet_fashionfashion* other) {
+void Sheet_FashionFashion::Swap(Sheet_FashionFashion* other) {
   if (other != this) {
-    fashionfashion_list_.Swap(&other->fashionfashion_list_);
+    e_fashionfashion_list_.Swap(&other->e_fashionfashion_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_fashionfashion::GetMetadata() const {
+::google::protobuf::Metadata Sheet_FashionFashion::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_fashionfashion_descriptor_;
-  metadata.reflection = Sheet_fashionfashion_reflection_;
+  metadata.descriptor = Sheet_FashionFashion_descriptor_;
+  metadata.reflection = Sheet_FashionFashion_reflection_;
   return metadata;
 }
 

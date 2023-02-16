@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "ai.pb.h"
@@ -10,63 +10,63 @@
 
 namespace proto_ff_s {
 
-	struct aiaihpDesc_s : public NFDescStoreSeqOP {
-		aiaihpDesc_s();
-		virtual ~aiaihpDesc_s(){}
+	struct E_AiAiHpDesc_s : public NFDescStoreSeqOP {
+		E_AiAiHpDesc_s();
+		virtual ~E_AiAiHpDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t skill;
-		int32_t percent;
-		int64_t chat;
+		int64_t m_skill;
+		int32_t m_percent;
+		int64_t m_chat;
 
-		virtual void write_to_pbmsg(::proto_ff::aiaihpDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::aiaihpDesc & msg);
-		static ::proto_ff::aiaihpDesc* new_pbmsg(){ return new ::proto_ff::aiaihpDesc(); }
-		static ::proto_ff::aiaihpDesc make_pbmsg(){ return ::proto_ff::aiaihpDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_AiAiHpDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AiAiHpDesc & msg);
+		static ::proto_ff::E_AiAiHpDesc* new_pbmsg(){ return new ::proto_ff::E_AiAiHpDesc(); }
+		static ::proto_ff::E_AiAiHpDesc make_pbmsg(){ return ::proto_ff::E_AiAiHpDesc(); }
 	};
-	typedef struct aiaihpDesc_s aiaihpDesc_t;
+	typedef struct E_AiAiHpDesc_s E_AiAiHpDesc_t;
 
-	struct aiai_s : public NFDescStoreSeqOP {
-		aiai_s();
-		virtual ~aiai_s(){}
+	struct E_AiAi_s : public NFDescStoreSeqOP {
+		E_AiAi_s();
+		virtual ~E_AiAi_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t type;
-		NFShmString<60> deadHateRemain;
-		NFShmString<60> invisibleRemain;
-		int32_t isActive;
-		int32_t returnType;
-		int32_t view;
-		int32_t isAttackedShowOff;
-		int32_t pursueRange;
-		int32_t actionRange;
-		int32_t wakeupRadius;
-		int32_t isAIWorkWhenNobody;
-		int32_t bornEffectAIDelay;
-		NFShmString<100> initSkills;
-		NFArray<struct aiaihpDesc_s, 2> hp;
+		int64_t m_id;
+		int32_t m_type;
+		NFShmString<60> m_deadhateremain;
+		NFShmString<60> m_invisibleremain;
+		int32_t m_isactive;
+		int32_t m_returntype;
+		int32_t m_view;
+		int32_t m_isattackedshowoff;
+		int32_t m_pursuerange;
+		int32_t m_actionrange;
+		int32_t m_wakeupradius;
+		int32_t m_isaiworkwhennobody;
+		int32_t m_borneffectaidelay;
+		NFShmString<100> m_initskills;
+		NFShmVector<struct E_AiAiHpDesc_s, 2> m_hp;
 
-		virtual void write_to_pbmsg(::proto_ff::aiai & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::aiai & msg);
-		static ::proto_ff::aiai* new_pbmsg(){ return new ::proto_ff::aiai(); }
-		static ::proto_ff::aiai make_pbmsg(){ return ::proto_ff::aiai(); }
+		virtual void write_to_pbmsg(::proto_ff::E_AiAi & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AiAi & msg);
+		static ::proto_ff::E_AiAi* new_pbmsg(){ return new ::proto_ff::E_AiAi(); }
+		static ::proto_ff::E_AiAi make_pbmsg(){ return ::proto_ff::E_AiAi(); }
 	};
-	typedef struct aiai_s aiai_t;
+	typedef struct E_AiAi_s E_AiAi_t;
 
-	struct Sheet_aiai_s : public NFDescStoreSeqOP {
-		Sheet_aiai_s();
-		virtual ~Sheet_aiai_s(){}
+	struct Sheet_AiAi_s : public NFDescStoreSeqOP {
+		Sheet_AiAi_s();
+		virtual ~Sheet_AiAi_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct aiai_s, 20> aiai_List;
+		NFShmVector<struct E_AiAi_s, 20> E_AiAi_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_aiai & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_aiai & msg);
-		static ::proto_ff::Sheet_aiai* new_pbmsg(){ return new ::proto_ff::Sheet_aiai(); }
-		static ::proto_ff::Sheet_aiai make_pbmsg(){ return ::proto_ff::Sheet_aiai(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_AiAi & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AiAi & msg);
+		static ::proto_ff::Sheet_AiAi* new_pbmsg(){ return new ::proto_ff::Sheet_AiAi(); }
+		static ::proto_ff::Sheet_AiAi make_pbmsg(){ return ::proto_ff::Sheet_AiAi(); }
 	};
-	typedef struct Sheet_aiai_s Sheet_aiai_t;
+	typedef struct Sheet_AiAi_s Sheet_AiAi_t;
 
 }
 

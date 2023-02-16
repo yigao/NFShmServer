@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "role.pb.h"
@@ -10,581 +10,581 @@
 
 namespace proto_ff_s {
 
-	struct rolebornitemDesc_s : public NFDescStoreSeqOP {
-		rolebornitemDesc_s();
-		virtual ~rolebornitemDesc_s(){}
+	struct E_RoleBornItemDesc_s : public NFDescStoreSeqOP {
+		E_RoleBornItemDesc_s();
+		virtual ~E_RoleBornItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t num;
-		int64_t name;
+		int32_t m_num;
+		int64_t m_name;
 
-		virtual void write_to_pbmsg(::proto_ff::rolebornitemDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolebornitemDesc & msg);
-		static ::proto_ff::rolebornitemDesc* new_pbmsg(){ return new ::proto_ff::rolebornitemDesc(); }
-		static ::proto_ff::rolebornitemDesc make_pbmsg(){ return ::proto_ff::rolebornitemDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleBornItemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleBornItemDesc & msg);
+		static ::proto_ff::E_RoleBornItemDesc* new_pbmsg(){ return new ::proto_ff::E_RoleBornItemDesc(); }
+		static ::proto_ff::E_RoleBornItemDesc make_pbmsg(){ return ::proto_ff::E_RoleBornItemDesc(); }
 	};
-	typedef struct rolebornitemDesc_s rolebornitemDesc_t;
+	typedef struct E_RoleBornItemDesc_s E_RoleBornItemDesc_t;
 
-	struct rolebornmailDesc_s : public NFDescStoreSeqOP {
-		rolebornmailDesc_s();
-		virtual ~rolebornmailDesc_s(){}
+	struct E_RoleBornMailDesc_s : public NFDescStoreSeqOP {
+		E_RoleBornMailDesc_s();
+		virtual ~E_RoleBornMailDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t num;
-		int64_t name;
+		int32_t m_num;
+		int64_t m_name;
 
-		virtual void write_to_pbmsg(::proto_ff::rolebornmailDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolebornmailDesc & msg);
-		static ::proto_ff::rolebornmailDesc* new_pbmsg(){ return new ::proto_ff::rolebornmailDesc(); }
-		static ::proto_ff::rolebornmailDesc make_pbmsg(){ return ::proto_ff::rolebornmailDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleBornMailDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleBornMailDesc & msg);
+		static ::proto_ff::E_RoleBornMailDesc* new_pbmsg(){ return new ::proto_ff::E_RoleBornMailDesc(); }
+		static ::proto_ff::E_RoleBornMailDesc make_pbmsg(){ return ::proto_ff::E_RoleBornMailDesc(); }
 	};
-	typedef struct rolebornmailDesc_s rolebornmailDesc_t;
+	typedef struct E_RoleBornMailDesc_s E_RoleBornMailDesc_t;
 
-	struct roleborn_s : public NFDescStoreSeqOP {
-		roleborn_s();
-		virtual ~roleborn_s(){}
+	struct E_RoleBorn_s : public NFDescStoreSeqOP {
+		E_RoleBorn_s();
+		virtual ~E_RoleBorn_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t bornID;
-		int32_t professionID;
-		NFShmString<60> professionName;
-		NFShmString<60> placement;
-		int32_t gender;
-		int32_t bornLevel;
-		int32_t bornTitle;
-		int64_t diamond;
-		int64_t bindDiamond;
-		int64_t gold;
-		int64_t mapID;
-		int32_t birthFace;
-		NFShmString<60> icons;
-		NFShmString<60> loginAvata;
-		NFShmString<60> newweapon;
-		NFShmString<60> newclothing;
-		NFShmString<60> weaponAvata;
-		NFShmString<60> roleAvata;
-		int32_t hairColor;
-		int32_t clothesColor;
-		int32_t skinColor;
-		int64_t carryWeapons;
-		int64_t carryArmor;
-		int64_t carryCloak;
-		int64_t carryShoes;
-		int64_t carryNecklace;
-		int64_t carryAmulet;
-		int64_t carryBracer;
-		int64_t carryRing;
-		int64_t carryFashionWeapons;
-		int64_t carryFashionArmor;
-		int64_t carryWings;
-		int32_t mSpeed;
-		int32_t view;
-		int32_t radius;
-		int32_t group;
-		int64_t sheny;
-		int64_t shenw;
-		NFArray<int32_t, 4> actBuff;
-		NFArray<struct rolebornitemDesc_s, 35> item;
-		NFArray<int64_t, 12> actSkill;
-		NFArray<struct rolebornmailDesc_s, 1> mail;
+		int64_t m_bornid;
+		int32_t m_professionid;
+		NFShmString<60> m_professionname;
+		NFShmString<60> m_placement;
+		int32_t m_gender;
+		int32_t m_bornlevel;
+		int32_t m_borntitle;
+		int64_t m_diamond;
+		int64_t m_binddiamond;
+		int64_t m_gold;
+		int64_t m_mapid;
+		int32_t m_birthface;
+		NFShmString<60> m_icons;
+		NFShmString<60> m_loginavata;
+		NFShmString<60> m_newweapon;
+		NFShmString<60> m_newclothing;
+		NFShmString<60> m_weaponavata;
+		NFShmString<60> m_roleavata;
+		int32_t m_haircolor;
+		int32_t m_clothescolor;
+		int32_t m_skincolor;
+		int64_t m_carryweapons;
+		int64_t m_carryarmor;
+		int64_t m_carrycloak;
+		int64_t m_carryshoes;
+		int64_t m_carrynecklace;
+		int64_t m_carryamulet;
+		int64_t m_carrybracer;
+		int64_t m_carryring;
+		int64_t m_carryfashionweapons;
+		int64_t m_carryfashionarmor;
+		int64_t m_carrywings;
+		int32_t m_mspeed;
+		int32_t m_view;
+		int32_t m_radius;
+		int32_t m_group;
+		int64_t m_sheny;
+		int64_t m_shenw;
+		NFShmVector<int32_t, 4> m_actbuff;
+		NFShmVector<struct E_RoleBornItemDesc_s, 35> m_item;
+		NFShmVector<int64_t, 12> m_actskill;
+		NFShmVector<struct E_RoleBornMailDesc_s, 1> m_mail;
 
-		virtual void write_to_pbmsg(::proto_ff::roleborn & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleborn & msg);
-		static ::proto_ff::roleborn* new_pbmsg(){ return new ::proto_ff::roleborn(); }
-		static ::proto_ff::roleborn make_pbmsg(){ return ::proto_ff::roleborn(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleBorn & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleBorn & msg);
+		static ::proto_ff::E_RoleBorn* new_pbmsg(){ return new ::proto_ff::E_RoleBorn(); }
+		static ::proto_ff::E_RoleBorn make_pbmsg(){ return ::proto_ff::E_RoleBorn(); }
 	};
-	typedef struct roleborn_s roleborn_t;
+	typedef struct E_RoleBorn_s E_RoleBorn_t;
 
-	struct Sheet_roleborn_s : public NFDescStoreSeqOP {
-		Sheet_roleborn_s();
-		virtual ~Sheet_roleborn_s(){}
+	struct Sheet_RoleBorn_s : public NFDescStoreSeqOP {
+		Sheet_RoleBorn_s();
+		virtual ~Sheet_RoleBorn_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleborn_s, 20> roleborn_List;
+		NFShmVector<struct E_RoleBorn_s, 20> E_RoleBorn_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleborn & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleborn & msg);
-		static ::proto_ff::Sheet_roleborn* new_pbmsg(){ return new ::proto_ff::Sheet_roleborn(); }
-		static ::proto_ff::Sheet_roleborn make_pbmsg(){ return ::proto_ff::Sheet_roleborn(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleBorn & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleBorn & msg);
+		static ::proto_ff::Sheet_RoleBorn* new_pbmsg(){ return new ::proto_ff::Sheet_RoleBorn(); }
+		static ::proto_ff::Sheet_RoleBorn make_pbmsg(){ return ::proto_ff::Sheet_RoleBorn(); }
 	};
-	typedef struct Sheet_roleborn_s Sheet_roleborn_t;
+	typedef struct Sheet_RoleBorn_s Sheet_RoleBorn_t;
 
-	struct rolemasterMaleattributeDesc_s : public NFDescStoreSeqOP {
-		rolemasterMaleattributeDesc_s();
-		virtual ~rolemasterMaleattributeDesc_s(){}
+	struct E_RoleMastermaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleMastermaleAttributeDesc_s();
+		virtual ~E_RoleMastermaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::rolemasterMaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolemasterMaleattributeDesc & msg);
-		static ::proto_ff::rolemasterMaleattributeDesc* new_pbmsg(){ return new ::proto_ff::rolemasterMaleattributeDesc(); }
-		static ::proto_ff::rolemasterMaleattributeDesc make_pbmsg(){ return ::proto_ff::rolemasterMaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleMastermaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMastermaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleMastermaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleMastermaleAttributeDesc(); }
+		static ::proto_ff::E_RoleMastermaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleMastermaleAttributeDesc(); }
 	};
-	typedef struct rolemasterMaleattributeDesc_s rolemasterMaleattributeDesc_t;
+	typedef struct E_RoleMastermaleAttributeDesc_s E_RoleMastermaleAttributeDesc_t;
 
-	struct rolemasterMale_s : public NFDescStoreSeqOP {
-		rolemasterMale_s();
-		virtual ~rolemasterMale_s(){}
+	struct E_RoleMastermale_s : public NFDescStoreSeqOP {
+		E_RoleMastermale_s();
+		virtual ~E_RoleMastermale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct rolemasterMaleattributeDesc_s, 70> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleMastermaleAttributeDesc_s, 70> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::rolemasterMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolemasterMale & msg);
-		static ::proto_ff::rolemasterMale* new_pbmsg(){ return new ::proto_ff::rolemasterMale(); }
-		static ::proto_ff::rolemasterMale make_pbmsg(){ return ::proto_ff::rolemasterMale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleMastermale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMastermale & msg);
+		static ::proto_ff::E_RoleMastermale* new_pbmsg(){ return new ::proto_ff::E_RoleMastermale(); }
+		static ::proto_ff::E_RoleMastermale make_pbmsg(){ return ::proto_ff::E_RoleMastermale(); }
 	};
-	typedef struct rolemasterMale_s rolemasterMale_t;
+	typedef struct E_RoleMastermale_s E_RoleMastermale_t;
 
-	struct Sheet_rolemasterMale_s : public NFDescStoreSeqOP {
-		Sheet_rolemasterMale_s();
-		virtual ~Sheet_rolemasterMale_s(){}
+	struct Sheet_RoleMastermale_s : public NFDescStoreSeqOP {
+		Sheet_RoleMastermale_s();
+		virtual ~Sheet_RoleMastermale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rolemasterMale_s, 2000> rolemasterMale_List;
+		NFShmVector<struct E_RoleMastermale_s, 2000> E_RoleMastermale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_rolemasterMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rolemasterMale & msg);
-		static ::proto_ff::Sheet_rolemasterMale* new_pbmsg(){ return new ::proto_ff::Sheet_rolemasterMale(); }
-		static ::proto_ff::Sheet_rolemasterMale make_pbmsg(){ return ::proto_ff::Sheet_rolemasterMale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleMastermale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleMastermale & msg);
+		static ::proto_ff::Sheet_RoleMastermale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleMastermale(); }
+		static ::proto_ff::Sheet_RoleMastermale make_pbmsg(){ return ::proto_ff::Sheet_RoleMastermale(); }
 	};
-	typedef struct Sheet_rolemasterMale_s Sheet_rolemasterMale_t;
+	typedef struct Sheet_RoleMastermale_s Sheet_RoleMastermale_t;
 
-	struct rolemasterFemaleattributeDesc_s : public NFDescStoreSeqOP {
-		rolemasterFemaleattributeDesc_s();
-		virtual ~rolemasterFemaleattributeDesc_s(){}
+	struct E_RoleMasterfemaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleMasterfemaleAttributeDesc_s();
+		virtual ~E_RoleMasterfemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::rolemasterFemaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolemasterFemaleattributeDesc & msg);
-		static ::proto_ff::rolemasterFemaleattributeDesc* new_pbmsg(){ return new ::proto_ff::rolemasterFemaleattributeDesc(); }
-		static ::proto_ff::rolemasterFemaleattributeDesc make_pbmsg(){ return ::proto_ff::rolemasterFemaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleMasterfemaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMasterfemaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleMasterfemaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleMasterfemaleAttributeDesc(); }
+		static ::proto_ff::E_RoleMasterfemaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleMasterfemaleAttributeDesc(); }
 	};
-	typedef struct rolemasterFemaleattributeDesc_s rolemasterFemaleattributeDesc_t;
+	typedef struct E_RoleMasterfemaleAttributeDesc_s E_RoleMasterfemaleAttributeDesc_t;
 
-	struct rolemasterFemale_s : public NFDescStoreSeqOP {
-		rolemasterFemale_s();
-		virtual ~rolemasterFemale_s(){}
+	struct E_RoleMasterfemale_s : public NFDescStoreSeqOP {
+		E_RoleMasterfemale_s();
+		virtual ~E_RoleMasterfemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct rolemasterFemaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleMasterfemaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::rolemasterFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolemasterFemale & msg);
-		static ::proto_ff::rolemasterFemale* new_pbmsg(){ return new ::proto_ff::rolemasterFemale(); }
-		static ::proto_ff::rolemasterFemale make_pbmsg(){ return ::proto_ff::rolemasterFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleMasterfemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMasterfemale & msg);
+		static ::proto_ff::E_RoleMasterfemale* new_pbmsg(){ return new ::proto_ff::E_RoleMasterfemale(); }
+		static ::proto_ff::E_RoleMasterfemale make_pbmsg(){ return ::proto_ff::E_RoleMasterfemale(); }
 	};
-	typedef struct rolemasterFemale_s rolemasterFemale_t;
+	typedef struct E_RoleMasterfemale_s E_RoleMasterfemale_t;
 
-	struct Sheet_rolemasterFemale_s : public NFDescStoreSeqOP {
-		Sheet_rolemasterFemale_s();
-		virtual ~Sheet_rolemasterFemale_s(){}
+	struct Sheet_RoleMasterfemale_s : public NFDescStoreSeqOP {
+		Sheet_RoleMasterfemale_s();
+		virtual ~Sheet_RoleMasterfemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rolemasterFemale_s, 2000> rolemasterFemale_List;
+		NFShmVector<struct E_RoleMasterfemale_s, 2000> E_RoleMasterfemale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_rolemasterFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rolemasterFemale & msg);
-		static ::proto_ff::Sheet_rolemasterFemale* new_pbmsg(){ return new ::proto_ff::Sheet_rolemasterFemale(); }
-		static ::proto_ff::Sheet_rolemasterFemale make_pbmsg(){ return ::proto_ff::Sheet_rolemasterFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleMasterfemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleMasterfemale & msg);
+		static ::proto_ff::Sheet_RoleMasterfemale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleMasterfemale(); }
+		static ::proto_ff::Sheet_RoleMasterfemale make_pbmsg(){ return ::proto_ff::Sheet_RoleMasterfemale(); }
 	};
-	typedef struct Sheet_rolemasterFemale_s Sheet_rolemasterFemale_t;
+	typedef struct Sheet_RoleMasterfemale_s Sheet_RoleMasterfemale_t;
 
-	struct rolesickleMaleattributeDesc_s : public NFDescStoreSeqOP {
-		rolesickleMaleattributeDesc_s();
-		virtual ~rolesickleMaleattributeDesc_s(){}
+	struct E_RoleSicklemaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleSicklemaleAttributeDesc_s();
+		virtual ~E_RoleSicklemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::rolesickleMaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolesickleMaleattributeDesc & msg);
-		static ::proto_ff::rolesickleMaleattributeDesc* new_pbmsg(){ return new ::proto_ff::rolesickleMaleattributeDesc(); }
-		static ::proto_ff::rolesickleMaleattributeDesc make_pbmsg(){ return ::proto_ff::rolesickleMaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklemaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklemaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleSicklemaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleSicklemaleAttributeDesc(); }
+		static ::proto_ff::E_RoleSicklemaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleSicklemaleAttributeDesc(); }
 	};
-	typedef struct rolesickleMaleattributeDesc_s rolesickleMaleattributeDesc_t;
+	typedef struct E_RoleSicklemaleAttributeDesc_s E_RoleSicklemaleAttributeDesc_t;
 
-	struct rolesickleMale_s : public NFDescStoreSeqOP {
-		rolesickleMale_s();
-		virtual ~rolesickleMale_s(){}
+	struct E_RoleSicklemale_s : public NFDescStoreSeqOP {
+		E_RoleSicklemale_s();
+		virtual ~E_RoleSicklemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct rolesickleMaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleSicklemaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::rolesickleMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolesickleMale & msg);
-		static ::proto_ff::rolesickleMale* new_pbmsg(){ return new ::proto_ff::rolesickleMale(); }
-		static ::proto_ff::rolesickleMale make_pbmsg(){ return ::proto_ff::rolesickleMale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklemale & msg);
+		static ::proto_ff::E_RoleSicklemale* new_pbmsg(){ return new ::proto_ff::E_RoleSicklemale(); }
+		static ::proto_ff::E_RoleSicklemale make_pbmsg(){ return ::proto_ff::E_RoleSicklemale(); }
 	};
-	typedef struct rolesickleMale_s rolesickleMale_t;
+	typedef struct E_RoleSicklemale_s E_RoleSicklemale_t;
 
-	struct Sheet_rolesickleMale_s : public NFDescStoreSeqOP {
-		Sheet_rolesickleMale_s();
-		virtual ~Sheet_rolesickleMale_s(){}
+	struct Sheet_RoleSicklemale_s : public NFDescStoreSeqOP {
+		Sheet_RoleSicklemale_s();
+		virtual ~Sheet_RoleSicklemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rolesickleMale_s, 2000> rolesickleMale_List;
+		NFShmVector<struct E_RoleSicklemale_s, 2000> E_RoleSicklemale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_rolesickleMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rolesickleMale & msg);
-		static ::proto_ff::Sheet_rolesickleMale* new_pbmsg(){ return new ::proto_ff::Sheet_rolesickleMale(); }
-		static ::proto_ff::Sheet_rolesickleMale make_pbmsg(){ return ::proto_ff::Sheet_rolesickleMale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSicklemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSicklemale & msg);
+		static ::proto_ff::Sheet_RoleSicklemale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleSicklemale(); }
+		static ::proto_ff::Sheet_RoleSicklemale make_pbmsg(){ return ::proto_ff::Sheet_RoleSicklemale(); }
 	};
-	typedef struct Sheet_rolesickleMale_s Sheet_rolesickleMale_t;
+	typedef struct Sheet_RoleSicklemale_s Sheet_RoleSicklemale_t;
 
-	struct rolesickleFemaleattributeDesc_s : public NFDescStoreSeqOP {
-		rolesickleFemaleattributeDesc_s();
-		virtual ~rolesickleFemaleattributeDesc_s(){}
+	struct E_RoleSicklefemaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleSicklefemaleAttributeDesc_s();
+		virtual ~E_RoleSicklefemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::rolesickleFemaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolesickleFemaleattributeDesc & msg);
-		static ::proto_ff::rolesickleFemaleattributeDesc* new_pbmsg(){ return new ::proto_ff::rolesickleFemaleattributeDesc(); }
-		static ::proto_ff::rolesickleFemaleattributeDesc make_pbmsg(){ return ::proto_ff::rolesickleFemaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklefemaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklefemaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleSicklefemaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleSicklefemaleAttributeDesc(); }
+		static ::proto_ff::E_RoleSicklefemaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleSicklefemaleAttributeDesc(); }
 	};
-	typedef struct rolesickleFemaleattributeDesc_s rolesickleFemaleattributeDesc_t;
+	typedef struct E_RoleSicklefemaleAttributeDesc_s E_RoleSicklefemaleAttributeDesc_t;
 
-	struct rolesickleFemale_s : public NFDescStoreSeqOP {
-		rolesickleFemale_s();
-		virtual ~rolesickleFemale_s(){}
+	struct E_RoleSicklefemale_s : public NFDescStoreSeqOP {
+		E_RoleSicklefemale_s();
+		virtual ~E_RoleSicklefemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct rolesickleFemaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleSicklefemaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::rolesickleFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::rolesickleFemale & msg);
-		static ::proto_ff::rolesickleFemale* new_pbmsg(){ return new ::proto_ff::rolesickleFemale(); }
-		static ::proto_ff::rolesickleFemale make_pbmsg(){ return ::proto_ff::rolesickleFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklefemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklefemale & msg);
+		static ::proto_ff::E_RoleSicklefemale* new_pbmsg(){ return new ::proto_ff::E_RoleSicklefemale(); }
+		static ::proto_ff::E_RoleSicklefemale make_pbmsg(){ return ::proto_ff::E_RoleSicklefemale(); }
 	};
-	typedef struct rolesickleFemale_s rolesickleFemale_t;
+	typedef struct E_RoleSicklefemale_s E_RoleSicklefemale_t;
 
-	struct Sheet_rolesickleFemale_s : public NFDescStoreSeqOP {
-		Sheet_rolesickleFemale_s();
-		virtual ~Sheet_rolesickleFemale_s(){}
+	struct Sheet_RoleSicklefemale_s : public NFDescStoreSeqOP {
+		Sheet_RoleSicklefemale_s();
+		virtual ~Sheet_RoleSicklefemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct rolesickleFemale_s, 2000> rolesickleFemale_List;
+		NFShmVector<struct E_RoleSicklefemale_s, 2000> E_RoleSicklefemale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_rolesickleFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_rolesickleFemale & msg);
-		static ::proto_ff::Sheet_rolesickleFemale* new_pbmsg(){ return new ::proto_ff::Sheet_rolesickleFemale(); }
-		static ::proto_ff::Sheet_rolesickleFemale make_pbmsg(){ return ::proto_ff::Sheet_rolesickleFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSicklefemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSicklefemale & msg);
+		static ::proto_ff::Sheet_RoleSicklefemale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleSicklefemale(); }
+		static ::proto_ff::Sheet_RoleSicklefemale make_pbmsg(){ return ::proto_ff::Sheet_RoleSicklefemale(); }
 	};
-	typedef struct Sheet_rolesickleFemale_s Sheet_rolesickleFemale_t;
+	typedef struct Sheet_RoleSicklefemale_s Sheet_RoleSicklefemale_t;
 
-	struct roleswordMaleattributeDesc_s : public NFDescStoreSeqOP {
-		roleswordMaleattributeDesc_s();
-		virtual ~roleswordMaleattributeDesc_s(){}
+	struct E_RoleSwordmaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleSwordmaleAttributeDesc_s();
+		virtual ~E_RoleSwordmaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::roleswordMaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleswordMaleattributeDesc & msg);
-		static ::proto_ff::roleswordMaleattributeDesc* new_pbmsg(){ return new ::proto_ff::roleswordMaleattributeDesc(); }
-		static ::proto_ff::roleswordMaleattributeDesc make_pbmsg(){ return ::proto_ff::roleswordMaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordmaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordmaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleSwordmaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleSwordmaleAttributeDesc(); }
+		static ::proto_ff::E_RoleSwordmaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleSwordmaleAttributeDesc(); }
 	};
-	typedef struct roleswordMaleattributeDesc_s roleswordMaleattributeDesc_t;
+	typedef struct E_RoleSwordmaleAttributeDesc_s E_RoleSwordmaleAttributeDesc_t;
 
-	struct roleswordMale_s : public NFDescStoreSeqOP {
-		roleswordMale_s();
-		virtual ~roleswordMale_s(){}
+	struct E_RoleSwordmale_s : public NFDescStoreSeqOP {
+		E_RoleSwordmale_s();
+		virtual ~E_RoleSwordmale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct roleswordMaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleSwordmaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::roleswordMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleswordMale & msg);
-		static ::proto_ff::roleswordMale* new_pbmsg(){ return new ::proto_ff::roleswordMale(); }
-		static ::proto_ff::roleswordMale make_pbmsg(){ return ::proto_ff::roleswordMale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordmale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordmale & msg);
+		static ::proto_ff::E_RoleSwordmale* new_pbmsg(){ return new ::proto_ff::E_RoleSwordmale(); }
+		static ::proto_ff::E_RoleSwordmale make_pbmsg(){ return ::proto_ff::E_RoleSwordmale(); }
 	};
-	typedef struct roleswordMale_s roleswordMale_t;
+	typedef struct E_RoleSwordmale_s E_RoleSwordmale_t;
 
-	struct Sheet_roleswordMale_s : public NFDescStoreSeqOP {
-		Sheet_roleswordMale_s();
-		virtual ~Sheet_roleswordMale_s(){}
+	struct Sheet_RoleSwordmale_s : public NFDescStoreSeqOP {
+		Sheet_RoleSwordmale_s();
+		virtual ~Sheet_RoleSwordmale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleswordMale_s, 2000> roleswordMale_List;
+		NFShmVector<struct E_RoleSwordmale_s, 2000> E_RoleSwordmale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleswordMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleswordMale & msg);
-		static ::proto_ff::Sheet_roleswordMale* new_pbmsg(){ return new ::proto_ff::Sheet_roleswordMale(); }
-		static ::proto_ff::Sheet_roleswordMale make_pbmsg(){ return ::proto_ff::Sheet_roleswordMale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSwordmale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSwordmale & msg);
+		static ::proto_ff::Sheet_RoleSwordmale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleSwordmale(); }
+		static ::proto_ff::Sheet_RoleSwordmale make_pbmsg(){ return ::proto_ff::Sheet_RoleSwordmale(); }
 	};
-	typedef struct Sheet_roleswordMale_s Sheet_roleswordMale_t;
+	typedef struct Sheet_RoleSwordmale_s Sheet_RoleSwordmale_t;
 
-	struct roleswordFemaleattributeDesc_s : public NFDescStoreSeqOP {
-		roleswordFemaleattributeDesc_s();
-		virtual ~roleswordFemaleattributeDesc_s(){}
+	struct E_RoleSwordfemaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleSwordfemaleAttributeDesc_s();
+		virtual ~E_RoleSwordfemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::roleswordFemaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleswordFemaleattributeDesc & msg);
-		static ::proto_ff::roleswordFemaleattributeDesc* new_pbmsg(){ return new ::proto_ff::roleswordFemaleattributeDesc(); }
-		static ::proto_ff::roleswordFemaleattributeDesc make_pbmsg(){ return ::proto_ff::roleswordFemaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordfemaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordfemaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleSwordfemaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleSwordfemaleAttributeDesc(); }
+		static ::proto_ff::E_RoleSwordfemaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleSwordfemaleAttributeDesc(); }
 	};
-	typedef struct roleswordFemaleattributeDesc_s roleswordFemaleattributeDesc_t;
+	typedef struct E_RoleSwordfemaleAttributeDesc_s E_RoleSwordfemaleAttributeDesc_t;
 
-	struct roleswordFemale_s : public NFDescStoreSeqOP {
-		roleswordFemale_s();
-		virtual ~roleswordFemale_s(){}
+	struct E_RoleSwordfemale_s : public NFDescStoreSeqOP {
+		E_RoleSwordfemale_s();
+		virtual ~E_RoleSwordfemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct roleswordFemaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleSwordfemaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::roleswordFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleswordFemale & msg);
-		static ::proto_ff::roleswordFemale* new_pbmsg(){ return new ::proto_ff::roleswordFemale(); }
-		static ::proto_ff::roleswordFemale make_pbmsg(){ return ::proto_ff::roleswordFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordfemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordfemale & msg);
+		static ::proto_ff::E_RoleSwordfemale* new_pbmsg(){ return new ::proto_ff::E_RoleSwordfemale(); }
+		static ::proto_ff::E_RoleSwordfemale make_pbmsg(){ return ::proto_ff::E_RoleSwordfemale(); }
 	};
-	typedef struct roleswordFemale_s roleswordFemale_t;
+	typedef struct E_RoleSwordfemale_s E_RoleSwordfemale_t;
 
-	struct Sheet_roleswordFemale_s : public NFDescStoreSeqOP {
-		Sheet_roleswordFemale_s();
-		virtual ~Sheet_roleswordFemale_s(){}
+	struct Sheet_RoleSwordfemale_s : public NFDescStoreSeqOP {
+		Sheet_RoleSwordfemale_s();
+		virtual ~Sheet_RoleSwordfemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleswordFemale_s, 2000> roleswordFemale_List;
+		NFShmVector<struct E_RoleSwordfemale_s, 2000> E_RoleSwordfemale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleswordFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleswordFemale & msg);
-		static ::proto_ff::Sheet_roleswordFemale* new_pbmsg(){ return new ::proto_ff::Sheet_roleswordFemale(); }
-		static ::proto_ff::Sheet_roleswordFemale make_pbmsg(){ return ::proto_ff::Sheet_roleswordFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSwordfemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSwordfemale & msg);
+		static ::proto_ff::Sheet_RoleSwordfemale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleSwordfemale(); }
+		static ::proto_ff::Sheet_RoleSwordfemale make_pbmsg(){ return ::proto_ff::Sheet_RoleSwordfemale(); }
 	};
-	typedef struct Sheet_roleswordFemale_s Sheet_roleswordFemale_t;
+	typedef struct Sheet_RoleSwordfemale_s Sheet_RoleSwordfemale_t;
 
-	struct roletaidaoMaleattributeDesc_s : public NFDescStoreSeqOP {
-		roletaidaoMaleattributeDesc_s();
-		virtual ~roletaidaoMaleattributeDesc_s(){}
+	struct E_RoleTaidaomaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleTaidaomaleAttributeDesc_s();
+		virtual ~E_RoleTaidaomaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::roletaidaoMaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roletaidaoMaleattributeDesc & msg);
-		static ::proto_ff::roletaidaoMaleattributeDesc* new_pbmsg(){ return new ::proto_ff::roletaidaoMaleattributeDesc(); }
-		static ::proto_ff::roletaidaoMaleattributeDesc make_pbmsg(){ return ::proto_ff::roletaidaoMaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaomaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaomaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleTaidaomaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleTaidaomaleAttributeDesc(); }
+		static ::proto_ff::E_RoleTaidaomaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleTaidaomaleAttributeDesc(); }
 	};
-	typedef struct roletaidaoMaleattributeDesc_s roletaidaoMaleattributeDesc_t;
+	typedef struct E_RoleTaidaomaleAttributeDesc_s E_RoleTaidaomaleAttributeDesc_t;
 
-	struct roletaidaoMale_s : public NFDescStoreSeqOP {
-		roletaidaoMale_s();
-		virtual ~roletaidaoMale_s(){}
+	struct E_RoleTaidaomale_s : public NFDescStoreSeqOP {
+		E_RoleTaidaomale_s();
+		virtual ~E_RoleTaidaomale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct roletaidaoMaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleTaidaomaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::roletaidaoMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roletaidaoMale & msg);
-		static ::proto_ff::roletaidaoMale* new_pbmsg(){ return new ::proto_ff::roletaidaoMale(); }
-		static ::proto_ff::roletaidaoMale make_pbmsg(){ return ::proto_ff::roletaidaoMale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaomale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaomale & msg);
+		static ::proto_ff::E_RoleTaidaomale* new_pbmsg(){ return new ::proto_ff::E_RoleTaidaomale(); }
+		static ::proto_ff::E_RoleTaidaomale make_pbmsg(){ return ::proto_ff::E_RoleTaidaomale(); }
 	};
-	typedef struct roletaidaoMale_s roletaidaoMale_t;
+	typedef struct E_RoleTaidaomale_s E_RoleTaidaomale_t;
 
-	struct Sheet_roletaidaoMale_s : public NFDescStoreSeqOP {
-		Sheet_roletaidaoMale_s();
-		virtual ~Sheet_roletaidaoMale_s(){}
+	struct Sheet_RoleTaidaomale_s : public NFDescStoreSeqOP {
+		Sheet_RoleTaidaomale_s();
+		virtual ~Sheet_RoleTaidaomale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roletaidaoMale_s, 2000> roletaidaoMale_List;
+		NFShmVector<struct E_RoleTaidaomale_s, 2000> E_RoleTaidaomale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roletaidaoMale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roletaidaoMale & msg);
-		static ::proto_ff::Sheet_roletaidaoMale* new_pbmsg(){ return new ::proto_ff::Sheet_roletaidaoMale(); }
-		static ::proto_ff::Sheet_roletaidaoMale make_pbmsg(){ return ::proto_ff::Sheet_roletaidaoMale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleTaidaomale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleTaidaomale & msg);
+		static ::proto_ff::Sheet_RoleTaidaomale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleTaidaomale(); }
+		static ::proto_ff::Sheet_RoleTaidaomale make_pbmsg(){ return ::proto_ff::Sheet_RoleTaidaomale(); }
 	};
-	typedef struct Sheet_roletaidaoMale_s Sheet_roletaidaoMale_t;
+	typedef struct Sheet_RoleTaidaomale_s Sheet_RoleTaidaomale_t;
 
-	struct roletaidaoFemaleattributeDesc_s : public NFDescStoreSeqOP {
-		roletaidaoFemaleattributeDesc_s();
-		virtual ~roletaidaoFemaleattributeDesc_s(){}
+	struct E_RoleTaidaofemaleAttributeDesc_s : public NFDescStoreSeqOP {
+		E_RoleTaidaofemaleAttributeDesc_s();
+		virtual ~E_RoleTaidaofemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::roletaidaoFemaleattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roletaidaoFemaleattributeDesc & msg);
-		static ::proto_ff::roletaidaoFemaleattributeDesc* new_pbmsg(){ return new ::proto_ff::roletaidaoFemaleattributeDesc(); }
-		static ::proto_ff::roletaidaoFemaleattributeDesc make_pbmsg(){ return ::proto_ff::roletaidaoFemaleattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaofemaleAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemaleAttributeDesc & msg);
+		static ::proto_ff::E_RoleTaidaofemaleAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_RoleTaidaofemaleAttributeDesc(); }
+		static ::proto_ff::E_RoleTaidaofemaleAttributeDesc make_pbmsg(){ return ::proto_ff::E_RoleTaidaofemaleAttributeDesc(); }
 	};
-	typedef struct roletaidaoFemaleattributeDesc_s roletaidaoFemaleattributeDesc_t;
+	typedef struct E_RoleTaidaofemaleAttributeDesc_s E_RoleTaidaofemaleAttributeDesc_t;
 
-	struct roletaidaoFemale_s : public NFDescStoreSeqOP {
-		roletaidaoFemale_s();
-		virtual ~roletaidaoFemale_s(){}
+	struct E_RoleTaidaofemale_s : public NFDescStoreSeqOP {
+		E_RoleTaidaofemale_s();
+		virtual ~E_RoleTaidaofemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t upgradePoint;
-		NFArray<struct roletaidaoFemaleattributeDesc_s, 22> attribute;
+		int32_t m_lv;
+		int32_t m_upgradepoint;
+		NFShmVector<struct E_RoleTaidaofemaleAttributeDesc_s, 22> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::roletaidaoFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roletaidaoFemale & msg);
-		static ::proto_ff::roletaidaoFemale* new_pbmsg(){ return new ::proto_ff::roletaidaoFemale(); }
-		static ::proto_ff::roletaidaoFemale make_pbmsg(){ return ::proto_ff::roletaidaoFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaofemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemale & msg);
+		static ::proto_ff::E_RoleTaidaofemale* new_pbmsg(){ return new ::proto_ff::E_RoleTaidaofemale(); }
+		static ::proto_ff::E_RoleTaidaofemale make_pbmsg(){ return ::proto_ff::E_RoleTaidaofemale(); }
 	};
-	typedef struct roletaidaoFemale_s roletaidaoFemale_t;
+	typedef struct E_RoleTaidaofemale_s E_RoleTaidaofemale_t;
 
-	struct Sheet_roletaidaoFemale_s : public NFDescStoreSeqOP {
-		Sheet_roletaidaoFemale_s();
-		virtual ~Sheet_roletaidaoFemale_s(){}
+	struct Sheet_RoleTaidaofemale_s : public NFDescStoreSeqOP {
+		Sheet_RoleTaidaofemale_s();
+		virtual ~Sheet_RoleTaidaofemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roletaidaoFemale_s, 2000> roletaidaoFemale_List;
+		NFShmVector<struct E_RoleTaidaofemale_s, 2000> E_RoleTaidaofemale_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roletaidaoFemale & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roletaidaoFemale & msg);
-		static ::proto_ff::Sheet_roletaidaoFemale* new_pbmsg(){ return new ::proto_ff::Sheet_roletaidaoFemale(); }
-		static ::proto_ff::Sheet_roletaidaoFemale make_pbmsg(){ return ::proto_ff::Sheet_roletaidaoFemale(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleTaidaofemale & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleTaidaofemale & msg);
+		static ::proto_ff::Sheet_RoleTaidaofemale* new_pbmsg(){ return new ::proto_ff::Sheet_RoleTaidaofemale(); }
+		static ::proto_ff::Sheet_RoleTaidaofemale make_pbmsg(){ return ::proto_ff::Sheet_RoleTaidaofemale(); }
 	};
-	typedef struct Sheet_roletaidaoFemale_s Sheet_roletaidaoFemale_t;
+	typedef struct Sheet_RoleTaidaofemale_s Sheet_RoleTaidaofemale_t;
 
-	struct roleexp_s : public NFDescStoreSeqOP {
-		roleexp_s();
-		virtual ~roleexp_s(){}
+	struct E_RoleExp_s : public NFDescStoreSeqOP {
+		E_RoleExp_s();
+		virtual ~E_RoleExp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int64_t exp;
-		int32_t skillPoint;
+		int32_t m_lv;
+		int64_t m_exp;
+		int32_t m_skillpoint;
 
-		virtual void write_to_pbmsg(::proto_ff::roleexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleexp & msg);
-		static ::proto_ff::roleexp* new_pbmsg(){ return new ::proto_ff::roleexp(); }
-		static ::proto_ff::roleexp make_pbmsg(){ return ::proto_ff::roleexp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleExp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleExp & msg);
+		static ::proto_ff::E_RoleExp* new_pbmsg(){ return new ::proto_ff::E_RoleExp(); }
+		static ::proto_ff::E_RoleExp make_pbmsg(){ return ::proto_ff::E_RoleExp(); }
 	};
-	typedef struct roleexp_s roleexp_t;
+	typedef struct E_RoleExp_s E_RoleExp_t;
 
-	struct Sheet_roleexp_s : public NFDescStoreSeqOP {
-		Sheet_roleexp_s();
-		virtual ~Sheet_roleexp_s(){}
+	struct Sheet_RoleExp_s : public NFDescStoreSeqOP {
+		Sheet_RoleExp_s();
+		virtual ~Sheet_RoleExp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleexp_s, 2000> roleexp_List;
+		NFShmVector<struct E_RoleExp_s, 2000> E_RoleExp_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleexp & msg);
-		static ::proto_ff::Sheet_roleexp* new_pbmsg(){ return new ::proto_ff::Sheet_roleexp(); }
-		static ::proto_ff::Sheet_roleexp make_pbmsg(){ return ::proto_ff::Sheet_roleexp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleExp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleExp & msg);
+		static ::proto_ff::Sheet_RoleExp* new_pbmsg(){ return new ::proto_ff::Sheet_RoleExp(); }
+		static ::proto_ff::Sheet_RoleExp make_pbmsg(){ return ::proto_ff::Sheet_RoleExp(); }
 	};
-	typedef struct Sheet_roleexp_s Sheet_roleexp_t;
+	typedef struct Sheet_RoleExp_s Sheet_RoleExp_t;
 
-	struct roleskillType_s : public NFDescStoreSeqOP {
-		roleskillType_s();
-		virtual ~roleskillType_s(){}
+	struct E_RoleSkilltype_s : public NFDescStoreSeqOP {
+		E_RoleSkilltype_s();
+		virtual ~E_RoleSkilltype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t skillId;
-		int32_t skillType;
+		int64_t m_skillid;
+		int32_t m_skilltype;
 
-		virtual void write_to_pbmsg(::proto_ff::roleskillType & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleskillType & msg);
-		static ::proto_ff::roleskillType* new_pbmsg(){ return new ::proto_ff::roleskillType(); }
-		static ::proto_ff::roleskillType make_pbmsg(){ return ::proto_ff::roleskillType(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleSkilltype & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSkilltype & msg);
+		static ::proto_ff::E_RoleSkilltype* new_pbmsg(){ return new ::proto_ff::E_RoleSkilltype(); }
+		static ::proto_ff::E_RoleSkilltype make_pbmsg(){ return ::proto_ff::E_RoleSkilltype(); }
 	};
-	typedef struct roleskillType_s roleskillType_t;
+	typedef struct E_RoleSkilltype_s E_RoleSkilltype_t;
 
-	struct Sheet_roleskillType_s : public NFDescStoreSeqOP {
-		Sheet_roleskillType_s();
-		virtual ~Sheet_roleskillType_s(){}
+	struct Sheet_RoleSkilltype_s : public NFDescStoreSeqOP {
+		Sheet_RoleSkilltype_s();
+		virtual ~Sheet_RoleSkilltype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleskillType_s, 200> roleskillType_List;
+		NFShmVector<struct E_RoleSkilltype_s, 200> E_RoleSkilltype_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleskillType & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleskillType & msg);
-		static ::proto_ff::Sheet_roleskillType* new_pbmsg(){ return new ::proto_ff::Sheet_roleskillType(); }
-		static ::proto_ff::Sheet_roleskillType make_pbmsg(){ return ::proto_ff::Sheet_roleskillType(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSkilltype & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSkilltype & msg);
+		static ::proto_ff::Sheet_RoleSkilltype* new_pbmsg(){ return new ::proto_ff::Sheet_RoleSkilltype(); }
+		static ::proto_ff::Sheet_RoleSkilltype make_pbmsg(){ return ::proto_ff::Sheet_RoleSkilltype(); }
 	};
-	typedef struct Sheet_roleskillType_s Sheet_roleskillType_t;
+	typedef struct Sheet_RoleSkilltype_s Sheet_RoleSkilltype_t;
 
-	struct roleaddSkill_s : public NFDescStoreSeqOP {
-		roleaddSkill_s();
-		virtual ~roleaddSkill_s(){}
+	struct E_RoleAddskill_s : public NFDescStoreSeqOP {
+		E_RoleAddskill_s();
+		virtual ~E_RoleAddskill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Id;
-		int64_t skillId;
+		int32_t m_id;
+		int64_t m_skillid;
 
-		virtual void write_to_pbmsg(::proto_ff::roleaddSkill & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleaddSkill & msg);
-		static ::proto_ff::roleaddSkill* new_pbmsg(){ return new ::proto_ff::roleaddSkill(); }
-		static ::proto_ff::roleaddSkill make_pbmsg(){ return ::proto_ff::roleaddSkill(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleAddskill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleAddskill & msg);
+		static ::proto_ff::E_RoleAddskill* new_pbmsg(){ return new ::proto_ff::E_RoleAddskill(); }
+		static ::proto_ff::E_RoleAddskill make_pbmsg(){ return ::proto_ff::E_RoleAddskill(); }
 	};
-	typedef struct roleaddSkill_s roleaddSkill_t;
+	typedef struct E_RoleAddskill_s E_RoleAddskill_t;
 
-	struct Sheet_roleaddSkill_s : public NFDescStoreSeqOP {
-		Sheet_roleaddSkill_s();
-		virtual ~Sheet_roleaddSkill_s(){}
+	struct Sheet_RoleAddskill_s : public NFDescStoreSeqOP {
+		Sheet_RoleAddskill_s();
+		virtual ~Sheet_RoleAddskill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleaddSkill_s, 20> roleaddSkill_List;
+		NFShmVector<struct E_RoleAddskill_s, 20> E_RoleAddskill_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleaddSkill & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleaddSkill & msg);
-		static ::proto_ff::Sheet_roleaddSkill* new_pbmsg(){ return new ::proto_ff::Sheet_roleaddSkill(); }
-		static ::proto_ff::Sheet_roleaddSkill make_pbmsg(){ return ::proto_ff::Sheet_roleaddSkill(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleAddskill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleAddskill & msg);
+		static ::proto_ff::Sheet_RoleAddskill* new_pbmsg(){ return new ::proto_ff::Sheet_RoleAddskill(); }
+		static ::proto_ff::Sheet_RoleAddskill make_pbmsg(){ return ::proto_ff::Sheet_RoleAddskill(); }
 	};
-	typedef struct Sheet_roleaddSkill_s Sheet_roleaddSkill_t;
+	typedef struct Sheet_RoleAddskill_s Sheet_RoleAddskill_t;
 
-	struct roleworldexp_s : public NFDescStoreSeqOP {
-		roleworldexp_s();
-		virtual ~roleworldexp_s(){}
+	struct E_RoleWorldexp_s : public NFDescStoreSeqOP {
+		E_RoleWorldexp_s();
+		virtual ~E_RoleWorldexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t lv;
-		int32_t worldExp;
+		int64_t m_lv;
+		int32_t m_worldexp;
 
-		virtual void write_to_pbmsg(::proto_ff::roleworldexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::roleworldexp & msg);
-		static ::proto_ff::roleworldexp* new_pbmsg(){ return new ::proto_ff::roleworldexp(); }
-		static ::proto_ff::roleworldexp make_pbmsg(){ return ::proto_ff::roleworldexp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_RoleWorldexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_RoleWorldexp & msg);
+		static ::proto_ff::E_RoleWorldexp* new_pbmsg(){ return new ::proto_ff::E_RoleWorldexp(); }
+		static ::proto_ff::E_RoleWorldexp make_pbmsg(){ return ::proto_ff::E_RoleWorldexp(); }
 	};
-	typedef struct roleworldexp_s roleworldexp_t;
+	typedef struct E_RoleWorldexp_s E_RoleWorldexp_t;
 
-	struct Sheet_roleworldexp_s : public NFDescStoreSeqOP {
-		Sheet_roleworldexp_s();
-		virtual ~Sheet_roleworldexp_s(){}
+	struct Sheet_RoleWorldexp_s : public NFDescStoreSeqOP {
+		Sheet_RoleWorldexp_s();
+		virtual ~Sheet_RoleWorldexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct roleworldexp_s, 600> roleworldexp_List;
+		NFShmVector<struct E_RoleWorldexp_s, 600> E_RoleWorldexp_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_roleworldexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_roleworldexp & msg);
-		static ::proto_ff::Sheet_roleworldexp* new_pbmsg(){ return new ::proto_ff::Sheet_roleworldexp(); }
-		static ::proto_ff::Sheet_roleworldexp make_pbmsg(){ return ::proto_ff::Sheet_roleworldexp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleWorldexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleWorldexp & msg);
+		static ::proto_ff::Sheet_RoleWorldexp* new_pbmsg(){ return new ::proto_ff::Sheet_RoleWorldexp(); }
+		static ::proto_ff::Sheet_RoleWorldexp make_pbmsg(){ return ::proto_ff::Sheet_RoleWorldexp(); }
 	};
-	typedef struct Sheet_roleworldexp_s Sheet_roleworldexp_t;
+	typedef struct Sheet_RoleWorldexp_s Sheet_RoleWorldexp_t;
 
 }
 

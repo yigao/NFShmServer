@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "intimacy.pb.h"
@@ -10,82 +10,82 @@
 
 namespace proto_ff_s {
 
-	struct intimacyintimacyattributeDesc_s : public NFDescStoreSeqOP {
-		intimacyintimacyattributeDesc_s();
-		virtual ~intimacyintimacyattributeDesc_s(){}
+	struct E_IntimacyIntimacyAttributeDesc_s : public NFDescStoreSeqOP {
+		E_IntimacyIntimacyAttributeDesc_s();
+		virtual ~E_IntimacyIntimacyAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::intimacyintimacyattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::intimacyintimacyattributeDesc & msg);
-		static ::proto_ff::intimacyintimacyattributeDesc* new_pbmsg(){ return new ::proto_ff::intimacyintimacyattributeDesc(); }
-		static ::proto_ff::intimacyintimacyattributeDesc make_pbmsg(){ return ::proto_ff::intimacyintimacyattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_IntimacyIntimacyAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_IntimacyIntimacyAttributeDesc & msg);
+		static ::proto_ff::E_IntimacyIntimacyAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_IntimacyIntimacyAttributeDesc(); }
+		static ::proto_ff::E_IntimacyIntimacyAttributeDesc make_pbmsg(){ return ::proto_ff::E_IntimacyIntimacyAttributeDesc(); }
 	};
-	typedef struct intimacyintimacyattributeDesc_s intimacyintimacyattributeDesc_t;
+	typedef struct E_IntimacyIntimacyAttributeDesc_s E_IntimacyIntimacyAttributeDesc_t;
 
-	struct intimacyintimacy_s : public NFDescStoreSeqOP {
-		intimacyintimacy_s();
-		virtual ~intimacyintimacy_s(){}
+	struct E_IntimacyIntimacy_s : public NFDescStoreSeqOP {
+		E_IntimacyIntimacy_s();
+		virtual ~E_IntimacyIntimacy_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int32_t intimacyMin;
-		int32_t intimacyMax;
-		NFArray<struct intimacyintimacyattributeDesc_s, 3> attribute;
+		int32_t m_lv;
+		int32_t m_intimacymin;
+		int32_t m_intimacymax;
+		NFShmVector<struct E_IntimacyIntimacyAttributeDesc_s, 3> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::intimacyintimacy & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::intimacyintimacy & msg);
-		static ::proto_ff::intimacyintimacy* new_pbmsg(){ return new ::proto_ff::intimacyintimacy(); }
-		static ::proto_ff::intimacyintimacy make_pbmsg(){ return ::proto_ff::intimacyintimacy(); }
+		virtual void write_to_pbmsg(::proto_ff::E_IntimacyIntimacy & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_IntimacyIntimacy & msg);
+		static ::proto_ff::E_IntimacyIntimacy* new_pbmsg(){ return new ::proto_ff::E_IntimacyIntimacy(); }
+		static ::proto_ff::E_IntimacyIntimacy make_pbmsg(){ return ::proto_ff::E_IntimacyIntimacy(); }
 	};
-	typedef struct intimacyintimacy_s intimacyintimacy_t;
+	typedef struct E_IntimacyIntimacy_s E_IntimacyIntimacy_t;
 
-	struct Sheet_intimacyintimacy_s : public NFDescStoreSeqOP {
-		Sheet_intimacyintimacy_s();
-		virtual ~Sheet_intimacyintimacy_s(){}
+	struct Sheet_IntimacyIntimacy_s : public NFDescStoreSeqOP {
+		Sheet_IntimacyIntimacy_s();
+		virtual ~Sheet_IntimacyIntimacy_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct intimacyintimacy_s, 20> intimacyintimacy_List;
+		NFShmVector<struct E_IntimacyIntimacy_s, 20> E_IntimacyIntimacy_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_intimacyintimacy & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_intimacyintimacy & msg);
-		static ::proto_ff::Sheet_intimacyintimacy* new_pbmsg(){ return new ::proto_ff::Sheet_intimacyintimacy(); }
-		static ::proto_ff::Sheet_intimacyintimacy make_pbmsg(){ return ::proto_ff::Sheet_intimacyintimacy(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_IntimacyIntimacy & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_IntimacyIntimacy & msg);
+		static ::proto_ff::Sheet_IntimacyIntimacy* new_pbmsg(){ return new ::proto_ff::Sheet_IntimacyIntimacy(); }
+		static ::proto_ff::Sheet_IntimacyIntimacy make_pbmsg(){ return ::proto_ff::Sheet_IntimacyIntimacy(); }
 	};
-	typedef struct Sheet_intimacyintimacy_s Sheet_intimacyintimacy_t;
+	typedef struct Sheet_IntimacyIntimacy_s Sheet_IntimacyIntimacy_t;
 
-	struct intimacygift_s : public NFDescStoreSeqOP {
-		intimacygift_s();
-		virtual ~intimacygift_s(){}
+	struct E_IntimacyGift_s : public NFDescStoreSeqOP {
+		E_IntimacyGift_s();
+		virtual ~E_IntimacyGift_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t moneyType;
-		int32_t price;
-		int32_t intimacy;
+		int64_t m_id;
+		int32_t m_moneytype;
+		int32_t m_price;
+		int32_t m_intimacy;
 
-		virtual void write_to_pbmsg(::proto_ff::intimacygift & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::intimacygift & msg);
-		static ::proto_ff::intimacygift* new_pbmsg(){ return new ::proto_ff::intimacygift(); }
-		static ::proto_ff::intimacygift make_pbmsg(){ return ::proto_ff::intimacygift(); }
+		virtual void write_to_pbmsg(::proto_ff::E_IntimacyGift & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_IntimacyGift & msg);
+		static ::proto_ff::E_IntimacyGift* new_pbmsg(){ return new ::proto_ff::E_IntimacyGift(); }
+		static ::proto_ff::E_IntimacyGift make_pbmsg(){ return ::proto_ff::E_IntimacyGift(); }
 	};
-	typedef struct intimacygift_s intimacygift_t;
+	typedef struct E_IntimacyGift_s E_IntimacyGift_t;
 
-	struct Sheet_intimacygift_s : public NFDescStoreSeqOP {
-		Sheet_intimacygift_s();
-		virtual ~Sheet_intimacygift_s(){}
+	struct Sheet_IntimacyGift_s : public NFDescStoreSeqOP {
+		Sheet_IntimacyGift_s();
+		virtual ~Sheet_IntimacyGift_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct intimacygift_s, 20> intimacygift_List;
+		NFShmVector<struct E_IntimacyGift_s, 20> E_IntimacyGift_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_intimacygift & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_intimacygift & msg);
-		static ::proto_ff::Sheet_intimacygift* new_pbmsg(){ return new ::proto_ff::Sheet_intimacygift(); }
-		static ::proto_ff::Sheet_intimacygift make_pbmsg(){ return ::proto_ff::Sheet_intimacygift(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_IntimacyGift & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_IntimacyGift & msg);
+		static ::proto_ff::Sheet_IntimacyGift* new_pbmsg(){ return new ::proto_ff::Sheet_IntimacyGift(); }
+		static ::proto_ff::Sheet_IntimacyGift make_pbmsg(){ return ::proto_ff::Sheet_IntimacyGift(); }
 	};
-	typedef struct Sheet_intimacygift_s Sheet_intimacygift_t;
+	typedef struct Sheet_IntimacyGift_s Sheet_IntimacyGift_t;
 
 }
 

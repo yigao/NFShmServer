@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "perActivity.pb.h"
@@ -10,74 +10,74 @@
 
 namespace proto_ff_s {
 
-	struct perActivityperActivity_s : public NFDescStoreSeqOP {
-		perActivityperActivity_s();
-		virtual ~perActivityperActivity_s(){}
+	struct E_PeractivityPeractivity_s : public NFDescStoreSeqOP {
+		E_PeractivityPeractivity_s();
+		virtual ~E_PeractivityPeractivity_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t activeId;
-		NFShmString<60> activeName;
-		int32_t typeId;
-		int32_t functionID;
-		NFShmString<60> opeDay;
-		NFShmString<60> closeDay;
-		int32_t serverdelayTime;
-		int32_t serverTime;
-		int32_t openingTime;
-		int32_t advanceTime;
-		int32_t intervalTime;
-		int32_t isCross;
+		int64_t m_activeid;
+		NFShmString<60> m_activename;
+		int32_t m_typeid;
+		int32_t m_functionid;
+		NFShmString<60> m_opeday;
+		NFShmString<60> m_closeday;
+		int32_t m_serverdelaytime;
+		int32_t m_servertime;
+		int32_t m_openingtime;
+		int32_t m_advancetime;
+		int32_t m_intervaltime;
+		int32_t m_iscross;
 
-		virtual void write_to_pbmsg(::proto_ff::perActivityperActivity & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::perActivityperActivity & msg);
-		static ::proto_ff::perActivityperActivity* new_pbmsg(){ return new ::proto_ff::perActivityperActivity(); }
-		static ::proto_ff::perActivityperActivity make_pbmsg(){ return ::proto_ff::perActivityperActivity(); }
+		virtual void write_to_pbmsg(::proto_ff::E_PeractivityPeractivity & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PeractivityPeractivity & msg);
+		static ::proto_ff::E_PeractivityPeractivity* new_pbmsg(){ return new ::proto_ff::E_PeractivityPeractivity(); }
+		static ::proto_ff::E_PeractivityPeractivity make_pbmsg(){ return ::proto_ff::E_PeractivityPeractivity(); }
 	};
-	typedef struct perActivityperActivity_s perActivityperActivity_t;
+	typedef struct E_PeractivityPeractivity_s E_PeractivityPeractivity_t;
 
-	struct Sheet_perActivityperActivity_s : public NFDescStoreSeqOP {
-		Sheet_perActivityperActivity_s();
-		virtual ~Sheet_perActivityperActivity_s(){}
+	struct Sheet_PeractivityPeractivity_s : public NFDescStoreSeqOP {
+		Sheet_PeractivityPeractivity_s();
+		virtual ~Sheet_PeractivityPeractivity_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct perActivityperActivity_s, 20> perActivityperActivity_List;
+		NFShmVector<struct E_PeractivityPeractivity_s, 20> E_PeractivityPeractivity_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_perActivityperActivity & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_perActivityperActivity & msg);
-		static ::proto_ff::Sheet_perActivityperActivity* new_pbmsg(){ return new ::proto_ff::Sheet_perActivityperActivity(); }
-		static ::proto_ff::Sheet_perActivityperActivity make_pbmsg(){ return ::proto_ff::Sheet_perActivityperActivity(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PeractivityPeractivity & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PeractivityPeractivity & msg);
+		static ::proto_ff::Sheet_PeractivityPeractivity* new_pbmsg(){ return new ::proto_ff::Sheet_PeractivityPeractivity(); }
+		static ::proto_ff::Sheet_PeractivityPeractivity make_pbmsg(){ return ::proto_ff::Sheet_PeractivityPeractivity(); }
 	};
-	typedef struct Sheet_perActivityperActivity_s Sheet_perActivityperActivity_t;
+	typedef struct Sheet_PeractivityPeractivity_s Sheet_PeractivityPeractivity_t;
 
-	struct perActivityweek_s : public NFDescStoreSeqOP {
-		perActivityweek_s();
-		virtual ~perActivityweek_s(){}
+	struct E_PeractivityWeek_s : public NFDescStoreSeqOP {
+		E_PeractivityWeek_s();
+		virtual ~E_PeractivityWeek_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		NFShmString<60> time;
-		NFArray<NFShmString<60>, 7> week;
+		int32_t m_id;
+		NFShmString<60> m_time;
+		NFShmVector<NFShmString<60>, 7> m_week;
 
-		virtual void write_to_pbmsg(::proto_ff::perActivityweek & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::perActivityweek & msg);
-		static ::proto_ff::perActivityweek* new_pbmsg(){ return new ::proto_ff::perActivityweek(); }
-		static ::proto_ff::perActivityweek make_pbmsg(){ return ::proto_ff::perActivityweek(); }
+		virtual void write_to_pbmsg(::proto_ff::E_PeractivityWeek & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PeractivityWeek & msg);
+		static ::proto_ff::E_PeractivityWeek* new_pbmsg(){ return new ::proto_ff::E_PeractivityWeek(); }
+		static ::proto_ff::E_PeractivityWeek make_pbmsg(){ return ::proto_ff::E_PeractivityWeek(); }
 	};
-	typedef struct perActivityweek_s perActivityweek_t;
+	typedef struct E_PeractivityWeek_s E_PeractivityWeek_t;
 
-	struct Sheet_perActivityweek_s : public NFDescStoreSeqOP {
-		Sheet_perActivityweek_s();
-		virtual ~Sheet_perActivityweek_s(){}
+	struct Sheet_PeractivityWeek_s : public NFDescStoreSeqOP {
+		Sheet_PeractivityWeek_s();
+		virtual ~Sheet_PeractivityWeek_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct perActivityweek_s, 20> perActivityweek_List;
+		NFShmVector<struct E_PeractivityWeek_s, 20> E_PeractivityWeek_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_perActivityweek & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_perActivityweek & msg);
-		static ::proto_ff::Sheet_perActivityweek* new_pbmsg(){ return new ::proto_ff::Sheet_perActivityweek(); }
-		static ::proto_ff::Sheet_perActivityweek make_pbmsg(){ return ::proto_ff::Sheet_perActivityweek(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PeractivityWeek & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PeractivityWeek & msg);
+		static ::proto_ff::Sheet_PeractivityWeek* new_pbmsg(){ return new ::proto_ff::Sheet_PeractivityWeek(); }
+		static ::proto_ff::Sheet_PeractivityWeek make_pbmsg(){ return ::proto_ff::Sheet_PeractivityWeek(); }
 	};
-	typedef struct Sheet_perActivityweek_s Sheet_perActivityweek_t;
+	typedef struct Sheet_PeractivityWeek_s Sheet_PeractivityWeek_t;
 
 }
 

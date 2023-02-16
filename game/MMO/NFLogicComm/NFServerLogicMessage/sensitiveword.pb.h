@@ -34,21 +34,21 @@ void  protobuf_AddDesc_sensitiveword_2eproto();
 void protobuf_AssignDesc_sensitiveword_2eproto();
 void protobuf_ShutdownFile_sensitiveword_2eproto();
 
-class sensitivewordsensitive_word;
-class Sheet_sensitivewordsensitive_word;
-class sensitivewordrolesensitive;
-class Sheet_sensitivewordrolesensitive;
+class E_SensitivewordSensitive_word;
+class Sheet_SensitivewordSensitive_word;
+class E_SensitivewordRolesensitive;
+class Sheet_SensitivewordRolesensitive;
 
 // ===================================================================
 
-class sensitivewordsensitive_word : public ::google::protobuf::Message {
+class E_SensitivewordSensitive_word : public ::google::protobuf::Message {
  public:
-  sensitivewordsensitive_word();
-  virtual ~sensitivewordsensitive_word();
+  E_SensitivewordSensitive_word();
+  virtual ~E_SensitivewordSensitive_word();
 
-  sensitivewordsensitive_word(const sensitivewordsensitive_word& from);
+  E_SensitivewordSensitive_word(const E_SensitivewordSensitive_word& from);
 
-  inline sensitivewordsensitive_word& operator=(const sensitivewordsensitive_word& from) {
+  inline E_SensitivewordSensitive_word& operator=(const E_SensitivewordSensitive_word& from) {
     CopyFrom(from);
     return *this;
   }
@@ -62,17 +62,17 @@ class sensitivewordsensitive_word : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const sensitivewordsensitive_word& default_instance();
+  static const E_SensitivewordSensitive_word& default_instance();
 
-  void Swap(sensitivewordsensitive_word* other);
+  void Swap(E_SensitivewordSensitive_word* other);
 
   // implements Message ----------------------------------------------
 
-  sensitivewordsensitive_word* New() const;
+  E_SensitivewordSensitive_word* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const sensitivewordsensitive_word& from);
-  void MergeFrom(const sensitivewordsensitive_word& from);
+  void CopyFrom(const E_SensitivewordSensitive_word& from);
+  void MergeFrom(const E_SensitivewordSensitive_word& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -95,36 +95,36 @@ class sensitivewordsensitive_word : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string sensitiveWord = 2;
-  inline bool has_sensitiveword() const;
-  inline void clear_sensitiveword();
-  static const int kSensitiveWordFieldNumber = 2;
-  inline const ::std::string& sensitiveword() const;
-  inline void set_sensitiveword(const ::std::string& value);
-  inline void set_sensitiveword(const char* value);
-  inline void set_sensitiveword(const char* value, size_t size);
-  inline ::std::string* mutable_sensitiveword();
-  inline ::std::string* release_sensitiveword();
-  inline void set_allocated_sensitiveword(::std::string* sensitiveword);
+  // optional string m_sensitiveword = 2;
+  inline bool has_m_sensitiveword() const;
+  inline void clear_m_sensitiveword();
+  static const int kMSensitivewordFieldNumber = 2;
+  inline const ::std::string& m_sensitiveword() const;
+  inline void set_m_sensitiveword(const ::std::string& value);
+  inline void set_m_sensitiveword(const char* value);
+  inline void set_m_sensitiveword(const char* value, size_t size);
+  inline ::std::string* mutable_m_sensitiveword();
+  inline ::std::string* release_m_sensitiveword();
+  inline void set_allocated_m_sensitiveword(::std::string* m_sensitiveword);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.sensitivewordsensitive_word)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SensitivewordSensitive_word)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_sensitiveword();
-  inline void clear_has_sensitiveword();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_sensitiveword();
+  inline void clear_has_m_sensitiveword();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* sensitiveword_;
-  ::google::protobuf::int32 id_;
+  ::std::string* m_sensitiveword_;
+  ::google::protobuf::int32 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -134,18 +134,18 @@ class sensitivewordsensitive_word : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_sensitiveword_2eproto();
 
   void InitAsDefaultInstance();
-  static sensitivewordsensitive_word* default_instance_;
+  static E_SensitivewordSensitive_word* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_sensitivewordsensitive_word : public ::google::protobuf::Message {
+class Sheet_SensitivewordSensitive_word : public ::google::protobuf::Message {
  public:
-  Sheet_sensitivewordsensitive_word();
-  virtual ~Sheet_sensitivewordsensitive_word();
+  Sheet_SensitivewordSensitive_word();
+  virtual ~Sheet_SensitivewordSensitive_word();
 
-  Sheet_sensitivewordsensitive_word(const Sheet_sensitivewordsensitive_word& from);
+  Sheet_SensitivewordSensitive_word(const Sheet_SensitivewordSensitive_word& from);
 
-  inline Sheet_sensitivewordsensitive_word& operator=(const Sheet_sensitivewordsensitive_word& from) {
+  inline Sheet_SensitivewordSensitive_word& operator=(const Sheet_SensitivewordSensitive_word& from) {
     CopyFrom(from);
     return *this;
   }
@@ -159,17 +159,17 @@ class Sheet_sensitivewordsensitive_word : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_sensitivewordsensitive_word& default_instance();
+  static const Sheet_SensitivewordSensitive_word& default_instance();
 
-  void Swap(Sheet_sensitivewordsensitive_word* other);
+  void Swap(Sheet_SensitivewordSensitive_word* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_sensitivewordsensitive_word* New() const;
+  Sheet_SensitivewordSensitive_word* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_sensitivewordsensitive_word& from);
-  void MergeFrom(const Sheet_sensitivewordsensitive_word& from);
+  void CopyFrom(const Sheet_SensitivewordSensitive_word& from);
+  void MergeFrom(const Sheet_SensitivewordSensitive_word& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -192,24 +192,24 @@ class Sheet_sensitivewordsensitive_word : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.sensitivewordsensitive_word sensitivewordsensitive_word_List = 1;
-  inline int sensitivewordsensitive_word_list_size() const;
-  inline void clear_sensitivewordsensitive_word_list();
-  static const int kSensitivewordsensitiveWordListFieldNumber = 1;
-  inline const ::proto_ff::sensitivewordsensitive_word& sensitivewordsensitive_word_list(int index) const;
-  inline ::proto_ff::sensitivewordsensitive_word* mutable_sensitivewordsensitive_word_list(int index);
-  inline ::proto_ff::sensitivewordsensitive_word* add_sensitivewordsensitive_word_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordsensitive_word >&
-      sensitivewordsensitive_word_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordsensitive_word >*
-      mutable_sensitivewordsensitive_word_list();
+  // repeated .proto_ff.E_SensitivewordSensitive_word E_SensitivewordSensitive_word_List = 1;
+  inline int e_sensitivewordsensitive_word_list_size() const;
+  inline void clear_e_sensitivewordsensitive_word_list();
+  static const int kESensitivewordSensitiveWordListFieldNumber = 1;
+  inline const ::proto_ff::E_SensitivewordSensitive_word& e_sensitivewordsensitive_word_list(int index) const;
+  inline ::proto_ff::E_SensitivewordSensitive_word* mutable_e_sensitivewordsensitive_word_list(int index);
+  inline ::proto_ff::E_SensitivewordSensitive_word* add_e_sensitivewordsensitive_word_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordSensitive_word >&
+      e_sensitivewordsensitive_word_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordSensitive_word >*
+      mutable_e_sensitivewordsensitive_word_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_sensitivewordsensitive_word)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SensitivewordSensitive_word)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordsensitive_word > sensitivewordsensitive_word_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordSensitive_word > e_sensitivewordsensitive_word_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -219,18 +219,18 @@ class Sheet_sensitivewordsensitive_word : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_sensitiveword_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_sensitivewordsensitive_word* default_instance_;
+  static Sheet_SensitivewordSensitive_word* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class sensitivewordrolesensitive : public ::google::protobuf::Message {
+class E_SensitivewordRolesensitive : public ::google::protobuf::Message {
  public:
-  sensitivewordrolesensitive();
-  virtual ~sensitivewordrolesensitive();
+  E_SensitivewordRolesensitive();
+  virtual ~E_SensitivewordRolesensitive();
 
-  sensitivewordrolesensitive(const sensitivewordrolesensitive& from);
+  E_SensitivewordRolesensitive(const E_SensitivewordRolesensitive& from);
 
-  inline sensitivewordrolesensitive& operator=(const sensitivewordrolesensitive& from) {
+  inline E_SensitivewordRolesensitive& operator=(const E_SensitivewordRolesensitive& from) {
     CopyFrom(from);
     return *this;
   }
@@ -244,17 +244,17 @@ class sensitivewordrolesensitive : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const sensitivewordrolesensitive& default_instance();
+  static const E_SensitivewordRolesensitive& default_instance();
 
-  void Swap(sensitivewordrolesensitive* other);
+  void Swap(E_SensitivewordRolesensitive* other);
 
   // implements Message ----------------------------------------------
 
-  sensitivewordrolesensitive* New() const;
+  E_SensitivewordRolesensitive* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const sensitivewordrolesensitive& from);
-  void MergeFrom(const sensitivewordrolesensitive& from);
+  void CopyFrom(const E_SensitivewordRolesensitive& from);
+  void MergeFrom(const E_SensitivewordRolesensitive& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -277,36 +277,36 @@ class sensitivewordrolesensitive : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string sensitiveWord = 2;
-  inline bool has_sensitiveword() const;
-  inline void clear_sensitiveword();
-  static const int kSensitiveWordFieldNumber = 2;
-  inline const ::std::string& sensitiveword() const;
-  inline void set_sensitiveword(const ::std::string& value);
-  inline void set_sensitiveword(const char* value);
-  inline void set_sensitiveword(const char* value, size_t size);
-  inline ::std::string* mutable_sensitiveword();
-  inline ::std::string* release_sensitiveword();
-  inline void set_allocated_sensitiveword(::std::string* sensitiveword);
+  // optional string m_sensitiveword = 2;
+  inline bool has_m_sensitiveword() const;
+  inline void clear_m_sensitiveword();
+  static const int kMSensitivewordFieldNumber = 2;
+  inline const ::std::string& m_sensitiveword() const;
+  inline void set_m_sensitiveword(const ::std::string& value);
+  inline void set_m_sensitiveword(const char* value);
+  inline void set_m_sensitiveword(const char* value, size_t size);
+  inline ::std::string* mutable_m_sensitiveword();
+  inline ::std::string* release_m_sensitiveword();
+  inline void set_allocated_m_sensitiveword(::std::string* m_sensitiveword);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.sensitivewordrolesensitive)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SensitivewordRolesensitive)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_sensitiveword();
-  inline void clear_has_sensitiveword();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_sensitiveword();
+  inline void clear_has_m_sensitiveword();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* sensitiveword_;
-  ::google::protobuf::int32 id_;
+  ::std::string* m_sensitiveword_;
+  ::google::protobuf::int32 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -316,18 +316,18 @@ class sensitivewordrolesensitive : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_sensitiveword_2eproto();
 
   void InitAsDefaultInstance();
-  static sensitivewordrolesensitive* default_instance_;
+  static E_SensitivewordRolesensitive* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_sensitivewordrolesensitive : public ::google::protobuf::Message {
+class Sheet_SensitivewordRolesensitive : public ::google::protobuf::Message {
  public:
-  Sheet_sensitivewordrolesensitive();
-  virtual ~Sheet_sensitivewordrolesensitive();
+  Sheet_SensitivewordRolesensitive();
+  virtual ~Sheet_SensitivewordRolesensitive();
 
-  Sheet_sensitivewordrolesensitive(const Sheet_sensitivewordrolesensitive& from);
+  Sheet_SensitivewordRolesensitive(const Sheet_SensitivewordRolesensitive& from);
 
-  inline Sheet_sensitivewordrolesensitive& operator=(const Sheet_sensitivewordrolesensitive& from) {
+  inline Sheet_SensitivewordRolesensitive& operator=(const Sheet_SensitivewordRolesensitive& from) {
     CopyFrom(from);
     return *this;
   }
@@ -341,17 +341,17 @@ class Sheet_sensitivewordrolesensitive : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_sensitivewordrolesensitive& default_instance();
+  static const Sheet_SensitivewordRolesensitive& default_instance();
 
-  void Swap(Sheet_sensitivewordrolesensitive* other);
+  void Swap(Sheet_SensitivewordRolesensitive* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_sensitivewordrolesensitive* New() const;
+  Sheet_SensitivewordRolesensitive* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_sensitivewordrolesensitive& from);
-  void MergeFrom(const Sheet_sensitivewordrolesensitive& from);
+  void CopyFrom(const Sheet_SensitivewordRolesensitive& from);
+  void MergeFrom(const Sheet_SensitivewordRolesensitive& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -374,24 +374,24 @@ class Sheet_sensitivewordrolesensitive : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.sensitivewordrolesensitive sensitivewordrolesensitive_List = 1;
-  inline int sensitivewordrolesensitive_list_size() const;
-  inline void clear_sensitivewordrolesensitive_list();
-  static const int kSensitivewordrolesensitiveListFieldNumber = 1;
-  inline const ::proto_ff::sensitivewordrolesensitive& sensitivewordrolesensitive_list(int index) const;
-  inline ::proto_ff::sensitivewordrolesensitive* mutable_sensitivewordrolesensitive_list(int index);
-  inline ::proto_ff::sensitivewordrolesensitive* add_sensitivewordrolesensitive_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordrolesensitive >&
-      sensitivewordrolesensitive_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordrolesensitive >*
-      mutable_sensitivewordrolesensitive_list();
+  // repeated .proto_ff.E_SensitivewordRolesensitive E_SensitivewordRolesensitive_List = 1;
+  inline int e_sensitivewordrolesensitive_list_size() const;
+  inline void clear_e_sensitivewordrolesensitive_list();
+  static const int kESensitivewordRolesensitiveListFieldNumber = 1;
+  inline const ::proto_ff::E_SensitivewordRolesensitive& e_sensitivewordrolesensitive_list(int index) const;
+  inline ::proto_ff::E_SensitivewordRolesensitive* mutable_e_sensitivewordrolesensitive_list(int index);
+  inline ::proto_ff::E_SensitivewordRolesensitive* add_e_sensitivewordrolesensitive_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordRolesensitive >&
+      e_sensitivewordrolesensitive_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordRolesensitive >*
+      mutable_e_sensitivewordrolesensitive_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_sensitivewordrolesensitive)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SensitivewordRolesensitive)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordrolesensitive > sensitivewordrolesensitive_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordRolesensitive > e_sensitivewordrolesensitive_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -401,259 +401,259 @@ class Sheet_sensitivewordrolesensitive : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_sensitiveword_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_sensitivewordrolesensitive* default_instance_;
+  static Sheet_SensitivewordRolesensitive* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// sensitivewordsensitive_word
+// E_SensitivewordSensitive_word
 
-// optional int32 id = 1;
-inline bool sensitivewordsensitive_word::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_SensitivewordSensitive_word::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void sensitivewordsensitive_word::set_has_id() {
+inline void E_SensitivewordSensitive_word::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void sensitivewordsensitive_word::clear_has_id() {
+inline void E_SensitivewordSensitive_word::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void sensitivewordsensitive_word::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_SensitivewordSensitive_word::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 sensitivewordsensitive_word::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_SensitivewordSensitive_word::m_id() const {
+  return m_id_;
 }
-inline void sensitivewordsensitive_word::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_SensitivewordSensitive_word::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string sensitiveWord = 2;
-inline bool sensitivewordsensitive_word::has_sensitiveword() const {
+// optional string m_sensitiveword = 2;
+inline bool E_SensitivewordSensitive_word::has_m_sensitiveword() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void sensitivewordsensitive_word::set_has_sensitiveword() {
+inline void E_SensitivewordSensitive_word::set_has_m_sensitiveword() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void sensitivewordsensitive_word::clear_has_sensitiveword() {
+inline void E_SensitivewordSensitive_word::clear_has_m_sensitiveword() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void sensitivewordsensitive_word::clear_sensitiveword() {
-  if (sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_->clear();
+inline void E_SensitivewordSensitive_word::clear_m_sensitiveword() {
+  if (m_sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_->clear();
   }
-  clear_has_sensitiveword();
+  clear_has_m_sensitiveword();
 }
-inline const ::std::string& sensitivewordsensitive_word::sensitiveword() const {
-  return *sensitiveword_;
+inline const ::std::string& E_SensitivewordSensitive_word::m_sensitiveword() const {
+  return *m_sensitiveword_;
 }
-inline void sensitivewordsensitive_word::set_sensitiveword(const ::std::string& value) {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline void E_SensitivewordSensitive_word::set_m_sensitiveword(const ::std::string& value) {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  sensitiveword_->assign(value);
+  m_sensitiveword_->assign(value);
 }
-inline void sensitivewordsensitive_word::set_sensitiveword(const char* value) {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline void E_SensitivewordSensitive_word::set_m_sensitiveword(const char* value) {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  sensitiveword_->assign(value);
+  m_sensitiveword_->assign(value);
 }
-inline void sensitivewordsensitive_word::set_sensitiveword(const char* value, size_t size) {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline void E_SensitivewordSensitive_word::set_m_sensitiveword(const char* value, size_t size) {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  sensitiveword_->assign(reinterpret_cast<const char*>(value), size);
+  m_sensitiveword_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* sensitivewordsensitive_word::mutable_sensitiveword() {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline ::std::string* E_SensitivewordSensitive_word::mutable_m_sensitiveword() {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  return sensitiveword_;
+  return m_sensitiveword_;
 }
-inline ::std::string* sensitivewordsensitive_word::release_sensitiveword() {
-  clear_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_SensitivewordSensitive_word::release_m_sensitiveword() {
+  clear_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = sensitiveword_;
-    sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_sensitiveword_;
+    m_sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void sensitivewordsensitive_word::set_allocated_sensitiveword(::std::string* sensitiveword) {
-  if (sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
-    delete sensitiveword_;
+inline void E_SensitivewordSensitive_word::set_allocated_m_sensitiveword(::std::string* m_sensitiveword) {
+  if (m_sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_sensitiveword_;
   }
-  if (sensitiveword) {
-    set_has_sensitiveword();
-    sensitiveword_ = sensitiveword;
+  if (m_sensitiveword) {
+    set_has_m_sensitiveword();
+    m_sensitiveword_ = m_sensitiveword;
   } else {
-    clear_has_sensitiveword();
-    sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_sensitiveword();
+    m_sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_sensitivewordsensitive_word
+// Sheet_SensitivewordSensitive_word
 
-// repeated .proto_ff.sensitivewordsensitive_word sensitivewordsensitive_word_List = 1;
-inline int Sheet_sensitivewordsensitive_word::sensitivewordsensitive_word_list_size() const {
-  return sensitivewordsensitive_word_list_.size();
+// repeated .proto_ff.E_SensitivewordSensitive_word E_SensitivewordSensitive_word_List = 1;
+inline int Sheet_SensitivewordSensitive_word::e_sensitivewordsensitive_word_list_size() const {
+  return e_sensitivewordsensitive_word_list_.size();
 }
-inline void Sheet_sensitivewordsensitive_word::clear_sensitivewordsensitive_word_list() {
-  sensitivewordsensitive_word_list_.Clear();
+inline void Sheet_SensitivewordSensitive_word::clear_e_sensitivewordsensitive_word_list() {
+  e_sensitivewordsensitive_word_list_.Clear();
 }
-inline const ::proto_ff::sensitivewordsensitive_word& Sheet_sensitivewordsensitive_word::sensitivewordsensitive_word_list(int index) const {
-  return sensitivewordsensitive_word_list_.Get(index);
+inline const ::proto_ff::E_SensitivewordSensitive_word& Sheet_SensitivewordSensitive_word::e_sensitivewordsensitive_word_list(int index) const {
+  return e_sensitivewordsensitive_word_list_.Get(index);
 }
-inline ::proto_ff::sensitivewordsensitive_word* Sheet_sensitivewordsensitive_word::mutable_sensitivewordsensitive_word_list(int index) {
-  return sensitivewordsensitive_word_list_.Mutable(index);
+inline ::proto_ff::E_SensitivewordSensitive_word* Sheet_SensitivewordSensitive_word::mutable_e_sensitivewordsensitive_word_list(int index) {
+  return e_sensitivewordsensitive_word_list_.Mutable(index);
 }
-inline ::proto_ff::sensitivewordsensitive_word* Sheet_sensitivewordsensitive_word::add_sensitivewordsensitive_word_list() {
-  return sensitivewordsensitive_word_list_.Add();
+inline ::proto_ff::E_SensitivewordSensitive_word* Sheet_SensitivewordSensitive_word::add_e_sensitivewordsensitive_word_list() {
+  return e_sensitivewordsensitive_word_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordsensitive_word >&
-Sheet_sensitivewordsensitive_word::sensitivewordsensitive_word_list() const {
-  return sensitivewordsensitive_word_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordSensitive_word >&
+Sheet_SensitivewordSensitive_word::e_sensitivewordsensitive_word_list() const {
+  return e_sensitivewordsensitive_word_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordsensitive_word >*
-Sheet_sensitivewordsensitive_word::mutable_sensitivewordsensitive_word_list() {
-  return &sensitivewordsensitive_word_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordSensitive_word >*
+Sheet_SensitivewordSensitive_word::mutable_e_sensitivewordsensitive_word_list() {
+  return &e_sensitivewordsensitive_word_list_;
 }
 
 // -------------------------------------------------------------------
 
-// sensitivewordrolesensitive
+// E_SensitivewordRolesensitive
 
-// optional int32 id = 1;
-inline bool sensitivewordrolesensitive::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_SensitivewordRolesensitive::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void sensitivewordrolesensitive::set_has_id() {
+inline void E_SensitivewordRolesensitive::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void sensitivewordrolesensitive::clear_has_id() {
+inline void E_SensitivewordRolesensitive::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void sensitivewordrolesensitive::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_SensitivewordRolesensitive::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 sensitivewordrolesensitive::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_SensitivewordRolesensitive::m_id() const {
+  return m_id_;
 }
-inline void sensitivewordrolesensitive::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_SensitivewordRolesensitive::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string sensitiveWord = 2;
-inline bool sensitivewordrolesensitive::has_sensitiveword() const {
+// optional string m_sensitiveword = 2;
+inline bool E_SensitivewordRolesensitive::has_m_sensitiveword() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void sensitivewordrolesensitive::set_has_sensitiveword() {
+inline void E_SensitivewordRolesensitive::set_has_m_sensitiveword() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void sensitivewordrolesensitive::clear_has_sensitiveword() {
+inline void E_SensitivewordRolesensitive::clear_has_m_sensitiveword() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void sensitivewordrolesensitive::clear_sensitiveword() {
-  if (sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_->clear();
+inline void E_SensitivewordRolesensitive::clear_m_sensitiveword() {
+  if (m_sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_->clear();
   }
-  clear_has_sensitiveword();
+  clear_has_m_sensitiveword();
 }
-inline const ::std::string& sensitivewordrolesensitive::sensitiveword() const {
-  return *sensitiveword_;
+inline const ::std::string& E_SensitivewordRolesensitive::m_sensitiveword() const {
+  return *m_sensitiveword_;
 }
-inline void sensitivewordrolesensitive::set_sensitiveword(const ::std::string& value) {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline void E_SensitivewordRolesensitive::set_m_sensitiveword(const ::std::string& value) {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  sensitiveword_->assign(value);
+  m_sensitiveword_->assign(value);
 }
-inline void sensitivewordrolesensitive::set_sensitiveword(const char* value) {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline void E_SensitivewordRolesensitive::set_m_sensitiveword(const char* value) {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  sensitiveword_->assign(value);
+  m_sensitiveword_->assign(value);
 }
-inline void sensitivewordrolesensitive::set_sensitiveword(const char* value, size_t size) {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline void E_SensitivewordRolesensitive::set_m_sensitiveword(const char* value, size_t size) {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  sensitiveword_->assign(reinterpret_cast<const char*>(value), size);
+  m_sensitiveword_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* sensitivewordrolesensitive::mutable_sensitiveword() {
-  set_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
-    sensitiveword_ = new ::std::string;
+inline ::std::string* E_SensitivewordRolesensitive::mutable_m_sensitiveword() {
+  set_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+    m_sensitiveword_ = new ::std::string;
   }
-  return sensitiveword_;
+  return m_sensitiveword_;
 }
-inline ::std::string* sensitivewordrolesensitive::release_sensitiveword() {
-  clear_has_sensitiveword();
-  if (sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_SensitivewordRolesensitive::release_m_sensitiveword() {
+  clear_has_m_sensitiveword();
+  if (m_sensitiveword_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = sensitiveword_;
-    sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_sensitiveword_;
+    m_sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void sensitivewordrolesensitive::set_allocated_sensitiveword(::std::string* sensitiveword) {
-  if (sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
-    delete sensitiveword_;
+inline void E_SensitivewordRolesensitive::set_allocated_m_sensitiveword(::std::string* m_sensitiveword) {
+  if (m_sensitiveword_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_sensitiveword_;
   }
-  if (sensitiveword) {
-    set_has_sensitiveword();
-    sensitiveword_ = sensitiveword;
+  if (m_sensitiveword) {
+    set_has_m_sensitiveword();
+    m_sensitiveword_ = m_sensitiveword;
   } else {
-    clear_has_sensitiveword();
-    sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_sensitiveword();
+    m_sensitiveword_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_sensitivewordrolesensitive
+// Sheet_SensitivewordRolesensitive
 
-// repeated .proto_ff.sensitivewordrolesensitive sensitivewordrolesensitive_List = 1;
-inline int Sheet_sensitivewordrolesensitive::sensitivewordrolesensitive_list_size() const {
-  return sensitivewordrolesensitive_list_.size();
+// repeated .proto_ff.E_SensitivewordRolesensitive E_SensitivewordRolesensitive_List = 1;
+inline int Sheet_SensitivewordRolesensitive::e_sensitivewordrolesensitive_list_size() const {
+  return e_sensitivewordrolesensitive_list_.size();
 }
-inline void Sheet_sensitivewordrolesensitive::clear_sensitivewordrolesensitive_list() {
-  sensitivewordrolesensitive_list_.Clear();
+inline void Sheet_SensitivewordRolesensitive::clear_e_sensitivewordrolesensitive_list() {
+  e_sensitivewordrolesensitive_list_.Clear();
 }
-inline const ::proto_ff::sensitivewordrolesensitive& Sheet_sensitivewordrolesensitive::sensitivewordrolesensitive_list(int index) const {
-  return sensitivewordrolesensitive_list_.Get(index);
+inline const ::proto_ff::E_SensitivewordRolesensitive& Sheet_SensitivewordRolesensitive::e_sensitivewordrolesensitive_list(int index) const {
+  return e_sensitivewordrolesensitive_list_.Get(index);
 }
-inline ::proto_ff::sensitivewordrolesensitive* Sheet_sensitivewordrolesensitive::mutable_sensitivewordrolesensitive_list(int index) {
-  return sensitivewordrolesensitive_list_.Mutable(index);
+inline ::proto_ff::E_SensitivewordRolesensitive* Sheet_SensitivewordRolesensitive::mutable_e_sensitivewordrolesensitive_list(int index) {
+  return e_sensitivewordrolesensitive_list_.Mutable(index);
 }
-inline ::proto_ff::sensitivewordrolesensitive* Sheet_sensitivewordrolesensitive::add_sensitivewordrolesensitive_list() {
-  return sensitivewordrolesensitive_list_.Add();
+inline ::proto_ff::E_SensitivewordRolesensitive* Sheet_SensitivewordRolesensitive::add_e_sensitivewordrolesensitive_list() {
+  return e_sensitivewordrolesensitive_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordrolesensitive >&
-Sheet_sensitivewordrolesensitive::sensitivewordrolesensitive_list() const {
-  return sensitivewordrolesensitive_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordRolesensitive >&
+Sheet_SensitivewordRolesensitive::e_sensitivewordrolesensitive_list() const {
+  return e_sensitivewordrolesensitive_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::sensitivewordrolesensitive >*
-Sheet_sensitivewordrolesensitive::mutable_sensitivewordrolesensitive_list() {
-  return &sensitivewordrolesensitive_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SensitivewordRolesensitive >*
+Sheet_SensitivewordRolesensitive::mutable_e_sensitivewordrolesensitive_list() {
+  return &e_sensitivewordrolesensitive_list_;
 }
 
 

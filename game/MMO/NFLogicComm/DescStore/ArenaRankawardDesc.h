@@ -14,9 +14,9 @@ public:
 	virtual ~ArenaRankawardDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::arenarankaward_s* GetDesc(int id) const;
-	proto_ff_s::arenarankaward_s* GetDesc(int id);
+	const proto_ff_s::E_ArenaRankaward_s* GetDesc(int id) const;
+	proto_ff_s::E_ArenaRankaward_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::arenarankaward_s, arenarankaward, MAX_ARENA_RANKAWARD_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaRankaward_s, arenarankaward, MAX_ARENA_RANKAWARD_NUM);
 DECLARE_IDCREATE(ArenaRankawardDesc);
 };

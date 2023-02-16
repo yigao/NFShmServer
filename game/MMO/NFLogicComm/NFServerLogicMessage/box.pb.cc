@@ -20,27 +20,27 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* boxboxboxdataDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_BoxBoxBoxdataDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxboxboxdataDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* boxbox_descriptor_ = NULL;
+  E_BoxBoxBoxdataDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_BoxBox_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxbox_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_boxbox_descriptor_ = NULL;
+  E_BoxBox_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_BoxBox_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_boxbox_reflection_ = NULL;
-const ::google::protobuf::Descriptor* boxboxdataequipDesc_descriptor_ = NULL;
+  Sheet_BoxBox_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_BoxBoxdataEquipDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxboxdataequipDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* boxboxdataitemDesc_descriptor_ = NULL;
+  E_BoxBoxdataEquipDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_BoxBoxdataItemDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxboxdataitemDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* boxboxdata_descriptor_ = NULL;
+  E_BoxBoxdataItemDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_BoxBoxdata_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  boxboxdata_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_boxboxdata_descriptor_ = NULL;
+  E_BoxBoxdata_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_BoxBoxdata_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_boxboxdata_reflection_ = NULL;
+  Sheet_BoxBoxdata_reflection_ = NULL;
 
 }  // namespace
 
@@ -51,142 +51,142 @@ void protobuf_AssignDesc_box_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "box.proto");
   GOOGLE_CHECK(file != NULL);
-  boxboxboxdataDesc_descriptor_ = file->message_type(0);
-  static const int boxboxboxdataDesc_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxboxdataDesc, maxtimes_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxboxdataDesc, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxboxdataDesc, weight_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxboxdataDesc, mintimes_),
+  E_BoxBoxBoxdataDesc_descriptor_ = file->message_type(0);
+  static const int E_BoxBoxBoxdataDesc_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxBoxdataDesc, m_maxtimes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxBoxdataDesc, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxBoxdataDesc, m_weight_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxBoxdataDesc, m_mintimes_),
   };
-  boxboxboxdataDesc_reflection_ =
+  E_BoxBoxBoxdataDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxboxboxdataDesc_descriptor_,
-      boxboxboxdataDesc::default_instance_,
-      boxboxboxdataDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxboxdataDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxboxdataDesc, _unknown_fields_),
+      E_BoxBoxBoxdataDesc_descriptor_,
+      E_BoxBoxBoxdataDesc::default_instance_,
+      E_BoxBoxBoxdataDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxBoxdataDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxBoxdataDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxboxboxdataDesc));
-  boxbox_descriptor_ = file->message_type(1);
-  static const int boxbox_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, rate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, mask_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, mintimes_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, maxtimes_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, boxdata_),
+      sizeof(E_BoxBoxBoxdataDesc));
+  E_BoxBox_descriptor_ = file->message_type(1);
+  static const int E_BoxBox_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_rate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_mask_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_mintimes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_maxtimes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, m_boxdata_),
   };
-  boxbox_reflection_ =
+  E_BoxBox_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxbox_descriptor_,
-      boxbox::default_instance_,
-      boxbox_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxbox, _unknown_fields_),
+      E_BoxBox_descriptor_,
+      E_BoxBox::default_instance_,
+      E_BoxBox_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBox, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxbox));
-  Sheet_boxbox_descriptor_ = file->message_type(2);
-  static const int Sheet_boxbox_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_boxbox, boxbox_list_),
+      sizeof(E_BoxBox));
+  Sheet_BoxBox_descriptor_ = file->message_type(2);
+  static const int Sheet_BoxBox_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_BoxBox, e_boxbox_list_),
   };
-  Sheet_boxbox_reflection_ =
+  Sheet_BoxBox_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_boxbox_descriptor_,
-      Sheet_boxbox::default_instance_,
-      Sheet_boxbox_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_boxbox, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_boxbox, _unknown_fields_),
+      Sheet_BoxBox_descriptor_,
+      Sheet_BoxBox::default_instance_,
+      Sheet_BoxBox_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_BoxBox, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_BoxBox, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_boxbox));
-  boxboxdataequipDesc_descriptor_ = file->message_type(3);
-  static const int boxboxdataequipDesc_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, rand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, minnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, isbind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, maxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, id_),
+      sizeof(Sheet_BoxBox));
+  E_BoxBoxdataEquipDesc_descriptor_ = file->message_type(3);
+  static const int E_BoxBoxdataEquipDesc_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, m_rand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, m_minnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, m_isbind_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, m_maxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, m_id_),
   };
-  boxboxdataequipDesc_reflection_ =
+  E_BoxBoxdataEquipDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxboxdataequipDesc_descriptor_,
-      boxboxdataequipDesc::default_instance_,
-      boxboxdataequipDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataequipDesc, _unknown_fields_),
+      E_BoxBoxdataEquipDesc_descriptor_,
+      E_BoxBoxdataEquipDesc::default_instance_,
+      E_BoxBoxdataEquipDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataEquipDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxboxdataequipDesc));
-  boxboxdataitemDesc_descriptor_ = file->message_type(4);
-  static const int boxboxdataitemDesc_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, rand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, maxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, rarerand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, minnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, isbind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, id_),
+      sizeof(E_BoxBoxdataEquipDesc));
+  E_BoxBoxdataItemDesc_descriptor_ = file->message_type(4);
+  static const int E_BoxBoxdataItemDesc_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, m_rand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, m_maxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, m_rarerand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, m_minnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, m_isbind_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, m_id_),
   };
-  boxboxdataitemDesc_reflection_ =
+  E_BoxBoxdataItemDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxboxdataitemDesc_descriptor_,
-      boxboxdataitemDesc::default_instance_,
-      boxboxdataitemDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdataitemDesc, _unknown_fields_),
+      E_BoxBoxdataItemDesc_descriptor_,
+      E_BoxBoxdataItemDesc::default_instance_,
+      E_BoxBoxdataItemDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdataItemDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxboxdataitemDesc));
-  boxboxdata_descriptor_ = file->message_type(5);
-  static const int boxboxdata_offsets_[14] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, drop_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, goldminnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, goldmaxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, goldrand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, bindjewelminnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, bindjewelmaxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, bindjewelrand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, jewelminnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, jewelmaxnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, jewelrand_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, eq_profession_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, equip_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, item_),
+      sizeof(E_BoxBoxdataItemDesc));
+  E_BoxBoxdata_descriptor_ = file->message_type(5);
+  static const int E_BoxBoxdata_offsets_[14] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_drop_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_goldminnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_goldmaxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_goldrand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_bindjewelminnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_bindjewelmaxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_bindjewelrand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_jewelminnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_jewelmaxnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_jewelrand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_eq_profession_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_equip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, m_item_),
   };
-  boxboxdata_reflection_ =
+  E_BoxBoxdata_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      boxboxdata_descriptor_,
-      boxboxdata::default_instance_,
-      boxboxdata_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(boxboxdata, _unknown_fields_),
+      E_BoxBoxdata_descriptor_,
+      E_BoxBoxdata::default_instance_,
+      E_BoxBoxdata_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BoxBoxdata, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(boxboxdata));
-  Sheet_boxboxdata_descriptor_ = file->message_type(6);
-  static const int Sheet_boxboxdata_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_boxboxdata, boxboxdata_list_),
+      sizeof(E_BoxBoxdata));
+  Sheet_BoxBoxdata_descriptor_ = file->message_type(6);
+  static const int Sheet_BoxBoxdata_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_BoxBoxdata, e_boxboxdata_list_),
   };
-  Sheet_boxboxdata_reflection_ =
+  Sheet_BoxBoxdata_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_boxboxdata_descriptor_,
-      Sheet_boxboxdata::default_instance_,
-      Sheet_boxboxdata_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_boxboxdata, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_boxboxdata, _unknown_fields_),
+      Sheet_BoxBoxdata_descriptor_,
+      Sheet_BoxBoxdata::default_instance_,
+      Sheet_BoxBoxdata_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_BoxBoxdata, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_BoxBoxdata, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_boxboxdata));
+      sizeof(Sheet_BoxBoxdata));
 }
 
 namespace {
@@ -200,38 +200,38 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxboxboxdataDesc_descriptor_, &boxboxboxdataDesc::default_instance());
+    E_BoxBoxBoxdataDesc_descriptor_, &E_BoxBoxBoxdataDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxbox_descriptor_, &boxbox::default_instance());
+    E_BoxBox_descriptor_, &E_BoxBox::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_boxbox_descriptor_, &Sheet_boxbox::default_instance());
+    Sheet_BoxBox_descriptor_, &Sheet_BoxBox::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxboxdataequipDesc_descriptor_, &boxboxdataequipDesc::default_instance());
+    E_BoxBoxdataEquipDesc_descriptor_, &E_BoxBoxdataEquipDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxboxdataitemDesc_descriptor_, &boxboxdataitemDesc::default_instance());
+    E_BoxBoxdataItemDesc_descriptor_, &E_BoxBoxdataItemDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    boxboxdata_descriptor_, &boxboxdata::default_instance());
+    E_BoxBoxdata_descriptor_, &E_BoxBoxdata::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_boxboxdata_descriptor_, &Sheet_boxboxdata::default_instance());
+    Sheet_BoxBoxdata_descriptor_, &Sheet_BoxBoxdata::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_box_2eproto() {
-  delete boxboxboxdataDesc::default_instance_;
-  delete boxboxboxdataDesc_reflection_;
-  delete boxbox::default_instance_;
-  delete boxbox_reflection_;
-  delete Sheet_boxbox::default_instance_;
-  delete Sheet_boxbox_reflection_;
-  delete boxboxdataequipDesc::default_instance_;
-  delete boxboxdataequipDesc_reflection_;
-  delete boxboxdataitemDesc::default_instance_;
-  delete boxboxdataitemDesc_reflection_;
-  delete boxboxdata::default_instance_;
-  delete boxboxdata_reflection_;
-  delete Sheet_boxboxdata::default_instance_;
-  delete Sheet_boxboxdata_reflection_;
+  delete E_BoxBoxBoxdataDesc::default_instance_;
+  delete E_BoxBoxBoxdataDesc_reflection_;
+  delete E_BoxBox::default_instance_;
+  delete E_BoxBox_reflection_;
+  delete Sheet_BoxBox::default_instance_;
+  delete Sheet_BoxBox_reflection_;
+  delete E_BoxBoxdataEquipDesc::default_instance_;
+  delete E_BoxBoxdataEquipDesc_reflection_;
+  delete E_BoxBoxdataItemDesc::default_instance_;
+  delete E_BoxBoxdataItemDesc_reflection_;
+  delete E_BoxBoxdata::default_instance_;
+  delete E_BoxBoxdata_reflection_;
+  delete Sheet_BoxBoxdata::default_instance_;
+  delete Sheet_BoxBoxdata_reflection_;
 }
 
 void protobuf_AddDesc_box_2eproto() {
@@ -243,62 +243,64 @@ void protobuf_AddDesc_box_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tbox.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\"\213\001\n\021boxboxboxdataDesc\022\"\n\010maxTimes\030\001"
-    " \001(\005B\020\302\377\024\014\346\254\241\346\225\260\344\270\212\351\231\220\022\022\n\002id\030\002 \001(\003B\006\302\377\024\002"
-    "id\022\032\n\006weight\030\003 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022\"\n\010minTim"
-    "es\030\004 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\344\270\213\351\231\220\"\202\002\n\006boxbox\022\022\n"
-    "\002id\030\001 \001(\003B\006\302\377\024\002id\022\030\n\004type\030\002 \001(\005B\n\302\377\024\006\347\261\273"
-    "\345\236\213\022\036\n\004Rate\030\003 \001(\005B\020\302\377\024\014\347\224\237\346\225\210\346\246\202\347\216\207\022$\n\004M"
-    "ask\030\004 \001(\005B\026\302\377\024\022\346\246\202\347\216\207\350\260\203\346\225\264\346\240\207\347\255\276\022\"\n\010min"
-    "Times\030\005 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\254\241\346\225\260\022\"\n\010maxTime"
-    "s\030\006 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\254\241\346\225\260\022<\n\007boxdata\030\007 \003"
-    "(\0132\033.proto_ff.boxboxboxdataDescB\016\302\377\024\006\346\216\211"
-    "\350\220\275\210\301\024\010\";\n\014Sheet_boxbox\022+\n\013boxbox_List\030\001"
-    " \003(\0132\020.proto_ff.boxboxB\004\210\301\024\024\"\260\001\n\023boxboxd"
-    "ataequipDesc\022!\n\004rand\030\001 \001(\005B\023\302\377\024\017\346\246\202\347\216\207\347\231"
-    "\276\345\210\206\346\257\224\022 \n\006minNum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207"
-    "\217\022\032\n\006isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022 \n\006maxNum\030"
-    "\004 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\026\n\002id\030\005 \001(\tB\n\302\377\024"
-    "\002id\220\301\024<\"\333\001\n\022boxboxdataitemDesc\022\034\n\004rand\030\001"
-    " \001(\tB\016\302\377\024\006\346\235\203\351\207\215\220\301\024<\022 \n\006maxNum\030\002 \001(\005B\020\302\377"
-    "\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022%\n\010rarerand\030\003 \001(\005B\023\302\377\024\017\346\246"
-    "\202\347\216\207\347\231\276\345\210\206\346\257\224\022 \n\006minNum\030\004 \001(\005B\020\302\377\024\014\346\234\200\345\260"
-    "\217\346\225\260\351\207\217\022$\n\006isbind\030\005 \001(\tB\024\302\377\024\014\346\240\207\345\256\232\346\240\207\350\256"
-    "\260\220\301\024<\022\026\n\002id\030\006 \001(\tB\n\302\377\024\002id\220\301\024<\"\354\004\n\nboxbox"
-    "data\022\033\n\002id\030\001 \001(\003B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022#\n\tdro"
-    "p_type\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022$\n\ngoldmi"
-    "nNum\030\003 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022$\n\ngoldmaxN"
-    "um\030\004 \001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022%\n\010goldrand\030\005"
-    " \001(\005B\023\302\377\024\017\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022)\n\017bindjewelmi"
-    "nNum\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022)\n\017bindjewe"
-    "lmaxNum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022*\n\rbindj"
-    "ewelrand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216\207\022%\n\013j"
-    "ewelminNum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022%\n\013je"
-    "welmaxNum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220\022&\n\tjew"
-    "elrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347\216\207\022+\n\req_"
-    "profession\030\014 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024<\022B"
-    "\n\005equip\030\r \003(\0132\035.proto_ff.boxboxdataequip"
-    "DescB\024\302\377\024\014\347\250\200\346\234\211\350\243\205\345\244\207\210\301\024\010\022@\n\004item\030\016 \003(\013"
-    "2\034.proto_ff.boxboxdataitemDescB\024\302\377\024\014\347\250\200\346"
-    "\234\211\347\211\251\345\223\201\210\301\0242\"G\n\020Sheet_boxboxdata\0223\n\017boxb"
-    "oxdata_List\030\001 \003(\0132\024.proto_ff.boxboxdataB"
-    "\004\210\301\024(", 1605);
+    "roto\"\225\001\n\023E_BoxBoxBoxdataDesc\022$\n\nm_maxtim"
+    "es\030\001 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\344\270\212\351\231\220\022\024\n\004m_id\030\002 \001(\003"
+    "B\006\302\377\024\002id\022\034\n\010m_weight\030\003 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022$"
+    "\n\nm_mintimes\030\004 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\344\270\213\351\231\220\"\224\002\n"
+    "\010E_BoxBox\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\022\032\n\006m_typ"
+    "e\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022 \n\006m_rate\030\003 \001(\005B\020\302\377\024"
+    "\014\347\224\237\346\225\210\346\246\202\347\216\207\022&\n\006m_mask\030\004 \001(\005B\026\302\377\024\022\346\246\202\347\216"
+    "\207\350\260\203\346\225\264\346\240\207\347\255\276\022$\n\nm_mintimes\030\005 \001(\005B\020\302\377\024\014\346"
+    "\234\200\345\260\217\346\254\241\346\225\260\022$\n\nm_maxtimes\030\006 \001(\005B\020\302\377\024\014\346\234\200"
+    "\345\244\247\346\254\241\346\225\260\022@\n\tm_boxdata\030\007 \003(\0132\035.proto_ff."
+    "E_BoxBoxBoxdataDescB\016\302\377\024\006\346\216\211\350\220\275\210\301\024\010\"\?\n\014S"
+    "heet_BoxBox\022/\n\rE_BoxBox_List\030\001 \003(\0132\022.pro"
+    "to_ff.E_BoxBoxB\004\210\301\024\024\"\274\001\n\025E_BoxBoxdataEqu"
+    "ipDesc\022#\n\006m_rand\030\001 \001(\005B\023\302\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206"
+    "\346\257\224\022\"\n\010m_minnum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022"
+    "\034\n\010m_isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022\"\n\010m_maxnu"
+    "m\030\004 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\030\n\004m_id\030\005 \001(\tB"
+    "\n\302\377\024\002id\220\301\024<\"\351\001\n\024E_BoxBoxdataItemDesc\022\036\n\006"
+    "m_rand\030\001 \001(\tB\016\302\377\024\006\346\235\203\351\207\215\220\301\024<\022\"\n\010m_maxnum"
+    "\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\'\n\nm_rarerand\030\003"
+    " \001(\005B\023\302\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\022\"\n\010m_minnum\030\004 "
+    "\001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022&\n\010m_isbind\030\005 \001(\tB"
+    "\024\302\377\024\014\346\240\207\345\256\232\346\240\207\350\256\260\220\301\024<\022\030\n\004m_id\030\006 \001(\tB\n\302\377\024"
+    "\002id\220\301\024<\"\216\005\n\014E_BoxBoxdata\022\035\n\004m_id\030\001 \001(\003B\017"
+    "\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022%\n\013m_drop_type\030\002 \001(\005B\020\302\377"
+    "\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022&\n\014m_goldminnum\030\003 \001(\005B\020\302\377"
+    "\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022&\n\014m_goldmaxnum\030\004 \001(\005B\020\302\377"
+    "\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022\'\n\nm_goldrand\030\005 \001(\005B\023\302\377\024\017"
+    "\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022+\n\021m_bindjewelminnum\030\006 \001"
+    "(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022+\n\021m_bindjewelmaxnu"
+    "m\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022,\n\017m_bindjewel"
+    "rand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216\207\022\'\n\rm_jew"
+    "elminnum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022\'\n\rm_je"
+    "welmaxnum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220\022(\n\013m_j"
+    "ewelrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347\216\207\022-\n\017m"
+    "_eq_profession\030\014 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301"
+    "\024<\022F\n\007m_equip\030\r \003(\0132\037.proto_ff.E_BoxBoxd"
+    "ataEquipDescB\024\302\377\024\014\347\250\200\346\234\211\350\243\205\345\244\207\210\301\024\010\022D\n\006m_"
+    "item\030\016 \003(\0132\036.proto_ff.E_BoxBoxdataItemDe"
+    "scB\024\302\377\024\014\347\250\200\346\234\211\347\211\251\345\223\201\210\301\0242\"K\n\020Sheet_BoxBox"
+    "data\0227\n\021E_BoxBoxdata_List\030\001 \003(\0132\026.proto_"
+    "ff.E_BoxBoxdataB\004\210\301\024(", 1701);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "box.proto", &protobuf_RegisterTypes);
-  boxboxboxdataDesc::default_instance_ = new boxboxboxdataDesc();
-  boxbox::default_instance_ = new boxbox();
-  Sheet_boxbox::default_instance_ = new Sheet_boxbox();
-  boxboxdataequipDesc::default_instance_ = new boxboxdataequipDesc();
-  boxboxdataitemDesc::default_instance_ = new boxboxdataitemDesc();
-  boxboxdata::default_instance_ = new boxboxdata();
-  Sheet_boxboxdata::default_instance_ = new Sheet_boxboxdata();
-  boxboxboxdataDesc::default_instance_->InitAsDefaultInstance();
-  boxbox::default_instance_->InitAsDefaultInstance();
-  Sheet_boxbox::default_instance_->InitAsDefaultInstance();
-  boxboxdataequipDesc::default_instance_->InitAsDefaultInstance();
-  boxboxdataitemDesc::default_instance_->InitAsDefaultInstance();
-  boxboxdata::default_instance_->InitAsDefaultInstance();
-  Sheet_boxboxdata::default_instance_->InitAsDefaultInstance();
+  E_BoxBoxBoxdataDesc::default_instance_ = new E_BoxBoxBoxdataDesc();
+  E_BoxBox::default_instance_ = new E_BoxBox();
+  Sheet_BoxBox::default_instance_ = new Sheet_BoxBox();
+  E_BoxBoxdataEquipDesc::default_instance_ = new E_BoxBoxdataEquipDesc();
+  E_BoxBoxdataItemDesc::default_instance_ = new E_BoxBoxdataItemDesc();
+  E_BoxBoxdata::default_instance_ = new E_BoxBoxdata();
+  Sheet_BoxBoxdata::default_instance_ = new Sheet_BoxBoxdata();
+  E_BoxBoxBoxdataDesc::default_instance_->InitAsDefaultInstance();
+  E_BoxBox::default_instance_->InitAsDefaultInstance();
+  Sheet_BoxBox::default_instance_->InitAsDefaultInstance();
+  E_BoxBoxdataEquipDesc::default_instance_->InitAsDefaultInstance();
+  E_BoxBoxdataItemDesc::default_instance_->InitAsDefaultInstance();
+  E_BoxBoxdata::default_instance_->InitAsDefaultInstance();
+  Sheet_BoxBoxdata::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_box_2eproto);
 }
 
@@ -312,138 +314,138 @@ struct StaticDescriptorInitializer_box_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxboxboxdataDesc::kMaxTimesFieldNumber;
-const int boxboxboxdataDesc::kIdFieldNumber;
-const int boxboxboxdataDesc::kWeightFieldNumber;
-const int boxboxboxdataDesc::kMinTimesFieldNumber;
+const int E_BoxBoxBoxdataDesc::kMMaxtimesFieldNumber;
+const int E_BoxBoxBoxdataDesc::kMIdFieldNumber;
+const int E_BoxBoxBoxdataDesc::kMWeightFieldNumber;
+const int E_BoxBoxBoxdataDesc::kMMintimesFieldNumber;
 #endif  // !_MSC_VER
 
-boxboxboxdataDesc::boxboxboxdataDesc()
+E_BoxBoxBoxdataDesc::E_BoxBoxBoxdataDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxboxboxdataDesc::InitAsDefaultInstance() {
+void E_BoxBoxBoxdataDesc::InitAsDefaultInstance() {
 }
 
-boxboxboxdataDesc::boxboxboxdataDesc(const boxboxboxdataDesc& from)
+E_BoxBoxBoxdataDesc::E_BoxBoxBoxdataDesc(const E_BoxBoxBoxdataDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxboxboxdataDesc::SharedCtor() {
+void E_BoxBoxBoxdataDesc::SharedCtor() {
   _cached_size_ = 0;
-  maxtimes_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  weight_ = 0;
-  mintimes_ = 0;
+  m_maxtimes_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_weight_ = 0;
+  m_mintimes_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxboxboxdataDesc::~boxboxboxdataDesc() {
+E_BoxBoxBoxdataDesc::~E_BoxBoxBoxdataDesc() {
   SharedDtor();
 }
 
-void boxboxboxdataDesc::SharedDtor() {
+void E_BoxBoxBoxdataDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void boxboxboxdataDesc::SetCachedSize(int size) const {
+void E_BoxBoxBoxdataDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxboxboxdataDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_BoxBoxBoxdataDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxboxboxdataDesc_descriptor_;
+  return E_BoxBoxBoxdataDesc_descriptor_;
 }
 
-const boxboxboxdataDesc& boxboxboxdataDesc::default_instance() {
+const E_BoxBoxBoxdataDesc& E_BoxBoxBoxdataDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxboxboxdataDesc* boxboxboxdataDesc::default_instance_ = NULL;
+E_BoxBoxBoxdataDesc* E_BoxBoxBoxdataDesc::default_instance_ = NULL;
 
-boxboxboxdataDesc* boxboxboxdataDesc::New() const {
-  return new boxboxboxdataDesc;
+E_BoxBoxBoxdataDesc* E_BoxBoxBoxdataDesc::New() const {
+  return new E_BoxBoxBoxdataDesc;
 }
 
-void boxboxboxdataDesc::Clear() {
+void E_BoxBoxBoxdataDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    maxtimes_ = 0;
-    id_ = GOOGLE_LONGLONG(0);
-    weight_ = 0;
-    mintimes_ = 0;
+    m_maxtimes_ = 0;
+    m_id_ = GOOGLE_LONGLONG(0);
+    m_weight_ = 0;
+    m_mintimes_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool boxboxboxdataDesc::MergePartialFromCodedStream(
+bool E_BoxBoxBoxdataDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 maxTimes = 1;
+      // optional int32 m_maxtimes = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &maxtimes_)));
-          set_has_maxtimes();
+                 input, &m_maxtimes_)));
+          set_has_m_maxtimes();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_id;
+        if (input->ExpectTag(16)) goto parse_m_id;
         break;
       }
 
-      // optional int64 id = 2;
+      // optional int64 m_id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_id:
+         parse_m_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_weight;
+        if (input->ExpectTag(24)) goto parse_m_weight;
         break;
       }
 
-      // optional int32 weight = 3;
+      // optional int32 m_weight = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_weight:
+         parse_m_weight:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &weight_)));
-          set_has_weight();
+                 input, &m_weight_)));
+          set_has_m_weight();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_minTimes;
+        if (input->ExpectTag(32)) goto parse_m_mintimes;
         break;
       }
 
-      // optional int32 minTimes = 4;
+      // optional int32 m_mintimes = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_minTimes:
+         parse_m_mintimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &mintimes_)));
-          set_has_mintimes();
+                 input, &m_mintimes_)));
+          set_has_m_mintimes();
         } else {
           goto handle_uninterpreted;
         }
@@ -467,26 +469,26 @@ bool boxboxboxdataDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxboxboxdataDesc::SerializeWithCachedSizes(
+void E_BoxBoxBoxdataDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 maxTimes = 1;
-  if (has_maxtimes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->maxtimes(), output);
+  // optional int32 m_maxtimes = 1;
+  if (has_m_maxtimes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_maxtimes(), output);
   }
 
-  // optional int64 id = 2;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->id(), output);
+  // optional int64 m_id = 2;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
 
-  // optional int32 weight = 3;
-  if (has_weight()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->weight(), output);
+  // optional int32 m_weight = 3;
+  if (has_m_weight()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_weight(), output);
   }
 
-  // optional int32 minTimes = 4;
-  if (has_mintimes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->mintimes(), output);
+  // optional int32 m_mintimes = 4;
+  if (has_m_mintimes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_mintimes(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -495,26 +497,26 @@ void boxboxboxdataDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxboxboxdataDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_BoxBoxBoxdataDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 maxTimes = 1;
-  if (has_maxtimes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->maxtimes(), target);
+  // optional int32 m_maxtimes = 1;
+  if (has_m_maxtimes()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_maxtimes(), target);
   }
 
-  // optional int64 id = 2;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->id(), target);
+  // optional int64 m_id = 2;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
 
-  // optional int32 weight = 3;
-  if (has_weight()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->weight(), target);
+  // optional int32 m_weight = 3;
+  if (has_m_weight()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_weight(), target);
   }
 
-  // optional int32 minTimes = 4;
-  if (has_mintimes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->mintimes(), target);
+  // optional int32 m_mintimes = 4;
+  if (has_m_mintimes()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_mintimes(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -524,36 +526,36 @@ void boxboxboxdataDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int boxboxboxdataDesc::ByteSize() const {
+int E_BoxBoxBoxdataDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 maxTimes = 1;
-    if (has_maxtimes()) {
+    // optional int32 m_maxtimes = 1;
+    if (has_m_maxtimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->maxtimes());
+          this->m_maxtimes());
     }
 
-    // optional int64 id = 2;
-    if (has_id()) {
+    // optional int64 m_id = 2;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 weight = 3;
-    if (has_weight()) {
+    // optional int32 m_weight = 3;
+    if (has_m_weight()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->weight());
+          this->m_weight());
     }
 
-    // optional int32 minTimes = 4;
-    if (has_mintimes()) {
+    // optional int32 m_mintimes = 4;
+    if (has_m_mintimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->mintimes());
+          this->m_mintimes());
     }
 
   }
@@ -568,10 +570,10 @@ int boxboxboxdataDesc::ByteSize() const {
   return total_size;
 }
 
-void boxboxboxdataDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxBoxdataDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxboxboxdataDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxboxboxdataDesc*>(
+  const E_BoxBoxBoxdataDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_BoxBoxBoxdataDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -580,59 +582,59 @@ void boxboxboxdataDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxboxboxdataDesc::MergeFrom(const boxboxboxdataDesc& from) {
+void E_BoxBoxBoxdataDesc::MergeFrom(const E_BoxBoxBoxdataDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_maxtimes()) {
-      set_maxtimes(from.maxtimes());
+    if (from.has_m_maxtimes()) {
+      set_m_maxtimes(from.m_maxtimes());
     }
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_weight()) {
-      set_weight(from.weight());
+    if (from.has_m_weight()) {
+      set_m_weight(from.m_weight());
     }
-    if (from.has_mintimes()) {
-      set_mintimes(from.mintimes());
+    if (from.has_m_mintimes()) {
+      set_m_mintimes(from.m_mintimes());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxboxboxdataDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxBoxdataDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxboxboxdataDesc::CopyFrom(const boxboxboxdataDesc& from) {
+void E_BoxBoxBoxdataDesc::CopyFrom(const E_BoxBoxBoxdataDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxboxboxdataDesc::IsInitialized() const {
+bool E_BoxBoxBoxdataDesc::IsInitialized() const {
 
   return true;
 }
 
-void boxboxboxdataDesc::Swap(boxboxboxdataDesc* other) {
+void E_BoxBoxBoxdataDesc::Swap(E_BoxBoxBoxdataDesc* other) {
   if (other != this) {
-    std::swap(maxtimes_, other->maxtimes_);
-    std::swap(id_, other->id_);
-    std::swap(weight_, other->weight_);
-    std::swap(mintimes_, other->mintimes_);
+    std::swap(m_maxtimes_, other->m_maxtimes_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_weight_, other->m_weight_);
+    std::swap(m_mintimes_, other->m_mintimes_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata boxboxboxdataDesc::GetMetadata() const {
+::google::protobuf::Metadata E_BoxBoxBoxdataDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxboxboxdataDesc_descriptor_;
-  metadata.reflection = boxboxboxdataDesc_reflection_;
+  metadata.descriptor = E_BoxBoxBoxdataDesc_descriptor_;
+  metadata.reflection = E_BoxBoxBoxdataDesc_reflection_;
   return metadata;
 }
 
@@ -640,196 +642,196 @@ void boxboxboxdataDesc::Swap(boxboxboxdataDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxbox::kIdFieldNumber;
-const int boxbox::kTypeFieldNumber;
-const int boxbox::kRateFieldNumber;
-const int boxbox::kMaskFieldNumber;
-const int boxbox::kMinTimesFieldNumber;
-const int boxbox::kMaxTimesFieldNumber;
-const int boxbox::kBoxdataFieldNumber;
+const int E_BoxBox::kMIdFieldNumber;
+const int E_BoxBox::kMTypeFieldNumber;
+const int E_BoxBox::kMRateFieldNumber;
+const int E_BoxBox::kMMaskFieldNumber;
+const int E_BoxBox::kMMintimesFieldNumber;
+const int E_BoxBox::kMMaxtimesFieldNumber;
+const int E_BoxBox::kMBoxdataFieldNumber;
 #endif  // !_MSC_VER
 
-boxbox::boxbox()
+E_BoxBox::E_BoxBox()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxbox::InitAsDefaultInstance() {
+void E_BoxBox::InitAsDefaultInstance() {
 }
 
-boxbox::boxbox(const boxbox& from)
+E_BoxBox::E_BoxBox(const E_BoxBox& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxbox::SharedCtor() {
+void E_BoxBox::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  type_ = 0;
-  rate_ = 0;
-  mask_ = 0;
-  mintimes_ = 0;
-  maxtimes_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_type_ = 0;
+  m_rate_ = 0;
+  m_mask_ = 0;
+  m_mintimes_ = 0;
+  m_maxtimes_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxbox::~boxbox() {
+E_BoxBox::~E_BoxBox() {
   SharedDtor();
 }
 
-void boxbox::SharedDtor() {
+void E_BoxBox::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void boxbox::SetCachedSize(int size) const {
+void E_BoxBox::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxbox::descriptor() {
+const ::google::protobuf::Descriptor* E_BoxBox::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxbox_descriptor_;
+  return E_BoxBox_descriptor_;
 }
 
-const boxbox& boxbox::default_instance() {
+const E_BoxBox& E_BoxBox::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxbox* boxbox::default_instance_ = NULL;
+E_BoxBox* E_BoxBox::default_instance_ = NULL;
 
-boxbox* boxbox::New() const {
-  return new boxbox;
+E_BoxBox* E_BoxBox::New() const {
+  return new E_BoxBox;
 }
 
-void boxbox::Clear() {
+void E_BoxBox::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    type_ = 0;
-    rate_ = 0;
-    mask_ = 0;
-    mintimes_ = 0;
-    maxtimes_ = 0;
+    m_id_ = GOOGLE_LONGLONG(0);
+    m_type_ = 0;
+    m_rate_ = 0;
+    m_mask_ = 0;
+    m_mintimes_ = 0;
+    m_maxtimes_ = 0;
   }
-  boxdata_.Clear();
+  m_boxdata_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool boxbox::MergePartialFromCodedStream(
+bool E_BoxBox::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_type;
+        if (input->ExpectTag(16)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 2;
+      // optional int32 m_type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_Rate;
+        if (input->ExpectTag(24)) goto parse_m_rate;
         break;
       }
 
-      // optional int32 Rate = 3;
+      // optional int32 m_rate = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Rate:
+         parse_m_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rate_)));
-          set_has_rate();
+                 input, &m_rate_)));
+          set_has_m_rate();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_Mask;
+        if (input->ExpectTag(32)) goto parse_m_mask;
         break;
       }
 
-      // optional int32 Mask = 4;
+      // optional int32 m_mask = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Mask:
+         parse_m_mask:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &mask_)));
-          set_has_mask();
+                 input, &m_mask_)));
+          set_has_m_mask();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_minTimes;
+        if (input->ExpectTag(40)) goto parse_m_mintimes;
         break;
       }
 
-      // optional int32 minTimes = 5;
+      // optional int32 m_mintimes = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_minTimes:
+         parse_m_mintimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &mintimes_)));
-          set_has_mintimes();
+                 input, &m_mintimes_)));
+          set_has_m_mintimes();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_maxTimes;
+        if (input->ExpectTag(48)) goto parse_m_maxtimes;
         break;
       }
 
-      // optional int32 maxTimes = 6;
+      // optional int32 m_maxtimes = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_maxTimes:
+         parse_m_maxtimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &maxtimes_)));
-          set_has_maxtimes();
+                 input, &m_maxtimes_)));
+          set_has_m_maxtimes();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_boxdata;
+        if (input->ExpectTag(58)) goto parse_m_boxdata;
         break;
       }
 
-      // repeated .proto_ff.boxboxboxdataDesc boxdata = 7;
+      // repeated .proto_ff.E_BoxBoxBoxdataDesc m_boxdata = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_boxdata:
+         parse_m_boxdata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_boxdata()));
+                input, add_m_boxdata()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_boxdata;
+        if (input->ExpectTag(58)) goto parse_m_boxdata;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -850,42 +852,42 @@ bool boxbox::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxbox::SerializeWithCachedSizes(
+void E_BoxBox::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 Rate = 3;
-  if (has_rate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->rate(), output);
+  // optional int32 m_rate = 3;
+  if (has_m_rate()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_rate(), output);
   }
 
-  // optional int32 Mask = 4;
-  if (has_mask()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->mask(), output);
+  // optional int32 m_mask = 4;
+  if (has_m_mask()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_mask(), output);
   }
 
-  // optional int32 minTimes = 5;
-  if (has_mintimes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->mintimes(), output);
+  // optional int32 m_mintimes = 5;
+  if (has_m_mintimes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_mintimes(), output);
   }
 
-  // optional int32 maxTimes = 6;
-  if (has_maxtimes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->maxtimes(), output);
+  // optional int32 m_maxtimes = 6;
+  if (has_m_maxtimes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_maxtimes(), output);
   }
 
-  // repeated .proto_ff.boxboxboxdataDesc boxdata = 7;
-  for (int i = 0; i < this->boxdata_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxBoxdataDesc m_boxdata = 7;
+  for (int i = 0; i < this->m_boxdata_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->boxdata(i), output);
+      7, this->m_boxdata(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -894,43 +896,43 @@ void boxbox::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxbox::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_BoxBox::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 Rate = 3;
-  if (has_rate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->rate(), target);
+  // optional int32 m_rate = 3;
+  if (has_m_rate()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_rate(), target);
   }
 
-  // optional int32 Mask = 4;
-  if (has_mask()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->mask(), target);
+  // optional int32 m_mask = 4;
+  if (has_m_mask()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_mask(), target);
   }
 
-  // optional int32 minTimes = 5;
-  if (has_mintimes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->mintimes(), target);
+  // optional int32 m_mintimes = 5;
+  if (has_m_mintimes()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_mintimes(), target);
   }
 
-  // optional int32 maxTimes = 6;
-  if (has_maxtimes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->maxtimes(), target);
+  // optional int32 m_maxtimes = 6;
+  if (has_m_maxtimes()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_maxtimes(), target);
   }
 
-  // repeated .proto_ff.boxboxboxdataDesc boxdata = 7;
-  for (int i = 0; i < this->boxdata_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxBoxdataDesc m_boxdata = 7;
+  for (int i = 0; i < this->m_boxdata_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        7, this->boxdata(i), target);
+        7, this->m_boxdata(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -940,59 +942,59 @@ void boxbox::SerializeWithCachedSizes(
   return target;
 }
 
-int boxbox::ByteSize() const {
+int E_BoxBox::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 type = 2;
-    if (has_type()) {
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Rate = 3;
-    if (has_rate()) {
+    // optional int32 m_rate = 3;
+    if (has_m_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rate());
+          this->m_rate());
     }
 
-    // optional int32 Mask = 4;
-    if (has_mask()) {
+    // optional int32 m_mask = 4;
+    if (has_m_mask()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->mask());
+          this->m_mask());
     }
 
-    // optional int32 minTimes = 5;
-    if (has_mintimes()) {
+    // optional int32 m_mintimes = 5;
+    if (has_m_mintimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->mintimes());
+          this->m_mintimes());
     }
 
-    // optional int32 maxTimes = 6;
-    if (has_maxtimes()) {
+    // optional int32 m_maxtimes = 6;
+    if (has_m_maxtimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->maxtimes());
+          this->m_maxtimes());
     }
 
   }
-  // repeated .proto_ff.boxboxboxdataDesc boxdata = 7;
-  total_size += 1 * this->boxdata_size();
-  for (int i = 0; i < this->boxdata_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxBoxdataDesc m_boxdata = 7;
+  total_size += 1 * this->m_boxdata_size();
+  for (int i = 0; i < this->m_boxdata_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->boxdata(i));
+        this->m_boxdata(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1006,10 +1008,10 @@ int boxbox::ByteSize() const {
   return total_size;
 }
 
-void boxbox::MergeFrom(const ::google::protobuf::Message& from) {
+void E_BoxBox::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxbox* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxbox*>(
+  const E_BoxBox* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_BoxBox*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1018,69 +1020,69 @@ void boxbox::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxbox::MergeFrom(const boxbox& from) {
+void E_BoxBox::MergeFrom(const E_BoxBox& from) {
   GOOGLE_CHECK_NE(&from, this);
-  boxdata_.MergeFrom(from.boxdata_);
+  m_boxdata_.MergeFrom(from.m_boxdata_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_rate()) {
-      set_rate(from.rate());
+    if (from.has_m_rate()) {
+      set_m_rate(from.m_rate());
     }
-    if (from.has_mask()) {
-      set_mask(from.mask());
+    if (from.has_m_mask()) {
+      set_m_mask(from.m_mask());
     }
-    if (from.has_mintimes()) {
-      set_mintimes(from.mintimes());
+    if (from.has_m_mintimes()) {
+      set_m_mintimes(from.m_mintimes());
     }
-    if (from.has_maxtimes()) {
-      set_maxtimes(from.maxtimes());
+    if (from.has_m_maxtimes()) {
+      set_m_maxtimes(from.m_maxtimes());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxbox::CopyFrom(const ::google::protobuf::Message& from) {
+void E_BoxBox::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxbox::CopyFrom(const boxbox& from) {
+void E_BoxBox::CopyFrom(const E_BoxBox& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxbox::IsInitialized() const {
+bool E_BoxBox::IsInitialized() const {
 
   return true;
 }
 
-void boxbox::Swap(boxbox* other) {
+void E_BoxBox::Swap(E_BoxBox* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(type_, other->type_);
-    std::swap(rate_, other->rate_);
-    std::swap(mask_, other->mask_);
-    std::swap(mintimes_, other->mintimes_);
-    std::swap(maxtimes_, other->maxtimes_);
-    boxdata_.Swap(&other->boxdata_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_rate_, other->m_rate_);
+    std::swap(m_mask_, other->m_mask_);
+    std::swap(m_mintimes_, other->m_mintimes_);
+    std::swap(m_maxtimes_, other->m_maxtimes_);
+    m_boxdata_.Swap(&other->m_boxdata_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata boxbox::GetMetadata() const {
+::google::protobuf::Metadata E_BoxBox::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxbox_descriptor_;
-  metadata.reflection = boxbox_reflection_;
+  metadata.descriptor = E_BoxBox_descriptor_;
+  metadata.reflection = E_BoxBox_reflection_;
   return metadata;
 }
 
@@ -1088,81 +1090,81 @@ void boxbox::Swap(boxbox* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_boxbox::kBoxboxListFieldNumber;
+const int Sheet_BoxBox::kEBoxBoxListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_boxbox::Sheet_boxbox()
+Sheet_BoxBox::Sheet_BoxBox()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_boxbox::InitAsDefaultInstance() {
+void Sheet_BoxBox::InitAsDefaultInstance() {
 }
 
-Sheet_boxbox::Sheet_boxbox(const Sheet_boxbox& from)
+Sheet_BoxBox::Sheet_BoxBox(const Sheet_BoxBox& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_boxbox::SharedCtor() {
+void Sheet_BoxBox::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_boxbox::~Sheet_boxbox() {
+Sheet_BoxBox::~Sheet_BoxBox() {
   SharedDtor();
 }
 
-void Sheet_boxbox::SharedDtor() {
+void Sheet_BoxBox::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_boxbox::SetCachedSize(int size) const {
+void Sheet_BoxBox::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_boxbox::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_BoxBox::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_boxbox_descriptor_;
+  return Sheet_BoxBox_descriptor_;
 }
 
-const Sheet_boxbox& Sheet_boxbox::default_instance() {
+const Sheet_BoxBox& Sheet_BoxBox::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-Sheet_boxbox* Sheet_boxbox::default_instance_ = NULL;
+Sheet_BoxBox* Sheet_BoxBox::default_instance_ = NULL;
 
-Sheet_boxbox* Sheet_boxbox::New() const {
-  return new Sheet_boxbox;
+Sheet_BoxBox* Sheet_BoxBox::New() const {
+  return new Sheet_BoxBox;
 }
 
-void Sheet_boxbox::Clear() {
-  boxbox_list_.Clear();
+void Sheet_BoxBox::Clear() {
+  e_boxbox_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_boxbox::MergePartialFromCodedStream(
+bool Sheet_BoxBox::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.boxbox boxbox_List = 1;
+      // repeated .proto_ff.E_BoxBox E_BoxBox_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_boxbox_List:
+         parse_E_BoxBox_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_boxbox_list()));
+                input, add_e_boxbox_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_boxbox_List;
+        if (input->ExpectTag(10)) goto parse_E_BoxBox_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1183,12 +1185,12 @@ bool Sheet_boxbox::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_boxbox::SerializeWithCachedSizes(
+void Sheet_BoxBox::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.boxbox boxbox_List = 1;
-  for (int i = 0; i < this->boxbox_list_size(); i++) {
+  // repeated .proto_ff.E_BoxBox E_BoxBox_List = 1;
+  for (int i = 0; i < this->e_boxbox_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->boxbox_list(i), output);
+      1, this->e_boxbox_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1197,13 +1199,13 @@ void Sheet_boxbox::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_boxbox::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_BoxBox::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.boxbox boxbox_List = 1;
-  for (int i = 0; i < this->boxbox_list_size(); i++) {
+  // repeated .proto_ff.E_BoxBox E_BoxBox_List = 1;
+  for (int i = 0; i < this->e_boxbox_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->boxbox_list(i), target);
+        1, this->e_boxbox_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1213,15 +1215,15 @@ void Sheet_boxbox::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_boxbox::ByteSize() const {
+int Sheet_BoxBox::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.boxbox boxbox_List = 1;
-  total_size += 1 * this->boxbox_list_size();
-  for (int i = 0; i < this->boxbox_list_size(); i++) {
+  // repeated .proto_ff.E_BoxBox E_BoxBox_List = 1;
+  total_size += 1 * this->e_boxbox_list_size();
+  for (int i = 0; i < this->e_boxbox_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->boxbox_list(i));
+        this->e_boxbox_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1235,10 +1237,10 @@ int Sheet_boxbox::ByteSize() const {
   return total_size;
 }
 
-void Sheet_boxbox::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_BoxBox::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_boxbox* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_boxbox*>(
+  const Sheet_BoxBox* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_BoxBox*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1247,43 +1249,43 @@ void Sheet_boxbox::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_boxbox::MergeFrom(const Sheet_boxbox& from) {
+void Sheet_BoxBox::MergeFrom(const Sheet_BoxBox& from) {
   GOOGLE_CHECK_NE(&from, this);
-  boxbox_list_.MergeFrom(from.boxbox_list_);
+  e_boxbox_list_.MergeFrom(from.e_boxbox_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_boxbox::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_BoxBox::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_boxbox::CopyFrom(const Sheet_boxbox& from) {
+void Sheet_BoxBox::CopyFrom(const Sheet_BoxBox& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_boxbox::IsInitialized() const {
+bool Sheet_BoxBox::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_boxbox::Swap(Sheet_boxbox* other) {
+void Sheet_BoxBox::Swap(Sheet_BoxBox* other) {
   if (other != this) {
-    boxbox_list_.Swap(&other->boxbox_list_);
+    e_boxbox_list_.Swap(&other->e_boxbox_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_boxbox::GetMetadata() const {
+::google::protobuf::Metadata Sheet_BoxBox::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_boxbox_descriptor_;
-  metadata.reflection = Sheet_boxbox_reflection_;
+  metadata.descriptor = Sheet_BoxBox_descriptor_;
+  metadata.reflection = Sheet_BoxBox_reflection_;
   return metadata;
 }
 
@@ -1291,79 +1293,79 @@ void Sheet_boxbox::Swap(Sheet_boxbox* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxboxdataequipDesc::kRandFieldNumber;
-const int boxboxdataequipDesc::kMinNumFieldNumber;
-const int boxboxdataequipDesc::kIsbindFieldNumber;
-const int boxboxdataequipDesc::kMaxNumFieldNumber;
-const int boxboxdataequipDesc::kIdFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMRandFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMMinnumFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMIsbindFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMMaxnumFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMIdFieldNumber;
 #endif  // !_MSC_VER
 
-boxboxdataequipDesc::boxboxdataequipDesc()
+E_BoxBoxdataEquipDesc::E_BoxBoxdataEquipDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxboxdataequipDesc::InitAsDefaultInstance() {
+void E_BoxBoxdataEquipDesc::InitAsDefaultInstance() {
 }
 
-boxboxdataequipDesc::boxboxdataequipDesc(const boxboxdataequipDesc& from)
+E_BoxBoxdataEquipDesc::E_BoxBoxdataEquipDesc(const E_BoxBoxdataEquipDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxboxdataequipDesc::SharedCtor() {
+void E_BoxBoxdataEquipDesc::SharedCtor() {
   _cached_size_ = 0;
-  rand_ = 0;
-  minnum_ = 0;
-  isbind_ = 0;
-  maxnum_ = 0;
-  id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_rand_ = 0;
+  m_minnum_ = 0;
+  m_isbind_ = 0;
+  m_maxnum_ = 0;
+  m_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxboxdataequipDesc::~boxboxdataequipDesc() {
+E_BoxBoxdataEquipDesc::~E_BoxBoxdataEquipDesc() {
   SharedDtor();
 }
 
-void boxboxdataequipDesc::SharedDtor() {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    delete id_;
+void E_BoxBoxdataEquipDesc::SharedDtor() {
+  if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_id_;
   }
   if (this != default_instance_) {
   }
 }
 
-void boxboxdataequipDesc::SetCachedSize(int size) const {
+void E_BoxBoxdataEquipDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxboxdataequipDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_BoxBoxdataEquipDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxboxdataequipDesc_descriptor_;
+  return E_BoxBoxdataEquipDesc_descriptor_;
 }
 
-const boxboxdataequipDesc& boxboxdataequipDesc::default_instance() {
+const E_BoxBoxdataEquipDesc& E_BoxBoxdataEquipDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxboxdataequipDesc* boxboxdataequipDesc::default_instance_ = NULL;
+E_BoxBoxdataEquipDesc* E_BoxBoxdataEquipDesc::default_instance_ = NULL;
 
-boxboxdataequipDesc* boxboxdataequipDesc::New() const {
-  return new boxboxdataequipDesc;
+E_BoxBoxdataEquipDesc* E_BoxBoxdataEquipDesc::New() const {
+  return new E_BoxBoxdataEquipDesc;
 }
 
-void boxboxdataequipDesc::Clear() {
+void E_BoxBoxdataEquipDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    rand_ = 0;
-    minnum_ = 0;
-    isbind_ = 0;
-    maxnum_ = 0;
-    if (has_id()) {
-      if (id_ != &::google::protobuf::internal::kEmptyString) {
-        id_->clear();
+    m_rand_ = 0;
+    m_minnum_ = 0;
+    m_isbind_ = 0;
+    m_maxnum_ = 0;
+    if (has_m_id()) {
+      if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+        m_id_->clear();
       }
     }
   }
@@ -1371,84 +1373,84 @@ void boxboxdataequipDesc::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool boxboxdataequipDesc::MergePartialFromCodedStream(
+bool E_BoxBoxdataEquipDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 rand = 1;
+      // optional int32 m_rand = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rand_)));
-          set_has_rand();
+                 input, &m_rand_)));
+          set_has_m_rand();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_minNum;
+        if (input->ExpectTag(16)) goto parse_m_minnum;
         break;
       }
 
-      // optional int32 minNum = 2;
+      // optional int32 m_minnum = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_minNum:
+         parse_m_minnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &minnum_)));
-          set_has_minnum();
+                 input, &m_minnum_)));
+          set_has_m_minnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_isbind;
+        if (input->ExpectTag(24)) goto parse_m_isbind;
         break;
       }
 
-      // optional int32 isbind = 3;
+      // optional int32 m_isbind = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_isbind:
+         parse_m_isbind:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &isbind_)));
-          set_has_isbind();
+                 input, &m_isbind_)));
+          set_has_m_isbind();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_maxNum;
+        if (input->ExpectTag(32)) goto parse_m_maxnum;
         break;
       }
 
-      // optional int32 maxNum = 4;
+      // optional int32 m_maxnum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_maxNum:
+         parse_m_maxnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &maxnum_)));
-          set_has_maxnum();
+                 input, &m_maxnum_)));
+          set_has_m_maxnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_id;
+        if (input->ExpectTag(42)) goto parse_m_id;
         break;
       }
 
-      // optional string id = 5;
+      // optional string m_id = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_id:
+         parse_m_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_id()));
+                input, this->mutable_m_id()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->id().data(), this->id().length(),
+            this->m_id().data(), this->m_id().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1473,35 +1475,35 @@ bool boxboxdataequipDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxboxdataequipDesc::SerializeWithCachedSizes(
+void E_BoxBoxdataEquipDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 rand = 1;
-  if (has_rand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->rand(), output);
+  // optional int32 m_rand = 1;
+  if (has_m_rand()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_rand(), output);
   }
 
-  // optional int32 minNum = 2;
-  if (has_minnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->minnum(), output);
+  // optional int32 m_minnum = 2;
+  if (has_m_minnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_minnum(), output);
   }
 
-  // optional int32 isbind = 3;
-  if (has_isbind()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->isbind(), output);
+  // optional int32 m_isbind = 3;
+  if (has_m_isbind()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_isbind(), output);
   }
 
-  // optional int32 maxNum = 4;
-  if (has_maxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->maxnum(), output);
+  // optional int32 m_maxnum = 4;
+  if (has_m_maxnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_maxnum(), output);
   }
 
-  // optional string id = 5;
-  if (has_id()) {
+  // optional string m_id = 5;
+  if (has_m_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->id().data(), this->id().length(),
+      this->m_id().data(), this->m_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->id(), output);
+      5, this->m_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1510,36 +1512,36 @@ void boxboxdataequipDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxboxdataequipDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_BoxBoxdataEquipDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 rand = 1;
-  if (has_rand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->rand(), target);
+  // optional int32 m_rand = 1;
+  if (has_m_rand()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_rand(), target);
   }
 
-  // optional int32 minNum = 2;
-  if (has_minnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->minnum(), target);
+  // optional int32 m_minnum = 2;
+  if (has_m_minnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_minnum(), target);
   }
 
-  // optional int32 isbind = 3;
-  if (has_isbind()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->isbind(), target);
+  // optional int32 m_isbind = 3;
+  if (has_m_isbind()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_isbind(), target);
   }
 
-  // optional int32 maxNum = 4;
-  if (has_maxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->maxnum(), target);
+  // optional int32 m_maxnum = 4;
+  if (has_m_maxnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_maxnum(), target);
   }
 
-  // optional string id = 5;
-  if (has_id()) {
+  // optional string m_id = 5;
+  if (has_m_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->id().data(), this->id().length(),
+      this->m_id().data(), this->m_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->id(), target);
+        5, this->m_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1549,43 +1551,43 @@ void boxboxdataequipDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int boxboxdataequipDesc::ByteSize() const {
+int E_BoxBoxdataEquipDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 rand = 1;
-    if (has_rand()) {
+    // optional int32 m_rand = 1;
+    if (has_m_rand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rand());
+          this->m_rand());
     }
 
-    // optional int32 minNum = 2;
-    if (has_minnum()) {
+    // optional int32 m_minnum = 2;
+    if (has_m_minnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->minnum());
+          this->m_minnum());
     }
 
-    // optional int32 isbind = 3;
-    if (has_isbind()) {
+    // optional int32 m_isbind = 3;
+    if (has_m_isbind()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->isbind());
+          this->m_isbind());
     }
 
-    // optional int32 maxNum = 4;
-    if (has_maxnum()) {
+    // optional int32 m_maxnum = 4;
+    if (has_m_maxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->maxnum());
+          this->m_maxnum());
     }
 
-    // optional string id = 5;
-    if (has_id()) {
+    // optional string m_id = 5;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->id());
+          this->m_id());
     }
 
   }
@@ -1600,10 +1602,10 @@ int boxboxdataequipDesc::ByteSize() const {
   return total_size;
 }
 
-void boxboxdataequipDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxdataEquipDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxboxdataequipDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxboxdataequipDesc*>(
+  const E_BoxBoxdataEquipDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_BoxBoxdataEquipDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1612,63 +1614,63 @@ void boxboxdataequipDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxboxdataequipDesc::MergeFrom(const boxboxdataequipDesc& from) {
+void E_BoxBoxdataEquipDesc::MergeFrom(const E_BoxBoxdataEquipDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_rand()) {
-      set_rand(from.rand());
+    if (from.has_m_rand()) {
+      set_m_rand(from.m_rand());
     }
-    if (from.has_minnum()) {
-      set_minnum(from.minnum());
+    if (from.has_m_minnum()) {
+      set_m_minnum(from.m_minnum());
     }
-    if (from.has_isbind()) {
-      set_isbind(from.isbind());
+    if (from.has_m_isbind()) {
+      set_m_isbind(from.m_isbind());
     }
-    if (from.has_maxnum()) {
-      set_maxnum(from.maxnum());
+    if (from.has_m_maxnum()) {
+      set_m_maxnum(from.m_maxnum());
     }
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxboxdataequipDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxdataEquipDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxboxdataequipDesc::CopyFrom(const boxboxdataequipDesc& from) {
+void E_BoxBoxdataEquipDesc::CopyFrom(const E_BoxBoxdataEquipDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxboxdataequipDesc::IsInitialized() const {
+bool E_BoxBoxdataEquipDesc::IsInitialized() const {
 
   return true;
 }
 
-void boxboxdataequipDesc::Swap(boxboxdataequipDesc* other) {
+void E_BoxBoxdataEquipDesc::Swap(E_BoxBoxdataEquipDesc* other) {
   if (other != this) {
-    std::swap(rand_, other->rand_);
-    std::swap(minnum_, other->minnum_);
-    std::swap(isbind_, other->isbind_);
-    std::swap(maxnum_, other->maxnum_);
-    std::swap(id_, other->id_);
+    std::swap(m_rand_, other->m_rand_);
+    std::swap(m_minnum_, other->m_minnum_);
+    std::swap(m_isbind_, other->m_isbind_);
+    std::swap(m_maxnum_, other->m_maxnum_);
+    std::swap(m_id_, other->m_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata boxboxdataequipDesc::GetMetadata() const {
+::google::protobuf::Metadata E_BoxBoxdataEquipDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxboxdataequipDesc_descriptor_;
-  metadata.reflection = boxboxdataequipDesc_reflection_;
+  metadata.descriptor = E_BoxBoxdataEquipDesc_descriptor_;
+  metadata.reflection = E_BoxBoxdataEquipDesc_reflection_;
   return metadata;
 }
 
@@ -1676,96 +1678,96 @@ void boxboxdataequipDesc::Swap(boxboxdataequipDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxboxdataitemDesc::kRandFieldNumber;
-const int boxboxdataitemDesc::kMaxNumFieldNumber;
-const int boxboxdataitemDesc::kRarerandFieldNumber;
-const int boxboxdataitemDesc::kMinNumFieldNumber;
-const int boxboxdataitemDesc::kIsbindFieldNumber;
-const int boxboxdataitemDesc::kIdFieldNumber;
+const int E_BoxBoxdataItemDesc::kMRandFieldNumber;
+const int E_BoxBoxdataItemDesc::kMMaxnumFieldNumber;
+const int E_BoxBoxdataItemDesc::kMRarerandFieldNumber;
+const int E_BoxBoxdataItemDesc::kMMinnumFieldNumber;
+const int E_BoxBoxdataItemDesc::kMIsbindFieldNumber;
+const int E_BoxBoxdataItemDesc::kMIdFieldNumber;
 #endif  // !_MSC_VER
 
-boxboxdataitemDesc::boxboxdataitemDesc()
+E_BoxBoxdataItemDesc::E_BoxBoxdataItemDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxboxdataitemDesc::InitAsDefaultInstance() {
+void E_BoxBoxdataItemDesc::InitAsDefaultInstance() {
 }
 
-boxboxdataitemDesc::boxboxdataitemDesc(const boxboxdataitemDesc& from)
+E_BoxBoxdataItemDesc::E_BoxBoxdataItemDesc(const E_BoxBoxdataItemDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxboxdataitemDesc::SharedCtor() {
+void E_BoxBoxdataItemDesc::SharedCtor() {
   _cached_size_ = 0;
-  rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  maxnum_ = 0;
-  rarerand_ = 0;
-  minnum_ = 0;
-  isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_maxnum_ = 0;
+  m_rarerand_ = 0;
+  m_minnum_ = 0;
+  m_isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxboxdataitemDesc::~boxboxdataitemDesc() {
+E_BoxBoxdataItemDesc::~E_BoxBoxdataItemDesc() {
   SharedDtor();
 }
 
-void boxboxdataitemDesc::SharedDtor() {
-  if (rand_ != &::google::protobuf::internal::kEmptyString) {
-    delete rand_;
+void E_BoxBoxdataItemDesc::SharedDtor() {
+  if (m_rand_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_rand_;
   }
-  if (isbind_ != &::google::protobuf::internal::kEmptyString) {
-    delete isbind_;
+  if (m_isbind_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_isbind_;
   }
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    delete id_;
+  if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_id_;
   }
   if (this != default_instance_) {
   }
 }
 
-void boxboxdataitemDesc::SetCachedSize(int size) const {
+void E_BoxBoxdataItemDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxboxdataitemDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_BoxBoxdataItemDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxboxdataitemDesc_descriptor_;
+  return E_BoxBoxdataItemDesc_descriptor_;
 }
 
-const boxboxdataitemDesc& boxboxdataitemDesc::default_instance() {
+const E_BoxBoxdataItemDesc& E_BoxBoxdataItemDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxboxdataitemDesc* boxboxdataitemDesc::default_instance_ = NULL;
+E_BoxBoxdataItemDesc* E_BoxBoxdataItemDesc::default_instance_ = NULL;
 
-boxboxdataitemDesc* boxboxdataitemDesc::New() const {
-  return new boxboxdataitemDesc;
+E_BoxBoxdataItemDesc* E_BoxBoxdataItemDesc::New() const {
+  return new E_BoxBoxdataItemDesc;
 }
 
-void boxboxdataitemDesc::Clear() {
+void E_BoxBoxdataItemDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_rand()) {
-      if (rand_ != &::google::protobuf::internal::kEmptyString) {
-        rand_->clear();
+    if (has_m_rand()) {
+      if (m_rand_ != &::google::protobuf::internal::kEmptyString) {
+        m_rand_->clear();
       }
     }
-    maxnum_ = 0;
-    rarerand_ = 0;
-    minnum_ = 0;
-    if (has_isbind()) {
-      if (isbind_ != &::google::protobuf::internal::kEmptyString) {
-        isbind_->clear();
+    m_maxnum_ = 0;
+    m_rarerand_ = 0;
+    m_minnum_ = 0;
+    if (has_m_isbind()) {
+      if (m_isbind_ != &::google::protobuf::internal::kEmptyString) {
+        m_isbind_->clear();
       }
     }
-    if (has_id()) {
-      if (id_ != &::google::protobuf::internal::kEmptyString) {
-        id_->clear();
+    if (has_m_id()) {
+      if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+        m_id_->clear();
       }
     }
   }
@@ -1773,102 +1775,102 @@ void boxboxdataitemDesc::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool boxboxdataitemDesc::MergePartialFromCodedStream(
+bool E_BoxBoxdataItemDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string rand = 1;
+      // optional string m_rand = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_rand()));
+                input, this->mutable_m_rand()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->rand().data(), this->rand().length(),
+            this->m_rand().data(), this->m_rand().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_maxNum;
+        if (input->ExpectTag(16)) goto parse_m_maxnum;
         break;
       }
 
-      // optional int32 maxNum = 2;
+      // optional int32 m_maxnum = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_maxNum:
+         parse_m_maxnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &maxnum_)));
-          set_has_maxnum();
+                 input, &m_maxnum_)));
+          set_has_m_maxnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_rarerand;
+        if (input->ExpectTag(24)) goto parse_m_rarerand;
         break;
       }
 
-      // optional int32 rarerand = 3;
+      // optional int32 m_rarerand = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rarerand:
+         parse_m_rarerand:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rarerand_)));
-          set_has_rarerand();
+                 input, &m_rarerand_)));
+          set_has_m_rarerand();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_minNum;
+        if (input->ExpectTag(32)) goto parse_m_minnum;
         break;
       }
 
-      // optional int32 minNum = 4;
+      // optional int32 m_minnum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_minNum:
+         parse_m_minnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &minnum_)));
-          set_has_minnum();
+                 input, &m_minnum_)));
+          set_has_m_minnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_isbind;
+        if (input->ExpectTag(42)) goto parse_m_isbind;
         break;
       }
 
-      // optional string isbind = 5;
+      // optional string m_isbind = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_isbind:
+         parse_m_isbind:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_isbind()));
+                input, this->mutable_m_isbind()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->isbind().data(), this->isbind().length(),
+            this->m_isbind().data(), this->m_isbind().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_id;
+        if (input->ExpectTag(50)) goto parse_m_id;
         break;
       }
 
-      // optional string id = 6;
+      // optional string m_id = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_id:
+         parse_m_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_id()));
+                input, this->mutable_m_id()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->id().data(), this->id().length(),
+            this->m_id().data(), this->m_id().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1893,48 +1895,48 @@ bool boxboxdataitemDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxboxdataitemDesc::SerializeWithCachedSizes(
+void E_BoxBoxdataItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string rand = 1;
-  if (has_rand()) {
+  // optional string m_rand = 1;
+  if (has_m_rand()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->rand().data(), this->rand().length(),
+      this->m_rand().data(), this->m_rand().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->rand(), output);
+      1, this->m_rand(), output);
   }
 
-  // optional int32 maxNum = 2;
-  if (has_maxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->maxnum(), output);
+  // optional int32 m_maxnum = 2;
+  if (has_m_maxnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_maxnum(), output);
   }
 
-  // optional int32 rarerand = 3;
-  if (has_rarerand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->rarerand(), output);
+  // optional int32 m_rarerand = 3;
+  if (has_m_rarerand()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_rarerand(), output);
   }
 
-  // optional int32 minNum = 4;
-  if (has_minnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->minnum(), output);
+  // optional int32 m_minnum = 4;
+  if (has_m_minnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_minnum(), output);
   }
 
-  // optional string isbind = 5;
-  if (has_isbind()) {
+  // optional string m_isbind = 5;
+  if (has_m_isbind()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->isbind().data(), this->isbind().length(),
+      this->m_isbind().data(), this->m_isbind().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->isbind(), output);
+      5, this->m_isbind(), output);
   }
 
-  // optional string id = 6;
-  if (has_id()) {
+  // optional string m_id = 6;
+  if (has_m_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->id().data(), this->id().length(),
+      this->m_id().data(), this->m_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      6, this->id(), output);
+      6, this->m_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1943,51 +1945,51 @@ void boxboxdataitemDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxboxdataitemDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_BoxBoxdataItemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional string rand = 1;
-  if (has_rand()) {
+  // optional string m_rand = 1;
+  if (has_m_rand()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->rand().data(), this->rand().length(),
+      this->m_rand().data(), this->m_rand().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->rand(), target);
+        1, this->m_rand(), target);
   }
 
-  // optional int32 maxNum = 2;
-  if (has_maxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->maxnum(), target);
+  // optional int32 m_maxnum = 2;
+  if (has_m_maxnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_maxnum(), target);
   }
 
-  // optional int32 rarerand = 3;
-  if (has_rarerand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->rarerand(), target);
+  // optional int32 m_rarerand = 3;
+  if (has_m_rarerand()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_rarerand(), target);
   }
 
-  // optional int32 minNum = 4;
-  if (has_minnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->minnum(), target);
+  // optional int32 m_minnum = 4;
+  if (has_m_minnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_minnum(), target);
   }
 
-  // optional string isbind = 5;
-  if (has_isbind()) {
+  // optional string m_isbind = 5;
+  if (has_m_isbind()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->isbind().data(), this->isbind().length(),
+      this->m_isbind().data(), this->m_isbind().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->isbind(), target);
+        5, this->m_isbind(), target);
   }
 
-  // optional string id = 6;
-  if (has_id()) {
+  // optional string m_id = 6;
+  if (has_m_id()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->id().data(), this->id().length(),
+      this->m_id().data(), this->m_id().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->id(), target);
+        6, this->m_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1997,50 +1999,50 @@ void boxboxdataitemDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int boxboxdataitemDesc::ByteSize() const {
+int E_BoxBoxdataItemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string rand = 1;
-    if (has_rand()) {
+    // optional string m_rand = 1;
+    if (has_m_rand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->rand());
+          this->m_rand());
     }
 
-    // optional int32 maxNum = 2;
-    if (has_maxnum()) {
+    // optional int32 m_maxnum = 2;
+    if (has_m_maxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->maxnum());
+          this->m_maxnum());
     }
 
-    // optional int32 rarerand = 3;
-    if (has_rarerand()) {
+    // optional int32 m_rarerand = 3;
+    if (has_m_rarerand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rarerand());
+          this->m_rarerand());
     }
 
-    // optional int32 minNum = 4;
-    if (has_minnum()) {
+    // optional int32 m_minnum = 4;
+    if (has_m_minnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->minnum());
+          this->m_minnum());
     }
 
-    // optional string isbind = 5;
-    if (has_isbind()) {
+    // optional string m_isbind = 5;
+    if (has_m_isbind()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->isbind());
+          this->m_isbind());
     }
 
-    // optional string id = 6;
-    if (has_id()) {
+    // optional string m_id = 6;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->id());
+          this->m_id());
     }
 
   }
@@ -2055,10 +2057,10 @@ int boxboxdataitemDesc::ByteSize() const {
   return total_size;
 }
 
-void boxboxdataitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxdataItemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxboxdataitemDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxboxdataitemDesc*>(
+  const E_BoxBoxdataItemDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_BoxBoxdataItemDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2067,67 +2069,67 @@ void boxboxdataitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxboxdataitemDesc::MergeFrom(const boxboxdataitemDesc& from) {
+void E_BoxBoxdataItemDesc::MergeFrom(const E_BoxBoxdataItemDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_rand()) {
-      set_rand(from.rand());
+    if (from.has_m_rand()) {
+      set_m_rand(from.m_rand());
     }
-    if (from.has_maxnum()) {
-      set_maxnum(from.maxnum());
+    if (from.has_m_maxnum()) {
+      set_m_maxnum(from.m_maxnum());
     }
-    if (from.has_rarerand()) {
-      set_rarerand(from.rarerand());
+    if (from.has_m_rarerand()) {
+      set_m_rarerand(from.m_rarerand());
     }
-    if (from.has_minnum()) {
-      set_minnum(from.minnum());
+    if (from.has_m_minnum()) {
+      set_m_minnum(from.m_minnum());
     }
-    if (from.has_isbind()) {
-      set_isbind(from.isbind());
+    if (from.has_m_isbind()) {
+      set_m_isbind(from.m_isbind());
     }
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxboxdataitemDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxdataItemDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxboxdataitemDesc::CopyFrom(const boxboxdataitemDesc& from) {
+void E_BoxBoxdataItemDesc::CopyFrom(const E_BoxBoxdataItemDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxboxdataitemDesc::IsInitialized() const {
+bool E_BoxBoxdataItemDesc::IsInitialized() const {
 
   return true;
 }
 
-void boxboxdataitemDesc::Swap(boxboxdataitemDesc* other) {
+void E_BoxBoxdataItemDesc::Swap(E_BoxBoxdataItemDesc* other) {
   if (other != this) {
-    std::swap(rand_, other->rand_);
-    std::swap(maxnum_, other->maxnum_);
-    std::swap(rarerand_, other->rarerand_);
-    std::swap(minnum_, other->minnum_);
-    std::swap(isbind_, other->isbind_);
-    std::swap(id_, other->id_);
+    std::swap(m_rand_, other->m_rand_);
+    std::swap(m_maxnum_, other->m_maxnum_);
+    std::swap(m_rarerand_, other->m_rarerand_);
+    std::swap(m_minnum_, other->m_minnum_);
+    std::swap(m_isbind_, other->m_isbind_);
+    std::swap(m_id_, other->m_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata boxboxdataitemDesc::GetMetadata() const {
+::google::protobuf::Metadata E_BoxBoxdataItemDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxboxdataitemDesc_descriptor_;
-  metadata.reflection = boxboxdataitemDesc_reflection_;
+  metadata.descriptor = E_BoxBoxdataItemDesc_descriptor_;
+  metadata.reflection = E_BoxBoxdataItemDesc_reflection_;
   return metadata;
 }
 
@@ -2135,337 +2137,337 @@ void boxboxdataitemDesc::Swap(boxboxdataitemDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int boxboxdata::kIdFieldNumber;
-const int boxboxdata::kDropTypeFieldNumber;
-const int boxboxdata::kGoldminNumFieldNumber;
-const int boxboxdata::kGoldmaxNumFieldNumber;
-const int boxboxdata::kGoldrandFieldNumber;
-const int boxboxdata::kBindjewelminNumFieldNumber;
-const int boxboxdata::kBindjewelmaxNumFieldNumber;
-const int boxboxdata::kBindjewelrandFieldNumber;
-const int boxboxdata::kJewelminNumFieldNumber;
-const int boxboxdata::kJewelmaxNumFieldNumber;
-const int boxboxdata::kJewelrandFieldNumber;
-const int boxboxdata::kEqProfessionFieldNumber;
-const int boxboxdata::kEquipFieldNumber;
-const int boxboxdata::kItemFieldNumber;
+const int E_BoxBoxdata::kMIdFieldNumber;
+const int E_BoxBoxdata::kMDropTypeFieldNumber;
+const int E_BoxBoxdata::kMGoldminnumFieldNumber;
+const int E_BoxBoxdata::kMGoldmaxnumFieldNumber;
+const int E_BoxBoxdata::kMGoldrandFieldNumber;
+const int E_BoxBoxdata::kMBindjewelminnumFieldNumber;
+const int E_BoxBoxdata::kMBindjewelmaxnumFieldNumber;
+const int E_BoxBoxdata::kMBindjewelrandFieldNumber;
+const int E_BoxBoxdata::kMJewelminnumFieldNumber;
+const int E_BoxBoxdata::kMJewelmaxnumFieldNumber;
+const int E_BoxBoxdata::kMJewelrandFieldNumber;
+const int E_BoxBoxdata::kMEqProfessionFieldNumber;
+const int E_BoxBoxdata::kMEquipFieldNumber;
+const int E_BoxBoxdata::kMItemFieldNumber;
 #endif  // !_MSC_VER
 
-boxboxdata::boxboxdata()
+E_BoxBoxdata::E_BoxBoxdata()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void boxboxdata::InitAsDefaultInstance() {
+void E_BoxBoxdata::InitAsDefaultInstance() {
 }
 
-boxboxdata::boxboxdata(const boxboxdata& from)
+E_BoxBoxdata::E_BoxBoxdata(const E_BoxBoxdata& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void boxboxdata::SharedCtor() {
+void E_BoxBoxdata::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  drop_type_ = 0;
-  goldminnum_ = 0;
-  goldmaxnum_ = 0;
-  goldrand_ = 0;
-  bindjewelminnum_ = 0;
-  bindjewelmaxnum_ = 0;
-  bindjewelrand_ = 0;
-  jewelminnum_ = 0;
-  jewelmaxnum_ = 0;
-  jewelrand_ = 0;
-  eq_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_drop_type_ = 0;
+  m_goldminnum_ = 0;
+  m_goldmaxnum_ = 0;
+  m_goldrand_ = 0;
+  m_bindjewelminnum_ = 0;
+  m_bindjewelmaxnum_ = 0;
+  m_bindjewelrand_ = 0;
+  m_jewelminnum_ = 0;
+  m_jewelmaxnum_ = 0;
+  m_jewelrand_ = 0;
+  m_eq_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-boxboxdata::~boxboxdata() {
+E_BoxBoxdata::~E_BoxBoxdata() {
   SharedDtor();
 }
 
-void boxboxdata::SharedDtor() {
-  if (eq_profession_ != &::google::protobuf::internal::kEmptyString) {
-    delete eq_profession_;
+void E_BoxBoxdata::SharedDtor() {
+  if (m_eq_profession_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_eq_profession_;
   }
   if (this != default_instance_) {
   }
 }
 
-void boxboxdata::SetCachedSize(int size) const {
+void E_BoxBoxdata::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* boxboxdata::descriptor() {
+const ::google::protobuf::Descriptor* E_BoxBoxdata::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return boxboxdata_descriptor_;
+  return E_BoxBoxdata_descriptor_;
 }
 
-const boxboxdata& boxboxdata::default_instance() {
+const E_BoxBoxdata& E_BoxBoxdata::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-boxboxdata* boxboxdata::default_instance_ = NULL;
+E_BoxBoxdata* E_BoxBoxdata::default_instance_ = NULL;
 
-boxboxdata* boxboxdata::New() const {
-  return new boxboxdata;
+E_BoxBoxdata* E_BoxBoxdata::New() const {
+  return new E_BoxBoxdata;
 }
 
-void boxboxdata::Clear() {
+void E_BoxBoxdata::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    drop_type_ = 0;
-    goldminnum_ = 0;
-    goldmaxnum_ = 0;
-    goldrand_ = 0;
-    bindjewelminnum_ = 0;
-    bindjewelmaxnum_ = 0;
-    bindjewelrand_ = 0;
+    m_id_ = GOOGLE_LONGLONG(0);
+    m_drop_type_ = 0;
+    m_goldminnum_ = 0;
+    m_goldmaxnum_ = 0;
+    m_goldrand_ = 0;
+    m_bindjewelminnum_ = 0;
+    m_bindjewelmaxnum_ = 0;
+    m_bindjewelrand_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    jewelminnum_ = 0;
-    jewelmaxnum_ = 0;
-    jewelrand_ = 0;
-    if (has_eq_profession()) {
-      if (eq_profession_ != &::google::protobuf::internal::kEmptyString) {
-        eq_profession_->clear();
+    m_jewelminnum_ = 0;
+    m_jewelmaxnum_ = 0;
+    m_jewelrand_ = 0;
+    if (has_m_eq_profession()) {
+      if (m_eq_profession_ != &::google::protobuf::internal::kEmptyString) {
+        m_eq_profession_->clear();
       }
     }
   }
-  equip_.Clear();
-  item_.Clear();
+  m_equip_.Clear();
+  m_item_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool boxboxdata::MergePartialFromCodedStream(
+bool E_BoxBoxdata::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_drop_type;
+        if (input->ExpectTag(16)) goto parse_m_drop_type;
         break;
       }
 
-      // optional int32 drop_type = 2;
+      // optional int32 m_drop_type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_drop_type:
+         parse_m_drop_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &drop_type_)));
-          set_has_drop_type();
+                 input, &m_drop_type_)));
+          set_has_m_drop_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_goldminNum;
+        if (input->ExpectTag(24)) goto parse_m_goldminnum;
         break;
       }
 
-      // optional int32 goldminNum = 3;
+      // optional int32 m_goldminnum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_goldminNum:
+         parse_m_goldminnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &goldminnum_)));
-          set_has_goldminnum();
+                 input, &m_goldminnum_)));
+          set_has_m_goldminnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_goldmaxNum;
+        if (input->ExpectTag(32)) goto parse_m_goldmaxnum;
         break;
       }
 
-      // optional int32 goldmaxNum = 4;
+      // optional int32 m_goldmaxnum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_goldmaxNum:
+         parse_m_goldmaxnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &goldmaxnum_)));
-          set_has_goldmaxnum();
+                 input, &m_goldmaxnum_)));
+          set_has_m_goldmaxnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_goldrand;
+        if (input->ExpectTag(40)) goto parse_m_goldrand;
         break;
       }
 
-      // optional int32 goldrand = 5;
+      // optional int32 m_goldrand = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_goldrand:
+         parse_m_goldrand:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &goldrand_)));
-          set_has_goldrand();
+                 input, &m_goldrand_)));
+          set_has_m_goldrand();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_bindjewelminNum;
+        if (input->ExpectTag(48)) goto parse_m_bindjewelminnum;
         break;
       }
 
-      // optional int32 bindjewelminNum = 6;
+      // optional int32 m_bindjewelminnum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bindjewelminNum:
+         parse_m_bindjewelminnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bindjewelminnum_)));
-          set_has_bindjewelminnum();
+                 input, &m_bindjewelminnum_)));
+          set_has_m_bindjewelminnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_bindjewelmaxNum;
+        if (input->ExpectTag(56)) goto parse_m_bindjewelmaxnum;
         break;
       }
 
-      // optional int32 bindjewelmaxNum = 7;
+      // optional int32 m_bindjewelmaxnum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bindjewelmaxNum:
+         parse_m_bindjewelmaxnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bindjewelmaxnum_)));
-          set_has_bindjewelmaxnum();
+                 input, &m_bindjewelmaxnum_)));
+          set_has_m_bindjewelmaxnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_bindjewelrand;
+        if (input->ExpectTag(64)) goto parse_m_bindjewelrand;
         break;
       }
 
-      // optional int32 bindjewelrand = 8;
+      // optional int32 m_bindjewelrand = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bindjewelrand:
+         parse_m_bindjewelrand:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bindjewelrand_)));
-          set_has_bindjewelrand();
+                 input, &m_bindjewelrand_)));
+          set_has_m_bindjewelrand();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_jewelminNum;
+        if (input->ExpectTag(72)) goto parse_m_jewelminnum;
         break;
       }
 
-      // optional int32 jewelminNum = 9;
+      // optional int32 m_jewelminnum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_jewelminNum:
+         parse_m_jewelminnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &jewelminnum_)));
-          set_has_jewelminnum();
+                 input, &m_jewelminnum_)));
+          set_has_m_jewelminnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_jewelmaxNum;
+        if (input->ExpectTag(80)) goto parse_m_jewelmaxnum;
         break;
       }
 
-      // optional int32 jewelmaxNum = 10;
+      // optional int32 m_jewelmaxnum = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_jewelmaxNum:
+         parse_m_jewelmaxnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &jewelmaxnum_)));
-          set_has_jewelmaxnum();
+                 input, &m_jewelmaxnum_)));
+          set_has_m_jewelmaxnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_jewelrand;
+        if (input->ExpectTag(88)) goto parse_m_jewelrand;
         break;
       }
 
-      // optional int32 jewelrand = 11;
+      // optional int32 m_jewelrand = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_jewelrand:
+         parse_m_jewelrand:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &jewelrand_)));
-          set_has_jewelrand();
+                 input, &m_jewelrand_)));
+          set_has_m_jewelrand();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_eq_profession;
+        if (input->ExpectTag(98)) goto parse_m_eq_profession;
         break;
       }
 
-      // optional string eq_profession = 12;
+      // optional string m_eq_profession = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_eq_profession:
+         parse_m_eq_profession:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_eq_profession()));
+                input, this->mutable_m_eq_profession()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->eq_profession().data(), this->eq_profession().length(),
+            this->m_eq_profession().data(), this->m_eq_profession().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_equip;
+        if (input->ExpectTag(106)) goto parse_m_equip;
         break;
       }
 
-      // repeated .proto_ff.boxboxdataequipDesc equip = 13;
+      // repeated .proto_ff.E_BoxBoxdataEquipDesc m_equip = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_equip:
+         parse_m_equip:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_equip()));
+                input, add_m_equip()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_equip;
-        if (input->ExpectTag(114)) goto parse_item;
+        if (input->ExpectTag(106)) goto parse_m_equip;
+        if (input->ExpectTag(114)) goto parse_m_item;
         break;
       }
 
-      // repeated .proto_ff.boxboxdataitemDesc item = 14;
+      // repeated .proto_ff.E_BoxBoxdataItemDesc m_item = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_item:
+         parse_m_item:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_item()));
+                input, add_m_item()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_item;
+        if (input->ExpectTag(114)) goto parse_m_item;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2486,82 +2488,82 @@ bool boxboxdata::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void boxboxdata::SerializeWithCachedSizes(
+void E_BoxBoxdata::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 drop_type = 2;
-  if (has_drop_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->drop_type(), output);
+  // optional int32 m_drop_type = 2;
+  if (has_m_drop_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_drop_type(), output);
   }
 
-  // optional int32 goldminNum = 3;
-  if (has_goldminnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->goldminnum(), output);
+  // optional int32 m_goldminnum = 3;
+  if (has_m_goldminnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_goldminnum(), output);
   }
 
-  // optional int32 goldmaxNum = 4;
-  if (has_goldmaxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->goldmaxnum(), output);
+  // optional int32 m_goldmaxnum = 4;
+  if (has_m_goldmaxnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_goldmaxnum(), output);
   }
 
-  // optional int32 goldrand = 5;
-  if (has_goldrand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->goldrand(), output);
+  // optional int32 m_goldrand = 5;
+  if (has_m_goldrand()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_goldrand(), output);
   }
 
-  // optional int32 bindjewelminNum = 6;
-  if (has_bindjewelminnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->bindjewelminnum(), output);
+  // optional int32 m_bindjewelminnum = 6;
+  if (has_m_bindjewelminnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_bindjewelminnum(), output);
   }
 
-  // optional int32 bindjewelmaxNum = 7;
-  if (has_bindjewelmaxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->bindjewelmaxnum(), output);
+  // optional int32 m_bindjewelmaxnum = 7;
+  if (has_m_bindjewelmaxnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_bindjewelmaxnum(), output);
   }
 
-  // optional int32 bindjewelrand = 8;
-  if (has_bindjewelrand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->bindjewelrand(), output);
+  // optional int32 m_bindjewelrand = 8;
+  if (has_m_bindjewelrand()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_bindjewelrand(), output);
   }
 
-  // optional int32 jewelminNum = 9;
-  if (has_jewelminnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->jewelminnum(), output);
+  // optional int32 m_jewelminnum = 9;
+  if (has_m_jewelminnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_jewelminnum(), output);
   }
 
-  // optional int32 jewelmaxNum = 10;
-  if (has_jewelmaxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->jewelmaxnum(), output);
+  // optional int32 m_jewelmaxnum = 10;
+  if (has_m_jewelmaxnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_jewelmaxnum(), output);
   }
 
-  // optional int32 jewelrand = 11;
-  if (has_jewelrand()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->jewelrand(), output);
+  // optional int32 m_jewelrand = 11;
+  if (has_m_jewelrand()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_jewelrand(), output);
   }
 
-  // optional string eq_profession = 12;
-  if (has_eq_profession()) {
+  // optional string m_eq_profession = 12;
+  if (has_m_eq_profession()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->eq_profession().data(), this->eq_profession().length(),
+      this->m_eq_profession().data(), this->m_eq_profession().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      12, this->eq_profession(), output);
+      12, this->m_eq_profession(), output);
   }
 
-  // repeated .proto_ff.boxboxdataequipDesc equip = 13;
-  for (int i = 0; i < this->equip_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdataEquipDesc m_equip = 13;
+  for (int i = 0; i < this->m_equip_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      13, this->equip(i), output);
+      13, this->m_equip(i), output);
   }
 
-  // repeated .proto_ff.boxboxdataitemDesc item = 14;
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdataItemDesc m_item = 14;
+  for (int i = 0; i < this->m_item_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      14, this->item(i), output);
+      14, this->m_item(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2570,85 +2572,85 @@ void boxboxdata::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* boxboxdata::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_BoxBoxdata::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 drop_type = 2;
-  if (has_drop_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->drop_type(), target);
+  // optional int32 m_drop_type = 2;
+  if (has_m_drop_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_drop_type(), target);
   }
 
-  // optional int32 goldminNum = 3;
-  if (has_goldminnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->goldminnum(), target);
+  // optional int32 m_goldminnum = 3;
+  if (has_m_goldminnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_goldminnum(), target);
   }
 
-  // optional int32 goldmaxNum = 4;
-  if (has_goldmaxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->goldmaxnum(), target);
+  // optional int32 m_goldmaxnum = 4;
+  if (has_m_goldmaxnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_goldmaxnum(), target);
   }
 
-  // optional int32 goldrand = 5;
-  if (has_goldrand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->goldrand(), target);
+  // optional int32 m_goldrand = 5;
+  if (has_m_goldrand()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_goldrand(), target);
   }
 
-  // optional int32 bindjewelminNum = 6;
-  if (has_bindjewelminnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->bindjewelminnum(), target);
+  // optional int32 m_bindjewelminnum = 6;
+  if (has_m_bindjewelminnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_bindjewelminnum(), target);
   }
 
-  // optional int32 bindjewelmaxNum = 7;
-  if (has_bindjewelmaxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->bindjewelmaxnum(), target);
+  // optional int32 m_bindjewelmaxnum = 7;
+  if (has_m_bindjewelmaxnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_bindjewelmaxnum(), target);
   }
 
-  // optional int32 bindjewelrand = 8;
-  if (has_bindjewelrand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->bindjewelrand(), target);
+  // optional int32 m_bindjewelrand = 8;
+  if (has_m_bindjewelrand()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_bindjewelrand(), target);
   }
 
-  // optional int32 jewelminNum = 9;
-  if (has_jewelminnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->jewelminnum(), target);
+  // optional int32 m_jewelminnum = 9;
+  if (has_m_jewelminnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_jewelminnum(), target);
   }
 
-  // optional int32 jewelmaxNum = 10;
-  if (has_jewelmaxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->jewelmaxnum(), target);
+  // optional int32 m_jewelmaxnum = 10;
+  if (has_m_jewelmaxnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_jewelmaxnum(), target);
   }
 
-  // optional int32 jewelrand = 11;
-  if (has_jewelrand()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->jewelrand(), target);
+  // optional int32 m_jewelrand = 11;
+  if (has_m_jewelrand()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_jewelrand(), target);
   }
 
-  // optional string eq_profession = 12;
-  if (has_eq_profession()) {
+  // optional string m_eq_profession = 12;
+  if (has_m_eq_profession()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->eq_profession().data(), this->eq_profession().length(),
+      this->m_eq_profession().data(), this->m_eq_profession().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        12, this->eq_profession(), target);
+        12, this->m_eq_profession(), target);
   }
 
-  // repeated .proto_ff.boxboxdataequipDesc equip = 13;
-  for (int i = 0; i < this->equip_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdataEquipDesc m_equip = 13;
+  for (int i = 0; i < this->m_equip_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        13, this->equip(i), target);
+        13, this->m_equip(i), target);
   }
 
-  // repeated .proto_ff.boxboxdataitemDesc item = 14;
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdataItemDesc m_item = 14;
+  for (int i = 0; i < this->m_item_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        14, this->item(i), target);
+        14, this->m_item(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2658,111 +2660,111 @@ void boxboxdata::SerializeWithCachedSizes(
   return target;
 }
 
-int boxboxdata::ByteSize() const {
+int E_BoxBoxdata::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 drop_type = 2;
-    if (has_drop_type()) {
+    // optional int32 m_drop_type = 2;
+    if (has_m_drop_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->drop_type());
+          this->m_drop_type());
     }
 
-    // optional int32 goldminNum = 3;
-    if (has_goldminnum()) {
+    // optional int32 m_goldminnum = 3;
+    if (has_m_goldminnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->goldminnum());
+          this->m_goldminnum());
     }
 
-    // optional int32 goldmaxNum = 4;
-    if (has_goldmaxnum()) {
+    // optional int32 m_goldmaxnum = 4;
+    if (has_m_goldmaxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->goldmaxnum());
+          this->m_goldmaxnum());
     }
 
-    // optional int32 goldrand = 5;
-    if (has_goldrand()) {
+    // optional int32 m_goldrand = 5;
+    if (has_m_goldrand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->goldrand());
+          this->m_goldrand());
     }
 
-    // optional int32 bindjewelminNum = 6;
-    if (has_bindjewelminnum()) {
+    // optional int32 m_bindjewelminnum = 6;
+    if (has_m_bindjewelminnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->bindjewelminnum());
+          this->m_bindjewelminnum());
     }
 
-    // optional int32 bindjewelmaxNum = 7;
-    if (has_bindjewelmaxnum()) {
+    // optional int32 m_bindjewelmaxnum = 7;
+    if (has_m_bindjewelmaxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->bindjewelmaxnum());
+          this->m_bindjewelmaxnum());
     }
 
-    // optional int32 bindjewelrand = 8;
-    if (has_bindjewelrand()) {
+    // optional int32 m_bindjewelrand = 8;
+    if (has_m_bindjewelrand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->bindjewelrand());
+          this->m_bindjewelrand());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 jewelminNum = 9;
-    if (has_jewelminnum()) {
+    // optional int32 m_jewelminnum = 9;
+    if (has_m_jewelminnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->jewelminnum());
+          this->m_jewelminnum());
     }
 
-    // optional int32 jewelmaxNum = 10;
-    if (has_jewelmaxnum()) {
+    // optional int32 m_jewelmaxnum = 10;
+    if (has_m_jewelmaxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->jewelmaxnum());
+          this->m_jewelmaxnum());
     }
 
-    // optional int32 jewelrand = 11;
-    if (has_jewelrand()) {
+    // optional int32 m_jewelrand = 11;
+    if (has_m_jewelrand()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->jewelrand());
+          this->m_jewelrand());
     }
 
-    // optional string eq_profession = 12;
-    if (has_eq_profession()) {
+    // optional string m_eq_profession = 12;
+    if (has_m_eq_profession()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->eq_profession());
+          this->m_eq_profession());
     }
 
   }
-  // repeated .proto_ff.boxboxdataequipDesc equip = 13;
-  total_size += 1 * this->equip_size();
-  for (int i = 0; i < this->equip_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdataEquipDesc m_equip = 13;
+  total_size += 1 * this->m_equip_size();
+  for (int i = 0; i < this->m_equip_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->equip(i));
+        this->m_equip(i));
   }
 
-  // repeated .proto_ff.boxboxdataitemDesc item = 14;
-  total_size += 1 * this->item_size();
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdataItemDesc m_item = 14;
+  total_size += 1 * this->m_item_size();
+  for (int i = 0; i < this->m_item_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->item(i));
+        this->m_item(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2776,10 +2778,10 @@ int boxboxdata::ByteSize() const {
   return total_size;
 }
 
-void boxboxdata::MergeFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxdata::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const boxboxdata* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const boxboxdata*>(
+  const E_BoxBoxdata* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_BoxBoxdata*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2788,97 +2790,97 @@ void boxboxdata::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void boxboxdata::MergeFrom(const boxboxdata& from) {
+void E_BoxBoxdata::MergeFrom(const E_BoxBoxdata& from) {
   GOOGLE_CHECK_NE(&from, this);
-  equip_.MergeFrom(from.equip_);
-  item_.MergeFrom(from.item_);
+  m_equip_.MergeFrom(from.m_equip_);
+  m_item_.MergeFrom(from.m_item_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_drop_type()) {
-      set_drop_type(from.drop_type());
+    if (from.has_m_drop_type()) {
+      set_m_drop_type(from.m_drop_type());
     }
-    if (from.has_goldminnum()) {
-      set_goldminnum(from.goldminnum());
+    if (from.has_m_goldminnum()) {
+      set_m_goldminnum(from.m_goldminnum());
     }
-    if (from.has_goldmaxnum()) {
-      set_goldmaxnum(from.goldmaxnum());
+    if (from.has_m_goldmaxnum()) {
+      set_m_goldmaxnum(from.m_goldmaxnum());
     }
-    if (from.has_goldrand()) {
-      set_goldrand(from.goldrand());
+    if (from.has_m_goldrand()) {
+      set_m_goldrand(from.m_goldrand());
     }
-    if (from.has_bindjewelminnum()) {
-      set_bindjewelminnum(from.bindjewelminnum());
+    if (from.has_m_bindjewelminnum()) {
+      set_m_bindjewelminnum(from.m_bindjewelminnum());
     }
-    if (from.has_bindjewelmaxnum()) {
-      set_bindjewelmaxnum(from.bindjewelmaxnum());
+    if (from.has_m_bindjewelmaxnum()) {
+      set_m_bindjewelmaxnum(from.m_bindjewelmaxnum());
     }
-    if (from.has_bindjewelrand()) {
-      set_bindjewelrand(from.bindjewelrand());
+    if (from.has_m_bindjewelrand()) {
+      set_m_bindjewelrand(from.m_bindjewelrand());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_jewelminnum()) {
-      set_jewelminnum(from.jewelminnum());
+    if (from.has_m_jewelminnum()) {
+      set_m_jewelminnum(from.m_jewelminnum());
     }
-    if (from.has_jewelmaxnum()) {
-      set_jewelmaxnum(from.jewelmaxnum());
+    if (from.has_m_jewelmaxnum()) {
+      set_m_jewelmaxnum(from.m_jewelmaxnum());
     }
-    if (from.has_jewelrand()) {
-      set_jewelrand(from.jewelrand());
+    if (from.has_m_jewelrand()) {
+      set_m_jewelrand(from.m_jewelrand());
     }
-    if (from.has_eq_profession()) {
-      set_eq_profession(from.eq_profession());
+    if (from.has_m_eq_profession()) {
+      set_m_eq_profession(from.m_eq_profession());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void boxboxdata::CopyFrom(const ::google::protobuf::Message& from) {
+void E_BoxBoxdata::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void boxboxdata::CopyFrom(const boxboxdata& from) {
+void E_BoxBoxdata::CopyFrom(const E_BoxBoxdata& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool boxboxdata::IsInitialized() const {
+bool E_BoxBoxdata::IsInitialized() const {
 
   return true;
 }
 
-void boxboxdata::Swap(boxboxdata* other) {
+void E_BoxBoxdata::Swap(E_BoxBoxdata* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(drop_type_, other->drop_type_);
-    std::swap(goldminnum_, other->goldminnum_);
-    std::swap(goldmaxnum_, other->goldmaxnum_);
-    std::swap(goldrand_, other->goldrand_);
-    std::swap(bindjewelminnum_, other->bindjewelminnum_);
-    std::swap(bindjewelmaxnum_, other->bindjewelmaxnum_);
-    std::swap(bindjewelrand_, other->bindjewelrand_);
-    std::swap(jewelminnum_, other->jewelminnum_);
-    std::swap(jewelmaxnum_, other->jewelmaxnum_);
-    std::swap(jewelrand_, other->jewelrand_);
-    std::swap(eq_profession_, other->eq_profession_);
-    equip_.Swap(&other->equip_);
-    item_.Swap(&other->item_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_drop_type_, other->m_drop_type_);
+    std::swap(m_goldminnum_, other->m_goldminnum_);
+    std::swap(m_goldmaxnum_, other->m_goldmaxnum_);
+    std::swap(m_goldrand_, other->m_goldrand_);
+    std::swap(m_bindjewelminnum_, other->m_bindjewelminnum_);
+    std::swap(m_bindjewelmaxnum_, other->m_bindjewelmaxnum_);
+    std::swap(m_bindjewelrand_, other->m_bindjewelrand_);
+    std::swap(m_jewelminnum_, other->m_jewelminnum_);
+    std::swap(m_jewelmaxnum_, other->m_jewelmaxnum_);
+    std::swap(m_jewelrand_, other->m_jewelrand_);
+    std::swap(m_eq_profession_, other->m_eq_profession_);
+    m_equip_.Swap(&other->m_equip_);
+    m_item_.Swap(&other->m_item_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata boxboxdata::GetMetadata() const {
+::google::protobuf::Metadata E_BoxBoxdata::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = boxboxdata_descriptor_;
-  metadata.reflection = boxboxdata_reflection_;
+  metadata.descriptor = E_BoxBoxdata_descriptor_;
+  metadata.reflection = E_BoxBoxdata_reflection_;
   return metadata;
 }
 
@@ -2886,81 +2888,81 @@ void boxboxdata::Swap(boxboxdata* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_boxboxdata::kBoxboxdataListFieldNumber;
+const int Sheet_BoxBoxdata::kEBoxBoxdataListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_boxboxdata::Sheet_boxboxdata()
+Sheet_BoxBoxdata::Sheet_BoxBoxdata()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_boxboxdata::InitAsDefaultInstance() {
+void Sheet_BoxBoxdata::InitAsDefaultInstance() {
 }
 
-Sheet_boxboxdata::Sheet_boxboxdata(const Sheet_boxboxdata& from)
+Sheet_BoxBoxdata::Sheet_BoxBoxdata(const Sheet_BoxBoxdata& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_boxboxdata::SharedCtor() {
+void Sheet_BoxBoxdata::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_boxboxdata::~Sheet_boxboxdata() {
+Sheet_BoxBoxdata::~Sheet_BoxBoxdata() {
   SharedDtor();
 }
 
-void Sheet_boxboxdata::SharedDtor() {
+void Sheet_BoxBoxdata::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_boxboxdata::SetCachedSize(int size) const {
+void Sheet_BoxBoxdata::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_boxboxdata::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_BoxBoxdata::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_boxboxdata_descriptor_;
+  return Sheet_BoxBoxdata_descriptor_;
 }
 
-const Sheet_boxboxdata& Sheet_boxboxdata::default_instance() {
+const Sheet_BoxBoxdata& Sheet_BoxBoxdata::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_box_2eproto();
   return *default_instance_;
 }
 
-Sheet_boxboxdata* Sheet_boxboxdata::default_instance_ = NULL;
+Sheet_BoxBoxdata* Sheet_BoxBoxdata::default_instance_ = NULL;
 
-Sheet_boxboxdata* Sheet_boxboxdata::New() const {
-  return new Sheet_boxboxdata;
+Sheet_BoxBoxdata* Sheet_BoxBoxdata::New() const {
+  return new Sheet_BoxBoxdata;
 }
 
-void Sheet_boxboxdata::Clear() {
-  boxboxdata_list_.Clear();
+void Sheet_BoxBoxdata::Clear() {
+  e_boxboxdata_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_boxboxdata::MergePartialFromCodedStream(
+bool Sheet_BoxBoxdata::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.boxboxdata boxboxdata_List = 1;
+      // repeated .proto_ff.E_BoxBoxdata E_BoxBoxdata_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_boxboxdata_List:
+         parse_E_BoxBoxdata_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_boxboxdata_list()));
+                input, add_e_boxboxdata_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_boxboxdata_List;
+        if (input->ExpectTag(10)) goto parse_E_BoxBoxdata_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2981,12 +2983,12 @@ bool Sheet_boxboxdata::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_boxboxdata::SerializeWithCachedSizes(
+void Sheet_BoxBoxdata::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.boxboxdata boxboxdata_List = 1;
-  for (int i = 0; i < this->boxboxdata_list_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdata E_BoxBoxdata_List = 1;
+  for (int i = 0; i < this->e_boxboxdata_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->boxboxdata_list(i), output);
+      1, this->e_boxboxdata_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2995,13 +2997,13 @@ void Sheet_boxboxdata::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_boxboxdata::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_BoxBoxdata::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.boxboxdata boxboxdata_List = 1;
-  for (int i = 0; i < this->boxboxdata_list_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdata E_BoxBoxdata_List = 1;
+  for (int i = 0; i < this->e_boxboxdata_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->boxboxdata_list(i), target);
+        1, this->e_boxboxdata_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3011,15 +3013,15 @@ void Sheet_boxboxdata::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_boxboxdata::ByteSize() const {
+int Sheet_BoxBoxdata::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.boxboxdata boxboxdata_List = 1;
-  total_size += 1 * this->boxboxdata_list_size();
-  for (int i = 0; i < this->boxboxdata_list_size(); i++) {
+  // repeated .proto_ff.E_BoxBoxdata E_BoxBoxdata_List = 1;
+  total_size += 1 * this->e_boxboxdata_list_size();
+  for (int i = 0; i < this->e_boxboxdata_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->boxboxdata_list(i));
+        this->e_boxboxdata_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3033,10 +3035,10 @@ int Sheet_boxboxdata::ByteSize() const {
   return total_size;
 }
 
-void Sheet_boxboxdata::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_BoxBoxdata::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_boxboxdata* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_boxboxdata*>(
+  const Sheet_BoxBoxdata* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_BoxBoxdata*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3045,43 +3047,43 @@ void Sheet_boxboxdata::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_boxboxdata::MergeFrom(const Sheet_boxboxdata& from) {
+void Sheet_BoxBoxdata::MergeFrom(const Sheet_BoxBoxdata& from) {
   GOOGLE_CHECK_NE(&from, this);
-  boxboxdata_list_.MergeFrom(from.boxboxdata_list_);
+  e_boxboxdata_list_.MergeFrom(from.e_boxboxdata_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_boxboxdata::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_BoxBoxdata::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_boxboxdata::CopyFrom(const Sheet_boxboxdata& from) {
+void Sheet_BoxBoxdata::CopyFrom(const Sheet_BoxBoxdata& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_boxboxdata::IsInitialized() const {
+bool Sheet_BoxBoxdata::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_boxboxdata::Swap(Sheet_boxboxdata* other) {
+void Sheet_BoxBoxdata::Swap(Sheet_BoxBoxdata* other) {
   if (other != this) {
-    boxboxdata_list_.Swap(&other->boxboxdata_list_);
+    e_boxboxdata_list_.Swap(&other->e_boxboxdata_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_boxboxdata::GetMetadata() const {
+::google::protobuf::Metadata Sheet_BoxBoxdata::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_boxboxdata_descriptor_;
-  metadata.reflection = Sheet_boxboxdata_reflection_;
+  metadata.descriptor = Sheet_BoxBoxdata_descriptor_;
+  metadata.reflection = Sheet_BoxBoxdata_reflection_;
   return metadata;
 }
 

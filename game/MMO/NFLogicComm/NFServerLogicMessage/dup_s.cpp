@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-dupBPlevel_s::dupBPlevel_s() {
+E_DupBplevel_s::E_DupBplevel_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,32 +10,32 @@ dupBPlevel_s::dupBPlevel_s() {
 	}
 }
 
-int dupBPlevel_s::CreateInit() {
-	lv = (int32_t)0;
+int E_DupBplevel_s::CreateInit() {
+	m_lv = (int32_t)0;
 	return 0;
 }
 
-int dupBPlevel_s::ResumeInit() {
+int E_DupBplevel_s::ResumeInit() {
 	return 0;
 }
 
-void dupBPlevel_s::write_to_pbmsg(::proto_ff::dupBPlevel & msg) const {
-	msg.set_lv((int32_t)lv);
-	for(int32_t i = 0; i < (int32_t)Bgdup.GetSize() && i < Bgdup.GetMaxSize(); ++i) {
-		msg.add_bgdup((int64_t)Bgdup[i]);
+void E_DupBplevel_s::write_to_pbmsg(::proto_ff::E_DupBplevel & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	for(int32_t i = 0; i < (int32_t)m_bgdup.size(); ++i) {
+		msg.add_m_bgdup((int64_t)m_bgdup[i]);
 	}
 }
 
-void dupBPlevel_s::read_from_pbmsg(const ::proto_ff::dupBPlevel & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dupBPlevel_s));
-	lv = msg.lv();
-	Bgdup.SetSize(msg.bgdup_size() > Bgdup.GetMaxSize() ? Bgdup.GetMaxSize() : msg.bgdup_size());
-	for(int32_t i = 0; i < (int32_t)Bgdup.GetSize(); ++i) {
-		Bgdup[i] = msg.bgdup(i);
+void E_DupBplevel_s::read_from_pbmsg(const ::proto_ff::E_DupBplevel & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DupBplevel_s));
+	m_lv = msg.m_lv();
+	m_bgdup.resize((int)msg.m_bgdup_size() > (int)m_bgdup.max_size() ? m_bgdup.max_size() : msg.m_bgdup_size());
+	for(int32_t i = 0; i < (int32_t)m_bgdup.size(); ++i) {
+		m_bgdup[i] = msg.m_bgdup(i);
 	}
 }
 
-Sheet_dupBPlevel_s::Sheet_dupBPlevel_s() {
+Sheet_DupBplevel_s::Sheet_DupBplevel_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -43,31 +43,31 @@ Sheet_dupBPlevel_s::Sheet_dupBPlevel_s() {
 	}
 }
 
-int Sheet_dupBPlevel_s::CreateInit() {
+int Sheet_DupBplevel_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_dupBPlevel_s::ResumeInit() {
+int Sheet_DupBplevel_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_dupBPlevel_s::write_to_pbmsg(::proto_ff::Sheet_dupBPlevel & msg) const {
-	for(int32_t i = 0; i < (int32_t)dupBPlevel_List.GetSize() && i < dupBPlevel_List.GetMaxSize(); ++i) {
-		::proto_ff::dupBPlevel* temp_dupbplevel_list = msg.add_dupbplevel_list();
-		dupBPlevel_List[i].write_to_pbmsg(*temp_dupbplevel_list);
+void Sheet_DupBplevel_s::write_to_pbmsg(::proto_ff::Sheet_DupBplevel & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DupBplevel_List.size(); ++i) {
+		::proto_ff::E_DupBplevel* temp_e_dupbplevel_list = msg.add_e_dupbplevel_list();
+		E_DupBplevel_List[i].write_to_pbmsg(*temp_e_dupbplevel_list);
 	}
 }
 
-void Sheet_dupBPlevel_s::read_from_pbmsg(const ::proto_ff::Sheet_dupBPlevel & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_dupBPlevel_s));
-	dupBPlevel_List.SetSize(msg.dupbplevel_list_size() > dupBPlevel_List.GetMaxSize() ? dupBPlevel_List.GetMaxSize() : msg.dupbplevel_list_size());
-	for(int32_t i = 0; i < (int32_t)dupBPlevel_List.GetSize(); ++i) {
-		const ::proto_ff::dupBPlevel & temp_dupbplevel_list = msg.dupbplevel_list(i);
-		dupBPlevel_List[i].read_from_pbmsg(temp_dupbplevel_list);
+void Sheet_DupBplevel_s::read_from_pbmsg(const ::proto_ff::Sheet_DupBplevel & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DupBplevel_s));
+	E_DupBplevel_List.resize((int)msg.e_dupbplevel_list_size() > (int)E_DupBplevel_List.max_size() ? E_DupBplevel_List.max_size() : msg.e_dupbplevel_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DupBplevel_List.size(); ++i) {
+		const ::proto_ff::E_DupBplevel & temp_e_dupbplevel_list = msg.e_dupbplevel_list(i);
+		E_DupBplevel_List[i].read_from_pbmsg(temp_e_dupbplevel_list);
 	}
 }
 
-dupdup_s::dupdup_s() {
+E_DupDup_s::E_DupDup_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -75,88 +75,88 @@ dupdup_s::dupdup_s() {
 	}
 }
 
-int dupdup_s::CreateInit() {
-	ID = (int32_t)0;
-	scripID = (int32_t)0;
-	scripType = (int32_t)0;
-	dupLevel = (int32_t)0;
-	groupID = (int32_t)0;
-	layer = (int32_t)0;
-	duplicateType = (int32_t)0;
-	mapID = (int64_t)0;
-	levelLimit = (int32_t)0;
-	pre = (int32_t)0;
-	isAutoFight = (int32_t)0;
-	reviveMaxTimes = (int32_t)0;
-	TeamObjectID = (int32_t)0;
-	sweepRewardBoxID = (int64_t)0;
-	sweepRewardExp = (int32_t)0;
-	isPatrol = (int32_t)0;
-	sweepType = (int32_t)0;
+int E_DupDup_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_scripid = (int32_t)0;
+	m_scriptype = (int32_t)0;
+	m_duplevel = (int32_t)0;
+	m_groupid = (int32_t)0;
+	m_layer = (int32_t)0;
+	m_duplicatetype = (int32_t)0;
+	m_mapid = (int64_t)0;
+	m_levellimit = (int32_t)0;
+	m_pre = (int32_t)0;
+	m_isautofight = (int32_t)0;
+	m_revivemaxtimes = (int32_t)0;
+	m_teamobjectid = (int32_t)0;
+	m_sweeprewardboxid = (int64_t)0;
+	m_sweeprewardexp = (int32_t)0;
+	m_ispatrol = (int32_t)0;
+	m_sweeptype = (int32_t)0;
 	return 0;
 }
 
-int dupdup_s::ResumeInit() {
+int E_DupDup_s::ResumeInit() {
 	return 0;
 }
 
-void dupdup_s::write_to_pbmsg(::proto_ff::dupdup & msg) const {
-	msg.set_id((int32_t)ID);
-	msg.set_scripid((int32_t)scripID);
-	msg.set_scriptype((int32_t)scripType);
-	msg.set_duplevel((int32_t)dupLevel);
-	msg.set_groupid((int32_t)groupID);
-	msg.set_layer((int32_t)layer);
-	msg.set_duplicatetype((int32_t)duplicateType);
-	msg.set_mapid((int64_t)mapID);
-	msg.set_levellimit((int32_t)levelLimit);
-	msg.set_pre((int32_t)pre);
-	msg.set_isautofight((int32_t)isAutoFight);
-	msg.set_condition((const char*)condition.Get());
-	msg.set_revivemaxtimes((int32_t)reviveMaxTimes);
-	msg.set_teamobjectid((int32_t)TeamObjectID);
-	msg.set_gradecondition((const char*)gradeCondition.Get());
-	msg.set_sweeprewardboxid((int64_t)sweepRewardBoxID);
-	msg.set_sweeprewardexp((int32_t)sweepRewardExp);
-	msg.set_trackpoint((const char*)trackpoint.Get());
-	msg.set_pathofmonster((const char*)pathOfmonster.Get());
-	msg.set_ispatrol((int32_t)isPatrol);
-	msg.set_sweeptype((int32_t)sweepType);
-	for(int32_t i = 0; i < (int32_t)box.GetSize() && i < box.GetMaxSize(); ++i) {
-		msg.add_box((int32_t)box[i]);
+void E_DupDup_s::write_to_pbmsg(::proto_ff::E_DupDup & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_scripid((int32_t)m_scripid);
+	msg.set_m_scriptype((int32_t)m_scriptype);
+	msg.set_m_duplevel((int32_t)m_duplevel);
+	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_layer((int32_t)m_layer);
+	msg.set_m_duplicatetype((int32_t)m_duplicatetype);
+	msg.set_m_mapid((int64_t)m_mapid);
+	msg.set_m_levellimit((int32_t)m_levellimit);
+	msg.set_m_pre((int32_t)m_pre);
+	msg.set_m_isautofight((int32_t)m_isautofight);
+	msg.set_m_condition((const char*)m_condition.data());
+	msg.set_m_revivemaxtimes((int32_t)m_revivemaxtimes);
+	msg.set_m_teamobjectid((int32_t)m_teamobjectid);
+	msg.set_m_gradecondition((const char*)m_gradecondition.data());
+	msg.set_m_sweeprewardboxid((int64_t)m_sweeprewardboxid);
+	msg.set_m_sweeprewardexp((int32_t)m_sweeprewardexp);
+	msg.set_m_trackpoint((const char*)m_trackpoint.data());
+	msg.set_m_pathofmonster((const char*)m_pathofmonster.data());
+	msg.set_m_ispatrol((int32_t)m_ispatrol);
+	msg.set_m_sweeptype((int32_t)m_sweeptype);
+	for(int32_t i = 0; i < (int32_t)m_box.size(); ++i) {
+		msg.add_m_box((int32_t)m_box[i]);
 	}
 }
 
-void dupdup_s::read_from_pbmsg(const ::proto_ff::dupdup & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dupdup_s));
-	ID = msg.id();
-	scripID = msg.scripid();
-	scripType = msg.scriptype();
-	dupLevel = msg.duplevel();
-	groupID = msg.groupid();
-	layer = msg.layer();
-	duplicateType = msg.duplicatetype();
-	mapID = msg.mapid();
-	levelLimit = msg.levellimit();
-	pre = msg.pre();
-	isAutoFight = msg.isautofight();
-	condition.Copy(msg.condition());
-	reviveMaxTimes = msg.revivemaxtimes();
-	TeamObjectID = msg.teamobjectid();
-	gradeCondition.Copy(msg.gradecondition());
-	sweepRewardBoxID = msg.sweeprewardboxid();
-	sweepRewardExp = msg.sweeprewardexp();
-	trackpoint.Copy(msg.trackpoint());
-	pathOfmonster.Copy(msg.pathofmonster());
-	isPatrol = msg.ispatrol();
-	sweepType = msg.sweeptype();
-	box.SetSize(msg.box_size() > box.GetMaxSize() ? box.GetMaxSize() : msg.box_size());
-	for(int32_t i = 0; i < (int32_t)box.GetSize(); ++i) {
-		box[i] = msg.box(i);
+void E_DupDup_s::read_from_pbmsg(const ::proto_ff::E_DupDup & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DupDup_s));
+	m_id = msg.m_id();
+	m_scripid = msg.m_scripid();
+	m_scriptype = msg.m_scriptype();
+	m_duplevel = msg.m_duplevel();
+	m_groupid = msg.m_groupid();
+	m_layer = msg.m_layer();
+	m_duplicatetype = msg.m_duplicatetype();
+	m_mapid = msg.m_mapid();
+	m_levellimit = msg.m_levellimit();
+	m_pre = msg.m_pre();
+	m_isautofight = msg.m_isautofight();
+	m_condition = msg.m_condition();
+	m_revivemaxtimes = msg.m_revivemaxtimes();
+	m_teamobjectid = msg.m_teamobjectid();
+	m_gradecondition = msg.m_gradecondition();
+	m_sweeprewardboxid = msg.m_sweeprewardboxid();
+	m_sweeprewardexp = msg.m_sweeprewardexp();
+	m_trackpoint = msg.m_trackpoint();
+	m_pathofmonster = msg.m_pathofmonster();
+	m_ispatrol = msg.m_ispatrol();
+	m_sweeptype = msg.m_sweeptype();
+	m_box.resize((int)msg.m_box_size() > (int)m_box.max_size() ? m_box.max_size() : msg.m_box_size());
+	for(int32_t i = 0; i < (int32_t)m_box.size(); ++i) {
+		m_box[i] = msg.m_box(i);
 	}
 }
 
-Sheet_dupdup_s::Sheet_dupdup_s() {
+Sheet_DupDup_s::Sheet_DupDup_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -164,31 +164,31 @@ Sheet_dupdup_s::Sheet_dupdup_s() {
 	}
 }
 
-int Sheet_dupdup_s::CreateInit() {
+int Sheet_DupDup_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_dupdup_s::ResumeInit() {
+int Sheet_DupDup_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_dupdup_s::write_to_pbmsg(::proto_ff::Sheet_dupdup & msg) const {
-	for(int32_t i = 0; i < (int32_t)dupdup_List.GetSize() && i < dupdup_List.GetMaxSize(); ++i) {
-		::proto_ff::dupdup* temp_dupdup_list = msg.add_dupdup_list();
-		dupdup_List[i].write_to_pbmsg(*temp_dupdup_list);
+void Sheet_DupDup_s::write_to_pbmsg(::proto_ff::Sheet_DupDup & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DupDup_List.size(); ++i) {
+		::proto_ff::E_DupDup* temp_e_dupdup_list = msg.add_e_dupdup_list();
+		E_DupDup_List[i].write_to_pbmsg(*temp_e_dupdup_list);
 	}
 }
 
-void Sheet_dupdup_s::read_from_pbmsg(const ::proto_ff::Sheet_dupdup & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_dupdup_s));
-	dupdup_List.SetSize(msg.dupdup_list_size() > dupdup_List.GetMaxSize() ? dupdup_List.GetMaxSize() : msg.dupdup_list_size());
-	for(int32_t i = 0; i < (int32_t)dupdup_List.GetSize(); ++i) {
-		const ::proto_ff::dupdup & temp_dupdup_list = msg.dupdup_list(i);
-		dupdup_List[i].read_from_pbmsg(temp_dupdup_list);
+void Sheet_DupDup_s::read_from_pbmsg(const ::proto_ff::Sheet_DupDup & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DupDup_s));
+	E_DupDup_List.resize((int)msg.e_dupdup_list_size() > (int)E_DupDup_List.max_size() ? E_DupDup_List.max_size() : msg.e_dupdup_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DupDup_List.size(); ++i) {
+		const ::proto_ff::E_DupDup & temp_e_dupdup_list = msg.e_dupdup_list(i);
+		E_DupDup_List[i].read_from_pbmsg(temp_e_dupdup_list);
 	}
 }
 
-duptowerReward_s::duptowerReward_s() {
+E_DupTowerreward_s::E_DupTowerreward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -196,34 +196,34 @@ duptowerReward_s::duptowerReward_s() {
 	}
 }
 
-int duptowerReward_s::CreateInit() {
-	id = (int32_t)0;
-	type = (int32_t)0;
-	cond = (int32_t)0;
-	boxID = (int32_t)0;
+int E_DupTowerreward_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_type = (int32_t)0;
+	m_cond = (int32_t)0;
+	m_boxid = (int32_t)0;
 	return 0;
 }
 
-int duptowerReward_s::ResumeInit() {
+int E_DupTowerreward_s::ResumeInit() {
 	return 0;
 }
 
-void duptowerReward_s::write_to_pbmsg(::proto_ff::duptowerReward & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_type((int32_t)type);
-	msg.set_cond((int32_t)cond);
-	msg.set_boxid((int32_t)boxID);
+void E_DupTowerreward_s::write_to_pbmsg(::proto_ff::E_DupTowerreward & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_cond((int32_t)m_cond);
+	msg.set_m_boxid((int32_t)m_boxid);
 }
 
-void duptowerReward_s::read_from_pbmsg(const ::proto_ff::duptowerReward & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct duptowerReward_s));
-	id = msg.id();
-	type = msg.type();
-	cond = msg.cond();
-	boxID = msg.boxid();
+void E_DupTowerreward_s::read_from_pbmsg(const ::proto_ff::E_DupTowerreward & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DupTowerreward_s));
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_cond = msg.m_cond();
+	m_boxid = msg.m_boxid();
 }
 
-Sheet_duptowerReward_s::Sheet_duptowerReward_s() {
+Sheet_DupTowerreward_s::Sheet_DupTowerreward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -231,31 +231,31 @@ Sheet_duptowerReward_s::Sheet_duptowerReward_s() {
 	}
 }
 
-int Sheet_duptowerReward_s::CreateInit() {
+int Sheet_DupTowerreward_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_duptowerReward_s::ResumeInit() {
+int Sheet_DupTowerreward_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_duptowerReward_s::write_to_pbmsg(::proto_ff::Sheet_duptowerReward & msg) const {
-	for(int32_t i = 0; i < (int32_t)duptowerReward_List.GetSize() && i < duptowerReward_List.GetMaxSize(); ++i) {
-		::proto_ff::duptowerReward* temp_duptowerreward_list = msg.add_duptowerreward_list();
-		duptowerReward_List[i].write_to_pbmsg(*temp_duptowerreward_list);
+void Sheet_DupTowerreward_s::write_to_pbmsg(::proto_ff::Sheet_DupTowerreward & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DupTowerreward_List.size(); ++i) {
+		::proto_ff::E_DupTowerreward* temp_e_duptowerreward_list = msg.add_e_duptowerreward_list();
+		E_DupTowerreward_List[i].write_to_pbmsg(*temp_e_duptowerreward_list);
 	}
 }
 
-void Sheet_duptowerReward_s::read_from_pbmsg(const ::proto_ff::Sheet_duptowerReward & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_duptowerReward_s));
-	duptowerReward_List.SetSize(msg.duptowerreward_list_size() > duptowerReward_List.GetMaxSize() ? duptowerReward_List.GetMaxSize() : msg.duptowerreward_list_size());
-	for(int32_t i = 0; i < (int32_t)duptowerReward_List.GetSize(); ++i) {
-		const ::proto_ff::duptowerReward & temp_duptowerreward_list = msg.duptowerreward_list(i);
-		duptowerReward_List[i].read_from_pbmsg(temp_duptowerreward_list);
+void Sheet_DupTowerreward_s::read_from_pbmsg(const ::proto_ff::Sheet_DupTowerreward & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DupTowerreward_s));
+	E_DupTowerreward_List.resize((int)msg.e_duptowerreward_list_size() > (int)E_DupTowerreward_List.max_size() ? E_DupTowerreward_List.max_size() : msg.e_duptowerreward_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DupTowerreward_List.size(); ++i) {
+		const ::proto_ff::E_DupTowerreward & temp_e_duptowerreward_list = msg.e_duptowerreward_list(i);
+		E_DupTowerreward_List[i].read_from_pbmsg(temp_e_duptowerreward_list);
 	}
 }
 
-dupgroup_s::dupgroup_s() {
+E_DupGroup_s::E_DupGroup_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -263,71 +263,71 @@ dupgroup_s::dupgroup_s() {
 	}
 }
 
-int dupgroup_s::CreateInit() {
-	id = (int32_t)0;
-	privilegeType = (int32_t)0;
-	dynamiclevel = (int32_t)0;
-	groupTimesType = (int32_t)0;
-	groupTimes = (int32_t)0;
-	enterItemID = (int32_t)0;
-	sweepCondition = (int32_t)0;
-	mergeCondition = (int32_t)0;
-	addItemID = (int32_t)0;
-	buyType = (int32_t)0;
-	buyItemId = (int32_t)0;
-	countDown = (int32_t)0;
-	endDown = (int32_t)0;
-	accountDown = (int32_t)0;
-	funcionID = (int32_t)0;
+int E_DupGroup_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_privilegetype = (int32_t)0;
+	m_dynamiclevel = (int32_t)0;
+	m_grouptimestype = (int32_t)0;
+	m_grouptimes = (int32_t)0;
+	m_enteritemid = (int32_t)0;
+	m_sweepcondition = (int32_t)0;
+	m_mergecondition = (int32_t)0;
+	m_additemid = (int32_t)0;
+	m_buytype = (int32_t)0;
+	m_buyitemid = (int32_t)0;
+	m_countdown = (int32_t)0;
+	m_enddown = (int32_t)0;
+	m_accountdown = (int32_t)0;
+	m_funcionid = (int32_t)0;
 	return 0;
 }
 
-int dupgroup_s::ResumeInit() {
+int E_DupGroup_s::ResumeInit() {
 	return 0;
 }
 
-void dupgroup_s::write_to_pbmsg(::proto_ff::dupgroup & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_name((const char*)name.Get());
-	msg.set_privilegetype((int32_t)privilegeType);
-	msg.set_dynamiclevel((int32_t)dynamiclevel);
-	msg.set_grouptimestype((int32_t)groupTimesType);
-	msg.set_grouptimes((int32_t)groupTimes);
-	msg.set_enteritemid((int32_t)enterItemID);
-	msg.set_sweepcondition((int32_t)sweepCondition);
-	msg.set_mergecondition((int32_t)mergeCondition);
-	msg.set_additemid((int32_t)addItemID);
-	msg.set_buytype((int32_t)buyType);
-	msg.set_buyitemid((int32_t)buyItemId);
-	msg.set_buycost((const char*)buyCost.Get());
-	msg.set_countdown((int32_t)countDown);
-	msg.set_enddown((int32_t)endDown);
-	msg.set_accountdown((int32_t)accountDown);
-	msg.set_funcionid((int32_t)funcionID);
+void E_DupGroup_s::write_to_pbmsg(::proto_ff::E_DupGroup & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_privilegetype((int32_t)m_privilegetype);
+	msg.set_m_dynamiclevel((int32_t)m_dynamiclevel);
+	msg.set_m_grouptimestype((int32_t)m_grouptimestype);
+	msg.set_m_grouptimes((int32_t)m_grouptimes);
+	msg.set_m_enteritemid((int32_t)m_enteritemid);
+	msg.set_m_sweepcondition((int32_t)m_sweepcondition);
+	msg.set_m_mergecondition((int32_t)m_mergecondition);
+	msg.set_m_additemid((int32_t)m_additemid);
+	msg.set_m_buytype((int32_t)m_buytype);
+	msg.set_m_buyitemid((int32_t)m_buyitemid);
+	msg.set_m_buycost((const char*)m_buycost.data());
+	msg.set_m_countdown((int32_t)m_countdown);
+	msg.set_m_enddown((int32_t)m_enddown);
+	msg.set_m_accountdown((int32_t)m_accountdown);
+	msg.set_m_funcionid((int32_t)m_funcionid);
 }
 
-void dupgroup_s::read_from_pbmsg(const ::proto_ff::dupgroup & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dupgroup_s));
-	id = msg.id();
-	name.Copy(msg.name());
-	privilegeType = msg.privilegetype();
-	dynamiclevel = msg.dynamiclevel();
-	groupTimesType = msg.grouptimestype();
-	groupTimes = msg.grouptimes();
-	enterItemID = msg.enteritemid();
-	sweepCondition = msg.sweepcondition();
-	mergeCondition = msg.mergecondition();
-	addItemID = msg.additemid();
-	buyType = msg.buytype();
-	buyItemId = msg.buyitemid();
-	buyCost.Copy(msg.buycost());
-	countDown = msg.countdown();
-	endDown = msg.enddown();
-	accountDown = msg.accountdown();
-	funcionID = msg.funcionid();
+void E_DupGroup_s::read_from_pbmsg(const ::proto_ff::E_DupGroup & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DupGroup_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_privilegetype = msg.m_privilegetype();
+	m_dynamiclevel = msg.m_dynamiclevel();
+	m_grouptimestype = msg.m_grouptimestype();
+	m_grouptimes = msg.m_grouptimes();
+	m_enteritemid = msg.m_enteritemid();
+	m_sweepcondition = msg.m_sweepcondition();
+	m_mergecondition = msg.m_mergecondition();
+	m_additemid = msg.m_additemid();
+	m_buytype = msg.m_buytype();
+	m_buyitemid = msg.m_buyitemid();
+	m_buycost = msg.m_buycost();
+	m_countdown = msg.m_countdown();
+	m_enddown = msg.m_enddown();
+	m_accountdown = msg.m_accountdown();
+	m_funcionid = msg.m_funcionid();
 }
 
-Sheet_dupgroup_s::Sheet_dupgroup_s() {
+Sheet_DupGroup_s::Sheet_DupGroup_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -335,27 +335,27 @@ Sheet_dupgroup_s::Sheet_dupgroup_s() {
 	}
 }
 
-int Sheet_dupgroup_s::CreateInit() {
+int Sheet_DupGroup_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_dupgroup_s::ResumeInit() {
+int Sheet_DupGroup_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_dupgroup_s::write_to_pbmsg(::proto_ff::Sheet_dupgroup & msg) const {
-	for(int32_t i = 0; i < (int32_t)dupgroup_List.GetSize() && i < dupgroup_List.GetMaxSize(); ++i) {
-		::proto_ff::dupgroup* temp_dupgroup_list = msg.add_dupgroup_list();
-		dupgroup_List[i].write_to_pbmsg(*temp_dupgroup_list);
+void Sheet_DupGroup_s::write_to_pbmsg(::proto_ff::Sheet_DupGroup & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DupGroup_List.size(); ++i) {
+		::proto_ff::E_DupGroup* temp_e_dupgroup_list = msg.add_e_dupgroup_list();
+		E_DupGroup_List[i].write_to_pbmsg(*temp_e_dupgroup_list);
 	}
 }
 
-void Sheet_dupgroup_s::read_from_pbmsg(const ::proto_ff::Sheet_dupgroup & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_dupgroup_s));
-	dupgroup_List.SetSize(msg.dupgroup_list_size() > dupgroup_List.GetMaxSize() ? dupgroup_List.GetMaxSize() : msg.dupgroup_list_size());
-	for(int32_t i = 0; i < (int32_t)dupgroup_List.GetSize(); ++i) {
-		const ::proto_ff::dupgroup & temp_dupgroup_list = msg.dupgroup_list(i);
-		dupgroup_List[i].read_from_pbmsg(temp_dupgroup_list);
+void Sheet_DupGroup_s::read_from_pbmsg(const ::proto_ff::Sheet_DupGroup & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DupGroup_s));
+	E_DupGroup_List.resize((int)msg.e_dupgroup_list_size() > (int)E_DupGroup_List.max_size() ? E_DupGroup_List.max_size() : msg.e_dupgroup_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DupGroup_List.size(); ++i) {
+		const ::proto_ff::E_DupGroup & temp_e_dupgroup_list = msg.e_dupgroup_list(i);
+		E_DupGroup_List[i].read_from_pbmsg(temp_e_dupgroup_list);
 	}
 }
 

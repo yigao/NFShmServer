@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-dailydaily_s::dailydaily_s() {
+E_DailyDaily_s::E_DailyDaily_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,60 +10,60 @@ dailydaily_s::dailydaily_s() {
 	}
 }
 
-int dailydaily_s::CreateInit() {
-	id = (int64_t)0;
-	type = (int32_t)0;
-	args = (int32_t)0;
-	playType = (int32_t)0;
-	playArgs = (int32_t)0;
-	funciontID = (int64_t)0;
-	number = (int32_t)0;
-	viptype = (int32_t)0;
-	otherNum = (int32_t)0;
-	eachScore = (int32_t)0;
-	cycle = (int32_t)0;
-	regReward = (int32_t)0;
+int E_DailyDaily_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_args = (int32_t)0;
+	m_playtype = (int32_t)0;
+	m_playargs = (int32_t)0;
+	m_funciontid = (int64_t)0;
+	m_number = (int32_t)0;
+	m_viptype = (int32_t)0;
+	m_othernum = (int32_t)0;
+	m_eachscore = (int32_t)0;
+	m_cycle = (int32_t)0;
+	m_regreward = (int32_t)0;
 	return 0;
 }
 
-int dailydaily_s::ResumeInit() {
+int E_DailyDaily_s::ResumeInit() {
 	return 0;
 }
 
-void dailydaily_s::write_to_pbmsg(::proto_ff::dailydaily & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_name((const char*)name.Get());
-	msg.set_type((int32_t)type);
-	msg.set_args((int32_t)args);
-	msg.set_playtype((int32_t)playType);
-	msg.set_playargs((int32_t)playArgs);
-	msg.set_funciontid((int64_t)funciontID);
-	msg.set_number((int32_t)number);
-	msg.set_viptype((int32_t)viptype);
-	msg.set_othernum((int32_t)otherNum);
-	msg.set_eachscore((int32_t)eachScore);
-	msg.set_cycle((int32_t)cycle);
-	msg.set_regreward((int32_t)regReward);
+void E_DailyDaily_s::write_to_pbmsg(::proto_ff::E_DailyDaily & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_args((int32_t)m_args);
+	msg.set_m_playtype((int32_t)m_playtype);
+	msg.set_m_playargs((int32_t)m_playargs);
+	msg.set_m_funciontid((int64_t)m_funciontid);
+	msg.set_m_number((int32_t)m_number);
+	msg.set_m_viptype((int32_t)m_viptype);
+	msg.set_m_othernum((int32_t)m_othernum);
+	msg.set_m_eachscore((int32_t)m_eachscore);
+	msg.set_m_cycle((int32_t)m_cycle);
+	msg.set_m_regreward((int32_t)m_regreward);
 }
 
-void dailydaily_s::read_from_pbmsg(const ::proto_ff::dailydaily & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dailydaily_s));
-	id = msg.id();
-	name.Copy(msg.name());
-	type = msg.type();
-	args = msg.args();
-	playType = msg.playtype();
-	playArgs = msg.playargs();
-	funciontID = msg.funciontid();
-	number = msg.number();
-	viptype = msg.viptype();
-	otherNum = msg.othernum();
-	eachScore = msg.eachscore();
-	cycle = msg.cycle();
-	regReward = msg.regreward();
+void E_DailyDaily_s::read_from_pbmsg(const ::proto_ff::E_DailyDaily & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DailyDaily_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_type = msg.m_type();
+	m_args = msg.m_args();
+	m_playtype = msg.m_playtype();
+	m_playargs = msg.m_playargs();
+	m_funciontid = msg.m_funciontid();
+	m_number = msg.m_number();
+	m_viptype = msg.m_viptype();
+	m_othernum = msg.m_othernum();
+	m_eachscore = msg.m_eachscore();
+	m_cycle = msg.m_cycle();
+	m_regreward = msg.m_regreward();
 }
 
-Sheet_dailydaily_s::Sheet_dailydaily_s() {
+Sheet_DailyDaily_s::Sheet_DailyDaily_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -71,31 +71,31 @@ Sheet_dailydaily_s::Sheet_dailydaily_s() {
 	}
 }
 
-int Sheet_dailydaily_s::CreateInit() {
+int Sheet_DailyDaily_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_dailydaily_s::ResumeInit() {
+int Sheet_DailyDaily_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_dailydaily_s::write_to_pbmsg(::proto_ff::Sheet_dailydaily & msg) const {
-	for(int32_t i = 0; i < (int32_t)dailydaily_List.GetSize() && i < dailydaily_List.GetMaxSize(); ++i) {
-		::proto_ff::dailydaily* temp_dailydaily_list = msg.add_dailydaily_list();
-		dailydaily_List[i].write_to_pbmsg(*temp_dailydaily_list);
+void Sheet_DailyDaily_s::write_to_pbmsg(::proto_ff::Sheet_DailyDaily & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DailyDaily_List.size(); ++i) {
+		::proto_ff::E_DailyDaily* temp_e_dailydaily_list = msg.add_e_dailydaily_list();
+		E_DailyDaily_List[i].write_to_pbmsg(*temp_e_dailydaily_list);
 	}
 }
 
-void Sheet_dailydaily_s::read_from_pbmsg(const ::proto_ff::Sheet_dailydaily & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_dailydaily_s));
-	dailydaily_List.SetSize(msg.dailydaily_list_size() > dailydaily_List.GetMaxSize() ? dailydaily_List.GetMaxSize() : msg.dailydaily_list_size());
-	for(int32_t i = 0; i < (int32_t)dailydaily_List.GetSize(); ++i) {
-		const ::proto_ff::dailydaily & temp_dailydaily_list = msg.dailydaily_list(i);
-		dailydaily_List[i].read_from_pbmsg(temp_dailydaily_list);
+void Sheet_DailyDaily_s::read_from_pbmsg(const ::proto_ff::Sheet_DailyDaily & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DailyDaily_s));
+	E_DailyDaily_List.resize((int)msg.e_dailydaily_list_size() > (int)E_DailyDaily_List.max_size() ? E_DailyDaily_List.max_size() : msg.e_dailydaily_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DailyDaily_List.size(); ++i) {
+		const ::proto_ff::E_DailyDaily & temp_e_dailydaily_list = msg.e_dailydaily_list(i);
+		E_DailyDaily_List[i].read_from_pbmsg(temp_e_dailydaily_list);
 	}
 }
 
-dailyreward_s::dailyreward_s() {
+E_DailyReward_s::E_DailyReward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -103,37 +103,37 @@ dailyreward_s::dailyreward_s() {
 	}
 }
 
-int dailyreward_s::CreateInit() {
-	id = (int32_t)0;
-	type = (int32_t)0;
-	activeScore = (int32_t)0;
-	rewardId = (int64_t)0;
-	rewardNum = (int32_t)0;
+int E_DailyReward_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_type = (int32_t)0;
+	m_activescore = (int32_t)0;
+	m_rewardid = (int64_t)0;
+	m_rewardnum = (int32_t)0;
 	return 0;
 }
 
-int dailyreward_s::ResumeInit() {
+int E_DailyReward_s::ResumeInit() {
 	return 0;
 }
 
-void dailyreward_s::write_to_pbmsg(::proto_ff::dailyreward & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_type((int32_t)type);
-	msg.set_activescore((int32_t)activeScore);
-	msg.set_rewardid((int64_t)rewardId);
-	msg.set_rewardnum((int32_t)rewardNum);
+void E_DailyReward_s::write_to_pbmsg(::proto_ff::E_DailyReward & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_activescore((int32_t)m_activescore);
+	msg.set_m_rewardid((int64_t)m_rewardid);
+	msg.set_m_rewardnum((int32_t)m_rewardnum);
 }
 
-void dailyreward_s::read_from_pbmsg(const ::proto_ff::dailyreward & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dailyreward_s));
-	id = msg.id();
-	type = msg.type();
-	activeScore = msg.activescore();
-	rewardId = msg.rewardid();
-	rewardNum = msg.rewardnum();
+void E_DailyReward_s::read_from_pbmsg(const ::proto_ff::E_DailyReward & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DailyReward_s));
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_activescore = msg.m_activescore();
+	m_rewardid = msg.m_rewardid();
+	m_rewardnum = msg.m_rewardnum();
 }
 
-Sheet_dailyreward_s::Sheet_dailyreward_s() {
+Sheet_DailyReward_s::Sheet_DailyReward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -141,31 +141,31 @@ Sheet_dailyreward_s::Sheet_dailyreward_s() {
 	}
 }
 
-int Sheet_dailyreward_s::CreateInit() {
+int Sheet_DailyReward_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_dailyreward_s::ResumeInit() {
+int Sheet_DailyReward_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_dailyreward_s::write_to_pbmsg(::proto_ff::Sheet_dailyreward & msg) const {
-	for(int32_t i = 0; i < (int32_t)dailyreward_List.GetSize() && i < dailyreward_List.GetMaxSize(); ++i) {
-		::proto_ff::dailyreward* temp_dailyreward_list = msg.add_dailyreward_list();
-		dailyreward_List[i].write_to_pbmsg(*temp_dailyreward_list);
+void Sheet_DailyReward_s::write_to_pbmsg(::proto_ff::Sheet_DailyReward & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DailyReward_List.size(); ++i) {
+		::proto_ff::E_DailyReward* temp_e_dailyreward_list = msg.add_e_dailyreward_list();
+		E_DailyReward_List[i].write_to_pbmsg(*temp_e_dailyreward_list);
 	}
 }
 
-void Sheet_dailyreward_s::read_from_pbmsg(const ::proto_ff::Sheet_dailyreward & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_dailyreward_s));
-	dailyreward_List.SetSize(msg.dailyreward_list_size() > dailyreward_List.GetMaxSize() ? dailyreward_List.GetMaxSize() : msg.dailyreward_list_size());
-	for(int32_t i = 0; i < (int32_t)dailyreward_List.GetSize(); ++i) {
-		const ::proto_ff::dailyreward & temp_dailyreward_list = msg.dailyreward_list(i);
-		dailyreward_List[i].read_from_pbmsg(temp_dailyreward_list);
+void Sheet_DailyReward_s::read_from_pbmsg(const ::proto_ff::Sheet_DailyReward & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DailyReward_s));
+	E_DailyReward_List.resize((int)msg.e_dailyreward_list_size() > (int)E_DailyReward_List.max_size() ? E_DailyReward_List.max_size() : msg.e_dailyreward_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DailyReward_List.size(); ++i) {
+		const ::proto_ff::E_DailyReward & temp_e_dailyreward_list = msg.e_dailyreward_list(i);
+		E_DailyReward_List[i].read_from_pbmsg(temp_e_dailyreward_list);
 	}
 }
 
-dailycultivateattributeDesc_s::dailycultivateattributeDesc_s() {
+E_DailyCultivateAttributeDesc_s::E_DailyCultivateAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -173,28 +173,28 @@ dailycultivateattributeDesc_s::dailycultivateattributeDesc_s() {
 	}
 }
 
-int dailycultivateattributeDesc_s::CreateInit() {
-	ID = (int32_t)0;
-	Value = (int32_t)0;
+int E_DailyCultivateAttributeDesc_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int dailycultivateattributeDesc_s::ResumeInit() {
+int E_DailyCultivateAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void dailycultivateattributeDesc_s::write_to_pbmsg(::proto_ff::dailycultivateattributeDesc & msg) const {
-	msg.set_id((int32_t)ID);
-	msg.set_value((int32_t)Value);
+void E_DailyCultivateAttributeDesc_s::write_to_pbmsg(::proto_ff::E_DailyCultivateAttributeDesc & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void dailycultivateattributeDesc_s::read_from_pbmsg(const ::proto_ff::dailycultivateattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dailycultivateattributeDesc_s));
-	ID = msg.id();
-	Value = msg.value();
+void E_DailyCultivateAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_DailyCultivateAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DailyCultivateAttributeDesc_s));
+	m_id = msg.m_id();
+	m_value = msg.m_value();
 }
 
-dailycultivate_s::dailycultivate_s() {
+E_DailyCultivate_s::E_DailyCultivate_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -202,40 +202,40 @@ dailycultivate_s::dailycultivate_s() {
 	}
 }
 
-int dailycultivate_s::CreateInit() {
-	ID = (int32_t)0;
-	lv = (int32_t)0;
-	exp = (int32_t)0;
+int E_DailyCultivate_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_lv = (int32_t)0;
+	m_exp = (int32_t)0;
 	return 0;
 }
 
-int dailycultivate_s::ResumeInit() {
+int E_DailyCultivate_s::ResumeInit() {
 	return 0;
 }
 
-void dailycultivate_s::write_to_pbmsg(::proto_ff::dailycultivate & msg) const {
-	msg.set_id((int32_t)ID);
-	msg.set_lv((int32_t)lv);
-	msg.set_exp((int32_t)exp);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::dailycultivateattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_DailyCultivate_s::write_to_pbmsg(::proto_ff::E_DailyCultivate & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_exp((int32_t)m_exp);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_DailyCultivateAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void dailycultivate_s::read_from_pbmsg(const ::proto_ff::dailycultivate & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dailycultivate_s));
-	ID = msg.id();
-	lv = msg.lv();
-	exp = msg.exp();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::dailycultivateattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_DailyCultivate_s::read_from_pbmsg(const ::proto_ff::E_DailyCultivate & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DailyCultivate_s));
+	m_id = msg.m_id();
+	m_lv = msg.m_lv();
+	m_exp = msg.m_exp();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_DailyCultivateAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_dailycultivate_s::Sheet_dailycultivate_s() {
+Sheet_DailyCultivate_s::Sheet_DailyCultivate_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -243,27 +243,27 @@ Sheet_dailycultivate_s::Sheet_dailycultivate_s() {
 	}
 }
 
-int Sheet_dailycultivate_s::CreateInit() {
+int Sheet_DailyCultivate_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_dailycultivate_s::ResumeInit() {
+int Sheet_DailyCultivate_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_dailycultivate_s::write_to_pbmsg(::proto_ff::Sheet_dailycultivate & msg) const {
-	for(int32_t i = 0; i < (int32_t)dailycultivate_List.GetSize() && i < dailycultivate_List.GetMaxSize(); ++i) {
-		::proto_ff::dailycultivate* temp_dailycultivate_list = msg.add_dailycultivate_list();
-		dailycultivate_List[i].write_to_pbmsg(*temp_dailycultivate_list);
+void Sheet_DailyCultivate_s::write_to_pbmsg(::proto_ff::Sheet_DailyCultivate & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DailyCultivate_List.size(); ++i) {
+		::proto_ff::E_DailyCultivate* temp_e_dailycultivate_list = msg.add_e_dailycultivate_list();
+		E_DailyCultivate_List[i].write_to_pbmsg(*temp_e_dailycultivate_list);
 	}
 }
 
-void Sheet_dailycultivate_s::read_from_pbmsg(const ::proto_ff::Sheet_dailycultivate & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_dailycultivate_s));
-	dailycultivate_List.SetSize(msg.dailycultivate_list_size() > dailycultivate_List.GetMaxSize() ? dailycultivate_List.GetMaxSize() : msg.dailycultivate_list_size());
-	for(int32_t i = 0; i < (int32_t)dailycultivate_List.GetSize(); ++i) {
-		const ::proto_ff::dailycultivate & temp_dailycultivate_list = msg.dailycultivate_list(i);
-		dailycultivate_List[i].read_from_pbmsg(temp_dailycultivate_list);
+void Sheet_DailyCultivate_s::read_from_pbmsg(const ::proto_ff::Sheet_DailyCultivate & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DailyCultivate_s));
+	E_DailyCultivate_List.resize((int)msg.e_dailycultivate_list_size() > (int)E_DailyCultivate_List.max_size() ? E_DailyCultivate_List.max_size() : msg.e_dailycultivate_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DailyCultivate_List.size(); ++i) {
+		const ::proto_ff::E_DailyCultivate & temp_e_dailycultivate_list = msg.e_dailycultivate_list(i);
+		E_DailyCultivate_List[i].read_from_pbmsg(temp_e_dailycultivate_list);
 	}
 }
 

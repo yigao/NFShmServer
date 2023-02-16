@@ -34,22 +34,22 @@ void  protobuf_AddDesc_offline_2eproto();
 void protobuf_AssignDesc_offline_2eproto();
 void protobuf_ShutdownFile_offline_2eproto();
 
-class offlineoffline;
-class Sheet_offlineoffline;
-class offlineitemlistitemDesc;
-class offlineitemlist;
-class Sheet_offlineitemlist;
+class E_OfflineOffline;
+class Sheet_OfflineOffline;
+class E_OfflineItemlistItemDesc;
+class E_OfflineItemlist;
+class Sheet_OfflineItemlist;
 
 // ===================================================================
 
-class offlineoffline : public ::google::protobuf::Message {
+class E_OfflineOffline : public ::google::protobuf::Message {
  public:
-  offlineoffline();
-  virtual ~offlineoffline();
+  E_OfflineOffline();
+  virtual ~E_OfflineOffline();
 
-  offlineoffline(const offlineoffline& from);
+  E_OfflineOffline(const E_OfflineOffline& from);
 
-  inline offlineoffline& operator=(const offlineoffline& from) {
+  inline E_OfflineOffline& operator=(const E_OfflineOffline& from) {
     CopyFrom(from);
     return *this;
   }
@@ -63,17 +63,17 @@ class offlineoffline : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const offlineoffline& default_instance();
+  static const E_OfflineOffline& default_instance();
 
-  void Swap(offlineoffline* other);
+  void Swap(E_OfflineOffline* other);
 
   // implements Message ----------------------------------------------
 
-  offlineoffline* New() const;
+  E_OfflineOffline* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const offlineoffline& from);
-  void MergeFrom(const offlineoffline& from);
+  void CopyFrom(const E_OfflineOffline& from);
+  void MergeFrom(const E_OfflineOffline& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -96,31 +96,31 @@ class offlineoffline : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int64 offlineExp = 2;
-  inline bool has_offlineexp() const;
-  inline void clear_offlineexp();
-  static const int kOfflineExpFieldNumber = 2;
-  inline ::google::protobuf::int64 offlineexp() const;
-  inline void set_offlineexp(::google::protobuf::int64 value);
+  // optional int64 m_offlineexp = 2;
+  inline bool has_m_offlineexp() const;
+  inline void clear_m_offlineexp();
+  static const int kMOfflineexpFieldNumber = 2;
+  inline ::google::protobuf::int64 m_offlineexp() const;
+  inline void set_m_offlineexp(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.offlineoffline)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_OfflineOffline)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_offlineexp();
-  inline void clear_has_offlineexp();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_offlineexp();
+  inline void clear_has_m_offlineexp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 offlineexp_;
-  ::google::protobuf::int32 lv_;
+  ::google::protobuf::int64 m_offlineexp_;
+  ::google::protobuf::int32 m_lv_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -130,18 +130,18 @@ class offlineoffline : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_offline_2eproto();
 
   void InitAsDefaultInstance();
-  static offlineoffline* default_instance_;
+  static E_OfflineOffline* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_offlineoffline : public ::google::protobuf::Message {
+class Sheet_OfflineOffline : public ::google::protobuf::Message {
  public:
-  Sheet_offlineoffline();
-  virtual ~Sheet_offlineoffline();
+  Sheet_OfflineOffline();
+  virtual ~Sheet_OfflineOffline();
 
-  Sheet_offlineoffline(const Sheet_offlineoffline& from);
+  Sheet_OfflineOffline(const Sheet_OfflineOffline& from);
 
-  inline Sheet_offlineoffline& operator=(const Sheet_offlineoffline& from) {
+  inline Sheet_OfflineOffline& operator=(const Sheet_OfflineOffline& from) {
     CopyFrom(from);
     return *this;
   }
@@ -155,17 +155,17 @@ class Sheet_offlineoffline : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_offlineoffline& default_instance();
+  static const Sheet_OfflineOffline& default_instance();
 
-  void Swap(Sheet_offlineoffline* other);
+  void Swap(Sheet_OfflineOffline* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_offlineoffline* New() const;
+  Sheet_OfflineOffline* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_offlineoffline& from);
-  void MergeFrom(const Sheet_offlineoffline& from);
+  void CopyFrom(const Sheet_OfflineOffline& from);
+  void MergeFrom(const Sheet_OfflineOffline& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -188,24 +188,24 @@ class Sheet_offlineoffline : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.offlineoffline offlineoffline_List = 1;
-  inline int offlineoffline_list_size() const;
-  inline void clear_offlineoffline_list();
-  static const int kOfflineofflineListFieldNumber = 1;
-  inline const ::proto_ff::offlineoffline& offlineoffline_list(int index) const;
-  inline ::proto_ff::offlineoffline* mutable_offlineoffline_list(int index);
-  inline ::proto_ff::offlineoffline* add_offlineoffline_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineoffline >&
-      offlineoffline_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineoffline >*
-      mutable_offlineoffline_list();
+  // repeated .proto_ff.E_OfflineOffline E_OfflineOffline_List = 1;
+  inline int e_offlineoffline_list_size() const;
+  inline void clear_e_offlineoffline_list();
+  static const int kEOfflineOfflineListFieldNumber = 1;
+  inline const ::proto_ff::E_OfflineOffline& e_offlineoffline_list(int index) const;
+  inline ::proto_ff::E_OfflineOffline* mutable_e_offlineoffline_list(int index);
+  inline ::proto_ff::E_OfflineOffline* add_e_offlineoffline_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineOffline >&
+      e_offlineoffline_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineOffline >*
+      mutable_e_offlineoffline_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_offlineoffline)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_OfflineOffline)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineoffline > offlineoffline_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineOffline > e_offlineoffline_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -215,18 +215,18 @@ class Sheet_offlineoffline : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_offline_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_offlineoffline* default_instance_;
+  static Sheet_OfflineOffline* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class offlineitemlistitemDesc : public ::google::protobuf::Message {
+class E_OfflineItemlistItemDesc : public ::google::protobuf::Message {
  public:
-  offlineitemlistitemDesc();
-  virtual ~offlineitemlistitemDesc();
+  E_OfflineItemlistItemDesc();
+  virtual ~E_OfflineItemlistItemDesc();
 
-  offlineitemlistitemDesc(const offlineitemlistitemDesc& from);
+  E_OfflineItemlistItemDesc(const E_OfflineItemlistItemDesc& from);
 
-  inline offlineitemlistitemDesc& operator=(const offlineitemlistitemDesc& from) {
+  inline E_OfflineItemlistItemDesc& operator=(const E_OfflineItemlistItemDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -240,17 +240,17 @@ class offlineitemlistitemDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const offlineitemlistitemDesc& default_instance();
+  static const E_OfflineItemlistItemDesc& default_instance();
 
-  void Swap(offlineitemlistitemDesc* other);
+  void Swap(E_OfflineItemlistItemDesc* other);
 
   // implements Message ----------------------------------------------
 
-  offlineitemlistitemDesc* New() const;
+  E_OfflineItemlistItemDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const offlineitemlistitemDesc& from);
-  void MergeFrom(const offlineitemlistitemDesc& from);
+  void CopyFrom(const E_OfflineItemlistItemDesc& from);
+  void MergeFrom(const E_OfflineItemlistItemDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -273,41 +273,41 @@ class offlineitemlistitemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Num = 1;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 1;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 Vle = 2;
-  inline bool has_vle() const;
-  inline void clear_vle();
-  static const int kVleFieldNumber = 2;
-  inline ::google::protobuf::int32 vle() const;
-  inline void set_vle(::google::protobuf::int32 value);
+  // optional int32 m_vle = 2;
+  inline bool has_m_vle() const;
+  inline void clear_m_vle();
+  static const int kMVleFieldNumber = 2;
+  inline ::google::protobuf::int32 m_vle() const;
+  inline void set_m_vle(::google::protobuf::int32 value);
 
-  // optional int64 ID = 3;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 3;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 3;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 3;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.offlineitemlistitemDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_OfflineItemlistItemDesc)
  private:
-  inline void set_has_num();
-  inline void clear_has_num();
-  inline void set_has_vle();
-  inline void clear_has_vle();
-  inline void set_has_id();
-  inline void clear_has_id();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_vle();
+  inline void clear_has_m_vle();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 num_;
-  ::google::protobuf::int32 vle_;
-  ::google::protobuf::int64 id_;
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_vle_;
+  ::google::protobuf::int64 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -317,18 +317,18 @@ class offlineitemlistitemDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_offline_2eproto();
 
   void InitAsDefaultInstance();
-  static offlineitemlistitemDesc* default_instance_;
+  static E_OfflineItemlistItemDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class offlineitemlist : public ::google::protobuf::Message {
+class E_OfflineItemlist : public ::google::protobuf::Message {
  public:
-  offlineitemlist();
-  virtual ~offlineitemlist();
+  E_OfflineItemlist();
+  virtual ~E_OfflineItemlist();
 
-  offlineitemlist(const offlineitemlist& from);
+  E_OfflineItemlist(const E_OfflineItemlist& from);
 
-  inline offlineitemlist& operator=(const offlineitemlist& from) {
+  inline E_OfflineItemlist& operator=(const E_OfflineItemlist& from) {
     CopyFrom(from);
     return *this;
   }
@@ -342,17 +342,17 @@ class offlineitemlist : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const offlineitemlist& default_instance();
+  static const E_OfflineItemlist& default_instance();
 
-  void Swap(offlineitemlist* other);
+  void Swap(E_OfflineItemlist* other);
 
   // implements Message ----------------------------------------------
 
-  offlineitemlist* New() const;
+  E_OfflineItemlist* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const offlineitemlist& from);
-  void MergeFrom(const offlineitemlist& from);
+  void CopyFrom(const E_OfflineItemlist& from);
+  void MergeFrom(const E_OfflineItemlist& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -375,64 +375,64 @@ class offlineitemlist : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 Lvdown = 2;
-  inline bool has_lvdown() const;
-  inline void clear_lvdown();
-  static const int kLvdownFieldNumber = 2;
-  inline ::google::protobuf::int32 lvdown() const;
-  inline void set_lvdown(::google::protobuf::int32 value);
+  // optional int32 m_lvdown = 2;
+  inline bool has_m_lvdown() const;
+  inline void clear_m_lvdown();
+  static const int kMLvdownFieldNumber = 2;
+  inline ::google::protobuf::int32 m_lvdown() const;
+  inline void set_m_lvdown(::google::protobuf::int32 value);
 
-  // optional int32 Lvup = 3;
-  inline bool has_lvup() const;
-  inline void clear_lvup();
-  static const int kLvupFieldNumber = 3;
-  inline ::google::protobuf::int32 lvup() const;
-  inline void set_lvup(::google::protobuf::int32 value);
+  // optional int32 m_lvup = 3;
+  inline bool has_m_lvup() const;
+  inline void clear_m_lvup();
+  static const int kMLvupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_lvup() const;
+  inline void set_m_lvup(::google::protobuf::int32 value);
 
-  // optional int32 daoju = 4;
-  inline bool has_daoju() const;
-  inline void clear_daoju();
-  static const int kDaojuFieldNumber = 4;
-  inline ::google::protobuf::int32 daoju() const;
-  inline void set_daoju(::google::protobuf::int32 value);
+  // optional int32 m_daoju = 4;
+  inline bool has_m_daoju() const;
+  inline void clear_m_daoju();
+  static const int kMDaojuFieldNumber = 4;
+  inline ::google::protobuf::int32 m_daoju() const;
+  inline void set_m_daoju(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.offlineitemlistitemDesc item = 5;
-  inline int item_size() const;
-  inline void clear_item();
-  static const int kItemFieldNumber = 5;
-  inline const ::proto_ff::offlineitemlistitemDesc& item(int index) const;
-  inline ::proto_ff::offlineitemlistitemDesc* mutable_item(int index);
-  inline ::proto_ff::offlineitemlistitemDesc* add_item();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlistitemDesc >&
-      item() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlistitemDesc >*
-      mutable_item();
+  // repeated .proto_ff.E_OfflineItemlistItemDesc m_item = 5;
+  inline int m_item_size() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 5;
+  inline const ::proto_ff::E_OfflineItemlistItemDesc& m_item(int index) const;
+  inline ::proto_ff::E_OfflineItemlistItemDesc* mutable_m_item(int index);
+  inline ::proto_ff::E_OfflineItemlistItemDesc* add_m_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlistItemDesc >&
+      m_item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlistItemDesc >*
+      mutable_m_item();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.offlineitemlist)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_OfflineItemlist)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_lvdown();
-  inline void clear_has_lvdown();
-  inline void set_has_lvup();
-  inline void clear_has_lvup();
-  inline void set_has_daoju();
-  inline void clear_has_daoju();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_lvdown();
+  inline void clear_has_m_lvdown();
+  inline void set_has_m_lvup();
+  inline void clear_has_m_lvup();
+  inline void set_has_m_daoju();
+  inline void clear_has_m_daoju();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 lvdown_;
-  ::google::protobuf::int32 lvup_;
-  ::google::protobuf::int32 daoju_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlistitemDesc > item_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_lvdown_;
+  ::google::protobuf::int32 m_lvup_;
+  ::google::protobuf::int32 m_daoju_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlistItemDesc > m_item_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -442,18 +442,18 @@ class offlineitemlist : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_offline_2eproto();
 
   void InitAsDefaultInstance();
-  static offlineitemlist* default_instance_;
+  static E_OfflineItemlist* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_offlineitemlist : public ::google::protobuf::Message {
+class Sheet_OfflineItemlist : public ::google::protobuf::Message {
  public:
-  Sheet_offlineitemlist();
-  virtual ~Sheet_offlineitemlist();
+  Sheet_OfflineItemlist();
+  virtual ~Sheet_OfflineItemlist();
 
-  Sheet_offlineitemlist(const Sheet_offlineitemlist& from);
+  Sheet_OfflineItemlist(const Sheet_OfflineItemlist& from);
 
-  inline Sheet_offlineitemlist& operator=(const Sheet_offlineitemlist& from) {
+  inline Sheet_OfflineItemlist& operator=(const Sheet_OfflineItemlist& from) {
     CopyFrom(from);
     return *this;
   }
@@ -467,17 +467,17 @@ class Sheet_offlineitemlist : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_offlineitemlist& default_instance();
+  static const Sheet_OfflineItemlist& default_instance();
 
-  void Swap(Sheet_offlineitemlist* other);
+  void Swap(Sheet_OfflineItemlist* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_offlineitemlist* New() const;
+  Sheet_OfflineItemlist* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_offlineitemlist& from);
-  void MergeFrom(const Sheet_offlineitemlist& from);
+  void CopyFrom(const Sheet_OfflineItemlist& from);
+  void MergeFrom(const Sheet_OfflineItemlist& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -500,24 +500,24 @@ class Sheet_offlineitemlist : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.offlineitemlist offlineitemlist_List = 1;
-  inline int offlineitemlist_list_size() const;
-  inline void clear_offlineitemlist_list();
-  static const int kOfflineitemlistListFieldNumber = 1;
-  inline const ::proto_ff::offlineitemlist& offlineitemlist_list(int index) const;
-  inline ::proto_ff::offlineitemlist* mutable_offlineitemlist_list(int index);
-  inline ::proto_ff::offlineitemlist* add_offlineitemlist_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlist >&
-      offlineitemlist_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlist >*
-      mutable_offlineitemlist_list();
+  // repeated .proto_ff.E_OfflineItemlist E_OfflineItemlist_List = 1;
+  inline int e_offlineitemlist_list_size() const;
+  inline void clear_e_offlineitemlist_list();
+  static const int kEOfflineItemlistListFieldNumber = 1;
+  inline const ::proto_ff::E_OfflineItemlist& e_offlineitemlist_list(int index) const;
+  inline ::proto_ff::E_OfflineItemlist* mutable_e_offlineitemlist_list(int index);
+  inline ::proto_ff::E_OfflineItemlist* add_e_offlineitemlist_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlist >&
+      e_offlineitemlist_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlist >*
+      mutable_e_offlineitemlist_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_offlineitemlist)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_OfflineItemlist)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlist > offlineitemlist_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlist > e_offlineitemlist_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -527,302 +527,302 @@ class Sheet_offlineitemlist : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_offline_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_offlineitemlist* default_instance_;
+  static Sheet_OfflineItemlist* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// offlineoffline
+// E_OfflineOffline
 
-// optional int32 lv = 1;
-inline bool offlineoffline::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_OfflineOffline::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void offlineoffline::set_has_lv() {
+inline void E_OfflineOffline::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void offlineoffline::clear_has_lv() {
+inline void E_OfflineOffline::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void offlineoffline::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_OfflineOffline::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 offlineoffline::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_OfflineOffline::m_lv() const {
+  return m_lv_;
 }
-inline void offlineoffline::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_OfflineOffline::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int64 offlineExp = 2;
-inline bool offlineoffline::has_offlineexp() const {
+// optional int64 m_offlineexp = 2;
+inline bool E_OfflineOffline::has_m_offlineexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void offlineoffline::set_has_offlineexp() {
+inline void E_OfflineOffline::set_has_m_offlineexp() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void offlineoffline::clear_has_offlineexp() {
+inline void E_OfflineOffline::clear_has_m_offlineexp() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void offlineoffline::clear_offlineexp() {
-  offlineexp_ = GOOGLE_LONGLONG(0);
-  clear_has_offlineexp();
+inline void E_OfflineOffline::clear_m_offlineexp() {
+  m_offlineexp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_offlineexp();
 }
-inline ::google::protobuf::int64 offlineoffline::offlineexp() const {
-  return offlineexp_;
+inline ::google::protobuf::int64 E_OfflineOffline::m_offlineexp() const {
+  return m_offlineexp_;
 }
-inline void offlineoffline::set_offlineexp(::google::protobuf::int64 value) {
-  set_has_offlineexp();
-  offlineexp_ = value;
+inline void E_OfflineOffline::set_m_offlineexp(::google::protobuf::int64 value) {
+  set_has_m_offlineexp();
+  m_offlineexp_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_offlineoffline
+// Sheet_OfflineOffline
 
-// repeated .proto_ff.offlineoffline offlineoffline_List = 1;
-inline int Sheet_offlineoffline::offlineoffline_list_size() const {
-  return offlineoffline_list_.size();
+// repeated .proto_ff.E_OfflineOffline E_OfflineOffline_List = 1;
+inline int Sheet_OfflineOffline::e_offlineoffline_list_size() const {
+  return e_offlineoffline_list_.size();
 }
-inline void Sheet_offlineoffline::clear_offlineoffline_list() {
-  offlineoffline_list_.Clear();
+inline void Sheet_OfflineOffline::clear_e_offlineoffline_list() {
+  e_offlineoffline_list_.Clear();
 }
-inline const ::proto_ff::offlineoffline& Sheet_offlineoffline::offlineoffline_list(int index) const {
-  return offlineoffline_list_.Get(index);
+inline const ::proto_ff::E_OfflineOffline& Sheet_OfflineOffline::e_offlineoffline_list(int index) const {
+  return e_offlineoffline_list_.Get(index);
 }
-inline ::proto_ff::offlineoffline* Sheet_offlineoffline::mutable_offlineoffline_list(int index) {
-  return offlineoffline_list_.Mutable(index);
+inline ::proto_ff::E_OfflineOffline* Sheet_OfflineOffline::mutable_e_offlineoffline_list(int index) {
+  return e_offlineoffline_list_.Mutable(index);
 }
-inline ::proto_ff::offlineoffline* Sheet_offlineoffline::add_offlineoffline_list() {
-  return offlineoffline_list_.Add();
+inline ::proto_ff::E_OfflineOffline* Sheet_OfflineOffline::add_e_offlineoffline_list() {
+  return e_offlineoffline_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineoffline >&
-Sheet_offlineoffline::offlineoffline_list() const {
-  return offlineoffline_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineOffline >&
+Sheet_OfflineOffline::e_offlineoffline_list() const {
+  return e_offlineoffline_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineoffline >*
-Sheet_offlineoffline::mutable_offlineoffline_list() {
-  return &offlineoffline_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineOffline >*
+Sheet_OfflineOffline::mutable_e_offlineoffline_list() {
+  return &e_offlineoffline_list_;
 }
 
 // -------------------------------------------------------------------
 
-// offlineitemlistitemDesc
+// E_OfflineItemlistItemDesc
 
-// optional int32 Num = 1;
-inline bool offlineitemlistitemDesc::has_num() const {
+// optional int32 m_num = 1;
+inline bool E_OfflineItemlistItemDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void offlineitemlistitemDesc::set_has_num() {
+inline void E_OfflineItemlistItemDesc::set_has_m_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void offlineitemlistitemDesc::clear_has_num() {
+inline void E_OfflineItemlistItemDesc::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void offlineitemlistitemDesc::clear_num() {
-  num_ = 0;
-  clear_has_num();
+inline void E_OfflineItemlistItemDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
 }
-inline ::google::protobuf::int32 offlineitemlistitemDesc::num() const {
-  return num_;
+inline ::google::protobuf::int32 E_OfflineItemlistItemDesc::m_num() const {
+  return m_num_;
 }
-inline void offlineitemlistitemDesc::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
+inline void E_OfflineItemlistItemDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
 }
 
-// optional int32 Vle = 2;
-inline bool offlineitemlistitemDesc::has_vle() const {
+// optional int32 m_vle = 2;
+inline bool E_OfflineItemlistItemDesc::has_m_vle() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void offlineitemlistitemDesc::set_has_vle() {
+inline void E_OfflineItemlistItemDesc::set_has_m_vle() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void offlineitemlistitemDesc::clear_has_vle() {
+inline void E_OfflineItemlistItemDesc::clear_has_m_vle() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void offlineitemlistitemDesc::clear_vle() {
-  vle_ = 0;
-  clear_has_vle();
+inline void E_OfflineItemlistItemDesc::clear_m_vle() {
+  m_vle_ = 0;
+  clear_has_m_vle();
 }
-inline ::google::protobuf::int32 offlineitemlistitemDesc::vle() const {
-  return vle_;
+inline ::google::protobuf::int32 E_OfflineItemlistItemDesc::m_vle() const {
+  return m_vle_;
 }
-inline void offlineitemlistitemDesc::set_vle(::google::protobuf::int32 value) {
-  set_has_vle();
-  vle_ = value;
+inline void E_OfflineItemlistItemDesc::set_m_vle(::google::protobuf::int32 value) {
+  set_has_m_vle();
+  m_vle_ = value;
 }
 
-// optional int64 ID = 3;
-inline bool offlineitemlistitemDesc::has_id() const {
+// optional int64 m_id = 3;
+inline bool E_OfflineItemlistItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void offlineitemlistitemDesc::set_has_id() {
+inline void E_OfflineItemlistItemDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void offlineitemlistitemDesc::clear_has_id() {
+inline void E_OfflineItemlistItemDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void offlineitemlistitemDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_OfflineItemlistItemDesc::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 offlineitemlistitemDesc::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_OfflineItemlistItemDesc::m_id() const {
+  return m_id_;
 }
-inline void offlineitemlistitemDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_OfflineItemlistItemDesc::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// offlineitemlist
+// E_OfflineItemlist
 
-// optional int32 id = 1;
-inline bool offlineitemlist::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_OfflineItemlist::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void offlineitemlist::set_has_id() {
+inline void E_OfflineItemlist::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void offlineitemlist::clear_has_id() {
+inline void E_OfflineItemlist::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void offlineitemlist::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_OfflineItemlist::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 offlineitemlist::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_OfflineItemlist::m_id() const {
+  return m_id_;
 }
-inline void offlineitemlist::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_OfflineItemlist::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 Lvdown = 2;
-inline bool offlineitemlist::has_lvdown() const {
+// optional int32 m_lvdown = 2;
+inline bool E_OfflineItemlist::has_m_lvdown() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void offlineitemlist::set_has_lvdown() {
+inline void E_OfflineItemlist::set_has_m_lvdown() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void offlineitemlist::clear_has_lvdown() {
+inline void E_OfflineItemlist::clear_has_m_lvdown() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void offlineitemlist::clear_lvdown() {
-  lvdown_ = 0;
-  clear_has_lvdown();
+inline void E_OfflineItemlist::clear_m_lvdown() {
+  m_lvdown_ = 0;
+  clear_has_m_lvdown();
 }
-inline ::google::protobuf::int32 offlineitemlist::lvdown() const {
-  return lvdown_;
+inline ::google::protobuf::int32 E_OfflineItemlist::m_lvdown() const {
+  return m_lvdown_;
 }
-inline void offlineitemlist::set_lvdown(::google::protobuf::int32 value) {
-  set_has_lvdown();
-  lvdown_ = value;
+inline void E_OfflineItemlist::set_m_lvdown(::google::protobuf::int32 value) {
+  set_has_m_lvdown();
+  m_lvdown_ = value;
 }
 
-// optional int32 Lvup = 3;
-inline bool offlineitemlist::has_lvup() const {
+// optional int32 m_lvup = 3;
+inline bool E_OfflineItemlist::has_m_lvup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void offlineitemlist::set_has_lvup() {
+inline void E_OfflineItemlist::set_has_m_lvup() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void offlineitemlist::clear_has_lvup() {
+inline void E_OfflineItemlist::clear_has_m_lvup() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void offlineitemlist::clear_lvup() {
-  lvup_ = 0;
-  clear_has_lvup();
+inline void E_OfflineItemlist::clear_m_lvup() {
+  m_lvup_ = 0;
+  clear_has_m_lvup();
 }
-inline ::google::protobuf::int32 offlineitemlist::lvup() const {
-  return lvup_;
+inline ::google::protobuf::int32 E_OfflineItemlist::m_lvup() const {
+  return m_lvup_;
 }
-inline void offlineitemlist::set_lvup(::google::protobuf::int32 value) {
-  set_has_lvup();
-  lvup_ = value;
+inline void E_OfflineItemlist::set_m_lvup(::google::protobuf::int32 value) {
+  set_has_m_lvup();
+  m_lvup_ = value;
 }
 
-// optional int32 daoju = 4;
-inline bool offlineitemlist::has_daoju() const {
+// optional int32 m_daoju = 4;
+inline bool E_OfflineItemlist::has_m_daoju() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void offlineitemlist::set_has_daoju() {
+inline void E_OfflineItemlist::set_has_m_daoju() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void offlineitemlist::clear_has_daoju() {
+inline void E_OfflineItemlist::clear_has_m_daoju() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void offlineitemlist::clear_daoju() {
-  daoju_ = 0;
-  clear_has_daoju();
+inline void E_OfflineItemlist::clear_m_daoju() {
+  m_daoju_ = 0;
+  clear_has_m_daoju();
 }
-inline ::google::protobuf::int32 offlineitemlist::daoju() const {
-  return daoju_;
+inline ::google::protobuf::int32 E_OfflineItemlist::m_daoju() const {
+  return m_daoju_;
 }
-inline void offlineitemlist::set_daoju(::google::protobuf::int32 value) {
-  set_has_daoju();
-  daoju_ = value;
+inline void E_OfflineItemlist::set_m_daoju(::google::protobuf::int32 value) {
+  set_has_m_daoju();
+  m_daoju_ = value;
 }
 
-// repeated .proto_ff.offlineitemlistitemDesc item = 5;
-inline int offlineitemlist::item_size() const {
-  return item_.size();
+// repeated .proto_ff.E_OfflineItemlistItemDesc m_item = 5;
+inline int E_OfflineItemlist::m_item_size() const {
+  return m_item_.size();
 }
-inline void offlineitemlist::clear_item() {
-  item_.Clear();
+inline void E_OfflineItemlist::clear_m_item() {
+  m_item_.Clear();
 }
-inline const ::proto_ff::offlineitemlistitemDesc& offlineitemlist::item(int index) const {
-  return item_.Get(index);
+inline const ::proto_ff::E_OfflineItemlistItemDesc& E_OfflineItemlist::m_item(int index) const {
+  return m_item_.Get(index);
 }
-inline ::proto_ff::offlineitemlistitemDesc* offlineitemlist::mutable_item(int index) {
-  return item_.Mutable(index);
+inline ::proto_ff::E_OfflineItemlistItemDesc* E_OfflineItemlist::mutable_m_item(int index) {
+  return m_item_.Mutable(index);
 }
-inline ::proto_ff::offlineitemlistitemDesc* offlineitemlist::add_item() {
-  return item_.Add();
+inline ::proto_ff::E_OfflineItemlistItemDesc* E_OfflineItemlist::add_m_item() {
+  return m_item_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlistitemDesc >&
-offlineitemlist::item() const {
-  return item_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlistItemDesc >&
+E_OfflineItemlist::m_item() const {
+  return m_item_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlistitemDesc >*
-offlineitemlist::mutable_item() {
-  return &item_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlistItemDesc >*
+E_OfflineItemlist::mutable_m_item() {
+  return &m_item_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_offlineitemlist
+// Sheet_OfflineItemlist
 
-// repeated .proto_ff.offlineitemlist offlineitemlist_List = 1;
-inline int Sheet_offlineitemlist::offlineitemlist_list_size() const {
-  return offlineitemlist_list_.size();
+// repeated .proto_ff.E_OfflineItemlist E_OfflineItemlist_List = 1;
+inline int Sheet_OfflineItemlist::e_offlineitemlist_list_size() const {
+  return e_offlineitemlist_list_.size();
 }
-inline void Sheet_offlineitemlist::clear_offlineitemlist_list() {
-  offlineitemlist_list_.Clear();
+inline void Sheet_OfflineItemlist::clear_e_offlineitemlist_list() {
+  e_offlineitemlist_list_.Clear();
 }
-inline const ::proto_ff::offlineitemlist& Sheet_offlineitemlist::offlineitemlist_list(int index) const {
-  return offlineitemlist_list_.Get(index);
+inline const ::proto_ff::E_OfflineItemlist& Sheet_OfflineItemlist::e_offlineitemlist_list(int index) const {
+  return e_offlineitemlist_list_.Get(index);
 }
-inline ::proto_ff::offlineitemlist* Sheet_offlineitemlist::mutable_offlineitemlist_list(int index) {
-  return offlineitemlist_list_.Mutable(index);
+inline ::proto_ff::E_OfflineItemlist* Sheet_OfflineItemlist::mutable_e_offlineitemlist_list(int index) {
+  return e_offlineitemlist_list_.Mutable(index);
 }
-inline ::proto_ff::offlineitemlist* Sheet_offlineitemlist::add_offlineitemlist_list() {
-  return offlineitemlist_list_.Add();
+inline ::proto_ff::E_OfflineItemlist* Sheet_OfflineItemlist::add_e_offlineitemlist_list() {
+  return e_offlineitemlist_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlist >&
-Sheet_offlineitemlist::offlineitemlist_list() const {
-  return offlineitemlist_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlist >&
+Sheet_OfflineItemlist::e_offlineitemlist_list() const {
+  return e_offlineitemlist_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::offlineitemlist >*
-Sheet_offlineitemlist::mutable_offlineitemlist_list() {
-  return &offlineitemlist_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_OfflineItemlist >*
+Sheet_OfflineItemlist::mutable_e_offlineitemlist_list() {
+  return &e_offlineitemlist_list_;
 }
 
 

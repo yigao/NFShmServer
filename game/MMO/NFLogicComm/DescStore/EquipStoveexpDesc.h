@@ -14,9 +14,9 @@ public:
 	virtual ~EquipStoveexpDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::equipstoveexp_s* GetDesc(int id) const;
-	proto_ff_s::equipstoveexp_s* GetDesc(int id);
+	const proto_ff_s::E_EquipStoveexp_s* GetDesc(int id) const;
+	proto_ff_s::E_EquipStoveexp_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::equipstoveexp_s, equipstoveexp, MAX_EQUIP_STOVEEXP_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_EquipStoveexp_s, equipstoveexp, MAX_EQUIP_STOVEEXP_NUM);
 DECLARE_IDCREATE(EquipStoveexpDesc);
 };

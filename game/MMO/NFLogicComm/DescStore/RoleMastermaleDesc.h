@@ -14,9 +14,9 @@ public:
 	virtual ~RoleMastermaleDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::rolemasterMale_s* GetDesc(int id) const;
-	proto_ff_s::rolemasterMale_s* GetDesc(int id);
+	const proto_ff_s::E_RoleMastermale_s* GetDesc(int id) const;
+	proto_ff_s::E_RoleMastermale_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::rolemasterMale_s, rolemasterMale, MAX_ROLE_MASTERMALE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_RoleMastermale_s, rolemasterMale, MAX_ROLE_MASTERMALE_NUM);
 DECLARE_IDCREATE(RoleMastermaleDesc);
 };

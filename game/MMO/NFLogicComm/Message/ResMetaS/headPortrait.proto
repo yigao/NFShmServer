@@ -3,37 +3,37 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message headPortraitheadattributeDesc
+message E_HeadportraitHeadAttributeDesc
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-message headPortraitheadActiveAttributeDesc
+message E_HeadportraitHeadActiveattributeDesc
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-message headPortraithead
+message E_HeadportraitHead
 {
-	optional int64 ID = 1[(yd_fieldoptions.field_cname) = "头像ID"];
-	optional string name = 2[(yd_fieldoptions.field_cname) = "头像名称", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 type = 3[(yd_fieldoptions.field_cname) = "外观类型"];
-	optional int32 quality = 4[(yd_fieldoptions.field_cname) = "头像品质"];
-	optional string professionLimit = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
-	optional int64 activationItem = 6[(yd_fieldoptions.field_cname) = "激活道具ID"];
-	optional int32 activationNum = 7[(yd_fieldoptions.field_cname) = "激活道具数量"];
-	optional int64 starId = 8[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string starNum = 9[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 300];
-	optional int32 starUp = 10[(yd_fieldoptions.field_cname) = "升星等级上限"];
-	optional int32 starBer = 11[(yd_fieldoptions.field_cname) = "每次升星属性增加的百分比值"];
-	repeated headPortraitheadattributeDesc attribute = 12[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
-	repeated headPortraitheadActiveAttributeDesc ActiveAttribute = 13[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "头像ID"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "头像名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "外观类型"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "头像品质"];
+	optional string m_professionlimit = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 m_activationitem = 6[(yd_fieldoptions.field_cname) = "激活道具ID"];
+	optional int32 m_activationnum = 7[(yd_fieldoptions.field_cname) = "激活道具数量"];
+	optional int64 m_starid = 8[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string m_starnum = 9[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 300];
+	optional int32 m_starup = 10[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 m_starber = 11[(yd_fieldoptions.field_cname) = "每次升星属性增加的百分比值"];
+	repeated E_HeadportraitHeadAttributeDesc m_attribute = 12[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
 
-message Sheet_headPortraithead
+message Sheet_HeadportraitHead
 {
-	repeated headPortraithead headPortraithead_List = 1[(yd_fieldoptions.field_arysize)=100];
+	repeated E_HeadportraitHead E_HeadportraitHead_List = 1[(yd_fieldoptions.field_arysize)=100];
 }

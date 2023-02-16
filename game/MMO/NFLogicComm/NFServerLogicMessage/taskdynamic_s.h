@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "taskdynamic.pb.h"
@@ -10,104 +10,104 @@
 
 namespace proto_ff_s {
 
-	struct taskdynamictaskdynamic_s : public NFDescStoreSeqOP {
-		taskdynamictaskdynamic_s();
-		virtual ~taskdynamictaskdynamic_s(){}
+	struct E_TaskdynamicTaskdynamic_s : public NFDescStoreSeqOP {
+		E_TaskdynamicTaskdynamic_s();
+		virtual ~E_TaskdynamicTaskdynamic_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t taskID;
-		NFShmString<60> remark;
-		int32_t taskType;
-		int32_t minlv;
-		int32_t maxlv;
-		int32_t receCount;
-		NFShmString<60> idList;
+		int64_t m_taskid;
+		NFShmString<60> m_remark;
+		int32_t m_tasktype;
+		int32_t m_minlv;
+		int32_t m_maxlv;
+		int32_t m_rececount;
+		NFShmString<60> m_idlist;
 
-		virtual void write_to_pbmsg(::proto_ff::taskdynamictaskdynamic & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::taskdynamictaskdynamic & msg);
-		static ::proto_ff::taskdynamictaskdynamic* new_pbmsg(){ return new ::proto_ff::taskdynamictaskdynamic(); }
-		static ::proto_ff::taskdynamictaskdynamic make_pbmsg(){ return ::proto_ff::taskdynamictaskdynamic(); }
+		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTaskdynamic & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskdynamic & msg);
+		static ::proto_ff::E_TaskdynamicTaskdynamic* new_pbmsg(){ return new ::proto_ff::E_TaskdynamicTaskdynamic(); }
+		static ::proto_ff::E_TaskdynamicTaskdynamic make_pbmsg(){ return ::proto_ff::E_TaskdynamicTaskdynamic(); }
 	};
-	typedef struct taskdynamictaskdynamic_s taskdynamictaskdynamic_t;
+	typedef struct E_TaskdynamicTaskdynamic_s E_TaskdynamicTaskdynamic_t;
 
-	struct Sheet_taskdynamictaskdynamic_s : public NFDescStoreSeqOP {
-		Sheet_taskdynamictaskdynamic_s();
-		virtual ~Sheet_taskdynamictaskdynamic_s(){}
+	struct Sheet_TaskdynamicTaskdynamic_s : public NFDescStoreSeqOP {
+		Sheet_TaskdynamicTaskdynamic_s();
+		virtual ~Sheet_TaskdynamicTaskdynamic_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskdynamictaskdynamic_s, 20> taskdynamictaskdynamic_List;
+		NFShmVector<struct E_TaskdynamicTaskdynamic_s, 20> E_TaskdynamicTaskdynamic_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_taskdynamictaskdynamic & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskdynamictaskdynamic & msg);
-		static ::proto_ff::Sheet_taskdynamictaskdynamic* new_pbmsg(){ return new ::proto_ff::Sheet_taskdynamictaskdynamic(); }
-		static ::proto_ff::Sheet_taskdynamictaskdynamic make_pbmsg(){ return ::proto_ff::Sheet_taskdynamictaskdynamic(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTaskdynamic & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTaskdynamic & msg);
+		static ::proto_ff::Sheet_TaskdynamicTaskdynamic* new_pbmsg(){ return new ::proto_ff::Sheet_TaskdynamicTaskdynamic(); }
+		static ::proto_ff::Sheet_TaskdynamicTaskdynamic make_pbmsg(){ return ::proto_ff::Sheet_TaskdynamicTaskdynamic(); }
 	};
-	typedef struct Sheet_taskdynamictaskdynamic_s Sheet_taskdynamictaskdynamic_t;
+	typedef struct Sheet_TaskdynamicTaskdynamic_s Sheet_TaskdynamicTaskdynamic_t;
 
-	struct taskdynamictaskcomcond_s : public NFDescStoreSeqOP {
-		taskdynamictaskcomcond_s();
-		virtual ~taskdynamictaskcomcond_s(){}
+	struct E_TaskdynamicTaskcomcond_s : public NFDescStoreSeqOP {
+		E_TaskdynamicTaskcomcond_s();
+		virtual ~E_TaskdynamicTaskcomcond_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t comcondID;
-		int32_t comcondType;
-		int64_t param1;
-		int64_t param2;
-		int64_t param3;
-		int64_t param4;
-		int64_t param5;
-		int32_t comcondRandomValue;
+		int64_t m_comcondid;
+		int32_t m_comcondtype;
+		int64_t m_param1;
+		int64_t m_param2;
+		int64_t m_param3;
+		int64_t m_param4;
+		int64_t m_param5;
+		int32_t m_comcondrandomvalue;
 
-		virtual void write_to_pbmsg(::proto_ff::taskdynamictaskcomcond & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::taskdynamictaskcomcond & msg);
-		static ::proto_ff::taskdynamictaskcomcond* new_pbmsg(){ return new ::proto_ff::taskdynamictaskcomcond(); }
-		static ::proto_ff::taskdynamictaskcomcond make_pbmsg(){ return ::proto_ff::taskdynamictaskcomcond(); }
+		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTaskcomcond & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskcomcond & msg);
+		static ::proto_ff::E_TaskdynamicTaskcomcond* new_pbmsg(){ return new ::proto_ff::E_TaskdynamicTaskcomcond(); }
+		static ::proto_ff::E_TaskdynamicTaskcomcond make_pbmsg(){ return ::proto_ff::E_TaskdynamicTaskcomcond(); }
 	};
-	typedef struct taskdynamictaskcomcond_s taskdynamictaskcomcond_t;
+	typedef struct E_TaskdynamicTaskcomcond_s E_TaskdynamicTaskcomcond_t;
 
-	struct Sheet_taskdynamictaskcomcond_s : public NFDescStoreSeqOP {
-		Sheet_taskdynamictaskcomcond_s();
-		virtual ~Sheet_taskdynamictaskcomcond_s(){}
+	struct Sheet_TaskdynamicTaskcomcond_s : public NFDescStoreSeqOP {
+		Sheet_TaskdynamicTaskcomcond_s();
+		virtual ~Sheet_TaskdynamicTaskcomcond_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskdynamictaskcomcond_s, 20> taskdynamictaskcomcond_List;
+		NFShmVector<struct E_TaskdynamicTaskcomcond_s, 20> E_TaskdynamicTaskcomcond_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_taskdynamictaskcomcond & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskdynamictaskcomcond & msg);
-		static ::proto_ff::Sheet_taskdynamictaskcomcond* new_pbmsg(){ return new ::proto_ff::Sheet_taskdynamictaskcomcond(); }
-		static ::proto_ff::Sheet_taskdynamictaskcomcond make_pbmsg(){ return ::proto_ff::Sheet_taskdynamictaskcomcond(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTaskcomcond & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTaskcomcond & msg);
+		static ::proto_ff::Sheet_TaskdynamicTaskcomcond* new_pbmsg(){ return new ::proto_ff::Sheet_TaskdynamicTaskcomcond(); }
+		static ::proto_ff::Sheet_TaskdynamicTaskcomcond make_pbmsg(){ return ::proto_ff::Sheet_TaskdynamicTaskcomcond(); }
 	};
-	typedef struct Sheet_taskdynamictaskcomcond_s Sheet_taskdynamictaskcomcond_t;
+	typedef struct Sheet_TaskdynamicTaskcomcond_s Sheet_TaskdynamicTaskcomcond_t;
 
-	struct taskdynamictasktext_s : public NFDescStoreSeqOP {
-		taskdynamictasktext_s();
-		virtual ~taskdynamictasktext_s(){}
+	struct E_TaskdynamicTasktext_s : public NFDescStoreSeqOP {
+		E_TaskdynamicTasktext_s();
+		virtual ~E_TaskdynamicTasktext_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t textID;
-		NFShmString<60> taskType;
-		int32_t comcondType;
+		int64_t m_textid;
+		NFShmString<60> m_tasktype;
+		int32_t m_comcondtype;
 
-		virtual void write_to_pbmsg(::proto_ff::taskdynamictasktext & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::taskdynamictasktext & msg);
-		static ::proto_ff::taskdynamictasktext* new_pbmsg(){ return new ::proto_ff::taskdynamictasktext(); }
-		static ::proto_ff::taskdynamictasktext make_pbmsg(){ return ::proto_ff::taskdynamictasktext(); }
+		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTasktext & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTasktext & msg);
+		static ::proto_ff::E_TaskdynamicTasktext* new_pbmsg(){ return new ::proto_ff::E_TaskdynamicTasktext(); }
+		static ::proto_ff::E_TaskdynamicTasktext make_pbmsg(){ return ::proto_ff::E_TaskdynamicTasktext(); }
 	};
-	typedef struct taskdynamictasktext_s taskdynamictasktext_t;
+	typedef struct E_TaskdynamicTasktext_s E_TaskdynamicTasktext_t;
 
-	struct Sheet_taskdynamictasktext_s : public NFDescStoreSeqOP {
-		Sheet_taskdynamictasktext_s();
-		virtual ~Sheet_taskdynamictasktext_s(){}
+	struct Sheet_TaskdynamicTasktext_s : public NFDescStoreSeqOP {
+		Sheet_TaskdynamicTasktext_s();
+		virtual ~Sheet_TaskdynamicTasktext_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct taskdynamictasktext_s, 20> taskdynamictasktext_List;
+		NFShmVector<struct E_TaskdynamicTasktext_s, 20> E_TaskdynamicTasktext_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_taskdynamictasktext & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_taskdynamictasktext & msg);
-		static ::proto_ff::Sheet_taskdynamictasktext* new_pbmsg(){ return new ::proto_ff::Sheet_taskdynamictasktext(); }
-		static ::proto_ff::Sheet_taskdynamictasktext make_pbmsg(){ return ::proto_ff::Sheet_taskdynamictasktext(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTasktext & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTasktext & msg);
+		static ::proto_ff::Sheet_TaskdynamicTasktext* new_pbmsg(){ return new ::proto_ff::Sheet_TaskdynamicTasktext(); }
+		static ::proto_ff::Sheet_TaskdynamicTasktext make_pbmsg(){ return ::proto_ff::Sheet_TaskdynamicTasktext(); }
 	};
-	typedef struct Sheet_taskdynamictasktext_s Sheet_taskdynamictasktext_t;
+	typedef struct Sheet_TaskdynamicTasktext_s Sheet_TaskdynamicTasktext_t;
 
 }
 

@@ -14,9 +14,9 @@ public:
 	virtual ~RandomnameManfirstDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::randomnamemanfirst_s* GetDesc(int id) const;
-	proto_ff_s::randomnamemanfirst_s* GetDesc(int id);
+	const proto_ff_s::E_RandomnameManfirst_s* GetDesc(int id) const;
+	proto_ff_s::E_RandomnameManfirst_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::randomnamemanfirst_s, randomnamemanfirst, MAX_RANDOMNAME_MANFIRST_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_RandomnameManfirst_s, randomnamemanfirst, MAX_RANDOMNAME_MANFIRST_NUM);
 DECLARE_IDCREATE(RandomnameManfirstDesc);
 };

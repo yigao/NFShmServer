@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "item.pb.h"
@@ -10,57 +10,57 @@
 
 namespace proto_ff_s {
 
-	struct itemitem_s : public NFDescStoreSeqOP {
-		itemitem_s();
-		virtual ~itemitem_s(){}
+	struct E_ItemItem_s : public NFDescStoreSeqOP {
+		E_ItemItem_s();
+		virtual ~E_ItemItem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		NFShmString<60> name;
-		int32_t itemType;
-		int32_t subType;
-		int32_t functionType;
-		NFShmString<60> functionValue;
-		NFShmString<60> usecondition;
-		int32_t level;
-		int32_t quality;
-		int32_t levelRequest;
-		NFShmString<60> profession;
-		int32_t bindType;
-		int32_t isTradeBind;
-		int32_t dropNum;
-		int32_t stackLimit;
-		int32_t sellPrice;
-		int64_t sellBox;
-		int32_t broadcast;
-		int32_t isCanBatchUse;
-		int32_t dayUse;
-		int32_t time;
-		NFShmString<60> useLimit;
-		int32_t blessing;
-		int32_t invest;
-		int32_t exchange;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_itemtype;
+		int32_t m_subtype;
+		int32_t m_functiontype;
+		NFShmString<60> m_functionvalue;
+		NFShmString<60> m_usecondition;
+		int32_t m_level;
+		int32_t m_quality;
+		int32_t m_levelrequest;
+		NFShmString<60> m_profession;
+		int32_t m_bindtype;
+		int32_t m_istradebind;
+		int32_t m_dropnum;
+		int32_t m_stacklimit;
+		int32_t m_sellprice;
+		int64_t m_sellbox;
+		int32_t m_broadcast;
+		int32_t m_iscanbatchuse;
+		int32_t m_dayuse;
+		int32_t m_time;
+		NFShmString<60> m_uselimit;
+		int32_t m_blessing;
+		int32_t m_invest;
+		int32_t m_exchange;
 
-		virtual void write_to_pbmsg(::proto_ff::itemitem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::itemitem & msg);
-		static ::proto_ff::itemitem* new_pbmsg(){ return new ::proto_ff::itemitem(); }
-		static ::proto_ff::itemitem make_pbmsg(){ return ::proto_ff::itemitem(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ItemItem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ItemItem & msg);
+		static ::proto_ff::E_ItemItem* new_pbmsg(){ return new ::proto_ff::E_ItemItem(); }
+		static ::proto_ff::E_ItemItem make_pbmsg(){ return ::proto_ff::E_ItemItem(); }
 	};
-	typedef struct itemitem_s itemitem_t;
+	typedef struct E_ItemItem_s E_ItemItem_t;
 
-	struct Sheet_itemitem_s : public NFDescStoreSeqOP {
-		Sheet_itemitem_s();
-		virtual ~Sheet_itemitem_s(){}
+	struct Sheet_ItemItem_s : public NFDescStoreSeqOP {
+		Sheet_ItemItem_s();
+		virtual ~Sheet_ItemItem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct itemitem_s, 1000> itemitem_List;
+		NFShmVector<struct E_ItemItem_s, 1000> E_ItemItem_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_itemitem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_itemitem & msg);
-		static ::proto_ff::Sheet_itemitem* new_pbmsg(){ return new ::proto_ff::Sheet_itemitem(); }
-		static ::proto_ff::Sheet_itemitem make_pbmsg(){ return ::proto_ff::Sheet_itemitem(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ItemItem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ItemItem & msg);
+		static ::proto_ff::Sheet_ItemItem* new_pbmsg(){ return new ::proto_ff::Sheet_ItemItem(); }
+		static ::proto_ff::Sheet_ItemItem make_pbmsg(){ return ::proto_ff::Sheet_ItemItem(); }
 	};
-	typedef struct Sheet_itemitem_s Sheet_itemitem_t;
+	typedef struct Sheet_ItemItem_s Sheet_ItemItem_t;
 
 }
 

@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "meditation.pb.h"
@@ -10,75 +10,75 @@
 
 namespace proto_ff_s {
 
-	struct meditationmeditationattributeDesc_s : public NFDescStoreSeqOP {
-		meditationmeditationattributeDesc_s();
-		virtual ~meditationmeditationattributeDesc_s(){}
+	struct E_MeditationMeditationAttributeDesc_s : public NFDescStoreSeqOP {
+		E_MeditationMeditationAttributeDesc_s();
+		virtual ~E_MeditationMeditationAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::meditationmeditationattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::meditationmeditationattributeDesc & msg);
-		static ::proto_ff::meditationmeditationattributeDesc* new_pbmsg(){ return new ::proto_ff::meditationmeditationattributeDesc(); }
-		static ::proto_ff::meditationmeditationattributeDesc make_pbmsg(){ return ::proto_ff::meditationmeditationattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MeditationMeditationAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MeditationMeditationAttributeDesc & msg);
+		static ::proto_ff::E_MeditationMeditationAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_MeditationMeditationAttributeDesc(); }
+		static ::proto_ff::E_MeditationMeditationAttributeDesc make_pbmsg(){ return ::proto_ff::E_MeditationMeditationAttributeDesc(); }
 	};
-	typedef struct meditationmeditationattributeDesc_s meditationmeditationattributeDesc_t;
+	typedef struct E_MeditationMeditationAttributeDesc_s E_MeditationMeditationAttributeDesc_t;
 
-	struct meditationmeditationActiveAttributeDesc_s : public NFDescStoreSeqOP {
-		meditationmeditationActiveAttributeDesc_s();
-		virtual ~meditationmeditationActiveAttributeDesc_s(){}
+	struct E_MeditationMeditationActiveattributeDesc_s : public NFDescStoreSeqOP {
+		E_MeditationMeditationActiveattributeDesc_s();
+		virtual ~E_MeditationMeditationActiveattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::meditationmeditationActiveAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::meditationmeditationActiveAttributeDesc & msg);
-		static ::proto_ff::meditationmeditationActiveAttributeDesc* new_pbmsg(){ return new ::proto_ff::meditationmeditationActiveAttributeDesc(); }
-		static ::proto_ff::meditationmeditationActiveAttributeDesc make_pbmsg(){ return ::proto_ff::meditationmeditationActiveAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MeditationMeditationActiveattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MeditationMeditationActiveattributeDesc & msg);
+		static ::proto_ff::E_MeditationMeditationActiveattributeDesc* new_pbmsg(){ return new ::proto_ff::E_MeditationMeditationActiveattributeDesc(); }
+		static ::proto_ff::E_MeditationMeditationActiveattributeDesc make_pbmsg(){ return ::proto_ff::E_MeditationMeditationActiveattributeDesc(); }
 	};
-	typedef struct meditationmeditationActiveAttributeDesc_s meditationmeditationActiveAttributeDesc_t;
+	typedef struct E_MeditationMeditationActiveattributeDesc_s E_MeditationMeditationActiveattributeDesc_t;
 
-	struct meditationmeditation_s : public NFDescStoreSeqOP {
-		meditationmeditation_s();
-		virtual ~meditationmeditation_s(){}
+	struct E_MeditationMeditation_s : public NFDescStoreSeqOP {
+		E_MeditationMeditation_s();
+		virtual ~E_MeditationMeditation_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
-		NFShmString<60> name;
-		int32_t type;
-		int32_t quality;
-		NFShmString<60> professionLimit;
-		int64_t activationItem;
-		int32_t activationNum;
-		int64_t starId;
-		NFShmString<300> starNum;
-		int32_t starUp;
-		int32_t starBer;
-		NFArray<struct meditationmeditationattributeDesc_s, 6> attribute;
-		NFArray<struct meditationmeditationActiveAttributeDesc_s, 6> ActiveAttribute;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_type;
+		int32_t m_quality;
+		NFShmString<60> m_professionlimit;
+		int64_t m_activationitem;
+		int32_t m_activationnum;
+		int64_t m_starid;
+		NFShmString<300> m_starnum;
+		int32_t m_starup;
+		int32_t m_starber;
+		NFShmVector<struct E_MeditationMeditationAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_MeditationMeditationActiveattributeDesc_s, 6> m_activeattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::meditationmeditation & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::meditationmeditation & msg);
-		static ::proto_ff::meditationmeditation* new_pbmsg(){ return new ::proto_ff::meditationmeditation(); }
-		static ::proto_ff::meditationmeditation make_pbmsg(){ return ::proto_ff::meditationmeditation(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MeditationMeditation & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MeditationMeditation & msg);
+		static ::proto_ff::E_MeditationMeditation* new_pbmsg(){ return new ::proto_ff::E_MeditationMeditation(); }
+		static ::proto_ff::E_MeditationMeditation make_pbmsg(){ return ::proto_ff::E_MeditationMeditation(); }
 	};
-	typedef struct meditationmeditation_s meditationmeditation_t;
+	typedef struct E_MeditationMeditation_s E_MeditationMeditation_t;
 
-	struct Sheet_meditationmeditation_s : public NFDescStoreSeqOP {
-		Sheet_meditationmeditation_s();
-		virtual ~Sheet_meditationmeditation_s(){}
+	struct Sheet_MeditationMeditation_s : public NFDescStoreSeqOP {
+		Sheet_MeditationMeditation_s();
+		virtual ~Sheet_MeditationMeditation_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct meditationmeditation_s, 20> meditationmeditation_List;
+		NFShmVector<struct E_MeditationMeditation_s, 20> E_MeditationMeditation_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_meditationmeditation & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_meditationmeditation & msg);
-		static ::proto_ff::Sheet_meditationmeditation* new_pbmsg(){ return new ::proto_ff::Sheet_meditationmeditation(); }
-		static ::proto_ff::Sheet_meditationmeditation make_pbmsg(){ return ::proto_ff::Sheet_meditationmeditation(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_MeditationMeditation & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MeditationMeditation & msg);
+		static ::proto_ff::Sheet_MeditationMeditation* new_pbmsg(){ return new ::proto_ff::Sheet_MeditationMeditation(); }
+		static ::proto_ff::Sheet_MeditationMeditation make_pbmsg(){ return ::proto_ff::Sheet_MeditationMeditation(); }
 	};
-	typedef struct Sheet_meditationmeditation_s Sheet_meditationmeditation_t;
+	typedef struct Sheet_MeditationMeditation_s Sheet_MeditationMeditation_t;
 
 }
 

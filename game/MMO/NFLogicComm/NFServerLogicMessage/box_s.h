@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "box.pb.h"
@@ -10,134 +10,134 @@
 
 namespace proto_ff_s {
 
-	struct boxboxboxdataDesc_s : public NFDescStoreSeqOP {
-		boxboxboxdataDesc_s();
-		virtual ~boxboxboxdataDesc_s(){}
+	struct E_BoxBoxBoxdataDesc_s : public NFDescStoreSeqOP {
+		E_BoxBoxBoxdataDesc_s();
+		virtual ~E_BoxBoxBoxdataDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t maxTimes;
-		int64_t id;
-		int32_t weight;
-		int32_t minTimes;
+		int32_t m_maxtimes;
+		int64_t m_id;
+		int32_t m_weight;
+		int32_t m_mintimes;
 
-		virtual void write_to_pbmsg(::proto_ff::boxboxboxdataDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxboxboxdataDesc & msg);
-		static ::proto_ff::boxboxboxdataDesc* new_pbmsg(){ return new ::proto_ff::boxboxboxdataDesc(); }
-		static ::proto_ff::boxboxboxdataDesc make_pbmsg(){ return ::proto_ff::boxboxboxdataDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BoxBoxBoxdataDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBoxBoxdataDesc & msg);
+		static ::proto_ff::E_BoxBoxBoxdataDesc* new_pbmsg(){ return new ::proto_ff::E_BoxBoxBoxdataDesc(); }
+		static ::proto_ff::E_BoxBoxBoxdataDesc make_pbmsg(){ return ::proto_ff::E_BoxBoxBoxdataDesc(); }
 	};
-	typedef struct boxboxboxdataDesc_s boxboxboxdataDesc_t;
+	typedef struct E_BoxBoxBoxdataDesc_s E_BoxBoxBoxdataDesc_t;
 
-	struct boxbox_s : public NFDescStoreSeqOP {
-		boxbox_s();
-		virtual ~boxbox_s(){}
+	struct E_BoxBox_s : public NFDescStoreSeqOP {
+		E_BoxBox_s();
+		virtual ~E_BoxBox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t type;
-		int32_t Rate;
-		int32_t Mask;
-		int32_t minTimes;
-		int32_t maxTimes;
-		NFArray<struct boxboxboxdataDesc_s, 8> boxdata;
+		int64_t m_id;
+		int32_t m_type;
+		int32_t m_rate;
+		int32_t m_mask;
+		int32_t m_mintimes;
+		int32_t m_maxtimes;
+		NFShmVector<struct E_BoxBoxBoxdataDesc_s, 8> m_boxdata;
 
-		virtual void write_to_pbmsg(::proto_ff::boxbox & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxbox & msg);
-		static ::proto_ff::boxbox* new_pbmsg(){ return new ::proto_ff::boxbox(); }
-		static ::proto_ff::boxbox make_pbmsg(){ return ::proto_ff::boxbox(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BoxBox & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBox & msg);
+		static ::proto_ff::E_BoxBox* new_pbmsg(){ return new ::proto_ff::E_BoxBox(); }
+		static ::proto_ff::E_BoxBox make_pbmsg(){ return ::proto_ff::E_BoxBox(); }
 	};
-	typedef struct boxbox_s boxbox_t;
+	typedef struct E_BoxBox_s E_BoxBox_t;
 
-	struct Sheet_boxbox_s : public NFDescStoreSeqOP {
-		Sheet_boxbox_s();
-		virtual ~Sheet_boxbox_s(){}
+	struct Sheet_BoxBox_s : public NFDescStoreSeqOP {
+		Sheet_BoxBox_s();
+		virtual ~Sheet_BoxBox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct boxbox_s, 20> boxbox_List;
+		NFShmVector<struct E_BoxBox_s, 20> E_BoxBox_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_boxbox & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_boxbox & msg);
-		static ::proto_ff::Sheet_boxbox* new_pbmsg(){ return new ::proto_ff::Sheet_boxbox(); }
-		static ::proto_ff::Sheet_boxbox make_pbmsg(){ return ::proto_ff::Sheet_boxbox(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BoxBox & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BoxBox & msg);
+		static ::proto_ff::Sheet_BoxBox* new_pbmsg(){ return new ::proto_ff::Sheet_BoxBox(); }
+		static ::proto_ff::Sheet_BoxBox make_pbmsg(){ return ::proto_ff::Sheet_BoxBox(); }
 	};
-	typedef struct Sheet_boxbox_s Sheet_boxbox_t;
+	typedef struct Sheet_BoxBox_s Sheet_BoxBox_t;
 
-	struct boxboxdataequipDesc_s : public NFDescStoreSeqOP {
-		boxboxdataequipDesc_s();
-		virtual ~boxboxdataequipDesc_s(){}
+	struct E_BoxBoxdataEquipDesc_s : public NFDescStoreSeqOP {
+		E_BoxBoxdataEquipDesc_s();
+		virtual ~E_BoxBoxdataEquipDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t rand;
-		int32_t minNum;
-		int32_t isbind;
-		int32_t maxNum;
-		NFShmString<60> id;
+		int32_t m_rand;
+		int32_t m_minnum;
+		int32_t m_isbind;
+		int32_t m_maxnum;
+		NFShmString<60> m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::boxboxdataequipDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxboxdataequipDesc & msg);
-		static ::proto_ff::boxboxdataequipDesc* new_pbmsg(){ return new ::proto_ff::boxboxdataequipDesc(); }
-		static ::proto_ff::boxboxdataequipDesc make_pbmsg(){ return ::proto_ff::boxboxdataequipDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BoxBoxdataEquipDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBoxdataEquipDesc & msg);
+		static ::proto_ff::E_BoxBoxdataEquipDesc* new_pbmsg(){ return new ::proto_ff::E_BoxBoxdataEquipDesc(); }
+		static ::proto_ff::E_BoxBoxdataEquipDesc make_pbmsg(){ return ::proto_ff::E_BoxBoxdataEquipDesc(); }
 	};
-	typedef struct boxboxdataequipDesc_s boxboxdataequipDesc_t;
+	typedef struct E_BoxBoxdataEquipDesc_s E_BoxBoxdataEquipDesc_t;
 
-	struct boxboxdataitemDesc_s : public NFDescStoreSeqOP {
-		boxboxdataitemDesc_s();
-		virtual ~boxboxdataitemDesc_s(){}
+	struct E_BoxBoxdataItemDesc_s : public NFDescStoreSeqOP {
+		E_BoxBoxdataItemDesc_s();
+		virtual ~E_BoxBoxdataItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmString<60> rand;
-		int32_t maxNum;
-		int32_t rarerand;
-		int32_t minNum;
-		NFShmString<60> isbind;
-		NFShmString<60> id;
+		NFShmString<60> m_rand;
+		int32_t m_maxnum;
+		int32_t m_rarerand;
+		int32_t m_minnum;
+		NFShmString<60> m_isbind;
+		NFShmString<60> m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::boxboxdataitemDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxboxdataitemDesc & msg);
-		static ::proto_ff::boxboxdataitemDesc* new_pbmsg(){ return new ::proto_ff::boxboxdataitemDesc(); }
-		static ::proto_ff::boxboxdataitemDesc make_pbmsg(){ return ::proto_ff::boxboxdataitemDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BoxBoxdataItemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBoxdataItemDesc & msg);
+		static ::proto_ff::E_BoxBoxdataItemDesc* new_pbmsg(){ return new ::proto_ff::E_BoxBoxdataItemDesc(); }
+		static ::proto_ff::E_BoxBoxdataItemDesc make_pbmsg(){ return ::proto_ff::E_BoxBoxdataItemDesc(); }
 	};
-	typedef struct boxboxdataitemDesc_s boxboxdataitemDesc_t;
+	typedef struct E_BoxBoxdataItemDesc_s E_BoxBoxdataItemDesc_t;
 
-	struct boxboxdata_s : public NFDescStoreSeqOP {
-		boxboxdata_s();
-		virtual ~boxboxdata_s(){}
+	struct E_BoxBoxdata_s : public NFDescStoreSeqOP {
+		E_BoxBoxdata_s();
+		virtual ~E_BoxBoxdata_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t drop_type;
-		int32_t goldminNum;
-		int32_t goldmaxNum;
-		int32_t goldrand;
-		int32_t bindjewelminNum;
-		int32_t bindjewelmaxNum;
-		int32_t bindjewelrand;
-		int32_t jewelminNum;
-		int32_t jewelmaxNum;
-		int32_t jewelrand;
-		NFShmString<60> eq_profession;
-		NFArray<struct boxboxdataequipDesc_s, 8> equip;
-		NFArray<struct boxboxdataitemDesc_s, 50> item;
+		int64_t m_id;
+		int32_t m_drop_type;
+		int32_t m_goldminnum;
+		int32_t m_goldmaxnum;
+		int32_t m_goldrand;
+		int32_t m_bindjewelminnum;
+		int32_t m_bindjewelmaxnum;
+		int32_t m_bindjewelrand;
+		int32_t m_jewelminnum;
+		int32_t m_jewelmaxnum;
+		int32_t m_jewelrand;
+		NFShmString<60> m_eq_profession;
+		NFShmVector<struct E_BoxBoxdataEquipDesc_s, 8> m_equip;
+		NFShmVector<struct E_BoxBoxdataItemDesc_s, 50> m_item;
 
-		virtual void write_to_pbmsg(::proto_ff::boxboxdata & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::boxboxdata & msg);
-		static ::proto_ff::boxboxdata* new_pbmsg(){ return new ::proto_ff::boxboxdata(); }
-		static ::proto_ff::boxboxdata make_pbmsg(){ return ::proto_ff::boxboxdata(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BoxBoxdata & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBoxdata & msg);
+		static ::proto_ff::E_BoxBoxdata* new_pbmsg(){ return new ::proto_ff::E_BoxBoxdata(); }
+		static ::proto_ff::E_BoxBoxdata make_pbmsg(){ return ::proto_ff::E_BoxBoxdata(); }
 	};
-	typedef struct boxboxdata_s boxboxdata_t;
+	typedef struct E_BoxBoxdata_s E_BoxBoxdata_t;
 
-	struct Sheet_boxboxdata_s : public NFDescStoreSeqOP {
-		Sheet_boxboxdata_s();
-		virtual ~Sheet_boxboxdata_s(){}
+	struct Sheet_BoxBoxdata_s : public NFDescStoreSeqOP {
+		Sheet_BoxBoxdata_s();
+		virtual ~Sheet_BoxBoxdata_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct boxboxdata_s, 40> boxboxdata_List;
+		NFShmVector<struct E_BoxBoxdata_s, 40> E_BoxBoxdata_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_boxboxdata & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_boxboxdata & msg);
-		static ::proto_ff::Sheet_boxboxdata* new_pbmsg(){ return new ::proto_ff::Sheet_boxboxdata(); }
-		static ::proto_ff::Sheet_boxboxdata make_pbmsg(){ return ::proto_ff::Sheet_boxboxdata(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BoxBoxdata & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BoxBoxdata & msg);
+		static ::proto_ff::Sheet_BoxBoxdata* new_pbmsg(){ return new ::proto_ff::Sheet_BoxBoxdata(); }
+		static ::proto_ff::Sheet_BoxBoxdata make_pbmsg(){ return ::proto_ff::Sheet_BoxBoxdata(); }
 	};
-	typedef struct Sheet_boxboxdata_s Sheet_boxboxdata_t;
+	typedef struct Sheet_BoxBoxdata_s Sheet_BoxBoxdata_t;
 
 }
 

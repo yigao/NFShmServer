@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "daily.pb.h"
@@ -10,123 +10,123 @@
 
 namespace proto_ff_s {
 
-	struct dailydaily_s : public NFDescStoreSeqOP {
-		dailydaily_s();
-		virtual ~dailydaily_s(){}
+	struct E_DailyDaily_s : public NFDescStoreSeqOP {
+		E_DailyDaily_s();
+		virtual ~E_DailyDaily_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		NFShmString<60> name;
-		int32_t type;
-		int32_t args;
-		int32_t playType;
-		int32_t playArgs;
-		int64_t funciontID;
-		int32_t number;
-		int32_t viptype;
-		int32_t otherNum;
-		int32_t eachScore;
-		int32_t cycle;
-		int32_t regReward;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_type;
+		int32_t m_args;
+		int32_t m_playtype;
+		int32_t m_playargs;
+		int64_t m_funciontid;
+		int32_t m_number;
+		int32_t m_viptype;
+		int32_t m_othernum;
+		int32_t m_eachscore;
+		int32_t m_cycle;
+		int32_t m_regreward;
 
-		virtual void write_to_pbmsg(::proto_ff::dailydaily & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::dailydaily & msg);
-		static ::proto_ff::dailydaily* new_pbmsg(){ return new ::proto_ff::dailydaily(); }
-		static ::proto_ff::dailydaily make_pbmsg(){ return ::proto_ff::dailydaily(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DailyDaily & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DailyDaily & msg);
+		static ::proto_ff::E_DailyDaily* new_pbmsg(){ return new ::proto_ff::E_DailyDaily(); }
+		static ::proto_ff::E_DailyDaily make_pbmsg(){ return ::proto_ff::E_DailyDaily(); }
 	};
-	typedef struct dailydaily_s dailydaily_t;
+	typedef struct E_DailyDaily_s E_DailyDaily_t;
 
-	struct Sheet_dailydaily_s : public NFDescStoreSeqOP {
-		Sheet_dailydaily_s();
-		virtual ~Sheet_dailydaily_s(){}
+	struct Sheet_DailyDaily_s : public NFDescStoreSeqOP {
+		Sheet_DailyDaily_s();
+		virtual ~Sheet_DailyDaily_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dailydaily_s, 20> dailydaily_List;
+		NFShmVector<struct E_DailyDaily_s, 20> E_DailyDaily_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_dailydaily & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dailydaily & msg);
-		static ::proto_ff::Sheet_dailydaily* new_pbmsg(){ return new ::proto_ff::Sheet_dailydaily(); }
-		static ::proto_ff::Sheet_dailydaily make_pbmsg(){ return ::proto_ff::Sheet_dailydaily(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyDaily & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyDaily & msg);
+		static ::proto_ff::Sheet_DailyDaily* new_pbmsg(){ return new ::proto_ff::Sheet_DailyDaily(); }
+		static ::proto_ff::Sheet_DailyDaily make_pbmsg(){ return ::proto_ff::Sheet_DailyDaily(); }
 	};
-	typedef struct Sheet_dailydaily_s Sheet_dailydaily_t;
+	typedef struct Sheet_DailyDaily_s Sheet_DailyDaily_t;
 
-	struct dailyreward_s : public NFDescStoreSeqOP {
-		dailyreward_s();
-		virtual ~dailyreward_s(){}
+	struct E_DailyReward_s : public NFDescStoreSeqOP {
+		E_DailyReward_s();
+		virtual ~E_DailyReward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t type;
-		int32_t activeScore;
-		int64_t rewardId;
-		int32_t rewardNum;
+		int32_t m_id;
+		int32_t m_type;
+		int32_t m_activescore;
+		int64_t m_rewardid;
+		int32_t m_rewardnum;
 
-		virtual void write_to_pbmsg(::proto_ff::dailyreward & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::dailyreward & msg);
-		static ::proto_ff::dailyreward* new_pbmsg(){ return new ::proto_ff::dailyreward(); }
-		static ::proto_ff::dailyreward make_pbmsg(){ return ::proto_ff::dailyreward(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DailyReward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DailyReward & msg);
+		static ::proto_ff::E_DailyReward* new_pbmsg(){ return new ::proto_ff::E_DailyReward(); }
+		static ::proto_ff::E_DailyReward make_pbmsg(){ return ::proto_ff::E_DailyReward(); }
 	};
-	typedef struct dailyreward_s dailyreward_t;
+	typedef struct E_DailyReward_s E_DailyReward_t;
 
-	struct Sheet_dailyreward_s : public NFDescStoreSeqOP {
-		Sheet_dailyreward_s();
-		virtual ~Sheet_dailyreward_s(){}
+	struct Sheet_DailyReward_s : public NFDescStoreSeqOP {
+		Sheet_DailyReward_s();
+		virtual ~Sheet_DailyReward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dailyreward_s, 20> dailyreward_List;
+		NFShmVector<struct E_DailyReward_s, 20> E_DailyReward_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_dailyreward & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dailyreward & msg);
-		static ::proto_ff::Sheet_dailyreward* new_pbmsg(){ return new ::proto_ff::Sheet_dailyreward(); }
-		static ::proto_ff::Sheet_dailyreward make_pbmsg(){ return ::proto_ff::Sheet_dailyreward(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyReward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyReward & msg);
+		static ::proto_ff::Sheet_DailyReward* new_pbmsg(){ return new ::proto_ff::Sheet_DailyReward(); }
+		static ::proto_ff::Sheet_DailyReward make_pbmsg(){ return ::proto_ff::Sheet_DailyReward(); }
 	};
-	typedef struct Sheet_dailyreward_s Sheet_dailyreward_t;
+	typedef struct Sheet_DailyReward_s Sheet_DailyReward_t;
 
-	struct dailycultivateattributeDesc_s : public NFDescStoreSeqOP {
-		dailycultivateattributeDesc_s();
-		virtual ~dailycultivateattributeDesc_s(){}
+	struct E_DailyCultivateAttributeDesc_s : public NFDescStoreSeqOP {
+		E_DailyCultivateAttributeDesc_s();
+		virtual ~E_DailyCultivateAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t Value;
+		int32_t m_id;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::dailycultivateattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::dailycultivateattributeDesc & msg);
-		static ::proto_ff::dailycultivateattributeDesc* new_pbmsg(){ return new ::proto_ff::dailycultivateattributeDesc(); }
-		static ::proto_ff::dailycultivateattributeDesc make_pbmsg(){ return ::proto_ff::dailycultivateattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DailyCultivateAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DailyCultivateAttributeDesc & msg);
+		static ::proto_ff::E_DailyCultivateAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_DailyCultivateAttributeDesc(); }
+		static ::proto_ff::E_DailyCultivateAttributeDesc make_pbmsg(){ return ::proto_ff::E_DailyCultivateAttributeDesc(); }
 	};
-	typedef struct dailycultivateattributeDesc_s dailycultivateattributeDesc_t;
+	typedef struct E_DailyCultivateAttributeDesc_s E_DailyCultivateAttributeDesc_t;
 
-	struct dailycultivate_s : public NFDescStoreSeqOP {
-		dailycultivate_s();
-		virtual ~dailycultivate_s(){}
+	struct E_DailyCultivate_s : public NFDescStoreSeqOP {
+		E_DailyCultivate_s();
+		virtual ~E_DailyCultivate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t lv;
-		int32_t exp;
-		NFArray<struct dailycultivateattributeDesc_s, 4> attribute;
+		int32_t m_id;
+		int32_t m_lv;
+		int32_t m_exp;
+		NFShmVector<struct E_DailyCultivateAttributeDesc_s, 4> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::dailycultivate & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::dailycultivate & msg);
-		static ::proto_ff::dailycultivate* new_pbmsg(){ return new ::proto_ff::dailycultivate(); }
-		static ::proto_ff::dailycultivate make_pbmsg(){ return ::proto_ff::dailycultivate(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DailyCultivate & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DailyCultivate & msg);
+		static ::proto_ff::E_DailyCultivate* new_pbmsg(){ return new ::proto_ff::E_DailyCultivate(); }
+		static ::proto_ff::E_DailyCultivate make_pbmsg(){ return ::proto_ff::E_DailyCultivate(); }
 	};
-	typedef struct dailycultivate_s dailycultivate_t;
+	typedef struct E_DailyCultivate_s E_DailyCultivate_t;
 
-	struct Sheet_dailycultivate_s : public NFDescStoreSeqOP {
-		Sheet_dailycultivate_s();
-		virtual ~Sheet_dailycultivate_s(){}
+	struct Sheet_DailyCultivate_s : public NFDescStoreSeqOP {
+		Sheet_DailyCultivate_s();
+		virtual ~Sheet_DailyCultivate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct dailycultivate_s, 40> dailycultivate_List;
+		NFShmVector<struct E_DailyCultivate_s, 40> E_DailyCultivate_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_dailycultivate & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_dailycultivate & msg);
-		static ::proto_ff::Sheet_dailycultivate* new_pbmsg(){ return new ::proto_ff::Sheet_dailycultivate(); }
-		static ::proto_ff::Sheet_dailycultivate make_pbmsg(){ return ::proto_ff::Sheet_dailycultivate(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyCultivate & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyCultivate & msg);
+		static ::proto_ff::Sheet_DailyCultivate* new_pbmsg(){ return new ::proto_ff::Sheet_DailyCultivate(); }
+		static ::proto_ff::Sheet_DailyCultivate make_pbmsg(){ return ::proto_ff::Sheet_DailyCultivate(); }
 	};
-	typedef struct Sheet_dailycultivate_s Sheet_dailycultivate_t;
+	typedef struct Sheet_DailyCultivate_s Sheet_DailyCultivate_t;
 
 }
 

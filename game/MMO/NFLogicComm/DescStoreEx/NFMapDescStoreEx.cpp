@@ -65,7 +65,7 @@ int NFMapDescStoreEx::Load(NFResDB *pDB)
         auto pDesc = &mapResDesc[i];
         if (pDesc)
         {
-            LoadBornCfg(pDesc->mapId, dir + NFCommon::tostr(pDesc->mapId) + ".json");
+            LoadBornCfg(pDesc->m_mapid, dir + NFCommon::tostr(pDesc->m_mapid) + ".json");
         }
     }
 
@@ -75,11 +75,11 @@ int NFMapDescStoreEx::Load(NFResDB *pDB)
         auto pDesc = &bornResDesc[i];
         if (pDesc)
         {
-            CHECK_EXPR_ASSERT(m_bornProfMap.Find(pDesc->professionID) == NULL, -1, "m_bornProfMap Repeated role prof:{} born:{}", pDesc->professionID,
-                              pDesc->bornID);
-            auto pId = m_bornProfMap.Insert(pDesc->professionID);
-            CHECK_EXPR_ASSERT(pId != NULL, -1, "m_bornProfMap Space Not Enough prof:{} born:{}", pDesc->professionID, pDesc->bornID);
-            *pId = pDesc->bornID;
+            CHECK_EXPR_ASSERT(m_bornProfMap.Find(pDesc->m_professionid) == NULL, -1, "m_bornProfMap Repeated role prof:{} born:{}", pDesc->m_professionid,
+                              pDesc->m_bornid);
+            auto pId = m_bornProfMap.Insert(pDesc->m_professionid);
+            CHECK_EXPR_ASSERT(pId != NULL, -1, "m_bornProfMap Space Not Enough prof:{} born:{}", pDesc->m_professionid, pDesc->m_bornid);
+            *pId = pDesc->m_bornid;
         }
     }
 
@@ -226,7 +226,7 @@ const VecPosCfg *NFMapDescStoreEx::GetBornPosCfg(int64_t mapId)
     return m_bornPosMap.Find(mapId);
 }
 
-const proto_ff_s::roleborn_s *NFMapDescStoreEx::GetBornCfg(int32_t prof)
+const proto_ff_s::E_RoleBorn_s *NFMapDescStoreEx::GetBornCfg(int32_t prof)
 {
     auto pBornId = m_bornProfMap.Find(prof);
     if (pBornId)
@@ -241,7 +241,7 @@ bool NFMapDescStoreEx::IsDynamic(int64_t mapId)
     auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
     if (pMapCfg)
     {
-        return (DYNAMIC_MAP == pMapCfg->mapType);
+        return (DYNAMIC_MAP == pMapCfg->m_maptype);
     }
 
     return false;

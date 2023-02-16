@@ -34,19 +34,19 @@ void  protobuf_AddDesc_team_2eproto();
 void protobuf_AssignDesc_team_2eproto();
 void protobuf_ShutdownFile_team_2eproto();
 
-class teamteam;
-class Sheet_teamteam;
+class E_TeamTeam;
+class Sheet_TeamTeam;
 
 // ===================================================================
 
-class teamteam : public ::google::protobuf::Message {
+class E_TeamTeam : public ::google::protobuf::Message {
  public:
-  teamteam();
-  virtual ~teamteam();
+  E_TeamTeam();
+  virtual ~E_TeamTeam();
 
-  teamteam(const teamteam& from);
+  E_TeamTeam(const E_TeamTeam& from);
 
-  inline teamteam& operator=(const teamteam& from) {
+  inline E_TeamTeam& operator=(const E_TeamTeam& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class teamteam : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const teamteam& default_instance();
+  static const E_TeamTeam& default_instance();
 
-  void Swap(teamteam* other);
+  void Swap(E_TeamTeam* other);
 
   // implements Message ----------------------------------------------
 
-  teamteam* New() const;
+  E_TeamTeam* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const teamteam& from);
-  void MergeFrom(const teamteam& from);
+  void CopyFrom(const E_TeamTeam& from);
+  void MergeFrom(const E_TeamTeam& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,111 +93,111 @@ class teamteam : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 TeamObjectID = 1;
-  inline bool has_teamobjectid() const;
-  inline void clear_teamobjectid();
-  static const int kTeamObjectIDFieldNumber = 1;
-  inline ::google::protobuf::int32 teamobjectid() const;
-  inline void set_teamobjectid(::google::protobuf::int32 value);
+  // optional int32 m_teamobjectid = 1;
+  inline bool has_m_teamobjectid() const;
+  inline void clear_m_teamobjectid();
+  static const int kMTeamobjectidFieldNumber = 1;
+  inline ::google::protobuf::int32 m_teamobjectid() const;
+  inline void set_m_teamobjectid(::google::protobuf::int32 value);
 
-  // optional int32 FObjectNameID = 2;
-  inline bool has_fobjectnameid() const;
-  inline void clear_fobjectnameid();
-  static const int kFObjectNameIDFieldNumber = 2;
-  inline ::google::protobuf::int32 fobjectnameid() const;
-  inline void set_fobjectnameid(::google::protobuf::int32 value);
+  // optional int32 m_fobjectnameid = 2;
+  inline bool has_m_fobjectnameid() const;
+  inline void clear_m_fobjectnameid();
+  static const int kMFobjectnameidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_fobjectnameid() const;
+  inline void set_m_fobjectnameid(::google::protobuf::int32 value);
 
-  // optional int32 SObjectNameID = 3;
-  inline bool has_sobjectnameid() const;
-  inline void clear_sobjectnameid();
-  static const int kSObjectNameIDFieldNumber = 3;
-  inline ::google::protobuf::int32 sobjectnameid() const;
-  inline void set_sobjectnameid(::google::protobuf::int32 value);
+  // optional int32 m_sobjectnameid = 3;
+  inline bool has_m_sobjectnameid() const;
+  inline void clear_m_sobjectnameid();
+  static const int kMSobjectnameidFieldNumber = 3;
+  inline ::google::protobuf::int32 m_sobjectnameid() const;
+  inline void set_m_sobjectnameid(::google::protobuf::int32 value);
 
-  // optional int64 duplicateId = 4;
-  inline bool has_duplicateid() const;
-  inline void clear_duplicateid();
-  static const int kDuplicateIdFieldNumber = 4;
-  inline ::google::protobuf::int64 duplicateid() const;
-  inline void set_duplicateid(::google::protobuf::int64 value);
+  // optional int64 m_duplicateid = 4;
+  inline bool has_m_duplicateid() const;
+  inline void clear_m_duplicateid();
+  static const int kMDuplicateidFieldNumber = 4;
+  inline ::google::protobuf::int64 m_duplicateid() const;
+  inline void set_m_duplicateid(::google::protobuf::int64 value);
 
-  // optional int64 activityId = 5;
-  inline bool has_activityid() const;
-  inline void clear_activityid();
-  static const int kActivityIdFieldNumber = 5;
-  inline ::google::protobuf::int64 activityid() const;
-  inline void set_activityid(::google::protobuf::int64 value);
+  // optional int64 m_activityid = 5;
+  inline bool has_m_activityid() const;
+  inline void clear_m_activityid();
+  static const int kMActivityidFieldNumber = 5;
+  inline ::google::protobuf::int64 m_activityid() const;
+  inline void set_m_activityid(::google::protobuf::int64 value);
 
-  // optional int32 LowLV = 6;
-  inline bool has_lowlv() const;
-  inline void clear_lowlv();
-  static const int kLowLVFieldNumber = 6;
-  inline ::google::protobuf::int32 lowlv() const;
-  inline void set_lowlv(::google::protobuf::int32 value);
+  // optional int32 m_lowlv = 6;
+  inline bool has_m_lowlv() const;
+  inline void clear_m_lowlv();
+  static const int kMLowlvFieldNumber = 6;
+  inline ::google::protobuf::int32 m_lowlv() const;
+  inline void set_m_lowlv(::google::protobuf::int32 value);
 
-  // optional int32 UpLV = 7;
-  inline bool has_uplv() const;
-  inline void clear_uplv();
-  static const int kUpLVFieldNumber = 7;
-  inline ::google::protobuf::int32 uplv() const;
-  inline void set_uplv(::google::protobuf::int32 value);
+  // optional int32 m_uplv = 7;
+  inline bool has_m_uplv() const;
+  inline void clear_m_uplv();
+  static const int kMUplvFieldNumber = 7;
+  inline ::google::protobuf::int32 m_uplv() const;
+  inline void set_m_uplv(::google::protobuf::int32 value);
 
-  // optional int32 isAutoMatch = 8;
-  inline bool has_isautomatch() const;
-  inline void clear_isautomatch();
-  static const int kIsAutoMatchFieldNumber = 8;
-  inline ::google::protobuf::int32 isautomatch() const;
-  inline void set_isautomatch(::google::protobuf::int32 value);
+  // optional int32 m_isautomatch = 8;
+  inline bool has_m_isautomatch() const;
+  inline void clear_m_isautomatch();
+  static const int kMIsautomatchFieldNumber = 8;
+  inline ::google::protobuf::int32 m_isautomatch() const;
+  inline void set_m_isautomatch(::google::protobuf::int32 value);
 
-  // optional int32 speakChannel = 9;
-  inline bool has_speakchannel() const;
-  inline void clear_speakchannel();
-  static const int kSpeakChannelFieldNumber = 9;
-  inline ::google::protobuf::int32 speakchannel() const;
-  inline void set_speakchannel(::google::protobuf::int32 value);
+  // optional int32 m_speakchannel = 9;
+  inline bool has_m_speakchannel() const;
+  inline void clear_m_speakchannel();
+  static const int kMSpeakchannelFieldNumber = 9;
+  inline ::google::protobuf::int32 m_speakchannel() const;
+  inline void set_m_speakchannel(::google::protobuf::int32 value);
 
-  // optional int32 teamnumber = 10;
-  inline bool has_teamnumber() const;
-  inline void clear_teamnumber();
-  static const int kTeamnumberFieldNumber = 10;
-  inline ::google::protobuf::int32 teamnumber() const;
-  inline void set_teamnumber(::google::protobuf::int32 value);
+  // optional int32 m_teamnumber = 10;
+  inline bool has_m_teamnumber() const;
+  inline void clear_m_teamnumber();
+  static const int kMTeamnumberFieldNumber = 10;
+  inline ::google::protobuf::int32 m_teamnumber() const;
+  inline void set_m_teamnumber(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.teamteam)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_TeamTeam)
  private:
-  inline void set_has_teamobjectid();
-  inline void clear_has_teamobjectid();
-  inline void set_has_fobjectnameid();
-  inline void clear_has_fobjectnameid();
-  inline void set_has_sobjectnameid();
-  inline void clear_has_sobjectnameid();
-  inline void set_has_duplicateid();
-  inline void clear_has_duplicateid();
-  inline void set_has_activityid();
-  inline void clear_has_activityid();
-  inline void set_has_lowlv();
-  inline void clear_has_lowlv();
-  inline void set_has_uplv();
-  inline void clear_has_uplv();
-  inline void set_has_isautomatch();
-  inline void clear_has_isautomatch();
-  inline void set_has_speakchannel();
-  inline void clear_has_speakchannel();
-  inline void set_has_teamnumber();
-  inline void clear_has_teamnumber();
+  inline void set_has_m_teamobjectid();
+  inline void clear_has_m_teamobjectid();
+  inline void set_has_m_fobjectnameid();
+  inline void clear_has_m_fobjectnameid();
+  inline void set_has_m_sobjectnameid();
+  inline void clear_has_m_sobjectnameid();
+  inline void set_has_m_duplicateid();
+  inline void clear_has_m_duplicateid();
+  inline void set_has_m_activityid();
+  inline void clear_has_m_activityid();
+  inline void set_has_m_lowlv();
+  inline void clear_has_m_lowlv();
+  inline void set_has_m_uplv();
+  inline void clear_has_m_uplv();
+  inline void set_has_m_isautomatch();
+  inline void clear_has_m_isautomatch();
+  inline void set_has_m_speakchannel();
+  inline void clear_has_m_speakchannel();
+  inline void set_has_m_teamnumber();
+  inline void clear_has_m_teamnumber();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 teamobjectid_;
-  ::google::protobuf::int32 fobjectnameid_;
-  ::google::protobuf::int64 duplicateid_;
-  ::google::protobuf::int32 sobjectnameid_;
-  ::google::protobuf::int32 lowlv_;
-  ::google::protobuf::int64 activityid_;
-  ::google::protobuf::int32 uplv_;
-  ::google::protobuf::int32 isautomatch_;
-  ::google::protobuf::int32 speakchannel_;
-  ::google::protobuf::int32 teamnumber_;
+  ::google::protobuf::int32 m_teamobjectid_;
+  ::google::protobuf::int32 m_fobjectnameid_;
+  ::google::protobuf::int64 m_duplicateid_;
+  ::google::protobuf::int32 m_sobjectnameid_;
+  ::google::protobuf::int32 m_lowlv_;
+  ::google::protobuf::int64 m_activityid_;
+  ::google::protobuf::int32 m_uplv_;
+  ::google::protobuf::int32 m_isautomatch_;
+  ::google::protobuf::int32 m_speakchannel_;
+  ::google::protobuf::int32 m_teamnumber_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
@@ -207,18 +207,18 @@ class teamteam : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_team_2eproto();
 
   void InitAsDefaultInstance();
-  static teamteam* default_instance_;
+  static E_TeamTeam* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_teamteam : public ::google::protobuf::Message {
+class Sheet_TeamTeam : public ::google::protobuf::Message {
  public:
-  Sheet_teamteam();
-  virtual ~Sheet_teamteam();
+  Sheet_TeamTeam();
+  virtual ~Sheet_TeamTeam();
 
-  Sheet_teamteam(const Sheet_teamteam& from);
+  Sheet_TeamTeam(const Sheet_TeamTeam& from);
 
-  inline Sheet_teamteam& operator=(const Sheet_teamteam& from) {
+  inline Sheet_TeamTeam& operator=(const Sheet_TeamTeam& from) {
     CopyFrom(from);
     return *this;
   }
@@ -232,17 +232,17 @@ class Sheet_teamteam : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_teamteam& default_instance();
+  static const Sheet_TeamTeam& default_instance();
 
-  void Swap(Sheet_teamteam* other);
+  void Swap(Sheet_TeamTeam* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_teamteam* New() const;
+  Sheet_TeamTeam* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_teamteam& from);
-  void MergeFrom(const Sheet_teamteam& from);
+  void CopyFrom(const Sheet_TeamTeam& from);
+  void MergeFrom(const Sheet_TeamTeam& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -265,24 +265,24 @@ class Sheet_teamteam : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.teamteam teamteam_List = 1;
-  inline int teamteam_list_size() const;
-  inline void clear_teamteam_list();
-  static const int kTeamteamListFieldNumber = 1;
-  inline const ::proto_ff::teamteam& teamteam_list(int index) const;
-  inline ::proto_ff::teamteam* mutable_teamteam_list(int index);
-  inline ::proto_ff::teamteam* add_teamteam_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::teamteam >&
-      teamteam_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::teamteam >*
-      mutable_teamteam_list();
+  // repeated .proto_ff.E_TeamTeam E_TeamTeam_List = 1;
+  inline int e_teamteam_list_size() const;
+  inline void clear_e_teamteam_list();
+  static const int kETeamTeamListFieldNumber = 1;
+  inline const ::proto_ff::E_TeamTeam& e_teamteam_list(int index) const;
+  inline ::proto_ff::E_TeamTeam* mutable_e_teamteam_list(int index);
+  inline ::proto_ff::E_TeamTeam* add_e_teamteam_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TeamTeam >&
+      e_teamteam_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TeamTeam >*
+      mutable_e_teamteam_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_teamteam)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_TeamTeam)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::teamteam > teamteam_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TeamTeam > e_teamteam_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -292,262 +292,262 @@ class Sheet_teamteam : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_team_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_teamteam* default_instance_;
+  static Sheet_TeamTeam* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// teamteam
+// E_TeamTeam
 
-// optional int32 TeamObjectID = 1;
-inline bool teamteam::has_teamobjectid() const {
+// optional int32 m_teamobjectid = 1;
+inline bool E_TeamTeam::has_m_teamobjectid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void teamteam::set_has_teamobjectid() {
+inline void E_TeamTeam::set_has_m_teamobjectid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void teamteam::clear_has_teamobjectid() {
+inline void E_TeamTeam::clear_has_m_teamobjectid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void teamteam::clear_teamobjectid() {
-  teamobjectid_ = 0;
-  clear_has_teamobjectid();
+inline void E_TeamTeam::clear_m_teamobjectid() {
+  m_teamobjectid_ = 0;
+  clear_has_m_teamobjectid();
 }
-inline ::google::protobuf::int32 teamteam::teamobjectid() const {
-  return teamobjectid_;
+inline ::google::protobuf::int32 E_TeamTeam::m_teamobjectid() const {
+  return m_teamobjectid_;
 }
-inline void teamteam::set_teamobjectid(::google::protobuf::int32 value) {
-  set_has_teamobjectid();
-  teamobjectid_ = value;
+inline void E_TeamTeam::set_m_teamobjectid(::google::protobuf::int32 value) {
+  set_has_m_teamobjectid();
+  m_teamobjectid_ = value;
 }
 
-// optional int32 FObjectNameID = 2;
-inline bool teamteam::has_fobjectnameid() const {
+// optional int32 m_fobjectnameid = 2;
+inline bool E_TeamTeam::has_m_fobjectnameid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void teamteam::set_has_fobjectnameid() {
+inline void E_TeamTeam::set_has_m_fobjectnameid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void teamteam::clear_has_fobjectnameid() {
+inline void E_TeamTeam::clear_has_m_fobjectnameid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void teamteam::clear_fobjectnameid() {
-  fobjectnameid_ = 0;
-  clear_has_fobjectnameid();
+inline void E_TeamTeam::clear_m_fobjectnameid() {
+  m_fobjectnameid_ = 0;
+  clear_has_m_fobjectnameid();
 }
-inline ::google::protobuf::int32 teamteam::fobjectnameid() const {
-  return fobjectnameid_;
+inline ::google::protobuf::int32 E_TeamTeam::m_fobjectnameid() const {
+  return m_fobjectnameid_;
 }
-inline void teamteam::set_fobjectnameid(::google::protobuf::int32 value) {
-  set_has_fobjectnameid();
-  fobjectnameid_ = value;
+inline void E_TeamTeam::set_m_fobjectnameid(::google::protobuf::int32 value) {
+  set_has_m_fobjectnameid();
+  m_fobjectnameid_ = value;
 }
 
-// optional int32 SObjectNameID = 3;
-inline bool teamteam::has_sobjectnameid() const {
+// optional int32 m_sobjectnameid = 3;
+inline bool E_TeamTeam::has_m_sobjectnameid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void teamteam::set_has_sobjectnameid() {
+inline void E_TeamTeam::set_has_m_sobjectnameid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void teamteam::clear_has_sobjectnameid() {
+inline void E_TeamTeam::clear_has_m_sobjectnameid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void teamteam::clear_sobjectnameid() {
-  sobjectnameid_ = 0;
-  clear_has_sobjectnameid();
+inline void E_TeamTeam::clear_m_sobjectnameid() {
+  m_sobjectnameid_ = 0;
+  clear_has_m_sobjectnameid();
 }
-inline ::google::protobuf::int32 teamteam::sobjectnameid() const {
-  return sobjectnameid_;
+inline ::google::protobuf::int32 E_TeamTeam::m_sobjectnameid() const {
+  return m_sobjectnameid_;
 }
-inline void teamteam::set_sobjectnameid(::google::protobuf::int32 value) {
-  set_has_sobjectnameid();
-  sobjectnameid_ = value;
+inline void E_TeamTeam::set_m_sobjectnameid(::google::protobuf::int32 value) {
+  set_has_m_sobjectnameid();
+  m_sobjectnameid_ = value;
 }
 
-// optional int64 duplicateId = 4;
-inline bool teamteam::has_duplicateid() const {
+// optional int64 m_duplicateid = 4;
+inline bool E_TeamTeam::has_m_duplicateid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void teamteam::set_has_duplicateid() {
+inline void E_TeamTeam::set_has_m_duplicateid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void teamteam::clear_has_duplicateid() {
+inline void E_TeamTeam::clear_has_m_duplicateid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void teamteam::clear_duplicateid() {
-  duplicateid_ = GOOGLE_LONGLONG(0);
-  clear_has_duplicateid();
+inline void E_TeamTeam::clear_m_duplicateid() {
+  m_duplicateid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_duplicateid();
 }
-inline ::google::protobuf::int64 teamteam::duplicateid() const {
-  return duplicateid_;
+inline ::google::protobuf::int64 E_TeamTeam::m_duplicateid() const {
+  return m_duplicateid_;
 }
-inline void teamteam::set_duplicateid(::google::protobuf::int64 value) {
-  set_has_duplicateid();
-  duplicateid_ = value;
+inline void E_TeamTeam::set_m_duplicateid(::google::protobuf::int64 value) {
+  set_has_m_duplicateid();
+  m_duplicateid_ = value;
 }
 
-// optional int64 activityId = 5;
-inline bool teamteam::has_activityid() const {
+// optional int64 m_activityid = 5;
+inline bool E_TeamTeam::has_m_activityid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void teamteam::set_has_activityid() {
+inline void E_TeamTeam::set_has_m_activityid() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void teamteam::clear_has_activityid() {
+inline void E_TeamTeam::clear_has_m_activityid() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void teamteam::clear_activityid() {
-  activityid_ = GOOGLE_LONGLONG(0);
-  clear_has_activityid();
+inline void E_TeamTeam::clear_m_activityid() {
+  m_activityid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_activityid();
 }
-inline ::google::protobuf::int64 teamteam::activityid() const {
-  return activityid_;
+inline ::google::protobuf::int64 E_TeamTeam::m_activityid() const {
+  return m_activityid_;
 }
-inline void teamteam::set_activityid(::google::protobuf::int64 value) {
-  set_has_activityid();
-  activityid_ = value;
+inline void E_TeamTeam::set_m_activityid(::google::protobuf::int64 value) {
+  set_has_m_activityid();
+  m_activityid_ = value;
 }
 
-// optional int32 LowLV = 6;
-inline bool teamteam::has_lowlv() const {
+// optional int32 m_lowlv = 6;
+inline bool E_TeamTeam::has_m_lowlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void teamteam::set_has_lowlv() {
+inline void E_TeamTeam::set_has_m_lowlv() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void teamteam::clear_has_lowlv() {
+inline void E_TeamTeam::clear_has_m_lowlv() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void teamteam::clear_lowlv() {
-  lowlv_ = 0;
-  clear_has_lowlv();
+inline void E_TeamTeam::clear_m_lowlv() {
+  m_lowlv_ = 0;
+  clear_has_m_lowlv();
 }
-inline ::google::protobuf::int32 teamteam::lowlv() const {
-  return lowlv_;
+inline ::google::protobuf::int32 E_TeamTeam::m_lowlv() const {
+  return m_lowlv_;
 }
-inline void teamteam::set_lowlv(::google::protobuf::int32 value) {
-  set_has_lowlv();
-  lowlv_ = value;
+inline void E_TeamTeam::set_m_lowlv(::google::protobuf::int32 value) {
+  set_has_m_lowlv();
+  m_lowlv_ = value;
 }
 
-// optional int32 UpLV = 7;
-inline bool teamteam::has_uplv() const {
+// optional int32 m_uplv = 7;
+inline bool E_TeamTeam::has_m_uplv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void teamteam::set_has_uplv() {
+inline void E_TeamTeam::set_has_m_uplv() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void teamteam::clear_has_uplv() {
+inline void E_TeamTeam::clear_has_m_uplv() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void teamteam::clear_uplv() {
-  uplv_ = 0;
-  clear_has_uplv();
+inline void E_TeamTeam::clear_m_uplv() {
+  m_uplv_ = 0;
+  clear_has_m_uplv();
 }
-inline ::google::protobuf::int32 teamteam::uplv() const {
-  return uplv_;
+inline ::google::protobuf::int32 E_TeamTeam::m_uplv() const {
+  return m_uplv_;
 }
-inline void teamteam::set_uplv(::google::protobuf::int32 value) {
-  set_has_uplv();
-  uplv_ = value;
+inline void E_TeamTeam::set_m_uplv(::google::protobuf::int32 value) {
+  set_has_m_uplv();
+  m_uplv_ = value;
 }
 
-// optional int32 isAutoMatch = 8;
-inline bool teamteam::has_isautomatch() const {
+// optional int32 m_isautomatch = 8;
+inline bool E_TeamTeam::has_m_isautomatch() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void teamteam::set_has_isautomatch() {
+inline void E_TeamTeam::set_has_m_isautomatch() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void teamteam::clear_has_isautomatch() {
+inline void E_TeamTeam::clear_has_m_isautomatch() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void teamteam::clear_isautomatch() {
-  isautomatch_ = 0;
-  clear_has_isautomatch();
+inline void E_TeamTeam::clear_m_isautomatch() {
+  m_isautomatch_ = 0;
+  clear_has_m_isautomatch();
 }
-inline ::google::protobuf::int32 teamteam::isautomatch() const {
-  return isautomatch_;
+inline ::google::protobuf::int32 E_TeamTeam::m_isautomatch() const {
+  return m_isautomatch_;
 }
-inline void teamteam::set_isautomatch(::google::protobuf::int32 value) {
-  set_has_isautomatch();
-  isautomatch_ = value;
+inline void E_TeamTeam::set_m_isautomatch(::google::protobuf::int32 value) {
+  set_has_m_isautomatch();
+  m_isautomatch_ = value;
 }
 
-// optional int32 speakChannel = 9;
-inline bool teamteam::has_speakchannel() const {
+// optional int32 m_speakchannel = 9;
+inline bool E_TeamTeam::has_m_speakchannel() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void teamteam::set_has_speakchannel() {
+inline void E_TeamTeam::set_has_m_speakchannel() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void teamteam::clear_has_speakchannel() {
+inline void E_TeamTeam::clear_has_m_speakchannel() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void teamteam::clear_speakchannel() {
-  speakchannel_ = 0;
-  clear_has_speakchannel();
+inline void E_TeamTeam::clear_m_speakchannel() {
+  m_speakchannel_ = 0;
+  clear_has_m_speakchannel();
 }
-inline ::google::protobuf::int32 teamteam::speakchannel() const {
-  return speakchannel_;
+inline ::google::protobuf::int32 E_TeamTeam::m_speakchannel() const {
+  return m_speakchannel_;
 }
-inline void teamteam::set_speakchannel(::google::protobuf::int32 value) {
-  set_has_speakchannel();
-  speakchannel_ = value;
+inline void E_TeamTeam::set_m_speakchannel(::google::protobuf::int32 value) {
+  set_has_m_speakchannel();
+  m_speakchannel_ = value;
 }
 
-// optional int32 teamnumber = 10;
-inline bool teamteam::has_teamnumber() const {
+// optional int32 m_teamnumber = 10;
+inline bool E_TeamTeam::has_m_teamnumber() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void teamteam::set_has_teamnumber() {
+inline void E_TeamTeam::set_has_m_teamnumber() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void teamteam::clear_has_teamnumber() {
+inline void E_TeamTeam::clear_has_m_teamnumber() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void teamteam::clear_teamnumber() {
-  teamnumber_ = 0;
-  clear_has_teamnumber();
+inline void E_TeamTeam::clear_m_teamnumber() {
+  m_teamnumber_ = 0;
+  clear_has_m_teamnumber();
 }
-inline ::google::protobuf::int32 teamteam::teamnumber() const {
-  return teamnumber_;
+inline ::google::protobuf::int32 E_TeamTeam::m_teamnumber() const {
+  return m_teamnumber_;
 }
-inline void teamteam::set_teamnumber(::google::protobuf::int32 value) {
-  set_has_teamnumber();
-  teamnumber_ = value;
+inline void E_TeamTeam::set_m_teamnumber(::google::protobuf::int32 value) {
+  set_has_m_teamnumber();
+  m_teamnumber_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_teamteam
+// Sheet_TeamTeam
 
-// repeated .proto_ff.teamteam teamteam_List = 1;
-inline int Sheet_teamteam::teamteam_list_size() const {
-  return teamteam_list_.size();
+// repeated .proto_ff.E_TeamTeam E_TeamTeam_List = 1;
+inline int Sheet_TeamTeam::e_teamteam_list_size() const {
+  return e_teamteam_list_.size();
 }
-inline void Sheet_teamteam::clear_teamteam_list() {
-  teamteam_list_.Clear();
+inline void Sheet_TeamTeam::clear_e_teamteam_list() {
+  e_teamteam_list_.Clear();
 }
-inline const ::proto_ff::teamteam& Sheet_teamteam::teamteam_list(int index) const {
-  return teamteam_list_.Get(index);
+inline const ::proto_ff::E_TeamTeam& Sheet_TeamTeam::e_teamteam_list(int index) const {
+  return e_teamteam_list_.Get(index);
 }
-inline ::proto_ff::teamteam* Sheet_teamteam::mutable_teamteam_list(int index) {
-  return teamteam_list_.Mutable(index);
+inline ::proto_ff::E_TeamTeam* Sheet_TeamTeam::mutable_e_teamteam_list(int index) {
+  return e_teamteam_list_.Mutable(index);
 }
-inline ::proto_ff::teamteam* Sheet_teamteam::add_teamteam_list() {
-  return teamteam_list_.Add();
+inline ::proto_ff::E_TeamTeam* Sheet_TeamTeam::add_e_teamteam_list() {
+  return e_teamteam_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::teamteam >&
-Sheet_teamteam::teamteam_list() const {
-  return teamteam_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TeamTeam >&
+Sheet_TeamTeam::e_teamteam_list() const {
+  return e_teamteam_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::teamteam >*
-Sheet_teamteam::mutable_teamteam_list() {
-  return &teamteam_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TeamTeam >*
+Sheet_TeamTeam::mutable_e_teamteam_list() {
+  return &e_teamteam_list_;
 }
 
 

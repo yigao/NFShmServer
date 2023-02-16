@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "DBProto.pb.h"
@@ -80,7 +80,7 @@ namespace proto_ff_s {
 		virtual ~BagItemsDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct ItemProtoInfo_s, 100> data;
+		NFShmVector<struct ItemProtoInfo_s, 100> data;
 		int32_t offset;
 
 		virtual void write_to_pbmsg(::proto_ff::BagItemsDBData & msg) const;
@@ -112,7 +112,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		NFShmString<32> table_name;
 		struct BagDBSimpleData_s simple;
-		NFArray<struct BagItemsDBData_s, 100> parts;
+		NFShmVector<struct BagItemsDBData_s, 100> parts;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBUnitBagData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBUnitBagData & msg);
@@ -126,7 +126,7 @@ namespace proto_ff_s {
 		virtual ~RoleDBBagData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct RoleDBUnitBagData_s, 100> bags;
+		NFShmVector<struct RoleDBUnitBagData_s, 100> bags;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBBagData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBBagData & msg);
@@ -140,7 +140,7 @@ namespace proto_ff_s {
 		virtual ~RoleDBEquipData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct EquipInfo_s, 100> infos;
+		NFShmVector<struct EquipInfo_s, 100> infos;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBEquipData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBEquipData & msg);
@@ -183,7 +183,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t type;
-		NFArray<struct GrowPartEntryDBInfo_s, 12> entrys;
+		NFShmVector<struct GrowPartEntryDBInfo_s, 12> entrys;
 		int64_t curId;
 
 		virtual void write_to_pbmsg(::proto_ff::GrowPartDBData & msg) const;
@@ -198,7 +198,7 @@ namespace proto_ff_s {
 		virtual ~GrowDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GrowPartDBData_s, 12> parts;
+		NFShmVector<struct GrowPartDBData_s, 12> parts;
 
 		virtual void write_to_pbmsg(::proto_ff::GrowDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GrowDBData & msg);
@@ -212,7 +212,7 @@ namespace proto_ff_s {
 		virtual ~DayUseItemData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct ComPair64_s, 10> info;
+		NFShmVector<struct ComPair64_s, 10> info;
 
 		virtual void write_to_pbmsg(::proto_ff::DayUseItemData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DayUseItemData & msg);
@@ -248,9 +248,9 @@ namespace proto_ff_s {
 		bool use_soul_item;
 		bool use_facade;
 		uint64_t equip_fantasy_id;
-		NFArray<struct FacadeFantasyData_s, 12> fantasy_map;
-		NFArray<struct FacadeFragmentData_s, 12> fragment_map;
-		NFArray<struct FacadeSkillData_s, 12> skill_data;
+		NFShmVector<struct FacadeFantasyData_s, 12> fantasy_map;
+		NFShmVector<struct FacadeFragmentData_s, 12> fragment_map;
+		NFShmVector<struct FacadeSkillData_s, 12> skill_data;
 
 		virtual void write_to_pbmsg(::proto_ff::FacadeDataInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FacadeDataInfo & msg);
@@ -264,7 +264,7 @@ namespace proto_ff_s {
 		virtual ~FacadeDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct FacadeDataInfo_s, 4> data;
+		NFShmVector<struct FacadeDataInfo_s, 4> data;
 
 		virtual void write_to_pbmsg(::proto_ff::FacadeDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FacadeDBData & msg);
@@ -313,7 +313,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint32_t group;
 		int32_t chg;
-		NFArray<struct SkillDBPos_s, 12> pos_lst;
+		NFShmVector<struct SkillDBPos_s, 12> pos_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillDBGroup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillDBGroup & msg);
@@ -327,8 +327,8 @@ namespace proto_ff_s {
 		virtual ~SkillDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct SkillDBInfo_s, 12> info_lst;
-		NFArray<struct SkillDBGroup_s, 12> group_lst;
+		NFShmVector<struct SkillDBInfo_s, 12> info_lst;
+		NFShmVector<struct SkillDBGroup_s, 12> group_lst;
 		uint32_t group;
 		uint64_t last_group;
 
@@ -344,7 +344,7 @@ namespace proto_ff_s {
 		virtual ~GodRelicsActivityData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GodRelicsTaskGroupEntry_s, 12> group_data;
+		NFShmVector<struct GodRelicsTaskGroupEntry_s, 12> group_data;
 		int64_t cur_group_id;
 
 		virtual void write_to_pbmsg(::proto_ff::GodRelicsActivityData & msg) const;
@@ -424,7 +424,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t id;
-		NFArray<struct DupTowerDBRecordEntry_s, 10> entrys;
+		NFShmVector<struct DupTowerDBRecordEntry_s, 10> entrys;
 
 		virtual void write_to_pbmsg(::proto_ff::DupTowerDBRecord & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DupTowerDBRecord & msg);
@@ -439,7 +439,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t pass_dupId;
-		NFArray<uint64_t, 10> ids;
+		NFShmVector<uint64_t, 10> ids;
 
 		virtual void write_to_pbmsg(::proto_ff::DupTowerDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DupTowerDBData & msg);
@@ -468,8 +468,8 @@ namespace proto_ff_s {
 		virtual ~DupDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct DupRecord_s, 10> record;
-		NFArray<struct DupGroupData_s, 10> groups;
+		NFShmVector<struct DupRecord_s, 10> record;
+		NFShmVector<struct DupGroupData_s, 10> groups;
 		struct DupTowerDBData_s tower;
 		struct ComDupDBData_s level;
 
@@ -523,8 +523,8 @@ namespace proto_ff_s {
 		virtual ~BuffDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct BuffDBInfo_s, 10> info_lst;
-		NFArray<struct BuffDBCdInfo_s, 10> cd_lst;
+		NFShmVector<struct BuffDBInfo_s, 10> info_lst;
+		NFShmVector<struct BuffDBCdInfo_s, 10> cd_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::BuffDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BuffDBData & msg);
@@ -557,9 +557,9 @@ namespace proto_ff_s {
 		virtual ~BossDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct BossSimpleInfoDB_s, 10> infos;
+		NFShmVector<struct BossSimpleInfoDB_s, 10> infos;
 		uint64_t lastTime;
-		NFArray<int64_t, 10> attents;
+		NFShmVector<int64_t, 10> attents;
 
 		virtual void write_to_pbmsg(::proto_ff::BossDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BossDBData & msg);
@@ -652,7 +652,7 @@ namespace proto_ff_s {
 		uint64_t reqid;
 		uint32_t uid;
 		uint32_t gateid;
-		NFArray<struct RoleListDBProto_s, 20> role_lst;
+		NFShmVector<struct RoleListDBProto_s, 20> role_lst;
 		uint32_t regnum;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleListDBRsp & msg) const;
@@ -803,7 +803,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t ret;
-		NFArray<struct CenterRoleProto_s, 20> info;
+		NFShmVector<struct CenterRoleProto_s, 20> info;
 		int32_t finish_flag;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleSimpleListDBRsp & msg) const;
@@ -847,7 +847,7 @@ namespace proto_ff_s {
 		virtual ~NewMailDBInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct MailInfo_s, 1000> data;
+		NFShmVector<struct MailInfo_s, 1000> data;
 		int32_t result;
 
 		virtual void write_to_pbmsg(::proto_ff::NewMailDBInfo & msg) const;
@@ -862,7 +862,7 @@ namespace proto_ff_s {
 		virtual ~MailDBOperateInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<uint32_t, 1000> mid_lst;
+		NFShmVector<uint32_t, 1000> mid_lst;
 		int32_t result;
 
 		virtual void write_to_pbmsg(::proto_ff::MailDBOperateInfo & msg) const;
@@ -933,7 +933,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t charID;
-		NFArray<struct MailInfo_s, 1000> info;
+		NFShmVector<struct MailInfo_s, 1000> info;
 		uint32_t zoneMailId;
 		int32_t offset;
 		uint32_t reqid;
@@ -1022,7 +1022,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;
-		NFArray<struct MailInfo_s, 1000> data;
+		NFShmVector<struct MailInfo_s, 1000> data;
 
 		virtual void write_to_pbmsg(::proto_ff::ZoneMailTransCharacterMailRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ZoneMailTransCharacterMailRsp & msg);
@@ -1040,7 +1040,7 @@ namespace proto_ff_s {
 		uint64_t cid;
 		uint32_t pernum;
 		uint32_t curpage;
-		NFArray<uint32_t, 1000> id_lst;
+		NFShmVector<uint32_t, 1000> id_lst;
 		NFShmString<32> webId;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDBDataReq & msg) const;
@@ -1059,8 +1059,8 @@ namespace proto_ff_s {
 		uint64_t cid;
 		uint32_t curpage;
 		uint32_t totalcount;
-		NFArray<uint32_t, 1000> id_lst;
-		NFArray<struct WebMailDataProto_s, 1000> info_lst;
+		NFShmVector<uint32_t, 1000> id_lst;
+		NFShmVector<struct WebMailDataProto_s, 1000> info_lst;
 		NFShmString<32> webId;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDBDataRsp & msg) const;
@@ -1091,7 +1091,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t charid;
-		NFArray<uint64_t, 10> dstid_lst;
+		NFShmVector<uint64_t, 10> dstid_lst;
 		uint32_t operate_type;
 		NFShmString<32> data;
 		uint32_t query_times;
@@ -1111,8 +1111,8 @@ namespace proto_ff_s {
 		int32_t retcode;
 		uint64_t charid;
 		uint32_t operate_type;
-		NFArray<struct FriendDBInfo_s, 10> info_lst;
-		NFArray<uint64_t, 10> last_lst;
+		NFShmVector<struct FriendDBInfo_s, 10> info_lst;
+		NFShmVector<uint64_t, 10> last_lst;
 		NFShmString<32> data;
 		uint32_t query_times;
 
@@ -1144,7 +1144,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t retcode;
 		int32_t offset;
-		NFArray<struct FriendDBInfo_s, 10> info;
+		NFShmVector<struct FriendDBInfo_s, 10> info;
 
 		virtual void write_to_pbmsg(::proto_ff::AllFriendDBResponse & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::AllFriendDBResponse & msg);
@@ -1158,7 +1158,7 @@ namespace proto_ff_s {
 		virtual ~SaveFriendDBRequest_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct FriendDBInfo_s, 10> info;
+		NFShmVector<struct FriendDBInfo_s, 10> info;
 
 		virtual void write_to_pbmsg(::proto_ff::SaveFriendDBRequest & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SaveFriendDBRequest & msg);
@@ -1200,6 +1200,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t type_id;
+		NFShmString<32> data;
 
 		virtual void write_to_pbmsg(::proto_ff::GlobalDBEntry & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GlobalDBEntry & msg);
@@ -1213,7 +1214,7 @@ namespace proto_ff_s {
 		virtual ~GlobalDBResponse_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct GlobalDBEntry_s, 10> entry;
+		NFShmVector<struct GlobalDBEntry_s, 10> entry;
 		int32_t isfinish;
 
 		virtual void write_to_pbmsg(::proto_ff::GlobalDBResponse & msg) const;
@@ -1229,6 +1230,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t type_id;
+		NFShmString<32> data;
 
 		virtual void write_to_pbmsg(::proto_ff::GlobalDBSetRequest & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GlobalDBSetRequest & msg);
@@ -1257,7 +1259,7 @@ namespace proto_ff_s {
 		virtual ~GlobalComData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct DupTowerDBRecord_s, 10> towerDupReward;
+		NFShmVector<struct DupTowerDBRecord_s, 10> towerDupReward;
 
 		virtual void write_to_pbmsg(::proto_ff::GlobalComData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GlobalComData & msg);
@@ -1300,7 +1302,7 @@ namespace proto_ff_s {
 		virtual ~ActDBRsp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct ActDBProto_s, 10> lst;
+		NFShmVector<struct ActDBProto_s, 10> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::ActDBRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ActDBRsp & msg);
@@ -1314,7 +1316,7 @@ namespace proto_ff_s {
 		virtual ~ActSaveDBReq_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct ActDBProto_s, 10> lst;
+		NFShmVector<struct ActDBProto_s, 10> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::ActSaveDBReq & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ActSaveDBReq & msg);

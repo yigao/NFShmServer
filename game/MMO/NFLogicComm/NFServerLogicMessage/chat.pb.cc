@@ -20,18 +20,18 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* chatchat_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_ChatChat_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  chatchat_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_chatchat_descriptor_ = NULL;
+  E_ChatChat_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ChatChat_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_chatchat_reflection_ = NULL;
-const ::google::protobuf::Descriptor* chatspecialchat_descriptor_ = NULL;
+  Sheet_ChatChat_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ChatSpecialchat_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  chatspecialchat_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_chatspecialchat_descriptor_ = NULL;
+  E_ChatSpecialchat_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ChatSpecialchat_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_chatspecialchat_reflection_ = NULL;
+  Sheet_ChatSpecialchat_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,74 +42,74 @@ void protobuf_AssignDesc_chat_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "chat.proto");
   GOOGLE_CHECK(file != NULL);
-  chatchat_descriptor_ = file->message_type(0);
-  static const int chatchat_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, chatid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, chattype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, showtime_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, chatcontent_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, channel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, crossservice_),
+  E_ChatChat_descriptor_ = file->message_type(0);
+  static const int E_ChatChat_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, m_chatid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, m_chattype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, m_showtime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, m_chatcontent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, m_channel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, m_crossservice_),
   };
-  chatchat_reflection_ =
+  E_ChatChat_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      chatchat_descriptor_,
-      chatchat::default_instance_,
-      chatchat_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatchat, _unknown_fields_),
+      E_ChatChat_descriptor_,
+      E_ChatChat::default_instance_,
+      E_ChatChat_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatChat, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(chatchat));
-  Sheet_chatchat_descriptor_ = file->message_type(1);
-  static const int Sheet_chatchat_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_chatchat, chatchat_list_),
+      sizeof(E_ChatChat));
+  Sheet_ChatChat_descriptor_ = file->message_type(1);
+  static const int Sheet_ChatChat_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ChatChat, e_chatchat_list_),
   };
-  Sheet_chatchat_reflection_ =
+  Sheet_ChatChat_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_chatchat_descriptor_,
-      Sheet_chatchat::default_instance_,
-      Sheet_chatchat_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_chatchat, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_chatchat, _unknown_fields_),
+      Sheet_ChatChat_descriptor_,
+      Sheet_ChatChat::default_instance_,
+      Sheet_ChatChat_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ChatChat, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ChatChat, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_chatchat));
-  chatspecialchat_descriptor_ = file->message_type(2);
-  static const int chatspecialchat_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatspecialchat, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatspecialchat, parama_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatspecialchat, paramb_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatspecialchat, chat_id_),
+      sizeof(Sheet_ChatChat));
+  E_ChatSpecialchat_descriptor_ = file->message_type(2);
+  static const int E_ChatSpecialchat_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatSpecialchat, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatSpecialchat, m_parama_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatSpecialchat, m_paramb_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatSpecialchat, m_chat_id_),
   };
-  chatspecialchat_reflection_ =
+  E_ChatSpecialchat_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      chatspecialchat_descriptor_,
-      chatspecialchat::default_instance_,
-      chatspecialchat_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatspecialchat, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(chatspecialchat, _unknown_fields_),
+      E_ChatSpecialchat_descriptor_,
+      E_ChatSpecialchat::default_instance_,
+      E_ChatSpecialchat_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatSpecialchat, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ChatSpecialchat, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(chatspecialchat));
-  Sheet_chatspecialchat_descriptor_ = file->message_type(3);
-  static const int Sheet_chatspecialchat_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_chatspecialchat, chatspecialchat_list_),
+      sizeof(E_ChatSpecialchat));
+  Sheet_ChatSpecialchat_descriptor_ = file->message_type(3);
+  static const int Sheet_ChatSpecialchat_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ChatSpecialchat, e_chatspecialchat_list_),
   };
-  Sheet_chatspecialchat_reflection_ =
+  Sheet_ChatSpecialchat_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_chatspecialchat_descriptor_,
-      Sheet_chatspecialchat::default_instance_,
-      Sheet_chatspecialchat_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_chatspecialchat, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_chatspecialchat, _unknown_fields_),
+      Sheet_ChatSpecialchat_descriptor_,
+      Sheet_ChatSpecialchat::default_instance_,
+      Sheet_ChatSpecialchat_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ChatSpecialchat, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ChatSpecialchat, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_chatspecialchat));
+      sizeof(Sheet_ChatSpecialchat));
 }
 
 namespace {
@@ -123,26 +123,26 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    chatchat_descriptor_, &chatchat::default_instance());
+    E_ChatChat_descriptor_, &E_ChatChat::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_chatchat_descriptor_, &Sheet_chatchat::default_instance());
+    Sheet_ChatChat_descriptor_, &Sheet_ChatChat::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    chatspecialchat_descriptor_, &chatspecialchat::default_instance());
+    E_ChatSpecialchat_descriptor_, &E_ChatSpecialchat::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_chatspecialchat_descriptor_, &Sheet_chatspecialchat::default_instance());
+    Sheet_ChatSpecialchat_descriptor_, &Sheet_ChatSpecialchat::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_chat_2eproto() {
-  delete chatchat::default_instance_;
-  delete chatchat_reflection_;
-  delete Sheet_chatchat::default_instance_;
-  delete Sheet_chatchat_reflection_;
-  delete chatspecialchat::default_instance_;
-  delete chatspecialchat_reflection_;
-  delete Sheet_chatspecialchat::default_instance_;
-  delete Sheet_chatspecialchat_reflection_;
+  delete E_ChatChat::default_instance_;
+  delete E_ChatChat_reflection_;
+  delete Sheet_ChatChat::default_instance_;
+  delete Sheet_ChatChat_reflection_;
+  delete E_ChatSpecialchat::default_instance_;
+  delete E_ChatSpecialchat_reflection_;
+  delete Sheet_ChatSpecialchat::default_instance_;
+  delete Sheet_ChatSpecialchat_reflection_;
 }
 
 void protobuf_AddDesc_chat_2eproto() {
@@ -154,31 +154,32 @@ void protobuf_AddDesc_chat_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nchat.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\"\371\001\n\010chatchat\022\034\n\006chatId\030\001 \001(\003B\014\302\377\024\010"
-    "\344\274\240\351\227\273ID\022\"\n\010chatType\030\002 \001(\005B\020\302\377\024\014\344\274\240\351\227\273\347\261"
-    "\273\345\236\213\022.\n\010showTime\030\003 \001(\005B\034\302\377\024\030\346\264\273\345\212\250\346\217\220\347\244\272"
-    "\346\230\276\347\244\272\346\227\266\351\227\264\022*\n\013chatContent\030\004 \001(\tB\025\302\377\024\014\344"
-    "\274\240\351\227\273\345\206\205\345\256\271\220\301\024\310\001\022!\n\007channel\030\005 \001(\005B\020\302\377\024\014\346"
-    "\230\276\347\244\272\351\242\221\351\201\223\022,\n\014CrossService\030\006 \001(\005B\026\302\377\024\022\346"
-    "\230\257\345\220\246\350\267\250\346\234\215\345\271\277\346\222\255\"A\n\016Sheet_chatchat\022/\n\rc"
-    "hatchat_List\030\001 \003(\0132\022.proto_ff.chatchatB\004"
-    "\210\301\024(\"\267\001\n\017chatspecialchat\022\036\n\004type\030\001 \001(\005B\020"
-    "\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022%\n\006parama\030\002 \001(\tB\025\302\377\024\r\344\272"
-    "\213\344\273\266\345\217\202\346\225\260a\220\301\024<\022&\n\006paramb\030\003 \001(\tB\026\302\377\024\r\344\272\213"
-    "\344\273\266\345\217\202\346\225\260b\220\301\024\214\001\0225\n\007chat_Id\030\004 \001(\003B$\302\377\024 \350\247"
-    "\246\345\217\221\345\205\263\350\201\224\347\232\204\350\267\221\351\251\254\347\201\257\345\206\205\345\256\271id\"V\n\025Sheet_"
-    "chatspecialchat\022=\n\024chatspecialchat_List\030"
-    "\001 \003(\0132\031.proto_ff.chatspecialchatB\004\210\301\024\024", 638);
+    "proto\"\207\002\n\nE_ChatChat\022\036\n\010m_chatid\030\001 \001(\003B\014"
+    "\302\377\024\010\344\274\240\351\227\273ID\022$\n\nm_chattype\030\002 \001(\005B\020\302\377\024\014\344\274"
+    "\240\351\227\273\347\261\273\345\236\213\0220\n\nm_showtime\030\003 \001(\005B\034\302\377\024\030\346\264\273\345"
+    "\212\250\346\217\220\347\244\272\346\230\276\347\244\272\346\227\266\351\227\264\022,\n\rm_chatcontent\030\004 "
+    "\001(\tB\025\302\377\024\014\344\274\240\351\227\273\345\206\205\345\256\271\220\301\024\310\001\022#\n\tm_channel\030"
+    "\005 \001(\005B\020\302\377\024\014\346\230\276\347\244\272\351\242\221\351\201\223\022.\n\016m_crossservic"
+    "e\030\006 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\350\267\250\346\234\215\345\271\277\346\222\255\"E\n\016Sheet"
+    "_ChatChat\0223\n\017E_ChatChat_List\030\001 \003(\0132\024.pro"
+    "to_ff.E_ChatChatB\004\210\301\024(\"\301\001\n\021E_ChatSpecial"
+    "chat\022 \n\006m_type\030\001 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022\'"
+    "\n\010m_parama\030\002 \001(\tB\025\302\377\024\r\344\272\213\344\273\266\345\217\202\346\225\260a\220\301\024<\022"
+    "(\n\010m_paramb\030\003 \001(\tB\026\302\377\024\r\344\272\213\344\273\266\345\217\202\346\225\260b\220\301\024\214"
+    "\001\0227\n\tm_chat_id\030\004 \001(\003B$\302\377\024 \350\247\246\345\217\221\345\205\263\350\201\224\347\232"
+    "\204\350\267\221\351\251\254\347\201\257\345\206\205\345\256\271id\"Z\n\025Sheet_ChatSpecialc"
+    "hat\022A\n\026E_ChatSpecialchat_List\030\001 \003(\0132\033.pr"
+    "oto_ff.E_ChatSpecialchatB\004\210\301\024\024", 670);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chat.proto", &protobuf_RegisterTypes);
-  chatchat::default_instance_ = new chatchat();
-  Sheet_chatchat::default_instance_ = new Sheet_chatchat();
-  chatspecialchat::default_instance_ = new chatspecialchat();
-  Sheet_chatspecialchat::default_instance_ = new Sheet_chatspecialchat();
-  chatchat::default_instance_->InitAsDefaultInstance();
-  Sheet_chatchat::default_instance_->InitAsDefaultInstance();
-  chatspecialchat::default_instance_->InitAsDefaultInstance();
-  Sheet_chatspecialchat::default_instance_->InitAsDefaultInstance();
+  E_ChatChat::default_instance_ = new E_ChatChat();
+  Sheet_ChatChat::default_instance_ = new Sheet_ChatChat();
+  E_ChatSpecialchat::default_instance_ = new E_ChatSpecialchat();
+  Sheet_ChatSpecialchat::default_instance_ = new Sheet_ChatSpecialchat();
+  E_ChatChat::default_instance_->InitAsDefaultInstance();
+  Sheet_ChatChat::default_instance_->InitAsDefaultInstance();
+  E_ChatSpecialchat::default_instance_->InitAsDefaultInstance();
+  Sheet_ChatSpecialchat::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_chat_2eproto);
 }
 
@@ -192,184 +193,184 @@ struct StaticDescriptorInitializer_chat_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int chatchat::kChatIdFieldNumber;
-const int chatchat::kChatTypeFieldNumber;
-const int chatchat::kShowTimeFieldNumber;
-const int chatchat::kChatContentFieldNumber;
-const int chatchat::kChannelFieldNumber;
-const int chatchat::kCrossServiceFieldNumber;
+const int E_ChatChat::kMChatidFieldNumber;
+const int E_ChatChat::kMChattypeFieldNumber;
+const int E_ChatChat::kMShowtimeFieldNumber;
+const int E_ChatChat::kMChatcontentFieldNumber;
+const int E_ChatChat::kMChannelFieldNumber;
+const int E_ChatChat::kMCrossserviceFieldNumber;
 #endif  // !_MSC_VER
 
-chatchat::chatchat()
+E_ChatChat::E_ChatChat()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void chatchat::InitAsDefaultInstance() {
+void E_ChatChat::InitAsDefaultInstance() {
 }
 
-chatchat::chatchat(const chatchat& from)
+E_ChatChat::E_ChatChat(const E_ChatChat& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void chatchat::SharedCtor() {
+void E_ChatChat::SharedCtor() {
   _cached_size_ = 0;
-  chatid_ = GOOGLE_LONGLONG(0);
-  chattype_ = 0;
-  showtime_ = 0;
-  chatcontent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  channel_ = 0;
-  crossservice_ = 0;
+  m_chatid_ = GOOGLE_LONGLONG(0);
+  m_chattype_ = 0;
+  m_showtime_ = 0;
+  m_chatcontent_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_channel_ = 0;
+  m_crossservice_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-chatchat::~chatchat() {
+E_ChatChat::~E_ChatChat() {
   SharedDtor();
 }
 
-void chatchat::SharedDtor() {
-  if (chatcontent_ != &::google::protobuf::internal::kEmptyString) {
-    delete chatcontent_;
+void E_ChatChat::SharedDtor() {
+  if (m_chatcontent_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_chatcontent_;
   }
   if (this != default_instance_) {
   }
 }
 
-void chatchat::SetCachedSize(int size) const {
+void E_ChatChat::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* chatchat::descriptor() {
+const ::google::protobuf::Descriptor* E_ChatChat::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return chatchat_descriptor_;
+  return E_ChatChat_descriptor_;
 }
 
-const chatchat& chatchat::default_instance() {
+const E_ChatChat& E_ChatChat::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chat_2eproto();
   return *default_instance_;
 }
 
-chatchat* chatchat::default_instance_ = NULL;
+E_ChatChat* E_ChatChat::default_instance_ = NULL;
 
-chatchat* chatchat::New() const {
-  return new chatchat;
+E_ChatChat* E_ChatChat::New() const {
+  return new E_ChatChat;
 }
 
-void chatchat::Clear() {
+void E_ChatChat::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    chatid_ = GOOGLE_LONGLONG(0);
-    chattype_ = 0;
-    showtime_ = 0;
-    if (has_chatcontent()) {
-      if (chatcontent_ != &::google::protobuf::internal::kEmptyString) {
-        chatcontent_->clear();
+    m_chatid_ = GOOGLE_LONGLONG(0);
+    m_chattype_ = 0;
+    m_showtime_ = 0;
+    if (has_m_chatcontent()) {
+      if (m_chatcontent_ != &::google::protobuf::internal::kEmptyString) {
+        m_chatcontent_->clear();
       }
     }
-    channel_ = 0;
-    crossservice_ = 0;
+    m_channel_ = 0;
+    m_crossservice_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool chatchat::MergePartialFromCodedStream(
+bool E_ChatChat::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 chatId = 1;
+      // optional int64 m_chatid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &chatid_)));
-          set_has_chatid();
+                 input, &m_chatid_)));
+          set_has_m_chatid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_chatType;
+        if (input->ExpectTag(16)) goto parse_m_chattype;
         break;
       }
 
-      // optional int32 chatType = 2;
+      // optional int32 m_chattype = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_chatType:
+         parse_m_chattype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &chattype_)));
-          set_has_chattype();
+                 input, &m_chattype_)));
+          set_has_m_chattype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_showTime;
+        if (input->ExpectTag(24)) goto parse_m_showtime;
         break;
       }
 
-      // optional int32 showTime = 3;
+      // optional int32 m_showtime = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_showTime:
+         parse_m_showtime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &showtime_)));
-          set_has_showtime();
+                 input, &m_showtime_)));
+          set_has_m_showtime();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_chatContent;
+        if (input->ExpectTag(34)) goto parse_m_chatcontent;
         break;
       }
 
-      // optional string chatContent = 4;
+      // optional string m_chatcontent = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_chatContent:
+         parse_m_chatcontent:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_chatcontent()));
+                input, this->mutable_m_chatcontent()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->chatcontent().data(), this->chatcontent().length(),
+            this->m_chatcontent().data(), this->m_chatcontent().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_channel;
+        if (input->ExpectTag(40)) goto parse_m_channel;
         break;
       }
 
-      // optional int32 channel = 5;
+      // optional int32 m_channel = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_channel:
+         parse_m_channel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &channel_)));
-          set_has_channel();
+                 input, &m_channel_)));
+          set_has_m_channel();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_CrossService;
+        if (input->ExpectTag(48)) goto parse_m_crossservice;
         break;
       }
 
-      // optional int32 CrossService = 6;
+      // optional int32 m_crossservice = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_CrossService:
+         parse_m_crossservice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &crossservice_)));
-          set_has_crossservice();
+                 input, &m_crossservice_)));
+          set_has_m_crossservice();
         } else {
           goto handle_uninterpreted;
         }
@@ -393,40 +394,40 @@ bool chatchat::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void chatchat::SerializeWithCachedSizes(
+void E_ChatChat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 chatId = 1;
-  if (has_chatid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->chatid(), output);
+  // optional int64 m_chatid = 1;
+  if (has_m_chatid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_chatid(), output);
   }
 
-  // optional int32 chatType = 2;
-  if (has_chattype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->chattype(), output);
+  // optional int32 m_chattype = 2;
+  if (has_m_chattype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_chattype(), output);
   }
 
-  // optional int32 showTime = 3;
-  if (has_showtime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->showtime(), output);
+  // optional int32 m_showtime = 3;
+  if (has_m_showtime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_showtime(), output);
   }
 
-  // optional string chatContent = 4;
-  if (has_chatcontent()) {
+  // optional string m_chatcontent = 4;
+  if (has_m_chatcontent()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->chatcontent().data(), this->chatcontent().length(),
+      this->m_chatcontent().data(), this->m_chatcontent().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->chatcontent(), output);
+      4, this->m_chatcontent(), output);
   }
 
-  // optional int32 channel = 5;
-  if (has_channel()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->channel(), output);
+  // optional int32 m_channel = 5;
+  if (has_m_channel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_channel(), output);
   }
 
-  // optional int32 CrossService = 6;
-  if (has_crossservice()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->crossservice(), output);
+  // optional int32 m_crossservice = 6;
+  if (has_m_crossservice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_crossservice(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -435,41 +436,41 @@ void chatchat::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* chatchat::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ChatChat::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 chatId = 1;
-  if (has_chatid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->chatid(), target);
+  // optional int64 m_chatid = 1;
+  if (has_m_chatid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_chatid(), target);
   }
 
-  // optional int32 chatType = 2;
-  if (has_chattype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->chattype(), target);
+  // optional int32 m_chattype = 2;
+  if (has_m_chattype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_chattype(), target);
   }
 
-  // optional int32 showTime = 3;
-  if (has_showtime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->showtime(), target);
+  // optional int32 m_showtime = 3;
+  if (has_m_showtime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_showtime(), target);
   }
 
-  // optional string chatContent = 4;
-  if (has_chatcontent()) {
+  // optional string m_chatcontent = 4;
+  if (has_m_chatcontent()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->chatcontent().data(), this->chatcontent().length(),
+      this->m_chatcontent().data(), this->m_chatcontent().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->chatcontent(), target);
+        4, this->m_chatcontent(), target);
   }
 
-  // optional int32 channel = 5;
-  if (has_channel()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->channel(), target);
+  // optional int32 m_channel = 5;
+  if (has_m_channel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_channel(), target);
   }
 
-  // optional int32 CrossService = 6;
-  if (has_crossservice()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->crossservice(), target);
+  // optional int32 m_crossservice = 6;
+  if (has_m_crossservice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_crossservice(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -479,50 +480,50 @@ void chatchat::SerializeWithCachedSizes(
   return target;
 }
 
-int chatchat::ByteSize() const {
+int E_ChatChat::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 chatId = 1;
-    if (has_chatid()) {
+    // optional int64 m_chatid = 1;
+    if (has_m_chatid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->chatid());
+          this->m_chatid());
     }
 
-    // optional int32 chatType = 2;
-    if (has_chattype()) {
+    // optional int32 m_chattype = 2;
+    if (has_m_chattype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->chattype());
+          this->m_chattype());
     }
 
-    // optional int32 showTime = 3;
-    if (has_showtime()) {
+    // optional int32 m_showtime = 3;
+    if (has_m_showtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->showtime());
+          this->m_showtime());
     }
 
-    // optional string chatContent = 4;
-    if (has_chatcontent()) {
+    // optional string m_chatcontent = 4;
+    if (has_m_chatcontent()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->chatcontent());
+          this->m_chatcontent());
     }
 
-    // optional int32 channel = 5;
-    if (has_channel()) {
+    // optional int32 m_channel = 5;
+    if (has_m_channel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->channel());
+          this->m_channel());
     }
 
-    // optional int32 CrossService = 6;
-    if (has_crossservice()) {
+    // optional int32 m_crossservice = 6;
+    if (has_m_crossservice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->crossservice());
+          this->m_crossservice());
     }
 
   }
@@ -537,10 +538,10 @@ int chatchat::ByteSize() const {
   return total_size;
 }
 
-void chatchat::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ChatChat::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const chatchat* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const chatchat*>(
+  const E_ChatChat* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ChatChat*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -549,67 +550,67 @@ void chatchat::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void chatchat::MergeFrom(const chatchat& from) {
+void E_ChatChat::MergeFrom(const E_ChatChat& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_chatid()) {
-      set_chatid(from.chatid());
+    if (from.has_m_chatid()) {
+      set_m_chatid(from.m_chatid());
     }
-    if (from.has_chattype()) {
-      set_chattype(from.chattype());
+    if (from.has_m_chattype()) {
+      set_m_chattype(from.m_chattype());
     }
-    if (from.has_showtime()) {
-      set_showtime(from.showtime());
+    if (from.has_m_showtime()) {
+      set_m_showtime(from.m_showtime());
     }
-    if (from.has_chatcontent()) {
-      set_chatcontent(from.chatcontent());
+    if (from.has_m_chatcontent()) {
+      set_m_chatcontent(from.m_chatcontent());
     }
-    if (from.has_channel()) {
-      set_channel(from.channel());
+    if (from.has_m_channel()) {
+      set_m_channel(from.m_channel());
     }
-    if (from.has_crossservice()) {
-      set_crossservice(from.crossservice());
+    if (from.has_m_crossservice()) {
+      set_m_crossservice(from.m_crossservice());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void chatchat::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ChatChat::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void chatchat::CopyFrom(const chatchat& from) {
+void E_ChatChat::CopyFrom(const E_ChatChat& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool chatchat::IsInitialized() const {
+bool E_ChatChat::IsInitialized() const {
 
   return true;
 }
 
-void chatchat::Swap(chatchat* other) {
+void E_ChatChat::Swap(E_ChatChat* other) {
   if (other != this) {
-    std::swap(chatid_, other->chatid_);
-    std::swap(chattype_, other->chattype_);
-    std::swap(showtime_, other->showtime_);
-    std::swap(chatcontent_, other->chatcontent_);
-    std::swap(channel_, other->channel_);
-    std::swap(crossservice_, other->crossservice_);
+    std::swap(m_chatid_, other->m_chatid_);
+    std::swap(m_chattype_, other->m_chattype_);
+    std::swap(m_showtime_, other->m_showtime_);
+    std::swap(m_chatcontent_, other->m_chatcontent_);
+    std::swap(m_channel_, other->m_channel_);
+    std::swap(m_crossservice_, other->m_crossservice_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata chatchat::GetMetadata() const {
+::google::protobuf::Metadata E_ChatChat::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = chatchat_descriptor_;
-  metadata.reflection = chatchat_reflection_;
+  metadata.descriptor = E_ChatChat_descriptor_;
+  metadata.reflection = E_ChatChat_reflection_;
   return metadata;
 }
 
@@ -617,81 +618,81 @@ void chatchat::Swap(chatchat* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_chatchat::kChatchatListFieldNumber;
+const int Sheet_ChatChat::kEChatChatListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_chatchat::Sheet_chatchat()
+Sheet_ChatChat::Sheet_ChatChat()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_chatchat::InitAsDefaultInstance() {
+void Sheet_ChatChat::InitAsDefaultInstance() {
 }
 
-Sheet_chatchat::Sheet_chatchat(const Sheet_chatchat& from)
+Sheet_ChatChat::Sheet_ChatChat(const Sheet_ChatChat& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_chatchat::SharedCtor() {
+void Sheet_ChatChat::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_chatchat::~Sheet_chatchat() {
+Sheet_ChatChat::~Sheet_ChatChat() {
   SharedDtor();
 }
 
-void Sheet_chatchat::SharedDtor() {
+void Sheet_ChatChat::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_chatchat::SetCachedSize(int size) const {
+void Sheet_ChatChat::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_chatchat::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ChatChat::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_chatchat_descriptor_;
+  return Sheet_ChatChat_descriptor_;
 }
 
-const Sheet_chatchat& Sheet_chatchat::default_instance() {
+const Sheet_ChatChat& Sheet_ChatChat::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chat_2eproto();
   return *default_instance_;
 }
 
-Sheet_chatchat* Sheet_chatchat::default_instance_ = NULL;
+Sheet_ChatChat* Sheet_ChatChat::default_instance_ = NULL;
 
-Sheet_chatchat* Sheet_chatchat::New() const {
-  return new Sheet_chatchat;
+Sheet_ChatChat* Sheet_ChatChat::New() const {
+  return new Sheet_ChatChat;
 }
 
-void Sheet_chatchat::Clear() {
-  chatchat_list_.Clear();
+void Sheet_ChatChat::Clear() {
+  e_chatchat_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_chatchat::MergePartialFromCodedStream(
+bool Sheet_ChatChat::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.chatchat chatchat_List = 1;
+      // repeated .proto_ff.E_ChatChat E_ChatChat_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_chatchat_List:
+         parse_E_ChatChat_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_chatchat_list()));
+                input, add_e_chatchat_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_chatchat_List;
+        if (input->ExpectTag(10)) goto parse_E_ChatChat_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -712,12 +713,12 @@ bool Sheet_chatchat::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_chatchat::SerializeWithCachedSizes(
+void Sheet_ChatChat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.chatchat chatchat_List = 1;
-  for (int i = 0; i < this->chatchat_list_size(); i++) {
+  // repeated .proto_ff.E_ChatChat E_ChatChat_List = 1;
+  for (int i = 0; i < this->e_chatchat_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->chatchat_list(i), output);
+      1, this->e_chatchat_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -726,13 +727,13 @@ void Sheet_chatchat::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_chatchat::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ChatChat::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.chatchat chatchat_List = 1;
-  for (int i = 0; i < this->chatchat_list_size(); i++) {
+  // repeated .proto_ff.E_ChatChat E_ChatChat_List = 1;
+  for (int i = 0; i < this->e_chatchat_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->chatchat_list(i), target);
+        1, this->e_chatchat_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -742,15 +743,15 @@ void Sheet_chatchat::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_chatchat::ByteSize() const {
+int Sheet_ChatChat::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.chatchat chatchat_List = 1;
-  total_size += 1 * this->chatchat_list_size();
-  for (int i = 0; i < this->chatchat_list_size(); i++) {
+  // repeated .proto_ff.E_ChatChat E_ChatChat_List = 1;
+  total_size += 1 * this->e_chatchat_list_size();
+  for (int i = 0; i < this->e_chatchat_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->chatchat_list(i));
+        this->e_chatchat_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -764,10 +765,10 @@ int Sheet_chatchat::ByteSize() const {
   return total_size;
 }
 
-void Sheet_chatchat::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ChatChat::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_chatchat* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_chatchat*>(
+  const Sheet_ChatChat* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ChatChat*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -776,43 +777,43 @@ void Sheet_chatchat::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_chatchat::MergeFrom(const Sheet_chatchat& from) {
+void Sheet_ChatChat::MergeFrom(const Sheet_ChatChat& from) {
   GOOGLE_CHECK_NE(&from, this);
-  chatchat_list_.MergeFrom(from.chatchat_list_);
+  e_chatchat_list_.MergeFrom(from.e_chatchat_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_chatchat::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ChatChat::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_chatchat::CopyFrom(const Sheet_chatchat& from) {
+void Sheet_ChatChat::CopyFrom(const Sheet_ChatChat& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_chatchat::IsInitialized() const {
+bool Sheet_ChatChat::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_chatchat::Swap(Sheet_chatchat* other) {
+void Sheet_ChatChat::Swap(Sheet_ChatChat* other) {
   if (other != this) {
-    chatchat_list_.Swap(&other->chatchat_list_);
+    e_chatchat_list_.Swap(&other->e_chatchat_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_chatchat::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ChatChat::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_chatchat_descriptor_;
-  metadata.reflection = Sheet_chatchat_reflection_;
+  metadata.descriptor = Sheet_ChatChat_descriptor_;
+  metadata.reflection = Sheet_ChatChat_reflection_;
   return metadata;
 }
 
@@ -820,154 +821,154 @@ void Sheet_chatchat::Swap(Sheet_chatchat* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int chatspecialchat::kTypeFieldNumber;
-const int chatspecialchat::kParamaFieldNumber;
-const int chatspecialchat::kParambFieldNumber;
-const int chatspecialchat::kChatIdFieldNumber;
+const int E_ChatSpecialchat::kMTypeFieldNumber;
+const int E_ChatSpecialchat::kMParamaFieldNumber;
+const int E_ChatSpecialchat::kMParambFieldNumber;
+const int E_ChatSpecialchat::kMChatIdFieldNumber;
 #endif  // !_MSC_VER
 
-chatspecialchat::chatspecialchat()
+E_ChatSpecialchat::E_ChatSpecialchat()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void chatspecialchat::InitAsDefaultInstance() {
+void E_ChatSpecialchat::InitAsDefaultInstance() {
 }
 
-chatspecialchat::chatspecialchat(const chatspecialchat& from)
+E_ChatSpecialchat::E_ChatSpecialchat(const E_ChatSpecialchat& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void chatspecialchat::SharedCtor() {
+void E_ChatSpecialchat::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  paramb_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  chat_id_ = GOOGLE_LONGLONG(0);
+  m_type_ = 0;
+  m_parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_paramb_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_chat_id_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-chatspecialchat::~chatspecialchat() {
+E_ChatSpecialchat::~E_ChatSpecialchat() {
   SharedDtor();
 }
 
-void chatspecialchat::SharedDtor() {
-  if (parama_ != &::google::protobuf::internal::kEmptyString) {
-    delete parama_;
+void E_ChatSpecialchat::SharedDtor() {
+  if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_parama_;
   }
-  if (paramb_ != &::google::protobuf::internal::kEmptyString) {
-    delete paramb_;
+  if (m_paramb_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_paramb_;
   }
   if (this != default_instance_) {
   }
 }
 
-void chatspecialchat::SetCachedSize(int size) const {
+void E_ChatSpecialchat::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* chatspecialchat::descriptor() {
+const ::google::protobuf::Descriptor* E_ChatSpecialchat::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return chatspecialchat_descriptor_;
+  return E_ChatSpecialchat_descriptor_;
 }
 
-const chatspecialchat& chatspecialchat::default_instance() {
+const E_ChatSpecialchat& E_ChatSpecialchat::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chat_2eproto();
   return *default_instance_;
 }
 
-chatspecialchat* chatspecialchat::default_instance_ = NULL;
+E_ChatSpecialchat* E_ChatSpecialchat::default_instance_ = NULL;
 
-chatspecialchat* chatspecialchat::New() const {
-  return new chatspecialchat;
+E_ChatSpecialchat* E_ChatSpecialchat::New() const {
+  return new E_ChatSpecialchat;
 }
 
-void chatspecialchat::Clear() {
+void E_ChatSpecialchat::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    if (has_parama()) {
-      if (parama_ != &::google::protobuf::internal::kEmptyString) {
-        parama_->clear();
+    m_type_ = 0;
+    if (has_m_parama()) {
+      if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+        m_parama_->clear();
       }
     }
-    if (has_paramb()) {
-      if (paramb_ != &::google::protobuf::internal::kEmptyString) {
-        paramb_->clear();
+    if (has_m_paramb()) {
+      if (m_paramb_ != &::google::protobuf::internal::kEmptyString) {
+        m_paramb_->clear();
       }
     }
-    chat_id_ = GOOGLE_LONGLONG(0);
+    m_chat_id_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool chatspecialchat::MergePartialFromCodedStream(
+bool E_ChatSpecialchat::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_parama;
+        if (input->ExpectTag(18)) goto parse_m_parama;
         break;
       }
 
-      // optional string parama = 2;
+      // optional string m_parama = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_parama:
+         parse_m_parama:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_parama()));
+                input, this->mutable_m_parama()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->parama().data(), this->parama().length(),
+            this->m_parama().data(), this->m_parama().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_paramb;
+        if (input->ExpectTag(26)) goto parse_m_paramb;
         break;
       }
 
-      // optional string paramb = 3;
+      // optional string m_paramb = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_paramb:
+         parse_m_paramb:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_paramb()));
+                input, this->mutable_m_paramb()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->paramb().data(), this->paramb().length(),
+            this->m_paramb().data(), this->m_paramb().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_chat_Id;
+        if (input->ExpectTag(32)) goto parse_m_chat_id;
         break;
       }
 
-      // optional int64 chat_Id = 4;
+      // optional int64 m_chat_id = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_chat_Id:
+         parse_m_chat_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &chat_id_)));
-          set_has_chat_id();
+                 input, &m_chat_id_)));
+          set_has_m_chat_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -991,34 +992,34 @@ bool chatspecialchat::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void chatspecialchat::SerializeWithCachedSizes(
+void E_ChatSpecialchat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional string parama = 2;
-  if (has_parama()) {
+  // optional string m_parama = 2;
+  if (has_m_parama()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->parama().data(), this->parama().length(),
+      this->m_parama().data(), this->m_parama().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->parama(), output);
+      2, this->m_parama(), output);
   }
 
-  // optional string paramb = 3;
-  if (has_paramb()) {
+  // optional string m_paramb = 3;
+  if (has_m_paramb()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->paramb().data(), this->paramb().length(),
+      this->m_paramb().data(), this->m_paramb().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->paramb(), output);
+      3, this->m_paramb(), output);
   }
 
-  // optional int64 chat_Id = 4;
-  if (has_chat_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->chat_id(), output);
+  // optional int64 m_chat_id = 4;
+  if (has_m_chat_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_chat_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1027,36 +1028,36 @@ void chatspecialchat::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* chatspecialchat::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ChatSpecialchat::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional string parama = 2;
-  if (has_parama()) {
+  // optional string m_parama = 2;
+  if (has_m_parama()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->parama().data(), this->parama().length(),
+      this->m_parama().data(), this->m_parama().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->parama(), target);
+        2, this->m_parama(), target);
   }
 
-  // optional string paramb = 3;
-  if (has_paramb()) {
+  // optional string m_paramb = 3;
+  if (has_m_paramb()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->paramb().data(), this->paramb().length(),
+      this->m_paramb().data(), this->m_paramb().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->paramb(), target);
+        3, this->m_paramb(), target);
   }
 
-  // optional int64 chat_Id = 4;
-  if (has_chat_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->chat_id(), target);
+  // optional int64 m_chat_id = 4;
+  if (has_m_chat_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_chat_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1066,36 +1067,36 @@ void chatspecialchat::SerializeWithCachedSizes(
   return target;
 }
 
-int chatspecialchat::ByteSize() const {
+int E_ChatSpecialchat::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional string parama = 2;
-    if (has_parama()) {
+    // optional string m_parama = 2;
+    if (has_m_parama()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->parama());
+          this->m_parama());
     }
 
-    // optional string paramb = 3;
-    if (has_paramb()) {
+    // optional string m_paramb = 3;
+    if (has_m_paramb()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->paramb());
+          this->m_paramb());
     }
 
-    // optional int64 chat_Id = 4;
-    if (has_chat_id()) {
+    // optional int64 m_chat_id = 4;
+    if (has_m_chat_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->chat_id());
+          this->m_chat_id());
     }
 
   }
@@ -1110,10 +1111,10 @@ int chatspecialchat::ByteSize() const {
   return total_size;
 }
 
-void chatspecialchat::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ChatSpecialchat::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const chatspecialchat* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const chatspecialchat*>(
+  const E_ChatSpecialchat* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ChatSpecialchat*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1122,59 +1123,59 @@ void chatspecialchat::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void chatspecialchat::MergeFrom(const chatspecialchat& from) {
+void E_ChatSpecialchat::MergeFrom(const E_ChatSpecialchat& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_parama()) {
-      set_parama(from.parama());
+    if (from.has_m_parama()) {
+      set_m_parama(from.m_parama());
     }
-    if (from.has_paramb()) {
-      set_paramb(from.paramb());
+    if (from.has_m_paramb()) {
+      set_m_paramb(from.m_paramb());
     }
-    if (from.has_chat_id()) {
-      set_chat_id(from.chat_id());
+    if (from.has_m_chat_id()) {
+      set_m_chat_id(from.m_chat_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void chatspecialchat::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ChatSpecialchat::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void chatspecialchat::CopyFrom(const chatspecialchat& from) {
+void E_ChatSpecialchat::CopyFrom(const E_ChatSpecialchat& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool chatspecialchat::IsInitialized() const {
+bool E_ChatSpecialchat::IsInitialized() const {
 
   return true;
 }
 
-void chatspecialchat::Swap(chatspecialchat* other) {
+void E_ChatSpecialchat::Swap(E_ChatSpecialchat* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(parama_, other->parama_);
-    std::swap(paramb_, other->paramb_);
-    std::swap(chat_id_, other->chat_id_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_parama_, other->m_parama_);
+    std::swap(m_paramb_, other->m_paramb_);
+    std::swap(m_chat_id_, other->m_chat_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata chatspecialchat::GetMetadata() const {
+::google::protobuf::Metadata E_ChatSpecialchat::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = chatspecialchat_descriptor_;
-  metadata.reflection = chatspecialchat_reflection_;
+  metadata.descriptor = E_ChatSpecialchat_descriptor_;
+  metadata.reflection = E_ChatSpecialchat_reflection_;
   return metadata;
 }
 
@@ -1182,81 +1183,81 @@ void chatspecialchat::Swap(chatspecialchat* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_chatspecialchat::kChatspecialchatListFieldNumber;
+const int Sheet_ChatSpecialchat::kEChatSpecialchatListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_chatspecialchat::Sheet_chatspecialchat()
+Sheet_ChatSpecialchat::Sheet_ChatSpecialchat()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_chatspecialchat::InitAsDefaultInstance() {
+void Sheet_ChatSpecialchat::InitAsDefaultInstance() {
 }
 
-Sheet_chatspecialchat::Sheet_chatspecialchat(const Sheet_chatspecialchat& from)
+Sheet_ChatSpecialchat::Sheet_ChatSpecialchat(const Sheet_ChatSpecialchat& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_chatspecialchat::SharedCtor() {
+void Sheet_ChatSpecialchat::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_chatspecialchat::~Sheet_chatspecialchat() {
+Sheet_ChatSpecialchat::~Sheet_ChatSpecialchat() {
   SharedDtor();
 }
 
-void Sheet_chatspecialchat::SharedDtor() {
+void Sheet_ChatSpecialchat::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_chatspecialchat::SetCachedSize(int size) const {
+void Sheet_ChatSpecialchat::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_chatspecialchat::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ChatSpecialchat::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_chatspecialchat_descriptor_;
+  return Sheet_ChatSpecialchat_descriptor_;
 }
 
-const Sheet_chatspecialchat& Sheet_chatspecialchat::default_instance() {
+const Sheet_ChatSpecialchat& Sheet_ChatSpecialchat::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_chat_2eproto();
   return *default_instance_;
 }
 
-Sheet_chatspecialchat* Sheet_chatspecialchat::default_instance_ = NULL;
+Sheet_ChatSpecialchat* Sheet_ChatSpecialchat::default_instance_ = NULL;
 
-Sheet_chatspecialchat* Sheet_chatspecialchat::New() const {
-  return new Sheet_chatspecialchat;
+Sheet_ChatSpecialchat* Sheet_ChatSpecialchat::New() const {
+  return new Sheet_ChatSpecialchat;
 }
 
-void Sheet_chatspecialchat::Clear() {
-  chatspecialchat_list_.Clear();
+void Sheet_ChatSpecialchat::Clear() {
+  e_chatspecialchat_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_chatspecialchat::MergePartialFromCodedStream(
+bool Sheet_ChatSpecialchat::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.chatspecialchat chatspecialchat_List = 1;
+      // repeated .proto_ff.E_ChatSpecialchat E_ChatSpecialchat_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_chatspecialchat_List:
+         parse_E_ChatSpecialchat_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_chatspecialchat_list()));
+                input, add_e_chatspecialchat_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_chatspecialchat_List;
+        if (input->ExpectTag(10)) goto parse_E_ChatSpecialchat_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1277,12 +1278,12 @@ bool Sheet_chatspecialchat::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_chatspecialchat::SerializeWithCachedSizes(
+void Sheet_ChatSpecialchat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.chatspecialchat chatspecialchat_List = 1;
-  for (int i = 0; i < this->chatspecialchat_list_size(); i++) {
+  // repeated .proto_ff.E_ChatSpecialchat E_ChatSpecialchat_List = 1;
+  for (int i = 0; i < this->e_chatspecialchat_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->chatspecialchat_list(i), output);
+      1, this->e_chatspecialchat_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1291,13 +1292,13 @@ void Sheet_chatspecialchat::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_chatspecialchat::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ChatSpecialchat::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.chatspecialchat chatspecialchat_List = 1;
-  for (int i = 0; i < this->chatspecialchat_list_size(); i++) {
+  // repeated .proto_ff.E_ChatSpecialchat E_ChatSpecialchat_List = 1;
+  for (int i = 0; i < this->e_chatspecialchat_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->chatspecialchat_list(i), target);
+        1, this->e_chatspecialchat_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1307,15 +1308,15 @@ void Sheet_chatspecialchat::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_chatspecialchat::ByteSize() const {
+int Sheet_ChatSpecialchat::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.chatspecialchat chatspecialchat_List = 1;
-  total_size += 1 * this->chatspecialchat_list_size();
-  for (int i = 0; i < this->chatspecialchat_list_size(); i++) {
+  // repeated .proto_ff.E_ChatSpecialchat E_ChatSpecialchat_List = 1;
+  total_size += 1 * this->e_chatspecialchat_list_size();
+  for (int i = 0; i < this->e_chatspecialchat_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->chatspecialchat_list(i));
+        this->e_chatspecialchat_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1329,10 +1330,10 @@ int Sheet_chatspecialchat::ByteSize() const {
   return total_size;
 }
 
-void Sheet_chatspecialchat::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ChatSpecialchat::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_chatspecialchat* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_chatspecialchat*>(
+  const Sheet_ChatSpecialchat* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ChatSpecialchat*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1341,43 +1342,43 @@ void Sheet_chatspecialchat::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_chatspecialchat::MergeFrom(const Sheet_chatspecialchat& from) {
+void Sheet_ChatSpecialchat::MergeFrom(const Sheet_ChatSpecialchat& from) {
   GOOGLE_CHECK_NE(&from, this);
-  chatspecialchat_list_.MergeFrom(from.chatspecialchat_list_);
+  e_chatspecialchat_list_.MergeFrom(from.e_chatspecialchat_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_chatspecialchat::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ChatSpecialchat::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_chatspecialchat::CopyFrom(const Sheet_chatspecialchat& from) {
+void Sheet_ChatSpecialchat::CopyFrom(const Sheet_ChatSpecialchat& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_chatspecialchat::IsInitialized() const {
+bool Sheet_ChatSpecialchat::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_chatspecialchat::Swap(Sheet_chatspecialchat* other) {
+void Sheet_ChatSpecialchat::Swap(Sheet_ChatSpecialchat* other) {
   if (other != this) {
-    chatspecialchat_list_.Swap(&other->chatspecialchat_list_);
+    e_chatspecialchat_list_.Swap(&other->e_chatspecialchat_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_chatspecialchat::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ChatSpecialchat::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_chatspecialchat_descriptor_;
-  metadata.reflection = Sheet_chatspecialchat_reflection_;
+  metadata.descriptor = Sheet_ChatSpecialchat_descriptor_;
+  metadata.reflection = Sheet_ChatSpecialchat_reflection_;
   return metadata;
 }
 

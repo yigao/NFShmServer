@@ -14,9 +14,9 @@ public:
 	virtual ~UiEffectDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::uieffect_s* GetDesc(int id) const;
-	proto_ff_s::uieffect_s* GetDesc(int id);
+	const proto_ff_s::E_UiEffect_s* GetDesc(int id) const;
+	proto_ff_s::E_UiEffect_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::uieffect_s, uieffect, MAX_UI_EFFECT_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_UiEffect_s, uieffect, MAX_UI_EFFECT_NUM);
 DECLARE_IDCREATE(UiEffectDesc);
 };

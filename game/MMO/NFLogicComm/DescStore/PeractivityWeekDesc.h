@@ -14,9 +14,9 @@ public:
 	virtual ~PeractivityWeekDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::perActivityweek_s* GetDesc(int id) const;
-	proto_ff_s::perActivityweek_s* GetDesc(int id);
+	const proto_ff_s::E_PeractivityWeek_s* GetDesc(int id) const;
+	proto_ff_s::E_PeractivityWeek_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::perActivityweek_s, perActivityweek, MAX_PERACTIVITY_WEEK_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_PeractivityWeek_s, perActivityweek, MAX_PERACTIVITY_WEEK_NUM);
 DECLARE_IDCREATE(PeractivityWeekDesc);
 };

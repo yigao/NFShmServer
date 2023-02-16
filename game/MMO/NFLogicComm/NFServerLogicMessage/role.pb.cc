@@ -20,114 +20,114 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* rolebornitemDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleBornItemDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolebornitemDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolebornmailDesc_descriptor_ = NULL;
+  E_RoleBornItemDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleBornMailDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolebornmailDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleborn_descriptor_ = NULL;
+  E_RoleBornMailDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleBorn_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleborn_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleborn_descriptor_ = NULL;
+  E_RoleBorn_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleBorn_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleborn_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolemasterMaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleBorn_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleMastermaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolemasterMaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolemasterMale_descriptor_ = NULL;
+  E_RoleMastermaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleMastermale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolemasterMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_rolemasterMale_descriptor_ = NULL;
+  E_RoleMastermale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleMastermale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_rolemasterMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolemasterFemaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleMastermale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleMasterfemaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolemasterFemaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolemasterFemale_descriptor_ = NULL;
+  E_RoleMasterfemaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleMasterfemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolemasterFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_rolemasterFemale_descriptor_ = NULL;
+  E_RoleMasterfemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleMasterfemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_rolemasterFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolesickleMaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleMasterfemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSicklemaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolesickleMaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolesickleMale_descriptor_ = NULL;
+  E_RoleSicklemaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSicklemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolesickleMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_rolesickleMale_descriptor_ = NULL;
+  E_RoleSicklemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleSicklemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_rolesickleMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolesickleFemaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleSicklemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSicklefemaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolesickleFemaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* rolesickleFemale_descriptor_ = NULL;
+  E_RoleSicklefemaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSicklefemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  rolesickleFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_rolesickleFemale_descriptor_ = NULL;
+  E_RoleSicklefemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleSicklefemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_rolesickleFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleswordMaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleSicklefemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSwordmaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleswordMaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleswordMale_descriptor_ = NULL;
+  E_RoleSwordmaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSwordmale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleswordMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleswordMale_descriptor_ = NULL;
+  E_RoleSwordmale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleSwordmale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleswordMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleswordFemaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleSwordmale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSwordfemaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleswordFemaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleswordFemale_descriptor_ = NULL;
+  E_RoleSwordfemaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSwordfemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleswordFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleswordFemale_descriptor_ = NULL;
+  E_RoleSwordfemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleSwordfemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleswordFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roletaidaoMaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleSwordfemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleTaidaomaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roletaidaoMaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roletaidaoMale_descriptor_ = NULL;
+  E_RoleTaidaomaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleTaidaomale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roletaidaoMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roletaidaoMale_descriptor_ = NULL;
+  E_RoleTaidaomale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleTaidaomale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roletaidaoMale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roletaidaoFemaleattributeDesc_descriptor_ = NULL;
+  Sheet_RoleTaidaomale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleTaidaofemaleAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roletaidaoFemaleattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roletaidaoFemale_descriptor_ = NULL;
+  E_RoleTaidaofemaleAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleTaidaofemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roletaidaoFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roletaidaoFemale_descriptor_ = NULL;
+  E_RoleTaidaofemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleTaidaofemale_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roletaidaoFemale_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleexp_descriptor_ = NULL;
+  Sheet_RoleTaidaofemale_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleExp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleexp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleexp_descriptor_ = NULL;
+  E_RoleExp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleExp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleexp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleskillType_descriptor_ = NULL;
+  Sheet_RoleExp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleSkilltype_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleskillType_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleskillType_descriptor_ = NULL;
+  E_RoleSkilltype_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleSkilltype_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleskillType_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleaddSkill_descriptor_ = NULL;
+  Sheet_RoleSkilltype_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleAddskill_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleaddSkill_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleaddSkill_descriptor_ = NULL;
+  E_RoleAddskill_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleAddskill_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleaddSkill_reflection_ = NULL;
-const ::google::protobuf::Descriptor* roleworldexp_descriptor_ = NULL;
+  Sheet_RoleAddskill_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_RoleWorldexp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  roleworldexp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_roleworldexp_descriptor_ = NULL;
+  E_RoleWorldexp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_RoleWorldexp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_roleworldexp_reflection_ = NULL;
+  Sheet_RoleWorldexp_reflection_ = NULL;
 
 }  // namespace
 
@@ -138,618 +138,618 @@ void protobuf_AssignDesc_role_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "role.proto");
   GOOGLE_CHECK(file != NULL);
-  rolebornitemDesc_descriptor_ = file->message_type(0);
-  static const int rolebornitemDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornitemDesc, num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornitemDesc, name_),
+  E_RoleBornItemDesc_descriptor_ = file->message_type(0);
+  static const int E_RoleBornItemDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornItemDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornItemDesc, m_name_),
   };
-  rolebornitemDesc_reflection_ =
+  E_RoleBornItemDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolebornitemDesc_descriptor_,
-      rolebornitemDesc::default_instance_,
-      rolebornitemDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornitemDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornitemDesc, _unknown_fields_),
+      E_RoleBornItemDesc_descriptor_,
+      E_RoleBornItemDesc::default_instance_,
+      E_RoleBornItemDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornItemDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornItemDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolebornitemDesc));
-  rolebornmailDesc_descriptor_ = file->message_type(1);
-  static const int rolebornmailDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornmailDesc, num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornmailDesc, name_),
+      sizeof(E_RoleBornItemDesc));
+  E_RoleBornMailDesc_descriptor_ = file->message_type(1);
+  static const int E_RoleBornMailDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornMailDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornMailDesc, m_name_),
   };
-  rolebornmailDesc_reflection_ =
+  E_RoleBornMailDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolebornmailDesc_descriptor_,
-      rolebornmailDesc::default_instance_,
-      rolebornmailDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornmailDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolebornmailDesc, _unknown_fields_),
+      E_RoleBornMailDesc_descriptor_,
+      E_RoleBornMailDesc::default_instance_,
+      E_RoleBornMailDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornMailDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBornMailDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolebornmailDesc));
-  roleborn_descriptor_ = file->message_type(2);
-  static const int roleborn_offsets_[42] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, bornid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, professionid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, professionname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, placement_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, gender_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, bornlevel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, borntitle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, diamond_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, binddiamond_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, gold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, mapid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, birthface_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, icons_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, loginavata_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, newweapon_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, newclothing_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, weaponavata_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, roleavata_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, haircolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, clothescolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, skincolor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryweapons_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryarmor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carrycloak_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryshoes_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carrynecklace_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryamulet_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carrybracer_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryring_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryfashionweapons_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carryfashionarmor_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, carrywings_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, mspeed_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, view_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, radius_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, group_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, sheny_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, shenw_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, actbuff_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, item_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, actskill_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, mail_),
+      sizeof(E_RoleBornMailDesc));
+  E_RoleBorn_descriptor_ = file->message_type(2);
+  static const int E_RoleBorn_offsets_[42] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_bornid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_professionid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_professionname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_placement_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_gender_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_bornlevel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_borntitle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_diamond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_binddiamond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_mapid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_birthface_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_icons_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_loginavata_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_newweapon_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_newclothing_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_weaponavata_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_roleavata_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_haircolor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_clothescolor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_skincolor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryweapons_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryarmor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carrycloak_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryshoes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carrynecklace_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryamulet_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carrybracer_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryring_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryfashionweapons_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carryfashionarmor_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_carrywings_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_mspeed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_view_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_radius_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_group_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_sheny_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_shenw_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_actbuff_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_item_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_actskill_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, m_mail_),
   };
-  roleborn_reflection_ =
+  E_RoleBorn_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleborn_descriptor_,
-      roleborn::default_instance_,
-      roleborn_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleborn, _unknown_fields_),
+      E_RoleBorn_descriptor_,
+      E_RoleBorn::default_instance_,
+      E_RoleBorn_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleBorn, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleborn));
-  Sheet_roleborn_descriptor_ = file->message_type(3);
-  static const int Sheet_roleborn_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleborn, roleborn_list_),
+      sizeof(E_RoleBorn));
+  Sheet_RoleBorn_descriptor_ = file->message_type(3);
+  static const int Sheet_RoleBorn_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleBorn, e_roleborn_list_),
   };
-  Sheet_roleborn_reflection_ =
+  Sheet_RoleBorn_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleborn_descriptor_,
-      Sheet_roleborn::default_instance_,
-      Sheet_roleborn_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleborn, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleborn, _unknown_fields_),
+      Sheet_RoleBorn_descriptor_,
+      Sheet_RoleBorn::default_instance_,
+      Sheet_RoleBorn_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleBorn, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleBorn, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleborn));
-  rolemasterMaleattributeDesc_descriptor_ = file->message_type(4);
-  static const int rolemasterMaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMaleattributeDesc, value_),
+      sizeof(Sheet_RoleBorn));
+  E_RoleMastermaleAttributeDesc_descriptor_ = file->message_type(4);
+  static const int E_RoleMastermaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermaleAttributeDesc, m_value_),
   };
-  rolemasterMaleattributeDesc_reflection_ =
+  E_RoleMastermaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolemasterMaleattributeDesc_descriptor_,
-      rolemasterMaleattributeDesc::default_instance_,
-      rolemasterMaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMaleattributeDesc, _unknown_fields_),
+      E_RoleMastermaleAttributeDesc_descriptor_,
+      E_RoleMastermaleAttributeDesc::default_instance_,
+      E_RoleMastermaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolemasterMaleattributeDesc));
-  rolemasterMale_descriptor_ = file->message_type(5);
-  static const int rolemasterMale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMale, attribute_),
+      sizeof(E_RoleMastermaleAttributeDesc));
+  E_RoleMastermale_descriptor_ = file->message_type(5);
+  static const int E_RoleMastermale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermale, m_attribute_),
   };
-  rolemasterMale_reflection_ =
+  E_RoleMastermale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolemasterMale_descriptor_,
-      rolemasterMale::default_instance_,
-      rolemasterMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterMale, _unknown_fields_),
+      E_RoleMastermale_descriptor_,
+      E_RoleMastermale::default_instance_,
+      E_RoleMastermale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMastermale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolemasterMale));
-  Sheet_rolemasterMale_descriptor_ = file->message_type(6);
-  static const int Sheet_rolemasterMale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolemasterMale, rolemastermale_list_),
+      sizeof(E_RoleMastermale));
+  Sheet_RoleMastermale_descriptor_ = file->message_type(6);
+  static const int Sheet_RoleMastermale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleMastermale, e_rolemastermale_list_),
   };
-  Sheet_rolemasterMale_reflection_ =
+  Sheet_RoleMastermale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_rolemasterMale_descriptor_,
-      Sheet_rolemasterMale::default_instance_,
-      Sheet_rolemasterMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolemasterMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolemasterMale, _unknown_fields_),
+      Sheet_RoleMastermale_descriptor_,
+      Sheet_RoleMastermale::default_instance_,
+      Sheet_RoleMastermale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleMastermale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleMastermale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_rolemasterMale));
-  rolemasterFemaleattributeDesc_descriptor_ = file->message_type(7);
-  static const int rolemasterFemaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemaleattributeDesc, value_),
+      sizeof(Sheet_RoleMastermale));
+  E_RoleMasterfemaleAttributeDesc_descriptor_ = file->message_type(7);
+  static const int E_RoleMasterfemaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemaleAttributeDesc, m_value_),
   };
-  rolemasterFemaleattributeDesc_reflection_ =
+  E_RoleMasterfemaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolemasterFemaleattributeDesc_descriptor_,
-      rolemasterFemaleattributeDesc::default_instance_,
-      rolemasterFemaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemaleattributeDesc, _unknown_fields_),
+      E_RoleMasterfemaleAttributeDesc_descriptor_,
+      E_RoleMasterfemaleAttributeDesc::default_instance_,
+      E_RoleMasterfemaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolemasterFemaleattributeDesc));
-  rolemasterFemale_descriptor_ = file->message_type(8);
-  static const int rolemasterFemale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemale, attribute_),
+      sizeof(E_RoleMasterfemaleAttributeDesc));
+  E_RoleMasterfemale_descriptor_ = file->message_type(8);
+  static const int E_RoleMasterfemale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemale, m_attribute_),
   };
-  rolemasterFemale_reflection_ =
+  E_RoleMasterfemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolemasterFemale_descriptor_,
-      rolemasterFemale::default_instance_,
-      rolemasterFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolemasterFemale, _unknown_fields_),
+      E_RoleMasterfemale_descriptor_,
+      E_RoleMasterfemale::default_instance_,
+      E_RoleMasterfemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleMasterfemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolemasterFemale));
-  Sheet_rolemasterFemale_descriptor_ = file->message_type(9);
-  static const int Sheet_rolemasterFemale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolemasterFemale, rolemasterfemale_list_),
+      sizeof(E_RoleMasterfemale));
+  Sheet_RoleMasterfemale_descriptor_ = file->message_type(9);
+  static const int Sheet_RoleMasterfemale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleMasterfemale, e_rolemasterfemale_list_),
   };
-  Sheet_rolemasterFemale_reflection_ =
+  Sheet_RoleMasterfemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_rolemasterFemale_descriptor_,
-      Sheet_rolemasterFemale::default_instance_,
-      Sheet_rolemasterFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolemasterFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolemasterFemale, _unknown_fields_),
+      Sheet_RoleMasterfemale_descriptor_,
+      Sheet_RoleMasterfemale::default_instance_,
+      Sheet_RoleMasterfemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleMasterfemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleMasterfemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_rolemasterFemale));
-  rolesickleMaleattributeDesc_descriptor_ = file->message_type(10);
-  static const int rolesickleMaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMaleattributeDesc, value_),
+      sizeof(Sheet_RoleMasterfemale));
+  E_RoleSicklemaleAttributeDesc_descriptor_ = file->message_type(10);
+  static const int E_RoleSicklemaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemaleAttributeDesc, m_value_),
   };
-  rolesickleMaleattributeDesc_reflection_ =
+  E_RoleSicklemaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolesickleMaleattributeDesc_descriptor_,
-      rolesickleMaleattributeDesc::default_instance_,
-      rolesickleMaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMaleattributeDesc, _unknown_fields_),
+      E_RoleSicklemaleAttributeDesc_descriptor_,
+      E_RoleSicklemaleAttributeDesc::default_instance_,
+      E_RoleSicklemaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolesickleMaleattributeDesc));
-  rolesickleMale_descriptor_ = file->message_type(11);
-  static const int rolesickleMale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMale, attribute_),
+      sizeof(E_RoleSicklemaleAttributeDesc));
+  E_RoleSicklemale_descriptor_ = file->message_type(11);
+  static const int E_RoleSicklemale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemale, m_attribute_),
   };
-  rolesickleMale_reflection_ =
+  E_RoleSicklemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolesickleMale_descriptor_,
-      rolesickleMale::default_instance_,
-      rolesickleMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleMale, _unknown_fields_),
+      E_RoleSicklemale_descriptor_,
+      E_RoleSicklemale::default_instance_,
+      E_RoleSicklemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolesickleMale));
-  Sheet_rolesickleMale_descriptor_ = file->message_type(12);
-  static const int Sheet_rolesickleMale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolesickleMale, rolesicklemale_list_),
+      sizeof(E_RoleSicklemale));
+  Sheet_RoleSicklemale_descriptor_ = file->message_type(12);
+  static const int Sheet_RoleSicklemale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSicklemale, e_rolesicklemale_list_),
   };
-  Sheet_rolesickleMale_reflection_ =
+  Sheet_RoleSicklemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_rolesickleMale_descriptor_,
-      Sheet_rolesickleMale::default_instance_,
-      Sheet_rolesickleMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolesickleMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolesickleMale, _unknown_fields_),
+      Sheet_RoleSicklemale_descriptor_,
+      Sheet_RoleSicklemale::default_instance_,
+      Sheet_RoleSicklemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSicklemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSicklemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_rolesickleMale));
-  rolesickleFemaleattributeDesc_descriptor_ = file->message_type(13);
-  static const int rolesickleFemaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemaleattributeDesc, value_),
+      sizeof(Sheet_RoleSicklemale));
+  E_RoleSicklefemaleAttributeDesc_descriptor_ = file->message_type(13);
+  static const int E_RoleSicklefemaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemaleAttributeDesc, m_value_),
   };
-  rolesickleFemaleattributeDesc_reflection_ =
+  E_RoleSicklefemaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolesickleFemaleattributeDesc_descriptor_,
-      rolesickleFemaleattributeDesc::default_instance_,
-      rolesickleFemaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemaleattributeDesc, _unknown_fields_),
+      E_RoleSicklefemaleAttributeDesc_descriptor_,
+      E_RoleSicklefemaleAttributeDesc::default_instance_,
+      E_RoleSicklefemaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolesickleFemaleattributeDesc));
-  rolesickleFemale_descriptor_ = file->message_type(14);
-  static const int rolesickleFemale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemale, attribute_),
+      sizeof(E_RoleSicklefemaleAttributeDesc));
+  E_RoleSicklefemale_descriptor_ = file->message_type(14);
+  static const int E_RoleSicklefemale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemale, m_attribute_),
   };
-  rolesickleFemale_reflection_ =
+  E_RoleSicklefemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      rolesickleFemale_descriptor_,
-      rolesickleFemale::default_instance_,
-      rolesickleFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(rolesickleFemale, _unknown_fields_),
+      E_RoleSicklefemale_descriptor_,
+      E_RoleSicklefemale::default_instance_,
+      E_RoleSicklefemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSicklefemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(rolesickleFemale));
-  Sheet_rolesickleFemale_descriptor_ = file->message_type(15);
-  static const int Sheet_rolesickleFemale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolesickleFemale, rolesicklefemale_list_),
+      sizeof(E_RoleSicklefemale));
+  Sheet_RoleSicklefemale_descriptor_ = file->message_type(15);
+  static const int Sheet_RoleSicklefemale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSicklefemale, e_rolesicklefemale_list_),
   };
-  Sheet_rolesickleFemale_reflection_ =
+  Sheet_RoleSicklefemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_rolesickleFemale_descriptor_,
-      Sheet_rolesickleFemale::default_instance_,
-      Sheet_rolesickleFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolesickleFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_rolesickleFemale, _unknown_fields_),
+      Sheet_RoleSicklefemale_descriptor_,
+      Sheet_RoleSicklefemale::default_instance_,
+      Sheet_RoleSicklefemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSicklefemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSicklefemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_rolesickleFemale));
-  roleswordMaleattributeDesc_descriptor_ = file->message_type(16);
-  static const int roleswordMaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMaleattributeDesc, value_),
+      sizeof(Sheet_RoleSicklefemale));
+  E_RoleSwordmaleAttributeDesc_descriptor_ = file->message_type(16);
+  static const int E_RoleSwordmaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmaleAttributeDesc, m_value_),
   };
-  roleswordMaleattributeDesc_reflection_ =
+  E_RoleSwordmaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleswordMaleattributeDesc_descriptor_,
-      roleswordMaleattributeDesc::default_instance_,
-      roleswordMaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMaleattributeDesc, _unknown_fields_),
+      E_RoleSwordmaleAttributeDesc_descriptor_,
+      E_RoleSwordmaleAttributeDesc::default_instance_,
+      E_RoleSwordmaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleswordMaleattributeDesc));
-  roleswordMale_descriptor_ = file->message_type(17);
-  static const int roleswordMale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMale, attribute_),
+      sizeof(E_RoleSwordmaleAttributeDesc));
+  E_RoleSwordmale_descriptor_ = file->message_type(17);
+  static const int E_RoleSwordmale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmale, m_attribute_),
   };
-  roleswordMale_reflection_ =
+  E_RoleSwordmale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleswordMale_descriptor_,
-      roleswordMale::default_instance_,
-      roleswordMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordMale, _unknown_fields_),
+      E_RoleSwordmale_descriptor_,
+      E_RoleSwordmale::default_instance_,
+      E_RoleSwordmale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordmale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleswordMale));
-  Sheet_roleswordMale_descriptor_ = file->message_type(18);
-  static const int Sheet_roleswordMale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleswordMale, roleswordmale_list_),
+      sizeof(E_RoleSwordmale));
+  Sheet_RoleSwordmale_descriptor_ = file->message_type(18);
+  static const int Sheet_RoleSwordmale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSwordmale, e_roleswordmale_list_),
   };
-  Sheet_roleswordMale_reflection_ =
+  Sheet_RoleSwordmale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleswordMale_descriptor_,
-      Sheet_roleswordMale::default_instance_,
-      Sheet_roleswordMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleswordMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleswordMale, _unknown_fields_),
+      Sheet_RoleSwordmale_descriptor_,
+      Sheet_RoleSwordmale::default_instance_,
+      Sheet_RoleSwordmale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSwordmale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSwordmale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleswordMale));
-  roleswordFemaleattributeDesc_descriptor_ = file->message_type(19);
-  static const int roleswordFemaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemaleattributeDesc, value_),
+      sizeof(Sheet_RoleSwordmale));
+  E_RoleSwordfemaleAttributeDesc_descriptor_ = file->message_type(19);
+  static const int E_RoleSwordfemaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemaleAttributeDesc, m_value_),
   };
-  roleswordFemaleattributeDesc_reflection_ =
+  E_RoleSwordfemaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleswordFemaleattributeDesc_descriptor_,
-      roleswordFemaleattributeDesc::default_instance_,
-      roleswordFemaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemaleattributeDesc, _unknown_fields_),
+      E_RoleSwordfemaleAttributeDesc_descriptor_,
+      E_RoleSwordfemaleAttributeDesc::default_instance_,
+      E_RoleSwordfemaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleswordFemaleattributeDesc));
-  roleswordFemale_descriptor_ = file->message_type(20);
-  static const int roleswordFemale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemale, attribute_),
+      sizeof(E_RoleSwordfemaleAttributeDesc));
+  E_RoleSwordfemale_descriptor_ = file->message_type(20);
+  static const int E_RoleSwordfemale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemale, m_attribute_),
   };
-  roleswordFemale_reflection_ =
+  E_RoleSwordfemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleswordFemale_descriptor_,
-      roleswordFemale::default_instance_,
-      roleswordFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleswordFemale, _unknown_fields_),
+      E_RoleSwordfemale_descriptor_,
+      E_RoleSwordfemale::default_instance_,
+      E_RoleSwordfemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSwordfemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleswordFemale));
-  Sheet_roleswordFemale_descriptor_ = file->message_type(21);
-  static const int Sheet_roleswordFemale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleswordFemale, roleswordfemale_list_),
+      sizeof(E_RoleSwordfemale));
+  Sheet_RoleSwordfemale_descriptor_ = file->message_type(21);
+  static const int Sheet_RoleSwordfemale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSwordfemale, e_roleswordfemale_list_),
   };
-  Sheet_roleswordFemale_reflection_ =
+  Sheet_RoleSwordfemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleswordFemale_descriptor_,
-      Sheet_roleswordFemale::default_instance_,
-      Sheet_roleswordFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleswordFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleswordFemale, _unknown_fields_),
+      Sheet_RoleSwordfemale_descriptor_,
+      Sheet_RoleSwordfemale::default_instance_,
+      Sheet_RoleSwordfemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSwordfemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSwordfemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleswordFemale));
-  roletaidaoMaleattributeDesc_descriptor_ = file->message_type(22);
-  static const int roletaidaoMaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMaleattributeDesc, value_),
+      sizeof(Sheet_RoleSwordfemale));
+  E_RoleTaidaomaleAttributeDesc_descriptor_ = file->message_type(22);
+  static const int E_RoleTaidaomaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomaleAttributeDesc, m_value_),
   };
-  roletaidaoMaleattributeDesc_reflection_ =
+  E_RoleTaidaomaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roletaidaoMaleattributeDesc_descriptor_,
-      roletaidaoMaleattributeDesc::default_instance_,
-      roletaidaoMaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMaleattributeDesc, _unknown_fields_),
+      E_RoleTaidaomaleAttributeDesc_descriptor_,
+      E_RoleTaidaomaleAttributeDesc::default_instance_,
+      E_RoleTaidaomaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roletaidaoMaleattributeDesc));
-  roletaidaoMale_descriptor_ = file->message_type(23);
-  static const int roletaidaoMale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMale, attribute_),
+      sizeof(E_RoleTaidaomaleAttributeDesc));
+  E_RoleTaidaomale_descriptor_ = file->message_type(23);
+  static const int E_RoleTaidaomale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomale, m_attribute_),
   };
-  roletaidaoMale_reflection_ =
+  E_RoleTaidaomale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roletaidaoMale_descriptor_,
-      roletaidaoMale::default_instance_,
-      roletaidaoMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoMale, _unknown_fields_),
+      E_RoleTaidaomale_descriptor_,
+      E_RoleTaidaomale::default_instance_,
+      E_RoleTaidaomale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaomale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roletaidaoMale));
-  Sheet_roletaidaoMale_descriptor_ = file->message_type(24);
-  static const int Sheet_roletaidaoMale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roletaidaoMale, roletaidaomale_list_),
+      sizeof(E_RoleTaidaomale));
+  Sheet_RoleTaidaomale_descriptor_ = file->message_type(24);
+  static const int Sheet_RoleTaidaomale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleTaidaomale, e_roletaidaomale_list_),
   };
-  Sheet_roletaidaoMale_reflection_ =
+  Sheet_RoleTaidaomale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roletaidaoMale_descriptor_,
-      Sheet_roletaidaoMale::default_instance_,
-      Sheet_roletaidaoMale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roletaidaoMale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roletaidaoMale, _unknown_fields_),
+      Sheet_RoleTaidaomale_descriptor_,
+      Sheet_RoleTaidaomale::default_instance_,
+      Sheet_RoleTaidaomale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleTaidaomale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleTaidaomale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roletaidaoMale));
-  roletaidaoFemaleattributeDesc_descriptor_ = file->message_type(25);
-  static const int roletaidaoFemaleattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemaleattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemaleattributeDesc, value_),
+      sizeof(Sheet_RoleTaidaomale));
+  E_RoleTaidaofemaleAttributeDesc_descriptor_ = file->message_type(25);
+  static const int E_RoleTaidaofemaleAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemaleAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemaleAttributeDesc, m_value_),
   };
-  roletaidaoFemaleattributeDesc_reflection_ =
+  E_RoleTaidaofemaleAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roletaidaoFemaleattributeDesc_descriptor_,
-      roletaidaoFemaleattributeDesc::default_instance_,
-      roletaidaoFemaleattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemaleattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemaleattributeDesc, _unknown_fields_),
+      E_RoleTaidaofemaleAttributeDesc_descriptor_,
+      E_RoleTaidaofemaleAttributeDesc::default_instance_,
+      E_RoleTaidaofemaleAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemaleAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemaleAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roletaidaoFemaleattributeDesc));
-  roletaidaoFemale_descriptor_ = file->message_type(26);
-  static const int roletaidaoFemale_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemale, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemale, upgradepoint_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemale, attribute_),
+      sizeof(E_RoleTaidaofemaleAttributeDesc));
+  E_RoleTaidaofemale_descriptor_ = file->message_type(26);
+  static const int E_RoleTaidaofemale_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemale, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemale, m_upgradepoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemale, m_attribute_),
   };
-  roletaidaoFemale_reflection_ =
+  E_RoleTaidaofemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roletaidaoFemale_descriptor_,
-      roletaidaoFemale::default_instance_,
-      roletaidaoFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roletaidaoFemale, _unknown_fields_),
+      E_RoleTaidaofemale_descriptor_,
+      E_RoleTaidaofemale::default_instance_,
+      E_RoleTaidaofemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleTaidaofemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roletaidaoFemale));
-  Sheet_roletaidaoFemale_descriptor_ = file->message_type(27);
-  static const int Sheet_roletaidaoFemale_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roletaidaoFemale, roletaidaofemale_list_),
+      sizeof(E_RoleTaidaofemale));
+  Sheet_RoleTaidaofemale_descriptor_ = file->message_type(27);
+  static const int Sheet_RoleTaidaofemale_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleTaidaofemale, e_roletaidaofemale_list_),
   };
-  Sheet_roletaidaoFemale_reflection_ =
+  Sheet_RoleTaidaofemale_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roletaidaoFemale_descriptor_,
-      Sheet_roletaidaoFemale::default_instance_,
-      Sheet_roletaidaoFemale_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roletaidaoFemale, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roletaidaoFemale, _unknown_fields_),
+      Sheet_RoleTaidaofemale_descriptor_,
+      Sheet_RoleTaidaofemale::default_instance_,
+      Sheet_RoleTaidaofemale_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleTaidaofemale, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleTaidaofemale, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roletaidaoFemale));
-  roleexp_descriptor_ = file->message_type(28);
-  static const int roleexp_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleexp, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleexp, exp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleexp, skillpoint_),
+      sizeof(Sheet_RoleTaidaofemale));
+  E_RoleExp_descriptor_ = file->message_type(28);
+  static const int E_RoleExp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_skillpoint_),
   };
-  roleexp_reflection_ =
+  E_RoleExp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleexp_descriptor_,
-      roleexp::default_instance_,
-      roleexp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleexp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleexp, _unknown_fields_),
+      E_RoleExp_descriptor_,
+      E_RoleExp::default_instance_,
+      E_RoleExp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleexp));
-  Sheet_roleexp_descriptor_ = file->message_type(29);
-  static const int Sheet_roleexp_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleexp, roleexp_list_),
+      sizeof(E_RoleExp));
+  Sheet_RoleExp_descriptor_ = file->message_type(29);
+  static const int Sheet_RoleExp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleExp, e_roleexp_list_),
   };
-  Sheet_roleexp_reflection_ =
+  Sheet_RoleExp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleexp_descriptor_,
-      Sheet_roleexp::default_instance_,
-      Sheet_roleexp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleexp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleexp, _unknown_fields_),
+      Sheet_RoleExp_descriptor_,
+      Sheet_RoleExp::default_instance_,
+      Sheet_RoleExp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleExp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleExp, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleexp));
-  roleskillType_descriptor_ = file->message_type(30);
-  static const int roleskillType_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleskillType, skillid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleskillType, skilltype_),
+      sizeof(Sheet_RoleExp));
+  E_RoleSkilltype_descriptor_ = file->message_type(30);
+  static const int E_RoleSkilltype_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSkilltype, m_skillid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSkilltype, m_skilltype_),
   };
-  roleskillType_reflection_ =
+  E_RoleSkilltype_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleskillType_descriptor_,
-      roleskillType::default_instance_,
-      roleskillType_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleskillType, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleskillType, _unknown_fields_),
+      E_RoleSkilltype_descriptor_,
+      E_RoleSkilltype::default_instance_,
+      E_RoleSkilltype_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSkilltype, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleSkilltype, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleskillType));
-  Sheet_roleskillType_descriptor_ = file->message_type(31);
-  static const int Sheet_roleskillType_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleskillType, roleskilltype_list_),
+      sizeof(E_RoleSkilltype));
+  Sheet_RoleSkilltype_descriptor_ = file->message_type(31);
+  static const int Sheet_RoleSkilltype_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSkilltype, e_roleskilltype_list_),
   };
-  Sheet_roleskillType_reflection_ =
+  Sheet_RoleSkilltype_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleskillType_descriptor_,
-      Sheet_roleskillType::default_instance_,
-      Sheet_roleskillType_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleskillType, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleskillType, _unknown_fields_),
+      Sheet_RoleSkilltype_descriptor_,
+      Sheet_RoleSkilltype::default_instance_,
+      Sheet_RoleSkilltype_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSkilltype, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleSkilltype, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleskillType));
-  roleaddSkill_descriptor_ = file->message_type(32);
-  static const int roleaddSkill_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleaddSkill, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleaddSkill, skillid_),
+      sizeof(Sheet_RoleSkilltype));
+  E_RoleAddskill_descriptor_ = file->message_type(32);
+  static const int E_RoleAddskill_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleAddskill, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleAddskill, m_skillid_),
   };
-  roleaddSkill_reflection_ =
+  E_RoleAddskill_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleaddSkill_descriptor_,
-      roleaddSkill::default_instance_,
-      roleaddSkill_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleaddSkill, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleaddSkill, _unknown_fields_),
+      E_RoleAddskill_descriptor_,
+      E_RoleAddskill::default_instance_,
+      E_RoleAddskill_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleAddskill, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleAddskill, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleaddSkill));
-  Sheet_roleaddSkill_descriptor_ = file->message_type(33);
-  static const int Sheet_roleaddSkill_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleaddSkill, roleaddskill_list_),
+      sizeof(E_RoleAddskill));
+  Sheet_RoleAddskill_descriptor_ = file->message_type(33);
+  static const int Sheet_RoleAddskill_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleAddskill, e_roleaddskill_list_),
   };
-  Sheet_roleaddSkill_reflection_ =
+  Sheet_RoleAddskill_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleaddSkill_descriptor_,
-      Sheet_roleaddSkill::default_instance_,
-      Sheet_roleaddSkill_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleaddSkill, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleaddSkill, _unknown_fields_),
+      Sheet_RoleAddskill_descriptor_,
+      Sheet_RoleAddskill::default_instance_,
+      Sheet_RoleAddskill_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleAddskill, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleAddskill, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleaddSkill));
-  roleworldexp_descriptor_ = file->message_type(34);
-  static const int roleworldexp_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleworldexp, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleworldexp, worldexp_),
+      sizeof(Sheet_RoleAddskill));
+  E_RoleWorldexp_descriptor_ = file->message_type(34);
+  static const int E_RoleWorldexp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleWorldexp, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleWorldexp, m_worldexp_),
   };
-  roleworldexp_reflection_ =
+  E_RoleWorldexp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      roleworldexp_descriptor_,
-      roleworldexp::default_instance_,
-      roleworldexp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleworldexp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(roleworldexp, _unknown_fields_),
+      E_RoleWorldexp_descriptor_,
+      E_RoleWorldexp::default_instance_,
+      E_RoleWorldexp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleWorldexp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleWorldexp, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(roleworldexp));
-  Sheet_roleworldexp_descriptor_ = file->message_type(35);
-  static const int Sheet_roleworldexp_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleworldexp, roleworldexp_list_),
+      sizeof(E_RoleWorldexp));
+  Sheet_RoleWorldexp_descriptor_ = file->message_type(35);
+  static const int Sheet_RoleWorldexp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleWorldexp, e_roleworldexp_list_),
   };
-  Sheet_roleworldexp_reflection_ =
+  Sheet_RoleWorldexp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_roleworldexp_descriptor_,
-      Sheet_roleworldexp::default_instance_,
-      Sheet_roleworldexp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleworldexp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_roleworldexp, _unknown_fields_),
+      Sheet_RoleWorldexp_descriptor_,
+      Sheet_RoleWorldexp::default_instance_,
+      Sheet_RoleWorldexp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleWorldexp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_RoleWorldexp, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_roleworldexp));
+      sizeof(Sheet_RoleWorldexp));
 }
 
 namespace {
@@ -763,154 +763,154 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolebornitemDesc_descriptor_, &rolebornitemDesc::default_instance());
+    E_RoleBornItemDesc_descriptor_, &E_RoleBornItemDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolebornmailDesc_descriptor_, &rolebornmailDesc::default_instance());
+    E_RoleBornMailDesc_descriptor_, &E_RoleBornMailDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleborn_descriptor_, &roleborn::default_instance());
+    E_RoleBorn_descriptor_, &E_RoleBorn::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleborn_descriptor_, &Sheet_roleborn::default_instance());
+    Sheet_RoleBorn_descriptor_, &Sheet_RoleBorn::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolemasterMaleattributeDesc_descriptor_, &rolemasterMaleattributeDesc::default_instance());
+    E_RoleMastermaleAttributeDesc_descriptor_, &E_RoleMastermaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolemasterMale_descriptor_, &rolemasterMale::default_instance());
+    E_RoleMastermale_descriptor_, &E_RoleMastermale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_rolemasterMale_descriptor_, &Sheet_rolemasterMale::default_instance());
+    Sheet_RoleMastermale_descriptor_, &Sheet_RoleMastermale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolemasterFemaleattributeDesc_descriptor_, &rolemasterFemaleattributeDesc::default_instance());
+    E_RoleMasterfemaleAttributeDesc_descriptor_, &E_RoleMasterfemaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolemasterFemale_descriptor_, &rolemasterFemale::default_instance());
+    E_RoleMasterfemale_descriptor_, &E_RoleMasterfemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_rolemasterFemale_descriptor_, &Sheet_rolemasterFemale::default_instance());
+    Sheet_RoleMasterfemale_descriptor_, &Sheet_RoleMasterfemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolesickleMaleattributeDesc_descriptor_, &rolesickleMaleattributeDesc::default_instance());
+    E_RoleSicklemaleAttributeDesc_descriptor_, &E_RoleSicklemaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolesickleMale_descriptor_, &rolesickleMale::default_instance());
+    E_RoleSicklemale_descriptor_, &E_RoleSicklemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_rolesickleMale_descriptor_, &Sheet_rolesickleMale::default_instance());
+    Sheet_RoleSicklemale_descriptor_, &Sheet_RoleSicklemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolesickleFemaleattributeDesc_descriptor_, &rolesickleFemaleattributeDesc::default_instance());
+    E_RoleSicklefemaleAttributeDesc_descriptor_, &E_RoleSicklefemaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    rolesickleFemale_descriptor_, &rolesickleFemale::default_instance());
+    E_RoleSicklefemale_descriptor_, &E_RoleSicklefemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_rolesickleFemale_descriptor_, &Sheet_rolesickleFemale::default_instance());
+    Sheet_RoleSicklefemale_descriptor_, &Sheet_RoleSicklefemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleswordMaleattributeDesc_descriptor_, &roleswordMaleattributeDesc::default_instance());
+    E_RoleSwordmaleAttributeDesc_descriptor_, &E_RoleSwordmaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleswordMale_descriptor_, &roleswordMale::default_instance());
+    E_RoleSwordmale_descriptor_, &E_RoleSwordmale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleswordMale_descriptor_, &Sheet_roleswordMale::default_instance());
+    Sheet_RoleSwordmale_descriptor_, &Sheet_RoleSwordmale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleswordFemaleattributeDesc_descriptor_, &roleswordFemaleattributeDesc::default_instance());
+    E_RoleSwordfemaleAttributeDesc_descriptor_, &E_RoleSwordfemaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleswordFemale_descriptor_, &roleswordFemale::default_instance());
+    E_RoleSwordfemale_descriptor_, &E_RoleSwordfemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleswordFemale_descriptor_, &Sheet_roleswordFemale::default_instance());
+    Sheet_RoleSwordfemale_descriptor_, &Sheet_RoleSwordfemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roletaidaoMaleattributeDesc_descriptor_, &roletaidaoMaleattributeDesc::default_instance());
+    E_RoleTaidaomaleAttributeDesc_descriptor_, &E_RoleTaidaomaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roletaidaoMale_descriptor_, &roletaidaoMale::default_instance());
+    E_RoleTaidaomale_descriptor_, &E_RoleTaidaomale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roletaidaoMale_descriptor_, &Sheet_roletaidaoMale::default_instance());
+    Sheet_RoleTaidaomale_descriptor_, &Sheet_RoleTaidaomale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roletaidaoFemaleattributeDesc_descriptor_, &roletaidaoFemaleattributeDesc::default_instance());
+    E_RoleTaidaofemaleAttributeDesc_descriptor_, &E_RoleTaidaofemaleAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roletaidaoFemale_descriptor_, &roletaidaoFemale::default_instance());
+    E_RoleTaidaofemale_descriptor_, &E_RoleTaidaofemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roletaidaoFemale_descriptor_, &Sheet_roletaidaoFemale::default_instance());
+    Sheet_RoleTaidaofemale_descriptor_, &Sheet_RoleTaidaofemale::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleexp_descriptor_, &roleexp::default_instance());
+    E_RoleExp_descriptor_, &E_RoleExp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleexp_descriptor_, &Sheet_roleexp::default_instance());
+    Sheet_RoleExp_descriptor_, &Sheet_RoleExp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleskillType_descriptor_, &roleskillType::default_instance());
+    E_RoleSkilltype_descriptor_, &E_RoleSkilltype::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleskillType_descriptor_, &Sheet_roleskillType::default_instance());
+    Sheet_RoleSkilltype_descriptor_, &Sheet_RoleSkilltype::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleaddSkill_descriptor_, &roleaddSkill::default_instance());
+    E_RoleAddskill_descriptor_, &E_RoleAddskill::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleaddSkill_descriptor_, &Sheet_roleaddSkill::default_instance());
+    Sheet_RoleAddskill_descriptor_, &Sheet_RoleAddskill::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    roleworldexp_descriptor_, &roleworldexp::default_instance());
+    E_RoleWorldexp_descriptor_, &E_RoleWorldexp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_roleworldexp_descriptor_, &Sheet_roleworldexp::default_instance());
+    Sheet_RoleWorldexp_descriptor_, &Sheet_RoleWorldexp::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_role_2eproto() {
-  delete rolebornitemDesc::default_instance_;
-  delete rolebornitemDesc_reflection_;
-  delete rolebornmailDesc::default_instance_;
-  delete rolebornmailDesc_reflection_;
-  delete roleborn::default_instance_;
-  delete roleborn_reflection_;
-  delete Sheet_roleborn::default_instance_;
-  delete Sheet_roleborn_reflection_;
-  delete rolemasterMaleattributeDesc::default_instance_;
-  delete rolemasterMaleattributeDesc_reflection_;
-  delete rolemasterMale::default_instance_;
-  delete rolemasterMale_reflection_;
-  delete Sheet_rolemasterMale::default_instance_;
-  delete Sheet_rolemasterMale_reflection_;
-  delete rolemasterFemaleattributeDesc::default_instance_;
-  delete rolemasterFemaleattributeDesc_reflection_;
-  delete rolemasterFemale::default_instance_;
-  delete rolemasterFemale_reflection_;
-  delete Sheet_rolemasterFemale::default_instance_;
-  delete Sheet_rolemasterFemale_reflection_;
-  delete rolesickleMaleattributeDesc::default_instance_;
-  delete rolesickleMaleattributeDesc_reflection_;
-  delete rolesickleMale::default_instance_;
-  delete rolesickleMale_reflection_;
-  delete Sheet_rolesickleMale::default_instance_;
-  delete Sheet_rolesickleMale_reflection_;
-  delete rolesickleFemaleattributeDesc::default_instance_;
-  delete rolesickleFemaleattributeDesc_reflection_;
-  delete rolesickleFemale::default_instance_;
-  delete rolesickleFemale_reflection_;
-  delete Sheet_rolesickleFemale::default_instance_;
-  delete Sheet_rolesickleFemale_reflection_;
-  delete roleswordMaleattributeDesc::default_instance_;
-  delete roleswordMaleattributeDesc_reflection_;
-  delete roleswordMale::default_instance_;
-  delete roleswordMale_reflection_;
-  delete Sheet_roleswordMale::default_instance_;
-  delete Sheet_roleswordMale_reflection_;
-  delete roleswordFemaleattributeDesc::default_instance_;
-  delete roleswordFemaleattributeDesc_reflection_;
-  delete roleswordFemale::default_instance_;
-  delete roleswordFemale_reflection_;
-  delete Sheet_roleswordFemale::default_instance_;
-  delete Sheet_roleswordFemale_reflection_;
-  delete roletaidaoMaleattributeDesc::default_instance_;
-  delete roletaidaoMaleattributeDesc_reflection_;
-  delete roletaidaoMale::default_instance_;
-  delete roletaidaoMale_reflection_;
-  delete Sheet_roletaidaoMale::default_instance_;
-  delete Sheet_roletaidaoMale_reflection_;
-  delete roletaidaoFemaleattributeDesc::default_instance_;
-  delete roletaidaoFemaleattributeDesc_reflection_;
-  delete roletaidaoFemale::default_instance_;
-  delete roletaidaoFemale_reflection_;
-  delete Sheet_roletaidaoFemale::default_instance_;
-  delete Sheet_roletaidaoFemale_reflection_;
-  delete roleexp::default_instance_;
-  delete roleexp_reflection_;
-  delete Sheet_roleexp::default_instance_;
-  delete Sheet_roleexp_reflection_;
-  delete roleskillType::default_instance_;
-  delete roleskillType_reflection_;
-  delete Sheet_roleskillType::default_instance_;
-  delete Sheet_roleskillType_reflection_;
-  delete roleaddSkill::default_instance_;
-  delete roleaddSkill_reflection_;
-  delete Sheet_roleaddSkill::default_instance_;
-  delete Sheet_roleaddSkill_reflection_;
-  delete roleworldexp::default_instance_;
-  delete roleworldexp_reflection_;
-  delete Sheet_roleworldexp::default_instance_;
-  delete Sheet_roleworldexp_reflection_;
+  delete E_RoleBornItemDesc::default_instance_;
+  delete E_RoleBornItemDesc_reflection_;
+  delete E_RoleBornMailDesc::default_instance_;
+  delete E_RoleBornMailDesc_reflection_;
+  delete E_RoleBorn::default_instance_;
+  delete E_RoleBorn_reflection_;
+  delete Sheet_RoleBorn::default_instance_;
+  delete Sheet_RoleBorn_reflection_;
+  delete E_RoleMastermaleAttributeDesc::default_instance_;
+  delete E_RoleMastermaleAttributeDesc_reflection_;
+  delete E_RoleMastermale::default_instance_;
+  delete E_RoleMastermale_reflection_;
+  delete Sheet_RoleMastermale::default_instance_;
+  delete Sheet_RoleMastermale_reflection_;
+  delete E_RoleMasterfemaleAttributeDesc::default_instance_;
+  delete E_RoleMasterfemaleAttributeDesc_reflection_;
+  delete E_RoleMasterfemale::default_instance_;
+  delete E_RoleMasterfemale_reflection_;
+  delete Sheet_RoleMasterfemale::default_instance_;
+  delete Sheet_RoleMasterfemale_reflection_;
+  delete E_RoleSicklemaleAttributeDesc::default_instance_;
+  delete E_RoleSicklemaleAttributeDesc_reflection_;
+  delete E_RoleSicklemale::default_instance_;
+  delete E_RoleSicklemale_reflection_;
+  delete Sheet_RoleSicklemale::default_instance_;
+  delete Sheet_RoleSicklemale_reflection_;
+  delete E_RoleSicklefemaleAttributeDesc::default_instance_;
+  delete E_RoleSicklefemaleAttributeDesc_reflection_;
+  delete E_RoleSicklefemale::default_instance_;
+  delete E_RoleSicklefemale_reflection_;
+  delete Sheet_RoleSicklefemale::default_instance_;
+  delete Sheet_RoleSicklefemale_reflection_;
+  delete E_RoleSwordmaleAttributeDesc::default_instance_;
+  delete E_RoleSwordmaleAttributeDesc_reflection_;
+  delete E_RoleSwordmale::default_instance_;
+  delete E_RoleSwordmale_reflection_;
+  delete Sheet_RoleSwordmale::default_instance_;
+  delete Sheet_RoleSwordmale_reflection_;
+  delete E_RoleSwordfemaleAttributeDesc::default_instance_;
+  delete E_RoleSwordfemaleAttributeDesc_reflection_;
+  delete E_RoleSwordfemale::default_instance_;
+  delete E_RoleSwordfemale_reflection_;
+  delete Sheet_RoleSwordfemale::default_instance_;
+  delete Sheet_RoleSwordfemale_reflection_;
+  delete E_RoleTaidaomaleAttributeDesc::default_instance_;
+  delete E_RoleTaidaomaleAttributeDesc_reflection_;
+  delete E_RoleTaidaomale::default_instance_;
+  delete E_RoleTaidaomale_reflection_;
+  delete Sheet_RoleTaidaomale::default_instance_;
+  delete Sheet_RoleTaidaomale_reflection_;
+  delete E_RoleTaidaofemaleAttributeDesc::default_instance_;
+  delete E_RoleTaidaofemaleAttributeDesc_reflection_;
+  delete E_RoleTaidaofemale::default_instance_;
+  delete E_RoleTaidaofemale_reflection_;
+  delete Sheet_RoleTaidaofemale::default_instance_;
+  delete Sheet_RoleTaidaofemale_reflection_;
+  delete E_RoleExp::default_instance_;
+  delete E_RoleExp_reflection_;
+  delete Sheet_RoleExp::default_instance_;
+  delete Sheet_RoleExp_reflection_;
+  delete E_RoleSkilltype::default_instance_;
+  delete E_RoleSkilltype_reflection_;
+  delete Sheet_RoleSkilltype::default_instance_;
+  delete Sheet_RoleSkilltype_reflection_;
+  delete E_RoleAddskill::default_instance_;
+  delete E_RoleAddskill_reflection_;
+  delete Sheet_RoleAddskill::default_instance_;
+  delete Sheet_RoleAddskill_reflection_;
+  delete E_RoleWorldexp::default_instance_;
+  delete E_RoleWorldexp_reflection_;
+  delete Sheet_RoleWorldexp::default_instance_;
+  delete Sheet_RoleWorldexp_reflection_;
 }
 
 void protobuf_AddDesc_role_2eproto() {
@@ -922,213 +922,221 @@ void protobuf_AddDesc_role_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nrole.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\"E\n\020rolebornitemDesc\022\027\n\003num\030\001 \001(\005B\n"
-    "\302\377\024\006\346\225\260\351\207\217\022\030\n\004name\030\002 \001(\003B\n\302\377\024\006\345\220\215\347\247\260\"E\n\020"
-    "rolebornmailDesc\022\027\n\003num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207"
-    "\217\022\030\n\004name\030\002 \001(\003B\n\302\377\024\006\345\220\215\347\247\260\"\257\r\n\010roleborn"
-    "\022\034\n\006bornID\030\001 \001(\003B\014\302\377\024\010\344\270\273\351\224\256ID\022\"\n\014profes"
-    "sionID\030\002 \001(\005B\014\302\377\024\010\350\201\214\344\270\232ID\022,\n\016profession"
-    "Name\030\003 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\345\220\215\347\247\260\220\301\024<\022\'\n\tplac"
-    "ement\030\004 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\344\273\213\347\273\215\220\301\024<\022\032\n\006gen"
-    "der\030\005 \001(\005B\n\302\377\024\006\346\200\247\345\210\253\022#\n\tbornLevel\030\006 \001(\005"
-    "B\020\302\377\024\014\345\207\272\347\224\237\347\255\211\347\272\247\022#\n\tbornTitle\030\007 \001(\005B\020\302"
-    "\377\024\014\346\220\272\345\270\246\347\247\260\345\217\267\022!\n\007diamond\030\010 \001(\003B\020\302\377\024\014\346\220"
-    "\272\345\270\246\351\222\273\347\237\263\022+\n\013bindDiamond\030\t \001(\003B\026\302\377\024\022\346\220\272"
-    "\345\270\246\347\273\221\345\256\232\351\222\273\347\237\263\022\036\n\004gold\030\n \001(\003B\020\302\377\024\014\346\220\272\345\270"
-    "\246\351\207\221\345\270\201\022!\n\005mapID\030\013 \001(\003B\022\302\377\024\016\345\207\272\347\224\237\345\234\260\345\233\276"
-    "ID\022#\n\tbirthFace\030\014 \001(\005B\020\302\377\024\014\345\207\272\347\224\237\346\234\235\345\220\221\022"
-    "#\n\005icons\030\r \001(\tB\024\302\377\024\014\345\244\264\345\203\217\345\233\276\346\240\207\220\301\024<\022.\n\n"
-    "loginAvata\030\016 \001(\tB\032\302\377\024\022\345\210\233\350\247\222\347\225\214\351\235\242\346\250\241\345\236\213"
-    "\220\301\024<\0223\n\tnewweapon\030\017 \001(\tB \302\377\024\030\346\226\260\346\211\213\345\211\257\346\234"
-    "\254\346\255\246\345\231\250\346\250\241\345\236\213\220\301\024<\0225\n\013newclothing\030\020 \001(\tB "
-    "\302\377\024\030\346\226\260\346\211\213\345\211\257\346\234\254\350\241\243\346\234\215\346\250\241\345\236\213\220\301\024<\0222\n\013weap"
-    "onAvata\030\021 \001(\tB\035\302\377\024\025\345\207\272\347\224\237\346\227\266\346\255\246\345\231\250\346\250\241\345\236\213"
-    "\220\301\024<\022*\n\troleAvata\030\022 \001(\tB\027\302\377\024\017\345\207\272\347\224\237\346\227\266\346\250"
-    "\241\345\236\213\220\301\024<\022#\n\thairColor\030\023 \001(\005B\020\302\377\024\014\345\244\264\345\217\221\350"
-    "\211\262\345\200\274\022&\n\014clothesColor\030\024 \001(\005B\020\302\377\024\014\350\241\243\346\234\215\350"
-    "\211\262\345\200\274\022#\n\tskinColor\030\025 \001(\005B\020\302\377\024\014\347\232\256\350\202\244\350\211\262\345"
-    "\200\274\022&\n\014carryWeapons\030\026 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\255\246\345"
-    "\231\250\022$\n\ncarryArmor\030\027 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\350\241\243\346\234\215"
-    "\022$\n\ncarryCloak\030\030 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\253\351\243\216\022$"
-    "\n\ncarryShoes\030\031 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\236\213\345\255\220\022\'\n\r"
-    "carryNecklace\030\032 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\241\271\351\223\276\022%\n"
-    "\013carryAmulet\030\033 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\347\254\246\022%\n\013"
-    "carryBracer\030\034 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\350\205\225\022#\n\tc"
-    "arryRing\030\035 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\210\222\346\214\207\0229\n\023carr"
-    "yFashionWeapons\030\036 \001(\003B\034\302\377\024\030\350\243\205\345\244\207\346\227\266\350\243\205\357"
-    "\274\210\346\255\246\345\231\250\357\274\211\0227\n\021carryFashionArmor\030\037 \001(\003B\034"
-    "\302\377\024\030\350\243\205\345\244\207\346\227\266\350\243\205\357\274\210\350\241\243\346\234\215\357\274\211\022\036\n\ncarryWin"
-    "gs\030  \001(\003B\n\302\377\024\006\347\277\205\350\206\200\022&\n\006mSpeed\030! \001(\005B\026\302\377"
-    "\024\022\345\210\235\345\247\213\347\247\273\345\212\250\351\200\237\345\272\246\022\030\n\004view\030\" \001(\005B\n\302\377\024\006"
-    "\350\247\206\351\207\216\022 \n\006radius\030# \001(\005B\020\302\377\024\014\344\272\272\347\211\251\345\215\212\345\276\204"
-    "\022\034\n\005group\030$ \001(\005B\r\302\377\024\t\346\212\200\350\203\275\347\273\204\022\037\n\005sheny\030"
-    "% \001(\003B\020\302\377\024\014\347\245\236\350\243\205\350\241\243\346\234\215\022\037\n\005shenw\030& \001(\003B\020"
-    "\302\377\024\014\347\245\236\350\243\205\346\255\246\345\231\250\022#\n\007actBuff\030\' \003(\005B\022\302\377\024\n\347"
-    "\224\237\346\210\220buff\210\301\024\004\022>\n\004item\030( \003(\0132\032.proto_ff.r"
-    "olebornitemDescB\024\302\377\024\014\350\203\214\345\214\205\347\211\251\345\223\201\210\301\024#\022&\n"
-    "\010actSkill\030) \003(\003B\024\302\377\024\014\347\224\237\346\210\220\346\212\200\350\203\275\210\301\024\014\022>\n"
-    "\004mail\030* \003(\0132\032.proto_ff.rolebornmailDescB"
-    "\024\302\377\024\014\351\202\256\344\273\266\347\211\251\345\223\201\210\301\024\001\"A\n\016Sheet_roleborn\022"
-    "/\n\rroleborn_List\030\001 \003(\0132\022.proto_ff.rolebo"
-    "rnB\004\210\301\024\024\"O\n\033rolemasterMaleattributeDesc\022"
-    "\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005Value\030\002 \001(\005"
-    "B\007\302\377\024\003\345\200\274\"\246\001\n\016rolemasterMale\022\034\n\002lv\030\001 \001(\005"
-    "B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,\n\014upgradePoint\030\002 \001(\005"
-    "B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022H\n\tattribute\030\003 "
-    "\003(\0132%.proto_ff.rolemasterMaleattributeDe"
-    "scB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"T\n\024Sheet_rolemasterMa"
-    "le\022<\n\023rolemasterMale_List\030\001 \003(\0132\030.proto_"
-    "ff.rolemasterMaleB\005\210\301\024\320\017\"Q\n\035rolemasterFe"
-    "maleattributeDesc\022\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261\273"
-    "\345\236\213\022\026\n\005Value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\252\001\n\020rolemast"
-    "erFemale\022\034\n\002lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,"
-    "\n\014upgradePoint\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202"
-    "\271\346\225\260\022J\n\tattribute\030\003 \003(\0132\'.proto_ff.rolem"
-    "asterFemaleattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026"
-    "\"Z\n\026Sheet_rolemasterFemale\022@\n\025rolemaster"
-    "Female_List\030\001 \003(\0132\032.proto_ff.rolemasterF"
-    "emaleB\005\210\301\024\320\017\"O\n\033rolesickleMaleattributeD"
-    "esc\022\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005Value\030\002"
-    " \001(\005B\007\302\377\024\003\345\200\274\"\246\001\n\016rolesickleMale\022\034\n\002lv\030\001"
-    " \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,\n\014upgradePoint\030\002"
-    " \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022H\n\tattribut"
-    "e\030\003 \003(\0132%.proto_ff.rolesickleMaleattribu"
-    "teDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"T\n\024Sheet_rolesick"
-    "leMale\022<\n\023rolesickleMale_List\030\001 \003(\0132\030.pr"
-    "oto_ff.rolesickleMaleB\005\210\301\024\320\017\"Q\n\035rolesick"
-    "leFemaleattributeDesc\022\030\n\004Type\030\001 \001(\005B\n\302\377\024"
-    "\006\347\261\273\345\236\213\022\026\n\005Value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\252\001\n\020role"
-    "sickleFemale\022\034\n\002lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347"
-    "\272\247\022,\n\014upgradePoint\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345"
-    "\276\227\347\202\271\346\225\260\022J\n\tattribute\030\003 \003(\0132\'.proto_ff.r"
-    "olesickleFemaleattributeDescB\016\302\377\024\006\345\261\236\346\200\247"
-    "\210\301\024\026\"Z\n\026Sheet_rolesickleFemale\022@\n\025rolesi"
-    "ckleFemale_List\030\001 \003(\0132\032.proto_ff.rolesic"
-    "kleFemaleB\005\210\301\024\320\017\"N\n\032roleswordMaleattribu"
-    "teDesc\022\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005Valu"
-    "e\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\244\001\n\rroleswordMale\022\034\n\002lv"
-    "\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,\n\014upgradePoint"
-    "\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022G\n\tattrib"
-    "ute\030\003 \003(\0132$.proto_ff.roleswordMaleattrib"
-    "uteDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"Q\n\023Sheet_roleswo"
-    "rdMale\022:\n\022roleswordMale_List\030\001 \003(\0132\027.pro"
-    "to_ff.roleswordMaleB\005\210\301\024\320\017\"P\n\034roleswordF"
-    "emaleattributeDesc\022\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261"
-    "\273\345\236\213\022\026\n\005Value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\250\001\n\017roleswo"
-    "rdFemale\022\034\n\002lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,"
-    "\n\014upgradePoint\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202"
-    "\271\346\225\260\022I\n\tattribute\030\003 \003(\0132&.proto_ff.roles"
-    "wordFemaleattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\""
-    "W\n\025Sheet_roleswordFemale\022>\n\024roleswordFem"
-    "ale_List\030\001 \003(\0132\031.proto_ff.roleswordFemal"
-    "eB\005\210\301\024\320\017\"O\n\033roletaidaoMaleattributeDesc\022"
-    "\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005Value\030\002 \001(\005"
-    "B\007\302\377\024\003\345\200\274\"\246\001\n\016roletaidaoMale\022\034\n\002lv\030\001 \001(\005"
-    "B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,\n\014upgradePoint\030\002 \001(\005"
-    "B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022H\n\tattribute\030\003 "
-    "\003(\0132%.proto_ff.roletaidaoMaleattributeDe"
-    "scB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"T\n\024Sheet_roletaidaoMa"
-    "le\022<\n\023roletaidaoMale_List\030\001 \003(\0132\030.proto_"
-    "ff.roletaidaoMaleB\005\210\301\024\320\017\"Q\n\035roletaidaoFe"
-    "maleattributeDesc\022\030\n\004Type\030\001 \001(\005B\n\302\377\024\006\347\261\273"
-    "\345\236\213\022\026\n\005Value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\252\001\n\020roletaid"
-    "aoFemale\022\034\n\002lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022,"
-    "\n\014upgradePoint\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202"
-    "\271\346\225\260\022J\n\tattribute\030\003 \003(\0132\'.proto_ff.rolet"
-    "aidaoFemaleattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026"
-    "\"Z\n\026Sheet_roletaidaoFemale\022@\n\025roletaidao"
-    "Female_List\030\001 \003(\0132\032.proto_ff.roletaidaoF"
-    "emaleB\005\210\301\024\320\017\"u\n\007roleexp\022\026\n\002lv\030\001 \001(\005B\n\302\377\024"
-    "\006\347\255\211\347\272\247\022/\n\003exp\030\002 \001(\003B\"\302\377\024\036\345\275\223\345\211\215\347\255\211\347\272\247\345\215"
-    "\207\347\272\247\351\234\200\350\246\201\347\273\217\351\252\214\022!\n\nskillPoint\030\003 \001(\005B\r\302\377"
-    "\024\t\345\244\251\350\265\213\347\202\271\"\?\n\rSheet_roleexp\022.\n\014roleexp_"
-    "List\030\001 \003(\0132\021.proto_ff.roleexpB\005\210\301\024\320\017\"S\n\r"
-    "roleskillType\022\035\n\007skillId\030\001 \001(\003B\014\302\377\024\010\346\212\200\350"
-    "\203\275ID\022#\n\tskillType\030\002 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347\261\273\345\236"
-    "\213\"Q\n\023Sheet_roleskillType\022:\n\022roleskillTyp"
-    "e_List\030\001 \003(\0132\027.proto_ff.roleskillTypeB\005\210"
-    "\301\024\310\001\"E\n\014roleaddSkill\022\022\n\002Id\030\001 \001(\005B\006\302\377\024\002ID"
-    "\022!\n\007skillId\030\002 \001(\003B\020\302\377\024\014\346\212\200\350\203\275\347\261\273\345\236\213\"M\n\022S"
-    "heet_roleaddSkill\0227\n\021roleaddSkill_List\030\001"
-    " \003(\0132\026.proto_ff.roleaddSkillB\004\210\301\024\024\"M\n\014ro"
-    "leworldexp\022\031\n\002lv\030\001 \001(\003B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022\"\n"
-    "\010worldExp\030\002 \001(\005B\020\302\377\024\014\347\273\217\351\252\214\345\212\240\346\210\220\"N\n\022She"
-    "et_roleworldexp\0228\n\021roleworldexp_List\030\001 \003"
-    "(\0132\026.proto_ff.roleworldexpB\005\210\301\024\330\004", 5353);
+    "proto\"K\n\022E_RoleBornItemDesc\022\031\n\005m_num\030\001 \001"
+    "(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_name\030\002 \001(\003B\n\302\377\024\006\345\220\215\347"
+    "\247\260\"K\n\022E_RoleBornMailDesc\022\031\n\005m_num\030\001 \001(\005B"
+    "\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_name\030\002 \001(\003B\n\302\377\024\006\345\220\215\347\247\260\""
+    "\211\016\n\nE_RoleBorn\022\036\n\010m_bornid\030\001 \001(\003B\014\302\377\024\010\344\270"
+    "\273\351\224\256ID\022$\n\016m_professionid\030\002 \001(\005B\014\302\377\024\010\350\201\214\344"
+    "\270\232ID\022.\n\020m_professionname\030\003 \001(\tB\024\302\377\024\014\350\201\214\344"
+    "\270\232\345\220\215\347\247\260\220\301\024<\022)\n\013m_placement\030\004 \001(\tB\024\302\377\024\014\350"
+    "\201\214\344\270\232\344\273\213\347\273\215\220\301\024<\022\034\n\010m_gender\030\005 \001(\005B\n\302\377\024\006\346"
+    "\200\247\345\210\253\022%\n\013m_bornlevel\030\006 \001(\005B\020\302\377\024\014\345\207\272\347\224\237\347\255"
+    "\211\347\272\247\022%\n\013m_borntitle\030\007 \001(\005B\020\302\377\024\014\346\220\272\345\270\246\347\247\260"
+    "\345\217\267\022#\n\tm_diamond\030\010 \001(\003B\020\302\377\024\014\346\220\272\345\270\246\351\222\273\347\237\263"
+    "\022-\n\rm_binddiamond\030\t \001(\003B\026\302\377\024\022\346\220\272\345\270\246\347\273\221\345\256"
+    "\232\351\222\273\347\237\263\022 \n\006m_gold\030\n \001(\003B\020\302\377\024\014\346\220\272\345\270\246\351\207\221\345\270"
+    "\201\022#\n\007m_mapid\030\013 \001(\003B\022\302\377\024\016\345\207\272\347\224\237\345\234\260\345\233\276ID\022%"
+    "\n\013m_birthface\030\014 \001(\005B\020\302\377\024\014\345\207\272\347\224\237\346\234\235\345\220\221\022%\n"
+    "\007m_icons\030\r \001(\tB\024\302\377\024\014\345\244\264\345\203\217\345\233\276\346\240\207\220\301\024<\0220\n\014"
+    "m_loginavata\030\016 \001(\tB\032\302\377\024\022\345\210\233\350\247\222\347\225\214\351\235\242\346\250\241\345"
+    "\236\213\220\301\024<\0225\n\013m_newweapon\030\017 \001(\tB \302\377\024\030\346\226\260\346\211\213\345"
+    "\211\257\346\234\254\346\255\246\345\231\250\346\250\241\345\236\213\220\301\024<\0227\n\rm_newclothing\030\020"
+    " \001(\tB \302\377\024\030\346\226\260\346\211\213\345\211\257\346\234\254\350\241\243\346\234\215\346\250\241\345\236\213\220\301\024<\0224"
+    "\n\rm_weaponavata\030\021 \001(\tB\035\302\377\024\025\345\207\272\347\224\237\346\227\266\346\255\246\345"
+    "\231\250\346\250\241\345\236\213\220\301\024<\022,\n\013m_roleavata\030\022 \001(\tB\027\302\377\024\017\345"
+    "\207\272\347\224\237\346\227\266\346\250\241\345\236\213\220\301\024<\022%\n\013m_haircolor\030\023 \001(\005B"
+    "\020\302\377\024\014\345\244\264\345\217\221\350\211\262\345\200\274\022(\n\016m_clothescolor\030\024 \001("
+    "\005B\020\302\377\024\014\350\241\243\346\234\215\350\211\262\345\200\274\022%\n\013m_skincolor\030\025 \001(\005"
+    "B\020\302\377\024\014\347\232\256\350\202\244\350\211\262\345\200\274\022(\n\016m_carryweapons\030\026 \001"
+    "(\003B\020\302\377\024\014\350\243\205\345\244\207\346\255\246\345\231\250\022&\n\014m_carryarmor\030\027 \001"
+    "(\003B\020\302\377\024\014\350\243\205\345\244\207\350\241\243\346\234\215\022&\n\014m_carrycloak\030\030 \001"
+    "(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\253\351\243\216\022&\n\014m_carryshoes\030\031 \001"
+    "(\003B\020\302\377\024\014\350\243\205\345\244\207\351\236\213\345\255\220\022)\n\017m_carrynecklace\030"
+    "\032 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\241\271\351\223\276\022\'\n\rm_carryamulet"
+    "\030\033 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\347\254\246\022\'\n\rm_carrybrace"
+    "r\030\034 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\350\205\225\022%\n\013m_carryring"
+    "\030\035 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\210\222\346\214\207\022;\n\025m_carryfashi"
+    "onweapons\030\036 \001(\003B\034\302\377\024\030\350\243\205\345\244\207\346\227\266\350\243\205\357\274\210\346\255\246\345"
+    "\231\250\357\274\211\0229\n\023m_carryfashionarmor\030\037 \001(\003B\034\302\377\024\030"
+    "\350\243\205\345\244\207\346\227\266\350\243\205\357\274\210\350\241\243\346\234\215\357\274\211\022 \n\014m_carrywings"
+    "\030  \001(\003B\n\302\377\024\006\347\277\205\350\206\200\022(\n\010m_mspeed\030! \001(\005B\026\302\377"
+    "\024\022\345\210\235\345\247\213\347\247\273\345\212\250\351\200\237\345\272\246\022\032\n\006m_view\030\" \001(\005B\n\302\377"
+    "\024\006\350\247\206\351\207\216\022\"\n\010m_radius\030# \001(\005B\020\302\377\024\014\344\272\272\347\211\251\345\215"
+    "\212\345\276\204\022\036\n\007m_group\030$ \001(\005B\r\302\377\024\t\346\212\200\350\203\275\347\273\204\022!\n\007"
+    "m_sheny\030% \001(\003B\020\302\377\024\014\347\245\236\350\243\205\350\241\243\346\234\215\022!\n\007m_she"
+    "nw\030& \001(\003B\020\302\377\024\014\347\245\236\350\243\205\346\255\246\345\231\250\022%\n\tm_actbuff\030"
+    "\' \003(\005B\022\302\377\024\n\347\224\237\346\210\220buff\210\301\024\004\022B\n\006m_item\030( \003("
+    "\0132\034.proto_ff.E_RoleBornItemDescB\024\302\377\024\014\350\203\214"
+    "\345\214\205\347\211\251\345\223\201\210\301\024#\022(\n\nm_actskill\030) \003(\003B\024\302\377\024\014\347"
+    "\224\237\346\210\220\346\212\200\350\203\275\210\301\024\014\022B\n\006m_mail\030* \003(\0132\034.proto_"
+    "ff.E_RoleBornMailDescB\024\302\377\024\014\351\202\256\344\273\266\347\211\251\345\223\201\210"
+    "\301\024\001\"E\n\016Sheet_RoleBorn\0223\n\017E_RoleBorn_List"
+    "\030\001 \003(\0132\024.proto_ff.E_RoleBornB\004\210\301\024\024\"U\n\035E_"
+    "RoleMastermaleAttributeDesc\022\032\n\006m_type\030\001 "
+    "\001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200"
+    "\274\"\260\001\n\020E_RoleMastermale\022\036\n\004m_lv\030\001 \001(\005B\020\302\377"
+    "\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001(\005B\026"
+    "\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m_attribute\030\003 "
+    "\003(\0132\'.proto_ff.E_RoleMastermaleAttribute"
+    "DescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"X\n\024Sheet_RoleMaster"
+    "male\022@\n\025E_RoleMastermale_List\030\001 \003(\0132\032.pr"
+    "oto_ff.E_RoleMastermaleB\005\210\301\024\320\017\"W\n\037E_Role"
+    "MasterfemaleAttributeDesc\022\032\n\006m_type\030\001 \001("
+    "\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\""
+    "\264\001\n\022E_RoleMasterfemale\022\036\n\004m_lv\030\001 \001(\005B\020\302\377"
+    "\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001(\005B\026"
+    "\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m_attribute\030\003 "
+    "\003(\0132).proto_ff.E_RoleMasterfemaleAttribu"
+    "teDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"^\n\026Sheet_RoleMast"
+    "erfemale\022D\n\027E_RoleMasterfemale_List\030\001 \003("
+    "\0132\034.proto_ff.E_RoleMasterfemaleB\005\210\301\024\320\017\"U"
+    "\n\035E_RoleSicklemaleAttributeDesc\022\032\n\006m_typ"
+    "e\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377"
+    "\024\003\345\200\274\"\260\001\n\020E_RoleSicklemale\022\036\n\004m_lv\030\001 \001(\005"
+    "B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001"
+    "(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m_attribut"
+    "e\030\003 \003(\0132\'.proto_ff.E_RoleSicklemaleAttri"
+    "buteDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"X\n\024Sheet_RoleSi"
+    "cklemale\022@\n\025E_RoleSicklemale_List\030\001 \003(\0132"
+    "\032.proto_ff.E_RoleSicklemaleB\005\210\301\024\320\017\"W\n\037E_"
+    "RoleSicklefemaleAttributeDesc\022\032\n\006m_type\030"
+    "\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003"
+    "\345\200\274\"\264\001\n\022E_RoleSicklefemale\022\036\n\004m_lv\030\001 \001(\005"
+    "B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001"
+    "(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m_attribut"
+    "e\030\003 \003(\0132).proto_ff.E_RoleSicklefemaleAtt"
+    "ributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"^\n\026Sheet_Role"
+    "Sicklefemale\022D\n\027E_RoleSicklefemale_List\030"
+    "\001 \003(\0132\034.proto_ff.E_RoleSicklefemaleB\005\210\301\024"
+    "\320\017\"T\n\034E_RoleSwordmaleAttributeDesc\022\032\n\006m_"
+    "type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B"
+    "\007\302\377\024\003\345\200\274\"\256\001\n\017E_RoleSwordmale\022\036\n\004m_lv\030\001 \001"
+    "(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002"
+    " \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022K\n\013m_attrib"
+    "ute\030\003 \003(\0132&.proto_ff.E_RoleSwordmaleAttr"
+    "ibuteDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"U\n\023Sheet_RoleS"
+    "wordmale\022>\n\024E_RoleSwordmale_List\030\001 \003(\0132\031"
+    ".proto_ff.E_RoleSwordmaleB\005\210\301\024\320\017\"V\n\036E_Ro"
+    "leSwordfemaleAttributeDesc\022\032\n\006m_type\030\001 \001"
+    "(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274"
+    "\"\262\001\n\021E_RoleSwordfemale\022\036\n\004m_lv\030\001 \001(\005B\020\302\377"
+    "\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001(\005B\026"
+    "\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022M\n\013m_attribute\030\003 "
+    "\003(\0132(.proto_ff.E_RoleSwordfemaleAttribut"
+    "eDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"[\n\025Sheet_RoleSword"
+    "female\022B\n\026E_RoleSwordfemale_List\030\001 \003(\0132\033"
+    ".proto_ff.E_RoleSwordfemaleB\005\210\301\024\320\017\"U\n\035E_"
+    "RoleTaidaomaleAttributeDesc\022\032\n\006m_type\030\001 "
+    "\001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200"
+    "\274\"\260\001\n\020E_RoleTaidaomale\022\036\n\004m_lv\030\001 \001(\005B\020\302\377"
+    "\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001(\005B\026"
+    "\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m_attribute\030\003 "
+    "\003(\0132\'.proto_ff.E_RoleTaidaomaleAttribute"
+    "DescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"X\n\024Sheet_RoleTaidao"
+    "male\022@\n\025E_RoleTaidaomale_List\030\001 \003(\0132\032.pr"
+    "oto_ff.E_RoleTaidaomaleB\005\210\301\024\320\017\"W\n\037E_Role"
+    "TaidaofemaleAttributeDesc\022\032\n\006m_type\030\001 \001("
+    "\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\""
+    "\264\001\n\022E_RoleTaidaofemale\022\036\n\004m_lv\030\001 \001(\005B\020\302\377"
+    "\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoint\030\002 \001(\005B\026"
+    "\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m_attribute\030\003 "
+    "\003(\0132).proto_ff.E_RoleTaidaofemaleAttribu"
+    "teDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\026\"^\n\026Sheet_RoleTaid"
+    "aofemale\022D\n\027E_RoleTaidaofemale_List\030\001 \003("
+    "\0132\034.proto_ff.E_RoleTaidaofemaleB\005\210\301\024\320\017\"}"
+    "\n\tE_RoleExp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\0221\n"
+    "\005m_exp\030\002 \001(\003B\"\302\377\024\036\345\275\223\345\211\215\347\255\211\347\272\247\345\215\207\347\272\247\351\234\200\350"
+    "\246\201\347\273\217\351\252\214\022#\n\014m_skillpoint\030\003 \001(\005B\r\302\377\024\t\345\244\251\350"
+    "\265\213\347\202\271\"C\n\rSheet_RoleExp\0222\n\016E_RoleExp_List"
+    "\030\001 \003(\0132\023.proto_ff.E_RoleExpB\005\210\301\024\320\017\"Y\n\017E_"
+    "RoleSkilltype\022\037\n\tm_skillid\030\001 \001(\003B\014\302\377\024\010\346\212"
+    "\200\350\203\275ID\022%\n\013m_skilltype\030\002 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347"
+    "\261\273\345\236\213\"U\n\023Sheet_RoleSkilltype\022>\n\024E_RoleSk"
+    "illtype_List\030\001 \003(\0132\031.proto_ff.E_RoleSkil"
+    "ltypeB\005\210\301\024\310\001\"K\n\016E_RoleAddskill\022\024\n\004m_id\030\001"
+    " \001(\005B\006\302\377\024\002ID\022#\n\tm_skillid\030\002 \001(\003B\020\302\377\024\014\346\212\200"
+    "\350\203\275\347\261\273\345\236\213\"Q\n\022Sheet_RoleAddskill\022;\n\023E_Rol"
+    "eAddskill_List\030\001 \003(\0132\030.proto_ff.E_RoleAd"
+    "dskillB\004\210\301\024\024\"S\n\016E_RoleWorldexp\022\033\n\004m_lv\030\001"
+    " \001(\003B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022$\n\nm_worldexp\030\002 \001(\005B"
+    "\020\302\377\024\014\347\273\217\351\252\214\345\212\240\346\210\220\"R\n\022Sheet_RoleWorldexp\022"
+    "<\n\023E_RoleWorldexp_List\030\001 \003(\0132\030.proto_ff."
+    "E_RoleWorldexpB\005\210\301\024\330\004", 5661);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "role.proto", &protobuf_RegisterTypes);
-  rolebornitemDesc::default_instance_ = new rolebornitemDesc();
-  rolebornmailDesc::default_instance_ = new rolebornmailDesc();
-  roleborn::default_instance_ = new roleborn();
-  Sheet_roleborn::default_instance_ = new Sheet_roleborn();
-  rolemasterMaleattributeDesc::default_instance_ = new rolemasterMaleattributeDesc();
-  rolemasterMale::default_instance_ = new rolemasterMale();
-  Sheet_rolemasterMale::default_instance_ = new Sheet_rolemasterMale();
-  rolemasterFemaleattributeDesc::default_instance_ = new rolemasterFemaleattributeDesc();
-  rolemasterFemale::default_instance_ = new rolemasterFemale();
-  Sheet_rolemasterFemale::default_instance_ = new Sheet_rolemasterFemale();
-  rolesickleMaleattributeDesc::default_instance_ = new rolesickleMaleattributeDesc();
-  rolesickleMale::default_instance_ = new rolesickleMale();
-  Sheet_rolesickleMale::default_instance_ = new Sheet_rolesickleMale();
-  rolesickleFemaleattributeDesc::default_instance_ = new rolesickleFemaleattributeDesc();
-  rolesickleFemale::default_instance_ = new rolesickleFemale();
-  Sheet_rolesickleFemale::default_instance_ = new Sheet_rolesickleFemale();
-  roleswordMaleattributeDesc::default_instance_ = new roleswordMaleattributeDesc();
-  roleswordMale::default_instance_ = new roleswordMale();
-  Sheet_roleswordMale::default_instance_ = new Sheet_roleswordMale();
-  roleswordFemaleattributeDesc::default_instance_ = new roleswordFemaleattributeDesc();
-  roleswordFemale::default_instance_ = new roleswordFemale();
-  Sheet_roleswordFemale::default_instance_ = new Sheet_roleswordFemale();
-  roletaidaoMaleattributeDesc::default_instance_ = new roletaidaoMaleattributeDesc();
-  roletaidaoMale::default_instance_ = new roletaidaoMale();
-  Sheet_roletaidaoMale::default_instance_ = new Sheet_roletaidaoMale();
-  roletaidaoFemaleattributeDesc::default_instance_ = new roletaidaoFemaleattributeDesc();
-  roletaidaoFemale::default_instance_ = new roletaidaoFemale();
-  Sheet_roletaidaoFemale::default_instance_ = new Sheet_roletaidaoFemale();
-  roleexp::default_instance_ = new roleexp();
-  Sheet_roleexp::default_instance_ = new Sheet_roleexp();
-  roleskillType::default_instance_ = new roleskillType();
-  Sheet_roleskillType::default_instance_ = new Sheet_roleskillType();
-  roleaddSkill::default_instance_ = new roleaddSkill();
-  Sheet_roleaddSkill::default_instance_ = new Sheet_roleaddSkill();
-  roleworldexp::default_instance_ = new roleworldexp();
-  Sheet_roleworldexp::default_instance_ = new Sheet_roleworldexp();
-  rolebornitemDesc::default_instance_->InitAsDefaultInstance();
-  rolebornmailDesc::default_instance_->InitAsDefaultInstance();
-  roleborn::default_instance_->InitAsDefaultInstance();
-  Sheet_roleborn::default_instance_->InitAsDefaultInstance();
-  rolemasterMaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  rolemasterMale::default_instance_->InitAsDefaultInstance();
-  Sheet_rolemasterMale::default_instance_->InitAsDefaultInstance();
-  rolemasterFemaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  rolemasterFemale::default_instance_->InitAsDefaultInstance();
-  Sheet_rolemasterFemale::default_instance_->InitAsDefaultInstance();
-  rolesickleMaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  rolesickleMale::default_instance_->InitAsDefaultInstance();
-  Sheet_rolesickleMale::default_instance_->InitAsDefaultInstance();
-  rolesickleFemaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  rolesickleFemale::default_instance_->InitAsDefaultInstance();
-  Sheet_rolesickleFemale::default_instance_->InitAsDefaultInstance();
-  roleswordMaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  roleswordMale::default_instance_->InitAsDefaultInstance();
-  Sheet_roleswordMale::default_instance_->InitAsDefaultInstance();
-  roleswordFemaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  roleswordFemale::default_instance_->InitAsDefaultInstance();
-  Sheet_roleswordFemale::default_instance_->InitAsDefaultInstance();
-  roletaidaoMaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  roletaidaoMale::default_instance_->InitAsDefaultInstance();
-  Sheet_roletaidaoMale::default_instance_->InitAsDefaultInstance();
-  roletaidaoFemaleattributeDesc::default_instance_->InitAsDefaultInstance();
-  roletaidaoFemale::default_instance_->InitAsDefaultInstance();
-  Sheet_roletaidaoFemale::default_instance_->InitAsDefaultInstance();
-  roleexp::default_instance_->InitAsDefaultInstance();
-  Sheet_roleexp::default_instance_->InitAsDefaultInstance();
-  roleskillType::default_instance_->InitAsDefaultInstance();
-  Sheet_roleskillType::default_instance_->InitAsDefaultInstance();
-  roleaddSkill::default_instance_->InitAsDefaultInstance();
-  Sheet_roleaddSkill::default_instance_->InitAsDefaultInstance();
-  roleworldexp::default_instance_->InitAsDefaultInstance();
-  Sheet_roleworldexp::default_instance_->InitAsDefaultInstance();
+  E_RoleBornItemDesc::default_instance_ = new E_RoleBornItemDesc();
+  E_RoleBornMailDesc::default_instance_ = new E_RoleBornMailDesc();
+  E_RoleBorn::default_instance_ = new E_RoleBorn();
+  Sheet_RoleBorn::default_instance_ = new Sheet_RoleBorn();
+  E_RoleMastermaleAttributeDesc::default_instance_ = new E_RoleMastermaleAttributeDesc();
+  E_RoleMastermale::default_instance_ = new E_RoleMastermale();
+  Sheet_RoleMastermale::default_instance_ = new Sheet_RoleMastermale();
+  E_RoleMasterfemaleAttributeDesc::default_instance_ = new E_RoleMasterfemaleAttributeDesc();
+  E_RoleMasterfemale::default_instance_ = new E_RoleMasterfemale();
+  Sheet_RoleMasterfemale::default_instance_ = new Sheet_RoleMasterfemale();
+  E_RoleSicklemaleAttributeDesc::default_instance_ = new E_RoleSicklemaleAttributeDesc();
+  E_RoleSicklemale::default_instance_ = new E_RoleSicklemale();
+  Sheet_RoleSicklemale::default_instance_ = new Sheet_RoleSicklemale();
+  E_RoleSicklefemaleAttributeDesc::default_instance_ = new E_RoleSicklefemaleAttributeDesc();
+  E_RoleSicklefemale::default_instance_ = new E_RoleSicklefemale();
+  Sheet_RoleSicklefemale::default_instance_ = new Sheet_RoleSicklefemale();
+  E_RoleSwordmaleAttributeDesc::default_instance_ = new E_RoleSwordmaleAttributeDesc();
+  E_RoleSwordmale::default_instance_ = new E_RoleSwordmale();
+  Sheet_RoleSwordmale::default_instance_ = new Sheet_RoleSwordmale();
+  E_RoleSwordfemaleAttributeDesc::default_instance_ = new E_RoleSwordfemaleAttributeDesc();
+  E_RoleSwordfemale::default_instance_ = new E_RoleSwordfemale();
+  Sheet_RoleSwordfemale::default_instance_ = new Sheet_RoleSwordfemale();
+  E_RoleTaidaomaleAttributeDesc::default_instance_ = new E_RoleTaidaomaleAttributeDesc();
+  E_RoleTaidaomale::default_instance_ = new E_RoleTaidaomale();
+  Sheet_RoleTaidaomale::default_instance_ = new Sheet_RoleTaidaomale();
+  E_RoleTaidaofemaleAttributeDesc::default_instance_ = new E_RoleTaidaofemaleAttributeDesc();
+  E_RoleTaidaofemale::default_instance_ = new E_RoleTaidaofemale();
+  Sheet_RoleTaidaofemale::default_instance_ = new Sheet_RoleTaidaofemale();
+  E_RoleExp::default_instance_ = new E_RoleExp();
+  Sheet_RoleExp::default_instance_ = new Sheet_RoleExp();
+  E_RoleSkilltype::default_instance_ = new E_RoleSkilltype();
+  Sheet_RoleSkilltype::default_instance_ = new Sheet_RoleSkilltype();
+  E_RoleAddskill::default_instance_ = new E_RoleAddskill();
+  Sheet_RoleAddskill::default_instance_ = new Sheet_RoleAddskill();
+  E_RoleWorldexp::default_instance_ = new E_RoleWorldexp();
+  Sheet_RoleWorldexp::default_instance_ = new Sheet_RoleWorldexp();
+  E_RoleBornItemDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleBornMailDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleBorn::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleBorn::default_instance_->InitAsDefaultInstance();
+  E_RoleMastermaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleMastermale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleMastermale::default_instance_->InitAsDefaultInstance();
+  E_RoleMasterfemaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleMasterfemale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleMasterfemale::default_instance_->InitAsDefaultInstance();
+  E_RoleSicklemaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleSicklemale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleSicklemale::default_instance_->InitAsDefaultInstance();
+  E_RoleSicklefemaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleSicklefemale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleSicklefemale::default_instance_->InitAsDefaultInstance();
+  E_RoleSwordmaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleSwordmale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleSwordmale::default_instance_->InitAsDefaultInstance();
+  E_RoleSwordfemaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleSwordfemale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleSwordfemale::default_instance_->InitAsDefaultInstance();
+  E_RoleTaidaomaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleTaidaomale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleTaidaomale::default_instance_->InitAsDefaultInstance();
+  E_RoleTaidaofemaleAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_RoleTaidaofemale::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleTaidaofemale::default_instance_->InitAsDefaultInstance();
+  E_RoleExp::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleExp::default_instance_->InitAsDefaultInstance();
+  E_RoleSkilltype::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleSkilltype::default_instance_->InitAsDefaultInstance();
+  E_RoleAddskill::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleAddskill::default_instance_->InitAsDefaultInstance();
+  E_RoleWorldexp::default_instance_->InitAsDefaultInstance();
+  Sheet_RoleWorldexp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_role_2eproto);
 }
 
@@ -1142,100 +1150,100 @@ struct StaticDescriptorInitializer_role_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolebornitemDesc::kNumFieldNumber;
-const int rolebornitemDesc::kNameFieldNumber;
+const int E_RoleBornItemDesc::kMNumFieldNumber;
+const int E_RoleBornItemDesc::kMNameFieldNumber;
 #endif  // !_MSC_VER
 
-rolebornitemDesc::rolebornitemDesc()
+E_RoleBornItemDesc::E_RoleBornItemDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolebornitemDesc::InitAsDefaultInstance() {
+void E_RoleBornItemDesc::InitAsDefaultInstance() {
 }
 
-rolebornitemDesc::rolebornitemDesc(const rolebornitemDesc& from)
+E_RoleBornItemDesc::E_RoleBornItemDesc(const E_RoleBornItemDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolebornitemDesc::SharedCtor() {
+void E_RoleBornItemDesc::SharedCtor() {
   _cached_size_ = 0;
-  num_ = 0;
-  name_ = GOOGLE_LONGLONG(0);
+  m_num_ = 0;
+  m_name_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolebornitemDesc::~rolebornitemDesc() {
+E_RoleBornItemDesc::~E_RoleBornItemDesc() {
   SharedDtor();
 }
 
-void rolebornitemDesc::SharedDtor() {
+void E_RoleBornItemDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolebornitemDesc::SetCachedSize(int size) const {
+void E_RoleBornItemDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolebornitemDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleBornItemDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolebornitemDesc_descriptor_;
+  return E_RoleBornItemDesc_descriptor_;
 }
 
-const rolebornitemDesc& rolebornitemDesc::default_instance() {
+const E_RoleBornItemDesc& E_RoleBornItemDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolebornitemDesc* rolebornitemDesc::default_instance_ = NULL;
+E_RoleBornItemDesc* E_RoleBornItemDesc::default_instance_ = NULL;
 
-rolebornitemDesc* rolebornitemDesc::New() const {
-  return new rolebornitemDesc;
+E_RoleBornItemDesc* E_RoleBornItemDesc::New() const {
+  return new E_RoleBornItemDesc;
 }
 
-void rolebornitemDesc::Clear() {
+void E_RoleBornItemDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    num_ = 0;
-    name_ = GOOGLE_LONGLONG(0);
+    m_num_ = 0;
+    m_name_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolebornitemDesc::MergePartialFromCodedStream(
+bool E_RoleBornItemDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 num = 1;
+      // optional int32 m_num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &num_)));
-          set_has_num();
+                 input, &m_num_)));
+          set_has_m_num();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_name;
+        if (input->ExpectTag(16)) goto parse_m_name;
         break;
       }
 
-      // optional int64 name = 2;
+      // optional int64 m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_name:
+         parse_m_name:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &name_)));
-          set_has_name();
+                 input, &m_name_)));
+          set_has_m_name();
         } else {
           goto handle_uninterpreted;
         }
@@ -1259,16 +1267,16 @@ bool rolebornitemDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolebornitemDesc::SerializeWithCachedSizes(
+void E_RoleBornItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 num = 1;
-  if (has_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int64 name = 2;
-  if (has_name()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->name(), output);
+  // optional int64 m_name = 2;
+  if (has_m_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_name(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1277,16 +1285,16 @@ void rolebornitemDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolebornitemDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleBornItemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 num = 1;
-  if (has_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int64 name = 2;
-  if (has_name()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->name(), target);
+  // optional int64 m_name = 2;
+  if (has_m_name()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_name(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1296,22 +1304,22 @@ void rolebornitemDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int rolebornitemDesc::ByteSize() const {
+int E_RoleBornItemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 num = 1;
-    if (has_num()) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->num());
+          this->m_num());
     }
 
-    // optional int64 name = 2;
-    if (has_name()) {
+    // optional int64 m_name = 2;
+    if (has_m_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->name());
+          this->m_name());
     }
 
   }
@@ -1326,10 +1334,10 @@ int rolebornitemDesc::ByteSize() const {
   return total_size;
 }
 
-void rolebornitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleBornItemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolebornitemDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolebornitemDesc*>(
+  const E_RoleBornItemDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleBornItemDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1338,51 +1346,51 @@ void rolebornitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void rolebornitemDesc::MergeFrom(const rolebornitemDesc& from) {
+void E_RoleBornItemDesc::MergeFrom(const E_RoleBornItemDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_num()) {
-      set_num(from.num());
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolebornitemDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleBornItemDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolebornitemDesc::CopyFrom(const rolebornitemDesc& from) {
+void E_RoleBornItemDesc::CopyFrom(const E_RoleBornItemDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolebornitemDesc::IsInitialized() const {
+bool E_RoleBornItemDesc::IsInitialized() const {
 
   return true;
 }
 
-void rolebornitemDesc::Swap(rolebornitemDesc* other) {
+void E_RoleBornItemDesc::Swap(E_RoleBornItemDesc* other) {
   if (other != this) {
-    std::swap(num_, other->num_);
-    std::swap(name_, other->name_);
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_name_, other->m_name_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolebornitemDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleBornItemDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolebornitemDesc_descriptor_;
-  metadata.reflection = rolebornitemDesc_reflection_;
+  metadata.descriptor = E_RoleBornItemDesc_descriptor_;
+  metadata.reflection = E_RoleBornItemDesc_reflection_;
   return metadata;
 }
 
@@ -1390,100 +1398,100 @@ void rolebornitemDesc::Swap(rolebornitemDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolebornmailDesc::kNumFieldNumber;
-const int rolebornmailDesc::kNameFieldNumber;
+const int E_RoleBornMailDesc::kMNumFieldNumber;
+const int E_RoleBornMailDesc::kMNameFieldNumber;
 #endif  // !_MSC_VER
 
-rolebornmailDesc::rolebornmailDesc()
+E_RoleBornMailDesc::E_RoleBornMailDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolebornmailDesc::InitAsDefaultInstance() {
+void E_RoleBornMailDesc::InitAsDefaultInstance() {
 }
 
-rolebornmailDesc::rolebornmailDesc(const rolebornmailDesc& from)
+E_RoleBornMailDesc::E_RoleBornMailDesc(const E_RoleBornMailDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolebornmailDesc::SharedCtor() {
+void E_RoleBornMailDesc::SharedCtor() {
   _cached_size_ = 0;
-  num_ = 0;
-  name_ = GOOGLE_LONGLONG(0);
+  m_num_ = 0;
+  m_name_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolebornmailDesc::~rolebornmailDesc() {
+E_RoleBornMailDesc::~E_RoleBornMailDesc() {
   SharedDtor();
 }
 
-void rolebornmailDesc::SharedDtor() {
+void E_RoleBornMailDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolebornmailDesc::SetCachedSize(int size) const {
+void E_RoleBornMailDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolebornmailDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleBornMailDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolebornmailDesc_descriptor_;
+  return E_RoleBornMailDesc_descriptor_;
 }
 
-const rolebornmailDesc& rolebornmailDesc::default_instance() {
+const E_RoleBornMailDesc& E_RoleBornMailDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolebornmailDesc* rolebornmailDesc::default_instance_ = NULL;
+E_RoleBornMailDesc* E_RoleBornMailDesc::default_instance_ = NULL;
 
-rolebornmailDesc* rolebornmailDesc::New() const {
-  return new rolebornmailDesc;
+E_RoleBornMailDesc* E_RoleBornMailDesc::New() const {
+  return new E_RoleBornMailDesc;
 }
 
-void rolebornmailDesc::Clear() {
+void E_RoleBornMailDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    num_ = 0;
-    name_ = GOOGLE_LONGLONG(0);
+    m_num_ = 0;
+    m_name_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolebornmailDesc::MergePartialFromCodedStream(
+bool E_RoleBornMailDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 num = 1;
+      // optional int32 m_num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &num_)));
-          set_has_num();
+                 input, &m_num_)));
+          set_has_m_num();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_name;
+        if (input->ExpectTag(16)) goto parse_m_name;
         break;
       }
 
-      // optional int64 name = 2;
+      // optional int64 m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_name:
+         parse_m_name:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &name_)));
-          set_has_name();
+                 input, &m_name_)));
+          set_has_m_name();
         } else {
           goto handle_uninterpreted;
         }
@@ -1507,16 +1515,16 @@ bool rolebornmailDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolebornmailDesc::SerializeWithCachedSizes(
+void E_RoleBornMailDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 num = 1;
-  if (has_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int64 name = 2;
-  if (has_name()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->name(), output);
+  // optional int64 m_name = 2;
+  if (has_m_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_name(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1525,16 +1533,16 @@ void rolebornmailDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolebornmailDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleBornMailDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 num = 1;
-  if (has_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int64 name = 2;
-  if (has_name()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->name(), target);
+  // optional int64 m_name = 2;
+  if (has_m_name()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_name(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1544,22 +1552,22 @@ void rolebornmailDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int rolebornmailDesc::ByteSize() const {
+int E_RoleBornMailDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 num = 1;
-    if (has_num()) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->num());
+          this->m_num());
     }
 
-    // optional int64 name = 2;
-    if (has_name()) {
+    // optional int64 m_name = 2;
+    if (has_m_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->name());
+          this->m_name());
     }
 
   }
@@ -1574,10 +1582,10 @@ int rolebornmailDesc::ByteSize() const {
   return total_size;
 }
 
-void rolebornmailDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleBornMailDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolebornmailDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolebornmailDesc*>(
+  const E_RoleBornMailDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleBornMailDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1586,51 +1594,51 @@ void rolebornmailDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void rolebornmailDesc::MergeFrom(const rolebornmailDesc& from) {
+void E_RoleBornMailDesc::MergeFrom(const E_RoleBornMailDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_num()) {
-      set_num(from.num());
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolebornmailDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleBornMailDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolebornmailDesc::CopyFrom(const rolebornmailDesc& from) {
+void E_RoleBornMailDesc::CopyFrom(const E_RoleBornMailDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolebornmailDesc::IsInitialized() const {
+bool E_RoleBornMailDesc::IsInitialized() const {
 
   return true;
 }
 
-void rolebornmailDesc::Swap(rolebornmailDesc* other) {
+void E_RoleBornMailDesc::Swap(E_RoleBornMailDesc* other) {
   if (other != this) {
-    std::swap(num_, other->num_);
-    std::swap(name_, other->name_);
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_name_, other->m_name_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolebornmailDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleBornMailDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolebornmailDesc_descriptor_;
-  metadata.reflection = rolebornmailDesc_reflection_;
+  metadata.descriptor = E_RoleBornMailDesc_descriptor_;
+  metadata.reflection = E_RoleBornMailDesc_reflection_;
   return metadata;
 }
 
@@ -1638,941 +1646,941 @@ void rolebornmailDesc::Swap(rolebornmailDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleborn::kBornIDFieldNumber;
-const int roleborn::kProfessionIDFieldNumber;
-const int roleborn::kProfessionNameFieldNumber;
-const int roleborn::kPlacementFieldNumber;
-const int roleborn::kGenderFieldNumber;
-const int roleborn::kBornLevelFieldNumber;
-const int roleborn::kBornTitleFieldNumber;
-const int roleborn::kDiamondFieldNumber;
-const int roleborn::kBindDiamondFieldNumber;
-const int roleborn::kGoldFieldNumber;
-const int roleborn::kMapIDFieldNumber;
-const int roleborn::kBirthFaceFieldNumber;
-const int roleborn::kIconsFieldNumber;
-const int roleborn::kLoginAvataFieldNumber;
-const int roleborn::kNewweaponFieldNumber;
-const int roleborn::kNewclothingFieldNumber;
-const int roleborn::kWeaponAvataFieldNumber;
-const int roleborn::kRoleAvataFieldNumber;
-const int roleborn::kHairColorFieldNumber;
-const int roleborn::kClothesColorFieldNumber;
-const int roleborn::kSkinColorFieldNumber;
-const int roleborn::kCarryWeaponsFieldNumber;
-const int roleborn::kCarryArmorFieldNumber;
-const int roleborn::kCarryCloakFieldNumber;
-const int roleborn::kCarryShoesFieldNumber;
-const int roleborn::kCarryNecklaceFieldNumber;
-const int roleborn::kCarryAmuletFieldNumber;
-const int roleborn::kCarryBracerFieldNumber;
-const int roleborn::kCarryRingFieldNumber;
-const int roleborn::kCarryFashionWeaponsFieldNumber;
-const int roleborn::kCarryFashionArmorFieldNumber;
-const int roleborn::kCarryWingsFieldNumber;
-const int roleborn::kMSpeedFieldNumber;
-const int roleborn::kViewFieldNumber;
-const int roleborn::kRadiusFieldNumber;
-const int roleborn::kGroupFieldNumber;
-const int roleborn::kShenyFieldNumber;
-const int roleborn::kShenwFieldNumber;
-const int roleborn::kActBuffFieldNumber;
-const int roleborn::kItemFieldNumber;
-const int roleborn::kActSkillFieldNumber;
-const int roleborn::kMailFieldNumber;
+const int E_RoleBorn::kMBornidFieldNumber;
+const int E_RoleBorn::kMProfessionidFieldNumber;
+const int E_RoleBorn::kMProfessionnameFieldNumber;
+const int E_RoleBorn::kMPlacementFieldNumber;
+const int E_RoleBorn::kMGenderFieldNumber;
+const int E_RoleBorn::kMBornlevelFieldNumber;
+const int E_RoleBorn::kMBorntitleFieldNumber;
+const int E_RoleBorn::kMDiamondFieldNumber;
+const int E_RoleBorn::kMBinddiamondFieldNumber;
+const int E_RoleBorn::kMGoldFieldNumber;
+const int E_RoleBorn::kMMapidFieldNumber;
+const int E_RoleBorn::kMBirthfaceFieldNumber;
+const int E_RoleBorn::kMIconsFieldNumber;
+const int E_RoleBorn::kMLoginavataFieldNumber;
+const int E_RoleBorn::kMNewweaponFieldNumber;
+const int E_RoleBorn::kMNewclothingFieldNumber;
+const int E_RoleBorn::kMWeaponavataFieldNumber;
+const int E_RoleBorn::kMRoleavataFieldNumber;
+const int E_RoleBorn::kMHaircolorFieldNumber;
+const int E_RoleBorn::kMClothescolorFieldNumber;
+const int E_RoleBorn::kMSkincolorFieldNumber;
+const int E_RoleBorn::kMCarryweaponsFieldNumber;
+const int E_RoleBorn::kMCarryarmorFieldNumber;
+const int E_RoleBorn::kMCarrycloakFieldNumber;
+const int E_RoleBorn::kMCarryshoesFieldNumber;
+const int E_RoleBorn::kMCarrynecklaceFieldNumber;
+const int E_RoleBorn::kMCarryamuletFieldNumber;
+const int E_RoleBorn::kMCarrybracerFieldNumber;
+const int E_RoleBorn::kMCarryringFieldNumber;
+const int E_RoleBorn::kMCarryfashionweaponsFieldNumber;
+const int E_RoleBorn::kMCarryfashionarmorFieldNumber;
+const int E_RoleBorn::kMCarrywingsFieldNumber;
+const int E_RoleBorn::kMMspeedFieldNumber;
+const int E_RoleBorn::kMViewFieldNumber;
+const int E_RoleBorn::kMRadiusFieldNumber;
+const int E_RoleBorn::kMGroupFieldNumber;
+const int E_RoleBorn::kMShenyFieldNumber;
+const int E_RoleBorn::kMShenwFieldNumber;
+const int E_RoleBorn::kMActbuffFieldNumber;
+const int E_RoleBorn::kMItemFieldNumber;
+const int E_RoleBorn::kMActskillFieldNumber;
+const int E_RoleBorn::kMMailFieldNumber;
 #endif  // !_MSC_VER
 
-roleborn::roleborn()
+E_RoleBorn::E_RoleBorn()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleborn::InitAsDefaultInstance() {
+void E_RoleBorn::InitAsDefaultInstance() {
 }
 
-roleborn::roleborn(const roleborn& from)
+E_RoleBorn::E_RoleBorn(const E_RoleBorn& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleborn::SharedCtor() {
+void E_RoleBorn::SharedCtor() {
   _cached_size_ = 0;
-  bornid_ = GOOGLE_LONGLONG(0);
-  professionid_ = 0;
-  professionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  placement_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  gender_ = 0;
-  bornlevel_ = 0;
-  borntitle_ = 0;
-  diamond_ = GOOGLE_LONGLONG(0);
-  binddiamond_ = GOOGLE_LONGLONG(0);
-  gold_ = GOOGLE_LONGLONG(0);
-  mapid_ = GOOGLE_LONGLONG(0);
-  birthface_ = 0;
-  icons_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  loginavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  newweapon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  newclothing_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  weaponavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  roleavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  haircolor_ = 0;
-  clothescolor_ = 0;
-  skincolor_ = 0;
-  carryweapons_ = GOOGLE_LONGLONG(0);
-  carryarmor_ = GOOGLE_LONGLONG(0);
-  carrycloak_ = GOOGLE_LONGLONG(0);
-  carryshoes_ = GOOGLE_LONGLONG(0);
-  carrynecklace_ = GOOGLE_LONGLONG(0);
-  carryamulet_ = GOOGLE_LONGLONG(0);
-  carrybracer_ = GOOGLE_LONGLONG(0);
-  carryring_ = GOOGLE_LONGLONG(0);
-  carryfashionweapons_ = GOOGLE_LONGLONG(0);
-  carryfashionarmor_ = GOOGLE_LONGLONG(0);
-  carrywings_ = GOOGLE_LONGLONG(0);
-  mspeed_ = 0;
-  view_ = 0;
-  radius_ = 0;
-  group_ = 0;
-  sheny_ = GOOGLE_LONGLONG(0);
-  shenw_ = GOOGLE_LONGLONG(0);
+  m_bornid_ = GOOGLE_LONGLONG(0);
+  m_professionid_ = 0;
+  m_professionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_placement_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_gender_ = 0;
+  m_bornlevel_ = 0;
+  m_borntitle_ = 0;
+  m_diamond_ = GOOGLE_LONGLONG(0);
+  m_binddiamond_ = GOOGLE_LONGLONG(0);
+  m_gold_ = GOOGLE_LONGLONG(0);
+  m_mapid_ = GOOGLE_LONGLONG(0);
+  m_birthface_ = 0;
+  m_icons_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_loginavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_newweapon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_newclothing_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_weaponavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_roleavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_haircolor_ = 0;
+  m_clothescolor_ = 0;
+  m_skincolor_ = 0;
+  m_carryweapons_ = GOOGLE_LONGLONG(0);
+  m_carryarmor_ = GOOGLE_LONGLONG(0);
+  m_carrycloak_ = GOOGLE_LONGLONG(0);
+  m_carryshoes_ = GOOGLE_LONGLONG(0);
+  m_carrynecklace_ = GOOGLE_LONGLONG(0);
+  m_carryamulet_ = GOOGLE_LONGLONG(0);
+  m_carrybracer_ = GOOGLE_LONGLONG(0);
+  m_carryring_ = GOOGLE_LONGLONG(0);
+  m_carryfashionweapons_ = GOOGLE_LONGLONG(0);
+  m_carryfashionarmor_ = GOOGLE_LONGLONG(0);
+  m_carrywings_ = GOOGLE_LONGLONG(0);
+  m_mspeed_ = 0;
+  m_view_ = 0;
+  m_radius_ = 0;
+  m_group_ = 0;
+  m_sheny_ = GOOGLE_LONGLONG(0);
+  m_shenw_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleborn::~roleborn() {
+E_RoleBorn::~E_RoleBorn() {
   SharedDtor();
 }
 
-void roleborn::SharedDtor() {
-  if (professionname_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionname_;
+void E_RoleBorn::SharedDtor() {
+  if (m_professionname_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionname_;
   }
-  if (placement_ != &::google::protobuf::internal::kEmptyString) {
-    delete placement_;
+  if (m_placement_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_placement_;
   }
-  if (icons_ != &::google::protobuf::internal::kEmptyString) {
-    delete icons_;
+  if (m_icons_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_icons_;
   }
-  if (loginavata_ != &::google::protobuf::internal::kEmptyString) {
-    delete loginavata_;
+  if (m_loginavata_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_loginavata_;
   }
-  if (newweapon_ != &::google::protobuf::internal::kEmptyString) {
-    delete newweapon_;
+  if (m_newweapon_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_newweapon_;
   }
-  if (newclothing_ != &::google::protobuf::internal::kEmptyString) {
-    delete newclothing_;
+  if (m_newclothing_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_newclothing_;
   }
-  if (weaponavata_ != &::google::protobuf::internal::kEmptyString) {
-    delete weaponavata_;
+  if (m_weaponavata_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_weaponavata_;
   }
-  if (roleavata_ != &::google::protobuf::internal::kEmptyString) {
-    delete roleavata_;
+  if (m_roleavata_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_roleavata_;
   }
   if (this != default_instance_) {
   }
 }
 
-void roleborn::SetCachedSize(int size) const {
+void E_RoleBorn::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleborn::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleBorn::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleborn_descriptor_;
+  return E_RoleBorn_descriptor_;
 }
 
-const roleborn& roleborn::default_instance() {
+const E_RoleBorn& E_RoleBorn::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleborn* roleborn::default_instance_ = NULL;
+E_RoleBorn* E_RoleBorn::default_instance_ = NULL;
 
-roleborn* roleborn::New() const {
-  return new roleborn;
+E_RoleBorn* E_RoleBorn::New() const {
+  return new E_RoleBorn;
 }
 
-void roleborn::Clear() {
+void E_RoleBorn::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    bornid_ = GOOGLE_LONGLONG(0);
-    professionid_ = 0;
-    if (has_professionname()) {
-      if (professionname_ != &::google::protobuf::internal::kEmptyString) {
-        professionname_->clear();
+    m_bornid_ = GOOGLE_LONGLONG(0);
+    m_professionid_ = 0;
+    if (has_m_professionname()) {
+      if (m_professionname_ != &::google::protobuf::internal::kEmptyString) {
+        m_professionname_->clear();
       }
     }
-    if (has_placement()) {
-      if (placement_ != &::google::protobuf::internal::kEmptyString) {
-        placement_->clear();
+    if (has_m_placement()) {
+      if (m_placement_ != &::google::protobuf::internal::kEmptyString) {
+        m_placement_->clear();
       }
     }
-    gender_ = 0;
-    bornlevel_ = 0;
-    borntitle_ = 0;
-    diamond_ = GOOGLE_LONGLONG(0);
+    m_gender_ = 0;
+    m_bornlevel_ = 0;
+    m_borntitle_ = 0;
+    m_diamond_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    binddiamond_ = GOOGLE_LONGLONG(0);
-    gold_ = GOOGLE_LONGLONG(0);
-    mapid_ = GOOGLE_LONGLONG(0);
-    birthface_ = 0;
-    if (has_icons()) {
-      if (icons_ != &::google::protobuf::internal::kEmptyString) {
-        icons_->clear();
+    m_binddiamond_ = GOOGLE_LONGLONG(0);
+    m_gold_ = GOOGLE_LONGLONG(0);
+    m_mapid_ = GOOGLE_LONGLONG(0);
+    m_birthface_ = 0;
+    if (has_m_icons()) {
+      if (m_icons_ != &::google::protobuf::internal::kEmptyString) {
+        m_icons_->clear();
       }
     }
-    if (has_loginavata()) {
-      if (loginavata_ != &::google::protobuf::internal::kEmptyString) {
-        loginavata_->clear();
+    if (has_m_loginavata()) {
+      if (m_loginavata_ != &::google::protobuf::internal::kEmptyString) {
+        m_loginavata_->clear();
       }
     }
-    if (has_newweapon()) {
-      if (newweapon_ != &::google::protobuf::internal::kEmptyString) {
-        newweapon_->clear();
+    if (has_m_newweapon()) {
+      if (m_newweapon_ != &::google::protobuf::internal::kEmptyString) {
+        m_newweapon_->clear();
       }
     }
-    if (has_newclothing()) {
-      if (newclothing_ != &::google::protobuf::internal::kEmptyString) {
-        newclothing_->clear();
+    if (has_m_newclothing()) {
+      if (m_newclothing_ != &::google::protobuf::internal::kEmptyString) {
+        m_newclothing_->clear();
       }
     }
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (has_weaponavata()) {
-      if (weaponavata_ != &::google::protobuf::internal::kEmptyString) {
-        weaponavata_->clear();
+    if (has_m_weaponavata()) {
+      if (m_weaponavata_ != &::google::protobuf::internal::kEmptyString) {
+        m_weaponavata_->clear();
       }
     }
-    if (has_roleavata()) {
-      if (roleavata_ != &::google::protobuf::internal::kEmptyString) {
-        roleavata_->clear();
+    if (has_m_roleavata()) {
+      if (m_roleavata_ != &::google::protobuf::internal::kEmptyString) {
+        m_roleavata_->clear();
       }
     }
-    haircolor_ = 0;
-    clothescolor_ = 0;
-    skincolor_ = 0;
-    carryweapons_ = GOOGLE_LONGLONG(0);
-    carryarmor_ = GOOGLE_LONGLONG(0);
-    carrycloak_ = GOOGLE_LONGLONG(0);
+    m_haircolor_ = 0;
+    m_clothescolor_ = 0;
+    m_skincolor_ = 0;
+    m_carryweapons_ = GOOGLE_LONGLONG(0);
+    m_carryarmor_ = GOOGLE_LONGLONG(0);
+    m_carrycloak_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    carryshoes_ = GOOGLE_LONGLONG(0);
-    carrynecklace_ = GOOGLE_LONGLONG(0);
-    carryamulet_ = GOOGLE_LONGLONG(0);
-    carrybracer_ = GOOGLE_LONGLONG(0);
-    carryring_ = GOOGLE_LONGLONG(0);
-    carryfashionweapons_ = GOOGLE_LONGLONG(0);
-    carryfashionarmor_ = GOOGLE_LONGLONG(0);
-    carrywings_ = GOOGLE_LONGLONG(0);
+    m_carryshoes_ = GOOGLE_LONGLONG(0);
+    m_carrynecklace_ = GOOGLE_LONGLONG(0);
+    m_carryamulet_ = GOOGLE_LONGLONG(0);
+    m_carrybracer_ = GOOGLE_LONGLONG(0);
+    m_carryring_ = GOOGLE_LONGLONG(0);
+    m_carryfashionweapons_ = GOOGLE_LONGLONG(0);
+    m_carryfashionarmor_ = GOOGLE_LONGLONG(0);
+    m_carrywings_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    mspeed_ = 0;
-    view_ = 0;
-    radius_ = 0;
-    group_ = 0;
-    sheny_ = GOOGLE_LONGLONG(0);
-    shenw_ = GOOGLE_LONGLONG(0);
+    m_mspeed_ = 0;
+    m_view_ = 0;
+    m_radius_ = 0;
+    m_group_ = 0;
+    m_sheny_ = GOOGLE_LONGLONG(0);
+    m_shenw_ = GOOGLE_LONGLONG(0);
   }
-  actbuff_.Clear();
-  item_.Clear();
-  actskill_.Clear();
-  mail_.Clear();
+  m_actbuff_.Clear();
+  m_item_.Clear();
+  m_actskill_.Clear();
+  m_mail_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleborn::MergePartialFromCodedStream(
+bool E_RoleBorn::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 bornID = 1;
+      // optional int64 m_bornid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &bornid_)));
-          set_has_bornid();
+                 input, &m_bornid_)));
+          set_has_m_bornid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_professionID;
+        if (input->ExpectTag(16)) goto parse_m_professionid;
         break;
       }
 
-      // optional int32 professionID = 2;
+      // optional int32 m_professionid = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_professionID:
+         parse_m_professionid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &professionid_)));
-          set_has_professionid();
+                 input, &m_professionid_)));
+          set_has_m_professionid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_professionName;
+        if (input->ExpectTag(26)) goto parse_m_professionname;
         break;
       }
 
-      // optional string professionName = 3;
+      // optional string m_professionname = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_professionName:
+         parse_m_professionname:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_professionname()));
+                input, this->mutable_m_professionname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->professionname().data(), this->professionname().length(),
+            this->m_professionname().data(), this->m_professionname().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_placement;
+        if (input->ExpectTag(34)) goto parse_m_placement;
         break;
       }
 
-      // optional string placement = 4;
+      // optional string m_placement = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_placement:
+         parse_m_placement:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_placement()));
+                input, this->mutable_m_placement()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->placement().data(), this->placement().length(),
+            this->m_placement().data(), this->m_placement().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_gender;
+        if (input->ExpectTag(40)) goto parse_m_gender;
         break;
       }
 
-      // optional int32 gender = 5;
+      // optional int32 m_gender = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gender:
+         parse_m_gender:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &gender_)));
-          set_has_gender();
+                 input, &m_gender_)));
+          set_has_m_gender();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_bornLevel;
+        if (input->ExpectTag(48)) goto parse_m_bornlevel;
         break;
       }
 
-      // optional int32 bornLevel = 6;
+      // optional int32 m_bornlevel = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bornLevel:
+         parse_m_bornlevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &bornlevel_)));
-          set_has_bornlevel();
+                 input, &m_bornlevel_)));
+          set_has_m_bornlevel();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_bornTitle;
+        if (input->ExpectTag(56)) goto parse_m_borntitle;
         break;
       }
 
-      // optional int32 bornTitle = 7;
+      // optional int32 m_borntitle = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bornTitle:
+         parse_m_borntitle:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &borntitle_)));
-          set_has_borntitle();
+                 input, &m_borntitle_)));
+          set_has_m_borntitle();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_diamond;
+        if (input->ExpectTag(64)) goto parse_m_diamond;
         break;
       }
 
-      // optional int64 diamond = 8;
+      // optional int64 m_diamond = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_diamond:
+         parse_m_diamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &diamond_)));
-          set_has_diamond();
+                 input, &m_diamond_)));
+          set_has_m_diamond();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_bindDiamond;
+        if (input->ExpectTag(72)) goto parse_m_binddiamond;
         break;
       }
 
-      // optional int64 bindDiamond = 9;
+      // optional int64 m_binddiamond = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bindDiamond:
+         parse_m_binddiamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &binddiamond_)));
-          set_has_binddiamond();
+                 input, &m_binddiamond_)));
+          set_has_m_binddiamond();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_gold;
+        if (input->ExpectTag(80)) goto parse_m_gold;
         break;
       }
 
-      // optional int64 gold = 10;
+      // optional int64 m_gold = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gold:
+         parse_m_gold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &gold_)));
-          set_has_gold();
+                 input, &m_gold_)));
+          set_has_m_gold();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_mapID;
+        if (input->ExpectTag(88)) goto parse_m_mapid;
         break;
       }
 
-      // optional int64 mapID = 11;
+      // optional int64 m_mapid = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mapID:
+         parse_m_mapid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &mapid_)));
-          set_has_mapid();
+                 input, &m_mapid_)));
+          set_has_m_mapid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_birthFace;
+        if (input->ExpectTag(96)) goto parse_m_birthface;
         break;
       }
 
-      // optional int32 birthFace = 12;
+      // optional int32 m_birthface = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_birthFace:
+         parse_m_birthface:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &birthface_)));
-          set_has_birthface();
+                 input, &m_birthface_)));
+          set_has_m_birthface();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_icons;
+        if (input->ExpectTag(106)) goto parse_m_icons;
         break;
       }
 
-      // optional string icons = 13;
+      // optional string m_icons = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_icons:
+         parse_m_icons:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_icons()));
+                input, this->mutable_m_icons()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->icons().data(), this->icons().length(),
+            this->m_icons().data(), this->m_icons().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_loginAvata;
+        if (input->ExpectTag(114)) goto parse_m_loginavata;
         break;
       }
 
-      // optional string loginAvata = 14;
+      // optional string m_loginavata = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_loginAvata:
+         parse_m_loginavata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_loginavata()));
+                input, this->mutable_m_loginavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->loginavata().data(), this->loginavata().length(),
+            this->m_loginavata().data(), this->m_loginavata().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(122)) goto parse_newweapon;
+        if (input->ExpectTag(122)) goto parse_m_newweapon;
         break;
       }
 
-      // optional string newweapon = 15;
+      // optional string m_newweapon = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_newweapon:
+         parse_m_newweapon:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_newweapon()));
+                input, this->mutable_m_newweapon()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->newweapon().data(), this->newweapon().length(),
+            this->m_newweapon().data(), this->m_newweapon().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_newclothing;
+        if (input->ExpectTag(130)) goto parse_m_newclothing;
         break;
       }
 
-      // optional string newclothing = 16;
+      // optional string m_newclothing = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_newclothing:
+         parse_m_newclothing:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_newclothing()));
+                input, this->mutable_m_newclothing()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->newclothing().data(), this->newclothing().length(),
+            this->m_newclothing().data(), this->m_newclothing().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(138)) goto parse_weaponAvata;
+        if (input->ExpectTag(138)) goto parse_m_weaponavata;
         break;
       }
 
-      // optional string weaponAvata = 17;
+      // optional string m_weaponavata = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_weaponAvata:
+         parse_m_weaponavata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_weaponavata()));
+                input, this->mutable_m_weaponavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->weaponavata().data(), this->weaponavata().length(),
+            this->m_weaponavata().data(), this->m_weaponavata().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(146)) goto parse_roleAvata;
+        if (input->ExpectTag(146)) goto parse_m_roleavata;
         break;
       }
 
-      // optional string roleAvata = 18;
+      // optional string m_roleavata = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleAvata:
+         parse_m_roleavata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_roleavata()));
+                input, this->mutable_m_roleavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->roleavata().data(), this->roleavata().length(),
+            this->m_roleavata().data(), this->m_roleavata().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_hairColor;
+        if (input->ExpectTag(152)) goto parse_m_haircolor;
         break;
       }
 
-      // optional int32 hairColor = 19;
+      // optional int32 m_haircolor = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_hairColor:
+         parse_m_haircolor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &haircolor_)));
-          set_has_haircolor();
+                 input, &m_haircolor_)));
+          set_has_m_haircolor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_clothesColor;
+        if (input->ExpectTag(160)) goto parse_m_clothescolor;
         break;
       }
 
-      // optional int32 clothesColor = 20;
+      // optional int32 m_clothescolor = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_clothesColor:
+         parse_m_clothescolor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &clothescolor_)));
-          set_has_clothescolor();
+                 input, &m_clothescolor_)));
+          set_has_m_clothescolor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_skinColor;
+        if (input->ExpectTag(168)) goto parse_m_skincolor;
         break;
       }
 
-      // optional int32 skinColor = 21;
+      // optional int32 m_skincolor = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skinColor:
+         parse_m_skincolor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &skincolor_)));
-          set_has_skincolor();
+                 input, &m_skincolor_)));
+          set_has_m_skincolor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(176)) goto parse_carryWeapons;
+        if (input->ExpectTag(176)) goto parse_m_carryweapons;
         break;
       }
 
-      // optional int64 carryWeapons = 22;
+      // optional int64 m_carryweapons = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryWeapons:
+         parse_m_carryweapons:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryweapons_)));
-          set_has_carryweapons();
+                 input, &m_carryweapons_)));
+          set_has_m_carryweapons();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_carryArmor;
+        if (input->ExpectTag(184)) goto parse_m_carryarmor;
         break;
       }
 
-      // optional int64 carryArmor = 23;
+      // optional int64 m_carryarmor = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryArmor:
+         parse_m_carryarmor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryarmor_)));
-          set_has_carryarmor();
+                 input, &m_carryarmor_)));
+          set_has_m_carryarmor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_carryCloak;
+        if (input->ExpectTag(192)) goto parse_m_carrycloak;
         break;
       }
 
-      // optional int64 carryCloak = 24;
+      // optional int64 m_carrycloak = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryCloak:
+         parse_m_carrycloak:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carrycloak_)));
-          set_has_carrycloak();
+                 input, &m_carrycloak_)));
+          set_has_m_carrycloak();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_carryShoes;
+        if (input->ExpectTag(200)) goto parse_m_carryshoes;
         break;
       }
 
-      // optional int64 carryShoes = 25;
+      // optional int64 m_carryshoes = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryShoes:
+         parse_m_carryshoes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryshoes_)));
-          set_has_carryshoes();
+                 input, &m_carryshoes_)));
+          set_has_m_carryshoes();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_carryNecklace;
+        if (input->ExpectTag(208)) goto parse_m_carrynecklace;
         break;
       }
 
-      // optional int64 carryNecklace = 26;
+      // optional int64 m_carrynecklace = 26;
       case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryNecklace:
+         parse_m_carrynecklace:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carrynecklace_)));
-          set_has_carrynecklace();
+                 input, &m_carrynecklace_)));
+          set_has_m_carrynecklace();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_carryAmulet;
+        if (input->ExpectTag(216)) goto parse_m_carryamulet;
         break;
       }
 
-      // optional int64 carryAmulet = 27;
+      // optional int64 m_carryamulet = 27;
       case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryAmulet:
+         parse_m_carryamulet:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryamulet_)));
-          set_has_carryamulet();
+                 input, &m_carryamulet_)));
+          set_has_m_carryamulet();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_carryBracer;
+        if (input->ExpectTag(224)) goto parse_m_carrybracer;
         break;
       }
 
-      // optional int64 carryBracer = 28;
+      // optional int64 m_carrybracer = 28;
       case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryBracer:
+         parse_m_carrybracer:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carrybracer_)));
-          set_has_carrybracer();
+                 input, &m_carrybracer_)));
+          set_has_m_carrybracer();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(232)) goto parse_carryRing;
+        if (input->ExpectTag(232)) goto parse_m_carryring;
         break;
       }
 
-      // optional int64 carryRing = 29;
+      // optional int64 m_carryring = 29;
       case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryRing:
+         parse_m_carryring:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryring_)));
-          set_has_carryring();
+                 input, &m_carryring_)));
+          set_has_m_carryring();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_carryFashionWeapons;
+        if (input->ExpectTag(240)) goto parse_m_carryfashionweapons;
         break;
       }
 
-      // optional int64 carryFashionWeapons = 30;
+      // optional int64 m_carryfashionweapons = 30;
       case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryFashionWeapons:
+         parse_m_carryfashionweapons:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryfashionweapons_)));
-          set_has_carryfashionweapons();
+                 input, &m_carryfashionweapons_)));
+          set_has_m_carryfashionweapons();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(248)) goto parse_carryFashionArmor;
+        if (input->ExpectTag(248)) goto parse_m_carryfashionarmor;
         break;
       }
 
-      // optional int64 carryFashionArmor = 31;
+      // optional int64 m_carryfashionarmor = 31;
       case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryFashionArmor:
+         parse_m_carryfashionarmor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carryfashionarmor_)));
-          set_has_carryfashionarmor();
+                 input, &m_carryfashionarmor_)));
+          set_has_m_carryfashionarmor();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(256)) goto parse_carryWings;
+        if (input->ExpectTag(256)) goto parse_m_carrywings;
         break;
       }
 
-      // optional int64 carryWings = 32;
+      // optional int64 m_carrywings = 32;
       case 32: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_carryWings:
+         parse_m_carrywings:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &carrywings_)));
-          set_has_carrywings();
+                 input, &m_carrywings_)));
+          set_has_m_carrywings();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(264)) goto parse_mSpeed;
+        if (input->ExpectTag(264)) goto parse_m_mspeed;
         break;
       }
 
-      // optional int32 mSpeed = 33;
+      // optional int32 m_mspeed = 33;
       case 33: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mSpeed:
+         parse_m_mspeed:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &mspeed_)));
-          set_has_mspeed();
+                 input, &m_mspeed_)));
+          set_has_m_mspeed();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(272)) goto parse_view;
+        if (input->ExpectTag(272)) goto parse_m_view;
         break;
       }
 
-      // optional int32 view = 34;
+      // optional int32 m_view = 34;
       case 34: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_view:
+         parse_m_view:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &view_)));
-          set_has_view();
+                 input, &m_view_)));
+          set_has_m_view();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(280)) goto parse_radius;
+        if (input->ExpectTag(280)) goto parse_m_radius;
         break;
       }
 
-      // optional int32 radius = 35;
+      // optional int32 m_radius = 35;
       case 35: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_radius:
+         parse_m_radius:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &radius_)));
-          set_has_radius();
+                 input, &m_radius_)));
+          set_has_m_radius();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(288)) goto parse_group;
+        if (input->ExpectTag(288)) goto parse_m_group;
         break;
       }
 
-      // optional int32 group = 36;
+      // optional int32 m_group = 36;
       case 36: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_group:
+         parse_m_group:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &group_)));
-          set_has_group();
+                 input, &m_group_)));
+          set_has_m_group();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(296)) goto parse_sheny;
+        if (input->ExpectTag(296)) goto parse_m_sheny;
         break;
       }
 
-      // optional int64 sheny = 37;
+      // optional int64 m_sheny = 37;
       case 37: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sheny:
+         parse_m_sheny:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &sheny_)));
-          set_has_sheny();
+                 input, &m_sheny_)));
+          set_has_m_sheny();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(304)) goto parse_shenw;
+        if (input->ExpectTag(304)) goto parse_m_shenw;
         break;
       }
 
-      // optional int64 shenw = 38;
+      // optional int64 m_shenw = 38;
       case 38: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_shenw:
+         parse_m_shenw:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &shenw_)));
-          set_has_shenw();
+                 input, &m_shenw_)));
+          set_has_m_shenw();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(312)) goto parse_actBuff;
+        if (input->ExpectTag(312)) goto parse_m_actbuff;
         break;
       }
 
-      // repeated int32 actBuff = 39;
+      // repeated int32 m_actbuff = 39;
       case 39: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_actBuff:
+         parse_m_actbuff:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 2, 312, input, this->mutable_actbuff())));
+                 2, 312, input, this->mutable_m_actbuff())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_actbuff())));
+                 input, this->mutable_m_actbuff())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(312)) goto parse_actBuff;
-        if (input->ExpectTag(322)) goto parse_item;
+        if (input->ExpectTag(312)) goto parse_m_actbuff;
+        if (input->ExpectTag(322)) goto parse_m_item;
         break;
       }
 
-      // repeated .proto_ff.rolebornitemDesc item = 40;
+      // repeated .proto_ff.E_RoleBornItemDesc m_item = 40;
       case 40: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_item:
+         parse_m_item:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_item()));
+                input, add_m_item()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(322)) goto parse_item;
-        if (input->ExpectTag(328)) goto parse_actSkill;
+        if (input->ExpectTag(322)) goto parse_m_item;
+        if (input->ExpectTag(328)) goto parse_m_actskill;
         break;
       }
 
-      // repeated int64 actSkill = 41;
+      // repeated int64 m_actskill = 41;
       case 41: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_actSkill:
+         parse_m_actskill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 2, 328, input, this->mutable_actskill())));
+                 2, 328, input, this->mutable_m_actskill())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, this->mutable_actskill())));
+                 input, this->mutable_m_actskill())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(328)) goto parse_actSkill;
-        if (input->ExpectTag(338)) goto parse_mail;
+        if (input->ExpectTag(328)) goto parse_m_actskill;
+        if (input->ExpectTag(338)) goto parse_m_mail;
         break;
       }
 
-      // repeated .proto_ff.rolebornmailDesc mail = 42;
+      // repeated .proto_ff.E_RoleBornMailDesc m_mail = 42;
       case 42: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mail:
+         parse_m_mail:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_mail()));
+                input, add_m_mail()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(338)) goto parse_mail;
+        if (input->ExpectTag(338)) goto parse_m_mail;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2593,252 +2601,252 @@ bool roleborn::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleborn::SerializeWithCachedSizes(
+void E_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 bornID = 1;
-  if (has_bornid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->bornid(), output);
+  // optional int64 m_bornid = 1;
+  if (has_m_bornid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_bornid(), output);
   }
 
-  // optional int32 professionID = 2;
-  if (has_professionid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->professionid(), output);
+  // optional int32 m_professionid = 2;
+  if (has_m_professionid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_professionid(), output);
   }
 
-  // optional string professionName = 3;
-  if (has_professionname()) {
+  // optional string m_professionname = 3;
+  if (has_m_professionname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionname().data(), this->professionname().length(),
+      this->m_professionname().data(), this->m_professionname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->professionname(), output);
+      3, this->m_professionname(), output);
   }
 
-  // optional string placement = 4;
-  if (has_placement()) {
+  // optional string m_placement = 4;
+  if (has_m_placement()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->placement().data(), this->placement().length(),
+      this->m_placement().data(), this->m_placement().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->placement(), output);
+      4, this->m_placement(), output);
   }
 
-  // optional int32 gender = 5;
-  if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->gender(), output);
+  // optional int32 m_gender = 5;
+  if (has_m_gender()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_gender(), output);
   }
 
-  // optional int32 bornLevel = 6;
-  if (has_bornlevel()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->bornlevel(), output);
+  // optional int32 m_bornlevel = 6;
+  if (has_m_bornlevel()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_bornlevel(), output);
   }
 
-  // optional int32 bornTitle = 7;
-  if (has_borntitle()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->borntitle(), output);
+  // optional int32 m_borntitle = 7;
+  if (has_m_borntitle()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_borntitle(), output);
   }
 
-  // optional int64 diamond = 8;
-  if (has_diamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->diamond(), output);
+  // optional int64 m_diamond = 8;
+  if (has_m_diamond()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_diamond(), output);
   }
 
-  // optional int64 bindDiamond = 9;
-  if (has_binddiamond()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->binddiamond(), output);
+  // optional int64 m_binddiamond = 9;
+  if (has_m_binddiamond()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->m_binddiamond(), output);
   }
 
-  // optional int64 gold = 10;
-  if (has_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->gold(), output);
+  // optional int64 m_gold = 10;
+  if (has_m_gold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->m_gold(), output);
   }
 
-  // optional int64 mapID = 11;
-  if (has_mapid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->mapid(), output);
+  // optional int64 m_mapid = 11;
+  if (has_m_mapid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->m_mapid(), output);
   }
 
-  // optional int32 birthFace = 12;
-  if (has_birthface()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->birthface(), output);
+  // optional int32 m_birthface = 12;
+  if (has_m_birthface()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_birthface(), output);
   }
 
-  // optional string icons = 13;
-  if (has_icons()) {
+  // optional string m_icons = 13;
+  if (has_m_icons()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->icons().data(), this->icons().length(),
+      this->m_icons().data(), this->m_icons().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      13, this->icons(), output);
+      13, this->m_icons(), output);
   }
 
-  // optional string loginAvata = 14;
-  if (has_loginavata()) {
+  // optional string m_loginavata = 14;
+  if (has_m_loginavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->loginavata().data(), this->loginavata().length(),
+      this->m_loginavata().data(), this->m_loginavata().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      14, this->loginavata(), output);
+      14, this->m_loginavata(), output);
   }
 
-  // optional string newweapon = 15;
-  if (has_newweapon()) {
+  // optional string m_newweapon = 15;
+  if (has_m_newweapon()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->newweapon().data(), this->newweapon().length(),
+      this->m_newweapon().data(), this->m_newweapon().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      15, this->newweapon(), output);
+      15, this->m_newweapon(), output);
   }
 
-  // optional string newclothing = 16;
-  if (has_newclothing()) {
+  // optional string m_newclothing = 16;
+  if (has_m_newclothing()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->newclothing().data(), this->newclothing().length(),
+      this->m_newclothing().data(), this->m_newclothing().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      16, this->newclothing(), output);
+      16, this->m_newclothing(), output);
   }
 
-  // optional string weaponAvata = 17;
-  if (has_weaponavata()) {
+  // optional string m_weaponavata = 17;
+  if (has_m_weaponavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->weaponavata().data(), this->weaponavata().length(),
+      this->m_weaponavata().data(), this->m_weaponavata().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      17, this->weaponavata(), output);
+      17, this->m_weaponavata(), output);
   }
 
-  // optional string roleAvata = 18;
-  if (has_roleavata()) {
+  // optional string m_roleavata = 18;
+  if (has_m_roleavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->roleavata().data(), this->roleavata().length(),
+      this->m_roleavata().data(), this->m_roleavata().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      18, this->roleavata(), output);
+      18, this->m_roleavata(), output);
   }
 
-  // optional int32 hairColor = 19;
-  if (has_haircolor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->haircolor(), output);
+  // optional int32 m_haircolor = 19;
+  if (has_m_haircolor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_haircolor(), output);
   }
 
-  // optional int32 clothesColor = 20;
-  if (has_clothescolor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->clothescolor(), output);
+  // optional int32 m_clothescolor = 20;
+  if (has_m_clothescolor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_clothescolor(), output);
   }
 
-  // optional int32 skinColor = 21;
-  if (has_skincolor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->skincolor(), output);
+  // optional int32 m_skincolor = 21;
+  if (has_m_skincolor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_skincolor(), output);
   }
 
-  // optional int64 carryWeapons = 22;
-  if (has_carryweapons()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(22, this->carryweapons(), output);
+  // optional int64 m_carryweapons = 22;
+  if (has_m_carryweapons()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(22, this->m_carryweapons(), output);
   }
 
-  // optional int64 carryArmor = 23;
-  if (has_carryarmor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->carryarmor(), output);
+  // optional int64 m_carryarmor = 23;
+  if (has_m_carryarmor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->m_carryarmor(), output);
   }
 
-  // optional int64 carryCloak = 24;
-  if (has_carrycloak()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->carrycloak(), output);
+  // optional int64 m_carrycloak = 24;
+  if (has_m_carrycloak()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->m_carrycloak(), output);
   }
 
-  // optional int64 carryShoes = 25;
-  if (has_carryshoes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->carryshoes(), output);
+  // optional int64 m_carryshoes = 25;
+  if (has_m_carryshoes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->m_carryshoes(), output);
   }
 
-  // optional int64 carryNecklace = 26;
-  if (has_carrynecklace()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(26, this->carrynecklace(), output);
+  // optional int64 m_carrynecklace = 26;
+  if (has_m_carrynecklace()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(26, this->m_carrynecklace(), output);
   }
 
-  // optional int64 carryAmulet = 27;
-  if (has_carryamulet()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(27, this->carryamulet(), output);
+  // optional int64 m_carryamulet = 27;
+  if (has_m_carryamulet()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(27, this->m_carryamulet(), output);
   }
 
-  // optional int64 carryBracer = 28;
-  if (has_carrybracer()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(28, this->carrybracer(), output);
+  // optional int64 m_carrybracer = 28;
+  if (has_m_carrybracer()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(28, this->m_carrybracer(), output);
   }
 
-  // optional int64 carryRing = 29;
-  if (has_carryring()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(29, this->carryring(), output);
+  // optional int64 m_carryring = 29;
+  if (has_m_carryring()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(29, this->m_carryring(), output);
   }
 
-  // optional int64 carryFashionWeapons = 30;
-  if (has_carryfashionweapons()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(30, this->carryfashionweapons(), output);
+  // optional int64 m_carryfashionweapons = 30;
+  if (has_m_carryfashionweapons()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(30, this->m_carryfashionweapons(), output);
   }
 
-  // optional int64 carryFashionArmor = 31;
-  if (has_carryfashionarmor()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(31, this->carryfashionarmor(), output);
+  // optional int64 m_carryfashionarmor = 31;
+  if (has_m_carryfashionarmor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(31, this->m_carryfashionarmor(), output);
   }
 
-  // optional int64 carryWings = 32;
-  if (has_carrywings()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(32, this->carrywings(), output);
+  // optional int64 m_carrywings = 32;
+  if (has_m_carrywings()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(32, this->m_carrywings(), output);
   }
 
-  // optional int32 mSpeed = 33;
-  if (has_mspeed()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->mspeed(), output);
+  // optional int32 m_mspeed = 33;
+  if (has_m_mspeed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->m_mspeed(), output);
   }
 
-  // optional int32 view = 34;
-  if (has_view()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->view(), output);
+  // optional int32 m_view = 34;
+  if (has_m_view()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_view(), output);
   }
 
-  // optional int32 radius = 35;
-  if (has_radius()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(35, this->radius(), output);
+  // optional int32 m_radius = 35;
+  if (has_m_radius()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(35, this->m_radius(), output);
   }
 
-  // optional int32 group = 36;
-  if (has_group()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->group(), output);
+  // optional int32 m_group = 36;
+  if (has_m_group()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->m_group(), output);
   }
 
-  // optional int64 sheny = 37;
-  if (has_sheny()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(37, this->sheny(), output);
+  // optional int64 m_sheny = 37;
+  if (has_m_sheny()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(37, this->m_sheny(), output);
   }
 
-  // optional int64 shenw = 38;
-  if (has_shenw()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(38, this->shenw(), output);
+  // optional int64 m_shenw = 38;
+  if (has_m_shenw()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(38, this->m_shenw(), output);
   }
 
-  // repeated int32 actBuff = 39;
-  for (int i = 0; i < this->actbuff_size(); i++) {
+  // repeated int32 m_actbuff = 39;
+  for (int i = 0; i < this->m_actbuff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      39, this->actbuff(i), output);
+      39, this->m_actbuff(i), output);
   }
 
-  // repeated .proto_ff.rolebornitemDesc item = 40;
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_RoleBornItemDesc m_item = 40;
+  for (int i = 0; i < this->m_item_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      40, this->item(i), output);
+      40, this->m_item(i), output);
   }
 
-  // repeated int64 actSkill = 41;
-  for (int i = 0; i < this->actskill_size(); i++) {
+  // repeated int64 m_actskill = 41;
+  for (int i = 0; i < this->m_actskill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      41, this->actskill(i), output);
+      41, this->m_actskill(i), output);
   }
 
-  // repeated .proto_ff.rolebornmailDesc mail = 42;
-  for (int i = 0; i < this->mail_size(); i++) {
+  // repeated .proto_ff.E_RoleBornMailDesc m_mail = 42;
+  for (int i = 0; i < this->m_mail_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      42, this->mail(i), output);
+      42, this->m_mail(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2847,262 +2855,262 @@ void roleborn::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleborn::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleBorn::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 bornID = 1;
-  if (has_bornid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->bornid(), target);
+  // optional int64 m_bornid = 1;
+  if (has_m_bornid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_bornid(), target);
   }
 
-  // optional int32 professionID = 2;
-  if (has_professionid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->professionid(), target);
+  // optional int32 m_professionid = 2;
+  if (has_m_professionid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_professionid(), target);
   }
 
-  // optional string professionName = 3;
-  if (has_professionname()) {
+  // optional string m_professionname = 3;
+  if (has_m_professionname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionname().data(), this->professionname().length(),
+      this->m_professionname().data(), this->m_professionname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->professionname(), target);
+        3, this->m_professionname(), target);
   }
 
-  // optional string placement = 4;
-  if (has_placement()) {
+  // optional string m_placement = 4;
+  if (has_m_placement()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->placement().data(), this->placement().length(),
+      this->m_placement().data(), this->m_placement().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->placement(), target);
+        4, this->m_placement(), target);
   }
 
-  // optional int32 gender = 5;
-  if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->gender(), target);
+  // optional int32 m_gender = 5;
+  if (has_m_gender()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_gender(), target);
   }
 
-  // optional int32 bornLevel = 6;
-  if (has_bornlevel()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->bornlevel(), target);
+  // optional int32 m_bornlevel = 6;
+  if (has_m_bornlevel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_bornlevel(), target);
   }
 
-  // optional int32 bornTitle = 7;
-  if (has_borntitle()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->borntitle(), target);
+  // optional int32 m_borntitle = 7;
+  if (has_m_borntitle()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_borntitle(), target);
   }
 
-  // optional int64 diamond = 8;
-  if (has_diamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->diamond(), target);
+  // optional int64 m_diamond = 8;
+  if (has_m_diamond()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_diamond(), target);
   }
 
-  // optional int64 bindDiamond = 9;
-  if (has_binddiamond()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->binddiamond(), target);
+  // optional int64 m_binddiamond = 9;
+  if (has_m_binddiamond()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->m_binddiamond(), target);
   }
 
-  // optional int64 gold = 10;
-  if (has_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->gold(), target);
+  // optional int64 m_gold = 10;
+  if (has_m_gold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->m_gold(), target);
   }
 
-  // optional int64 mapID = 11;
-  if (has_mapid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->mapid(), target);
+  // optional int64 m_mapid = 11;
+  if (has_m_mapid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->m_mapid(), target);
   }
 
-  // optional int32 birthFace = 12;
-  if (has_birthface()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->birthface(), target);
+  // optional int32 m_birthface = 12;
+  if (has_m_birthface()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_birthface(), target);
   }
 
-  // optional string icons = 13;
-  if (has_icons()) {
+  // optional string m_icons = 13;
+  if (has_m_icons()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->icons().data(), this->icons().length(),
+      this->m_icons().data(), this->m_icons().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        13, this->icons(), target);
+        13, this->m_icons(), target);
   }
 
-  // optional string loginAvata = 14;
-  if (has_loginavata()) {
+  // optional string m_loginavata = 14;
+  if (has_m_loginavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->loginavata().data(), this->loginavata().length(),
+      this->m_loginavata().data(), this->m_loginavata().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        14, this->loginavata(), target);
+        14, this->m_loginavata(), target);
   }
 
-  // optional string newweapon = 15;
-  if (has_newweapon()) {
+  // optional string m_newweapon = 15;
+  if (has_m_newweapon()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->newweapon().data(), this->newweapon().length(),
+      this->m_newweapon().data(), this->m_newweapon().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        15, this->newweapon(), target);
+        15, this->m_newweapon(), target);
   }
 
-  // optional string newclothing = 16;
-  if (has_newclothing()) {
+  // optional string m_newclothing = 16;
+  if (has_m_newclothing()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->newclothing().data(), this->newclothing().length(),
+      this->m_newclothing().data(), this->m_newclothing().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        16, this->newclothing(), target);
+        16, this->m_newclothing(), target);
   }
 
-  // optional string weaponAvata = 17;
-  if (has_weaponavata()) {
+  // optional string m_weaponavata = 17;
+  if (has_m_weaponavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->weaponavata().data(), this->weaponavata().length(),
+      this->m_weaponavata().data(), this->m_weaponavata().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        17, this->weaponavata(), target);
+        17, this->m_weaponavata(), target);
   }
 
-  // optional string roleAvata = 18;
-  if (has_roleavata()) {
+  // optional string m_roleavata = 18;
+  if (has_m_roleavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->roleavata().data(), this->roleavata().length(),
+      this->m_roleavata().data(), this->m_roleavata().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        18, this->roleavata(), target);
+        18, this->m_roleavata(), target);
   }
 
-  // optional int32 hairColor = 19;
-  if (has_haircolor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->haircolor(), target);
+  // optional int32 m_haircolor = 19;
+  if (has_m_haircolor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_haircolor(), target);
   }
 
-  // optional int32 clothesColor = 20;
-  if (has_clothescolor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->clothescolor(), target);
+  // optional int32 m_clothescolor = 20;
+  if (has_m_clothescolor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_clothescolor(), target);
   }
 
-  // optional int32 skinColor = 21;
-  if (has_skincolor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->skincolor(), target);
+  // optional int32 m_skincolor = 21;
+  if (has_m_skincolor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_skincolor(), target);
   }
 
-  // optional int64 carryWeapons = 22;
-  if (has_carryweapons()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(22, this->carryweapons(), target);
+  // optional int64 m_carryweapons = 22;
+  if (has_m_carryweapons()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(22, this->m_carryweapons(), target);
   }
 
-  // optional int64 carryArmor = 23;
-  if (has_carryarmor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->carryarmor(), target);
+  // optional int64 m_carryarmor = 23;
+  if (has_m_carryarmor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->m_carryarmor(), target);
   }
 
-  // optional int64 carryCloak = 24;
-  if (has_carrycloak()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->carrycloak(), target);
+  // optional int64 m_carrycloak = 24;
+  if (has_m_carrycloak()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->m_carrycloak(), target);
   }
 
-  // optional int64 carryShoes = 25;
-  if (has_carryshoes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->carryshoes(), target);
+  // optional int64 m_carryshoes = 25;
+  if (has_m_carryshoes()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->m_carryshoes(), target);
   }
 
-  // optional int64 carryNecklace = 26;
-  if (has_carrynecklace()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(26, this->carrynecklace(), target);
+  // optional int64 m_carrynecklace = 26;
+  if (has_m_carrynecklace()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(26, this->m_carrynecklace(), target);
   }
 
-  // optional int64 carryAmulet = 27;
-  if (has_carryamulet()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(27, this->carryamulet(), target);
+  // optional int64 m_carryamulet = 27;
+  if (has_m_carryamulet()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(27, this->m_carryamulet(), target);
   }
 
-  // optional int64 carryBracer = 28;
-  if (has_carrybracer()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(28, this->carrybracer(), target);
+  // optional int64 m_carrybracer = 28;
+  if (has_m_carrybracer()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(28, this->m_carrybracer(), target);
   }
 
-  // optional int64 carryRing = 29;
-  if (has_carryring()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(29, this->carryring(), target);
+  // optional int64 m_carryring = 29;
+  if (has_m_carryring()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(29, this->m_carryring(), target);
   }
 
-  // optional int64 carryFashionWeapons = 30;
-  if (has_carryfashionweapons()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(30, this->carryfashionweapons(), target);
+  // optional int64 m_carryfashionweapons = 30;
+  if (has_m_carryfashionweapons()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(30, this->m_carryfashionweapons(), target);
   }
 
-  // optional int64 carryFashionArmor = 31;
-  if (has_carryfashionarmor()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(31, this->carryfashionarmor(), target);
+  // optional int64 m_carryfashionarmor = 31;
+  if (has_m_carryfashionarmor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(31, this->m_carryfashionarmor(), target);
   }
 
-  // optional int64 carryWings = 32;
-  if (has_carrywings()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(32, this->carrywings(), target);
+  // optional int64 m_carrywings = 32;
+  if (has_m_carrywings()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(32, this->m_carrywings(), target);
   }
 
-  // optional int32 mSpeed = 33;
-  if (has_mspeed()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->mspeed(), target);
+  // optional int32 m_mspeed = 33;
+  if (has_m_mspeed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->m_mspeed(), target);
   }
 
-  // optional int32 view = 34;
-  if (has_view()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->view(), target);
+  // optional int32 m_view = 34;
+  if (has_m_view()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_view(), target);
   }
 
-  // optional int32 radius = 35;
-  if (has_radius()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(35, this->radius(), target);
+  // optional int32 m_radius = 35;
+  if (has_m_radius()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(35, this->m_radius(), target);
   }
 
-  // optional int32 group = 36;
-  if (has_group()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->group(), target);
+  // optional int32 m_group = 36;
+  if (has_m_group()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->m_group(), target);
   }
 
-  // optional int64 sheny = 37;
-  if (has_sheny()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(37, this->sheny(), target);
+  // optional int64 m_sheny = 37;
+  if (has_m_sheny()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(37, this->m_sheny(), target);
   }
 
-  // optional int64 shenw = 38;
-  if (has_shenw()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(38, this->shenw(), target);
+  // optional int64 m_shenw = 38;
+  if (has_m_shenw()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(38, this->m_shenw(), target);
   }
 
-  // repeated int32 actBuff = 39;
-  for (int i = 0; i < this->actbuff_size(); i++) {
+  // repeated int32 m_actbuff = 39;
+  for (int i = 0; i < this->m_actbuff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(39, this->actbuff(i), target);
+      WriteInt32ToArray(39, this->m_actbuff(i), target);
   }
 
-  // repeated .proto_ff.rolebornitemDesc item = 40;
-  for (int i = 0; i < this->item_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        40, this->item(i), target);
-  }
-
-  // repeated int64 actSkill = 41;
-  for (int i = 0; i < this->actskill_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(41, this->actskill(i), target);
-  }
-
-  // repeated .proto_ff.rolebornmailDesc mail = 42;
-  for (int i = 0; i < this->mail_size(); i++) {
+  // repeated .proto_ff.E_RoleBornItemDesc m_item = 40;
+  for (int i = 0; i < this->m_item_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        42, this->mail(i), target);
+        40, this->m_item(i), target);
+  }
+
+  // repeated int64 m_actskill = 41;
+  for (int i = 0; i < this->m_actskill_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64ToArray(41, this->m_actskill(i), target);
+  }
+
+  // repeated .proto_ff.E_RoleBornMailDesc m_mail = 42;
+  for (int i = 0; i < this->m_mail_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        42, this->m_mail(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3112,319 +3120,319 @@ void roleborn::SerializeWithCachedSizes(
   return target;
 }
 
-int roleborn::ByteSize() const {
+int E_RoleBorn::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 bornID = 1;
-    if (has_bornid()) {
+    // optional int64 m_bornid = 1;
+    if (has_m_bornid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->bornid());
+          this->m_bornid());
     }
 
-    // optional int32 professionID = 2;
-    if (has_professionid()) {
+    // optional int32 m_professionid = 2;
+    if (has_m_professionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->professionid());
+          this->m_professionid());
     }
 
-    // optional string professionName = 3;
-    if (has_professionname()) {
+    // optional string m_professionname = 3;
+    if (has_m_professionname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->professionname());
+          this->m_professionname());
     }
 
-    // optional string placement = 4;
-    if (has_placement()) {
+    // optional string m_placement = 4;
+    if (has_m_placement()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->placement());
+          this->m_placement());
     }
 
-    // optional int32 gender = 5;
-    if (has_gender()) {
+    // optional int32 m_gender = 5;
+    if (has_m_gender()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->gender());
+          this->m_gender());
     }
 
-    // optional int32 bornLevel = 6;
-    if (has_bornlevel()) {
+    // optional int32 m_bornlevel = 6;
+    if (has_m_bornlevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->bornlevel());
+          this->m_bornlevel());
     }
 
-    // optional int32 bornTitle = 7;
-    if (has_borntitle()) {
+    // optional int32 m_borntitle = 7;
+    if (has_m_borntitle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->borntitle());
+          this->m_borntitle());
     }
 
-    // optional int64 diamond = 8;
-    if (has_diamond()) {
+    // optional int64 m_diamond = 8;
+    if (has_m_diamond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->diamond());
+          this->m_diamond());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int64 bindDiamond = 9;
-    if (has_binddiamond()) {
+    // optional int64 m_binddiamond = 9;
+    if (has_m_binddiamond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->binddiamond());
+          this->m_binddiamond());
     }
 
-    // optional int64 gold = 10;
-    if (has_gold()) {
+    // optional int64 m_gold = 10;
+    if (has_m_gold()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->gold());
+          this->m_gold());
     }
 
-    // optional int64 mapID = 11;
-    if (has_mapid()) {
+    // optional int64 m_mapid = 11;
+    if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->mapid());
+          this->m_mapid());
     }
 
-    // optional int32 birthFace = 12;
-    if (has_birthface()) {
+    // optional int32 m_birthface = 12;
+    if (has_m_birthface()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->birthface());
+          this->m_birthface());
     }
 
-    // optional string icons = 13;
-    if (has_icons()) {
+    // optional string m_icons = 13;
+    if (has_m_icons()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->icons());
+          this->m_icons());
     }
 
-    // optional string loginAvata = 14;
-    if (has_loginavata()) {
+    // optional string m_loginavata = 14;
+    if (has_m_loginavata()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->loginavata());
+          this->m_loginavata());
     }
 
-    // optional string newweapon = 15;
-    if (has_newweapon()) {
+    // optional string m_newweapon = 15;
+    if (has_m_newweapon()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->newweapon());
+          this->m_newweapon());
     }
 
-    // optional string newclothing = 16;
-    if (has_newclothing()) {
+    // optional string m_newclothing = 16;
+    if (has_m_newclothing()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->newclothing());
+          this->m_newclothing());
     }
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional string weaponAvata = 17;
-    if (has_weaponavata()) {
+    // optional string m_weaponavata = 17;
+    if (has_m_weaponavata()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->weaponavata());
+          this->m_weaponavata());
     }
 
-    // optional string roleAvata = 18;
-    if (has_roleavata()) {
+    // optional string m_roleavata = 18;
+    if (has_m_roleavata()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->roleavata());
+          this->m_roleavata());
     }
 
-    // optional int32 hairColor = 19;
-    if (has_haircolor()) {
+    // optional int32 m_haircolor = 19;
+    if (has_m_haircolor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->haircolor());
+          this->m_haircolor());
     }
 
-    // optional int32 clothesColor = 20;
-    if (has_clothescolor()) {
+    // optional int32 m_clothescolor = 20;
+    if (has_m_clothescolor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->clothescolor());
+          this->m_clothescolor());
     }
 
-    // optional int32 skinColor = 21;
-    if (has_skincolor()) {
+    // optional int32 m_skincolor = 21;
+    if (has_m_skincolor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->skincolor());
+          this->m_skincolor());
     }
 
-    // optional int64 carryWeapons = 22;
-    if (has_carryweapons()) {
+    // optional int64 m_carryweapons = 22;
+    if (has_m_carryweapons()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryweapons());
+          this->m_carryweapons());
     }
 
-    // optional int64 carryArmor = 23;
-    if (has_carryarmor()) {
+    // optional int64 m_carryarmor = 23;
+    if (has_m_carryarmor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryarmor());
+          this->m_carryarmor());
     }
 
-    // optional int64 carryCloak = 24;
-    if (has_carrycloak()) {
+    // optional int64 m_carrycloak = 24;
+    if (has_m_carrycloak()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carrycloak());
+          this->m_carrycloak());
     }
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int64 carryShoes = 25;
-    if (has_carryshoes()) {
+    // optional int64 m_carryshoes = 25;
+    if (has_m_carryshoes()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryshoes());
+          this->m_carryshoes());
     }
 
-    // optional int64 carryNecklace = 26;
-    if (has_carrynecklace()) {
+    // optional int64 m_carrynecklace = 26;
+    if (has_m_carrynecklace()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carrynecklace());
+          this->m_carrynecklace());
     }
 
-    // optional int64 carryAmulet = 27;
-    if (has_carryamulet()) {
+    // optional int64 m_carryamulet = 27;
+    if (has_m_carryamulet()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryamulet());
+          this->m_carryamulet());
     }
 
-    // optional int64 carryBracer = 28;
-    if (has_carrybracer()) {
+    // optional int64 m_carrybracer = 28;
+    if (has_m_carrybracer()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carrybracer());
+          this->m_carrybracer());
     }
 
-    // optional int64 carryRing = 29;
-    if (has_carryring()) {
+    // optional int64 m_carryring = 29;
+    if (has_m_carryring()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryring());
+          this->m_carryring());
     }
 
-    // optional int64 carryFashionWeapons = 30;
-    if (has_carryfashionweapons()) {
+    // optional int64 m_carryfashionweapons = 30;
+    if (has_m_carryfashionweapons()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryfashionweapons());
+          this->m_carryfashionweapons());
     }
 
-    // optional int64 carryFashionArmor = 31;
-    if (has_carryfashionarmor()) {
+    // optional int64 m_carryfashionarmor = 31;
+    if (has_m_carryfashionarmor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carryfashionarmor());
+          this->m_carryfashionarmor());
     }
 
-    // optional int64 carryWings = 32;
-    if (has_carrywings()) {
+    // optional int64 m_carrywings = 32;
+    if (has_m_carrywings()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->carrywings());
+          this->m_carrywings());
     }
 
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    // optional int32 mSpeed = 33;
-    if (has_mspeed()) {
+    // optional int32 m_mspeed = 33;
+    if (has_m_mspeed()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->mspeed());
+          this->m_mspeed());
     }
 
-    // optional int32 view = 34;
-    if (has_view()) {
+    // optional int32 m_view = 34;
+    if (has_m_view()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->view());
+          this->m_view());
     }
 
-    // optional int32 radius = 35;
-    if (has_radius()) {
+    // optional int32 m_radius = 35;
+    if (has_m_radius()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->radius());
+          this->m_radius());
     }
 
-    // optional int32 group = 36;
-    if (has_group()) {
+    // optional int32 m_group = 36;
+    if (has_m_group()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->group());
+          this->m_group());
     }
 
-    // optional int64 sheny = 37;
-    if (has_sheny()) {
+    // optional int64 m_sheny = 37;
+    if (has_m_sheny()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->sheny());
+          this->m_sheny());
     }
 
-    // optional int64 shenw = 38;
-    if (has_shenw()) {
+    // optional int64 m_shenw = 38;
+    if (has_m_shenw()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->shenw());
+          this->m_shenw());
     }
 
   }
-  // repeated int32 actBuff = 39;
+  // repeated int32 m_actbuff = 39;
   {
     int data_size = 0;
-    for (int i = 0; i < this->actbuff_size(); i++) {
+    for (int i = 0; i < this->m_actbuff_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->actbuff(i));
+        Int32Size(this->m_actbuff(i));
     }
-    total_size += 2 * this->actbuff_size() + data_size;
+    total_size += 2 * this->m_actbuff_size() + data_size;
   }
 
-  // repeated .proto_ff.rolebornitemDesc item = 40;
-  total_size += 2 * this->item_size();
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_RoleBornItemDesc m_item = 40;
+  total_size += 2 * this->m_item_size();
+  for (int i = 0; i < this->m_item_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->item(i));
+        this->m_item(i));
   }
 
-  // repeated int64 actSkill = 41;
+  // repeated int64 m_actskill = 41;
   {
     int data_size = 0;
-    for (int i = 0; i < this->actskill_size(); i++) {
+    for (int i = 0; i < this->m_actskill_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
-        Int64Size(this->actskill(i));
+        Int64Size(this->m_actskill(i));
     }
-    total_size += 2 * this->actskill_size() + data_size;
+    total_size += 2 * this->m_actskill_size() + data_size;
   }
 
-  // repeated .proto_ff.rolebornmailDesc mail = 42;
-  total_size += 2 * this->mail_size();
-  for (int i = 0; i < this->mail_size(); i++) {
+  // repeated .proto_ff.E_RoleBornMailDesc m_mail = 42;
+  total_size += 2 * this->m_mail_size();
+  for (int i = 0; i < this->m_mail_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->mail(i));
+        this->m_mail(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3438,10 +3446,10 @@ int roleborn::ByteSize() const {
   return total_size;
 }
 
-void roleborn::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleBorn::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleborn* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleborn*>(
+  const E_RoleBorn* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleBorn*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3450,200 +3458,200 @@ void roleborn::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roleborn::MergeFrom(const roleborn& from) {
+void E_RoleBorn::MergeFrom(const E_RoleBorn& from) {
   GOOGLE_CHECK_NE(&from, this);
-  actbuff_.MergeFrom(from.actbuff_);
-  item_.MergeFrom(from.item_);
-  actskill_.MergeFrom(from.actskill_);
-  mail_.MergeFrom(from.mail_);
+  m_actbuff_.MergeFrom(from.m_actbuff_);
+  m_item_.MergeFrom(from.m_item_);
+  m_actskill_.MergeFrom(from.m_actskill_);
+  m_mail_.MergeFrom(from.m_mail_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_bornid()) {
-      set_bornid(from.bornid());
+    if (from.has_m_bornid()) {
+      set_m_bornid(from.m_bornid());
     }
-    if (from.has_professionid()) {
-      set_professionid(from.professionid());
+    if (from.has_m_professionid()) {
+      set_m_professionid(from.m_professionid());
     }
-    if (from.has_professionname()) {
-      set_professionname(from.professionname());
+    if (from.has_m_professionname()) {
+      set_m_professionname(from.m_professionname());
     }
-    if (from.has_placement()) {
-      set_placement(from.placement());
+    if (from.has_m_placement()) {
+      set_m_placement(from.m_placement());
     }
-    if (from.has_gender()) {
-      set_gender(from.gender());
+    if (from.has_m_gender()) {
+      set_m_gender(from.m_gender());
     }
-    if (from.has_bornlevel()) {
-      set_bornlevel(from.bornlevel());
+    if (from.has_m_bornlevel()) {
+      set_m_bornlevel(from.m_bornlevel());
     }
-    if (from.has_borntitle()) {
-      set_borntitle(from.borntitle());
+    if (from.has_m_borntitle()) {
+      set_m_borntitle(from.m_borntitle());
     }
-    if (from.has_diamond()) {
-      set_diamond(from.diamond());
+    if (from.has_m_diamond()) {
+      set_m_diamond(from.m_diamond());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_binddiamond()) {
-      set_binddiamond(from.binddiamond());
+    if (from.has_m_binddiamond()) {
+      set_m_binddiamond(from.m_binddiamond());
     }
-    if (from.has_gold()) {
-      set_gold(from.gold());
+    if (from.has_m_gold()) {
+      set_m_gold(from.m_gold());
     }
-    if (from.has_mapid()) {
-      set_mapid(from.mapid());
+    if (from.has_m_mapid()) {
+      set_m_mapid(from.m_mapid());
     }
-    if (from.has_birthface()) {
-      set_birthface(from.birthface());
+    if (from.has_m_birthface()) {
+      set_m_birthface(from.m_birthface());
     }
-    if (from.has_icons()) {
-      set_icons(from.icons());
+    if (from.has_m_icons()) {
+      set_m_icons(from.m_icons());
     }
-    if (from.has_loginavata()) {
-      set_loginavata(from.loginavata());
+    if (from.has_m_loginavata()) {
+      set_m_loginavata(from.m_loginavata());
     }
-    if (from.has_newweapon()) {
-      set_newweapon(from.newweapon());
+    if (from.has_m_newweapon()) {
+      set_m_newweapon(from.m_newweapon());
     }
-    if (from.has_newclothing()) {
-      set_newclothing(from.newclothing());
+    if (from.has_m_newclothing()) {
+      set_m_newclothing(from.m_newclothing());
     }
   }
   if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (from.has_weaponavata()) {
-      set_weaponavata(from.weaponavata());
+    if (from.has_m_weaponavata()) {
+      set_m_weaponavata(from.m_weaponavata());
     }
-    if (from.has_roleavata()) {
-      set_roleavata(from.roleavata());
+    if (from.has_m_roleavata()) {
+      set_m_roleavata(from.m_roleavata());
     }
-    if (from.has_haircolor()) {
-      set_haircolor(from.haircolor());
+    if (from.has_m_haircolor()) {
+      set_m_haircolor(from.m_haircolor());
     }
-    if (from.has_clothescolor()) {
-      set_clothescolor(from.clothescolor());
+    if (from.has_m_clothescolor()) {
+      set_m_clothescolor(from.m_clothescolor());
     }
-    if (from.has_skincolor()) {
-      set_skincolor(from.skincolor());
+    if (from.has_m_skincolor()) {
+      set_m_skincolor(from.m_skincolor());
     }
-    if (from.has_carryweapons()) {
-      set_carryweapons(from.carryweapons());
+    if (from.has_m_carryweapons()) {
+      set_m_carryweapons(from.m_carryweapons());
     }
-    if (from.has_carryarmor()) {
-      set_carryarmor(from.carryarmor());
+    if (from.has_m_carryarmor()) {
+      set_m_carryarmor(from.m_carryarmor());
     }
-    if (from.has_carrycloak()) {
-      set_carrycloak(from.carrycloak());
+    if (from.has_m_carrycloak()) {
+      set_m_carrycloak(from.m_carrycloak());
     }
   }
   if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    if (from.has_carryshoes()) {
-      set_carryshoes(from.carryshoes());
+    if (from.has_m_carryshoes()) {
+      set_m_carryshoes(from.m_carryshoes());
     }
-    if (from.has_carrynecklace()) {
-      set_carrynecklace(from.carrynecklace());
+    if (from.has_m_carrynecklace()) {
+      set_m_carrynecklace(from.m_carrynecklace());
     }
-    if (from.has_carryamulet()) {
-      set_carryamulet(from.carryamulet());
+    if (from.has_m_carryamulet()) {
+      set_m_carryamulet(from.m_carryamulet());
     }
-    if (from.has_carrybracer()) {
-      set_carrybracer(from.carrybracer());
+    if (from.has_m_carrybracer()) {
+      set_m_carrybracer(from.m_carrybracer());
     }
-    if (from.has_carryring()) {
-      set_carryring(from.carryring());
+    if (from.has_m_carryring()) {
+      set_m_carryring(from.m_carryring());
     }
-    if (from.has_carryfashionweapons()) {
-      set_carryfashionweapons(from.carryfashionweapons());
+    if (from.has_m_carryfashionweapons()) {
+      set_m_carryfashionweapons(from.m_carryfashionweapons());
     }
-    if (from.has_carryfashionarmor()) {
-      set_carryfashionarmor(from.carryfashionarmor());
+    if (from.has_m_carryfashionarmor()) {
+      set_m_carryfashionarmor(from.m_carryfashionarmor());
     }
-    if (from.has_carrywings()) {
-      set_carrywings(from.carrywings());
+    if (from.has_m_carrywings()) {
+      set_m_carrywings(from.m_carrywings());
     }
   }
   if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    if (from.has_mspeed()) {
-      set_mspeed(from.mspeed());
+    if (from.has_m_mspeed()) {
+      set_m_mspeed(from.m_mspeed());
     }
-    if (from.has_view()) {
-      set_view(from.view());
+    if (from.has_m_view()) {
+      set_m_view(from.m_view());
     }
-    if (from.has_radius()) {
-      set_radius(from.radius());
+    if (from.has_m_radius()) {
+      set_m_radius(from.m_radius());
     }
-    if (from.has_group()) {
-      set_group(from.group());
+    if (from.has_m_group()) {
+      set_m_group(from.m_group());
     }
-    if (from.has_sheny()) {
-      set_sheny(from.sheny());
+    if (from.has_m_sheny()) {
+      set_m_sheny(from.m_sheny());
     }
-    if (from.has_shenw()) {
-      set_shenw(from.shenw());
+    if (from.has_m_shenw()) {
+      set_m_shenw(from.m_shenw());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleborn::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleBorn::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleborn::CopyFrom(const roleborn& from) {
+void E_RoleBorn::CopyFrom(const E_RoleBorn& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleborn::IsInitialized() const {
+bool E_RoleBorn::IsInitialized() const {
 
   return true;
 }
 
-void roleborn::Swap(roleborn* other) {
+void E_RoleBorn::Swap(E_RoleBorn* other) {
   if (other != this) {
-    std::swap(bornid_, other->bornid_);
-    std::swap(professionid_, other->professionid_);
-    std::swap(professionname_, other->professionname_);
-    std::swap(placement_, other->placement_);
-    std::swap(gender_, other->gender_);
-    std::swap(bornlevel_, other->bornlevel_);
-    std::swap(borntitle_, other->borntitle_);
-    std::swap(diamond_, other->diamond_);
-    std::swap(binddiamond_, other->binddiamond_);
-    std::swap(gold_, other->gold_);
-    std::swap(mapid_, other->mapid_);
-    std::swap(birthface_, other->birthface_);
-    std::swap(icons_, other->icons_);
-    std::swap(loginavata_, other->loginavata_);
-    std::swap(newweapon_, other->newweapon_);
-    std::swap(newclothing_, other->newclothing_);
-    std::swap(weaponavata_, other->weaponavata_);
-    std::swap(roleavata_, other->roleavata_);
-    std::swap(haircolor_, other->haircolor_);
-    std::swap(clothescolor_, other->clothescolor_);
-    std::swap(skincolor_, other->skincolor_);
-    std::swap(carryweapons_, other->carryweapons_);
-    std::swap(carryarmor_, other->carryarmor_);
-    std::swap(carrycloak_, other->carrycloak_);
-    std::swap(carryshoes_, other->carryshoes_);
-    std::swap(carrynecklace_, other->carrynecklace_);
-    std::swap(carryamulet_, other->carryamulet_);
-    std::swap(carrybracer_, other->carrybracer_);
-    std::swap(carryring_, other->carryring_);
-    std::swap(carryfashionweapons_, other->carryfashionweapons_);
-    std::swap(carryfashionarmor_, other->carryfashionarmor_);
-    std::swap(carrywings_, other->carrywings_);
-    std::swap(mspeed_, other->mspeed_);
-    std::swap(view_, other->view_);
-    std::swap(radius_, other->radius_);
-    std::swap(group_, other->group_);
-    std::swap(sheny_, other->sheny_);
-    std::swap(shenw_, other->shenw_);
-    actbuff_.Swap(&other->actbuff_);
-    item_.Swap(&other->item_);
-    actskill_.Swap(&other->actskill_);
-    mail_.Swap(&other->mail_);
+    std::swap(m_bornid_, other->m_bornid_);
+    std::swap(m_professionid_, other->m_professionid_);
+    std::swap(m_professionname_, other->m_professionname_);
+    std::swap(m_placement_, other->m_placement_);
+    std::swap(m_gender_, other->m_gender_);
+    std::swap(m_bornlevel_, other->m_bornlevel_);
+    std::swap(m_borntitle_, other->m_borntitle_);
+    std::swap(m_diamond_, other->m_diamond_);
+    std::swap(m_binddiamond_, other->m_binddiamond_);
+    std::swap(m_gold_, other->m_gold_);
+    std::swap(m_mapid_, other->m_mapid_);
+    std::swap(m_birthface_, other->m_birthface_);
+    std::swap(m_icons_, other->m_icons_);
+    std::swap(m_loginavata_, other->m_loginavata_);
+    std::swap(m_newweapon_, other->m_newweapon_);
+    std::swap(m_newclothing_, other->m_newclothing_);
+    std::swap(m_weaponavata_, other->m_weaponavata_);
+    std::swap(m_roleavata_, other->m_roleavata_);
+    std::swap(m_haircolor_, other->m_haircolor_);
+    std::swap(m_clothescolor_, other->m_clothescolor_);
+    std::swap(m_skincolor_, other->m_skincolor_);
+    std::swap(m_carryweapons_, other->m_carryweapons_);
+    std::swap(m_carryarmor_, other->m_carryarmor_);
+    std::swap(m_carrycloak_, other->m_carrycloak_);
+    std::swap(m_carryshoes_, other->m_carryshoes_);
+    std::swap(m_carrynecklace_, other->m_carrynecklace_);
+    std::swap(m_carryamulet_, other->m_carryamulet_);
+    std::swap(m_carrybracer_, other->m_carrybracer_);
+    std::swap(m_carryring_, other->m_carryring_);
+    std::swap(m_carryfashionweapons_, other->m_carryfashionweapons_);
+    std::swap(m_carryfashionarmor_, other->m_carryfashionarmor_);
+    std::swap(m_carrywings_, other->m_carrywings_);
+    std::swap(m_mspeed_, other->m_mspeed_);
+    std::swap(m_view_, other->m_view_);
+    std::swap(m_radius_, other->m_radius_);
+    std::swap(m_group_, other->m_group_);
+    std::swap(m_sheny_, other->m_sheny_);
+    std::swap(m_shenw_, other->m_shenw_);
+    m_actbuff_.Swap(&other->m_actbuff_);
+    m_item_.Swap(&other->m_item_);
+    m_actskill_.Swap(&other->m_actskill_);
+    m_mail_.Swap(&other->m_mail_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -3651,11 +3659,11 @@ void roleborn::Swap(roleborn* other) {
   }
 }
 
-::google::protobuf::Metadata roleborn::GetMetadata() const {
+::google::protobuf::Metadata E_RoleBorn::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleborn_descriptor_;
-  metadata.reflection = roleborn_reflection_;
+  metadata.descriptor = E_RoleBorn_descriptor_;
+  metadata.reflection = E_RoleBorn_reflection_;
   return metadata;
 }
 
@@ -3663,81 +3671,81 @@ void roleborn::Swap(roleborn* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roleborn::kRolebornListFieldNumber;
+const int Sheet_RoleBorn::kERoleBornListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roleborn::Sheet_roleborn()
+Sheet_RoleBorn::Sheet_RoleBorn()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roleborn::InitAsDefaultInstance() {
+void Sheet_RoleBorn::InitAsDefaultInstance() {
 }
 
-Sheet_roleborn::Sheet_roleborn(const Sheet_roleborn& from)
+Sheet_RoleBorn::Sheet_RoleBorn(const Sheet_RoleBorn& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roleborn::SharedCtor() {
+void Sheet_RoleBorn::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roleborn::~Sheet_roleborn() {
+Sheet_RoleBorn::~Sheet_RoleBorn() {
   SharedDtor();
 }
 
-void Sheet_roleborn::SharedDtor() {
+void Sheet_RoleBorn::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roleborn::SetCachedSize(int size) const {
+void Sheet_RoleBorn::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roleborn::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleBorn::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roleborn_descriptor_;
+  return Sheet_RoleBorn_descriptor_;
 }
 
-const Sheet_roleborn& Sheet_roleborn::default_instance() {
+const Sheet_RoleBorn& Sheet_RoleBorn::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roleborn* Sheet_roleborn::default_instance_ = NULL;
+Sheet_RoleBorn* Sheet_RoleBorn::default_instance_ = NULL;
 
-Sheet_roleborn* Sheet_roleborn::New() const {
-  return new Sheet_roleborn;
+Sheet_RoleBorn* Sheet_RoleBorn::New() const {
+  return new Sheet_RoleBorn;
 }
 
-void Sheet_roleborn::Clear() {
-  roleborn_list_.Clear();
+void Sheet_RoleBorn::Clear() {
+  e_roleborn_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roleborn::MergePartialFromCodedStream(
+bool Sheet_RoleBorn::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleborn roleborn_List = 1;
+      // repeated .proto_ff.E_RoleBorn E_RoleBorn_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleborn_List:
+         parse_E_RoleBorn_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleborn_list()));
+                input, add_e_roleborn_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roleborn_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleBorn_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3758,12 +3766,12 @@ bool Sheet_roleborn::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roleborn::SerializeWithCachedSizes(
+void Sheet_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleborn roleborn_List = 1;
-  for (int i = 0; i < this->roleborn_list_size(); i++) {
+  // repeated .proto_ff.E_RoleBorn E_RoleBorn_List = 1;
+  for (int i = 0; i < this->e_roleborn_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleborn_list(i), output);
+      1, this->e_roleborn_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3772,13 +3780,13 @@ void Sheet_roleborn::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roleborn::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleBorn::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleborn roleborn_List = 1;
-  for (int i = 0; i < this->roleborn_list_size(); i++) {
+  // repeated .proto_ff.E_RoleBorn E_RoleBorn_List = 1;
+  for (int i = 0; i < this->e_roleborn_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roleborn_list(i), target);
+        1, this->e_roleborn_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3788,15 +3796,15 @@ void Sheet_roleborn::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roleborn::ByteSize() const {
+int Sheet_RoleBorn::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roleborn roleborn_List = 1;
-  total_size += 1 * this->roleborn_list_size();
-  for (int i = 0; i < this->roleborn_list_size(); i++) {
+  // repeated .proto_ff.E_RoleBorn E_RoleBorn_List = 1;
+  total_size += 1 * this->e_roleborn_list_size();
+  for (int i = 0; i < this->e_roleborn_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleborn_list(i));
+        this->e_roleborn_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3810,10 +3818,10 @@ int Sheet_roleborn::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roleborn::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleBorn::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleborn* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleborn*>(
+  const Sheet_RoleBorn* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleBorn*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3822,43 +3830,43 @@ void Sheet_roleborn::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_roleborn::MergeFrom(const Sheet_roleborn& from) {
+void Sheet_RoleBorn::MergeFrom(const Sheet_RoleBorn& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roleborn_list_.MergeFrom(from.roleborn_list_);
+  e_roleborn_list_.MergeFrom(from.e_roleborn_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roleborn::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleBorn::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roleborn::CopyFrom(const Sheet_roleborn& from) {
+void Sheet_RoleBorn::CopyFrom(const Sheet_RoleBorn& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roleborn::IsInitialized() const {
+bool Sheet_RoleBorn::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roleborn::Swap(Sheet_roleborn* other) {
+void Sheet_RoleBorn::Swap(Sheet_RoleBorn* other) {
   if (other != this) {
-    roleborn_list_.Swap(&other->roleborn_list_);
+    e_roleborn_list_.Swap(&other->e_roleborn_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roleborn::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleBorn::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleborn_descriptor_;
-  metadata.reflection = Sheet_roleborn_reflection_;
+  metadata.descriptor = Sheet_RoleBorn_descriptor_;
+  metadata.reflection = Sheet_RoleBorn_reflection_;
   return metadata;
 }
 
@@ -3866,100 +3874,100 @@ void Sheet_roleborn::Swap(Sheet_roleborn* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolemasterMaleattributeDesc::kTypeFieldNumber;
-const int rolemasterMaleattributeDesc::kValueFieldNumber;
+const int E_RoleMastermaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleMastermaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-rolemasterMaleattributeDesc::rolemasterMaleattributeDesc()
+E_RoleMastermaleAttributeDesc::E_RoleMastermaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolemasterMaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleMastermaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-rolemasterMaleattributeDesc::rolemasterMaleattributeDesc(const rolemasterMaleattributeDesc& from)
+E_RoleMastermaleAttributeDesc::E_RoleMastermaleAttributeDesc(const E_RoleMastermaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolemasterMaleattributeDesc::SharedCtor() {
+void E_RoleMastermaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolemasterMaleattributeDesc::~rolemasterMaleattributeDesc() {
+E_RoleMastermaleAttributeDesc::~E_RoleMastermaleAttributeDesc() {
   SharedDtor();
 }
 
-void rolemasterMaleattributeDesc::SharedDtor() {
+void E_RoleMastermaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolemasterMaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleMastermaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolemasterMaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleMastermaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolemasterMaleattributeDesc_descriptor_;
+  return E_RoleMastermaleAttributeDesc_descriptor_;
 }
 
-const rolemasterMaleattributeDesc& rolemasterMaleattributeDesc::default_instance() {
+const E_RoleMastermaleAttributeDesc& E_RoleMastermaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolemasterMaleattributeDesc* rolemasterMaleattributeDesc::default_instance_ = NULL;
+E_RoleMastermaleAttributeDesc* E_RoleMastermaleAttributeDesc::default_instance_ = NULL;
 
-rolemasterMaleattributeDesc* rolemasterMaleattributeDesc::New() const {
-  return new rolemasterMaleattributeDesc;
+E_RoleMastermaleAttributeDesc* E_RoleMastermaleAttributeDesc::New() const {
+  return new E_RoleMastermaleAttributeDesc;
 }
 
-void rolemasterMaleattributeDesc::Clear() {
+void E_RoleMastermaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolemasterMaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleMastermaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -3983,16 +3991,16 @@ bool rolemasterMaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolemasterMaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleMastermaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4001,16 +4009,16 @@ void rolemasterMaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolemasterMaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleMastermaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4020,22 +4028,22 @@ void rolemasterMaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int rolemasterMaleattributeDesc::ByteSize() const {
+int E_RoleMastermaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -4050,10 +4058,10 @@ int rolemasterMaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void rolemasterMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleMastermaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolemasterMaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolemasterMaleattributeDesc*>(
+  const E_RoleMastermaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleMastermaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -4062,51 +4070,51 @@ void rolemasterMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& f
   }
 }
 
-void rolemasterMaleattributeDesc::MergeFrom(const rolemasterMaleattributeDesc& from) {
+void E_RoleMastermaleAttributeDesc::MergeFrom(const E_RoleMastermaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolemasterMaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleMastermaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolemasterMaleattributeDesc::CopyFrom(const rolemasterMaleattributeDesc& from) {
+void E_RoleMastermaleAttributeDesc::CopyFrom(const E_RoleMastermaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolemasterMaleattributeDesc::IsInitialized() const {
+bool E_RoleMastermaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void rolemasterMaleattributeDesc::Swap(rolemasterMaleattributeDesc* other) {
+void E_RoleMastermaleAttributeDesc::Swap(E_RoleMastermaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolemasterMaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleMastermaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolemasterMaleattributeDesc_descriptor_;
-  metadata.reflection = rolemasterMaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleMastermaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleMastermaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -4114,120 +4122,120 @@ void rolemasterMaleattributeDesc::Swap(rolemasterMaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolemasterMale::kLvFieldNumber;
-const int rolemasterMale::kUpgradePointFieldNumber;
-const int rolemasterMale::kAttributeFieldNumber;
+const int E_RoleMastermale::kMLvFieldNumber;
+const int E_RoleMastermale::kMUpgradepointFieldNumber;
+const int E_RoleMastermale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-rolemasterMale::rolemasterMale()
+E_RoleMastermale::E_RoleMastermale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolemasterMale::InitAsDefaultInstance() {
+void E_RoleMastermale::InitAsDefaultInstance() {
 }
 
-rolemasterMale::rolemasterMale(const rolemasterMale& from)
+E_RoleMastermale::E_RoleMastermale(const E_RoleMastermale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolemasterMale::SharedCtor() {
+void E_RoleMastermale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolemasterMale::~rolemasterMale() {
+E_RoleMastermale::~E_RoleMastermale() {
   SharedDtor();
 }
 
-void rolemasterMale::SharedDtor() {
+void E_RoleMastermale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolemasterMale::SetCachedSize(int size) const {
+void E_RoleMastermale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolemasterMale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleMastermale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolemasterMale_descriptor_;
+  return E_RoleMastermale_descriptor_;
 }
 
-const rolemasterMale& rolemasterMale::default_instance() {
+const E_RoleMastermale& E_RoleMastermale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolemasterMale* rolemasterMale::default_instance_ = NULL;
+E_RoleMastermale* E_RoleMastermale::default_instance_ = NULL;
 
-rolemasterMale* rolemasterMale::New() const {
-  return new rolemasterMale;
+E_RoleMastermale* E_RoleMastermale::New() const {
+  return new E_RoleMastermale;
 }
 
-void rolemasterMale::Clear() {
+void E_RoleMastermale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolemasterMale::MergePartialFromCodedStream(
+bool E_RoleMastermale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.rolemasterMaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleMastermaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4248,22 +4256,22 @@ bool rolemasterMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolemasterMale::SerializeWithCachedSizes(
+void E_RoleMastermale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.rolemasterMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleMastermaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4272,23 +4280,23 @@ void rolemasterMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolemasterMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleMastermale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.rolemasterMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleMastermaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4298,31 +4306,31 @@ void rolemasterMale::SerializeWithCachedSizes(
   return target;
 }
 
-int rolemasterMale::ByteSize() const {
+int E_RoleMastermale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.rolemasterMaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleMastermaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -4336,10 +4344,10 @@ int rolemasterMale::ByteSize() const {
   return total_size;
 }
 
-void rolemasterMale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleMastermale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolemasterMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolemasterMale*>(
+  const E_RoleMastermale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleMastermale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -4348,53 +4356,53 @@ void rolemasterMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void rolemasterMale::MergeFrom(const rolemasterMale& from) {
+void E_RoleMastermale::MergeFrom(const E_RoleMastermale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolemasterMale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleMastermale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolemasterMale::CopyFrom(const rolemasterMale& from) {
+void E_RoleMastermale::CopyFrom(const E_RoleMastermale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolemasterMale::IsInitialized() const {
+bool E_RoleMastermale::IsInitialized() const {
 
   return true;
 }
 
-void rolemasterMale::Swap(rolemasterMale* other) {
+void E_RoleMastermale::Swap(E_RoleMastermale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolemasterMale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleMastermale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolemasterMale_descriptor_;
-  metadata.reflection = rolemasterMale_reflection_;
+  metadata.descriptor = E_RoleMastermale_descriptor_;
+  metadata.reflection = E_RoleMastermale_reflection_;
   return metadata;
 }
 
@@ -4402,81 +4410,81 @@ void rolemasterMale::Swap(rolemasterMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_rolemasterMale::kRolemasterMaleListFieldNumber;
+const int Sheet_RoleMastermale::kERoleMastermaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_rolemasterMale::Sheet_rolemasterMale()
+Sheet_RoleMastermale::Sheet_RoleMastermale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_rolemasterMale::InitAsDefaultInstance() {
+void Sheet_RoleMastermale::InitAsDefaultInstance() {
 }
 
-Sheet_rolemasterMale::Sheet_rolemasterMale(const Sheet_rolemasterMale& from)
+Sheet_RoleMastermale::Sheet_RoleMastermale(const Sheet_RoleMastermale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_rolemasterMale::SharedCtor() {
+void Sheet_RoleMastermale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_rolemasterMale::~Sheet_rolemasterMale() {
+Sheet_RoleMastermale::~Sheet_RoleMastermale() {
   SharedDtor();
 }
 
-void Sheet_rolemasterMale::SharedDtor() {
+void Sheet_RoleMastermale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_rolemasterMale::SetCachedSize(int size) const {
+void Sheet_RoleMastermale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_rolemasterMale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleMastermale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_rolemasterMale_descriptor_;
+  return Sheet_RoleMastermale_descriptor_;
 }
 
-const Sheet_rolemasterMale& Sheet_rolemasterMale::default_instance() {
+const Sheet_RoleMastermale& Sheet_RoleMastermale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_rolemasterMale* Sheet_rolemasterMale::default_instance_ = NULL;
+Sheet_RoleMastermale* Sheet_RoleMastermale::default_instance_ = NULL;
 
-Sheet_rolemasterMale* Sheet_rolemasterMale::New() const {
-  return new Sheet_rolemasterMale;
+Sheet_RoleMastermale* Sheet_RoleMastermale::New() const {
+  return new Sheet_RoleMastermale;
 }
 
-void Sheet_rolemasterMale::Clear() {
-  rolemastermale_list_.Clear();
+void Sheet_RoleMastermale::Clear() {
+  e_rolemastermale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_rolemasterMale::MergePartialFromCodedStream(
+bool Sheet_RoleMastermale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.rolemasterMale rolemasterMale_List = 1;
+      // repeated .proto_ff.E_RoleMastermale E_RoleMastermale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_rolemasterMale_List:
+         parse_E_RoleMastermale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_rolemastermale_list()));
+                input, add_e_rolemastermale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_rolemasterMale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleMastermale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4497,12 +4505,12 @@ bool Sheet_rolemasterMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_rolemasterMale::SerializeWithCachedSizes(
+void Sheet_RoleMastermale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.rolemasterMale rolemasterMale_List = 1;
-  for (int i = 0; i < this->rolemastermale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleMastermale E_RoleMastermale_List = 1;
+  for (int i = 0; i < this->e_rolemastermale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->rolemastermale_list(i), output);
+      1, this->e_rolemastermale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4511,13 +4519,13 @@ void Sheet_rolemasterMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_rolemasterMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleMastermale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.rolemasterMale rolemasterMale_List = 1;
-  for (int i = 0; i < this->rolemastermale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleMastermale E_RoleMastermale_List = 1;
+  for (int i = 0; i < this->e_rolemastermale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->rolemastermale_list(i), target);
+        1, this->e_rolemastermale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4527,15 +4535,15 @@ void Sheet_rolemasterMale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_rolemasterMale::ByteSize() const {
+int Sheet_RoleMastermale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.rolemasterMale rolemasterMale_List = 1;
-  total_size += 1 * this->rolemastermale_list_size();
-  for (int i = 0; i < this->rolemastermale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleMastermale E_RoleMastermale_List = 1;
+  total_size += 1 * this->e_rolemastermale_list_size();
+  for (int i = 0; i < this->e_rolemastermale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->rolemastermale_list(i));
+        this->e_rolemastermale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -4549,10 +4557,10 @@ int Sheet_rolemasterMale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_rolemasterMale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleMastermale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_rolemasterMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_rolemasterMale*>(
+  const Sheet_RoleMastermale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleMastermale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -4561,43 +4569,43 @@ void Sheet_rolemasterMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_rolemasterMale::MergeFrom(const Sheet_rolemasterMale& from) {
+void Sheet_RoleMastermale::MergeFrom(const Sheet_RoleMastermale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  rolemastermale_list_.MergeFrom(from.rolemastermale_list_);
+  e_rolemastermale_list_.MergeFrom(from.e_rolemastermale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_rolemasterMale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleMastermale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_rolemasterMale::CopyFrom(const Sheet_rolemasterMale& from) {
+void Sheet_RoleMastermale::CopyFrom(const Sheet_RoleMastermale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_rolemasterMale::IsInitialized() const {
+bool Sheet_RoleMastermale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_rolemasterMale::Swap(Sheet_rolemasterMale* other) {
+void Sheet_RoleMastermale::Swap(Sheet_RoleMastermale* other) {
   if (other != this) {
-    rolemastermale_list_.Swap(&other->rolemastermale_list_);
+    e_rolemastermale_list_.Swap(&other->e_rolemastermale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_rolemasterMale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleMastermale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_rolemasterMale_descriptor_;
-  metadata.reflection = Sheet_rolemasterMale_reflection_;
+  metadata.descriptor = Sheet_RoleMastermale_descriptor_;
+  metadata.reflection = Sheet_RoleMastermale_reflection_;
   return metadata;
 }
 
@@ -4605,100 +4613,100 @@ void Sheet_rolemasterMale::Swap(Sheet_rolemasterMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolemasterFemaleattributeDesc::kTypeFieldNumber;
-const int rolemasterFemaleattributeDesc::kValueFieldNumber;
+const int E_RoleMasterfemaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleMasterfemaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-rolemasterFemaleattributeDesc::rolemasterFemaleattributeDesc()
+E_RoleMasterfemaleAttributeDesc::E_RoleMasterfemaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolemasterFemaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleMasterfemaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-rolemasterFemaleattributeDesc::rolemasterFemaleattributeDesc(const rolemasterFemaleattributeDesc& from)
+E_RoleMasterfemaleAttributeDesc::E_RoleMasterfemaleAttributeDesc(const E_RoleMasterfemaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolemasterFemaleattributeDesc::SharedCtor() {
+void E_RoleMasterfemaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolemasterFemaleattributeDesc::~rolemasterFemaleattributeDesc() {
+E_RoleMasterfemaleAttributeDesc::~E_RoleMasterfemaleAttributeDesc() {
   SharedDtor();
 }
 
-void rolemasterFemaleattributeDesc::SharedDtor() {
+void E_RoleMasterfemaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolemasterFemaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleMasterfemaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolemasterFemaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleMasterfemaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolemasterFemaleattributeDesc_descriptor_;
+  return E_RoleMasterfemaleAttributeDesc_descriptor_;
 }
 
-const rolemasterFemaleattributeDesc& rolemasterFemaleattributeDesc::default_instance() {
+const E_RoleMasterfemaleAttributeDesc& E_RoleMasterfemaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolemasterFemaleattributeDesc* rolemasterFemaleattributeDesc::default_instance_ = NULL;
+E_RoleMasterfemaleAttributeDesc* E_RoleMasterfemaleAttributeDesc::default_instance_ = NULL;
 
-rolemasterFemaleattributeDesc* rolemasterFemaleattributeDesc::New() const {
-  return new rolemasterFemaleattributeDesc;
+E_RoleMasterfemaleAttributeDesc* E_RoleMasterfemaleAttributeDesc::New() const {
+  return new E_RoleMasterfemaleAttributeDesc;
 }
 
-void rolemasterFemaleattributeDesc::Clear() {
+void E_RoleMasterfemaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolemasterFemaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleMasterfemaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -4722,16 +4730,16 @@ bool rolemasterFemaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolemasterFemaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleMasterfemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4740,16 +4748,16 @@ void rolemasterFemaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolemasterFemaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleMasterfemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4759,22 +4767,22 @@ void rolemasterFemaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int rolemasterFemaleattributeDesc::ByteSize() const {
+int E_RoleMasterfemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -4789,10 +4797,10 @@ int rolemasterFemaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void rolemasterFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleMasterfemaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolemasterFemaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolemasterFemaleattributeDesc*>(
+  const E_RoleMasterfemaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleMasterfemaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -4801,51 +4809,51 @@ void rolemasterFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message&
   }
 }
 
-void rolemasterFemaleattributeDesc::MergeFrom(const rolemasterFemaleattributeDesc& from) {
+void E_RoleMasterfemaleAttributeDesc::MergeFrom(const E_RoleMasterfemaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolemasterFemaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleMasterfemaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolemasterFemaleattributeDesc::CopyFrom(const rolemasterFemaleattributeDesc& from) {
+void E_RoleMasterfemaleAttributeDesc::CopyFrom(const E_RoleMasterfemaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolemasterFemaleattributeDesc::IsInitialized() const {
+bool E_RoleMasterfemaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void rolemasterFemaleattributeDesc::Swap(rolemasterFemaleattributeDesc* other) {
+void E_RoleMasterfemaleAttributeDesc::Swap(E_RoleMasterfemaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolemasterFemaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleMasterfemaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolemasterFemaleattributeDesc_descriptor_;
-  metadata.reflection = rolemasterFemaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleMasterfemaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleMasterfemaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -4853,120 +4861,120 @@ void rolemasterFemaleattributeDesc::Swap(rolemasterFemaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolemasterFemale::kLvFieldNumber;
-const int rolemasterFemale::kUpgradePointFieldNumber;
-const int rolemasterFemale::kAttributeFieldNumber;
+const int E_RoleMasterfemale::kMLvFieldNumber;
+const int E_RoleMasterfemale::kMUpgradepointFieldNumber;
+const int E_RoleMasterfemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-rolemasterFemale::rolemasterFemale()
+E_RoleMasterfemale::E_RoleMasterfemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolemasterFemale::InitAsDefaultInstance() {
+void E_RoleMasterfemale::InitAsDefaultInstance() {
 }
 
-rolemasterFemale::rolemasterFemale(const rolemasterFemale& from)
+E_RoleMasterfemale::E_RoleMasterfemale(const E_RoleMasterfemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolemasterFemale::SharedCtor() {
+void E_RoleMasterfemale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolemasterFemale::~rolemasterFemale() {
+E_RoleMasterfemale::~E_RoleMasterfemale() {
   SharedDtor();
 }
 
-void rolemasterFemale::SharedDtor() {
+void E_RoleMasterfemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolemasterFemale::SetCachedSize(int size) const {
+void E_RoleMasterfemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolemasterFemale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleMasterfemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolemasterFemale_descriptor_;
+  return E_RoleMasterfemale_descriptor_;
 }
 
-const rolemasterFemale& rolemasterFemale::default_instance() {
+const E_RoleMasterfemale& E_RoleMasterfemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolemasterFemale* rolemasterFemale::default_instance_ = NULL;
+E_RoleMasterfemale* E_RoleMasterfemale::default_instance_ = NULL;
 
-rolemasterFemale* rolemasterFemale::New() const {
-  return new rolemasterFemale;
+E_RoleMasterfemale* E_RoleMasterfemale::New() const {
+  return new E_RoleMasterfemale;
 }
 
-void rolemasterFemale::Clear() {
+void E_RoleMasterfemale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolemasterFemale::MergePartialFromCodedStream(
+bool E_RoleMasterfemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.rolemasterFemaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleMasterfemaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4987,22 +4995,22 @@ bool rolemasterFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolemasterFemale::SerializeWithCachedSizes(
+void E_RoleMasterfemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.rolemasterFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleMasterfemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5011,23 +5019,23 @@ void rolemasterFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolemasterFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleMasterfemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.rolemasterFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleMasterfemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5037,31 +5045,31 @@ void rolemasterFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int rolemasterFemale::ByteSize() const {
+int E_RoleMasterfemale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.rolemasterFemaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleMasterfemaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -5075,10 +5083,10 @@ int rolemasterFemale::ByteSize() const {
   return total_size;
 }
 
-void rolemasterFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleMasterfemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolemasterFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolemasterFemale*>(
+  const E_RoleMasterfemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleMasterfemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5087,53 +5095,53 @@ void rolemasterFemale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void rolemasterFemale::MergeFrom(const rolemasterFemale& from) {
+void E_RoleMasterfemale::MergeFrom(const E_RoleMasterfemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolemasterFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleMasterfemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolemasterFemale::CopyFrom(const rolemasterFemale& from) {
+void E_RoleMasterfemale::CopyFrom(const E_RoleMasterfemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolemasterFemale::IsInitialized() const {
+bool E_RoleMasterfemale::IsInitialized() const {
 
   return true;
 }
 
-void rolemasterFemale::Swap(rolemasterFemale* other) {
+void E_RoleMasterfemale::Swap(E_RoleMasterfemale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolemasterFemale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleMasterfemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolemasterFemale_descriptor_;
-  metadata.reflection = rolemasterFemale_reflection_;
+  metadata.descriptor = E_RoleMasterfemale_descriptor_;
+  metadata.reflection = E_RoleMasterfemale_reflection_;
   return metadata;
 }
 
@@ -5141,81 +5149,81 @@ void rolemasterFemale::Swap(rolemasterFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_rolemasterFemale::kRolemasterFemaleListFieldNumber;
+const int Sheet_RoleMasterfemale::kERoleMasterfemaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_rolemasterFemale::Sheet_rolemasterFemale()
+Sheet_RoleMasterfemale::Sheet_RoleMasterfemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_rolemasterFemale::InitAsDefaultInstance() {
+void Sheet_RoleMasterfemale::InitAsDefaultInstance() {
 }
 
-Sheet_rolemasterFemale::Sheet_rolemasterFemale(const Sheet_rolemasterFemale& from)
+Sheet_RoleMasterfemale::Sheet_RoleMasterfemale(const Sheet_RoleMasterfemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_rolemasterFemale::SharedCtor() {
+void Sheet_RoleMasterfemale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_rolemasterFemale::~Sheet_rolemasterFemale() {
+Sheet_RoleMasterfemale::~Sheet_RoleMasterfemale() {
   SharedDtor();
 }
 
-void Sheet_rolemasterFemale::SharedDtor() {
+void Sheet_RoleMasterfemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_rolemasterFemale::SetCachedSize(int size) const {
+void Sheet_RoleMasterfemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_rolemasterFemale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleMasterfemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_rolemasterFemale_descriptor_;
+  return Sheet_RoleMasterfemale_descriptor_;
 }
 
-const Sheet_rolemasterFemale& Sheet_rolemasterFemale::default_instance() {
+const Sheet_RoleMasterfemale& Sheet_RoleMasterfemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_rolemasterFemale* Sheet_rolemasterFemale::default_instance_ = NULL;
+Sheet_RoleMasterfemale* Sheet_RoleMasterfemale::default_instance_ = NULL;
 
-Sheet_rolemasterFemale* Sheet_rolemasterFemale::New() const {
-  return new Sheet_rolemasterFemale;
+Sheet_RoleMasterfemale* Sheet_RoleMasterfemale::New() const {
+  return new Sheet_RoleMasterfemale;
 }
 
-void Sheet_rolemasterFemale::Clear() {
-  rolemasterfemale_list_.Clear();
+void Sheet_RoleMasterfemale::Clear() {
+  e_rolemasterfemale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_rolemasterFemale::MergePartialFromCodedStream(
+bool Sheet_RoleMasterfemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.rolemasterFemale rolemasterFemale_List = 1;
+      // repeated .proto_ff.E_RoleMasterfemale E_RoleMasterfemale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_rolemasterFemale_List:
+         parse_E_RoleMasterfemale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_rolemasterfemale_list()));
+                input, add_e_rolemasterfemale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_rolemasterFemale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleMasterfemale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5236,12 +5244,12 @@ bool Sheet_rolemasterFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_rolemasterFemale::SerializeWithCachedSizes(
+void Sheet_RoleMasterfemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.rolemasterFemale rolemasterFemale_List = 1;
-  for (int i = 0; i < this->rolemasterfemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleMasterfemale E_RoleMasterfemale_List = 1;
+  for (int i = 0; i < this->e_rolemasterfemale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->rolemasterfemale_list(i), output);
+      1, this->e_rolemasterfemale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5250,13 +5258,13 @@ void Sheet_rolemasterFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_rolemasterFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleMasterfemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.rolemasterFemale rolemasterFemale_List = 1;
-  for (int i = 0; i < this->rolemasterfemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleMasterfemale E_RoleMasterfemale_List = 1;
+  for (int i = 0; i < this->e_rolemasterfemale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->rolemasterfemale_list(i), target);
+        1, this->e_rolemasterfemale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5266,15 +5274,15 @@ void Sheet_rolemasterFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_rolemasterFemale::ByteSize() const {
+int Sheet_RoleMasterfemale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.rolemasterFemale rolemasterFemale_List = 1;
-  total_size += 1 * this->rolemasterfemale_list_size();
-  for (int i = 0; i < this->rolemasterfemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleMasterfemale E_RoleMasterfemale_List = 1;
+  total_size += 1 * this->e_rolemasterfemale_list_size();
+  for (int i = 0; i < this->e_rolemasterfemale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->rolemasterfemale_list(i));
+        this->e_rolemasterfemale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -5288,10 +5296,10 @@ int Sheet_rolemasterFemale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_rolemasterFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleMasterfemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_rolemasterFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_rolemasterFemale*>(
+  const Sheet_RoleMasterfemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleMasterfemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5300,43 +5308,43 @@ void Sheet_rolemasterFemale::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void Sheet_rolemasterFemale::MergeFrom(const Sheet_rolemasterFemale& from) {
+void Sheet_RoleMasterfemale::MergeFrom(const Sheet_RoleMasterfemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  rolemasterfemale_list_.MergeFrom(from.rolemasterfemale_list_);
+  e_rolemasterfemale_list_.MergeFrom(from.e_rolemasterfemale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_rolemasterFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleMasterfemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_rolemasterFemale::CopyFrom(const Sheet_rolemasterFemale& from) {
+void Sheet_RoleMasterfemale::CopyFrom(const Sheet_RoleMasterfemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_rolemasterFemale::IsInitialized() const {
+bool Sheet_RoleMasterfemale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_rolemasterFemale::Swap(Sheet_rolemasterFemale* other) {
+void Sheet_RoleMasterfemale::Swap(Sheet_RoleMasterfemale* other) {
   if (other != this) {
-    rolemasterfemale_list_.Swap(&other->rolemasterfemale_list_);
+    e_rolemasterfemale_list_.Swap(&other->e_rolemasterfemale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_rolemasterFemale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleMasterfemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_rolemasterFemale_descriptor_;
-  metadata.reflection = Sheet_rolemasterFemale_reflection_;
+  metadata.descriptor = Sheet_RoleMasterfemale_descriptor_;
+  metadata.reflection = Sheet_RoleMasterfemale_reflection_;
   return metadata;
 }
 
@@ -5344,100 +5352,100 @@ void Sheet_rolemasterFemale::Swap(Sheet_rolemasterFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolesickleMaleattributeDesc::kTypeFieldNumber;
-const int rolesickleMaleattributeDesc::kValueFieldNumber;
+const int E_RoleSicklemaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleSicklemaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-rolesickleMaleattributeDesc::rolesickleMaleattributeDesc()
+E_RoleSicklemaleAttributeDesc::E_RoleSicklemaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolesickleMaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleSicklemaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-rolesickleMaleattributeDesc::rolesickleMaleattributeDesc(const rolesickleMaleattributeDesc& from)
+E_RoleSicklemaleAttributeDesc::E_RoleSicklemaleAttributeDesc(const E_RoleSicklemaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolesickleMaleattributeDesc::SharedCtor() {
+void E_RoleSicklemaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolesickleMaleattributeDesc::~rolesickleMaleattributeDesc() {
+E_RoleSicklemaleAttributeDesc::~E_RoleSicklemaleAttributeDesc() {
   SharedDtor();
 }
 
-void rolesickleMaleattributeDesc::SharedDtor() {
+void E_RoleSicklemaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolesickleMaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleSicklemaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolesickleMaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSicklemaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolesickleMaleattributeDesc_descriptor_;
+  return E_RoleSicklemaleAttributeDesc_descriptor_;
 }
 
-const rolesickleMaleattributeDesc& rolesickleMaleattributeDesc::default_instance() {
+const E_RoleSicklemaleAttributeDesc& E_RoleSicklemaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolesickleMaleattributeDesc* rolesickleMaleattributeDesc::default_instance_ = NULL;
+E_RoleSicklemaleAttributeDesc* E_RoleSicklemaleAttributeDesc::default_instance_ = NULL;
 
-rolesickleMaleattributeDesc* rolesickleMaleattributeDesc::New() const {
-  return new rolesickleMaleattributeDesc;
+E_RoleSicklemaleAttributeDesc* E_RoleSicklemaleAttributeDesc::New() const {
+  return new E_RoleSicklemaleAttributeDesc;
 }
 
-void rolesickleMaleattributeDesc::Clear() {
+void E_RoleSicklemaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolesickleMaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleSicklemaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -5461,16 +5469,16 @@ bool rolesickleMaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolesickleMaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleSicklemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5479,16 +5487,16 @@ void rolesickleMaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolesickleMaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSicklemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5498,22 +5506,22 @@ void rolesickleMaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int rolesickleMaleattributeDesc::ByteSize() const {
+int E_RoleSicklemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -5528,10 +5536,10 @@ int rolesickleMaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void rolesickleMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklemaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolesickleMaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolesickleMaleattributeDesc*>(
+  const E_RoleSicklemaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSicklemaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5540,51 +5548,51 @@ void rolesickleMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& f
   }
 }
 
-void rolesickleMaleattributeDesc::MergeFrom(const rolesickleMaleattributeDesc& from) {
+void E_RoleSicklemaleAttributeDesc::MergeFrom(const E_RoleSicklemaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolesickleMaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklemaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolesickleMaleattributeDesc::CopyFrom(const rolesickleMaleattributeDesc& from) {
+void E_RoleSicklemaleAttributeDesc::CopyFrom(const E_RoleSicklemaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolesickleMaleattributeDesc::IsInitialized() const {
+bool E_RoleSicklemaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void rolesickleMaleattributeDesc::Swap(rolesickleMaleattributeDesc* other) {
+void E_RoleSicklemaleAttributeDesc::Swap(E_RoleSicklemaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolesickleMaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSicklemaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolesickleMaleattributeDesc_descriptor_;
-  metadata.reflection = rolesickleMaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleSicklemaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleSicklemaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -5592,120 +5600,120 @@ void rolesickleMaleattributeDesc::Swap(rolesickleMaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolesickleMale::kLvFieldNumber;
-const int rolesickleMale::kUpgradePointFieldNumber;
-const int rolesickleMale::kAttributeFieldNumber;
+const int E_RoleSicklemale::kMLvFieldNumber;
+const int E_RoleSicklemale::kMUpgradepointFieldNumber;
+const int E_RoleSicklemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-rolesickleMale::rolesickleMale()
+E_RoleSicklemale::E_RoleSicklemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolesickleMale::InitAsDefaultInstance() {
+void E_RoleSicklemale::InitAsDefaultInstance() {
 }
 
-rolesickleMale::rolesickleMale(const rolesickleMale& from)
+E_RoleSicklemale::E_RoleSicklemale(const E_RoleSicklemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolesickleMale::SharedCtor() {
+void E_RoleSicklemale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolesickleMale::~rolesickleMale() {
+E_RoleSicklemale::~E_RoleSicklemale() {
   SharedDtor();
 }
 
-void rolesickleMale::SharedDtor() {
+void E_RoleSicklemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolesickleMale::SetCachedSize(int size) const {
+void E_RoleSicklemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolesickleMale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSicklemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolesickleMale_descriptor_;
+  return E_RoleSicklemale_descriptor_;
 }
 
-const rolesickleMale& rolesickleMale::default_instance() {
+const E_RoleSicklemale& E_RoleSicklemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolesickleMale* rolesickleMale::default_instance_ = NULL;
+E_RoleSicklemale* E_RoleSicklemale::default_instance_ = NULL;
 
-rolesickleMale* rolesickleMale::New() const {
-  return new rolesickleMale;
+E_RoleSicklemale* E_RoleSicklemale::New() const {
+  return new E_RoleSicklemale;
 }
 
-void rolesickleMale::Clear() {
+void E_RoleSicklemale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolesickleMale::MergePartialFromCodedStream(
+bool E_RoleSicklemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.rolesickleMaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleSicklemaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5726,22 +5734,22 @@ bool rolesickleMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolesickleMale::SerializeWithCachedSizes(
+void E_RoleSicklemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.rolesickleMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5750,23 +5758,23 @@ void rolesickleMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolesickleMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSicklemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.rolesickleMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5776,31 +5784,31 @@ void rolesickleMale::SerializeWithCachedSizes(
   return target;
 }
 
-int rolesickleMale::ByteSize() const {
+int E_RoleSicklemale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.rolesickleMaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklemaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -5814,10 +5822,10 @@ int rolesickleMale::ByteSize() const {
   return total_size;
 }
 
-void rolesickleMale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolesickleMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolesickleMale*>(
+  const E_RoleSicklemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSicklemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5826,53 +5834,53 @@ void rolesickleMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void rolesickleMale::MergeFrom(const rolesickleMale& from) {
+void E_RoleSicklemale::MergeFrom(const E_RoleSicklemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolesickleMale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolesickleMale::CopyFrom(const rolesickleMale& from) {
+void E_RoleSicklemale::CopyFrom(const E_RoleSicklemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolesickleMale::IsInitialized() const {
+bool E_RoleSicklemale::IsInitialized() const {
 
   return true;
 }
 
-void rolesickleMale::Swap(rolesickleMale* other) {
+void E_RoleSicklemale::Swap(E_RoleSicklemale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolesickleMale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSicklemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolesickleMale_descriptor_;
-  metadata.reflection = rolesickleMale_reflection_;
+  metadata.descriptor = E_RoleSicklemale_descriptor_;
+  metadata.reflection = E_RoleSicklemale_reflection_;
   return metadata;
 }
 
@@ -5880,81 +5888,81 @@ void rolesickleMale::Swap(rolesickleMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_rolesickleMale::kRolesickleMaleListFieldNumber;
+const int Sheet_RoleSicklemale::kERoleSicklemaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_rolesickleMale::Sheet_rolesickleMale()
+Sheet_RoleSicklemale::Sheet_RoleSicklemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_rolesickleMale::InitAsDefaultInstance() {
+void Sheet_RoleSicklemale::InitAsDefaultInstance() {
 }
 
-Sheet_rolesickleMale::Sheet_rolesickleMale(const Sheet_rolesickleMale& from)
+Sheet_RoleSicklemale::Sheet_RoleSicklemale(const Sheet_RoleSicklemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_rolesickleMale::SharedCtor() {
+void Sheet_RoleSicklemale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_rolesickleMale::~Sheet_rolesickleMale() {
+Sheet_RoleSicklemale::~Sheet_RoleSicklemale() {
   SharedDtor();
 }
 
-void Sheet_rolesickleMale::SharedDtor() {
+void Sheet_RoleSicklemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_rolesickleMale::SetCachedSize(int size) const {
+void Sheet_RoleSicklemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_rolesickleMale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleSicklemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_rolesickleMale_descriptor_;
+  return Sheet_RoleSicklemale_descriptor_;
 }
 
-const Sheet_rolesickleMale& Sheet_rolesickleMale::default_instance() {
+const Sheet_RoleSicklemale& Sheet_RoleSicklemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_rolesickleMale* Sheet_rolesickleMale::default_instance_ = NULL;
+Sheet_RoleSicklemale* Sheet_RoleSicklemale::default_instance_ = NULL;
 
-Sheet_rolesickleMale* Sheet_rolesickleMale::New() const {
-  return new Sheet_rolesickleMale;
+Sheet_RoleSicklemale* Sheet_RoleSicklemale::New() const {
+  return new Sheet_RoleSicklemale;
 }
 
-void Sheet_rolesickleMale::Clear() {
-  rolesicklemale_list_.Clear();
+void Sheet_RoleSicklemale::Clear() {
+  e_rolesicklemale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_rolesickleMale::MergePartialFromCodedStream(
+bool Sheet_RoleSicklemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.rolesickleMale rolesickleMale_List = 1;
+      // repeated .proto_ff.E_RoleSicklemale E_RoleSicklemale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_rolesickleMale_List:
+         parse_E_RoleSicklemale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_rolesicklemale_list()));
+                input, add_e_rolesicklemale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_rolesickleMale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleSicklemale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5975,12 +5983,12 @@ bool Sheet_rolesickleMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_rolesickleMale::SerializeWithCachedSizes(
+void Sheet_RoleSicklemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.rolesickleMale rolesickleMale_List = 1;
-  for (int i = 0; i < this->rolesicklemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklemale E_RoleSicklemale_List = 1;
+  for (int i = 0; i < this->e_rolesicklemale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->rolesicklemale_list(i), output);
+      1, this->e_rolesicklemale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5989,13 +5997,13 @@ void Sheet_rolesickleMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_rolesickleMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleSicklemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.rolesickleMale rolesickleMale_List = 1;
-  for (int i = 0; i < this->rolesicklemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklemale E_RoleSicklemale_List = 1;
+  for (int i = 0; i < this->e_rolesicklemale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->rolesicklemale_list(i), target);
+        1, this->e_rolesicklemale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6005,15 +6013,15 @@ void Sheet_rolesickleMale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_rolesickleMale::ByteSize() const {
+int Sheet_RoleSicklemale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.rolesickleMale rolesickleMale_List = 1;
-  total_size += 1 * this->rolesicklemale_list_size();
-  for (int i = 0; i < this->rolesicklemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklemale E_RoleSicklemale_List = 1;
+  total_size += 1 * this->e_rolesicklemale_list_size();
+  for (int i = 0; i < this->e_rolesicklemale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->rolesicklemale_list(i));
+        this->e_rolesicklemale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -6027,10 +6035,10 @@ int Sheet_rolesickleMale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_rolesickleMale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSicklemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_rolesickleMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_rolesickleMale*>(
+  const Sheet_RoleSicklemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleSicklemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -6039,43 +6047,43 @@ void Sheet_rolesickleMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_rolesickleMale::MergeFrom(const Sheet_rolesickleMale& from) {
+void Sheet_RoleSicklemale::MergeFrom(const Sheet_RoleSicklemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  rolesicklemale_list_.MergeFrom(from.rolesicklemale_list_);
+  e_rolesicklemale_list_.MergeFrom(from.e_rolesicklemale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_rolesickleMale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSicklemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_rolesickleMale::CopyFrom(const Sheet_rolesickleMale& from) {
+void Sheet_RoleSicklemale::CopyFrom(const Sheet_RoleSicklemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_rolesickleMale::IsInitialized() const {
+bool Sheet_RoleSicklemale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_rolesickleMale::Swap(Sheet_rolesickleMale* other) {
+void Sheet_RoleSicklemale::Swap(Sheet_RoleSicklemale* other) {
   if (other != this) {
-    rolesicklemale_list_.Swap(&other->rolesicklemale_list_);
+    e_rolesicklemale_list_.Swap(&other->e_rolesicklemale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_rolesickleMale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleSicklemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_rolesickleMale_descriptor_;
-  metadata.reflection = Sheet_rolesickleMale_reflection_;
+  metadata.descriptor = Sheet_RoleSicklemale_descriptor_;
+  metadata.reflection = Sheet_RoleSicklemale_reflection_;
   return metadata;
 }
 
@@ -6083,100 +6091,100 @@ void Sheet_rolesickleMale::Swap(Sheet_rolesickleMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolesickleFemaleattributeDesc::kTypeFieldNumber;
-const int rolesickleFemaleattributeDesc::kValueFieldNumber;
+const int E_RoleSicklefemaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleSicklefemaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-rolesickleFemaleattributeDesc::rolesickleFemaleattributeDesc()
+E_RoleSicklefemaleAttributeDesc::E_RoleSicklefemaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolesickleFemaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleSicklefemaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-rolesickleFemaleattributeDesc::rolesickleFemaleattributeDesc(const rolesickleFemaleattributeDesc& from)
+E_RoleSicklefemaleAttributeDesc::E_RoleSicklefemaleAttributeDesc(const E_RoleSicklefemaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolesickleFemaleattributeDesc::SharedCtor() {
+void E_RoleSicklefemaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolesickleFemaleattributeDesc::~rolesickleFemaleattributeDesc() {
+E_RoleSicklefemaleAttributeDesc::~E_RoleSicklefemaleAttributeDesc() {
   SharedDtor();
 }
 
-void rolesickleFemaleattributeDesc::SharedDtor() {
+void E_RoleSicklefemaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolesickleFemaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleSicklefemaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolesickleFemaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSicklefemaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolesickleFemaleattributeDesc_descriptor_;
+  return E_RoleSicklefemaleAttributeDesc_descriptor_;
 }
 
-const rolesickleFemaleattributeDesc& rolesickleFemaleattributeDesc::default_instance() {
+const E_RoleSicklefemaleAttributeDesc& E_RoleSicklefemaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolesickleFemaleattributeDesc* rolesickleFemaleattributeDesc::default_instance_ = NULL;
+E_RoleSicklefemaleAttributeDesc* E_RoleSicklefemaleAttributeDesc::default_instance_ = NULL;
 
-rolesickleFemaleattributeDesc* rolesickleFemaleattributeDesc::New() const {
-  return new rolesickleFemaleattributeDesc;
+E_RoleSicklefemaleAttributeDesc* E_RoleSicklefemaleAttributeDesc::New() const {
+  return new E_RoleSicklefemaleAttributeDesc;
 }
 
-void rolesickleFemaleattributeDesc::Clear() {
+void E_RoleSicklefemaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolesickleFemaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleSicklefemaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -6200,16 +6208,16 @@ bool rolesickleFemaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolesickleFemaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleSicklefemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6218,16 +6226,16 @@ void rolesickleFemaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolesickleFemaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSicklefemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6237,22 +6245,22 @@ void rolesickleFemaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int rolesickleFemaleattributeDesc::ByteSize() const {
+int E_RoleSicklefemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -6267,10 +6275,10 @@ int rolesickleFemaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void rolesickleFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklefemaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolesickleFemaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolesickleFemaleattributeDesc*>(
+  const E_RoleSicklefemaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSicklefemaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -6279,51 +6287,51 @@ void rolesickleFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message&
   }
 }
 
-void rolesickleFemaleattributeDesc::MergeFrom(const rolesickleFemaleattributeDesc& from) {
+void E_RoleSicklefemaleAttributeDesc::MergeFrom(const E_RoleSicklefemaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolesickleFemaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklefemaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolesickleFemaleattributeDesc::CopyFrom(const rolesickleFemaleattributeDesc& from) {
+void E_RoleSicklefemaleAttributeDesc::CopyFrom(const E_RoleSicklefemaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolesickleFemaleattributeDesc::IsInitialized() const {
+bool E_RoleSicklefemaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void rolesickleFemaleattributeDesc::Swap(rolesickleFemaleattributeDesc* other) {
+void E_RoleSicklefemaleAttributeDesc::Swap(E_RoleSicklefemaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolesickleFemaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSicklefemaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolesickleFemaleattributeDesc_descriptor_;
-  metadata.reflection = rolesickleFemaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleSicklefemaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleSicklefemaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -6331,120 +6339,120 @@ void rolesickleFemaleattributeDesc::Swap(rolesickleFemaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int rolesickleFemale::kLvFieldNumber;
-const int rolesickleFemale::kUpgradePointFieldNumber;
-const int rolesickleFemale::kAttributeFieldNumber;
+const int E_RoleSicklefemale::kMLvFieldNumber;
+const int E_RoleSicklefemale::kMUpgradepointFieldNumber;
+const int E_RoleSicklefemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-rolesickleFemale::rolesickleFemale()
+E_RoleSicklefemale::E_RoleSicklefemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void rolesickleFemale::InitAsDefaultInstance() {
+void E_RoleSicklefemale::InitAsDefaultInstance() {
 }
 
-rolesickleFemale::rolesickleFemale(const rolesickleFemale& from)
+E_RoleSicklefemale::E_RoleSicklefemale(const E_RoleSicklefemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void rolesickleFemale::SharedCtor() {
+void E_RoleSicklefemale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-rolesickleFemale::~rolesickleFemale() {
+E_RoleSicklefemale::~E_RoleSicklefemale() {
   SharedDtor();
 }
 
-void rolesickleFemale::SharedDtor() {
+void E_RoleSicklefemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void rolesickleFemale::SetCachedSize(int size) const {
+void E_RoleSicklefemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* rolesickleFemale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSicklefemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return rolesickleFemale_descriptor_;
+  return E_RoleSicklefemale_descriptor_;
 }
 
-const rolesickleFemale& rolesickleFemale::default_instance() {
+const E_RoleSicklefemale& E_RoleSicklefemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-rolesickleFemale* rolesickleFemale::default_instance_ = NULL;
+E_RoleSicklefemale* E_RoleSicklefemale::default_instance_ = NULL;
 
-rolesickleFemale* rolesickleFemale::New() const {
-  return new rolesickleFemale;
+E_RoleSicklefemale* E_RoleSicklefemale::New() const {
+  return new E_RoleSicklefemale;
 }
 
-void rolesickleFemale::Clear() {
+void E_RoleSicklefemale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool rolesickleFemale::MergePartialFromCodedStream(
+bool E_RoleSicklefemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.rolesickleFemaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleSicklefemaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6465,22 +6473,22 @@ bool rolesickleFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void rolesickleFemale::SerializeWithCachedSizes(
+void E_RoleSicklefemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.rolesickleFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklefemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6489,23 +6497,23 @@ void rolesickleFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* rolesickleFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSicklefemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.rolesickleFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklefemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6515,31 +6523,31 @@ void rolesickleFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int rolesickleFemale::ByteSize() const {
+int E_RoleSicklefemale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.rolesickleFemaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklefemaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -6553,10 +6561,10 @@ int rolesickleFemale::ByteSize() const {
   return total_size;
 }
 
-void rolesickleFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklefemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const rolesickleFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const rolesickleFemale*>(
+  const E_RoleSicklefemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSicklefemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -6565,53 +6573,53 @@ void rolesickleFemale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void rolesickleFemale::MergeFrom(const rolesickleFemale& from) {
+void E_RoleSicklefemale::MergeFrom(const E_RoleSicklefemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void rolesickleFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSicklefemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void rolesickleFemale::CopyFrom(const rolesickleFemale& from) {
+void E_RoleSicklefemale::CopyFrom(const E_RoleSicklefemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool rolesickleFemale::IsInitialized() const {
+bool E_RoleSicklefemale::IsInitialized() const {
 
   return true;
 }
 
-void rolesickleFemale::Swap(rolesickleFemale* other) {
+void E_RoleSicklefemale::Swap(E_RoleSicklefemale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata rolesickleFemale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSicklefemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = rolesickleFemale_descriptor_;
-  metadata.reflection = rolesickleFemale_reflection_;
+  metadata.descriptor = E_RoleSicklefemale_descriptor_;
+  metadata.reflection = E_RoleSicklefemale_reflection_;
   return metadata;
 }
 
@@ -6619,81 +6627,81 @@ void rolesickleFemale::Swap(rolesickleFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_rolesickleFemale::kRolesickleFemaleListFieldNumber;
+const int Sheet_RoleSicklefemale::kERoleSicklefemaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_rolesickleFemale::Sheet_rolesickleFemale()
+Sheet_RoleSicklefemale::Sheet_RoleSicklefemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_rolesickleFemale::InitAsDefaultInstance() {
+void Sheet_RoleSicklefemale::InitAsDefaultInstance() {
 }
 
-Sheet_rolesickleFemale::Sheet_rolesickleFemale(const Sheet_rolesickleFemale& from)
+Sheet_RoleSicklefemale::Sheet_RoleSicklefemale(const Sheet_RoleSicklefemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_rolesickleFemale::SharedCtor() {
+void Sheet_RoleSicklefemale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_rolesickleFemale::~Sheet_rolesickleFemale() {
+Sheet_RoleSicklefemale::~Sheet_RoleSicklefemale() {
   SharedDtor();
 }
 
-void Sheet_rolesickleFemale::SharedDtor() {
+void Sheet_RoleSicklefemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_rolesickleFemale::SetCachedSize(int size) const {
+void Sheet_RoleSicklefemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_rolesickleFemale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleSicklefemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_rolesickleFemale_descriptor_;
+  return Sheet_RoleSicklefemale_descriptor_;
 }
 
-const Sheet_rolesickleFemale& Sheet_rolesickleFemale::default_instance() {
+const Sheet_RoleSicklefemale& Sheet_RoleSicklefemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_rolesickleFemale* Sheet_rolesickleFemale::default_instance_ = NULL;
+Sheet_RoleSicklefemale* Sheet_RoleSicklefemale::default_instance_ = NULL;
 
-Sheet_rolesickleFemale* Sheet_rolesickleFemale::New() const {
-  return new Sheet_rolesickleFemale;
+Sheet_RoleSicklefemale* Sheet_RoleSicklefemale::New() const {
+  return new Sheet_RoleSicklefemale;
 }
 
-void Sheet_rolesickleFemale::Clear() {
-  rolesicklefemale_list_.Clear();
+void Sheet_RoleSicklefemale::Clear() {
+  e_rolesicklefemale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_rolesickleFemale::MergePartialFromCodedStream(
+bool Sheet_RoleSicklefemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.rolesickleFemale rolesickleFemale_List = 1;
+      // repeated .proto_ff.E_RoleSicklefemale E_RoleSicklefemale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_rolesickleFemale_List:
+         parse_E_RoleSicklefemale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_rolesicklefemale_list()));
+                input, add_e_rolesicklefemale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_rolesickleFemale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleSicklefemale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6714,12 +6722,12 @@ bool Sheet_rolesickleFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_rolesickleFemale::SerializeWithCachedSizes(
+void Sheet_RoleSicklefemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.rolesickleFemale rolesickleFemale_List = 1;
-  for (int i = 0; i < this->rolesicklefemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklefemale E_RoleSicklefemale_List = 1;
+  for (int i = 0; i < this->e_rolesicklefemale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->rolesicklefemale_list(i), output);
+      1, this->e_rolesicklefemale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6728,13 +6736,13 @@ void Sheet_rolesickleFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_rolesickleFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleSicklefemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.rolesickleFemale rolesickleFemale_List = 1;
-  for (int i = 0; i < this->rolesicklefemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklefemale E_RoleSicklefemale_List = 1;
+  for (int i = 0; i < this->e_rolesicklefemale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->rolesicklefemale_list(i), target);
+        1, this->e_rolesicklefemale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6744,15 +6752,15 @@ void Sheet_rolesickleFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_rolesickleFemale::ByteSize() const {
+int Sheet_RoleSicklefemale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.rolesickleFemale rolesickleFemale_List = 1;
-  total_size += 1 * this->rolesicklefemale_list_size();
-  for (int i = 0; i < this->rolesicklefemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSicklefemale E_RoleSicklefemale_List = 1;
+  total_size += 1 * this->e_rolesicklefemale_list_size();
+  for (int i = 0; i < this->e_rolesicklefemale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->rolesicklefemale_list(i));
+        this->e_rolesicklefemale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -6766,10 +6774,10 @@ int Sheet_rolesickleFemale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_rolesickleFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSicklefemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_rolesickleFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_rolesickleFemale*>(
+  const Sheet_RoleSicklefemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleSicklefemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -6778,43 +6786,43 @@ void Sheet_rolesickleFemale::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void Sheet_rolesickleFemale::MergeFrom(const Sheet_rolesickleFemale& from) {
+void Sheet_RoleSicklefemale::MergeFrom(const Sheet_RoleSicklefemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  rolesicklefemale_list_.MergeFrom(from.rolesicklefemale_list_);
+  e_rolesicklefemale_list_.MergeFrom(from.e_rolesicklefemale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_rolesickleFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSicklefemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_rolesickleFemale::CopyFrom(const Sheet_rolesickleFemale& from) {
+void Sheet_RoleSicklefemale::CopyFrom(const Sheet_RoleSicklefemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_rolesickleFemale::IsInitialized() const {
+bool Sheet_RoleSicklefemale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_rolesickleFemale::Swap(Sheet_rolesickleFemale* other) {
+void Sheet_RoleSicklefemale::Swap(Sheet_RoleSicklefemale* other) {
   if (other != this) {
-    rolesicklefemale_list_.Swap(&other->rolesicklefemale_list_);
+    e_rolesicklefemale_list_.Swap(&other->e_rolesicklefemale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_rolesickleFemale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleSicklefemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_rolesickleFemale_descriptor_;
-  metadata.reflection = Sheet_rolesickleFemale_reflection_;
+  metadata.descriptor = Sheet_RoleSicklefemale_descriptor_;
+  metadata.reflection = Sheet_RoleSicklefemale_reflection_;
   return metadata;
 }
 
@@ -6822,100 +6830,100 @@ void Sheet_rolesickleFemale::Swap(Sheet_rolesickleFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleswordMaleattributeDesc::kTypeFieldNumber;
-const int roleswordMaleattributeDesc::kValueFieldNumber;
+const int E_RoleSwordmaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleSwordmaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-roleswordMaleattributeDesc::roleswordMaleattributeDesc()
+E_RoleSwordmaleAttributeDesc::E_RoleSwordmaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleswordMaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleSwordmaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-roleswordMaleattributeDesc::roleswordMaleattributeDesc(const roleswordMaleattributeDesc& from)
+E_RoleSwordmaleAttributeDesc::E_RoleSwordmaleAttributeDesc(const E_RoleSwordmaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleswordMaleattributeDesc::SharedCtor() {
+void E_RoleSwordmaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleswordMaleattributeDesc::~roleswordMaleattributeDesc() {
+E_RoleSwordmaleAttributeDesc::~E_RoleSwordmaleAttributeDesc() {
   SharedDtor();
 }
 
-void roleswordMaleattributeDesc::SharedDtor() {
+void E_RoleSwordmaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roleswordMaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleSwordmaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleswordMaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSwordmaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleswordMaleattributeDesc_descriptor_;
+  return E_RoleSwordmaleAttributeDesc_descriptor_;
 }
 
-const roleswordMaleattributeDesc& roleswordMaleattributeDesc::default_instance() {
+const E_RoleSwordmaleAttributeDesc& E_RoleSwordmaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleswordMaleattributeDesc* roleswordMaleattributeDesc::default_instance_ = NULL;
+E_RoleSwordmaleAttributeDesc* E_RoleSwordmaleAttributeDesc::default_instance_ = NULL;
 
-roleswordMaleattributeDesc* roleswordMaleattributeDesc::New() const {
-  return new roleswordMaleattributeDesc;
+E_RoleSwordmaleAttributeDesc* E_RoleSwordmaleAttributeDesc::New() const {
+  return new E_RoleSwordmaleAttributeDesc;
 }
 
-void roleswordMaleattributeDesc::Clear() {
+void E_RoleSwordmaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleswordMaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleSwordmaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -6939,16 +6947,16 @@ bool roleswordMaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleswordMaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleSwordmaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6957,16 +6965,16 @@ void roleswordMaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleswordMaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSwordmaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6976,22 +6984,22 @@ void roleswordMaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int roleswordMaleattributeDesc::ByteSize() const {
+int E_RoleSwordmaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -7006,10 +7014,10 @@ int roleswordMaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void roleswordMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordmaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleswordMaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleswordMaleattributeDesc*>(
+  const E_RoleSwordmaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSwordmaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7018,51 +7026,51 @@ void roleswordMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void roleswordMaleattributeDesc::MergeFrom(const roleswordMaleattributeDesc& from) {
+void E_RoleSwordmaleAttributeDesc::MergeFrom(const E_RoleSwordmaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleswordMaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordmaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleswordMaleattributeDesc::CopyFrom(const roleswordMaleattributeDesc& from) {
+void E_RoleSwordmaleAttributeDesc::CopyFrom(const E_RoleSwordmaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleswordMaleattributeDesc::IsInitialized() const {
+bool E_RoleSwordmaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void roleswordMaleattributeDesc::Swap(roleswordMaleattributeDesc* other) {
+void E_RoleSwordmaleAttributeDesc::Swap(E_RoleSwordmaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roleswordMaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSwordmaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleswordMaleattributeDesc_descriptor_;
-  metadata.reflection = roleswordMaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleSwordmaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleSwordmaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -7070,120 +7078,120 @@ void roleswordMaleattributeDesc::Swap(roleswordMaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleswordMale::kLvFieldNumber;
-const int roleswordMale::kUpgradePointFieldNumber;
-const int roleswordMale::kAttributeFieldNumber;
+const int E_RoleSwordmale::kMLvFieldNumber;
+const int E_RoleSwordmale::kMUpgradepointFieldNumber;
+const int E_RoleSwordmale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-roleswordMale::roleswordMale()
+E_RoleSwordmale::E_RoleSwordmale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleswordMale::InitAsDefaultInstance() {
+void E_RoleSwordmale::InitAsDefaultInstance() {
 }
 
-roleswordMale::roleswordMale(const roleswordMale& from)
+E_RoleSwordmale::E_RoleSwordmale(const E_RoleSwordmale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleswordMale::SharedCtor() {
+void E_RoleSwordmale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleswordMale::~roleswordMale() {
+E_RoleSwordmale::~E_RoleSwordmale() {
   SharedDtor();
 }
 
-void roleswordMale::SharedDtor() {
+void E_RoleSwordmale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roleswordMale::SetCachedSize(int size) const {
+void E_RoleSwordmale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleswordMale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSwordmale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleswordMale_descriptor_;
+  return E_RoleSwordmale_descriptor_;
 }
 
-const roleswordMale& roleswordMale::default_instance() {
+const E_RoleSwordmale& E_RoleSwordmale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleswordMale* roleswordMale::default_instance_ = NULL;
+E_RoleSwordmale* E_RoleSwordmale::default_instance_ = NULL;
 
-roleswordMale* roleswordMale::New() const {
-  return new roleswordMale;
+E_RoleSwordmale* E_RoleSwordmale::New() const {
+  return new E_RoleSwordmale;
 }
 
-void roleswordMale::Clear() {
+void E_RoleSwordmale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleswordMale::MergePartialFromCodedStream(
+bool E_RoleSwordmale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.roleswordMaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleSwordmaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7204,22 +7212,22 @@ bool roleswordMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleswordMale::SerializeWithCachedSizes(
+void E_RoleSwordmale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.roleswordMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordmaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7228,23 +7236,23 @@ void roleswordMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleswordMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSwordmale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.roleswordMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordmaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7254,31 +7262,31 @@ void roleswordMale::SerializeWithCachedSizes(
   return target;
 }
 
-int roleswordMale::ByteSize() const {
+int E_RoleSwordmale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.roleswordMaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordmaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -7292,10 +7300,10 @@ int roleswordMale::ByteSize() const {
   return total_size;
 }
 
-void roleswordMale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordmale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleswordMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleswordMale*>(
+  const E_RoleSwordmale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSwordmale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7304,53 +7312,53 @@ void roleswordMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roleswordMale::MergeFrom(const roleswordMale& from) {
+void E_RoleSwordmale::MergeFrom(const E_RoleSwordmale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleswordMale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordmale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleswordMale::CopyFrom(const roleswordMale& from) {
+void E_RoleSwordmale::CopyFrom(const E_RoleSwordmale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleswordMale::IsInitialized() const {
+bool E_RoleSwordmale::IsInitialized() const {
 
   return true;
 }
 
-void roleswordMale::Swap(roleswordMale* other) {
+void E_RoleSwordmale::Swap(E_RoleSwordmale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roleswordMale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSwordmale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleswordMale_descriptor_;
-  metadata.reflection = roleswordMale_reflection_;
+  metadata.descriptor = E_RoleSwordmale_descriptor_;
+  metadata.reflection = E_RoleSwordmale_reflection_;
   return metadata;
 }
 
@@ -7358,81 +7366,81 @@ void roleswordMale::Swap(roleswordMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roleswordMale::kRoleswordMaleListFieldNumber;
+const int Sheet_RoleSwordmale::kERoleSwordmaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roleswordMale::Sheet_roleswordMale()
+Sheet_RoleSwordmale::Sheet_RoleSwordmale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roleswordMale::InitAsDefaultInstance() {
+void Sheet_RoleSwordmale::InitAsDefaultInstance() {
 }
 
-Sheet_roleswordMale::Sheet_roleswordMale(const Sheet_roleswordMale& from)
+Sheet_RoleSwordmale::Sheet_RoleSwordmale(const Sheet_RoleSwordmale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roleswordMale::SharedCtor() {
+void Sheet_RoleSwordmale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roleswordMale::~Sheet_roleswordMale() {
+Sheet_RoleSwordmale::~Sheet_RoleSwordmale() {
   SharedDtor();
 }
 
-void Sheet_roleswordMale::SharedDtor() {
+void Sheet_RoleSwordmale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roleswordMale::SetCachedSize(int size) const {
+void Sheet_RoleSwordmale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roleswordMale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleSwordmale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roleswordMale_descriptor_;
+  return Sheet_RoleSwordmale_descriptor_;
 }
 
-const Sheet_roleswordMale& Sheet_roleswordMale::default_instance() {
+const Sheet_RoleSwordmale& Sheet_RoleSwordmale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roleswordMale* Sheet_roleswordMale::default_instance_ = NULL;
+Sheet_RoleSwordmale* Sheet_RoleSwordmale::default_instance_ = NULL;
 
-Sheet_roleswordMale* Sheet_roleswordMale::New() const {
-  return new Sheet_roleswordMale;
+Sheet_RoleSwordmale* Sheet_RoleSwordmale::New() const {
+  return new Sheet_RoleSwordmale;
 }
 
-void Sheet_roleswordMale::Clear() {
-  roleswordmale_list_.Clear();
+void Sheet_RoleSwordmale::Clear() {
+  e_roleswordmale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roleswordMale::MergePartialFromCodedStream(
+bool Sheet_RoleSwordmale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleswordMale roleswordMale_List = 1;
+      // repeated .proto_ff.E_RoleSwordmale E_RoleSwordmale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleswordMale_List:
+         parse_E_RoleSwordmale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleswordmale_list()));
+                input, add_e_roleswordmale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roleswordMale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleSwordmale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7453,12 +7461,12 @@ bool Sheet_roleswordMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roleswordMale::SerializeWithCachedSizes(
+void Sheet_RoleSwordmale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleswordMale roleswordMale_List = 1;
-  for (int i = 0; i < this->roleswordmale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordmale E_RoleSwordmale_List = 1;
+  for (int i = 0; i < this->e_roleswordmale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleswordmale_list(i), output);
+      1, this->e_roleswordmale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7467,13 +7475,13 @@ void Sheet_roleswordMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roleswordMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleSwordmale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleswordMale roleswordMale_List = 1;
-  for (int i = 0; i < this->roleswordmale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordmale E_RoleSwordmale_List = 1;
+  for (int i = 0; i < this->e_roleswordmale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roleswordmale_list(i), target);
+        1, this->e_roleswordmale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7483,15 +7491,15 @@ void Sheet_roleswordMale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roleswordMale::ByteSize() const {
+int Sheet_RoleSwordmale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roleswordMale roleswordMale_List = 1;
-  total_size += 1 * this->roleswordmale_list_size();
-  for (int i = 0; i < this->roleswordmale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordmale E_RoleSwordmale_List = 1;
+  total_size += 1 * this->e_roleswordmale_list_size();
+  for (int i = 0; i < this->e_roleswordmale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleswordmale_list(i));
+        this->e_roleswordmale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -7505,10 +7513,10 @@ int Sheet_roleswordMale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roleswordMale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSwordmale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleswordMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleswordMale*>(
+  const Sheet_RoleSwordmale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleSwordmale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7517,43 +7525,43 @@ void Sheet_roleswordMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_roleswordMale::MergeFrom(const Sheet_roleswordMale& from) {
+void Sheet_RoleSwordmale::MergeFrom(const Sheet_RoleSwordmale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roleswordmale_list_.MergeFrom(from.roleswordmale_list_);
+  e_roleswordmale_list_.MergeFrom(from.e_roleswordmale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roleswordMale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSwordmale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roleswordMale::CopyFrom(const Sheet_roleswordMale& from) {
+void Sheet_RoleSwordmale::CopyFrom(const Sheet_RoleSwordmale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roleswordMale::IsInitialized() const {
+bool Sheet_RoleSwordmale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roleswordMale::Swap(Sheet_roleswordMale* other) {
+void Sheet_RoleSwordmale::Swap(Sheet_RoleSwordmale* other) {
   if (other != this) {
-    roleswordmale_list_.Swap(&other->roleswordmale_list_);
+    e_roleswordmale_list_.Swap(&other->e_roleswordmale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roleswordMale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleSwordmale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleswordMale_descriptor_;
-  metadata.reflection = Sheet_roleswordMale_reflection_;
+  metadata.descriptor = Sheet_RoleSwordmale_descriptor_;
+  metadata.reflection = Sheet_RoleSwordmale_reflection_;
   return metadata;
 }
 
@@ -7561,100 +7569,100 @@ void Sheet_roleswordMale::Swap(Sheet_roleswordMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleswordFemaleattributeDesc::kTypeFieldNumber;
-const int roleswordFemaleattributeDesc::kValueFieldNumber;
+const int E_RoleSwordfemaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleSwordfemaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-roleswordFemaleattributeDesc::roleswordFemaleattributeDesc()
+E_RoleSwordfemaleAttributeDesc::E_RoleSwordfemaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleswordFemaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleSwordfemaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-roleswordFemaleattributeDesc::roleswordFemaleattributeDesc(const roleswordFemaleattributeDesc& from)
+E_RoleSwordfemaleAttributeDesc::E_RoleSwordfemaleAttributeDesc(const E_RoleSwordfemaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleswordFemaleattributeDesc::SharedCtor() {
+void E_RoleSwordfemaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleswordFemaleattributeDesc::~roleswordFemaleattributeDesc() {
+E_RoleSwordfemaleAttributeDesc::~E_RoleSwordfemaleAttributeDesc() {
   SharedDtor();
 }
 
-void roleswordFemaleattributeDesc::SharedDtor() {
+void E_RoleSwordfemaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roleswordFemaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleSwordfemaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleswordFemaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSwordfemaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleswordFemaleattributeDesc_descriptor_;
+  return E_RoleSwordfemaleAttributeDesc_descriptor_;
 }
 
-const roleswordFemaleattributeDesc& roleswordFemaleattributeDesc::default_instance() {
+const E_RoleSwordfemaleAttributeDesc& E_RoleSwordfemaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleswordFemaleattributeDesc* roleswordFemaleattributeDesc::default_instance_ = NULL;
+E_RoleSwordfemaleAttributeDesc* E_RoleSwordfemaleAttributeDesc::default_instance_ = NULL;
 
-roleswordFemaleattributeDesc* roleswordFemaleattributeDesc::New() const {
-  return new roleswordFemaleattributeDesc;
+E_RoleSwordfemaleAttributeDesc* E_RoleSwordfemaleAttributeDesc::New() const {
+  return new E_RoleSwordfemaleAttributeDesc;
 }
 
-void roleswordFemaleattributeDesc::Clear() {
+void E_RoleSwordfemaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleswordFemaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleSwordfemaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -7678,16 +7686,16 @@ bool roleswordFemaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleswordFemaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleSwordfemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7696,16 +7704,16 @@ void roleswordFemaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleswordFemaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSwordfemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7715,22 +7723,22 @@ void roleswordFemaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int roleswordFemaleattributeDesc::ByteSize() const {
+int E_RoleSwordfemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -7745,10 +7753,10 @@ int roleswordFemaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void roleswordFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordfemaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleswordFemaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleswordFemaleattributeDesc*>(
+  const E_RoleSwordfemaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSwordfemaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7757,51 +7765,51 @@ void roleswordFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message& 
   }
 }
 
-void roleswordFemaleattributeDesc::MergeFrom(const roleswordFemaleattributeDesc& from) {
+void E_RoleSwordfemaleAttributeDesc::MergeFrom(const E_RoleSwordfemaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleswordFemaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordfemaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleswordFemaleattributeDesc::CopyFrom(const roleswordFemaleattributeDesc& from) {
+void E_RoleSwordfemaleAttributeDesc::CopyFrom(const E_RoleSwordfemaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleswordFemaleattributeDesc::IsInitialized() const {
+bool E_RoleSwordfemaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void roleswordFemaleattributeDesc::Swap(roleswordFemaleattributeDesc* other) {
+void E_RoleSwordfemaleAttributeDesc::Swap(E_RoleSwordfemaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roleswordFemaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSwordfemaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleswordFemaleattributeDesc_descriptor_;
-  metadata.reflection = roleswordFemaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleSwordfemaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleSwordfemaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -7809,120 +7817,120 @@ void roleswordFemaleattributeDesc::Swap(roleswordFemaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleswordFemale::kLvFieldNumber;
-const int roleswordFemale::kUpgradePointFieldNumber;
-const int roleswordFemale::kAttributeFieldNumber;
+const int E_RoleSwordfemale::kMLvFieldNumber;
+const int E_RoleSwordfemale::kMUpgradepointFieldNumber;
+const int E_RoleSwordfemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-roleswordFemale::roleswordFemale()
+E_RoleSwordfemale::E_RoleSwordfemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleswordFemale::InitAsDefaultInstance() {
+void E_RoleSwordfemale::InitAsDefaultInstance() {
 }
 
-roleswordFemale::roleswordFemale(const roleswordFemale& from)
+E_RoleSwordfemale::E_RoleSwordfemale(const E_RoleSwordfemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleswordFemale::SharedCtor() {
+void E_RoleSwordfemale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleswordFemale::~roleswordFemale() {
+E_RoleSwordfemale::~E_RoleSwordfemale() {
   SharedDtor();
 }
 
-void roleswordFemale::SharedDtor() {
+void E_RoleSwordfemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roleswordFemale::SetCachedSize(int size) const {
+void E_RoleSwordfemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleswordFemale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSwordfemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleswordFemale_descriptor_;
+  return E_RoleSwordfemale_descriptor_;
 }
 
-const roleswordFemale& roleswordFemale::default_instance() {
+const E_RoleSwordfemale& E_RoleSwordfemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleswordFemale* roleswordFemale::default_instance_ = NULL;
+E_RoleSwordfemale* E_RoleSwordfemale::default_instance_ = NULL;
 
-roleswordFemale* roleswordFemale::New() const {
-  return new roleswordFemale;
+E_RoleSwordfemale* E_RoleSwordfemale::New() const {
+  return new E_RoleSwordfemale;
 }
 
-void roleswordFemale::Clear() {
+void E_RoleSwordfemale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleswordFemale::MergePartialFromCodedStream(
+bool E_RoleSwordfemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.roleswordFemaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleSwordfemaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7943,22 +7951,22 @@ bool roleswordFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleswordFemale::SerializeWithCachedSizes(
+void E_RoleSwordfemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.roleswordFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordfemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7967,23 +7975,23 @@ void roleswordFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleswordFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSwordfemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.roleswordFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordfemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7993,31 +8001,31 @@ void roleswordFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int roleswordFemale::ByteSize() const {
+int E_RoleSwordfemale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.roleswordFemaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordfemaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -8031,10 +8039,10 @@ int roleswordFemale::ByteSize() const {
   return total_size;
 }
 
-void roleswordFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordfemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleswordFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleswordFemale*>(
+  const E_RoleSwordfemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSwordfemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8043,53 +8051,53 @@ void roleswordFemale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roleswordFemale::MergeFrom(const roleswordFemale& from) {
+void E_RoleSwordfemale::MergeFrom(const E_RoleSwordfemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleswordFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSwordfemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleswordFemale::CopyFrom(const roleswordFemale& from) {
+void E_RoleSwordfemale::CopyFrom(const E_RoleSwordfemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleswordFemale::IsInitialized() const {
+bool E_RoleSwordfemale::IsInitialized() const {
 
   return true;
 }
 
-void roleswordFemale::Swap(roleswordFemale* other) {
+void E_RoleSwordfemale::Swap(E_RoleSwordfemale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roleswordFemale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSwordfemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleswordFemale_descriptor_;
-  metadata.reflection = roleswordFemale_reflection_;
+  metadata.descriptor = E_RoleSwordfemale_descriptor_;
+  metadata.reflection = E_RoleSwordfemale_reflection_;
   return metadata;
 }
 
@@ -8097,81 +8105,81 @@ void roleswordFemale::Swap(roleswordFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roleswordFemale::kRoleswordFemaleListFieldNumber;
+const int Sheet_RoleSwordfemale::kERoleSwordfemaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roleswordFemale::Sheet_roleswordFemale()
+Sheet_RoleSwordfemale::Sheet_RoleSwordfemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roleswordFemale::InitAsDefaultInstance() {
+void Sheet_RoleSwordfemale::InitAsDefaultInstance() {
 }
 
-Sheet_roleswordFemale::Sheet_roleswordFemale(const Sheet_roleswordFemale& from)
+Sheet_RoleSwordfemale::Sheet_RoleSwordfemale(const Sheet_RoleSwordfemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roleswordFemale::SharedCtor() {
+void Sheet_RoleSwordfemale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roleswordFemale::~Sheet_roleswordFemale() {
+Sheet_RoleSwordfemale::~Sheet_RoleSwordfemale() {
   SharedDtor();
 }
 
-void Sheet_roleswordFemale::SharedDtor() {
+void Sheet_RoleSwordfemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roleswordFemale::SetCachedSize(int size) const {
+void Sheet_RoleSwordfemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roleswordFemale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleSwordfemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roleswordFemale_descriptor_;
+  return Sheet_RoleSwordfemale_descriptor_;
 }
 
-const Sheet_roleswordFemale& Sheet_roleswordFemale::default_instance() {
+const Sheet_RoleSwordfemale& Sheet_RoleSwordfemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roleswordFemale* Sheet_roleswordFemale::default_instance_ = NULL;
+Sheet_RoleSwordfemale* Sheet_RoleSwordfemale::default_instance_ = NULL;
 
-Sheet_roleswordFemale* Sheet_roleswordFemale::New() const {
-  return new Sheet_roleswordFemale;
+Sheet_RoleSwordfemale* Sheet_RoleSwordfemale::New() const {
+  return new Sheet_RoleSwordfemale;
 }
 
-void Sheet_roleswordFemale::Clear() {
-  roleswordfemale_list_.Clear();
+void Sheet_RoleSwordfemale::Clear() {
+  e_roleswordfemale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roleswordFemale::MergePartialFromCodedStream(
+bool Sheet_RoleSwordfemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleswordFemale roleswordFemale_List = 1;
+      // repeated .proto_ff.E_RoleSwordfemale E_RoleSwordfemale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleswordFemale_List:
+         parse_E_RoleSwordfemale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleswordfemale_list()));
+                input, add_e_roleswordfemale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roleswordFemale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleSwordfemale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -8192,12 +8200,12 @@ bool Sheet_roleswordFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roleswordFemale::SerializeWithCachedSizes(
+void Sheet_RoleSwordfemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleswordFemale roleswordFemale_List = 1;
-  for (int i = 0; i < this->roleswordfemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordfemale E_RoleSwordfemale_List = 1;
+  for (int i = 0; i < this->e_roleswordfemale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleswordfemale_list(i), output);
+      1, this->e_roleswordfemale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8206,13 +8214,13 @@ void Sheet_roleswordFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roleswordFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleSwordfemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleswordFemale roleswordFemale_List = 1;
-  for (int i = 0; i < this->roleswordfemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordfemale E_RoleSwordfemale_List = 1;
+  for (int i = 0; i < this->e_roleswordfemale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roleswordfemale_list(i), target);
+        1, this->e_roleswordfemale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8222,15 +8230,15 @@ void Sheet_roleswordFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roleswordFemale::ByteSize() const {
+int Sheet_RoleSwordfemale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roleswordFemale roleswordFemale_List = 1;
-  total_size += 1 * this->roleswordfemale_list_size();
-  for (int i = 0; i < this->roleswordfemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSwordfemale E_RoleSwordfemale_List = 1;
+  total_size += 1 * this->e_roleswordfemale_list_size();
+  for (int i = 0; i < this->e_roleswordfemale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleswordfemale_list(i));
+        this->e_roleswordfemale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -8244,10 +8252,10 @@ int Sheet_roleswordFemale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roleswordFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSwordfemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleswordFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleswordFemale*>(
+  const Sheet_RoleSwordfemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleSwordfemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8256,43 +8264,43 @@ void Sheet_roleswordFemale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_roleswordFemale::MergeFrom(const Sheet_roleswordFemale& from) {
+void Sheet_RoleSwordfemale::MergeFrom(const Sheet_RoleSwordfemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roleswordfemale_list_.MergeFrom(from.roleswordfemale_list_);
+  e_roleswordfemale_list_.MergeFrom(from.e_roleswordfemale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roleswordFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSwordfemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roleswordFemale::CopyFrom(const Sheet_roleswordFemale& from) {
+void Sheet_RoleSwordfemale::CopyFrom(const Sheet_RoleSwordfemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roleswordFemale::IsInitialized() const {
+bool Sheet_RoleSwordfemale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roleswordFemale::Swap(Sheet_roleswordFemale* other) {
+void Sheet_RoleSwordfemale::Swap(Sheet_RoleSwordfemale* other) {
   if (other != this) {
-    roleswordfemale_list_.Swap(&other->roleswordfemale_list_);
+    e_roleswordfemale_list_.Swap(&other->e_roleswordfemale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roleswordFemale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleSwordfemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleswordFemale_descriptor_;
-  metadata.reflection = Sheet_roleswordFemale_reflection_;
+  metadata.descriptor = Sheet_RoleSwordfemale_descriptor_;
+  metadata.reflection = Sheet_RoleSwordfemale_reflection_;
   return metadata;
 }
 
@@ -8300,100 +8308,100 @@ void Sheet_roleswordFemale::Swap(Sheet_roleswordFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roletaidaoMaleattributeDesc::kTypeFieldNumber;
-const int roletaidaoMaleattributeDesc::kValueFieldNumber;
+const int E_RoleTaidaomaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleTaidaomaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-roletaidaoMaleattributeDesc::roletaidaoMaleattributeDesc()
+E_RoleTaidaomaleAttributeDesc::E_RoleTaidaomaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roletaidaoMaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleTaidaomaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-roletaidaoMaleattributeDesc::roletaidaoMaleattributeDesc(const roletaidaoMaleattributeDesc& from)
+E_RoleTaidaomaleAttributeDesc::E_RoleTaidaomaleAttributeDesc(const E_RoleTaidaomaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roletaidaoMaleattributeDesc::SharedCtor() {
+void E_RoleTaidaomaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roletaidaoMaleattributeDesc::~roletaidaoMaleattributeDesc() {
+E_RoleTaidaomaleAttributeDesc::~E_RoleTaidaomaleAttributeDesc() {
   SharedDtor();
 }
 
-void roletaidaoMaleattributeDesc::SharedDtor() {
+void E_RoleTaidaomaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roletaidaoMaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleTaidaomaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roletaidaoMaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleTaidaomaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roletaidaoMaleattributeDesc_descriptor_;
+  return E_RoleTaidaomaleAttributeDesc_descriptor_;
 }
 
-const roletaidaoMaleattributeDesc& roletaidaoMaleattributeDesc::default_instance() {
+const E_RoleTaidaomaleAttributeDesc& E_RoleTaidaomaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roletaidaoMaleattributeDesc* roletaidaoMaleattributeDesc::default_instance_ = NULL;
+E_RoleTaidaomaleAttributeDesc* E_RoleTaidaomaleAttributeDesc::default_instance_ = NULL;
 
-roletaidaoMaleattributeDesc* roletaidaoMaleattributeDesc::New() const {
-  return new roletaidaoMaleattributeDesc;
+E_RoleTaidaomaleAttributeDesc* E_RoleTaidaomaleAttributeDesc::New() const {
+  return new E_RoleTaidaomaleAttributeDesc;
 }
 
-void roletaidaoMaleattributeDesc::Clear() {
+void E_RoleTaidaomaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roletaidaoMaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleTaidaomaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -8417,16 +8425,16 @@ bool roletaidaoMaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roletaidaoMaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleTaidaomaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8435,16 +8443,16 @@ void roletaidaoMaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roletaidaoMaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleTaidaomaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8454,22 +8462,22 @@ void roletaidaoMaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int roletaidaoMaleattributeDesc::ByteSize() const {
+int E_RoleTaidaomaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -8484,10 +8492,10 @@ int roletaidaoMaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void roletaidaoMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaomaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roletaidaoMaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roletaidaoMaleattributeDesc*>(
+  const E_RoleTaidaomaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleTaidaomaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8496,51 +8504,51 @@ void roletaidaoMaleattributeDesc::MergeFrom(const ::google::protobuf::Message& f
   }
 }
 
-void roletaidaoMaleattributeDesc::MergeFrom(const roletaidaoMaleattributeDesc& from) {
+void E_RoleTaidaomaleAttributeDesc::MergeFrom(const E_RoleTaidaomaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roletaidaoMaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaomaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roletaidaoMaleattributeDesc::CopyFrom(const roletaidaoMaleattributeDesc& from) {
+void E_RoleTaidaomaleAttributeDesc::CopyFrom(const E_RoleTaidaomaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roletaidaoMaleattributeDesc::IsInitialized() const {
+bool E_RoleTaidaomaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void roletaidaoMaleattributeDesc::Swap(roletaidaoMaleattributeDesc* other) {
+void E_RoleTaidaomaleAttributeDesc::Swap(E_RoleTaidaomaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roletaidaoMaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleTaidaomaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roletaidaoMaleattributeDesc_descriptor_;
-  metadata.reflection = roletaidaoMaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleTaidaomaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleTaidaomaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -8548,120 +8556,120 @@ void roletaidaoMaleattributeDesc::Swap(roletaidaoMaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roletaidaoMale::kLvFieldNumber;
-const int roletaidaoMale::kUpgradePointFieldNumber;
-const int roletaidaoMale::kAttributeFieldNumber;
+const int E_RoleTaidaomale::kMLvFieldNumber;
+const int E_RoleTaidaomale::kMUpgradepointFieldNumber;
+const int E_RoleTaidaomale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-roletaidaoMale::roletaidaoMale()
+E_RoleTaidaomale::E_RoleTaidaomale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roletaidaoMale::InitAsDefaultInstance() {
+void E_RoleTaidaomale::InitAsDefaultInstance() {
 }
 
-roletaidaoMale::roletaidaoMale(const roletaidaoMale& from)
+E_RoleTaidaomale::E_RoleTaidaomale(const E_RoleTaidaomale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roletaidaoMale::SharedCtor() {
+void E_RoleTaidaomale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roletaidaoMale::~roletaidaoMale() {
+E_RoleTaidaomale::~E_RoleTaidaomale() {
   SharedDtor();
 }
 
-void roletaidaoMale::SharedDtor() {
+void E_RoleTaidaomale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roletaidaoMale::SetCachedSize(int size) const {
+void E_RoleTaidaomale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roletaidaoMale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleTaidaomale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roletaidaoMale_descriptor_;
+  return E_RoleTaidaomale_descriptor_;
 }
 
-const roletaidaoMale& roletaidaoMale::default_instance() {
+const E_RoleTaidaomale& E_RoleTaidaomale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roletaidaoMale* roletaidaoMale::default_instance_ = NULL;
+E_RoleTaidaomale* E_RoleTaidaomale::default_instance_ = NULL;
 
-roletaidaoMale* roletaidaoMale::New() const {
-  return new roletaidaoMale;
+E_RoleTaidaomale* E_RoleTaidaomale::New() const {
+  return new E_RoleTaidaomale;
 }
 
-void roletaidaoMale::Clear() {
+void E_RoleTaidaomale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roletaidaoMale::MergePartialFromCodedStream(
+bool E_RoleTaidaomale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.roletaidaoMaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleTaidaomaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -8682,22 +8690,22 @@ bool roletaidaoMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roletaidaoMale::SerializeWithCachedSizes(
+void E_RoleTaidaomale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.roletaidaoMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaomaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8706,23 +8714,23 @@ void roletaidaoMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roletaidaoMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleTaidaomale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.roletaidaoMaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaomaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8732,31 +8740,31 @@ void roletaidaoMale::SerializeWithCachedSizes(
   return target;
 }
 
-int roletaidaoMale::ByteSize() const {
+int E_RoleTaidaomale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.roletaidaoMaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaomaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -8770,10 +8778,10 @@ int roletaidaoMale::ByteSize() const {
   return total_size;
 }
 
-void roletaidaoMale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaomale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roletaidaoMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roletaidaoMale*>(
+  const E_RoleTaidaomale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleTaidaomale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8782,53 +8790,53 @@ void roletaidaoMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roletaidaoMale::MergeFrom(const roletaidaoMale& from) {
+void E_RoleTaidaomale::MergeFrom(const E_RoleTaidaomale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roletaidaoMale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaomale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roletaidaoMale::CopyFrom(const roletaidaoMale& from) {
+void E_RoleTaidaomale::CopyFrom(const E_RoleTaidaomale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roletaidaoMale::IsInitialized() const {
+bool E_RoleTaidaomale::IsInitialized() const {
 
   return true;
 }
 
-void roletaidaoMale::Swap(roletaidaoMale* other) {
+void E_RoleTaidaomale::Swap(E_RoleTaidaomale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roletaidaoMale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleTaidaomale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roletaidaoMale_descriptor_;
-  metadata.reflection = roletaidaoMale_reflection_;
+  metadata.descriptor = E_RoleTaidaomale_descriptor_;
+  metadata.reflection = E_RoleTaidaomale_reflection_;
   return metadata;
 }
 
@@ -8836,81 +8844,81 @@ void roletaidaoMale::Swap(roletaidaoMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roletaidaoMale::kRoletaidaoMaleListFieldNumber;
+const int Sheet_RoleTaidaomale::kERoleTaidaomaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roletaidaoMale::Sheet_roletaidaoMale()
+Sheet_RoleTaidaomale::Sheet_RoleTaidaomale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roletaidaoMale::InitAsDefaultInstance() {
+void Sheet_RoleTaidaomale::InitAsDefaultInstance() {
 }
 
-Sheet_roletaidaoMale::Sheet_roletaidaoMale(const Sheet_roletaidaoMale& from)
+Sheet_RoleTaidaomale::Sheet_RoleTaidaomale(const Sheet_RoleTaidaomale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roletaidaoMale::SharedCtor() {
+void Sheet_RoleTaidaomale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roletaidaoMale::~Sheet_roletaidaoMale() {
+Sheet_RoleTaidaomale::~Sheet_RoleTaidaomale() {
   SharedDtor();
 }
 
-void Sheet_roletaidaoMale::SharedDtor() {
+void Sheet_RoleTaidaomale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roletaidaoMale::SetCachedSize(int size) const {
+void Sheet_RoleTaidaomale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roletaidaoMale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleTaidaomale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roletaidaoMale_descriptor_;
+  return Sheet_RoleTaidaomale_descriptor_;
 }
 
-const Sheet_roletaidaoMale& Sheet_roletaidaoMale::default_instance() {
+const Sheet_RoleTaidaomale& Sheet_RoleTaidaomale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roletaidaoMale* Sheet_roletaidaoMale::default_instance_ = NULL;
+Sheet_RoleTaidaomale* Sheet_RoleTaidaomale::default_instance_ = NULL;
 
-Sheet_roletaidaoMale* Sheet_roletaidaoMale::New() const {
-  return new Sheet_roletaidaoMale;
+Sheet_RoleTaidaomale* Sheet_RoleTaidaomale::New() const {
+  return new Sheet_RoleTaidaomale;
 }
 
-void Sheet_roletaidaoMale::Clear() {
-  roletaidaomale_list_.Clear();
+void Sheet_RoleTaidaomale::Clear() {
+  e_roletaidaomale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roletaidaoMale::MergePartialFromCodedStream(
+bool Sheet_RoleTaidaomale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roletaidaoMale roletaidaoMale_List = 1;
+      // repeated .proto_ff.E_RoleTaidaomale E_RoleTaidaomale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roletaidaoMale_List:
+         parse_E_RoleTaidaomale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roletaidaomale_list()));
+                input, add_e_roletaidaomale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roletaidaoMale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleTaidaomale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -8931,12 +8939,12 @@ bool Sheet_roletaidaoMale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roletaidaoMale::SerializeWithCachedSizes(
+void Sheet_RoleTaidaomale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roletaidaoMale roletaidaoMale_List = 1;
-  for (int i = 0; i < this->roletaidaomale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaomale E_RoleTaidaomale_List = 1;
+  for (int i = 0; i < this->e_roletaidaomale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roletaidaomale_list(i), output);
+      1, this->e_roletaidaomale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8945,13 +8953,13 @@ void Sheet_roletaidaoMale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roletaidaoMale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleTaidaomale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roletaidaoMale roletaidaoMale_List = 1;
-  for (int i = 0; i < this->roletaidaomale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaomale E_RoleTaidaomale_List = 1;
+  for (int i = 0; i < this->e_roletaidaomale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roletaidaomale_list(i), target);
+        1, this->e_roletaidaomale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8961,15 +8969,15 @@ void Sheet_roletaidaoMale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roletaidaoMale::ByteSize() const {
+int Sheet_RoleTaidaomale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roletaidaoMale roletaidaoMale_List = 1;
-  total_size += 1 * this->roletaidaomale_list_size();
-  for (int i = 0; i < this->roletaidaomale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaomale E_RoleTaidaomale_List = 1;
+  total_size += 1 * this->e_roletaidaomale_list_size();
+  for (int i = 0; i < this->e_roletaidaomale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roletaidaomale_list(i));
+        this->e_roletaidaomale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -8983,10 +8991,10 @@ int Sheet_roletaidaoMale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roletaidaoMale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleTaidaomale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roletaidaoMale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roletaidaoMale*>(
+  const Sheet_RoleTaidaomale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleTaidaomale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8995,43 +9003,43 @@ void Sheet_roletaidaoMale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_roletaidaoMale::MergeFrom(const Sheet_roletaidaoMale& from) {
+void Sheet_RoleTaidaomale::MergeFrom(const Sheet_RoleTaidaomale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roletaidaomale_list_.MergeFrom(from.roletaidaomale_list_);
+  e_roletaidaomale_list_.MergeFrom(from.e_roletaidaomale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roletaidaoMale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleTaidaomale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roletaidaoMale::CopyFrom(const Sheet_roletaidaoMale& from) {
+void Sheet_RoleTaidaomale::CopyFrom(const Sheet_RoleTaidaomale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roletaidaoMale::IsInitialized() const {
+bool Sheet_RoleTaidaomale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roletaidaoMale::Swap(Sheet_roletaidaoMale* other) {
+void Sheet_RoleTaidaomale::Swap(Sheet_RoleTaidaomale* other) {
   if (other != this) {
-    roletaidaomale_list_.Swap(&other->roletaidaomale_list_);
+    e_roletaidaomale_list_.Swap(&other->e_roletaidaomale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roletaidaoMale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleTaidaomale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roletaidaoMale_descriptor_;
-  metadata.reflection = Sheet_roletaidaoMale_reflection_;
+  metadata.descriptor = Sheet_RoleTaidaomale_descriptor_;
+  metadata.reflection = Sheet_RoleTaidaomale_reflection_;
   return metadata;
 }
 
@@ -9039,100 +9047,100 @@ void Sheet_roletaidaoMale::Swap(Sheet_roletaidaoMale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roletaidaoFemaleattributeDesc::kTypeFieldNumber;
-const int roletaidaoFemaleattributeDesc::kValueFieldNumber;
+const int E_RoleTaidaofemaleAttributeDesc::kMTypeFieldNumber;
+const int E_RoleTaidaofemaleAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-roletaidaoFemaleattributeDesc::roletaidaoFemaleattributeDesc()
+E_RoleTaidaofemaleAttributeDesc::E_RoleTaidaofemaleAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roletaidaoFemaleattributeDesc::InitAsDefaultInstance() {
+void E_RoleTaidaofemaleAttributeDesc::InitAsDefaultInstance() {
 }
 
-roletaidaoFemaleattributeDesc::roletaidaoFemaleattributeDesc(const roletaidaoFemaleattributeDesc& from)
+E_RoleTaidaofemaleAttributeDesc::E_RoleTaidaofemaleAttributeDesc(const E_RoleTaidaofemaleAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roletaidaoFemaleattributeDesc::SharedCtor() {
+void E_RoleTaidaofemaleAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roletaidaoFemaleattributeDesc::~roletaidaoFemaleattributeDesc() {
+E_RoleTaidaofemaleAttributeDesc::~E_RoleTaidaofemaleAttributeDesc() {
   SharedDtor();
 }
 
-void roletaidaoFemaleattributeDesc::SharedDtor() {
+void E_RoleTaidaofemaleAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roletaidaoFemaleattributeDesc::SetCachedSize(int size) const {
+void E_RoleTaidaofemaleAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roletaidaoFemaleattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleTaidaofemaleAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roletaidaoFemaleattributeDesc_descriptor_;
+  return E_RoleTaidaofemaleAttributeDesc_descriptor_;
 }
 
-const roletaidaoFemaleattributeDesc& roletaidaoFemaleattributeDesc::default_instance() {
+const E_RoleTaidaofemaleAttributeDesc& E_RoleTaidaofemaleAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roletaidaoFemaleattributeDesc* roletaidaoFemaleattributeDesc::default_instance_ = NULL;
+E_RoleTaidaofemaleAttributeDesc* E_RoleTaidaofemaleAttributeDesc::default_instance_ = NULL;
 
-roletaidaoFemaleattributeDesc* roletaidaoFemaleattributeDesc::New() const {
-  return new roletaidaoFemaleattributeDesc;
+E_RoleTaidaofemaleAttributeDesc* E_RoleTaidaofemaleAttributeDesc::New() const {
+  return new E_RoleTaidaofemaleAttributeDesc;
 }
 
-void roletaidaoFemaleattributeDesc::Clear() {
+void E_RoleTaidaofemaleAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roletaidaoFemaleattributeDesc::MergePartialFromCodedStream(
+bool E_RoleTaidaofemaleAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -9156,16 +9164,16 @@ bool roletaidaoFemaleattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roletaidaoFemaleattributeDesc::SerializeWithCachedSizes(
+void E_RoleTaidaofemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9174,16 +9182,16 @@ void roletaidaoFemaleattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roletaidaoFemaleattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleTaidaofemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9193,22 +9201,22 @@ void roletaidaoFemaleattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int roletaidaoFemaleattributeDesc::ByteSize() const {
+int E_RoleTaidaofemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -9223,10 +9231,10 @@ int roletaidaoFemaleattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void roletaidaoFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaofemaleAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roletaidaoFemaleattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roletaidaoFemaleattributeDesc*>(
+  const E_RoleTaidaofemaleAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleTaidaofemaleAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -9235,51 +9243,51 @@ void roletaidaoFemaleattributeDesc::MergeFrom(const ::google::protobuf::Message&
   }
 }
 
-void roletaidaoFemaleattributeDesc::MergeFrom(const roletaidaoFemaleattributeDesc& from) {
+void E_RoleTaidaofemaleAttributeDesc::MergeFrom(const E_RoleTaidaofemaleAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roletaidaoFemaleattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaofemaleAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roletaidaoFemaleattributeDesc::CopyFrom(const roletaidaoFemaleattributeDesc& from) {
+void E_RoleTaidaofemaleAttributeDesc::CopyFrom(const E_RoleTaidaofemaleAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roletaidaoFemaleattributeDesc::IsInitialized() const {
+bool E_RoleTaidaofemaleAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void roletaidaoFemaleattributeDesc::Swap(roletaidaoFemaleattributeDesc* other) {
+void E_RoleTaidaofemaleAttributeDesc::Swap(E_RoleTaidaofemaleAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roletaidaoFemaleattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_RoleTaidaofemaleAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roletaidaoFemaleattributeDesc_descriptor_;
-  metadata.reflection = roletaidaoFemaleattributeDesc_reflection_;
+  metadata.descriptor = E_RoleTaidaofemaleAttributeDesc_descriptor_;
+  metadata.reflection = E_RoleTaidaofemaleAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -9287,120 +9295,120 @@ void roletaidaoFemaleattributeDesc::Swap(roletaidaoFemaleattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roletaidaoFemale::kLvFieldNumber;
-const int roletaidaoFemale::kUpgradePointFieldNumber;
-const int roletaidaoFemale::kAttributeFieldNumber;
+const int E_RoleTaidaofemale::kMLvFieldNumber;
+const int E_RoleTaidaofemale::kMUpgradepointFieldNumber;
+const int E_RoleTaidaofemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-roletaidaoFemale::roletaidaoFemale()
+E_RoleTaidaofemale::E_RoleTaidaofemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roletaidaoFemale::InitAsDefaultInstance() {
+void E_RoleTaidaofemale::InitAsDefaultInstance() {
 }
 
-roletaidaoFemale::roletaidaoFemale(const roletaidaoFemale& from)
+E_RoleTaidaofemale::E_RoleTaidaofemale(const E_RoleTaidaofemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roletaidaoFemale::SharedCtor() {
+void E_RoleTaidaofemale::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  upgradepoint_ = 0;
+  m_lv_ = 0;
+  m_upgradepoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roletaidaoFemale::~roletaidaoFemale() {
+E_RoleTaidaofemale::~E_RoleTaidaofemale() {
   SharedDtor();
 }
 
-void roletaidaoFemale::SharedDtor() {
+void E_RoleTaidaofemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roletaidaoFemale::SetCachedSize(int size) const {
+void E_RoleTaidaofemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roletaidaoFemale::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleTaidaofemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roletaidaoFemale_descriptor_;
+  return E_RoleTaidaofemale_descriptor_;
 }
 
-const roletaidaoFemale& roletaidaoFemale::default_instance() {
+const E_RoleTaidaofemale& E_RoleTaidaofemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roletaidaoFemale* roletaidaoFemale::default_instance_ = NULL;
+E_RoleTaidaofemale* E_RoleTaidaofemale::default_instance_ = NULL;
 
-roletaidaoFemale* roletaidaoFemale::New() const {
-  return new roletaidaoFemale;
+E_RoleTaidaofemale* E_RoleTaidaofemale::New() const {
+  return new E_RoleTaidaofemale;
 }
 
-void roletaidaoFemale::Clear() {
+void E_RoleTaidaofemale::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    upgradepoint_ = 0;
+    m_lv_ = 0;
+    m_upgradepoint_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roletaidaoFemale::MergePartialFromCodedStream(
+bool E_RoleTaidaofemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_upgradePoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
         break;
       }
 
-      // optional int32 upgradePoint = 2;
+      // optional int32 m_upgradepoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_upgradePoint:
+         parse_m_upgradepoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &upgradepoint_)));
-          set_has_upgradepoint();
+                 input, &m_upgradepoint_)));
+          set_has_m_upgradepoint();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.roletaidaoFemaleattributeDesc attribute = 3;
+      // repeated .proto_ff.E_RoleTaidaofemaleAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_attribute;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9421,22 +9429,22 @@ bool roletaidaoFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roletaidaoFemale::SerializeWithCachedSizes(
+void E_RoleTaidaofemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->upgradepoint(), output);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
 
-  // repeated .proto_ff.roletaidaoFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaofemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->attribute(i), output);
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9445,23 +9453,23 @@ void roletaidaoFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roletaidaoFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleTaidaofemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 upgradePoint = 2;
-  if (has_upgradepoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->upgradepoint(), target);
+  // optional int32 m_upgradepoint = 2;
+  if (has_m_upgradepoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
 
-  // repeated .proto_ff.roletaidaoFemaleattributeDesc attribute = 3;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaofemaleAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->attribute(i), target);
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9471,31 +9479,31 @@ void roletaidaoFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int roletaidaoFemale::ByteSize() const {
+int E_RoleTaidaofemale::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 upgradePoint = 2;
-    if (has_upgradepoint()) {
+    // optional int32 m_upgradepoint = 2;
+    if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->upgradepoint());
+          this->m_upgradepoint());
     }
 
   }
-  // repeated .proto_ff.roletaidaoFemaleattributeDesc attribute = 3;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaofemaleAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -9509,10 +9517,10 @@ int roletaidaoFemale::ByteSize() const {
   return total_size;
 }
 
-void roletaidaoFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaofemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roletaidaoFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roletaidaoFemale*>(
+  const E_RoleTaidaofemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleTaidaofemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -9521,53 +9529,53 @@ void roletaidaoFemale::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roletaidaoFemale::MergeFrom(const roletaidaoFemale& from) {
+void E_RoleTaidaofemale::MergeFrom(const E_RoleTaidaofemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_upgradepoint()) {
-      set_upgradepoint(from.upgradepoint());
+    if (from.has_m_upgradepoint()) {
+      set_m_upgradepoint(from.m_upgradepoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roletaidaoFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleTaidaofemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roletaidaoFemale::CopyFrom(const roletaidaoFemale& from) {
+void E_RoleTaidaofemale::CopyFrom(const E_RoleTaidaofemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roletaidaoFemale::IsInitialized() const {
+bool E_RoleTaidaofemale::IsInitialized() const {
 
   return true;
 }
 
-void roletaidaoFemale::Swap(roletaidaoFemale* other) {
+void E_RoleTaidaofemale::Swap(E_RoleTaidaofemale* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(upgradepoint_, other->upgradepoint_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_upgradepoint_, other->m_upgradepoint_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roletaidaoFemale::GetMetadata() const {
+::google::protobuf::Metadata E_RoleTaidaofemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roletaidaoFemale_descriptor_;
-  metadata.reflection = roletaidaoFemale_reflection_;
+  metadata.descriptor = E_RoleTaidaofemale_descriptor_;
+  metadata.reflection = E_RoleTaidaofemale_reflection_;
   return metadata;
 }
 
@@ -9575,81 +9583,81 @@ void roletaidaoFemale::Swap(roletaidaoFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roletaidaoFemale::kRoletaidaoFemaleListFieldNumber;
+const int Sheet_RoleTaidaofemale::kERoleTaidaofemaleListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roletaidaoFemale::Sheet_roletaidaoFemale()
+Sheet_RoleTaidaofemale::Sheet_RoleTaidaofemale()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roletaidaoFemale::InitAsDefaultInstance() {
+void Sheet_RoleTaidaofemale::InitAsDefaultInstance() {
 }
 
-Sheet_roletaidaoFemale::Sheet_roletaidaoFemale(const Sheet_roletaidaoFemale& from)
+Sheet_RoleTaidaofemale::Sheet_RoleTaidaofemale(const Sheet_RoleTaidaofemale& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roletaidaoFemale::SharedCtor() {
+void Sheet_RoleTaidaofemale::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roletaidaoFemale::~Sheet_roletaidaoFemale() {
+Sheet_RoleTaidaofemale::~Sheet_RoleTaidaofemale() {
   SharedDtor();
 }
 
-void Sheet_roletaidaoFemale::SharedDtor() {
+void Sheet_RoleTaidaofemale::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roletaidaoFemale::SetCachedSize(int size) const {
+void Sheet_RoleTaidaofemale::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roletaidaoFemale::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleTaidaofemale::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roletaidaoFemale_descriptor_;
+  return Sheet_RoleTaidaofemale_descriptor_;
 }
 
-const Sheet_roletaidaoFemale& Sheet_roletaidaoFemale::default_instance() {
+const Sheet_RoleTaidaofemale& Sheet_RoleTaidaofemale::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roletaidaoFemale* Sheet_roletaidaoFemale::default_instance_ = NULL;
+Sheet_RoleTaidaofemale* Sheet_RoleTaidaofemale::default_instance_ = NULL;
 
-Sheet_roletaidaoFemale* Sheet_roletaidaoFemale::New() const {
-  return new Sheet_roletaidaoFemale;
+Sheet_RoleTaidaofemale* Sheet_RoleTaidaofemale::New() const {
+  return new Sheet_RoleTaidaofemale;
 }
 
-void Sheet_roletaidaoFemale::Clear() {
-  roletaidaofemale_list_.Clear();
+void Sheet_RoleTaidaofemale::Clear() {
+  e_roletaidaofemale_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roletaidaoFemale::MergePartialFromCodedStream(
+bool Sheet_RoleTaidaofemale::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roletaidaoFemale roletaidaoFemale_List = 1;
+      // repeated .proto_ff.E_RoleTaidaofemale E_RoleTaidaofemale_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roletaidaoFemale_List:
+         parse_E_RoleTaidaofemale_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roletaidaofemale_list()));
+                input, add_e_roletaidaofemale_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roletaidaoFemale_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleTaidaofemale_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9670,12 +9678,12 @@ bool Sheet_roletaidaoFemale::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roletaidaoFemale::SerializeWithCachedSizes(
+void Sheet_RoleTaidaofemale::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roletaidaoFemale roletaidaoFemale_List = 1;
-  for (int i = 0; i < this->roletaidaofemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaofemale E_RoleTaidaofemale_List = 1;
+  for (int i = 0; i < this->e_roletaidaofemale_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roletaidaofemale_list(i), output);
+      1, this->e_roletaidaofemale_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9684,13 +9692,13 @@ void Sheet_roletaidaoFemale::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roletaidaoFemale::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleTaidaofemale::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roletaidaoFemale roletaidaoFemale_List = 1;
-  for (int i = 0; i < this->roletaidaofemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaofemale E_RoleTaidaofemale_List = 1;
+  for (int i = 0; i < this->e_roletaidaofemale_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roletaidaofemale_list(i), target);
+        1, this->e_roletaidaofemale_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9700,15 +9708,15 @@ void Sheet_roletaidaoFemale::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roletaidaoFemale::ByteSize() const {
+int Sheet_RoleTaidaofemale::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roletaidaoFemale roletaidaoFemale_List = 1;
-  total_size += 1 * this->roletaidaofemale_list_size();
-  for (int i = 0; i < this->roletaidaofemale_list_size(); i++) {
+  // repeated .proto_ff.E_RoleTaidaofemale E_RoleTaidaofemale_List = 1;
+  total_size += 1 * this->e_roletaidaofemale_list_size();
+  for (int i = 0; i < this->e_roletaidaofemale_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roletaidaofemale_list(i));
+        this->e_roletaidaofemale_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -9722,10 +9730,10 @@ int Sheet_roletaidaoFemale::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roletaidaoFemale::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleTaidaofemale::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roletaidaoFemale* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roletaidaoFemale*>(
+  const Sheet_RoleTaidaofemale* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleTaidaofemale*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -9734,43 +9742,43 @@ void Sheet_roletaidaoFemale::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void Sheet_roletaidaoFemale::MergeFrom(const Sheet_roletaidaoFemale& from) {
+void Sheet_RoleTaidaofemale::MergeFrom(const Sheet_RoleTaidaofemale& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roletaidaofemale_list_.MergeFrom(from.roletaidaofemale_list_);
+  e_roletaidaofemale_list_.MergeFrom(from.e_roletaidaofemale_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roletaidaoFemale::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleTaidaofemale::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roletaidaoFemale::CopyFrom(const Sheet_roletaidaoFemale& from) {
+void Sheet_RoleTaidaofemale::CopyFrom(const Sheet_RoleTaidaofemale& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roletaidaoFemale::IsInitialized() const {
+bool Sheet_RoleTaidaofemale::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roletaidaoFemale::Swap(Sheet_roletaidaoFemale* other) {
+void Sheet_RoleTaidaofemale::Swap(Sheet_RoleTaidaofemale* other) {
   if (other != this) {
-    roletaidaofemale_list_.Swap(&other->roletaidaofemale_list_);
+    e_roletaidaofemale_list_.Swap(&other->e_roletaidaofemale_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roletaidaoFemale::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleTaidaofemale::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roletaidaoFemale_descriptor_;
-  metadata.reflection = Sheet_roletaidaoFemale_reflection_;
+  metadata.descriptor = Sheet_RoleTaidaofemale_descriptor_;
+  metadata.reflection = Sheet_RoleTaidaofemale_reflection_;
   return metadata;
 }
 
@@ -9778,119 +9786,119 @@ void Sheet_roletaidaoFemale::Swap(Sheet_roletaidaoFemale* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleexp::kLvFieldNumber;
-const int roleexp::kExpFieldNumber;
-const int roleexp::kSkillPointFieldNumber;
+const int E_RoleExp::kMLvFieldNumber;
+const int E_RoleExp::kMExpFieldNumber;
+const int E_RoleExp::kMSkillpointFieldNumber;
 #endif  // !_MSC_VER
 
-roleexp::roleexp()
+E_RoleExp::E_RoleExp()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleexp::InitAsDefaultInstance() {
+void E_RoleExp::InitAsDefaultInstance() {
 }
 
-roleexp::roleexp(const roleexp& from)
+E_RoleExp::E_RoleExp(const E_RoleExp& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleexp::SharedCtor() {
+void E_RoleExp::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  exp_ = GOOGLE_LONGLONG(0);
-  skillpoint_ = 0;
+  m_lv_ = 0;
+  m_exp_ = GOOGLE_LONGLONG(0);
+  m_skillpoint_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleexp::~roleexp() {
+E_RoleExp::~E_RoleExp() {
   SharedDtor();
 }
 
-void roleexp::SharedDtor() {
+void E_RoleExp::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roleexp::SetCachedSize(int size) const {
+void E_RoleExp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleexp::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleExp::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleexp_descriptor_;
+  return E_RoleExp_descriptor_;
 }
 
-const roleexp& roleexp::default_instance() {
+const E_RoleExp& E_RoleExp::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleexp* roleexp::default_instance_ = NULL;
+E_RoleExp* E_RoleExp::default_instance_ = NULL;
 
-roleexp* roleexp::New() const {
-  return new roleexp;
+E_RoleExp* E_RoleExp::New() const {
+  return new E_RoleExp;
 }
 
-void roleexp::Clear() {
+void E_RoleExp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    exp_ = GOOGLE_LONGLONG(0);
-    skillpoint_ = 0;
+    m_lv_ = 0;
+    m_exp_ = GOOGLE_LONGLONG(0);
+    m_skillpoint_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleexp::MergePartialFromCodedStream(
+bool E_RoleExp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_exp;
+        if (input->ExpectTag(16)) goto parse_m_exp;
         break;
       }
 
-      // optional int64 exp = 2;
+      // optional int64 m_exp = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_exp:
+         parse_m_exp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &exp_)));
-          set_has_exp();
+                 input, &m_exp_)));
+          set_has_m_exp();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_skillPoint;
+        if (input->ExpectTag(24)) goto parse_m_skillpoint;
         break;
       }
 
-      // optional int32 skillPoint = 3;
+      // optional int32 m_skillpoint = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skillPoint:
+         parse_m_skillpoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &skillpoint_)));
-          set_has_skillpoint();
+                 input, &m_skillpoint_)));
+          set_has_m_skillpoint();
         } else {
           goto handle_uninterpreted;
         }
@@ -9914,21 +9922,21 @@ bool roleexp::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleexp::SerializeWithCachedSizes(
+void E_RoleExp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int64 exp = 2;
-  if (has_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->exp(), output);
+  // optional int64 m_exp = 2;
+  if (has_m_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_exp(), output);
   }
 
-  // optional int32 skillPoint = 3;
-  if (has_skillpoint()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->skillpoint(), output);
+  // optional int32 m_skillpoint = 3;
+  if (has_m_skillpoint()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_skillpoint(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9937,21 +9945,21 @@ void roleexp::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleexp::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleExp::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int64 exp = 2;
-  if (has_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->exp(), target);
+  // optional int64 m_exp = 2;
+  if (has_m_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_exp(), target);
   }
 
-  // optional int32 skillPoint = 3;
-  if (has_skillpoint()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->skillpoint(), target);
+  // optional int32 m_skillpoint = 3;
+  if (has_m_skillpoint()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_skillpoint(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9961,29 +9969,29 @@ void roleexp::SerializeWithCachedSizes(
   return target;
 }
 
-int roleexp::ByteSize() const {
+int E_RoleExp::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int64 exp = 2;
-    if (has_exp()) {
+    // optional int64 m_exp = 2;
+    if (has_m_exp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->exp());
+          this->m_exp());
     }
 
-    // optional int32 skillPoint = 3;
-    if (has_skillpoint()) {
+    // optional int32 m_skillpoint = 3;
+    if (has_m_skillpoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->skillpoint());
+          this->m_skillpoint());
     }
 
   }
@@ -9998,10 +10006,10 @@ int roleexp::ByteSize() const {
   return total_size;
 }
 
-void roleexp::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleExp::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleexp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleexp*>(
+  const E_RoleExp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleExp*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -10010,55 +10018,55 @@ void roleexp::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roleexp::MergeFrom(const roleexp& from) {
+void E_RoleExp::MergeFrom(const E_RoleExp& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_exp()) {
-      set_exp(from.exp());
+    if (from.has_m_exp()) {
+      set_m_exp(from.m_exp());
     }
-    if (from.has_skillpoint()) {
-      set_skillpoint(from.skillpoint());
+    if (from.has_m_skillpoint()) {
+      set_m_skillpoint(from.m_skillpoint());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleexp::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleExp::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleexp::CopyFrom(const roleexp& from) {
+void E_RoleExp::CopyFrom(const E_RoleExp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleexp::IsInitialized() const {
+bool E_RoleExp::IsInitialized() const {
 
   return true;
 }
 
-void roleexp::Swap(roleexp* other) {
+void E_RoleExp::Swap(E_RoleExp* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(exp_, other->exp_);
-    std::swap(skillpoint_, other->skillpoint_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_exp_, other->m_exp_);
+    std::swap(m_skillpoint_, other->m_skillpoint_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roleexp::GetMetadata() const {
+::google::protobuf::Metadata E_RoleExp::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleexp_descriptor_;
-  metadata.reflection = roleexp_reflection_;
+  metadata.descriptor = E_RoleExp_descriptor_;
+  metadata.reflection = E_RoleExp_reflection_;
   return metadata;
 }
 
@@ -10066,81 +10074,81 @@ void roleexp::Swap(roleexp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roleexp::kRoleexpListFieldNumber;
+const int Sheet_RoleExp::kERoleExpListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roleexp::Sheet_roleexp()
+Sheet_RoleExp::Sheet_RoleExp()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roleexp::InitAsDefaultInstance() {
+void Sheet_RoleExp::InitAsDefaultInstance() {
 }
 
-Sheet_roleexp::Sheet_roleexp(const Sheet_roleexp& from)
+Sheet_RoleExp::Sheet_RoleExp(const Sheet_RoleExp& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roleexp::SharedCtor() {
+void Sheet_RoleExp::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roleexp::~Sheet_roleexp() {
+Sheet_RoleExp::~Sheet_RoleExp() {
   SharedDtor();
 }
 
-void Sheet_roleexp::SharedDtor() {
+void Sheet_RoleExp::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roleexp::SetCachedSize(int size) const {
+void Sheet_RoleExp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roleexp::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleExp::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roleexp_descriptor_;
+  return Sheet_RoleExp_descriptor_;
 }
 
-const Sheet_roleexp& Sheet_roleexp::default_instance() {
+const Sheet_RoleExp& Sheet_RoleExp::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roleexp* Sheet_roleexp::default_instance_ = NULL;
+Sheet_RoleExp* Sheet_RoleExp::default_instance_ = NULL;
 
-Sheet_roleexp* Sheet_roleexp::New() const {
-  return new Sheet_roleexp;
+Sheet_RoleExp* Sheet_RoleExp::New() const {
+  return new Sheet_RoleExp;
 }
 
-void Sheet_roleexp::Clear() {
-  roleexp_list_.Clear();
+void Sheet_RoleExp::Clear() {
+  e_roleexp_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roleexp::MergePartialFromCodedStream(
+bool Sheet_RoleExp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleexp roleexp_List = 1;
+      // repeated .proto_ff.E_RoleExp E_RoleExp_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleexp_List:
+         parse_E_RoleExp_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleexp_list()));
+                input, add_e_roleexp_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roleexp_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleExp_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10161,12 +10169,12 @@ bool Sheet_roleexp::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roleexp::SerializeWithCachedSizes(
+void Sheet_RoleExp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleexp roleexp_List = 1;
-  for (int i = 0; i < this->roleexp_list_size(); i++) {
+  // repeated .proto_ff.E_RoleExp E_RoleExp_List = 1;
+  for (int i = 0; i < this->e_roleexp_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleexp_list(i), output);
+      1, this->e_roleexp_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -10175,13 +10183,13 @@ void Sheet_roleexp::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roleexp::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleExp::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleexp roleexp_List = 1;
-  for (int i = 0; i < this->roleexp_list_size(); i++) {
+  // repeated .proto_ff.E_RoleExp E_RoleExp_List = 1;
+  for (int i = 0; i < this->e_roleexp_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roleexp_list(i), target);
+        1, this->e_roleexp_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10191,15 +10199,15 @@ void Sheet_roleexp::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roleexp::ByteSize() const {
+int Sheet_RoleExp::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roleexp roleexp_List = 1;
-  total_size += 1 * this->roleexp_list_size();
-  for (int i = 0; i < this->roleexp_list_size(); i++) {
+  // repeated .proto_ff.E_RoleExp E_RoleExp_List = 1;
+  total_size += 1 * this->e_roleexp_list_size();
+  for (int i = 0; i < this->e_roleexp_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleexp_list(i));
+        this->e_roleexp_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -10213,10 +10221,10 @@ int Sheet_roleexp::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roleexp::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleExp::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleexp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleexp*>(
+  const Sheet_RoleExp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleExp*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -10225,43 +10233,43 @@ void Sheet_roleexp::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_roleexp::MergeFrom(const Sheet_roleexp& from) {
+void Sheet_RoleExp::MergeFrom(const Sheet_RoleExp& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roleexp_list_.MergeFrom(from.roleexp_list_);
+  e_roleexp_list_.MergeFrom(from.e_roleexp_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roleexp::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleExp::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roleexp::CopyFrom(const Sheet_roleexp& from) {
+void Sheet_RoleExp::CopyFrom(const Sheet_RoleExp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roleexp::IsInitialized() const {
+bool Sheet_RoleExp::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roleexp::Swap(Sheet_roleexp* other) {
+void Sheet_RoleExp::Swap(Sheet_RoleExp* other) {
   if (other != this) {
-    roleexp_list_.Swap(&other->roleexp_list_);
+    e_roleexp_list_.Swap(&other->e_roleexp_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roleexp::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleExp::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleexp_descriptor_;
-  metadata.reflection = Sheet_roleexp_reflection_;
+  metadata.descriptor = Sheet_RoleExp_descriptor_;
+  metadata.reflection = Sheet_RoleExp_reflection_;
   return metadata;
 }
 
@@ -10269,1002 +10277,100 @@ void Sheet_roleexp::Swap(Sheet_roleexp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int roleskillType::kSkillIdFieldNumber;
-const int roleskillType::kSkillTypeFieldNumber;
+const int E_RoleSkilltype::kMSkillidFieldNumber;
+const int E_RoleSkilltype::kMSkilltypeFieldNumber;
 #endif  // !_MSC_VER
 
-roleskillType::roleskillType()
+E_RoleSkilltype::E_RoleSkilltype()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void roleskillType::InitAsDefaultInstance() {
+void E_RoleSkilltype::InitAsDefaultInstance() {
 }
 
-roleskillType::roleskillType(const roleskillType& from)
+E_RoleSkilltype::E_RoleSkilltype(const E_RoleSkilltype& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void roleskillType::SharedCtor() {
+void E_RoleSkilltype::SharedCtor() {
   _cached_size_ = 0;
-  skillid_ = GOOGLE_LONGLONG(0);
-  skilltype_ = 0;
+  m_skillid_ = GOOGLE_LONGLONG(0);
+  m_skilltype_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-roleskillType::~roleskillType() {
+E_RoleSkilltype::~E_RoleSkilltype() {
   SharedDtor();
 }
 
-void roleskillType::SharedDtor() {
+void E_RoleSkilltype::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void roleskillType::SetCachedSize(int size) const {
+void E_RoleSkilltype::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* roleskillType::descriptor() {
+const ::google::protobuf::Descriptor* E_RoleSkilltype::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return roleskillType_descriptor_;
+  return E_RoleSkilltype_descriptor_;
 }
 
-const roleskillType& roleskillType::default_instance() {
+const E_RoleSkilltype& E_RoleSkilltype::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-roleskillType* roleskillType::default_instance_ = NULL;
+E_RoleSkilltype* E_RoleSkilltype::default_instance_ = NULL;
 
-roleskillType* roleskillType::New() const {
-  return new roleskillType;
+E_RoleSkilltype* E_RoleSkilltype::New() const {
+  return new E_RoleSkilltype;
 }
 
-void roleskillType::Clear() {
+void E_RoleSkilltype::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    skillid_ = GOOGLE_LONGLONG(0);
-    skilltype_ = 0;
+    m_skillid_ = GOOGLE_LONGLONG(0);
+    m_skilltype_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool roleskillType::MergePartialFromCodedStream(
+bool E_RoleSkilltype::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 skillId = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &skillid_)));
-          set_has_skillid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_skillType;
-        break;
-      }
-
-      // optional int32 skillType = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skillType:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &skilltype_)));
-          set_has_skilltype();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void roleskillType::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 skillId = 1;
-  if (has_skillid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->skillid(), output);
-  }
-
-  // optional int32 skillType = 2;
-  if (has_skilltype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->skilltype(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* roleskillType::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int64 skillId = 1;
-  if (has_skillid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->skillid(), target);
-  }
-
-  // optional int32 skillType = 2;
-  if (has_skilltype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->skilltype(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int roleskillType::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 skillId = 1;
-    if (has_skillid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->skillid());
-    }
-
-    // optional int32 skillType = 2;
-    if (has_skilltype()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->skilltype());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void roleskillType::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const roleskillType* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleskillType*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void roleskillType::MergeFrom(const roleskillType& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_skillid()) {
-      set_skillid(from.skillid());
-    }
-    if (from.has_skilltype()) {
-      set_skilltype(from.skilltype());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void roleskillType::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void roleskillType::CopyFrom(const roleskillType& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool roleskillType::IsInitialized() const {
-
-  return true;
-}
-
-void roleskillType::Swap(roleskillType* other) {
-  if (other != this) {
-    std::swap(skillid_, other->skillid_);
-    std::swap(skilltype_, other->skilltype_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata roleskillType::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleskillType_descriptor_;
-  metadata.reflection = roleskillType_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Sheet_roleskillType::kRoleskillTypeListFieldNumber;
-#endif  // !_MSC_VER
-
-Sheet_roleskillType::Sheet_roleskillType()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Sheet_roleskillType::InitAsDefaultInstance() {
-}
-
-Sheet_roleskillType::Sheet_roleskillType(const Sheet_roleskillType& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Sheet_roleskillType::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Sheet_roleskillType::~Sheet_roleskillType() {
-  SharedDtor();
-}
-
-void Sheet_roleskillType::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Sheet_roleskillType::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Sheet_roleskillType::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Sheet_roleskillType_descriptor_;
-}
-
-const Sheet_roleskillType& Sheet_roleskillType::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
-  return *default_instance_;
-}
-
-Sheet_roleskillType* Sheet_roleskillType::default_instance_ = NULL;
-
-Sheet_roleskillType* Sheet_roleskillType::New() const {
-  return new Sheet_roleskillType;
-}
-
-void Sheet_roleskillType::Clear() {
-  roleskilltype_list_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Sheet_roleskillType::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleskillType roleskillType_List = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleskillType_List:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleskilltype_list()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(10)) goto parse_roleskillType_List;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Sheet_roleskillType::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleskillType roleskillType_List = 1;
-  for (int i = 0; i < this->roleskilltype_list_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleskilltype_list(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Sheet_roleskillType::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleskillType roleskillType_List = 1;
-  for (int i = 0; i < this->roleskilltype_list_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->roleskilltype_list(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Sheet_roleskillType::ByteSize() const {
-  int total_size = 0;
-
-  // repeated .proto_ff.roleskillType roleskillType_List = 1;
-  total_size += 1 * this->roleskilltype_list_size();
-  for (int i = 0; i < this->roleskilltype_list_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleskilltype_list(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Sheet_roleskillType::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleskillType* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleskillType*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Sheet_roleskillType::MergeFrom(const Sheet_roleskillType& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  roleskilltype_list_.MergeFrom(from.roleskilltype_list_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Sheet_roleskillType::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Sheet_roleskillType::CopyFrom(const Sheet_roleskillType& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Sheet_roleskillType::IsInitialized() const {
-
-  return true;
-}
-
-void Sheet_roleskillType::Swap(Sheet_roleskillType* other) {
-  if (other != this) {
-    roleskilltype_list_.Swap(&other->roleskilltype_list_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Sheet_roleskillType::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleskillType_descriptor_;
-  metadata.reflection = Sheet_roleskillType_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int roleaddSkill::kIdFieldNumber;
-const int roleaddSkill::kSkillIdFieldNumber;
-#endif  // !_MSC_VER
-
-roleaddSkill::roleaddSkill()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void roleaddSkill::InitAsDefaultInstance() {
-}
-
-roleaddSkill::roleaddSkill(const roleaddSkill& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void roleaddSkill::SharedCtor() {
-  _cached_size_ = 0;
-  id_ = 0;
-  skillid_ = GOOGLE_LONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-roleaddSkill::~roleaddSkill() {
-  SharedDtor();
-}
-
-void roleaddSkill::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void roleaddSkill::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* roleaddSkill::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return roleaddSkill_descriptor_;
-}
-
-const roleaddSkill& roleaddSkill::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
-  return *default_instance_;
-}
-
-roleaddSkill* roleaddSkill::default_instance_ = NULL;
-
-roleaddSkill* roleaddSkill::New() const {
-  return new roleaddSkill;
-}
-
-void roleaddSkill::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    skillid_ = GOOGLE_LONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool roleaddSkill::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_skillId;
-        break;
-      }
-
-      // optional int64 skillId = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_skillId:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &skillid_)));
-          set_has_skillid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void roleaddSkill::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
-  }
-
-  // optional int64 skillId = 2;
-  if (has_skillid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->skillid(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* roleaddSkill::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int32 Id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
-  }
-
-  // optional int64 skillId = 2;
-  if (has_skillid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->skillid(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int roleaddSkill::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
-    }
-
-    // optional int64 skillId = 2;
-    if (has_skillid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->skillid());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void roleaddSkill::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const roleaddSkill* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleaddSkill*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void roleaddSkill::MergeFrom(const roleaddSkill& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
-    }
-    if (from.has_skillid()) {
-      set_skillid(from.skillid());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void roleaddSkill::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void roleaddSkill::CopyFrom(const roleaddSkill& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool roleaddSkill::IsInitialized() const {
-
-  return true;
-}
-
-void roleaddSkill::Swap(roleaddSkill* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(skillid_, other->skillid_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata roleaddSkill::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleaddSkill_descriptor_;
-  metadata.reflection = roleaddSkill_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Sheet_roleaddSkill::kRoleaddSkillListFieldNumber;
-#endif  // !_MSC_VER
-
-Sheet_roleaddSkill::Sheet_roleaddSkill()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Sheet_roleaddSkill::InitAsDefaultInstance() {
-}
-
-Sheet_roleaddSkill::Sheet_roleaddSkill(const Sheet_roleaddSkill& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Sheet_roleaddSkill::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Sheet_roleaddSkill::~Sheet_roleaddSkill() {
-  SharedDtor();
-}
-
-void Sheet_roleaddSkill::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Sheet_roleaddSkill::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Sheet_roleaddSkill::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Sheet_roleaddSkill_descriptor_;
-}
-
-const Sheet_roleaddSkill& Sheet_roleaddSkill::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
-  return *default_instance_;
-}
-
-Sheet_roleaddSkill* Sheet_roleaddSkill::default_instance_ = NULL;
-
-Sheet_roleaddSkill* Sheet_roleaddSkill::New() const {
-  return new Sheet_roleaddSkill;
-}
-
-void Sheet_roleaddSkill::Clear() {
-  roleaddskill_list_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Sheet_roleaddSkill::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleaddSkill roleaddSkill_List = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleaddSkill_List:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleaddskill_list()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(10)) goto parse_roleaddSkill_List;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Sheet_roleaddSkill::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleaddSkill roleaddSkill_List = 1;
-  for (int i = 0; i < this->roleaddskill_list_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleaddskill_list(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Sheet_roleaddSkill::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleaddSkill roleaddSkill_List = 1;
-  for (int i = 0; i < this->roleaddskill_list_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->roleaddskill_list(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Sheet_roleaddSkill::ByteSize() const {
-  int total_size = 0;
-
-  // repeated .proto_ff.roleaddSkill roleaddSkill_List = 1;
-  total_size += 1 * this->roleaddskill_list_size();
-  for (int i = 0; i < this->roleaddskill_list_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleaddskill_list(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Sheet_roleaddSkill::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleaddSkill* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleaddSkill*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Sheet_roleaddSkill::MergeFrom(const Sheet_roleaddSkill& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  roleaddskill_list_.MergeFrom(from.roleaddskill_list_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Sheet_roleaddSkill::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Sheet_roleaddSkill::CopyFrom(const Sheet_roleaddSkill& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Sheet_roleaddSkill::IsInitialized() const {
-
-  return true;
-}
-
-void Sheet_roleaddSkill::Swap(Sheet_roleaddSkill* other) {
-  if (other != this) {
-    roleaddskill_list_.Swap(&other->roleaddskill_list_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Sheet_roleaddSkill::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleaddSkill_descriptor_;
-  metadata.reflection = Sheet_roleaddSkill_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int roleworldexp::kLvFieldNumber;
-const int roleworldexp::kWorldExpFieldNumber;
-#endif  // !_MSC_VER
-
-roleworldexp::roleworldexp()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void roleworldexp::InitAsDefaultInstance() {
-}
-
-roleworldexp::roleworldexp(const roleworldexp& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void roleworldexp::SharedCtor() {
-  _cached_size_ = 0;
-  lv_ = GOOGLE_LONGLONG(0);
-  worldexp_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-roleworldexp::~roleworldexp() {
-  SharedDtor();
-}
-
-void roleworldexp::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void roleworldexp::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* roleworldexp::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return roleworldexp_descriptor_;
-}
-
-const roleworldexp& roleworldexp::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
-  return *default_instance_;
-}
-
-roleworldexp* roleworldexp::default_instance_ = NULL;
-
-roleworldexp* roleworldexp::New() const {
-  return new roleworldexp;
-}
-
-void roleworldexp::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = GOOGLE_LONGLONG(0);
-    worldexp_ = 0;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool roleworldexp::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 lv = 1;
+      // optional int64 m_skillid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_skillid_)));
+          set_has_m_skillid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_worldExp;
+        if (input->ExpectTag(16)) goto parse_m_skilltype;
         break;
       }
 
-      // optional int32 worldExp = 2;
+      // optional int32 m_skilltype = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_worldExp:
+         parse_m_skilltype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &worldexp_)));
-          set_has_worldexp();
+                 input, &m_skilltype_)));
+          set_has_m_skilltype();
         } else {
           goto handle_uninterpreted;
         }
@@ -11288,16 +10394,16 @@ bool roleworldexp::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void roleworldexp::SerializeWithCachedSizes(
+void E_RoleSkilltype::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->lv(), output);
+  // optional int64 m_skillid = 1;
+  if (has_m_skillid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_skillid(), output);
   }
 
-  // optional int32 worldExp = 2;
-  if (has_worldexp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->worldexp(), output);
+  // optional int32 m_skilltype = 2;
+  if (has_m_skilltype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_skilltype(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -11306,16 +10412,16 @@ void roleworldexp::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* roleworldexp::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_RoleSkilltype::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->lv(), target);
+  // optional int64 m_skillid = 1;
+  if (has_m_skillid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_skillid(), target);
   }
 
-  // optional int32 worldExp = 2;
-  if (has_worldexp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->worldexp(), target);
+  // optional int32 m_skilltype = 2;
+  if (has_m_skilltype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_skilltype(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -11325,22 +10431,22 @@ void roleworldexp::SerializeWithCachedSizes(
   return target;
 }
 
-int roleworldexp::ByteSize() const {
+int E_RoleSkilltype::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 lv = 1;
-    if (has_lv()) {
+    // optional int64 m_skillid = 1;
+    if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->lv());
+          this->m_skillid());
     }
 
-    // optional int32 worldExp = 2;
-    if (has_worldexp()) {
+    // optional int32 m_skilltype = 2;
+    if (has_m_skilltype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->worldexp());
+          this->m_skilltype());
     }
 
   }
@@ -11355,10 +10461,10 @@ int roleworldexp::ByteSize() const {
   return total_size;
 }
 
-void roleworldexp::MergeFrom(const ::google::protobuf::Message& from) {
+void E_RoleSkilltype::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const roleworldexp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const roleworldexp*>(
+  const E_RoleSkilltype* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleSkilltype*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -11367,51 +10473,51 @@ void roleworldexp::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void roleworldexp::MergeFrom(const roleworldexp& from) {
+void E_RoleSkilltype::MergeFrom(const E_RoleSkilltype& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_skillid()) {
+      set_m_skillid(from.m_skillid());
     }
-    if (from.has_worldexp()) {
-      set_worldexp(from.worldexp());
+    if (from.has_m_skilltype()) {
+      set_m_skilltype(from.m_skilltype());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void roleworldexp::CopyFrom(const ::google::protobuf::Message& from) {
+void E_RoleSkilltype::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void roleworldexp::CopyFrom(const roleworldexp& from) {
+void E_RoleSkilltype::CopyFrom(const E_RoleSkilltype& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool roleworldexp::IsInitialized() const {
+bool E_RoleSkilltype::IsInitialized() const {
 
   return true;
 }
 
-void roleworldexp::Swap(roleworldexp* other) {
+void E_RoleSkilltype::Swap(E_RoleSkilltype* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(worldexp_, other->worldexp_);
+    std::swap(m_skillid_, other->m_skillid_);
+    std::swap(m_skilltype_, other->m_skilltype_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata roleworldexp::GetMetadata() const {
+::google::protobuf::Metadata E_RoleSkilltype::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = roleworldexp_descriptor_;
-  metadata.reflection = roleworldexp_reflection_;
+  metadata.descriptor = E_RoleSkilltype_descriptor_;
+  metadata.reflection = E_RoleSkilltype_reflection_;
   return metadata;
 }
 
@@ -11419,81 +10525,81 @@ void roleworldexp::Swap(roleworldexp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_roleworldexp::kRoleworldexpListFieldNumber;
+const int Sheet_RoleSkilltype::kERoleSkilltypeListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_roleworldexp::Sheet_roleworldexp()
+Sheet_RoleSkilltype::Sheet_RoleSkilltype()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_roleworldexp::InitAsDefaultInstance() {
+void Sheet_RoleSkilltype::InitAsDefaultInstance() {
 }
 
-Sheet_roleworldexp::Sheet_roleworldexp(const Sheet_roleworldexp& from)
+Sheet_RoleSkilltype::Sheet_RoleSkilltype(const Sheet_RoleSkilltype& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_roleworldexp::SharedCtor() {
+void Sheet_RoleSkilltype::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_roleworldexp::~Sheet_roleworldexp() {
+Sheet_RoleSkilltype::~Sheet_RoleSkilltype() {
   SharedDtor();
 }
 
-void Sheet_roleworldexp::SharedDtor() {
+void Sheet_RoleSkilltype::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_roleworldexp::SetCachedSize(int size) const {
+void Sheet_RoleSkilltype::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_roleworldexp::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_RoleSkilltype::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_roleworldexp_descriptor_;
+  return Sheet_RoleSkilltype_descriptor_;
 }
 
-const Sheet_roleworldexp& Sheet_roleworldexp::default_instance() {
+const Sheet_RoleSkilltype& Sheet_RoleSkilltype::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
   return *default_instance_;
 }
 
-Sheet_roleworldexp* Sheet_roleworldexp::default_instance_ = NULL;
+Sheet_RoleSkilltype* Sheet_RoleSkilltype::default_instance_ = NULL;
 
-Sheet_roleworldexp* Sheet_roleworldexp::New() const {
-  return new Sheet_roleworldexp;
+Sheet_RoleSkilltype* Sheet_RoleSkilltype::New() const {
+  return new Sheet_RoleSkilltype;
 }
 
-void Sheet_roleworldexp::Clear() {
-  roleworldexp_list_.Clear();
+void Sheet_RoleSkilltype::Clear() {
+  e_roleskilltype_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_roleworldexp::MergePartialFromCodedStream(
+bool Sheet_RoleSkilltype::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.roleworldexp roleworldexp_List = 1;
+      // repeated .proto_ff.E_RoleSkilltype E_RoleSkilltype_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_roleworldexp_List:
+         parse_E_RoleSkilltype_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_roleworldexp_list()));
+                input, add_e_roleskilltype_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_roleworldexp_List;
+        if (input->ExpectTag(10)) goto parse_E_RoleSkilltype_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -11514,12 +10620,12 @@ bool Sheet_roleworldexp::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_roleworldexp::SerializeWithCachedSizes(
+void Sheet_RoleSkilltype::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.roleworldexp roleworldexp_List = 1;
-  for (int i = 0; i < this->roleworldexp_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSkilltype E_RoleSkilltype_List = 1;
+  for (int i = 0; i < this->e_roleskilltype_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roleworldexp_list(i), output);
+      1, this->e_roleskilltype_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -11528,13 +10634,13 @@ void Sheet_roleworldexp::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_roleworldexp::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_RoleSkilltype::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.roleworldexp roleworldexp_List = 1;
-  for (int i = 0; i < this->roleworldexp_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSkilltype E_RoleSkilltype_List = 1;
+  for (int i = 0; i < this->e_roleskilltype_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->roleworldexp_list(i), target);
+        1, this->e_roleskilltype_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -11544,15 +10650,15 @@ void Sheet_roleworldexp::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_roleworldexp::ByteSize() const {
+int Sheet_RoleSkilltype::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.roleworldexp roleworldexp_List = 1;
-  total_size += 1 * this->roleworldexp_list_size();
-  for (int i = 0; i < this->roleworldexp_list_size(); i++) {
+  // repeated .proto_ff.E_RoleSkilltype E_RoleSkilltype_List = 1;
+  total_size += 1 * this->e_roleskilltype_list_size();
+  for (int i = 0; i < this->e_roleskilltype_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->roleworldexp_list(i));
+        this->e_roleskilltype_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -11566,10 +10672,10 @@ int Sheet_roleworldexp::ByteSize() const {
   return total_size;
 }
 
-void Sheet_roleworldexp::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSkilltype::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_roleworldexp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_roleworldexp*>(
+  const Sheet_RoleSkilltype* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleSkilltype*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -11578,43 +10684,945 @@ void Sheet_roleworldexp::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_roleworldexp::MergeFrom(const Sheet_roleworldexp& from) {
+void Sheet_RoleSkilltype::MergeFrom(const Sheet_RoleSkilltype& from) {
   GOOGLE_CHECK_NE(&from, this);
-  roleworldexp_list_.MergeFrom(from.roleworldexp_list_);
+  e_roleskilltype_list_.MergeFrom(from.e_roleskilltype_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_roleworldexp::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_RoleSkilltype::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_roleworldexp::CopyFrom(const Sheet_roleworldexp& from) {
+void Sheet_RoleSkilltype::CopyFrom(const Sheet_RoleSkilltype& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_roleworldexp::IsInitialized() const {
+bool Sheet_RoleSkilltype::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_roleworldexp::Swap(Sheet_roleworldexp* other) {
+void Sheet_RoleSkilltype::Swap(Sheet_RoleSkilltype* other) {
   if (other != this) {
-    roleworldexp_list_.Swap(&other->roleworldexp_list_);
+    e_roleskilltype_list_.Swap(&other->e_roleskilltype_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_roleworldexp::GetMetadata() const {
+::google::protobuf::Metadata Sheet_RoleSkilltype::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_roleworldexp_descriptor_;
-  metadata.reflection = Sheet_roleworldexp_reflection_;
+  metadata.descriptor = Sheet_RoleSkilltype_descriptor_;
+  metadata.reflection = Sheet_RoleSkilltype_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_RoleAddskill::kMIdFieldNumber;
+const int E_RoleAddskill::kMSkillidFieldNumber;
+#endif  // !_MSC_VER
+
+E_RoleAddskill::E_RoleAddskill()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_RoleAddskill::InitAsDefaultInstance() {
+}
+
+E_RoleAddskill::E_RoleAddskill(const E_RoleAddskill& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_RoleAddskill::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_skillid_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_RoleAddskill::~E_RoleAddskill() {
+  SharedDtor();
+}
+
+void E_RoleAddskill::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_RoleAddskill::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_RoleAddskill::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_RoleAddskill_descriptor_;
+}
+
+const E_RoleAddskill& E_RoleAddskill::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
+  return *default_instance_;
+}
+
+E_RoleAddskill* E_RoleAddskill::default_instance_ = NULL;
+
+E_RoleAddskill* E_RoleAddskill::New() const {
+  return new E_RoleAddskill;
+}
+
+void E_RoleAddskill::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_skillid_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_RoleAddskill::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_skillid;
+        break;
+      }
+
+      // optional int64 m_skillid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_skillid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &m_skillid_)));
+          set_has_m_skillid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_RoleAddskill::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int64 m_skillid = 2;
+  if (has_m_skillid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_skillid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_RoleAddskill::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int64 m_skillid = 2;
+  if (has_m_skillid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_skillid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_RoleAddskill::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int64 m_skillid = 2;
+    if (has_m_skillid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->m_skillid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_RoleAddskill::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_RoleAddskill* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleAddskill*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_RoleAddskill::MergeFrom(const E_RoleAddskill& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_skillid()) {
+      set_m_skillid(from.m_skillid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_RoleAddskill::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_RoleAddskill::CopyFrom(const E_RoleAddskill& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_RoleAddskill::IsInitialized() const {
+
+  return true;
+}
+
+void E_RoleAddskill::Swap(E_RoleAddskill* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_skillid_, other->m_skillid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_RoleAddskill::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_RoleAddskill_descriptor_;
+  metadata.reflection = E_RoleAddskill_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_RoleAddskill::kERoleAddskillListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_RoleAddskill::Sheet_RoleAddskill()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_RoleAddskill::InitAsDefaultInstance() {
+}
+
+Sheet_RoleAddskill::Sheet_RoleAddskill(const Sheet_RoleAddskill& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_RoleAddskill::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_RoleAddskill::~Sheet_RoleAddskill() {
+  SharedDtor();
+}
+
+void Sheet_RoleAddskill::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_RoleAddskill::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_RoleAddskill::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_RoleAddskill_descriptor_;
+}
+
+const Sheet_RoleAddskill& Sheet_RoleAddskill::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
+  return *default_instance_;
+}
+
+Sheet_RoleAddskill* Sheet_RoleAddskill::default_instance_ = NULL;
+
+Sheet_RoleAddskill* Sheet_RoleAddskill::New() const {
+  return new Sheet_RoleAddskill;
+}
+
+void Sheet_RoleAddskill::Clear() {
+  e_roleaddskill_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_RoleAddskill::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_RoleAddskill E_RoleAddskill_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_RoleAddskill_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_roleaddskill_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_RoleAddskill_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_RoleAddskill::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_RoleAddskill E_RoleAddskill_List = 1;
+  for (int i = 0; i < this->e_roleaddskill_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_roleaddskill_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_RoleAddskill::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_RoleAddskill E_RoleAddskill_List = 1;
+  for (int i = 0; i < this->e_roleaddskill_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_roleaddskill_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_RoleAddskill::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_RoleAddskill E_RoleAddskill_List = 1;
+  total_size += 1 * this->e_roleaddskill_list_size();
+  for (int i = 0; i < this->e_roleaddskill_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_roleaddskill_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_RoleAddskill::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_RoleAddskill* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleAddskill*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_RoleAddskill::MergeFrom(const Sheet_RoleAddskill& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_roleaddskill_list_.MergeFrom(from.e_roleaddskill_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_RoleAddskill::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_RoleAddskill::CopyFrom(const Sheet_RoleAddskill& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_RoleAddskill::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_RoleAddskill::Swap(Sheet_RoleAddskill* other) {
+  if (other != this) {
+    e_roleaddskill_list_.Swap(&other->e_roleaddskill_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_RoleAddskill::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_RoleAddskill_descriptor_;
+  metadata.reflection = Sheet_RoleAddskill_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_RoleWorldexp::kMLvFieldNumber;
+const int E_RoleWorldexp::kMWorldexpFieldNumber;
+#endif  // !_MSC_VER
+
+E_RoleWorldexp::E_RoleWorldexp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_RoleWorldexp::InitAsDefaultInstance() {
+}
+
+E_RoleWorldexp::E_RoleWorldexp(const E_RoleWorldexp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_RoleWorldexp::SharedCtor() {
+  _cached_size_ = 0;
+  m_lv_ = GOOGLE_LONGLONG(0);
+  m_worldexp_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_RoleWorldexp::~E_RoleWorldexp() {
+  SharedDtor();
+}
+
+void E_RoleWorldexp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_RoleWorldexp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_RoleWorldexp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_RoleWorldexp_descriptor_;
+}
+
+const E_RoleWorldexp& E_RoleWorldexp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
+  return *default_instance_;
+}
+
+E_RoleWorldexp* E_RoleWorldexp::default_instance_ = NULL;
+
+E_RoleWorldexp* E_RoleWorldexp::New() const {
+  return new E_RoleWorldexp;
+}
+
+void E_RoleWorldexp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_lv_ = GOOGLE_LONGLONG(0);
+    m_worldexp_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_RoleWorldexp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 m_lv = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &m_lv_)));
+          set_has_m_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_worldexp;
+        break;
+      }
+
+      // optional int32 m_worldexp = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_worldexp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_worldexp_)));
+          set_has_m_worldexp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_RoleWorldexp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_lv(), output);
+  }
+
+  // optional int32 m_worldexp = 2;
+  if (has_m_worldexp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_worldexp(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_RoleWorldexp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_lv(), target);
+  }
+
+  // optional int32 m_worldexp = 2;
+  if (has_m_worldexp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_worldexp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_RoleWorldexp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 m_lv = 1;
+    if (has_m_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->m_lv());
+    }
+
+    // optional int32 m_worldexp = 2;
+    if (has_m_worldexp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_worldexp());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_RoleWorldexp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_RoleWorldexp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_RoleWorldexp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_RoleWorldexp::MergeFrom(const E_RoleWorldexp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
+    }
+    if (from.has_m_worldexp()) {
+      set_m_worldexp(from.m_worldexp());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_RoleWorldexp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_RoleWorldexp::CopyFrom(const E_RoleWorldexp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_RoleWorldexp::IsInitialized() const {
+
+  return true;
+}
+
+void E_RoleWorldexp::Swap(E_RoleWorldexp* other) {
+  if (other != this) {
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_worldexp_, other->m_worldexp_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_RoleWorldexp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_RoleWorldexp_descriptor_;
+  metadata.reflection = E_RoleWorldexp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_RoleWorldexp::kERoleWorldexpListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_RoleWorldexp::Sheet_RoleWorldexp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_RoleWorldexp::InitAsDefaultInstance() {
+}
+
+Sheet_RoleWorldexp::Sheet_RoleWorldexp(const Sheet_RoleWorldexp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_RoleWorldexp::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_RoleWorldexp::~Sheet_RoleWorldexp() {
+  SharedDtor();
+}
+
+void Sheet_RoleWorldexp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_RoleWorldexp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_RoleWorldexp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_RoleWorldexp_descriptor_;
+}
+
+const Sheet_RoleWorldexp& Sheet_RoleWorldexp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_role_2eproto();
+  return *default_instance_;
+}
+
+Sheet_RoleWorldexp* Sheet_RoleWorldexp::default_instance_ = NULL;
+
+Sheet_RoleWorldexp* Sheet_RoleWorldexp::New() const {
+  return new Sheet_RoleWorldexp;
+}
+
+void Sheet_RoleWorldexp::Clear() {
+  e_roleworldexp_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_RoleWorldexp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_RoleWorldexp E_RoleWorldexp_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_RoleWorldexp_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_roleworldexp_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_RoleWorldexp_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_RoleWorldexp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_RoleWorldexp E_RoleWorldexp_List = 1;
+  for (int i = 0; i < this->e_roleworldexp_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_roleworldexp_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_RoleWorldexp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_RoleWorldexp E_RoleWorldexp_List = 1;
+  for (int i = 0; i < this->e_roleworldexp_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_roleworldexp_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_RoleWorldexp::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_RoleWorldexp E_RoleWorldexp_List = 1;
+  total_size += 1 * this->e_roleworldexp_list_size();
+  for (int i = 0; i < this->e_roleworldexp_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_roleworldexp_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_RoleWorldexp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_RoleWorldexp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_RoleWorldexp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_RoleWorldexp::MergeFrom(const Sheet_RoleWorldexp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_roleworldexp_list_.MergeFrom(from.e_roleworldexp_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_RoleWorldexp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_RoleWorldexp::CopyFrom(const Sheet_RoleWorldexp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_RoleWorldexp::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_RoleWorldexp::Swap(Sheet_RoleWorldexp* other) {
+  if (other != this) {
+    e_roleworldexp_list_.Swap(&other->e_roleworldexp_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_RoleWorldexp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_RoleWorldexp_descriptor_;
+  metadata.reflection = Sheet_RoleWorldexp_reflection_;
   return metadata;
 }
 

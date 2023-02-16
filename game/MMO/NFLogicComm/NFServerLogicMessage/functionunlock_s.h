@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "functionunlock.pb.h"
@@ -10,68 +10,68 @@
 
 namespace proto_ff_s {
 
-	struct functionunlockfunctionUnlock_s : public NFDescStoreSeqOP {
-		functionunlockfunctionUnlock_s();
-		virtual ~functionunlockfunctionUnlock_s(){}
+	struct E_FunctionunlockFunctionunlock_s : public NFDescStoreSeqOP {
+		E_FunctionunlockFunctionunlock_s();
+		virtual ~E_FunctionunlockFunctionunlock_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t functionId;
-		int32_t openDaily;
-		int32_t openType;
-		int64_t openVal;
-		int32_t iconOpenVal;
-		int32_t belong;
+		int32_t m_functionid;
+		int32_t m_opendaily;
+		int32_t m_opentype;
+		int64_t m_openval;
+		int32_t m_iconopenval;
+		int32_t m_belong;
 
-		virtual void write_to_pbmsg(::proto_ff::functionunlockfunctionUnlock & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::functionunlockfunctionUnlock & msg);
-		static ::proto_ff::functionunlockfunctionUnlock* new_pbmsg(){ return new ::proto_ff::functionunlockfunctionUnlock(); }
-		static ::proto_ff::functionunlockfunctionUnlock make_pbmsg(){ return ::proto_ff::functionunlockfunctionUnlock(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FunctionunlockFunctionunlock & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FunctionunlockFunctionunlock & msg);
+		static ::proto_ff::E_FunctionunlockFunctionunlock* new_pbmsg(){ return new ::proto_ff::E_FunctionunlockFunctionunlock(); }
+		static ::proto_ff::E_FunctionunlockFunctionunlock make_pbmsg(){ return ::proto_ff::E_FunctionunlockFunctionunlock(); }
 	};
-	typedef struct functionunlockfunctionUnlock_s functionunlockfunctionUnlock_t;
+	typedef struct E_FunctionunlockFunctionunlock_s E_FunctionunlockFunctionunlock_t;
 
-	struct Sheet_functionunlockfunctionUnlock_s : public NFDescStoreSeqOP {
-		Sheet_functionunlockfunctionUnlock_s();
-		virtual ~Sheet_functionunlockfunctionUnlock_s(){}
+	struct Sheet_FunctionunlockFunctionunlock_s : public NFDescStoreSeqOP {
+		Sheet_FunctionunlockFunctionunlock_s();
+		virtual ~Sheet_FunctionunlockFunctionunlock_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct functionunlockfunctionUnlock_s, 200> functionunlockfunctionUnlock_List;
+		NFShmVector<struct E_FunctionunlockFunctionunlock_s, 200> E_FunctionunlockFunctionunlock_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_functionunlockfunctionUnlock & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_functionunlockfunctionUnlock & msg);
-		static ::proto_ff::Sheet_functionunlockfunctionUnlock* new_pbmsg(){ return new ::proto_ff::Sheet_functionunlockfunctionUnlock(); }
-		static ::proto_ff::Sheet_functionunlockfunctionUnlock make_pbmsg(){ return ::proto_ff::Sheet_functionunlockfunctionUnlock(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FunctionunlockFunctionunlock & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FunctionunlockFunctionunlock & msg);
+		static ::proto_ff::Sheet_FunctionunlockFunctionunlock* new_pbmsg(){ return new ::proto_ff::Sheet_FunctionunlockFunctionunlock(); }
+		static ::proto_ff::Sheet_FunctionunlockFunctionunlock make_pbmsg(){ return ::proto_ff::Sheet_FunctionunlockFunctionunlock(); }
 	};
-	typedef struct Sheet_functionunlockfunctionUnlock_s Sheet_functionunlockfunctionUnlock_t;
+	typedef struct Sheet_FunctionunlockFunctionunlock_s Sheet_FunctionunlockFunctionunlock_t;
 
-	struct functionunlockpreview_s : public NFDescStoreSeqOP {
-		functionunlockpreview_s();
-		virtual ~functionunlockpreview_s(){}
+	struct E_FunctionunlockPreview_s : public NFDescStoreSeqOP {
+		E_FunctionunlockPreview_s();
+		virtual ~E_FunctionunlockPreview_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t functionId;
-		int32_t rewardItem;
-		int32_t rewardNum;
+		int32_t m_functionid;
+		int32_t m_rewarditem;
+		int32_t m_rewardnum;
 
-		virtual void write_to_pbmsg(::proto_ff::functionunlockpreview & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::functionunlockpreview & msg);
-		static ::proto_ff::functionunlockpreview* new_pbmsg(){ return new ::proto_ff::functionunlockpreview(); }
-		static ::proto_ff::functionunlockpreview make_pbmsg(){ return ::proto_ff::functionunlockpreview(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FunctionunlockPreview & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FunctionunlockPreview & msg);
+		static ::proto_ff::E_FunctionunlockPreview* new_pbmsg(){ return new ::proto_ff::E_FunctionunlockPreview(); }
+		static ::proto_ff::E_FunctionunlockPreview make_pbmsg(){ return ::proto_ff::E_FunctionunlockPreview(); }
 	};
-	typedef struct functionunlockpreview_s functionunlockpreview_t;
+	typedef struct E_FunctionunlockPreview_s E_FunctionunlockPreview_t;
 
-	struct Sheet_functionunlockpreview_s : public NFDescStoreSeqOP {
-		Sheet_functionunlockpreview_s();
-		virtual ~Sheet_functionunlockpreview_s(){}
+	struct Sheet_FunctionunlockPreview_s : public NFDescStoreSeqOP {
+		Sheet_FunctionunlockPreview_s();
+		virtual ~Sheet_FunctionunlockPreview_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct functionunlockpreview_s, 20> functionunlockpreview_List;
+		NFShmVector<struct E_FunctionunlockPreview_s, 20> E_FunctionunlockPreview_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_functionunlockpreview & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_functionunlockpreview & msg);
-		static ::proto_ff::Sheet_functionunlockpreview* new_pbmsg(){ return new ::proto_ff::Sheet_functionunlockpreview(); }
-		static ::proto_ff::Sheet_functionunlockpreview make_pbmsg(){ return ::proto_ff::Sheet_functionunlockpreview(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FunctionunlockPreview & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FunctionunlockPreview & msg);
+		static ::proto_ff::Sheet_FunctionunlockPreview* new_pbmsg(){ return new ::proto_ff::Sheet_FunctionunlockPreview(); }
+		static ::proto_ff::Sheet_FunctionunlockPreview make_pbmsg(){ return ::proto_ff::Sheet_FunctionunlockPreview(); }
 	};
-	typedef struct Sheet_functionunlockpreview_s Sheet_functionunlockpreview_t;
+	typedef struct Sheet_FunctionunlockPreview_s Sheet_FunctionunlockPreview_t;
 
 }
 

@@ -33,9 +33,9 @@ int RoleBornDesc::Load(NFResDB *pDB)
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "RoleBornDesc::Load() strFileName = {}", GetFileName());
 
-	proto_ff::Sheet_roleborn table;
+	proto_ff::Sheet_RoleBorn table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
 	CHECK_EXPR(pResTable != NULL, -1, "pTable == NULL, GetTable:{} Error", GetFileName());
 
@@ -46,33 +46,33 @@ int RoleBornDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.roleborn_list_size() < 0) || (table.roleborn_list_size() > (int)(m_astDesc.size())))
+	if ((table.e_roleborn_list_size() < 0) || (table.e_roleborn_list_size() > (int)(m_astDesc.size())))
 	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.roleborn_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_roleborn_list_size());
 		return -2;
 	}
 
-	m_astDesc.resize(table.roleborn_list_size());
+	m_astDesc.resize(table.e_roleborn_list_size());
 	m_astDescIndex.resize(m_astDescIndex.max_size());
 	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
 	{
 		m_astDescIndex[i] = -1;
 	}
-	for (int i = 0; i < (int)table.roleborn_list_size(); i++)
+	for (int i = 0; i < (int)table.e_roleborn_list_size(); i++)
 	{
-		const proto_ff::roleborn& desc = table.roleborn_list(i);
-		if (desc.has_bornid() == false && desc.ByteSize() == 0)
+		const proto_ff::E_RoleBorn& desc = table.e_roleborn_list(i);
+		if (desc.has_m_bornid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.bornid());
+		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_bornid());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.bornid(), i);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.bornid());
-		uint64_t hashKey = desc.bornid();
+		auto iter = m_astDescMap.emplace_hint(desc.m_bornid(), i);
+		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_bornid());
+		uint64_t hashKey = desc.m_bornid();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{
 			if (m_astDescIndex[hashKey] != -1)
@@ -91,7 +91,7 @@ int RoleBornDesc::Load(NFResDB *pDB)
 		}
 	}
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.roleborn_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_roleborn_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
@@ -101,7 +101,7 @@ int RoleBornDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::roleborn_s * RoleBornDesc::GetDesc(int id) const
+const proto_ff_s::E_RoleBorn_s * RoleBornDesc::GetDesc(int id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -124,8 +124,8 @@ const proto_ff_s::roleborn_s * RoleBornDesc::GetDesc(int id) const
 	return NULL;
 }
 
-proto_ff_s::roleborn_s * RoleBornDesc::GetDesc(int id)
+proto_ff_s::E_RoleBorn_s * RoleBornDesc::GetDesc(int id)
 {
-	return const_cast<proto_ff_s::roleborn_s *>((static_cast<const RoleBornDesc*>(this))->GetDesc(id));
+	return const_cast<proto_ff_s::E_RoleBorn_s *>((static_cast<const RoleBornDesc*>(this))->GetDesc(id));
 }
 

@@ -34,19 +34,19 @@ void  protobuf_AddDesc_msg_2eproto();
 void protobuf_AssignDesc_msg_2eproto();
 void protobuf_ShutdownFile_msg_2eproto();
 
-class msgphpmsg;
-class Sheet_msgphpmsg;
+class E_MsgPhpmsg;
+class Sheet_MsgPhpmsg;
 
 // ===================================================================
 
-class msgphpmsg : public ::google::protobuf::Message {
+class E_MsgPhpmsg : public ::google::protobuf::Message {
  public:
-  msgphpmsg();
-  virtual ~msgphpmsg();
+  E_MsgPhpmsg();
+  virtual ~E_MsgPhpmsg();
 
-  msgphpmsg(const msgphpmsg& from);
+  E_MsgPhpmsg(const E_MsgPhpmsg& from);
 
-  inline msgphpmsg& operator=(const msgphpmsg& from) {
+  inline E_MsgPhpmsg& operator=(const E_MsgPhpmsg& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class msgphpmsg : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const msgphpmsg& default_instance();
+  static const E_MsgPhpmsg& default_instance();
 
-  void Swap(msgphpmsg* other);
+  void Swap(E_MsgPhpmsg* other);
 
   // implements Message ----------------------------------------------
 
-  msgphpmsg* New() const;
+  E_MsgPhpmsg* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const msgphpmsg& from);
-  void MergeFrom(const msgphpmsg& from);
+  void CopyFrom(const E_MsgPhpmsg& from);
+  void MergeFrom(const E_MsgPhpmsg& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,51 +93,51 @@ class msgphpmsg : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string content = 2;
-  inline bool has_content() const;
-  inline void clear_content();
-  static const int kContentFieldNumber = 2;
-  inline const ::std::string& content() const;
-  inline void set_content(const ::std::string& value);
-  inline void set_content(const char* value);
-  inline void set_content(const char* value, size_t size);
-  inline ::std::string* mutable_content();
-  inline ::std::string* release_content();
-  inline void set_allocated_content(::std::string* content);
+  // optional string m_content = 2;
+  inline bool has_m_content() const;
+  inline void clear_m_content();
+  static const int kMContentFieldNumber = 2;
+  inline const ::std::string& m_content() const;
+  inline void set_m_content(const ::std::string& value);
+  inline void set_m_content(const char* value);
+  inline void set_m_content(const char* value, size_t size);
+  inline ::std::string* mutable_m_content();
+  inline ::std::string* release_m_content();
+  inline void set_allocated_m_content(::std::string* m_content);
 
-  // optional string note = 3;
-  inline bool has_note() const;
-  inline void clear_note();
-  static const int kNoteFieldNumber = 3;
-  inline const ::std::string& note() const;
-  inline void set_note(const ::std::string& value);
-  inline void set_note(const char* value);
-  inline void set_note(const char* value, size_t size);
-  inline ::std::string* mutable_note();
-  inline ::std::string* release_note();
-  inline void set_allocated_note(::std::string* note);
+  // optional string m_note = 3;
+  inline bool has_m_note() const;
+  inline void clear_m_note();
+  static const int kMNoteFieldNumber = 3;
+  inline const ::std::string& m_note() const;
+  inline void set_m_note(const ::std::string& value);
+  inline void set_m_note(const char* value);
+  inline void set_m_note(const char* value, size_t size);
+  inline ::std::string* mutable_m_note();
+  inline ::std::string* release_m_note();
+  inline void set_allocated_m_note(::std::string* m_note);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.msgphpmsg)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_MsgPhpmsg)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_content();
-  inline void clear_has_content();
-  inline void set_has_note();
-  inline void clear_has_note();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_content();
+  inline void clear_has_m_content();
+  inline void set_has_m_note();
+  inline void clear_has_m_note();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* content_;
-  ::std::string* note_;
-  ::google::protobuf::int32 id_;
+  ::std::string* m_content_;
+  ::std::string* m_note_;
+  ::google::protobuf::int32 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -147,18 +147,18 @@ class msgphpmsg : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_msg_2eproto();
 
   void InitAsDefaultInstance();
-  static msgphpmsg* default_instance_;
+  static E_MsgPhpmsg* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_msgphpmsg : public ::google::protobuf::Message {
+class Sheet_MsgPhpmsg : public ::google::protobuf::Message {
  public:
-  Sheet_msgphpmsg();
-  virtual ~Sheet_msgphpmsg();
+  Sheet_MsgPhpmsg();
+  virtual ~Sheet_MsgPhpmsg();
 
-  Sheet_msgphpmsg(const Sheet_msgphpmsg& from);
+  Sheet_MsgPhpmsg(const Sheet_MsgPhpmsg& from);
 
-  inline Sheet_msgphpmsg& operator=(const Sheet_msgphpmsg& from) {
+  inline Sheet_MsgPhpmsg& operator=(const Sheet_MsgPhpmsg& from) {
     CopyFrom(from);
     return *this;
   }
@@ -172,17 +172,17 @@ class Sheet_msgphpmsg : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_msgphpmsg& default_instance();
+  static const Sheet_MsgPhpmsg& default_instance();
 
-  void Swap(Sheet_msgphpmsg* other);
+  void Swap(Sheet_MsgPhpmsg* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_msgphpmsg* New() const;
+  Sheet_MsgPhpmsg* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_msgphpmsg& from);
-  void MergeFrom(const Sheet_msgphpmsg& from);
+  void CopyFrom(const Sheet_MsgPhpmsg& from);
+  void MergeFrom(const Sheet_MsgPhpmsg& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -205,24 +205,24 @@ class Sheet_msgphpmsg : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.msgphpmsg msgphpmsg_List = 1;
-  inline int msgphpmsg_list_size() const;
-  inline void clear_msgphpmsg_list();
-  static const int kMsgphpmsgListFieldNumber = 1;
-  inline const ::proto_ff::msgphpmsg& msgphpmsg_list(int index) const;
-  inline ::proto_ff::msgphpmsg* mutable_msgphpmsg_list(int index);
-  inline ::proto_ff::msgphpmsg* add_msgphpmsg_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::msgphpmsg >&
-      msgphpmsg_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::msgphpmsg >*
-      mutable_msgphpmsg_list();
+  // repeated .proto_ff.E_MsgPhpmsg E_MsgPhpmsg_List = 1;
+  inline int e_msgphpmsg_list_size() const;
+  inline void clear_e_msgphpmsg_list();
+  static const int kEMsgPhpmsgListFieldNumber = 1;
+  inline const ::proto_ff::E_MsgPhpmsg& e_msgphpmsg_list(int index) const;
+  inline ::proto_ff::E_MsgPhpmsg* mutable_e_msgphpmsg_list(int index);
+  inline ::proto_ff::E_MsgPhpmsg* add_e_msgphpmsg_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MsgPhpmsg >&
+      e_msgphpmsg_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MsgPhpmsg >*
+      mutable_e_msgphpmsg_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_msgphpmsg)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_MsgPhpmsg)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::msgphpmsg > msgphpmsg_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MsgPhpmsg > e_msgphpmsg_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -232,204 +232,204 @@ class Sheet_msgphpmsg : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_msg_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_msgphpmsg* default_instance_;
+  static Sheet_MsgPhpmsg* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// msgphpmsg
+// E_MsgPhpmsg
 
-// optional int32 id = 1;
-inline bool msgphpmsg::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_MsgPhpmsg::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void msgphpmsg::set_has_id() {
+inline void E_MsgPhpmsg::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void msgphpmsg::clear_has_id() {
+inline void E_MsgPhpmsg::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void msgphpmsg::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_MsgPhpmsg::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 msgphpmsg::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_MsgPhpmsg::m_id() const {
+  return m_id_;
 }
-inline void msgphpmsg::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_MsgPhpmsg::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string content = 2;
-inline bool msgphpmsg::has_content() const {
+// optional string m_content = 2;
+inline bool E_MsgPhpmsg::has_m_content() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void msgphpmsg::set_has_content() {
+inline void E_MsgPhpmsg::set_has_m_content() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void msgphpmsg::clear_has_content() {
+inline void E_MsgPhpmsg::clear_has_m_content() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void msgphpmsg::clear_content() {
-  if (content_ != &::google::protobuf::internal::kEmptyString) {
-    content_->clear();
+inline void E_MsgPhpmsg::clear_m_content() {
+  if (m_content_ != &::google::protobuf::internal::kEmptyString) {
+    m_content_->clear();
   }
-  clear_has_content();
+  clear_has_m_content();
 }
-inline const ::std::string& msgphpmsg::content() const {
-  return *content_;
+inline const ::std::string& E_MsgPhpmsg::m_content() const {
+  return *m_content_;
 }
-inline void msgphpmsg::set_content(const ::std::string& value) {
-  set_has_content();
-  if (content_ == &::google::protobuf::internal::kEmptyString) {
-    content_ = new ::std::string;
+inline void E_MsgPhpmsg::set_m_content(const ::std::string& value) {
+  set_has_m_content();
+  if (m_content_ == &::google::protobuf::internal::kEmptyString) {
+    m_content_ = new ::std::string;
   }
-  content_->assign(value);
+  m_content_->assign(value);
 }
-inline void msgphpmsg::set_content(const char* value) {
-  set_has_content();
-  if (content_ == &::google::protobuf::internal::kEmptyString) {
-    content_ = new ::std::string;
+inline void E_MsgPhpmsg::set_m_content(const char* value) {
+  set_has_m_content();
+  if (m_content_ == &::google::protobuf::internal::kEmptyString) {
+    m_content_ = new ::std::string;
   }
-  content_->assign(value);
+  m_content_->assign(value);
 }
-inline void msgphpmsg::set_content(const char* value, size_t size) {
-  set_has_content();
-  if (content_ == &::google::protobuf::internal::kEmptyString) {
-    content_ = new ::std::string;
+inline void E_MsgPhpmsg::set_m_content(const char* value, size_t size) {
+  set_has_m_content();
+  if (m_content_ == &::google::protobuf::internal::kEmptyString) {
+    m_content_ = new ::std::string;
   }
-  content_->assign(reinterpret_cast<const char*>(value), size);
+  m_content_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* msgphpmsg::mutable_content() {
-  set_has_content();
-  if (content_ == &::google::protobuf::internal::kEmptyString) {
-    content_ = new ::std::string;
+inline ::std::string* E_MsgPhpmsg::mutable_m_content() {
+  set_has_m_content();
+  if (m_content_ == &::google::protobuf::internal::kEmptyString) {
+    m_content_ = new ::std::string;
   }
-  return content_;
+  return m_content_;
 }
-inline ::std::string* msgphpmsg::release_content() {
-  clear_has_content();
-  if (content_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_MsgPhpmsg::release_m_content() {
+  clear_has_m_content();
+  if (m_content_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = content_;
-    content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_content_;
+    m_content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void msgphpmsg::set_allocated_content(::std::string* content) {
-  if (content_ != &::google::protobuf::internal::kEmptyString) {
-    delete content_;
+inline void E_MsgPhpmsg::set_allocated_m_content(::std::string* m_content) {
+  if (m_content_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_content_;
   }
-  if (content) {
-    set_has_content();
-    content_ = content;
+  if (m_content) {
+    set_has_m_content();
+    m_content_ = m_content;
   } else {
-    clear_has_content();
-    content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_content();
+    m_content_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string note = 3;
-inline bool msgphpmsg::has_note() const {
+// optional string m_note = 3;
+inline bool E_MsgPhpmsg::has_m_note() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void msgphpmsg::set_has_note() {
+inline void E_MsgPhpmsg::set_has_m_note() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void msgphpmsg::clear_has_note() {
+inline void E_MsgPhpmsg::clear_has_m_note() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void msgphpmsg::clear_note() {
-  if (note_ != &::google::protobuf::internal::kEmptyString) {
-    note_->clear();
+inline void E_MsgPhpmsg::clear_m_note() {
+  if (m_note_ != &::google::protobuf::internal::kEmptyString) {
+    m_note_->clear();
   }
-  clear_has_note();
+  clear_has_m_note();
 }
-inline const ::std::string& msgphpmsg::note() const {
-  return *note_;
+inline const ::std::string& E_MsgPhpmsg::m_note() const {
+  return *m_note_;
 }
-inline void msgphpmsg::set_note(const ::std::string& value) {
-  set_has_note();
-  if (note_ == &::google::protobuf::internal::kEmptyString) {
-    note_ = new ::std::string;
+inline void E_MsgPhpmsg::set_m_note(const ::std::string& value) {
+  set_has_m_note();
+  if (m_note_ == &::google::protobuf::internal::kEmptyString) {
+    m_note_ = new ::std::string;
   }
-  note_->assign(value);
+  m_note_->assign(value);
 }
-inline void msgphpmsg::set_note(const char* value) {
-  set_has_note();
-  if (note_ == &::google::protobuf::internal::kEmptyString) {
-    note_ = new ::std::string;
+inline void E_MsgPhpmsg::set_m_note(const char* value) {
+  set_has_m_note();
+  if (m_note_ == &::google::protobuf::internal::kEmptyString) {
+    m_note_ = new ::std::string;
   }
-  note_->assign(value);
+  m_note_->assign(value);
 }
-inline void msgphpmsg::set_note(const char* value, size_t size) {
-  set_has_note();
-  if (note_ == &::google::protobuf::internal::kEmptyString) {
-    note_ = new ::std::string;
+inline void E_MsgPhpmsg::set_m_note(const char* value, size_t size) {
+  set_has_m_note();
+  if (m_note_ == &::google::protobuf::internal::kEmptyString) {
+    m_note_ = new ::std::string;
   }
-  note_->assign(reinterpret_cast<const char*>(value), size);
+  m_note_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* msgphpmsg::mutable_note() {
-  set_has_note();
-  if (note_ == &::google::protobuf::internal::kEmptyString) {
-    note_ = new ::std::string;
+inline ::std::string* E_MsgPhpmsg::mutable_m_note() {
+  set_has_m_note();
+  if (m_note_ == &::google::protobuf::internal::kEmptyString) {
+    m_note_ = new ::std::string;
   }
-  return note_;
+  return m_note_;
 }
-inline ::std::string* msgphpmsg::release_note() {
-  clear_has_note();
-  if (note_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_MsgPhpmsg::release_m_note() {
+  clear_has_m_note();
+  if (m_note_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = note_;
-    note_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_note_;
+    m_note_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void msgphpmsg::set_allocated_note(::std::string* note) {
-  if (note_ != &::google::protobuf::internal::kEmptyString) {
-    delete note_;
+inline void E_MsgPhpmsg::set_allocated_m_note(::std::string* m_note) {
+  if (m_note_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_note_;
   }
-  if (note) {
-    set_has_note();
-    note_ = note;
+  if (m_note) {
+    set_has_m_note();
+    m_note_ = m_note;
   } else {
-    clear_has_note();
-    note_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_note();
+    m_note_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_msgphpmsg
+// Sheet_MsgPhpmsg
 
-// repeated .proto_ff.msgphpmsg msgphpmsg_List = 1;
-inline int Sheet_msgphpmsg::msgphpmsg_list_size() const {
-  return msgphpmsg_list_.size();
+// repeated .proto_ff.E_MsgPhpmsg E_MsgPhpmsg_List = 1;
+inline int Sheet_MsgPhpmsg::e_msgphpmsg_list_size() const {
+  return e_msgphpmsg_list_.size();
 }
-inline void Sheet_msgphpmsg::clear_msgphpmsg_list() {
-  msgphpmsg_list_.Clear();
+inline void Sheet_MsgPhpmsg::clear_e_msgphpmsg_list() {
+  e_msgphpmsg_list_.Clear();
 }
-inline const ::proto_ff::msgphpmsg& Sheet_msgphpmsg::msgphpmsg_list(int index) const {
-  return msgphpmsg_list_.Get(index);
+inline const ::proto_ff::E_MsgPhpmsg& Sheet_MsgPhpmsg::e_msgphpmsg_list(int index) const {
+  return e_msgphpmsg_list_.Get(index);
 }
-inline ::proto_ff::msgphpmsg* Sheet_msgphpmsg::mutable_msgphpmsg_list(int index) {
-  return msgphpmsg_list_.Mutable(index);
+inline ::proto_ff::E_MsgPhpmsg* Sheet_MsgPhpmsg::mutable_e_msgphpmsg_list(int index) {
+  return e_msgphpmsg_list_.Mutable(index);
 }
-inline ::proto_ff::msgphpmsg* Sheet_msgphpmsg::add_msgphpmsg_list() {
-  return msgphpmsg_list_.Add();
+inline ::proto_ff::E_MsgPhpmsg* Sheet_MsgPhpmsg::add_e_msgphpmsg_list() {
+  return e_msgphpmsg_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::msgphpmsg >&
-Sheet_msgphpmsg::msgphpmsg_list() const {
-  return msgphpmsg_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MsgPhpmsg >&
+Sheet_MsgPhpmsg::e_msgphpmsg_list() const {
+  return e_msgphpmsg_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::msgphpmsg >*
-Sheet_msgphpmsg::mutable_msgphpmsg_list() {
-  return &msgphpmsg_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MsgPhpmsg >*
+Sheet_MsgPhpmsg::mutable_e_msgphpmsg_list() {
+  return &e_msgphpmsg_list_;
 }
 
 

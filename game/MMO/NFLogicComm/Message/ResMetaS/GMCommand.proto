@@ -3,16 +3,16 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message GMCommandGMCommand
+message E_GmcommandGmcommand
 {
-	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "命令索引"];
-	optional string Key = 2[(yd_fieldoptions.field_cname) = "命令关键字", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 ParamCount = 3[(yd_fieldoptions.field_cname) = "参数数量"];
-	optional string Des = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "命令索引"];
+	optional string m_key = 2[(yd_fieldoptions.field_cname) = "命令关键字", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_paramcount = 3[(yd_fieldoptions.field_cname) = "参数数量"];
+	optional string m_des = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
-message Sheet_GMCommandGMCommand
+message Sheet_GmcommandGmcommand
 {
-	repeated GMCommandGMCommand GMCommandGMCommand_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_GmcommandGmcommand E_GmcommandGmcommand_List = 1[(yd_fieldoptions.field_arysize)=40];
 }

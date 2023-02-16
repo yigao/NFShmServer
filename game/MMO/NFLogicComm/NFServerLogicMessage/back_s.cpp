@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-backback_s::backback_s() {
+E_BackBack_s::E_BackBack_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,76 +10,76 @@ backback_s::backback_s() {
 	}
 }
 
-int backback_s::CreateInit() {
-	id = (int32_t)0;
-	type = (int32_t)0;
-	typeParam = (int32_t)0;
-	group = (int32_t)0;
-	functionUnlock = (int32_t)0;
-	levelLimit = (int32_t)0;
-	PboxId = (int64_t)0;
-	boxId = (int64_t)0;
-	backDay = (int32_t)0;
-	costItemID = (int32_t)0;
-	costNum = (int32_t)0;
-	PcostItemID = (int32_t)0;
-	PcostNum = (int32_t)0;
-	AcostItemID = (int32_t)0;
-	AcostNum = (int32_t)0;
+int E_BackBack_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_type = (int32_t)0;
+	m_typeparam = (int32_t)0;
+	m_group = (int32_t)0;
+	m_functionunlock = (int32_t)0;
+	m_levellimit = (int32_t)0;
+	m_pboxid = (int64_t)0;
+	m_boxid = (int64_t)0;
+	m_backday = (int32_t)0;
+	m_costitemid = (int32_t)0;
+	m_costnum = (int32_t)0;
+	m_pcostitemid = (int32_t)0;
+	m_pcostnum = (int32_t)0;
+	m_acostitemid = (int32_t)0;
+	m_acostnum = (int32_t)0;
 	return 0;
 }
 
-int backback_s::ResumeInit() {
+int E_BackBack_s::ResumeInit() {
 	return 0;
 }
 
-void backback_s::write_to_pbmsg(::proto_ff::backback & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_type((int32_t)type);
-	msg.set_typeparam((int32_t)typeParam);
-	msg.set_name((const char*)name.Get());
-	msg.set_group((int32_t)group);
-	msg.set_functionunlock((int32_t)functionUnlock);
-	msg.set_levellimit((int32_t)levelLimit);
-	msg.set_pboxid((int64_t)PboxId);
-	msg.set_boxid((int64_t)boxId);
-	msg.set_backday((int32_t)backDay);
-	msg.set_costitemid((int32_t)costItemID);
-	msg.set_costnum((int32_t)costNum);
-	msg.set_pcostitemid((int32_t)PcostItemID);
-	msg.set_pcostnum((int32_t)PcostNum);
-	msg.set_acostitemid((int32_t)AcostItemID);
-	msg.set_acostnum((int32_t)AcostNum);
-	for(int32_t i = 0; i < (int32_t)param.GetSize() && i < param.GetMaxSize(); ++i) {
-		msg.add_param((int32_t)param[i]);
+void E_BackBack_s::write_to_pbmsg(::proto_ff::E_BackBack & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_typeparam((int32_t)m_typeparam);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_group((int32_t)m_group);
+	msg.set_m_functionunlock((int32_t)m_functionunlock);
+	msg.set_m_levellimit((int32_t)m_levellimit);
+	msg.set_m_pboxid((int64_t)m_pboxid);
+	msg.set_m_boxid((int64_t)m_boxid);
+	msg.set_m_backday((int32_t)m_backday);
+	msg.set_m_costitemid((int32_t)m_costitemid);
+	msg.set_m_costnum((int32_t)m_costnum);
+	msg.set_m_pcostitemid((int32_t)m_pcostitemid);
+	msg.set_m_pcostnum((int32_t)m_pcostnum);
+	msg.set_m_acostitemid((int32_t)m_acostitemid);
+	msg.set_m_acostnum((int32_t)m_acostnum);
+	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
+		msg.add_m_param((int32_t)m_param[i]);
 	}
 }
 
-void backback_s::read_from_pbmsg(const ::proto_ff::backback & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct backback_s));
-	id = msg.id();
-	type = msg.type();
-	typeParam = msg.typeparam();
-	name.Copy(msg.name());
-	group = msg.group();
-	functionUnlock = msg.functionunlock();
-	levelLimit = msg.levellimit();
-	PboxId = msg.pboxid();
-	boxId = msg.boxid();
-	backDay = msg.backday();
-	costItemID = msg.costitemid();
-	costNum = msg.costnum();
-	PcostItemID = msg.pcostitemid();
-	PcostNum = msg.pcostnum();
-	AcostItemID = msg.acostitemid();
-	AcostNum = msg.acostnum();
-	param.SetSize(msg.param_size() > param.GetMaxSize() ? param.GetMaxSize() : msg.param_size());
-	for(int32_t i = 0; i < (int32_t)param.GetSize(); ++i) {
-		param[i] = msg.param(i);
+void E_BackBack_s::read_from_pbmsg(const ::proto_ff::E_BackBack & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_BackBack_s));
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_typeparam = msg.m_typeparam();
+	m_name = msg.m_name();
+	m_group = msg.m_group();
+	m_functionunlock = msg.m_functionunlock();
+	m_levellimit = msg.m_levellimit();
+	m_pboxid = msg.m_pboxid();
+	m_boxid = msg.m_boxid();
+	m_backday = msg.m_backday();
+	m_costitemid = msg.m_costitemid();
+	m_costnum = msg.m_costnum();
+	m_pcostitemid = msg.m_pcostitemid();
+	m_pcostnum = msg.m_pcostnum();
+	m_acostitemid = msg.m_acostitemid();
+	m_acostnum = msg.m_acostnum();
+	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
+	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
+		m_param[i] = msg.m_param(i);
 	}
 }
 
-Sheet_backback_s::Sheet_backback_s() {
+Sheet_BackBack_s::Sheet_BackBack_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -87,27 +87,27 @@ Sheet_backback_s::Sheet_backback_s() {
 	}
 }
 
-int Sheet_backback_s::CreateInit() {
+int Sheet_BackBack_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_backback_s::ResumeInit() {
+int Sheet_BackBack_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_backback_s::write_to_pbmsg(::proto_ff::Sheet_backback & msg) const {
-	for(int32_t i = 0; i < (int32_t)backback_List.GetSize() && i < backback_List.GetMaxSize(); ++i) {
-		::proto_ff::backback* temp_backback_list = msg.add_backback_list();
-		backback_List[i].write_to_pbmsg(*temp_backback_list);
+void Sheet_BackBack_s::write_to_pbmsg(::proto_ff::Sheet_BackBack & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_BackBack_List.size(); ++i) {
+		::proto_ff::E_BackBack* temp_e_backback_list = msg.add_e_backback_list();
+		E_BackBack_List[i].write_to_pbmsg(*temp_e_backback_list);
 	}
 }
 
-void Sheet_backback_s::read_from_pbmsg(const ::proto_ff::Sheet_backback & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_backback_s));
-	backback_List.SetSize(msg.backback_list_size() > backback_List.GetMaxSize() ? backback_List.GetMaxSize() : msg.backback_list_size());
-	for(int32_t i = 0; i < (int32_t)backback_List.GetSize(); ++i) {
-		const ::proto_ff::backback & temp_backback_list = msg.backback_list(i);
-		backback_List[i].read_from_pbmsg(temp_backback_list);
+void Sheet_BackBack_s::read_from_pbmsg(const ::proto_ff::Sheet_BackBack & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_BackBack_s));
+	E_BackBack_List.resize((int)msg.e_backback_list_size() > (int)E_BackBack_List.max_size() ? E_BackBack_List.max_size() : msg.e_backback_list_size());
+	for(int32_t i = 0; i < (int32_t)E_BackBack_List.size(); ++i) {
+		const ::proto_ff::E_BackBack & temp_e_backback_list = msg.e_backback_list(i);
+		E_BackBack_List[i].read_from_pbmsg(temp_e_backback_list);
 	}
 }
 

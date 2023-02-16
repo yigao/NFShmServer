@@ -76,10 +76,10 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\tvirtual ~" + excel_name.capitalize() + sheet_name.capitalize() + "Desc();\n")
 	desc_file.write("\tint CreateInit();\n")
 	desc_file.write("\tint ResumeInit();\n")
-	desc_file.write("\tconst proto_ff_s::" + excel_name + sheet_name + "_s* GetDesc(int id) const;\n");
-	desc_file.write("\tproto_ff_s::" + excel_name + sheet_name + "_s* GetDesc(int id);\n");
+	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int id) const;\n");
+	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int id);\n");
 	desc_file.write("public:\n")
-	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::" + excel_name + sheet_name + "_s, " + excel_name + sheet_name + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
+	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, " + excel_name + sheet_name + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
 	desc_file.write("DECLARE_IDCREATE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc);\n")
 	desc_file.write("};\n")
 	desc_file.close()
@@ -92,7 +92,7 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 
 def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, out_path):
 	one_col_info = sheet_col_info[0]
-	key_en_name = one_col_info["col_en_name"].lower().strip()
+	key_en_name = "m_" + one_col_info["col_en_name"].lower().strip()
 
 	desc_file_name = excel_name.capitalize() + sheet_name.capitalize() + "Desc.cpp"
 	desc_file = open(desc_file_name, 'w')
@@ -130,9 +130,9 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"--begin--\");\n")
 	desc_file.write("\tCHECK_EXPR(pDB != NULL, -1, \"pDB == NULL\");\n")
 	desc_file.write("\n")
-	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"NFConstDesc::Load() strFileName = {}\", GetFileName());\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"" + excel_name.capitalize() + sheet_name.capitalize() + "Desc::Load() strFileName = {}\", GetFileName());\n")
 	desc_file.write("\n")
-	desc_file.write("\tproto_ff::Sheet_" + excel_name + sheet_name + " table;\n")
+	desc_file.write("\tproto_ff::Sheet_" + excel_name.capitalize() + sheet_name.capitalize() + " table;\n")
 	desc_file.write("\tNFResTable* pResTable = pDB->GetTable(GetFileName());\n")
 	desc_file.write("\tCHECK_EXPR(pResTable != NULL, -1, \"pTable == NULL, GetTable:{} Error\", GetFileName());\n")
 	desc_file.write("\n")
@@ -143,21 +143,21 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\n")
 	desc_file.write("\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", table.Utf8DebugString());\n")
 	desc_file.write("\n")
-	desc_file.write("\tif ((table." + excel_name.lower() + sheet_name.lower() + "_list_size() < 0) || (table." + excel_name.lower() + sheet_name.lower() + "_list_size() > (int)(m_astDesc.size())))\n")
+	desc_file.write("\tif ((table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size() < 0) || (table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size() > (int)(m_astDesc.size())))\n")
 	desc_file.write("\t{\n")
-	desc_file.write("\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"Invalid TotalNum:{}\", table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
+	desc_file.write("\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"Invalid TotalNum:{}\", table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
 	desc_file.write("\t\treturn -2;\n")
 	desc_file.write("\t}\n")
 	desc_file.write("\n")
-	desc_file.write("\tm_astDesc.resize(table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
+	desc_file.write("\tm_astDesc.resize(table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
 	desc_file.write("\tm_astDescIndex.resize(m_astDescIndex.max_size());\n")
 	desc_file.write("\tfor(int i = 0; i < (int)m_astDescIndex.size(); i++)\n")
 	desc_file.write("\t{\n")
 	desc_file.write("\t\tm_astDescIndex[i] = -1;\n")
 	desc_file.write("\t}\n")
-	desc_file.write("\tfor (int i = 0; i < (int)table." + excel_name.lower() + sheet_name.lower() + "_list_size(); i++)\n")
+	desc_file.write("\tfor (int i = 0; i < (int)table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size(); i++)\n")
 	desc_file.write("\t{\n")
-	desc_file.write("\t\tconst proto_ff::" + excel_name + sheet_name + "& desc = table." + excel_name.lower() + sheet_name.lower() + "_list(i);\n")
+	desc_file.write("\t\tconst proto_ff::E_" + excel_name.capitalize() + sheet_name.capitalize() + "& desc = table.e_" + excel_name.lower() + sheet_name.lower() + "_list(i);\n")
 	desc_file.write("\t\tif (desc.has_" + key_en_name + "() == false && desc.ByteSize() == 0)\n")
 	desc_file.write("\t\t{\n")
 	desc_file.write("\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc no value, {}\", desc.Utf8DebugString());\n")
@@ -188,7 +188,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\t\t}\n")
 	desc_file.write("\t}\n")
 	desc_file.write("\n")
-	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"load {}, num={}\", iRet, table." + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
+	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"load {}, num={}\", iRet, table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
 	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"--end--\");\n")
 	desc_file.write("\treturn 0;\n")
 	desc_file.write("}\n\n")
@@ -198,7 +198,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\treturn 0;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
-	desc_file.write("const proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id) const\n")
+	desc_file.write("const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id) const\n")
 	desc_file.write("{\n")
 	desc_file.write("\tif (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)\n")
 	desc_file.write("\t{\n")
@@ -221,9 +221,9 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\treturn NULL;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
-	desc_file.write("proto_ff_s::" + excel_name + sheet_name + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id)\n")
+	desc_file.write("proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id)\n")
 	desc_file.write("{\n")
-	desc_file.write("\treturn const_cast<proto_ff_s::" + excel_name + sheet_name + "_s *>((static_cast<const " + excel_name.capitalize() + sheet_name.capitalize() + "Desc*>(this))->GetDesc(id));\n")
+	desc_file.write("\treturn const_cast<proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s *>((static_cast<const " + excel_name.capitalize() + sheet_name.capitalize() + "Desc*>(this))->GetDesc(id));\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
 	desc_file.close()
@@ -238,10 +238,11 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 		if struct_info.has_key("sub_msg") == False:
 			continue;
 
-		proto_file.write("\nmessage "+excel_name+sheet_name+ struct_en_name + "Desc\n");
+		proto_file.write("\nmessage E_"+excel_name.capitalize()+sheet_name.capitalize()+ struct_en_name.capitalize() + "Desc\n");
 		proto_file.write("{\n");
 		index = 0
 		for sub_en_name, sub_info in struct_info["sub_msg"].items():
+			sub_en_name = "m_" + sub_en_name.lower()
 			cn_sub_name = sub_info["cn_sub_name"]
 			col_type = sub_info["col_type"]
 			col_max_size = sub_info["col_max_size"]
@@ -263,55 +264,57 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 			index = index + 1
 		proto_file.write("}\n");
 
-	proto_file.write("\nmessage "+excel_name+sheet_name+"\n");
+	proto_file.write("\nmessage E_"+excel_name.capitalize()+sheet_name.capitalize()+"\n");
 	proto_file.write("{\n");
 
 	index = 0
 	for index in xrange(0, len(sheet_col_info)):
+		col_en_name = "m_"+sheet_col_info[index]["col_en_name"].lower()
 		if sheet_col_info[index]["col_type"] == "int" or sheet_col_info[index]["col_type"] == "int32":
-			proto_file.write("\toptional int32 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+			proto_file.write("\toptional int32 " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "uint" or sheet_col_info[index]["col_type"] == "uint32":
-			proto_file.write("\toptional uint32 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+			proto_file.write("\toptional uint32 " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "int64":
-			proto_file.write("\toptional int64 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+			proto_file.write("\toptional int64 " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "uint64":
-			proto_file.write("\toptional uint64 " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+			proto_file.write("\toptional uint64 " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "float":
-			proto_file.write("\toptional float " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+			proto_file.write("\toptional float " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "double":
-			proto_file.write("\toptional double " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
+			proto_file.write("\toptional double " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\"];\n")
 		elif sheet_col_info[index]["col_type"] == "string":
-			proto_file.write("\toptional string " + sheet_col_info[index]["col_en_name"] + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(sheet_col_info[index]["col_max_size"])) + "];\n");
+			proto_file.write("\toptional string " + col_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +sheet_col_info[index]["col_cn_name"] + "\","+" (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(sheet_col_info[index]["col_max_size"])) + "];\n");
 
 	for struct_en_name, struct_info in sheet_struct_info.items():
 		index = index + 1
+		m_struct_en_name = "m_" + struct_en_name.lower()
 		if struct_info.has_key("sub_msg"):
-			proto_file.write("\trepeated " + excel_name + sheet_name + struct_en_name + "Desc " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +struct_info["cn_name"] + "\","+" (yd_fieldoptions.field_arysize) = " + str(struct_info["max_num"]) + "];\n");
+			proto_file.write("\trepeated E_" + excel_name.capitalize() + sheet_name.capitalize() + struct_en_name.capitalize() + "Desc " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +struct_info["cn_name"] + "\","+" (yd_fieldoptions.field_arysize) = " + str(struct_info["max_num"]) + "];\n");
 		else:
 			cn_name = struct_info["cn_name"]
 			col_type = struct_info["col_type"]
 			max_num = struct_info["max_num"]
 			col_max_size = struct_info["col_max_size"]
 			if col_type == "int" or col_type == "int32":
-				proto_file.write("\trepeated int32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
+				proto_file.write("\trepeated int32 " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "uint" or col_type == "uint32":
-				proto_file.write("\trepeated uint32 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
+				proto_file.write("\trepeated uint32 " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "int64":
-				proto_file.write("\trepeated int64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
+				proto_file.write("\trepeated int64 " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "uint64":
-				proto_file.write("\trepeated uint64 " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
+				proto_file.write("\trepeated uint64 " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "float":
-				proto_file.write("\trepeated float " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
+				proto_file.write("\trepeated float " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "double":
-				proto_file.write("\trepeated double " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
+				proto_file.write("\trepeated double " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + "];\n");
 			elif col_type == "string":
-				proto_file.write("\trepeated string " + struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + ", (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(col_max_size)) + "];\n");
+				proto_file.write("\trepeated string " + m_struct_en_name + " = " + str(index + 1) + "[(yd_fieldoptions.field_cname) = \"" +cn_name + "\","+" (yd_fieldoptions.field_arysize) = " + str(max_num) + ", (yd_fieldoptions.field_bufsize) = " + str(get_max_row_num(col_max_size)) + "];\n");
 
 	proto_file.write("}\n");
 
-	proto_file.write("\n\nmessage Sheet_" + excel_name+sheet_name + "\n")
+	proto_file.write("\n\nmessage Sheet_" + excel_name.capitalize()+sheet_name.capitalize() + "\n")
 	proto_file.write("{\n");
-	proto_file.write("\trepeated " + excel_name+sheet_name + " " + excel_name+sheet_name + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(get_max_row_num(sheet.nrows-4)) + "];\n");
+	proto_file.write("\trepeated E_" + excel_name.capitalize()+sheet_name.capitalize() + " E_" + excel_name.capitalize()+sheet_name.capitalize() + "_List = 1[(yd_fieldoptions.field_arysize)=" + str(get_max_row_num(sheet.nrows-4)) + "];\n");
 	proto_file.write("}\n");
 
 
@@ -637,17 +640,17 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			makefile_file.write("${PROTOCGEN_FILE_PATH}/" + excel_file_name + sheet.name + ".bin " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp ");
+			makefile_file.write("${PROTOCGEN_FILE_PATH}/E_" + excel_file_name.capitalize() + sheet.name.capitalize() + ".bin " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp ");
 
 	makefile_file.write("\n\n");
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			makefile_file.write("${PROTOCGEN_FILE_PATH}/" + excel_file_name+sheet.name + ".bin:${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
+			makefile_file.write("${PROTOCGEN_FILE_PATH}/E_" + excel_file_name.capitalize() +sheet.name.capitalize() + ".bin:${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n");
 			makefile_file.write("\tmkdir -p ${PROTOCGEN_FILE_PATH}\n")
 			makefile_file.write("\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + excel_file_name + ".proto.ds --proto_package=proto_ff \\\n");
-			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name+sheet.name + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=" + excel_file_name+sheet.name + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n");
-			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name+sheet.name + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n")
+			makefile_file.write("\t\t--proto_sheet_msgname=Sheet_" + excel_file_name.capitalize()+sheet.name.capitalize() + "  --excel_sheetname=" + sheet.name + "  --proto_msgname=E_" + excel_file_name.capitalize()+sheet.name.capitalize() + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n");
+			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/E_" + excel_file_name.capitalize() +sheet.name.capitalize() + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n")
 			makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n")
 
 	for sheet in excel_fd.sheets():

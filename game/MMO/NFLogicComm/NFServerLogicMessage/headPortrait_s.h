@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "headPortrait.pb.h"
@@ -10,75 +10,75 @@
 
 namespace proto_ff_s {
 
-	struct headPortraitheadattributeDesc_s : public NFDescStoreSeqOP {
-		headPortraitheadattributeDesc_s();
-		virtual ~headPortraitheadattributeDesc_s(){}
+	struct E_HeadportraitHeadAttributeDesc_s : public NFDescStoreSeqOP {
+		E_HeadportraitHeadAttributeDesc_s();
+		virtual ~E_HeadportraitHeadAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::headPortraitheadattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::headPortraitheadattributeDesc & msg);
-		static ::proto_ff::headPortraitheadattributeDesc* new_pbmsg(){ return new ::proto_ff::headPortraitheadattributeDesc(); }
-		static ::proto_ff::headPortraitheadattributeDesc make_pbmsg(){ return ::proto_ff::headPortraitheadattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_HeadportraitHeadAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_HeadportraitHeadAttributeDesc & msg);
+		static ::proto_ff::E_HeadportraitHeadAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_HeadportraitHeadAttributeDesc(); }
+		static ::proto_ff::E_HeadportraitHeadAttributeDesc make_pbmsg(){ return ::proto_ff::E_HeadportraitHeadAttributeDesc(); }
 	};
-	typedef struct headPortraitheadattributeDesc_s headPortraitheadattributeDesc_t;
+	typedef struct E_HeadportraitHeadAttributeDesc_s E_HeadportraitHeadAttributeDesc_t;
 
-	struct headPortraitheadActiveAttributeDesc_s : public NFDescStoreSeqOP {
-		headPortraitheadActiveAttributeDesc_s();
-		virtual ~headPortraitheadActiveAttributeDesc_s(){}
+	struct E_HeadportraitHeadActiveattributeDesc_s : public NFDescStoreSeqOP {
+		E_HeadportraitHeadActiveattributeDesc_s();
+		virtual ~E_HeadportraitHeadActiveattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::headPortraitheadActiveAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::headPortraitheadActiveAttributeDesc & msg);
-		static ::proto_ff::headPortraitheadActiveAttributeDesc* new_pbmsg(){ return new ::proto_ff::headPortraitheadActiveAttributeDesc(); }
-		static ::proto_ff::headPortraitheadActiveAttributeDesc make_pbmsg(){ return ::proto_ff::headPortraitheadActiveAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_HeadportraitHeadActiveattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_HeadportraitHeadActiveattributeDesc & msg);
+		static ::proto_ff::E_HeadportraitHeadActiveattributeDesc* new_pbmsg(){ return new ::proto_ff::E_HeadportraitHeadActiveattributeDesc(); }
+		static ::proto_ff::E_HeadportraitHeadActiveattributeDesc make_pbmsg(){ return ::proto_ff::E_HeadportraitHeadActiveattributeDesc(); }
 	};
-	typedef struct headPortraitheadActiveAttributeDesc_s headPortraitheadActiveAttributeDesc_t;
+	typedef struct E_HeadportraitHeadActiveattributeDesc_s E_HeadportraitHeadActiveattributeDesc_t;
 
-	struct headPortraithead_s : public NFDescStoreSeqOP {
-		headPortraithead_s();
-		virtual ~headPortraithead_s(){}
+	struct E_HeadportraitHead_s : public NFDescStoreSeqOP {
+		E_HeadportraitHead_s();
+		virtual ~E_HeadportraitHead_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
-		NFShmString<60> name;
-		int32_t type;
-		int32_t quality;
-		NFShmString<60> professionLimit;
-		int64_t activationItem;
-		int32_t activationNum;
-		int64_t starId;
-		NFShmString<300> starNum;
-		int32_t starUp;
-		int32_t starBer;
-		NFArray<struct headPortraitheadattributeDesc_s, 6> attribute;
-		NFArray<struct headPortraitheadActiveAttributeDesc_s, 6> ActiveAttribute;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_type;
+		int32_t m_quality;
+		NFShmString<60> m_professionlimit;
+		int64_t m_activationitem;
+		int32_t m_activationnum;
+		int64_t m_starid;
+		NFShmString<300> m_starnum;
+		int32_t m_starup;
+		int32_t m_starber;
+		NFShmVector<struct E_HeadportraitHeadAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_HeadportraitHeadActiveattributeDesc_s, 6> m_activeattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::headPortraithead & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::headPortraithead & msg);
-		static ::proto_ff::headPortraithead* new_pbmsg(){ return new ::proto_ff::headPortraithead(); }
-		static ::proto_ff::headPortraithead make_pbmsg(){ return ::proto_ff::headPortraithead(); }
+		virtual void write_to_pbmsg(::proto_ff::E_HeadportraitHead & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_HeadportraitHead & msg);
+		static ::proto_ff::E_HeadportraitHead* new_pbmsg(){ return new ::proto_ff::E_HeadportraitHead(); }
+		static ::proto_ff::E_HeadportraitHead make_pbmsg(){ return ::proto_ff::E_HeadportraitHead(); }
 	};
-	typedef struct headPortraithead_s headPortraithead_t;
+	typedef struct E_HeadportraitHead_s E_HeadportraitHead_t;
 
-	struct Sheet_headPortraithead_s : public NFDescStoreSeqOP {
-		Sheet_headPortraithead_s();
-		virtual ~Sheet_headPortraithead_s(){}
+	struct Sheet_HeadportraitHead_s : public NFDescStoreSeqOP {
+		Sheet_HeadportraitHead_s();
+		virtual ~Sheet_HeadportraitHead_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct headPortraithead_s, 100> headPortraithead_List;
+		NFShmVector<struct E_HeadportraitHead_s, 100> E_HeadportraitHead_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_headPortraithead & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_headPortraithead & msg);
-		static ::proto_ff::Sheet_headPortraithead* new_pbmsg(){ return new ::proto_ff::Sheet_headPortraithead(); }
-		static ::proto_ff::Sheet_headPortraithead make_pbmsg(){ return ::proto_ff::Sheet_headPortraithead(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_HeadportraitHead & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_HeadportraitHead & msg);
+		static ::proto_ff::Sheet_HeadportraitHead* new_pbmsg(){ return new ::proto_ff::Sheet_HeadportraitHead(); }
+		static ::proto_ff::Sheet_HeadportraitHead make_pbmsg(){ return ::proto_ff::Sheet_HeadportraitHead(); }
 	};
-	typedef struct Sheet_headPortraithead_s Sheet_headPortraithead_t;
+	typedef struct Sheet_HeadportraitHead_s Sheet_HeadportraitHead_t;
 
 }
 

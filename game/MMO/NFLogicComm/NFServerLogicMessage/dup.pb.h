@@ -34,25 +34,25 @@ void  protobuf_AddDesc_dup_2eproto();
 void protobuf_AssignDesc_dup_2eproto();
 void protobuf_ShutdownFile_dup_2eproto();
 
-class dupBPlevel;
-class Sheet_dupBPlevel;
-class dupdup;
-class Sheet_dupdup;
-class duptowerReward;
-class Sheet_duptowerReward;
-class dupgroup;
-class Sheet_dupgroup;
+class E_DupBplevel;
+class Sheet_DupBplevel;
+class E_DupDup;
+class Sheet_DupDup;
+class E_DupTowerreward;
+class Sheet_DupTowerreward;
+class E_DupGroup;
+class Sheet_DupGroup;
 
 // ===================================================================
 
-class dupBPlevel : public ::google::protobuf::Message {
+class E_DupBplevel : public ::google::protobuf::Message {
  public:
-  dupBPlevel();
-  virtual ~dupBPlevel();
+  E_DupBplevel();
+  virtual ~E_DupBplevel();
 
-  dupBPlevel(const dupBPlevel& from);
+  E_DupBplevel(const E_DupBplevel& from);
 
-  inline dupBPlevel& operator=(const dupBPlevel& from) {
+  inline E_DupBplevel& operator=(const E_DupBplevel& from) {
     CopyFrom(from);
     return *this;
   }
@@ -66,17 +66,17 @@ class dupBPlevel : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dupBPlevel& default_instance();
+  static const E_DupBplevel& default_instance();
 
-  void Swap(dupBPlevel* other);
+  void Swap(E_DupBplevel* other);
 
   // implements Message ----------------------------------------------
 
-  dupBPlevel* New() const;
+  E_DupBplevel* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dupBPlevel& from);
-  void MergeFrom(const dupBPlevel& from);
+  void CopyFrom(const E_DupBplevel& from);
+  void MergeFrom(const E_DupBplevel& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -99,34 +99,34 @@ class dupBPlevel : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // repeated int64 Bgdup = 2;
-  inline int bgdup_size() const;
-  inline void clear_bgdup();
-  static const int kBgdupFieldNumber = 2;
-  inline ::google::protobuf::int64 bgdup(int index) const;
-  inline void set_bgdup(int index, ::google::protobuf::int64 value);
-  inline void add_bgdup(::google::protobuf::int64 value);
+  // repeated int64 m_bgdup = 2;
+  inline int m_bgdup_size() const;
+  inline void clear_m_bgdup();
+  static const int kMBgdupFieldNumber = 2;
+  inline ::google::protobuf::int64 m_bgdup(int index) const;
+  inline void set_m_bgdup(int index, ::google::protobuf::int64 value);
+  inline void add_m_bgdup(::google::protobuf::int64 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      bgdup() const;
+      m_bgdup() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_bgdup();
+      mutable_m_bgdup();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dupBPlevel)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DupBplevel)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > bgdup_;
-  ::google::protobuf::int32 lv_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > m_bgdup_;
+  ::google::protobuf::int32 m_lv_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -136,18 +136,18 @@ class dupBPlevel : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static dupBPlevel* default_instance_;
+  static E_DupBplevel* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_dupBPlevel : public ::google::protobuf::Message {
+class Sheet_DupBplevel : public ::google::protobuf::Message {
  public:
-  Sheet_dupBPlevel();
-  virtual ~Sheet_dupBPlevel();
+  Sheet_DupBplevel();
+  virtual ~Sheet_DupBplevel();
 
-  Sheet_dupBPlevel(const Sheet_dupBPlevel& from);
+  Sheet_DupBplevel(const Sheet_DupBplevel& from);
 
-  inline Sheet_dupBPlevel& operator=(const Sheet_dupBPlevel& from) {
+  inline Sheet_DupBplevel& operator=(const Sheet_DupBplevel& from) {
     CopyFrom(from);
     return *this;
   }
@@ -161,17 +161,17 @@ class Sheet_dupBPlevel : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_dupBPlevel& default_instance();
+  static const Sheet_DupBplevel& default_instance();
 
-  void Swap(Sheet_dupBPlevel* other);
+  void Swap(Sheet_DupBplevel* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_dupBPlevel* New() const;
+  Sheet_DupBplevel* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_dupBPlevel& from);
-  void MergeFrom(const Sheet_dupBPlevel& from);
+  void CopyFrom(const Sheet_DupBplevel& from);
+  void MergeFrom(const Sheet_DupBplevel& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -194,24 +194,24 @@ class Sheet_dupBPlevel : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.dupBPlevel dupBPlevel_List = 1;
-  inline int dupbplevel_list_size() const;
-  inline void clear_dupbplevel_list();
-  static const int kDupBPlevelListFieldNumber = 1;
-  inline const ::proto_ff::dupBPlevel& dupbplevel_list(int index) const;
-  inline ::proto_ff::dupBPlevel* mutable_dupbplevel_list(int index);
-  inline ::proto_ff::dupBPlevel* add_dupbplevel_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dupBPlevel >&
-      dupbplevel_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dupBPlevel >*
-      mutable_dupbplevel_list();
+  // repeated .proto_ff.E_DupBplevel E_DupBplevel_List = 1;
+  inline int e_dupbplevel_list_size() const;
+  inline void clear_e_dupbplevel_list();
+  static const int kEDupBplevelListFieldNumber = 1;
+  inline const ::proto_ff::E_DupBplevel& e_dupbplevel_list(int index) const;
+  inline ::proto_ff::E_DupBplevel* mutable_e_dupbplevel_list(int index);
+  inline ::proto_ff::E_DupBplevel* add_e_dupbplevel_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupBplevel >&
+      e_dupbplevel_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupBplevel >*
+      mutable_e_dupbplevel_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_dupBPlevel)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DupBplevel)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dupBPlevel > dupbplevel_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupBplevel > e_dupbplevel_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -221,18 +221,18 @@ class Sheet_dupBPlevel : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_dupBPlevel* default_instance_;
+  static Sheet_DupBplevel* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class dupdup : public ::google::protobuf::Message {
+class E_DupDup : public ::google::protobuf::Message {
  public:
-  dupdup();
-  virtual ~dupdup();
+  E_DupDup();
+  virtual ~E_DupDup();
 
-  dupdup(const dupdup& from);
+  E_DupDup(const E_DupDup& from);
 
-  inline dupdup& operator=(const dupdup& from) {
+  inline E_DupDup& operator=(const E_DupDup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -246,17 +246,17 @@ class dupdup : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dupdup& default_instance();
+  static const E_DupDup& default_instance();
 
-  void Swap(dupdup* other);
+  void Swap(E_DupDup* other);
 
   // implements Message ----------------------------------------------
 
-  dupdup* New() const;
+  E_DupDup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dupdup& from);
-  void MergeFrom(const dupdup& from);
+  void CopyFrom(const E_DupDup& from);
+  void MergeFrom(const E_DupDup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -279,254 +279,254 @@ class dupdup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 scripID = 2;
-  inline bool has_scripid() const;
-  inline void clear_scripid();
-  static const int kScripIDFieldNumber = 2;
-  inline ::google::protobuf::int32 scripid() const;
-  inline void set_scripid(::google::protobuf::int32 value);
+  // optional int32 m_scripid = 2;
+  inline bool has_m_scripid() const;
+  inline void clear_m_scripid();
+  static const int kMScripidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_scripid() const;
+  inline void set_m_scripid(::google::protobuf::int32 value);
 
-  // optional int32 scripType = 3;
-  inline bool has_scriptype() const;
-  inline void clear_scriptype();
-  static const int kScripTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 scriptype() const;
-  inline void set_scriptype(::google::protobuf::int32 value);
+  // optional int32 m_scriptype = 3;
+  inline bool has_m_scriptype() const;
+  inline void clear_m_scriptype();
+  static const int kMScriptypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_scriptype() const;
+  inline void set_m_scriptype(::google::protobuf::int32 value);
 
-  // optional int32 dupLevel = 4;
-  inline bool has_duplevel() const;
-  inline void clear_duplevel();
-  static const int kDupLevelFieldNumber = 4;
-  inline ::google::protobuf::int32 duplevel() const;
-  inline void set_duplevel(::google::protobuf::int32 value);
+  // optional int32 m_duplevel = 4;
+  inline bool has_m_duplevel() const;
+  inline void clear_m_duplevel();
+  static const int kMDuplevelFieldNumber = 4;
+  inline ::google::protobuf::int32 m_duplevel() const;
+  inline void set_m_duplevel(::google::protobuf::int32 value);
 
-  // optional int32 groupID = 5;
-  inline bool has_groupid() const;
-  inline void clear_groupid();
-  static const int kGroupIDFieldNumber = 5;
-  inline ::google::protobuf::int32 groupid() const;
-  inline void set_groupid(::google::protobuf::int32 value);
+  // optional int32 m_groupid = 5;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupidFieldNumber = 5;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 layer = 6;
-  inline bool has_layer() const;
-  inline void clear_layer();
-  static const int kLayerFieldNumber = 6;
-  inline ::google::protobuf::int32 layer() const;
-  inline void set_layer(::google::protobuf::int32 value);
+  // optional int32 m_layer = 6;
+  inline bool has_m_layer() const;
+  inline void clear_m_layer();
+  static const int kMLayerFieldNumber = 6;
+  inline ::google::protobuf::int32 m_layer() const;
+  inline void set_m_layer(::google::protobuf::int32 value);
 
-  // optional int32 duplicateType = 7;
-  inline bool has_duplicatetype() const;
-  inline void clear_duplicatetype();
-  static const int kDuplicateTypeFieldNumber = 7;
-  inline ::google::protobuf::int32 duplicatetype() const;
-  inline void set_duplicatetype(::google::protobuf::int32 value);
+  // optional int32 m_duplicatetype = 7;
+  inline bool has_m_duplicatetype() const;
+  inline void clear_m_duplicatetype();
+  static const int kMDuplicatetypeFieldNumber = 7;
+  inline ::google::protobuf::int32 m_duplicatetype() const;
+  inline void set_m_duplicatetype(::google::protobuf::int32 value);
 
-  // optional int64 mapID = 8;
-  inline bool has_mapid() const;
-  inline void clear_mapid();
-  static const int kMapIDFieldNumber = 8;
-  inline ::google::protobuf::int64 mapid() const;
-  inline void set_mapid(::google::protobuf::int64 value);
+  // optional int64 m_mapid = 8;
+  inline bool has_m_mapid() const;
+  inline void clear_m_mapid();
+  static const int kMMapidFieldNumber = 8;
+  inline ::google::protobuf::int64 m_mapid() const;
+  inline void set_m_mapid(::google::protobuf::int64 value);
 
-  // optional int32 levelLimit = 9;
-  inline bool has_levellimit() const;
-  inline void clear_levellimit();
-  static const int kLevelLimitFieldNumber = 9;
-  inline ::google::protobuf::int32 levellimit() const;
-  inline void set_levellimit(::google::protobuf::int32 value);
+  // optional int32 m_levellimit = 9;
+  inline bool has_m_levellimit() const;
+  inline void clear_m_levellimit();
+  static const int kMLevellimitFieldNumber = 9;
+  inline ::google::protobuf::int32 m_levellimit() const;
+  inline void set_m_levellimit(::google::protobuf::int32 value);
 
-  // optional int32 pre = 10;
-  inline bool has_pre() const;
-  inline void clear_pre();
-  static const int kPreFieldNumber = 10;
-  inline ::google::protobuf::int32 pre() const;
-  inline void set_pre(::google::protobuf::int32 value);
+  // optional int32 m_pre = 10;
+  inline bool has_m_pre() const;
+  inline void clear_m_pre();
+  static const int kMPreFieldNumber = 10;
+  inline ::google::protobuf::int32 m_pre() const;
+  inline void set_m_pre(::google::protobuf::int32 value);
 
-  // optional int32 isAutoFight = 11;
-  inline bool has_isautofight() const;
-  inline void clear_isautofight();
-  static const int kIsAutoFightFieldNumber = 11;
-  inline ::google::protobuf::int32 isautofight() const;
-  inline void set_isautofight(::google::protobuf::int32 value);
+  // optional int32 m_isautofight = 11;
+  inline bool has_m_isautofight() const;
+  inline void clear_m_isautofight();
+  static const int kMIsautofightFieldNumber = 11;
+  inline ::google::protobuf::int32 m_isautofight() const;
+  inline void set_m_isautofight(::google::protobuf::int32 value);
 
-  // optional string condition = 12;
-  inline bool has_condition() const;
-  inline void clear_condition();
-  static const int kConditionFieldNumber = 12;
-  inline const ::std::string& condition() const;
-  inline void set_condition(const ::std::string& value);
-  inline void set_condition(const char* value);
-  inline void set_condition(const char* value, size_t size);
-  inline ::std::string* mutable_condition();
-  inline ::std::string* release_condition();
-  inline void set_allocated_condition(::std::string* condition);
+  // optional string m_condition = 12;
+  inline bool has_m_condition() const;
+  inline void clear_m_condition();
+  static const int kMConditionFieldNumber = 12;
+  inline const ::std::string& m_condition() const;
+  inline void set_m_condition(const ::std::string& value);
+  inline void set_m_condition(const char* value);
+  inline void set_m_condition(const char* value, size_t size);
+  inline ::std::string* mutable_m_condition();
+  inline ::std::string* release_m_condition();
+  inline void set_allocated_m_condition(::std::string* m_condition);
 
-  // optional int32 reviveMaxTimes = 13;
-  inline bool has_revivemaxtimes() const;
-  inline void clear_revivemaxtimes();
-  static const int kReviveMaxTimesFieldNumber = 13;
-  inline ::google::protobuf::int32 revivemaxtimes() const;
-  inline void set_revivemaxtimes(::google::protobuf::int32 value);
+  // optional int32 m_revivemaxtimes = 13;
+  inline bool has_m_revivemaxtimes() const;
+  inline void clear_m_revivemaxtimes();
+  static const int kMRevivemaxtimesFieldNumber = 13;
+  inline ::google::protobuf::int32 m_revivemaxtimes() const;
+  inline void set_m_revivemaxtimes(::google::protobuf::int32 value);
 
-  // optional int32 TeamObjectID = 14;
-  inline bool has_teamobjectid() const;
-  inline void clear_teamobjectid();
-  static const int kTeamObjectIDFieldNumber = 14;
-  inline ::google::protobuf::int32 teamobjectid() const;
-  inline void set_teamobjectid(::google::protobuf::int32 value);
+  // optional int32 m_teamobjectid = 14;
+  inline bool has_m_teamobjectid() const;
+  inline void clear_m_teamobjectid();
+  static const int kMTeamobjectidFieldNumber = 14;
+  inline ::google::protobuf::int32 m_teamobjectid() const;
+  inline void set_m_teamobjectid(::google::protobuf::int32 value);
 
-  // optional string gradeCondition = 15;
-  inline bool has_gradecondition() const;
-  inline void clear_gradecondition();
-  static const int kGradeConditionFieldNumber = 15;
-  inline const ::std::string& gradecondition() const;
-  inline void set_gradecondition(const ::std::string& value);
-  inline void set_gradecondition(const char* value);
-  inline void set_gradecondition(const char* value, size_t size);
-  inline ::std::string* mutable_gradecondition();
-  inline ::std::string* release_gradecondition();
-  inline void set_allocated_gradecondition(::std::string* gradecondition);
+  // optional string m_gradecondition = 15;
+  inline bool has_m_gradecondition() const;
+  inline void clear_m_gradecondition();
+  static const int kMGradeconditionFieldNumber = 15;
+  inline const ::std::string& m_gradecondition() const;
+  inline void set_m_gradecondition(const ::std::string& value);
+  inline void set_m_gradecondition(const char* value);
+  inline void set_m_gradecondition(const char* value, size_t size);
+  inline ::std::string* mutable_m_gradecondition();
+  inline ::std::string* release_m_gradecondition();
+  inline void set_allocated_m_gradecondition(::std::string* m_gradecondition);
 
-  // optional int64 sweepRewardBoxID = 16;
-  inline bool has_sweeprewardboxid() const;
-  inline void clear_sweeprewardboxid();
-  static const int kSweepRewardBoxIDFieldNumber = 16;
-  inline ::google::protobuf::int64 sweeprewardboxid() const;
-  inline void set_sweeprewardboxid(::google::protobuf::int64 value);
+  // optional int64 m_sweeprewardboxid = 16;
+  inline bool has_m_sweeprewardboxid() const;
+  inline void clear_m_sweeprewardboxid();
+  static const int kMSweeprewardboxidFieldNumber = 16;
+  inline ::google::protobuf::int64 m_sweeprewardboxid() const;
+  inline void set_m_sweeprewardboxid(::google::protobuf::int64 value);
 
-  // optional int32 sweepRewardExp = 17;
-  inline bool has_sweeprewardexp() const;
-  inline void clear_sweeprewardexp();
-  static const int kSweepRewardExpFieldNumber = 17;
-  inline ::google::protobuf::int32 sweeprewardexp() const;
-  inline void set_sweeprewardexp(::google::protobuf::int32 value);
+  // optional int32 m_sweeprewardexp = 17;
+  inline bool has_m_sweeprewardexp() const;
+  inline void clear_m_sweeprewardexp();
+  static const int kMSweeprewardexpFieldNumber = 17;
+  inline ::google::protobuf::int32 m_sweeprewardexp() const;
+  inline void set_m_sweeprewardexp(::google::protobuf::int32 value);
 
-  // optional string trackpoint = 18;
-  inline bool has_trackpoint() const;
-  inline void clear_trackpoint();
-  static const int kTrackpointFieldNumber = 18;
-  inline const ::std::string& trackpoint() const;
-  inline void set_trackpoint(const ::std::string& value);
-  inline void set_trackpoint(const char* value);
-  inline void set_trackpoint(const char* value, size_t size);
-  inline ::std::string* mutable_trackpoint();
-  inline ::std::string* release_trackpoint();
-  inline void set_allocated_trackpoint(::std::string* trackpoint);
+  // optional string m_trackpoint = 18;
+  inline bool has_m_trackpoint() const;
+  inline void clear_m_trackpoint();
+  static const int kMTrackpointFieldNumber = 18;
+  inline const ::std::string& m_trackpoint() const;
+  inline void set_m_trackpoint(const ::std::string& value);
+  inline void set_m_trackpoint(const char* value);
+  inline void set_m_trackpoint(const char* value, size_t size);
+  inline ::std::string* mutable_m_trackpoint();
+  inline ::std::string* release_m_trackpoint();
+  inline void set_allocated_m_trackpoint(::std::string* m_trackpoint);
 
-  // optional string pathOfmonster = 19;
-  inline bool has_pathofmonster() const;
-  inline void clear_pathofmonster();
-  static const int kPathOfmonsterFieldNumber = 19;
-  inline const ::std::string& pathofmonster() const;
-  inline void set_pathofmonster(const ::std::string& value);
-  inline void set_pathofmonster(const char* value);
-  inline void set_pathofmonster(const char* value, size_t size);
-  inline ::std::string* mutable_pathofmonster();
-  inline ::std::string* release_pathofmonster();
-  inline void set_allocated_pathofmonster(::std::string* pathofmonster);
+  // optional string m_pathofmonster = 19;
+  inline bool has_m_pathofmonster() const;
+  inline void clear_m_pathofmonster();
+  static const int kMPathofmonsterFieldNumber = 19;
+  inline const ::std::string& m_pathofmonster() const;
+  inline void set_m_pathofmonster(const ::std::string& value);
+  inline void set_m_pathofmonster(const char* value);
+  inline void set_m_pathofmonster(const char* value, size_t size);
+  inline ::std::string* mutable_m_pathofmonster();
+  inline ::std::string* release_m_pathofmonster();
+  inline void set_allocated_m_pathofmonster(::std::string* m_pathofmonster);
 
-  // optional int32 isPatrol = 20;
-  inline bool has_ispatrol() const;
-  inline void clear_ispatrol();
-  static const int kIsPatrolFieldNumber = 20;
-  inline ::google::protobuf::int32 ispatrol() const;
-  inline void set_ispatrol(::google::protobuf::int32 value);
+  // optional int32 m_ispatrol = 20;
+  inline bool has_m_ispatrol() const;
+  inline void clear_m_ispatrol();
+  static const int kMIspatrolFieldNumber = 20;
+  inline ::google::protobuf::int32 m_ispatrol() const;
+  inline void set_m_ispatrol(::google::protobuf::int32 value);
 
-  // optional int32 sweepType = 21;
-  inline bool has_sweeptype() const;
-  inline void clear_sweeptype();
-  static const int kSweepTypeFieldNumber = 21;
-  inline ::google::protobuf::int32 sweeptype() const;
-  inline void set_sweeptype(::google::protobuf::int32 value);
+  // optional int32 m_sweeptype = 21;
+  inline bool has_m_sweeptype() const;
+  inline void clear_m_sweeptype();
+  static const int kMSweeptypeFieldNumber = 21;
+  inline ::google::protobuf::int32 m_sweeptype() const;
+  inline void set_m_sweeptype(::google::protobuf::int32 value);
 
-  // repeated int32 box = 22;
-  inline int box_size() const;
-  inline void clear_box();
-  static const int kBoxFieldNumber = 22;
-  inline ::google::protobuf::int32 box(int index) const;
-  inline void set_box(int index, ::google::protobuf::int32 value);
-  inline void add_box(::google::protobuf::int32 value);
+  // repeated int32 m_box = 22;
+  inline int m_box_size() const;
+  inline void clear_m_box();
+  static const int kMBoxFieldNumber = 22;
+  inline ::google::protobuf::int32 m_box(int index) const;
+  inline void set_m_box(int index, ::google::protobuf::int32 value);
+  inline void add_m_box(::google::protobuf::int32 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      box() const;
+      m_box() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_box();
+      mutable_m_box();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dupdup)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DupDup)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_scripid();
-  inline void clear_has_scripid();
-  inline void set_has_scriptype();
-  inline void clear_has_scriptype();
-  inline void set_has_duplevel();
-  inline void clear_has_duplevel();
-  inline void set_has_groupid();
-  inline void clear_has_groupid();
-  inline void set_has_layer();
-  inline void clear_has_layer();
-  inline void set_has_duplicatetype();
-  inline void clear_has_duplicatetype();
-  inline void set_has_mapid();
-  inline void clear_has_mapid();
-  inline void set_has_levellimit();
-  inline void clear_has_levellimit();
-  inline void set_has_pre();
-  inline void clear_has_pre();
-  inline void set_has_isautofight();
-  inline void clear_has_isautofight();
-  inline void set_has_condition();
-  inline void clear_has_condition();
-  inline void set_has_revivemaxtimes();
-  inline void clear_has_revivemaxtimes();
-  inline void set_has_teamobjectid();
-  inline void clear_has_teamobjectid();
-  inline void set_has_gradecondition();
-  inline void clear_has_gradecondition();
-  inline void set_has_sweeprewardboxid();
-  inline void clear_has_sweeprewardboxid();
-  inline void set_has_sweeprewardexp();
-  inline void clear_has_sweeprewardexp();
-  inline void set_has_trackpoint();
-  inline void clear_has_trackpoint();
-  inline void set_has_pathofmonster();
-  inline void clear_has_pathofmonster();
-  inline void set_has_ispatrol();
-  inline void clear_has_ispatrol();
-  inline void set_has_sweeptype();
-  inline void clear_has_sweeptype();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_scripid();
+  inline void clear_has_m_scripid();
+  inline void set_has_m_scriptype();
+  inline void clear_has_m_scriptype();
+  inline void set_has_m_duplevel();
+  inline void clear_has_m_duplevel();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_layer();
+  inline void clear_has_m_layer();
+  inline void set_has_m_duplicatetype();
+  inline void clear_has_m_duplicatetype();
+  inline void set_has_m_mapid();
+  inline void clear_has_m_mapid();
+  inline void set_has_m_levellimit();
+  inline void clear_has_m_levellimit();
+  inline void set_has_m_pre();
+  inline void clear_has_m_pre();
+  inline void set_has_m_isautofight();
+  inline void clear_has_m_isautofight();
+  inline void set_has_m_condition();
+  inline void clear_has_m_condition();
+  inline void set_has_m_revivemaxtimes();
+  inline void clear_has_m_revivemaxtimes();
+  inline void set_has_m_teamobjectid();
+  inline void clear_has_m_teamobjectid();
+  inline void set_has_m_gradecondition();
+  inline void clear_has_m_gradecondition();
+  inline void set_has_m_sweeprewardboxid();
+  inline void clear_has_m_sweeprewardboxid();
+  inline void set_has_m_sweeprewardexp();
+  inline void clear_has_m_sweeprewardexp();
+  inline void set_has_m_trackpoint();
+  inline void clear_has_m_trackpoint();
+  inline void set_has_m_pathofmonster();
+  inline void clear_has_m_pathofmonster();
+  inline void set_has_m_ispatrol();
+  inline void clear_has_m_ispatrol();
+  inline void set_has_m_sweeptype();
+  inline void clear_has_m_sweeptype();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 scripid_;
-  ::google::protobuf::int32 scriptype_;
-  ::google::protobuf::int32 duplevel_;
-  ::google::protobuf::int32 groupid_;
-  ::google::protobuf::int32 layer_;
-  ::google::protobuf::int64 mapid_;
-  ::google::protobuf::int32 duplicatetype_;
-  ::google::protobuf::int32 levellimit_;
-  ::google::protobuf::int32 pre_;
-  ::google::protobuf::int32 isautofight_;
-  ::std::string* condition_;
-  ::google::protobuf::int32 revivemaxtimes_;
-  ::google::protobuf::int32 teamobjectid_;
-  ::std::string* gradecondition_;
-  ::google::protobuf::int64 sweeprewardboxid_;
-  ::std::string* trackpoint_;
-  ::google::protobuf::int32 sweeprewardexp_;
-  ::google::protobuf::int32 ispatrol_;
-  ::std::string* pathofmonster_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > box_;
-  ::google::protobuf::int32 sweeptype_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_scripid_;
+  ::google::protobuf::int32 m_scriptype_;
+  ::google::protobuf::int32 m_duplevel_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_layer_;
+  ::google::protobuf::int64 m_mapid_;
+  ::google::protobuf::int32 m_duplicatetype_;
+  ::google::protobuf::int32 m_levellimit_;
+  ::google::protobuf::int32 m_pre_;
+  ::google::protobuf::int32 m_isautofight_;
+  ::std::string* m_condition_;
+  ::google::protobuf::int32 m_revivemaxtimes_;
+  ::google::protobuf::int32 m_teamobjectid_;
+  ::std::string* m_gradecondition_;
+  ::google::protobuf::int64 m_sweeprewardboxid_;
+  ::std::string* m_trackpoint_;
+  ::google::protobuf::int32 m_sweeprewardexp_;
+  ::google::protobuf::int32 m_ispatrol_;
+  ::std::string* m_pathofmonster_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_box_;
+  ::google::protobuf::int32 m_sweeptype_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(22 + 31) / 32];
@@ -536,18 +536,18 @@ class dupdup : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static dupdup* default_instance_;
+  static E_DupDup* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_dupdup : public ::google::protobuf::Message {
+class Sheet_DupDup : public ::google::protobuf::Message {
  public:
-  Sheet_dupdup();
-  virtual ~Sheet_dupdup();
+  Sheet_DupDup();
+  virtual ~Sheet_DupDup();
 
-  Sheet_dupdup(const Sheet_dupdup& from);
+  Sheet_DupDup(const Sheet_DupDup& from);
 
-  inline Sheet_dupdup& operator=(const Sheet_dupdup& from) {
+  inline Sheet_DupDup& operator=(const Sheet_DupDup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -561,17 +561,17 @@ class Sheet_dupdup : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_dupdup& default_instance();
+  static const Sheet_DupDup& default_instance();
 
-  void Swap(Sheet_dupdup* other);
+  void Swap(Sheet_DupDup* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_dupdup* New() const;
+  Sheet_DupDup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_dupdup& from);
-  void MergeFrom(const Sheet_dupdup& from);
+  void CopyFrom(const Sheet_DupDup& from);
+  void MergeFrom(const Sheet_DupDup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -594,24 +594,24 @@ class Sheet_dupdup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.dupdup dupdup_List = 1;
-  inline int dupdup_list_size() const;
-  inline void clear_dupdup_list();
-  static const int kDupdupListFieldNumber = 1;
-  inline const ::proto_ff::dupdup& dupdup_list(int index) const;
-  inline ::proto_ff::dupdup* mutable_dupdup_list(int index);
-  inline ::proto_ff::dupdup* add_dupdup_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dupdup >&
-      dupdup_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dupdup >*
-      mutable_dupdup_list();
+  // repeated .proto_ff.E_DupDup E_DupDup_List = 1;
+  inline int e_dupdup_list_size() const;
+  inline void clear_e_dupdup_list();
+  static const int kEDupDupListFieldNumber = 1;
+  inline const ::proto_ff::E_DupDup& e_dupdup_list(int index) const;
+  inline ::proto_ff::E_DupDup* mutable_e_dupdup_list(int index);
+  inline ::proto_ff::E_DupDup* add_e_dupdup_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupDup >&
+      e_dupdup_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupDup >*
+      mutable_e_dupdup_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_dupdup)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DupDup)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dupdup > dupdup_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupDup > e_dupdup_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -621,18 +621,18 @@ class Sheet_dupdup : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_dupdup* default_instance_;
+  static Sheet_DupDup* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class duptowerReward : public ::google::protobuf::Message {
+class E_DupTowerreward : public ::google::protobuf::Message {
  public:
-  duptowerReward();
-  virtual ~duptowerReward();
+  E_DupTowerreward();
+  virtual ~E_DupTowerreward();
 
-  duptowerReward(const duptowerReward& from);
+  E_DupTowerreward(const E_DupTowerreward& from);
 
-  inline duptowerReward& operator=(const duptowerReward& from) {
+  inline E_DupTowerreward& operator=(const E_DupTowerreward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -646,17 +646,17 @@ class duptowerReward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const duptowerReward& default_instance();
+  static const E_DupTowerreward& default_instance();
 
-  void Swap(duptowerReward* other);
+  void Swap(E_DupTowerreward* other);
 
   // implements Message ----------------------------------------------
 
-  duptowerReward* New() const;
+  E_DupTowerreward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const duptowerReward& from);
-  void MergeFrom(const duptowerReward& from);
+  void CopyFrom(const E_DupTowerreward& from);
+  void MergeFrom(const E_DupTowerreward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -679,51 +679,51 @@ class duptowerReward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 cond = 3;
-  inline bool has_cond() const;
-  inline void clear_cond();
-  static const int kCondFieldNumber = 3;
-  inline ::google::protobuf::int32 cond() const;
-  inline void set_cond(::google::protobuf::int32 value);
+  // optional int32 m_cond = 3;
+  inline bool has_m_cond() const;
+  inline void clear_m_cond();
+  static const int kMCondFieldNumber = 3;
+  inline ::google::protobuf::int32 m_cond() const;
+  inline void set_m_cond(::google::protobuf::int32 value);
 
-  // optional int32 boxID = 4;
-  inline bool has_boxid() const;
-  inline void clear_boxid();
-  static const int kBoxIDFieldNumber = 4;
-  inline ::google::protobuf::int32 boxid() const;
-  inline void set_boxid(::google::protobuf::int32 value);
+  // optional int32 m_boxid = 4;
+  inline bool has_m_boxid() const;
+  inline void clear_m_boxid();
+  static const int kMBoxidFieldNumber = 4;
+  inline ::google::protobuf::int32 m_boxid() const;
+  inline void set_m_boxid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.duptowerReward)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DupTowerreward)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_cond();
-  inline void clear_has_cond();
-  inline void set_has_boxid();
-  inline void clear_has_boxid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_cond();
+  inline void clear_has_m_cond();
+  inline void set_has_m_boxid();
+  inline void clear_has_m_boxid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 cond_;
-  ::google::protobuf::int32 boxid_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_cond_;
+  ::google::protobuf::int32 m_boxid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -733,18 +733,18 @@ class duptowerReward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static duptowerReward* default_instance_;
+  static E_DupTowerreward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_duptowerReward : public ::google::protobuf::Message {
+class Sheet_DupTowerreward : public ::google::protobuf::Message {
  public:
-  Sheet_duptowerReward();
-  virtual ~Sheet_duptowerReward();
+  Sheet_DupTowerreward();
+  virtual ~Sheet_DupTowerreward();
 
-  Sheet_duptowerReward(const Sheet_duptowerReward& from);
+  Sheet_DupTowerreward(const Sheet_DupTowerreward& from);
 
-  inline Sheet_duptowerReward& operator=(const Sheet_duptowerReward& from) {
+  inline Sheet_DupTowerreward& operator=(const Sheet_DupTowerreward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -758,17 +758,17 @@ class Sheet_duptowerReward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_duptowerReward& default_instance();
+  static const Sheet_DupTowerreward& default_instance();
 
-  void Swap(Sheet_duptowerReward* other);
+  void Swap(Sheet_DupTowerreward* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_duptowerReward* New() const;
+  Sheet_DupTowerreward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_duptowerReward& from);
-  void MergeFrom(const Sheet_duptowerReward& from);
+  void CopyFrom(const Sheet_DupTowerreward& from);
+  void MergeFrom(const Sheet_DupTowerreward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -791,24 +791,24 @@ class Sheet_duptowerReward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.duptowerReward duptowerReward_List = 1;
-  inline int duptowerreward_list_size() const;
-  inline void clear_duptowerreward_list();
-  static const int kDuptowerRewardListFieldNumber = 1;
-  inline const ::proto_ff::duptowerReward& duptowerreward_list(int index) const;
-  inline ::proto_ff::duptowerReward* mutable_duptowerreward_list(int index);
-  inline ::proto_ff::duptowerReward* add_duptowerreward_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::duptowerReward >&
-      duptowerreward_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::duptowerReward >*
-      mutable_duptowerreward_list();
+  // repeated .proto_ff.E_DupTowerreward E_DupTowerreward_List = 1;
+  inline int e_duptowerreward_list_size() const;
+  inline void clear_e_duptowerreward_list();
+  static const int kEDupTowerrewardListFieldNumber = 1;
+  inline const ::proto_ff::E_DupTowerreward& e_duptowerreward_list(int index) const;
+  inline ::proto_ff::E_DupTowerreward* mutable_e_duptowerreward_list(int index);
+  inline ::proto_ff::E_DupTowerreward* add_e_duptowerreward_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupTowerreward >&
+      e_duptowerreward_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupTowerreward >*
+      mutable_e_duptowerreward_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_duptowerReward)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DupTowerreward)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::duptowerReward > duptowerreward_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupTowerreward > e_duptowerreward_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -818,18 +818,18 @@ class Sheet_duptowerReward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_duptowerReward* default_instance_;
+  static Sheet_DupTowerreward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class dupgroup : public ::google::protobuf::Message {
+class E_DupGroup : public ::google::protobuf::Message {
  public:
-  dupgroup();
-  virtual ~dupgroup();
+  E_DupGroup();
+  virtual ~E_DupGroup();
 
-  dupgroup(const dupgroup& from);
+  E_DupGroup(const E_DupGroup& from);
 
-  inline dupgroup& operator=(const dupgroup& from) {
+  inline E_DupGroup& operator=(const E_DupGroup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -843,17 +843,17 @@ class dupgroup : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dupgroup& default_instance();
+  static const E_DupGroup& default_instance();
 
-  void Swap(dupgroup* other);
+  void Swap(E_DupGroup* other);
 
   // implements Message ----------------------------------------------
 
-  dupgroup* New() const;
+  E_DupGroup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dupgroup& from);
-  void MergeFrom(const dupgroup& from);
+  void CopyFrom(const E_DupGroup& from);
+  void MergeFrom(const E_DupGroup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -876,191 +876,191 @@ class dupgroup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 privilegeType = 3;
-  inline bool has_privilegetype() const;
-  inline void clear_privilegetype();
-  static const int kPrivilegeTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 privilegetype() const;
-  inline void set_privilegetype(::google::protobuf::int32 value);
+  // optional int32 m_privilegetype = 3;
+  inline bool has_m_privilegetype() const;
+  inline void clear_m_privilegetype();
+  static const int kMPrivilegetypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_privilegetype() const;
+  inline void set_m_privilegetype(::google::protobuf::int32 value);
 
-  // optional int32 dynamiclevel = 4;
-  inline bool has_dynamiclevel() const;
-  inline void clear_dynamiclevel();
-  static const int kDynamiclevelFieldNumber = 4;
-  inline ::google::protobuf::int32 dynamiclevel() const;
-  inline void set_dynamiclevel(::google::protobuf::int32 value);
+  // optional int32 m_dynamiclevel = 4;
+  inline bool has_m_dynamiclevel() const;
+  inline void clear_m_dynamiclevel();
+  static const int kMDynamiclevelFieldNumber = 4;
+  inline ::google::protobuf::int32 m_dynamiclevel() const;
+  inline void set_m_dynamiclevel(::google::protobuf::int32 value);
 
-  // optional int32 groupTimesType = 5;
-  inline bool has_grouptimestype() const;
-  inline void clear_grouptimestype();
-  static const int kGroupTimesTypeFieldNumber = 5;
-  inline ::google::protobuf::int32 grouptimestype() const;
-  inline void set_grouptimestype(::google::protobuf::int32 value);
+  // optional int32 m_grouptimestype = 5;
+  inline bool has_m_grouptimestype() const;
+  inline void clear_m_grouptimestype();
+  static const int kMGrouptimestypeFieldNumber = 5;
+  inline ::google::protobuf::int32 m_grouptimestype() const;
+  inline void set_m_grouptimestype(::google::protobuf::int32 value);
 
-  // optional int32 groupTimes = 6;
-  inline bool has_grouptimes() const;
-  inline void clear_grouptimes();
-  static const int kGroupTimesFieldNumber = 6;
-  inline ::google::protobuf::int32 grouptimes() const;
-  inline void set_grouptimes(::google::protobuf::int32 value);
+  // optional int32 m_grouptimes = 6;
+  inline bool has_m_grouptimes() const;
+  inline void clear_m_grouptimes();
+  static const int kMGrouptimesFieldNumber = 6;
+  inline ::google::protobuf::int32 m_grouptimes() const;
+  inline void set_m_grouptimes(::google::protobuf::int32 value);
 
-  // optional int32 enterItemID = 7;
-  inline bool has_enteritemid() const;
-  inline void clear_enteritemid();
-  static const int kEnterItemIDFieldNumber = 7;
-  inline ::google::protobuf::int32 enteritemid() const;
-  inline void set_enteritemid(::google::protobuf::int32 value);
+  // optional int32 m_enteritemid = 7;
+  inline bool has_m_enteritemid() const;
+  inline void clear_m_enteritemid();
+  static const int kMEnteritemidFieldNumber = 7;
+  inline ::google::protobuf::int32 m_enteritemid() const;
+  inline void set_m_enteritemid(::google::protobuf::int32 value);
 
-  // optional int32 sweepCondition = 8;
-  inline bool has_sweepcondition() const;
-  inline void clear_sweepcondition();
-  static const int kSweepConditionFieldNumber = 8;
-  inline ::google::protobuf::int32 sweepcondition() const;
-  inline void set_sweepcondition(::google::protobuf::int32 value);
+  // optional int32 m_sweepcondition = 8;
+  inline bool has_m_sweepcondition() const;
+  inline void clear_m_sweepcondition();
+  static const int kMSweepconditionFieldNumber = 8;
+  inline ::google::protobuf::int32 m_sweepcondition() const;
+  inline void set_m_sweepcondition(::google::protobuf::int32 value);
 
-  // optional int32 mergeCondition = 9;
-  inline bool has_mergecondition() const;
-  inline void clear_mergecondition();
-  static const int kMergeConditionFieldNumber = 9;
-  inline ::google::protobuf::int32 mergecondition() const;
-  inline void set_mergecondition(::google::protobuf::int32 value);
+  // optional int32 m_mergecondition = 9;
+  inline bool has_m_mergecondition() const;
+  inline void clear_m_mergecondition();
+  static const int kMMergeconditionFieldNumber = 9;
+  inline ::google::protobuf::int32 m_mergecondition() const;
+  inline void set_m_mergecondition(::google::protobuf::int32 value);
 
-  // optional int32 addItemID = 10;
-  inline bool has_additemid() const;
-  inline void clear_additemid();
-  static const int kAddItemIDFieldNumber = 10;
-  inline ::google::protobuf::int32 additemid() const;
-  inline void set_additemid(::google::protobuf::int32 value);
+  // optional int32 m_additemid = 10;
+  inline bool has_m_additemid() const;
+  inline void clear_m_additemid();
+  static const int kMAdditemidFieldNumber = 10;
+  inline ::google::protobuf::int32 m_additemid() const;
+  inline void set_m_additemid(::google::protobuf::int32 value);
 
-  // optional int32 buyType = 11;
-  inline bool has_buytype() const;
-  inline void clear_buytype();
-  static const int kBuyTypeFieldNumber = 11;
-  inline ::google::protobuf::int32 buytype() const;
-  inline void set_buytype(::google::protobuf::int32 value);
+  // optional int32 m_buytype = 11;
+  inline bool has_m_buytype() const;
+  inline void clear_m_buytype();
+  static const int kMBuytypeFieldNumber = 11;
+  inline ::google::protobuf::int32 m_buytype() const;
+  inline void set_m_buytype(::google::protobuf::int32 value);
 
-  // optional int32 buyItemId = 12;
-  inline bool has_buyitemid() const;
-  inline void clear_buyitemid();
-  static const int kBuyItemIdFieldNumber = 12;
-  inline ::google::protobuf::int32 buyitemid() const;
-  inline void set_buyitemid(::google::protobuf::int32 value);
+  // optional int32 m_buyitemid = 12;
+  inline bool has_m_buyitemid() const;
+  inline void clear_m_buyitemid();
+  static const int kMBuyitemidFieldNumber = 12;
+  inline ::google::protobuf::int32 m_buyitemid() const;
+  inline void set_m_buyitemid(::google::protobuf::int32 value);
 
-  // optional string buyCost = 13;
-  inline bool has_buycost() const;
-  inline void clear_buycost();
-  static const int kBuyCostFieldNumber = 13;
-  inline const ::std::string& buycost() const;
-  inline void set_buycost(const ::std::string& value);
-  inline void set_buycost(const char* value);
-  inline void set_buycost(const char* value, size_t size);
-  inline ::std::string* mutable_buycost();
-  inline ::std::string* release_buycost();
-  inline void set_allocated_buycost(::std::string* buycost);
+  // optional string m_buycost = 13;
+  inline bool has_m_buycost() const;
+  inline void clear_m_buycost();
+  static const int kMBuycostFieldNumber = 13;
+  inline const ::std::string& m_buycost() const;
+  inline void set_m_buycost(const ::std::string& value);
+  inline void set_m_buycost(const char* value);
+  inline void set_m_buycost(const char* value, size_t size);
+  inline ::std::string* mutable_m_buycost();
+  inline ::std::string* release_m_buycost();
+  inline void set_allocated_m_buycost(::std::string* m_buycost);
 
-  // optional int32 countDown = 14;
-  inline bool has_countdown() const;
-  inline void clear_countdown();
-  static const int kCountDownFieldNumber = 14;
-  inline ::google::protobuf::int32 countdown() const;
-  inline void set_countdown(::google::protobuf::int32 value);
+  // optional int32 m_countdown = 14;
+  inline bool has_m_countdown() const;
+  inline void clear_m_countdown();
+  static const int kMCountdownFieldNumber = 14;
+  inline ::google::protobuf::int32 m_countdown() const;
+  inline void set_m_countdown(::google::protobuf::int32 value);
 
-  // optional int32 endDown = 15;
-  inline bool has_enddown() const;
-  inline void clear_enddown();
-  static const int kEndDownFieldNumber = 15;
-  inline ::google::protobuf::int32 enddown() const;
-  inline void set_enddown(::google::protobuf::int32 value);
+  // optional int32 m_enddown = 15;
+  inline bool has_m_enddown() const;
+  inline void clear_m_enddown();
+  static const int kMEnddownFieldNumber = 15;
+  inline ::google::protobuf::int32 m_enddown() const;
+  inline void set_m_enddown(::google::protobuf::int32 value);
 
-  // optional int32 accountDown = 16;
-  inline bool has_accountdown() const;
-  inline void clear_accountdown();
-  static const int kAccountDownFieldNumber = 16;
-  inline ::google::protobuf::int32 accountdown() const;
-  inline void set_accountdown(::google::protobuf::int32 value);
+  // optional int32 m_accountdown = 16;
+  inline bool has_m_accountdown() const;
+  inline void clear_m_accountdown();
+  static const int kMAccountdownFieldNumber = 16;
+  inline ::google::protobuf::int32 m_accountdown() const;
+  inline void set_m_accountdown(::google::protobuf::int32 value);
 
-  // optional int32 funcionID = 17;
-  inline bool has_funcionid() const;
-  inline void clear_funcionid();
-  static const int kFuncionIDFieldNumber = 17;
-  inline ::google::protobuf::int32 funcionid() const;
-  inline void set_funcionid(::google::protobuf::int32 value);
+  // optional int32 m_funcionid = 17;
+  inline bool has_m_funcionid() const;
+  inline void clear_m_funcionid();
+  static const int kMFuncionidFieldNumber = 17;
+  inline ::google::protobuf::int32 m_funcionid() const;
+  inline void set_m_funcionid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dupgroup)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DupGroup)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_privilegetype();
-  inline void clear_has_privilegetype();
-  inline void set_has_dynamiclevel();
-  inline void clear_has_dynamiclevel();
-  inline void set_has_grouptimestype();
-  inline void clear_has_grouptimestype();
-  inline void set_has_grouptimes();
-  inline void clear_has_grouptimes();
-  inline void set_has_enteritemid();
-  inline void clear_has_enteritemid();
-  inline void set_has_sweepcondition();
-  inline void clear_has_sweepcondition();
-  inline void set_has_mergecondition();
-  inline void clear_has_mergecondition();
-  inline void set_has_additemid();
-  inline void clear_has_additemid();
-  inline void set_has_buytype();
-  inline void clear_has_buytype();
-  inline void set_has_buyitemid();
-  inline void clear_has_buyitemid();
-  inline void set_has_buycost();
-  inline void clear_has_buycost();
-  inline void set_has_countdown();
-  inline void clear_has_countdown();
-  inline void set_has_enddown();
-  inline void clear_has_enddown();
-  inline void set_has_accountdown();
-  inline void clear_has_accountdown();
-  inline void set_has_funcionid();
-  inline void clear_has_funcionid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_privilegetype();
+  inline void clear_has_m_privilegetype();
+  inline void set_has_m_dynamiclevel();
+  inline void clear_has_m_dynamiclevel();
+  inline void set_has_m_grouptimestype();
+  inline void clear_has_m_grouptimestype();
+  inline void set_has_m_grouptimes();
+  inline void clear_has_m_grouptimes();
+  inline void set_has_m_enteritemid();
+  inline void clear_has_m_enteritemid();
+  inline void set_has_m_sweepcondition();
+  inline void clear_has_m_sweepcondition();
+  inline void set_has_m_mergecondition();
+  inline void clear_has_m_mergecondition();
+  inline void set_has_m_additemid();
+  inline void clear_has_m_additemid();
+  inline void set_has_m_buytype();
+  inline void clear_has_m_buytype();
+  inline void set_has_m_buyitemid();
+  inline void clear_has_m_buyitemid();
+  inline void set_has_m_buycost();
+  inline void clear_has_m_buycost();
+  inline void set_has_m_countdown();
+  inline void clear_has_m_countdown();
+  inline void set_has_m_enddown();
+  inline void clear_has_m_enddown();
+  inline void set_has_m_accountdown();
+  inline void clear_has_m_accountdown();
+  inline void set_has_m_funcionid();
+  inline void clear_has_m_funcionid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* name_;
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 privilegetype_;
-  ::google::protobuf::int32 dynamiclevel_;
-  ::google::protobuf::int32 grouptimestype_;
-  ::google::protobuf::int32 grouptimes_;
-  ::google::protobuf::int32 enteritemid_;
-  ::google::protobuf::int32 sweepcondition_;
-  ::google::protobuf::int32 mergecondition_;
-  ::google::protobuf::int32 additemid_;
-  ::google::protobuf::int32 buytype_;
-  ::std::string* buycost_;
-  ::google::protobuf::int32 buyitemid_;
-  ::google::protobuf::int32 countdown_;
-  ::google::protobuf::int32 enddown_;
-  ::google::protobuf::int32 accountdown_;
-  ::google::protobuf::int32 funcionid_;
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_privilegetype_;
+  ::google::protobuf::int32 m_dynamiclevel_;
+  ::google::protobuf::int32 m_grouptimestype_;
+  ::google::protobuf::int32 m_grouptimes_;
+  ::google::protobuf::int32 m_enteritemid_;
+  ::google::protobuf::int32 m_sweepcondition_;
+  ::google::protobuf::int32 m_mergecondition_;
+  ::google::protobuf::int32 m_additemid_;
+  ::google::protobuf::int32 m_buytype_;
+  ::std::string* m_buycost_;
+  ::google::protobuf::int32 m_buyitemid_;
+  ::google::protobuf::int32 m_countdown_;
+  ::google::protobuf::int32 m_enddown_;
+  ::google::protobuf::int32 m_accountdown_;
+  ::google::protobuf::int32 m_funcionid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
@@ -1070,18 +1070,18 @@ class dupgroup : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static dupgroup* default_instance_;
+  static E_DupGroup* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_dupgroup : public ::google::protobuf::Message {
+class Sheet_DupGroup : public ::google::protobuf::Message {
  public:
-  Sheet_dupgroup();
-  virtual ~Sheet_dupgroup();
+  Sheet_DupGroup();
+  virtual ~Sheet_DupGroup();
 
-  Sheet_dupgroup(const Sheet_dupgroup& from);
+  Sheet_DupGroup(const Sheet_DupGroup& from);
 
-  inline Sheet_dupgroup& operator=(const Sheet_dupgroup& from) {
+  inline Sheet_DupGroup& operator=(const Sheet_DupGroup& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1095,17 +1095,17 @@ class Sheet_dupgroup : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_dupgroup& default_instance();
+  static const Sheet_DupGroup& default_instance();
 
-  void Swap(Sheet_dupgroup* other);
+  void Swap(Sheet_DupGroup* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_dupgroup* New() const;
+  Sheet_DupGroup* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_dupgroup& from);
-  void MergeFrom(const Sheet_dupgroup& from);
+  void CopyFrom(const Sheet_DupGroup& from);
+  void MergeFrom(const Sheet_DupGroup& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1128,24 +1128,24 @@ class Sheet_dupgroup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.dupgroup dupgroup_List = 1;
-  inline int dupgroup_list_size() const;
-  inline void clear_dupgroup_list();
-  static const int kDupgroupListFieldNumber = 1;
-  inline const ::proto_ff::dupgroup& dupgroup_list(int index) const;
-  inline ::proto_ff::dupgroup* mutable_dupgroup_list(int index);
-  inline ::proto_ff::dupgroup* add_dupgroup_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dupgroup >&
-      dupgroup_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dupgroup >*
-      mutable_dupgroup_list();
+  // repeated .proto_ff.E_DupGroup E_DupGroup_List = 1;
+  inline int e_dupgroup_list_size() const;
+  inline void clear_e_dupgroup_list();
+  static const int kEDupGroupListFieldNumber = 1;
+  inline const ::proto_ff::E_DupGroup& e_dupgroup_list(int index) const;
+  inline ::proto_ff::E_DupGroup* mutable_e_dupgroup_list(int index);
+  inline ::proto_ff::E_DupGroup* add_e_dupgroup_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupGroup >&
+      e_dupgroup_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupGroup >*
+      mutable_e_dupgroup_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_dupgroup)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DupGroup)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dupgroup > dupgroup_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupGroup > e_dupgroup_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1155,1425 +1155,1425 @@ class Sheet_dupgroup : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_dup_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_dupgroup* default_instance_;
+  static Sheet_DupGroup* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// dupBPlevel
+// E_DupBplevel
 
-// optional int32 lv = 1;
-inline bool dupBPlevel::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_DupBplevel::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dupBPlevel::set_has_lv() {
+inline void E_DupBplevel::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dupBPlevel::clear_has_lv() {
+inline void E_DupBplevel::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dupBPlevel::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_DupBplevel::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 dupBPlevel::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_DupBplevel::m_lv() const {
+  return m_lv_;
 }
-inline void dupBPlevel::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_DupBplevel::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// repeated int64 Bgdup = 2;
-inline int dupBPlevel::bgdup_size() const {
-  return bgdup_.size();
+// repeated int64 m_bgdup = 2;
+inline int E_DupBplevel::m_bgdup_size() const {
+  return m_bgdup_.size();
 }
-inline void dupBPlevel::clear_bgdup() {
-  bgdup_.Clear();
+inline void E_DupBplevel::clear_m_bgdup() {
+  m_bgdup_.Clear();
 }
-inline ::google::protobuf::int64 dupBPlevel::bgdup(int index) const {
-  return bgdup_.Get(index);
+inline ::google::protobuf::int64 E_DupBplevel::m_bgdup(int index) const {
+  return m_bgdup_.Get(index);
 }
-inline void dupBPlevel::set_bgdup(int index, ::google::protobuf::int64 value) {
-  bgdup_.Set(index, value);
+inline void E_DupBplevel::set_m_bgdup(int index, ::google::protobuf::int64 value) {
+  m_bgdup_.Set(index, value);
 }
-inline void dupBPlevel::add_bgdup(::google::protobuf::int64 value) {
-  bgdup_.Add(value);
+inline void E_DupBplevel::add_m_bgdup(::google::protobuf::int64 value) {
+  m_bgdup_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-dupBPlevel::bgdup() const {
-  return bgdup_;
+E_DupBplevel::m_bgdup() const {
+  return m_bgdup_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-dupBPlevel::mutable_bgdup() {
-  return &bgdup_;
+E_DupBplevel::mutable_m_bgdup() {
+  return &m_bgdup_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_dupBPlevel
+// Sheet_DupBplevel
 
-// repeated .proto_ff.dupBPlevel dupBPlevel_List = 1;
-inline int Sheet_dupBPlevel::dupbplevel_list_size() const {
-  return dupbplevel_list_.size();
+// repeated .proto_ff.E_DupBplevel E_DupBplevel_List = 1;
+inline int Sheet_DupBplevel::e_dupbplevel_list_size() const {
+  return e_dupbplevel_list_.size();
 }
-inline void Sheet_dupBPlevel::clear_dupbplevel_list() {
-  dupbplevel_list_.Clear();
+inline void Sheet_DupBplevel::clear_e_dupbplevel_list() {
+  e_dupbplevel_list_.Clear();
 }
-inline const ::proto_ff::dupBPlevel& Sheet_dupBPlevel::dupbplevel_list(int index) const {
-  return dupbplevel_list_.Get(index);
+inline const ::proto_ff::E_DupBplevel& Sheet_DupBplevel::e_dupbplevel_list(int index) const {
+  return e_dupbplevel_list_.Get(index);
 }
-inline ::proto_ff::dupBPlevel* Sheet_dupBPlevel::mutable_dupbplevel_list(int index) {
-  return dupbplevel_list_.Mutable(index);
+inline ::proto_ff::E_DupBplevel* Sheet_DupBplevel::mutable_e_dupbplevel_list(int index) {
+  return e_dupbplevel_list_.Mutable(index);
 }
-inline ::proto_ff::dupBPlevel* Sheet_dupBPlevel::add_dupbplevel_list() {
-  return dupbplevel_list_.Add();
+inline ::proto_ff::E_DupBplevel* Sheet_DupBplevel::add_e_dupbplevel_list() {
+  return e_dupbplevel_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dupBPlevel >&
-Sheet_dupBPlevel::dupbplevel_list() const {
-  return dupbplevel_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupBplevel >&
+Sheet_DupBplevel::e_dupbplevel_list() const {
+  return e_dupbplevel_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dupBPlevel >*
-Sheet_dupBPlevel::mutable_dupbplevel_list() {
-  return &dupbplevel_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupBplevel >*
+Sheet_DupBplevel::mutable_e_dupbplevel_list() {
+  return &e_dupbplevel_list_;
 }
 
 // -------------------------------------------------------------------
 
-// dupdup
+// E_DupDup
 
-// optional int32 ID = 1;
-inline bool dupdup::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_DupDup::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dupdup::set_has_id() {
+inline void E_DupDup::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dupdup::clear_has_id() {
+inline void E_DupDup::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dupdup::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_DupDup::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 dupdup::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_DupDup::m_id() const {
+  return m_id_;
 }
-inline void dupdup::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DupDup::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 scripID = 2;
-inline bool dupdup::has_scripid() const {
+// optional int32 m_scripid = 2;
+inline bool E_DupDup::has_m_scripid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void dupdup::set_has_scripid() {
+inline void E_DupDup::set_has_m_scripid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void dupdup::clear_has_scripid() {
+inline void E_DupDup::clear_has_m_scripid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void dupdup::clear_scripid() {
-  scripid_ = 0;
-  clear_has_scripid();
+inline void E_DupDup::clear_m_scripid() {
+  m_scripid_ = 0;
+  clear_has_m_scripid();
 }
-inline ::google::protobuf::int32 dupdup::scripid() const {
-  return scripid_;
+inline ::google::protobuf::int32 E_DupDup::m_scripid() const {
+  return m_scripid_;
 }
-inline void dupdup::set_scripid(::google::protobuf::int32 value) {
-  set_has_scripid();
-  scripid_ = value;
+inline void E_DupDup::set_m_scripid(::google::protobuf::int32 value) {
+  set_has_m_scripid();
+  m_scripid_ = value;
 }
 
-// optional int32 scripType = 3;
-inline bool dupdup::has_scriptype() const {
+// optional int32 m_scriptype = 3;
+inline bool E_DupDup::has_m_scriptype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void dupdup::set_has_scriptype() {
+inline void E_DupDup::set_has_m_scriptype() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void dupdup::clear_has_scriptype() {
+inline void E_DupDup::clear_has_m_scriptype() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void dupdup::clear_scriptype() {
-  scriptype_ = 0;
-  clear_has_scriptype();
+inline void E_DupDup::clear_m_scriptype() {
+  m_scriptype_ = 0;
+  clear_has_m_scriptype();
 }
-inline ::google::protobuf::int32 dupdup::scriptype() const {
-  return scriptype_;
+inline ::google::protobuf::int32 E_DupDup::m_scriptype() const {
+  return m_scriptype_;
 }
-inline void dupdup::set_scriptype(::google::protobuf::int32 value) {
-  set_has_scriptype();
-  scriptype_ = value;
+inline void E_DupDup::set_m_scriptype(::google::protobuf::int32 value) {
+  set_has_m_scriptype();
+  m_scriptype_ = value;
 }
 
-// optional int32 dupLevel = 4;
-inline bool dupdup::has_duplevel() const {
+// optional int32 m_duplevel = 4;
+inline bool E_DupDup::has_m_duplevel() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void dupdup::set_has_duplevel() {
+inline void E_DupDup::set_has_m_duplevel() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void dupdup::clear_has_duplevel() {
+inline void E_DupDup::clear_has_m_duplevel() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void dupdup::clear_duplevel() {
-  duplevel_ = 0;
-  clear_has_duplevel();
+inline void E_DupDup::clear_m_duplevel() {
+  m_duplevel_ = 0;
+  clear_has_m_duplevel();
 }
-inline ::google::protobuf::int32 dupdup::duplevel() const {
-  return duplevel_;
+inline ::google::protobuf::int32 E_DupDup::m_duplevel() const {
+  return m_duplevel_;
 }
-inline void dupdup::set_duplevel(::google::protobuf::int32 value) {
-  set_has_duplevel();
-  duplevel_ = value;
+inline void E_DupDup::set_m_duplevel(::google::protobuf::int32 value) {
+  set_has_m_duplevel();
+  m_duplevel_ = value;
 }
 
-// optional int32 groupID = 5;
-inline bool dupdup::has_groupid() const {
+// optional int32 m_groupid = 5;
+inline bool E_DupDup::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void dupdup::set_has_groupid() {
+inline void E_DupDup::set_has_m_groupid() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void dupdup::clear_has_groupid() {
+inline void E_DupDup::clear_has_m_groupid() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void dupdup::clear_groupid() {
-  groupid_ = 0;
-  clear_has_groupid();
+inline void E_DupDup::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
 }
-inline ::google::protobuf::int32 dupdup::groupid() const {
-  return groupid_;
+inline ::google::protobuf::int32 E_DupDup::m_groupid() const {
+  return m_groupid_;
 }
-inline void dupdup::set_groupid(::google::protobuf::int32 value) {
-  set_has_groupid();
-  groupid_ = value;
+inline void E_DupDup::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
 }
 
-// optional int32 layer = 6;
-inline bool dupdup::has_layer() const {
+// optional int32 m_layer = 6;
+inline bool E_DupDup::has_m_layer() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void dupdup::set_has_layer() {
+inline void E_DupDup::set_has_m_layer() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void dupdup::clear_has_layer() {
+inline void E_DupDup::clear_has_m_layer() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void dupdup::clear_layer() {
-  layer_ = 0;
-  clear_has_layer();
+inline void E_DupDup::clear_m_layer() {
+  m_layer_ = 0;
+  clear_has_m_layer();
 }
-inline ::google::protobuf::int32 dupdup::layer() const {
-  return layer_;
+inline ::google::protobuf::int32 E_DupDup::m_layer() const {
+  return m_layer_;
 }
-inline void dupdup::set_layer(::google::protobuf::int32 value) {
-  set_has_layer();
-  layer_ = value;
+inline void E_DupDup::set_m_layer(::google::protobuf::int32 value) {
+  set_has_m_layer();
+  m_layer_ = value;
 }
 
-// optional int32 duplicateType = 7;
-inline bool dupdup::has_duplicatetype() const {
+// optional int32 m_duplicatetype = 7;
+inline bool E_DupDup::has_m_duplicatetype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void dupdup::set_has_duplicatetype() {
+inline void E_DupDup::set_has_m_duplicatetype() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void dupdup::clear_has_duplicatetype() {
+inline void E_DupDup::clear_has_m_duplicatetype() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void dupdup::clear_duplicatetype() {
-  duplicatetype_ = 0;
-  clear_has_duplicatetype();
+inline void E_DupDup::clear_m_duplicatetype() {
+  m_duplicatetype_ = 0;
+  clear_has_m_duplicatetype();
 }
-inline ::google::protobuf::int32 dupdup::duplicatetype() const {
-  return duplicatetype_;
+inline ::google::protobuf::int32 E_DupDup::m_duplicatetype() const {
+  return m_duplicatetype_;
 }
-inline void dupdup::set_duplicatetype(::google::protobuf::int32 value) {
-  set_has_duplicatetype();
-  duplicatetype_ = value;
+inline void E_DupDup::set_m_duplicatetype(::google::protobuf::int32 value) {
+  set_has_m_duplicatetype();
+  m_duplicatetype_ = value;
 }
 
-// optional int64 mapID = 8;
-inline bool dupdup::has_mapid() const {
+// optional int64 m_mapid = 8;
+inline bool E_DupDup::has_m_mapid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void dupdup::set_has_mapid() {
+inline void E_DupDup::set_has_m_mapid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void dupdup::clear_has_mapid() {
+inline void E_DupDup::clear_has_m_mapid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void dupdup::clear_mapid() {
-  mapid_ = GOOGLE_LONGLONG(0);
-  clear_has_mapid();
+inline void E_DupDup::clear_m_mapid() {
+  m_mapid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_mapid();
 }
-inline ::google::protobuf::int64 dupdup::mapid() const {
-  return mapid_;
+inline ::google::protobuf::int64 E_DupDup::m_mapid() const {
+  return m_mapid_;
 }
-inline void dupdup::set_mapid(::google::protobuf::int64 value) {
-  set_has_mapid();
-  mapid_ = value;
+inline void E_DupDup::set_m_mapid(::google::protobuf::int64 value) {
+  set_has_m_mapid();
+  m_mapid_ = value;
 }
 
-// optional int32 levelLimit = 9;
-inline bool dupdup::has_levellimit() const {
+// optional int32 m_levellimit = 9;
+inline bool E_DupDup::has_m_levellimit() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void dupdup::set_has_levellimit() {
+inline void E_DupDup::set_has_m_levellimit() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void dupdup::clear_has_levellimit() {
+inline void E_DupDup::clear_has_m_levellimit() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void dupdup::clear_levellimit() {
-  levellimit_ = 0;
-  clear_has_levellimit();
+inline void E_DupDup::clear_m_levellimit() {
+  m_levellimit_ = 0;
+  clear_has_m_levellimit();
 }
-inline ::google::protobuf::int32 dupdup::levellimit() const {
-  return levellimit_;
+inline ::google::protobuf::int32 E_DupDup::m_levellimit() const {
+  return m_levellimit_;
 }
-inline void dupdup::set_levellimit(::google::protobuf::int32 value) {
-  set_has_levellimit();
-  levellimit_ = value;
+inline void E_DupDup::set_m_levellimit(::google::protobuf::int32 value) {
+  set_has_m_levellimit();
+  m_levellimit_ = value;
 }
 
-// optional int32 pre = 10;
-inline bool dupdup::has_pre() const {
+// optional int32 m_pre = 10;
+inline bool E_DupDup::has_m_pre() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void dupdup::set_has_pre() {
+inline void E_DupDup::set_has_m_pre() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void dupdup::clear_has_pre() {
+inline void E_DupDup::clear_has_m_pre() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void dupdup::clear_pre() {
-  pre_ = 0;
-  clear_has_pre();
+inline void E_DupDup::clear_m_pre() {
+  m_pre_ = 0;
+  clear_has_m_pre();
 }
-inline ::google::protobuf::int32 dupdup::pre() const {
-  return pre_;
+inline ::google::protobuf::int32 E_DupDup::m_pre() const {
+  return m_pre_;
 }
-inline void dupdup::set_pre(::google::protobuf::int32 value) {
-  set_has_pre();
-  pre_ = value;
+inline void E_DupDup::set_m_pre(::google::protobuf::int32 value) {
+  set_has_m_pre();
+  m_pre_ = value;
 }
 
-// optional int32 isAutoFight = 11;
-inline bool dupdup::has_isautofight() const {
+// optional int32 m_isautofight = 11;
+inline bool E_DupDup::has_m_isautofight() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void dupdup::set_has_isautofight() {
+inline void E_DupDup::set_has_m_isautofight() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void dupdup::clear_has_isautofight() {
+inline void E_DupDup::clear_has_m_isautofight() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void dupdup::clear_isautofight() {
-  isautofight_ = 0;
-  clear_has_isautofight();
+inline void E_DupDup::clear_m_isautofight() {
+  m_isautofight_ = 0;
+  clear_has_m_isautofight();
 }
-inline ::google::protobuf::int32 dupdup::isautofight() const {
-  return isautofight_;
+inline ::google::protobuf::int32 E_DupDup::m_isautofight() const {
+  return m_isautofight_;
 }
-inline void dupdup::set_isautofight(::google::protobuf::int32 value) {
-  set_has_isautofight();
-  isautofight_ = value;
+inline void E_DupDup::set_m_isautofight(::google::protobuf::int32 value) {
+  set_has_m_isautofight();
+  m_isautofight_ = value;
 }
 
-// optional string condition = 12;
-inline bool dupdup::has_condition() const {
+// optional string m_condition = 12;
+inline bool E_DupDup::has_m_condition() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void dupdup::set_has_condition() {
+inline void E_DupDup::set_has_m_condition() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void dupdup::clear_has_condition() {
+inline void E_DupDup::clear_has_m_condition() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void dupdup::clear_condition() {
-  if (condition_ != &::google::protobuf::internal::kEmptyString) {
-    condition_->clear();
+inline void E_DupDup::clear_m_condition() {
+  if (m_condition_ != &::google::protobuf::internal::kEmptyString) {
+    m_condition_->clear();
   }
-  clear_has_condition();
+  clear_has_m_condition();
 }
-inline const ::std::string& dupdup::condition() const {
-  return *condition_;
+inline const ::std::string& E_DupDup::m_condition() const {
+  return *m_condition_;
 }
-inline void dupdup::set_condition(const ::std::string& value) {
-  set_has_condition();
-  if (condition_ == &::google::protobuf::internal::kEmptyString) {
-    condition_ = new ::std::string;
+inline void E_DupDup::set_m_condition(const ::std::string& value) {
+  set_has_m_condition();
+  if (m_condition_ == &::google::protobuf::internal::kEmptyString) {
+    m_condition_ = new ::std::string;
   }
-  condition_->assign(value);
+  m_condition_->assign(value);
 }
-inline void dupdup::set_condition(const char* value) {
-  set_has_condition();
-  if (condition_ == &::google::protobuf::internal::kEmptyString) {
-    condition_ = new ::std::string;
+inline void E_DupDup::set_m_condition(const char* value) {
+  set_has_m_condition();
+  if (m_condition_ == &::google::protobuf::internal::kEmptyString) {
+    m_condition_ = new ::std::string;
   }
-  condition_->assign(value);
+  m_condition_->assign(value);
 }
-inline void dupdup::set_condition(const char* value, size_t size) {
-  set_has_condition();
-  if (condition_ == &::google::protobuf::internal::kEmptyString) {
-    condition_ = new ::std::string;
+inline void E_DupDup::set_m_condition(const char* value, size_t size) {
+  set_has_m_condition();
+  if (m_condition_ == &::google::protobuf::internal::kEmptyString) {
+    m_condition_ = new ::std::string;
   }
-  condition_->assign(reinterpret_cast<const char*>(value), size);
+  m_condition_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dupdup::mutable_condition() {
-  set_has_condition();
-  if (condition_ == &::google::protobuf::internal::kEmptyString) {
-    condition_ = new ::std::string;
+inline ::std::string* E_DupDup::mutable_m_condition() {
+  set_has_m_condition();
+  if (m_condition_ == &::google::protobuf::internal::kEmptyString) {
+    m_condition_ = new ::std::string;
   }
-  return condition_;
+  return m_condition_;
 }
-inline ::std::string* dupdup::release_condition() {
-  clear_has_condition();
-  if (condition_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DupDup::release_m_condition() {
+  clear_has_m_condition();
+  if (m_condition_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = condition_;
-    condition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_condition_;
+    m_condition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dupdup::set_allocated_condition(::std::string* condition) {
-  if (condition_ != &::google::protobuf::internal::kEmptyString) {
-    delete condition_;
+inline void E_DupDup::set_allocated_m_condition(::std::string* m_condition) {
+  if (m_condition_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_condition_;
   }
-  if (condition) {
-    set_has_condition();
-    condition_ = condition;
+  if (m_condition) {
+    set_has_m_condition();
+    m_condition_ = m_condition;
   } else {
-    clear_has_condition();
-    condition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_condition();
+    m_condition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 reviveMaxTimes = 13;
-inline bool dupdup::has_revivemaxtimes() const {
+// optional int32 m_revivemaxtimes = 13;
+inline bool E_DupDup::has_m_revivemaxtimes() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void dupdup::set_has_revivemaxtimes() {
+inline void E_DupDup::set_has_m_revivemaxtimes() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void dupdup::clear_has_revivemaxtimes() {
+inline void E_DupDup::clear_has_m_revivemaxtimes() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void dupdup::clear_revivemaxtimes() {
-  revivemaxtimes_ = 0;
-  clear_has_revivemaxtimes();
+inline void E_DupDup::clear_m_revivemaxtimes() {
+  m_revivemaxtimes_ = 0;
+  clear_has_m_revivemaxtimes();
 }
-inline ::google::protobuf::int32 dupdup::revivemaxtimes() const {
-  return revivemaxtimes_;
+inline ::google::protobuf::int32 E_DupDup::m_revivemaxtimes() const {
+  return m_revivemaxtimes_;
 }
-inline void dupdup::set_revivemaxtimes(::google::protobuf::int32 value) {
-  set_has_revivemaxtimes();
-  revivemaxtimes_ = value;
+inline void E_DupDup::set_m_revivemaxtimes(::google::protobuf::int32 value) {
+  set_has_m_revivemaxtimes();
+  m_revivemaxtimes_ = value;
 }
 
-// optional int32 TeamObjectID = 14;
-inline bool dupdup::has_teamobjectid() const {
+// optional int32 m_teamobjectid = 14;
+inline bool E_DupDup::has_m_teamobjectid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void dupdup::set_has_teamobjectid() {
+inline void E_DupDup::set_has_m_teamobjectid() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void dupdup::clear_has_teamobjectid() {
+inline void E_DupDup::clear_has_m_teamobjectid() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void dupdup::clear_teamobjectid() {
-  teamobjectid_ = 0;
-  clear_has_teamobjectid();
+inline void E_DupDup::clear_m_teamobjectid() {
+  m_teamobjectid_ = 0;
+  clear_has_m_teamobjectid();
 }
-inline ::google::protobuf::int32 dupdup::teamobjectid() const {
-  return teamobjectid_;
+inline ::google::protobuf::int32 E_DupDup::m_teamobjectid() const {
+  return m_teamobjectid_;
 }
-inline void dupdup::set_teamobjectid(::google::protobuf::int32 value) {
-  set_has_teamobjectid();
-  teamobjectid_ = value;
+inline void E_DupDup::set_m_teamobjectid(::google::protobuf::int32 value) {
+  set_has_m_teamobjectid();
+  m_teamobjectid_ = value;
 }
 
-// optional string gradeCondition = 15;
-inline bool dupdup::has_gradecondition() const {
+// optional string m_gradecondition = 15;
+inline bool E_DupDup::has_m_gradecondition() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void dupdup::set_has_gradecondition() {
+inline void E_DupDup::set_has_m_gradecondition() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void dupdup::clear_has_gradecondition() {
+inline void E_DupDup::clear_has_m_gradecondition() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void dupdup::clear_gradecondition() {
-  if (gradecondition_ != &::google::protobuf::internal::kEmptyString) {
-    gradecondition_->clear();
+inline void E_DupDup::clear_m_gradecondition() {
+  if (m_gradecondition_ != &::google::protobuf::internal::kEmptyString) {
+    m_gradecondition_->clear();
   }
-  clear_has_gradecondition();
+  clear_has_m_gradecondition();
 }
-inline const ::std::string& dupdup::gradecondition() const {
-  return *gradecondition_;
+inline const ::std::string& E_DupDup::m_gradecondition() const {
+  return *m_gradecondition_;
 }
-inline void dupdup::set_gradecondition(const ::std::string& value) {
-  set_has_gradecondition();
-  if (gradecondition_ == &::google::protobuf::internal::kEmptyString) {
-    gradecondition_ = new ::std::string;
+inline void E_DupDup::set_m_gradecondition(const ::std::string& value) {
+  set_has_m_gradecondition();
+  if (m_gradecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_gradecondition_ = new ::std::string;
   }
-  gradecondition_->assign(value);
+  m_gradecondition_->assign(value);
 }
-inline void dupdup::set_gradecondition(const char* value) {
-  set_has_gradecondition();
-  if (gradecondition_ == &::google::protobuf::internal::kEmptyString) {
-    gradecondition_ = new ::std::string;
+inline void E_DupDup::set_m_gradecondition(const char* value) {
+  set_has_m_gradecondition();
+  if (m_gradecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_gradecondition_ = new ::std::string;
   }
-  gradecondition_->assign(value);
+  m_gradecondition_->assign(value);
 }
-inline void dupdup::set_gradecondition(const char* value, size_t size) {
-  set_has_gradecondition();
-  if (gradecondition_ == &::google::protobuf::internal::kEmptyString) {
-    gradecondition_ = new ::std::string;
+inline void E_DupDup::set_m_gradecondition(const char* value, size_t size) {
+  set_has_m_gradecondition();
+  if (m_gradecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_gradecondition_ = new ::std::string;
   }
-  gradecondition_->assign(reinterpret_cast<const char*>(value), size);
+  m_gradecondition_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dupdup::mutable_gradecondition() {
-  set_has_gradecondition();
-  if (gradecondition_ == &::google::protobuf::internal::kEmptyString) {
-    gradecondition_ = new ::std::string;
+inline ::std::string* E_DupDup::mutable_m_gradecondition() {
+  set_has_m_gradecondition();
+  if (m_gradecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_gradecondition_ = new ::std::string;
   }
-  return gradecondition_;
+  return m_gradecondition_;
 }
-inline ::std::string* dupdup::release_gradecondition() {
-  clear_has_gradecondition();
-  if (gradecondition_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DupDup::release_m_gradecondition() {
+  clear_has_m_gradecondition();
+  if (m_gradecondition_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = gradecondition_;
-    gradecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_gradecondition_;
+    m_gradecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dupdup::set_allocated_gradecondition(::std::string* gradecondition) {
-  if (gradecondition_ != &::google::protobuf::internal::kEmptyString) {
-    delete gradecondition_;
+inline void E_DupDup::set_allocated_m_gradecondition(::std::string* m_gradecondition) {
+  if (m_gradecondition_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_gradecondition_;
   }
-  if (gradecondition) {
-    set_has_gradecondition();
-    gradecondition_ = gradecondition;
+  if (m_gradecondition) {
+    set_has_m_gradecondition();
+    m_gradecondition_ = m_gradecondition;
   } else {
-    clear_has_gradecondition();
-    gradecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_gradecondition();
+    m_gradecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int64 sweepRewardBoxID = 16;
-inline bool dupdup::has_sweeprewardboxid() const {
+// optional int64 m_sweeprewardboxid = 16;
+inline bool E_DupDup::has_m_sweeprewardboxid() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
-inline void dupdup::set_has_sweeprewardboxid() {
+inline void E_DupDup::set_has_m_sweeprewardboxid() {
   _has_bits_[0] |= 0x00008000u;
 }
-inline void dupdup::clear_has_sweeprewardboxid() {
+inline void E_DupDup::clear_has_m_sweeprewardboxid() {
   _has_bits_[0] &= ~0x00008000u;
 }
-inline void dupdup::clear_sweeprewardboxid() {
-  sweeprewardboxid_ = GOOGLE_LONGLONG(0);
-  clear_has_sweeprewardboxid();
+inline void E_DupDup::clear_m_sweeprewardboxid() {
+  m_sweeprewardboxid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_sweeprewardboxid();
 }
-inline ::google::protobuf::int64 dupdup::sweeprewardboxid() const {
-  return sweeprewardboxid_;
+inline ::google::protobuf::int64 E_DupDup::m_sweeprewardboxid() const {
+  return m_sweeprewardboxid_;
 }
-inline void dupdup::set_sweeprewardboxid(::google::protobuf::int64 value) {
-  set_has_sweeprewardboxid();
-  sweeprewardboxid_ = value;
+inline void E_DupDup::set_m_sweeprewardboxid(::google::protobuf::int64 value) {
+  set_has_m_sweeprewardboxid();
+  m_sweeprewardboxid_ = value;
 }
 
-// optional int32 sweepRewardExp = 17;
-inline bool dupdup::has_sweeprewardexp() const {
+// optional int32 m_sweeprewardexp = 17;
+inline bool E_DupDup::has_m_sweeprewardexp() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
-inline void dupdup::set_has_sweeprewardexp() {
+inline void E_DupDup::set_has_m_sweeprewardexp() {
   _has_bits_[0] |= 0x00010000u;
 }
-inline void dupdup::clear_has_sweeprewardexp() {
+inline void E_DupDup::clear_has_m_sweeprewardexp() {
   _has_bits_[0] &= ~0x00010000u;
 }
-inline void dupdup::clear_sweeprewardexp() {
-  sweeprewardexp_ = 0;
-  clear_has_sweeprewardexp();
+inline void E_DupDup::clear_m_sweeprewardexp() {
+  m_sweeprewardexp_ = 0;
+  clear_has_m_sweeprewardexp();
 }
-inline ::google::protobuf::int32 dupdup::sweeprewardexp() const {
-  return sweeprewardexp_;
+inline ::google::protobuf::int32 E_DupDup::m_sweeprewardexp() const {
+  return m_sweeprewardexp_;
 }
-inline void dupdup::set_sweeprewardexp(::google::protobuf::int32 value) {
-  set_has_sweeprewardexp();
-  sweeprewardexp_ = value;
+inline void E_DupDup::set_m_sweeprewardexp(::google::protobuf::int32 value) {
+  set_has_m_sweeprewardexp();
+  m_sweeprewardexp_ = value;
 }
 
-// optional string trackpoint = 18;
-inline bool dupdup::has_trackpoint() const {
+// optional string m_trackpoint = 18;
+inline bool E_DupDup::has_m_trackpoint() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
-inline void dupdup::set_has_trackpoint() {
+inline void E_DupDup::set_has_m_trackpoint() {
   _has_bits_[0] |= 0x00020000u;
 }
-inline void dupdup::clear_has_trackpoint() {
+inline void E_DupDup::clear_has_m_trackpoint() {
   _has_bits_[0] &= ~0x00020000u;
 }
-inline void dupdup::clear_trackpoint() {
-  if (trackpoint_ != &::google::protobuf::internal::kEmptyString) {
-    trackpoint_->clear();
+inline void E_DupDup::clear_m_trackpoint() {
+  if (m_trackpoint_ != &::google::protobuf::internal::kEmptyString) {
+    m_trackpoint_->clear();
   }
-  clear_has_trackpoint();
+  clear_has_m_trackpoint();
 }
-inline const ::std::string& dupdup::trackpoint() const {
-  return *trackpoint_;
+inline const ::std::string& E_DupDup::m_trackpoint() const {
+  return *m_trackpoint_;
 }
-inline void dupdup::set_trackpoint(const ::std::string& value) {
-  set_has_trackpoint();
-  if (trackpoint_ == &::google::protobuf::internal::kEmptyString) {
-    trackpoint_ = new ::std::string;
+inline void E_DupDup::set_m_trackpoint(const ::std::string& value) {
+  set_has_m_trackpoint();
+  if (m_trackpoint_ == &::google::protobuf::internal::kEmptyString) {
+    m_trackpoint_ = new ::std::string;
   }
-  trackpoint_->assign(value);
+  m_trackpoint_->assign(value);
 }
-inline void dupdup::set_trackpoint(const char* value) {
-  set_has_trackpoint();
-  if (trackpoint_ == &::google::protobuf::internal::kEmptyString) {
-    trackpoint_ = new ::std::string;
+inline void E_DupDup::set_m_trackpoint(const char* value) {
+  set_has_m_trackpoint();
+  if (m_trackpoint_ == &::google::protobuf::internal::kEmptyString) {
+    m_trackpoint_ = new ::std::string;
   }
-  trackpoint_->assign(value);
+  m_trackpoint_->assign(value);
 }
-inline void dupdup::set_trackpoint(const char* value, size_t size) {
-  set_has_trackpoint();
-  if (trackpoint_ == &::google::protobuf::internal::kEmptyString) {
-    trackpoint_ = new ::std::string;
+inline void E_DupDup::set_m_trackpoint(const char* value, size_t size) {
+  set_has_m_trackpoint();
+  if (m_trackpoint_ == &::google::protobuf::internal::kEmptyString) {
+    m_trackpoint_ = new ::std::string;
   }
-  trackpoint_->assign(reinterpret_cast<const char*>(value), size);
+  m_trackpoint_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dupdup::mutable_trackpoint() {
-  set_has_trackpoint();
-  if (trackpoint_ == &::google::protobuf::internal::kEmptyString) {
-    trackpoint_ = new ::std::string;
+inline ::std::string* E_DupDup::mutable_m_trackpoint() {
+  set_has_m_trackpoint();
+  if (m_trackpoint_ == &::google::protobuf::internal::kEmptyString) {
+    m_trackpoint_ = new ::std::string;
   }
-  return trackpoint_;
+  return m_trackpoint_;
 }
-inline ::std::string* dupdup::release_trackpoint() {
-  clear_has_trackpoint();
-  if (trackpoint_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DupDup::release_m_trackpoint() {
+  clear_has_m_trackpoint();
+  if (m_trackpoint_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = trackpoint_;
-    trackpoint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_trackpoint_;
+    m_trackpoint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dupdup::set_allocated_trackpoint(::std::string* trackpoint) {
-  if (trackpoint_ != &::google::protobuf::internal::kEmptyString) {
-    delete trackpoint_;
+inline void E_DupDup::set_allocated_m_trackpoint(::std::string* m_trackpoint) {
+  if (m_trackpoint_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_trackpoint_;
   }
-  if (trackpoint) {
-    set_has_trackpoint();
-    trackpoint_ = trackpoint;
+  if (m_trackpoint) {
+    set_has_m_trackpoint();
+    m_trackpoint_ = m_trackpoint;
   } else {
-    clear_has_trackpoint();
-    trackpoint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_trackpoint();
+    m_trackpoint_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string pathOfmonster = 19;
-inline bool dupdup::has_pathofmonster() const {
+// optional string m_pathofmonster = 19;
+inline bool E_DupDup::has_m_pathofmonster() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
-inline void dupdup::set_has_pathofmonster() {
+inline void E_DupDup::set_has_m_pathofmonster() {
   _has_bits_[0] |= 0x00040000u;
 }
-inline void dupdup::clear_has_pathofmonster() {
+inline void E_DupDup::clear_has_m_pathofmonster() {
   _has_bits_[0] &= ~0x00040000u;
 }
-inline void dupdup::clear_pathofmonster() {
-  if (pathofmonster_ != &::google::protobuf::internal::kEmptyString) {
-    pathofmonster_->clear();
+inline void E_DupDup::clear_m_pathofmonster() {
+  if (m_pathofmonster_ != &::google::protobuf::internal::kEmptyString) {
+    m_pathofmonster_->clear();
   }
-  clear_has_pathofmonster();
+  clear_has_m_pathofmonster();
 }
-inline const ::std::string& dupdup::pathofmonster() const {
-  return *pathofmonster_;
+inline const ::std::string& E_DupDup::m_pathofmonster() const {
+  return *m_pathofmonster_;
 }
-inline void dupdup::set_pathofmonster(const ::std::string& value) {
-  set_has_pathofmonster();
-  if (pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
-    pathofmonster_ = new ::std::string;
+inline void E_DupDup::set_m_pathofmonster(const ::std::string& value) {
+  set_has_m_pathofmonster();
+  if (m_pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
+    m_pathofmonster_ = new ::std::string;
   }
-  pathofmonster_->assign(value);
+  m_pathofmonster_->assign(value);
 }
-inline void dupdup::set_pathofmonster(const char* value) {
-  set_has_pathofmonster();
-  if (pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
-    pathofmonster_ = new ::std::string;
+inline void E_DupDup::set_m_pathofmonster(const char* value) {
+  set_has_m_pathofmonster();
+  if (m_pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
+    m_pathofmonster_ = new ::std::string;
   }
-  pathofmonster_->assign(value);
+  m_pathofmonster_->assign(value);
 }
-inline void dupdup::set_pathofmonster(const char* value, size_t size) {
-  set_has_pathofmonster();
-  if (pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
-    pathofmonster_ = new ::std::string;
+inline void E_DupDup::set_m_pathofmonster(const char* value, size_t size) {
+  set_has_m_pathofmonster();
+  if (m_pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
+    m_pathofmonster_ = new ::std::string;
   }
-  pathofmonster_->assign(reinterpret_cast<const char*>(value), size);
+  m_pathofmonster_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dupdup::mutable_pathofmonster() {
-  set_has_pathofmonster();
-  if (pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
-    pathofmonster_ = new ::std::string;
+inline ::std::string* E_DupDup::mutable_m_pathofmonster() {
+  set_has_m_pathofmonster();
+  if (m_pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
+    m_pathofmonster_ = new ::std::string;
   }
-  return pathofmonster_;
+  return m_pathofmonster_;
 }
-inline ::std::string* dupdup::release_pathofmonster() {
-  clear_has_pathofmonster();
-  if (pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DupDup::release_m_pathofmonster() {
+  clear_has_m_pathofmonster();
+  if (m_pathofmonster_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = pathofmonster_;
-    pathofmonster_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_pathofmonster_;
+    m_pathofmonster_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dupdup::set_allocated_pathofmonster(::std::string* pathofmonster) {
-  if (pathofmonster_ != &::google::protobuf::internal::kEmptyString) {
-    delete pathofmonster_;
+inline void E_DupDup::set_allocated_m_pathofmonster(::std::string* m_pathofmonster) {
+  if (m_pathofmonster_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_pathofmonster_;
   }
-  if (pathofmonster) {
-    set_has_pathofmonster();
-    pathofmonster_ = pathofmonster;
+  if (m_pathofmonster) {
+    set_has_m_pathofmonster();
+    m_pathofmonster_ = m_pathofmonster;
   } else {
-    clear_has_pathofmonster();
-    pathofmonster_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_pathofmonster();
+    m_pathofmonster_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 isPatrol = 20;
-inline bool dupdup::has_ispatrol() const {
+// optional int32 m_ispatrol = 20;
+inline bool E_DupDup::has_m_ispatrol() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
-inline void dupdup::set_has_ispatrol() {
+inline void E_DupDup::set_has_m_ispatrol() {
   _has_bits_[0] |= 0x00080000u;
 }
-inline void dupdup::clear_has_ispatrol() {
+inline void E_DupDup::clear_has_m_ispatrol() {
   _has_bits_[0] &= ~0x00080000u;
 }
-inline void dupdup::clear_ispatrol() {
-  ispatrol_ = 0;
-  clear_has_ispatrol();
+inline void E_DupDup::clear_m_ispatrol() {
+  m_ispatrol_ = 0;
+  clear_has_m_ispatrol();
 }
-inline ::google::protobuf::int32 dupdup::ispatrol() const {
-  return ispatrol_;
+inline ::google::protobuf::int32 E_DupDup::m_ispatrol() const {
+  return m_ispatrol_;
 }
-inline void dupdup::set_ispatrol(::google::protobuf::int32 value) {
-  set_has_ispatrol();
-  ispatrol_ = value;
+inline void E_DupDup::set_m_ispatrol(::google::protobuf::int32 value) {
+  set_has_m_ispatrol();
+  m_ispatrol_ = value;
 }
 
-// optional int32 sweepType = 21;
-inline bool dupdup::has_sweeptype() const {
+// optional int32 m_sweeptype = 21;
+inline bool E_DupDup::has_m_sweeptype() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
-inline void dupdup::set_has_sweeptype() {
+inline void E_DupDup::set_has_m_sweeptype() {
   _has_bits_[0] |= 0x00100000u;
 }
-inline void dupdup::clear_has_sweeptype() {
+inline void E_DupDup::clear_has_m_sweeptype() {
   _has_bits_[0] &= ~0x00100000u;
 }
-inline void dupdup::clear_sweeptype() {
-  sweeptype_ = 0;
-  clear_has_sweeptype();
+inline void E_DupDup::clear_m_sweeptype() {
+  m_sweeptype_ = 0;
+  clear_has_m_sweeptype();
 }
-inline ::google::protobuf::int32 dupdup::sweeptype() const {
-  return sweeptype_;
+inline ::google::protobuf::int32 E_DupDup::m_sweeptype() const {
+  return m_sweeptype_;
 }
-inline void dupdup::set_sweeptype(::google::protobuf::int32 value) {
-  set_has_sweeptype();
-  sweeptype_ = value;
+inline void E_DupDup::set_m_sweeptype(::google::protobuf::int32 value) {
+  set_has_m_sweeptype();
+  m_sweeptype_ = value;
 }
 
-// repeated int32 box = 22;
-inline int dupdup::box_size() const {
-  return box_.size();
+// repeated int32 m_box = 22;
+inline int E_DupDup::m_box_size() const {
+  return m_box_.size();
 }
-inline void dupdup::clear_box() {
-  box_.Clear();
+inline void E_DupDup::clear_m_box() {
+  m_box_.Clear();
 }
-inline ::google::protobuf::int32 dupdup::box(int index) const {
-  return box_.Get(index);
+inline ::google::protobuf::int32 E_DupDup::m_box(int index) const {
+  return m_box_.Get(index);
 }
-inline void dupdup::set_box(int index, ::google::protobuf::int32 value) {
-  box_.Set(index, value);
+inline void E_DupDup::set_m_box(int index, ::google::protobuf::int32 value) {
+  m_box_.Set(index, value);
 }
-inline void dupdup::add_box(::google::protobuf::int32 value) {
-  box_.Add(value);
+inline void E_DupDup::add_m_box(::google::protobuf::int32 value) {
+  m_box_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-dupdup::box() const {
-  return box_;
+E_DupDup::m_box() const {
+  return m_box_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-dupdup::mutable_box() {
-  return &box_;
+E_DupDup::mutable_m_box() {
+  return &m_box_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_dupdup
+// Sheet_DupDup
 
-// repeated .proto_ff.dupdup dupdup_List = 1;
-inline int Sheet_dupdup::dupdup_list_size() const {
-  return dupdup_list_.size();
+// repeated .proto_ff.E_DupDup E_DupDup_List = 1;
+inline int Sheet_DupDup::e_dupdup_list_size() const {
+  return e_dupdup_list_.size();
 }
-inline void Sheet_dupdup::clear_dupdup_list() {
-  dupdup_list_.Clear();
+inline void Sheet_DupDup::clear_e_dupdup_list() {
+  e_dupdup_list_.Clear();
 }
-inline const ::proto_ff::dupdup& Sheet_dupdup::dupdup_list(int index) const {
-  return dupdup_list_.Get(index);
+inline const ::proto_ff::E_DupDup& Sheet_DupDup::e_dupdup_list(int index) const {
+  return e_dupdup_list_.Get(index);
 }
-inline ::proto_ff::dupdup* Sheet_dupdup::mutable_dupdup_list(int index) {
-  return dupdup_list_.Mutable(index);
+inline ::proto_ff::E_DupDup* Sheet_DupDup::mutable_e_dupdup_list(int index) {
+  return e_dupdup_list_.Mutable(index);
 }
-inline ::proto_ff::dupdup* Sheet_dupdup::add_dupdup_list() {
-  return dupdup_list_.Add();
+inline ::proto_ff::E_DupDup* Sheet_DupDup::add_e_dupdup_list() {
+  return e_dupdup_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dupdup >&
-Sheet_dupdup::dupdup_list() const {
-  return dupdup_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupDup >&
+Sheet_DupDup::e_dupdup_list() const {
+  return e_dupdup_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dupdup >*
-Sheet_dupdup::mutable_dupdup_list() {
-  return &dupdup_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupDup >*
+Sheet_DupDup::mutable_e_dupdup_list() {
+  return &e_dupdup_list_;
 }
 
 // -------------------------------------------------------------------
 
-// duptowerReward
+// E_DupTowerreward
 
-// optional int32 id = 1;
-inline bool duptowerReward::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_DupTowerreward::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void duptowerReward::set_has_id() {
+inline void E_DupTowerreward::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void duptowerReward::clear_has_id() {
+inline void E_DupTowerreward::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void duptowerReward::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_DupTowerreward::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 duptowerReward::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_DupTowerreward::m_id() const {
+  return m_id_;
 }
-inline void duptowerReward::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DupTowerreward::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 type = 2;
-inline bool duptowerReward::has_type() const {
+// optional int32 m_type = 2;
+inline bool E_DupTowerreward::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void duptowerReward::set_has_type() {
+inline void E_DupTowerreward::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void duptowerReward::clear_has_type() {
+inline void E_DupTowerreward::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void duptowerReward::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_DupTowerreward::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 duptowerReward::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_DupTowerreward::m_type() const {
+  return m_type_;
 }
-inline void duptowerReward::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_DupTowerreward::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 cond = 3;
-inline bool duptowerReward::has_cond() const {
+// optional int32 m_cond = 3;
+inline bool E_DupTowerreward::has_m_cond() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void duptowerReward::set_has_cond() {
+inline void E_DupTowerreward::set_has_m_cond() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void duptowerReward::clear_has_cond() {
+inline void E_DupTowerreward::clear_has_m_cond() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void duptowerReward::clear_cond() {
-  cond_ = 0;
-  clear_has_cond();
+inline void E_DupTowerreward::clear_m_cond() {
+  m_cond_ = 0;
+  clear_has_m_cond();
 }
-inline ::google::protobuf::int32 duptowerReward::cond() const {
-  return cond_;
+inline ::google::protobuf::int32 E_DupTowerreward::m_cond() const {
+  return m_cond_;
 }
-inline void duptowerReward::set_cond(::google::protobuf::int32 value) {
-  set_has_cond();
-  cond_ = value;
+inline void E_DupTowerreward::set_m_cond(::google::protobuf::int32 value) {
+  set_has_m_cond();
+  m_cond_ = value;
 }
 
-// optional int32 boxID = 4;
-inline bool duptowerReward::has_boxid() const {
+// optional int32 m_boxid = 4;
+inline bool E_DupTowerreward::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void duptowerReward::set_has_boxid() {
+inline void E_DupTowerreward::set_has_m_boxid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void duptowerReward::clear_has_boxid() {
+inline void E_DupTowerreward::clear_has_m_boxid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void duptowerReward::clear_boxid() {
-  boxid_ = 0;
-  clear_has_boxid();
+inline void E_DupTowerreward::clear_m_boxid() {
+  m_boxid_ = 0;
+  clear_has_m_boxid();
 }
-inline ::google::protobuf::int32 duptowerReward::boxid() const {
-  return boxid_;
+inline ::google::protobuf::int32 E_DupTowerreward::m_boxid() const {
+  return m_boxid_;
 }
-inline void duptowerReward::set_boxid(::google::protobuf::int32 value) {
-  set_has_boxid();
-  boxid_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_duptowerReward
-
-// repeated .proto_ff.duptowerReward duptowerReward_List = 1;
-inline int Sheet_duptowerReward::duptowerreward_list_size() const {
-  return duptowerreward_list_.size();
-}
-inline void Sheet_duptowerReward::clear_duptowerreward_list() {
-  duptowerreward_list_.Clear();
-}
-inline const ::proto_ff::duptowerReward& Sheet_duptowerReward::duptowerreward_list(int index) const {
-  return duptowerreward_list_.Get(index);
-}
-inline ::proto_ff::duptowerReward* Sheet_duptowerReward::mutable_duptowerreward_list(int index) {
-  return duptowerreward_list_.Mutable(index);
-}
-inline ::proto_ff::duptowerReward* Sheet_duptowerReward::add_duptowerreward_list() {
-  return duptowerreward_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::duptowerReward >&
-Sheet_duptowerReward::duptowerreward_list() const {
-  return duptowerreward_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::duptowerReward >*
-Sheet_duptowerReward::mutable_duptowerreward_list() {
-  return &duptowerreward_list_;
+inline void E_DupTowerreward::set_m_boxid(::google::protobuf::int32 value) {
+  set_has_m_boxid();
+  m_boxid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// dupgroup
+// Sheet_DupTowerreward
 
-// optional int32 id = 1;
-inline bool dupgroup::has_id() const {
+// repeated .proto_ff.E_DupTowerreward E_DupTowerreward_List = 1;
+inline int Sheet_DupTowerreward::e_duptowerreward_list_size() const {
+  return e_duptowerreward_list_.size();
+}
+inline void Sheet_DupTowerreward::clear_e_duptowerreward_list() {
+  e_duptowerreward_list_.Clear();
+}
+inline const ::proto_ff::E_DupTowerreward& Sheet_DupTowerreward::e_duptowerreward_list(int index) const {
+  return e_duptowerreward_list_.Get(index);
+}
+inline ::proto_ff::E_DupTowerreward* Sheet_DupTowerreward::mutable_e_duptowerreward_list(int index) {
+  return e_duptowerreward_list_.Mutable(index);
+}
+inline ::proto_ff::E_DupTowerreward* Sheet_DupTowerreward::add_e_duptowerreward_list() {
+  return e_duptowerreward_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupTowerreward >&
+Sheet_DupTowerreward::e_duptowerreward_list() const {
+  return e_duptowerreward_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupTowerreward >*
+Sheet_DupTowerreward::mutable_e_duptowerreward_list() {
+  return &e_duptowerreward_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_DupGroup
+
+// optional int32 m_id = 1;
+inline bool E_DupGroup::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dupgroup::set_has_id() {
+inline void E_DupGroup::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dupgroup::clear_has_id() {
+inline void E_DupGroup::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dupgroup::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_DupGroup::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 dupgroup::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_DupGroup::m_id() const {
+  return m_id_;
 }
-inline void dupgroup::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DupGroup::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string name = 2;
-inline bool dupgroup::has_name() const {
+// optional string m_name = 2;
+inline bool E_DupGroup::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void dupgroup::set_has_name() {
+inline void E_DupGroup::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void dupgroup::clear_has_name() {
+inline void E_DupGroup::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void dupgroup::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_DupGroup::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& dupgroup::name() const {
-  return *name_;
+inline const ::std::string& E_DupGroup::m_name() const {
+  return *m_name_;
 }
-inline void dupgroup::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_DupGroup::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void dupgroup::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_DupGroup::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void dupgroup::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_DupGroup::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dupgroup::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_DupGroup::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* dupgroup::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DupGroup::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dupgroup::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_DupGroup::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 privilegeType = 3;
-inline bool dupgroup::has_privilegetype() const {
+// optional int32 m_privilegetype = 3;
+inline bool E_DupGroup::has_m_privilegetype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void dupgroup::set_has_privilegetype() {
+inline void E_DupGroup::set_has_m_privilegetype() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void dupgroup::clear_has_privilegetype() {
+inline void E_DupGroup::clear_has_m_privilegetype() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void dupgroup::clear_privilegetype() {
-  privilegetype_ = 0;
-  clear_has_privilegetype();
+inline void E_DupGroup::clear_m_privilegetype() {
+  m_privilegetype_ = 0;
+  clear_has_m_privilegetype();
 }
-inline ::google::protobuf::int32 dupgroup::privilegetype() const {
-  return privilegetype_;
+inline ::google::protobuf::int32 E_DupGroup::m_privilegetype() const {
+  return m_privilegetype_;
 }
-inline void dupgroup::set_privilegetype(::google::protobuf::int32 value) {
-  set_has_privilegetype();
-  privilegetype_ = value;
+inline void E_DupGroup::set_m_privilegetype(::google::protobuf::int32 value) {
+  set_has_m_privilegetype();
+  m_privilegetype_ = value;
 }
 
-// optional int32 dynamiclevel = 4;
-inline bool dupgroup::has_dynamiclevel() const {
+// optional int32 m_dynamiclevel = 4;
+inline bool E_DupGroup::has_m_dynamiclevel() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void dupgroup::set_has_dynamiclevel() {
+inline void E_DupGroup::set_has_m_dynamiclevel() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void dupgroup::clear_has_dynamiclevel() {
+inline void E_DupGroup::clear_has_m_dynamiclevel() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void dupgroup::clear_dynamiclevel() {
-  dynamiclevel_ = 0;
-  clear_has_dynamiclevel();
+inline void E_DupGroup::clear_m_dynamiclevel() {
+  m_dynamiclevel_ = 0;
+  clear_has_m_dynamiclevel();
 }
-inline ::google::protobuf::int32 dupgroup::dynamiclevel() const {
-  return dynamiclevel_;
+inline ::google::protobuf::int32 E_DupGroup::m_dynamiclevel() const {
+  return m_dynamiclevel_;
 }
-inline void dupgroup::set_dynamiclevel(::google::protobuf::int32 value) {
-  set_has_dynamiclevel();
-  dynamiclevel_ = value;
+inline void E_DupGroup::set_m_dynamiclevel(::google::protobuf::int32 value) {
+  set_has_m_dynamiclevel();
+  m_dynamiclevel_ = value;
 }
 
-// optional int32 groupTimesType = 5;
-inline bool dupgroup::has_grouptimestype() const {
+// optional int32 m_grouptimestype = 5;
+inline bool E_DupGroup::has_m_grouptimestype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void dupgroup::set_has_grouptimestype() {
+inline void E_DupGroup::set_has_m_grouptimestype() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void dupgroup::clear_has_grouptimestype() {
+inline void E_DupGroup::clear_has_m_grouptimestype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void dupgroup::clear_grouptimestype() {
-  grouptimestype_ = 0;
-  clear_has_grouptimestype();
+inline void E_DupGroup::clear_m_grouptimestype() {
+  m_grouptimestype_ = 0;
+  clear_has_m_grouptimestype();
 }
-inline ::google::protobuf::int32 dupgroup::grouptimestype() const {
-  return grouptimestype_;
+inline ::google::protobuf::int32 E_DupGroup::m_grouptimestype() const {
+  return m_grouptimestype_;
 }
-inline void dupgroup::set_grouptimestype(::google::protobuf::int32 value) {
-  set_has_grouptimestype();
-  grouptimestype_ = value;
+inline void E_DupGroup::set_m_grouptimestype(::google::protobuf::int32 value) {
+  set_has_m_grouptimestype();
+  m_grouptimestype_ = value;
 }
 
-// optional int32 groupTimes = 6;
-inline bool dupgroup::has_grouptimes() const {
+// optional int32 m_grouptimes = 6;
+inline bool E_DupGroup::has_m_grouptimes() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void dupgroup::set_has_grouptimes() {
+inline void E_DupGroup::set_has_m_grouptimes() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void dupgroup::clear_has_grouptimes() {
+inline void E_DupGroup::clear_has_m_grouptimes() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void dupgroup::clear_grouptimes() {
-  grouptimes_ = 0;
-  clear_has_grouptimes();
+inline void E_DupGroup::clear_m_grouptimes() {
+  m_grouptimes_ = 0;
+  clear_has_m_grouptimes();
 }
-inline ::google::protobuf::int32 dupgroup::grouptimes() const {
-  return grouptimes_;
+inline ::google::protobuf::int32 E_DupGroup::m_grouptimes() const {
+  return m_grouptimes_;
 }
-inline void dupgroup::set_grouptimes(::google::protobuf::int32 value) {
-  set_has_grouptimes();
-  grouptimes_ = value;
+inline void E_DupGroup::set_m_grouptimes(::google::protobuf::int32 value) {
+  set_has_m_grouptimes();
+  m_grouptimes_ = value;
 }
 
-// optional int32 enterItemID = 7;
-inline bool dupgroup::has_enteritemid() const {
+// optional int32 m_enteritemid = 7;
+inline bool E_DupGroup::has_m_enteritemid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void dupgroup::set_has_enteritemid() {
+inline void E_DupGroup::set_has_m_enteritemid() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void dupgroup::clear_has_enteritemid() {
+inline void E_DupGroup::clear_has_m_enteritemid() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void dupgroup::clear_enteritemid() {
-  enteritemid_ = 0;
-  clear_has_enteritemid();
+inline void E_DupGroup::clear_m_enteritemid() {
+  m_enteritemid_ = 0;
+  clear_has_m_enteritemid();
 }
-inline ::google::protobuf::int32 dupgroup::enteritemid() const {
-  return enteritemid_;
+inline ::google::protobuf::int32 E_DupGroup::m_enteritemid() const {
+  return m_enteritemid_;
 }
-inline void dupgroup::set_enteritemid(::google::protobuf::int32 value) {
-  set_has_enteritemid();
-  enteritemid_ = value;
+inline void E_DupGroup::set_m_enteritemid(::google::protobuf::int32 value) {
+  set_has_m_enteritemid();
+  m_enteritemid_ = value;
 }
 
-// optional int32 sweepCondition = 8;
-inline bool dupgroup::has_sweepcondition() const {
+// optional int32 m_sweepcondition = 8;
+inline bool E_DupGroup::has_m_sweepcondition() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void dupgroup::set_has_sweepcondition() {
+inline void E_DupGroup::set_has_m_sweepcondition() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void dupgroup::clear_has_sweepcondition() {
+inline void E_DupGroup::clear_has_m_sweepcondition() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void dupgroup::clear_sweepcondition() {
-  sweepcondition_ = 0;
-  clear_has_sweepcondition();
+inline void E_DupGroup::clear_m_sweepcondition() {
+  m_sweepcondition_ = 0;
+  clear_has_m_sweepcondition();
 }
-inline ::google::protobuf::int32 dupgroup::sweepcondition() const {
-  return sweepcondition_;
+inline ::google::protobuf::int32 E_DupGroup::m_sweepcondition() const {
+  return m_sweepcondition_;
 }
-inline void dupgroup::set_sweepcondition(::google::protobuf::int32 value) {
-  set_has_sweepcondition();
-  sweepcondition_ = value;
+inline void E_DupGroup::set_m_sweepcondition(::google::protobuf::int32 value) {
+  set_has_m_sweepcondition();
+  m_sweepcondition_ = value;
 }
 
-// optional int32 mergeCondition = 9;
-inline bool dupgroup::has_mergecondition() const {
+// optional int32 m_mergecondition = 9;
+inline bool E_DupGroup::has_m_mergecondition() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void dupgroup::set_has_mergecondition() {
+inline void E_DupGroup::set_has_m_mergecondition() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void dupgroup::clear_has_mergecondition() {
+inline void E_DupGroup::clear_has_m_mergecondition() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void dupgroup::clear_mergecondition() {
-  mergecondition_ = 0;
-  clear_has_mergecondition();
+inline void E_DupGroup::clear_m_mergecondition() {
+  m_mergecondition_ = 0;
+  clear_has_m_mergecondition();
 }
-inline ::google::protobuf::int32 dupgroup::mergecondition() const {
-  return mergecondition_;
+inline ::google::protobuf::int32 E_DupGroup::m_mergecondition() const {
+  return m_mergecondition_;
 }
-inline void dupgroup::set_mergecondition(::google::protobuf::int32 value) {
-  set_has_mergecondition();
-  mergecondition_ = value;
+inline void E_DupGroup::set_m_mergecondition(::google::protobuf::int32 value) {
+  set_has_m_mergecondition();
+  m_mergecondition_ = value;
 }
 
-// optional int32 addItemID = 10;
-inline bool dupgroup::has_additemid() const {
+// optional int32 m_additemid = 10;
+inline bool E_DupGroup::has_m_additemid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void dupgroup::set_has_additemid() {
+inline void E_DupGroup::set_has_m_additemid() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void dupgroup::clear_has_additemid() {
+inline void E_DupGroup::clear_has_m_additemid() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void dupgroup::clear_additemid() {
-  additemid_ = 0;
-  clear_has_additemid();
+inline void E_DupGroup::clear_m_additemid() {
+  m_additemid_ = 0;
+  clear_has_m_additemid();
 }
-inline ::google::protobuf::int32 dupgroup::additemid() const {
-  return additemid_;
+inline ::google::protobuf::int32 E_DupGroup::m_additemid() const {
+  return m_additemid_;
 }
-inline void dupgroup::set_additemid(::google::protobuf::int32 value) {
-  set_has_additemid();
-  additemid_ = value;
+inline void E_DupGroup::set_m_additemid(::google::protobuf::int32 value) {
+  set_has_m_additemid();
+  m_additemid_ = value;
 }
 
-// optional int32 buyType = 11;
-inline bool dupgroup::has_buytype() const {
+// optional int32 m_buytype = 11;
+inline bool E_DupGroup::has_m_buytype() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void dupgroup::set_has_buytype() {
+inline void E_DupGroup::set_has_m_buytype() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void dupgroup::clear_has_buytype() {
+inline void E_DupGroup::clear_has_m_buytype() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void dupgroup::clear_buytype() {
-  buytype_ = 0;
-  clear_has_buytype();
+inline void E_DupGroup::clear_m_buytype() {
+  m_buytype_ = 0;
+  clear_has_m_buytype();
 }
-inline ::google::protobuf::int32 dupgroup::buytype() const {
-  return buytype_;
+inline ::google::protobuf::int32 E_DupGroup::m_buytype() const {
+  return m_buytype_;
 }
-inline void dupgroup::set_buytype(::google::protobuf::int32 value) {
-  set_has_buytype();
-  buytype_ = value;
+inline void E_DupGroup::set_m_buytype(::google::protobuf::int32 value) {
+  set_has_m_buytype();
+  m_buytype_ = value;
 }
 
-// optional int32 buyItemId = 12;
-inline bool dupgroup::has_buyitemid() const {
+// optional int32 m_buyitemid = 12;
+inline bool E_DupGroup::has_m_buyitemid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void dupgroup::set_has_buyitemid() {
+inline void E_DupGroup::set_has_m_buyitemid() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void dupgroup::clear_has_buyitemid() {
+inline void E_DupGroup::clear_has_m_buyitemid() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void dupgroup::clear_buyitemid() {
-  buyitemid_ = 0;
-  clear_has_buyitemid();
+inline void E_DupGroup::clear_m_buyitemid() {
+  m_buyitemid_ = 0;
+  clear_has_m_buyitemid();
 }
-inline ::google::protobuf::int32 dupgroup::buyitemid() const {
-  return buyitemid_;
+inline ::google::protobuf::int32 E_DupGroup::m_buyitemid() const {
+  return m_buyitemid_;
 }
-inline void dupgroup::set_buyitemid(::google::protobuf::int32 value) {
-  set_has_buyitemid();
-  buyitemid_ = value;
+inline void E_DupGroup::set_m_buyitemid(::google::protobuf::int32 value) {
+  set_has_m_buyitemid();
+  m_buyitemid_ = value;
 }
 
-// optional string buyCost = 13;
-inline bool dupgroup::has_buycost() const {
+// optional string m_buycost = 13;
+inline bool E_DupGroup::has_m_buycost() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void dupgroup::set_has_buycost() {
+inline void E_DupGroup::set_has_m_buycost() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void dupgroup::clear_has_buycost() {
+inline void E_DupGroup::clear_has_m_buycost() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void dupgroup::clear_buycost() {
-  if (buycost_ != &::google::protobuf::internal::kEmptyString) {
-    buycost_->clear();
+inline void E_DupGroup::clear_m_buycost() {
+  if (m_buycost_ != &::google::protobuf::internal::kEmptyString) {
+    m_buycost_->clear();
   }
-  clear_has_buycost();
+  clear_has_m_buycost();
 }
-inline const ::std::string& dupgroup::buycost() const {
-  return *buycost_;
+inline const ::std::string& E_DupGroup::m_buycost() const {
+  return *m_buycost_;
 }
-inline void dupgroup::set_buycost(const ::std::string& value) {
-  set_has_buycost();
-  if (buycost_ == &::google::protobuf::internal::kEmptyString) {
-    buycost_ = new ::std::string;
+inline void E_DupGroup::set_m_buycost(const ::std::string& value) {
+  set_has_m_buycost();
+  if (m_buycost_ == &::google::protobuf::internal::kEmptyString) {
+    m_buycost_ = new ::std::string;
   }
-  buycost_->assign(value);
+  m_buycost_->assign(value);
 }
-inline void dupgroup::set_buycost(const char* value) {
-  set_has_buycost();
-  if (buycost_ == &::google::protobuf::internal::kEmptyString) {
-    buycost_ = new ::std::string;
+inline void E_DupGroup::set_m_buycost(const char* value) {
+  set_has_m_buycost();
+  if (m_buycost_ == &::google::protobuf::internal::kEmptyString) {
+    m_buycost_ = new ::std::string;
   }
-  buycost_->assign(value);
+  m_buycost_->assign(value);
 }
-inline void dupgroup::set_buycost(const char* value, size_t size) {
-  set_has_buycost();
-  if (buycost_ == &::google::protobuf::internal::kEmptyString) {
-    buycost_ = new ::std::string;
+inline void E_DupGroup::set_m_buycost(const char* value, size_t size) {
+  set_has_m_buycost();
+  if (m_buycost_ == &::google::protobuf::internal::kEmptyString) {
+    m_buycost_ = new ::std::string;
   }
-  buycost_->assign(reinterpret_cast<const char*>(value), size);
+  m_buycost_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dupgroup::mutable_buycost() {
-  set_has_buycost();
-  if (buycost_ == &::google::protobuf::internal::kEmptyString) {
-    buycost_ = new ::std::string;
+inline ::std::string* E_DupGroup::mutable_m_buycost() {
+  set_has_m_buycost();
+  if (m_buycost_ == &::google::protobuf::internal::kEmptyString) {
+    m_buycost_ = new ::std::string;
   }
-  return buycost_;
+  return m_buycost_;
 }
-inline ::std::string* dupgroup::release_buycost() {
-  clear_has_buycost();
-  if (buycost_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DupGroup::release_m_buycost() {
+  clear_has_m_buycost();
+  if (m_buycost_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = buycost_;
-    buycost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_buycost_;
+    m_buycost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dupgroup::set_allocated_buycost(::std::string* buycost) {
-  if (buycost_ != &::google::protobuf::internal::kEmptyString) {
-    delete buycost_;
+inline void E_DupGroup::set_allocated_m_buycost(::std::string* m_buycost) {
+  if (m_buycost_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_buycost_;
   }
-  if (buycost) {
-    set_has_buycost();
-    buycost_ = buycost;
+  if (m_buycost) {
+    set_has_m_buycost();
+    m_buycost_ = m_buycost;
   } else {
-    clear_has_buycost();
-    buycost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_buycost();
+    m_buycost_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 countDown = 14;
-inline bool dupgroup::has_countdown() const {
+// optional int32 m_countdown = 14;
+inline bool E_DupGroup::has_m_countdown() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void dupgroup::set_has_countdown() {
+inline void E_DupGroup::set_has_m_countdown() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void dupgroup::clear_has_countdown() {
+inline void E_DupGroup::clear_has_m_countdown() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void dupgroup::clear_countdown() {
-  countdown_ = 0;
-  clear_has_countdown();
+inline void E_DupGroup::clear_m_countdown() {
+  m_countdown_ = 0;
+  clear_has_m_countdown();
 }
-inline ::google::protobuf::int32 dupgroup::countdown() const {
-  return countdown_;
+inline ::google::protobuf::int32 E_DupGroup::m_countdown() const {
+  return m_countdown_;
 }
-inline void dupgroup::set_countdown(::google::protobuf::int32 value) {
-  set_has_countdown();
-  countdown_ = value;
+inline void E_DupGroup::set_m_countdown(::google::protobuf::int32 value) {
+  set_has_m_countdown();
+  m_countdown_ = value;
 }
 
-// optional int32 endDown = 15;
-inline bool dupgroup::has_enddown() const {
+// optional int32 m_enddown = 15;
+inline bool E_DupGroup::has_m_enddown() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void dupgroup::set_has_enddown() {
+inline void E_DupGroup::set_has_m_enddown() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void dupgroup::clear_has_enddown() {
+inline void E_DupGroup::clear_has_m_enddown() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void dupgroup::clear_enddown() {
-  enddown_ = 0;
-  clear_has_enddown();
+inline void E_DupGroup::clear_m_enddown() {
+  m_enddown_ = 0;
+  clear_has_m_enddown();
 }
-inline ::google::protobuf::int32 dupgroup::enddown() const {
-  return enddown_;
+inline ::google::protobuf::int32 E_DupGroup::m_enddown() const {
+  return m_enddown_;
 }
-inline void dupgroup::set_enddown(::google::protobuf::int32 value) {
-  set_has_enddown();
-  enddown_ = value;
+inline void E_DupGroup::set_m_enddown(::google::protobuf::int32 value) {
+  set_has_m_enddown();
+  m_enddown_ = value;
 }
 
-// optional int32 accountDown = 16;
-inline bool dupgroup::has_accountdown() const {
+// optional int32 m_accountdown = 16;
+inline bool E_DupGroup::has_m_accountdown() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
-inline void dupgroup::set_has_accountdown() {
+inline void E_DupGroup::set_has_m_accountdown() {
   _has_bits_[0] |= 0x00008000u;
 }
-inline void dupgroup::clear_has_accountdown() {
+inline void E_DupGroup::clear_has_m_accountdown() {
   _has_bits_[0] &= ~0x00008000u;
 }
-inline void dupgroup::clear_accountdown() {
-  accountdown_ = 0;
-  clear_has_accountdown();
+inline void E_DupGroup::clear_m_accountdown() {
+  m_accountdown_ = 0;
+  clear_has_m_accountdown();
 }
-inline ::google::protobuf::int32 dupgroup::accountdown() const {
-  return accountdown_;
+inline ::google::protobuf::int32 E_DupGroup::m_accountdown() const {
+  return m_accountdown_;
 }
-inline void dupgroup::set_accountdown(::google::protobuf::int32 value) {
-  set_has_accountdown();
-  accountdown_ = value;
+inline void E_DupGroup::set_m_accountdown(::google::protobuf::int32 value) {
+  set_has_m_accountdown();
+  m_accountdown_ = value;
 }
 
-// optional int32 funcionID = 17;
-inline bool dupgroup::has_funcionid() const {
+// optional int32 m_funcionid = 17;
+inline bool E_DupGroup::has_m_funcionid() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
-inline void dupgroup::set_has_funcionid() {
+inline void E_DupGroup::set_has_m_funcionid() {
   _has_bits_[0] |= 0x00010000u;
 }
-inline void dupgroup::clear_has_funcionid() {
+inline void E_DupGroup::clear_has_m_funcionid() {
   _has_bits_[0] &= ~0x00010000u;
 }
-inline void dupgroup::clear_funcionid() {
-  funcionid_ = 0;
-  clear_has_funcionid();
+inline void E_DupGroup::clear_m_funcionid() {
+  m_funcionid_ = 0;
+  clear_has_m_funcionid();
 }
-inline ::google::protobuf::int32 dupgroup::funcionid() const {
-  return funcionid_;
+inline ::google::protobuf::int32 E_DupGroup::m_funcionid() const {
+  return m_funcionid_;
 }
-inline void dupgroup::set_funcionid(::google::protobuf::int32 value) {
-  set_has_funcionid();
-  funcionid_ = value;
+inline void E_DupGroup::set_m_funcionid(::google::protobuf::int32 value) {
+  set_has_m_funcionid();
+  m_funcionid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_dupgroup
+// Sheet_DupGroup
 
-// repeated .proto_ff.dupgroup dupgroup_List = 1;
-inline int Sheet_dupgroup::dupgroup_list_size() const {
-  return dupgroup_list_.size();
+// repeated .proto_ff.E_DupGroup E_DupGroup_List = 1;
+inline int Sheet_DupGroup::e_dupgroup_list_size() const {
+  return e_dupgroup_list_.size();
 }
-inline void Sheet_dupgroup::clear_dupgroup_list() {
-  dupgroup_list_.Clear();
+inline void Sheet_DupGroup::clear_e_dupgroup_list() {
+  e_dupgroup_list_.Clear();
 }
-inline const ::proto_ff::dupgroup& Sheet_dupgroup::dupgroup_list(int index) const {
-  return dupgroup_list_.Get(index);
+inline const ::proto_ff::E_DupGroup& Sheet_DupGroup::e_dupgroup_list(int index) const {
+  return e_dupgroup_list_.Get(index);
 }
-inline ::proto_ff::dupgroup* Sheet_dupgroup::mutable_dupgroup_list(int index) {
-  return dupgroup_list_.Mutable(index);
+inline ::proto_ff::E_DupGroup* Sheet_DupGroup::mutable_e_dupgroup_list(int index) {
+  return e_dupgroup_list_.Mutable(index);
 }
-inline ::proto_ff::dupgroup* Sheet_dupgroup::add_dupgroup_list() {
-  return dupgroup_list_.Add();
+inline ::proto_ff::E_DupGroup* Sheet_DupGroup::add_e_dupgroup_list() {
+  return e_dupgroup_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dupgroup >&
-Sheet_dupgroup::dupgroup_list() const {
-  return dupgroup_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupGroup >&
+Sheet_DupGroup::e_dupgroup_list() const {
+  return e_dupgroup_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dupgroup >*
-Sheet_dupgroup::mutable_dupgroup_list() {
-  return &dupgroup_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DupGroup >*
+Sheet_DupGroup::mutable_e_dupgroup_list() {
+  return &e_dupgroup_list_;
 }
 
 

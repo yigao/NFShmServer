@@ -34,21 +34,21 @@ void  protobuf_AddDesc_fashion_2eproto();
 void protobuf_AssignDesc_fashion_2eproto();
 void protobuf_ShutdownFile_fashion_2eproto();
 
-class fashionfashionattributeDesc;
-class fashionfashionActiveAttributeDesc;
-class fashionfashion;
-class Sheet_fashionfashion;
+class E_FashionFashionAttributeDesc;
+class E_FashionFashionActiveattributeDesc;
+class E_FashionFashion;
+class Sheet_FashionFashion;
 
 // ===================================================================
 
-class fashionfashionattributeDesc : public ::google::protobuf::Message {
+class E_FashionFashionAttributeDesc : public ::google::protobuf::Message {
  public:
-  fashionfashionattributeDesc();
-  virtual ~fashionfashionattributeDesc();
+  E_FashionFashionAttributeDesc();
+  virtual ~E_FashionFashionAttributeDesc();
 
-  fashionfashionattributeDesc(const fashionfashionattributeDesc& from);
+  E_FashionFashionAttributeDesc(const E_FashionFashionAttributeDesc& from);
 
-  inline fashionfashionattributeDesc& operator=(const fashionfashionattributeDesc& from) {
+  inline E_FashionFashionAttributeDesc& operator=(const E_FashionFashionAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -62,17 +62,17 @@ class fashionfashionattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const fashionfashionattributeDesc& default_instance();
+  static const E_FashionFashionAttributeDesc& default_instance();
 
-  void Swap(fashionfashionattributeDesc* other);
+  void Swap(E_FashionFashionAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  fashionfashionattributeDesc* New() const;
+  E_FashionFashionAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const fashionfashionattributeDesc& from);
-  void MergeFrom(const fashionfashionattributeDesc& from);
+  void CopyFrom(const E_FashionFashionAttributeDesc& from);
+  void MergeFrom(const E_FashionFashionAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -95,31 +95,31 @@ class fashionfashionattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.fashionfashionattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FashionFashionAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -129,18 +129,18 @@ class fashionfashionattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_fashion_2eproto();
 
   void InitAsDefaultInstance();
-  static fashionfashionattributeDesc* default_instance_;
+  static E_FashionFashionAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class fashionfashionActiveAttributeDesc : public ::google::protobuf::Message {
+class E_FashionFashionActiveattributeDesc : public ::google::protobuf::Message {
  public:
-  fashionfashionActiveAttributeDesc();
-  virtual ~fashionfashionActiveAttributeDesc();
+  E_FashionFashionActiveattributeDesc();
+  virtual ~E_FashionFashionActiveattributeDesc();
 
-  fashionfashionActiveAttributeDesc(const fashionfashionActiveAttributeDesc& from);
+  E_FashionFashionActiveattributeDesc(const E_FashionFashionActiveattributeDesc& from);
 
-  inline fashionfashionActiveAttributeDesc& operator=(const fashionfashionActiveAttributeDesc& from) {
+  inline E_FashionFashionActiveattributeDesc& operator=(const E_FashionFashionActiveattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -154,17 +154,17 @@ class fashionfashionActiveAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const fashionfashionActiveAttributeDesc& default_instance();
+  static const E_FashionFashionActiveattributeDesc& default_instance();
 
-  void Swap(fashionfashionActiveAttributeDesc* other);
+  void Swap(E_FashionFashionActiveattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  fashionfashionActiveAttributeDesc* New() const;
+  E_FashionFashionActiveattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const fashionfashionActiveAttributeDesc& from);
-  void MergeFrom(const fashionfashionActiveAttributeDesc& from);
+  void CopyFrom(const E_FashionFashionActiveattributeDesc& from);
+  void MergeFrom(const E_FashionFashionActiveattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -187,31 +187,31 @@ class fashionfashionActiveAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.fashionfashionActiveAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FashionFashionActiveattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -221,18 +221,18 @@ class fashionfashionActiveAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_fashion_2eproto();
 
   void InitAsDefaultInstance();
-  static fashionfashionActiveAttributeDesc* default_instance_;
+  static E_FashionFashionActiveattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class fashionfashion : public ::google::protobuf::Message {
+class E_FashionFashion : public ::google::protobuf::Message {
  public:
-  fashionfashion();
-  virtual ~fashionfashion();
+  E_FashionFashion();
+  virtual ~E_FashionFashion();
 
-  fashionfashion(const fashionfashion& from);
+  E_FashionFashion(const E_FashionFashion& from);
 
-  inline fashionfashion& operator=(const fashionfashion& from) {
+  inline E_FashionFashion& operator=(const E_FashionFashion& from) {
     CopyFrom(from);
     return *this;
   }
@@ -246,17 +246,17 @@ class fashionfashion : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const fashionfashion& default_instance();
+  static const E_FashionFashion& default_instance();
 
-  void Swap(fashionfashion* other);
+  void Swap(E_FashionFashion* other);
 
   // implements Message ----------------------------------------------
 
-  fashionfashion* New() const;
+  E_FashionFashion* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const fashionfashion& from);
-  void MergeFrom(const fashionfashion& from);
+  void CopyFrom(const E_FashionFashion& from);
+  void MergeFrom(const E_FashionFashion& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -279,162 +279,162 @@ class fashionfashion : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional string name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 type = 3;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 quality = 4;
-  inline bool has_quality() const;
-  inline void clear_quality();
-  static const int kQualityFieldNumber = 4;
-  inline ::google::protobuf::int32 quality() const;
-  inline void set_quality(::google::protobuf::int32 value);
+  // optional int32 m_quality = 4;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 4;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional string professionLimit = 5;
-  inline bool has_professionlimit() const;
-  inline void clear_professionlimit();
-  static const int kProfessionLimitFieldNumber = 5;
-  inline const ::std::string& professionlimit() const;
-  inline void set_professionlimit(const ::std::string& value);
-  inline void set_professionlimit(const char* value);
-  inline void set_professionlimit(const char* value, size_t size);
-  inline ::std::string* mutable_professionlimit();
-  inline ::std::string* release_professionlimit();
-  inline void set_allocated_professionlimit(::std::string* professionlimit);
+  // optional string m_professionlimit = 5;
+  inline bool has_m_professionlimit() const;
+  inline void clear_m_professionlimit();
+  static const int kMProfessionlimitFieldNumber = 5;
+  inline const ::std::string& m_professionlimit() const;
+  inline void set_m_professionlimit(const ::std::string& value);
+  inline void set_m_professionlimit(const char* value);
+  inline void set_m_professionlimit(const char* value, size_t size);
+  inline ::std::string* mutable_m_professionlimit();
+  inline ::std::string* release_m_professionlimit();
+  inline void set_allocated_m_professionlimit(::std::string* m_professionlimit);
 
-  // optional int64 activationItem = 6;
-  inline bool has_activationitem() const;
-  inline void clear_activationitem();
-  static const int kActivationItemFieldNumber = 6;
-  inline ::google::protobuf::int64 activationitem() const;
-  inline void set_activationitem(::google::protobuf::int64 value);
+  // optional int64 m_activationitem = 6;
+  inline bool has_m_activationitem() const;
+  inline void clear_m_activationitem();
+  static const int kMActivationitemFieldNumber = 6;
+  inline ::google::protobuf::int64 m_activationitem() const;
+  inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 activationNum = 7;
-  inline bool has_activationnum() const;
-  inline void clear_activationnum();
-  static const int kActivationNumFieldNumber = 7;
-  inline ::google::protobuf::int32 activationnum() const;
-  inline void set_activationnum(::google::protobuf::int32 value);
+  // optional int32 m_activationnum = 7;
+  inline bool has_m_activationnum() const;
+  inline void clear_m_activationnum();
+  static const int kMActivationnumFieldNumber = 7;
+  inline ::google::protobuf::int32 m_activationnum() const;
+  inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 starId = 8;
-  inline bool has_starid() const;
-  inline void clear_starid();
-  static const int kStarIdFieldNumber = 8;
-  inline ::google::protobuf::int64 starid() const;
-  inline void set_starid(::google::protobuf::int64 value);
+  // optional int64 m_starid = 8;
+  inline bool has_m_starid() const;
+  inline void clear_m_starid();
+  static const int kMStaridFieldNumber = 8;
+  inline ::google::protobuf::int64 m_starid() const;
+  inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string starNum = 9;
-  inline bool has_starnum() const;
-  inline void clear_starnum();
-  static const int kStarNumFieldNumber = 9;
-  inline const ::std::string& starnum() const;
-  inline void set_starnum(const ::std::string& value);
-  inline void set_starnum(const char* value);
-  inline void set_starnum(const char* value, size_t size);
-  inline ::std::string* mutable_starnum();
-  inline ::std::string* release_starnum();
-  inline void set_allocated_starnum(::std::string* starnum);
+  // optional string m_starnum = 9;
+  inline bool has_m_starnum() const;
+  inline void clear_m_starnum();
+  static const int kMStarnumFieldNumber = 9;
+  inline const ::std::string& m_starnum() const;
+  inline void set_m_starnum(const ::std::string& value);
+  inline void set_m_starnum(const char* value);
+  inline void set_m_starnum(const char* value, size_t size);
+  inline ::std::string* mutable_m_starnum();
+  inline ::std::string* release_m_starnum();
+  inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 starUp = 10;
-  inline bool has_starup() const;
-  inline void clear_starup();
-  static const int kStarUpFieldNumber = 10;
-  inline ::google::protobuf::int32 starup() const;
-  inline void set_starup(::google::protobuf::int32 value);
+  // optional int32 m_starup = 10;
+  inline bool has_m_starup() const;
+  inline void clear_m_starup();
+  static const int kMStarupFieldNumber = 10;
+  inline ::google::protobuf::int32 m_starup() const;
+  inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 starBer = 11;
-  inline bool has_starber() const;
-  inline void clear_starber();
-  static const int kStarBerFieldNumber = 11;
-  inline ::google::protobuf::int32 starber() const;
-  inline void set_starber(::google::protobuf::int32 value);
+  // optional int32 m_starber = 11;
+  inline bool has_m_starber() const;
+  inline void clear_m_starber();
+  static const int kMStarberFieldNumber = 11;
+  inline ::google::protobuf::int32 m_starber() const;
+  inline void set_m_starber(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.fashionfashionattributeDesc attribute = 12;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 12;
-  inline const ::proto_ff::fashionfashionattributeDesc& attribute(int index) const;
-  inline ::proto_ff::fashionfashionattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::fashionfashionattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 12;
+  inline const ::proto_ff::E_FashionFashionAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_FashionFashionAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_FashionFashionAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc >*
+      mutable_m_attribute();
 
-  // repeated .proto_ff.fashionfashionActiveAttributeDesc ActiveAttribute = 13;
-  inline int activeattribute_size() const;
-  inline void clear_activeattribute();
-  static const int kActiveAttributeFieldNumber = 13;
-  inline const ::proto_ff::fashionfashionActiveAttributeDesc& activeattribute(int index) const;
-  inline ::proto_ff::fashionfashionActiveAttributeDesc* mutable_activeattribute(int index);
-  inline ::proto_ff::fashionfashionActiveAttributeDesc* add_activeattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionActiveAttributeDesc >&
-      activeattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionActiveAttributeDesc >*
-      mutable_activeattribute();
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+  inline int m_activeattribute_size() const;
+  inline void clear_m_activeattribute();
+  static const int kMActiveattributeFieldNumber = 13;
+  inline const ::proto_ff::E_FashionFashionActiveattributeDesc& m_activeattribute(int index) const;
+  inline ::proto_ff::E_FashionFashionActiveattributeDesc* mutable_m_activeattribute(int index);
+  inline ::proto_ff::E_FashionFashionActiveattributeDesc* add_m_activeattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionActiveattributeDesc >&
+      m_activeattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionActiveattributeDesc >*
+      mutable_m_activeattribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.fashionfashion)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FashionFashion)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_quality();
-  inline void clear_has_quality();
-  inline void set_has_professionlimit();
-  inline void clear_has_professionlimit();
-  inline void set_has_activationitem();
-  inline void clear_has_activationitem();
-  inline void set_has_activationnum();
-  inline void clear_has_activationnum();
-  inline void set_has_starid();
-  inline void clear_has_starid();
-  inline void set_has_starnum();
-  inline void clear_has_starnum();
-  inline void set_has_starup();
-  inline void clear_has_starup();
-  inline void set_has_starber();
-  inline void clear_has_starber();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+  inline void set_has_m_professionlimit();
+  inline void clear_has_m_professionlimit();
+  inline void set_has_m_activationitem();
+  inline void clear_has_m_activationitem();
+  inline void set_has_m_activationnum();
+  inline void clear_has_m_activationnum();
+  inline void set_has_m_starid();
+  inline void clear_has_m_starid();
+  inline void set_has_m_starnum();
+  inline void clear_has_m_starnum();
+  inline void set_has_m_starup();
+  inline void clear_has_m_starup();
+  inline void set_has_m_starber();
+  inline void clear_has_m_starber();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* name_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 quality_;
-  ::std::string* professionlimit_;
-  ::google::protobuf::int64 activationitem_;
-  ::google::protobuf::int64 starid_;
-  ::google::protobuf::int32 activationnum_;
-  ::google::protobuf::int32 starup_;
-  ::std::string* starnum_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionattributeDesc > attribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionActiveAttributeDesc > activeattribute_;
-  ::google::protobuf::int32 starber_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_quality_;
+  ::std::string* m_professionlimit_;
+  ::google::protobuf::int64 m_activationitem_;
+  ::google::protobuf::int64 m_starid_;
+  ::google::protobuf::int32 m_activationnum_;
+  ::google::protobuf::int32 m_starup_;
+  ::std::string* m_starnum_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionActiveattributeDesc > m_activeattribute_;
+  ::google::protobuf::int32 m_starber_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
@@ -444,18 +444,18 @@ class fashionfashion : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_fashion_2eproto();
 
   void InitAsDefaultInstance();
-  static fashionfashion* default_instance_;
+  static E_FashionFashion* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_fashionfashion : public ::google::protobuf::Message {
+class Sheet_FashionFashion : public ::google::protobuf::Message {
  public:
-  Sheet_fashionfashion();
-  virtual ~Sheet_fashionfashion();
+  Sheet_FashionFashion();
+  virtual ~Sheet_FashionFashion();
 
-  Sheet_fashionfashion(const Sheet_fashionfashion& from);
+  Sheet_FashionFashion(const Sheet_FashionFashion& from);
 
-  inline Sheet_fashionfashion& operator=(const Sheet_fashionfashion& from) {
+  inline Sheet_FashionFashion& operator=(const Sheet_FashionFashion& from) {
     CopyFrom(from);
     return *this;
   }
@@ -469,17 +469,17 @@ class Sheet_fashionfashion : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_fashionfashion& default_instance();
+  static const Sheet_FashionFashion& default_instance();
 
-  void Swap(Sheet_fashionfashion* other);
+  void Swap(Sheet_FashionFashion* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_fashionfashion* New() const;
+  Sheet_FashionFashion* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_fashionfashion& from);
-  void MergeFrom(const Sheet_fashionfashion& from);
+  void CopyFrom(const Sheet_FashionFashion& from);
+  void MergeFrom(const Sheet_FashionFashion& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -502,24 +502,24 @@ class Sheet_fashionfashion : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.fashionfashion fashionfashion_List = 1;
-  inline int fashionfashion_list_size() const;
-  inline void clear_fashionfashion_list();
-  static const int kFashionfashionListFieldNumber = 1;
-  inline const ::proto_ff::fashionfashion& fashionfashion_list(int index) const;
-  inline ::proto_ff::fashionfashion* mutable_fashionfashion_list(int index);
-  inline ::proto_ff::fashionfashion* add_fashionfashion_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashion >&
-      fashionfashion_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashion >*
-      mutable_fashionfashion_list();
+  // repeated .proto_ff.E_FashionFashion E_FashionFashion_List = 1;
+  inline int e_fashionfashion_list_size() const;
+  inline void clear_e_fashionfashion_list();
+  static const int kEFashionFashionListFieldNumber = 1;
+  inline const ::proto_ff::E_FashionFashion& e_fashionfashion_list(int index) const;
+  inline ::proto_ff::E_FashionFashion* mutable_e_fashionfashion_list(int index);
+  inline ::proto_ff::E_FashionFashion* add_e_fashionfashion_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashion >&
+      e_fashionfashion_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashion >*
+      mutable_e_fashionfashion_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_fashionfashion)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FashionFashion)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashion > fashionfashion_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashion > e_fashionfashion_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -529,574 +529,574 @@ class Sheet_fashionfashion : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_fashion_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_fashionfashion* default_instance_;
+  static Sheet_FashionFashion* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// fashionfashionattributeDesc
+// E_FashionFashionAttributeDesc
 
-// optional int32 type = 1;
-inline bool fashionfashionattributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FashionFashionAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void fashionfashionattributeDesc::set_has_type() {
+inline void E_FashionFashionAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void fashionfashionattributeDesc::clear_has_type() {
+inline void E_FashionFashionAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void fashionfashionattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FashionFashionAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 fashionfashionattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FashionFashionAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void fashionfashionattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FashionFashionAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool fashionfashionattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FashionFashionAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void fashionfashionattributeDesc::set_has_value() {
+inline void E_FashionFashionAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void fashionfashionattributeDesc::clear_has_value() {
+inline void E_FashionFashionAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void fashionfashionattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FashionFashionAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 fashionfashionattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FashionFashionAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void fashionfashionattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FashionFashionAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// fashionfashionActiveAttributeDesc
+// E_FashionFashionActiveattributeDesc
 
-// optional int32 type = 1;
-inline bool fashionfashionActiveAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_FashionFashionActiveattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void fashionfashionActiveAttributeDesc::set_has_type() {
+inline void E_FashionFashionActiveattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void fashionfashionActiveAttributeDesc::clear_has_type() {
+inline void E_FashionFashionActiveattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void fashionfashionActiveAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FashionFashionActiveattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 fashionfashionActiveAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FashionFashionActiveattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void fashionfashionActiveAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FashionFashionActiveattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool fashionfashionActiveAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_FashionFashionActiveattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void fashionfashionActiveAttributeDesc::set_has_value() {
+inline void E_FashionFashionActiveattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void fashionfashionActiveAttributeDesc::clear_has_value() {
+inline void E_FashionFashionActiveattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void fashionfashionActiveAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_FashionFashionActiveattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 fashionfashionActiveAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_FashionFashionActiveattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void fashionfashionActiveAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_FashionFashionActiveattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// fashionfashion
+// E_FashionFashion
 
-// optional int64 ID = 1;
-inline bool fashionfashion::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FashionFashion::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void fashionfashion::set_has_id() {
+inline void E_FashionFashion::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void fashionfashion::clear_has_id() {
+inline void E_FashionFashion::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void fashionfashion::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FashionFashion::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 fashionfashion::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FashionFashion::m_id() const {
+  return m_id_;
 }
-inline void fashionfashion::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FashionFashion::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string name = 2;
-inline bool fashionfashion::has_name() const {
+// optional string m_name = 2;
+inline bool E_FashionFashion::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void fashionfashion::set_has_name() {
+inline void E_FashionFashion::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void fashionfashion::clear_has_name() {
+inline void E_FashionFashion::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void fashionfashion::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_FashionFashion::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& fashionfashion::name() const {
-  return *name_;
+inline const ::std::string& E_FashionFashion::m_name() const {
+  return *m_name_;
 }
-inline void fashionfashion::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FashionFashion::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void fashionfashion::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FashionFashion::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void fashionfashion::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_FashionFashion::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* fashionfashion::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_FashionFashion::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* fashionfashion::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FashionFashion::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void fashionfashion::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_FashionFashion::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 type = 3;
-inline bool fashionfashion::has_type() const {
+// optional int32 m_type = 3;
+inline bool E_FashionFashion::has_m_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void fashionfashion::set_has_type() {
+inline void E_FashionFashion::set_has_m_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void fashionfashion::clear_has_type() {
+inline void E_FashionFashion::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void fashionfashion::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_FashionFashion::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 fashionfashion::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_FashionFashion::m_type() const {
+  return m_type_;
 }
-inline void fashionfashion::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_FashionFashion::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 quality = 4;
-inline bool fashionfashion::has_quality() const {
+// optional int32 m_quality = 4;
+inline bool E_FashionFashion::has_m_quality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void fashionfashion::set_has_quality() {
+inline void E_FashionFashion::set_has_m_quality() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void fashionfashion::clear_has_quality() {
+inline void E_FashionFashion::clear_has_m_quality() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void fashionfashion::clear_quality() {
-  quality_ = 0;
-  clear_has_quality();
+inline void E_FashionFashion::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
 }
-inline ::google::protobuf::int32 fashionfashion::quality() const {
-  return quality_;
+inline ::google::protobuf::int32 E_FashionFashion::m_quality() const {
+  return m_quality_;
 }
-inline void fashionfashion::set_quality(::google::protobuf::int32 value) {
-  set_has_quality();
-  quality_ = value;
+inline void E_FashionFashion::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
 }
 
-// optional string professionLimit = 5;
-inline bool fashionfashion::has_professionlimit() const {
+// optional string m_professionlimit = 5;
+inline bool E_FashionFashion::has_m_professionlimit() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void fashionfashion::set_has_professionlimit() {
+inline void E_FashionFashion::set_has_m_professionlimit() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void fashionfashion::clear_has_professionlimit() {
+inline void E_FashionFashion::clear_has_m_professionlimit() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void fashionfashion::clear_professionlimit() {
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    professionlimit_->clear();
+inline void E_FashionFashion::clear_m_professionlimit() {
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_->clear();
   }
-  clear_has_professionlimit();
+  clear_has_m_professionlimit();
 }
-inline const ::std::string& fashionfashion::professionlimit() const {
-  return *professionlimit_;
+inline const ::std::string& E_FashionFashion::m_professionlimit() const {
+  return *m_professionlimit_;
 }
-inline void fashionfashion::set_professionlimit(const ::std::string& value) {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline void E_FashionFashion::set_m_professionlimit(const ::std::string& value) {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  professionlimit_->assign(value);
+  m_professionlimit_->assign(value);
 }
-inline void fashionfashion::set_professionlimit(const char* value) {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline void E_FashionFashion::set_m_professionlimit(const char* value) {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  professionlimit_->assign(value);
+  m_professionlimit_->assign(value);
 }
-inline void fashionfashion::set_professionlimit(const char* value, size_t size) {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline void E_FashionFashion::set_m_professionlimit(const char* value, size_t size) {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  professionlimit_->assign(reinterpret_cast<const char*>(value), size);
+  m_professionlimit_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* fashionfashion::mutable_professionlimit() {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline ::std::string* E_FashionFashion::mutable_m_professionlimit() {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  return professionlimit_;
+  return m_professionlimit_;
 }
-inline ::std::string* fashionfashion::release_professionlimit() {
-  clear_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FashionFashion::release_m_professionlimit() {
+  clear_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = professionlimit_;
-    professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_professionlimit_;
+    m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void fashionfashion::set_allocated_professionlimit(::std::string* professionlimit) {
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionlimit_;
+inline void E_FashionFashion::set_allocated_m_professionlimit(::std::string* m_professionlimit) {
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionlimit_;
   }
-  if (professionlimit) {
-    set_has_professionlimit();
-    professionlimit_ = professionlimit;
+  if (m_professionlimit) {
+    set_has_m_professionlimit();
+    m_professionlimit_ = m_professionlimit;
   } else {
-    clear_has_professionlimit();
-    professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_professionlimit();
+    m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int64 activationItem = 6;
-inline bool fashionfashion::has_activationitem() const {
+// optional int64 m_activationitem = 6;
+inline bool E_FashionFashion::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void fashionfashion::set_has_activationitem() {
+inline void E_FashionFashion::set_has_m_activationitem() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void fashionfashion::clear_has_activationitem() {
+inline void E_FashionFashion::clear_has_m_activationitem() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void fashionfashion::clear_activationitem() {
-  activationitem_ = GOOGLE_LONGLONG(0);
-  clear_has_activationitem();
+inline void E_FashionFashion::clear_m_activationitem() {
+  m_activationitem_ = GOOGLE_LONGLONG(0);
+  clear_has_m_activationitem();
 }
-inline ::google::protobuf::int64 fashionfashion::activationitem() const {
-  return activationitem_;
+inline ::google::protobuf::int64 E_FashionFashion::m_activationitem() const {
+  return m_activationitem_;
 }
-inline void fashionfashion::set_activationitem(::google::protobuf::int64 value) {
-  set_has_activationitem();
-  activationitem_ = value;
+inline void E_FashionFashion::set_m_activationitem(::google::protobuf::int64 value) {
+  set_has_m_activationitem();
+  m_activationitem_ = value;
 }
 
-// optional int32 activationNum = 7;
-inline bool fashionfashion::has_activationnum() const {
+// optional int32 m_activationnum = 7;
+inline bool E_FashionFashion::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void fashionfashion::set_has_activationnum() {
+inline void E_FashionFashion::set_has_m_activationnum() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void fashionfashion::clear_has_activationnum() {
+inline void E_FashionFashion::clear_has_m_activationnum() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void fashionfashion::clear_activationnum() {
-  activationnum_ = 0;
-  clear_has_activationnum();
+inline void E_FashionFashion::clear_m_activationnum() {
+  m_activationnum_ = 0;
+  clear_has_m_activationnum();
 }
-inline ::google::protobuf::int32 fashionfashion::activationnum() const {
-  return activationnum_;
+inline ::google::protobuf::int32 E_FashionFashion::m_activationnum() const {
+  return m_activationnum_;
 }
-inline void fashionfashion::set_activationnum(::google::protobuf::int32 value) {
-  set_has_activationnum();
-  activationnum_ = value;
+inline void E_FashionFashion::set_m_activationnum(::google::protobuf::int32 value) {
+  set_has_m_activationnum();
+  m_activationnum_ = value;
 }
 
-// optional int64 starId = 8;
-inline bool fashionfashion::has_starid() const {
+// optional int64 m_starid = 8;
+inline bool E_FashionFashion::has_m_starid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void fashionfashion::set_has_starid() {
+inline void E_FashionFashion::set_has_m_starid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void fashionfashion::clear_has_starid() {
+inline void E_FashionFashion::clear_has_m_starid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void fashionfashion::clear_starid() {
-  starid_ = GOOGLE_LONGLONG(0);
-  clear_has_starid();
+inline void E_FashionFashion::clear_m_starid() {
+  m_starid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_starid();
 }
-inline ::google::protobuf::int64 fashionfashion::starid() const {
-  return starid_;
+inline ::google::protobuf::int64 E_FashionFashion::m_starid() const {
+  return m_starid_;
 }
-inline void fashionfashion::set_starid(::google::protobuf::int64 value) {
-  set_has_starid();
-  starid_ = value;
+inline void E_FashionFashion::set_m_starid(::google::protobuf::int64 value) {
+  set_has_m_starid();
+  m_starid_ = value;
 }
 
-// optional string starNum = 9;
-inline bool fashionfashion::has_starnum() const {
+// optional string m_starnum = 9;
+inline bool E_FashionFashion::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void fashionfashion::set_has_starnum() {
+inline void E_FashionFashion::set_has_m_starnum() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void fashionfashion::clear_has_starnum() {
+inline void E_FashionFashion::clear_has_m_starnum() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void fashionfashion::clear_starnum() {
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    starnum_->clear();
+inline void E_FashionFashion::clear_m_starnum() {
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    m_starnum_->clear();
   }
-  clear_has_starnum();
+  clear_has_m_starnum();
 }
-inline const ::std::string& fashionfashion::starnum() const {
-  return *starnum_;
+inline const ::std::string& E_FashionFashion::m_starnum() const {
+  return *m_starnum_;
 }
-inline void fashionfashion::set_starnum(const ::std::string& value) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_FashionFashion::set_m_starnum(const ::std::string& value) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(value);
+  m_starnum_->assign(value);
 }
-inline void fashionfashion::set_starnum(const char* value) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_FashionFashion::set_m_starnum(const char* value) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(value);
+  m_starnum_->assign(value);
 }
-inline void fashionfashion::set_starnum(const char* value, size_t size) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_FashionFashion::set_m_starnum(const char* value, size_t size) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(reinterpret_cast<const char*>(value), size);
+  m_starnum_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* fashionfashion::mutable_starnum() {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline ::std::string* E_FashionFashion::mutable_m_starnum() {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  return starnum_;
+  return m_starnum_;
 }
-inline ::std::string* fashionfashion::release_starnum() {
-  clear_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FashionFashion::release_m_starnum() {
+  clear_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = starnum_;
-    starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_starnum_;
+    m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void fashionfashion::set_allocated_starnum(::std::string* starnum) {
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete starnum_;
+inline void E_FashionFashion::set_allocated_m_starnum(::std::string* m_starnum) {
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_starnum_;
   }
-  if (starnum) {
-    set_has_starnum();
-    starnum_ = starnum;
+  if (m_starnum) {
+    set_has_m_starnum();
+    m_starnum_ = m_starnum;
   } else {
-    clear_has_starnum();
-    starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_starnum();
+    m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 starUp = 10;
-inline bool fashionfashion::has_starup() const {
+// optional int32 m_starup = 10;
+inline bool E_FashionFashion::has_m_starup() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void fashionfashion::set_has_starup() {
+inline void E_FashionFashion::set_has_m_starup() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void fashionfashion::clear_has_starup() {
+inline void E_FashionFashion::clear_has_m_starup() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void fashionfashion::clear_starup() {
-  starup_ = 0;
-  clear_has_starup();
+inline void E_FashionFashion::clear_m_starup() {
+  m_starup_ = 0;
+  clear_has_m_starup();
 }
-inline ::google::protobuf::int32 fashionfashion::starup() const {
-  return starup_;
+inline ::google::protobuf::int32 E_FashionFashion::m_starup() const {
+  return m_starup_;
 }
-inline void fashionfashion::set_starup(::google::protobuf::int32 value) {
-  set_has_starup();
-  starup_ = value;
+inline void E_FashionFashion::set_m_starup(::google::protobuf::int32 value) {
+  set_has_m_starup();
+  m_starup_ = value;
 }
 
-// optional int32 starBer = 11;
-inline bool fashionfashion::has_starber() const {
+// optional int32 m_starber = 11;
+inline bool E_FashionFashion::has_m_starber() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void fashionfashion::set_has_starber() {
+inline void E_FashionFashion::set_has_m_starber() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void fashionfashion::clear_has_starber() {
+inline void E_FashionFashion::clear_has_m_starber() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void fashionfashion::clear_starber() {
-  starber_ = 0;
-  clear_has_starber();
+inline void E_FashionFashion::clear_m_starber() {
+  m_starber_ = 0;
+  clear_has_m_starber();
 }
-inline ::google::protobuf::int32 fashionfashion::starber() const {
-  return starber_;
+inline ::google::protobuf::int32 E_FashionFashion::m_starber() const {
+  return m_starber_;
 }
-inline void fashionfashion::set_starber(::google::protobuf::int32 value) {
-  set_has_starber();
-  starber_ = value;
-}
-
-// repeated .proto_ff.fashionfashionattributeDesc attribute = 12;
-inline int fashionfashion::attribute_size() const {
-  return attribute_.size();
-}
-inline void fashionfashion::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::fashionfashionattributeDesc& fashionfashion::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::fashionfashionattributeDesc* fashionfashion::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::fashionfashionattributeDesc* fashionfashion::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionattributeDesc >&
-fashionfashion::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionattributeDesc >*
-fashionfashion::mutable_attribute() {
-  return &attribute_;
+inline void E_FashionFashion::set_m_starber(::google::protobuf::int32 value) {
+  set_has_m_starber();
+  m_starber_ = value;
 }
 
-// repeated .proto_ff.fashionfashionActiveAttributeDesc ActiveAttribute = 13;
-inline int fashionfashion::activeattribute_size() const {
-  return activeattribute_.size();
+// repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+inline int E_FashionFashion::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void fashionfashion::clear_activeattribute() {
-  activeattribute_.Clear();
+inline void E_FashionFashion::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::fashionfashionActiveAttributeDesc& fashionfashion::activeattribute(int index) const {
-  return activeattribute_.Get(index);
+inline const ::proto_ff::E_FashionFashionAttributeDesc& E_FashionFashion::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::fashionfashionActiveAttributeDesc* fashionfashion::mutable_activeattribute(int index) {
-  return activeattribute_.Mutable(index);
+inline ::proto_ff::E_FashionFashionAttributeDesc* E_FashionFashion::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::fashionfashionActiveAttributeDesc* fashionfashion::add_activeattribute() {
-  return activeattribute_.Add();
+inline ::proto_ff::E_FashionFashionAttributeDesc* E_FashionFashion::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionActiveAttributeDesc >&
-fashionfashion::activeattribute() const {
-  return activeattribute_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc >&
+E_FashionFashion::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashionActiveAttributeDesc >*
-fashionfashion::mutable_activeattribute() {
-  return &activeattribute_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc >*
+E_FashionFashion::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+inline int E_FashionFashion::m_activeattribute_size() const {
+  return m_activeattribute_.size();
+}
+inline void E_FashionFashion::clear_m_activeattribute() {
+  m_activeattribute_.Clear();
+}
+inline const ::proto_ff::E_FashionFashionActiveattributeDesc& E_FashionFashion::m_activeattribute(int index) const {
+  return m_activeattribute_.Get(index);
+}
+inline ::proto_ff::E_FashionFashionActiveattributeDesc* E_FashionFashion::mutable_m_activeattribute(int index) {
+  return m_activeattribute_.Mutable(index);
+}
+inline ::proto_ff::E_FashionFashionActiveattributeDesc* E_FashionFashion::add_m_activeattribute() {
+  return m_activeattribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionActiveattributeDesc >&
+E_FashionFashion::m_activeattribute() const {
+  return m_activeattribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionActiveattributeDesc >*
+E_FashionFashion::mutable_m_activeattribute() {
+  return &m_activeattribute_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_fashionfashion
+// Sheet_FashionFashion
 
-// repeated .proto_ff.fashionfashion fashionfashion_List = 1;
-inline int Sheet_fashionfashion::fashionfashion_list_size() const {
-  return fashionfashion_list_.size();
+// repeated .proto_ff.E_FashionFashion E_FashionFashion_List = 1;
+inline int Sheet_FashionFashion::e_fashionfashion_list_size() const {
+  return e_fashionfashion_list_.size();
 }
-inline void Sheet_fashionfashion::clear_fashionfashion_list() {
-  fashionfashion_list_.Clear();
+inline void Sheet_FashionFashion::clear_e_fashionfashion_list() {
+  e_fashionfashion_list_.Clear();
 }
-inline const ::proto_ff::fashionfashion& Sheet_fashionfashion::fashionfashion_list(int index) const {
-  return fashionfashion_list_.Get(index);
+inline const ::proto_ff::E_FashionFashion& Sheet_FashionFashion::e_fashionfashion_list(int index) const {
+  return e_fashionfashion_list_.Get(index);
 }
-inline ::proto_ff::fashionfashion* Sheet_fashionfashion::mutable_fashionfashion_list(int index) {
-  return fashionfashion_list_.Mutable(index);
+inline ::proto_ff::E_FashionFashion* Sheet_FashionFashion::mutable_e_fashionfashion_list(int index) {
+  return e_fashionfashion_list_.Mutable(index);
 }
-inline ::proto_ff::fashionfashion* Sheet_fashionfashion::add_fashionfashion_list() {
-  return fashionfashion_list_.Add();
+inline ::proto_ff::E_FashionFashion* Sheet_FashionFashion::add_e_fashionfashion_list() {
+  return e_fashionfashion_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashion >&
-Sheet_fashionfashion::fashionfashion_list() const {
-  return fashionfashion_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashion >&
+Sheet_FashionFashion::e_fashionfashion_list() const {
+  return e_fashionfashion_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::fashionfashion >*
-Sheet_fashionfashion::mutable_fashionfashion_list() {
-  return &fashionfashion_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashion >*
+Sheet_FashionFashion::mutable_e_fashionfashion_list() {
+  return &e_fashionfashion_list_;
 }
 
 

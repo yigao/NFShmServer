@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-tasktrackertasktracker_s::tasktrackertasktracker_s() {
+E_TasktrackerTasktracker_s::E_TasktrackerTasktracker_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ tasktrackertasktracker_s::tasktrackertasktracker_s() {
 	}
 }
 
-int tasktrackertasktracker_s::CreateInit() {
-	comID = (int32_t)0;
-	trueID = (int32_t)0;
+int E_TasktrackerTasktracker_s::CreateInit() {
+	m_comid = (int32_t)0;
+	m_trueid = (int32_t)0;
 	return 0;
 }
 
-int tasktrackertasktracker_s::ResumeInit() {
+int E_TasktrackerTasktracker_s::ResumeInit() {
 	return 0;
 }
 
-void tasktrackertasktracker_s::write_to_pbmsg(::proto_ff::tasktrackertasktracker & msg) const {
-	msg.set_comid((int32_t)comID);
-	msg.set_trueid((int32_t)trueID);
+void E_TasktrackerTasktracker_s::write_to_pbmsg(::proto_ff::E_TasktrackerTasktracker & msg) const {
+	msg.set_m_comid((int32_t)m_comid);
+	msg.set_m_trueid((int32_t)m_trueid);
 }
 
-void tasktrackertasktracker_s::read_from_pbmsg(const ::proto_ff::tasktrackertasktracker & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tasktrackertasktracker_s));
-	comID = msg.comid();
-	trueID = msg.trueid();
+void E_TasktrackerTasktracker_s::read_from_pbmsg(const ::proto_ff::E_TasktrackerTasktracker & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_TasktrackerTasktracker_s));
+	m_comid = msg.m_comid();
+	m_trueid = msg.m_trueid();
 }
 
-Sheet_tasktrackertasktracker_s::Sheet_tasktrackertasktracker_s() {
+Sheet_TasktrackerTasktracker_s::Sheet_TasktrackerTasktracker_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,27 +39,27 @@ Sheet_tasktrackertasktracker_s::Sheet_tasktrackertasktracker_s() {
 	}
 }
 
-int Sheet_tasktrackertasktracker_s::CreateInit() {
+int Sheet_TasktrackerTasktracker_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_tasktrackertasktracker_s::ResumeInit() {
+int Sheet_TasktrackerTasktracker_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_tasktrackertasktracker_s::write_to_pbmsg(::proto_ff::Sheet_tasktrackertasktracker & msg) const {
-	for(int32_t i = 0; i < (int32_t)tasktrackertasktracker_List.GetSize() && i < tasktrackertasktracker_List.GetMaxSize(); ++i) {
-		::proto_ff::tasktrackertasktracker* temp_tasktrackertasktracker_list = msg.add_tasktrackertasktracker_list();
-		tasktrackertasktracker_List[i].write_to_pbmsg(*temp_tasktrackertasktracker_list);
+void Sheet_TasktrackerTasktracker_s::write_to_pbmsg(::proto_ff::Sheet_TasktrackerTasktracker & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_TasktrackerTasktracker_List.size(); ++i) {
+		::proto_ff::E_TasktrackerTasktracker* temp_e_tasktrackertasktracker_list = msg.add_e_tasktrackertasktracker_list();
+		E_TasktrackerTasktracker_List[i].write_to_pbmsg(*temp_e_tasktrackertasktracker_list);
 	}
 }
 
-void Sheet_tasktrackertasktracker_s::read_from_pbmsg(const ::proto_ff::Sheet_tasktrackertasktracker & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_tasktrackertasktracker_s));
-	tasktrackertasktracker_List.SetSize(msg.tasktrackertasktracker_list_size() > tasktrackertasktracker_List.GetMaxSize() ? tasktrackertasktracker_List.GetMaxSize() : msg.tasktrackertasktracker_list_size());
-	for(int32_t i = 0; i < (int32_t)tasktrackertasktracker_List.GetSize(); ++i) {
-		const ::proto_ff::tasktrackertasktracker & temp_tasktrackertasktracker_list = msg.tasktrackertasktracker_list(i);
-		tasktrackertasktracker_List[i].read_from_pbmsg(temp_tasktrackertasktracker_list);
+void Sheet_TasktrackerTasktracker_s::read_from_pbmsg(const ::proto_ff::Sheet_TasktrackerTasktracker & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_TasktrackerTasktracker_s));
+	E_TasktrackerTasktracker_List.resize((int)msg.e_tasktrackertasktracker_list_size() > (int)E_TasktrackerTasktracker_List.max_size() ? E_TasktrackerTasktracker_List.max_size() : msg.e_tasktrackertasktracker_list_size());
+	for(int32_t i = 0; i < (int32_t)E_TasktrackerTasktracker_List.size(); ++i) {
+		const ::proto_ff::E_TasktrackerTasktracker & temp_e_tasktrackertasktracker_list = msg.e_tasktrackertasktracker_list(i);
+		E_TasktrackerTasktracker_List[i].read_from_pbmsg(temp_e_tasktrackertasktracker_list);
 	}
 }
 

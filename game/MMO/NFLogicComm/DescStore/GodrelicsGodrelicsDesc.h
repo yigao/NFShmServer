@@ -14,9 +14,9 @@ public:
 	virtual ~GodrelicsGodrelicsDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::godRelicsgodRelics_s* GetDesc(int id) const;
-	proto_ff_s::godRelicsgodRelics_s* GetDesc(int id);
+	const proto_ff_s::E_GodrelicsGodrelics_s* GetDesc(int id) const;
+	proto_ff_s::E_GodrelicsGodrelics_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::godRelicsgodRelics_s, godRelicsgodRelics, MAX_GODRELICS_GODRELICS_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_GodrelicsGodrelics_s, godRelicsgodRelics, MAX_GODRELICS_GODRELICS_NUM);
 DECLARE_IDCREATE(GodrelicsGodrelicsDesc);
 };

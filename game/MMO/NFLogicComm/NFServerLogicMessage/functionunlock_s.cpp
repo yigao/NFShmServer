@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-functionunlockfunctionUnlock_s::functionunlockfunctionUnlock_s() {
+E_FunctionunlockFunctionunlock_s::E_FunctionunlockFunctionunlock_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,40 +10,40 @@ functionunlockfunctionUnlock_s::functionunlockfunctionUnlock_s() {
 	}
 }
 
-int functionunlockfunctionUnlock_s::CreateInit() {
-	functionId = (int32_t)0;
-	openDaily = (int32_t)0;
-	openType = (int32_t)0;
-	openVal = (int64_t)0;
-	iconOpenVal = (int32_t)0;
-	belong = (int32_t)0;
+int E_FunctionunlockFunctionunlock_s::CreateInit() {
+	m_functionid = (int32_t)0;
+	m_opendaily = (int32_t)0;
+	m_opentype = (int32_t)0;
+	m_openval = (int64_t)0;
+	m_iconopenval = (int32_t)0;
+	m_belong = (int32_t)0;
 	return 0;
 }
 
-int functionunlockfunctionUnlock_s::ResumeInit() {
+int E_FunctionunlockFunctionunlock_s::ResumeInit() {
 	return 0;
 }
 
-void functionunlockfunctionUnlock_s::write_to_pbmsg(::proto_ff::functionunlockfunctionUnlock & msg) const {
-	msg.set_functionid((int32_t)functionId);
-	msg.set_opendaily((int32_t)openDaily);
-	msg.set_opentype((int32_t)openType);
-	msg.set_openval((int64_t)openVal);
-	msg.set_iconopenval((int32_t)iconOpenVal);
-	msg.set_belong((int32_t)belong);
+void E_FunctionunlockFunctionunlock_s::write_to_pbmsg(::proto_ff::E_FunctionunlockFunctionunlock & msg) const {
+	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_opendaily((int32_t)m_opendaily);
+	msg.set_m_opentype((int32_t)m_opentype);
+	msg.set_m_openval((int64_t)m_openval);
+	msg.set_m_iconopenval((int32_t)m_iconopenval);
+	msg.set_m_belong((int32_t)m_belong);
 }
 
-void functionunlockfunctionUnlock_s::read_from_pbmsg(const ::proto_ff::functionunlockfunctionUnlock & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct functionunlockfunctionUnlock_s));
-	functionId = msg.functionid();
-	openDaily = msg.opendaily();
-	openType = msg.opentype();
-	openVal = msg.openval();
-	iconOpenVal = msg.iconopenval();
-	belong = msg.belong();
+void E_FunctionunlockFunctionunlock_s::read_from_pbmsg(const ::proto_ff::E_FunctionunlockFunctionunlock & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FunctionunlockFunctionunlock_s));
+	m_functionid = msg.m_functionid();
+	m_opendaily = msg.m_opendaily();
+	m_opentype = msg.m_opentype();
+	m_openval = msg.m_openval();
+	m_iconopenval = msg.m_iconopenval();
+	m_belong = msg.m_belong();
 }
 
-Sheet_functionunlockfunctionUnlock_s::Sheet_functionunlockfunctionUnlock_s() {
+Sheet_FunctionunlockFunctionunlock_s::Sheet_FunctionunlockFunctionunlock_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -51,31 +51,31 @@ Sheet_functionunlockfunctionUnlock_s::Sheet_functionunlockfunctionUnlock_s() {
 	}
 }
 
-int Sheet_functionunlockfunctionUnlock_s::CreateInit() {
+int Sheet_FunctionunlockFunctionunlock_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_functionunlockfunctionUnlock_s::ResumeInit() {
+int Sheet_FunctionunlockFunctionunlock_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_functionunlockfunctionUnlock_s::write_to_pbmsg(::proto_ff::Sheet_functionunlockfunctionUnlock & msg) const {
-	for(int32_t i = 0; i < (int32_t)functionunlockfunctionUnlock_List.GetSize() && i < functionunlockfunctionUnlock_List.GetMaxSize(); ++i) {
-		::proto_ff::functionunlockfunctionUnlock* temp_functionunlockfunctionunlock_list = msg.add_functionunlockfunctionunlock_list();
-		functionunlockfunctionUnlock_List[i].write_to_pbmsg(*temp_functionunlockfunctionunlock_list);
+void Sheet_FunctionunlockFunctionunlock_s::write_to_pbmsg(::proto_ff::Sheet_FunctionunlockFunctionunlock & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FunctionunlockFunctionunlock_List.size(); ++i) {
+		::proto_ff::E_FunctionunlockFunctionunlock* temp_e_functionunlockfunctionunlock_list = msg.add_e_functionunlockfunctionunlock_list();
+		E_FunctionunlockFunctionunlock_List[i].write_to_pbmsg(*temp_e_functionunlockfunctionunlock_list);
 	}
 }
 
-void Sheet_functionunlockfunctionUnlock_s::read_from_pbmsg(const ::proto_ff::Sheet_functionunlockfunctionUnlock & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_functionunlockfunctionUnlock_s));
-	functionunlockfunctionUnlock_List.SetSize(msg.functionunlockfunctionunlock_list_size() > functionunlockfunctionUnlock_List.GetMaxSize() ? functionunlockfunctionUnlock_List.GetMaxSize() : msg.functionunlockfunctionunlock_list_size());
-	for(int32_t i = 0; i < (int32_t)functionunlockfunctionUnlock_List.GetSize(); ++i) {
-		const ::proto_ff::functionunlockfunctionUnlock & temp_functionunlockfunctionunlock_list = msg.functionunlockfunctionunlock_list(i);
-		functionunlockfunctionUnlock_List[i].read_from_pbmsg(temp_functionunlockfunctionunlock_list);
+void Sheet_FunctionunlockFunctionunlock_s::read_from_pbmsg(const ::proto_ff::Sheet_FunctionunlockFunctionunlock & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FunctionunlockFunctionunlock_s));
+	E_FunctionunlockFunctionunlock_List.resize((int)msg.e_functionunlockfunctionunlock_list_size() > (int)E_FunctionunlockFunctionunlock_List.max_size() ? E_FunctionunlockFunctionunlock_List.max_size() : msg.e_functionunlockfunctionunlock_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FunctionunlockFunctionunlock_List.size(); ++i) {
+		const ::proto_ff::E_FunctionunlockFunctionunlock & temp_e_functionunlockfunctionunlock_list = msg.e_functionunlockfunctionunlock_list(i);
+		E_FunctionunlockFunctionunlock_List[i].read_from_pbmsg(temp_e_functionunlockfunctionunlock_list);
 	}
 }
 
-functionunlockpreview_s::functionunlockpreview_s() {
+E_FunctionunlockPreview_s::E_FunctionunlockPreview_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -83,31 +83,31 @@ functionunlockpreview_s::functionunlockpreview_s() {
 	}
 }
 
-int functionunlockpreview_s::CreateInit() {
-	functionId = (int32_t)0;
-	rewardItem = (int32_t)0;
-	rewardNum = (int32_t)0;
+int E_FunctionunlockPreview_s::CreateInit() {
+	m_functionid = (int32_t)0;
+	m_rewarditem = (int32_t)0;
+	m_rewardnum = (int32_t)0;
 	return 0;
 }
 
-int functionunlockpreview_s::ResumeInit() {
+int E_FunctionunlockPreview_s::ResumeInit() {
 	return 0;
 }
 
-void functionunlockpreview_s::write_to_pbmsg(::proto_ff::functionunlockpreview & msg) const {
-	msg.set_functionid((int32_t)functionId);
-	msg.set_rewarditem((int32_t)rewardItem);
-	msg.set_rewardnum((int32_t)rewardNum);
+void E_FunctionunlockPreview_s::write_to_pbmsg(::proto_ff::E_FunctionunlockPreview & msg) const {
+	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_rewarditem((int32_t)m_rewarditem);
+	msg.set_m_rewardnum((int32_t)m_rewardnum);
 }
 
-void functionunlockpreview_s::read_from_pbmsg(const ::proto_ff::functionunlockpreview & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct functionunlockpreview_s));
-	functionId = msg.functionid();
-	rewardItem = msg.rewarditem();
-	rewardNum = msg.rewardnum();
+void E_FunctionunlockPreview_s::read_from_pbmsg(const ::proto_ff::E_FunctionunlockPreview & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FunctionunlockPreview_s));
+	m_functionid = msg.m_functionid();
+	m_rewarditem = msg.m_rewarditem();
+	m_rewardnum = msg.m_rewardnum();
 }
 
-Sheet_functionunlockpreview_s::Sheet_functionunlockpreview_s() {
+Sheet_FunctionunlockPreview_s::Sheet_FunctionunlockPreview_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -115,27 +115,27 @@ Sheet_functionunlockpreview_s::Sheet_functionunlockpreview_s() {
 	}
 }
 
-int Sheet_functionunlockpreview_s::CreateInit() {
+int Sheet_FunctionunlockPreview_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_functionunlockpreview_s::ResumeInit() {
+int Sheet_FunctionunlockPreview_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_functionunlockpreview_s::write_to_pbmsg(::proto_ff::Sheet_functionunlockpreview & msg) const {
-	for(int32_t i = 0; i < (int32_t)functionunlockpreview_List.GetSize() && i < functionunlockpreview_List.GetMaxSize(); ++i) {
-		::proto_ff::functionunlockpreview* temp_functionunlockpreview_list = msg.add_functionunlockpreview_list();
-		functionunlockpreview_List[i].write_to_pbmsg(*temp_functionunlockpreview_list);
+void Sheet_FunctionunlockPreview_s::write_to_pbmsg(::proto_ff::Sheet_FunctionunlockPreview & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FunctionunlockPreview_List.size(); ++i) {
+		::proto_ff::E_FunctionunlockPreview* temp_e_functionunlockpreview_list = msg.add_e_functionunlockpreview_list();
+		E_FunctionunlockPreview_List[i].write_to_pbmsg(*temp_e_functionunlockpreview_list);
 	}
 }
 
-void Sheet_functionunlockpreview_s::read_from_pbmsg(const ::proto_ff::Sheet_functionunlockpreview & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_functionunlockpreview_s));
-	functionunlockpreview_List.SetSize(msg.functionunlockpreview_list_size() > functionunlockpreview_List.GetMaxSize() ? functionunlockpreview_List.GetMaxSize() : msg.functionunlockpreview_list_size());
-	for(int32_t i = 0; i < (int32_t)functionunlockpreview_List.GetSize(); ++i) {
-		const ::proto_ff::functionunlockpreview & temp_functionunlockpreview_list = msg.functionunlockpreview_list(i);
-		functionunlockpreview_List[i].read_from_pbmsg(temp_functionunlockpreview_list);
+void Sheet_FunctionunlockPreview_s::read_from_pbmsg(const ::proto_ff::Sheet_FunctionunlockPreview & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FunctionunlockPreview_s));
+	E_FunctionunlockPreview_List.resize((int)msg.e_functionunlockpreview_list_size() > (int)E_FunctionunlockPreview_List.max_size() ? E_FunctionunlockPreview_List.max_size() : msg.e_functionunlockpreview_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FunctionunlockPreview_List.size(); ++i) {
+		const ::proto_ff::E_FunctionunlockPreview & temp_e_functionunlockpreview_list = msg.e_functionunlockpreview_list(i);
+		E_FunctionunlockPreview_List[i].read_from_pbmsg(temp_e_functionunlockpreview_list);
 	}
 }
 

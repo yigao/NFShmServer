@@ -14,9 +14,9 @@ public:
 	virtual ~EquipStrongDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::equipstrong_s* GetDesc(int id) const;
-	proto_ff_s::equipstrong_s* GetDesc(int id);
+	const proto_ff_s::E_EquipStrong_s* GetDesc(int id) const;
+	proto_ff_s::E_EquipStrong_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::equipstrong_s, equipstrong, MAX_EQUIP_STRONG_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_EquipStrong_s, equipstrong, MAX_EQUIP_STRONG_NUM);
 DECLARE_IDCREATE(EquipStrongDesc);
 };

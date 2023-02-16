@@ -186,9 +186,9 @@ int NFLogicGMModule::UpgradeLevel(NFPlayer *pPlayer, const vector<std::string> &
     auto pCruLevelCfg = RoleExpDesc::Instance(m_pObjPluginManager)->GetDesc(curlevel);
     if (nullptr != pCruLevelCfg)
     {
-        if (curexp < pCruLevelCfg->exp)
+        if (curexp < pCruLevelCfg->m_exp)
         {
-            neeexp = pCruLevelCfg->exp - curexp;
+            neeexp = pCruLevelCfg->m_exp - curexp;
         }
     }
     //
@@ -197,7 +197,7 @@ int NFLogicGMModule::UpgradeLevel(NFPlayer *pPlayer, const vector<std::string> &
         auto pCfg = RoleExpDesc::Instance(m_pObjPluginManager)->GetDesc(i);
         if (nullptr != pCfg)
         {
-            neeexp += pCfg->exp;
+            neeexp += pCfg->m_exp;
         }
         else
         {

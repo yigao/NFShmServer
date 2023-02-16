@@ -34,19 +34,19 @@ void  protobuf_AddDesc_GMCommand_2eproto();
 void protobuf_AssignDesc_GMCommand_2eproto();
 void protobuf_ShutdownFile_GMCommand_2eproto();
 
-class GMCommandGMCommand;
-class Sheet_GMCommandGMCommand;
+class E_GmcommandGmcommand;
+class Sheet_GmcommandGmcommand;
 
 // ===================================================================
 
-class GMCommandGMCommand : public ::google::protobuf::Message {
+class E_GmcommandGmcommand : public ::google::protobuf::Message {
  public:
-  GMCommandGMCommand();
-  virtual ~GMCommandGMCommand();
+  E_GmcommandGmcommand();
+  virtual ~E_GmcommandGmcommand();
 
-  GMCommandGMCommand(const GMCommandGMCommand& from);
+  E_GmcommandGmcommand(const E_GmcommandGmcommand& from);
 
-  inline GMCommandGMCommand& operator=(const GMCommandGMCommand& from) {
+  inline E_GmcommandGmcommand& operator=(const E_GmcommandGmcommand& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class GMCommandGMCommand : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const GMCommandGMCommand& default_instance();
+  static const E_GmcommandGmcommand& default_instance();
 
-  void Swap(GMCommandGMCommand* other);
+  void Swap(E_GmcommandGmcommand* other);
 
   // implements Message ----------------------------------------------
 
-  GMCommandGMCommand* New() const;
+  E_GmcommandGmcommand* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GMCommandGMCommand& from);
-  void MergeFrom(const GMCommandGMCommand& from);
+  void CopyFrom(const E_GmcommandGmcommand& from);
+  void MergeFrom(const E_GmcommandGmcommand& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,61 +93,61 @@ class GMCommandGMCommand : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string Key = 2;
-  inline bool has_key() const;
-  inline void clear_key();
-  static const int kKeyFieldNumber = 2;
-  inline const ::std::string& key() const;
-  inline void set_key(const ::std::string& value);
-  inline void set_key(const char* value);
-  inline void set_key(const char* value, size_t size);
-  inline ::std::string* mutable_key();
-  inline ::std::string* release_key();
-  inline void set_allocated_key(::std::string* key);
+  // optional string m_key = 2;
+  inline bool has_m_key() const;
+  inline void clear_m_key();
+  static const int kMKeyFieldNumber = 2;
+  inline const ::std::string& m_key() const;
+  inline void set_m_key(const ::std::string& value);
+  inline void set_m_key(const char* value);
+  inline void set_m_key(const char* value, size_t size);
+  inline ::std::string* mutable_m_key();
+  inline ::std::string* release_m_key();
+  inline void set_allocated_m_key(::std::string* m_key);
 
-  // optional int32 ParamCount = 3;
-  inline bool has_paramcount() const;
-  inline void clear_paramcount();
-  static const int kParamCountFieldNumber = 3;
-  inline ::google::protobuf::int32 paramcount() const;
-  inline void set_paramcount(::google::protobuf::int32 value);
+  // optional int32 m_paramcount = 3;
+  inline bool has_m_paramcount() const;
+  inline void clear_m_paramcount();
+  static const int kMParamcountFieldNumber = 3;
+  inline ::google::protobuf::int32 m_paramcount() const;
+  inline void set_m_paramcount(::google::protobuf::int32 value);
 
-  // optional string Des = 4;
-  inline bool has_des() const;
-  inline void clear_des();
-  static const int kDesFieldNumber = 4;
-  inline const ::std::string& des() const;
-  inline void set_des(const ::std::string& value);
-  inline void set_des(const char* value);
-  inline void set_des(const char* value, size_t size);
-  inline ::std::string* mutable_des();
-  inline ::std::string* release_des();
-  inline void set_allocated_des(::std::string* des);
+  // optional string m_des = 4;
+  inline bool has_m_des() const;
+  inline void clear_m_des();
+  static const int kMDesFieldNumber = 4;
+  inline const ::std::string& m_des() const;
+  inline void set_m_des(const ::std::string& value);
+  inline void set_m_des(const char* value);
+  inline void set_m_des(const char* value, size_t size);
+  inline ::std::string* mutable_m_des();
+  inline ::std::string* release_m_des();
+  inline void set_allocated_m_des(::std::string* m_des);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.GMCommandGMCommand)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GmcommandGmcommand)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_key();
-  inline void clear_has_key();
-  inline void set_has_paramcount();
-  inline void clear_has_paramcount();
-  inline void set_has_des();
-  inline void clear_has_des();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_key();
+  inline void clear_has_m_key();
+  inline void set_has_m_paramcount();
+  inline void clear_has_m_paramcount();
+  inline void set_has_m_des();
+  inline void clear_has_m_des();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* key_;
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 paramcount_;
-  ::std::string* des_;
+  ::std::string* m_key_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_paramcount_;
+  ::std::string* m_des_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -157,18 +157,18 @@ class GMCommandGMCommand : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_GMCommand_2eproto();
 
   void InitAsDefaultInstance();
-  static GMCommandGMCommand* default_instance_;
+  static E_GmcommandGmcommand* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_GMCommandGMCommand : public ::google::protobuf::Message {
+class Sheet_GmcommandGmcommand : public ::google::protobuf::Message {
  public:
-  Sheet_GMCommandGMCommand();
-  virtual ~Sheet_GMCommandGMCommand();
+  Sheet_GmcommandGmcommand();
+  virtual ~Sheet_GmcommandGmcommand();
 
-  Sheet_GMCommandGMCommand(const Sheet_GMCommandGMCommand& from);
+  Sheet_GmcommandGmcommand(const Sheet_GmcommandGmcommand& from);
 
-  inline Sheet_GMCommandGMCommand& operator=(const Sheet_GMCommandGMCommand& from) {
+  inline Sheet_GmcommandGmcommand& operator=(const Sheet_GmcommandGmcommand& from) {
     CopyFrom(from);
     return *this;
   }
@@ -182,17 +182,17 @@ class Sheet_GMCommandGMCommand : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_GMCommandGMCommand& default_instance();
+  static const Sheet_GmcommandGmcommand& default_instance();
 
-  void Swap(Sheet_GMCommandGMCommand* other);
+  void Swap(Sheet_GmcommandGmcommand* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_GMCommandGMCommand* New() const;
+  Sheet_GmcommandGmcommand* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_GMCommandGMCommand& from);
-  void MergeFrom(const Sheet_GMCommandGMCommand& from);
+  void CopyFrom(const Sheet_GmcommandGmcommand& from);
+  void MergeFrom(const Sheet_GmcommandGmcommand& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -215,24 +215,24 @@ class Sheet_GMCommandGMCommand : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.GMCommandGMCommand GMCommandGMCommand_List = 1;
-  inline int gmcommandgmcommand_list_size() const;
-  inline void clear_gmcommandgmcommand_list();
-  static const int kGMCommandGMCommandListFieldNumber = 1;
-  inline const ::proto_ff::GMCommandGMCommand& gmcommandgmcommand_list(int index) const;
-  inline ::proto_ff::GMCommandGMCommand* mutable_gmcommandgmcommand_list(int index);
-  inline ::proto_ff::GMCommandGMCommand* add_gmcommandgmcommand_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GMCommandGMCommand >&
-      gmcommandgmcommand_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GMCommandGMCommand >*
-      mutable_gmcommandgmcommand_list();
+  // repeated .proto_ff.E_GmcommandGmcommand E_GmcommandGmcommand_List = 1;
+  inline int e_gmcommandgmcommand_list_size() const;
+  inline void clear_e_gmcommandgmcommand_list();
+  static const int kEGmcommandGmcommandListFieldNumber = 1;
+  inline const ::proto_ff::E_GmcommandGmcommand& e_gmcommandgmcommand_list(int index) const;
+  inline ::proto_ff::E_GmcommandGmcommand* mutable_e_gmcommandgmcommand_list(int index);
+  inline ::proto_ff::E_GmcommandGmcommand* add_e_gmcommandgmcommand_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GmcommandGmcommand >&
+      e_gmcommandgmcommand_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GmcommandGmcommand >*
+      mutable_e_gmcommandgmcommand_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GMCommandGMCommand)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GmcommandGmcommand)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::GMCommandGMCommand > gmcommandgmcommand_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GmcommandGmcommand > e_gmcommandgmcommand_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -242,226 +242,226 @@ class Sheet_GMCommandGMCommand : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_GMCommand_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_GMCommandGMCommand* default_instance_;
+  static Sheet_GmcommandGmcommand* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// GMCommandGMCommand
+// E_GmcommandGmcommand
 
-// optional int32 ID = 1;
-inline bool GMCommandGMCommand::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_GmcommandGmcommand::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void GMCommandGMCommand::set_has_id() {
+inline void E_GmcommandGmcommand::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void GMCommandGMCommand::clear_has_id() {
+inline void E_GmcommandGmcommand::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void GMCommandGMCommand::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_GmcommandGmcommand::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 GMCommandGMCommand::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_GmcommandGmcommand::m_id() const {
+  return m_id_;
 }
-inline void GMCommandGMCommand::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_GmcommandGmcommand::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string Key = 2;
-inline bool GMCommandGMCommand::has_key() const {
+// optional string m_key = 2;
+inline bool E_GmcommandGmcommand::has_m_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void GMCommandGMCommand::set_has_key() {
+inline void E_GmcommandGmcommand::set_has_m_key() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void GMCommandGMCommand::clear_has_key() {
+inline void E_GmcommandGmcommand::clear_has_m_key() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void GMCommandGMCommand::clear_key() {
-  if (key_ != &::google::protobuf::internal::kEmptyString) {
-    key_->clear();
+inline void E_GmcommandGmcommand::clear_m_key() {
+  if (m_key_ != &::google::protobuf::internal::kEmptyString) {
+    m_key_->clear();
   }
-  clear_has_key();
+  clear_has_m_key();
 }
-inline const ::std::string& GMCommandGMCommand::key() const {
-  return *key_;
+inline const ::std::string& E_GmcommandGmcommand::m_key() const {
+  return *m_key_;
 }
-inline void GMCommandGMCommand::set_key(const ::std::string& value) {
-  set_has_key();
-  if (key_ == &::google::protobuf::internal::kEmptyString) {
-    key_ = new ::std::string;
+inline void E_GmcommandGmcommand::set_m_key(const ::std::string& value) {
+  set_has_m_key();
+  if (m_key_ == &::google::protobuf::internal::kEmptyString) {
+    m_key_ = new ::std::string;
   }
-  key_->assign(value);
+  m_key_->assign(value);
 }
-inline void GMCommandGMCommand::set_key(const char* value) {
-  set_has_key();
-  if (key_ == &::google::protobuf::internal::kEmptyString) {
-    key_ = new ::std::string;
+inline void E_GmcommandGmcommand::set_m_key(const char* value) {
+  set_has_m_key();
+  if (m_key_ == &::google::protobuf::internal::kEmptyString) {
+    m_key_ = new ::std::string;
   }
-  key_->assign(value);
+  m_key_->assign(value);
 }
-inline void GMCommandGMCommand::set_key(const char* value, size_t size) {
-  set_has_key();
-  if (key_ == &::google::protobuf::internal::kEmptyString) {
-    key_ = new ::std::string;
+inline void E_GmcommandGmcommand::set_m_key(const char* value, size_t size) {
+  set_has_m_key();
+  if (m_key_ == &::google::protobuf::internal::kEmptyString) {
+    m_key_ = new ::std::string;
   }
-  key_->assign(reinterpret_cast<const char*>(value), size);
+  m_key_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* GMCommandGMCommand::mutable_key() {
-  set_has_key();
-  if (key_ == &::google::protobuf::internal::kEmptyString) {
-    key_ = new ::std::string;
+inline ::std::string* E_GmcommandGmcommand::mutable_m_key() {
+  set_has_m_key();
+  if (m_key_ == &::google::protobuf::internal::kEmptyString) {
+    m_key_ = new ::std::string;
   }
-  return key_;
+  return m_key_;
 }
-inline ::std::string* GMCommandGMCommand::release_key() {
-  clear_has_key();
-  if (key_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_GmcommandGmcommand::release_m_key() {
+  clear_has_m_key();
+  if (m_key_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = key_;
-    key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_key_;
+    m_key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void GMCommandGMCommand::set_allocated_key(::std::string* key) {
-  if (key_ != &::google::protobuf::internal::kEmptyString) {
-    delete key_;
+inline void E_GmcommandGmcommand::set_allocated_m_key(::std::string* m_key) {
+  if (m_key_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_key_;
   }
-  if (key) {
-    set_has_key();
-    key_ = key;
+  if (m_key) {
+    set_has_m_key();
+    m_key_ = m_key;
   } else {
-    clear_has_key();
-    key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_key();
+    m_key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 ParamCount = 3;
-inline bool GMCommandGMCommand::has_paramcount() const {
+// optional int32 m_paramcount = 3;
+inline bool E_GmcommandGmcommand::has_m_paramcount() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void GMCommandGMCommand::set_has_paramcount() {
+inline void E_GmcommandGmcommand::set_has_m_paramcount() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void GMCommandGMCommand::clear_has_paramcount() {
+inline void E_GmcommandGmcommand::clear_has_m_paramcount() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void GMCommandGMCommand::clear_paramcount() {
-  paramcount_ = 0;
-  clear_has_paramcount();
+inline void E_GmcommandGmcommand::clear_m_paramcount() {
+  m_paramcount_ = 0;
+  clear_has_m_paramcount();
 }
-inline ::google::protobuf::int32 GMCommandGMCommand::paramcount() const {
-  return paramcount_;
+inline ::google::protobuf::int32 E_GmcommandGmcommand::m_paramcount() const {
+  return m_paramcount_;
 }
-inline void GMCommandGMCommand::set_paramcount(::google::protobuf::int32 value) {
-  set_has_paramcount();
-  paramcount_ = value;
+inline void E_GmcommandGmcommand::set_m_paramcount(::google::protobuf::int32 value) {
+  set_has_m_paramcount();
+  m_paramcount_ = value;
 }
 
-// optional string Des = 4;
-inline bool GMCommandGMCommand::has_des() const {
+// optional string m_des = 4;
+inline bool E_GmcommandGmcommand::has_m_des() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void GMCommandGMCommand::set_has_des() {
+inline void E_GmcommandGmcommand::set_has_m_des() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void GMCommandGMCommand::clear_has_des() {
+inline void E_GmcommandGmcommand::clear_has_m_des() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void GMCommandGMCommand::clear_des() {
-  if (des_ != &::google::protobuf::internal::kEmptyString) {
-    des_->clear();
+inline void E_GmcommandGmcommand::clear_m_des() {
+  if (m_des_ != &::google::protobuf::internal::kEmptyString) {
+    m_des_->clear();
   }
-  clear_has_des();
+  clear_has_m_des();
 }
-inline const ::std::string& GMCommandGMCommand::des() const {
-  return *des_;
+inline const ::std::string& E_GmcommandGmcommand::m_des() const {
+  return *m_des_;
 }
-inline void GMCommandGMCommand::set_des(const ::std::string& value) {
-  set_has_des();
-  if (des_ == &::google::protobuf::internal::kEmptyString) {
-    des_ = new ::std::string;
+inline void E_GmcommandGmcommand::set_m_des(const ::std::string& value) {
+  set_has_m_des();
+  if (m_des_ == &::google::protobuf::internal::kEmptyString) {
+    m_des_ = new ::std::string;
   }
-  des_->assign(value);
+  m_des_->assign(value);
 }
-inline void GMCommandGMCommand::set_des(const char* value) {
-  set_has_des();
-  if (des_ == &::google::protobuf::internal::kEmptyString) {
-    des_ = new ::std::string;
+inline void E_GmcommandGmcommand::set_m_des(const char* value) {
+  set_has_m_des();
+  if (m_des_ == &::google::protobuf::internal::kEmptyString) {
+    m_des_ = new ::std::string;
   }
-  des_->assign(value);
+  m_des_->assign(value);
 }
-inline void GMCommandGMCommand::set_des(const char* value, size_t size) {
-  set_has_des();
-  if (des_ == &::google::protobuf::internal::kEmptyString) {
-    des_ = new ::std::string;
+inline void E_GmcommandGmcommand::set_m_des(const char* value, size_t size) {
+  set_has_m_des();
+  if (m_des_ == &::google::protobuf::internal::kEmptyString) {
+    m_des_ = new ::std::string;
   }
-  des_->assign(reinterpret_cast<const char*>(value), size);
+  m_des_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* GMCommandGMCommand::mutable_des() {
-  set_has_des();
-  if (des_ == &::google::protobuf::internal::kEmptyString) {
-    des_ = new ::std::string;
+inline ::std::string* E_GmcommandGmcommand::mutable_m_des() {
+  set_has_m_des();
+  if (m_des_ == &::google::protobuf::internal::kEmptyString) {
+    m_des_ = new ::std::string;
   }
-  return des_;
+  return m_des_;
 }
-inline ::std::string* GMCommandGMCommand::release_des() {
-  clear_has_des();
-  if (des_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_GmcommandGmcommand::release_m_des() {
+  clear_has_m_des();
+  if (m_des_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = des_;
-    des_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_des_;
+    m_des_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void GMCommandGMCommand::set_allocated_des(::std::string* des) {
-  if (des_ != &::google::protobuf::internal::kEmptyString) {
-    delete des_;
+inline void E_GmcommandGmcommand::set_allocated_m_des(::std::string* m_des) {
+  if (m_des_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_des_;
   }
-  if (des) {
-    set_has_des();
-    des_ = des;
+  if (m_des) {
+    set_has_m_des();
+    m_des_ = m_des;
   } else {
-    clear_has_des();
-    des_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_des();
+    m_des_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_GMCommandGMCommand
+// Sheet_GmcommandGmcommand
 
-// repeated .proto_ff.GMCommandGMCommand GMCommandGMCommand_List = 1;
-inline int Sheet_GMCommandGMCommand::gmcommandgmcommand_list_size() const {
-  return gmcommandgmcommand_list_.size();
+// repeated .proto_ff.E_GmcommandGmcommand E_GmcommandGmcommand_List = 1;
+inline int Sheet_GmcommandGmcommand::e_gmcommandgmcommand_list_size() const {
+  return e_gmcommandgmcommand_list_.size();
 }
-inline void Sheet_GMCommandGMCommand::clear_gmcommandgmcommand_list() {
-  gmcommandgmcommand_list_.Clear();
+inline void Sheet_GmcommandGmcommand::clear_e_gmcommandgmcommand_list() {
+  e_gmcommandgmcommand_list_.Clear();
 }
-inline const ::proto_ff::GMCommandGMCommand& Sheet_GMCommandGMCommand::gmcommandgmcommand_list(int index) const {
-  return gmcommandgmcommand_list_.Get(index);
+inline const ::proto_ff::E_GmcommandGmcommand& Sheet_GmcommandGmcommand::e_gmcommandgmcommand_list(int index) const {
+  return e_gmcommandgmcommand_list_.Get(index);
 }
-inline ::proto_ff::GMCommandGMCommand* Sheet_GMCommandGMCommand::mutable_gmcommandgmcommand_list(int index) {
-  return gmcommandgmcommand_list_.Mutable(index);
+inline ::proto_ff::E_GmcommandGmcommand* Sheet_GmcommandGmcommand::mutable_e_gmcommandgmcommand_list(int index) {
+  return e_gmcommandgmcommand_list_.Mutable(index);
 }
-inline ::proto_ff::GMCommandGMCommand* Sheet_GMCommandGMCommand::add_gmcommandgmcommand_list() {
-  return gmcommandgmcommand_list_.Add();
+inline ::proto_ff::E_GmcommandGmcommand* Sheet_GmcommandGmcommand::add_e_gmcommandgmcommand_list() {
+  return e_gmcommandgmcommand_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GMCommandGMCommand >&
-Sheet_GMCommandGMCommand::gmcommandgmcommand_list() const {
-  return gmcommandgmcommand_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GmcommandGmcommand >&
+Sheet_GmcommandGmcommand::e_gmcommandgmcommand_list() const {
+  return e_gmcommandgmcommand_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GMCommandGMCommand >*
-Sheet_GMCommandGMCommand::mutable_gmcommandgmcommand_list() {
-  return &gmcommandgmcommand_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GmcommandGmcommand >*
+Sheet_GmcommandGmcommand::mutable_e_gmcommandgmcommand_list() {
+  return &e_gmcommandgmcommand_list_;
 }
 
 

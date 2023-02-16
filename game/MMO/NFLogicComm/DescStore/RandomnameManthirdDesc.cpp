@@ -33,9 +33,9 @@ int RandomnameManthirdDesc::Load(NFResDB *pDB)
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFConstDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "RandomnameManthirdDesc::Load() strFileName = {}", GetFileName());
 
-	proto_ff::Sheet_randomnamemanthird table;
+	proto_ff::Sheet_RandomnameManthird table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
 	CHECK_EXPR(pResTable != NULL, -1, "pTable == NULL, GetTable:{} Error", GetFileName());
 
@@ -46,33 +46,33 @@ int RandomnameManthirdDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.randomnamemanthird_list_size() < 0) || (table.randomnamemanthird_list_size() > (int)(m_astDesc.size())))
+	if ((table.e_randomnamemanthird_list_size() < 0) || (table.e_randomnamemanthird_list_size() > (int)(m_astDesc.size())))
 	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.randomnamemanthird_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_randomnamemanthird_list_size());
 		return -2;
 	}
 
-	m_astDesc.resize(table.randomnamemanthird_list_size());
+	m_astDesc.resize(table.e_randomnamemanthird_list_size());
 	m_astDescIndex.resize(m_astDescIndex.max_size());
 	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
 	{
 		m_astDescIndex[i] = -1;
 	}
-	for (int i = 0; i < (int)table.randomnamemanthird_list_size(); i++)
+	for (int i = 0; i < (int)table.e_randomnamemanthird_list_size(); i++)
 	{
-		const proto_ff::randomnamemanthird& desc = table.randomnamemanthird_list(i);
-		if (desc.has_id() == false && desc.ByteSize() == 0)
+		const proto_ff::E_RandomnameManthird& desc = table.e_randomnamemanthird_list(i);
+		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.id());
+		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.id(), i);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.id());
-		uint64_t hashKey = desc.id();
+		auto iter = m_astDescMap.emplace_hint(desc.m_id(), i);
+		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
+		uint64_t hashKey = desc.m_id();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{
 			if (m_astDescIndex[hashKey] != -1)
@@ -91,7 +91,7 @@ int RandomnameManthirdDesc::Load(NFResDB *pDB)
 		}
 	}
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.randomnamemanthird_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_randomnamemanthird_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
@@ -101,7 +101,7 @@ int RandomnameManthirdDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::randomnamemanthird_s * RandomnameManthirdDesc::GetDesc(int id) const
+const proto_ff_s::E_RandomnameManthird_s * RandomnameManthirdDesc::GetDesc(int id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -124,8 +124,8 @@ const proto_ff_s::randomnamemanthird_s * RandomnameManthirdDesc::GetDesc(int id)
 	return NULL;
 }
 
-proto_ff_s::randomnamemanthird_s * RandomnameManthirdDesc::GetDesc(int id)
+proto_ff_s::E_RandomnameManthird_s * RandomnameManthirdDesc::GetDesc(int id)
 {
-	return const_cast<proto_ff_s::randomnamemanthird_s *>((static_cast<const RandomnameManthirdDesc*>(this))->GetDesc(id));
+	return const_cast<proto_ff_s::E_RandomnameManthird_s *>((static_cast<const RandomnameManthirdDesc*>(this))->GetDesc(id));
 }
 

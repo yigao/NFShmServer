@@ -34,24 +34,24 @@ void  protobuf_AddDesc_box_2eproto();
 void protobuf_AssignDesc_box_2eproto();
 void protobuf_ShutdownFile_box_2eproto();
 
-class boxboxboxdataDesc;
-class boxbox;
-class Sheet_boxbox;
-class boxboxdataequipDesc;
-class boxboxdataitemDesc;
-class boxboxdata;
-class Sheet_boxboxdata;
+class E_BoxBoxBoxdataDesc;
+class E_BoxBox;
+class Sheet_BoxBox;
+class E_BoxBoxdataEquipDesc;
+class E_BoxBoxdataItemDesc;
+class E_BoxBoxdata;
+class Sheet_BoxBoxdata;
 
 // ===================================================================
 
-class boxboxboxdataDesc : public ::google::protobuf::Message {
+class E_BoxBoxBoxdataDesc : public ::google::protobuf::Message {
  public:
-  boxboxboxdataDesc();
-  virtual ~boxboxboxdataDesc();
+  E_BoxBoxBoxdataDesc();
+  virtual ~E_BoxBoxBoxdataDesc();
 
-  boxboxboxdataDesc(const boxboxboxdataDesc& from);
+  E_BoxBoxBoxdataDesc(const E_BoxBoxBoxdataDesc& from);
 
-  inline boxboxboxdataDesc& operator=(const boxboxboxdataDesc& from) {
+  inline E_BoxBoxBoxdataDesc& operator=(const E_BoxBoxBoxdataDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -65,17 +65,17 @@ class boxboxboxdataDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const boxboxboxdataDesc& default_instance();
+  static const E_BoxBoxBoxdataDesc& default_instance();
 
-  void Swap(boxboxboxdataDesc* other);
+  void Swap(E_BoxBoxBoxdataDesc* other);
 
   // implements Message ----------------------------------------------
 
-  boxboxboxdataDesc* New() const;
+  E_BoxBoxBoxdataDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const boxboxboxdataDesc& from);
-  void MergeFrom(const boxboxboxdataDesc& from);
+  void CopyFrom(const E_BoxBoxBoxdataDesc& from);
+  void MergeFrom(const E_BoxBoxBoxdataDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -98,51 +98,51 @@ class boxboxboxdataDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 maxTimes = 1;
-  inline bool has_maxtimes() const;
-  inline void clear_maxtimes();
-  static const int kMaxTimesFieldNumber = 1;
-  inline ::google::protobuf::int32 maxtimes() const;
-  inline void set_maxtimes(::google::protobuf::int32 value);
+  // optional int32 m_maxtimes = 1;
+  inline bool has_m_maxtimes() const;
+  inline void clear_m_maxtimes();
+  static const int kMMaxtimesFieldNumber = 1;
+  inline ::google::protobuf::int32 m_maxtimes() const;
+  inline void set_m_maxtimes(::google::protobuf::int32 value);
 
-  // optional int64 id = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 2;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 2;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 weight = 3;
-  inline bool has_weight() const;
-  inline void clear_weight();
-  static const int kWeightFieldNumber = 3;
-  inline ::google::protobuf::int32 weight() const;
-  inline void set_weight(::google::protobuf::int32 value);
+  // optional int32 m_weight = 3;
+  inline bool has_m_weight() const;
+  inline void clear_m_weight();
+  static const int kMWeightFieldNumber = 3;
+  inline ::google::protobuf::int32 m_weight() const;
+  inline void set_m_weight(::google::protobuf::int32 value);
 
-  // optional int32 minTimes = 4;
-  inline bool has_mintimes() const;
-  inline void clear_mintimes();
-  static const int kMinTimesFieldNumber = 4;
-  inline ::google::protobuf::int32 mintimes() const;
-  inline void set_mintimes(::google::protobuf::int32 value);
+  // optional int32 m_mintimes = 4;
+  inline bool has_m_mintimes() const;
+  inline void clear_m_mintimes();
+  static const int kMMintimesFieldNumber = 4;
+  inline ::google::protobuf::int32 m_mintimes() const;
+  inline void set_m_mintimes(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.boxboxboxdataDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BoxBoxBoxdataDesc)
  private:
-  inline void set_has_maxtimes();
-  inline void clear_has_maxtimes();
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_weight();
-  inline void clear_has_weight();
-  inline void set_has_mintimes();
-  inline void clear_has_mintimes();
+  inline void set_has_m_maxtimes();
+  inline void clear_has_m_maxtimes();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_weight();
+  inline void clear_has_m_weight();
+  inline void set_has_m_mintimes();
+  inline void clear_has_m_mintimes();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 maxtimes_;
-  ::google::protobuf::int32 weight_;
-  ::google::protobuf::int32 mintimes_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_maxtimes_;
+  ::google::protobuf::int32 m_weight_;
+  ::google::protobuf::int32 m_mintimes_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -152,18 +152,18 @@ class boxboxboxdataDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static boxboxboxdataDesc* default_instance_;
+  static E_BoxBoxBoxdataDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class boxbox : public ::google::protobuf::Message {
+class E_BoxBox : public ::google::protobuf::Message {
  public:
-  boxbox();
-  virtual ~boxbox();
+  E_BoxBox();
+  virtual ~E_BoxBox();
 
-  boxbox(const boxbox& from);
+  E_BoxBox(const E_BoxBox& from);
 
-  inline boxbox& operator=(const boxbox& from) {
+  inline E_BoxBox& operator=(const E_BoxBox& from) {
     CopyFrom(from);
     return *this;
   }
@@ -177,17 +177,17 @@ class boxbox : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const boxbox& default_instance();
+  static const E_BoxBox& default_instance();
 
-  void Swap(boxbox* other);
+  void Swap(E_BoxBox* other);
 
   // implements Message ----------------------------------------------
 
-  boxbox* New() const;
+  E_BoxBox* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const boxbox& from);
-  void MergeFrom(const boxbox& from);
+  void CopyFrom(const E_BoxBox& from);
+  void MergeFrom(const E_BoxBox& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -210,84 +210,84 @@ class boxbox : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Rate = 3;
-  inline bool has_rate() const;
-  inline void clear_rate();
-  static const int kRateFieldNumber = 3;
-  inline ::google::protobuf::int32 rate() const;
-  inline void set_rate(::google::protobuf::int32 value);
+  // optional int32 m_rate = 3;
+  inline bool has_m_rate() const;
+  inline void clear_m_rate();
+  static const int kMRateFieldNumber = 3;
+  inline ::google::protobuf::int32 m_rate() const;
+  inline void set_m_rate(::google::protobuf::int32 value);
 
-  // optional int32 Mask = 4;
-  inline bool has_mask() const;
-  inline void clear_mask();
-  static const int kMaskFieldNumber = 4;
-  inline ::google::protobuf::int32 mask() const;
-  inline void set_mask(::google::protobuf::int32 value);
+  // optional int32 m_mask = 4;
+  inline bool has_m_mask() const;
+  inline void clear_m_mask();
+  static const int kMMaskFieldNumber = 4;
+  inline ::google::protobuf::int32 m_mask() const;
+  inline void set_m_mask(::google::protobuf::int32 value);
 
-  // optional int32 minTimes = 5;
-  inline bool has_mintimes() const;
-  inline void clear_mintimes();
-  static const int kMinTimesFieldNumber = 5;
-  inline ::google::protobuf::int32 mintimes() const;
-  inline void set_mintimes(::google::protobuf::int32 value);
+  // optional int32 m_mintimes = 5;
+  inline bool has_m_mintimes() const;
+  inline void clear_m_mintimes();
+  static const int kMMintimesFieldNumber = 5;
+  inline ::google::protobuf::int32 m_mintimes() const;
+  inline void set_m_mintimes(::google::protobuf::int32 value);
 
-  // optional int32 maxTimes = 6;
-  inline bool has_maxtimes() const;
-  inline void clear_maxtimes();
-  static const int kMaxTimesFieldNumber = 6;
-  inline ::google::protobuf::int32 maxtimes() const;
-  inline void set_maxtimes(::google::protobuf::int32 value);
+  // optional int32 m_maxtimes = 6;
+  inline bool has_m_maxtimes() const;
+  inline void clear_m_maxtimes();
+  static const int kMMaxtimesFieldNumber = 6;
+  inline ::google::protobuf::int32 m_maxtimes() const;
+  inline void set_m_maxtimes(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.boxboxboxdataDesc boxdata = 7;
-  inline int boxdata_size() const;
-  inline void clear_boxdata();
-  static const int kBoxdataFieldNumber = 7;
-  inline const ::proto_ff::boxboxboxdataDesc& boxdata(int index) const;
-  inline ::proto_ff::boxboxboxdataDesc* mutable_boxdata(int index);
-  inline ::proto_ff::boxboxboxdataDesc* add_boxdata();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxboxdataDesc >&
-      boxdata() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxboxdataDesc >*
-      mutable_boxdata();
+  // repeated .proto_ff.E_BoxBoxBoxdataDesc m_boxdata = 7;
+  inline int m_boxdata_size() const;
+  inline void clear_m_boxdata();
+  static const int kMBoxdataFieldNumber = 7;
+  inline const ::proto_ff::E_BoxBoxBoxdataDesc& m_boxdata(int index) const;
+  inline ::proto_ff::E_BoxBoxBoxdataDesc* mutable_m_boxdata(int index);
+  inline ::proto_ff::E_BoxBoxBoxdataDesc* add_m_boxdata();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxBoxdataDesc >&
+      m_boxdata() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxBoxdataDesc >*
+      mutable_m_boxdata();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.boxbox)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BoxBox)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_rate();
-  inline void clear_has_rate();
-  inline void set_has_mask();
-  inline void clear_has_mask();
-  inline void set_has_mintimes();
-  inline void clear_has_mintimes();
-  inline void set_has_maxtimes();
-  inline void clear_has_maxtimes();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_rate();
+  inline void clear_has_m_rate();
+  inline void set_has_m_mask();
+  inline void clear_has_m_mask();
+  inline void set_has_m_mintimes();
+  inline void clear_has_m_mintimes();
+  inline void set_has_m_maxtimes();
+  inline void clear_has_m_maxtimes();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 rate_;
-  ::google::protobuf::int32 mask_;
-  ::google::protobuf::int32 mintimes_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxboxdataDesc > boxdata_;
-  ::google::protobuf::int32 maxtimes_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_rate_;
+  ::google::protobuf::int32 m_mask_;
+  ::google::protobuf::int32 m_mintimes_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxBoxdataDesc > m_boxdata_;
+  ::google::protobuf::int32 m_maxtimes_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -297,18 +297,18 @@ class boxbox : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static boxbox* default_instance_;
+  static E_BoxBox* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_boxbox : public ::google::protobuf::Message {
+class Sheet_BoxBox : public ::google::protobuf::Message {
  public:
-  Sheet_boxbox();
-  virtual ~Sheet_boxbox();
+  Sheet_BoxBox();
+  virtual ~Sheet_BoxBox();
 
-  Sheet_boxbox(const Sheet_boxbox& from);
+  Sheet_BoxBox(const Sheet_BoxBox& from);
 
-  inline Sheet_boxbox& operator=(const Sheet_boxbox& from) {
+  inline Sheet_BoxBox& operator=(const Sheet_BoxBox& from) {
     CopyFrom(from);
     return *this;
   }
@@ -322,17 +322,17 @@ class Sheet_boxbox : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_boxbox& default_instance();
+  static const Sheet_BoxBox& default_instance();
 
-  void Swap(Sheet_boxbox* other);
+  void Swap(Sheet_BoxBox* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_boxbox* New() const;
+  Sheet_BoxBox* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_boxbox& from);
-  void MergeFrom(const Sheet_boxbox& from);
+  void CopyFrom(const Sheet_BoxBox& from);
+  void MergeFrom(const Sheet_BoxBox& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -355,24 +355,24 @@ class Sheet_boxbox : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.boxbox boxbox_List = 1;
-  inline int boxbox_list_size() const;
-  inline void clear_boxbox_list();
-  static const int kBoxboxListFieldNumber = 1;
-  inline const ::proto_ff::boxbox& boxbox_list(int index) const;
-  inline ::proto_ff::boxbox* mutable_boxbox_list(int index);
-  inline ::proto_ff::boxbox* add_boxbox_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxbox >&
-      boxbox_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxbox >*
-      mutable_boxbox_list();
+  // repeated .proto_ff.E_BoxBox E_BoxBox_List = 1;
+  inline int e_boxbox_list_size() const;
+  inline void clear_e_boxbox_list();
+  static const int kEBoxBoxListFieldNumber = 1;
+  inline const ::proto_ff::E_BoxBox& e_boxbox_list(int index) const;
+  inline ::proto_ff::E_BoxBox* mutable_e_boxbox_list(int index);
+  inline ::proto_ff::E_BoxBox* add_e_boxbox_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBox >&
+      e_boxbox_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBox >*
+      mutable_e_boxbox_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_boxbox)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_BoxBox)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::boxbox > boxbox_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBox > e_boxbox_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -382,18 +382,18 @@ class Sheet_boxbox : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_boxbox* default_instance_;
+  static Sheet_BoxBox* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class boxboxdataequipDesc : public ::google::protobuf::Message {
+class E_BoxBoxdataEquipDesc : public ::google::protobuf::Message {
  public:
-  boxboxdataequipDesc();
-  virtual ~boxboxdataequipDesc();
+  E_BoxBoxdataEquipDesc();
+  virtual ~E_BoxBoxdataEquipDesc();
 
-  boxboxdataequipDesc(const boxboxdataequipDesc& from);
+  E_BoxBoxdataEquipDesc(const E_BoxBoxdataEquipDesc& from);
 
-  inline boxboxdataequipDesc& operator=(const boxboxdataequipDesc& from) {
+  inline E_BoxBoxdataEquipDesc& operator=(const E_BoxBoxdataEquipDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -407,17 +407,17 @@ class boxboxdataequipDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const boxboxdataequipDesc& default_instance();
+  static const E_BoxBoxdataEquipDesc& default_instance();
 
-  void Swap(boxboxdataequipDesc* other);
+  void Swap(E_BoxBoxdataEquipDesc* other);
 
   // implements Message ----------------------------------------------
 
-  boxboxdataequipDesc* New() const;
+  E_BoxBoxdataEquipDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const boxboxdataequipDesc& from);
-  void MergeFrom(const boxboxdataequipDesc& from);
+  void CopyFrom(const E_BoxBoxdataEquipDesc& from);
+  void MergeFrom(const E_BoxBoxdataEquipDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -440,66 +440,66 @@ class boxboxdataequipDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 rand = 1;
-  inline bool has_rand() const;
-  inline void clear_rand();
-  static const int kRandFieldNumber = 1;
-  inline ::google::protobuf::int32 rand() const;
-  inline void set_rand(::google::protobuf::int32 value);
+  // optional int32 m_rand = 1;
+  inline bool has_m_rand() const;
+  inline void clear_m_rand();
+  static const int kMRandFieldNumber = 1;
+  inline ::google::protobuf::int32 m_rand() const;
+  inline void set_m_rand(::google::protobuf::int32 value);
 
-  // optional int32 minNum = 2;
-  inline bool has_minnum() const;
-  inline void clear_minnum();
-  static const int kMinNumFieldNumber = 2;
-  inline ::google::protobuf::int32 minnum() const;
-  inline void set_minnum(::google::protobuf::int32 value);
+  // optional int32 m_minnum = 2;
+  inline bool has_m_minnum() const;
+  inline void clear_m_minnum();
+  static const int kMMinnumFieldNumber = 2;
+  inline ::google::protobuf::int32 m_minnum() const;
+  inline void set_m_minnum(::google::protobuf::int32 value);
 
-  // optional int32 isbind = 3;
-  inline bool has_isbind() const;
-  inline void clear_isbind();
-  static const int kIsbindFieldNumber = 3;
-  inline ::google::protobuf::int32 isbind() const;
-  inline void set_isbind(::google::protobuf::int32 value);
+  // optional int32 m_isbind = 3;
+  inline bool has_m_isbind() const;
+  inline void clear_m_isbind();
+  static const int kMIsbindFieldNumber = 3;
+  inline ::google::protobuf::int32 m_isbind() const;
+  inline void set_m_isbind(::google::protobuf::int32 value);
 
-  // optional int32 maxNum = 4;
-  inline bool has_maxnum() const;
-  inline void clear_maxnum();
-  static const int kMaxNumFieldNumber = 4;
-  inline ::google::protobuf::int32 maxnum() const;
-  inline void set_maxnum(::google::protobuf::int32 value);
+  // optional int32 m_maxnum = 4;
+  inline bool has_m_maxnum() const;
+  inline void clear_m_maxnum();
+  static const int kMMaxnumFieldNumber = 4;
+  inline ::google::protobuf::int32 m_maxnum() const;
+  inline void set_m_maxnum(::google::protobuf::int32 value);
 
-  // optional string id = 5;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 5;
-  inline const ::std::string& id() const;
-  inline void set_id(const ::std::string& value);
-  inline void set_id(const char* value);
-  inline void set_id(const char* value, size_t size);
-  inline ::std::string* mutable_id();
-  inline ::std::string* release_id();
-  inline void set_allocated_id(::std::string* id);
+  // optional string m_id = 5;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 5;
+  inline const ::std::string& m_id() const;
+  inline void set_m_id(const ::std::string& value);
+  inline void set_m_id(const char* value);
+  inline void set_m_id(const char* value, size_t size);
+  inline ::std::string* mutable_m_id();
+  inline ::std::string* release_m_id();
+  inline void set_allocated_m_id(::std::string* m_id);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.boxboxdataequipDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BoxBoxdataEquipDesc)
  private:
-  inline void set_has_rand();
-  inline void clear_has_rand();
-  inline void set_has_minnum();
-  inline void clear_has_minnum();
-  inline void set_has_isbind();
-  inline void clear_has_isbind();
-  inline void set_has_maxnum();
-  inline void clear_has_maxnum();
-  inline void set_has_id();
-  inline void clear_has_id();
+  inline void set_has_m_rand();
+  inline void clear_has_m_rand();
+  inline void set_has_m_minnum();
+  inline void clear_has_m_minnum();
+  inline void set_has_m_isbind();
+  inline void clear_has_m_isbind();
+  inline void set_has_m_maxnum();
+  inline void clear_has_m_maxnum();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 rand_;
-  ::google::protobuf::int32 minnum_;
-  ::google::protobuf::int32 isbind_;
-  ::google::protobuf::int32 maxnum_;
-  ::std::string* id_;
+  ::google::protobuf::int32 m_rand_;
+  ::google::protobuf::int32 m_minnum_;
+  ::google::protobuf::int32 m_isbind_;
+  ::google::protobuf::int32 m_maxnum_;
+  ::std::string* m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -509,18 +509,18 @@ class boxboxdataequipDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static boxboxdataequipDesc* default_instance_;
+  static E_BoxBoxdataEquipDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class boxboxdataitemDesc : public ::google::protobuf::Message {
+class E_BoxBoxdataItemDesc : public ::google::protobuf::Message {
  public:
-  boxboxdataitemDesc();
-  virtual ~boxboxdataitemDesc();
+  E_BoxBoxdataItemDesc();
+  virtual ~E_BoxBoxdataItemDesc();
 
-  boxboxdataitemDesc(const boxboxdataitemDesc& from);
+  E_BoxBoxdataItemDesc(const E_BoxBoxdataItemDesc& from);
 
-  inline boxboxdataitemDesc& operator=(const boxboxdataitemDesc& from) {
+  inline E_BoxBoxdataItemDesc& operator=(const E_BoxBoxdataItemDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -534,17 +534,17 @@ class boxboxdataitemDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const boxboxdataitemDesc& default_instance();
+  static const E_BoxBoxdataItemDesc& default_instance();
 
-  void Swap(boxboxdataitemDesc* other);
+  void Swap(E_BoxBoxdataItemDesc* other);
 
   // implements Message ----------------------------------------------
 
-  boxboxdataitemDesc* New() const;
+  E_BoxBoxdataItemDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const boxboxdataitemDesc& from);
-  void MergeFrom(const boxboxdataitemDesc& from);
+  void CopyFrom(const E_BoxBoxdataItemDesc& from);
+  void MergeFrom(const E_BoxBoxdataItemDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -567,86 +567,86 @@ class boxboxdataitemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string rand = 1;
-  inline bool has_rand() const;
-  inline void clear_rand();
-  static const int kRandFieldNumber = 1;
-  inline const ::std::string& rand() const;
-  inline void set_rand(const ::std::string& value);
-  inline void set_rand(const char* value);
-  inline void set_rand(const char* value, size_t size);
-  inline ::std::string* mutable_rand();
-  inline ::std::string* release_rand();
-  inline void set_allocated_rand(::std::string* rand);
+  // optional string m_rand = 1;
+  inline bool has_m_rand() const;
+  inline void clear_m_rand();
+  static const int kMRandFieldNumber = 1;
+  inline const ::std::string& m_rand() const;
+  inline void set_m_rand(const ::std::string& value);
+  inline void set_m_rand(const char* value);
+  inline void set_m_rand(const char* value, size_t size);
+  inline ::std::string* mutable_m_rand();
+  inline ::std::string* release_m_rand();
+  inline void set_allocated_m_rand(::std::string* m_rand);
 
-  // optional int32 maxNum = 2;
-  inline bool has_maxnum() const;
-  inline void clear_maxnum();
-  static const int kMaxNumFieldNumber = 2;
-  inline ::google::protobuf::int32 maxnum() const;
-  inline void set_maxnum(::google::protobuf::int32 value);
+  // optional int32 m_maxnum = 2;
+  inline bool has_m_maxnum() const;
+  inline void clear_m_maxnum();
+  static const int kMMaxnumFieldNumber = 2;
+  inline ::google::protobuf::int32 m_maxnum() const;
+  inline void set_m_maxnum(::google::protobuf::int32 value);
 
-  // optional int32 rarerand = 3;
-  inline bool has_rarerand() const;
-  inline void clear_rarerand();
-  static const int kRarerandFieldNumber = 3;
-  inline ::google::protobuf::int32 rarerand() const;
-  inline void set_rarerand(::google::protobuf::int32 value);
+  // optional int32 m_rarerand = 3;
+  inline bool has_m_rarerand() const;
+  inline void clear_m_rarerand();
+  static const int kMRarerandFieldNumber = 3;
+  inline ::google::protobuf::int32 m_rarerand() const;
+  inline void set_m_rarerand(::google::protobuf::int32 value);
 
-  // optional int32 minNum = 4;
-  inline bool has_minnum() const;
-  inline void clear_minnum();
-  static const int kMinNumFieldNumber = 4;
-  inline ::google::protobuf::int32 minnum() const;
-  inline void set_minnum(::google::protobuf::int32 value);
+  // optional int32 m_minnum = 4;
+  inline bool has_m_minnum() const;
+  inline void clear_m_minnum();
+  static const int kMMinnumFieldNumber = 4;
+  inline ::google::protobuf::int32 m_minnum() const;
+  inline void set_m_minnum(::google::protobuf::int32 value);
 
-  // optional string isbind = 5;
-  inline bool has_isbind() const;
-  inline void clear_isbind();
-  static const int kIsbindFieldNumber = 5;
-  inline const ::std::string& isbind() const;
-  inline void set_isbind(const ::std::string& value);
-  inline void set_isbind(const char* value);
-  inline void set_isbind(const char* value, size_t size);
-  inline ::std::string* mutable_isbind();
-  inline ::std::string* release_isbind();
-  inline void set_allocated_isbind(::std::string* isbind);
+  // optional string m_isbind = 5;
+  inline bool has_m_isbind() const;
+  inline void clear_m_isbind();
+  static const int kMIsbindFieldNumber = 5;
+  inline const ::std::string& m_isbind() const;
+  inline void set_m_isbind(const ::std::string& value);
+  inline void set_m_isbind(const char* value);
+  inline void set_m_isbind(const char* value, size_t size);
+  inline ::std::string* mutable_m_isbind();
+  inline ::std::string* release_m_isbind();
+  inline void set_allocated_m_isbind(::std::string* m_isbind);
 
-  // optional string id = 6;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 6;
-  inline const ::std::string& id() const;
-  inline void set_id(const ::std::string& value);
-  inline void set_id(const char* value);
-  inline void set_id(const char* value, size_t size);
-  inline ::std::string* mutable_id();
-  inline ::std::string* release_id();
-  inline void set_allocated_id(::std::string* id);
+  // optional string m_id = 6;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 6;
+  inline const ::std::string& m_id() const;
+  inline void set_m_id(const ::std::string& value);
+  inline void set_m_id(const char* value);
+  inline void set_m_id(const char* value, size_t size);
+  inline ::std::string* mutable_m_id();
+  inline ::std::string* release_m_id();
+  inline void set_allocated_m_id(::std::string* m_id);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.boxboxdataitemDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BoxBoxdataItemDesc)
  private:
-  inline void set_has_rand();
-  inline void clear_has_rand();
-  inline void set_has_maxnum();
-  inline void clear_has_maxnum();
-  inline void set_has_rarerand();
-  inline void clear_has_rarerand();
-  inline void set_has_minnum();
-  inline void clear_has_minnum();
-  inline void set_has_isbind();
-  inline void clear_has_isbind();
-  inline void set_has_id();
-  inline void clear_has_id();
+  inline void set_has_m_rand();
+  inline void clear_has_m_rand();
+  inline void set_has_m_maxnum();
+  inline void clear_has_m_maxnum();
+  inline void set_has_m_rarerand();
+  inline void clear_has_m_rarerand();
+  inline void set_has_m_minnum();
+  inline void clear_has_m_minnum();
+  inline void set_has_m_isbind();
+  inline void clear_has_m_isbind();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* rand_;
-  ::google::protobuf::int32 maxnum_;
-  ::google::protobuf::int32 rarerand_;
-  ::std::string* isbind_;
-  ::std::string* id_;
-  ::google::protobuf::int32 minnum_;
+  ::std::string* m_rand_;
+  ::google::protobuf::int32 m_maxnum_;
+  ::google::protobuf::int32 m_rarerand_;
+  ::std::string* m_isbind_;
+  ::std::string* m_id_;
+  ::google::protobuf::int32 m_minnum_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -656,18 +656,18 @@ class boxboxdataitemDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static boxboxdataitemDesc* default_instance_;
+  static E_BoxBoxdataItemDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class boxboxdata : public ::google::protobuf::Message {
+class E_BoxBoxdata : public ::google::protobuf::Message {
  public:
-  boxboxdata();
-  virtual ~boxboxdata();
+  E_BoxBoxdata();
+  virtual ~E_BoxBoxdata();
 
-  boxboxdata(const boxboxdata& from);
+  E_BoxBoxdata(const E_BoxBoxdata& from);
 
-  inline boxboxdata& operator=(const boxboxdata& from) {
+  inline E_BoxBoxdata& operator=(const E_BoxBoxdata& from) {
     CopyFrom(from);
     return *this;
   }
@@ -681,17 +681,17 @@ class boxboxdata : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const boxboxdata& default_instance();
+  static const E_BoxBoxdata& default_instance();
 
-  void Swap(boxboxdata* other);
+  void Swap(E_BoxBoxdata* other);
 
   // implements Message ----------------------------------------------
 
-  boxboxdata* New() const;
+  E_BoxBoxdata* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const boxboxdata& from);
-  void MergeFrom(const boxboxdata& from);
+  void CopyFrom(const E_BoxBoxdata& from);
+  void MergeFrom(const E_BoxBoxdata& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -714,162 +714,162 @@ class boxboxdata : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 drop_type = 2;
-  inline bool has_drop_type() const;
-  inline void clear_drop_type();
-  static const int kDropTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 drop_type() const;
-  inline void set_drop_type(::google::protobuf::int32 value);
+  // optional int32 m_drop_type = 2;
+  inline bool has_m_drop_type() const;
+  inline void clear_m_drop_type();
+  static const int kMDropTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_drop_type() const;
+  inline void set_m_drop_type(::google::protobuf::int32 value);
 
-  // optional int32 goldminNum = 3;
-  inline bool has_goldminnum() const;
-  inline void clear_goldminnum();
-  static const int kGoldminNumFieldNumber = 3;
-  inline ::google::protobuf::int32 goldminnum() const;
-  inline void set_goldminnum(::google::protobuf::int32 value);
+  // optional int32 m_goldminnum = 3;
+  inline bool has_m_goldminnum() const;
+  inline void clear_m_goldminnum();
+  static const int kMGoldminnumFieldNumber = 3;
+  inline ::google::protobuf::int32 m_goldminnum() const;
+  inline void set_m_goldminnum(::google::protobuf::int32 value);
 
-  // optional int32 goldmaxNum = 4;
-  inline bool has_goldmaxnum() const;
-  inline void clear_goldmaxnum();
-  static const int kGoldmaxNumFieldNumber = 4;
-  inline ::google::protobuf::int32 goldmaxnum() const;
-  inline void set_goldmaxnum(::google::protobuf::int32 value);
+  // optional int32 m_goldmaxnum = 4;
+  inline bool has_m_goldmaxnum() const;
+  inline void clear_m_goldmaxnum();
+  static const int kMGoldmaxnumFieldNumber = 4;
+  inline ::google::protobuf::int32 m_goldmaxnum() const;
+  inline void set_m_goldmaxnum(::google::protobuf::int32 value);
 
-  // optional int32 goldrand = 5;
-  inline bool has_goldrand() const;
-  inline void clear_goldrand();
-  static const int kGoldrandFieldNumber = 5;
-  inline ::google::protobuf::int32 goldrand() const;
-  inline void set_goldrand(::google::protobuf::int32 value);
+  // optional int32 m_goldrand = 5;
+  inline bool has_m_goldrand() const;
+  inline void clear_m_goldrand();
+  static const int kMGoldrandFieldNumber = 5;
+  inline ::google::protobuf::int32 m_goldrand() const;
+  inline void set_m_goldrand(::google::protobuf::int32 value);
 
-  // optional int32 bindjewelminNum = 6;
-  inline bool has_bindjewelminnum() const;
-  inline void clear_bindjewelminnum();
-  static const int kBindjewelminNumFieldNumber = 6;
-  inline ::google::protobuf::int32 bindjewelminnum() const;
-  inline void set_bindjewelminnum(::google::protobuf::int32 value);
+  // optional int32 m_bindjewelminnum = 6;
+  inline bool has_m_bindjewelminnum() const;
+  inline void clear_m_bindjewelminnum();
+  static const int kMBindjewelminnumFieldNumber = 6;
+  inline ::google::protobuf::int32 m_bindjewelminnum() const;
+  inline void set_m_bindjewelminnum(::google::protobuf::int32 value);
 
-  // optional int32 bindjewelmaxNum = 7;
-  inline bool has_bindjewelmaxnum() const;
-  inline void clear_bindjewelmaxnum();
-  static const int kBindjewelmaxNumFieldNumber = 7;
-  inline ::google::protobuf::int32 bindjewelmaxnum() const;
-  inline void set_bindjewelmaxnum(::google::protobuf::int32 value);
+  // optional int32 m_bindjewelmaxnum = 7;
+  inline bool has_m_bindjewelmaxnum() const;
+  inline void clear_m_bindjewelmaxnum();
+  static const int kMBindjewelmaxnumFieldNumber = 7;
+  inline ::google::protobuf::int32 m_bindjewelmaxnum() const;
+  inline void set_m_bindjewelmaxnum(::google::protobuf::int32 value);
 
-  // optional int32 bindjewelrand = 8;
-  inline bool has_bindjewelrand() const;
-  inline void clear_bindjewelrand();
-  static const int kBindjewelrandFieldNumber = 8;
-  inline ::google::protobuf::int32 bindjewelrand() const;
-  inline void set_bindjewelrand(::google::protobuf::int32 value);
+  // optional int32 m_bindjewelrand = 8;
+  inline bool has_m_bindjewelrand() const;
+  inline void clear_m_bindjewelrand();
+  static const int kMBindjewelrandFieldNumber = 8;
+  inline ::google::protobuf::int32 m_bindjewelrand() const;
+  inline void set_m_bindjewelrand(::google::protobuf::int32 value);
 
-  // optional int32 jewelminNum = 9;
-  inline bool has_jewelminnum() const;
-  inline void clear_jewelminnum();
-  static const int kJewelminNumFieldNumber = 9;
-  inline ::google::protobuf::int32 jewelminnum() const;
-  inline void set_jewelminnum(::google::protobuf::int32 value);
+  // optional int32 m_jewelminnum = 9;
+  inline bool has_m_jewelminnum() const;
+  inline void clear_m_jewelminnum();
+  static const int kMJewelminnumFieldNumber = 9;
+  inline ::google::protobuf::int32 m_jewelminnum() const;
+  inline void set_m_jewelminnum(::google::protobuf::int32 value);
 
-  // optional int32 jewelmaxNum = 10;
-  inline bool has_jewelmaxnum() const;
-  inline void clear_jewelmaxnum();
-  static const int kJewelmaxNumFieldNumber = 10;
-  inline ::google::protobuf::int32 jewelmaxnum() const;
-  inline void set_jewelmaxnum(::google::protobuf::int32 value);
+  // optional int32 m_jewelmaxnum = 10;
+  inline bool has_m_jewelmaxnum() const;
+  inline void clear_m_jewelmaxnum();
+  static const int kMJewelmaxnumFieldNumber = 10;
+  inline ::google::protobuf::int32 m_jewelmaxnum() const;
+  inline void set_m_jewelmaxnum(::google::protobuf::int32 value);
 
-  // optional int32 jewelrand = 11;
-  inline bool has_jewelrand() const;
-  inline void clear_jewelrand();
-  static const int kJewelrandFieldNumber = 11;
-  inline ::google::protobuf::int32 jewelrand() const;
-  inline void set_jewelrand(::google::protobuf::int32 value);
+  // optional int32 m_jewelrand = 11;
+  inline bool has_m_jewelrand() const;
+  inline void clear_m_jewelrand();
+  static const int kMJewelrandFieldNumber = 11;
+  inline ::google::protobuf::int32 m_jewelrand() const;
+  inline void set_m_jewelrand(::google::protobuf::int32 value);
 
-  // optional string eq_profession = 12;
-  inline bool has_eq_profession() const;
-  inline void clear_eq_profession();
-  static const int kEqProfessionFieldNumber = 12;
-  inline const ::std::string& eq_profession() const;
-  inline void set_eq_profession(const ::std::string& value);
-  inline void set_eq_profession(const char* value);
-  inline void set_eq_profession(const char* value, size_t size);
-  inline ::std::string* mutable_eq_profession();
-  inline ::std::string* release_eq_profession();
-  inline void set_allocated_eq_profession(::std::string* eq_profession);
+  // optional string m_eq_profession = 12;
+  inline bool has_m_eq_profession() const;
+  inline void clear_m_eq_profession();
+  static const int kMEqProfessionFieldNumber = 12;
+  inline const ::std::string& m_eq_profession() const;
+  inline void set_m_eq_profession(const ::std::string& value);
+  inline void set_m_eq_profession(const char* value);
+  inline void set_m_eq_profession(const char* value, size_t size);
+  inline ::std::string* mutable_m_eq_profession();
+  inline ::std::string* release_m_eq_profession();
+  inline void set_allocated_m_eq_profession(::std::string* m_eq_profession);
 
-  // repeated .proto_ff.boxboxdataequipDesc equip = 13;
-  inline int equip_size() const;
-  inline void clear_equip();
-  static const int kEquipFieldNumber = 13;
-  inline const ::proto_ff::boxboxdataequipDesc& equip(int index) const;
-  inline ::proto_ff::boxboxdataequipDesc* mutable_equip(int index);
-  inline ::proto_ff::boxboxdataequipDesc* add_equip();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataequipDesc >&
-      equip() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataequipDesc >*
-      mutable_equip();
+  // repeated .proto_ff.E_BoxBoxdataEquipDesc m_equip = 13;
+  inline int m_equip_size() const;
+  inline void clear_m_equip();
+  static const int kMEquipFieldNumber = 13;
+  inline const ::proto_ff::E_BoxBoxdataEquipDesc& m_equip(int index) const;
+  inline ::proto_ff::E_BoxBoxdataEquipDesc* mutable_m_equip(int index);
+  inline ::proto_ff::E_BoxBoxdataEquipDesc* add_m_equip();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataEquipDesc >&
+      m_equip() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataEquipDesc >*
+      mutable_m_equip();
 
-  // repeated .proto_ff.boxboxdataitemDesc item = 14;
-  inline int item_size() const;
-  inline void clear_item();
-  static const int kItemFieldNumber = 14;
-  inline const ::proto_ff::boxboxdataitemDesc& item(int index) const;
-  inline ::proto_ff::boxboxdataitemDesc* mutable_item(int index);
-  inline ::proto_ff::boxboxdataitemDesc* add_item();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataitemDesc >&
-      item() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataitemDesc >*
-      mutable_item();
+  // repeated .proto_ff.E_BoxBoxdataItemDesc m_item = 14;
+  inline int m_item_size() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 14;
+  inline const ::proto_ff::E_BoxBoxdataItemDesc& m_item(int index) const;
+  inline ::proto_ff::E_BoxBoxdataItemDesc* mutable_m_item(int index);
+  inline ::proto_ff::E_BoxBoxdataItemDesc* add_m_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataItemDesc >&
+      m_item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataItemDesc >*
+      mutable_m_item();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.boxboxdata)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BoxBoxdata)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_drop_type();
-  inline void clear_has_drop_type();
-  inline void set_has_goldminnum();
-  inline void clear_has_goldminnum();
-  inline void set_has_goldmaxnum();
-  inline void clear_has_goldmaxnum();
-  inline void set_has_goldrand();
-  inline void clear_has_goldrand();
-  inline void set_has_bindjewelminnum();
-  inline void clear_has_bindjewelminnum();
-  inline void set_has_bindjewelmaxnum();
-  inline void clear_has_bindjewelmaxnum();
-  inline void set_has_bindjewelrand();
-  inline void clear_has_bindjewelrand();
-  inline void set_has_jewelminnum();
-  inline void clear_has_jewelminnum();
-  inline void set_has_jewelmaxnum();
-  inline void clear_has_jewelmaxnum();
-  inline void set_has_jewelrand();
-  inline void clear_has_jewelrand();
-  inline void set_has_eq_profession();
-  inline void clear_has_eq_profession();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_drop_type();
+  inline void clear_has_m_drop_type();
+  inline void set_has_m_goldminnum();
+  inline void clear_has_m_goldminnum();
+  inline void set_has_m_goldmaxnum();
+  inline void clear_has_m_goldmaxnum();
+  inline void set_has_m_goldrand();
+  inline void clear_has_m_goldrand();
+  inline void set_has_m_bindjewelminnum();
+  inline void clear_has_m_bindjewelminnum();
+  inline void set_has_m_bindjewelmaxnum();
+  inline void clear_has_m_bindjewelmaxnum();
+  inline void set_has_m_bindjewelrand();
+  inline void clear_has_m_bindjewelrand();
+  inline void set_has_m_jewelminnum();
+  inline void clear_has_m_jewelminnum();
+  inline void set_has_m_jewelmaxnum();
+  inline void clear_has_m_jewelmaxnum();
+  inline void set_has_m_jewelrand();
+  inline void clear_has_m_jewelrand();
+  inline void set_has_m_eq_profession();
+  inline void clear_has_m_eq_profession();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 drop_type_;
-  ::google::protobuf::int32 goldminnum_;
-  ::google::protobuf::int32 goldmaxnum_;
-  ::google::protobuf::int32 goldrand_;
-  ::google::protobuf::int32 bindjewelminnum_;
-  ::google::protobuf::int32 bindjewelmaxnum_;
-  ::google::protobuf::int32 bindjewelrand_;
-  ::google::protobuf::int32 jewelminnum_;
-  ::google::protobuf::int32 jewelmaxnum_;
-  ::google::protobuf::int32 jewelrand_;
-  ::std::string* eq_profession_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataequipDesc > equip_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataitemDesc > item_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_drop_type_;
+  ::google::protobuf::int32 m_goldminnum_;
+  ::google::protobuf::int32 m_goldmaxnum_;
+  ::google::protobuf::int32 m_goldrand_;
+  ::google::protobuf::int32 m_bindjewelminnum_;
+  ::google::protobuf::int32 m_bindjewelmaxnum_;
+  ::google::protobuf::int32 m_bindjewelrand_;
+  ::google::protobuf::int32 m_jewelminnum_;
+  ::google::protobuf::int32 m_jewelmaxnum_;
+  ::google::protobuf::int32 m_jewelrand_;
+  ::std::string* m_eq_profession_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataEquipDesc > m_equip_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataItemDesc > m_item_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
@@ -879,18 +879,18 @@ class boxboxdata : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static boxboxdata* default_instance_;
+  static E_BoxBoxdata* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_boxboxdata : public ::google::protobuf::Message {
+class Sheet_BoxBoxdata : public ::google::protobuf::Message {
  public:
-  Sheet_boxboxdata();
-  virtual ~Sheet_boxboxdata();
+  Sheet_BoxBoxdata();
+  virtual ~Sheet_BoxBoxdata();
 
-  Sheet_boxboxdata(const Sheet_boxboxdata& from);
+  Sheet_BoxBoxdata(const Sheet_BoxBoxdata& from);
 
-  inline Sheet_boxboxdata& operator=(const Sheet_boxboxdata& from) {
+  inline Sheet_BoxBoxdata& operator=(const Sheet_BoxBoxdata& from) {
     CopyFrom(from);
     return *this;
   }
@@ -904,17 +904,17 @@ class Sheet_boxboxdata : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_boxboxdata& default_instance();
+  static const Sheet_BoxBoxdata& default_instance();
 
-  void Swap(Sheet_boxboxdata* other);
+  void Swap(Sheet_BoxBoxdata* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_boxboxdata* New() const;
+  Sheet_BoxBoxdata* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_boxboxdata& from);
-  void MergeFrom(const Sheet_boxboxdata& from);
+  void CopyFrom(const Sheet_BoxBoxdata& from);
+  void MergeFrom(const Sheet_BoxBoxdata& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -937,24 +937,24 @@ class Sheet_boxboxdata : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.boxboxdata boxboxdata_List = 1;
-  inline int boxboxdata_list_size() const;
-  inline void clear_boxboxdata_list();
-  static const int kBoxboxdataListFieldNumber = 1;
-  inline const ::proto_ff::boxboxdata& boxboxdata_list(int index) const;
-  inline ::proto_ff::boxboxdata* mutable_boxboxdata_list(int index);
-  inline ::proto_ff::boxboxdata* add_boxboxdata_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdata >&
-      boxboxdata_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdata >*
-      mutable_boxboxdata_list();
+  // repeated .proto_ff.E_BoxBoxdata E_BoxBoxdata_List = 1;
+  inline int e_boxboxdata_list_size() const;
+  inline void clear_e_boxboxdata_list();
+  static const int kEBoxBoxdataListFieldNumber = 1;
+  inline const ::proto_ff::E_BoxBoxdata& e_boxboxdata_list(int index) const;
+  inline ::proto_ff::E_BoxBoxdata* mutable_e_boxboxdata_list(int index);
+  inline ::proto_ff::E_BoxBoxdata* add_e_boxboxdata_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdata >&
+      e_boxboxdata_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdata >*
+      mutable_e_boxboxdata_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_boxboxdata)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_BoxBoxdata)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdata > boxboxdata_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdata > e_boxboxdata_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -964,1128 +964,1128 @@ class Sheet_boxboxdata : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_box_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_boxboxdata* default_instance_;
+  static Sheet_BoxBoxdata* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// boxboxboxdataDesc
+// E_BoxBoxBoxdataDesc
 
-// optional int32 maxTimes = 1;
-inline bool boxboxboxdataDesc::has_maxtimes() const {
+// optional int32 m_maxtimes = 1;
+inline bool E_BoxBoxBoxdataDesc::has_m_maxtimes() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void boxboxboxdataDesc::set_has_maxtimes() {
+inline void E_BoxBoxBoxdataDesc::set_has_m_maxtimes() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void boxboxboxdataDesc::clear_has_maxtimes() {
+inline void E_BoxBoxBoxdataDesc::clear_has_m_maxtimes() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void boxboxboxdataDesc::clear_maxtimes() {
-  maxtimes_ = 0;
-  clear_has_maxtimes();
+inline void E_BoxBoxBoxdataDesc::clear_m_maxtimes() {
+  m_maxtimes_ = 0;
+  clear_has_m_maxtimes();
 }
-inline ::google::protobuf::int32 boxboxboxdataDesc::maxtimes() const {
-  return maxtimes_;
+inline ::google::protobuf::int32 E_BoxBoxBoxdataDesc::m_maxtimes() const {
+  return m_maxtimes_;
 }
-inline void boxboxboxdataDesc::set_maxtimes(::google::protobuf::int32 value) {
-  set_has_maxtimes();
-  maxtimes_ = value;
+inline void E_BoxBoxBoxdataDesc::set_m_maxtimes(::google::protobuf::int32 value) {
+  set_has_m_maxtimes();
+  m_maxtimes_ = value;
 }
 
-// optional int64 id = 2;
-inline bool boxboxboxdataDesc::has_id() const {
+// optional int64 m_id = 2;
+inline bool E_BoxBoxBoxdataDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void boxboxboxdataDesc::set_has_id() {
+inline void E_BoxBoxBoxdataDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void boxboxboxdataDesc::clear_has_id() {
+inline void E_BoxBoxBoxdataDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void boxboxboxdataDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_BoxBoxBoxdataDesc::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 boxboxboxdataDesc::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_BoxBoxBoxdataDesc::m_id() const {
+  return m_id_;
 }
-inline void boxboxboxdataDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_BoxBoxBoxdataDesc::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 weight = 3;
-inline bool boxboxboxdataDesc::has_weight() const {
+// optional int32 m_weight = 3;
+inline bool E_BoxBoxBoxdataDesc::has_m_weight() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void boxboxboxdataDesc::set_has_weight() {
+inline void E_BoxBoxBoxdataDesc::set_has_m_weight() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void boxboxboxdataDesc::clear_has_weight() {
+inline void E_BoxBoxBoxdataDesc::clear_has_m_weight() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void boxboxboxdataDesc::clear_weight() {
-  weight_ = 0;
-  clear_has_weight();
+inline void E_BoxBoxBoxdataDesc::clear_m_weight() {
+  m_weight_ = 0;
+  clear_has_m_weight();
 }
-inline ::google::protobuf::int32 boxboxboxdataDesc::weight() const {
-  return weight_;
+inline ::google::protobuf::int32 E_BoxBoxBoxdataDesc::m_weight() const {
+  return m_weight_;
 }
-inline void boxboxboxdataDesc::set_weight(::google::protobuf::int32 value) {
-  set_has_weight();
-  weight_ = value;
+inline void E_BoxBoxBoxdataDesc::set_m_weight(::google::protobuf::int32 value) {
+  set_has_m_weight();
+  m_weight_ = value;
 }
 
-// optional int32 minTimes = 4;
-inline bool boxboxboxdataDesc::has_mintimes() const {
+// optional int32 m_mintimes = 4;
+inline bool E_BoxBoxBoxdataDesc::has_m_mintimes() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void boxboxboxdataDesc::set_has_mintimes() {
+inline void E_BoxBoxBoxdataDesc::set_has_m_mintimes() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void boxboxboxdataDesc::clear_has_mintimes() {
+inline void E_BoxBoxBoxdataDesc::clear_has_m_mintimes() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void boxboxboxdataDesc::clear_mintimes() {
-  mintimes_ = 0;
-  clear_has_mintimes();
+inline void E_BoxBoxBoxdataDesc::clear_m_mintimes() {
+  m_mintimes_ = 0;
+  clear_has_m_mintimes();
 }
-inline ::google::protobuf::int32 boxboxboxdataDesc::mintimes() const {
-  return mintimes_;
+inline ::google::protobuf::int32 E_BoxBoxBoxdataDesc::m_mintimes() const {
+  return m_mintimes_;
 }
-inline void boxboxboxdataDesc::set_mintimes(::google::protobuf::int32 value) {
-  set_has_mintimes();
-  mintimes_ = value;
+inline void E_BoxBoxBoxdataDesc::set_m_mintimes(::google::protobuf::int32 value) {
+  set_has_m_mintimes();
+  m_mintimes_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// boxbox
+// E_BoxBox
 
-// optional int64 id = 1;
-inline bool boxbox::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_BoxBox::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void boxbox::set_has_id() {
+inline void E_BoxBox::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void boxbox::clear_has_id() {
+inline void E_BoxBox::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void boxbox::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_BoxBox::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 boxbox::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_BoxBox::m_id() const {
+  return m_id_;
 }
-inline void boxbox::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_BoxBox::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 type = 2;
-inline bool boxbox::has_type() const {
+// optional int32 m_type = 2;
+inline bool E_BoxBox::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void boxbox::set_has_type() {
+inline void E_BoxBox::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void boxbox::clear_has_type() {
+inline void E_BoxBox::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void boxbox::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_BoxBox::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 boxbox::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_BoxBox::m_type() const {
+  return m_type_;
 }
-inline void boxbox::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_BoxBox::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Rate = 3;
-inline bool boxbox::has_rate() const {
+// optional int32 m_rate = 3;
+inline bool E_BoxBox::has_m_rate() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void boxbox::set_has_rate() {
+inline void E_BoxBox::set_has_m_rate() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void boxbox::clear_has_rate() {
+inline void E_BoxBox::clear_has_m_rate() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void boxbox::clear_rate() {
-  rate_ = 0;
-  clear_has_rate();
+inline void E_BoxBox::clear_m_rate() {
+  m_rate_ = 0;
+  clear_has_m_rate();
 }
-inline ::google::protobuf::int32 boxbox::rate() const {
-  return rate_;
+inline ::google::protobuf::int32 E_BoxBox::m_rate() const {
+  return m_rate_;
 }
-inline void boxbox::set_rate(::google::protobuf::int32 value) {
-  set_has_rate();
-  rate_ = value;
+inline void E_BoxBox::set_m_rate(::google::protobuf::int32 value) {
+  set_has_m_rate();
+  m_rate_ = value;
 }
 
-// optional int32 Mask = 4;
-inline bool boxbox::has_mask() const {
+// optional int32 m_mask = 4;
+inline bool E_BoxBox::has_m_mask() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void boxbox::set_has_mask() {
+inline void E_BoxBox::set_has_m_mask() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void boxbox::clear_has_mask() {
+inline void E_BoxBox::clear_has_m_mask() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void boxbox::clear_mask() {
-  mask_ = 0;
-  clear_has_mask();
+inline void E_BoxBox::clear_m_mask() {
+  m_mask_ = 0;
+  clear_has_m_mask();
 }
-inline ::google::protobuf::int32 boxbox::mask() const {
-  return mask_;
+inline ::google::protobuf::int32 E_BoxBox::m_mask() const {
+  return m_mask_;
 }
-inline void boxbox::set_mask(::google::protobuf::int32 value) {
-  set_has_mask();
-  mask_ = value;
+inline void E_BoxBox::set_m_mask(::google::protobuf::int32 value) {
+  set_has_m_mask();
+  m_mask_ = value;
 }
 
-// optional int32 minTimes = 5;
-inline bool boxbox::has_mintimes() const {
+// optional int32 m_mintimes = 5;
+inline bool E_BoxBox::has_m_mintimes() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void boxbox::set_has_mintimes() {
+inline void E_BoxBox::set_has_m_mintimes() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void boxbox::clear_has_mintimes() {
+inline void E_BoxBox::clear_has_m_mintimes() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void boxbox::clear_mintimes() {
-  mintimes_ = 0;
-  clear_has_mintimes();
+inline void E_BoxBox::clear_m_mintimes() {
+  m_mintimes_ = 0;
+  clear_has_m_mintimes();
 }
-inline ::google::protobuf::int32 boxbox::mintimes() const {
-  return mintimes_;
+inline ::google::protobuf::int32 E_BoxBox::m_mintimes() const {
+  return m_mintimes_;
 }
-inline void boxbox::set_mintimes(::google::protobuf::int32 value) {
-  set_has_mintimes();
-  mintimes_ = value;
+inline void E_BoxBox::set_m_mintimes(::google::protobuf::int32 value) {
+  set_has_m_mintimes();
+  m_mintimes_ = value;
 }
 
-// optional int32 maxTimes = 6;
-inline bool boxbox::has_maxtimes() const {
+// optional int32 m_maxtimes = 6;
+inline bool E_BoxBox::has_m_maxtimes() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void boxbox::set_has_maxtimes() {
+inline void E_BoxBox::set_has_m_maxtimes() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void boxbox::clear_has_maxtimes() {
+inline void E_BoxBox::clear_has_m_maxtimes() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void boxbox::clear_maxtimes() {
-  maxtimes_ = 0;
-  clear_has_maxtimes();
+inline void E_BoxBox::clear_m_maxtimes() {
+  m_maxtimes_ = 0;
+  clear_has_m_maxtimes();
 }
-inline ::google::protobuf::int32 boxbox::maxtimes() const {
-  return maxtimes_;
+inline ::google::protobuf::int32 E_BoxBox::m_maxtimes() const {
+  return m_maxtimes_;
 }
-inline void boxbox::set_maxtimes(::google::protobuf::int32 value) {
-  set_has_maxtimes();
-  maxtimes_ = value;
-}
-
-// repeated .proto_ff.boxboxboxdataDesc boxdata = 7;
-inline int boxbox::boxdata_size() const {
-  return boxdata_.size();
-}
-inline void boxbox::clear_boxdata() {
-  boxdata_.Clear();
-}
-inline const ::proto_ff::boxboxboxdataDesc& boxbox::boxdata(int index) const {
-  return boxdata_.Get(index);
-}
-inline ::proto_ff::boxboxboxdataDesc* boxbox::mutable_boxdata(int index) {
-  return boxdata_.Mutable(index);
-}
-inline ::proto_ff::boxboxboxdataDesc* boxbox::add_boxdata() {
-  return boxdata_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxboxdataDesc >&
-boxbox::boxdata() const {
-  return boxdata_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxboxdataDesc >*
-boxbox::mutable_boxdata() {
-  return &boxdata_;
+inline void E_BoxBox::set_m_maxtimes(::google::protobuf::int32 value) {
+  set_has_m_maxtimes();
+  m_maxtimes_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_boxbox
-
-// repeated .proto_ff.boxbox boxbox_List = 1;
-inline int Sheet_boxbox::boxbox_list_size() const {
-  return boxbox_list_.size();
+// repeated .proto_ff.E_BoxBoxBoxdataDesc m_boxdata = 7;
+inline int E_BoxBox::m_boxdata_size() const {
+  return m_boxdata_.size();
 }
-inline void Sheet_boxbox::clear_boxbox_list() {
-  boxbox_list_.Clear();
+inline void E_BoxBox::clear_m_boxdata() {
+  m_boxdata_.Clear();
 }
-inline const ::proto_ff::boxbox& Sheet_boxbox::boxbox_list(int index) const {
-  return boxbox_list_.Get(index);
+inline const ::proto_ff::E_BoxBoxBoxdataDesc& E_BoxBox::m_boxdata(int index) const {
+  return m_boxdata_.Get(index);
 }
-inline ::proto_ff::boxbox* Sheet_boxbox::mutable_boxbox_list(int index) {
-  return boxbox_list_.Mutable(index);
+inline ::proto_ff::E_BoxBoxBoxdataDesc* E_BoxBox::mutable_m_boxdata(int index) {
+  return m_boxdata_.Mutable(index);
 }
-inline ::proto_ff::boxbox* Sheet_boxbox::add_boxbox_list() {
-  return boxbox_list_.Add();
+inline ::proto_ff::E_BoxBoxBoxdataDesc* E_BoxBox::add_m_boxdata() {
+  return m_boxdata_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxbox >&
-Sheet_boxbox::boxbox_list() const {
-  return boxbox_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxBoxdataDesc >&
+E_BoxBox::m_boxdata() const {
+  return m_boxdata_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxbox >*
-Sheet_boxbox::mutable_boxbox_list() {
-  return &boxbox_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxBoxdataDesc >*
+E_BoxBox::mutable_m_boxdata() {
+  return &m_boxdata_;
 }
 
 // -------------------------------------------------------------------
 
-// boxboxdataequipDesc
+// Sheet_BoxBox
 
-// optional int32 rand = 1;
-inline bool boxboxdataequipDesc::has_rand() const {
+// repeated .proto_ff.E_BoxBox E_BoxBox_List = 1;
+inline int Sheet_BoxBox::e_boxbox_list_size() const {
+  return e_boxbox_list_.size();
+}
+inline void Sheet_BoxBox::clear_e_boxbox_list() {
+  e_boxbox_list_.Clear();
+}
+inline const ::proto_ff::E_BoxBox& Sheet_BoxBox::e_boxbox_list(int index) const {
+  return e_boxbox_list_.Get(index);
+}
+inline ::proto_ff::E_BoxBox* Sheet_BoxBox::mutable_e_boxbox_list(int index) {
+  return e_boxbox_list_.Mutable(index);
+}
+inline ::proto_ff::E_BoxBox* Sheet_BoxBox::add_e_boxbox_list() {
+  return e_boxbox_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBox >&
+Sheet_BoxBox::e_boxbox_list() const {
+  return e_boxbox_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBox >*
+Sheet_BoxBox::mutable_e_boxbox_list() {
+  return &e_boxbox_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_BoxBoxdataEquipDesc
+
+// optional int32 m_rand = 1;
+inline bool E_BoxBoxdataEquipDesc::has_m_rand() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void boxboxdataequipDesc::set_has_rand() {
+inline void E_BoxBoxdataEquipDesc::set_has_m_rand() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void boxboxdataequipDesc::clear_has_rand() {
+inline void E_BoxBoxdataEquipDesc::clear_has_m_rand() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void boxboxdataequipDesc::clear_rand() {
-  rand_ = 0;
-  clear_has_rand();
+inline void E_BoxBoxdataEquipDesc::clear_m_rand() {
+  m_rand_ = 0;
+  clear_has_m_rand();
 }
-inline ::google::protobuf::int32 boxboxdataequipDesc::rand() const {
-  return rand_;
+inline ::google::protobuf::int32 E_BoxBoxdataEquipDesc::m_rand() const {
+  return m_rand_;
 }
-inline void boxboxdataequipDesc::set_rand(::google::protobuf::int32 value) {
-  set_has_rand();
-  rand_ = value;
+inline void E_BoxBoxdataEquipDesc::set_m_rand(::google::protobuf::int32 value) {
+  set_has_m_rand();
+  m_rand_ = value;
 }
 
-// optional int32 minNum = 2;
-inline bool boxboxdataequipDesc::has_minnum() const {
+// optional int32 m_minnum = 2;
+inline bool E_BoxBoxdataEquipDesc::has_m_minnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void boxboxdataequipDesc::set_has_minnum() {
+inline void E_BoxBoxdataEquipDesc::set_has_m_minnum() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void boxboxdataequipDesc::clear_has_minnum() {
+inline void E_BoxBoxdataEquipDesc::clear_has_m_minnum() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void boxboxdataequipDesc::clear_minnum() {
-  minnum_ = 0;
-  clear_has_minnum();
+inline void E_BoxBoxdataEquipDesc::clear_m_minnum() {
+  m_minnum_ = 0;
+  clear_has_m_minnum();
 }
-inline ::google::protobuf::int32 boxboxdataequipDesc::minnum() const {
-  return minnum_;
+inline ::google::protobuf::int32 E_BoxBoxdataEquipDesc::m_minnum() const {
+  return m_minnum_;
 }
-inline void boxboxdataequipDesc::set_minnum(::google::protobuf::int32 value) {
-  set_has_minnum();
-  minnum_ = value;
+inline void E_BoxBoxdataEquipDesc::set_m_minnum(::google::protobuf::int32 value) {
+  set_has_m_minnum();
+  m_minnum_ = value;
 }
 
-// optional int32 isbind = 3;
-inline bool boxboxdataequipDesc::has_isbind() const {
+// optional int32 m_isbind = 3;
+inline bool E_BoxBoxdataEquipDesc::has_m_isbind() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void boxboxdataequipDesc::set_has_isbind() {
+inline void E_BoxBoxdataEquipDesc::set_has_m_isbind() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void boxboxdataequipDesc::clear_has_isbind() {
+inline void E_BoxBoxdataEquipDesc::clear_has_m_isbind() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void boxboxdataequipDesc::clear_isbind() {
-  isbind_ = 0;
-  clear_has_isbind();
+inline void E_BoxBoxdataEquipDesc::clear_m_isbind() {
+  m_isbind_ = 0;
+  clear_has_m_isbind();
 }
-inline ::google::protobuf::int32 boxboxdataequipDesc::isbind() const {
-  return isbind_;
+inline ::google::protobuf::int32 E_BoxBoxdataEquipDesc::m_isbind() const {
+  return m_isbind_;
 }
-inline void boxboxdataequipDesc::set_isbind(::google::protobuf::int32 value) {
-  set_has_isbind();
-  isbind_ = value;
+inline void E_BoxBoxdataEquipDesc::set_m_isbind(::google::protobuf::int32 value) {
+  set_has_m_isbind();
+  m_isbind_ = value;
 }
 
-// optional int32 maxNum = 4;
-inline bool boxboxdataequipDesc::has_maxnum() const {
+// optional int32 m_maxnum = 4;
+inline bool E_BoxBoxdataEquipDesc::has_m_maxnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void boxboxdataequipDesc::set_has_maxnum() {
+inline void E_BoxBoxdataEquipDesc::set_has_m_maxnum() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void boxboxdataequipDesc::clear_has_maxnum() {
+inline void E_BoxBoxdataEquipDesc::clear_has_m_maxnum() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void boxboxdataequipDesc::clear_maxnum() {
-  maxnum_ = 0;
-  clear_has_maxnum();
+inline void E_BoxBoxdataEquipDesc::clear_m_maxnum() {
+  m_maxnum_ = 0;
+  clear_has_m_maxnum();
 }
-inline ::google::protobuf::int32 boxboxdataequipDesc::maxnum() const {
-  return maxnum_;
+inline ::google::protobuf::int32 E_BoxBoxdataEquipDesc::m_maxnum() const {
+  return m_maxnum_;
 }
-inline void boxboxdataequipDesc::set_maxnum(::google::protobuf::int32 value) {
-  set_has_maxnum();
-  maxnum_ = value;
+inline void E_BoxBoxdataEquipDesc::set_m_maxnum(::google::protobuf::int32 value) {
+  set_has_m_maxnum();
+  m_maxnum_ = value;
 }
 
-// optional string id = 5;
-inline bool boxboxdataequipDesc::has_id() const {
+// optional string m_id = 5;
+inline bool E_BoxBoxdataEquipDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void boxboxdataequipDesc::set_has_id() {
+inline void E_BoxBoxdataEquipDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void boxboxdataequipDesc::clear_has_id() {
+inline void E_BoxBoxdataEquipDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void boxboxdataequipDesc::clear_id() {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    id_->clear();
+inline void E_BoxBoxdataEquipDesc::clear_m_id() {
+  if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+    m_id_->clear();
   }
-  clear_has_id();
+  clear_has_m_id();
 }
-inline const ::std::string& boxboxdataequipDesc::id() const {
-  return *id_;
+inline const ::std::string& E_BoxBoxdataEquipDesc::m_id() const {
+  return *m_id_;
 }
-inline void boxboxdataequipDesc::set_id(const ::std::string& value) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline void E_BoxBoxdataEquipDesc::set_m_id(const ::std::string& value) {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  id_->assign(value);
+  m_id_->assign(value);
 }
-inline void boxboxdataequipDesc::set_id(const char* value) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline void E_BoxBoxdataEquipDesc::set_m_id(const char* value) {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  id_->assign(value);
+  m_id_->assign(value);
 }
-inline void boxboxdataequipDesc::set_id(const char* value, size_t size) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline void E_BoxBoxdataEquipDesc::set_m_id(const char* value, size_t size) {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  id_->assign(reinterpret_cast<const char*>(value), size);
+  m_id_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* boxboxdataequipDesc::mutable_id() {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline ::std::string* E_BoxBoxdataEquipDesc::mutable_m_id() {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  return id_;
+  return m_id_;
 }
-inline ::std::string* boxboxdataequipDesc::release_id() {
-  clear_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BoxBoxdataEquipDesc::release_m_id() {
+  clear_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = id_;
-    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_id_;
+    m_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void boxboxdataequipDesc::set_allocated_id(::std::string* id) {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    delete id_;
+inline void E_BoxBoxdataEquipDesc::set_allocated_m_id(::std::string* m_id) {
+  if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_id_;
   }
-  if (id) {
-    set_has_id();
-    id_ = id;
+  if (m_id) {
+    set_has_m_id();
+    m_id_ = m_id;
   } else {
-    clear_has_id();
-    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_id();
+    m_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// boxboxdataitemDesc
+// E_BoxBoxdataItemDesc
 
-// optional string rand = 1;
-inline bool boxboxdataitemDesc::has_rand() const {
+// optional string m_rand = 1;
+inline bool E_BoxBoxdataItemDesc::has_m_rand() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void boxboxdataitemDesc::set_has_rand() {
+inline void E_BoxBoxdataItemDesc::set_has_m_rand() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void boxboxdataitemDesc::clear_has_rand() {
+inline void E_BoxBoxdataItemDesc::clear_has_m_rand() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void boxboxdataitemDesc::clear_rand() {
-  if (rand_ != &::google::protobuf::internal::kEmptyString) {
-    rand_->clear();
+inline void E_BoxBoxdataItemDesc::clear_m_rand() {
+  if (m_rand_ != &::google::protobuf::internal::kEmptyString) {
+    m_rand_->clear();
   }
-  clear_has_rand();
+  clear_has_m_rand();
 }
-inline const ::std::string& boxboxdataitemDesc::rand() const {
-  return *rand_;
+inline const ::std::string& E_BoxBoxdataItemDesc::m_rand() const {
+  return *m_rand_;
 }
-inline void boxboxdataitemDesc::set_rand(const ::std::string& value) {
-  set_has_rand();
-  if (rand_ == &::google::protobuf::internal::kEmptyString) {
-    rand_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_rand(const ::std::string& value) {
+  set_has_m_rand();
+  if (m_rand_ == &::google::protobuf::internal::kEmptyString) {
+    m_rand_ = new ::std::string;
   }
-  rand_->assign(value);
+  m_rand_->assign(value);
 }
-inline void boxboxdataitemDesc::set_rand(const char* value) {
-  set_has_rand();
-  if (rand_ == &::google::protobuf::internal::kEmptyString) {
-    rand_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_rand(const char* value) {
+  set_has_m_rand();
+  if (m_rand_ == &::google::protobuf::internal::kEmptyString) {
+    m_rand_ = new ::std::string;
   }
-  rand_->assign(value);
+  m_rand_->assign(value);
 }
-inline void boxboxdataitemDesc::set_rand(const char* value, size_t size) {
-  set_has_rand();
-  if (rand_ == &::google::protobuf::internal::kEmptyString) {
-    rand_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_rand(const char* value, size_t size) {
+  set_has_m_rand();
+  if (m_rand_ == &::google::protobuf::internal::kEmptyString) {
+    m_rand_ = new ::std::string;
   }
-  rand_->assign(reinterpret_cast<const char*>(value), size);
+  m_rand_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* boxboxdataitemDesc::mutable_rand() {
-  set_has_rand();
-  if (rand_ == &::google::protobuf::internal::kEmptyString) {
-    rand_ = new ::std::string;
+inline ::std::string* E_BoxBoxdataItemDesc::mutable_m_rand() {
+  set_has_m_rand();
+  if (m_rand_ == &::google::protobuf::internal::kEmptyString) {
+    m_rand_ = new ::std::string;
   }
-  return rand_;
+  return m_rand_;
 }
-inline ::std::string* boxboxdataitemDesc::release_rand() {
-  clear_has_rand();
-  if (rand_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BoxBoxdataItemDesc::release_m_rand() {
+  clear_has_m_rand();
+  if (m_rand_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = rand_;
-    rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_rand_;
+    m_rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void boxboxdataitemDesc::set_allocated_rand(::std::string* rand) {
-  if (rand_ != &::google::protobuf::internal::kEmptyString) {
-    delete rand_;
+inline void E_BoxBoxdataItemDesc::set_allocated_m_rand(::std::string* m_rand) {
+  if (m_rand_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_rand_;
   }
-  if (rand) {
-    set_has_rand();
-    rand_ = rand;
+  if (m_rand) {
+    set_has_m_rand();
+    m_rand_ = m_rand;
   } else {
-    clear_has_rand();
-    rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_rand();
+    m_rand_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 maxNum = 2;
-inline bool boxboxdataitemDesc::has_maxnum() const {
+// optional int32 m_maxnum = 2;
+inline bool E_BoxBoxdataItemDesc::has_m_maxnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void boxboxdataitemDesc::set_has_maxnum() {
+inline void E_BoxBoxdataItemDesc::set_has_m_maxnum() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void boxboxdataitemDesc::clear_has_maxnum() {
+inline void E_BoxBoxdataItemDesc::clear_has_m_maxnum() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void boxboxdataitemDesc::clear_maxnum() {
-  maxnum_ = 0;
-  clear_has_maxnum();
+inline void E_BoxBoxdataItemDesc::clear_m_maxnum() {
+  m_maxnum_ = 0;
+  clear_has_m_maxnum();
 }
-inline ::google::protobuf::int32 boxboxdataitemDesc::maxnum() const {
-  return maxnum_;
+inline ::google::protobuf::int32 E_BoxBoxdataItemDesc::m_maxnum() const {
+  return m_maxnum_;
 }
-inline void boxboxdataitemDesc::set_maxnum(::google::protobuf::int32 value) {
-  set_has_maxnum();
-  maxnum_ = value;
+inline void E_BoxBoxdataItemDesc::set_m_maxnum(::google::protobuf::int32 value) {
+  set_has_m_maxnum();
+  m_maxnum_ = value;
 }
 
-// optional int32 rarerand = 3;
-inline bool boxboxdataitemDesc::has_rarerand() const {
+// optional int32 m_rarerand = 3;
+inline bool E_BoxBoxdataItemDesc::has_m_rarerand() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void boxboxdataitemDesc::set_has_rarerand() {
+inline void E_BoxBoxdataItemDesc::set_has_m_rarerand() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void boxboxdataitemDesc::clear_has_rarerand() {
+inline void E_BoxBoxdataItemDesc::clear_has_m_rarerand() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void boxboxdataitemDesc::clear_rarerand() {
-  rarerand_ = 0;
-  clear_has_rarerand();
+inline void E_BoxBoxdataItemDesc::clear_m_rarerand() {
+  m_rarerand_ = 0;
+  clear_has_m_rarerand();
 }
-inline ::google::protobuf::int32 boxboxdataitemDesc::rarerand() const {
-  return rarerand_;
+inline ::google::protobuf::int32 E_BoxBoxdataItemDesc::m_rarerand() const {
+  return m_rarerand_;
 }
-inline void boxboxdataitemDesc::set_rarerand(::google::protobuf::int32 value) {
-  set_has_rarerand();
-  rarerand_ = value;
+inline void E_BoxBoxdataItemDesc::set_m_rarerand(::google::protobuf::int32 value) {
+  set_has_m_rarerand();
+  m_rarerand_ = value;
 }
 
-// optional int32 minNum = 4;
-inline bool boxboxdataitemDesc::has_minnum() const {
+// optional int32 m_minnum = 4;
+inline bool E_BoxBoxdataItemDesc::has_m_minnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void boxboxdataitemDesc::set_has_minnum() {
+inline void E_BoxBoxdataItemDesc::set_has_m_minnum() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void boxboxdataitemDesc::clear_has_minnum() {
+inline void E_BoxBoxdataItemDesc::clear_has_m_minnum() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void boxboxdataitemDesc::clear_minnum() {
-  minnum_ = 0;
-  clear_has_minnum();
+inline void E_BoxBoxdataItemDesc::clear_m_minnum() {
+  m_minnum_ = 0;
+  clear_has_m_minnum();
 }
-inline ::google::protobuf::int32 boxboxdataitemDesc::minnum() const {
-  return minnum_;
+inline ::google::protobuf::int32 E_BoxBoxdataItemDesc::m_minnum() const {
+  return m_minnum_;
 }
-inline void boxboxdataitemDesc::set_minnum(::google::protobuf::int32 value) {
-  set_has_minnum();
-  minnum_ = value;
+inline void E_BoxBoxdataItemDesc::set_m_minnum(::google::protobuf::int32 value) {
+  set_has_m_minnum();
+  m_minnum_ = value;
 }
 
-// optional string isbind = 5;
-inline bool boxboxdataitemDesc::has_isbind() const {
+// optional string m_isbind = 5;
+inline bool E_BoxBoxdataItemDesc::has_m_isbind() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void boxboxdataitemDesc::set_has_isbind() {
+inline void E_BoxBoxdataItemDesc::set_has_m_isbind() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void boxboxdataitemDesc::clear_has_isbind() {
+inline void E_BoxBoxdataItemDesc::clear_has_m_isbind() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void boxboxdataitemDesc::clear_isbind() {
-  if (isbind_ != &::google::protobuf::internal::kEmptyString) {
-    isbind_->clear();
+inline void E_BoxBoxdataItemDesc::clear_m_isbind() {
+  if (m_isbind_ != &::google::protobuf::internal::kEmptyString) {
+    m_isbind_->clear();
   }
-  clear_has_isbind();
+  clear_has_m_isbind();
 }
-inline const ::std::string& boxboxdataitemDesc::isbind() const {
-  return *isbind_;
+inline const ::std::string& E_BoxBoxdataItemDesc::m_isbind() const {
+  return *m_isbind_;
 }
-inline void boxboxdataitemDesc::set_isbind(const ::std::string& value) {
-  set_has_isbind();
-  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
-    isbind_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_isbind(const ::std::string& value) {
+  set_has_m_isbind();
+  if (m_isbind_ == &::google::protobuf::internal::kEmptyString) {
+    m_isbind_ = new ::std::string;
   }
-  isbind_->assign(value);
+  m_isbind_->assign(value);
 }
-inline void boxboxdataitemDesc::set_isbind(const char* value) {
-  set_has_isbind();
-  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
-    isbind_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_isbind(const char* value) {
+  set_has_m_isbind();
+  if (m_isbind_ == &::google::protobuf::internal::kEmptyString) {
+    m_isbind_ = new ::std::string;
   }
-  isbind_->assign(value);
+  m_isbind_->assign(value);
 }
-inline void boxboxdataitemDesc::set_isbind(const char* value, size_t size) {
-  set_has_isbind();
-  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
-    isbind_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_isbind(const char* value, size_t size) {
+  set_has_m_isbind();
+  if (m_isbind_ == &::google::protobuf::internal::kEmptyString) {
+    m_isbind_ = new ::std::string;
   }
-  isbind_->assign(reinterpret_cast<const char*>(value), size);
+  m_isbind_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* boxboxdataitemDesc::mutable_isbind() {
-  set_has_isbind();
-  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
-    isbind_ = new ::std::string;
+inline ::std::string* E_BoxBoxdataItemDesc::mutable_m_isbind() {
+  set_has_m_isbind();
+  if (m_isbind_ == &::google::protobuf::internal::kEmptyString) {
+    m_isbind_ = new ::std::string;
   }
-  return isbind_;
+  return m_isbind_;
 }
-inline ::std::string* boxboxdataitemDesc::release_isbind() {
-  clear_has_isbind();
-  if (isbind_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BoxBoxdataItemDesc::release_m_isbind() {
+  clear_has_m_isbind();
+  if (m_isbind_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = isbind_;
-    isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_isbind_;
+    m_isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void boxboxdataitemDesc::set_allocated_isbind(::std::string* isbind) {
-  if (isbind_ != &::google::protobuf::internal::kEmptyString) {
-    delete isbind_;
+inline void E_BoxBoxdataItemDesc::set_allocated_m_isbind(::std::string* m_isbind) {
+  if (m_isbind_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_isbind_;
   }
-  if (isbind) {
-    set_has_isbind();
-    isbind_ = isbind;
+  if (m_isbind) {
+    set_has_m_isbind();
+    m_isbind_ = m_isbind;
   } else {
-    clear_has_isbind();
-    isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_isbind();
+    m_isbind_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string id = 6;
-inline bool boxboxdataitemDesc::has_id() const {
+// optional string m_id = 6;
+inline bool E_BoxBoxdataItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void boxboxdataitemDesc::set_has_id() {
+inline void E_BoxBoxdataItemDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void boxboxdataitemDesc::clear_has_id() {
+inline void E_BoxBoxdataItemDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void boxboxdataitemDesc::clear_id() {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    id_->clear();
+inline void E_BoxBoxdataItemDesc::clear_m_id() {
+  if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+    m_id_->clear();
   }
-  clear_has_id();
+  clear_has_m_id();
 }
-inline const ::std::string& boxboxdataitemDesc::id() const {
-  return *id_;
+inline const ::std::string& E_BoxBoxdataItemDesc::m_id() const {
+  return *m_id_;
 }
-inline void boxboxdataitemDesc::set_id(const ::std::string& value) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_id(const ::std::string& value) {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  id_->assign(value);
+  m_id_->assign(value);
 }
-inline void boxboxdataitemDesc::set_id(const char* value) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_id(const char* value) {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  id_->assign(value);
+  m_id_->assign(value);
 }
-inline void boxboxdataitemDesc::set_id(const char* value, size_t size) {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline void E_BoxBoxdataItemDesc::set_m_id(const char* value, size_t size) {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  id_->assign(reinterpret_cast<const char*>(value), size);
+  m_id_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* boxboxdataitemDesc::mutable_id() {
-  set_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
-    id_ = new ::std::string;
+inline ::std::string* E_BoxBoxdataItemDesc::mutable_m_id() {
+  set_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
+    m_id_ = new ::std::string;
   }
-  return id_;
+  return m_id_;
 }
-inline ::std::string* boxboxdataitemDesc::release_id() {
-  clear_has_id();
-  if (id_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BoxBoxdataItemDesc::release_m_id() {
+  clear_has_m_id();
+  if (m_id_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = id_;
-    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_id_;
+    m_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void boxboxdataitemDesc::set_allocated_id(::std::string* id) {
-  if (id_ != &::google::protobuf::internal::kEmptyString) {
-    delete id_;
+inline void E_BoxBoxdataItemDesc::set_allocated_m_id(::std::string* m_id) {
+  if (m_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_id_;
   }
-  if (id) {
-    set_has_id();
-    id_ = id;
+  if (m_id) {
+    set_has_m_id();
+    m_id_ = m_id;
   } else {
-    clear_has_id();
-    id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_id();
+    m_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// boxboxdata
+// E_BoxBoxdata
 
-// optional int64 id = 1;
-inline bool boxboxdata::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_BoxBoxdata::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void boxboxdata::set_has_id() {
+inline void E_BoxBoxdata::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void boxboxdata::clear_has_id() {
+inline void E_BoxBoxdata::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void boxboxdata::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_BoxBoxdata::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 boxboxdata::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_BoxBoxdata::m_id() const {
+  return m_id_;
 }
-inline void boxboxdata::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_BoxBoxdata::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 drop_type = 2;
-inline bool boxboxdata::has_drop_type() const {
+// optional int32 m_drop_type = 2;
+inline bool E_BoxBoxdata::has_m_drop_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void boxboxdata::set_has_drop_type() {
+inline void E_BoxBoxdata::set_has_m_drop_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void boxboxdata::clear_has_drop_type() {
+inline void E_BoxBoxdata::clear_has_m_drop_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void boxboxdata::clear_drop_type() {
-  drop_type_ = 0;
-  clear_has_drop_type();
+inline void E_BoxBoxdata::clear_m_drop_type() {
+  m_drop_type_ = 0;
+  clear_has_m_drop_type();
 }
-inline ::google::protobuf::int32 boxboxdata::drop_type() const {
-  return drop_type_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_drop_type() const {
+  return m_drop_type_;
 }
-inline void boxboxdata::set_drop_type(::google::protobuf::int32 value) {
-  set_has_drop_type();
-  drop_type_ = value;
+inline void E_BoxBoxdata::set_m_drop_type(::google::protobuf::int32 value) {
+  set_has_m_drop_type();
+  m_drop_type_ = value;
 }
 
-// optional int32 goldminNum = 3;
-inline bool boxboxdata::has_goldminnum() const {
+// optional int32 m_goldminnum = 3;
+inline bool E_BoxBoxdata::has_m_goldminnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void boxboxdata::set_has_goldminnum() {
+inline void E_BoxBoxdata::set_has_m_goldminnum() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void boxboxdata::clear_has_goldminnum() {
+inline void E_BoxBoxdata::clear_has_m_goldminnum() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void boxboxdata::clear_goldminnum() {
-  goldminnum_ = 0;
-  clear_has_goldminnum();
+inline void E_BoxBoxdata::clear_m_goldminnum() {
+  m_goldminnum_ = 0;
+  clear_has_m_goldminnum();
 }
-inline ::google::protobuf::int32 boxboxdata::goldminnum() const {
-  return goldminnum_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_goldminnum() const {
+  return m_goldminnum_;
 }
-inline void boxboxdata::set_goldminnum(::google::protobuf::int32 value) {
-  set_has_goldminnum();
-  goldminnum_ = value;
+inline void E_BoxBoxdata::set_m_goldminnum(::google::protobuf::int32 value) {
+  set_has_m_goldminnum();
+  m_goldminnum_ = value;
 }
 
-// optional int32 goldmaxNum = 4;
-inline bool boxboxdata::has_goldmaxnum() const {
+// optional int32 m_goldmaxnum = 4;
+inline bool E_BoxBoxdata::has_m_goldmaxnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void boxboxdata::set_has_goldmaxnum() {
+inline void E_BoxBoxdata::set_has_m_goldmaxnum() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void boxboxdata::clear_has_goldmaxnum() {
+inline void E_BoxBoxdata::clear_has_m_goldmaxnum() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void boxboxdata::clear_goldmaxnum() {
-  goldmaxnum_ = 0;
-  clear_has_goldmaxnum();
+inline void E_BoxBoxdata::clear_m_goldmaxnum() {
+  m_goldmaxnum_ = 0;
+  clear_has_m_goldmaxnum();
 }
-inline ::google::protobuf::int32 boxboxdata::goldmaxnum() const {
-  return goldmaxnum_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_goldmaxnum() const {
+  return m_goldmaxnum_;
 }
-inline void boxboxdata::set_goldmaxnum(::google::protobuf::int32 value) {
-  set_has_goldmaxnum();
-  goldmaxnum_ = value;
+inline void E_BoxBoxdata::set_m_goldmaxnum(::google::protobuf::int32 value) {
+  set_has_m_goldmaxnum();
+  m_goldmaxnum_ = value;
 }
 
-// optional int32 goldrand = 5;
-inline bool boxboxdata::has_goldrand() const {
+// optional int32 m_goldrand = 5;
+inline bool E_BoxBoxdata::has_m_goldrand() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void boxboxdata::set_has_goldrand() {
+inline void E_BoxBoxdata::set_has_m_goldrand() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void boxboxdata::clear_has_goldrand() {
+inline void E_BoxBoxdata::clear_has_m_goldrand() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void boxboxdata::clear_goldrand() {
-  goldrand_ = 0;
-  clear_has_goldrand();
+inline void E_BoxBoxdata::clear_m_goldrand() {
+  m_goldrand_ = 0;
+  clear_has_m_goldrand();
 }
-inline ::google::protobuf::int32 boxboxdata::goldrand() const {
-  return goldrand_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_goldrand() const {
+  return m_goldrand_;
 }
-inline void boxboxdata::set_goldrand(::google::protobuf::int32 value) {
-  set_has_goldrand();
-  goldrand_ = value;
+inline void E_BoxBoxdata::set_m_goldrand(::google::protobuf::int32 value) {
+  set_has_m_goldrand();
+  m_goldrand_ = value;
 }
 
-// optional int32 bindjewelminNum = 6;
-inline bool boxboxdata::has_bindjewelminnum() const {
+// optional int32 m_bindjewelminnum = 6;
+inline bool E_BoxBoxdata::has_m_bindjewelminnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void boxboxdata::set_has_bindjewelminnum() {
+inline void E_BoxBoxdata::set_has_m_bindjewelminnum() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void boxboxdata::clear_has_bindjewelminnum() {
+inline void E_BoxBoxdata::clear_has_m_bindjewelminnum() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void boxboxdata::clear_bindjewelminnum() {
-  bindjewelminnum_ = 0;
-  clear_has_bindjewelminnum();
+inline void E_BoxBoxdata::clear_m_bindjewelminnum() {
+  m_bindjewelminnum_ = 0;
+  clear_has_m_bindjewelminnum();
 }
-inline ::google::protobuf::int32 boxboxdata::bindjewelminnum() const {
-  return bindjewelminnum_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_bindjewelminnum() const {
+  return m_bindjewelminnum_;
 }
-inline void boxboxdata::set_bindjewelminnum(::google::protobuf::int32 value) {
-  set_has_bindjewelminnum();
-  bindjewelminnum_ = value;
+inline void E_BoxBoxdata::set_m_bindjewelminnum(::google::protobuf::int32 value) {
+  set_has_m_bindjewelminnum();
+  m_bindjewelminnum_ = value;
 }
 
-// optional int32 bindjewelmaxNum = 7;
-inline bool boxboxdata::has_bindjewelmaxnum() const {
+// optional int32 m_bindjewelmaxnum = 7;
+inline bool E_BoxBoxdata::has_m_bindjewelmaxnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void boxboxdata::set_has_bindjewelmaxnum() {
+inline void E_BoxBoxdata::set_has_m_bindjewelmaxnum() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void boxboxdata::clear_has_bindjewelmaxnum() {
+inline void E_BoxBoxdata::clear_has_m_bindjewelmaxnum() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void boxboxdata::clear_bindjewelmaxnum() {
-  bindjewelmaxnum_ = 0;
-  clear_has_bindjewelmaxnum();
+inline void E_BoxBoxdata::clear_m_bindjewelmaxnum() {
+  m_bindjewelmaxnum_ = 0;
+  clear_has_m_bindjewelmaxnum();
 }
-inline ::google::protobuf::int32 boxboxdata::bindjewelmaxnum() const {
-  return bindjewelmaxnum_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_bindjewelmaxnum() const {
+  return m_bindjewelmaxnum_;
 }
-inline void boxboxdata::set_bindjewelmaxnum(::google::protobuf::int32 value) {
-  set_has_bindjewelmaxnum();
-  bindjewelmaxnum_ = value;
+inline void E_BoxBoxdata::set_m_bindjewelmaxnum(::google::protobuf::int32 value) {
+  set_has_m_bindjewelmaxnum();
+  m_bindjewelmaxnum_ = value;
 }
 
-// optional int32 bindjewelrand = 8;
-inline bool boxboxdata::has_bindjewelrand() const {
+// optional int32 m_bindjewelrand = 8;
+inline bool E_BoxBoxdata::has_m_bindjewelrand() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void boxboxdata::set_has_bindjewelrand() {
+inline void E_BoxBoxdata::set_has_m_bindjewelrand() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void boxboxdata::clear_has_bindjewelrand() {
+inline void E_BoxBoxdata::clear_has_m_bindjewelrand() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void boxboxdata::clear_bindjewelrand() {
-  bindjewelrand_ = 0;
-  clear_has_bindjewelrand();
+inline void E_BoxBoxdata::clear_m_bindjewelrand() {
+  m_bindjewelrand_ = 0;
+  clear_has_m_bindjewelrand();
 }
-inline ::google::protobuf::int32 boxboxdata::bindjewelrand() const {
-  return bindjewelrand_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_bindjewelrand() const {
+  return m_bindjewelrand_;
 }
-inline void boxboxdata::set_bindjewelrand(::google::protobuf::int32 value) {
-  set_has_bindjewelrand();
-  bindjewelrand_ = value;
+inline void E_BoxBoxdata::set_m_bindjewelrand(::google::protobuf::int32 value) {
+  set_has_m_bindjewelrand();
+  m_bindjewelrand_ = value;
 }
 
-// optional int32 jewelminNum = 9;
-inline bool boxboxdata::has_jewelminnum() const {
+// optional int32 m_jewelminnum = 9;
+inline bool E_BoxBoxdata::has_m_jewelminnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void boxboxdata::set_has_jewelminnum() {
+inline void E_BoxBoxdata::set_has_m_jewelminnum() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void boxboxdata::clear_has_jewelminnum() {
+inline void E_BoxBoxdata::clear_has_m_jewelminnum() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void boxboxdata::clear_jewelminnum() {
-  jewelminnum_ = 0;
-  clear_has_jewelminnum();
+inline void E_BoxBoxdata::clear_m_jewelminnum() {
+  m_jewelminnum_ = 0;
+  clear_has_m_jewelminnum();
 }
-inline ::google::protobuf::int32 boxboxdata::jewelminnum() const {
-  return jewelminnum_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_jewelminnum() const {
+  return m_jewelminnum_;
 }
-inline void boxboxdata::set_jewelminnum(::google::protobuf::int32 value) {
-  set_has_jewelminnum();
-  jewelminnum_ = value;
+inline void E_BoxBoxdata::set_m_jewelminnum(::google::protobuf::int32 value) {
+  set_has_m_jewelminnum();
+  m_jewelminnum_ = value;
 }
 
-// optional int32 jewelmaxNum = 10;
-inline bool boxboxdata::has_jewelmaxnum() const {
+// optional int32 m_jewelmaxnum = 10;
+inline bool E_BoxBoxdata::has_m_jewelmaxnum() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void boxboxdata::set_has_jewelmaxnum() {
+inline void E_BoxBoxdata::set_has_m_jewelmaxnum() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void boxboxdata::clear_has_jewelmaxnum() {
+inline void E_BoxBoxdata::clear_has_m_jewelmaxnum() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void boxboxdata::clear_jewelmaxnum() {
-  jewelmaxnum_ = 0;
-  clear_has_jewelmaxnum();
+inline void E_BoxBoxdata::clear_m_jewelmaxnum() {
+  m_jewelmaxnum_ = 0;
+  clear_has_m_jewelmaxnum();
 }
-inline ::google::protobuf::int32 boxboxdata::jewelmaxnum() const {
-  return jewelmaxnum_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_jewelmaxnum() const {
+  return m_jewelmaxnum_;
 }
-inline void boxboxdata::set_jewelmaxnum(::google::protobuf::int32 value) {
-  set_has_jewelmaxnum();
-  jewelmaxnum_ = value;
+inline void E_BoxBoxdata::set_m_jewelmaxnum(::google::protobuf::int32 value) {
+  set_has_m_jewelmaxnum();
+  m_jewelmaxnum_ = value;
 }
 
-// optional int32 jewelrand = 11;
-inline bool boxboxdata::has_jewelrand() const {
+// optional int32 m_jewelrand = 11;
+inline bool E_BoxBoxdata::has_m_jewelrand() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void boxboxdata::set_has_jewelrand() {
+inline void E_BoxBoxdata::set_has_m_jewelrand() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void boxboxdata::clear_has_jewelrand() {
+inline void E_BoxBoxdata::clear_has_m_jewelrand() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void boxboxdata::clear_jewelrand() {
-  jewelrand_ = 0;
-  clear_has_jewelrand();
+inline void E_BoxBoxdata::clear_m_jewelrand() {
+  m_jewelrand_ = 0;
+  clear_has_m_jewelrand();
 }
-inline ::google::protobuf::int32 boxboxdata::jewelrand() const {
-  return jewelrand_;
+inline ::google::protobuf::int32 E_BoxBoxdata::m_jewelrand() const {
+  return m_jewelrand_;
 }
-inline void boxboxdata::set_jewelrand(::google::protobuf::int32 value) {
-  set_has_jewelrand();
-  jewelrand_ = value;
+inline void E_BoxBoxdata::set_m_jewelrand(::google::protobuf::int32 value) {
+  set_has_m_jewelrand();
+  m_jewelrand_ = value;
 }
 
-// optional string eq_profession = 12;
-inline bool boxboxdata::has_eq_profession() const {
+// optional string m_eq_profession = 12;
+inline bool E_BoxBoxdata::has_m_eq_profession() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void boxboxdata::set_has_eq_profession() {
+inline void E_BoxBoxdata::set_has_m_eq_profession() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void boxboxdata::clear_has_eq_profession() {
+inline void E_BoxBoxdata::clear_has_m_eq_profession() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void boxboxdata::clear_eq_profession() {
-  if (eq_profession_ != &::google::protobuf::internal::kEmptyString) {
-    eq_profession_->clear();
+inline void E_BoxBoxdata::clear_m_eq_profession() {
+  if (m_eq_profession_ != &::google::protobuf::internal::kEmptyString) {
+    m_eq_profession_->clear();
   }
-  clear_has_eq_profession();
+  clear_has_m_eq_profession();
 }
-inline const ::std::string& boxboxdata::eq_profession() const {
-  return *eq_profession_;
+inline const ::std::string& E_BoxBoxdata::m_eq_profession() const {
+  return *m_eq_profession_;
 }
-inline void boxboxdata::set_eq_profession(const ::std::string& value) {
-  set_has_eq_profession();
-  if (eq_profession_ == &::google::protobuf::internal::kEmptyString) {
-    eq_profession_ = new ::std::string;
+inline void E_BoxBoxdata::set_m_eq_profession(const ::std::string& value) {
+  set_has_m_eq_profession();
+  if (m_eq_profession_ == &::google::protobuf::internal::kEmptyString) {
+    m_eq_profession_ = new ::std::string;
   }
-  eq_profession_->assign(value);
+  m_eq_profession_->assign(value);
 }
-inline void boxboxdata::set_eq_profession(const char* value) {
-  set_has_eq_profession();
-  if (eq_profession_ == &::google::protobuf::internal::kEmptyString) {
-    eq_profession_ = new ::std::string;
+inline void E_BoxBoxdata::set_m_eq_profession(const char* value) {
+  set_has_m_eq_profession();
+  if (m_eq_profession_ == &::google::protobuf::internal::kEmptyString) {
+    m_eq_profession_ = new ::std::string;
   }
-  eq_profession_->assign(value);
+  m_eq_profession_->assign(value);
 }
-inline void boxboxdata::set_eq_profession(const char* value, size_t size) {
-  set_has_eq_profession();
-  if (eq_profession_ == &::google::protobuf::internal::kEmptyString) {
-    eq_profession_ = new ::std::string;
+inline void E_BoxBoxdata::set_m_eq_profession(const char* value, size_t size) {
+  set_has_m_eq_profession();
+  if (m_eq_profession_ == &::google::protobuf::internal::kEmptyString) {
+    m_eq_profession_ = new ::std::string;
   }
-  eq_profession_->assign(reinterpret_cast<const char*>(value), size);
+  m_eq_profession_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* boxboxdata::mutable_eq_profession() {
-  set_has_eq_profession();
-  if (eq_profession_ == &::google::protobuf::internal::kEmptyString) {
-    eq_profession_ = new ::std::string;
+inline ::std::string* E_BoxBoxdata::mutable_m_eq_profession() {
+  set_has_m_eq_profession();
+  if (m_eq_profession_ == &::google::protobuf::internal::kEmptyString) {
+    m_eq_profession_ = new ::std::string;
   }
-  return eq_profession_;
+  return m_eq_profession_;
 }
-inline ::std::string* boxboxdata::release_eq_profession() {
-  clear_has_eq_profession();
-  if (eq_profession_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BoxBoxdata::release_m_eq_profession() {
+  clear_has_m_eq_profession();
+  if (m_eq_profession_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = eq_profession_;
-    eq_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_eq_profession_;
+    m_eq_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void boxboxdata::set_allocated_eq_profession(::std::string* eq_profession) {
-  if (eq_profession_ != &::google::protobuf::internal::kEmptyString) {
-    delete eq_profession_;
+inline void E_BoxBoxdata::set_allocated_m_eq_profession(::std::string* m_eq_profession) {
+  if (m_eq_profession_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_eq_profession_;
   }
-  if (eq_profession) {
-    set_has_eq_profession();
-    eq_profession_ = eq_profession;
+  if (m_eq_profession) {
+    set_has_m_eq_profession();
+    m_eq_profession_ = m_eq_profession;
   } else {
-    clear_has_eq_profession();
-    eq_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_eq_profession();
+    m_eq_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// repeated .proto_ff.boxboxdataequipDesc equip = 13;
-inline int boxboxdata::equip_size() const {
-  return equip_.size();
+// repeated .proto_ff.E_BoxBoxdataEquipDesc m_equip = 13;
+inline int E_BoxBoxdata::m_equip_size() const {
+  return m_equip_.size();
 }
-inline void boxboxdata::clear_equip() {
-  equip_.Clear();
+inline void E_BoxBoxdata::clear_m_equip() {
+  m_equip_.Clear();
 }
-inline const ::proto_ff::boxboxdataequipDesc& boxboxdata::equip(int index) const {
-  return equip_.Get(index);
+inline const ::proto_ff::E_BoxBoxdataEquipDesc& E_BoxBoxdata::m_equip(int index) const {
+  return m_equip_.Get(index);
 }
-inline ::proto_ff::boxboxdataequipDesc* boxboxdata::mutable_equip(int index) {
-  return equip_.Mutable(index);
+inline ::proto_ff::E_BoxBoxdataEquipDesc* E_BoxBoxdata::mutable_m_equip(int index) {
+  return m_equip_.Mutable(index);
 }
-inline ::proto_ff::boxboxdataequipDesc* boxboxdata::add_equip() {
-  return equip_.Add();
+inline ::proto_ff::E_BoxBoxdataEquipDesc* E_BoxBoxdata::add_m_equip() {
+  return m_equip_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataequipDesc >&
-boxboxdata::equip() const {
-  return equip_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataEquipDesc >&
+E_BoxBoxdata::m_equip() const {
+  return m_equip_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataequipDesc >*
-boxboxdata::mutable_equip() {
-  return &equip_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataEquipDesc >*
+E_BoxBoxdata::mutable_m_equip() {
+  return &m_equip_;
 }
 
-// repeated .proto_ff.boxboxdataitemDesc item = 14;
-inline int boxboxdata::item_size() const {
-  return item_.size();
+// repeated .proto_ff.E_BoxBoxdataItemDesc m_item = 14;
+inline int E_BoxBoxdata::m_item_size() const {
+  return m_item_.size();
 }
-inline void boxboxdata::clear_item() {
-  item_.Clear();
+inline void E_BoxBoxdata::clear_m_item() {
+  m_item_.Clear();
 }
-inline const ::proto_ff::boxboxdataitemDesc& boxboxdata::item(int index) const {
-  return item_.Get(index);
+inline const ::proto_ff::E_BoxBoxdataItemDesc& E_BoxBoxdata::m_item(int index) const {
+  return m_item_.Get(index);
 }
-inline ::proto_ff::boxboxdataitemDesc* boxboxdata::mutable_item(int index) {
-  return item_.Mutable(index);
+inline ::proto_ff::E_BoxBoxdataItemDesc* E_BoxBoxdata::mutable_m_item(int index) {
+  return m_item_.Mutable(index);
 }
-inline ::proto_ff::boxboxdataitemDesc* boxboxdata::add_item() {
-  return item_.Add();
+inline ::proto_ff::E_BoxBoxdataItemDesc* E_BoxBoxdata::add_m_item() {
+  return m_item_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataitemDesc >&
-boxboxdata::item() const {
-  return item_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataItemDesc >&
+E_BoxBoxdata::m_item() const {
+  return m_item_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdataitemDesc >*
-boxboxdata::mutable_item() {
-  return &item_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdataItemDesc >*
+E_BoxBoxdata::mutable_m_item() {
+  return &m_item_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_boxboxdata
+// Sheet_BoxBoxdata
 
-// repeated .proto_ff.boxboxdata boxboxdata_List = 1;
-inline int Sheet_boxboxdata::boxboxdata_list_size() const {
-  return boxboxdata_list_.size();
+// repeated .proto_ff.E_BoxBoxdata E_BoxBoxdata_List = 1;
+inline int Sheet_BoxBoxdata::e_boxboxdata_list_size() const {
+  return e_boxboxdata_list_.size();
 }
-inline void Sheet_boxboxdata::clear_boxboxdata_list() {
-  boxboxdata_list_.Clear();
+inline void Sheet_BoxBoxdata::clear_e_boxboxdata_list() {
+  e_boxboxdata_list_.Clear();
 }
-inline const ::proto_ff::boxboxdata& Sheet_boxboxdata::boxboxdata_list(int index) const {
-  return boxboxdata_list_.Get(index);
+inline const ::proto_ff::E_BoxBoxdata& Sheet_BoxBoxdata::e_boxboxdata_list(int index) const {
+  return e_boxboxdata_list_.Get(index);
 }
-inline ::proto_ff::boxboxdata* Sheet_boxboxdata::mutable_boxboxdata_list(int index) {
-  return boxboxdata_list_.Mutable(index);
+inline ::proto_ff::E_BoxBoxdata* Sheet_BoxBoxdata::mutable_e_boxboxdata_list(int index) {
+  return e_boxboxdata_list_.Mutable(index);
 }
-inline ::proto_ff::boxboxdata* Sheet_boxboxdata::add_boxboxdata_list() {
-  return boxboxdata_list_.Add();
+inline ::proto_ff::E_BoxBoxdata* Sheet_BoxBoxdata::add_e_boxboxdata_list() {
+  return e_boxboxdata_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdata >&
-Sheet_boxboxdata::boxboxdata_list() const {
-  return boxboxdata_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdata >&
+Sheet_BoxBoxdata::e_boxboxdata_list() const {
+  return e_boxboxdata_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::boxboxdata >*
-Sheet_boxboxdata::mutable_boxboxdata_list() {
-  return &boxboxdata_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BoxBoxdata >*
+Sheet_BoxBoxdata::mutable_e_boxboxdata_list() {
+  return &e_boxboxdata_list_;
 }
 
 

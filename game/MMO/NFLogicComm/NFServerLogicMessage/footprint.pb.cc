@@ -20,18 +20,18 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* footprintfootprintattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_FootprintFootprintAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  footprintfootprintattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* footprintfootprintActiveAttributeDesc_descriptor_ = NULL;
+  E_FootprintFootprintAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FootprintFootprintActiveattributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  footprintfootprintActiveAttributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* footprintfootprint_descriptor_ = NULL;
+  E_FootprintFootprintActiveattributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FootprintFootprint_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  footprintfootprint_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_footprintfootprint_descriptor_ = NULL;
+  E_FootprintFootprint_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FootprintFootprint_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_footprintfootprint_reflection_ = NULL;
+  Sheet_FootprintFootprint_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,80 +42,80 @@ void protobuf_AssignDesc_footprint_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "footprint.proto");
   GOOGLE_CHECK(file != NULL);
-  footprintfootprintattributeDesc_descriptor_ = file->message_type(0);
-  static const int footprintfootprintattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintattributeDesc, value_),
+  E_FootprintFootprintAttributeDesc_descriptor_ = file->message_type(0);
+  static const int E_FootprintFootprintAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintAttributeDesc, m_value_),
   };
-  footprintfootprintattributeDesc_reflection_ =
+  E_FootprintFootprintAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      footprintfootprintattributeDesc_descriptor_,
-      footprintfootprintattributeDesc::default_instance_,
-      footprintfootprintattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintattributeDesc, _unknown_fields_),
+      E_FootprintFootprintAttributeDesc_descriptor_,
+      E_FootprintFootprintAttributeDesc::default_instance_,
+      E_FootprintFootprintAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(footprintfootprintattributeDesc));
-  footprintfootprintActiveAttributeDesc_descriptor_ = file->message_type(1);
-  static const int footprintfootprintActiveAttributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintActiveAttributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintActiveAttributeDesc, value_),
+      sizeof(E_FootprintFootprintAttributeDesc));
+  E_FootprintFootprintActiveattributeDesc_descriptor_ = file->message_type(1);
+  static const int E_FootprintFootprintActiveattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintActiveattributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintActiveattributeDesc, m_value_),
   };
-  footprintfootprintActiveAttributeDesc_reflection_ =
+  E_FootprintFootprintActiveattributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      footprintfootprintActiveAttributeDesc_descriptor_,
-      footprintfootprintActiveAttributeDesc::default_instance_,
-      footprintfootprintActiveAttributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintActiveAttributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprintActiveAttributeDesc, _unknown_fields_),
+      E_FootprintFootprintActiveattributeDesc_descriptor_,
+      E_FootprintFootprintActiveattributeDesc::default_instance_,
+      E_FootprintFootprintActiveattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintActiveattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprintActiveattributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(footprintfootprintActiveAttributeDesc));
-  footprintfootprint_descriptor_ = file->message_type(2);
-  static const int footprintfootprint_offsets_[13] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, quality_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, professionlimit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, activationitem_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, activationnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, starid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, starnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, starup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, starber_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, attribute_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, activeattribute_),
+      sizeof(E_FootprintFootprintActiveattributeDesc));
+  E_FootprintFootprint_descriptor_ = file->message_type(2);
+  static const int E_FootprintFootprint_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_quality_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_professionlimit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_activationitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_activationnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_starid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_starnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_starup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_starber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_attribute_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, m_activeattribute_),
   };
-  footprintfootprint_reflection_ =
+  E_FootprintFootprint_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      footprintfootprint_descriptor_,
-      footprintfootprint::default_instance_,
-      footprintfootprint_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(footprintfootprint, _unknown_fields_),
+      E_FootprintFootprint_descriptor_,
+      E_FootprintFootprint::default_instance_,
+      E_FootprintFootprint_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FootprintFootprint, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(footprintfootprint));
-  Sheet_footprintfootprint_descriptor_ = file->message_type(3);
-  static const int Sheet_footprintfootprint_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_footprintfootprint, footprintfootprint_list_),
+      sizeof(E_FootprintFootprint));
+  Sheet_FootprintFootprint_descriptor_ = file->message_type(3);
+  static const int Sheet_FootprintFootprint_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FootprintFootprint, e_footprintfootprint_list_),
   };
-  Sheet_footprintfootprint_reflection_ =
+  Sheet_FootprintFootprint_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_footprintfootprint_descriptor_,
-      Sheet_footprintfootprint::default_instance_,
-      Sheet_footprintfootprint_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_footprintfootprint, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_footprintfootprint, _unknown_fields_),
+      Sheet_FootprintFootprint_descriptor_,
+      Sheet_FootprintFootprint::default_instance_,
+      Sheet_FootprintFootprint_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FootprintFootprint, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FootprintFootprint, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_footprintfootprint));
+      sizeof(Sheet_FootprintFootprint));
 }
 
 namespace {
@@ -129,26 +129,26 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    footprintfootprintattributeDesc_descriptor_, &footprintfootprintattributeDesc::default_instance());
+    E_FootprintFootprintAttributeDesc_descriptor_, &E_FootprintFootprintAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    footprintfootprintActiveAttributeDesc_descriptor_, &footprintfootprintActiveAttributeDesc::default_instance());
+    E_FootprintFootprintActiveattributeDesc_descriptor_, &E_FootprintFootprintActiveattributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    footprintfootprint_descriptor_, &footprintfootprint::default_instance());
+    E_FootprintFootprint_descriptor_, &E_FootprintFootprint::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_footprintfootprint_descriptor_, &Sheet_footprintfootprint::default_instance());
+    Sheet_FootprintFootprint_descriptor_, &Sheet_FootprintFootprint::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_footprint_2eproto() {
-  delete footprintfootprintattributeDesc::default_instance_;
-  delete footprintfootprintattributeDesc_reflection_;
-  delete footprintfootprintActiveAttributeDesc::default_instance_;
-  delete footprintfootprintActiveAttributeDesc_reflection_;
-  delete footprintfootprint::default_instance_;
-  delete footprintfootprint_reflection_;
-  delete Sheet_footprintfootprint::default_instance_;
-  delete Sheet_footprintfootprint_reflection_;
+  delete E_FootprintFootprintAttributeDesc::default_instance_;
+  delete E_FootprintFootprintAttributeDesc_reflection_;
+  delete E_FootprintFootprintActiveattributeDesc::default_instance_;
+  delete E_FootprintFootprintActiveattributeDesc_reflection_;
+  delete E_FootprintFootprint::default_instance_;
+  delete E_FootprintFootprint_reflection_;
+  delete Sheet_FootprintFootprint::default_instance_;
+  delete Sheet_FootprintFootprint_reflection_;
 }
 
 void protobuf_AddDesc_footprint_2eproto() {
@@ -160,40 +160,41 @@ void protobuf_AddDesc_footprint_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017footprint.proto\022\010proto_ff\032\025yd_fieldopt"
-    "ions.proto\"S\n\037footprintfootprintattribut"
-    "eDesc\022\030\n\004type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005value"
-    "\030\002 \001(\005B\007\302\377\024\003\345\200\274\"Y\n%footprintfootprintAct"
-    "iveAttributeDesc\022\030\n\004type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345"
-    "\236\213\022\026\n\005value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\377\004\n\022footprint"
-    "footprint\022\030\n\002ID\030\001 \001(\003B\014\302\377\024\010\350\266\263\350\277\271ID\022\"\n\004n"
-    "ame\030\002 \001(\tB\024\302\377\024\014\350\266\263\350\277\271\345\220\215\347\247\260\220\301\024<\022\036\n\004type\030"
-    "\003 \001(\005B\020\302\377\024\014\345\244\226\350\247\202\347\261\273\345\236\213\022!\n\007quality\030\004 \001(\005"
-    "B\020\302\377\024\014\350\266\263\350\277\271\345\223\201\350\264\250\022-\n\017professionLimit\030\005 "
-    "\001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024<\022*\n\016activationI"
-    "tem\030\006 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022-\n\ractivat"
-    "ionNum\030\007 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022\"\n\006"
-    "starId\030\010 \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022,\n\007star"
-    "Num\030\t \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\254\002\022&"
-    "\n\006starUp\030\n \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022<"
-    "\n\007starBer\030\013 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345"
-    "\242\236\345\212\240\347\232\204\347\231\276\345\210\206\346\257\224\345\200\274\022L\n\tattribute\030\014 \003(\0132"
-    ").proto_ff.footprintfootprintattributeDe"
-    "scB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\022X\n\017ActiveAttribute\030\r "
-    "\003(\0132/.proto_ff.footprintfootprintActiveA"
-    "ttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"_\n\030Sheet_fo"
-    "otprintfootprint\022C\n\027footprintfootprint_L"
-    "ist\030\001 \003(\0132\034.proto_ff.footprintfootprintB"
-    "\004\210\301\024\024", 965);
+    "ions.proto\"Y\n!E_FootprintFootprintAttrib"
+    "uteDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m"
+    "_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"_\n\'E_FootprintFoot"
+    "printActiveattributeDesc\022\032\n\006m_type\030\001 \001(\005"
+    "B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\237"
+    "\005\n\024E_FootprintFootprint\022\032\n\004m_id\030\001 \001(\003B\014\302"
+    "\377\024\010\350\266\263\350\277\271ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\350\266\263\350\277\271\345"
+    "\220\215\347\247\260\220\301\024<\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\345\244\226\350\247\202\347\261\273"
+    "\345\236\213\022#\n\tm_quality\030\004 \001(\005B\020\302\377\024\014\350\266\263\350\277\271\345\223\201\350\264\250"
+    "\022/\n\021m_professionlimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351"
+    "\231\220\345\210\266\220\301\024<\022,\n\020m_activationitem\030\006 \001(\003B\022\302\377\024"
+    "\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022/\n\017m_activationnum\030\007 \001(\005"
+    "B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starid\030\010 \001"
+    "(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022.\n\tm_starnum\030\t \001("
+    "\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\254\002\022(\n\010m_star"
+    "up\030\n \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022>\n\tm_st"
+    "arber\030\013 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345\242\236\345\212"
+    "\240\347\232\204\347\231\276\345\210\206\346\257\224\345\200\274\022P\n\013m_attribute\030\014 \003(\0132+."
+    "proto_ff.E_FootprintFootprintAttributeDe"
+    "scB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\022\\\n\021m_activeattribute\030"
+    "\r \003(\01321.proto_ff.E_FootprintFootprintAct"
+    "iveattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"c\n\030Shee"
+    "t_FootprintFootprint\022G\n\031E_FootprintFootp"
+    "rint_List\030\001 \003(\0132\036.proto_ff.E_FootprintFo"
+    "otprintB\004\210\301\024\024", 1013);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "footprint.proto", &protobuf_RegisterTypes);
-  footprintfootprintattributeDesc::default_instance_ = new footprintfootprintattributeDesc();
-  footprintfootprintActiveAttributeDesc::default_instance_ = new footprintfootprintActiveAttributeDesc();
-  footprintfootprint::default_instance_ = new footprintfootprint();
-  Sheet_footprintfootprint::default_instance_ = new Sheet_footprintfootprint();
-  footprintfootprintattributeDesc::default_instance_->InitAsDefaultInstance();
-  footprintfootprintActiveAttributeDesc::default_instance_->InitAsDefaultInstance();
-  footprintfootprint::default_instance_->InitAsDefaultInstance();
-  Sheet_footprintfootprint::default_instance_->InitAsDefaultInstance();
+  E_FootprintFootprintAttributeDesc::default_instance_ = new E_FootprintFootprintAttributeDesc();
+  E_FootprintFootprintActiveattributeDesc::default_instance_ = new E_FootprintFootprintActiveattributeDesc();
+  E_FootprintFootprint::default_instance_ = new E_FootprintFootprint();
+  Sheet_FootprintFootprint::default_instance_ = new Sheet_FootprintFootprint();
+  E_FootprintFootprintAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_FootprintFootprintActiveattributeDesc::default_instance_->InitAsDefaultInstance();
+  E_FootprintFootprint::default_instance_->InitAsDefaultInstance();
+  Sheet_FootprintFootprint::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_footprint_2eproto);
 }
 
@@ -207,100 +208,100 @@ struct StaticDescriptorInitializer_footprint_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int footprintfootprintattributeDesc::kTypeFieldNumber;
-const int footprintfootprintattributeDesc::kValueFieldNumber;
+const int E_FootprintFootprintAttributeDesc::kMTypeFieldNumber;
+const int E_FootprintFootprintAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-footprintfootprintattributeDesc::footprintfootprintattributeDesc()
+E_FootprintFootprintAttributeDesc::E_FootprintFootprintAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void footprintfootprintattributeDesc::InitAsDefaultInstance() {
+void E_FootprintFootprintAttributeDesc::InitAsDefaultInstance() {
 }
 
-footprintfootprintattributeDesc::footprintfootprintattributeDesc(const footprintfootprintattributeDesc& from)
+E_FootprintFootprintAttributeDesc::E_FootprintFootprintAttributeDesc(const E_FootprintFootprintAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void footprintfootprintattributeDesc::SharedCtor() {
+void E_FootprintFootprintAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-footprintfootprintattributeDesc::~footprintfootprintattributeDesc() {
+E_FootprintFootprintAttributeDesc::~E_FootprintFootprintAttributeDesc() {
   SharedDtor();
 }
 
-void footprintfootprintattributeDesc::SharedDtor() {
+void E_FootprintFootprintAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void footprintfootprintattributeDesc::SetCachedSize(int size) const {
+void E_FootprintFootprintAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* footprintfootprintattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_FootprintFootprintAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return footprintfootprintattributeDesc_descriptor_;
+  return E_FootprintFootprintAttributeDesc_descriptor_;
 }
 
-const footprintfootprintattributeDesc& footprintfootprintattributeDesc::default_instance() {
+const E_FootprintFootprintAttributeDesc& E_FootprintFootprintAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_footprint_2eproto();
   return *default_instance_;
 }
 
-footprintfootprintattributeDesc* footprintfootprintattributeDesc::default_instance_ = NULL;
+E_FootprintFootprintAttributeDesc* E_FootprintFootprintAttributeDesc::default_instance_ = NULL;
 
-footprintfootprintattributeDesc* footprintfootprintattributeDesc::New() const {
-  return new footprintfootprintattributeDesc;
+E_FootprintFootprintAttributeDesc* E_FootprintFootprintAttributeDesc::New() const {
+  return new E_FootprintFootprintAttributeDesc;
 }
 
-void footprintfootprintattributeDesc::Clear() {
+void E_FootprintFootprintAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool footprintfootprintattributeDesc::MergePartialFromCodedStream(
+bool E_FootprintFootprintAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -324,16 +325,16 @@ bool footprintfootprintattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void footprintfootprintattributeDesc::SerializeWithCachedSizes(
+void E_FootprintFootprintAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -342,16 +343,16 @@ void footprintfootprintattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* footprintfootprintattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_FootprintFootprintAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -361,22 +362,22 @@ void footprintfootprintattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int footprintfootprintattributeDesc::ByteSize() const {
+int E_FootprintFootprintAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -391,10 +392,10 @@ int footprintfootprintattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void footprintfootprintattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_FootprintFootprintAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const footprintfootprintattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const footprintfootprintattributeDesc*>(
+  const E_FootprintFootprintAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FootprintFootprintAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -403,51 +404,51 @@ void footprintfootprintattributeDesc::MergeFrom(const ::google::protobuf::Messag
   }
 }
 
-void footprintfootprintattributeDesc::MergeFrom(const footprintfootprintattributeDesc& from) {
+void E_FootprintFootprintAttributeDesc::MergeFrom(const E_FootprintFootprintAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void footprintfootprintattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_FootprintFootprintAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void footprintfootprintattributeDesc::CopyFrom(const footprintfootprintattributeDesc& from) {
+void E_FootprintFootprintAttributeDesc::CopyFrom(const E_FootprintFootprintAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool footprintfootprintattributeDesc::IsInitialized() const {
+bool E_FootprintFootprintAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void footprintfootprintattributeDesc::Swap(footprintfootprintattributeDesc* other) {
+void E_FootprintFootprintAttributeDesc::Swap(E_FootprintFootprintAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata footprintfootprintattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_FootprintFootprintAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = footprintfootprintattributeDesc_descriptor_;
-  metadata.reflection = footprintfootprintattributeDesc_reflection_;
+  metadata.descriptor = E_FootprintFootprintAttributeDesc_descriptor_;
+  metadata.reflection = E_FootprintFootprintAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -455,100 +456,100 @@ void footprintfootprintattributeDesc::Swap(footprintfootprintattributeDesc* othe
 // ===================================================================
 
 #ifndef _MSC_VER
-const int footprintfootprintActiveAttributeDesc::kTypeFieldNumber;
-const int footprintfootprintActiveAttributeDesc::kValueFieldNumber;
+const int E_FootprintFootprintActiveattributeDesc::kMTypeFieldNumber;
+const int E_FootprintFootprintActiveattributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-footprintfootprintActiveAttributeDesc::footprintfootprintActiveAttributeDesc()
+E_FootprintFootprintActiveattributeDesc::E_FootprintFootprintActiveattributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void footprintfootprintActiveAttributeDesc::InitAsDefaultInstance() {
+void E_FootprintFootprintActiveattributeDesc::InitAsDefaultInstance() {
 }
 
-footprintfootprintActiveAttributeDesc::footprintfootprintActiveAttributeDesc(const footprintfootprintActiveAttributeDesc& from)
+E_FootprintFootprintActiveattributeDesc::E_FootprintFootprintActiveattributeDesc(const E_FootprintFootprintActiveattributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void footprintfootprintActiveAttributeDesc::SharedCtor() {
+void E_FootprintFootprintActiveattributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-footprintfootprintActiveAttributeDesc::~footprintfootprintActiveAttributeDesc() {
+E_FootprintFootprintActiveattributeDesc::~E_FootprintFootprintActiveattributeDesc() {
   SharedDtor();
 }
 
-void footprintfootprintActiveAttributeDesc::SharedDtor() {
+void E_FootprintFootprintActiveattributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void footprintfootprintActiveAttributeDesc::SetCachedSize(int size) const {
+void E_FootprintFootprintActiveattributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* footprintfootprintActiveAttributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_FootprintFootprintActiveattributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return footprintfootprintActiveAttributeDesc_descriptor_;
+  return E_FootprintFootprintActiveattributeDesc_descriptor_;
 }
 
-const footprintfootprintActiveAttributeDesc& footprintfootprintActiveAttributeDesc::default_instance() {
+const E_FootprintFootprintActiveattributeDesc& E_FootprintFootprintActiveattributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_footprint_2eproto();
   return *default_instance_;
 }
 
-footprintfootprintActiveAttributeDesc* footprintfootprintActiveAttributeDesc::default_instance_ = NULL;
+E_FootprintFootprintActiveattributeDesc* E_FootprintFootprintActiveattributeDesc::default_instance_ = NULL;
 
-footprintfootprintActiveAttributeDesc* footprintfootprintActiveAttributeDesc::New() const {
-  return new footprintfootprintActiveAttributeDesc;
+E_FootprintFootprintActiveattributeDesc* E_FootprintFootprintActiveattributeDesc::New() const {
+  return new E_FootprintFootprintActiveattributeDesc;
 }
 
-void footprintfootprintActiveAttributeDesc::Clear() {
+void E_FootprintFootprintActiveattributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool footprintfootprintActiveAttributeDesc::MergePartialFromCodedStream(
+bool E_FootprintFootprintActiveattributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -572,16 +573,16 @@ bool footprintfootprintActiveAttributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void footprintfootprintActiveAttributeDesc::SerializeWithCachedSizes(
+void E_FootprintFootprintActiveattributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -590,16 +591,16 @@ void footprintfootprintActiveAttributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* footprintfootprintActiveAttributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_FootprintFootprintActiveattributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -609,22 +610,22 @@ void footprintfootprintActiveAttributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int footprintfootprintActiveAttributeDesc::ByteSize() const {
+int E_FootprintFootprintActiveattributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -639,10 +640,10 @@ int footprintfootprintActiveAttributeDesc::ByteSize() const {
   return total_size;
 }
 
-void footprintfootprintActiveAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_FootprintFootprintActiveattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const footprintfootprintActiveAttributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const footprintfootprintActiveAttributeDesc*>(
+  const E_FootprintFootprintActiveattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FootprintFootprintActiveattributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -651,51 +652,51 @@ void footprintfootprintActiveAttributeDesc::MergeFrom(const ::google::protobuf::
   }
 }
 
-void footprintfootprintActiveAttributeDesc::MergeFrom(const footprintfootprintActiveAttributeDesc& from) {
+void E_FootprintFootprintActiveattributeDesc::MergeFrom(const E_FootprintFootprintActiveattributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void footprintfootprintActiveAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_FootprintFootprintActiveattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void footprintfootprintActiveAttributeDesc::CopyFrom(const footprintfootprintActiveAttributeDesc& from) {
+void E_FootprintFootprintActiveattributeDesc::CopyFrom(const E_FootprintFootprintActiveattributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool footprintfootprintActiveAttributeDesc::IsInitialized() const {
+bool E_FootprintFootprintActiveattributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void footprintfootprintActiveAttributeDesc::Swap(footprintfootprintActiveAttributeDesc* other) {
+void E_FootprintFootprintActiveattributeDesc::Swap(E_FootprintFootprintActiveattributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata footprintfootprintActiveAttributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_FootprintFootprintActiveattributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = footprintfootprintActiveAttributeDesc_descriptor_;
-  metadata.reflection = footprintfootprintActiveAttributeDesc_reflection_;
+  metadata.descriptor = E_FootprintFootprintActiveattributeDesc_descriptor_;
+  metadata.reflection = E_FootprintFootprintActiveattributeDesc_reflection_;
   return metadata;
 }
 
@@ -703,334 +704,334 @@ void footprintfootprintActiveAttributeDesc::Swap(footprintfootprintActiveAttribu
 // ===================================================================
 
 #ifndef _MSC_VER
-const int footprintfootprint::kIDFieldNumber;
-const int footprintfootprint::kNameFieldNumber;
-const int footprintfootprint::kTypeFieldNumber;
-const int footprintfootprint::kQualityFieldNumber;
-const int footprintfootprint::kProfessionLimitFieldNumber;
-const int footprintfootprint::kActivationItemFieldNumber;
-const int footprintfootprint::kActivationNumFieldNumber;
-const int footprintfootprint::kStarIdFieldNumber;
-const int footprintfootprint::kStarNumFieldNumber;
-const int footprintfootprint::kStarUpFieldNumber;
-const int footprintfootprint::kStarBerFieldNumber;
-const int footprintfootprint::kAttributeFieldNumber;
-const int footprintfootprint::kActiveAttributeFieldNumber;
+const int E_FootprintFootprint::kMIdFieldNumber;
+const int E_FootprintFootprint::kMNameFieldNumber;
+const int E_FootprintFootprint::kMTypeFieldNumber;
+const int E_FootprintFootprint::kMQualityFieldNumber;
+const int E_FootprintFootprint::kMProfessionlimitFieldNumber;
+const int E_FootprintFootprint::kMActivationitemFieldNumber;
+const int E_FootprintFootprint::kMActivationnumFieldNumber;
+const int E_FootprintFootprint::kMStaridFieldNumber;
+const int E_FootprintFootprint::kMStarnumFieldNumber;
+const int E_FootprintFootprint::kMStarupFieldNumber;
+const int E_FootprintFootprint::kMStarberFieldNumber;
+const int E_FootprintFootprint::kMAttributeFieldNumber;
+const int E_FootprintFootprint::kMActiveattributeFieldNumber;
 #endif  // !_MSC_VER
 
-footprintfootprint::footprintfootprint()
+E_FootprintFootprint::E_FootprintFootprint()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void footprintfootprint::InitAsDefaultInstance() {
+void E_FootprintFootprint::InitAsDefaultInstance() {
 }
 
-footprintfootprint::footprintfootprint(const footprintfootprint& from)
+E_FootprintFootprint::E_FootprintFootprint(const E_FootprintFootprint& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void footprintfootprint::SharedCtor() {
+void E_FootprintFootprint::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  type_ = 0;
-  quality_ = 0;
-  professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  activationitem_ = GOOGLE_LONGLONG(0);
-  activationnum_ = 0;
-  starid_ = GOOGLE_LONGLONG(0);
-  starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  starup_ = 0;
-  starber_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_type_ = 0;
+  m_quality_ = 0;
+  m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_activationitem_ = GOOGLE_LONGLONG(0);
+  m_activationnum_ = 0;
+  m_starid_ = GOOGLE_LONGLONG(0);
+  m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_starup_ = 0;
+  m_starber_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-footprintfootprint::~footprintfootprint() {
+E_FootprintFootprint::~E_FootprintFootprint() {
   SharedDtor();
 }
 
-void footprintfootprint::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+void E_FootprintFootprint::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionlimit_;
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionlimit_;
   }
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete starnum_;
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_starnum_;
   }
   if (this != default_instance_) {
   }
 }
 
-void footprintfootprint::SetCachedSize(int size) const {
+void E_FootprintFootprint::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* footprintfootprint::descriptor() {
+const ::google::protobuf::Descriptor* E_FootprintFootprint::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return footprintfootprint_descriptor_;
+  return E_FootprintFootprint_descriptor_;
 }
 
-const footprintfootprint& footprintfootprint::default_instance() {
+const E_FootprintFootprint& E_FootprintFootprint::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_footprint_2eproto();
   return *default_instance_;
 }
 
-footprintfootprint* footprintfootprint::default_instance_ = NULL;
+E_FootprintFootprint* E_FootprintFootprint::default_instance_ = NULL;
 
-footprintfootprint* footprintfootprint::New() const {
-  return new footprintfootprint;
+E_FootprintFootprint* E_FootprintFootprint::New() const {
+  return new E_FootprintFootprint;
 }
 
-void footprintfootprint::Clear() {
+void E_FootprintFootprint::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
+    m_id_ = GOOGLE_LONGLONG(0);
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
       }
     }
-    type_ = 0;
-    quality_ = 0;
-    if (has_professionlimit()) {
-      if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-        professionlimit_->clear();
+    m_type_ = 0;
+    m_quality_ = 0;
+    if (has_m_professionlimit()) {
+      if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+        m_professionlimit_->clear();
       }
     }
-    activationitem_ = GOOGLE_LONGLONG(0);
-    activationnum_ = 0;
-    starid_ = GOOGLE_LONGLONG(0);
+    m_activationitem_ = GOOGLE_LONGLONG(0);
+    m_activationnum_ = 0;
+    m_starid_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (has_starnum()) {
-      if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-        starnum_->clear();
+    if (has_m_starnum()) {
+      if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+        m_starnum_->clear();
       }
     }
-    starup_ = 0;
-    starber_ = 0;
+    m_starup_ = 0;
+    m_starber_ = 0;
   }
-  attribute_.Clear();
-  activeattribute_.Clear();
+  m_attribute_.Clear();
+  m_activeattribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool footprintfootprint::MergePartialFromCodedStream(
+bool E_FootprintFootprint::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 ID = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_name;
+        if (input->ExpectTag(18)) goto parse_m_name;
         break;
       }
 
-      // optional string name = 2;
+      // optional string m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_name:
+         parse_m_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
+                input, this->mutable_m_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
+            this->m_name().data(), this->m_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_type;
+        if (input->ExpectTag(24)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 3;
+      // optional int32 m_type = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_quality;
+        if (input->ExpectTag(32)) goto parse_m_quality;
         break;
       }
 
-      // optional int32 quality = 4;
+      // optional int32 m_quality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_quality:
+         parse_m_quality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &quality_)));
-          set_has_quality();
+                 input, &m_quality_)));
+          set_has_m_quality();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_professionLimit;
+        if (input->ExpectTag(42)) goto parse_m_professionlimit;
         break;
       }
 
-      // optional string professionLimit = 5;
+      // optional string m_professionlimit = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_professionLimit:
+         parse_m_professionlimit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_professionlimit()));
+                input, this->mutable_m_professionlimit()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->professionlimit().data(), this->professionlimit().length(),
+            this->m_professionlimit().data(), this->m_professionlimit().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_activationItem;
+        if (input->ExpectTag(48)) goto parse_m_activationitem;
         break;
       }
 
-      // optional int64 activationItem = 6;
+      // optional int64 m_activationitem = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activationItem:
+         parse_m_activationitem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &activationitem_)));
-          set_has_activationitem();
+                 input, &m_activationitem_)));
+          set_has_m_activationitem();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_activationNum;
+        if (input->ExpectTag(56)) goto parse_m_activationnum;
         break;
       }
 
-      // optional int32 activationNum = 7;
+      // optional int32 m_activationnum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activationNum:
+         parse_m_activationnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &activationnum_)));
-          set_has_activationnum();
+                 input, &m_activationnum_)));
+          set_has_m_activationnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_starId;
+        if (input->ExpectTag(64)) goto parse_m_starid;
         break;
       }
 
-      // optional int64 starId = 8;
+      // optional int64 m_starid = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starId:
+         parse_m_starid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &starid_)));
-          set_has_starid();
+                 input, &m_starid_)));
+          set_has_m_starid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_starNum;
+        if (input->ExpectTag(74)) goto parse_m_starnum;
         break;
       }
 
-      // optional string starNum = 9;
+      // optional string m_starnum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_starNum:
+         parse_m_starnum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_starnum()));
+                input, this->mutable_m_starnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->starnum().data(), this->starnum().length(),
+            this->m_starnum().data(), this->m_starnum().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_starUp;
+        if (input->ExpectTag(80)) goto parse_m_starup;
         break;
       }
 
-      // optional int32 starUp = 10;
+      // optional int32 m_starup = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starUp:
+         parse_m_starup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &starup_)));
-          set_has_starup();
+                 input, &m_starup_)));
+          set_has_m_starup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_starBer;
+        if (input->ExpectTag(88)) goto parse_m_starber;
         break;
       }
 
-      // optional int32 starBer = 11;
+      // optional int32 m_starber = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starBer:
+         parse_m_starber:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &starber_)));
-          set_has_starber();
+                 input, &m_starber_)));
+          set_has_m_starber();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_attribute;
+        if (input->ExpectTag(98)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.footprintfootprintattributeDesc attribute = 12;
+      // repeated .proto_ff.E_FootprintFootprintAttributeDesc m_attribute = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_attribute;
-        if (input->ExpectTag(106)) goto parse_ActiveAttribute;
+        if (input->ExpectTag(98)) goto parse_m_attribute;
+        if (input->ExpectTag(106)) goto parse_m_activeattribute;
         break;
       }
 
-      // repeated .proto_ff.footprintfootprintActiveAttributeDesc ActiveAttribute = 13;
+      // repeated .proto_ff.E_FootprintFootprintActiveattributeDesc m_activeattribute = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ActiveAttribute:
+         parse_m_activeattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_activeattribute()));
+                input, add_m_activeattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_ActiveAttribute;
+        if (input->ExpectTag(106)) goto parse_m_activeattribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1051,85 +1052,85 @@ bool footprintfootprint::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void footprintfootprint::SerializeWithCachedSizes(
+void E_FootprintFootprint::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->name(), output);
+      2, this->m_name(), output);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->type(), output);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 quality = 4;
-  if (has_quality()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->quality(), output);
+  // optional int32 m_quality = 4;
+  if (has_m_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_quality(), output);
   }
 
-  // optional string professionLimit = 5;
-  if (has_professionlimit()) {
+  // optional string m_professionlimit = 5;
+  if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionlimit().data(), this->professionlimit().length(),
+      this->m_professionlimit().data(), this->m_professionlimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->professionlimit(), output);
+      5, this->m_professionlimit(), output);
   }
 
-  // optional int64 activationItem = 6;
-  if (has_activationitem()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->activationitem(), output);
+  // optional int64 m_activationitem = 6;
+  if (has_m_activationitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_activationitem(), output);
   }
 
-  // optional int32 activationNum = 7;
-  if (has_activationnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->activationnum(), output);
+  // optional int32 m_activationnum = 7;
+  if (has_m_activationnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_activationnum(), output);
   }
 
-  // optional int64 starId = 8;
-  if (has_starid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->starid(), output);
+  // optional int64 m_starid = 8;
+  if (has_m_starid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_starid(), output);
   }
 
-  // optional string starNum = 9;
-  if (has_starnum()) {
+  // optional string m_starnum = 9;
+  if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->starnum().data(), this->starnum().length(),
+      this->m_starnum().data(), this->m_starnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->starnum(), output);
+      9, this->m_starnum(), output);
   }
 
-  // optional int32 starUp = 10;
-  if (has_starup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->starup(), output);
+  // optional int32 m_starup = 10;
+  if (has_m_starup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_starup(), output);
   }
 
-  // optional int32 starBer = 11;
-  if (has_starber()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->starber(), output);
+  // optional int32 m_starber = 11;
+  if (has_m_starber()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_starber(), output);
   }
 
-  // repeated .proto_ff.footprintfootprintattributeDesc attribute = 12;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprintAttributeDesc m_attribute = 12;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      12, this->attribute(i), output);
+      12, this->m_attribute(i), output);
   }
 
-  // repeated .proto_ff.footprintfootprintActiveAttributeDesc ActiveAttribute = 13;
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprintActiveattributeDesc m_activeattribute = 13;
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      13, this->activeattribute(i), output);
+      13, this->m_activeattribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1138,90 +1139,90 @@ void footprintfootprint::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* footprintfootprint::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_FootprintFootprint::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
+        2, this->m_name(), target);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->type(), target);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 quality = 4;
-  if (has_quality()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->quality(), target);
+  // optional int32 m_quality = 4;
+  if (has_m_quality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_quality(), target);
   }
 
-  // optional string professionLimit = 5;
-  if (has_professionlimit()) {
+  // optional string m_professionlimit = 5;
+  if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionlimit().data(), this->professionlimit().length(),
+      this->m_professionlimit().data(), this->m_professionlimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->professionlimit(), target);
+        5, this->m_professionlimit(), target);
   }
 
-  // optional int64 activationItem = 6;
-  if (has_activationitem()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->activationitem(), target);
+  // optional int64 m_activationitem = 6;
+  if (has_m_activationitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_activationitem(), target);
   }
 
-  // optional int32 activationNum = 7;
-  if (has_activationnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->activationnum(), target);
+  // optional int32 m_activationnum = 7;
+  if (has_m_activationnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_activationnum(), target);
   }
 
-  // optional int64 starId = 8;
-  if (has_starid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->starid(), target);
+  // optional int64 m_starid = 8;
+  if (has_m_starid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_starid(), target);
   }
 
-  // optional string starNum = 9;
-  if (has_starnum()) {
+  // optional string m_starnum = 9;
+  if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->starnum().data(), this->starnum().length(),
+      this->m_starnum().data(), this->m_starnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->starnum(), target);
+        9, this->m_starnum(), target);
   }
 
-  // optional int32 starUp = 10;
-  if (has_starup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->starup(), target);
+  // optional int32 m_starup = 10;
+  if (has_m_starup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_starup(), target);
   }
 
-  // optional int32 starBer = 11;
-  if (has_starber()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->starber(), target);
+  // optional int32 m_starber = 11;
+  if (has_m_starber()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_starber(), target);
   }
 
-  // repeated .proto_ff.footprintfootprintattributeDesc attribute = 12;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprintAttributeDesc m_attribute = 12;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        12, this->attribute(i), target);
+        12, this->m_attribute(i), target);
   }
 
-  // repeated .proto_ff.footprintfootprintActiveAttributeDesc ActiveAttribute = 13;
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprintActiveattributeDesc m_activeattribute = 13;
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        13, this->activeattribute(i), target);
+        13, this->m_activeattribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1231,104 +1232,104 @@ void footprintfootprint::SerializeWithCachedSizes(
   return target;
 }
 
-int footprintfootprint::ByteSize() const {
+int E_FootprintFootprint::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 ID = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional string name = 2;
-    if (has_name()) {
+    // optional string m_name = 2;
+    if (has_m_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+          this->m_name());
     }
 
-    // optional int32 type = 3;
-    if (has_type()) {
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 quality = 4;
-    if (has_quality()) {
+    // optional int32 m_quality = 4;
+    if (has_m_quality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->quality());
+          this->m_quality());
     }
 
-    // optional string professionLimit = 5;
-    if (has_professionlimit()) {
+    // optional string m_professionlimit = 5;
+    if (has_m_professionlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->professionlimit());
+          this->m_professionlimit());
     }
 
-    // optional int64 activationItem = 6;
-    if (has_activationitem()) {
+    // optional int64 m_activationitem = 6;
+    if (has_m_activationitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->activationitem());
+          this->m_activationitem());
     }
 
-    // optional int32 activationNum = 7;
-    if (has_activationnum()) {
+    // optional int32 m_activationnum = 7;
+    if (has_m_activationnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->activationnum());
+          this->m_activationnum());
     }
 
-    // optional int64 starId = 8;
-    if (has_starid()) {
+    // optional int64 m_starid = 8;
+    if (has_m_starid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->starid());
+          this->m_starid());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string starNum = 9;
-    if (has_starnum()) {
+    // optional string m_starnum = 9;
+    if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->starnum());
+          this->m_starnum());
     }
 
-    // optional int32 starUp = 10;
-    if (has_starup()) {
+    // optional int32 m_starup = 10;
+    if (has_m_starup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->starup());
+          this->m_starup());
     }
 
-    // optional int32 starBer = 11;
-    if (has_starber()) {
+    // optional int32 m_starber = 11;
+    if (has_m_starber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->starber());
+          this->m_starber());
     }
 
   }
-  // repeated .proto_ff.footprintfootprintattributeDesc attribute = 12;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprintAttributeDesc m_attribute = 12;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
-  // repeated .proto_ff.footprintfootprintActiveAttributeDesc ActiveAttribute = 13;
-  total_size += 1 * this->activeattribute_size();
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprintActiveattributeDesc m_activeattribute = 13;
+  total_size += 1 * this->m_activeattribute_size();
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->activeattribute(i));
+        this->m_activeattribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1342,10 +1343,10 @@ int footprintfootprint::ByteSize() const {
   return total_size;
 }
 
-void footprintfootprint::MergeFrom(const ::google::protobuf::Message& from) {
+void E_FootprintFootprint::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const footprintfootprint* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const footprintfootprint*>(
+  const E_FootprintFootprint* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FootprintFootprint*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1354,93 +1355,93 @@ void footprintfootprint::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void footprintfootprint::MergeFrom(const footprintfootprint& from) {
+void E_FootprintFootprint::MergeFrom(const E_FootprintFootprint& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
-  activeattribute_.MergeFrom(from.activeattribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  m_activeattribute_.MergeFrom(from.m_activeattribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_quality()) {
-      set_quality(from.quality());
+    if (from.has_m_quality()) {
+      set_m_quality(from.m_quality());
     }
-    if (from.has_professionlimit()) {
-      set_professionlimit(from.professionlimit());
+    if (from.has_m_professionlimit()) {
+      set_m_professionlimit(from.m_professionlimit());
     }
-    if (from.has_activationitem()) {
-      set_activationitem(from.activationitem());
+    if (from.has_m_activationitem()) {
+      set_m_activationitem(from.m_activationitem());
     }
-    if (from.has_activationnum()) {
-      set_activationnum(from.activationnum());
+    if (from.has_m_activationnum()) {
+      set_m_activationnum(from.m_activationnum());
     }
-    if (from.has_starid()) {
-      set_starid(from.starid());
+    if (from.has_m_starid()) {
+      set_m_starid(from.m_starid());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_starnum()) {
-      set_starnum(from.starnum());
+    if (from.has_m_starnum()) {
+      set_m_starnum(from.m_starnum());
     }
-    if (from.has_starup()) {
-      set_starup(from.starup());
+    if (from.has_m_starup()) {
+      set_m_starup(from.m_starup());
     }
-    if (from.has_starber()) {
-      set_starber(from.starber());
+    if (from.has_m_starber()) {
+      set_m_starber(from.m_starber());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void footprintfootprint::CopyFrom(const ::google::protobuf::Message& from) {
+void E_FootprintFootprint::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void footprintfootprint::CopyFrom(const footprintfootprint& from) {
+void E_FootprintFootprint::CopyFrom(const E_FootprintFootprint& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool footprintfootprint::IsInitialized() const {
+bool E_FootprintFootprint::IsInitialized() const {
 
   return true;
 }
 
-void footprintfootprint::Swap(footprintfootprint* other) {
+void E_FootprintFootprint::Swap(E_FootprintFootprint* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(name_, other->name_);
-    std::swap(type_, other->type_);
-    std::swap(quality_, other->quality_);
-    std::swap(professionlimit_, other->professionlimit_);
-    std::swap(activationitem_, other->activationitem_);
-    std::swap(activationnum_, other->activationnum_);
-    std::swap(starid_, other->starid_);
-    std::swap(starnum_, other->starnum_);
-    std::swap(starup_, other->starup_);
-    std::swap(starber_, other->starber_);
-    attribute_.Swap(&other->attribute_);
-    activeattribute_.Swap(&other->activeattribute_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_name_, other->m_name_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_quality_, other->m_quality_);
+    std::swap(m_professionlimit_, other->m_professionlimit_);
+    std::swap(m_activationitem_, other->m_activationitem_);
+    std::swap(m_activationnum_, other->m_activationnum_);
+    std::swap(m_starid_, other->m_starid_);
+    std::swap(m_starnum_, other->m_starnum_);
+    std::swap(m_starup_, other->m_starup_);
+    std::swap(m_starber_, other->m_starber_);
+    m_attribute_.Swap(&other->m_attribute_);
+    m_activeattribute_.Swap(&other->m_activeattribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata footprintfootprint::GetMetadata() const {
+::google::protobuf::Metadata E_FootprintFootprint::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = footprintfootprint_descriptor_;
-  metadata.reflection = footprintfootprint_reflection_;
+  metadata.descriptor = E_FootprintFootprint_descriptor_;
+  metadata.reflection = E_FootprintFootprint_reflection_;
   return metadata;
 }
 
@@ -1448,81 +1449,81 @@ void footprintfootprint::Swap(footprintfootprint* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_footprintfootprint::kFootprintfootprintListFieldNumber;
+const int Sheet_FootprintFootprint::kEFootprintFootprintListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_footprintfootprint::Sheet_footprintfootprint()
+Sheet_FootprintFootprint::Sheet_FootprintFootprint()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_footprintfootprint::InitAsDefaultInstance() {
+void Sheet_FootprintFootprint::InitAsDefaultInstance() {
 }
 
-Sheet_footprintfootprint::Sheet_footprintfootprint(const Sheet_footprintfootprint& from)
+Sheet_FootprintFootprint::Sheet_FootprintFootprint(const Sheet_FootprintFootprint& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_footprintfootprint::SharedCtor() {
+void Sheet_FootprintFootprint::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_footprintfootprint::~Sheet_footprintfootprint() {
+Sheet_FootprintFootprint::~Sheet_FootprintFootprint() {
   SharedDtor();
 }
 
-void Sheet_footprintfootprint::SharedDtor() {
+void Sheet_FootprintFootprint::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_footprintfootprint::SetCachedSize(int size) const {
+void Sheet_FootprintFootprint::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_footprintfootprint::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_FootprintFootprint::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_footprintfootprint_descriptor_;
+  return Sheet_FootprintFootprint_descriptor_;
 }
 
-const Sheet_footprintfootprint& Sheet_footprintfootprint::default_instance() {
+const Sheet_FootprintFootprint& Sheet_FootprintFootprint::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_footprint_2eproto();
   return *default_instance_;
 }
 
-Sheet_footprintfootprint* Sheet_footprintfootprint::default_instance_ = NULL;
+Sheet_FootprintFootprint* Sheet_FootprintFootprint::default_instance_ = NULL;
 
-Sheet_footprintfootprint* Sheet_footprintfootprint::New() const {
-  return new Sheet_footprintfootprint;
+Sheet_FootprintFootprint* Sheet_FootprintFootprint::New() const {
+  return new Sheet_FootprintFootprint;
 }
 
-void Sheet_footprintfootprint::Clear() {
-  footprintfootprint_list_.Clear();
+void Sheet_FootprintFootprint::Clear() {
+  e_footprintfootprint_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_footprintfootprint::MergePartialFromCodedStream(
+bool Sheet_FootprintFootprint::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.footprintfootprint footprintfootprint_List = 1;
+      // repeated .proto_ff.E_FootprintFootprint E_FootprintFootprint_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_footprintfootprint_List:
+         parse_E_FootprintFootprint_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_footprintfootprint_list()));
+                input, add_e_footprintfootprint_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_footprintfootprint_List;
+        if (input->ExpectTag(10)) goto parse_E_FootprintFootprint_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1543,12 +1544,12 @@ bool Sheet_footprintfootprint::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_footprintfootprint::SerializeWithCachedSizes(
+void Sheet_FootprintFootprint::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.footprintfootprint footprintfootprint_List = 1;
-  for (int i = 0; i < this->footprintfootprint_list_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprint E_FootprintFootprint_List = 1;
+  for (int i = 0; i < this->e_footprintfootprint_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->footprintfootprint_list(i), output);
+      1, this->e_footprintfootprint_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1557,13 +1558,13 @@ void Sheet_footprintfootprint::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_footprintfootprint::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_FootprintFootprint::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.footprintfootprint footprintfootprint_List = 1;
-  for (int i = 0; i < this->footprintfootprint_list_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprint E_FootprintFootprint_List = 1;
+  for (int i = 0; i < this->e_footprintfootprint_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->footprintfootprint_list(i), target);
+        1, this->e_footprintfootprint_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1573,15 +1574,15 @@ void Sheet_footprintfootprint::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_footprintfootprint::ByteSize() const {
+int Sheet_FootprintFootprint::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.footprintfootprint footprintfootprint_List = 1;
-  total_size += 1 * this->footprintfootprint_list_size();
-  for (int i = 0; i < this->footprintfootprint_list_size(); i++) {
+  // repeated .proto_ff.E_FootprintFootprint E_FootprintFootprint_List = 1;
+  total_size += 1 * this->e_footprintfootprint_list_size();
+  for (int i = 0; i < this->e_footprintfootprint_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->footprintfootprint_list(i));
+        this->e_footprintfootprint_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1595,10 +1596,10 @@ int Sheet_footprintfootprint::ByteSize() const {
   return total_size;
 }
 
-void Sheet_footprintfootprint::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_FootprintFootprint::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_footprintfootprint* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_footprintfootprint*>(
+  const Sheet_FootprintFootprint* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FootprintFootprint*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1607,43 +1608,43 @@ void Sheet_footprintfootprint::MergeFrom(const ::google::protobuf::Message& from
   }
 }
 
-void Sheet_footprintfootprint::MergeFrom(const Sheet_footprintfootprint& from) {
+void Sheet_FootprintFootprint::MergeFrom(const Sheet_FootprintFootprint& from) {
   GOOGLE_CHECK_NE(&from, this);
-  footprintfootprint_list_.MergeFrom(from.footprintfootprint_list_);
+  e_footprintfootprint_list_.MergeFrom(from.e_footprintfootprint_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_footprintfootprint::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_FootprintFootprint::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_footprintfootprint::CopyFrom(const Sheet_footprintfootprint& from) {
+void Sheet_FootprintFootprint::CopyFrom(const Sheet_FootprintFootprint& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_footprintfootprint::IsInitialized() const {
+bool Sheet_FootprintFootprint::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_footprintfootprint::Swap(Sheet_footprintfootprint* other) {
+void Sheet_FootprintFootprint::Swap(Sheet_FootprintFootprint* other) {
   if (other != this) {
-    footprintfootprint_list_.Swap(&other->footprintfootprint_list_);
+    e_footprintfootprint_list_.Swap(&other->e_footprintfootprint_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_footprintfootprint::GetMetadata() const {
+::google::protobuf::Metadata Sheet_FootprintFootprint::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_footprintfootprint_descriptor_;
-  metadata.reflection = Sheet_footprintfootprint_reflection_;
+  metadata.descriptor = Sheet_FootprintFootprint_descriptor_;
+  metadata.reflection = Sheet_FootprintFootprint_reflection_;
   return metadata;
 }
 

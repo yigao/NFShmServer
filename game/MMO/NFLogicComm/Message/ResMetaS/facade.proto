@@ -3,236 +3,236 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message facadedisplaymaterialDesc
+message E_FacadeDisplayMaterialDesc
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 exp = 2[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "经验值"];
 }
 
-message facadedisplay
+message E_FacadeDisplay
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "外观ID"];
-	optional int32 type = 2[(yd_fieldoptions.field_cname) = "大类"];
-	optional string resource = 3[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
-	optional string name = 4[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
-	optional string activeDesc = 5[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 100];
-	optional string professionID = 6[(yd_fieldoptions.field_cname) = "职业ID", (yd_fieldoptions.field_bufsize) = 60];
-	optional string skillID = 7[(yd_fieldoptions.field_cname) = "解锁技能ID", (yd_fieldoptions.field_bufsize) = 80];
-	optional int32 soulItemID = 8[(yd_fieldoptions.field_cname) = "器魂道具ID"];
-	repeated facadedisplaymaterialDesc material = 9[(yd_fieldoptions.field_cname) = "进阶材料", (yd_fieldoptions.field_arysize) = 3];
-	repeated int64 fragmentID = 10[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
-}
-
-
-message Sheet_facadedisplay
-{
-	repeated facadedisplay facadedisplay_List = 1[(yd_fieldoptions.field_arysize)=20];
-}
-
-message facadevaluetreasureAttributeDesc
-{
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadevalueArtifactAttributeDesc
-{
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadevalueBladeAttributeDesc
-{
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadevaluewingAttributeDesc
-{
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadevalue
-{
-	optional int32 lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int64 wingExp = 2[(yd_fieldoptions.field_cname) = "翅膀升级经验"];
-	optional int64 treasureExp = 3[(yd_fieldoptions.field_cname) = "宝物升级经验"];
-	optional int64 ArtifactExp = 4[(yd_fieldoptions.field_cname) = "神器升级经验"];
-	optional int64 BladeExp = 5[(yd_fieldoptions.field_cname) = "剑灵升级经验"];
-	repeated facadevaluetreasureAttributeDesc treasureAttribute = 6[(yd_fieldoptions.field_cname) = "宝具基础属性", (yd_fieldoptions.field_arysize) = 5];
-	repeated facadevalueArtifactAttributeDesc ArtifactAttribute = 7[(yd_fieldoptions.field_cname) = "神器基础属性", (yd_fieldoptions.field_arysize) = 6];
-	repeated facadevalueBladeAttributeDesc BladeAttribute = 8[(yd_fieldoptions.field_cname) = "神器基础属性", (yd_fieldoptions.field_arysize) = 6];
-	repeated facadevaluewingAttributeDesc wingAttribute = 9[(yd_fieldoptions.field_cname) = "翅膀基础属性", (yd_fieldoptions.field_arysize) = 4];
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "外观ID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "大类"];
+	optional string m_resource = 3[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_name = 4[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_activedesc = 5[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 100];
+	optional string m_professionid = 6[(yd_fieldoptions.field_cname) = "职业ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_skillid = 7[(yd_fieldoptions.field_cname) = "解锁技能ID", (yd_fieldoptions.field_bufsize) = 80];
+	optional int32 m_soulitemid = 8[(yd_fieldoptions.field_cname) = "器魂道具ID"];
+	repeated E_FacadeDisplayMaterialDesc m_material = 9[(yd_fieldoptions.field_cname) = "进阶材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 m_fragmentid = 10[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
-message Sheet_facadevalue
+message Sheet_FacadeDisplay
 {
-	repeated facadevalue facadevalue_List = 1[(yd_fieldoptions.field_arysize)=500];
+	repeated E_FacadeDisplay E_FacadeDisplay_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
-message facadetype
+message E_FacadeValueTreasureattributeDesc
 {
-	optional int32 id = 1[(yd_fieldoptions.field_cname) = "类型id"];
-	optional string souceName = 2[(yd_fieldoptions.field_cname) = "资源名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-
-message Sheet_facadetype
+message E_FacadeValueArtifactattributeDesc
 {
-	repeated facadetype facadetype_List = 1[(yd_fieldoptions.field_arysize)=20];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-message facadefragmentattributeDesc
+message E_FacadeValueBladeattributeDesc
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-message facadefragment
+message E_FacadeValueWingattributeDesc
 {
-	optional int64 fragmentID = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
-	optional int64 item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
-	optional int32 itemNum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
-	repeated facadefragmentattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-
-message Sheet_facadefragment
+message E_FacadeValue
 {
-	repeated facadefragment facadefragment_List = 1[(yd_fieldoptions.field_arysize)=20];
-}
-
-message facadechangeattributeDesc
-{
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadechangeActiveAttributeDesc
-{
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "类型"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadechange
-{
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "外观ID"];
-	optional int32 type = 2[(yd_fieldoptions.field_cname) = "大类"];
-	optional string resource = 3[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
-	optional string professionID = 4[(yd_fieldoptions.field_cname) = "职业ID", (yd_fieldoptions.field_bufsize) = 60];
-	optional string name = 5[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
-	optional string activeDesc = 6[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 160];
-	optional int32 quality = 7[(yd_fieldoptions.field_cname) = "品质"];
-	optional int64 activationItem = 8[(yd_fieldoptions.field_cname) = "激活道具ID"];
-	optional int32 activationNum = 9[(yd_fieldoptions.field_cname) = "激活道具数量"];
-	optional int64 starId = 10[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string starNum = 11[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 300];
-	optional int32 starUp = 12[(yd_fieldoptions.field_cname) = "升星等级上限"];
-	optional int32 starBer = 13[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
-	optional int64 upAttributeId = 14[(yd_fieldoptions.field_cname) = "升星属性组ID"];
-	optional int32 activeSkill = 15[(yd_fieldoptions.field_cname) = "激活获得技能"];
-	repeated facadechangeattributeDesc attribute = 16[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
-	repeated facadechangeActiveAttributeDesc ActiveAttribute = 17[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_wingexp = 2[(yd_fieldoptions.field_cname) = "翅膀升级经验"];
+	optional int64 m_treasureexp = 3[(yd_fieldoptions.field_cname) = "宝物升级经验"];
+	optional int64 m_artifactexp = 4[(yd_fieldoptions.field_cname) = "神器升级经验"];
+	optional int64 m_bladeexp = 5[(yd_fieldoptions.field_cname) = "剑灵升级经验"];
+	repeated E_FacadeValueTreasureattributeDesc m_treasureattribute = 6[(yd_fieldoptions.field_cname) = "宝具基础属性", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_FacadeValueArtifactattributeDesc m_artifactattribute = 7[(yd_fieldoptions.field_cname) = "神器基础属性", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_FacadeValueBladeattributeDesc m_bladeattribute = 8[(yd_fieldoptions.field_cname) = "神器基础属性", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_FacadeValueWingattributeDesc m_wingattribute = 9[(yd_fieldoptions.field_cname) = "翅膀基础属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
-message Sheet_facadechange
+message Sheet_FacadeValue
 {
-	repeated facadechange facadechange_List = 1[(yd_fieldoptions.field_arysize)=60];
+	repeated E_FacadeValue E_FacadeValue_List = 1[(yd_fieldoptions.field_arysize)=500];
 }
 
-message facadestarUpupAttributeDesc
+message E_FacadeType
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
-}
-
-message facadestarUp
-{
-	optional int32 ID = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
-	optional int64 upAttributeId = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
-	optional int32 starID = 3[(yd_fieldoptions.field_cname) = "星级"];
-	optional int32 skillID = 4[(yd_fieldoptions.field_cname) = "技能id"];
-	repeated facadestarUpupAttributeDesc upAttribute = 5[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "类型id"];
+	optional string m_soucename = 2[(yd_fieldoptions.field_cname) = "资源名称", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
-message Sheet_facadestarUp
+message Sheet_FacadeType
 {
-	repeated facadestarUp facadestarUp_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_FacadeType E_FacadeType_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
-message facadesoulattributeDesc
+message E_FacadeFragmentAttributeDesc
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-message facadesoul
+message E_FacadeFragment
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "器魂ID"];
-	optional int32 rechargeID = 2[(yd_fieldoptions.field_cname) = "价格计费点"];
-	optional int32 mainSkill = 3[(yd_fieldoptions.field_cname) = "主技能ID"];
-	repeated facadesoulattributeDesc attribute = 4[(yd_fieldoptions.field_cname) = "激活基础属性", (yd_fieldoptions.field_arysize) = 4];
-	repeated int32 minorSkill = 5[(yd_fieldoptions.field_cname) = "副技能ID", (yd_fieldoptions.field_arysize) = 8];
-}
-
-
-message Sheet_facadesoul
-{
-	repeated facadesoul facadesoul_List = 1[(yd_fieldoptions.field_arysize)=20];
-}
-
-message facadesoulActive
-{
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "技能ID"];
-	repeated string parama = 2[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
-	repeated int32 condition = 3[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_arysize) = 2];
+	optional int64 m_fragmentid = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 m_item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_itemnum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated E_FacadeFragmentAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
-message Sheet_facadesoulActive
+message Sheet_FacadeFragment
 {
-	repeated facadesoulActive facadesoulActive_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_FacadeFragment E_FacadeFragment_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
-message facadesoulLvattributeDesc
+message E_FacadeChangeAttributeDesc
 {
-	optional int32 type = 1[(yd_fieldoptions.field_cname) = "ID"];
-	optional int32 value = 2[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
 }
 
-message facadesoulLv
+message E_FacadeChangeActiveattributeDesc
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 soulID = 2[(yd_fieldoptions.field_cname) = "器魂ID"];
-	optional int32 itemID = 3[(yd_fieldoptions.field_cname) = "消耗道具"];
-	optional int32 num = 4[(yd_fieldoptions.field_cname) = "消耗数量"];
-	optional int32 successRate = 5[(yd_fieldoptions.field_cname) = "升级成功率"];
-	optional int32 downLv = 6[(yd_fieldoptions.field_cname) = "是否掉级"];
-	repeated facadesoulLvattributeDesc attribute = 7[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 7];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_FacadeChange
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "外观ID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "大类"];
+	optional string m_resource = 3[(yd_fieldoptions.field_cname) = "资源形象", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_professionid = 4[(yd_fieldoptions.field_cname) = "职业ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_name = 5[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_activedesc = 6[(yd_fieldoptions.field_cname) = "激活描述", (yd_fieldoptions.field_bufsize) = 160];
+	optional int32 m_quality = 7[(yd_fieldoptions.field_cname) = "品质"];
+	optional int64 m_activationitem = 8[(yd_fieldoptions.field_cname) = "激活道具ID"];
+	optional int32 m_activationnum = 9[(yd_fieldoptions.field_cname) = "激活道具数量"];
+	optional int64 m_starid = 10[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string m_starnum = 11[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 300];
+	optional int32 m_starup = 12[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 m_starber = 13[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
+	optional int64 m_upattributeid = 14[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 m_activeskill = 15[(yd_fieldoptions.field_cname) = "激活获得技能"];
+	repeated E_FacadeChangeAttributeDesc m_attribute = 16[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_FacadeChangeActiveattributeDesc m_activeattribute = 17[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
 
-message Sheet_facadesoulLv
+message Sheet_FacadeChange
 {
-	repeated facadesoulLv facadesoulLv_List = 1[(yd_fieldoptions.field_arysize)=140];
+	repeated E_FacadeChange E_FacadeChange_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
-message facadesoulAchievement
+message E_FacadeStarupUpattributeDesc
 {
-	optional int64 id = 1[(yd_fieldoptions.field_cname) = "成就id"];
-	optional int32 soulID = 2[(yd_fieldoptions.field_cname) = "器魂ID"];
-	optional int32 type = 3[(yd_fieldoptions.field_cname) = "类型"];
-	optional int32 parama = 4[(yd_fieldoptions.field_cname) = "影响值"];
-	optional int32 itemID = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
-	optional int32 num = 6[(yd_fieldoptions.field_cname) = "奖励数量"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_FacadeStarup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 m_upattributeid = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 m_starid = 3[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "技能id"];
+	repeated E_FacadeStarupUpattributeDesc m_upattribute = 5[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
-message Sheet_facadesoulAchievement
+message Sheet_FacadeStarup
 {
-	repeated facadesoulAchievement facadesoulAchievement_List = 1[(yd_fieldoptions.field_arysize)=160];
+	repeated E_FacadeStarup E_FacadeStarup_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message E_FacadeSoulAttributeDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_FacadeSoul
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "器魂ID"];
+	optional int32 m_rechargeid = 2[(yd_fieldoptions.field_cname) = "价格计费点"];
+	optional int32 m_mainskill = 3[(yd_fieldoptions.field_cname) = "主技能ID"];
+	repeated E_FacadeSoulAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "激活基础属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int32 m_minorskill = 5[(yd_fieldoptions.field_cname) = "副技能ID", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_FacadeSoul
+{
+	repeated E_FacadeSoul E_FacadeSoul_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_FacadeSoulactive
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "技能ID"];
+	repeated string m_parama = 2[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 m_condition = 3[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_FacadeSoulactive
+{
+	repeated E_FacadeSoulactive E_FacadeSoulactive_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message E_FacadeSoullvAttributeDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_FacadeSoullv
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_soulid = 2[(yd_fieldoptions.field_cname) = "器魂ID"];
+	optional int32 m_itemid = 3[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_successrate = 5[(yd_fieldoptions.field_cname) = "升级成功率"];
+	optional int32 m_downlv = 6[(yd_fieldoptions.field_cname) = "是否掉级"];
+	repeated E_FacadeSoullvAttributeDesc m_attribute = 7[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_FacadeSoullv
+{
+	repeated E_FacadeSoullv E_FacadeSoullv_List = 1[(yd_fieldoptions.field_arysize)=140];
+}
+
+message E_FacadeSoulachievement
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "成就id"];
+	optional int32 m_soulid = 2[(yd_fieldoptions.field_cname) = "器魂ID"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_parama = 4[(yd_fieldoptions.field_cname) = "影响值"];
+	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
+	optional int32 m_num = 6[(yd_fieldoptions.field_cname) = "奖励数量"];
+}
+
+
+message Sheet_FacadeSoulachievement
+{
+	repeated E_FacadeSoulachievement E_FacadeSoulachievement_List = 1[(yd_fieldoptions.field_arysize)=160];
 }

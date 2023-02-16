@@ -78,18 +78,18 @@ int NFItemDescStoreEx::ProcessItem()
     for (int i = 0; i < (int) itemArray.size(); i++)
     {
         auto &itemCfg = itemArray[i];
-        if (itemCfg.bindType == 1)
+        if (itemCfg.m_bindtype == 1)
         {
-            auto pValue = m_setNaturalBind.Find(itemCfg.id);
+            auto pValue = m_setNaturalBind.Find(itemCfg.m_id);
             if (pValue == NULL)
             {
-                pValue = m_setNaturalBind.Insert(itemCfg.id);
+                pValue = m_setNaturalBind.Insert(itemCfg.m_id);
                 CHECK_EXPR_ASSERT(pValue, -1, "m_setNaturalBind Insert Failed, Not Enough Space");
             }
         }
 
         //使用条件
-        std::string strcond = itemCfg.usecondition.ToString();
+        std::string strcond = itemCfg.m_usecondition.ToString();
         if (strcond.length() > 0)
         {
             SET_INT64 setCond;
@@ -100,15 +100,15 @@ int NFItemDescStoreEx::ProcessItem()
                 int64_t cond = (*itercond);
                 //校验条件表
                 auto pCondCfg = ConditionConditionDesc::Instance(m_pObjPluginManager)->GetDesc(cond);
-                CHECK_EXPR_ASSERT(pCondCfg, -1, "itemid:{} cond:{}", itemCfg.id, cond);
+                CHECK_EXPR_ASSERT(pCondCfg, -1, "itemid:{} cond:{}", itemCfg.m_id, cond);
             }
 
             if (setCond.size() > 0)
             {
-                auto pCondMap = m_mapItemUseCond.Find(itemCfg.id);
+                auto pCondMap = m_mapItemUseCond.Find(itemCfg.m_id);
                 if (pCondMap == NULL)
                 {
-                    pCondMap = m_mapItemUseCond.Insert(itemCfg.id);
+                    pCondMap = m_mapItemUseCond.Insert(itemCfg.m_id);
                     CHECK_EXPR_ASSERT(pCondMap, -1, "m_mapItemUseCond.Insert Failed! No Enough Space!");
                 }
 
@@ -126,15 +126,15 @@ int NFItemDescStoreEx::ProcessItem()
         }
 
         //地图限制
-        if (itemCfg.useLimit.ToString().length() > 0)
+        if (itemCfg.m_uselimit.ToString().length() > 0)
         {
             SET_INT64 setmap;
             setmap.clear();
-            NFCommonApi::SplitStrToSetInt(itemCfg.useLimit.ToString(), ",", &setmap);
-            auto pItemMap = m_mapItemMapLimit.Find(itemCfg.id);
+            NFCommonApi::SplitStrToSetInt(itemCfg.m_uselimit.ToString(), ",", &setmap);
+            auto pItemMap = m_mapItemMapLimit.Find(itemCfg.m_id);
             if (pItemMap == NULL)
             {
-                pItemMap = m_mapItemMapLimit.Insert(itemCfg.id);
+                pItemMap = m_mapItemMapLimit.Insert(itemCfg.m_id);
                 CHECK_EXPR_ASSERT(pItemMap, -1, "m_mapItemMapLimit.Insert Failed, Not Enough Space");
                 for (auto iter = setmap.begin(); iter != setmap.end(); ++iter)
                 {
@@ -151,16 +151,16 @@ int NFItemDescStoreEx::ProcessItem()
         //职业限制 0通用职业，1战士，2法师，3刺客，4射手
         SET_INT32 setProfLimit;
         setProfLimit.clear();
-        string profreq = itemCfg.profession.ToString();
+        string profreq = itemCfg.m_profession.ToString();
         NFCommonApi::SplitStrToSetInt(profreq, ",", &setProfLimit);
         if (setProfLimit.empty()) setProfLimit.insert(0);
         SET_INT32::iterator iterProf = setProfLimit.find(0);
         if (iterProf == setProfLimit.end())
         {
-            auto pProfMap = m_mapItemProfLimit.Find(itemCfg.id);
+            auto pProfMap = m_mapItemProfLimit.Find(itemCfg.m_id);
             if (pProfMap == NULL)
             {
-                pProfMap = m_mapItemProfLimit.Insert(itemCfg.id);
+                pProfMap = m_mapItemProfLimit.Insert(itemCfg.m_id);
                 CHECK_EXPR_ASSERT(pProfMap, -1, "m_mapItemProfLimit.Insert Failed!, Not Enough Space");
             }
 
@@ -177,62 +177,62 @@ int NFItemDescStoreEx::ProcessItem()
 
         VEC_INT64 vecParam;
         vecParam.clear();
-        string strParam = itemCfg.functionValue.ToString();
-        if (itemCfg.functionType <= (int32_t) EItemFuncType::EItemFuncType_None
-            || itemCfg.functionType >= (int32_t) EItemFuncType::EItemFuncType_Limit
+        string strParam = itemCfg.m_functionvalue.ToString();
+        if (itemCfg.m_functiontype <= (int32_t) EItemFuncType::EItemFuncType_None
+            || itemCfg.m_functiontype >= (int32_t) EItemFuncType::EItemFuncType_Limit
                 )
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process....func type error ....itemid:{}, functype:{} ", itemCfg.id,
-                       itemCfg.functionType);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process....func type error ....itemid:{}, functype:{} ", itemCfg.m_id,
+                       itemCfg.m_functiontype);
         }
-        if ((int32_t) EItemFuncType::EItemFuncType_NoFunc != itemCfg.functionType)
+        if ((int32_t) EItemFuncType::EItemFuncType_NoFunc != itemCfg.m_functiontype)
         {
             /*
-                functionType=1 属性ID，数值类型（1，固定值；2，百分比），数值
-                functionType=6 属性ID，数值（固定值）
-                functionType=7
-                functionType=9 关联宝箱表boxID
-                functionType=15
-                functionType=19 目标资金，初始资金
-                functionType=21 时装ID
-                functionType=24
-                functionType=26 关联激活的坐骑id,有效时间（填写小时，永久填写-1）
-                functionType=28 魅力值（int数值）
-                functionType=30 有效时间（填写小时，永久填写-1）
-                functionType=33 烟花对应的特效表id,烟花类型（1，全服烟花；2，场景烟花）
-                functionType=34 副本组ID
-                functionType=41 属性ID,属性VALUE,属性ID,属性VALUE,属性ID,属性VALUE[...]
+                m_functiontype=1 属性ID，数值类型（1，固定值；2，百分比），数值
+                m_functiontype=6 属性ID，数值（固定值）
+                m_functiontype=7
+                m_functiontype=9 关联宝箱表boxID
+                m_functiontype=15
+                m_functiontype=19 目标资金，初始资金
+                m_functiontype=21 时装ID
+                m_functiontype=24
+                m_functiontype=26 关联激活的坐骑id,有效时间（填写小时，永久填写-1）
+                m_functiontype=28 魅力值（int数值）
+                m_functiontype=30 有效时间（填写小时，永久填写-1）
+                m_functiontype=33 烟花对应的特效表id,烟花类型（1，全服烟花；2，场景烟花）
+                m_functiontype=34 副本组ID
+                m_functiontype=41 属性ID,属性VALUE,属性ID,属性VALUE,属性ID,属性VALUE[...]
             */
 
             NFCommonApi::SplitStrToVecInt(strParam, ";", &vecParam);
-            if ((int32_t) EItemFuncType::EItemFuncType_ModifyAttr == itemCfg.functionType)
+            if ((int32_t) EItemFuncType::EItemFuncType_ModifyAttr == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 3)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process....vecParam.size() < 3....itemid:{}, functype:{} ", itemCfg.id,
-                               itemCfg.functionType);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process....vecParam.size() < 3....itemid:{}, functype:{} ", itemCfg.m_id,
+                               itemCfg.m_functiontype);
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_AttachAttr == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_AttachAttr == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 2)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process11....vecParam.size() < 2....itemid:{}, functype:{} ", itemCfg.id,
-                               itemCfg.functionType);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process11....vecParam.size() < 2....itemid:{}, functype:{} ", itemCfg.m_id,
+                               itemCfg.m_functiontype);
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_Certificat == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_Certificat == itemCfg.m_functiontype)
             {
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_Box == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_Box == itemCfg.m_functiontype)
             {
                 //宝箱
                 if (vecParam.size() < 1)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process33....vecParam.size() < 1....itemid:{}, functype:{} ", itemCfg.id,
-                               itemCfg.functionType);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process33....vecParam.size() < 1....itemid:{}, functype:{} ", itemCfg.m_id,
+                               itemCfg.m_functiontype);
                     //return false;
                 }
                 else
@@ -244,35 +244,35 @@ int NFItemDescStoreEx::ProcessItem()
 /*						const BoxBoxCfgInfo *pBoxCfg = g_GetBoxBoxCfgTable()->GetBoxBoxCfgInfo(boxId);
 						if (nullptr == pBoxCfg)
 						{
-							LogErrFmtPrint("[common] ItemCfg::Process33....nullptr == pBoxCfg....itemid:%lu, functype:%d,boxid:%lu ", itemCfg.id, itemCfg.functionType,boxId);
+							LogErrFmtPrint("[common] ItemCfg::Process33....nullptr == pBoxCfg....itemid:%lu, functype:%d,boxid:%lu ", itemCfg.m_id, itemCfg.m_functiontype,boxId);
 							return false;
 						}*/
                     }
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_ExpandPackage == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_ExpandPackage == itemCfg.m_functiontype)
             {
 
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_BigHorn == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_BigHorn == itemCfg.m_functiontype)
             {
 
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_RunBusiness == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_RunBusiness == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 2)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process95....vecParam.size() < 2....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_Fashion == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_Fashion == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process97....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 else
@@ -283,53 +283,53 @@ int NFItemDescStoreEx::ProcessItem()
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0,
                                    "[common] ItemCfg::Process97....nullptr == pFashionCfg....itemid:{}, functype:{}, strParam:{},fashionId:{} ",
-                                   itemCfg.id, itemCfg.functionType, strParam.c_str(), fashionId);
+                                   itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str(), fashionId);
                         return -1;
                     }
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_ActiveFomula == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_ActiveFomula == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process102....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_Rose == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_Rose == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process103....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_HangCard == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_HangCard == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process105....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_SpecialEffect == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_SpecialEffect == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 2)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process106....vecParam.size() < 2....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     //return false;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_DupItem == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_DupItem == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process107....vecParam.size() < 2....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 uint64_t dupgroupId = vecParam.at(0);
@@ -338,30 +338,30 @@ int NFItemDescStoreEx::ProcessItem()
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0,
                                "[common] ItemCfg::Process108....nullptr == pGroupCfg....itemid:{}, functype:{},dupgroupId:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, dupgroupId, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, dupgroupId, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_Virtual == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_Virtual == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process109....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 uint32_t attrId = (uint32_t) vecParam.at(0);
 /*				if (attrId <= A_FIGHT_END || attrId >= A_COMMON_END)
 				{
-					LogErrFmtPrint("[common] ItemCfg::Process110....virtual item attrId error....itemid:%lu, functype:%d, strParam:%s,attrId:%u ", itemCfg.id, itemCfg.functionType, strParam.c_str(), attrId);
+					LogErrFmtPrint("[common] ItemCfg::Process110....virtual item attrId error....itemid:%lu, functype:%d, strParam:%s,attrId:%u ", itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str(), attrId);
 					return false;
 				}*/
-                auto pVirtualMap = m_mapVirtualItemAttr.Find(itemCfg.id);
+                auto pVirtualMap = m_mapVirtualItemAttr.Find(itemCfg.m_id);
                 if (pVirtualMap != NULL)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0,
                                "[common] ItemCfg::Process111....repeated virtual item id....itemid:{}, functype:{}, strParam:{},attrId:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str(), attrId);
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str(), attrId);
                     return -1;
                 }
                 auto pAttrMap = m_mapAttrVirtualItem.Find(attrId);
@@ -369,39 +369,39 @@ int NFItemDescStoreEx::ProcessItem()
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0,
                                "[common] ItemCfg::Process112....repeated virtual item attrid....itemid:{}, functype:{}, strParam:{},attrId:{},attr_itemid:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str(), attrId, itemCfg.id);
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str(), attrId, itemCfg.m_id);
                     return -1;
                 }
 
                 int ret = 0;
-                ret = m_mapVirtualItemAttr.Insert(itemCfg.id, attrId);
+                ret = m_mapVirtualItemAttr.Insert(itemCfg.m_id, attrId);
                 CHECK_EXPR_ASSERT(ret >= 0, -1, "m_mapVirtualItemAttr.Insert Failed! Not Enough Space");
-                ret = m_mapAttrVirtualItem.Insert(attrId, itemCfg.id);
+                ret = m_mapAttrVirtualItem.Insert(attrId, itemCfg.m_id);
                 CHECK_EXPR_ASSERT(ret >= 0, -1, "m_mapAttrVirtualItem.Insert Failed! Not Enough Space");
 
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_UseContri == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_UseContri == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process113....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_FixAttr == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_FixAttr == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1 || vecParam.size() % 2 != 0)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0,
                                "[common] ItemCfg::Process114....vecParam.size() < 1 || vecParam.size() % 2 != 0....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
-                auto mapAttr = m_mapFixAttr.Find(itemCfg.id);
+                auto mapAttr = m_mapFixAttr.Find(itemCfg.m_id);
                 if (mapAttr == NULL)
                 {
-                    mapAttr = m_mapFixAttr.Insert(itemCfg.id);
+                    mapAttr = m_mapFixAttr.Insert(itemCfg.m_id);
                     CHECK_EXPR_ASSERT(mapAttr, -1, "m_mapFixAttr.Insert Failed, Not Enough Space");
                 }
 
@@ -415,36 +415,36 @@ int NFItemDescStoreEx::ProcessItem()
                     }
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_RechargeCard == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_RechargeCard == itemCfg.m_functiontype)
             {
                 //
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_ExpStone == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_ExpStone == itemCfg.m_functiontype)
             {
                 //
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_CallLeader == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_CallLeader == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process117....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 int64_t flashid = vecParam.at(0);
 /*				const FlashItemFlashCfgInfo *pFlashItemCfg = g_GetFlashItemFlashCfgTable()->GetFlashItemFlashCfgInfo(flashid);
 				if (nullptr == pFlashItemCfg)
 				{
-					LogErrFmtPrint("[common] ItemCfg::Process117...nullptr == pFlashItemCfg...itemid:%lu,flashid:%ld", itemCfg.id,flashid);
+					LogErrFmtPrint("[common] ItemCfg::Process117...nullptr == pFlashItemCfg...itemid:%lu,flashid:%ld", itemCfg.m_id,flashid);
 					return false;
 				}*/
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_AddSkill == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_AddSkill == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 2)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118....vecParam.size() < 2....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 int64_t skillid = vecParam.at(0);
@@ -452,86 +452,86 @@ int NFItemDescStoreEx::ProcessItem()
                 auto pSkillCfg = SkillSkillDesc::Instance(m_pObjPluginManager)->GetDesc(skillid);
                 if (nullptr == pSkillCfg)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118...nullptr == pSkillCfg...itemid:{},skillid:{}", itemCfg.id,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118...nullptr == pSkillCfg...itemid:{},skillid:{}", itemCfg.m_id,
                                skillid);
                     return -1;
                 }
                 auto pSkillCfgA = SkillSkillDesc::Instance(m_pObjPluginManager)->GetDesc(newSkillid);
                 if (nullptr == pSkillCfgA)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118...nullptr == pSkillCfgA...itemid:{},skillid:{}", itemCfg.id,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118...nullptr == pSkillCfgA...itemid:{},skillid:{}", itemCfg.m_id,
                                newSkillid);
                     return -1;
                 }
                 if (skillid == newSkillid)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118...skillid == newSkillid...itemid:{},skillid:{}", itemCfg.id,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process118...skillid == newSkillid...itemid:{},skillid:{}", itemCfg.m_id,
                                skillid);
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_AddMission == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_AddMission == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process119....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 int64_t missionid = vecParam.at(0);//这里的任务ID先存起来，到任务管理器初始化时做校验
                 if (missionid <= 0)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process119...missionid <= 0...itemid:{},missionid:{}", itemCfg.id, missionid);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process119...missionid <= 0...itemid:{},missionid:{}", itemCfg.m_id, missionid);
                     return -1;
                 }
-                int ret = m_mapItemAddMissionCheck.Insert(itemCfg.id, missionid);
+                int ret = m_mapItemAddMissionCheck.Insert(itemCfg.m_id, missionid);
                 CHECK_EXPR_ASSERT(ret >= 0, -1, "m_mapItemAddMissionCheck Insert Failed");
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_AddCardTime == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_AddCardTime == itemCfg.m_functiontype)
             {
                 if (vecParam.size() != 2)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process120....vecParam.size() < 2....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_CallTeleport == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_CallTeleport == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process121....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
                 int64_t teleportid = vecParam.at(0);
                 if (teleportid <= 0)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process121...teleportid <= 0...itemid:{},teleportid:{}", itemCfg.id,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process121...teleportid <= 0...itemid:{},teleportid:{}", itemCfg.m_id,
                                teleportid);
                     return -1;
                 }
 /*				const TeleportTeleportCfgInfo *pTeleCfg = g_GetTeleportTeleportCfgTable()->GetTeleportTeleportCfgInfo(teleportid);
 				if (nullptr == pTeleCfg)
 				{
-					LogErrFmtPrint("[common] ItemCfg::Process121...nullptr == pTeleCfg...itemid:%lu,teleportid:%ld", itemCfg.id, teleportid);
+					LogErrFmtPrint("[common] ItemCfg::Process121...nullptr == pTeleCfg...itemid:%lu,teleportid:%ld", itemCfg.m_id, teleportid);
 					return false;
 				}*/
             }
-            else if ((int32_t) EItemFuncType::EItemFuncType_Fushi == itemCfg.functionType)
+            else if ((int32_t) EItemFuncType::EItemFuncType_Fushi == itemCfg.m_functiontype)
             {
                 if (vecParam.size() < 1)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process122....vecParam.size() < 1....itemid:{}, functype:{}, strParam:{} ",
-                               itemCfg.id, itemCfg.functionType, strParam.c_str());
+                               itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
             }
         }
-        auto pArrayParam = m_mapItemFunc.Find(itemCfg.id);
+        auto pArrayParam = m_mapItemFunc.Find(itemCfg.m_id);
         if (pArrayParam == NULL)
         {
-            pArrayParam = m_mapItemFunc.Insert(itemCfg.id);
+            pArrayParam = m_mapItemFunc.Insert(itemCfg.m_id);
             CHECK_EXPR_ASSERT(pArrayParam, -1, "m_mapItemFunc.Insert Failed! Not Enough Space");
         }
 
@@ -546,27 +546,27 @@ int NFItemDescStoreEx::ProcessItem()
         {
             auto &info = pMapEquip->at(i);
             //
-            if (info.isCanbind == 1)
+            if (info.m_iscanbind == 1)
             {
-                auto pValue = m_setNaturalBind.Insert(info.id);
+                auto pValue = m_setNaturalBind.Insert(info.m_id);
                 CHECK_EXPR_ASSERT(pValue, -1, "m_setNaturalBind.Insert, Not Enough Space");
             }
 
             //
-            int64_t star = info.star;
-            int64_t rank = info.wearQuality;
-            int64_t qua = info.quality;
-            int64_t pos = info.position;
+            int64_t star = info.m_star;
+            int64_t rank = info.m_wearquality;
+            int64_t qua = info.m_quality;
+            int64_t pos = info.m_position;
 
             //职业限制 0通用职业，1战士，2法师，3刺客，4射手
             SET_INT32 setProfLimit;
             setProfLimit.clear();
-            string profreq = info.profession.ToString();
+            string profreq = info.m_profession.ToString();
             NFCommonApi::SplitStrToSetInt(profreq, ",", &setProfLimit);
             SET_INT32::iterator iterProf = setProfLimit.find(0);
             if (iterProf == setProfLimit.end())
             {
-                auto pProfMap = m_mapItemProfLimit.Insert(info.id);
+                auto pProfMap = m_mapItemProfLimit.Insert(info.m_id);
                 CHECK_EXPR_ASSERT(pProfMap, -1, "m_mapItemProfLimit.Insert Failed");
                 for (auto iter = setProfLimit.begin(); iter != setProfLimit.end(); ++iter)
                 {
@@ -581,7 +581,7 @@ int NFItemDescStoreEx::ProcessItem()
                     auto pDecomposeMap = m_mapDecompose.Find(decomposeKey);
                     if (pDecomposeMap != NULL)
                     {
-                        auto pValue = pDecomposeMap->Insert(info.id);
+                        auto pValue = pDecomposeMap->Insert(info.m_id);
                         CHECK_EXPR_ASSERT(pValue, -1, "pDecomposeMap.Insert Failed");
                     }
                     else
@@ -589,7 +589,7 @@ int NFItemDescStoreEx::ProcessItem()
                         pDecomposeMap = m_mapDecompose.Insert(decomposeKey);
                         CHECK_EXPR_ASSERT(pDecomposeMap, -1, "m_mapDecompose.Insert Failed");
 
-                        auto pValue = pDecomposeMap->Insert(info.id);
+                        auto pValue = pDecomposeMap->Insert(info.m_id);
                         CHECK_EXPR_ASSERT(pValue, -1, "pDecomposeMap.Insert Failed");
                     }
                 }
@@ -602,7 +602,7 @@ int NFItemDescStoreEx::ProcessItem()
                     auto pDecomposeMap = m_mapDecompose.Find(decomposeKey);
                     if (pDecomposeMap != NULL)
                     {
-                        auto pValue = pDecomposeMap->Insert(info.id);
+                        auto pValue = pDecomposeMap->Insert(info.m_id);
                         CHECK_EXPR_ASSERT(pValue, -1, "pDecomposeMap.Insert Failed");
                     }
                     else
@@ -610,7 +610,7 @@ int NFItemDescStoreEx::ProcessItem()
                         pDecomposeMap = m_mapDecompose.Insert(decomposeKey);
                         CHECK_EXPR_ASSERT(pDecomposeMap, -1, "m_mapDecompose.Insert Failed");
 
-                        auto pValue = pDecomposeMap->Insert(info.id);
+                        auto pValue = pDecomposeMap->Insert(info.m_id);
                         CHECK_EXPR_ASSERT(pValue, -1, "pDecomposeMap.Insert Failed");
                     }
 
@@ -618,7 +618,7 @@ int NFItemDescStoreEx::ProcessItem()
             }
 
             //熔炼
-            string strsmelt = info.meltingResult.ToString();
+            string strsmelt = info.m_meltingresult.ToString();
             if (strsmelt.length() > 0)
             {
                 VEC_INT64 vecParam;
@@ -629,7 +629,7 @@ int NFItemDescStoreEx::ProcessItem()
                 if ((isize % 2) != 0)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0,
-                               "[common] ItemCfg::Process...equip smelt format error...(isize % 2) != 0...equipid:{},isize:{},str:{}", info.id, isize,
+                               "[common] ItemCfg::Process...equip smelt format error...(isize % 2) != 0...equipid:{},isize:{},str:{}", info.m_id, isize,
                                strsmelt.c_str());
                     return -1;
                 }
@@ -645,7 +645,7 @@ int NFItemDescStoreEx::ProcessItem()
                         {
                             NFLogError(NF_LOG_SYSTEMLOG, 0,
                                     "[common] ItemCfg::Process...equip smelt can not find item config...nullptr == pEqupCfg...equipid:{},itemid:{}",
-                                    info.id, itemid);
+                                    info.m_id, itemid);
                             return -1;
                         }
                     }
@@ -659,12 +659,12 @@ int NFItemDescStoreEx::ProcessItem()
                     }
                     if (num <= 0)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process...equip smelt num <= 0...equipid:{},itemid:{},num:{}", info.id,
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process...equip smelt num <= 0...equipid:{},itemid:{},num:{}", info.m_id,
                                    itemid, num);
                         return -1;
                     }
                     //
-                    auto pEquipSmeltMap = m_mapEquipSmelt.Find(info.id);
+                    auto pEquipSmeltMap = m_mapEquipSmelt.Find(info.m_id);
                     if (pEquipSmeltMap != NULL)
                     {
                         auto pValue = pEquipSmeltMap->Find(itemid);
@@ -679,7 +679,7 @@ int NFItemDescStoreEx::ProcessItem()
                     }
                     else
                     {
-                        pEquipSmeltMap = m_mapEquipSmelt.Insert(info.id);
+                        pEquipSmeltMap = m_mapEquipSmelt.Insert(info.m_id);
                         CHECK_EXPR_ASSERT(pEquipSmeltMap, -1, "m_mapEquipSmelt.Insert Failed, Not Enough Space");
                         int ret = pEquipSmeltMap->Insert(itemid, num);
                         CHECK_EXPR_ASSERT(ret >= 0, -1, "pEquipSmeltMap->Insert Failed");

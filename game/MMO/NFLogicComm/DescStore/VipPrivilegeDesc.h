@@ -14,9 +14,9 @@ public:
 	virtual ~VipPrivilegeDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::vipprivilege_s* GetDesc(int id) const;
-	proto_ff_s::vipprivilege_s* GetDesc(int id);
+	const proto_ff_s::E_VipPrivilege_s* GetDesc(int id) const;
+	proto_ff_s::E_VipPrivilege_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::vipprivilege_s, vipprivilege, MAX_VIP_PRIVILEGE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_VipPrivilege_s, vipprivilege, MAX_VIP_PRIVILEGE_NUM);
 DECLARE_IDCREATE(VipPrivilegeDesc);
 };

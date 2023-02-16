@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "condition.pb.h"
@@ -10,49 +10,49 @@
 
 namespace proto_ff_s {
 
-	struct conditionconditionconditionDesc_s : public NFDescStoreSeqOP {
-		conditionconditionconditionDesc_s();
-		virtual ~conditionconditionconditionDesc_s(){}
+	struct E_ConditionConditionConditionDesc_s : public NFDescStoreSeqOP {
+		E_ConditionConditionConditionDesc_s();
+		virtual ~E_ConditionConditionConditionDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Type;
-		int32_t Param;
+		int32_t m_type;
+		int32_t m_param;
 
-		virtual void write_to_pbmsg(::proto_ff::conditionconditionconditionDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::conditionconditionconditionDesc & msg);
-		static ::proto_ff::conditionconditionconditionDesc* new_pbmsg(){ return new ::proto_ff::conditionconditionconditionDesc(); }
-		static ::proto_ff::conditionconditionconditionDesc make_pbmsg(){ return ::proto_ff::conditionconditionconditionDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ConditionConditionConditionDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ConditionConditionConditionDesc & msg);
+		static ::proto_ff::E_ConditionConditionConditionDesc* new_pbmsg(){ return new ::proto_ff::E_ConditionConditionConditionDesc(); }
+		static ::proto_ff::E_ConditionConditionConditionDesc make_pbmsg(){ return ::proto_ff::E_ConditionConditionConditionDesc(); }
 	};
-	typedef struct conditionconditionconditionDesc_s conditionconditionconditionDesc_t;
+	typedef struct E_ConditionConditionConditionDesc_s E_ConditionConditionConditionDesc_t;
 
-	struct conditioncondition_s : public NFDescStoreSeqOP {
-		conditioncondition_s();
-		virtual ~conditioncondition_s(){}
+	struct E_ConditionCondition_s : public NFDescStoreSeqOP {
+		E_ConditionCondition_s();
+		virtual ~E_ConditionCondition_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		NFArray<struct conditionconditionconditionDesc_s, 3> condition;
+		int32_t m_id;
+		NFShmVector<struct E_ConditionConditionConditionDesc_s, 3> m_condition;
 
-		virtual void write_to_pbmsg(::proto_ff::conditioncondition & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::conditioncondition & msg);
-		static ::proto_ff::conditioncondition* new_pbmsg(){ return new ::proto_ff::conditioncondition(); }
-		static ::proto_ff::conditioncondition make_pbmsg(){ return ::proto_ff::conditioncondition(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ConditionCondition & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ConditionCondition & msg);
+		static ::proto_ff::E_ConditionCondition* new_pbmsg(){ return new ::proto_ff::E_ConditionCondition(); }
+		static ::proto_ff::E_ConditionCondition make_pbmsg(){ return ::proto_ff::E_ConditionCondition(); }
 	};
-	typedef struct conditioncondition_s conditioncondition_t;
+	typedef struct E_ConditionCondition_s E_ConditionCondition_t;
 
-	struct Sheet_conditioncondition_s : public NFDescStoreSeqOP {
-		Sheet_conditioncondition_s();
-		virtual ~Sheet_conditioncondition_s(){}
+	struct Sheet_ConditionCondition_s : public NFDescStoreSeqOP {
+		Sheet_ConditionCondition_s();
+		virtual ~Sheet_ConditionCondition_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct conditioncondition_s, 40> conditioncondition_List;
+		NFShmVector<struct E_ConditionCondition_s, 40> E_ConditionCondition_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_conditioncondition & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_conditioncondition & msg);
-		static ::proto_ff::Sheet_conditioncondition* new_pbmsg(){ return new ::proto_ff::Sheet_conditioncondition(); }
-		static ::proto_ff::Sheet_conditioncondition make_pbmsg(){ return ::proto_ff::Sheet_conditioncondition(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ConditionCondition & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ConditionCondition & msg);
+		static ::proto_ff::Sheet_ConditionCondition* new_pbmsg(){ return new ::proto_ff::Sheet_ConditionCondition(); }
+		static ::proto_ff::Sheet_ConditionCondition make_pbmsg(){ return ::proto_ff::Sheet_ConditionCondition(); }
 	};
-	typedef struct Sheet_conditioncondition_s Sheet_conditioncondition_t;
+	typedef struct Sheet_ConditionCondition_s Sheet_ConditionCondition_t;
 
 }
 

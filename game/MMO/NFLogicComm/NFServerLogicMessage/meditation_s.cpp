@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-meditationmeditationattributeDesc_s::meditationmeditationattributeDesc_s() {
+E_MeditationMeditationAttributeDesc_s::E_MeditationMeditationAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ meditationmeditationattributeDesc_s::meditationmeditationattributeDesc_s() {
 	}
 }
 
-int meditationmeditationattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_MeditationMeditationAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int meditationmeditationattributeDesc_s::ResumeInit() {
+int E_MeditationMeditationAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void meditationmeditationattributeDesc_s::write_to_pbmsg(::proto_ff::meditationmeditationattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_MeditationMeditationAttributeDesc_s::write_to_pbmsg(::proto_ff::E_MeditationMeditationAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void meditationmeditationattributeDesc_s::read_from_pbmsg(const ::proto_ff::meditationmeditationattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct meditationmeditationattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_MeditationMeditationAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_MeditationMeditationAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_MeditationMeditationAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-meditationmeditationActiveAttributeDesc_s::meditationmeditationActiveAttributeDesc_s() {
+E_MeditationMeditationActiveattributeDesc_s::E_MeditationMeditationActiveattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,28 +39,28 @@ meditationmeditationActiveAttributeDesc_s::meditationmeditationActiveAttributeDe
 	}
 }
 
-int meditationmeditationActiveAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_MeditationMeditationActiveattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int meditationmeditationActiveAttributeDesc_s::ResumeInit() {
+int E_MeditationMeditationActiveattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void meditationmeditationActiveAttributeDesc_s::write_to_pbmsg(::proto_ff::meditationmeditationActiveAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_MeditationMeditationActiveattributeDesc_s::write_to_pbmsg(::proto_ff::E_MeditationMeditationActiveattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void meditationmeditationActiveAttributeDesc_s::read_from_pbmsg(const ::proto_ff::meditationmeditationActiveAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct meditationmeditationActiveAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_MeditationMeditationActiveattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_MeditationMeditationActiveattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_MeditationMeditationActiveattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-meditationmeditation_s::meditationmeditation_s() {
+E_MeditationMeditation_s::E_MeditationMeditation_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -68,70 +68,70 @@ meditationmeditation_s::meditationmeditation_s() {
 	}
 }
 
-int meditationmeditation_s::CreateInit() {
-	ID = (int64_t)0;
-	type = (int32_t)0;
-	quality = (int32_t)0;
-	activationItem = (int64_t)0;
-	activationNum = (int32_t)0;
-	starId = (int64_t)0;
-	starUp = (int32_t)0;
-	starBer = (int32_t)0;
+int E_MeditationMeditation_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_activationitem = (int64_t)0;
+	m_activationnum = (int32_t)0;
+	m_starid = (int64_t)0;
+	m_starup = (int32_t)0;
+	m_starber = (int32_t)0;
 	return 0;
 }
 
-int meditationmeditation_s::ResumeInit() {
+int E_MeditationMeditation_s::ResumeInit() {
 	return 0;
 }
 
-void meditationmeditation_s::write_to_pbmsg(::proto_ff::meditationmeditation & msg) const {
-	msg.set_id((int64_t)ID);
-	msg.set_name((const char*)name.Get());
-	msg.set_type((int32_t)type);
-	msg.set_quality((int32_t)quality);
-	msg.set_professionlimit((const char*)professionLimit.Get());
-	msg.set_activationitem((int64_t)activationItem);
-	msg.set_activationnum((int32_t)activationNum);
-	msg.set_starid((int64_t)starId);
-	msg.set_starnum((const char*)starNum.Get());
-	msg.set_starup((int32_t)starUp);
-	msg.set_starber((int32_t)starBer);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::meditationmeditationattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_MeditationMeditation_s::write_to_pbmsg(::proto_ff::E_MeditationMeditation & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_professionlimit((const char*)m_professionlimit.data());
+	msg.set_m_activationitem((int64_t)m_activationitem);
+	msg.set_m_activationnum((int32_t)m_activationnum);
+	msg.set_m_starid((int64_t)m_starid);
+	msg.set_m_starnum((const char*)m_starnum.data());
+	msg.set_m_starup((int32_t)m_starup);
+	msg.set_m_starber((int32_t)m_starber);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_MeditationMeditationAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize() && i < ActiveAttribute.GetMaxSize(); ++i) {
-		::proto_ff::meditationmeditationActiveAttributeDesc* temp_activeattribute = msg.add_activeattribute();
-		ActiveAttribute[i].write_to_pbmsg(*temp_activeattribute);
-	}
-}
-
-void meditationmeditation_s::read_from_pbmsg(const ::proto_ff::meditationmeditation & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct meditationmeditation_s));
-	ID = msg.id();
-	name.Copy(msg.name());
-	type = msg.type();
-	quality = msg.quality();
-	professionLimit.Copy(msg.professionlimit());
-	activationItem = msg.activationitem();
-	activationNum = msg.activationnum();
-	starId = msg.starid();
-	starNum.Copy(msg.starnum());
-	starUp = msg.starup();
-	starBer = msg.starber();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::meditationmeditationattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
-	}
-	ActiveAttribute.SetSize(msg.activeattribute_size() > ActiveAttribute.GetMaxSize() ? ActiveAttribute.GetMaxSize() : msg.activeattribute_size());
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize(); ++i) {
-		const ::proto_ff::meditationmeditationActiveAttributeDesc & temp_activeattribute = msg.activeattribute(i);
-		ActiveAttribute[i].read_from_pbmsg(temp_activeattribute);
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		::proto_ff::E_MeditationMeditationActiveattributeDesc* temp_m_activeattribute = msg.add_m_activeattribute();
+		m_activeattribute[i].write_to_pbmsg(*temp_m_activeattribute);
 	}
 }
 
-Sheet_meditationmeditation_s::Sheet_meditationmeditation_s() {
+void E_MeditationMeditation_s::read_from_pbmsg(const ::proto_ff::E_MeditationMeditation & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_MeditationMeditation_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_type = msg.m_type();
+	m_quality = msg.m_quality();
+	m_professionlimit = msg.m_professionlimit();
+	m_activationitem = msg.m_activationitem();
+	m_activationnum = msg.m_activationnum();
+	m_starid = msg.m_starid();
+	m_starnum = msg.m_starnum();
+	m_starup = msg.m_starup();
+	m_starber = msg.m_starber();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_MeditationMeditationAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_activeattribute.resize((int)msg.m_activeattribute_size() > (int)m_activeattribute.max_size() ? m_activeattribute.max_size() : msg.m_activeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		const ::proto_ff::E_MeditationMeditationActiveattributeDesc & temp_m_activeattribute = msg.m_activeattribute(i);
+		m_activeattribute[i].read_from_pbmsg(temp_m_activeattribute);
+	}
+}
+
+Sheet_MeditationMeditation_s::Sheet_MeditationMeditation_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -139,27 +139,27 @@ Sheet_meditationmeditation_s::Sheet_meditationmeditation_s() {
 	}
 }
 
-int Sheet_meditationmeditation_s::CreateInit() {
+int Sheet_MeditationMeditation_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_meditationmeditation_s::ResumeInit() {
+int Sheet_MeditationMeditation_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_meditationmeditation_s::write_to_pbmsg(::proto_ff::Sheet_meditationmeditation & msg) const {
-	for(int32_t i = 0; i < (int32_t)meditationmeditation_List.GetSize() && i < meditationmeditation_List.GetMaxSize(); ++i) {
-		::proto_ff::meditationmeditation* temp_meditationmeditation_list = msg.add_meditationmeditation_list();
-		meditationmeditation_List[i].write_to_pbmsg(*temp_meditationmeditation_list);
+void Sheet_MeditationMeditation_s::write_to_pbmsg(::proto_ff::Sheet_MeditationMeditation & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_MeditationMeditation_List.size(); ++i) {
+		::proto_ff::E_MeditationMeditation* temp_e_meditationmeditation_list = msg.add_e_meditationmeditation_list();
+		E_MeditationMeditation_List[i].write_to_pbmsg(*temp_e_meditationmeditation_list);
 	}
 }
 
-void Sheet_meditationmeditation_s::read_from_pbmsg(const ::proto_ff::Sheet_meditationmeditation & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_meditationmeditation_s));
-	meditationmeditation_List.SetSize(msg.meditationmeditation_list_size() > meditationmeditation_List.GetMaxSize() ? meditationmeditation_List.GetMaxSize() : msg.meditationmeditation_list_size());
-	for(int32_t i = 0; i < (int32_t)meditationmeditation_List.GetSize(); ++i) {
-		const ::proto_ff::meditationmeditation & temp_meditationmeditation_list = msg.meditationmeditation_list(i);
-		meditationmeditation_List[i].read_from_pbmsg(temp_meditationmeditation_list);
+void Sheet_MeditationMeditation_s::read_from_pbmsg(const ::proto_ff::Sheet_MeditationMeditation & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_MeditationMeditation_s));
+	E_MeditationMeditation_List.resize((int)msg.e_meditationmeditation_list_size() > (int)E_MeditationMeditation_List.max_size() ? E_MeditationMeditation_List.max_size() : msg.e_meditationmeditation_list_size());
+	for(int32_t i = 0; i < (int32_t)E_MeditationMeditation_List.size(); ++i) {
+		const ::proto_ff::E_MeditationMeditation & temp_e_meditationmeditation_list = msg.e_meditationmeditation_list(i);
+		E_MeditationMeditation_List[i].read_from_pbmsg(temp_e_meditationmeditation_list);
 	}
 }
 

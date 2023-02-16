@@ -34,24 +34,24 @@ void  protobuf_AddDesc_daily_2eproto();
 void protobuf_AssignDesc_daily_2eproto();
 void protobuf_ShutdownFile_daily_2eproto();
 
-class dailydaily;
-class Sheet_dailydaily;
-class dailyreward;
-class Sheet_dailyreward;
-class dailycultivateattributeDesc;
-class dailycultivate;
-class Sheet_dailycultivate;
+class E_DailyDaily;
+class Sheet_DailyDaily;
+class E_DailyReward;
+class Sheet_DailyReward;
+class E_DailyCultivateAttributeDesc;
+class E_DailyCultivate;
+class Sheet_DailyCultivate;
 
 // ===================================================================
 
-class dailydaily : public ::google::protobuf::Message {
+class E_DailyDaily : public ::google::protobuf::Message {
  public:
-  dailydaily();
-  virtual ~dailydaily();
+  E_DailyDaily();
+  virtual ~E_DailyDaily();
 
-  dailydaily(const dailydaily& from);
+  E_DailyDaily(const E_DailyDaily& from);
 
-  inline dailydaily& operator=(const dailydaily& from) {
+  inline E_DailyDaily& operator=(const E_DailyDaily& from) {
     CopyFrom(from);
     return *this;
   }
@@ -65,17 +65,17 @@ class dailydaily : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dailydaily& default_instance();
+  static const E_DailyDaily& default_instance();
 
-  void Swap(dailydaily* other);
+  void Swap(E_DailyDaily* other);
 
   // implements Message ----------------------------------------------
 
-  dailydaily* New() const;
+  E_DailyDaily* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dailydaily& from);
-  void MergeFrom(const dailydaily& from);
+  void CopyFrom(const E_DailyDaily& from);
+  void MergeFrom(const E_DailyDaily& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -98,146 +98,146 @@ class dailydaily : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional string name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 type = 3;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 args = 4;
-  inline bool has_args() const;
-  inline void clear_args();
-  static const int kArgsFieldNumber = 4;
-  inline ::google::protobuf::int32 args() const;
-  inline void set_args(::google::protobuf::int32 value);
+  // optional int32 m_args = 4;
+  inline bool has_m_args() const;
+  inline void clear_m_args();
+  static const int kMArgsFieldNumber = 4;
+  inline ::google::protobuf::int32 m_args() const;
+  inline void set_m_args(::google::protobuf::int32 value);
 
-  // optional int32 playType = 5;
-  inline bool has_playtype() const;
-  inline void clear_playtype();
-  static const int kPlayTypeFieldNumber = 5;
-  inline ::google::protobuf::int32 playtype() const;
-  inline void set_playtype(::google::protobuf::int32 value);
+  // optional int32 m_playtype = 5;
+  inline bool has_m_playtype() const;
+  inline void clear_m_playtype();
+  static const int kMPlaytypeFieldNumber = 5;
+  inline ::google::protobuf::int32 m_playtype() const;
+  inline void set_m_playtype(::google::protobuf::int32 value);
 
-  // optional int32 playArgs = 6;
-  inline bool has_playargs() const;
-  inline void clear_playargs();
-  static const int kPlayArgsFieldNumber = 6;
-  inline ::google::protobuf::int32 playargs() const;
-  inline void set_playargs(::google::protobuf::int32 value);
+  // optional int32 m_playargs = 6;
+  inline bool has_m_playargs() const;
+  inline void clear_m_playargs();
+  static const int kMPlayargsFieldNumber = 6;
+  inline ::google::protobuf::int32 m_playargs() const;
+  inline void set_m_playargs(::google::protobuf::int32 value);
 
-  // optional int64 funciontID = 7;
-  inline bool has_funciontid() const;
-  inline void clear_funciontid();
-  static const int kFunciontIDFieldNumber = 7;
-  inline ::google::protobuf::int64 funciontid() const;
-  inline void set_funciontid(::google::protobuf::int64 value);
+  // optional int64 m_funciontid = 7;
+  inline bool has_m_funciontid() const;
+  inline void clear_m_funciontid();
+  static const int kMFunciontidFieldNumber = 7;
+  inline ::google::protobuf::int64 m_funciontid() const;
+  inline void set_m_funciontid(::google::protobuf::int64 value);
 
-  // optional int32 number = 8;
-  inline bool has_number() const;
-  inline void clear_number();
-  static const int kNumberFieldNumber = 8;
-  inline ::google::protobuf::int32 number() const;
-  inline void set_number(::google::protobuf::int32 value);
+  // optional int32 m_number = 8;
+  inline bool has_m_number() const;
+  inline void clear_m_number();
+  static const int kMNumberFieldNumber = 8;
+  inline ::google::protobuf::int32 m_number() const;
+  inline void set_m_number(::google::protobuf::int32 value);
 
-  // optional int32 viptype = 9;
-  inline bool has_viptype() const;
-  inline void clear_viptype();
-  static const int kViptypeFieldNumber = 9;
-  inline ::google::protobuf::int32 viptype() const;
-  inline void set_viptype(::google::protobuf::int32 value);
+  // optional int32 m_viptype = 9;
+  inline bool has_m_viptype() const;
+  inline void clear_m_viptype();
+  static const int kMViptypeFieldNumber = 9;
+  inline ::google::protobuf::int32 m_viptype() const;
+  inline void set_m_viptype(::google::protobuf::int32 value);
 
-  // optional int32 otherNum = 10;
-  inline bool has_othernum() const;
-  inline void clear_othernum();
-  static const int kOtherNumFieldNumber = 10;
-  inline ::google::protobuf::int32 othernum() const;
-  inline void set_othernum(::google::protobuf::int32 value);
+  // optional int32 m_othernum = 10;
+  inline bool has_m_othernum() const;
+  inline void clear_m_othernum();
+  static const int kMOthernumFieldNumber = 10;
+  inline ::google::protobuf::int32 m_othernum() const;
+  inline void set_m_othernum(::google::protobuf::int32 value);
 
-  // optional int32 eachScore = 11;
-  inline bool has_eachscore() const;
-  inline void clear_eachscore();
-  static const int kEachScoreFieldNumber = 11;
-  inline ::google::protobuf::int32 eachscore() const;
-  inline void set_eachscore(::google::protobuf::int32 value);
+  // optional int32 m_eachscore = 11;
+  inline bool has_m_eachscore() const;
+  inline void clear_m_eachscore();
+  static const int kMEachscoreFieldNumber = 11;
+  inline ::google::protobuf::int32 m_eachscore() const;
+  inline void set_m_eachscore(::google::protobuf::int32 value);
 
-  // optional int32 cycle = 12;
-  inline bool has_cycle() const;
-  inline void clear_cycle();
-  static const int kCycleFieldNumber = 12;
-  inline ::google::protobuf::int32 cycle() const;
-  inline void set_cycle(::google::protobuf::int32 value);
+  // optional int32 m_cycle = 12;
+  inline bool has_m_cycle() const;
+  inline void clear_m_cycle();
+  static const int kMCycleFieldNumber = 12;
+  inline ::google::protobuf::int32 m_cycle() const;
+  inline void set_m_cycle(::google::protobuf::int32 value);
 
-  // optional int32 regReward = 13;
-  inline bool has_regreward() const;
-  inline void clear_regreward();
-  static const int kRegRewardFieldNumber = 13;
-  inline ::google::protobuf::int32 regreward() const;
-  inline void set_regreward(::google::protobuf::int32 value);
+  // optional int32 m_regreward = 13;
+  inline bool has_m_regreward() const;
+  inline void clear_m_regreward();
+  static const int kMRegrewardFieldNumber = 13;
+  inline ::google::protobuf::int32 m_regreward() const;
+  inline void set_m_regreward(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dailydaily)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DailyDaily)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_args();
-  inline void clear_has_args();
-  inline void set_has_playtype();
-  inline void clear_has_playtype();
-  inline void set_has_playargs();
-  inline void clear_has_playargs();
-  inline void set_has_funciontid();
-  inline void clear_has_funciontid();
-  inline void set_has_number();
-  inline void clear_has_number();
-  inline void set_has_viptype();
-  inline void clear_has_viptype();
-  inline void set_has_othernum();
-  inline void clear_has_othernum();
-  inline void set_has_eachscore();
-  inline void clear_has_eachscore();
-  inline void set_has_cycle();
-  inline void clear_has_cycle();
-  inline void set_has_regreward();
-  inline void clear_has_regreward();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_args();
+  inline void clear_has_m_args();
+  inline void set_has_m_playtype();
+  inline void clear_has_m_playtype();
+  inline void set_has_m_playargs();
+  inline void clear_has_m_playargs();
+  inline void set_has_m_funciontid();
+  inline void clear_has_m_funciontid();
+  inline void set_has_m_number();
+  inline void clear_has_m_number();
+  inline void set_has_m_viptype();
+  inline void clear_has_m_viptype();
+  inline void set_has_m_othernum();
+  inline void clear_has_m_othernum();
+  inline void set_has_m_eachscore();
+  inline void clear_has_m_eachscore();
+  inline void set_has_m_cycle();
+  inline void clear_has_m_cycle();
+  inline void set_has_m_regreward();
+  inline void clear_has_m_regreward();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* name_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 args_;
-  ::google::protobuf::int32 playtype_;
-  ::google::protobuf::int32 playargs_;
-  ::google::protobuf::int64 funciontid_;
-  ::google::protobuf::int32 number_;
-  ::google::protobuf::int32 viptype_;
-  ::google::protobuf::int32 othernum_;
-  ::google::protobuf::int32 eachscore_;
-  ::google::protobuf::int32 cycle_;
-  ::google::protobuf::int32 regreward_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_args_;
+  ::google::protobuf::int32 m_playtype_;
+  ::google::protobuf::int32 m_playargs_;
+  ::google::protobuf::int64 m_funciontid_;
+  ::google::protobuf::int32 m_number_;
+  ::google::protobuf::int32 m_viptype_;
+  ::google::protobuf::int32 m_othernum_;
+  ::google::protobuf::int32 m_eachscore_;
+  ::google::protobuf::int32 m_cycle_;
+  ::google::protobuf::int32 m_regreward_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
@@ -247,18 +247,18 @@ class dailydaily : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static dailydaily* default_instance_;
+  static E_DailyDaily* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_dailydaily : public ::google::protobuf::Message {
+class Sheet_DailyDaily : public ::google::protobuf::Message {
  public:
-  Sheet_dailydaily();
-  virtual ~Sheet_dailydaily();
+  Sheet_DailyDaily();
+  virtual ~Sheet_DailyDaily();
 
-  Sheet_dailydaily(const Sheet_dailydaily& from);
+  Sheet_DailyDaily(const Sheet_DailyDaily& from);
 
-  inline Sheet_dailydaily& operator=(const Sheet_dailydaily& from) {
+  inline Sheet_DailyDaily& operator=(const Sheet_DailyDaily& from) {
     CopyFrom(from);
     return *this;
   }
@@ -272,17 +272,17 @@ class Sheet_dailydaily : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_dailydaily& default_instance();
+  static const Sheet_DailyDaily& default_instance();
 
-  void Swap(Sheet_dailydaily* other);
+  void Swap(Sheet_DailyDaily* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_dailydaily* New() const;
+  Sheet_DailyDaily* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_dailydaily& from);
-  void MergeFrom(const Sheet_dailydaily& from);
+  void CopyFrom(const Sheet_DailyDaily& from);
+  void MergeFrom(const Sheet_DailyDaily& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -305,24 +305,24 @@ class Sheet_dailydaily : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.dailydaily dailydaily_List = 1;
-  inline int dailydaily_list_size() const;
-  inline void clear_dailydaily_list();
-  static const int kDailydailyListFieldNumber = 1;
-  inline const ::proto_ff::dailydaily& dailydaily_list(int index) const;
-  inline ::proto_ff::dailydaily* mutable_dailydaily_list(int index);
-  inline ::proto_ff::dailydaily* add_dailydaily_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailydaily >&
-      dailydaily_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailydaily >*
-      mutable_dailydaily_list();
+  // repeated .proto_ff.E_DailyDaily E_DailyDaily_List = 1;
+  inline int e_dailydaily_list_size() const;
+  inline void clear_e_dailydaily_list();
+  static const int kEDailyDailyListFieldNumber = 1;
+  inline const ::proto_ff::E_DailyDaily& e_dailydaily_list(int index) const;
+  inline ::proto_ff::E_DailyDaily* mutable_e_dailydaily_list(int index);
+  inline ::proto_ff::E_DailyDaily* add_e_dailydaily_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyDaily >&
+      e_dailydaily_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyDaily >*
+      mutable_e_dailydaily_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_dailydaily)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DailyDaily)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dailydaily > dailydaily_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyDaily > e_dailydaily_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -332,18 +332,18 @@ class Sheet_dailydaily : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_dailydaily* default_instance_;
+  static Sheet_DailyDaily* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class dailyreward : public ::google::protobuf::Message {
+class E_DailyReward : public ::google::protobuf::Message {
  public:
-  dailyreward();
-  virtual ~dailyreward();
+  E_DailyReward();
+  virtual ~E_DailyReward();
 
-  dailyreward(const dailyreward& from);
+  E_DailyReward(const E_DailyReward& from);
 
-  inline dailyreward& operator=(const dailyreward& from) {
+  inline E_DailyReward& operator=(const E_DailyReward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -357,17 +357,17 @@ class dailyreward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dailyreward& default_instance();
+  static const E_DailyReward& default_instance();
 
-  void Swap(dailyreward* other);
+  void Swap(E_DailyReward* other);
 
   // implements Message ----------------------------------------------
 
-  dailyreward* New() const;
+  E_DailyReward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dailyreward& from);
-  void MergeFrom(const dailyreward& from);
+  void CopyFrom(const E_DailyReward& from);
+  void MergeFrom(const E_DailyReward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -390,61 +390,61 @@ class dailyreward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 activeScore = 3;
-  inline bool has_activescore() const;
-  inline void clear_activescore();
-  static const int kActiveScoreFieldNumber = 3;
-  inline ::google::protobuf::int32 activescore() const;
-  inline void set_activescore(::google::protobuf::int32 value);
+  // optional int32 m_activescore = 3;
+  inline bool has_m_activescore() const;
+  inline void clear_m_activescore();
+  static const int kMActivescoreFieldNumber = 3;
+  inline ::google::protobuf::int32 m_activescore() const;
+  inline void set_m_activescore(::google::protobuf::int32 value);
 
-  // optional int64 rewardId = 4;
-  inline bool has_rewardid() const;
-  inline void clear_rewardid();
-  static const int kRewardIdFieldNumber = 4;
-  inline ::google::protobuf::int64 rewardid() const;
-  inline void set_rewardid(::google::protobuf::int64 value);
+  // optional int64 m_rewardid = 4;
+  inline bool has_m_rewardid() const;
+  inline void clear_m_rewardid();
+  static const int kMRewardidFieldNumber = 4;
+  inline ::google::protobuf::int64 m_rewardid() const;
+  inline void set_m_rewardid(::google::protobuf::int64 value);
 
-  // optional int32 rewardNum = 5;
-  inline bool has_rewardnum() const;
-  inline void clear_rewardnum();
-  static const int kRewardNumFieldNumber = 5;
-  inline ::google::protobuf::int32 rewardnum() const;
-  inline void set_rewardnum(::google::protobuf::int32 value);
+  // optional int32 m_rewardnum = 5;
+  inline bool has_m_rewardnum() const;
+  inline void clear_m_rewardnum();
+  static const int kMRewardnumFieldNumber = 5;
+  inline ::google::protobuf::int32 m_rewardnum() const;
+  inline void set_m_rewardnum(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dailyreward)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DailyReward)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_activescore();
-  inline void clear_has_activescore();
-  inline void set_has_rewardid();
-  inline void clear_has_rewardid();
-  inline void set_has_rewardnum();
-  inline void clear_has_rewardnum();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_activescore();
+  inline void clear_has_m_activescore();
+  inline void set_has_m_rewardid();
+  inline void clear_has_m_rewardid();
+  inline void set_has_m_rewardnum();
+  inline void clear_has_m_rewardnum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int64 rewardid_;
-  ::google::protobuf::int32 activescore_;
-  ::google::protobuf::int32 rewardnum_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int64 m_rewardid_;
+  ::google::protobuf::int32 m_activescore_;
+  ::google::protobuf::int32 m_rewardnum_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -454,18 +454,18 @@ class dailyreward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static dailyreward* default_instance_;
+  static E_DailyReward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_dailyreward : public ::google::protobuf::Message {
+class Sheet_DailyReward : public ::google::protobuf::Message {
  public:
-  Sheet_dailyreward();
-  virtual ~Sheet_dailyreward();
+  Sheet_DailyReward();
+  virtual ~Sheet_DailyReward();
 
-  Sheet_dailyreward(const Sheet_dailyreward& from);
+  Sheet_DailyReward(const Sheet_DailyReward& from);
 
-  inline Sheet_dailyreward& operator=(const Sheet_dailyreward& from) {
+  inline Sheet_DailyReward& operator=(const Sheet_DailyReward& from) {
     CopyFrom(from);
     return *this;
   }
@@ -479,17 +479,17 @@ class Sheet_dailyreward : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_dailyreward& default_instance();
+  static const Sheet_DailyReward& default_instance();
 
-  void Swap(Sheet_dailyreward* other);
+  void Swap(Sheet_DailyReward* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_dailyreward* New() const;
+  Sheet_DailyReward* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_dailyreward& from);
-  void MergeFrom(const Sheet_dailyreward& from);
+  void CopyFrom(const Sheet_DailyReward& from);
+  void MergeFrom(const Sheet_DailyReward& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -512,24 +512,24 @@ class Sheet_dailyreward : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.dailyreward dailyreward_List = 1;
-  inline int dailyreward_list_size() const;
-  inline void clear_dailyreward_list();
-  static const int kDailyrewardListFieldNumber = 1;
-  inline const ::proto_ff::dailyreward& dailyreward_list(int index) const;
-  inline ::proto_ff::dailyreward* mutable_dailyreward_list(int index);
-  inline ::proto_ff::dailyreward* add_dailyreward_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailyreward >&
-      dailyreward_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailyreward >*
-      mutable_dailyreward_list();
+  // repeated .proto_ff.E_DailyReward E_DailyReward_List = 1;
+  inline int e_dailyreward_list_size() const;
+  inline void clear_e_dailyreward_list();
+  static const int kEDailyRewardListFieldNumber = 1;
+  inline const ::proto_ff::E_DailyReward& e_dailyreward_list(int index) const;
+  inline ::proto_ff::E_DailyReward* mutable_e_dailyreward_list(int index);
+  inline ::proto_ff::E_DailyReward* add_e_dailyreward_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyReward >&
+      e_dailyreward_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyReward >*
+      mutable_e_dailyreward_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_dailyreward)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DailyReward)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dailyreward > dailyreward_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyReward > e_dailyreward_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -539,18 +539,18 @@ class Sheet_dailyreward : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_dailyreward* default_instance_;
+  static Sheet_DailyReward* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class dailycultivateattributeDesc : public ::google::protobuf::Message {
+class E_DailyCultivateAttributeDesc : public ::google::protobuf::Message {
  public:
-  dailycultivateattributeDesc();
-  virtual ~dailycultivateattributeDesc();
+  E_DailyCultivateAttributeDesc();
+  virtual ~E_DailyCultivateAttributeDesc();
 
-  dailycultivateattributeDesc(const dailycultivateattributeDesc& from);
+  E_DailyCultivateAttributeDesc(const E_DailyCultivateAttributeDesc& from);
 
-  inline dailycultivateattributeDesc& operator=(const dailycultivateattributeDesc& from) {
+  inline E_DailyCultivateAttributeDesc& operator=(const E_DailyCultivateAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -564,17 +564,17 @@ class dailycultivateattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dailycultivateattributeDesc& default_instance();
+  static const E_DailyCultivateAttributeDesc& default_instance();
 
-  void Swap(dailycultivateattributeDesc* other);
+  void Swap(E_DailyCultivateAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  dailycultivateattributeDesc* New() const;
+  E_DailyCultivateAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dailycultivateattributeDesc& from);
-  void MergeFrom(const dailycultivateattributeDesc& from);
+  void CopyFrom(const E_DailyCultivateAttributeDesc& from);
+  void MergeFrom(const E_DailyCultivateAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -597,31 +597,31 @@ class dailycultivateattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dailycultivateattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DailyCultivateAttributeDesc)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -631,18 +631,18 @@ class dailycultivateattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static dailycultivateattributeDesc* default_instance_;
+  static E_DailyCultivateAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class dailycultivate : public ::google::protobuf::Message {
+class E_DailyCultivate : public ::google::protobuf::Message {
  public:
-  dailycultivate();
-  virtual ~dailycultivate();
+  E_DailyCultivate();
+  virtual ~E_DailyCultivate();
 
-  dailycultivate(const dailycultivate& from);
+  E_DailyCultivate(const E_DailyCultivate& from);
 
-  inline dailycultivate& operator=(const dailycultivate& from) {
+  inline E_DailyCultivate& operator=(const E_DailyCultivate& from) {
     CopyFrom(from);
     return *this;
   }
@@ -656,17 +656,17 @@ class dailycultivate : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const dailycultivate& default_instance();
+  static const E_DailyCultivate& default_instance();
 
-  void Swap(dailycultivate* other);
+  void Swap(E_DailyCultivate* other);
 
   // implements Message ----------------------------------------------
 
-  dailycultivate* New() const;
+  E_DailyCultivate* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const dailycultivate& from);
-  void MergeFrom(const dailycultivate& from);
+  void CopyFrom(const E_DailyCultivate& from);
+  void MergeFrom(const E_DailyCultivate& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -689,54 +689,54 @@ class dailycultivate : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 lv = 2;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 2;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 2;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 2;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 exp = 3;
-  inline bool has_exp() const;
-  inline void clear_exp();
-  static const int kExpFieldNumber = 3;
-  inline ::google::protobuf::int32 exp() const;
-  inline void set_exp(::google::protobuf::int32 value);
+  // optional int32 m_exp = 3;
+  inline bool has_m_exp() const;
+  inline void clear_m_exp();
+  static const int kMExpFieldNumber = 3;
+  inline ::google::protobuf::int32 m_exp() const;
+  inline void set_m_exp(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.dailycultivateattributeDesc attribute = 4;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 4;
-  inline const ::proto_ff::dailycultivateattributeDesc& attribute(int index) const;
-  inline ::proto_ff::dailycultivateattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::dailycultivateattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivateattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivateattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_DailyCultivateAttributeDesc m_attribute = 4;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 4;
+  inline const ::proto_ff::E_DailyCultivateAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_DailyCultivateAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_DailyCultivateAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivateAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivateAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.dailycultivate)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DailyCultivate)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_exp();
-  inline void clear_has_exp();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_exp();
+  inline void clear_has_m_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivateattributeDesc > attribute_;
-  ::google::protobuf::int32 exp_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivateAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_exp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -746,18 +746,18 @@ class dailycultivate : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static dailycultivate* default_instance_;
+  static E_DailyCultivate* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_dailycultivate : public ::google::protobuf::Message {
+class Sheet_DailyCultivate : public ::google::protobuf::Message {
  public:
-  Sheet_dailycultivate();
-  virtual ~Sheet_dailycultivate();
+  Sheet_DailyCultivate();
+  virtual ~Sheet_DailyCultivate();
 
-  Sheet_dailycultivate(const Sheet_dailycultivate& from);
+  Sheet_DailyCultivate(const Sheet_DailyCultivate& from);
 
-  inline Sheet_dailycultivate& operator=(const Sheet_dailycultivate& from) {
+  inline Sheet_DailyCultivate& operator=(const Sheet_DailyCultivate& from) {
     CopyFrom(from);
     return *this;
   }
@@ -771,17 +771,17 @@ class Sheet_dailycultivate : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_dailycultivate& default_instance();
+  static const Sheet_DailyCultivate& default_instance();
 
-  void Swap(Sheet_dailycultivate* other);
+  void Swap(Sheet_DailyCultivate* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_dailycultivate* New() const;
+  Sheet_DailyCultivate* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_dailycultivate& from);
-  void MergeFrom(const Sheet_dailycultivate& from);
+  void CopyFrom(const Sheet_DailyCultivate& from);
+  void MergeFrom(const Sheet_DailyCultivate& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -804,24 +804,24 @@ class Sheet_dailycultivate : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.dailycultivate dailycultivate_List = 1;
-  inline int dailycultivate_list_size() const;
-  inline void clear_dailycultivate_list();
-  static const int kDailycultivateListFieldNumber = 1;
-  inline const ::proto_ff::dailycultivate& dailycultivate_list(int index) const;
-  inline ::proto_ff::dailycultivate* mutable_dailycultivate_list(int index);
-  inline ::proto_ff::dailycultivate* add_dailycultivate_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivate >&
-      dailycultivate_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivate >*
-      mutable_dailycultivate_list();
+  // repeated .proto_ff.E_DailyCultivate E_DailyCultivate_List = 1;
+  inline int e_dailycultivate_list_size() const;
+  inline void clear_e_dailycultivate_list();
+  static const int kEDailyCultivateListFieldNumber = 1;
+  inline const ::proto_ff::E_DailyCultivate& e_dailycultivate_list(int index) const;
+  inline ::proto_ff::E_DailyCultivate* mutable_e_dailycultivate_list(int index);
+  inline ::proto_ff::E_DailyCultivate* add_e_dailycultivate_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivate >&
+      e_dailycultivate_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivate >*
+      mutable_e_dailycultivate_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_dailycultivate)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DailyCultivate)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivate > dailycultivate_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivate > e_dailycultivate_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -831,691 +831,691 @@ class Sheet_dailycultivate : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_daily_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_dailycultivate* default_instance_;
+  static Sheet_DailyCultivate* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// dailydaily
+// E_DailyDaily
 
-// optional int64 id = 1;
-inline bool dailydaily::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_DailyDaily::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dailydaily::set_has_id() {
+inline void E_DailyDaily::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dailydaily::clear_has_id() {
+inline void E_DailyDaily::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dailydaily::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_DailyDaily::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 dailydaily::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_DailyDaily::m_id() const {
+  return m_id_;
 }
-inline void dailydaily::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DailyDaily::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string name = 2;
-inline bool dailydaily::has_name() const {
+// optional string m_name = 2;
+inline bool E_DailyDaily::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void dailydaily::set_has_name() {
+inline void E_DailyDaily::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void dailydaily::clear_has_name() {
+inline void E_DailyDaily::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void dailydaily::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_DailyDaily::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& dailydaily::name() const {
-  return *name_;
+inline const ::std::string& E_DailyDaily::m_name() const {
+  return *m_name_;
 }
-inline void dailydaily::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_DailyDaily::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void dailydaily::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_DailyDaily::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void dailydaily::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_DailyDaily::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* dailydaily::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_DailyDaily::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* dailydaily::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_DailyDaily::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void dailydaily::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_DailyDaily::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 type = 3;
-inline bool dailydaily::has_type() const {
+// optional int32 m_type = 3;
+inline bool E_DailyDaily::has_m_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void dailydaily::set_has_type() {
+inline void E_DailyDaily::set_has_m_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void dailydaily::clear_has_type() {
+inline void E_DailyDaily::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void dailydaily::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_DailyDaily::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 dailydaily::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_DailyDaily::m_type() const {
+  return m_type_;
 }
-inline void dailydaily::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_DailyDaily::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 args = 4;
-inline bool dailydaily::has_args() const {
+// optional int32 m_args = 4;
+inline bool E_DailyDaily::has_m_args() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void dailydaily::set_has_args() {
+inline void E_DailyDaily::set_has_m_args() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void dailydaily::clear_has_args() {
+inline void E_DailyDaily::clear_has_m_args() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void dailydaily::clear_args() {
-  args_ = 0;
-  clear_has_args();
+inline void E_DailyDaily::clear_m_args() {
+  m_args_ = 0;
+  clear_has_m_args();
 }
-inline ::google::protobuf::int32 dailydaily::args() const {
-  return args_;
+inline ::google::protobuf::int32 E_DailyDaily::m_args() const {
+  return m_args_;
 }
-inline void dailydaily::set_args(::google::protobuf::int32 value) {
-  set_has_args();
-  args_ = value;
+inline void E_DailyDaily::set_m_args(::google::protobuf::int32 value) {
+  set_has_m_args();
+  m_args_ = value;
 }
 
-// optional int32 playType = 5;
-inline bool dailydaily::has_playtype() const {
+// optional int32 m_playtype = 5;
+inline bool E_DailyDaily::has_m_playtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void dailydaily::set_has_playtype() {
+inline void E_DailyDaily::set_has_m_playtype() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void dailydaily::clear_has_playtype() {
+inline void E_DailyDaily::clear_has_m_playtype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void dailydaily::clear_playtype() {
-  playtype_ = 0;
-  clear_has_playtype();
+inline void E_DailyDaily::clear_m_playtype() {
+  m_playtype_ = 0;
+  clear_has_m_playtype();
 }
-inline ::google::protobuf::int32 dailydaily::playtype() const {
-  return playtype_;
+inline ::google::protobuf::int32 E_DailyDaily::m_playtype() const {
+  return m_playtype_;
 }
-inline void dailydaily::set_playtype(::google::protobuf::int32 value) {
-  set_has_playtype();
-  playtype_ = value;
+inline void E_DailyDaily::set_m_playtype(::google::protobuf::int32 value) {
+  set_has_m_playtype();
+  m_playtype_ = value;
 }
 
-// optional int32 playArgs = 6;
-inline bool dailydaily::has_playargs() const {
+// optional int32 m_playargs = 6;
+inline bool E_DailyDaily::has_m_playargs() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void dailydaily::set_has_playargs() {
+inline void E_DailyDaily::set_has_m_playargs() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void dailydaily::clear_has_playargs() {
+inline void E_DailyDaily::clear_has_m_playargs() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void dailydaily::clear_playargs() {
-  playargs_ = 0;
-  clear_has_playargs();
+inline void E_DailyDaily::clear_m_playargs() {
+  m_playargs_ = 0;
+  clear_has_m_playargs();
 }
-inline ::google::protobuf::int32 dailydaily::playargs() const {
-  return playargs_;
+inline ::google::protobuf::int32 E_DailyDaily::m_playargs() const {
+  return m_playargs_;
 }
-inline void dailydaily::set_playargs(::google::protobuf::int32 value) {
-  set_has_playargs();
-  playargs_ = value;
+inline void E_DailyDaily::set_m_playargs(::google::protobuf::int32 value) {
+  set_has_m_playargs();
+  m_playargs_ = value;
 }
 
-// optional int64 funciontID = 7;
-inline bool dailydaily::has_funciontid() const {
+// optional int64 m_funciontid = 7;
+inline bool E_DailyDaily::has_m_funciontid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void dailydaily::set_has_funciontid() {
+inline void E_DailyDaily::set_has_m_funciontid() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void dailydaily::clear_has_funciontid() {
+inline void E_DailyDaily::clear_has_m_funciontid() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void dailydaily::clear_funciontid() {
-  funciontid_ = GOOGLE_LONGLONG(0);
-  clear_has_funciontid();
+inline void E_DailyDaily::clear_m_funciontid() {
+  m_funciontid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_funciontid();
 }
-inline ::google::protobuf::int64 dailydaily::funciontid() const {
-  return funciontid_;
+inline ::google::protobuf::int64 E_DailyDaily::m_funciontid() const {
+  return m_funciontid_;
 }
-inline void dailydaily::set_funciontid(::google::protobuf::int64 value) {
-  set_has_funciontid();
-  funciontid_ = value;
+inline void E_DailyDaily::set_m_funciontid(::google::protobuf::int64 value) {
+  set_has_m_funciontid();
+  m_funciontid_ = value;
 }
 
-// optional int32 number = 8;
-inline bool dailydaily::has_number() const {
+// optional int32 m_number = 8;
+inline bool E_DailyDaily::has_m_number() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void dailydaily::set_has_number() {
+inline void E_DailyDaily::set_has_m_number() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void dailydaily::clear_has_number() {
+inline void E_DailyDaily::clear_has_m_number() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void dailydaily::clear_number() {
-  number_ = 0;
-  clear_has_number();
+inline void E_DailyDaily::clear_m_number() {
+  m_number_ = 0;
+  clear_has_m_number();
 }
-inline ::google::protobuf::int32 dailydaily::number() const {
-  return number_;
+inline ::google::protobuf::int32 E_DailyDaily::m_number() const {
+  return m_number_;
 }
-inline void dailydaily::set_number(::google::protobuf::int32 value) {
-  set_has_number();
-  number_ = value;
+inline void E_DailyDaily::set_m_number(::google::protobuf::int32 value) {
+  set_has_m_number();
+  m_number_ = value;
 }
 
-// optional int32 viptype = 9;
-inline bool dailydaily::has_viptype() const {
+// optional int32 m_viptype = 9;
+inline bool E_DailyDaily::has_m_viptype() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void dailydaily::set_has_viptype() {
+inline void E_DailyDaily::set_has_m_viptype() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void dailydaily::clear_has_viptype() {
+inline void E_DailyDaily::clear_has_m_viptype() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void dailydaily::clear_viptype() {
-  viptype_ = 0;
-  clear_has_viptype();
+inline void E_DailyDaily::clear_m_viptype() {
+  m_viptype_ = 0;
+  clear_has_m_viptype();
 }
-inline ::google::protobuf::int32 dailydaily::viptype() const {
-  return viptype_;
+inline ::google::protobuf::int32 E_DailyDaily::m_viptype() const {
+  return m_viptype_;
 }
-inline void dailydaily::set_viptype(::google::protobuf::int32 value) {
-  set_has_viptype();
-  viptype_ = value;
+inline void E_DailyDaily::set_m_viptype(::google::protobuf::int32 value) {
+  set_has_m_viptype();
+  m_viptype_ = value;
 }
 
-// optional int32 otherNum = 10;
-inline bool dailydaily::has_othernum() const {
+// optional int32 m_othernum = 10;
+inline bool E_DailyDaily::has_m_othernum() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void dailydaily::set_has_othernum() {
+inline void E_DailyDaily::set_has_m_othernum() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void dailydaily::clear_has_othernum() {
+inline void E_DailyDaily::clear_has_m_othernum() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void dailydaily::clear_othernum() {
-  othernum_ = 0;
-  clear_has_othernum();
+inline void E_DailyDaily::clear_m_othernum() {
+  m_othernum_ = 0;
+  clear_has_m_othernum();
 }
-inline ::google::protobuf::int32 dailydaily::othernum() const {
-  return othernum_;
+inline ::google::protobuf::int32 E_DailyDaily::m_othernum() const {
+  return m_othernum_;
 }
-inline void dailydaily::set_othernum(::google::protobuf::int32 value) {
-  set_has_othernum();
-  othernum_ = value;
+inline void E_DailyDaily::set_m_othernum(::google::protobuf::int32 value) {
+  set_has_m_othernum();
+  m_othernum_ = value;
 }
 
-// optional int32 eachScore = 11;
-inline bool dailydaily::has_eachscore() const {
+// optional int32 m_eachscore = 11;
+inline bool E_DailyDaily::has_m_eachscore() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void dailydaily::set_has_eachscore() {
+inline void E_DailyDaily::set_has_m_eachscore() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void dailydaily::clear_has_eachscore() {
+inline void E_DailyDaily::clear_has_m_eachscore() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void dailydaily::clear_eachscore() {
-  eachscore_ = 0;
-  clear_has_eachscore();
+inline void E_DailyDaily::clear_m_eachscore() {
+  m_eachscore_ = 0;
+  clear_has_m_eachscore();
 }
-inline ::google::protobuf::int32 dailydaily::eachscore() const {
-  return eachscore_;
+inline ::google::protobuf::int32 E_DailyDaily::m_eachscore() const {
+  return m_eachscore_;
 }
-inline void dailydaily::set_eachscore(::google::protobuf::int32 value) {
-  set_has_eachscore();
-  eachscore_ = value;
+inline void E_DailyDaily::set_m_eachscore(::google::protobuf::int32 value) {
+  set_has_m_eachscore();
+  m_eachscore_ = value;
 }
 
-// optional int32 cycle = 12;
-inline bool dailydaily::has_cycle() const {
+// optional int32 m_cycle = 12;
+inline bool E_DailyDaily::has_m_cycle() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void dailydaily::set_has_cycle() {
+inline void E_DailyDaily::set_has_m_cycle() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void dailydaily::clear_has_cycle() {
+inline void E_DailyDaily::clear_has_m_cycle() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void dailydaily::clear_cycle() {
-  cycle_ = 0;
-  clear_has_cycle();
+inline void E_DailyDaily::clear_m_cycle() {
+  m_cycle_ = 0;
+  clear_has_m_cycle();
 }
-inline ::google::protobuf::int32 dailydaily::cycle() const {
-  return cycle_;
+inline ::google::protobuf::int32 E_DailyDaily::m_cycle() const {
+  return m_cycle_;
 }
-inline void dailydaily::set_cycle(::google::protobuf::int32 value) {
-  set_has_cycle();
-  cycle_ = value;
+inline void E_DailyDaily::set_m_cycle(::google::protobuf::int32 value) {
+  set_has_m_cycle();
+  m_cycle_ = value;
 }
 
-// optional int32 regReward = 13;
-inline bool dailydaily::has_regreward() const {
+// optional int32 m_regreward = 13;
+inline bool E_DailyDaily::has_m_regreward() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void dailydaily::set_has_regreward() {
+inline void E_DailyDaily::set_has_m_regreward() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void dailydaily::clear_has_regreward() {
+inline void E_DailyDaily::clear_has_m_regreward() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void dailydaily::clear_regreward() {
-  regreward_ = 0;
-  clear_has_regreward();
+inline void E_DailyDaily::clear_m_regreward() {
+  m_regreward_ = 0;
+  clear_has_m_regreward();
 }
-inline ::google::protobuf::int32 dailydaily::regreward() const {
-  return regreward_;
+inline ::google::protobuf::int32 E_DailyDaily::m_regreward() const {
+  return m_regreward_;
 }
-inline void dailydaily::set_regreward(::google::protobuf::int32 value) {
-  set_has_regreward();
-  regreward_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_dailydaily
-
-// repeated .proto_ff.dailydaily dailydaily_List = 1;
-inline int Sheet_dailydaily::dailydaily_list_size() const {
-  return dailydaily_list_.size();
-}
-inline void Sheet_dailydaily::clear_dailydaily_list() {
-  dailydaily_list_.Clear();
-}
-inline const ::proto_ff::dailydaily& Sheet_dailydaily::dailydaily_list(int index) const {
-  return dailydaily_list_.Get(index);
-}
-inline ::proto_ff::dailydaily* Sheet_dailydaily::mutable_dailydaily_list(int index) {
-  return dailydaily_list_.Mutable(index);
-}
-inline ::proto_ff::dailydaily* Sheet_dailydaily::add_dailydaily_list() {
-  return dailydaily_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailydaily >&
-Sheet_dailydaily::dailydaily_list() const {
-  return dailydaily_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailydaily >*
-Sheet_dailydaily::mutable_dailydaily_list() {
-  return &dailydaily_list_;
+inline void E_DailyDaily::set_m_regreward(::google::protobuf::int32 value) {
+  set_has_m_regreward();
+  m_regreward_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// dailyreward
+// Sheet_DailyDaily
 
-// optional int32 id = 1;
-inline bool dailyreward::has_id() const {
+// repeated .proto_ff.E_DailyDaily E_DailyDaily_List = 1;
+inline int Sheet_DailyDaily::e_dailydaily_list_size() const {
+  return e_dailydaily_list_.size();
+}
+inline void Sheet_DailyDaily::clear_e_dailydaily_list() {
+  e_dailydaily_list_.Clear();
+}
+inline const ::proto_ff::E_DailyDaily& Sheet_DailyDaily::e_dailydaily_list(int index) const {
+  return e_dailydaily_list_.Get(index);
+}
+inline ::proto_ff::E_DailyDaily* Sheet_DailyDaily::mutable_e_dailydaily_list(int index) {
+  return e_dailydaily_list_.Mutable(index);
+}
+inline ::proto_ff::E_DailyDaily* Sheet_DailyDaily::add_e_dailydaily_list() {
+  return e_dailydaily_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyDaily >&
+Sheet_DailyDaily::e_dailydaily_list() const {
+  return e_dailydaily_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyDaily >*
+Sheet_DailyDaily::mutable_e_dailydaily_list() {
+  return &e_dailydaily_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_DailyReward
+
+// optional int32 m_id = 1;
+inline bool E_DailyReward::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dailyreward::set_has_id() {
+inline void E_DailyReward::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dailyreward::clear_has_id() {
+inline void E_DailyReward::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dailyreward::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_DailyReward::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 dailyreward::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_DailyReward::m_id() const {
+  return m_id_;
 }
-inline void dailyreward::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DailyReward::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 type = 2;
-inline bool dailyreward::has_type() const {
+// optional int32 m_type = 2;
+inline bool E_DailyReward::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void dailyreward::set_has_type() {
+inline void E_DailyReward::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void dailyreward::clear_has_type() {
+inline void E_DailyReward::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void dailyreward::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_DailyReward::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 dailyreward::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_DailyReward::m_type() const {
+  return m_type_;
 }
-inline void dailyreward::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_DailyReward::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 activeScore = 3;
-inline bool dailyreward::has_activescore() const {
+// optional int32 m_activescore = 3;
+inline bool E_DailyReward::has_m_activescore() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void dailyreward::set_has_activescore() {
+inline void E_DailyReward::set_has_m_activescore() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void dailyreward::clear_has_activescore() {
+inline void E_DailyReward::clear_has_m_activescore() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void dailyreward::clear_activescore() {
-  activescore_ = 0;
-  clear_has_activescore();
+inline void E_DailyReward::clear_m_activescore() {
+  m_activescore_ = 0;
+  clear_has_m_activescore();
 }
-inline ::google::protobuf::int32 dailyreward::activescore() const {
-  return activescore_;
+inline ::google::protobuf::int32 E_DailyReward::m_activescore() const {
+  return m_activescore_;
 }
-inline void dailyreward::set_activescore(::google::protobuf::int32 value) {
-  set_has_activescore();
-  activescore_ = value;
+inline void E_DailyReward::set_m_activescore(::google::protobuf::int32 value) {
+  set_has_m_activescore();
+  m_activescore_ = value;
 }
 
-// optional int64 rewardId = 4;
-inline bool dailyreward::has_rewardid() const {
+// optional int64 m_rewardid = 4;
+inline bool E_DailyReward::has_m_rewardid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void dailyreward::set_has_rewardid() {
+inline void E_DailyReward::set_has_m_rewardid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void dailyreward::clear_has_rewardid() {
+inline void E_DailyReward::clear_has_m_rewardid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void dailyreward::clear_rewardid() {
-  rewardid_ = GOOGLE_LONGLONG(0);
-  clear_has_rewardid();
+inline void E_DailyReward::clear_m_rewardid() {
+  m_rewardid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_rewardid();
 }
-inline ::google::protobuf::int64 dailyreward::rewardid() const {
-  return rewardid_;
+inline ::google::protobuf::int64 E_DailyReward::m_rewardid() const {
+  return m_rewardid_;
 }
-inline void dailyreward::set_rewardid(::google::protobuf::int64 value) {
-  set_has_rewardid();
-  rewardid_ = value;
+inline void E_DailyReward::set_m_rewardid(::google::protobuf::int64 value) {
+  set_has_m_rewardid();
+  m_rewardid_ = value;
 }
 
-// optional int32 rewardNum = 5;
-inline bool dailyreward::has_rewardnum() const {
+// optional int32 m_rewardnum = 5;
+inline bool E_DailyReward::has_m_rewardnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void dailyreward::set_has_rewardnum() {
+inline void E_DailyReward::set_has_m_rewardnum() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void dailyreward::clear_has_rewardnum() {
+inline void E_DailyReward::clear_has_m_rewardnum() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void dailyreward::clear_rewardnum() {
-  rewardnum_ = 0;
-  clear_has_rewardnum();
+inline void E_DailyReward::clear_m_rewardnum() {
+  m_rewardnum_ = 0;
+  clear_has_m_rewardnum();
 }
-inline ::google::protobuf::int32 dailyreward::rewardnum() const {
-  return rewardnum_;
+inline ::google::protobuf::int32 E_DailyReward::m_rewardnum() const {
+  return m_rewardnum_;
 }
-inline void dailyreward::set_rewardnum(::google::protobuf::int32 value) {
-  set_has_rewardnum();
-  rewardnum_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_dailyreward
-
-// repeated .proto_ff.dailyreward dailyreward_List = 1;
-inline int Sheet_dailyreward::dailyreward_list_size() const {
-  return dailyreward_list_.size();
-}
-inline void Sheet_dailyreward::clear_dailyreward_list() {
-  dailyreward_list_.Clear();
-}
-inline const ::proto_ff::dailyreward& Sheet_dailyreward::dailyreward_list(int index) const {
-  return dailyreward_list_.Get(index);
-}
-inline ::proto_ff::dailyreward* Sheet_dailyreward::mutable_dailyreward_list(int index) {
-  return dailyreward_list_.Mutable(index);
-}
-inline ::proto_ff::dailyreward* Sheet_dailyreward::add_dailyreward_list() {
-  return dailyreward_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailyreward >&
-Sheet_dailyreward::dailyreward_list() const {
-  return dailyreward_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailyreward >*
-Sheet_dailyreward::mutable_dailyreward_list() {
-  return &dailyreward_list_;
+inline void E_DailyReward::set_m_rewardnum(::google::protobuf::int32 value) {
+  set_has_m_rewardnum();
+  m_rewardnum_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// dailycultivateattributeDesc
+// Sheet_DailyReward
 
-// optional int32 ID = 1;
-inline bool dailycultivateattributeDesc::has_id() const {
+// repeated .proto_ff.E_DailyReward E_DailyReward_List = 1;
+inline int Sheet_DailyReward::e_dailyreward_list_size() const {
+  return e_dailyreward_list_.size();
+}
+inline void Sheet_DailyReward::clear_e_dailyreward_list() {
+  e_dailyreward_list_.Clear();
+}
+inline const ::proto_ff::E_DailyReward& Sheet_DailyReward::e_dailyreward_list(int index) const {
+  return e_dailyreward_list_.Get(index);
+}
+inline ::proto_ff::E_DailyReward* Sheet_DailyReward::mutable_e_dailyreward_list(int index) {
+  return e_dailyreward_list_.Mutable(index);
+}
+inline ::proto_ff::E_DailyReward* Sheet_DailyReward::add_e_dailyreward_list() {
+  return e_dailyreward_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyReward >&
+Sheet_DailyReward::e_dailyreward_list() const {
+  return e_dailyreward_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyReward >*
+Sheet_DailyReward::mutable_e_dailyreward_list() {
+  return &e_dailyreward_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_DailyCultivateAttributeDesc
+
+// optional int32 m_id = 1;
+inline bool E_DailyCultivateAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dailycultivateattributeDesc::set_has_id() {
+inline void E_DailyCultivateAttributeDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dailycultivateattributeDesc::clear_has_id() {
+inline void E_DailyCultivateAttributeDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dailycultivateattributeDesc::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_DailyCultivateAttributeDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 dailycultivateattributeDesc::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_DailyCultivateAttributeDesc::m_id() const {
+  return m_id_;
 }
-inline void dailycultivateattributeDesc::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DailyCultivateAttributeDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool dailycultivateattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_DailyCultivateAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void dailycultivateattributeDesc::set_has_value() {
+inline void E_DailyCultivateAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void dailycultivateattributeDesc::clear_has_value() {
+inline void E_DailyCultivateAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void dailycultivateattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_DailyCultivateAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 dailycultivateattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_DailyCultivateAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void dailycultivateattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_DailyCultivateAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// dailycultivate
+// E_DailyCultivate
 
-// optional int32 ID = 1;
-inline bool dailycultivate::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_DailyCultivate::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void dailycultivate::set_has_id() {
+inline void E_DailyCultivate::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void dailycultivate::clear_has_id() {
+inline void E_DailyCultivate::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void dailycultivate::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_DailyCultivate::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 dailycultivate::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_DailyCultivate::m_id() const {
+  return m_id_;
 }
-inline void dailycultivate::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_DailyCultivate::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 lv = 2;
-inline bool dailycultivate::has_lv() const {
+// optional int32 m_lv = 2;
+inline bool E_DailyCultivate::has_m_lv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void dailycultivate::set_has_lv() {
+inline void E_DailyCultivate::set_has_m_lv() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void dailycultivate::clear_has_lv() {
+inline void E_DailyCultivate::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void dailycultivate::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_DailyCultivate::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 dailycultivate::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_DailyCultivate::m_lv() const {
+  return m_lv_;
 }
-inline void dailycultivate::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_DailyCultivate::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 exp = 3;
-inline bool dailycultivate::has_exp() const {
+// optional int32 m_exp = 3;
+inline bool E_DailyCultivate::has_m_exp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void dailycultivate::set_has_exp() {
+inline void E_DailyCultivate::set_has_m_exp() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void dailycultivate::clear_has_exp() {
+inline void E_DailyCultivate::clear_has_m_exp() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void dailycultivate::clear_exp() {
-  exp_ = 0;
-  clear_has_exp();
+inline void E_DailyCultivate::clear_m_exp() {
+  m_exp_ = 0;
+  clear_has_m_exp();
 }
-inline ::google::protobuf::int32 dailycultivate::exp() const {
-  return exp_;
+inline ::google::protobuf::int32 E_DailyCultivate::m_exp() const {
+  return m_exp_;
 }
-inline void dailycultivate::set_exp(::google::protobuf::int32 value) {
-  set_has_exp();
-  exp_ = value;
+inline void E_DailyCultivate::set_m_exp(::google::protobuf::int32 value) {
+  set_has_m_exp();
+  m_exp_ = value;
 }
 
-// repeated .proto_ff.dailycultivateattributeDesc attribute = 4;
-inline int dailycultivate::attribute_size() const {
-  return attribute_.size();
+// repeated .proto_ff.E_DailyCultivateAttributeDesc m_attribute = 4;
+inline int E_DailyCultivate::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void dailycultivate::clear_attribute() {
-  attribute_.Clear();
+inline void E_DailyCultivate::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::dailycultivateattributeDesc& dailycultivate::attribute(int index) const {
-  return attribute_.Get(index);
+inline const ::proto_ff::E_DailyCultivateAttributeDesc& E_DailyCultivate::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::dailycultivateattributeDesc* dailycultivate::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
+inline ::proto_ff::E_DailyCultivateAttributeDesc* E_DailyCultivate::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::dailycultivateattributeDesc* dailycultivate::add_attribute() {
-  return attribute_.Add();
+inline ::proto_ff::E_DailyCultivateAttributeDesc* E_DailyCultivate::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivateattributeDesc >&
-dailycultivate::attribute() const {
-  return attribute_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivateAttributeDesc >&
+E_DailyCultivate::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivateattributeDesc >*
-dailycultivate::mutable_attribute() {
-  return &attribute_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivateAttributeDesc >*
+E_DailyCultivate::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_dailycultivate
+// Sheet_DailyCultivate
 
-// repeated .proto_ff.dailycultivate dailycultivate_List = 1;
-inline int Sheet_dailycultivate::dailycultivate_list_size() const {
-  return dailycultivate_list_.size();
+// repeated .proto_ff.E_DailyCultivate E_DailyCultivate_List = 1;
+inline int Sheet_DailyCultivate::e_dailycultivate_list_size() const {
+  return e_dailycultivate_list_.size();
 }
-inline void Sheet_dailycultivate::clear_dailycultivate_list() {
-  dailycultivate_list_.Clear();
+inline void Sheet_DailyCultivate::clear_e_dailycultivate_list() {
+  e_dailycultivate_list_.Clear();
 }
-inline const ::proto_ff::dailycultivate& Sheet_dailycultivate::dailycultivate_list(int index) const {
-  return dailycultivate_list_.Get(index);
+inline const ::proto_ff::E_DailyCultivate& Sheet_DailyCultivate::e_dailycultivate_list(int index) const {
+  return e_dailycultivate_list_.Get(index);
 }
-inline ::proto_ff::dailycultivate* Sheet_dailycultivate::mutable_dailycultivate_list(int index) {
-  return dailycultivate_list_.Mutable(index);
+inline ::proto_ff::E_DailyCultivate* Sheet_DailyCultivate::mutable_e_dailycultivate_list(int index) {
+  return e_dailycultivate_list_.Mutable(index);
 }
-inline ::proto_ff::dailycultivate* Sheet_dailycultivate::add_dailycultivate_list() {
-  return dailycultivate_list_.Add();
+inline ::proto_ff::E_DailyCultivate* Sheet_DailyCultivate::add_e_dailycultivate_list() {
+  return e_dailycultivate_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivate >&
-Sheet_dailycultivate::dailycultivate_list() const {
-  return dailycultivate_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivate >&
+Sheet_DailyCultivate::e_dailycultivate_list() const {
+  return e_dailycultivate_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::dailycultivate >*
-Sheet_dailycultivate::mutable_dailycultivate_list() {
-  return &dailycultivate_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivate >*
+Sheet_DailyCultivate::mutable_e_dailycultivate_list() {
+  return &e_dailycultivate_list_;
 }
 
 

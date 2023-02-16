@@ -3,14 +3,14 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message tasktrackertasktracker
+message E_TasktrackerTasktracker
 {
-	optional int32 comID = 1[(yd_fieldoptions.field_cname) = "完成条件类型ID"];
-	optional int32 trueID = 2[(yd_fieldoptions.field_cname) = "实际完成条件类型ID"];
+	optional int32 m_comid = 1[(yd_fieldoptions.field_cname) = "完成条件类型ID"];
+	optional int32 m_trueid = 2[(yd_fieldoptions.field_cname) = "实际完成条件类型ID"];
 }
 
 
-message Sheet_tasktrackertasktracker
+message Sheet_TasktrackerTasktracker
 {
-	repeated tasktrackertasktracker tasktrackertasktracker_List = 1[(yd_fieldoptions.field_arysize)=60];
+	repeated E_TasktrackerTasktracker E_TasktrackerTasktracker_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

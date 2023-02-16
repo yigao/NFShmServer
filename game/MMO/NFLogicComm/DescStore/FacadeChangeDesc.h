@@ -14,9 +14,9 @@ public:
 	virtual ~FacadeChangeDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::facadechange_s* GetDesc(int id) const;
-	proto_ff_s::facadechange_s* GetDesc(int id);
+	const proto_ff_s::E_FacadeChange_s* GetDesc(int id) const;
+	proto_ff_s::E_FacadeChange_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::facadechange_s, facadechange, MAX_FACADE_CHANGE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_FacadeChange_s, facadechange, MAX_FACADE_CHANGE_NUM);
 DECLARE_IDCREATE(FacadeChangeDesc);
 };

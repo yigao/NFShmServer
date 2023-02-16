@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "Com.pb.h"
@@ -123,7 +123,7 @@ namespace proto_ff_s {
 		virtual ~RoleFacadeProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct Attr64_s, 200> growFacade;
+		NFShmVector<struct Attr64_s, 200> growFacade;
 		int32_t color;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleFacadeProto & msg) const;
@@ -207,6 +207,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t cid;
 		uint32_t uid;
+		NFShmString<32> name;
 		uint32_t prof;
 		uint32_t level;
 		uint64_t fight;
@@ -230,6 +231,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t cid;
 		uint32_t uid;
+		NFShmString<32> name;
 		uint32_t prof;
 		uint32_t level;
 		uint64_t fight;
@@ -289,11 +291,11 @@ namespace proto_ff_s {
 		int64_t item_num;
 		int32_t bind;
 		int32_t level;
-		NFArray<struct Attr_s, 200> base;
-		NFArray<struct Attr_s, 200> refine;
-		NFArray<struct BlueStarAttr_s, 200> blue;
-		NFArray<struct Attr_s, 200> god;
-		NFArray<struct Attr_s, 200> special;
+		NFShmVector<struct Attr_s, 200> base;
+		NFShmVector<struct Attr_s, 200> refine;
+		NFShmVector<struct BlueStarAttr_s, 200> blue;
+		NFShmVector<struct Attr_s, 200> god;
+		NFShmVector<struct Attr_s, 200> special;
 		uint64_t expireTime;
 
 		virtual void write_to_pbmsg(::proto_ff::ItemProtoInfo & msg) const;
@@ -355,7 +357,7 @@ namespace proto_ff_s {
 		virtual ~MultItemSimpleProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct ItemSimpleProto_s, 10> info;
+		NFShmVector<struct ItemSimpleProto_s, 10> info;
 
 		virtual void write_to_pbmsg(::proto_ff::MultItemSimpleProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MultItemSimpleProto & msg);
@@ -370,8 +372,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cfgid;
-		NFArray<NFSizeBuffer<32>, 10> str_param;
-		NFArray<uint64_t, 10> int_param;
+		NFShmVector<NFSizeBuffer<32>, 10> str_param;
+		NFShmVector<uint64_t, 10> int_param;
 
 		virtual void write_to_pbmsg(::proto_ff::MailParamProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MailParamProto & msg);
@@ -385,6 +387,7 @@ namespace proto_ff_s {
 		virtual ~MailStrProto_s(){}
 		int CreateInit();
 		int ResumeInit();
+		NFShmString<32> str;
 		struct MailParamProto_s param;
 
 		virtual void write_to_pbmsg(::proto_ff::MailStrProto & msg) const;
@@ -399,7 +402,7 @@ namespace proto_ff_s {
 		virtual ~MailAttachmentList_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct ItemProtoInfo_s, 10> itemInfo;
+		NFShmVector<struct ItemProtoInfo_s, 10> itemInfo;
 
 		virtual void write_to_pbmsg(::proto_ff::MailAttachmentList & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MailAttachmentList & msg);
@@ -416,6 +419,7 @@ namespace proto_ff_s {
 		uint64_t mailId;
 		uint32_t type;
 		uint64_t sendPlayerId;
+		NFShmString<32> sendPlayerName;
 		uint64_t destPlayerId;
 		struct MailStrProto_s topic;
 		uint64_t createTime;
@@ -486,7 +490,7 @@ namespace proto_ff_s {
 		uint64_t arenaScore;
 		uint64_t magiccrystal;
 		uint64_t prestige;
-		NFArray<struct WebMailItemProto_s, 10> itemList;
+		NFShmVector<struct WebMailItemProto_s, 10> itemList;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDataProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::WebMailDataProto & msg);
@@ -501,7 +505,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t int_param;
-		NFArray<uint64_t, 10> item_lst;
+		NFShmString<32> str_param;
+		NFShmVector<uint64_t, 10> item_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::UseItemArgProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::UseItemArgProto & msg);
@@ -545,7 +550,7 @@ namespace proto_ff_s {
 		virtual ~FunctionUnlockInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct FunctionUnlockInfoData_s, 100> data;
+		NFShmVector<struct FunctionUnlockInfoData_s, 100> data;
 
 		virtual void write_to_pbmsg(::proto_ff::FunctionUnlockInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FunctionUnlockInfo & msg);
@@ -653,12 +658,12 @@ namespace proto_ff_s {
 		virtual ~RelationDBInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct FriendInfo_s, 10> friendList;
-		NFArray<uint64_t, 10> blackList;
-		NFArray<struct RelationHateInfo_s, 10> hateList;
-		NFArray<struct FriendApplyInfo_s, 10> applyList;
+		NFShmVector<struct FriendInfo_s, 10> friendList;
+		NFShmVector<uint64_t, 10> blackList;
+		NFShmVector<struct RelationHateInfo_s, 10> hateList;
+		NFShmVector<struct FriendApplyInfo_s, 10> applyList;
 		uint32_t friends_add;
-		NFArray<struct RelationGiftRecord_s, 10> giftRecords;
+		NFShmVector<struct RelationGiftRecord_s, 10> giftRecords;
 
 		virtual void write_to_pbmsg(::proto_ff::RelationDBInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RelationDBInfo & msg);
@@ -708,7 +713,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;
-		NFArray<struct BuffProto_s, 10> info;
+		NFShmVector<struct BuffProto_s, 10> info;
 
 		virtual void write_to_pbmsg(::proto_ff::BuffListProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BuffListProto & msg);
@@ -740,7 +745,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint32_t group;
 		int32_t cd;
-		NFArray<struct SkillPosProto_s, 10> lst;
+		NFShmVector<struct SkillPosProto_s, 10> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillGroupProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillGroupProto & msg);
@@ -754,7 +759,7 @@ namespace proto_ff_s {
 		virtual ~SkillGroupListProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct SkillGroupProto_s, 10> info;
+		NFShmVector<struct SkillGroupProto_s, 10> info;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillGroupListProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillGroupListProto & msg);
@@ -848,7 +853,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t group_cfg_id;
-		NFArray<struct GodRelicsTaskEntry_s, 10> entrys;
+		NFShmVector<struct GodRelicsTaskEntry_s, 10> entrys;
 		int32_t normal_reward_state;
 		uint64_t create_time;
 
@@ -920,7 +925,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t task_cfg_id;
 		int32_t task_state;
-		NFArray<struct DailyTaskBackDayEntry_s, 10> day_data;
+		NFShmVector<struct DailyTaskBackDayEntry_s, 10> day_data;
 		int32_t left_num;
 		int32_t external_left_num;
 
@@ -951,10 +956,10 @@ namespace proto_ff_s {
 		virtual ~DailyTaskAllData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct DailyTaskEntry_s, 10> task_data;
-		NFArray<struct DailyTaskLimitEntry_s, 10> task_limit_data;
-		NFArray<struct DailyTaskBackEntry_s, 10> back_data;
-		NFArray<struct DailyTaskRewardEntry_s, 10> reward_data;
+		NFShmVector<struct DailyTaskEntry_s, 10> task_data;
+		NFShmVector<struct DailyTaskLimitEntry_s, 10> task_limit_data;
+		NFShmVector<struct DailyTaskBackEntry_s, 10> back_data;
+		NFShmVector<struct DailyTaskRewardEntry_s, 10> reward_data;
 		uint32_t daily_score;
 		uint32_t daily_level;
 		uint64_t create_time;
@@ -1012,7 +1017,7 @@ namespace proto_ff_s {
 		uint64_t dynamicid;
 		uint32_t status;
 		uint64_t acceptMissionTime;
-		NFArray<struct CharacterDBMissionItemInfo_s, 10> itemInfo;
+		NFShmVector<struct CharacterDBMissionItemInfo_s, 10> itemInfo;
 		uint64_t textid;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBMissionTrack & msg) const;
@@ -1043,10 +1048,10 @@ namespace proto_ff_s {
 		virtual ~CharacterDBTaskData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct CharacterDBMissionTrack_s, 10> missionTrack;
-		NFArray<struct CharacterDBDyMissionInfo_s, 10> dyinfo;
-		NFArray<uint64_t, 10> already_submit;
-		NFArray<struct CharacterDBRecentSubmitMission_s, 10> recent_submit;
+		NFShmVector<struct CharacterDBMissionTrack_s, 10> missionTrack;
+		NFShmVector<struct CharacterDBDyMissionInfo_s, 10> dyinfo;
+		NFShmVector<uint64_t, 10> already_submit;
+		NFShmVector<struct CharacterDBRecentSubmitMission_s, 10> recent_submit;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBTaskData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBTaskData & msg);
@@ -1061,7 +1066,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t exp;
-		NFArray<int32_t, 10> ids;
+		NFShmVector<int32_t, 10> ids;
 
 		virtual void write_to_pbmsg(::proto_ff::NotifyVipDataRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::NotifyVipDataRsp & msg);

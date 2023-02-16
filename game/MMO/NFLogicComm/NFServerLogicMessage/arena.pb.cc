@@ -20,48 +20,48 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* arenarobotattrDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaRobotAttrDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenarobotattrDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenarobot_descriptor_ = NULL;
+  E_ArenaRobotAttrDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaRobot_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenarobot_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_arenarobot_descriptor_ = NULL;
+  E_ArenaRobot_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ArenaRobot_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_arenarobot_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenaarenAwardRewardDesc_descriptor_ = NULL;
+  Sheet_ArenaRobot_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaArenawardRewardDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenaarenAwardRewardDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenaarenAward_descriptor_ = NULL;
+  E_ArenaArenawardRewardDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaArenaward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenaarenAward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_arenaarenAward_descriptor_ = NULL;
+  E_ArenaArenaward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ArenaArenaward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_arenaarenAward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenarankawardRewardDesc_descriptor_ = NULL;
+  Sheet_ArenaArenaward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaRankawardRewardDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenarankawardRewardDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenarankaward_descriptor_ = NULL;
+  E_ArenaRankawardRewardDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaRankaward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenarankaward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_arenarankaward_descriptor_ = NULL;
+  E_ArenaRankaward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ArenaRankaward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_arenarankaward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenafirstrankRewardDesc_descriptor_ = NULL;
+  Sheet_ArenaRankaward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaFirstrankRewardDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenafirstrankRewardDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenafirstrank_descriptor_ = NULL;
+  E_ArenaFirstrankRewardDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaFirstrank_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenafirstrank_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_arenafirstrank_descriptor_ = NULL;
+  E_ArenaFirstrank_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ArenaFirstrank_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_arenafirstrank_reflection_ = NULL;
-const ::google::protobuf::Descriptor* arenabuychallenge_descriptor_ = NULL;
+  Sheet_ArenaFirstrank_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaBuychallenge_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  arenabuychallenge_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_arenabuychallenge_descriptor_ = NULL;
+  E_ArenaBuychallenge_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ArenaBuychallenge_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_arenabuychallenge_reflection_ = NULL;
+  Sheet_ArenaBuychallenge_reflection_ = NULL;
 
 }  // namespace
 
@@ -72,239 +72,239 @@ void protobuf_AssignDesc_arena_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "arena.proto");
   GOOGLE_CHECK(file != NULL);
-  arenarobotattrDesc_descriptor_ = file->message_type(0);
-  static const int arenarobotattrDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobotattrDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobotattrDesc, val_),
+  E_ArenaRobotAttrDesc_descriptor_ = file->message_type(0);
+  static const int E_ArenaRobotAttrDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotAttrDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotAttrDesc, m_val_),
   };
-  arenarobotattrDesc_reflection_ =
+  E_ArenaRobotAttrDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenarobotattrDesc_descriptor_,
-      arenarobotattrDesc::default_instance_,
-      arenarobotattrDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobotattrDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobotattrDesc, _unknown_fields_),
+      E_ArenaRobotAttrDesc_descriptor_,
+      E_ArenaRobotAttrDesc::default_instance_,
+      E_ArenaRobotAttrDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotAttrDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotAttrDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenarobotattrDesc));
-  arenarobot_descriptor_ = file->message_type(1);
-  static const int arenarobot_offsets_[9] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, arenaid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, robotname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, aiid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, rankid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, robotprofession_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, robotlv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, sword_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, occupationid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, attr_),
+      sizeof(E_ArenaRobotAttrDesc));
+  E_ArenaRobot_descriptor_ = file->message_type(1);
+  static const int E_ArenaRobot_offsets_[9] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_arenaid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_robotname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_aiid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_rankid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_robotprofession_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_robotlv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_sword_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_occupationid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_attr_),
   };
-  arenarobot_reflection_ =
+  E_ArenaRobot_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenarobot_descriptor_,
-      arenarobot::default_instance_,
-      arenarobot_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarobot, _unknown_fields_),
+      E_ArenaRobot_descriptor_,
+      E_ArenaRobot::default_instance_,
+      E_ArenaRobot_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenarobot));
-  Sheet_arenarobot_descriptor_ = file->message_type(2);
-  static const int Sheet_arenarobot_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenarobot, arenarobot_list_),
+      sizeof(E_ArenaRobot));
+  Sheet_ArenaRobot_descriptor_ = file->message_type(2);
+  static const int Sheet_ArenaRobot_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRobot, e_arenarobot_list_),
   };
-  Sheet_arenarobot_reflection_ =
+  Sheet_ArenaRobot_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_arenarobot_descriptor_,
-      Sheet_arenarobot::default_instance_,
-      Sheet_arenarobot_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenarobot, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenarobot, _unknown_fields_),
+      Sheet_ArenaRobot_descriptor_,
+      Sheet_ArenaRobot::default_instance_,
+      Sheet_ArenaRobot_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRobot, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRobot, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_arenarobot));
-  arenaarenAwardRewardDesc_descriptor_ = file->message_type(3);
-  static const int arenaarenAwardRewardDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAwardRewardDesc, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAwardRewardDesc, value_),
+      sizeof(Sheet_ArenaRobot));
+  E_ArenaArenawardRewardDesc_descriptor_ = file->message_type(3);
+  static const int E_ArenaArenawardRewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenawardRewardDesc, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenawardRewardDesc, m_value_),
   };
-  arenaarenAwardRewardDesc_reflection_ =
+  E_ArenaArenawardRewardDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenaarenAwardRewardDesc_descriptor_,
-      arenaarenAwardRewardDesc::default_instance_,
-      arenaarenAwardRewardDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAwardRewardDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAwardRewardDesc, _unknown_fields_),
+      E_ArenaArenawardRewardDesc_descriptor_,
+      E_ArenaArenawardRewardDesc::default_instance_,
+      E_ArenaArenawardRewardDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenawardRewardDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenawardRewardDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenaarenAwardRewardDesc));
-  arenaarenAward_descriptor_ = file->message_type(4);
-  static const int arenaarenAward_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAward, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAward, lvdown_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAward, lvup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAward, reward_),
+      sizeof(E_ArenaArenawardRewardDesc));
+  E_ArenaArenaward_descriptor_ = file->message_type(4);
+  static const int E_ArenaArenaward_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, m_lvdown_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, m_lvup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, m_reward_),
   };
-  arenaarenAward_reflection_ =
+  E_ArenaArenaward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenaarenAward_descriptor_,
-      arenaarenAward::default_instance_,
-      arenaarenAward_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAward, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenaarenAward, _unknown_fields_),
+      E_ArenaArenaward_descriptor_,
+      E_ArenaArenaward::default_instance_,
+      E_ArenaArenaward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenaarenAward));
-  Sheet_arenaarenAward_descriptor_ = file->message_type(5);
-  static const int Sheet_arenaarenAward_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenaarenAward, arenaarenaward_list_),
+      sizeof(E_ArenaArenaward));
+  Sheet_ArenaArenaward_descriptor_ = file->message_type(5);
+  static const int Sheet_ArenaArenaward_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaArenaward, e_arenaarenaward_list_),
   };
-  Sheet_arenaarenAward_reflection_ =
+  Sheet_ArenaArenaward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_arenaarenAward_descriptor_,
-      Sheet_arenaarenAward::default_instance_,
-      Sheet_arenaarenAward_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenaarenAward, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenaarenAward, _unknown_fields_),
+      Sheet_ArenaArenaward_descriptor_,
+      Sheet_ArenaArenaward::default_instance_,
+      Sheet_ArenaArenaward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaArenaward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaArenaward, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_arenaarenAward));
-  arenarankawardRewardDesc_descriptor_ = file->message_type(6);
-  static const int arenarankawardRewardDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankawardRewardDesc, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankawardRewardDesc, value_),
+      sizeof(Sheet_ArenaArenaward));
+  E_ArenaRankawardRewardDesc_descriptor_ = file->message_type(6);
+  static const int E_ArenaRankawardRewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankawardRewardDesc, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankawardRewardDesc, m_value_),
   };
-  arenarankawardRewardDesc_reflection_ =
+  E_ArenaRankawardRewardDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenarankawardRewardDesc_descriptor_,
-      arenarankawardRewardDesc::default_instance_,
-      arenarankawardRewardDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankawardRewardDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankawardRewardDesc, _unknown_fields_),
+      E_ArenaRankawardRewardDesc_descriptor_,
+      E_ArenaRankawardRewardDesc::default_instance_,
+      E_ArenaRankawardRewardDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankawardRewardDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankawardRewardDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenarankawardRewardDesc));
-  arenarankaward_descriptor_ = file->message_type(7);
-  static const int arenarankaward_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankaward, prizeid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankaward, arenadown_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankaward, arenaup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankaward, reward_),
+      sizeof(E_ArenaRankawardRewardDesc));
+  E_ArenaRankaward_descriptor_ = file->message_type(7);
+  static const int E_ArenaRankaward_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, m_prizeid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, m_arenadown_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, m_arenaup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, m_reward_),
   };
-  arenarankaward_reflection_ =
+  E_ArenaRankaward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenarankaward_descriptor_,
-      arenarankaward::default_instance_,
-      arenarankaward_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankaward, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenarankaward, _unknown_fields_),
+      E_ArenaRankaward_descriptor_,
+      E_ArenaRankaward::default_instance_,
+      E_ArenaRankaward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenarankaward));
-  Sheet_arenarankaward_descriptor_ = file->message_type(8);
-  static const int Sheet_arenarankaward_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenarankaward, arenarankaward_list_),
+      sizeof(E_ArenaRankaward));
+  Sheet_ArenaRankaward_descriptor_ = file->message_type(8);
+  static const int Sheet_ArenaRankaward_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRankaward, e_arenarankaward_list_),
   };
-  Sheet_arenarankaward_reflection_ =
+  Sheet_ArenaRankaward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_arenarankaward_descriptor_,
-      Sheet_arenarankaward::default_instance_,
-      Sheet_arenarankaward_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenarankaward, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenarankaward, _unknown_fields_),
+      Sheet_ArenaRankaward_descriptor_,
+      Sheet_ArenaRankaward::default_instance_,
+      Sheet_ArenaRankaward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRankaward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRankaward, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_arenarankaward));
-  arenafirstrankRewardDesc_descriptor_ = file->message_type(9);
-  static const int arenafirstrankRewardDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrankRewardDesc, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrankRewardDesc, value_),
+      sizeof(Sheet_ArenaRankaward));
+  E_ArenaFirstrankRewardDesc_descriptor_ = file->message_type(9);
+  static const int E_ArenaFirstrankRewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrankRewardDesc, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrankRewardDesc, m_value_),
   };
-  arenafirstrankRewardDesc_reflection_ =
+  E_ArenaFirstrankRewardDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenafirstrankRewardDesc_descriptor_,
-      arenafirstrankRewardDesc::default_instance_,
-      arenafirstrankRewardDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrankRewardDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrankRewardDesc, _unknown_fields_),
+      E_ArenaFirstrankRewardDesc_descriptor_,
+      E_ArenaFirstrankRewardDesc::default_instance_,
+      E_ArenaFirstrankRewardDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrankRewardDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrankRewardDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenafirstrankRewardDesc));
-  arenafirstrank_descriptor_ = file->message_type(10);
-  static const int arenafirstrank_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrank, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrank, rankdown_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrank, rankup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrank, reward_),
+      sizeof(E_ArenaFirstrankRewardDesc));
+  E_ArenaFirstrank_descriptor_ = file->message_type(10);
+  static const int E_ArenaFirstrank_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, m_rankdown_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, m_rankup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, m_reward_),
   };
-  arenafirstrank_reflection_ =
+  E_ArenaFirstrank_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenafirstrank_descriptor_,
-      arenafirstrank::default_instance_,
-      arenafirstrank_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrank, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenafirstrank, _unknown_fields_),
+      E_ArenaFirstrank_descriptor_,
+      E_ArenaFirstrank::default_instance_,
+      E_ArenaFirstrank_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenafirstrank));
-  Sheet_arenafirstrank_descriptor_ = file->message_type(11);
-  static const int Sheet_arenafirstrank_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenafirstrank, arenafirstrank_list_),
+      sizeof(E_ArenaFirstrank));
+  Sheet_ArenaFirstrank_descriptor_ = file->message_type(11);
+  static const int Sheet_ArenaFirstrank_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaFirstrank, e_arenafirstrank_list_),
   };
-  Sheet_arenafirstrank_reflection_ =
+  Sheet_ArenaFirstrank_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_arenafirstrank_descriptor_,
-      Sheet_arenafirstrank::default_instance_,
-      Sheet_arenafirstrank_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenafirstrank, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenafirstrank, _unknown_fields_),
+      Sheet_ArenaFirstrank_descriptor_,
+      Sheet_ArenaFirstrank::default_instance_,
+      Sheet_ArenaFirstrank_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaFirstrank, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaFirstrank, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_arenafirstrank));
-  arenabuychallenge_descriptor_ = file->message_type(12);
-  static const int arenabuychallenge_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenabuychallenge, count_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenabuychallenge, costtype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenabuychallenge, cost_),
+      sizeof(Sheet_ArenaFirstrank));
+  E_ArenaBuychallenge_descriptor_ = file->message_type(12);
+  static const int E_ArenaBuychallenge_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, m_count_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, m_costtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, m_cost_),
   };
-  arenabuychallenge_reflection_ =
+  E_ArenaBuychallenge_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      arenabuychallenge_descriptor_,
-      arenabuychallenge::default_instance_,
-      arenabuychallenge_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenabuychallenge, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(arenabuychallenge, _unknown_fields_),
+      E_ArenaBuychallenge_descriptor_,
+      E_ArenaBuychallenge::default_instance_,
+      E_ArenaBuychallenge_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(arenabuychallenge));
-  Sheet_arenabuychallenge_descriptor_ = file->message_type(13);
-  static const int Sheet_arenabuychallenge_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenabuychallenge, arenabuychallenge_list_),
+      sizeof(E_ArenaBuychallenge));
+  Sheet_ArenaBuychallenge_descriptor_ = file->message_type(13);
+  static const int Sheet_ArenaBuychallenge_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaBuychallenge, e_arenabuychallenge_list_),
   };
-  Sheet_arenabuychallenge_reflection_ =
+  Sheet_ArenaBuychallenge_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_arenabuychallenge_descriptor_,
-      Sheet_arenabuychallenge::default_instance_,
-      Sheet_arenabuychallenge_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenabuychallenge, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_arenabuychallenge, _unknown_fields_),
+      Sheet_ArenaBuychallenge_descriptor_,
+      Sheet_ArenaBuychallenge::default_instance_,
+      Sheet_ArenaBuychallenge_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaBuychallenge, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaBuychallenge, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_arenabuychallenge));
+      sizeof(Sheet_ArenaBuychallenge));
 }
 
 namespace {
@@ -318,66 +318,66 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenarobotattrDesc_descriptor_, &arenarobotattrDesc::default_instance());
+    E_ArenaRobotAttrDesc_descriptor_, &E_ArenaRobotAttrDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenarobot_descriptor_, &arenarobot::default_instance());
+    E_ArenaRobot_descriptor_, &E_ArenaRobot::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_arenarobot_descriptor_, &Sheet_arenarobot::default_instance());
+    Sheet_ArenaRobot_descriptor_, &Sheet_ArenaRobot::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenaarenAwardRewardDesc_descriptor_, &arenaarenAwardRewardDesc::default_instance());
+    E_ArenaArenawardRewardDesc_descriptor_, &E_ArenaArenawardRewardDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenaarenAward_descriptor_, &arenaarenAward::default_instance());
+    E_ArenaArenaward_descriptor_, &E_ArenaArenaward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_arenaarenAward_descriptor_, &Sheet_arenaarenAward::default_instance());
+    Sheet_ArenaArenaward_descriptor_, &Sheet_ArenaArenaward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenarankawardRewardDesc_descriptor_, &arenarankawardRewardDesc::default_instance());
+    E_ArenaRankawardRewardDesc_descriptor_, &E_ArenaRankawardRewardDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenarankaward_descriptor_, &arenarankaward::default_instance());
+    E_ArenaRankaward_descriptor_, &E_ArenaRankaward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_arenarankaward_descriptor_, &Sheet_arenarankaward::default_instance());
+    Sheet_ArenaRankaward_descriptor_, &Sheet_ArenaRankaward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenafirstrankRewardDesc_descriptor_, &arenafirstrankRewardDesc::default_instance());
+    E_ArenaFirstrankRewardDesc_descriptor_, &E_ArenaFirstrankRewardDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenafirstrank_descriptor_, &arenafirstrank::default_instance());
+    E_ArenaFirstrank_descriptor_, &E_ArenaFirstrank::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_arenafirstrank_descriptor_, &Sheet_arenafirstrank::default_instance());
+    Sheet_ArenaFirstrank_descriptor_, &Sheet_ArenaFirstrank::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    arenabuychallenge_descriptor_, &arenabuychallenge::default_instance());
+    E_ArenaBuychallenge_descriptor_, &E_ArenaBuychallenge::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_arenabuychallenge_descriptor_, &Sheet_arenabuychallenge::default_instance());
+    Sheet_ArenaBuychallenge_descriptor_, &Sheet_ArenaBuychallenge::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_arena_2eproto() {
-  delete arenarobotattrDesc::default_instance_;
-  delete arenarobotattrDesc_reflection_;
-  delete arenarobot::default_instance_;
-  delete arenarobot_reflection_;
-  delete Sheet_arenarobot::default_instance_;
-  delete Sheet_arenarobot_reflection_;
-  delete arenaarenAwardRewardDesc::default_instance_;
-  delete arenaarenAwardRewardDesc_reflection_;
-  delete arenaarenAward::default_instance_;
-  delete arenaarenAward_reflection_;
-  delete Sheet_arenaarenAward::default_instance_;
-  delete Sheet_arenaarenAward_reflection_;
-  delete arenarankawardRewardDesc::default_instance_;
-  delete arenarankawardRewardDesc_reflection_;
-  delete arenarankaward::default_instance_;
-  delete arenarankaward_reflection_;
-  delete Sheet_arenarankaward::default_instance_;
-  delete Sheet_arenarankaward_reflection_;
-  delete arenafirstrankRewardDesc::default_instance_;
-  delete arenafirstrankRewardDesc_reflection_;
-  delete arenafirstrank::default_instance_;
-  delete arenafirstrank_reflection_;
-  delete Sheet_arenafirstrank::default_instance_;
-  delete Sheet_arenafirstrank_reflection_;
-  delete arenabuychallenge::default_instance_;
-  delete arenabuychallenge_reflection_;
-  delete Sheet_arenabuychallenge::default_instance_;
-  delete Sheet_arenabuychallenge_reflection_;
+  delete E_ArenaRobotAttrDesc::default_instance_;
+  delete E_ArenaRobotAttrDesc_reflection_;
+  delete E_ArenaRobot::default_instance_;
+  delete E_ArenaRobot_reflection_;
+  delete Sheet_ArenaRobot::default_instance_;
+  delete Sheet_ArenaRobot_reflection_;
+  delete E_ArenaArenawardRewardDesc::default_instance_;
+  delete E_ArenaArenawardRewardDesc_reflection_;
+  delete E_ArenaArenaward::default_instance_;
+  delete E_ArenaArenaward_reflection_;
+  delete Sheet_ArenaArenaward::default_instance_;
+  delete Sheet_ArenaArenaward_reflection_;
+  delete E_ArenaRankawardRewardDesc::default_instance_;
+  delete E_ArenaRankawardRewardDesc_reflection_;
+  delete E_ArenaRankaward::default_instance_;
+  delete E_ArenaRankaward_reflection_;
+  delete Sheet_ArenaRankaward::default_instance_;
+  delete Sheet_ArenaRankaward_reflection_;
+  delete E_ArenaFirstrankRewardDesc::default_instance_;
+  delete E_ArenaFirstrankRewardDesc_reflection_;
+  delete E_ArenaFirstrank::default_instance_;
+  delete E_ArenaFirstrank_reflection_;
+  delete Sheet_ArenaFirstrank::default_instance_;
+  delete Sheet_ArenaFirstrank_reflection_;
+  delete E_ArenaBuychallenge::default_instance_;
+  delete E_ArenaBuychallenge_reflection_;
+  delete Sheet_ArenaBuychallenge::default_instance_;
+  delete Sheet_ArenaBuychallenge_reflection_;
 }
 
 void protobuf_AddDesc_arena_2eproto() {
@@ -389,80 +389,83 @@ void protobuf_AddDesc_arena_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013arena.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\"D\n\022arenarobotattrDesc\022\030\n\004type\030\001 \001"
-    "(\005B\n\302\377\024\006\347\261\273\345\236\213\022\024\n\003val\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\345\002\n"
-    "\narenarobot\022&\n\007arenaId\030\001 \001(\005B\025\302\377\024\021\347\253\236\346\212\200"
-    "\345\234\272\346\216\222\345\220\215ID\022*\n\trobotname\030\002 \001(\tB\027\302\377\024\017\346\234\272\345"
-    "\231\250\344\272\272\345\220\215\347\247\260\220\301\024<\022\026\n\004aiId\030\003 \001(\005B\010\302\377\024\004aiID\022"
-    "\034\n\006rankId\030\004 \001(\005B\014\302\377\024\010\346\216\222\345\220\215id\022,\n\017robotPr"
-    "ofession\030\005 \001(\005B\023\302\377\024\017\346\234\272\345\231\250\344\272\272\350\201\214\344\270\232\022$\n\007r"
-    "obotLv\030\006 \001(\005B\023\302\377\024\017\346\234\272\345\231\250\344\272\272\347\255\211\347\272\247\022\031\n\005swo"
-    "rd\030\007 \001(\005B\n\302\377\024\006\346\210\230\345\212\233\022\"\n\014occupationID\030\010 \001"
-    "(\005B\014\302\377\024\010\350\275\254\350\201\214ID\022:\n\004attr\030\t \003(\0132\034.proto_f"
-    "f.arenarobotattrDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"H\n\020"
-    "Sheet_arenarobot\0224\n\017arenarobot_List\030\001 \003("
-    "\0132\024.proto_ff.arenarobotB\005\210\301\024\360.\"I\n\030arenaa"
-    "renAwardRewardDesc\022\022\n\002ID\030\001 \001(\005B\006\302\377\024\002ID\022\031"
-    "\n\005Value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\260\001\n\016arenaarenA"
-    "ward\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006lvDown\030\002 \001(\005"
-    "B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022\036\n\004lvUp\030\003 \001(\005B\020\302\377\024\014\344\270"
-    "\212\351\231\220\347\255\211\347\272\247\022H\n\006Reward\030\004 \003(\0132\".proto_ff.ar"
-    "enaarenAwardRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201"
-    "\210\301\024\005\"T\n\024Sheet_arenaarenAward\022<\n\023arenaare"
-    "nAward_List\030\001 \003(\0132\030.proto_ff.arenaarenAw"
-    "ardB\005\210\301\024\320\017\"I\n\030arenarankawardRewardDesc\022\022"
-    "\n\002ID\030\001 \001(\005B\006\302\377\024\002ID\022\031\n\005Value\030\002 \001(\005B\n\302\377\024\006\346"
-    "\225\260\351\207\217\"\301\001\n\016arenarankaward\022\035\n\007PrizeId\030\001 \001("
-    "\005B\014\302\377\024\010\345\245\226\345\212\261ID\022#\n\tarenaDown\030\002 \001(\005B\020\302\377\024\014"
-    "\344\270\213\351\231\220\346\216\222\345\220\215\022!\n\007arenaUp\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231"
-    "\220\346\216\222\345\220\215\022H\n\006Reward\030\004 \003(\0132\".proto_ff.arena"
-    "rankawardRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024"
-    "\005\"S\n\024Sheet_arenarankaward\022;\n\023arenarankaw"
-    "ard_List\030\001 \003(\0132\030.proto_ff.arenarankaward"
-    "B\004\210\301\024\024\"I\n\030arenafirstrankRewardDesc\022\022\n\002ID"
-    "\030\001 \001(\005B\006\302\377\024\002ID\022\031\n\005Value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207"
-    "\217\"\264\001\n\016arenafirstrank\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id"
-    "\022\"\n\010rankDown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\346\216\222\345\220\215\022 \n\006"
-    "rankUp\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215\022H\n\006Reward"
-    "\030\004 \003(\0132\".proto_ff.arenafirstrankRewardDe"
-    "scB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"S\n\024Sheet_arenaf"
-    "irstrank\022;\n\023arenafirstrank_List\030\001 \003(\0132\030."
-    "proto_ff.arenafirstrankB\004\210\301\024\024\"r\n\021arenabu"
-    "ychallenge\022\037\n\005count\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241"
-    "\346\254\241\022\"\n\010costType\030\002 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\347\261\273\345\236\213\022"
-    "\030\n\004cost\030\003 \001(\005B\n\302\377\024\006\350\212\261\350\264\271\"\\\n\027Sheet_arena"
-    "buychallenge\022A\n\026arenabuychallenge_List\030\001"
-    " \003(\0132\033.proto_ff.arenabuychallengeB\004\210\301\024\024", 1799);
+    ".proto\"J\n\024E_ArenaRobotAttrDesc\022\032\n\006m_type"
+    "\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005m_val\030\002 \001(\005B\007\302\377\024\003\345"
+    "\200\274\"\373\002\n\014E_ArenaRobot\022(\n\tm_arenaid\030\001 \001(\005B\025"
+    "\302\377\024\021\347\253\236\346\212\200\345\234\272\346\216\222\345\220\215ID\022,\n\013m_robotname\030\002 \001"
+    "(\tB\027\302\377\024\017\346\234\272\345\231\250\344\272\272\345\220\215\347\247\260\220\301\024<\022\030\n\006m_aiid\030\003 "
+    "\001(\005B\010\302\377\024\004aiID\022\036\n\010m_rankid\030\004 \001(\005B\014\302\377\024\010\346\216\222"
+    "\345\220\215id\022.\n\021m_robotprofession\030\005 \001(\005B\023\302\377\024\017\346\234"
+    "\272\345\231\250\344\272\272\350\201\214\344\270\232\022&\n\tm_robotlv\030\006 \001(\005B\023\302\377\024\017\346\234"
+    "\272\345\231\250\344\272\272\347\255\211\347\272\247\022\033\n\007m_sword\030\007 \001(\005B\n\302\377\024\006\346\210\230\345"
+    "\212\233\022$\n\016m_occupationid\030\010 \001(\005B\014\302\377\024\010\350\275\254\350\201\214ID"
+    "\022>\n\006m_attr\030\t \003(\0132\036.proto_ff.E_ArenaRobot"
+    "AttrDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"L\n\020Sheet_ArenaR"
+    "obot\0228\n\021E_ArenaRobot_List\030\001 \003(\0132\026.proto_"
+    "ff.E_ArenaRobotB\005\210\301\024\360.\"O\n\032E_ArenaArenawa"
+    "rdRewardDesc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_"
+    "value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\274\001\n\020E_ArenaArena"
+    "ward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010m_lvdown\030\002"
+    " \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_lvup\030\003 \001(\005B\020"
+    "\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022L\n\010m_reward\030\004 \003(\0132$.pro"
+    "to_ff.E_ArenaArenawardRewardDescB\024\302\377\024\014\345\245"
+    "\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"X\n\024Sheet_ArenaArenaward\022@"
+    "\n\025E_ArenaArenaward_List\030\001 \003(\0132\032.proto_ff"
+    ".E_ArenaArenawardB\005\210\301\024\320\017\"O\n\032E_ArenaRanka"
+    "wardRewardDesc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007"
+    "m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\315\001\n\020E_ArenaRan"
+    "kaward\022\037\n\tm_prizeid\030\001 \001(\005B\014\302\377\024\010\345\245\226\345\212\261ID\022"
+    "%\n\013m_arenadown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\346\216\222\345\220\215\022#"
+    "\n\tm_arenaup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215\022L\n\010m"
+    "_reward\030\004 \003(\0132$.proto_ff.E_ArenaRankawar"
+    "dRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"W\n\024She"
+    "et_ArenaRankaward\022\?\n\025E_ArenaRankaward_Li"
+    "st\030\001 \003(\0132\032.proto_ff.E_ArenaRankawardB\004\210\301"
+    "\024\024\"O\n\032E_ArenaFirstrankRewardDesc\022\024\n\004m_id"
+    "\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260"
+    "\351\207\217\"\300\001\n\020E_ArenaFirstrank\022\024\n\004m_id\030\001 \001(\005B\006"
+    "\302\377\024\002id\022$\n\nm_rankdown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\346\216"
+    "\222\345\220\215\022\"\n\010m_rankup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215"
+    "\022L\n\010m_reward\030\004 \003(\0132$.proto_ff.E_ArenaFir"
+    "strankRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"W"
+    "\n\024Sheet_ArenaFirstrank\022\?\n\025E_ArenaFirstra"
+    "nk_List\030\001 \003(\0132\032.proto_ff.E_ArenaFirstran"
+    "kB\004\210\301\024\024\"z\n\023E_ArenaBuychallenge\022!\n\007m_coun"
+    "t\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241\346\254\241\022$\n\nm_costtype\030"
+    "\002 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\347\261\273\345\236\213\022\032\n\006m_cost\030\003 \001(\005B"
+    "\n\302\377\024\006\350\212\261\350\264\271\"`\n\027Sheet_ArenaBuychallenge\022E"
+    "\n\030E_ArenaBuychallenge_List\030\001 \003(\0132\035.proto"
+    "_ff.E_ArenaBuychallengeB\004\210\301\024\024", 1909);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "arena.proto", &protobuf_RegisterTypes);
-  arenarobotattrDesc::default_instance_ = new arenarobotattrDesc();
-  arenarobot::default_instance_ = new arenarobot();
-  Sheet_arenarobot::default_instance_ = new Sheet_arenarobot();
-  arenaarenAwardRewardDesc::default_instance_ = new arenaarenAwardRewardDesc();
-  arenaarenAward::default_instance_ = new arenaarenAward();
-  Sheet_arenaarenAward::default_instance_ = new Sheet_arenaarenAward();
-  arenarankawardRewardDesc::default_instance_ = new arenarankawardRewardDesc();
-  arenarankaward::default_instance_ = new arenarankaward();
-  Sheet_arenarankaward::default_instance_ = new Sheet_arenarankaward();
-  arenafirstrankRewardDesc::default_instance_ = new arenafirstrankRewardDesc();
-  arenafirstrank::default_instance_ = new arenafirstrank();
-  Sheet_arenafirstrank::default_instance_ = new Sheet_arenafirstrank();
-  arenabuychallenge::default_instance_ = new arenabuychallenge();
-  Sheet_arenabuychallenge::default_instance_ = new Sheet_arenabuychallenge();
-  arenarobotattrDesc::default_instance_->InitAsDefaultInstance();
-  arenarobot::default_instance_->InitAsDefaultInstance();
-  Sheet_arenarobot::default_instance_->InitAsDefaultInstance();
-  arenaarenAwardRewardDesc::default_instance_->InitAsDefaultInstance();
-  arenaarenAward::default_instance_->InitAsDefaultInstance();
-  Sheet_arenaarenAward::default_instance_->InitAsDefaultInstance();
-  arenarankawardRewardDesc::default_instance_->InitAsDefaultInstance();
-  arenarankaward::default_instance_->InitAsDefaultInstance();
-  Sheet_arenarankaward::default_instance_->InitAsDefaultInstance();
-  arenafirstrankRewardDesc::default_instance_->InitAsDefaultInstance();
-  arenafirstrank::default_instance_->InitAsDefaultInstance();
-  Sheet_arenafirstrank::default_instance_->InitAsDefaultInstance();
-  arenabuychallenge::default_instance_->InitAsDefaultInstance();
-  Sheet_arenabuychallenge::default_instance_->InitAsDefaultInstance();
+  E_ArenaRobotAttrDesc::default_instance_ = new E_ArenaRobotAttrDesc();
+  E_ArenaRobot::default_instance_ = new E_ArenaRobot();
+  Sheet_ArenaRobot::default_instance_ = new Sheet_ArenaRobot();
+  E_ArenaArenawardRewardDesc::default_instance_ = new E_ArenaArenawardRewardDesc();
+  E_ArenaArenaward::default_instance_ = new E_ArenaArenaward();
+  Sheet_ArenaArenaward::default_instance_ = new Sheet_ArenaArenaward();
+  E_ArenaRankawardRewardDesc::default_instance_ = new E_ArenaRankawardRewardDesc();
+  E_ArenaRankaward::default_instance_ = new E_ArenaRankaward();
+  Sheet_ArenaRankaward::default_instance_ = new Sheet_ArenaRankaward();
+  E_ArenaFirstrankRewardDesc::default_instance_ = new E_ArenaFirstrankRewardDesc();
+  E_ArenaFirstrank::default_instance_ = new E_ArenaFirstrank();
+  Sheet_ArenaFirstrank::default_instance_ = new Sheet_ArenaFirstrank();
+  E_ArenaBuychallenge::default_instance_ = new E_ArenaBuychallenge();
+  Sheet_ArenaBuychallenge::default_instance_ = new Sheet_ArenaBuychallenge();
+  E_ArenaRobotAttrDesc::default_instance_->InitAsDefaultInstance();
+  E_ArenaRobot::default_instance_->InitAsDefaultInstance();
+  Sheet_ArenaRobot::default_instance_->InitAsDefaultInstance();
+  E_ArenaArenawardRewardDesc::default_instance_->InitAsDefaultInstance();
+  E_ArenaArenaward::default_instance_->InitAsDefaultInstance();
+  Sheet_ArenaArenaward::default_instance_->InitAsDefaultInstance();
+  E_ArenaRankawardRewardDesc::default_instance_->InitAsDefaultInstance();
+  E_ArenaRankaward::default_instance_->InitAsDefaultInstance();
+  Sheet_ArenaRankaward::default_instance_->InitAsDefaultInstance();
+  E_ArenaFirstrankRewardDesc::default_instance_->InitAsDefaultInstance();
+  E_ArenaFirstrank::default_instance_->InitAsDefaultInstance();
+  Sheet_ArenaFirstrank::default_instance_->InitAsDefaultInstance();
+  E_ArenaBuychallenge::default_instance_->InitAsDefaultInstance();
+  Sheet_ArenaBuychallenge::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_arena_2eproto);
 }
 
@@ -476,100 +479,100 @@ struct StaticDescriptorInitializer_arena_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenarobotattrDesc::kTypeFieldNumber;
-const int arenarobotattrDesc::kValFieldNumber;
+const int E_ArenaRobotAttrDesc::kMTypeFieldNumber;
+const int E_ArenaRobotAttrDesc::kMValFieldNumber;
 #endif  // !_MSC_VER
 
-arenarobotattrDesc::arenarobotattrDesc()
+E_ArenaRobotAttrDesc::E_ArenaRobotAttrDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenarobotattrDesc::InitAsDefaultInstance() {
+void E_ArenaRobotAttrDesc::InitAsDefaultInstance() {
 }
 
-arenarobotattrDesc::arenarobotattrDesc(const arenarobotattrDesc& from)
+E_ArenaRobotAttrDesc::E_ArenaRobotAttrDesc(const E_ArenaRobotAttrDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenarobotattrDesc::SharedCtor() {
+void E_ArenaRobotAttrDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  val_ = 0;
+  m_type_ = 0;
+  m_val_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenarobotattrDesc::~arenarobotattrDesc() {
+E_ArenaRobotAttrDesc::~E_ArenaRobotAttrDesc() {
   SharedDtor();
 }
 
-void arenarobotattrDesc::SharedDtor() {
+void E_ArenaRobotAttrDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenarobotattrDesc::SetCachedSize(int size) const {
+void E_ArenaRobotAttrDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenarobotattrDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaRobotAttrDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenarobotattrDesc_descriptor_;
+  return E_ArenaRobotAttrDesc_descriptor_;
 }
 
-const arenarobotattrDesc& arenarobotattrDesc::default_instance() {
+const E_ArenaRobotAttrDesc& E_ArenaRobotAttrDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenarobotattrDesc* arenarobotattrDesc::default_instance_ = NULL;
+E_ArenaRobotAttrDesc* E_ArenaRobotAttrDesc::default_instance_ = NULL;
 
-arenarobotattrDesc* arenarobotattrDesc::New() const {
-  return new arenarobotattrDesc;
+E_ArenaRobotAttrDesc* E_ArenaRobotAttrDesc::New() const {
+  return new E_ArenaRobotAttrDesc;
 }
 
-void arenarobotattrDesc::Clear() {
+void E_ArenaRobotAttrDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    val_ = 0;
+    m_type_ = 0;
+    m_val_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenarobotattrDesc::MergePartialFromCodedStream(
+bool E_ArenaRobotAttrDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_val;
+        if (input->ExpectTag(16)) goto parse_m_val;
         break;
       }
 
-      // optional int32 val = 2;
+      // optional int32 m_val = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_val:
+         parse_m_val:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &val_)));
-          set_has_val();
+                 input, &m_val_)));
+          set_has_m_val();
         } else {
           goto handle_uninterpreted;
         }
@@ -593,16 +596,16 @@ bool arenarobotattrDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenarobotattrDesc::SerializeWithCachedSizes(
+void E_ArenaRobotAttrDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 val = 2;
-  if (has_val()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->val(), output);
+  // optional int32 m_val = 2;
+  if (has_m_val()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_val(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -611,16 +614,16 @@ void arenarobotattrDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenarobotattrDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaRobotAttrDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 val = 2;
-  if (has_val()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->val(), target);
+  // optional int32 m_val = 2;
+  if (has_m_val()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_val(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -630,22 +633,22 @@ void arenarobotattrDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int arenarobotattrDesc::ByteSize() const {
+int E_ArenaRobotAttrDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 val = 2;
-    if (has_val()) {
+    // optional int32 m_val = 2;
+    if (has_m_val()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->val());
+          this->m_val());
     }
 
   }
@@ -660,10 +663,10 @@ int arenarobotattrDesc::ByteSize() const {
   return total_size;
 }
 
-void arenarobotattrDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRobotAttrDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenarobotattrDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenarobotattrDesc*>(
+  const E_ArenaRobotAttrDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaRobotAttrDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -672,51 +675,51 @@ void arenarobotattrDesc::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void arenarobotattrDesc::MergeFrom(const arenarobotattrDesc& from) {
+void E_ArenaRobotAttrDesc::MergeFrom(const E_ArenaRobotAttrDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_val()) {
-      set_val(from.val());
+    if (from.has_m_val()) {
+      set_m_val(from.m_val());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenarobotattrDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRobotAttrDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenarobotattrDesc::CopyFrom(const arenarobotattrDesc& from) {
+void E_ArenaRobotAttrDesc::CopyFrom(const E_ArenaRobotAttrDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenarobotattrDesc::IsInitialized() const {
+bool E_ArenaRobotAttrDesc::IsInitialized() const {
 
   return true;
 }
 
-void arenarobotattrDesc::Swap(arenarobotattrDesc* other) {
+void E_ArenaRobotAttrDesc::Swap(E_ArenaRobotAttrDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(val_, other->val_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_val_, other->m_val_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenarobotattrDesc::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaRobotAttrDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenarobotattrDesc_descriptor_;
-  metadata.reflection = arenarobotattrDesc_reflection_;
+  metadata.descriptor = E_ArenaRobotAttrDesc_descriptor_;
+  metadata.reflection = E_ArenaRobotAttrDesc_reflection_;
   return metadata;
 }
 
@@ -724,242 +727,242 @@ void arenarobotattrDesc::Swap(arenarobotattrDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenarobot::kArenaIdFieldNumber;
-const int arenarobot::kRobotnameFieldNumber;
-const int arenarobot::kAiIdFieldNumber;
-const int arenarobot::kRankIdFieldNumber;
-const int arenarobot::kRobotProfessionFieldNumber;
-const int arenarobot::kRobotLvFieldNumber;
-const int arenarobot::kSwordFieldNumber;
-const int arenarobot::kOccupationIDFieldNumber;
-const int arenarobot::kAttrFieldNumber;
+const int E_ArenaRobot::kMArenaidFieldNumber;
+const int E_ArenaRobot::kMRobotnameFieldNumber;
+const int E_ArenaRobot::kMAiidFieldNumber;
+const int E_ArenaRobot::kMRankidFieldNumber;
+const int E_ArenaRobot::kMRobotprofessionFieldNumber;
+const int E_ArenaRobot::kMRobotlvFieldNumber;
+const int E_ArenaRobot::kMSwordFieldNumber;
+const int E_ArenaRobot::kMOccupationidFieldNumber;
+const int E_ArenaRobot::kMAttrFieldNumber;
 #endif  // !_MSC_VER
 
-arenarobot::arenarobot()
+E_ArenaRobot::E_ArenaRobot()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenarobot::InitAsDefaultInstance() {
+void E_ArenaRobot::InitAsDefaultInstance() {
 }
 
-arenarobot::arenarobot(const arenarobot& from)
+E_ArenaRobot::E_ArenaRobot(const E_ArenaRobot& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenarobot::SharedCtor() {
+void E_ArenaRobot::SharedCtor() {
   _cached_size_ = 0;
-  arenaid_ = 0;
-  robotname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  aiid_ = 0;
-  rankid_ = 0;
-  robotprofession_ = 0;
-  robotlv_ = 0;
-  sword_ = 0;
-  occupationid_ = 0;
+  m_arenaid_ = 0;
+  m_robotname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_aiid_ = 0;
+  m_rankid_ = 0;
+  m_robotprofession_ = 0;
+  m_robotlv_ = 0;
+  m_sword_ = 0;
+  m_occupationid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenarobot::~arenarobot() {
+E_ArenaRobot::~E_ArenaRobot() {
   SharedDtor();
 }
 
-void arenarobot::SharedDtor() {
-  if (robotname_ != &::google::protobuf::internal::kEmptyString) {
-    delete robotname_;
+void E_ArenaRobot::SharedDtor() {
+  if (m_robotname_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_robotname_;
   }
   if (this != default_instance_) {
   }
 }
 
-void arenarobot::SetCachedSize(int size) const {
+void E_ArenaRobot::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenarobot::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaRobot::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenarobot_descriptor_;
+  return E_ArenaRobot_descriptor_;
 }
 
-const arenarobot& arenarobot::default_instance() {
+const E_ArenaRobot& E_ArenaRobot::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenarobot* arenarobot::default_instance_ = NULL;
+E_ArenaRobot* E_ArenaRobot::default_instance_ = NULL;
 
-arenarobot* arenarobot::New() const {
-  return new arenarobot;
+E_ArenaRobot* E_ArenaRobot::New() const {
+  return new E_ArenaRobot;
 }
 
-void arenarobot::Clear() {
+void E_ArenaRobot::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    arenaid_ = 0;
-    if (has_robotname()) {
-      if (robotname_ != &::google::protobuf::internal::kEmptyString) {
-        robotname_->clear();
+    m_arenaid_ = 0;
+    if (has_m_robotname()) {
+      if (m_robotname_ != &::google::protobuf::internal::kEmptyString) {
+        m_robotname_->clear();
       }
     }
-    aiid_ = 0;
-    rankid_ = 0;
-    robotprofession_ = 0;
-    robotlv_ = 0;
-    sword_ = 0;
-    occupationid_ = 0;
+    m_aiid_ = 0;
+    m_rankid_ = 0;
+    m_robotprofession_ = 0;
+    m_robotlv_ = 0;
+    m_sword_ = 0;
+    m_occupationid_ = 0;
   }
-  attr_.Clear();
+  m_attr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenarobot::MergePartialFromCodedStream(
+bool E_ArenaRobot::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 arenaId = 1;
+      // optional int32 m_arenaid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &arenaid_)));
-          set_has_arenaid();
+                 input, &m_arenaid_)));
+          set_has_m_arenaid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_robotname;
+        if (input->ExpectTag(18)) goto parse_m_robotname;
         break;
       }
 
-      // optional string robotname = 2;
+      // optional string m_robotname = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_robotname:
+         parse_m_robotname:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_robotname()));
+                input, this->mutable_m_robotname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->robotname().data(), this->robotname().length(),
+            this->m_robotname().data(), this->m_robotname().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_aiId;
+        if (input->ExpectTag(24)) goto parse_m_aiid;
         break;
       }
 
-      // optional int32 aiId = 3;
+      // optional int32 m_aiid = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_aiId:
+         parse_m_aiid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &aiid_)));
-          set_has_aiid();
+                 input, &m_aiid_)));
+          set_has_m_aiid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_rankId;
+        if (input->ExpectTag(32)) goto parse_m_rankid;
         break;
       }
 
-      // optional int32 rankId = 4;
+      // optional int32 m_rankid = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rankId:
+         parse_m_rankid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rankid_)));
-          set_has_rankid();
+                 input, &m_rankid_)));
+          set_has_m_rankid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_robotProfession;
+        if (input->ExpectTag(40)) goto parse_m_robotprofession;
         break;
       }
 
-      // optional int32 robotProfession = 5;
+      // optional int32 m_robotprofession = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_robotProfession:
+         parse_m_robotprofession:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &robotprofession_)));
-          set_has_robotprofession();
+                 input, &m_robotprofession_)));
+          set_has_m_robotprofession();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_robotLv;
+        if (input->ExpectTag(48)) goto parse_m_robotlv;
         break;
       }
 
-      // optional int32 robotLv = 6;
+      // optional int32 m_robotlv = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_robotLv:
+         parse_m_robotlv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &robotlv_)));
-          set_has_robotlv();
+                 input, &m_robotlv_)));
+          set_has_m_robotlv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_sword;
+        if (input->ExpectTag(56)) goto parse_m_sword;
         break;
       }
 
-      // optional int32 sword = 7;
+      // optional int32 m_sword = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sword:
+         parse_m_sword:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &sword_)));
-          set_has_sword();
+                 input, &m_sword_)));
+          set_has_m_sword();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_occupationID;
+        if (input->ExpectTag(64)) goto parse_m_occupationid;
         break;
       }
 
-      // optional int32 occupationID = 8;
+      // optional int32 m_occupationid = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_occupationID:
+         parse_m_occupationid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &occupationid_)));
-          set_has_occupationid();
+                 input, &m_occupationid_)));
+          set_has_m_occupationid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_attr;
+        if (input->ExpectTag(74)) goto parse_m_attr;
         break;
       }
 
-      // repeated .proto_ff.arenarobotattrDesc attr = 9;
+      // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attr:
+         parse_m_attr:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attr()));
+                input, add_m_attr()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_attr;
+        if (input->ExpectTag(74)) goto parse_m_attr;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -980,56 +983,56 @@ bool arenarobot::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenarobot::SerializeWithCachedSizes(
+void E_ArenaRobot::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 arenaId = 1;
-  if (has_arenaid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->arenaid(), output);
+  // optional int32 m_arenaid = 1;
+  if (has_m_arenaid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_arenaid(), output);
   }
 
-  // optional string robotname = 2;
-  if (has_robotname()) {
+  // optional string m_robotname = 2;
+  if (has_m_robotname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->robotname().data(), this->robotname().length(),
+      this->m_robotname().data(), this->m_robotname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->robotname(), output);
+      2, this->m_robotname(), output);
   }
 
-  // optional int32 aiId = 3;
-  if (has_aiid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->aiid(), output);
+  // optional int32 m_aiid = 3;
+  if (has_m_aiid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_aiid(), output);
   }
 
-  // optional int32 rankId = 4;
-  if (has_rankid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->rankid(), output);
+  // optional int32 m_rankid = 4;
+  if (has_m_rankid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_rankid(), output);
   }
 
-  // optional int32 robotProfession = 5;
-  if (has_robotprofession()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->robotprofession(), output);
+  // optional int32 m_robotprofession = 5;
+  if (has_m_robotprofession()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_robotprofession(), output);
   }
 
-  // optional int32 robotLv = 6;
-  if (has_robotlv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->robotlv(), output);
+  // optional int32 m_robotlv = 6;
+  if (has_m_robotlv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_robotlv(), output);
   }
 
-  // optional int32 sword = 7;
-  if (has_sword()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->sword(), output);
+  // optional int32 m_sword = 7;
+  if (has_m_sword()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_sword(), output);
   }
 
-  // optional int32 occupationID = 8;
-  if (has_occupationid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->occupationid(), output);
+  // optional int32 m_occupationid = 8;
+  if (has_m_occupationid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_occupationid(), output);
   }
 
-  // repeated .proto_ff.arenarobotattrDesc attr = 9;
-  for (int i = 0; i < this->attr_size(); i++) {
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  for (int i = 0; i < this->m_attr_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->attr(i), output);
+      9, this->m_attr(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1038,58 +1041,58 @@ void arenarobot::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenarobot::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaRobot::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 arenaId = 1;
-  if (has_arenaid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->arenaid(), target);
+  // optional int32 m_arenaid = 1;
+  if (has_m_arenaid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_arenaid(), target);
   }
 
-  // optional string robotname = 2;
-  if (has_robotname()) {
+  // optional string m_robotname = 2;
+  if (has_m_robotname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->robotname().data(), this->robotname().length(),
+      this->m_robotname().data(), this->m_robotname().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->robotname(), target);
+        2, this->m_robotname(), target);
   }
 
-  // optional int32 aiId = 3;
-  if (has_aiid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->aiid(), target);
+  // optional int32 m_aiid = 3;
+  if (has_m_aiid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_aiid(), target);
   }
 
-  // optional int32 rankId = 4;
-  if (has_rankid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->rankid(), target);
+  // optional int32 m_rankid = 4;
+  if (has_m_rankid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_rankid(), target);
   }
 
-  // optional int32 robotProfession = 5;
-  if (has_robotprofession()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->robotprofession(), target);
+  // optional int32 m_robotprofession = 5;
+  if (has_m_robotprofession()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_robotprofession(), target);
   }
 
-  // optional int32 robotLv = 6;
-  if (has_robotlv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->robotlv(), target);
+  // optional int32 m_robotlv = 6;
+  if (has_m_robotlv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_robotlv(), target);
   }
 
-  // optional int32 sword = 7;
-  if (has_sword()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->sword(), target);
+  // optional int32 m_sword = 7;
+  if (has_m_sword()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_sword(), target);
   }
 
-  // optional int32 occupationID = 8;
-  if (has_occupationid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->occupationid(), target);
+  // optional int32 m_occupationid = 8;
+  if (has_m_occupationid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_occupationid(), target);
   }
 
-  // repeated .proto_ff.arenarobotattrDesc attr = 9;
-  for (int i = 0; i < this->attr_size(); i++) {
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  for (int i = 0; i < this->m_attr_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        9, this->attr(i), target);
+        9, this->m_attr(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1099,73 +1102,73 @@ void arenarobot::SerializeWithCachedSizes(
   return target;
 }
 
-int arenarobot::ByteSize() const {
+int E_ArenaRobot::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 arenaId = 1;
-    if (has_arenaid()) {
+    // optional int32 m_arenaid = 1;
+    if (has_m_arenaid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->arenaid());
+          this->m_arenaid());
     }
 
-    // optional string robotname = 2;
-    if (has_robotname()) {
+    // optional string m_robotname = 2;
+    if (has_m_robotname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->robotname());
+          this->m_robotname());
     }
 
-    // optional int32 aiId = 3;
-    if (has_aiid()) {
+    // optional int32 m_aiid = 3;
+    if (has_m_aiid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->aiid());
+          this->m_aiid());
     }
 
-    // optional int32 rankId = 4;
-    if (has_rankid()) {
+    // optional int32 m_rankid = 4;
+    if (has_m_rankid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rankid());
+          this->m_rankid());
     }
 
-    // optional int32 robotProfession = 5;
-    if (has_robotprofession()) {
+    // optional int32 m_robotprofession = 5;
+    if (has_m_robotprofession()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->robotprofession());
+          this->m_robotprofession());
     }
 
-    // optional int32 robotLv = 6;
-    if (has_robotlv()) {
+    // optional int32 m_robotlv = 6;
+    if (has_m_robotlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->robotlv());
+          this->m_robotlv());
     }
 
-    // optional int32 sword = 7;
-    if (has_sword()) {
+    // optional int32 m_sword = 7;
+    if (has_m_sword()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->sword());
+          this->m_sword());
     }
 
-    // optional int32 occupationID = 8;
-    if (has_occupationid()) {
+    // optional int32 m_occupationid = 8;
+    if (has_m_occupationid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->occupationid());
+          this->m_occupationid());
     }
 
   }
-  // repeated .proto_ff.arenarobotattrDesc attr = 9;
-  total_size += 1 * this->attr_size();
-  for (int i = 0; i < this->attr_size(); i++) {
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  total_size += 1 * this->m_attr_size();
+  for (int i = 0; i < this->m_attr_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attr(i));
+        this->m_attr(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1179,10 +1182,10 @@ int arenarobot::ByteSize() const {
   return total_size;
 }
 
-void arenarobot::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRobot::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenarobot* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenarobot*>(
+  const E_ArenaRobot* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaRobot*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1191,77 +1194,77 @@ void arenarobot::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void arenarobot::MergeFrom(const arenarobot& from) {
+void E_ArenaRobot::MergeFrom(const E_ArenaRobot& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attr_.MergeFrom(from.attr_);
+  m_attr_.MergeFrom(from.m_attr_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_arenaid()) {
-      set_arenaid(from.arenaid());
+    if (from.has_m_arenaid()) {
+      set_m_arenaid(from.m_arenaid());
     }
-    if (from.has_robotname()) {
-      set_robotname(from.robotname());
+    if (from.has_m_robotname()) {
+      set_m_robotname(from.m_robotname());
     }
-    if (from.has_aiid()) {
-      set_aiid(from.aiid());
+    if (from.has_m_aiid()) {
+      set_m_aiid(from.m_aiid());
     }
-    if (from.has_rankid()) {
-      set_rankid(from.rankid());
+    if (from.has_m_rankid()) {
+      set_m_rankid(from.m_rankid());
     }
-    if (from.has_robotprofession()) {
-      set_robotprofession(from.robotprofession());
+    if (from.has_m_robotprofession()) {
+      set_m_robotprofession(from.m_robotprofession());
     }
-    if (from.has_robotlv()) {
-      set_robotlv(from.robotlv());
+    if (from.has_m_robotlv()) {
+      set_m_robotlv(from.m_robotlv());
     }
-    if (from.has_sword()) {
-      set_sword(from.sword());
+    if (from.has_m_sword()) {
+      set_m_sword(from.m_sword());
     }
-    if (from.has_occupationid()) {
-      set_occupationid(from.occupationid());
+    if (from.has_m_occupationid()) {
+      set_m_occupationid(from.m_occupationid());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenarobot::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRobot::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenarobot::CopyFrom(const arenarobot& from) {
+void E_ArenaRobot::CopyFrom(const E_ArenaRobot& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenarobot::IsInitialized() const {
+bool E_ArenaRobot::IsInitialized() const {
 
   return true;
 }
 
-void arenarobot::Swap(arenarobot* other) {
+void E_ArenaRobot::Swap(E_ArenaRobot* other) {
   if (other != this) {
-    std::swap(arenaid_, other->arenaid_);
-    std::swap(robotname_, other->robotname_);
-    std::swap(aiid_, other->aiid_);
-    std::swap(rankid_, other->rankid_);
-    std::swap(robotprofession_, other->robotprofession_);
-    std::swap(robotlv_, other->robotlv_);
-    std::swap(sword_, other->sword_);
-    std::swap(occupationid_, other->occupationid_);
-    attr_.Swap(&other->attr_);
+    std::swap(m_arenaid_, other->m_arenaid_);
+    std::swap(m_robotname_, other->m_robotname_);
+    std::swap(m_aiid_, other->m_aiid_);
+    std::swap(m_rankid_, other->m_rankid_);
+    std::swap(m_robotprofession_, other->m_robotprofession_);
+    std::swap(m_robotlv_, other->m_robotlv_);
+    std::swap(m_sword_, other->m_sword_);
+    std::swap(m_occupationid_, other->m_occupationid_);
+    m_attr_.Swap(&other->m_attr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenarobot::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaRobot::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenarobot_descriptor_;
-  metadata.reflection = arenarobot_reflection_;
+  metadata.descriptor = E_ArenaRobot_descriptor_;
+  metadata.reflection = E_ArenaRobot_reflection_;
   return metadata;
 }
 
@@ -1269,81 +1272,81 @@ void arenarobot::Swap(arenarobot* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_arenarobot::kArenarobotListFieldNumber;
+const int Sheet_ArenaRobot::kEArenaRobotListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_arenarobot::Sheet_arenarobot()
+Sheet_ArenaRobot::Sheet_ArenaRobot()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_arenarobot::InitAsDefaultInstance() {
+void Sheet_ArenaRobot::InitAsDefaultInstance() {
 }
 
-Sheet_arenarobot::Sheet_arenarobot(const Sheet_arenarobot& from)
+Sheet_ArenaRobot::Sheet_ArenaRobot(const Sheet_ArenaRobot& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_arenarobot::SharedCtor() {
+void Sheet_ArenaRobot::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_arenarobot::~Sheet_arenarobot() {
+Sheet_ArenaRobot::~Sheet_ArenaRobot() {
   SharedDtor();
 }
 
-void Sheet_arenarobot::SharedDtor() {
+void Sheet_ArenaRobot::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_arenarobot::SetCachedSize(int size) const {
+void Sheet_ArenaRobot::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_arenarobot::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ArenaRobot::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_arenarobot_descriptor_;
+  return Sheet_ArenaRobot_descriptor_;
 }
 
-const Sheet_arenarobot& Sheet_arenarobot::default_instance() {
+const Sheet_ArenaRobot& Sheet_ArenaRobot::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-Sheet_arenarobot* Sheet_arenarobot::default_instance_ = NULL;
+Sheet_ArenaRobot* Sheet_ArenaRobot::default_instance_ = NULL;
 
-Sheet_arenarobot* Sheet_arenarobot::New() const {
-  return new Sheet_arenarobot;
+Sheet_ArenaRobot* Sheet_ArenaRobot::New() const {
+  return new Sheet_ArenaRobot;
 }
 
-void Sheet_arenarobot::Clear() {
-  arenarobot_list_.Clear();
+void Sheet_ArenaRobot::Clear() {
+  e_arenarobot_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_arenarobot::MergePartialFromCodedStream(
+bool Sheet_ArenaRobot::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.arenarobot arenarobot_List = 1;
+      // repeated .proto_ff.E_ArenaRobot E_ArenaRobot_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_arenarobot_List:
+         parse_E_ArenaRobot_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_arenarobot_list()));
+                input, add_e_arenarobot_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_arenarobot_List;
+        if (input->ExpectTag(10)) goto parse_E_ArenaRobot_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1364,12 +1367,12 @@ bool Sheet_arenarobot::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_arenarobot::SerializeWithCachedSizes(
+void Sheet_ArenaRobot::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.arenarobot arenarobot_List = 1;
-  for (int i = 0; i < this->arenarobot_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaRobot E_ArenaRobot_List = 1;
+  for (int i = 0; i < this->e_arenarobot_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->arenarobot_list(i), output);
+      1, this->e_arenarobot_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1378,13 +1381,13 @@ void Sheet_arenarobot::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_arenarobot::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ArenaRobot::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.arenarobot arenarobot_List = 1;
-  for (int i = 0; i < this->arenarobot_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaRobot E_ArenaRobot_List = 1;
+  for (int i = 0; i < this->e_arenarobot_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->arenarobot_list(i), target);
+        1, this->e_arenarobot_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1394,15 +1397,15 @@ void Sheet_arenarobot::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_arenarobot::ByteSize() const {
+int Sheet_ArenaRobot::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.arenarobot arenarobot_List = 1;
-  total_size += 1 * this->arenarobot_list_size();
-  for (int i = 0; i < this->arenarobot_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaRobot E_ArenaRobot_List = 1;
+  total_size += 1 * this->e_arenarobot_list_size();
+  for (int i = 0; i < this->e_arenarobot_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->arenarobot_list(i));
+        this->e_arenarobot_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1416,10 +1419,10 @@ int Sheet_arenarobot::ByteSize() const {
   return total_size;
 }
 
-void Sheet_arenarobot::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaRobot::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_arenarobot* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_arenarobot*>(
+  const Sheet_ArenaRobot* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ArenaRobot*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1428,43 +1431,43 @@ void Sheet_arenarobot::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_arenarobot::MergeFrom(const Sheet_arenarobot& from) {
+void Sheet_ArenaRobot::MergeFrom(const Sheet_ArenaRobot& from) {
   GOOGLE_CHECK_NE(&from, this);
-  arenarobot_list_.MergeFrom(from.arenarobot_list_);
+  e_arenarobot_list_.MergeFrom(from.e_arenarobot_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_arenarobot::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaRobot::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_arenarobot::CopyFrom(const Sheet_arenarobot& from) {
+void Sheet_ArenaRobot::CopyFrom(const Sheet_ArenaRobot& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_arenarobot::IsInitialized() const {
+bool Sheet_ArenaRobot::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_arenarobot::Swap(Sheet_arenarobot* other) {
+void Sheet_ArenaRobot::Swap(Sheet_ArenaRobot* other) {
   if (other != this) {
-    arenarobot_list_.Swap(&other->arenarobot_list_);
+    e_arenarobot_list_.Swap(&other->e_arenarobot_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_arenarobot::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ArenaRobot::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_arenarobot_descriptor_;
-  metadata.reflection = Sheet_arenarobot_reflection_;
+  metadata.descriptor = Sheet_ArenaRobot_descriptor_;
+  metadata.reflection = Sheet_ArenaRobot_reflection_;
   return metadata;
 }
 
@@ -1472,100 +1475,100 @@ void Sheet_arenarobot::Swap(Sheet_arenarobot* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenaarenAwardRewardDesc::kIDFieldNumber;
-const int arenaarenAwardRewardDesc::kValueFieldNumber;
+const int E_ArenaArenawardRewardDesc::kMIdFieldNumber;
+const int E_ArenaArenawardRewardDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-arenaarenAwardRewardDesc::arenaarenAwardRewardDesc()
+E_ArenaArenawardRewardDesc::E_ArenaArenawardRewardDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenaarenAwardRewardDesc::InitAsDefaultInstance() {
+void E_ArenaArenawardRewardDesc::InitAsDefaultInstance() {
 }
 
-arenaarenAwardRewardDesc::arenaarenAwardRewardDesc(const arenaarenAwardRewardDesc& from)
+E_ArenaArenawardRewardDesc::E_ArenaArenawardRewardDesc(const E_ArenaArenawardRewardDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenaarenAwardRewardDesc::SharedCtor() {
+void E_ArenaArenawardRewardDesc::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  value_ = 0;
+  m_id_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenaarenAwardRewardDesc::~arenaarenAwardRewardDesc() {
+E_ArenaArenawardRewardDesc::~E_ArenaArenawardRewardDesc() {
   SharedDtor();
 }
 
-void arenaarenAwardRewardDesc::SharedDtor() {
+void E_ArenaArenawardRewardDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenaarenAwardRewardDesc::SetCachedSize(int size) const {
+void E_ArenaArenawardRewardDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenaarenAwardRewardDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaArenawardRewardDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenaarenAwardRewardDesc_descriptor_;
+  return E_ArenaArenawardRewardDesc_descriptor_;
 }
 
-const arenaarenAwardRewardDesc& arenaarenAwardRewardDesc::default_instance() {
+const E_ArenaArenawardRewardDesc& E_ArenaArenawardRewardDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenaarenAwardRewardDesc* arenaarenAwardRewardDesc::default_instance_ = NULL;
+E_ArenaArenawardRewardDesc* E_ArenaArenawardRewardDesc::default_instance_ = NULL;
 
-arenaarenAwardRewardDesc* arenaarenAwardRewardDesc::New() const {
-  return new arenaarenAwardRewardDesc;
+E_ArenaArenawardRewardDesc* E_ArenaArenawardRewardDesc::New() const {
+  return new E_ArenaArenawardRewardDesc;
 }
 
-void arenaarenAwardRewardDesc::Clear() {
+void E_ArenaArenawardRewardDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    value_ = 0;
+    m_id_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenaarenAwardRewardDesc::MergePartialFromCodedStream(
+bool E_ArenaArenawardRewardDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 ID = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -1589,16 +1592,16 @@ bool arenaarenAwardRewardDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenaarenAwardRewardDesc::SerializeWithCachedSizes(
+void E_ArenaArenawardRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1607,16 +1610,16 @@ void arenaarenAwardRewardDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenaarenAwardRewardDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaArenawardRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1626,22 +1629,22 @@ void arenaarenAwardRewardDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int arenaarenAwardRewardDesc::ByteSize() const {
+int E_ArenaArenawardRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 ID = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -1656,10 +1659,10 @@ int arenaarenAwardRewardDesc::ByteSize() const {
   return total_size;
 }
 
-void arenaarenAwardRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaArenawardRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenaarenAwardRewardDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenaarenAwardRewardDesc*>(
+  const E_ArenaArenawardRewardDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaArenawardRewardDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1668,51 +1671,51 @@ void arenaarenAwardRewardDesc::MergeFrom(const ::google::protobuf::Message& from
   }
 }
 
-void arenaarenAwardRewardDesc::MergeFrom(const arenaarenAwardRewardDesc& from) {
+void E_ArenaArenawardRewardDesc::MergeFrom(const E_ArenaArenawardRewardDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenaarenAwardRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaArenawardRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenaarenAwardRewardDesc::CopyFrom(const arenaarenAwardRewardDesc& from) {
+void E_ArenaArenawardRewardDesc::CopyFrom(const E_ArenaArenawardRewardDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenaarenAwardRewardDesc::IsInitialized() const {
+bool E_ArenaArenawardRewardDesc::IsInitialized() const {
 
   return true;
 }
 
-void arenaarenAwardRewardDesc::Swap(arenaarenAwardRewardDesc* other) {
+void E_ArenaArenawardRewardDesc::Swap(E_ArenaArenawardRewardDesc* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(value_, other->value_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenaarenAwardRewardDesc::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaArenawardRewardDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenaarenAwardRewardDesc_descriptor_;
-  metadata.reflection = arenaarenAwardRewardDesc_reflection_;
+  metadata.descriptor = E_ArenaArenawardRewardDesc_descriptor_;
+  metadata.reflection = E_ArenaArenawardRewardDesc_reflection_;
   return metadata;
 }
 
@@ -1720,139 +1723,139 @@ void arenaarenAwardRewardDesc::Swap(arenaarenAwardRewardDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenaarenAward::kIdFieldNumber;
-const int arenaarenAward::kLvDownFieldNumber;
-const int arenaarenAward::kLvUpFieldNumber;
-const int arenaarenAward::kRewardFieldNumber;
+const int E_ArenaArenaward::kMIdFieldNumber;
+const int E_ArenaArenaward::kMLvdownFieldNumber;
+const int E_ArenaArenaward::kMLvupFieldNumber;
+const int E_ArenaArenaward::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
-arenaarenAward::arenaarenAward()
+E_ArenaArenaward::E_ArenaArenaward()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenaarenAward::InitAsDefaultInstance() {
+void E_ArenaArenaward::InitAsDefaultInstance() {
 }
 
-arenaarenAward::arenaarenAward(const arenaarenAward& from)
+E_ArenaArenaward::E_ArenaArenaward(const E_ArenaArenaward& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenaarenAward::SharedCtor() {
+void E_ArenaArenaward::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  lvdown_ = 0;
-  lvup_ = 0;
+  m_id_ = 0;
+  m_lvdown_ = 0;
+  m_lvup_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenaarenAward::~arenaarenAward() {
+E_ArenaArenaward::~E_ArenaArenaward() {
   SharedDtor();
 }
 
-void arenaarenAward::SharedDtor() {
+void E_ArenaArenaward::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenaarenAward::SetCachedSize(int size) const {
+void E_ArenaArenaward::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenaarenAward::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaArenaward::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenaarenAward_descriptor_;
+  return E_ArenaArenaward_descriptor_;
 }
 
-const arenaarenAward& arenaarenAward::default_instance() {
+const E_ArenaArenaward& E_ArenaArenaward::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenaarenAward* arenaarenAward::default_instance_ = NULL;
+E_ArenaArenaward* E_ArenaArenaward::default_instance_ = NULL;
 
-arenaarenAward* arenaarenAward::New() const {
-  return new arenaarenAward;
+E_ArenaArenaward* E_ArenaArenaward::New() const {
+  return new E_ArenaArenaward;
 }
 
-void arenaarenAward::Clear() {
+void E_ArenaArenaward::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    lvdown_ = 0;
-    lvup_ = 0;
+    m_id_ = 0;
+    m_lvdown_ = 0;
+    m_lvup_ = 0;
   }
-  reward_.Clear();
+  m_reward_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenaarenAward::MergePartialFromCodedStream(
+bool E_ArenaArenaward::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_lvDown;
+        if (input->ExpectTag(16)) goto parse_m_lvdown;
         break;
       }
 
-      // optional int32 lvDown = 2;
+      // optional int32 m_lvdown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_lvDown:
+         parse_m_lvdown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lvdown_)));
-          set_has_lvdown();
+                 input, &m_lvdown_)));
+          set_has_m_lvdown();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_lvUp;
+        if (input->ExpectTag(24)) goto parse_m_lvup;
         break;
       }
 
-      // optional int32 lvUp = 3;
+      // optional int32 m_lvup = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_lvUp:
+         parse_m_lvup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lvup_)));
-          set_has_lvup();
+                 input, &m_lvup_)));
+          set_has_m_lvup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_Reward;
+        if (input->ExpectTag(34)) goto parse_m_reward;
         break;
       }
 
-      // repeated .proto_ff.arenaarenAwardRewardDesc Reward = 4;
+      // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_Reward:
+         parse_m_reward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_reward()));
+                input, add_m_reward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_Reward;
+        if (input->ExpectTag(34)) goto parse_m_reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1873,27 +1876,27 @@ bool arenaarenAward::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenaarenAward::SerializeWithCachedSizes(
+void E_ArenaArenaward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 lvDown = 2;
-  if (has_lvdown()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->lvdown(), output);
+  // optional int32 m_lvdown = 2;
+  if (has_m_lvdown()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lvdown(), output);
   }
 
-  // optional int32 lvUp = 3;
-  if (has_lvup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->lvup(), output);
+  // optional int32 m_lvup = 3;
+  if (has_m_lvup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvup(), output);
   }
 
-  // repeated .proto_ff.arenaarenAwardRewardDesc Reward = 4;
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->reward(i), output);
+      4, this->m_reward(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1902,28 +1905,28 @@ void arenaarenAward::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenaarenAward::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaArenaward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 lvDown = 2;
-  if (has_lvdown()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->lvdown(), target);
+  // optional int32 m_lvdown = 2;
+  if (has_m_lvdown()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lvdown(), target);
   }
 
-  // optional int32 lvUp = 3;
-  if (has_lvup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->lvup(), target);
+  // optional int32 m_lvup = 3;
+  if (has_m_lvup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvup(), target);
   }
 
-  // repeated .proto_ff.arenaarenAwardRewardDesc Reward = 4;
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->reward(i), target);
+        4, this->m_reward(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1933,38 +1936,38 @@ void arenaarenAward::SerializeWithCachedSizes(
   return target;
 }
 
-int arenaarenAward::ByteSize() const {
+int E_ArenaArenaward::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 lvDown = 2;
-    if (has_lvdown()) {
+    // optional int32 m_lvdown = 2;
+    if (has_m_lvdown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lvdown());
+          this->m_lvdown());
     }
 
-    // optional int32 lvUp = 3;
-    if (has_lvup()) {
+    // optional int32 m_lvup = 3;
+    if (has_m_lvup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lvup());
+          this->m_lvup());
     }
 
   }
-  // repeated .proto_ff.arenaarenAwardRewardDesc Reward = 4;
-  total_size += 1 * this->reward_size();
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  total_size += 1 * this->m_reward_size();
+  for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->reward(i));
+        this->m_reward(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1978,10 +1981,10 @@ int arenaarenAward::ByteSize() const {
   return total_size;
 }
 
-void arenaarenAward::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaArenaward::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenaarenAward* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenaarenAward*>(
+  const E_ArenaArenaward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaArenaward*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1990,57 +1993,57 @@ void arenaarenAward::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void arenaarenAward::MergeFrom(const arenaarenAward& from) {
+void E_ArenaArenaward::MergeFrom(const E_ArenaArenaward& from) {
   GOOGLE_CHECK_NE(&from, this);
-  reward_.MergeFrom(from.reward_);
+  m_reward_.MergeFrom(from.m_reward_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_lvdown()) {
-      set_lvdown(from.lvdown());
+    if (from.has_m_lvdown()) {
+      set_m_lvdown(from.m_lvdown());
     }
-    if (from.has_lvup()) {
-      set_lvup(from.lvup());
+    if (from.has_m_lvup()) {
+      set_m_lvup(from.m_lvup());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenaarenAward::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaArenaward::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenaarenAward::CopyFrom(const arenaarenAward& from) {
+void E_ArenaArenaward::CopyFrom(const E_ArenaArenaward& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenaarenAward::IsInitialized() const {
+bool E_ArenaArenaward::IsInitialized() const {
 
   return true;
 }
 
-void arenaarenAward::Swap(arenaarenAward* other) {
+void E_ArenaArenaward::Swap(E_ArenaArenaward* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(lvdown_, other->lvdown_);
-    std::swap(lvup_, other->lvup_);
-    reward_.Swap(&other->reward_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_lvdown_, other->m_lvdown_);
+    std::swap(m_lvup_, other->m_lvup_);
+    m_reward_.Swap(&other->m_reward_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenaarenAward::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaArenaward::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenaarenAward_descriptor_;
-  metadata.reflection = arenaarenAward_reflection_;
+  metadata.descriptor = E_ArenaArenaward_descriptor_;
+  metadata.reflection = E_ArenaArenaward_reflection_;
   return metadata;
 }
 
@@ -2048,81 +2051,81 @@ void arenaarenAward::Swap(arenaarenAward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_arenaarenAward::kArenaarenAwardListFieldNumber;
+const int Sheet_ArenaArenaward::kEArenaArenawardListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_arenaarenAward::Sheet_arenaarenAward()
+Sheet_ArenaArenaward::Sheet_ArenaArenaward()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_arenaarenAward::InitAsDefaultInstance() {
+void Sheet_ArenaArenaward::InitAsDefaultInstance() {
 }
 
-Sheet_arenaarenAward::Sheet_arenaarenAward(const Sheet_arenaarenAward& from)
+Sheet_ArenaArenaward::Sheet_ArenaArenaward(const Sheet_ArenaArenaward& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_arenaarenAward::SharedCtor() {
+void Sheet_ArenaArenaward::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_arenaarenAward::~Sheet_arenaarenAward() {
+Sheet_ArenaArenaward::~Sheet_ArenaArenaward() {
   SharedDtor();
 }
 
-void Sheet_arenaarenAward::SharedDtor() {
+void Sheet_ArenaArenaward::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_arenaarenAward::SetCachedSize(int size) const {
+void Sheet_ArenaArenaward::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_arenaarenAward::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ArenaArenaward::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_arenaarenAward_descriptor_;
+  return Sheet_ArenaArenaward_descriptor_;
 }
 
-const Sheet_arenaarenAward& Sheet_arenaarenAward::default_instance() {
+const Sheet_ArenaArenaward& Sheet_ArenaArenaward::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-Sheet_arenaarenAward* Sheet_arenaarenAward::default_instance_ = NULL;
+Sheet_ArenaArenaward* Sheet_ArenaArenaward::default_instance_ = NULL;
 
-Sheet_arenaarenAward* Sheet_arenaarenAward::New() const {
-  return new Sheet_arenaarenAward;
+Sheet_ArenaArenaward* Sheet_ArenaArenaward::New() const {
+  return new Sheet_ArenaArenaward;
 }
 
-void Sheet_arenaarenAward::Clear() {
-  arenaarenaward_list_.Clear();
+void Sheet_ArenaArenaward::Clear() {
+  e_arenaarenaward_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_arenaarenAward::MergePartialFromCodedStream(
+bool Sheet_ArenaArenaward::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.arenaarenAward arenaarenAward_List = 1;
+      // repeated .proto_ff.E_ArenaArenaward E_ArenaArenaward_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_arenaarenAward_List:
+         parse_E_ArenaArenaward_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_arenaarenaward_list()));
+                input, add_e_arenaarenaward_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_arenaarenAward_List;
+        if (input->ExpectTag(10)) goto parse_E_ArenaArenaward_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2143,12 +2146,12 @@ bool Sheet_arenaarenAward::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_arenaarenAward::SerializeWithCachedSizes(
+void Sheet_ArenaArenaward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.arenaarenAward arenaarenAward_List = 1;
-  for (int i = 0; i < this->arenaarenaward_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaArenaward E_ArenaArenaward_List = 1;
+  for (int i = 0; i < this->e_arenaarenaward_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->arenaarenaward_list(i), output);
+      1, this->e_arenaarenaward_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2157,13 +2160,13 @@ void Sheet_arenaarenAward::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_arenaarenAward::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ArenaArenaward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.arenaarenAward arenaarenAward_List = 1;
-  for (int i = 0; i < this->arenaarenaward_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaArenaward E_ArenaArenaward_List = 1;
+  for (int i = 0; i < this->e_arenaarenaward_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->arenaarenaward_list(i), target);
+        1, this->e_arenaarenaward_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2173,15 +2176,15 @@ void Sheet_arenaarenAward::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_arenaarenAward::ByteSize() const {
+int Sheet_ArenaArenaward::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.arenaarenAward arenaarenAward_List = 1;
-  total_size += 1 * this->arenaarenaward_list_size();
-  for (int i = 0; i < this->arenaarenaward_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaArenaward E_ArenaArenaward_List = 1;
+  total_size += 1 * this->e_arenaarenaward_list_size();
+  for (int i = 0; i < this->e_arenaarenaward_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->arenaarenaward_list(i));
+        this->e_arenaarenaward_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2195,10 +2198,10 @@ int Sheet_arenaarenAward::ByteSize() const {
   return total_size;
 }
 
-void Sheet_arenaarenAward::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaArenaward::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_arenaarenAward* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_arenaarenAward*>(
+  const Sheet_ArenaArenaward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ArenaArenaward*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2207,43 +2210,43 @@ void Sheet_arenaarenAward::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_arenaarenAward::MergeFrom(const Sheet_arenaarenAward& from) {
+void Sheet_ArenaArenaward::MergeFrom(const Sheet_ArenaArenaward& from) {
   GOOGLE_CHECK_NE(&from, this);
-  arenaarenaward_list_.MergeFrom(from.arenaarenaward_list_);
+  e_arenaarenaward_list_.MergeFrom(from.e_arenaarenaward_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_arenaarenAward::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaArenaward::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_arenaarenAward::CopyFrom(const Sheet_arenaarenAward& from) {
+void Sheet_ArenaArenaward::CopyFrom(const Sheet_ArenaArenaward& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_arenaarenAward::IsInitialized() const {
+bool Sheet_ArenaArenaward::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_arenaarenAward::Swap(Sheet_arenaarenAward* other) {
+void Sheet_ArenaArenaward::Swap(Sheet_ArenaArenaward* other) {
   if (other != this) {
-    arenaarenaward_list_.Swap(&other->arenaarenaward_list_);
+    e_arenaarenaward_list_.Swap(&other->e_arenaarenaward_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_arenaarenAward::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ArenaArenaward::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_arenaarenAward_descriptor_;
-  metadata.reflection = Sheet_arenaarenAward_reflection_;
+  metadata.descriptor = Sheet_ArenaArenaward_descriptor_;
+  metadata.reflection = Sheet_ArenaArenaward_reflection_;
   return metadata;
 }
 
@@ -2251,100 +2254,100 @@ void Sheet_arenaarenAward::Swap(Sheet_arenaarenAward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenarankawardRewardDesc::kIDFieldNumber;
-const int arenarankawardRewardDesc::kValueFieldNumber;
+const int E_ArenaRankawardRewardDesc::kMIdFieldNumber;
+const int E_ArenaRankawardRewardDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-arenarankawardRewardDesc::arenarankawardRewardDesc()
+E_ArenaRankawardRewardDesc::E_ArenaRankawardRewardDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenarankawardRewardDesc::InitAsDefaultInstance() {
+void E_ArenaRankawardRewardDesc::InitAsDefaultInstance() {
 }
 
-arenarankawardRewardDesc::arenarankawardRewardDesc(const arenarankawardRewardDesc& from)
+E_ArenaRankawardRewardDesc::E_ArenaRankawardRewardDesc(const E_ArenaRankawardRewardDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenarankawardRewardDesc::SharedCtor() {
+void E_ArenaRankawardRewardDesc::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  value_ = 0;
+  m_id_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenarankawardRewardDesc::~arenarankawardRewardDesc() {
+E_ArenaRankawardRewardDesc::~E_ArenaRankawardRewardDesc() {
   SharedDtor();
 }
 
-void arenarankawardRewardDesc::SharedDtor() {
+void E_ArenaRankawardRewardDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenarankawardRewardDesc::SetCachedSize(int size) const {
+void E_ArenaRankawardRewardDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenarankawardRewardDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaRankawardRewardDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenarankawardRewardDesc_descriptor_;
+  return E_ArenaRankawardRewardDesc_descriptor_;
 }
 
-const arenarankawardRewardDesc& arenarankawardRewardDesc::default_instance() {
+const E_ArenaRankawardRewardDesc& E_ArenaRankawardRewardDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenarankawardRewardDesc* arenarankawardRewardDesc::default_instance_ = NULL;
+E_ArenaRankawardRewardDesc* E_ArenaRankawardRewardDesc::default_instance_ = NULL;
 
-arenarankawardRewardDesc* arenarankawardRewardDesc::New() const {
-  return new arenarankawardRewardDesc;
+E_ArenaRankawardRewardDesc* E_ArenaRankawardRewardDesc::New() const {
+  return new E_ArenaRankawardRewardDesc;
 }
 
-void arenarankawardRewardDesc::Clear() {
+void E_ArenaRankawardRewardDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    value_ = 0;
+    m_id_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenarankawardRewardDesc::MergePartialFromCodedStream(
+bool E_ArenaRankawardRewardDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 ID = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -2368,16 +2371,16 @@ bool arenarankawardRewardDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenarankawardRewardDesc::SerializeWithCachedSizes(
+void E_ArenaRankawardRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2386,16 +2389,16 @@ void arenarankawardRewardDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenarankawardRewardDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaRankawardRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2405,22 +2408,22 @@ void arenarankawardRewardDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int arenarankawardRewardDesc::ByteSize() const {
+int E_ArenaRankawardRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 ID = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -2435,10 +2438,10 @@ int arenarankawardRewardDesc::ByteSize() const {
   return total_size;
 }
 
-void arenarankawardRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRankawardRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenarankawardRewardDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenarankawardRewardDesc*>(
+  const E_ArenaRankawardRewardDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaRankawardRewardDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2447,51 +2450,51 @@ void arenarankawardRewardDesc::MergeFrom(const ::google::protobuf::Message& from
   }
 }
 
-void arenarankawardRewardDesc::MergeFrom(const arenarankawardRewardDesc& from) {
+void E_ArenaRankawardRewardDesc::MergeFrom(const E_ArenaRankawardRewardDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenarankawardRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRankawardRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenarankawardRewardDesc::CopyFrom(const arenarankawardRewardDesc& from) {
+void E_ArenaRankawardRewardDesc::CopyFrom(const E_ArenaRankawardRewardDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenarankawardRewardDesc::IsInitialized() const {
+bool E_ArenaRankawardRewardDesc::IsInitialized() const {
 
   return true;
 }
 
-void arenarankawardRewardDesc::Swap(arenarankawardRewardDesc* other) {
+void E_ArenaRankawardRewardDesc::Swap(E_ArenaRankawardRewardDesc* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(value_, other->value_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenarankawardRewardDesc::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaRankawardRewardDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenarankawardRewardDesc_descriptor_;
-  metadata.reflection = arenarankawardRewardDesc_reflection_;
+  metadata.descriptor = E_ArenaRankawardRewardDesc_descriptor_;
+  metadata.reflection = E_ArenaRankawardRewardDesc_reflection_;
   return metadata;
 }
 
@@ -2499,139 +2502,139 @@ void arenarankawardRewardDesc::Swap(arenarankawardRewardDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenarankaward::kPrizeIdFieldNumber;
-const int arenarankaward::kArenaDownFieldNumber;
-const int arenarankaward::kArenaUpFieldNumber;
-const int arenarankaward::kRewardFieldNumber;
+const int E_ArenaRankaward::kMPrizeidFieldNumber;
+const int E_ArenaRankaward::kMArenadownFieldNumber;
+const int E_ArenaRankaward::kMArenaupFieldNumber;
+const int E_ArenaRankaward::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
-arenarankaward::arenarankaward()
+E_ArenaRankaward::E_ArenaRankaward()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenarankaward::InitAsDefaultInstance() {
+void E_ArenaRankaward::InitAsDefaultInstance() {
 }
 
-arenarankaward::arenarankaward(const arenarankaward& from)
+E_ArenaRankaward::E_ArenaRankaward(const E_ArenaRankaward& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenarankaward::SharedCtor() {
+void E_ArenaRankaward::SharedCtor() {
   _cached_size_ = 0;
-  prizeid_ = 0;
-  arenadown_ = 0;
-  arenaup_ = 0;
+  m_prizeid_ = 0;
+  m_arenadown_ = 0;
+  m_arenaup_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenarankaward::~arenarankaward() {
+E_ArenaRankaward::~E_ArenaRankaward() {
   SharedDtor();
 }
 
-void arenarankaward::SharedDtor() {
+void E_ArenaRankaward::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenarankaward::SetCachedSize(int size) const {
+void E_ArenaRankaward::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenarankaward::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaRankaward::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenarankaward_descriptor_;
+  return E_ArenaRankaward_descriptor_;
 }
 
-const arenarankaward& arenarankaward::default_instance() {
+const E_ArenaRankaward& E_ArenaRankaward::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenarankaward* arenarankaward::default_instance_ = NULL;
+E_ArenaRankaward* E_ArenaRankaward::default_instance_ = NULL;
 
-arenarankaward* arenarankaward::New() const {
-  return new arenarankaward;
+E_ArenaRankaward* E_ArenaRankaward::New() const {
+  return new E_ArenaRankaward;
 }
 
-void arenarankaward::Clear() {
+void E_ArenaRankaward::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    prizeid_ = 0;
-    arenadown_ = 0;
-    arenaup_ = 0;
+    m_prizeid_ = 0;
+    m_arenadown_ = 0;
+    m_arenaup_ = 0;
   }
-  reward_.Clear();
+  m_reward_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenarankaward::MergePartialFromCodedStream(
+bool E_ArenaRankaward::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 PrizeId = 1;
+      // optional int32 m_prizeid = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &prizeid_)));
-          set_has_prizeid();
+                 input, &m_prizeid_)));
+          set_has_m_prizeid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_arenaDown;
+        if (input->ExpectTag(16)) goto parse_m_arenadown;
         break;
       }
 
-      // optional int32 arenaDown = 2;
+      // optional int32 m_arenadown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_arenaDown:
+         parse_m_arenadown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &arenadown_)));
-          set_has_arenadown();
+                 input, &m_arenadown_)));
+          set_has_m_arenadown();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_arenaUp;
+        if (input->ExpectTag(24)) goto parse_m_arenaup;
         break;
       }
 
-      // optional int32 arenaUp = 3;
+      // optional int32 m_arenaup = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_arenaUp:
+         parse_m_arenaup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &arenaup_)));
-          set_has_arenaup();
+                 input, &m_arenaup_)));
+          set_has_m_arenaup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_Reward;
+        if (input->ExpectTag(34)) goto parse_m_reward;
         break;
       }
 
-      // repeated .proto_ff.arenarankawardRewardDesc Reward = 4;
+      // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_Reward:
+         parse_m_reward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_reward()));
+                input, add_m_reward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_Reward;
+        if (input->ExpectTag(34)) goto parse_m_reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2652,27 +2655,27 @@ bool arenarankaward::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenarankaward::SerializeWithCachedSizes(
+void E_ArenaRankaward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 PrizeId = 1;
-  if (has_prizeid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->prizeid(), output);
+  // optional int32 m_prizeid = 1;
+  if (has_m_prizeid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_prizeid(), output);
   }
 
-  // optional int32 arenaDown = 2;
-  if (has_arenadown()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->arenadown(), output);
+  // optional int32 m_arenadown = 2;
+  if (has_m_arenadown()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_arenadown(), output);
   }
 
-  // optional int32 arenaUp = 3;
-  if (has_arenaup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->arenaup(), output);
+  // optional int32 m_arenaup = 3;
+  if (has_m_arenaup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_arenaup(), output);
   }
 
-  // repeated .proto_ff.arenarankawardRewardDesc Reward = 4;
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->reward(i), output);
+      4, this->m_reward(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2681,28 +2684,28 @@ void arenarankaward::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenarankaward::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaRankaward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 PrizeId = 1;
-  if (has_prizeid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->prizeid(), target);
+  // optional int32 m_prizeid = 1;
+  if (has_m_prizeid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_prizeid(), target);
   }
 
-  // optional int32 arenaDown = 2;
-  if (has_arenadown()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->arenadown(), target);
+  // optional int32 m_arenadown = 2;
+  if (has_m_arenadown()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_arenadown(), target);
   }
 
-  // optional int32 arenaUp = 3;
-  if (has_arenaup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->arenaup(), target);
+  // optional int32 m_arenaup = 3;
+  if (has_m_arenaup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_arenaup(), target);
   }
 
-  // repeated .proto_ff.arenarankawardRewardDesc Reward = 4;
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->reward(i), target);
+        4, this->m_reward(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2712,38 +2715,38 @@ void arenarankaward::SerializeWithCachedSizes(
   return target;
 }
 
-int arenarankaward::ByteSize() const {
+int E_ArenaRankaward::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 PrizeId = 1;
-    if (has_prizeid()) {
+    // optional int32 m_prizeid = 1;
+    if (has_m_prizeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->prizeid());
+          this->m_prizeid());
     }
 
-    // optional int32 arenaDown = 2;
-    if (has_arenadown()) {
+    // optional int32 m_arenadown = 2;
+    if (has_m_arenadown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->arenadown());
+          this->m_arenadown());
     }
 
-    // optional int32 arenaUp = 3;
-    if (has_arenaup()) {
+    // optional int32 m_arenaup = 3;
+    if (has_m_arenaup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->arenaup());
+          this->m_arenaup());
     }
 
   }
-  // repeated .proto_ff.arenarankawardRewardDesc Reward = 4;
-  total_size += 1 * this->reward_size();
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  total_size += 1 * this->m_reward_size();
+  for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->reward(i));
+        this->m_reward(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2757,10 +2760,10 @@ int arenarankaward::ByteSize() const {
   return total_size;
 }
 
-void arenarankaward::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRankaward::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenarankaward* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenarankaward*>(
+  const E_ArenaRankaward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaRankaward*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2769,57 +2772,57 @@ void arenarankaward::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void arenarankaward::MergeFrom(const arenarankaward& from) {
+void E_ArenaRankaward::MergeFrom(const E_ArenaRankaward& from) {
   GOOGLE_CHECK_NE(&from, this);
-  reward_.MergeFrom(from.reward_);
+  m_reward_.MergeFrom(from.m_reward_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_prizeid()) {
-      set_prizeid(from.prizeid());
+    if (from.has_m_prizeid()) {
+      set_m_prizeid(from.m_prizeid());
     }
-    if (from.has_arenadown()) {
-      set_arenadown(from.arenadown());
+    if (from.has_m_arenadown()) {
+      set_m_arenadown(from.m_arenadown());
     }
-    if (from.has_arenaup()) {
-      set_arenaup(from.arenaup());
+    if (from.has_m_arenaup()) {
+      set_m_arenaup(from.m_arenaup());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenarankaward::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaRankaward::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenarankaward::CopyFrom(const arenarankaward& from) {
+void E_ArenaRankaward::CopyFrom(const E_ArenaRankaward& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenarankaward::IsInitialized() const {
+bool E_ArenaRankaward::IsInitialized() const {
 
   return true;
 }
 
-void arenarankaward::Swap(arenarankaward* other) {
+void E_ArenaRankaward::Swap(E_ArenaRankaward* other) {
   if (other != this) {
-    std::swap(prizeid_, other->prizeid_);
-    std::swap(arenadown_, other->arenadown_);
-    std::swap(arenaup_, other->arenaup_);
-    reward_.Swap(&other->reward_);
+    std::swap(m_prizeid_, other->m_prizeid_);
+    std::swap(m_arenadown_, other->m_arenadown_);
+    std::swap(m_arenaup_, other->m_arenaup_);
+    m_reward_.Swap(&other->m_reward_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenarankaward::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaRankaward::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenarankaward_descriptor_;
-  metadata.reflection = arenarankaward_reflection_;
+  metadata.descriptor = E_ArenaRankaward_descriptor_;
+  metadata.reflection = E_ArenaRankaward_reflection_;
   return metadata;
 }
 
@@ -2827,81 +2830,81 @@ void arenarankaward::Swap(arenarankaward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_arenarankaward::kArenarankawardListFieldNumber;
+const int Sheet_ArenaRankaward::kEArenaRankawardListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_arenarankaward::Sheet_arenarankaward()
+Sheet_ArenaRankaward::Sheet_ArenaRankaward()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_arenarankaward::InitAsDefaultInstance() {
+void Sheet_ArenaRankaward::InitAsDefaultInstance() {
 }
 
-Sheet_arenarankaward::Sheet_arenarankaward(const Sheet_arenarankaward& from)
+Sheet_ArenaRankaward::Sheet_ArenaRankaward(const Sheet_ArenaRankaward& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_arenarankaward::SharedCtor() {
+void Sheet_ArenaRankaward::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_arenarankaward::~Sheet_arenarankaward() {
+Sheet_ArenaRankaward::~Sheet_ArenaRankaward() {
   SharedDtor();
 }
 
-void Sheet_arenarankaward::SharedDtor() {
+void Sheet_ArenaRankaward::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_arenarankaward::SetCachedSize(int size) const {
+void Sheet_ArenaRankaward::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_arenarankaward::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ArenaRankaward::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_arenarankaward_descriptor_;
+  return Sheet_ArenaRankaward_descriptor_;
 }
 
-const Sheet_arenarankaward& Sheet_arenarankaward::default_instance() {
+const Sheet_ArenaRankaward& Sheet_ArenaRankaward::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-Sheet_arenarankaward* Sheet_arenarankaward::default_instance_ = NULL;
+Sheet_ArenaRankaward* Sheet_ArenaRankaward::default_instance_ = NULL;
 
-Sheet_arenarankaward* Sheet_arenarankaward::New() const {
-  return new Sheet_arenarankaward;
+Sheet_ArenaRankaward* Sheet_ArenaRankaward::New() const {
+  return new Sheet_ArenaRankaward;
 }
 
-void Sheet_arenarankaward::Clear() {
-  arenarankaward_list_.Clear();
+void Sheet_ArenaRankaward::Clear() {
+  e_arenarankaward_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_arenarankaward::MergePartialFromCodedStream(
+bool Sheet_ArenaRankaward::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.arenarankaward arenarankaward_List = 1;
+      // repeated .proto_ff.E_ArenaRankaward E_ArenaRankaward_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_arenarankaward_List:
+         parse_E_ArenaRankaward_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_arenarankaward_list()));
+                input, add_e_arenarankaward_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_arenarankaward_List;
+        if (input->ExpectTag(10)) goto parse_E_ArenaRankaward_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2922,12 +2925,12 @@ bool Sheet_arenarankaward::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_arenarankaward::SerializeWithCachedSizes(
+void Sheet_ArenaRankaward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.arenarankaward arenarankaward_List = 1;
-  for (int i = 0; i < this->arenarankaward_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaRankaward E_ArenaRankaward_List = 1;
+  for (int i = 0; i < this->e_arenarankaward_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->arenarankaward_list(i), output);
+      1, this->e_arenarankaward_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2936,13 +2939,13 @@ void Sheet_arenarankaward::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_arenarankaward::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ArenaRankaward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.arenarankaward arenarankaward_List = 1;
-  for (int i = 0; i < this->arenarankaward_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaRankaward E_ArenaRankaward_List = 1;
+  for (int i = 0; i < this->e_arenarankaward_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->arenarankaward_list(i), target);
+        1, this->e_arenarankaward_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2952,15 +2955,15 @@ void Sheet_arenarankaward::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_arenarankaward::ByteSize() const {
+int Sheet_ArenaRankaward::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.arenarankaward arenarankaward_List = 1;
-  total_size += 1 * this->arenarankaward_list_size();
-  for (int i = 0; i < this->arenarankaward_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaRankaward E_ArenaRankaward_List = 1;
+  total_size += 1 * this->e_arenarankaward_list_size();
+  for (int i = 0; i < this->e_arenarankaward_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->arenarankaward_list(i));
+        this->e_arenarankaward_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2974,10 +2977,10 @@ int Sheet_arenarankaward::ByteSize() const {
   return total_size;
 }
 
-void Sheet_arenarankaward::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaRankaward::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_arenarankaward* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_arenarankaward*>(
+  const Sheet_ArenaRankaward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ArenaRankaward*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2986,43 +2989,43 @@ void Sheet_arenarankaward::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_arenarankaward::MergeFrom(const Sheet_arenarankaward& from) {
+void Sheet_ArenaRankaward::MergeFrom(const Sheet_ArenaRankaward& from) {
   GOOGLE_CHECK_NE(&from, this);
-  arenarankaward_list_.MergeFrom(from.arenarankaward_list_);
+  e_arenarankaward_list_.MergeFrom(from.e_arenarankaward_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_arenarankaward::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaRankaward::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_arenarankaward::CopyFrom(const Sheet_arenarankaward& from) {
+void Sheet_ArenaRankaward::CopyFrom(const Sheet_ArenaRankaward& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_arenarankaward::IsInitialized() const {
+bool Sheet_ArenaRankaward::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_arenarankaward::Swap(Sheet_arenarankaward* other) {
+void Sheet_ArenaRankaward::Swap(Sheet_ArenaRankaward* other) {
   if (other != this) {
-    arenarankaward_list_.Swap(&other->arenarankaward_list_);
+    e_arenarankaward_list_.Swap(&other->e_arenarankaward_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_arenarankaward::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ArenaRankaward::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_arenarankaward_descriptor_;
-  metadata.reflection = Sheet_arenarankaward_reflection_;
+  metadata.descriptor = Sheet_ArenaRankaward_descriptor_;
+  metadata.reflection = Sheet_ArenaRankaward_reflection_;
   return metadata;
 }
 
@@ -3030,100 +3033,100 @@ void Sheet_arenarankaward::Swap(Sheet_arenarankaward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenafirstrankRewardDesc::kIDFieldNumber;
-const int arenafirstrankRewardDesc::kValueFieldNumber;
+const int E_ArenaFirstrankRewardDesc::kMIdFieldNumber;
+const int E_ArenaFirstrankRewardDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-arenafirstrankRewardDesc::arenafirstrankRewardDesc()
+E_ArenaFirstrankRewardDesc::E_ArenaFirstrankRewardDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenafirstrankRewardDesc::InitAsDefaultInstance() {
+void E_ArenaFirstrankRewardDesc::InitAsDefaultInstance() {
 }
 
-arenafirstrankRewardDesc::arenafirstrankRewardDesc(const arenafirstrankRewardDesc& from)
+E_ArenaFirstrankRewardDesc::E_ArenaFirstrankRewardDesc(const E_ArenaFirstrankRewardDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenafirstrankRewardDesc::SharedCtor() {
+void E_ArenaFirstrankRewardDesc::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  value_ = 0;
+  m_id_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenafirstrankRewardDesc::~arenafirstrankRewardDesc() {
+E_ArenaFirstrankRewardDesc::~E_ArenaFirstrankRewardDesc() {
   SharedDtor();
 }
 
-void arenafirstrankRewardDesc::SharedDtor() {
+void E_ArenaFirstrankRewardDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenafirstrankRewardDesc::SetCachedSize(int size) const {
+void E_ArenaFirstrankRewardDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenafirstrankRewardDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaFirstrankRewardDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenafirstrankRewardDesc_descriptor_;
+  return E_ArenaFirstrankRewardDesc_descriptor_;
 }
 
-const arenafirstrankRewardDesc& arenafirstrankRewardDesc::default_instance() {
+const E_ArenaFirstrankRewardDesc& E_ArenaFirstrankRewardDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenafirstrankRewardDesc* arenafirstrankRewardDesc::default_instance_ = NULL;
+E_ArenaFirstrankRewardDesc* E_ArenaFirstrankRewardDesc::default_instance_ = NULL;
 
-arenafirstrankRewardDesc* arenafirstrankRewardDesc::New() const {
-  return new arenafirstrankRewardDesc;
+E_ArenaFirstrankRewardDesc* E_ArenaFirstrankRewardDesc::New() const {
+  return new E_ArenaFirstrankRewardDesc;
 }
 
-void arenafirstrankRewardDesc::Clear() {
+void E_ArenaFirstrankRewardDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    value_ = 0;
+    m_id_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenafirstrankRewardDesc::MergePartialFromCodedStream(
+bool E_ArenaFirstrankRewardDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 ID = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -3147,16 +3150,16 @@ bool arenafirstrankRewardDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenafirstrankRewardDesc::SerializeWithCachedSizes(
+void E_ArenaFirstrankRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3165,16 +3168,16 @@ void arenafirstrankRewardDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenafirstrankRewardDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaFirstrankRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3184,22 +3187,22 @@ void arenafirstrankRewardDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int arenafirstrankRewardDesc::ByteSize() const {
+int E_ArenaFirstrankRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 ID = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -3214,10 +3217,10 @@ int arenafirstrankRewardDesc::ByteSize() const {
   return total_size;
 }
 
-void arenafirstrankRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaFirstrankRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenafirstrankRewardDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenafirstrankRewardDesc*>(
+  const E_ArenaFirstrankRewardDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaFirstrankRewardDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3226,51 +3229,51 @@ void arenafirstrankRewardDesc::MergeFrom(const ::google::protobuf::Message& from
   }
 }
 
-void arenafirstrankRewardDesc::MergeFrom(const arenafirstrankRewardDesc& from) {
+void E_ArenaFirstrankRewardDesc::MergeFrom(const E_ArenaFirstrankRewardDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenafirstrankRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaFirstrankRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenafirstrankRewardDesc::CopyFrom(const arenafirstrankRewardDesc& from) {
+void E_ArenaFirstrankRewardDesc::CopyFrom(const E_ArenaFirstrankRewardDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenafirstrankRewardDesc::IsInitialized() const {
+bool E_ArenaFirstrankRewardDesc::IsInitialized() const {
 
   return true;
 }
 
-void arenafirstrankRewardDesc::Swap(arenafirstrankRewardDesc* other) {
+void E_ArenaFirstrankRewardDesc::Swap(E_ArenaFirstrankRewardDesc* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(value_, other->value_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenafirstrankRewardDesc::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaFirstrankRewardDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenafirstrankRewardDesc_descriptor_;
-  metadata.reflection = arenafirstrankRewardDesc_reflection_;
+  metadata.descriptor = E_ArenaFirstrankRewardDesc_descriptor_;
+  metadata.reflection = E_ArenaFirstrankRewardDesc_reflection_;
   return metadata;
 }
 
@@ -3278,139 +3281,139 @@ void arenafirstrankRewardDesc::Swap(arenafirstrankRewardDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenafirstrank::kIdFieldNumber;
-const int arenafirstrank::kRankDownFieldNumber;
-const int arenafirstrank::kRankUpFieldNumber;
-const int arenafirstrank::kRewardFieldNumber;
+const int E_ArenaFirstrank::kMIdFieldNumber;
+const int E_ArenaFirstrank::kMRankdownFieldNumber;
+const int E_ArenaFirstrank::kMRankupFieldNumber;
+const int E_ArenaFirstrank::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
-arenafirstrank::arenafirstrank()
+E_ArenaFirstrank::E_ArenaFirstrank()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenafirstrank::InitAsDefaultInstance() {
+void E_ArenaFirstrank::InitAsDefaultInstance() {
 }
 
-arenafirstrank::arenafirstrank(const arenafirstrank& from)
+E_ArenaFirstrank::E_ArenaFirstrank(const E_ArenaFirstrank& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenafirstrank::SharedCtor() {
+void E_ArenaFirstrank::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  rankdown_ = 0;
-  rankup_ = 0;
+  m_id_ = 0;
+  m_rankdown_ = 0;
+  m_rankup_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenafirstrank::~arenafirstrank() {
+E_ArenaFirstrank::~E_ArenaFirstrank() {
   SharedDtor();
 }
 
-void arenafirstrank::SharedDtor() {
+void E_ArenaFirstrank::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenafirstrank::SetCachedSize(int size) const {
+void E_ArenaFirstrank::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenafirstrank::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaFirstrank::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenafirstrank_descriptor_;
+  return E_ArenaFirstrank_descriptor_;
 }
 
-const arenafirstrank& arenafirstrank::default_instance() {
+const E_ArenaFirstrank& E_ArenaFirstrank::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenafirstrank* arenafirstrank::default_instance_ = NULL;
+E_ArenaFirstrank* E_ArenaFirstrank::default_instance_ = NULL;
 
-arenafirstrank* arenafirstrank::New() const {
-  return new arenafirstrank;
+E_ArenaFirstrank* E_ArenaFirstrank::New() const {
+  return new E_ArenaFirstrank;
 }
 
-void arenafirstrank::Clear() {
+void E_ArenaFirstrank::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    rankdown_ = 0;
-    rankup_ = 0;
+    m_id_ = 0;
+    m_rankdown_ = 0;
+    m_rankup_ = 0;
   }
-  reward_.Clear();
+  m_reward_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenafirstrank::MergePartialFromCodedStream(
+bool E_ArenaFirstrank::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_rankDown;
+        if (input->ExpectTag(16)) goto parse_m_rankdown;
         break;
       }
 
-      // optional int32 rankDown = 2;
+      // optional int32 m_rankdown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rankDown:
+         parse_m_rankdown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rankdown_)));
-          set_has_rankdown();
+                 input, &m_rankdown_)));
+          set_has_m_rankdown();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_rankUp;
+        if (input->ExpectTag(24)) goto parse_m_rankup;
         break;
       }
 
-      // optional int32 rankUp = 3;
+      // optional int32 m_rankup = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rankUp:
+         parse_m_rankup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rankup_)));
-          set_has_rankup();
+                 input, &m_rankup_)));
+          set_has_m_rankup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_Reward;
+        if (input->ExpectTag(34)) goto parse_m_reward;
         break;
       }
 
-      // repeated .proto_ff.arenafirstrankRewardDesc Reward = 4;
+      // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_Reward:
+         parse_m_reward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_reward()));
+                input, add_m_reward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_Reward;
+        if (input->ExpectTag(34)) goto parse_m_reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3431,27 +3434,27 @@ bool arenafirstrank::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenafirstrank::SerializeWithCachedSizes(
+void E_ArenaFirstrank::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 rankDown = 2;
-  if (has_rankdown()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->rankdown(), output);
+  // optional int32 m_rankdown = 2;
+  if (has_m_rankdown()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_rankdown(), output);
   }
 
-  // optional int32 rankUp = 3;
-  if (has_rankup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->rankup(), output);
+  // optional int32 m_rankup = 3;
+  if (has_m_rankup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_rankup(), output);
   }
 
-  // repeated .proto_ff.arenafirstrankRewardDesc Reward = 4;
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->reward(i), output);
+      4, this->m_reward(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3460,28 +3463,28 @@ void arenafirstrank::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenafirstrank::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaFirstrank::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 rankDown = 2;
-  if (has_rankdown()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->rankdown(), target);
+  // optional int32 m_rankdown = 2;
+  if (has_m_rankdown()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_rankdown(), target);
   }
 
-  // optional int32 rankUp = 3;
-  if (has_rankup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->rankup(), target);
+  // optional int32 m_rankup = 3;
+  if (has_m_rankup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_rankup(), target);
   }
 
-  // repeated .proto_ff.arenafirstrankRewardDesc Reward = 4;
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->reward(i), target);
+        4, this->m_reward(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3491,38 +3494,38 @@ void arenafirstrank::SerializeWithCachedSizes(
   return target;
 }
 
-int arenafirstrank::ByteSize() const {
+int E_ArenaFirstrank::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 rankDown = 2;
-    if (has_rankdown()) {
+    // optional int32 m_rankdown = 2;
+    if (has_m_rankdown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rankdown());
+          this->m_rankdown());
     }
 
-    // optional int32 rankUp = 3;
-    if (has_rankup()) {
+    // optional int32 m_rankup = 3;
+    if (has_m_rankup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rankup());
+          this->m_rankup());
     }
 
   }
-  // repeated .proto_ff.arenafirstrankRewardDesc Reward = 4;
-  total_size += 1 * this->reward_size();
-  for (int i = 0; i < this->reward_size(); i++) {
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  total_size += 1 * this->m_reward_size();
+  for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->reward(i));
+        this->m_reward(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3536,10 +3539,10 @@ int arenafirstrank::ByteSize() const {
   return total_size;
 }
 
-void arenafirstrank::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaFirstrank::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenafirstrank* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenafirstrank*>(
+  const E_ArenaFirstrank* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaFirstrank*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3548,57 +3551,57 @@ void arenafirstrank::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void arenafirstrank::MergeFrom(const arenafirstrank& from) {
+void E_ArenaFirstrank::MergeFrom(const E_ArenaFirstrank& from) {
   GOOGLE_CHECK_NE(&from, this);
-  reward_.MergeFrom(from.reward_);
+  m_reward_.MergeFrom(from.m_reward_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_rankdown()) {
-      set_rankdown(from.rankdown());
+    if (from.has_m_rankdown()) {
+      set_m_rankdown(from.m_rankdown());
     }
-    if (from.has_rankup()) {
-      set_rankup(from.rankup());
+    if (from.has_m_rankup()) {
+      set_m_rankup(from.m_rankup());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenafirstrank::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaFirstrank::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenafirstrank::CopyFrom(const arenafirstrank& from) {
+void E_ArenaFirstrank::CopyFrom(const E_ArenaFirstrank& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenafirstrank::IsInitialized() const {
+bool E_ArenaFirstrank::IsInitialized() const {
 
   return true;
 }
 
-void arenafirstrank::Swap(arenafirstrank* other) {
+void E_ArenaFirstrank::Swap(E_ArenaFirstrank* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(rankdown_, other->rankdown_);
-    std::swap(rankup_, other->rankup_);
-    reward_.Swap(&other->reward_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_rankdown_, other->m_rankdown_);
+    std::swap(m_rankup_, other->m_rankup_);
+    m_reward_.Swap(&other->m_reward_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenafirstrank::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaFirstrank::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenafirstrank_descriptor_;
-  metadata.reflection = arenafirstrank_reflection_;
+  metadata.descriptor = E_ArenaFirstrank_descriptor_;
+  metadata.reflection = E_ArenaFirstrank_reflection_;
   return metadata;
 }
 
@@ -3606,81 +3609,81 @@ void arenafirstrank::Swap(arenafirstrank* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_arenafirstrank::kArenafirstrankListFieldNumber;
+const int Sheet_ArenaFirstrank::kEArenaFirstrankListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_arenafirstrank::Sheet_arenafirstrank()
+Sheet_ArenaFirstrank::Sheet_ArenaFirstrank()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_arenafirstrank::InitAsDefaultInstance() {
+void Sheet_ArenaFirstrank::InitAsDefaultInstance() {
 }
 
-Sheet_arenafirstrank::Sheet_arenafirstrank(const Sheet_arenafirstrank& from)
+Sheet_ArenaFirstrank::Sheet_ArenaFirstrank(const Sheet_ArenaFirstrank& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_arenafirstrank::SharedCtor() {
+void Sheet_ArenaFirstrank::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_arenafirstrank::~Sheet_arenafirstrank() {
+Sheet_ArenaFirstrank::~Sheet_ArenaFirstrank() {
   SharedDtor();
 }
 
-void Sheet_arenafirstrank::SharedDtor() {
+void Sheet_ArenaFirstrank::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_arenafirstrank::SetCachedSize(int size) const {
+void Sheet_ArenaFirstrank::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_arenafirstrank::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ArenaFirstrank::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_arenafirstrank_descriptor_;
+  return Sheet_ArenaFirstrank_descriptor_;
 }
 
-const Sheet_arenafirstrank& Sheet_arenafirstrank::default_instance() {
+const Sheet_ArenaFirstrank& Sheet_ArenaFirstrank::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-Sheet_arenafirstrank* Sheet_arenafirstrank::default_instance_ = NULL;
+Sheet_ArenaFirstrank* Sheet_ArenaFirstrank::default_instance_ = NULL;
 
-Sheet_arenafirstrank* Sheet_arenafirstrank::New() const {
-  return new Sheet_arenafirstrank;
+Sheet_ArenaFirstrank* Sheet_ArenaFirstrank::New() const {
+  return new Sheet_ArenaFirstrank;
 }
 
-void Sheet_arenafirstrank::Clear() {
-  arenafirstrank_list_.Clear();
+void Sheet_ArenaFirstrank::Clear() {
+  e_arenafirstrank_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_arenafirstrank::MergePartialFromCodedStream(
+bool Sheet_ArenaFirstrank::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.arenafirstrank arenafirstrank_List = 1;
+      // repeated .proto_ff.E_ArenaFirstrank E_ArenaFirstrank_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_arenafirstrank_List:
+         parse_E_ArenaFirstrank_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_arenafirstrank_list()));
+                input, add_e_arenafirstrank_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_arenafirstrank_List;
+        if (input->ExpectTag(10)) goto parse_E_ArenaFirstrank_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3701,12 +3704,12 @@ bool Sheet_arenafirstrank::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_arenafirstrank::SerializeWithCachedSizes(
+void Sheet_ArenaFirstrank::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.arenafirstrank arenafirstrank_List = 1;
-  for (int i = 0; i < this->arenafirstrank_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaFirstrank E_ArenaFirstrank_List = 1;
+  for (int i = 0; i < this->e_arenafirstrank_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->arenafirstrank_list(i), output);
+      1, this->e_arenafirstrank_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3715,13 +3718,13 @@ void Sheet_arenafirstrank::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_arenafirstrank::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ArenaFirstrank::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.arenafirstrank arenafirstrank_List = 1;
-  for (int i = 0; i < this->arenafirstrank_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaFirstrank E_ArenaFirstrank_List = 1;
+  for (int i = 0; i < this->e_arenafirstrank_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->arenafirstrank_list(i), target);
+        1, this->e_arenafirstrank_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3731,15 +3734,15 @@ void Sheet_arenafirstrank::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_arenafirstrank::ByteSize() const {
+int Sheet_ArenaFirstrank::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.arenafirstrank arenafirstrank_List = 1;
-  total_size += 1 * this->arenafirstrank_list_size();
-  for (int i = 0; i < this->arenafirstrank_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaFirstrank E_ArenaFirstrank_List = 1;
+  total_size += 1 * this->e_arenafirstrank_list_size();
+  for (int i = 0; i < this->e_arenafirstrank_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->arenafirstrank_list(i));
+        this->e_arenafirstrank_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3753,10 +3756,10 @@ int Sheet_arenafirstrank::ByteSize() const {
   return total_size;
 }
 
-void Sheet_arenafirstrank::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaFirstrank::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_arenafirstrank* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_arenafirstrank*>(
+  const Sheet_ArenaFirstrank* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ArenaFirstrank*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -3765,43 +3768,43 @@ void Sheet_arenafirstrank::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_arenafirstrank::MergeFrom(const Sheet_arenafirstrank& from) {
+void Sheet_ArenaFirstrank::MergeFrom(const Sheet_ArenaFirstrank& from) {
   GOOGLE_CHECK_NE(&from, this);
-  arenafirstrank_list_.MergeFrom(from.arenafirstrank_list_);
+  e_arenafirstrank_list_.MergeFrom(from.e_arenafirstrank_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_arenafirstrank::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaFirstrank::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_arenafirstrank::CopyFrom(const Sheet_arenafirstrank& from) {
+void Sheet_ArenaFirstrank::CopyFrom(const Sheet_ArenaFirstrank& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_arenafirstrank::IsInitialized() const {
+bool Sheet_ArenaFirstrank::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_arenafirstrank::Swap(Sheet_arenafirstrank* other) {
+void Sheet_ArenaFirstrank::Swap(Sheet_ArenaFirstrank* other) {
   if (other != this) {
-    arenafirstrank_list_.Swap(&other->arenafirstrank_list_);
+    e_arenafirstrank_list_.Swap(&other->e_arenafirstrank_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_arenafirstrank::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ArenaFirstrank::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_arenafirstrank_descriptor_;
-  metadata.reflection = Sheet_arenafirstrank_reflection_;
+  metadata.descriptor = Sheet_ArenaFirstrank_descriptor_;
+  metadata.reflection = Sheet_ArenaFirstrank_reflection_;
   return metadata;
 }
 
@@ -3809,119 +3812,119 @@ void Sheet_arenafirstrank::Swap(Sheet_arenafirstrank* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int arenabuychallenge::kCountFieldNumber;
-const int arenabuychallenge::kCostTypeFieldNumber;
-const int arenabuychallenge::kCostFieldNumber;
+const int E_ArenaBuychallenge::kMCountFieldNumber;
+const int E_ArenaBuychallenge::kMCosttypeFieldNumber;
+const int E_ArenaBuychallenge::kMCostFieldNumber;
 #endif  // !_MSC_VER
 
-arenabuychallenge::arenabuychallenge()
+E_ArenaBuychallenge::E_ArenaBuychallenge()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void arenabuychallenge::InitAsDefaultInstance() {
+void E_ArenaBuychallenge::InitAsDefaultInstance() {
 }
 
-arenabuychallenge::arenabuychallenge(const arenabuychallenge& from)
+E_ArenaBuychallenge::E_ArenaBuychallenge(const E_ArenaBuychallenge& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void arenabuychallenge::SharedCtor() {
+void E_ArenaBuychallenge::SharedCtor() {
   _cached_size_ = 0;
-  count_ = 0;
-  costtype_ = 0;
-  cost_ = 0;
+  m_count_ = 0;
+  m_costtype_ = 0;
+  m_cost_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-arenabuychallenge::~arenabuychallenge() {
+E_ArenaBuychallenge::~E_ArenaBuychallenge() {
   SharedDtor();
 }
 
-void arenabuychallenge::SharedDtor() {
+void E_ArenaBuychallenge::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void arenabuychallenge::SetCachedSize(int size) const {
+void E_ArenaBuychallenge::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* arenabuychallenge::descriptor() {
+const ::google::protobuf::Descriptor* E_ArenaBuychallenge::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return arenabuychallenge_descriptor_;
+  return E_ArenaBuychallenge_descriptor_;
 }
 
-const arenabuychallenge& arenabuychallenge::default_instance() {
+const E_ArenaBuychallenge& E_ArenaBuychallenge::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-arenabuychallenge* arenabuychallenge::default_instance_ = NULL;
+E_ArenaBuychallenge* E_ArenaBuychallenge::default_instance_ = NULL;
 
-arenabuychallenge* arenabuychallenge::New() const {
-  return new arenabuychallenge;
+E_ArenaBuychallenge* E_ArenaBuychallenge::New() const {
+  return new E_ArenaBuychallenge;
 }
 
-void arenabuychallenge::Clear() {
+void E_ArenaBuychallenge::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    count_ = 0;
-    costtype_ = 0;
-    cost_ = 0;
+    m_count_ = 0;
+    m_costtype_ = 0;
+    m_cost_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool arenabuychallenge::MergePartialFromCodedStream(
+bool E_ArenaBuychallenge::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 count = 1;
+      // optional int32 m_count = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &count_)));
-          set_has_count();
+                 input, &m_count_)));
+          set_has_m_count();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_costType;
+        if (input->ExpectTag(16)) goto parse_m_costtype;
         break;
       }
 
-      // optional int32 costType = 2;
+      // optional int32 m_costtype = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_costType:
+         parse_m_costtype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &costtype_)));
-          set_has_costtype();
+                 input, &m_costtype_)));
+          set_has_m_costtype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_cost;
+        if (input->ExpectTag(24)) goto parse_m_cost;
         break;
       }
 
-      // optional int32 cost = 3;
+      // optional int32 m_cost = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_cost:
+         parse_m_cost:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &cost_)));
-          set_has_cost();
+                 input, &m_cost_)));
+          set_has_m_cost();
         } else {
           goto handle_uninterpreted;
         }
@@ -3945,21 +3948,21 @@ bool arenabuychallenge::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void arenabuychallenge::SerializeWithCachedSizes(
+void E_ArenaBuychallenge::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 count = 1;
-  if (has_count()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->count(), output);
+  // optional int32 m_count = 1;
+  if (has_m_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_count(), output);
   }
 
-  // optional int32 costType = 2;
-  if (has_costtype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->costtype(), output);
+  // optional int32 m_costtype = 2;
+  if (has_m_costtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_costtype(), output);
   }
 
-  // optional int32 cost = 3;
-  if (has_cost()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->cost(), output);
+  // optional int32 m_cost = 3;
+  if (has_m_cost()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_cost(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3968,21 +3971,21 @@ void arenabuychallenge::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* arenabuychallenge::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_ArenaBuychallenge::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 count = 1;
-  if (has_count()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->count(), target);
+  // optional int32 m_count = 1;
+  if (has_m_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_count(), target);
   }
 
-  // optional int32 costType = 2;
-  if (has_costtype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->costtype(), target);
+  // optional int32 m_costtype = 2;
+  if (has_m_costtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_costtype(), target);
   }
 
-  // optional int32 cost = 3;
-  if (has_cost()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->cost(), target);
+  // optional int32 m_cost = 3;
+  if (has_m_cost()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_cost(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3992,29 +3995,29 @@ void arenabuychallenge::SerializeWithCachedSizes(
   return target;
 }
 
-int arenabuychallenge::ByteSize() const {
+int E_ArenaBuychallenge::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 count = 1;
-    if (has_count()) {
+    // optional int32 m_count = 1;
+    if (has_m_count()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->count());
+          this->m_count());
     }
 
-    // optional int32 costType = 2;
-    if (has_costtype()) {
+    // optional int32 m_costtype = 2;
+    if (has_m_costtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->costtype());
+          this->m_costtype());
     }
 
-    // optional int32 cost = 3;
-    if (has_cost()) {
+    // optional int32 m_cost = 3;
+    if (has_m_cost()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->cost());
+          this->m_cost());
     }
 
   }
@@ -4029,10 +4032,10 @@ int arenabuychallenge::ByteSize() const {
   return total_size;
 }
 
-void arenabuychallenge::MergeFrom(const ::google::protobuf::Message& from) {
+void E_ArenaBuychallenge::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const arenabuychallenge* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const arenabuychallenge*>(
+  const E_ArenaBuychallenge* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaBuychallenge*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -4041,55 +4044,55 @@ void arenabuychallenge::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void arenabuychallenge::MergeFrom(const arenabuychallenge& from) {
+void E_ArenaBuychallenge::MergeFrom(const E_ArenaBuychallenge& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_count()) {
-      set_count(from.count());
+    if (from.has_m_count()) {
+      set_m_count(from.m_count());
     }
-    if (from.has_costtype()) {
-      set_costtype(from.costtype());
+    if (from.has_m_costtype()) {
+      set_m_costtype(from.m_costtype());
     }
-    if (from.has_cost()) {
-      set_cost(from.cost());
+    if (from.has_m_cost()) {
+      set_m_cost(from.m_cost());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void arenabuychallenge::CopyFrom(const ::google::protobuf::Message& from) {
+void E_ArenaBuychallenge::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void arenabuychallenge::CopyFrom(const arenabuychallenge& from) {
+void E_ArenaBuychallenge::CopyFrom(const E_ArenaBuychallenge& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool arenabuychallenge::IsInitialized() const {
+bool E_ArenaBuychallenge::IsInitialized() const {
 
   return true;
 }
 
-void arenabuychallenge::Swap(arenabuychallenge* other) {
+void E_ArenaBuychallenge::Swap(E_ArenaBuychallenge* other) {
   if (other != this) {
-    std::swap(count_, other->count_);
-    std::swap(costtype_, other->costtype_);
-    std::swap(cost_, other->cost_);
+    std::swap(m_count_, other->m_count_);
+    std::swap(m_costtype_, other->m_costtype_);
+    std::swap(m_cost_, other->m_cost_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata arenabuychallenge::GetMetadata() const {
+::google::protobuf::Metadata E_ArenaBuychallenge::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = arenabuychallenge_descriptor_;
-  metadata.reflection = arenabuychallenge_reflection_;
+  metadata.descriptor = E_ArenaBuychallenge_descriptor_;
+  metadata.reflection = E_ArenaBuychallenge_reflection_;
   return metadata;
 }
 
@@ -4097,81 +4100,81 @@ void arenabuychallenge::Swap(arenabuychallenge* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_arenabuychallenge::kArenabuychallengeListFieldNumber;
+const int Sheet_ArenaBuychallenge::kEArenaBuychallengeListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_arenabuychallenge::Sheet_arenabuychallenge()
+Sheet_ArenaBuychallenge::Sheet_ArenaBuychallenge()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_arenabuychallenge::InitAsDefaultInstance() {
+void Sheet_ArenaBuychallenge::InitAsDefaultInstance() {
 }
 
-Sheet_arenabuychallenge::Sheet_arenabuychallenge(const Sheet_arenabuychallenge& from)
+Sheet_ArenaBuychallenge::Sheet_ArenaBuychallenge(const Sheet_ArenaBuychallenge& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_arenabuychallenge::SharedCtor() {
+void Sheet_ArenaBuychallenge::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_arenabuychallenge::~Sheet_arenabuychallenge() {
+Sheet_ArenaBuychallenge::~Sheet_ArenaBuychallenge() {
   SharedDtor();
 }
 
-void Sheet_arenabuychallenge::SharedDtor() {
+void Sheet_ArenaBuychallenge::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_arenabuychallenge::SetCachedSize(int size) const {
+void Sheet_ArenaBuychallenge::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_arenabuychallenge::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_ArenaBuychallenge::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_arenabuychallenge_descriptor_;
+  return Sheet_ArenaBuychallenge_descriptor_;
 }
 
-const Sheet_arenabuychallenge& Sheet_arenabuychallenge::default_instance() {
+const Sheet_ArenaBuychallenge& Sheet_ArenaBuychallenge::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
   return *default_instance_;
 }
 
-Sheet_arenabuychallenge* Sheet_arenabuychallenge::default_instance_ = NULL;
+Sheet_ArenaBuychallenge* Sheet_ArenaBuychallenge::default_instance_ = NULL;
 
-Sheet_arenabuychallenge* Sheet_arenabuychallenge::New() const {
-  return new Sheet_arenabuychallenge;
+Sheet_ArenaBuychallenge* Sheet_ArenaBuychallenge::New() const {
+  return new Sheet_ArenaBuychallenge;
 }
 
-void Sheet_arenabuychallenge::Clear() {
-  arenabuychallenge_list_.Clear();
+void Sheet_ArenaBuychallenge::Clear() {
+  e_arenabuychallenge_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_arenabuychallenge::MergePartialFromCodedStream(
+bool Sheet_ArenaBuychallenge::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.arenabuychallenge arenabuychallenge_List = 1;
+      // repeated .proto_ff.E_ArenaBuychallenge E_ArenaBuychallenge_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_arenabuychallenge_List:
+         parse_E_ArenaBuychallenge_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_arenabuychallenge_list()));
+                input, add_e_arenabuychallenge_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_arenabuychallenge_List;
+        if (input->ExpectTag(10)) goto parse_E_ArenaBuychallenge_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4192,12 +4195,12 @@ bool Sheet_arenabuychallenge::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_arenabuychallenge::SerializeWithCachedSizes(
+void Sheet_ArenaBuychallenge::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.arenabuychallenge arenabuychallenge_List = 1;
-  for (int i = 0; i < this->arenabuychallenge_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaBuychallenge E_ArenaBuychallenge_List = 1;
+  for (int i = 0; i < this->e_arenabuychallenge_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->arenabuychallenge_list(i), output);
+      1, this->e_arenabuychallenge_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4206,13 +4209,13 @@ void Sheet_arenabuychallenge::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_arenabuychallenge::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_ArenaBuychallenge::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.arenabuychallenge arenabuychallenge_List = 1;
-  for (int i = 0; i < this->arenabuychallenge_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaBuychallenge E_ArenaBuychallenge_List = 1;
+  for (int i = 0; i < this->e_arenabuychallenge_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->arenabuychallenge_list(i), target);
+        1, this->e_arenabuychallenge_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4222,15 +4225,15 @@ void Sheet_arenabuychallenge::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_arenabuychallenge::ByteSize() const {
+int Sheet_ArenaBuychallenge::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.arenabuychallenge arenabuychallenge_List = 1;
-  total_size += 1 * this->arenabuychallenge_list_size();
-  for (int i = 0; i < this->arenabuychallenge_list_size(); i++) {
+  // repeated .proto_ff.E_ArenaBuychallenge E_ArenaBuychallenge_List = 1;
+  total_size += 1 * this->e_arenabuychallenge_list_size();
+  for (int i = 0; i < this->e_arenabuychallenge_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->arenabuychallenge_list(i));
+        this->e_arenabuychallenge_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -4244,10 +4247,10 @@ int Sheet_arenabuychallenge::ByteSize() const {
   return total_size;
 }
 
-void Sheet_arenabuychallenge::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaBuychallenge::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_arenabuychallenge* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_arenabuychallenge*>(
+  const Sheet_ArenaBuychallenge* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ArenaBuychallenge*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -4256,43 +4259,43 @@ void Sheet_arenabuychallenge::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void Sheet_arenabuychallenge::MergeFrom(const Sheet_arenabuychallenge& from) {
+void Sheet_ArenaBuychallenge::MergeFrom(const Sheet_ArenaBuychallenge& from) {
   GOOGLE_CHECK_NE(&from, this);
-  arenabuychallenge_list_.MergeFrom(from.arenabuychallenge_list_);
+  e_arenabuychallenge_list_.MergeFrom(from.e_arenabuychallenge_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_arenabuychallenge::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_ArenaBuychallenge::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_arenabuychallenge::CopyFrom(const Sheet_arenabuychallenge& from) {
+void Sheet_ArenaBuychallenge::CopyFrom(const Sheet_ArenaBuychallenge& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_arenabuychallenge::IsInitialized() const {
+bool Sheet_ArenaBuychallenge::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_arenabuychallenge::Swap(Sheet_arenabuychallenge* other) {
+void Sheet_ArenaBuychallenge::Swap(Sheet_ArenaBuychallenge* other) {
   if (other != this) {
-    arenabuychallenge_list_.Swap(&other->arenabuychallenge_list_);
+    e_arenabuychallenge_list_.Swap(&other->e_arenabuychallenge_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_arenabuychallenge::GetMetadata() const {
+::google::protobuf::Metadata Sheet_ArenaBuychallenge::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_arenabuychallenge_descriptor_;
-  metadata.reflection = Sheet_arenabuychallenge_reflection_;
+  metadata.descriptor = Sheet_ArenaBuychallenge_descriptor_;
+  metadata.reflection = Sheet_ArenaBuychallenge_reflection_;
   return metadata;
 }
 

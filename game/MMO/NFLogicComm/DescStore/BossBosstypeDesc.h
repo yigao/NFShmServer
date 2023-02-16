@@ -14,9 +14,9 @@ public:
 	virtual ~BossBosstypeDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::bossbosstype_s* GetDesc(int id) const;
-	proto_ff_s::bossbosstype_s* GetDesc(int id);
+	const proto_ff_s::E_BossBosstype_s* GetDesc(int id) const;
+	proto_ff_s::E_BossBosstype_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::bossbosstype_s, bossbosstype, MAX_BOSS_BOSSTYPE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_BossBosstype_s, bossbosstype, MAX_BOSS_BOSSTYPE_NUM);
 DECLARE_IDCREATE(BossBosstypeDesc);
 };

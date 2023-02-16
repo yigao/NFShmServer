@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-facadedisplaymaterialDesc_s::facadedisplaymaterialDesc_s() {
+E_FacadeDisplayMaterialDesc_s::E_FacadeDisplayMaterialDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ facadedisplaymaterialDesc_s::facadedisplaymaterialDesc_s() {
 	}
 }
 
-int facadedisplaymaterialDesc_s::CreateInit() {
-	id = (int64_t)0;
-	exp = (int32_t)0;
+int E_FacadeDisplayMaterialDesc_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_exp = (int32_t)0;
 	return 0;
 }
 
-int facadedisplaymaterialDesc_s::ResumeInit() {
+int E_FacadeDisplayMaterialDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadedisplaymaterialDesc_s::write_to_pbmsg(::proto_ff::facadedisplaymaterialDesc & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_exp((int32_t)exp);
+void E_FacadeDisplayMaterialDesc_s::write_to_pbmsg(::proto_ff::E_FacadeDisplayMaterialDesc & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_exp((int32_t)m_exp);
 }
 
-void facadedisplaymaterialDesc_s::read_from_pbmsg(const ::proto_ff::facadedisplaymaterialDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadedisplaymaterialDesc_s));
-	id = msg.id();
-	exp = msg.exp();
+void E_FacadeDisplayMaterialDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeDisplayMaterialDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeDisplayMaterialDesc_s));
+	m_id = msg.m_id();
+	m_exp = msg.m_exp();
 }
 
-facadedisplay_s::facadedisplay_s() {
+E_FacadeDisplay_s::E_FacadeDisplay_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,57 +39,57 @@ facadedisplay_s::facadedisplay_s() {
 	}
 }
 
-int facadedisplay_s::CreateInit() {
-	id = (int64_t)0;
-	type = (int32_t)0;
-	soulItemID = (int32_t)0;
+int E_FacadeDisplay_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_soulitemid = (int32_t)0;
 	return 0;
 }
 
-int facadedisplay_s::ResumeInit() {
+int E_FacadeDisplay_s::ResumeInit() {
 	return 0;
 }
 
-void facadedisplay_s::write_to_pbmsg(::proto_ff::facadedisplay & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_type((int32_t)type);
-	msg.set_resource((const char*)resource.Get());
-	msg.set_name((const char*)name.Get());
-	msg.set_activedesc((const char*)activeDesc.Get());
-	msg.set_professionid((const char*)professionID.Get());
-	msg.set_skillid((const char*)skillID.Get());
-	msg.set_soulitemid((int32_t)soulItemID);
-	for(int32_t i = 0; i < (int32_t)material.GetSize() && i < material.GetMaxSize(); ++i) {
-		::proto_ff::facadedisplaymaterialDesc* temp_material = msg.add_material();
-		material[i].write_to_pbmsg(*temp_material);
+void E_FacadeDisplay_s::write_to_pbmsg(::proto_ff::E_FacadeDisplay & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_resource((const char*)m_resource.data());
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_activedesc((const char*)m_activedesc.data());
+	msg.set_m_professionid((const char*)m_professionid.data());
+	msg.set_m_skillid((const char*)m_skillid.data());
+	msg.set_m_soulitemid((int32_t)m_soulitemid);
+	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
+		::proto_ff::E_FacadeDisplayMaterialDesc* temp_m_material = msg.add_m_material();
+		m_material[i].write_to_pbmsg(*temp_m_material);
 	}
-	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize() && i < fragmentID.GetMaxSize(); ++i) {
-		msg.add_fragmentid((int64_t)fragmentID[i]);
-	}
-}
-
-void facadedisplay_s::read_from_pbmsg(const ::proto_ff::facadedisplay & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadedisplay_s));
-	id = msg.id();
-	type = msg.type();
-	resource.Copy(msg.resource());
-	name.Copy(msg.name());
-	activeDesc.Copy(msg.activedesc());
-	professionID.Copy(msg.professionid());
-	skillID.Copy(msg.skillid());
-	soulItemID = msg.soulitemid();
-	material.SetSize(msg.material_size() > material.GetMaxSize() ? material.GetMaxSize() : msg.material_size());
-	for(int32_t i = 0; i < (int32_t)material.GetSize(); ++i) {
-		const ::proto_ff::facadedisplaymaterialDesc & temp_material = msg.material(i);
-		material[i].read_from_pbmsg(temp_material);
-	}
-	fragmentID.SetSize(msg.fragmentid_size() > fragmentID.GetMaxSize() ? fragmentID.GetMaxSize() : msg.fragmentid_size());
-	for(int32_t i = 0; i < (int32_t)fragmentID.GetSize(); ++i) {
-		fragmentID[i] = msg.fragmentid(i);
+	for(int32_t i = 0; i < (int32_t)m_fragmentid.size(); ++i) {
+		msg.add_m_fragmentid((int64_t)m_fragmentid[i]);
 	}
 }
 
-Sheet_facadedisplay_s::Sheet_facadedisplay_s() {
+void E_FacadeDisplay_s::read_from_pbmsg(const ::proto_ff::E_FacadeDisplay & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeDisplay_s));
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_resource = msg.m_resource();
+	m_name = msg.m_name();
+	m_activedesc = msg.m_activedesc();
+	m_professionid = msg.m_professionid();
+	m_skillid = msg.m_skillid();
+	m_soulitemid = msg.m_soulitemid();
+	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
+	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
+		const ::proto_ff::E_FacadeDisplayMaterialDesc & temp_m_material = msg.m_material(i);
+		m_material[i].read_from_pbmsg(temp_m_material);
+	}
+	m_fragmentid.resize((int)msg.m_fragmentid_size() > (int)m_fragmentid.max_size() ? m_fragmentid.max_size() : msg.m_fragmentid_size());
+	for(int32_t i = 0; i < (int32_t)m_fragmentid.size(); ++i) {
+		m_fragmentid[i] = msg.m_fragmentid(i);
+	}
+}
+
+Sheet_FacadeDisplay_s::Sheet_FacadeDisplay_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -97,31 +97,31 @@ Sheet_facadedisplay_s::Sheet_facadedisplay_s() {
 	}
 }
 
-int Sheet_facadedisplay_s::CreateInit() {
+int Sheet_FacadeDisplay_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadedisplay_s::ResumeInit() {
+int Sheet_FacadeDisplay_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadedisplay_s::write_to_pbmsg(::proto_ff::Sheet_facadedisplay & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadedisplay_List.GetSize() && i < facadedisplay_List.GetMaxSize(); ++i) {
-		::proto_ff::facadedisplay* temp_facadedisplay_list = msg.add_facadedisplay_list();
-		facadedisplay_List[i].write_to_pbmsg(*temp_facadedisplay_list);
+void Sheet_FacadeDisplay_s::write_to_pbmsg(::proto_ff::Sheet_FacadeDisplay & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeDisplay_List.size(); ++i) {
+		::proto_ff::E_FacadeDisplay* temp_e_facadedisplay_list = msg.add_e_facadedisplay_list();
+		E_FacadeDisplay_List[i].write_to_pbmsg(*temp_e_facadedisplay_list);
 	}
 }
 
-void Sheet_facadedisplay_s::read_from_pbmsg(const ::proto_ff::Sheet_facadedisplay & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadedisplay_s));
-	facadedisplay_List.SetSize(msg.facadedisplay_list_size() > facadedisplay_List.GetMaxSize() ? facadedisplay_List.GetMaxSize() : msg.facadedisplay_list_size());
-	for(int32_t i = 0; i < (int32_t)facadedisplay_List.GetSize(); ++i) {
-		const ::proto_ff::facadedisplay & temp_facadedisplay_list = msg.facadedisplay_list(i);
-		facadedisplay_List[i].read_from_pbmsg(temp_facadedisplay_list);
+void Sheet_FacadeDisplay_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeDisplay & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeDisplay_s));
+	E_FacadeDisplay_List.resize((int)msg.e_facadedisplay_list_size() > (int)E_FacadeDisplay_List.max_size() ? E_FacadeDisplay_List.max_size() : msg.e_facadedisplay_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeDisplay_List.size(); ++i) {
+		const ::proto_ff::E_FacadeDisplay & temp_e_facadedisplay_list = msg.e_facadedisplay_list(i);
+		E_FacadeDisplay_List[i].read_from_pbmsg(temp_e_facadedisplay_list);
 	}
 }
 
-facadevaluetreasureAttributeDesc_s::facadevaluetreasureAttributeDesc_s() {
+E_FacadeValueTreasureattributeDesc_s::E_FacadeValueTreasureattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -129,28 +129,28 @@ facadevaluetreasureAttributeDesc_s::facadevaluetreasureAttributeDesc_s() {
 	}
 }
 
-int facadevaluetreasureAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeValueTreasureattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadevaluetreasureAttributeDesc_s::ResumeInit() {
+int E_FacadeValueTreasureattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadevaluetreasureAttributeDesc_s::write_to_pbmsg(::proto_ff::facadevaluetreasureAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeValueTreasureattributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeValueTreasureattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadevaluetreasureAttributeDesc_s::read_from_pbmsg(const ::proto_ff::facadevaluetreasureAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadevaluetreasureAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeValueTreasureattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeValueTreasureattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeValueTreasureattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadevalueArtifactAttributeDesc_s::facadevalueArtifactAttributeDesc_s() {
+E_FacadeValueArtifactattributeDesc_s::E_FacadeValueArtifactattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -158,28 +158,28 @@ facadevalueArtifactAttributeDesc_s::facadevalueArtifactAttributeDesc_s() {
 	}
 }
 
-int facadevalueArtifactAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeValueArtifactattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadevalueArtifactAttributeDesc_s::ResumeInit() {
+int E_FacadeValueArtifactattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadevalueArtifactAttributeDesc_s::write_to_pbmsg(::proto_ff::facadevalueArtifactAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeValueArtifactattributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeValueArtifactattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadevalueArtifactAttributeDesc_s::read_from_pbmsg(const ::proto_ff::facadevalueArtifactAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadevalueArtifactAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeValueArtifactattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeValueArtifactattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeValueArtifactattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadevalueBladeAttributeDesc_s::facadevalueBladeAttributeDesc_s() {
+E_FacadeValueBladeattributeDesc_s::E_FacadeValueBladeattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -187,28 +187,28 @@ facadevalueBladeAttributeDesc_s::facadevalueBladeAttributeDesc_s() {
 	}
 }
 
-int facadevalueBladeAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeValueBladeattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadevalueBladeAttributeDesc_s::ResumeInit() {
+int E_FacadeValueBladeattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadevalueBladeAttributeDesc_s::write_to_pbmsg(::proto_ff::facadevalueBladeAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeValueBladeattributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeValueBladeattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadevalueBladeAttributeDesc_s::read_from_pbmsg(const ::proto_ff::facadevalueBladeAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadevalueBladeAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeValueBladeattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeValueBladeattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeValueBladeattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadevaluewingAttributeDesc_s::facadevaluewingAttributeDesc_s() {
+E_FacadeValueWingattributeDesc_s::E_FacadeValueWingattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -216,28 +216,28 @@ facadevaluewingAttributeDesc_s::facadevaluewingAttributeDesc_s() {
 	}
 }
 
-int facadevaluewingAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeValueWingattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadevaluewingAttributeDesc_s::ResumeInit() {
+int E_FacadeValueWingattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadevaluewingAttributeDesc_s::write_to_pbmsg(::proto_ff::facadevaluewingAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeValueWingattributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeValueWingattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadevaluewingAttributeDesc_s::read_from_pbmsg(const ::proto_ff::facadevaluewingAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadevaluewingAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeValueWingattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeValueWingattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeValueWingattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadevalue_s::facadevalue_s() {
+E_FacadeValue_s::E_FacadeValue_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -245,73 +245,73 @@ facadevalue_s::facadevalue_s() {
 	}
 }
 
-int facadevalue_s::CreateInit() {
-	lv = (int32_t)0;
-	wingExp = (int64_t)0;
-	treasureExp = (int64_t)0;
-	ArtifactExp = (int64_t)0;
-	BladeExp = (int64_t)0;
+int E_FacadeValue_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_wingexp = (int64_t)0;
+	m_treasureexp = (int64_t)0;
+	m_artifactexp = (int64_t)0;
+	m_bladeexp = (int64_t)0;
 	return 0;
 }
 
-int facadevalue_s::ResumeInit() {
+int E_FacadeValue_s::ResumeInit() {
 	return 0;
 }
 
-void facadevalue_s::write_to_pbmsg(::proto_ff::facadevalue & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_wingexp((int64_t)wingExp);
-	msg.set_treasureexp((int64_t)treasureExp);
-	msg.set_artifactexp((int64_t)ArtifactExp);
-	msg.set_bladeexp((int64_t)BladeExp);
-	for(int32_t i = 0; i < (int32_t)treasureAttribute.GetSize() && i < treasureAttribute.GetMaxSize(); ++i) {
-		::proto_ff::facadevaluetreasureAttributeDesc* temp_treasureattribute = msg.add_treasureattribute();
-		treasureAttribute[i].write_to_pbmsg(*temp_treasureattribute);
+void E_FacadeValue_s::write_to_pbmsg(::proto_ff::E_FacadeValue & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_wingexp((int64_t)m_wingexp);
+	msg.set_m_treasureexp((int64_t)m_treasureexp);
+	msg.set_m_artifactexp((int64_t)m_artifactexp);
+	msg.set_m_bladeexp((int64_t)m_bladeexp);
+	for(int32_t i = 0; i < (int32_t)m_treasureattribute.size(); ++i) {
+		::proto_ff::E_FacadeValueTreasureattributeDesc* temp_m_treasureattribute = msg.add_m_treasureattribute();
+		m_treasureattribute[i].write_to_pbmsg(*temp_m_treasureattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)ArtifactAttribute.GetSize() && i < ArtifactAttribute.GetMaxSize(); ++i) {
-		::proto_ff::facadevalueArtifactAttributeDesc* temp_artifactattribute = msg.add_artifactattribute();
-		ArtifactAttribute[i].write_to_pbmsg(*temp_artifactattribute);
+	for(int32_t i = 0; i < (int32_t)m_artifactattribute.size(); ++i) {
+		::proto_ff::E_FacadeValueArtifactattributeDesc* temp_m_artifactattribute = msg.add_m_artifactattribute();
+		m_artifactattribute[i].write_to_pbmsg(*temp_m_artifactattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)BladeAttribute.GetSize() && i < BladeAttribute.GetMaxSize(); ++i) {
-		::proto_ff::facadevalueBladeAttributeDesc* temp_bladeattribute = msg.add_bladeattribute();
-		BladeAttribute[i].write_to_pbmsg(*temp_bladeattribute);
+	for(int32_t i = 0; i < (int32_t)m_bladeattribute.size(); ++i) {
+		::proto_ff::E_FacadeValueBladeattributeDesc* temp_m_bladeattribute = msg.add_m_bladeattribute();
+		m_bladeattribute[i].write_to_pbmsg(*temp_m_bladeattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)wingAttribute.GetSize() && i < wingAttribute.GetMaxSize(); ++i) {
-		::proto_ff::facadevaluewingAttributeDesc* temp_wingattribute = msg.add_wingattribute();
-		wingAttribute[i].write_to_pbmsg(*temp_wingattribute);
-	}
-}
-
-void facadevalue_s::read_from_pbmsg(const ::proto_ff::facadevalue & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadevalue_s));
-	lv = msg.lv();
-	wingExp = msg.wingexp();
-	treasureExp = msg.treasureexp();
-	ArtifactExp = msg.artifactexp();
-	BladeExp = msg.bladeexp();
-	treasureAttribute.SetSize(msg.treasureattribute_size() > treasureAttribute.GetMaxSize() ? treasureAttribute.GetMaxSize() : msg.treasureattribute_size());
-	for(int32_t i = 0; i < (int32_t)treasureAttribute.GetSize(); ++i) {
-		const ::proto_ff::facadevaluetreasureAttributeDesc & temp_treasureattribute = msg.treasureattribute(i);
-		treasureAttribute[i].read_from_pbmsg(temp_treasureattribute);
-	}
-	ArtifactAttribute.SetSize(msg.artifactattribute_size() > ArtifactAttribute.GetMaxSize() ? ArtifactAttribute.GetMaxSize() : msg.artifactattribute_size());
-	for(int32_t i = 0; i < (int32_t)ArtifactAttribute.GetSize(); ++i) {
-		const ::proto_ff::facadevalueArtifactAttributeDesc & temp_artifactattribute = msg.artifactattribute(i);
-		ArtifactAttribute[i].read_from_pbmsg(temp_artifactattribute);
-	}
-	BladeAttribute.SetSize(msg.bladeattribute_size() > BladeAttribute.GetMaxSize() ? BladeAttribute.GetMaxSize() : msg.bladeattribute_size());
-	for(int32_t i = 0; i < (int32_t)BladeAttribute.GetSize(); ++i) {
-		const ::proto_ff::facadevalueBladeAttributeDesc & temp_bladeattribute = msg.bladeattribute(i);
-		BladeAttribute[i].read_from_pbmsg(temp_bladeattribute);
-	}
-	wingAttribute.SetSize(msg.wingattribute_size() > wingAttribute.GetMaxSize() ? wingAttribute.GetMaxSize() : msg.wingattribute_size());
-	for(int32_t i = 0; i < (int32_t)wingAttribute.GetSize(); ++i) {
-		const ::proto_ff::facadevaluewingAttributeDesc & temp_wingattribute = msg.wingattribute(i);
-		wingAttribute[i].read_from_pbmsg(temp_wingattribute);
+	for(int32_t i = 0; i < (int32_t)m_wingattribute.size(); ++i) {
+		::proto_ff::E_FacadeValueWingattributeDesc* temp_m_wingattribute = msg.add_m_wingattribute();
+		m_wingattribute[i].write_to_pbmsg(*temp_m_wingattribute);
 	}
 }
 
-Sheet_facadevalue_s::Sheet_facadevalue_s() {
+void E_FacadeValue_s::read_from_pbmsg(const ::proto_ff::E_FacadeValue & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeValue_s));
+	m_lv = msg.m_lv();
+	m_wingexp = msg.m_wingexp();
+	m_treasureexp = msg.m_treasureexp();
+	m_artifactexp = msg.m_artifactexp();
+	m_bladeexp = msg.m_bladeexp();
+	m_treasureattribute.resize((int)msg.m_treasureattribute_size() > (int)m_treasureattribute.max_size() ? m_treasureattribute.max_size() : msg.m_treasureattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_treasureattribute.size(); ++i) {
+		const ::proto_ff::E_FacadeValueTreasureattributeDesc & temp_m_treasureattribute = msg.m_treasureattribute(i);
+		m_treasureattribute[i].read_from_pbmsg(temp_m_treasureattribute);
+	}
+	m_artifactattribute.resize((int)msg.m_artifactattribute_size() > (int)m_artifactattribute.max_size() ? m_artifactattribute.max_size() : msg.m_artifactattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_artifactattribute.size(); ++i) {
+		const ::proto_ff::E_FacadeValueArtifactattributeDesc & temp_m_artifactattribute = msg.m_artifactattribute(i);
+		m_artifactattribute[i].read_from_pbmsg(temp_m_artifactattribute);
+	}
+	m_bladeattribute.resize((int)msg.m_bladeattribute_size() > (int)m_bladeattribute.max_size() ? m_bladeattribute.max_size() : msg.m_bladeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_bladeattribute.size(); ++i) {
+		const ::proto_ff::E_FacadeValueBladeattributeDesc & temp_m_bladeattribute = msg.m_bladeattribute(i);
+		m_bladeattribute[i].read_from_pbmsg(temp_m_bladeattribute);
+	}
+	m_wingattribute.resize((int)msg.m_wingattribute_size() > (int)m_wingattribute.max_size() ? m_wingattribute.max_size() : msg.m_wingattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_wingattribute.size(); ++i) {
+		const ::proto_ff::E_FacadeValueWingattributeDesc & temp_m_wingattribute = msg.m_wingattribute(i);
+		m_wingattribute[i].read_from_pbmsg(temp_m_wingattribute);
+	}
+}
+
+Sheet_FacadeValue_s::Sheet_FacadeValue_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -319,31 +319,31 @@ Sheet_facadevalue_s::Sheet_facadevalue_s() {
 	}
 }
 
-int Sheet_facadevalue_s::CreateInit() {
+int Sheet_FacadeValue_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadevalue_s::ResumeInit() {
+int Sheet_FacadeValue_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadevalue_s::write_to_pbmsg(::proto_ff::Sheet_facadevalue & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadevalue_List.GetSize() && i < facadevalue_List.GetMaxSize(); ++i) {
-		::proto_ff::facadevalue* temp_facadevalue_list = msg.add_facadevalue_list();
-		facadevalue_List[i].write_to_pbmsg(*temp_facadevalue_list);
+void Sheet_FacadeValue_s::write_to_pbmsg(::proto_ff::Sheet_FacadeValue & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeValue_List.size(); ++i) {
+		::proto_ff::E_FacadeValue* temp_e_facadevalue_list = msg.add_e_facadevalue_list();
+		E_FacadeValue_List[i].write_to_pbmsg(*temp_e_facadevalue_list);
 	}
 }
 
-void Sheet_facadevalue_s::read_from_pbmsg(const ::proto_ff::Sheet_facadevalue & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadevalue_s));
-	facadevalue_List.SetSize(msg.facadevalue_list_size() > facadevalue_List.GetMaxSize() ? facadevalue_List.GetMaxSize() : msg.facadevalue_list_size());
-	for(int32_t i = 0; i < (int32_t)facadevalue_List.GetSize(); ++i) {
-		const ::proto_ff::facadevalue & temp_facadevalue_list = msg.facadevalue_list(i);
-		facadevalue_List[i].read_from_pbmsg(temp_facadevalue_list);
+void Sheet_FacadeValue_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeValue & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeValue_s));
+	E_FacadeValue_List.resize((int)msg.e_facadevalue_list_size() > (int)E_FacadeValue_List.max_size() ? E_FacadeValue_List.max_size() : msg.e_facadevalue_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeValue_List.size(); ++i) {
+		const ::proto_ff::E_FacadeValue & temp_e_facadevalue_list = msg.e_facadevalue_list(i);
+		E_FacadeValue_List[i].read_from_pbmsg(temp_e_facadevalue_list);
 	}
 }
 
-facadetype_s::facadetype_s() {
+E_FacadeType_s::E_FacadeType_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -351,27 +351,27 @@ facadetype_s::facadetype_s() {
 	}
 }
 
-int facadetype_s::CreateInit() {
-	id = (int32_t)0;
+int E_FacadeType_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int facadetype_s::ResumeInit() {
+int E_FacadeType_s::ResumeInit() {
 	return 0;
 }
 
-void facadetype_s::write_to_pbmsg(::proto_ff::facadetype & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_soucename((const char*)souceName.Get());
+void E_FacadeType_s::write_to_pbmsg(::proto_ff::E_FacadeType & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_soucename((const char*)m_soucename.data());
 }
 
-void facadetype_s::read_from_pbmsg(const ::proto_ff::facadetype & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadetype_s));
-	id = msg.id();
-	souceName.Copy(msg.soucename());
+void E_FacadeType_s::read_from_pbmsg(const ::proto_ff::E_FacadeType & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeType_s));
+	m_id = msg.m_id();
+	m_soucename = msg.m_soucename();
 }
 
-Sheet_facadetype_s::Sheet_facadetype_s() {
+Sheet_FacadeType_s::Sheet_FacadeType_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -379,31 +379,31 @@ Sheet_facadetype_s::Sheet_facadetype_s() {
 	}
 }
 
-int Sheet_facadetype_s::CreateInit() {
+int Sheet_FacadeType_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadetype_s::ResumeInit() {
+int Sheet_FacadeType_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadetype_s::write_to_pbmsg(::proto_ff::Sheet_facadetype & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadetype_List.GetSize() && i < facadetype_List.GetMaxSize(); ++i) {
-		::proto_ff::facadetype* temp_facadetype_list = msg.add_facadetype_list();
-		facadetype_List[i].write_to_pbmsg(*temp_facadetype_list);
+void Sheet_FacadeType_s::write_to_pbmsg(::proto_ff::Sheet_FacadeType & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeType_List.size(); ++i) {
+		::proto_ff::E_FacadeType* temp_e_facadetype_list = msg.add_e_facadetype_list();
+		E_FacadeType_List[i].write_to_pbmsg(*temp_e_facadetype_list);
 	}
 }
 
-void Sheet_facadetype_s::read_from_pbmsg(const ::proto_ff::Sheet_facadetype & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadetype_s));
-	facadetype_List.SetSize(msg.facadetype_list_size() > facadetype_List.GetMaxSize() ? facadetype_List.GetMaxSize() : msg.facadetype_list_size());
-	for(int32_t i = 0; i < (int32_t)facadetype_List.GetSize(); ++i) {
-		const ::proto_ff::facadetype & temp_facadetype_list = msg.facadetype_list(i);
-		facadetype_List[i].read_from_pbmsg(temp_facadetype_list);
+void Sheet_FacadeType_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeType & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeType_s));
+	E_FacadeType_List.resize((int)msg.e_facadetype_list_size() > (int)E_FacadeType_List.max_size() ? E_FacadeType_List.max_size() : msg.e_facadetype_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeType_List.size(); ++i) {
+		const ::proto_ff::E_FacadeType & temp_e_facadetype_list = msg.e_facadetype_list(i);
+		E_FacadeType_List[i].read_from_pbmsg(temp_e_facadetype_list);
 	}
 }
 
-facadefragmentattributeDesc_s::facadefragmentattributeDesc_s() {
+E_FacadeFragmentAttributeDesc_s::E_FacadeFragmentAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -411,28 +411,28 @@ facadefragmentattributeDesc_s::facadefragmentattributeDesc_s() {
 	}
 }
 
-int facadefragmentattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeFragmentAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadefragmentattributeDesc_s::ResumeInit() {
+int E_FacadeFragmentAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadefragmentattributeDesc_s::write_to_pbmsg(::proto_ff::facadefragmentattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeFragmentAttributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeFragmentAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadefragmentattributeDesc_s::read_from_pbmsg(const ::proto_ff::facadefragmentattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadefragmentattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeFragmentAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeFragmentAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeFragmentAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadefragment_s::facadefragment_s() {
+E_FacadeFragment_s::E_FacadeFragment_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -440,40 +440,40 @@ facadefragment_s::facadefragment_s() {
 	}
 }
 
-int facadefragment_s::CreateInit() {
-	fragmentID = (int64_t)0;
-	item = (int64_t)0;
-	itemNum = (int32_t)0;
+int E_FacadeFragment_s::CreateInit() {
+	m_fragmentid = (int64_t)0;
+	m_item = (int64_t)0;
+	m_itemnum = (int32_t)0;
 	return 0;
 }
 
-int facadefragment_s::ResumeInit() {
+int E_FacadeFragment_s::ResumeInit() {
 	return 0;
 }
 
-void facadefragment_s::write_to_pbmsg(::proto_ff::facadefragment & msg) const {
-	msg.set_fragmentid((int64_t)fragmentID);
-	msg.set_item((int64_t)item);
-	msg.set_itemnum((int32_t)itemNum);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::facadefragmentattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_FacadeFragment_s::write_to_pbmsg(::proto_ff::E_FacadeFragment & msg) const {
+	msg.set_m_fragmentid((int64_t)m_fragmentid);
+	msg.set_m_item((int64_t)m_item);
+	msg.set_m_itemnum((int32_t)m_itemnum);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_FacadeFragmentAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void facadefragment_s::read_from_pbmsg(const ::proto_ff::facadefragment & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadefragment_s));
-	fragmentID = msg.fragmentid();
-	item = msg.item();
-	itemNum = msg.itemnum();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::facadefragmentattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_FacadeFragment_s::read_from_pbmsg(const ::proto_ff::E_FacadeFragment & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeFragment_s));
+	m_fragmentid = msg.m_fragmentid();
+	m_item = msg.m_item();
+	m_itemnum = msg.m_itemnum();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_FacadeFragmentAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_facadefragment_s::Sheet_facadefragment_s() {
+Sheet_FacadeFragment_s::Sheet_FacadeFragment_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -481,31 +481,31 @@ Sheet_facadefragment_s::Sheet_facadefragment_s() {
 	}
 }
 
-int Sheet_facadefragment_s::CreateInit() {
+int Sheet_FacadeFragment_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadefragment_s::ResumeInit() {
+int Sheet_FacadeFragment_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadefragment_s::write_to_pbmsg(::proto_ff::Sheet_facadefragment & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadefragment_List.GetSize() && i < facadefragment_List.GetMaxSize(); ++i) {
-		::proto_ff::facadefragment* temp_facadefragment_list = msg.add_facadefragment_list();
-		facadefragment_List[i].write_to_pbmsg(*temp_facadefragment_list);
+void Sheet_FacadeFragment_s::write_to_pbmsg(::proto_ff::Sheet_FacadeFragment & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeFragment_List.size(); ++i) {
+		::proto_ff::E_FacadeFragment* temp_e_facadefragment_list = msg.add_e_facadefragment_list();
+		E_FacadeFragment_List[i].write_to_pbmsg(*temp_e_facadefragment_list);
 	}
 }
 
-void Sheet_facadefragment_s::read_from_pbmsg(const ::proto_ff::Sheet_facadefragment & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadefragment_s));
-	facadefragment_List.SetSize(msg.facadefragment_list_size() > facadefragment_List.GetMaxSize() ? facadefragment_List.GetMaxSize() : msg.facadefragment_list_size());
-	for(int32_t i = 0; i < (int32_t)facadefragment_List.GetSize(); ++i) {
-		const ::proto_ff::facadefragment & temp_facadefragment_list = msg.facadefragment_list(i);
-		facadefragment_List[i].read_from_pbmsg(temp_facadefragment_list);
+void Sheet_FacadeFragment_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeFragment & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeFragment_s));
+	E_FacadeFragment_List.resize((int)msg.e_facadefragment_list_size() > (int)E_FacadeFragment_List.max_size() ? E_FacadeFragment_List.max_size() : msg.e_facadefragment_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeFragment_List.size(); ++i) {
+		const ::proto_ff::E_FacadeFragment & temp_e_facadefragment_list = msg.e_facadefragment_list(i);
+		E_FacadeFragment_List[i].read_from_pbmsg(temp_e_facadefragment_list);
 	}
 }
 
-facadechangeattributeDesc_s::facadechangeattributeDesc_s() {
+E_FacadeChangeAttributeDesc_s::E_FacadeChangeAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -513,28 +513,28 @@ facadechangeattributeDesc_s::facadechangeattributeDesc_s() {
 	}
 }
 
-int facadechangeattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeChangeAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadechangeattributeDesc_s::ResumeInit() {
+int E_FacadeChangeAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadechangeattributeDesc_s::write_to_pbmsg(::proto_ff::facadechangeattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeChangeAttributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeChangeAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadechangeattributeDesc_s::read_from_pbmsg(const ::proto_ff::facadechangeattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadechangeattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeChangeAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeChangeAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeChangeAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadechangeActiveAttributeDesc_s::facadechangeActiveAttributeDesc_s() {
+E_FacadeChangeActiveattributeDesc_s::E_FacadeChangeActiveattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -542,28 +542,28 @@ facadechangeActiveAttributeDesc_s::facadechangeActiveAttributeDesc_s() {
 	}
 }
 
-int facadechangeActiveAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeChangeActiveattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadechangeActiveAttributeDesc_s::ResumeInit() {
+int E_FacadeChangeActiveattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadechangeActiveAttributeDesc_s::write_to_pbmsg(::proto_ff::facadechangeActiveAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeChangeActiveattributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeChangeActiveattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadechangeActiveAttributeDesc_s::read_from_pbmsg(const ::proto_ff::facadechangeActiveAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadechangeActiveAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeChangeActiveattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeChangeActiveattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeChangeActiveattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadechange_s::facadechange_s() {
+E_FacadeChange_s::E_FacadeChange_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -571,80 +571,80 @@ facadechange_s::facadechange_s() {
 	}
 }
 
-int facadechange_s::CreateInit() {
-	id = (int64_t)0;
-	type = (int32_t)0;
-	quality = (int32_t)0;
-	activationItem = (int64_t)0;
-	activationNum = (int32_t)0;
-	starId = (int64_t)0;
-	starUp = (int32_t)0;
-	starBer = (int32_t)0;
-	upAttributeId = (int64_t)0;
-	activeSkill = (int32_t)0;
+int E_FacadeChange_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_activationitem = (int64_t)0;
+	m_activationnum = (int32_t)0;
+	m_starid = (int64_t)0;
+	m_starup = (int32_t)0;
+	m_starber = (int32_t)0;
+	m_upattributeid = (int64_t)0;
+	m_activeskill = (int32_t)0;
 	return 0;
 }
 
-int facadechange_s::ResumeInit() {
+int E_FacadeChange_s::ResumeInit() {
 	return 0;
 }
 
-void facadechange_s::write_to_pbmsg(::proto_ff::facadechange & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_type((int32_t)type);
-	msg.set_resource((const char*)resource.Get());
-	msg.set_professionid((const char*)professionID.Get());
-	msg.set_name((const char*)name.Get());
-	msg.set_activedesc((const char*)activeDesc.Get());
-	msg.set_quality((int32_t)quality);
-	msg.set_activationitem((int64_t)activationItem);
-	msg.set_activationnum((int32_t)activationNum);
-	msg.set_starid((int64_t)starId);
-	msg.set_starnum((const char*)starNum.Get());
-	msg.set_starup((int32_t)starUp);
-	msg.set_starber((int32_t)starBer);
-	msg.set_upattributeid((int64_t)upAttributeId);
-	msg.set_activeskill((int32_t)activeSkill);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::facadechangeattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_FacadeChange_s::write_to_pbmsg(::proto_ff::E_FacadeChange & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_resource((const char*)m_resource.data());
+	msg.set_m_professionid((const char*)m_professionid.data());
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_activedesc((const char*)m_activedesc.data());
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_activationitem((int64_t)m_activationitem);
+	msg.set_m_activationnum((int32_t)m_activationnum);
+	msg.set_m_starid((int64_t)m_starid);
+	msg.set_m_starnum((const char*)m_starnum.data());
+	msg.set_m_starup((int32_t)m_starup);
+	msg.set_m_starber((int32_t)m_starber);
+	msg.set_m_upattributeid((int64_t)m_upattributeid);
+	msg.set_m_activeskill((int32_t)m_activeskill);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_FacadeChangeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize() && i < ActiveAttribute.GetMaxSize(); ++i) {
-		::proto_ff::facadechangeActiveAttributeDesc* temp_activeattribute = msg.add_activeattribute();
-		ActiveAttribute[i].write_to_pbmsg(*temp_activeattribute);
-	}
-}
-
-void facadechange_s::read_from_pbmsg(const ::proto_ff::facadechange & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadechange_s));
-	id = msg.id();
-	type = msg.type();
-	resource.Copy(msg.resource());
-	professionID.Copy(msg.professionid());
-	name.Copy(msg.name());
-	activeDesc.Copy(msg.activedesc());
-	quality = msg.quality();
-	activationItem = msg.activationitem();
-	activationNum = msg.activationnum();
-	starId = msg.starid();
-	starNum.Copy(msg.starnum());
-	starUp = msg.starup();
-	starBer = msg.starber();
-	upAttributeId = msg.upattributeid();
-	activeSkill = msg.activeskill();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::facadechangeattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
-	}
-	ActiveAttribute.SetSize(msg.activeattribute_size() > ActiveAttribute.GetMaxSize() ? ActiveAttribute.GetMaxSize() : msg.activeattribute_size());
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize(); ++i) {
-		const ::proto_ff::facadechangeActiveAttributeDesc & temp_activeattribute = msg.activeattribute(i);
-		ActiveAttribute[i].read_from_pbmsg(temp_activeattribute);
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		::proto_ff::E_FacadeChangeActiveattributeDesc* temp_m_activeattribute = msg.add_m_activeattribute();
+		m_activeattribute[i].write_to_pbmsg(*temp_m_activeattribute);
 	}
 }
 
-Sheet_facadechange_s::Sheet_facadechange_s() {
+void E_FacadeChange_s::read_from_pbmsg(const ::proto_ff::E_FacadeChange & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeChange_s));
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_resource = msg.m_resource();
+	m_professionid = msg.m_professionid();
+	m_name = msg.m_name();
+	m_activedesc = msg.m_activedesc();
+	m_quality = msg.m_quality();
+	m_activationitem = msg.m_activationitem();
+	m_activationnum = msg.m_activationnum();
+	m_starid = msg.m_starid();
+	m_starnum = msg.m_starnum();
+	m_starup = msg.m_starup();
+	m_starber = msg.m_starber();
+	m_upattributeid = msg.m_upattributeid();
+	m_activeskill = msg.m_activeskill();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_FacadeChangeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_activeattribute.resize((int)msg.m_activeattribute_size() > (int)m_activeattribute.max_size() ? m_activeattribute.max_size() : msg.m_activeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		const ::proto_ff::E_FacadeChangeActiveattributeDesc & temp_m_activeattribute = msg.m_activeattribute(i);
+		m_activeattribute[i].read_from_pbmsg(temp_m_activeattribute);
+	}
+}
+
+Sheet_FacadeChange_s::Sheet_FacadeChange_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -652,31 +652,31 @@ Sheet_facadechange_s::Sheet_facadechange_s() {
 	}
 }
 
-int Sheet_facadechange_s::CreateInit() {
+int Sheet_FacadeChange_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadechange_s::ResumeInit() {
+int Sheet_FacadeChange_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadechange_s::write_to_pbmsg(::proto_ff::Sheet_facadechange & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadechange_List.GetSize() && i < facadechange_List.GetMaxSize(); ++i) {
-		::proto_ff::facadechange* temp_facadechange_list = msg.add_facadechange_list();
-		facadechange_List[i].write_to_pbmsg(*temp_facadechange_list);
+void Sheet_FacadeChange_s::write_to_pbmsg(::proto_ff::Sheet_FacadeChange & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeChange_List.size(); ++i) {
+		::proto_ff::E_FacadeChange* temp_e_facadechange_list = msg.add_e_facadechange_list();
+		E_FacadeChange_List[i].write_to_pbmsg(*temp_e_facadechange_list);
 	}
 }
 
-void Sheet_facadechange_s::read_from_pbmsg(const ::proto_ff::Sheet_facadechange & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadechange_s));
-	facadechange_List.SetSize(msg.facadechange_list_size() > facadechange_List.GetMaxSize() ? facadechange_List.GetMaxSize() : msg.facadechange_list_size());
-	for(int32_t i = 0; i < (int32_t)facadechange_List.GetSize(); ++i) {
-		const ::proto_ff::facadechange & temp_facadechange_list = msg.facadechange_list(i);
-		facadechange_List[i].read_from_pbmsg(temp_facadechange_list);
+void Sheet_FacadeChange_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeChange & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeChange_s));
+	E_FacadeChange_List.resize((int)msg.e_facadechange_list_size() > (int)E_FacadeChange_List.max_size() ? E_FacadeChange_List.max_size() : msg.e_facadechange_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeChange_List.size(); ++i) {
+		const ::proto_ff::E_FacadeChange & temp_e_facadechange_list = msg.e_facadechange_list(i);
+		E_FacadeChange_List[i].read_from_pbmsg(temp_e_facadechange_list);
 	}
 }
 
-facadestarUpupAttributeDesc_s::facadestarUpupAttributeDesc_s() {
+E_FacadeStarupUpattributeDesc_s::E_FacadeStarupUpattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -684,28 +684,28 @@ facadestarUpupAttributeDesc_s::facadestarUpupAttributeDesc_s() {
 	}
 }
 
-int facadestarUpupAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeStarupUpattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadestarUpupAttributeDesc_s::ResumeInit() {
+int E_FacadeStarupUpattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadestarUpupAttributeDesc_s::write_to_pbmsg(::proto_ff::facadestarUpupAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeStarupUpattributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeStarupUpattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadestarUpupAttributeDesc_s::read_from_pbmsg(const ::proto_ff::facadestarUpupAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadestarUpupAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeStarupUpattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeStarupUpattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeStarupUpattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadestarUp_s::facadestarUp_s() {
+E_FacadeStarup_s::E_FacadeStarup_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -713,43 +713,43 @@ facadestarUp_s::facadestarUp_s() {
 	}
 }
 
-int facadestarUp_s::CreateInit() {
-	ID = (int32_t)0;
-	upAttributeId = (int64_t)0;
-	starID = (int32_t)0;
-	skillID = (int32_t)0;
+int E_FacadeStarup_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_upattributeid = (int64_t)0;
+	m_starid = (int32_t)0;
+	m_skillid = (int32_t)0;
 	return 0;
 }
 
-int facadestarUp_s::ResumeInit() {
+int E_FacadeStarup_s::ResumeInit() {
 	return 0;
 }
 
-void facadestarUp_s::write_to_pbmsg(::proto_ff::facadestarUp & msg) const {
-	msg.set_id((int32_t)ID);
-	msg.set_upattributeid((int64_t)upAttributeId);
-	msg.set_starid((int32_t)starID);
-	msg.set_skillid((int32_t)skillID);
-	for(int32_t i = 0; i < (int32_t)upAttribute.GetSize() && i < upAttribute.GetMaxSize(); ++i) {
-		::proto_ff::facadestarUpupAttributeDesc* temp_upattribute = msg.add_upattribute();
-		upAttribute[i].write_to_pbmsg(*temp_upattribute);
+void E_FacadeStarup_s::write_to_pbmsg(::proto_ff::E_FacadeStarup & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_upattributeid((int64_t)m_upattributeid);
+	msg.set_m_starid((int32_t)m_starid);
+	msg.set_m_skillid((int32_t)m_skillid);
+	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+		::proto_ff::E_FacadeStarupUpattributeDesc* temp_m_upattribute = msg.add_m_upattribute();
+		m_upattribute[i].write_to_pbmsg(*temp_m_upattribute);
 	}
 }
 
-void facadestarUp_s::read_from_pbmsg(const ::proto_ff::facadestarUp & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadestarUp_s));
-	ID = msg.id();
-	upAttributeId = msg.upattributeid();
-	starID = msg.starid();
-	skillID = msg.skillid();
-	upAttribute.SetSize(msg.upattribute_size() > upAttribute.GetMaxSize() ? upAttribute.GetMaxSize() : msg.upattribute_size());
-	for(int32_t i = 0; i < (int32_t)upAttribute.GetSize(); ++i) {
-		const ::proto_ff::facadestarUpupAttributeDesc & temp_upattribute = msg.upattribute(i);
-		upAttribute[i].read_from_pbmsg(temp_upattribute);
+void E_FacadeStarup_s::read_from_pbmsg(const ::proto_ff::E_FacadeStarup & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeStarup_s));
+	m_id = msg.m_id();
+	m_upattributeid = msg.m_upattributeid();
+	m_starid = msg.m_starid();
+	m_skillid = msg.m_skillid();
+	m_upattribute.resize((int)msg.m_upattribute_size() > (int)m_upattribute.max_size() ? m_upattribute.max_size() : msg.m_upattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+		const ::proto_ff::E_FacadeStarupUpattributeDesc & temp_m_upattribute = msg.m_upattribute(i);
+		m_upattribute[i].read_from_pbmsg(temp_m_upattribute);
 	}
 }
 
-Sheet_facadestarUp_s::Sheet_facadestarUp_s() {
+Sheet_FacadeStarup_s::Sheet_FacadeStarup_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -757,31 +757,31 @@ Sheet_facadestarUp_s::Sheet_facadestarUp_s() {
 	}
 }
 
-int Sheet_facadestarUp_s::CreateInit() {
+int Sheet_FacadeStarup_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadestarUp_s::ResumeInit() {
+int Sheet_FacadeStarup_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadestarUp_s::write_to_pbmsg(::proto_ff::Sheet_facadestarUp & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadestarUp_List.GetSize() && i < facadestarUp_List.GetMaxSize(); ++i) {
-		::proto_ff::facadestarUp* temp_facadestarup_list = msg.add_facadestarup_list();
-		facadestarUp_List[i].write_to_pbmsg(*temp_facadestarup_list);
+void Sheet_FacadeStarup_s::write_to_pbmsg(::proto_ff::Sheet_FacadeStarup & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeStarup_List.size(); ++i) {
+		::proto_ff::E_FacadeStarup* temp_e_facadestarup_list = msg.add_e_facadestarup_list();
+		E_FacadeStarup_List[i].write_to_pbmsg(*temp_e_facadestarup_list);
 	}
 }
 
-void Sheet_facadestarUp_s::read_from_pbmsg(const ::proto_ff::Sheet_facadestarUp & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadestarUp_s));
-	facadestarUp_List.SetSize(msg.facadestarup_list_size() > facadestarUp_List.GetMaxSize() ? facadestarUp_List.GetMaxSize() : msg.facadestarup_list_size());
-	for(int32_t i = 0; i < (int32_t)facadestarUp_List.GetSize(); ++i) {
-		const ::proto_ff::facadestarUp & temp_facadestarup_list = msg.facadestarup_list(i);
-		facadestarUp_List[i].read_from_pbmsg(temp_facadestarup_list);
+void Sheet_FacadeStarup_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeStarup & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeStarup_s));
+	E_FacadeStarup_List.resize((int)msg.e_facadestarup_list_size() > (int)E_FacadeStarup_List.max_size() ? E_FacadeStarup_List.max_size() : msg.e_facadestarup_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeStarup_List.size(); ++i) {
+		const ::proto_ff::E_FacadeStarup & temp_e_facadestarup_list = msg.e_facadestarup_list(i);
+		E_FacadeStarup_List[i].read_from_pbmsg(temp_e_facadestarup_list);
 	}
 }
 
-facadesoulattributeDesc_s::facadesoulattributeDesc_s() {
+E_FacadeSoulAttributeDesc_s::E_FacadeSoulAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -789,28 +789,28 @@ facadesoulattributeDesc_s::facadesoulattributeDesc_s() {
 	}
 }
 
-int facadesoulattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeSoulAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadesoulattributeDesc_s::ResumeInit() {
+int E_FacadeSoulAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadesoulattributeDesc_s::write_to_pbmsg(::proto_ff::facadesoulattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeSoulAttributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeSoulAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadesoulattributeDesc_s::read_from_pbmsg(const ::proto_ff::facadesoulattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadesoulattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeSoulAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoulAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoulAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadesoul_s::facadesoul_s() {
+E_FacadeSoul_s::E_FacadeSoul_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -818,47 +818,47 @@ facadesoul_s::facadesoul_s() {
 	}
 }
 
-int facadesoul_s::CreateInit() {
-	id = (int64_t)0;
-	rechargeID = (int32_t)0;
-	mainSkill = (int32_t)0;
+int E_FacadeSoul_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_rechargeid = (int32_t)0;
+	m_mainskill = (int32_t)0;
 	return 0;
 }
 
-int facadesoul_s::ResumeInit() {
+int E_FacadeSoul_s::ResumeInit() {
 	return 0;
 }
 
-void facadesoul_s::write_to_pbmsg(::proto_ff::facadesoul & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_rechargeid((int32_t)rechargeID);
-	msg.set_mainskill((int32_t)mainSkill);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::facadesoulattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_FacadeSoul_s::write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_rechargeid((int32_t)m_rechargeid);
+	msg.set_m_mainskill((int32_t)m_mainskill);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_FacadeSoulAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)minorSkill.GetSize() && i < minorSkill.GetMaxSize(); ++i) {
-		msg.add_minorskill((int32_t)minorSkill[i]);
-	}
-}
-
-void facadesoul_s::read_from_pbmsg(const ::proto_ff::facadesoul & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadesoul_s));
-	id = msg.id();
-	rechargeID = msg.rechargeid();
-	mainSkill = msg.mainskill();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::facadesoulattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
-	}
-	minorSkill.SetSize(msg.minorskill_size() > minorSkill.GetMaxSize() ? minorSkill.GetMaxSize() : msg.minorskill_size());
-	for(int32_t i = 0; i < (int32_t)minorSkill.GetSize(); ++i) {
-		minorSkill[i] = msg.minorskill(i);
+	for(int32_t i = 0; i < (int32_t)m_minorskill.size(); ++i) {
+		msg.add_m_minorskill((int32_t)m_minorskill[i]);
 	}
 }
 
-Sheet_facadesoul_s::Sheet_facadesoul_s() {
+void E_FacadeSoul_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoul & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoul_s));
+	m_id = msg.m_id();
+	m_rechargeid = msg.m_rechargeid();
+	m_mainskill = msg.m_mainskill();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_FacadeSoulAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_minorskill.resize((int)msg.m_minorskill_size() > (int)m_minorskill.max_size() ? m_minorskill.max_size() : msg.m_minorskill_size());
+	for(int32_t i = 0; i < (int32_t)m_minorskill.size(); ++i) {
+		m_minorskill[i] = msg.m_minorskill(i);
+	}
+}
+
+Sheet_FacadeSoul_s::Sheet_FacadeSoul_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -866,31 +866,31 @@ Sheet_facadesoul_s::Sheet_facadesoul_s() {
 	}
 }
 
-int Sheet_facadesoul_s::CreateInit() {
+int Sheet_FacadeSoul_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadesoul_s::ResumeInit() {
+int Sheet_FacadeSoul_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadesoul_s::write_to_pbmsg(::proto_ff::Sheet_facadesoul & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadesoul_List.GetSize() && i < facadesoul_List.GetMaxSize(); ++i) {
-		::proto_ff::facadesoul* temp_facadesoul_list = msg.add_facadesoul_list();
-		facadesoul_List[i].write_to_pbmsg(*temp_facadesoul_list);
+void Sheet_FacadeSoul_s::write_to_pbmsg(::proto_ff::Sheet_FacadeSoul & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoul_List.size(); ++i) {
+		::proto_ff::E_FacadeSoul* temp_e_facadesoul_list = msg.add_e_facadesoul_list();
+		E_FacadeSoul_List[i].write_to_pbmsg(*temp_e_facadesoul_list);
 	}
 }
 
-void Sheet_facadesoul_s::read_from_pbmsg(const ::proto_ff::Sheet_facadesoul & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadesoul_s));
-	facadesoul_List.SetSize(msg.facadesoul_list_size() > facadesoul_List.GetMaxSize() ? facadesoul_List.GetMaxSize() : msg.facadesoul_list_size());
-	for(int32_t i = 0; i < (int32_t)facadesoul_List.GetSize(); ++i) {
-		const ::proto_ff::facadesoul & temp_facadesoul_list = msg.facadesoul_list(i);
-		facadesoul_List[i].read_from_pbmsg(temp_facadesoul_list);
+void Sheet_FacadeSoul_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoul & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeSoul_s));
+	E_FacadeSoul_List.resize((int)msg.e_facadesoul_list_size() > (int)E_FacadeSoul_List.max_size() ? E_FacadeSoul_List.max_size() : msg.e_facadesoul_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoul_List.size(); ++i) {
+		const ::proto_ff::E_FacadeSoul & temp_e_facadesoul_list = msg.e_facadesoul_list(i);
+		E_FacadeSoul_List[i].read_from_pbmsg(temp_e_facadesoul_list);
 	}
 }
 
-facadesoulActive_s::facadesoulActive_s() {
+E_FacadeSoulactive_s::E_FacadeSoulactive_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -898,39 +898,39 @@ facadesoulActive_s::facadesoulActive_s() {
 	}
 }
 
-int facadesoulActive_s::CreateInit() {
-	id = (int64_t)0;
+int E_FacadeSoulactive_s::CreateInit() {
+	m_id = (int64_t)0;
 	return 0;
 }
 
-int facadesoulActive_s::ResumeInit() {
+int E_FacadeSoulactive_s::ResumeInit() {
 	return 0;
 }
 
-void facadesoulActive_s::write_to_pbmsg(::proto_ff::facadesoulActive & msg) const {
-	msg.set_id((int64_t)id);
-	for(int32_t i = 0; i < (int32_t)parama.GetSize() && i < parama.GetMaxSize(); ++i) {
-		msg.add_parama((const char*)parama[i].Get());
+void E_FacadeSoulactive_s::write_to_pbmsg(::proto_ff::E_FacadeSoulactive & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	for(int32_t i = 0; i < (int32_t)m_parama.size(); ++i) {
+		msg.add_m_parama((const char*)m_parama[i].data());
 	}
-	for(int32_t i = 0; i < (int32_t)condition.GetSize() && i < condition.GetMaxSize(); ++i) {
-		msg.add_condition((int32_t)condition[i]);
-	}
-}
-
-void facadesoulActive_s::read_from_pbmsg(const ::proto_ff::facadesoulActive & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadesoulActive_s));
-	id = msg.id();
-	parama.SetSize(msg.parama_size() > parama.GetMaxSize() ? parama.GetMaxSize() : msg.parama_size());
-	for(int32_t i = 0; i < (int32_t)parama.GetSize(); ++i) {
-		parama[i].Copy(msg.parama(i));
-	}
-	condition.SetSize(msg.condition_size() > condition.GetMaxSize() ? condition.GetMaxSize() : msg.condition_size());
-	for(int32_t i = 0; i < (int32_t)condition.GetSize(); ++i) {
-		condition[i] = msg.condition(i);
+	for(int32_t i = 0; i < (int32_t)m_condition.size(); ++i) {
+		msg.add_m_condition((int32_t)m_condition[i]);
 	}
 }
 
-Sheet_facadesoulActive_s::Sheet_facadesoulActive_s() {
+void E_FacadeSoulactive_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoulactive & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoulactive_s));
+	m_id = msg.m_id();
+	m_parama.resize((int)msg.m_parama_size() > (int)m_parama.max_size() ? m_parama.max_size() : msg.m_parama_size());
+	for(int32_t i = 0; i < (int32_t)m_parama.size(); ++i) {
+		m_parama[i] = msg.m_parama(i);
+	}
+	m_condition.resize((int)msg.m_condition_size() > (int)m_condition.max_size() ? m_condition.max_size() : msg.m_condition_size());
+	for(int32_t i = 0; i < (int32_t)m_condition.size(); ++i) {
+		m_condition[i] = msg.m_condition(i);
+	}
+}
+
+Sheet_FacadeSoulactive_s::Sheet_FacadeSoulactive_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -938,31 +938,31 @@ Sheet_facadesoulActive_s::Sheet_facadesoulActive_s() {
 	}
 }
 
-int Sheet_facadesoulActive_s::CreateInit() {
+int Sheet_FacadeSoulactive_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadesoulActive_s::ResumeInit() {
+int Sheet_FacadeSoulactive_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadesoulActive_s::write_to_pbmsg(::proto_ff::Sheet_facadesoulActive & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadesoulActive_List.GetSize() && i < facadesoulActive_List.GetMaxSize(); ++i) {
-		::proto_ff::facadesoulActive* temp_facadesoulactive_list = msg.add_facadesoulactive_list();
-		facadesoulActive_List[i].write_to_pbmsg(*temp_facadesoulactive_list);
+void Sheet_FacadeSoulactive_s::write_to_pbmsg(::proto_ff::Sheet_FacadeSoulactive & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoulactive_List.size(); ++i) {
+		::proto_ff::E_FacadeSoulactive* temp_e_facadesoulactive_list = msg.add_e_facadesoulactive_list();
+		E_FacadeSoulactive_List[i].write_to_pbmsg(*temp_e_facadesoulactive_list);
 	}
 }
 
-void Sheet_facadesoulActive_s::read_from_pbmsg(const ::proto_ff::Sheet_facadesoulActive & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadesoulActive_s));
-	facadesoulActive_List.SetSize(msg.facadesoulactive_list_size() > facadesoulActive_List.GetMaxSize() ? facadesoulActive_List.GetMaxSize() : msg.facadesoulactive_list_size());
-	for(int32_t i = 0; i < (int32_t)facadesoulActive_List.GetSize(); ++i) {
-		const ::proto_ff::facadesoulActive & temp_facadesoulactive_list = msg.facadesoulactive_list(i);
-		facadesoulActive_List[i].read_from_pbmsg(temp_facadesoulactive_list);
+void Sheet_FacadeSoulactive_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoulactive & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeSoulactive_s));
+	E_FacadeSoulactive_List.resize((int)msg.e_facadesoulactive_list_size() > (int)E_FacadeSoulactive_List.max_size() ? E_FacadeSoulactive_List.max_size() : msg.e_facadesoulactive_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoulactive_List.size(); ++i) {
+		const ::proto_ff::E_FacadeSoulactive & temp_e_facadesoulactive_list = msg.e_facadesoulactive_list(i);
+		E_FacadeSoulactive_List[i].read_from_pbmsg(temp_e_facadesoulactive_list);
 	}
 }
 
-facadesoulLvattributeDesc_s::facadesoulLvattributeDesc_s() {
+E_FacadeSoullvAttributeDesc_s::E_FacadeSoullvAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -970,28 +970,28 @@ facadesoulLvattributeDesc_s::facadesoulLvattributeDesc_s() {
 	}
 }
 
-int facadesoulLvattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_FacadeSoullvAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int facadesoulLvattributeDesc_s::ResumeInit() {
+int E_FacadeSoullvAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void facadesoulLvattributeDesc_s::write_to_pbmsg(::proto_ff::facadesoulLvattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_FacadeSoullvAttributeDesc_s::write_to_pbmsg(::proto_ff::E_FacadeSoullvAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void facadesoulLvattributeDesc_s::read_from_pbmsg(const ::proto_ff::facadesoulLvattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadesoulLvattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_FacadeSoullvAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoullvAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoullvAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-facadesoulLv_s::facadesoulLv_s() {
+E_FacadeSoullv_s::E_FacadeSoullv_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -999,49 +999,49 @@ facadesoulLv_s::facadesoulLv_s() {
 	}
 }
 
-int facadesoulLv_s::CreateInit() {
-	id = (int64_t)0;
-	soulID = (int32_t)0;
-	itemID = (int32_t)0;
-	num = (int32_t)0;
-	successRate = (int32_t)0;
-	downLv = (int32_t)0;
+int E_FacadeSoullv_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_soulid = (int32_t)0;
+	m_itemid = (int32_t)0;
+	m_num = (int32_t)0;
+	m_successrate = (int32_t)0;
+	m_downlv = (int32_t)0;
 	return 0;
 }
 
-int facadesoulLv_s::ResumeInit() {
+int E_FacadeSoullv_s::ResumeInit() {
 	return 0;
 }
 
-void facadesoulLv_s::write_to_pbmsg(::proto_ff::facadesoulLv & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_soulid((int32_t)soulID);
-	msg.set_itemid((int32_t)itemID);
-	msg.set_num((int32_t)num);
-	msg.set_successrate((int32_t)successRate);
-	msg.set_downlv((int32_t)downLv);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::facadesoulLvattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_FacadeSoullv_s::write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_soulid((int32_t)m_soulid);
+	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_successrate((int32_t)m_successrate);
+	msg.set_m_downlv((int32_t)m_downlv);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_FacadeSoullvAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void facadesoulLv_s::read_from_pbmsg(const ::proto_ff::facadesoulLv & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadesoulLv_s));
-	id = msg.id();
-	soulID = msg.soulid();
-	itemID = msg.itemid();
-	num = msg.num();
-	successRate = msg.successrate();
-	downLv = msg.downlv();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::facadesoulLvattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_FacadeSoullv_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoullv & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoullv_s));
+	m_id = msg.m_id();
+	m_soulid = msg.m_soulid();
+	m_itemid = msg.m_itemid();
+	m_num = msg.m_num();
+	m_successrate = msg.m_successrate();
+	m_downlv = msg.m_downlv();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_FacadeSoullvAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_facadesoulLv_s::Sheet_facadesoulLv_s() {
+Sheet_FacadeSoullv_s::Sheet_FacadeSoullv_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1049,31 +1049,31 @@ Sheet_facadesoulLv_s::Sheet_facadesoulLv_s() {
 	}
 }
 
-int Sheet_facadesoulLv_s::CreateInit() {
+int Sheet_FacadeSoullv_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadesoulLv_s::ResumeInit() {
+int Sheet_FacadeSoullv_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadesoulLv_s::write_to_pbmsg(::proto_ff::Sheet_facadesoulLv & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadesoulLv_List.GetSize() && i < facadesoulLv_List.GetMaxSize(); ++i) {
-		::proto_ff::facadesoulLv* temp_facadesoullv_list = msg.add_facadesoullv_list();
-		facadesoulLv_List[i].write_to_pbmsg(*temp_facadesoullv_list);
+void Sheet_FacadeSoullv_s::write_to_pbmsg(::proto_ff::Sheet_FacadeSoullv & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoullv_List.size(); ++i) {
+		::proto_ff::E_FacadeSoullv* temp_e_facadesoullv_list = msg.add_e_facadesoullv_list();
+		E_FacadeSoullv_List[i].write_to_pbmsg(*temp_e_facadesoullv_list);
 	}
 }
 
-void Sheet_facadesoulLv_s::read_from_pbmsg(const ::proto_ff::Sheet_facadesoulLv & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadesoulLv_s));
-	facadesoulLv_List.SetSize(msg.facadesoullv_list_size() > facadesoulLv_List.GetMaxSize() ? facadesoulLv_List.GetMaxSize() : msg.facadesoullv_list_size());
-	for(int32_t i = 0; i < (int32_t)facadesoulLv_List.GetSize(); ++i) {
-		const ::proto_ff::facadesoulLv & temp_facadesoullv_list = msg.facadesoullv_list(i);
-		facadesoulLv_List[i].read_from_pbmsg(temp_facadesoullv_list);
+void Sheet_FacadeSoullv_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoullv & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeSoullv_s));
+	E_FacadeSoullv_List.resize((int)msg.e_facadesoullv_list_size() > (int)E_FacadeSoullv_List.max_size() ? E_FacadeSoullv_List.max_size() : msg.e_facadesoullv_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoullv_List.size(); ++i) {
+		const ::proto_ff::E_FacadeSoullv & temp_e_facadesoullv_list = msg.e_facadesoullv_list(i);
+		E_FacadeSoullv_List[i].read_from_pbmsg(temp_e_facadesoullv_list);
 	}
 }
 
-facadesoulAchievement_s::facadesoulAchievement_s() {
+E_FacadeSoulachievement_s::E_FacadeSoulachievement_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1081,40 +1081,40 @@ facadesoulAchievement_s::facadesoulAchievement_s() {
 	}
 }
 
-int facadesoulAchievement_s::CreateInit() {
-	id = (int64_t)0;
-	soulID = (int32_t)0;
-	type = (int32_t)0;
-	parama = (int32_t)0;
-	itemID = (int32_t)0;
-	num = (int32_t)0;
+int E_FacadeSoulachievement_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_soulid = (int32_t)0;
+	m_type = (int32_t)0;
+	m_parama = (int32_t)0;
+	m_itemid = (int32_t)0;
+	m_num = (int32_t)0;
 	return 0;
 }
 
-int facadesoulAchievement_s::ResumeInit() {
+int E_FacadeSoulachievement_s::ResumeInit() {
 	return 0;
 }
 
-void facadesoulAchievement_s::write_to_pbmsg(::proto_ff::facadesoulAchievement & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_soulid((int32_t)soulID);
-	msg.set_type((int32_t)type);
-	msg.set_parama((int32_t)parama);
-	msg.set_itemid((int32_t)itemID);
-	msg.set_num((int32_t)num);
+void E_FacadeSoulachievement_s::write_to_pbmsg(::proto_ff::E_FacadeSoulachievement & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_soulid((int32_t)m_soulid);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_parama((int32_t)m_parama);
+	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_num((int32_t)m_num);
 }
 
-void facadesoulAchievement_s::read_from_pbmsg(const ::proto_ff::facadesoulAchievement & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct facadesoulAchievement_s));
-	id = msg.id();
-	soulID = msg.soulid();
-	type = msg.type();
-	parama = msg.parama();
-	itemID = msg.itemid();
-	num = msg.num();
+void E_FacadeSoulachievement_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoulachievement & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoulachievement_s));
+	m_id = msg.m_id();
+	m_soulid = msg.m_soulid();
+	m_type = msg.m_type();
+	m_parama = msg.m_parama();
+	m_itemid = msg.m_itemid();
+	m_num = msg.m_num();
 }
 
-Sheet_facadesoulAchievement_s::Sheet_facadesoulAchievement_s() {
+Sheet_FacadeSoulachievement_s::Sheet_FacadeSoulachievement_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1122,27 +1122,27 @@ Sheet_facadesoulAchievement_s::Sheet_facadesoulAchievement_s() {
 	}
 }
 
-int Sheet_facadesoulAchievement_s::CreateInit() {
+int Sheet_FacadeSoulachievement_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_facadesoulAchievement_s::ResumeInit() {
+int Sheet_FacadeSoulachievement_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_facadesoulAchievement_s::write_to_pbmsg(::proto_ff::Sheet_facadesoulAchievement & msg) const {
-	for(int32_t i = 0; i < (int32_t)facadesoulAchievement_List.GetSize() && i < facadesoulAchievement_List.GetMaxSize(); ++i) {
-		::proto_ff::facadesoulAchievement* temp_facadesoulachievement_list = msg.add_facadesoulachievement_list();
-		facadesoulAchievement_List[i].write_to_pbmsg(*temp_facadesoulachievement_list);
+void Sheet_FacadeSoulachievement_s::write_to_pbmsg(::proto_ff::Sheet_FacadeSoulachievement & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoulachievement_List.size(); ++i) {
+		::proto_ff::E_FacadeSoulachievement* temp_e_facadesoulachievement_list = msg.add_e_facadesoulachievement_list();
+		E_FacadeSoulachievement_List[i].write_to_pbmsg(*temp_e_facadesoulachievement_list);
 	}
 }
 
-void Sheet_facadesoulAchievement_s::read_from_pbmsg(const ::proto_ff::Sheet_facadesoulAchievement & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_facadesoulAchievement_s));
-	facadesoulAchievement_List.SetSize(msg.facadesoulachievement_list_size() > facadesoulAchievement_List.GetMaxSize() ? facadesoulAchievement_List.GetMaxSize() : msg.facadesoulachievement_list_size());
-	for(int32_t i = 0; i < (int32_t)facadesoulAchievement_List.GetSize(); ++i) {
-		const ::proto_ff::facadesoulAchievement & temp_facadesoulachievement_list = msg.facadesoulachievement_list(i);
-		facadesoulAchievement_List[i].read_from_pbmsg(temp_facadesoulachievement_list);
+void Sheet_FacadeSoulachievement_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoulachievement & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FacadeSoulachievement_s));
+	E_FacadeSoulachievement_List.resize((int)msg.e_facadesoulachievement_list_size() > (int)E_FacadeSoulachievement_List.max_size() ? E_FacadeSoulachievement_List.max_size() : msg.e_facadesoulachievement_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FacadeSoulachievement_List.size(); ++i) {
+		const ::proto_ff::E_FacadeSoulachievement & temp_e_facadesoulachievement_list = msg.e_facadesoulachievement_list(i);
+		E_FacadeSoulachievement_List[i].read_from_pbmsg(temp_e_facadesoulachievement_list);
 	}
 }
 

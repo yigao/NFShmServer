@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-taskrewardtaskrewarditemDesc_s::taskrewardtaskrewarditemDesc_s() {
+E_TaskrewardTaskrewardItemDesc_s::E_TaskrewardTaskrewardItemDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,34 +10,34 @@ taskrewardtaskrewarditemDesc_s::taskrewardtaskrewarditemDesc_s() {
 	}
 }
 
-int taskrewardtaskrewarditemDesc_s::CreateInit() {
-	bind = (int32_t)0;
-	id = (int64_t)0;
-	val = (int32_t)0;
-	prof = (int32_t)0;
+int E_TaskrewardTaskrewardItemDesc_s::CreateInit() {
+	m_bind = (int32_t)0;
+	m_id = (int64_t)0;
+	m_val = (int32_t)0;
+	m_prof = (int32_t)0;
 	return 0;
 }
 
-int taskrewardtaskrewarditemDesc_s::ResumeInit() {
+int E_TaskrewardTaskrewardItemDesc_s::ResumeInit() {
 	return 0;
 }
 
-void taskrewardtaskrewarditemDesc_s::write_to_pbmsg(::proto_ff::taskrewardtaskrewarditemDesc & msg) const {
-	msg.set_bind((int32_t)bind);
-	msg.set_id((int64_t)id);
-	msg.set_val((int32_t)val);
-	msg.set_prof((int32_t)prof);
+void E_TaskrewardTaskrewardItemDesc_s::write_to_pbmsg(::proto_ff::E_TaskrewardTaskrewardItemDesc & msg) const {
+	msg.set_m_bind((int32_t)m_bind);
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_val((int32_t)m_val);
+	msg.set_m_prof((int32_t)m_prof);
 }
 
-void taskrewardtaskrewarditemDesc_s::read_from_pbmsg(const ::proto_ff::taskrewardtaskrewarditemDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct taskrewardtaskrewarditemDesc_s));
-	bind = msg.bind();
-	id = msg.id();
-	val = msg.val();
-	prof = msg.prof();
+void E_TaskrewardTaskrewardItemDesc_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTaskrewardItemDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_TaskrewardTaskrewardItemDesc_s));
+	m_bind = msg.m_bind();
+	m_id = msg.m_id();
+	m_val = msg.m_val();
+	m_prof = msg.m_prof();
 }
 
-taskrewardtaskrewardattrDesc_s::taskrewardtaskrewardattrDesc_s() {
+E_TaskrewardTaskrewardAttrDesc_s::E_TaskrewardTaskrewardAttrDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -45,28 +45,28 @@ taskrewardtaskrewardattrDesc_s::taskrewardtaskrewardattrDesc_s() {
 	}
 }
 
-int taskrewardtaskrewardattrDesc_s::CreateInit() {
-	id = (int64_t)0;
-	val = (int64_t)0;
+int E_TaskrewardTaskrewardAttrDesc_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_val = (int64_t)0;
 	return 0;
 }
 
-int taskrewardtaskrewardattrDesc_s::ResumeInit() {
+int E_TaskrewardTaskrewardAttrDesc_s::ResumeInit() {
 	return 0;
 }
 
-void taskrewardtaskrewardattrDesc_s::write_to_pbmsg(::proto_ff::taskrewardtaskrewardattrDesc & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_val((int64_t)val);
+void E_TaskrewardTaskrewardAttrDesc_s::write_to_pbmsg(::proto_ff::E_TaskrewardTaskrewardAttrDesc & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_val((int64_t)m_val);
 }
 
-void taskrewardtaskrewardattrDesc_s::read_from_pbmsg(const ::proto_ff::taskrewardtaskrewardattrDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct taskrewardtaskrewardattrDesc_s));
-	id = msg.id();
-	val = msg.val();
+void E_TaskrewardTaskrewardAttrDesc_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTaskrewardAttrDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_TaskrewardTaskrewardAttrDesc_s));
+	m_id = msg.m_id();
+	m_val = msg.m_val();
 }
 
-taskrewardtaskreward_s::taskrewardtaskreward_s() {
+E_TaskrewardTaskreward_s::E_TaskrewardTaskreward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -74,58 +74,58 @@ taskrewardtaskreward_s::taskrewardtaskreward_s() {
 	}
 }
 
-int taskrewardtaskreward_s::CreateInit() {
-	id = (int64_t)0;
-	taskType = (int32_t)0;
-	lv = (int32_t)0;
-	guildExp = (int32_t)0;
-	guildPoint = (int32_t)0;
-	skillId = (int32_t)0;
+int E_TaskrewardTaskreward_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_tasktype = (int32_t)0;
+	m_lv = (int32_t)0;
+	m_guildexp = (int32_t)0;
+	m_guildpoint = (int32_t)0;
+	m_skillid = (int32_t)0;
 	return 0;
 }
 
-int taskrewardtaskreward_s::ResumeInit() {
+int E_TaskrewardTaskreward_s::ResumeInit() {
 	return 0;
 }
 
-void taskrewardtaskreward_s::write_to_pbmsg(::proto_ff::taskrewardtaskreward & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_tasktype((int32_t)taskType);
-	msg.set_lv((int32_t)lv);
-	msg.set_guildexp((int32_t)guildExp);
-	msg.set_guildpoint((int32_t)guildPoint);
-	msg.set_skillid((int32_t)skillId);
-	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
-		::proto_ff::taskrewardtaskrewarditemDesc* temp_item = msg.add_item();
-		item[i].write_to_pbmsg(*temp_item);
+void E_TaskrewardTaskreward_s::write_to_pbmsg(::proto_ff::E_TaskrewardTaskreward & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_tasktype((int32_t)m_tasktype);
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_guildexp((int32_t)m_guildexp);
+	msg.set_m_guildpoint((int32_t)m_guildpoint);
+	msg.set_m_skillid((int32_t)m_skillid);
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		::proto_ff::E_TaskrewardTaskrewardItemDesc* temp_m_item = msg.add_m_item();
+		m_item[i].write_to_pbmsg(*temp_m_item);
 	}
-	for(int32_t i = 0; i < (int32_t)attr.GetSize() && i < attr.GetMaxSize(); ++i) {
-		::proto_ff::taskrewardtaskrewardattrDesc* temp_attr = msg.add_attr();
-		attr[i].write_to_pbmsg(*temp_attr);
-	}
-}
-
-void taskrewardtaskreward_s::read_from_pbmsg(const ::proto_ff::taskrewardtaskreward & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct taskrewardtaskreward_s));
-	id = msg.id();
-	taskType = msg.tasktype();
-	lv = msg.lv();
-	guildExp = msg.guildexp();
-	guildPoint = msg.guildpoint();
-	skillId = msg.skillid();
-	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
-	for(int32_t i = 0; i < (int32_t)item.GetSize(); ++i) {
-		const ::proto_ff::taskrewardtaskrewarditemDesc & temp_item = msg.item(i);
-		item[i].read_from_pbmsg(temp_item);
-	}
-	attr.SetSize(msg.attr_size() > attr.GetMaxSize() ? attr.GetMaxSize() : msg.attr_size());
-	for(int32_t i = 0; i < (int32_t)attr.GetSize(); ++i) {
-		const ::proto_ff::taskrewardtaskrewardattrDesc & temp_attr = msg.attr(i);
-		attr[i].read_from_pbmsg(temp_attr);
+	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
+		::proto_ff::E_TaskrewardTaskrewardAttrDesc* temp_m_attr = msg.add_m_attr();
+		m_attr[i].write_to_pbmsg(*temp_m_attr);
 	}
 }
 
-Sheet_taskrewardtaskreward_s::Sheet_taskrewardtaskreward_s() {
+void E_TaskrewardTaskreward_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTaskreward & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_TaskrewardTaskreward_s));
+	m_id = msg.m_id();
+	m_tasktype = msg.m_tasktype();
+	m_lv = msg.m_lv();
+	m_guildexp = msg.m_guildexp();
+	m_guildpoint = msg.m_guildpoint();
+	m_skillid = msg.m_skillid();
+	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		const ::proto_ff::E_TaskrewardTaskrewardItemDesc & temp_m_item = msg.m_item(i);
+		m_item[i].read_from_pbmsg(temp_m_item);
+	}
+	m_attr.resize((int)msg.m_attr_size() > (int)m_attr.max_size() ? m_attr.max_size() : msg.m_attr_size());
+	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
+		const ::proto_ff::E_TaskrewardTaskrewardAttrDesc & temp_m_attr = msg.m_attr(i);
+		m_attr[i].read_from_pbmsg(temp_m_attr);
+	}
+}
+
+Sheet_TaskrewardTaskreward_s::Sheet_TaskrewardTaskreward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -133,31 +133,31 @@ Sheet_taskrewardtaskreward_s::Sheet_taskrewardtaskreward_s() {
 	}
 }
 
-int Sheet_taskrewardtaskreward_s::CreateInit() {
+int Sheet_TaskrewardTaskreward_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_taskrewardtaskreward_s::ResumeInit() {
+int Sheet_TaskrewardTaskreward_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_taskrewardtaskreward_s::write_to_pbmsg(::proto_ff::Sheet_taskrewardtaskreward & msg) const {
-	for(int32_t i = 0; i < (int32_t)taskrewardtaskreward_List.GetSize() && i < taskrewardtaskreward_List.GetMaxSize(); ++i) {
-		::proto_ff::taskrewardtaskreward* temp_taskrewardtaskreward_list = msg.add_taskrewardtaskreward_list();
-		taskrewardtaskreward_List[i].write_to_pbmsg(*temp_taskrewardtaskreward_list);
+void Sheet_TaskrewardTaskreward_s::write_to_pbmsg(::proto_ff::Sheet_TaskrewardTaskreward & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_TaskrewardTaskreward_List.size(); ++i) {
+		::proto_ff::E_TaskrewardTaskreward* temp_e_taskrewardtaskreward_list = msg.add_e_taskrewardtaskreward_list();
+		E_TaskrewardTaskreward_List[i].write_to_pbmsg(*temp_e_taskrewardtaskreward_list);
 	}
 }
 
-void Sheet_taskrewardtaskreward_s::read_from_pbmsg(const ::proto_ff::Sheet_taskrewardtaskreward & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_taskrewardtaskreward_s));
-	taskrewardtaskreward_List.SetSize(msg.taskrewardtaskreward_list_size() > taskrewardtaskreward_List.GetMaxSize() ? taskrewardtaskreward_List.GetMaxSize() : msg.taskrewardtaskreward_list_size());
-	for(int32_t i = 0; i < (int32_t)taskrewardtaskreward_List.GetSize(); ++i) {
-		const ::proto_ff::taskrewardtaskreward & temp_taskrewardtaskreward_list = msg.taskrewardtaskreward_list(i);
-		taskrewardtaskreward_List[i].read_from_pbmsg(temp_taskrewardtaskreward_list);
+void Sheet_TaskrewardTaskreward_s::read_from_pbmsg(const ::proto_ff::Sheet_TaskrewardTaskreward & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_TaskrewardTaskreward_s));
+	E_TaskrewardTaskreward_List.resize((int)msg.e_taskrewardtaskreward_list_size() > (int)E_TaskrewardTaskreward_List.max_size() ? E_TaskrewardTaskreward_List.max_size() : msg.e_taskrewardtaskreward_list_size());
+	for(int32_t i = 0; i < (int32_t)E_TaskrewardTaskreward_List.size(); ++i) {
+		const ::proto_ff::E_TaskrewardTaskreward & temp_e_taskrewardtaskreward_list = msg.e_taskrewardtaskreward_list(i);
+		E_TaskrewardTaskreward_List[i].read_from_pbmsg(temp_e_taskrewardtaskreward_list);
 	}
 }
 
-taskrewardtasktype_s::taskrewardtasktype_s() {
+E_TaskrewardTasktype_s::E_TaskrewardTasktype_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -165,25 +165,25 @@ taskrewardtasktype_s::taskrewardtasktype_s() {
 	}
 }
 
-int taskrewardtasktype_s::CreateInit() {
-	taskType = (int32_t)0;
+int E_TaskrewardTasktype_s::CreateInit() {
+	m_tasktype = (int32_t)0;
 	return 0;
 }
 
-int taskrewardtasktype_s::ResumeInit() {
+int E_TaskrewardTasktype_s::ResumeInit() {
 	return 0;
 }
 
-void taskrewardtasktype_s::write_to_pbmsg(::proto_ff::taskrewardtasktype & msg) const {
-	msg.set_tasktype((int32_t)taskType);
+void E_TaskrewardTasktype_s::write_to_pbmsg(::proto_ff::E_TaskrewardTasktype & msg) const {
+	msg.set_m_tasktype((int32_t)m_tasktype);
 }
 
-void taskrewardtasktype_s::read_from_pbmsg(const ::proto_ff::taskrewardtasktype & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct taskrewardtasktype_s));
-	taskType = msg.tasktype();
+void E_TaskrewardTasktype_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTasktype & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_TaskrewardTasktype_s));
+	m_tasktype = msg.m_tasktype();
 }
 
-Sheet_taskrewardtasktype_s::Sheet_taskrewardtasktype_s() {
+Sheet_TaskrewardTasktype_s::Sheet_TaskrewardTasktype_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -191,27 +191,27 @@ Sheet_taskrewardtasktype_s::Sheet_taskrewardtasktype_s() {
 	}
 }
 
-int Sheet_taskrewardtasktype_s::CreateInit() {
+int Sheet_TaskrewardTasktype_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_taskrewardtasktype_s::ResumeInit() {
+int Sheet_TaskrewardTasktype_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_taskrewardtasktype_s::write_to_pbmsg(::proto_ff::Sheet_taskrewardtasktype & msg) const {
-	for(int32_t i = 0; i < (int32_t)taskrewardtasktype_List.GetSize() && i < taskrewardtasktype_List.GetMaxSize(); ++i) {
-		::proto_ff::taskrewardtasktype* temp_taskrewardtasktype_list = msg.add_taskrewardtasktype_list();
-		taskrewardtasktype_List[i].write_to_pbmsg(*temp_taskrewardtasktype_list);
+void Sheet_TaskrewardTasktype_s::write_to_pbmsg(::proto_ff::Sheet_TaskrewardTasktype & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_TaskrewardTasktype_List.size(); ++i) {
+		::proto_ff::E_TaskrewardTasktype* temp_e_taskrewardtasktype_list = msg.add_e_taskrewardtasktype_list();
+		E_TaskrewardTasktype_List[i].write_to_pbmsg(*temp_e_taskrewardtasktype_list);
 	}
 }
 
-void Sheet_taskrewardtasktype_s::read_from_pbmsg(const ::proto_ff::Sheet_taskrewardtasktype & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_taskrewardtasktype_s));
-	taskrewardtasktype_List.SetSize(msg.taskrewardtasktype_list_size() > taskrewardtasktype_List.GetMaxSize() ? taskrewardtasktype_List.GetMaxSize() : msg.taskrewardtasktype_list_size());
-	for(int32_t i = 0; i < (int32_t)taskrewardtasktype_List.GetSize(); ++i) {
-		const ::proto_ff::taskrewardtasktype & temp_taskrewardtasktype_list = msg.taskrewardtasktype_list(i);
-		taskrewardtasktype_List[i].read_from_pbmsg(temp_taskrewardtasktype_list);
+void Sheet_TaskrewardTasktype_s::read_from_pbmsg(const ::proto_ff::Sheet_TaskrewardTasktype & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_TaskrewardTasktype_s));
+	E_TaskrewardTasktype_List.resize((int)msg.e_taskrewardtasktype_list_size() > (int)E_TaskrewardTasktype_List.max_size() ? E_TaskrewardTasktype_List.max_size() : msg.e_taskrewardtasktype_list_size());
+	for(int32_t i = 0; i < (int32_t)E_TaskrewardTasktype_List.size(); ++i) {
+		const ::proto_ff::E_TaskrewardTasktype & temp_e_taskrewardtasktype_list = msg.e_taskrewardtasktype_list(i);
+		E_TaskrewardTasktype_List[i].read_from_pbmsg(temp_e_taskrewardtasktype_list);
 	}
 }
 

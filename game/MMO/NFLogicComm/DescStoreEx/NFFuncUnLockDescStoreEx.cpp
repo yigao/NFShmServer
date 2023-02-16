@@ -58,36 +58,36 @@ int NFFuncUnLockDescStoreEx::Load(NFResDB *pDB)
     {
         auto &tInfo = mapUnlockCfg->at(i);
 
-        auto pOpenTypeMap = m_mapUnlockCfg.Find(tInfo.openType);
+        auto pOpenTypeMap = m_mapUnlockCfg.Find(tInfo.m_opentype);
         if (pOpenTypeMap == NULL)
         {
-            pOpenTypeMap = m_mapUnlockCfg.Insert(tInfo.openType);
-            CHECK_EXPR_ASSERT(pOpenTypeMap, -1, "m_mapUnlockCfg.Insert Failed, Not Enought Space, openType:{}", tInfo.openType);
+            pOpenTypeMap = m_mapUnlockCfg.Insert(tInfo.m_opentype);
+            CHECK_EXPR_ASSERT(pOpenTypeMap, -1, "m_mapUnlockCfg.Insert Failed, Not Enought Space, openType:{}", tInfo.m_opentype);
 
-            auto pOpenValMap = pOpenTypeMap->Insert(tInfo.openVal);
-            CHECK_EXPR_ASSERT(pOpenValMap, -1, "pOpenTypeMap Insert Failed, Not Enought Space, openVal:{}", tInfo.openVal);
+            auto pm_openvalMap = pOpenTypeMap->Insert(tInfo.m_openval);
+            CHECK_EXPR_ASSERT(pm_openvalMap, -1, "pOpenTypeMap Insert Failed, Not Enought Space, m_openval:{}", tInfo.m_openval);
 
-            auto pFuncValue = pOpenValMap->Insert(tInfo.functionId);
-            CHECK_EXPR_ASSERT(pFuncValue, -1, "pOpenValMap Insert Failed, Not Enought Space, openVal:{}", tInfo.functionId);
+            auto pFuncValue = pm_openvalMap->Insert(tInfo.m_functionid);
+            CHECK_EXPR_ASSERT(pFuncValue, -1, "pm_openvalMap Insert Failed, Not Enought Space, m_openval:{}", tInfo.m_functionid);
         }
         else
         {
-            auto pOpenValMap = pOpenTypeMap->Find(tInfo.openVal);
-            if (pOpenValMap == NULL)
+            auto pm_openvalMap = pOpenTypeMap->Find(tInfo.m_openval);
+            if (pm_openvalMap == NULL)
             {
-                auto pOpenValMap = pOpenTypeMap->Insert(tInfo.openVal);
-                CHECK_EXPR_ASSERT(pOpenValMap, -1, "pOpenTypeMap Insert Failed, Not Enought Space, openVal:{}", tInfo.openVal);
+                auto pm_openvalMap = pOpenTypeMap->Insert(tInfo.m_openval);
+                CHECK_EXPR_ASSERT(pm_openvalMap, -1, "pOpenTypeMap Insert Failed, Not Enought Space, m_openval:{}", tInfo.m_openval);
 
-                auto pFuncValue = pOpenValMap->Insert(tInfo.functionId);
-                CHECK_EXPR_ASSERT(pFuncValue, -1, "pOpenValMap Insert Failed, Not Enought Space, openVal:{}", tInfo.functionId);
+                auto pFuncValue = pm_openvalMap->Insert(tInfo.m_functionid);
+                CHECK_EXPR_ASSERT(pFuncValue, -1, "pm_openvalMap Insert Failed, Not Enought Space, m_openval:{}", tInfo.m_functionid);
             }
             else
             {
-                auto pFuncValue = pOpenValMap->Find(tInfo.functionId);
+                auto pFuncValue = pm_openvalMap->Find(tInfo.m_functionid);
                 if (pFuncValue == NULL)
                 {
-                    auto pFuncValue = pOpenValMap->Insert(tInfo.functionId);
-                    CHECK_EXPR_ASSERT(pFuncValue, -1, "pOpenValMap Insert Failed, Not Enought Space, openVal:{}", tInfo.functionId);
+                    auto pFuncValue = pm_openvalMap->Insert(tInfo.m_functionid);
+                    CHECK_EXPR_ASSERT(pFuncValue, -1, "pm_openvalMap Insert Failed, Not Enought Space, m_openval:{}", tInfo.m_functionid);
                 }
             }
         }
@@ -97,22 +97,22 @@ int NFFuncUnLockDescStoreEx::Load(NFResDB *pDB)
     for (auto itercfg = m_mapUnlockCfg.Begin(); itercfg != m_mapUnlockCfg.End(); itercfg++)
     {
         uint32_t opentype = *(itercfg->first);
-        auto mapOpenValue = itercfg->second;
+        auto mapm_openvalue = itercfg->second;
         if (FUNCTION_UNLOCK_TYPE_LEVEL == opentype
             || FUNCTION_UNLOCK_TYPE_TRANSFER == opentype
             || FUNCTION_UNLOCK_TYPE_PAYRMB == opentype
             || FUNCTION_UNLOCK_TYPE_VIP_LEV == opentype
                 )
         {
-            for (auto iterlv = mapOpenValue->Begin(); iterlv != mapOpenValue->End(); iterlv++)
+            for (auto iterlv = mapm_openvalue->Begin(); iterlv != mapm_openvalue->End(); iterlv++)
             {
                 uint64_t lev = *(iterlv->first);
                 auto setLevFunc = iterlv->second;
                 //
-                auto mapTmpOpenValue = m_mapUnlockCfg.Find(opentype);
-                if (mapTmpOpenValue != NULL)
+                auto mapTmpm_openvalue = m_mapUnlockCfg.Find(opentype);
+                if (mapTmpm_openvalue != NULL)
                 {
-                    for (auto itertmp_open = mapTmpOpenValue->Begin(); itertmp_open != mapTmpOpenValue->End(); itertmp_open++)
+                    for (auto itertmp_open = mapTmpm_openvalue->Begin(); itertmp_open != mapTmpm_openvalue->End(); itertmp_open++)
                     {
                         if (*(itertmp_open->first) >= lev)
                         {
@@ -121,12 +121,12 @@ int NFFuncUnLockDescStoreEx::Load(NFResDB *pDB)
                         auto setTmpFunc = itertmp_open->second;
                         for (auto itertmp_func = setTmpFunc->Begin(); itertmp_func != setTmpFunc->End(); itertmp_func++)
                         {
-                            uint64_t functionId = *(itertmp_func->first);
-                            auto pFuncValue = setLevFunc->Find(functionId);
+                            uint64_t m_functionid = *(itertmp_func->first);
+                            auto pFuncValue = setLevFunc->Find(m_functionid);
                             if (pFuncValue == NULL)
                             {
-                                pFuncValue = setLevFunc->Insert(functionId);
-                                CHECK_EXPR_ASSERT(pFuncValue, -1, "pOpenValMap Insert Failed, Not Enought Space, openVal:{}", functionId);
+                                pFuncValue = setLevFunc->Insert(m_functionid);
+                                CHECK_EXPR_ASSERT(pFuncValue, -1, "pm_openvalMap Insert Failed, Not Enought Space, m_openval:{}", m_functionid);
                             }
                         }
                     }

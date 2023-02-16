@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-decoratedecorateattributeDesc_s::decoratedecorateattributeDesc_s() {
+E_DecorateDecorateAttributeDesc_s::E_DecorateDecorateAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ decoratedecorateattributeDesc_s::decoratedecorateattributeDesc_s() {
 	}
 }
 
-int decoratedecorateattributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_DecorateDecorateAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int decoratedecorateattributeDesc_s::ResumeInit() {
+int E_DecorateDecorateAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void decoratedecorateattributeDesc_s::write_to_pbmsg(::proto_ff::decoratedecorateattributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_DecorateDecorateAttributeDesc_s::write_to_pbmsg(::proto_ff::E_DecorateDecorateAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void decoratedecorateattributeDesc_s::read_from_pbmsg(const ::proto_ff::decoratedecorateattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct decoratedecorateattributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_DecorateDecorateAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_DecorateDecorateAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DecorateDecorateAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-decoratedecorateActiveAttributeDesc_s::decoratedecorateActiveAttributeDesc_s() {
+E_DecorateDecorateActiveattributeDesc_s::E_DecorateDecorateActiveattributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,28 +39,28 @@ decoratedecorateActiveAttributeDesc_s::decoratedecorateActiveAttributeDesc_s() {
 	}
 }
 
-int decoratedecorateActiveAttributeDesc_s::CreateInit() {
-	type = (int32_t)0;
-	value = (int32_t)0;
+int E_DecorateDecorateActiveattributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int decoratedecorateActiveAttributeDesc_s::ResumeInit() {
+int E_DecorateDecorateActiveattributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void decoratedecorateActiveAttributeDesc_s::write_to_pbmsg(::proto_ff::decoratedecorateActiveAttributeDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_value((int32_t)value);
+void E_DecorateDecorateActiveattributeDesc_s::write_to_pbmsg(::proto_ff::E_DecorateDecorateActiveattributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void decoratedecorateActiveAttributeDesc_s::read_from_pbmsg(const ::proto_ff::decoratedecorateActiveAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct decoratedecorateActiveAttributeDesc_s));
-	type = msg.type();
-	value = msg.value();
+void E_DecorateDecorateActiveattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_DecorateDecorateActiveattributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DecorateDecorateActiveattributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-decoratedecorate_s::decoratedecorate_s() {
+E_DecorateDecorate_s::E_DecorateDecorate_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -68,70 +68,70 @@ decoratedecorate_s::decoratedecorate_s() {
 	}
 }
 
-int decoratedecorate_s::CreateInit() {
-	ID = (int64_t)0;
-	type = (int32_t)0;
-	quality = (int32_t)0;
-	activationItem = (int64_t)0;
-	activationNum = (int32_t)0;
-	starId = (int64_t)0;
-	starUp = (int32_t)0;
-	starBer = (int32_t)0;
+int E_DecorateDecorate_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_activationitem = (int64_t)0;
+	m_activationnum = (int32_t)0;
+	m_starid = (int64_t)0;
+	m_starup = (int32_t)0;
+	m_starber = (int32_t)0;
 	return 0;
 }
 
-int decoratedecorate_s::ResumeInit() {
+int E_DecorateDecorate_s::ResumeInit() {
 	return 0;
 }
 
-void decoratedecorate_s::write_to_pbmsg(::proto_ff::decoratedecorate & msg) const {
-	msg.set_id((int64_t)ID);
-	msg.set_name((const char*)name.Get());
-	msg.set_type((int32_t)type);
-	msg.set_quality((int32_t)quality);
-	msg.set_professionlimit((const char*)professionLimit.Get());
-	msg.set_activationitem((int64_t)activationItem);
-	msg.set_activationnum((int32_t)activationNum);
-	msg.set_starid((int64_t)starId);
-	msg.set_starnum((const char*)starNum.Get());
-	msg.set_starup((int32_t)starUp);
-	msg.set_starber((int32_t)starBer);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::decoratedecorateattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_DecorateDecorate_s::write_to_pbmsg(::proto_ff::E_DecorateDecorate & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_professionlimit((const char*)m_professionlimit.data());
+	msg.set_m_activationitem((int64_t)m_activationitem);
+	msg.set_m_activationnum((int32_t)m_activationnum);
+	msg.set_m_starid((int64_t)m_starid);
+	msg.set_m_starnum((const char*)m_starnum.data());
+	msg.set_m_starup((int32_t)m_starup);
+	msg.set_m_starber((int32_t)m_starber);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_DecorateDecorateAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize() && i < ActiveAttribute.GetMaxSize(); ++i) {
-		::proto_ff::decoratedecorateActiveAttributeDesc* temp_activeattribute = msg.add_activeattribute();
-		ActiveAttribute[i].write_to_pbmsg(*temp_activeattribute);
-	}
-}
-
-void decoratedecorate_s::read_from_pbmsg(const ::proto_ff::decoratedecorate & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct decoratedecorate_s));
-	ID = msg.id();
-	name.Copy(msg.name());
-	type = msg.type();
-	quality = msg.quality();
-	professionLimit.Copy(msg.professionlimit());
-	activationItem = msg.activationitem();
-	activationNum = msg.activationnum();
-	starId = msg.starid();
-	starNum.Copy(msg.starnum());
-	starUp = msg.starup();
-	starBer = msg.starber();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::decoratedecorateattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
-	}
-	ActiveAttribute.SetSize(msg.activeattribute_size() > ActiveAttribute.GetMaxSize() ? ActiveAttribute.GetMaxSize() : msg.activeattribute_size());
-	for(int32_t i = 0; i < (int32_t)ActiveAttribute.GetSize(); ++i) {
-		const ::proto_ff::decoratedecorateActiveAttributeDesc & temp_activeattribute = msg.activeattribute(i);
-		ActiveAttribute[i].read_from_pbmsg(temp_activeattribute);
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		::proto_ff::E_DecorateDecorateActiveattributeDesc* temp_m_activeattribute = msg.add_m_activeattribute();
+		m_activeattribute[i].write_to_pbmsg(*temp_m_activeattribute);
 	}
 }
 
-Sheet_decoratedecorate_s::Sheet_decoratedecorate_s() {
+void E_DecorateDecorate_s::read_from_pbmsg(const ::proto_ff::E_DecorateDecorate & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DecorateDecorate_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_type = msg.m_type();
+	m_quality = msg.m_quality();
+	m_professionlimit = msg.m_professionlimit();
+	m_activationitem = msg.m_activationitem();
+	m_activationnum = msg.m_activationnum();
+	m_starid = msg.m_starid();
+	m_starnum = msg.m_starnum();
+	m_starup = msg.m_starup();
+	m_starber = msg.m_starber();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_DecorateDecorateAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_activeattribute.resize((int)msg.m_activeattribute_size() > (int)m_activeattribute.max_size() ? m_activeattribute.max_size() : msg.m_activeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+		const ::proto_ff::E_DecorateDecorateActiveattributeDesc & temp_m_activeattribute = msg.m_activeattribute(i);
+		m_activeattribute[i].read_from_pbmsg(temp_m_activeattribute);
+	}
+}
+
+Sheet_DecorateDecorate_s::Sheet_DecorateDecorate_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -139,27 +139,27 @@ Sheet_decoratedecorate_s::Sheet_decoratedecorate_s() {
 	}
 }
 
-int Sheet_decoratedecorate_s::CreateInit() {
+int Sheet_DecorateDecorate_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_decoratedecorate_s::ResumeInit() {
+int Sheet_DecorateDecorate_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_decoratedecorate_s::write_to_pbmsg(::proto_ff::Sheet_decoratedecorate & msg) const {
-	for(int32_t i = 0; i < (int32_t)decoratedecorate_List.GetSize() && i < decoratedecorate_List.GetMaxSize(); ++i) {
-		::proto_ff::decoratedecorate* temp_decoratedecorate_list = msg.add_decoratedecorate_list();
-		decoratedecorate_List[i].write_to_pbmsg(*temp_decoratedecorate_list);
+void Sheet_DecorateDecorate_s::write_to_pbmsg(::proto_ff::Sheet_DecorateDecorate & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DecorateDecorate_List.size(); ++i) {
+		::proto_ff::E_DecorateDecorate* temp_e_decoratedecorate_list = msg.add_e_decoratedecorate_list();
+		E_DecorateDecorate_List[i].write_to_pbmsg(*temp_e_decoratedecorate_list);
 	}
 }
 
-void Sheet_decoratedecorate_s::read_from_pbmsg(const ::proto_ff::Sheet_decoratedecorate & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_decoratedecorate_s));
-	decoratedecorate_List.SetSize(msg.decoratedecorate_list_size() > decoratedecorate_List.GetMaxSize() ? decoratedecorate_List.GetMaxSize() : msg.decoratedecorate_list_size());
-	for(int32_t i = 0; i < (int32_t)decoratedecorate_List.GetSize(); ++i) {
-		const ::proto_ff::decoratedecorate & temp_decoratedecorate_list = msg.decoratedecorate_list(i);
-		decoratedecorate_List[i].read_from_pbmsg(temp_decoratedecorate_list);
+void Sheet_DecorateDecorate_s::read_from_pbmsg(const ::proto_ff::Sheet_DecorateDecorate & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DecorateDecorate_s));
+	E_DecorateDecorate_List.resize((int)msg.e_decoratedecorate_list_size() > (int)E_DecorateDecorate_List.max_size() ? E_DecorateDecorate_List.max_size() : msg.e_decoratedecorate_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DecorateDecorate_List.size(); ++i) {
+		const ::proto_ff::E_DecorateDecorate & temp_e_decoratedecorate_list = msg.e_decoratedecorate_list(i);
+		E_DecorateDecorate_List[i].read_from_pbmsg(temp_e_decoratedecorate_list);
 	}
 }
 

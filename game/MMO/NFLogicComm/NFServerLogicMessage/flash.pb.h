@@ -34,23 +34,23 @@ void  protobuf_AddDesc_flash_2eproto();
 void protobuf_AssignDesc_flash_2eproto();
 void protobuf_ShutdownFile_flash_2eproto();
 
-class flashflashmonsterDesc;
-class flashflash;
-class Sheet_flashflash;
-class flashitemFlashmonsterDesc;
-class flashitemFlash;
-class Sheet_flashitemFlash;
+class E_FlashFlashMonsterDesc;
+class E_FlashFlash;
+class Sheet_FlashFlash;
+class E_FlashItemflashMonsterDesc;
+class E_FlashItemflash;
+class Sheet_FlashItemflash;
 
 // ===================================================================
 
-class flashflashmonsterDesc : public ::google::protobuf::Message {
+class E_FlashFlashMonsterDesc : public ::google::protobuf::Message {
  public:
-  flashflashmonsterDesc();
-  virtual ~flashflashmonsterDesc();
+  E_FlashFlashMonsterDesc();
+  virtual ~E_FlashFlashMonsterDesc();
 
-  flashflashmonsterDesc(const flashflashmonsterDesc& from);
+  E_FlashFlashMonsterDesc(const E_FlashFlashMonsterDesc& from);
 
-  inline flashflashmonsterDesc& operator=(const flashflashmonsterDesc& from) {
+  inline E_FlashFlashMonsterDesc& operator=(const E_FlashFlashMonsterDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -64,17 +64,17 @@ class flashflashmonsterDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const flashflashmonsterDesc& default_instance();
+  static const E_FlashFlashMonsterDesc& default_instance();
 
-  void Swap(flashflashmonsterDesc* other);
+  void Swap(E_FlashFlashMonsterDesc* other);
 
   // implements Message ----------------------------------------------
 
-  flashflashmonsterDesc* New() const;
+  E_FlashFlashMonsterDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const flashflashmonsterDesc& from);
-  void MergeFrom(const flashflashmonsterDesc& from);
+  void CopyFrom(const E_FlashFlashMonsterDesc& from);
+  void MergeFrom(const E_FlashFlashMonsterDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -97,31 +97,31 @@ class flashflashmonsterDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Num = 1;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 1;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 ID = 2;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 2;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 2;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 2;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.flashflashmonsterDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FlashFlashMonsterDesc)
  private:
-  inline void set_has_num();
-  inline void clear_has_num();
-  inline void set_has_id();
-  inline void clear_has_id();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 num_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_num_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -131,18 +131,18 @@ class flashflashmonsterDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_flash_2eproto();
 
   void InitAsDefaultInstance();
-  static flashflashmonsterDesc* default_instance_;
+  static E_FlashFlashMonsterDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class flashflash : public ::google::protobuf::Message {
+class E_FlashFlash : public ::google::protobuf::Message {
  public:
-  flashflash();
-  virtual ~flashflash();
+  E_FlashFlash();
+  virtual ~E_FlashFlash();
 
-  flashflash(const flashflash& from);
+  E_FlashFlash(const E_FlashFlash& from);
 
-  inline flashflash& operator=(const flashflash& from) {
+  inline E_FlashFlash& operator=(const E_FlashFlash& from) {
     CopyFrom(from);
     return *this;
   }
@@ -156,17 +156,17 @@ class flashflash : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const flashflash& default_instance();
+  static const E_FlashFlash& default_instance();
 
-  void Swap(flashflash* other);
+  void Swap(E_FlashFlash* other);
 
   // implements Message ----------------------------------------------
 
-  flashflash* New() const;
+  E_FlashFlash* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const flashflash& from);
-  void MergeFrom(const flashflash& from);
+  void CopyFrom(const E_FlashFlash& from);
+  void MergeFrom(const E_FlashFlash& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -189,94 +189,94 @@ class flashflash : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 isLevelDynamic = 2;
-  inline bool has_isleveldynamic() const;
-  inline void clear_isleveldynamic();
-  static const int kIsLevelDynamicFieldNumber = 2;
-  inline ::google::protobuf::int32 isleveldynamic() const;
-  inline void set_isleveldynamic(::google::protobuf::int32 value);
+  // optional int32 m_isleveldynamic = 2;
+  inline bool has_m_isleveldynamic() const;
+  inline void clear_m_isleveldynamic();
+  static const int kMIsleveldynamicFieldNumber = 2;
+  inline ::google::protobuf::int32 m_isleveldynamic() const;
+  inline void set_m_isleveldynamic(::google::protobuf::int32 value);
 
-  // optional int32 miniLevel = 3;
-  inline bool has_minilevel() const;
-  inline void clear_minilevel();
-  static const int kMiniLevelFieldNumber = 3;
-  inline ::google::protobuf::int32 minilevel() const;
-  inline void set_minilevel(::google::protobuf::int32 value);
+  // optional int32 m_minilevel = 3;
+  inline bool has_m_minilevel() const;
+  inline void clear_m_minilevel();
+  static const int kMMinilevelFieldNumber = 3;
+  inline ::google::protobuf::int32 m_minilevel() const;
+  inline void set_m_minilevel(::google::protobuf::int32 value);
 
-  // optional int32 levelCheck = 4;
-  inline bool has_levelcheck() const;
-  inline void clear_levelcheck();
-  static const int kLevelCheckFieldNumber = 4;
-  inline ::google::protobuf::int32 levelcheck() const;
-  inline void set_levelcheck(::google::protobuf::int32 value);
+  // optional int32 m_levelcheck = 4;
+  inline bool has_m_levelcheck() const;
+  inline void clear_m_levelcheck();
+  static const int kMLevelcheckFieldNumber = 4;
+  inline ::google::protobuf::int32 m_levelcheck() const;
+  inline void set_m_levelcheck(::google::protobuf::int32 value);
 
-  // optional int64 pointID = 5;
-  inline bool has_pointid() const;
-  inline void clear_pointid();
-  static const int kPointIDFieldNumber = 5;
-  inline ::google::protobuf::int64 pointid() const;
-  inline void set_pointid(::google::protobuf::int64 value);
+  // optional int64 m_pointid = 5;
+  inline bool has_m_pointid() const;
+  inline void clear_m_pointid();
+  static const int kMPointidFieldNumber = 5;
+  inline ::google::protobuf::int64 m_pointid() const;
+  inline void set_m_pointid(::google::protobuf::int64 value);
 
-  // optional int32 monster_Type = 6;
-  inline bool has_monster_type() const;
-  inline void clear_monster_type();
-  static const int kMonsterTypeFieldNumber = 6;
-  inline ::google::protobuf::int32 monster_type() const;
-  inline void set_monster_type(::google::protobuf::int32 value);
+  // optional int32 m_monster_type = 6;
+  inline bool has_m_monster_type() const;
+  inline void clear_m_monster_type();
+  static const int kMMonsterTypeFieldNumber = 6;
+  inline ::google::protobuf::int32 m_monster_type() const;
+  inline void set_m_monster_type(::google::protobuf::int32 value);
 
-  // optional int32 monsterRefreshTime = 7;
-  inline bool has_monsterrefreshtime() const;
-  inline void clear_monsterrefreshtime();
-  static const int kMonsterRefreshTimeFieldNumber = 7;
-  inline ::google::protobuf::int32 monsterrefreshtime() const;
-  inline void set_monsterrefreshtime(::google::protobuf::int32 value);
+  // optional int32 m_monsterrefreshtime = 7;
+  inline bool has_m_monsterrefreshtime() const;
+  inline void clear_m_monsterrefreshtime();
+  static const int kMMonsterrefreshtimeFieldNumber = 7;
+  inline ::google::protobuf::int32 m_monsterrefreshtime() const;
+  inline void set_m_monsterrefreshtime(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.flashflashmonsterDesc monster = 8;
-  inline int monster_size() const;
-  inline void clear_monster();
-  static const int kMonsterFieldNumber = 8;
-  inline const ::proto_ff::flashflashmonsterDesc& monster(int index) const;
-  inline ::proto_ff::flashflashmonsterDesc* mutable_monster(int index);
-  inline ::proto_ff::flashflashmonsterDesc* add_monster();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflashmonsterDesc >&
-      monster() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflashmonsterDesc >*
-      mutable_monster();
+  // repeated .proto_ff.E_FlashFlashMonsterDesc m_monster = 8;
+  inline int m_monster_size() const;
+  inline void clear_m_monster();
+  static const int kMMonsterFieldNumber = 8;
+  inline const ::proto_ff::E_FlashFlashMonsterDesc& m_monster(int index) const;
+  inline ::proto_ff::E_FlashFlashMonsterDesc* mutable_m_monster(int index);
+  inline ::proto_ff::E_FlashFlashMonsterDesc* add_m_monster();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlashMonsterDesc >&
+      m_monster() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlashMonsterDesc >*
+      mutable_m_monster();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.flashflash)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FlashFlash)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_isleveldynamic();
-  inline void clear_has_isleveldynamic();
-  inline void set_has_minilevel();
-  inline void clear_has_minilevel();
-  inline void set_has_levelcheck();
-  inline void clear_has_levelcheck();
-  inline void set_has_pointid();
-  inline void clear_has_pointid();
-  inline void set_has_monster_type();
-  inline void clear_has_monster_type();
-  inline void set_has_monsterrefreshtime();
-  inline void clear_has_monsterrefreshtime();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_isleveldynamic();
+  inline void clear_has_m_isleveldynamic();
+  inline void set_has_m_minilevel();
+  inline void clear_has_m_minilevel();
+  inline void set_has_m_levelcheck();
+  inline void clear_has_m_levelcheck();
+  inline void set_has_m_pointid();
+  inline void clear_has_m_pointid();
+  inline void set_has_m_monster_type();
+  inline void clear_has_m_monster_type();
+  inline void set_has_m_monsterrefreshtime();
+  inline void clear_has_m_monsterrefreshtime();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 isleveldynamic_;
-  ::google::protobuf::int32 minilevel_;
-  ::google::protobuf::int64 pointid_;
-  ::google::protobuf::int32 levelcheck_;
-  ::google::protobuf::int32 monster_type_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflashmonsterDesc > monster_;
-  ::google::protobuf::int32 monsterrefreshtime_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_isleveldynamic_;
+  ::google::protobuf::int32 m_minilevel_;
+  ::google::protobuf::int64 m_pointid_;
+  ::google::protobuf::int32 m_levelcheck_;
+  ::google::protobuf::int32 m_monster_type_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlashMonsterDesc > m_monster_;
+  ::google::protobuf::int32 m_monsterrefreshtime_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
@@ -286,18 +286,18 @@ class flashflash : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_flash_2eproto();
 
   void InitAsDefaultInstance();
-  static flashflash* default_instance_;
+  static E_FlashFlash* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_flashflash : public ::google::protobuf::Message {
+class Sheet_FlashFlash : public ::google::protobuf::Message {
  public:
-  Sheet_flashflash();
-  virtual ~Sheet_flashflash();
+  Sheet_FlashFlash();
+  virtual ~Sheet_FlashFlash();
 
-  Sheet_flashflash(const Sheet_flashflash& from);
+  Sheet_FlashFlash(const Sheet_FlashFlash& from);
 
-  inline Sheet_flashflash& operator=(const Sheet_flashflash& from) {
+  inline Sheet_FlashFlash& operator=(const Sheet_FlashFlash& from) {
     CopyFrom(from);
     return *this;
   }
@@ -311,17 +311,17 @@ class Sheet_flashflash : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_flashflash& default_instance();
+  static const Sheet_FlashFlash& default_instance();
 
-  void Swap(Sheet_flashflash* other);
+  void Swap(Sheet_FlashFlash* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_flashflash* New() const;
+  Sheet_FlashFlash* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_flashflash& from);
-  void MergeFrom(const Sheet_flashflash& from);
+  void CopyFrom(const Sheet_FlashFlash& from);
+  void MergeFrom(const Sheet_FlashFlash& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -344,24 +344,24 @@ class Sheet_flashflash : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.flashflash flashflash_List = 1;
-  inline int flashflash_list_size() const;
-  inline void clear_flashflash_list();
-  static const int kFlashflashListFieldNumber = 1;
-  inline const ::proto_ff::flashflash& flashflash_list(int index) const;
-  inline ::proto_ff::flashflash* mutable_flashflash_list(int index);
-  inline ::proto_ff::flashflash* add_flashflash_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflash >&
-      flashflash_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflash >*
-      mutable_flashflash_list();
+  // repeated .proto_ff.E_FlashFlash E_FlashFlash_List = 1;
+  inline int e_flashflash_list_size() const;
+  inline void clear_e_flashflash_list();
+  static const int kEFlashFlashListFieldNumber = 1;
+  inline const ::proto_ff::E_FlashFlash& e_flashflash_list(int index) const;
+  inline ::proto_ff::E_FlashFlash* mutable_e_flashflash_list(int index);
+  inline ::proto_ff::E_FlashFlash* add_e_flashflash_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlash >&
+      e_flashflash_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlash >*
+      mutable_e_flashflash_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_flashflash)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FlashFlash)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflash > flashflash_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlash > e_flashflash_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -371,18 +371,18 @@ class Sheet_flashflash : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_flash_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_flashflash* default_instance_;
+  static Sheet_FlashFlash* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class flashitemFlashmonsterDesc : public ::google::protobuf::Message {
+class E_FlashItemflashMonsterDesc : public ::google::protobuf::Message {
  public:
-  flashitemFlashmonsterDesc();
-  virtual ~flashitemFlashmonsterDesc();
+  E_FlashItemflashMonsterDesc();
+  virtual ~E_FlashItemflashMonsterDesc();
 
-  flashitemFlashmonsterDesc(const flashitemFlashmonsterDesc& from);
+  E_FlashItemflashMonsterDesc(const E_FlashItemflashMonsterDesc& from);
 
-  inline flashitemFlashmonsterDesc& operator=(const flashitemFlashmonsterDesc& from) {
+  inline E_FlashItemflashMonsterDesc& operator=(const E_FlashItemflashMonsterDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -396,17 +396,17 @@ class flashitemFlashmonsterDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const flashitemFlashmonsterDesc& default_instance();
+  static const E_FlashItemflashMonsterDesc& default_instance();
 
-  void Swap(flashitemFlashmonsterDesc* other);
+  void Swap(E_FlashItemflashMonsterDesc* other);
 
   // implements Message ----------------------------------------------
 
-  flashitemFlashmonsterDesc* New() const;
+  E_FlashItemflashMonsterDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const flashitemFlashmonsterDesc& from);
-  void MergeFrom(const flashitemFlashmonsterDesc& from);
+  void CopyFrom(const E_FlashItemflashMonsterDesc& from);
+  void MergeFrom(const E_FlashItemflashMonsterDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -429,31 +429,31 @@ class flashitemFlashmonsterDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 Id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 weight = 2;
-  inline bool has_weight() const;
-  inline void clear_weight();
-  static const int kWeightFieldNumber = 2;
-  inline ::google::protobuf::int32 weight() const;
-  inline void set_weight(::google::protobuf::int32 value);
+  // optional int32 m_weight = 2;
+  inline bool has_m_weight() const;
+  inline void clear_m_weight();
+  static const int kMWeightFieldNumber = 2;
+  inline ::google::protobuf::int32 m_weight() const;
+  inline void set_m_weight(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.flashitemFlashmonsterDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FlashItemflashMonsterDesc)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_weight();
-  inline void clear_has_weight();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_weight();
+  inline void clear_has_m_weight();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 weight_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_weight_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -463,18 +463,18 @@ class flashitemFlashmonsterDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_flash_2eproto();
 
   void InitAsDefaultInstance();
-  static flashitemFlashmonsterDesc* default_instance_;
+  static E_FlashItemflashMonsterDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class flashitemFlash : public ::google::protobuf::Message {
+class E_FlashItemflash : public ::google::protobuf::Message {
  public:
-  flashitemFlash();
-  virtual ~flashitemFlash();
+  E_FlashItemflash();
+  virtual ~E_FlashItemflash();
 
-  flashitemFlash(const flashitemFlash& from);
+  E_FlashItemflash(const E_FlashItemflash& from);
 
-  inline flashitemFlash& operator=(const flashitemFlash& from) {
+  inline E_FlashItemflash& operator=(const E_FlashItemflash& from) {
     CopyFrom(from);
     return *this;
   }
@@ -488,17 +488,17 @@ class flashitemFlash : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const flashitemFlash& default_instance();
+  static const E_FlashItemflash& default_instance();
 
-  void Swap(flashitemFlash* other);
+  void Swap(E_FlashItemflash* other);
 
   // implements Message ----------------------------------------------
 
-  flashitemFlash* New() const;
+  E_FlashItemflash* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const flashitemFlash& from);
-  void MergeFrom(const flashitemFlash& from);
+  void CopyFrom(const E_FlashItemflash& from);
+  void MergeFrom(const E_FlashItemflash& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -521,79 +521,79 @@ class flashitemFlash : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional string useMap = 2;
-  inline bool has_usemap() const;
-  inline void clear_usemap();
-  static const int kUseMapFieldNumber = 2;
-  inline const ::std::string& usemap() const;
-  inline void set_usemap(const ::std::string& value);
-  inline void set_usemap(const char* value);
-  inline void set_usemap(const char* value, size_t size);
-  inline ::std::string* mutable_usemap();
-  inline ::std::string* release_usemap();
-  inline void set_allocated_usemap(::std::string* usemap);
+  // optional string m_usemap = 2;
+  inline bool has_m_usemap() const;
+  inline void clear_m_usemap();
+  static const int kMUsemapFieldNumber = 2;
+  inline const ::std::string& m_usemap() const;
+  inline void set_m_usemap(const ::std::string& value);
+  inline void set_m_usemap(const char* value);
+  inline void set_m_usemap(const char* value, size_t size);
+  inline ::std::string* mutable_m_usemap();
+  inline ::std::string* release_m_usemap();
+  inline void set_allocated_m_usemap(::std::string* m_usemap);
 
-  // optional int32 live = 3;
-  inline bool has_live() const;
-  inline void clear_live();
-  static const int kLiveFieldNumber = 3;
-  inline ::google::protobuf::int32 live() const;
-  inline void set_live(::google::protobuf::int32 value);
+  // optional int32 m_live = 3;
+  inline bool has_m_live() const;
+  inline void clear_m_live();
+  static const int kMLiveFieldNumber = 3;
+  inline ::google::protobuf::int32 m_live() const;
+  inline void set_m_live(::google::protobuf::int32 value);
 
-  // optional int32 levelwave = 4;
-  inline bool has_levelwave() const;
-  inline void clear_levelwave();
-  static const int kLevelwaveFieldNumber = 4;
-  inline ::google::protobuf::int32 levelwave() const;
-  inline void set_levelwave(::google::protobuf::int32 value);
+  // optional int32 m_levelwave = 4;
+  inline bool has_m_levelwave() const;
+  inline void clear_m_levelwave();
+  static const int kMLevelwaveFieldNumber = 4;
+  inline ::google::protobuf::int32 m_levelwave() const;
+  inline void set_m_levelwave(::google::protobuf::int32 value);
 
-  // optional int32 flashNum = 5;
-  inline bool has_flashnum() const;
-  inline void clear_flashnum();
-  static const int kFlashNumFieldNumber = 5;
-  inline ::google::protobuf::int32 flashnum() const;
-  inline void set_flashnum(::google::protobuf::int32 value);
+  // optional int32 m_flashnum = 5;
+  inline bool has_m_flashnum() const;
+  inline void clear_m_flashnum();
+  static const int kMFlashnumFieldNumber = 5;
+  inline ::google::protobuf::int32 m_flashnum() const;
+  inline void set_m_flashnum(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.flashitemFlashmonsterDesc monster = 6;
-  inline int monster_size() const;
-  inline void clear_monster();
-  static const int kMonsterFieldNumber = 6;
-  inline const ::proto_ff::flashitemFlashmonsterDesc& monster(int index) const;
-  inline ::proto_ff::flashitemFlashmonsterDesc* mutable_monster(int index);
-  inline ::proto_ff::flashitemFlashmonsterDesc* add_monster();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlashmonsterDesc >&
-      monster() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlashmonsterDesc >*
-      mutable_monster();
+  // repeated .proto_ff.E_FlashItemflashMonsterDesc m_monster = 6;
+  inline int m_monster_size() const;
+  inline void clear_m_monster();
+  static const int kMMonsterFieldNumber = 6;
+  inline const ::proto_ff::E_FlashItemflashMonsterDesc& m_monster(int index) const;
+  inline ::proto_ff::E_FlashItemflashMonsterDesc* mutable_m_monster(int index);
+  inline ::proto_ff::E_FlashItemflashMonsterDesc* add_m_monster();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflashMonsterDesc >&
+      m_monster() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflashMonsterDesc >*
+      mutable_m_monster();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.flashitemFlash)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FlashItemflash)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_usemap();
-  inline void clear_has_usemap();
-  inline void set_has_live();
-  inline void clear_has_live();
-  inline void set_has_levelwave();
-  inline void clear_has_levelwave();
-  inline void set_has_flashnum();
-  inline void clear_has_flashnum();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_usemap();
+  inline void clear_has_m_usemap();
+  inline void set_has_m_live();
+  inline void clear_has_m_live();
+  inline void set_has_m_levelwave();
+  inline void clear_has_m_levelwave();
+  inline void set_has_m_flashnum();
+  inline void clear_has_m_flashnum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* usemap_;
-  ::google::protobuf::int32 live_;
-  ::google::protobuf::int32 levelwave_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlashmonsterDesc > monster_;
-  ::google::protobuf::int32 flashnum_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_usemap_;
+  ::google::protobuf::int32 m_live_;
+  ::google::protobuf::int32 m_levelwave_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflashMonsterDesc > m_monster_;
+  ::google::protobuf::int32 m_flashnum_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -603,18 +603,18 @@ class flashitemFlash : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_flash_2eproto();
 
   void InitAsDefaultInstance();
-  static flashitemFlash* default_instance_;
+  static E_FlashItemflash* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_flashitemFlash : public ::google::protobuf::Message {
+class Sheet_FlashItemflash : public ::google::protobuf::Message {
  public:
-  Sheet_flashitemFlash();
-  virtual ~Sheet_flashitemFlash();
+  Sheet_FlashItemflash();
+  virtual ~Sheet_FlashItemflash();
 
-  Sheet_flashitemFlash(const Sheet_flashitemFlash& from);
+  Sheet_FlashItemflash(const Sheet_FlashItemflash& from);
 
-  inline Sheet_flashitemFlash& operator=(const Sheet_flashitemFlash& from) {
+  inline Sheet_FlashItemflash& operator=(const Sheet_FlashItemflash& from) {
     CopyFrom(from);
     return *this;
   }
@@ -628,17 +628,17 @@ class Sheet_flashitemFlash : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_flashitemFlash& default_instance();
+  static const Sheet_FlashItemflash& default_instance();
 
-  void Swap(Sheet_flashitemFlash* other);
+  void Swap(Sheet_FlashItemflash* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_flashitemFlash* New() const;
+  Sheet_FlashItemflash* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_flashitemFlash& from);
-  void MergeFrom(const Sheet_flashitemFlash& from);
+  void CopyFrom(const Sheet_FlashItemflash& from);
+  void MergeFrom(const Sheet_FlashItemflash& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -661,24 +661,24 @@ class Sheet_flashitemFlash : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.flashitemFlash flashitemFlash_List = 1;
-  inline int flashitemflash_list_size() const;
-  inline void clear_flashitemflash_list();
-  static const int kFlashitemFlashListFieldNumber = 1;
-  inline const ::proto_ff::flashitemFlash& flashitemflash_list(int index) const;
-  inline ::proto_ff::flashitemFlash* mutable_flashitemflash_list(int index);
-  inline ::proto_ff::flashitemFlash* add_flashitemflash_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlash >&
-      flashitemflash_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlash >*
-      mutable_flashitemflash_list();
+  // repeated .proto_ff.E_FlashItemflash E_FlashItemflash_List = 1;
+  inline int e_flashitemflash_list_size() const;
+  inline void clear_e_flashitemflash_list();
+  static const int kEFlashItemflashListFieldNumber = 1;
+  inline const ::proto_ff::E_FlashItemflash& e_flashitemflash_list(int index) const;
+  inline ::proto_ff::E_FlashItemflash* mutable_e_flashitemflash_list(int index);
+  inline ::proto_ff::E_FlashItemflash* add_e_flashitemflash_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflash >&
+      e_flashitemflash_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflash >*
+      mutable_e_flashitemflash_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_flashitemFlash)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FlashItemflash)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlash > flashitemflash_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflash > e_flashitemflash_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -688,533 +688,533 @@ class Sheet_flashitemFlash : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_flash_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_flashitemFlash* default_instance_;
+  static Sheet_FlashItemflash* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// flashflashmonsterDesc
+// E_FlashFlashMonsterDesc
 
-// optional int32 Num = 1;
-inline bool flashflashmonsterDesc::has_num() const {
+// optional int32 m_num = 1;
+inline bool E_FlashFlashMonsterDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void flashflashmonsterDesc::set_has_num() {
+inline void E_FlashFlashMonsterDesc::set_has_m_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void flashflashmonsterDesc::clear_has_num() {
+inline void E_FlashFlashMonsterDesc::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void flashflashmonsterDesc::clear_num() {
-  num_ = 0;
-  clear_has_num();
+inline void E_FlashFlashMonsterDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
 }
-inline ::google::protobuf::int32 flashflashmonsterDesc::num() const {
-  return num_;
+inline ::google::protobuf::int32 E_FlashFlashMonsterDesc::m_num() const {
+  return m_num_;
 }
-inline void flashflashmonsterDesc::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
+inline void E_FlashFlashMonsterDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
 }
 
-// optional int64 ID = 2;
-inline bool flashflashmonsterDesc::has_id() const {
+// optional int64 m_id = 2;
+inline bool E_FlashFlashMonsterDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void flashflashmonsterDesc::set_has_id() {
+inline void E_FlashFlashMonsterDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void flashflashmonsterDesc::clear_has_id() {
+inline void E_FlashFlashMonsterDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void flashflashmonsterDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FlashFlashMonsterDesc::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 flashflashmonsterDesc::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FlashFlashMonsterDesc::m_id() const {
+  return m_id_;
 }
-inline void flashflashmonsterDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FlashFlashMonsterDesc::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// flashflash
+// E_FlashFlash
 
-// optional int64 id = 1;
-inline bool flashflash::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FlashFlash::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void flashflash::set_has_id() {
+inline void E_FlashFlash::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void flashflash::clear_has_id() {
+inline void E_FlashFlash::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void flashflash::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FlashFlash::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 flashflash::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FlashFlash::m_id() const {
+  return m_id_;
 }
-inline void flashflash::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FlashFlash::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 isLevelDynamic = 2;
-inline bool flashflash::has_isleveldynamic() const {
+// optional int32 m_isleveldynamic = 2;
+inline bool E_FlashFlash::has_m_isleveldynamic() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void flashflash::set_has_isleveldynamic() {
+inline void E_FlashFlash::set_has_m_isleveldynamic() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void flashflash::clear_has_isleveldynamic() {
+inline void E_FlashFlash::clear_has_m_isleveldynamic() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void flashflash::clear_isleveldynamic() {
-  isleveldynamic_ = 0;
-  clear_has_isleveldynamic();
+inline void E_FlashFlash::clear_m_isleveldynamic() {
+  m_isleveldynamic_ = 0;
+  clear_has_m_isleveldynamic();
 }
-inline ::google::protobuf::int32 flashflash::isleveldynamic() const {
-  return isleveldynamic_;
+inline ::google::protobuf::int32 E_FlashFlash::m_isleveldynamic() const {
+  return m_isleveldynamic_;
 }
-inline void flashflash::set_isleveldynamic(::google::protobuf::int32 value) {
-  set_has_isleveldynamic();
-  isleveldynamic_ = value;
+inline void E_FlashFlash::set_m_isleveldynamic(::google::protobuf::int32 value) {
+  set_has_m_isleveldynamic();
+  m_isleveldynamic_ = value;
 }
 
-// optional int32 miniLevel = 3;
-inline bool flashflash::has_minilevel() const {
+// optional int32 m_minilevel = 3;
+inline bool E_FlashFlash::has_m_minilevel() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void flashflash::set_has_minilevel() {
+inline void E_FlashFlash::set_has_m_minilevel() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void flashflash::clear_has_minilevel() {
+inline void E_FlashFlash::clear_has_m_minilevel() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void flashflash::clear_minilevel() {
-  minilevel_ = 0;
-  clear_has_minilevel();
+inline void E_FlashFlash::clear_m_minilevel() {
+  m_minilevel_ = 0;
+  clear_has_m_minilevel();
 }
-inline ::google::protobuf::int32 flashflash::minilevel() const {
-  return minilevel_;
+inline ::google::protobuf::int32 E_FlashFlash::m_minilevel() const {
+  return m_minilevel_;
 }
-inline void flashflash::set_minilevel(::google::protobuf::int32 value) {
-  set_has_minilevel();
-  minilevel_ = value;
+inline void E_FlashFlash::set_m_minilevel(::google::protobuf::int32 value) {
+  set_has_m_minilevel();
+  m_minilevel_ = value;
 }
 
-// optional int32 levelCheck = 4;
-inline bool flashflash::has_levelcheck() const {
+// optional int32 m_levelcheck = 4;
+inline bool E_FlashFlash::has_m_levelcheck() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void flashflash::set_has_levelcheck() {
+inline void E_FlashFlash::set_has_m_levelcheck() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void flashflash::clear_has_levelcheck() {
+inline void E_FlashFlash::clear_has_m_levelcheck() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void flashflash::clear_levelcheck() {
-  levelcheck_ = 0;
-  clear_has_levelcheck();
+inline void E_FlashFlash::clear_m_levelcheck() {
+  m_levelcheck_ = 0;
+  clear_has_m_levelcheck();
 }
-inline ::google::protobuf::int32 flashflash::levelcheck() const {
-  return levelcheck_;
+inline ::google::protobuf::int32 E_FlashFlash::m_levelcheck() const {
+  return m_levelcheck_;
 }
-inline void flashflash::set_levelcheck(::google::protobuf::int32 value) {
-  set_has_levelcheck();
-  levelcheck_ = value;
+inline void E_FlashFlash::set_m_levelcheck(::google::protobuf::int32 value) {
+  set_has_m_levelcheck();
+  m_levelcheck_ = value;
 }
 
-// optional int64 pointID = 5;
-inline bool flashflash::has_pointid() const {
+// optional int64 m_pointid = 5;
+inline bool E_FlashFlash::has_m_pointid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void flashflash::set_has_pointid() {
+inline void E_FlashFlash::set_has_m_pointid() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void flashflash::clear_has_pointid() {
+inline void E_FlashFlash::clear_has_m_pointid() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void flashflash::clear_pointid() {
-  pointid_ = GOOGLE_LONGLONG(0);
-  clear_has_pointid();
+inline void E_FlashFlash::clear_m_pointid() {
+  m_pointid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_pointid();
 }
-inline ::google::protobuf::int64 flashflash::pointid() const {
-  return pointid_;
+inline ::google::protobuf::int64 E_FlashFlash::m_pointid() const {
+  return m_pointid_;
 }
-inline void flashflash::set_pointid(::google::protobuf::int64 value) {
-  set_has_pointid();
-  pointid_ = value;
+inline void E_FlashFlash::set_m_pointid(::google::protobuf::int64 value) {
+  set_has_m_pointid();
+  m_pointid_ = value;
 }
 
-// optional int32 monster_Type = 6;
-inline bool flashflash::has_monster_type() const {
+// optional int32 m_monster_type = 6;
+inline bool E_FlashFlash::has_m_monster_type() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void flashflash::set_has_monster_type() {
+inline void E_FlashFlash::set_has_m_monster_type() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void flashflash::clear_has_monster_type() {
+inline void E_FlashFlash::clear_has_m_monster_type() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void flashflash::clear_monster_type() {
-  monster_type_ = 0;
-  clear_has_monster_type();
+inline void E_FlashFlash::clear_m_monster_type() {
+  m_monster_type_ = 0;
+  clear_has_m_monster_type();
 }
-inline ::google::protobuf::int32 flashflash::monster_type() const {
-  return monster_type_;
+inline ::google::protobuf::int32 E_FlashFlash::m_monster_type() const {
+  return m_monster_type_;
 }
-inline void flashflash::set_monster_type(::google::protobuf::int32 value) {
-  set_has_monster_type();
-  monster_type_ = value;
+inline void E_FlashFlash::set_m_monster_type(::google::protobuf::int32 value) {
+  set_has_m_monster_type();
+  m_monster_type_ = value;
 }
 
-// optional int32 monsterRefreshTime = 7;
-inline bool flashflash::has_monsterrefreshtime() const {
+// optional int32 m_monsterrefreshtime = 7;
+inline bool E_FlashFlash::has_m_monsterrefreshtime() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void flashflash::set_has_monsterrefreshtime() {
+inline void E_FlashFlash::set_has_m_monsterrefreshtime() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void flashflash::clear_has_monsterrefreshtime() {
+inline void E_FlashFlash::clear_has_m_monsterrefreshtime() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void flashflash::clear_monsterrefreshtime() {
-  monsterrefreshtime_ = 0;
-  clear_has_monsterrefreshtime();
+inline void E_FlashFlash::clear_m_monsterrefreshtime() {
+  m_monsterrefreshtime_ = 0;
+  clear_has_m_monsterrefreshtime();
 }
-inline ::google::protobuf::int32 flashflash::monsterrefreshtime() const {
-  return monsterrefreshtime_;
+inline ::google::protobuf::int32 E_FlashFlash::m_monsterrefreshtime() const {
+  return m_monsterrefreshtime_;
 }
-inline void flashflash::set_monsterrefreshtime(::google::protobuf::int32 value) {
-  set_has_monsterrefreshtime();
-  monsterrefreshtime_ = value;
-}
-
-// repeated .proto_ff.flashflashmonsterDesc monster = 8;
-inline int flashflash::monster_size() const {
-  return monster_.size();
-}
-inline void flashflash::clear_monster() {
-  monster_.Clear();
-}
-inline const ::proto_ff::flashflashmonsterDesc& flashflash::monster(int index) const {
-  return monster_.Get(index);
-}
-inline ::proto_ff::flashflashmonsterDesc* flashflash::mutable_monster(int index) {
-  return monster_.Mutable(index);
-}
-inline ::proto_ff::flashflashmonsterDesc* flashflash::add_monster() {
-  return monster_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflashmonsterDesc >&
-flashflash::monster() const {
-  return monster_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflashmonsterDesc >*
-flashflash::mutable_monster() {
-  return &monster_;
+inline void E_FlashFlash::set_m_monsterrefreshtime(::google::protobuf::int32 value) {
+  set_has_m_monsterrefreshtime();
+  m_monsterrefreshtime_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_flashflash
-
-// repeated .proto_ff.flashflash flashflash_List = 1;
-inline int Sheet_flashflash::flashflash_list_size() const {
-  return flashflash_list_.size();
+// repeated .proto_ff.E_FlashFlashMonsterDesc m_monster = 8;
+inline int E_FlashFlash::m_monster_size() const {
+  return m_monster_.size();
 }
-inline void Sheet_flashflash::clear_flashflash_list() {
-  flashflash_list_.Clear();
+inline void E_FlashFlash::clear_m_monster() {
+  m_monster_.Clear();
 }
-inline const ::proto_ff::flashflash& Sheet_flashflash::flashflash_list(int index) const {
-  return flashflash_list_.Get(index);
+inline const ::proto_ff::E_FlashFlashMonsterDesc& E_FlashFlash::m_monster(int index) const {
+  return m_monster_.Get(index);
 }
-inline ::proto_ff::flashflash* Sheet_flashflash::mutable_flashflash_list(int index) {
-  return flashflash_list_.Mutable(index);
+inline ::proto_ff::E_FlashFlashMonsterDesc* E_FlashFlash::mutable_m_monster(int index) {
+  return m_monster_.Mutable(index);
 }
-inline ::proto_ff::flashflash* Sheet_flashflash::add_flashflash_list() {
-  return flashflash_list_.Add();
+inline ::proto_ff::E_FlashFlashMonsterDesc* E_FlashFlash::add_m_monster() {
+  return m_monster_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflash >&
-Sheet_flashflash::flashflash_list() const {
-  return flashflash_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlashMonsterDesc >&
+E_FlashFlash::m_monster() const {
+  return m_monster_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashflash >*
-Sheet_flashflash::mutable_flashflash_list() {
-  return &flashflash_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlashMonsterDesc >*
+E_FlashFlash::mutable_m_monster() {
+  return &m_monster_;
 }
 
 // -------------------------------------------------------------------
 
-// flashitemFlashmonsterDesc
+// Sheet_FlashFlash
 
-// optional int64 Id = 1;
-inline bool flashitemFlashmonsterDesc::has_id() const {
+// repeated .proto_ff.E_FlashFlash E_FlashFlash_List = 1;
+inline int Sheet_FlashFlash::e_flashflash_list_size() const {
+  return e_flashflash_list_.size();
+}
+inline void Sheet_FlashFlash::clear_e_flashflash_list() {
+  e_flashflash_list_.Clear();
+}
+inline const ::proto_ff::E_FlashFlash& Sheet_FlashFlash::e_flashflash_list(int index) const {
+  return e_flashflash_list_.Get(index);
+}
+inline ::proto_ff::E_FlashFlash* Sheet_FlashFlash::mutable_e_flashflash_list(int index) {
+  return e_flashflash_list_.Mutable(index);
+}
+inline ::proto_ff::E_FlashFlash* Sheet_FlashFlash::add_e_flashflash_list() {
+  return e_flashflash_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlash >&
+Sheet_FlashFlash::e_flashflash_list() const {
+  return e_flashflash_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashFlash >*
+Sheet_FlashFlash::mutable_e_flashflash_list() {
+  return &e_flashflash_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FlashItemflashMonsterDesc
+
+// optional int64 m_id = 1;
+inline bool E_FlashItemflashMonsterDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void flashitemFlashmonsterDesc::set_has_id() {
+inline void E_FlashItemflashMonsterDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void flashitemFlashmonsterDesc::clear_has_id() {
+inline void E_FlashItemflashMonsterDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void flashitemFlashmonsterDesc::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FlashItemflashMonsterDesc::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 flashitemFlashmonsterDesc::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FlashItemflashMonsterDesc::m_id() const {
+  return m_id_;
 }
-inline void flashitemFlashmonsterDesc::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FlashItemflashMonsterDesc::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 weight = 2;
-inline bool flashitemFlashmonsterDesc::has_weight() const {
+// optional int32 m_weight = 2;
+inline bool E_FlashItemflashMonsterDesc::has_m_weight() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void flashitemFlashmonsterDesc::set_has_weight() {
+inline void E_FlashItemflashMonsterDesc::set_has_m_weight() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void flashitemFlashmonsterDesc::clear_has_weight() {
+inline void E_FlashItemflashMonsterDesc::clear_has_m_weight() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void flashitemFlashmonsterDesc::clear_weight() {
-  weight_ = 0;
-  clear_has_weight();
+inline void E_FlashItemflashMonsterDesc::clear_m_weight() {
+  m_weight_ = 0;
+  clear_has_m_weight();
 }
-inline ::google::protobuf::int32 flashitemFlashmonsterDesc::weight() const {
-  return weight_;
+inline ::google::protobuf::int32 E_FlashItemflashMonsterDesc::m_weight() const {
+  return m_weight_;
 }
-inline void flashitemFlashmonsterDesc::set_weight(::google::protobuf::int32 value) {
-  set_has_weight();
-  weight_ = value;
+inline void E_FlashItemflashMonsterDesc::set_m_weight(::google::protobuf::int32 value) {
+  set_has_m_weight();
+  m_weight_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// flashitemFlash
+// E_FlashItemflash
 
-// optional int64 id = 1;
-inline bool flashitemFlash::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_FlashItemflash::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void flashitemFlash::set_has_id() {
+inline void E_FlashItemflash::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void flashitemFlash::clear_has_id() {
+inline void E_FlashItemflash::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void flashitemFlash::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_FlashItemflash::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 flashitemFlash::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_FlashItemflash::m_id() const {
+  return m_id_;
 }
-inline void flashitemFlash::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_FlashItemflash::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string useMap = 2;
-inline bool flashitemFlash::has_usemap() const {
+// optional string m_usemap = 2;
+inline bool E_FlashItemflash::has_m_usemap() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void flashitemFlash::set_has_usemap() {
+inline void E_FlashItemflash::set_has_m_usemap() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void flashitemFlash::clear_has_usemap() {
+inline void E_FlashItemflash::clear_has_m_usemap() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void flashitemFlash::clear_usemap() {
-  if (usemap_ != &::google::protobuf::internal::kEmptyString) {
-    usemap_->clear();
+inline void E_FlashItemflash::clear_m_usemap() {
+  if (m_usemap_ != &::google::protobuf::internal::kEmptyString) {
+    m_usemap_->clear();
   }
-  clear_has_usemap();
+  clear_has_m_usemap();
 }
-inline const ::std::string& flashitemFlash::usemap() const {
-  return *usemap_;
+inline const ::std::string& E_FlashItemflash::m_usemap() const {
+  return *m_usemap_;
 }
-inline void flashitemFlash::set_usemap(const ::std::string& value) {
-  set_has_usemap();
-  if (usemap_ == &::google::protobuf::internal::kEmptyString) {
-    usemap_ = new ::std::string;
+inline void E_FlashItemflash::set_m_usemap(const ::std::string& value) {
+  set_has_m_usemap();
+  if (m_usemap_ == &::google::protobuf::internal::kEmptyString) {
+    m_usemap_ = new ::std::string;
   }
-  usemap_->assign(value);
+  m_usemap_->assign(value);
 }
-inline void flashitemFlash::set_usemap(const char* value) {
-  set_has_usemap();
-  if (usemap_ == &::google::protobuf::internal::kEmptyString) {
-    usemap_ = new ::std::string;
+inline void E_FlashItemflash::set_m_usemap(const char* value) {
+  set_has_m_usemap();
+  if (m_usemap_ == &::google::protobuf::internal::kEmptyString) {
+    m_usemap_ = new ::std::string;
   }
-  usemap_->assign(value);
+  m_usemap_->assign(value);
 }
-inline void flashitemFlash::set_usemap(const char* value, size_t size) {
-  set_has_usemap();
-  if (usemap_ == &::google::protobuf::internal::kEmptyString) {
-    usemap_ = new ::std::string;
+inline void E_FlashItemflash::set_m_usemap(const char* value, size_t size) {
+  set_has_m_usemap();
+  if (m_usemap_ == &::google::protobuf::internal::kEmptyString) {
+    m_usemap_ = new ::std::string;
   }
-  usemap_->assign(reinterpret_cast<const char*>(value), size);
+  m_usemap_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* flashitemFlash::mutable_usemap() {
-  set_has_usemap();
-  if (usemap_ == &::google::protobuf::internal::kEmptyString) {
-    usemap_ = new ::std::string;
+inline ::std::string* E_FlashItemflash::mutable_m_usemap() {
+  set_has_m_usemap();
+  if (m_usemap_ == &::google::protobuf::internal::kEmptyString) {
+    m_usemap_ = new ::std::string;
   }
-  return usemap_;
+  return m_usemap_;
 }
-inline ::std::string* flashitemFlash::release_usemap() {
-  clear_has_usemap();
-  if (usemap_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_FlashItemflash::release_m_usemap() {
+  clear_has_m_usemap();
+  if (m_usemap_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = usemap_;
-    usemap_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_usemap_;
+    m_usemap_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void flashitemFlash::set_allocated_usemap(::std::string* usemap) {
-  if (usemap_ != &::google::protobuf::internal::kEmptyString) {
-    delete usemap_;
+inline void E_FlashItemflash::set_allocated_m_usemap(::std::string* m_usemap) {
+  if (m_usemap_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_usemap_;
   }
-  if (usemap) {
-    set_has_usemap();
-    usemap_ = usemap;
+  if (m_usemap) {
+    set_has_m_usemap();
+    m_usemap_ = m_usemap;
   } else {
-    clear_has_usemap();
-    usemap_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_usemap();
+    m_usemap_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 live = 3;
-inline bool flashitemFlash::has_live() const {
+// optional int32 m_live = 3;
+inline bool E_FlashItemflash::has_m_live() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void flashitemFlash::set_has_live() {
+inline void E_FlashItemflash::set_has_m_live() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void flashitemFlash::clear_has_live() {
+inline void E_FlashItemflash::clear_has_m_live() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void flashitemFlash::clear_live() {
-  live_ = 0;
-  clear_has_live();
+inline void E_FlashItemflash::clear_m_live() {
+  m_live_ = 0;
+  clear_has_m_live();
 }
-inline ::google::protobuf::int32 flashitemFlash::live() const {
-  return live_;
+inline ::google::protobuf::int32 E_FlashItemflash::m_live() const {
+  return m_live_;
 }
-inline void flashitemFlash::set_live(::google::protobuf::int32 value) {
-  set_has_live();
-  live_ = value;
+inline void E_FlashItemflash::set_m_live(::google::protobuf::int32 value) {
+  set_has_m_live();
+  m_live_ = value;
 }
 
-// optional int32 levelwave = 4;
-inline bool flashitemFlash::has_levelwave() const {
+// optional int32 m_levelwave = 4;
+inline bool E_FlashItemflash::has_m_levelwave() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void flashitemFlash::set_has_levelwave() {
+inline void E_FlashItemflash::set_has_m_levelwave() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void flashitemFlash::clear_has_levelwave() {
+inline void E_FlashItemflash::clear_has_m_levelwave() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void flashitemFlash::clear_levelwave() {
-  levelwave_ = 0;
-  clear_has_levelwave();
+inline void E_FlashItemflash::clear_m_levelwave() {
+  m_levelwave_ = 0;
+  clear_has_m_levelwave();
 }
-inline ::google::protobuf::int32 flashitemFlash::levelwave() const {
-  return levelwave_;
+inline ::google::protobuf::int32 E_FlashItemflash::m_levelwave() const {
+  return m_levelwave_;
 }
-inline void flashitemFlash::set_levelwave(::google::protobuf::int32 value) {
-  set_has_levelwave();
-  levelwave_ = value;
+inline void E_FlashItemflash::set_m_levelwave(::google::protobuf::int32 value) {
+  set_has_m_levelwave();
+  m_levelwave_ = value;
 }
 
-// optional int32 flashNum = 5;
-inline bool flashitemFlash::has_flashnum() const {
+// optional int32 m_flashnum = 5;
+inline bool E_FlashItemflash::has_m_flashnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void flashitemFlash::set_has_flashnum() {
+inline void E_FlashItemflash::set_has_m_flashnum() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void flashitemFlash::clear_has_flashnum() {
+inline void E_FlashItemflash::clear_has_m_flashnum() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void flashitemFlash::clear_flashnum() {
-  flashnum_ = 0;
-  clear_has_flashnum();
+inline void E_FlashItemflash::clear_m_flashnum() {
+  m_flashnum_ = 0;
+  clear_has_m_flashnum();
 }
-inline ::google::protobuf::int32 flashitemFlash::flashnum() const {
-  return flashnum_;
+inline ::google::protobuf::int32 E_FlashItemflash::m_flashnum() const {
+  return m_flashnum_;
 }
-inline void flashitemFlash::set_flashnum(::google::protobuf::int32 value) {
-  set_has_flashnum();
-  flashnum_ = value;
+inline void E_FlashItemflash::set_m_flashnum(::google::protobuf::int32 value) {
+  set_has_m_flashnum();
+  m_flashnum_ = value;
 }
 
-// repeated .proto_ff.flashitemFlashmonsterDesc monster = 6;
-inline int flashitemFlash::monster_size() const {
-  return monster_.size();
+// repeated .proto_ff.E_FlashItemflashMonsterDesc m_monster = 6;
+inline int E_FlashItemflash::m_monster_size() const {
+  return m_monster_.size();
 }
-inline void flashitemFlash::clear_monster() {
-  monster_.Clear();
+inline void E_FlashItemflash::clear_m_monster() {
+  m_monster_.Clear();
 }
-inline const ::proto_ff::flashitemFlashmonsterDesc& flashitemFlash::monster(int index) const {
-  return monster_.Get(index);
+inline const ::proto_ff::E_FlashItemflashMonsterDesc& E_FlashItemflash::m_monster(int index) const {
+  return m_monster_.Get(index);
 }
-inline ::proto_ff::flashitemFlashmonsterDesc* flashitemFlash::mutable_monster(int index) {
-  return monster_.Mutable(index);
+inline ::proto_ff::E_FlashItemflashMonsterDesc* E_FlashItemflash::mutable_m_monster(int index) {
+  return m_monster_.Mutable(index);
 }
-inline ::proto_ff::flashitemFlashmonsterDesc* flashitemFlash::add_monster() {
-  return monster_.Add();
+inline ::proto_ff::E_FlashItemflashMonsterDesc* E_FlashItemflash::add_m_monster() {
+  return m_monster_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlashmonsterDesc >&
-flashitemFlash::monster() const {
-  return monster_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflashMonsterDesc >&
+E_FlashItemflash::m_monster() const {
+  return m_monster_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlashmonsterDesc >*
-flashitemFlash::mutable_monster() {
-  return &monster_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflashMonsterDesc >*
+E_FlashItemflash::mutable_m_monster() {
+  return &m_monster_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_flashitemFlash
+// Sheet_FlashItemflash
 
-// repeated .proto_ff.flashitemFlash flashitemFlash_List = 1;
-inline int Sheet_flashitemFlash::flashitemflash_list_size() const {
-  return flashitemflash_list_.size();
+// repeated .proto_ff.E_FlashItemflash E_FlashItemflash_List = 1;
+inline int Sheet_FlashItemflash::e_flashitemflash_list_size() const {
+  return e_flashitemflash_list_.size();
 }
-inline void Sheet_flashitemFlash::clear_flashitemflash_list() {
-  flashitemflash_list_.Clear();
+inline void Sheet_FlashItemflash::clear_e_flashitemflash_list() {
+  e_flashitemflash_list_.Clear();
 }
-inline const ::proto_ff::flashitemFlash& Sheet_flashitemFlash::flashitemflash_list(int index) const {
-  return flashitemflash_list_.Get(index);
+inline const ::proto_ff::E_FlashItemflash& Sheet_FlashItemflash::e_flashitemflash_list(int index) const {
+  return e_flashitemflash_list_.Get(index);
 }
-inline ::proto_ff::flashitemFlash* Sheet_flashitemFlash::mutable_flashitemflash_list(int index) {
-  return flashitemflash_list_.Mutable(index);
+inline ::proto_ff::E_FlashItemflash* Sheet_FlashItemflash::mutable_e_flashitemflash_list(int index) {
+  return e_flashitemflash_list_.Mutable(index);
 }
-inline ::proto_ff::flashitemFlash* Sheet_flashitemFlash::add_flashitemflash_list() {
-  return flashitemflash_list_.Add();
+inline ::proto_ff::E_FlashItemflash* Sheet_FlashItemflash::add_e_flashitemflash_list() {
+  return e_flashitemflash_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlash >&
-Sheet_flashitemFlash::flashitemflash_list() const {
-  return flashitemflash_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflash >&
+Sheet_FlashItemflash::e_flashitemflash_list() const {
+  return e_flashitemflash_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::flashitemFlash >*
-Sheet_flashitemFlash::mutable_flashitemflash_list() {
-  return &flashitemflash_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FlashItemflash >*
+Sheet_FlashItemflash::mutable_e_flashitemflash_list() {
+  return &e_flashitemflash_list_;
 }
 
 

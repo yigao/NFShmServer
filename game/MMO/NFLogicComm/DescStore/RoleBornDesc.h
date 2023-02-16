@@ -14,9 +14,9 @@ public:
 	virtual ~RoleBornDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::roleborn_s* GetDesc(int id) const;
-	proto_ff_s::roleborn_s* GetDesc(int id);
+	const proto_ff_s::E_RoleBorn_s* GetDesc(int id) const;
+	proto_ff_s::E_RoleBorn_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::roleborn_s, roleborn, MAX_ROLE_BORN_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_RoleBorn_s, roleborn, MAX_ROLE_BORN_NUM);
 DECLARE_IDCREATE(RoleBornDesc);
 };

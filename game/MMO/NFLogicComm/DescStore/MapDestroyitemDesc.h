@@ -14,9 +14,9 @@ public:
 	virtual ~MapDestroyitemDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::mapdestroyitem_s* GetDesc(int id) const;
-	proto_ff_s::mapdestroyitem_s* GetDesc(int id);
+	const proto_ff_s::E_MapDestroyitem_s* GetDesc(int id) const;
+	proto_ff_s::E_MapDestroyitem_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::mapdestroyitem_s, mapdestroyitem, MAX_MAP_DESTROYITEM_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_MapDestroyitem_s, mapdestroyitem, MAX_MAP_DESTROYITEM_NUM);
 DECLARE_IDCREATE(MapDestroyitemDesc);
 };

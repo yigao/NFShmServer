@@ -3,20 +3,20 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message conditionconditionconditionDesc
+message E_ConditionConditionConditionDesc
 {
-	optional int32 Type = 1[(yd_fieldoptions.field_cname) = "类型"];
-	optional int32 Param = 2[(yd_fieldoptions.field_cname) = "参数"];
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_param = 2[(yd_fieldoptions.field_cname) = "参数"];
 }
 
-message conditioncondition
+message E_ConditionCondition
 {
-	optional int32 id = 1[(yd_fieldoptions.field_cname) = "id"];
-	repeated conditionconditionconditionDesc condition = 2[(yd_fieldoptions.field_cname) = "条件", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	repeated E_ConditionConditionConditionDesc m_condition = 2[(yd_fieldoptions.field_cname) = "条件", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
-message Sheet_conditioncondition
+message Sheet_ConditionCondition
 {
-	repeated conditioncondition conditioncondition_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_ConditionCondition E_ConditionCondition_List = 1[(yd_fieldoptions.field_arysize)=40];
 }

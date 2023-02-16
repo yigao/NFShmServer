@@ -34,53 +34,53 @@ void  protobuf_AddDesc_role_2eproto();
 void protobuf_AssignDesc_role_2eproto();
 void protobuf_ShutdownFile_role_2eproto();
 
-class rolebornitemDesc;
-class rolebornmailDesc;
-class roleborn;
-class Sheet_roleborn;
-class rolemasterMaleattributeDesc;
-class rolemasterMale;
-class Sheet_rolemasterMale;
-class rolemasterFemaleattributeDesc;
-class rolemasterFemale;
-class Sheet_rolemasterFemale;
-class rolesickleMaleattributeDesc;
-class rolesickleMale;
-class Sheet_rolesickleMale;
-class rolesickleFemaleattributeDesc;
-class rolesickleFemale;
-class Sheet_rolesickleFemale;
-class roleswordMaleattributeDesc;
-class roleswordMale;
-class Sheet_roleswordMale;
-class roleswordFemaleattributeDesc;
-class roleswordFemale;
-class Sheet_roleswordFemale;
-class roletaidaoMaleattributeDesc;
-class roletaidaoMale;
-class Sheet_roletaidaoMale;
-class roletaidaoFemaleattributeDesc;
-class roletaidaoFemale;
-class Sheet_roletaidaoFemale;
-class roleexp;
-class Sheet_roleexp;
-class roleskillType;
-class Sheet_roleskillType;
-class roleaddSkill;
-class Sheet_roleaddSkill;
-class roleworldexp;
-class Sheet_roleworldexp;
+class E_RoleBornItemDesc;
+class E_RoleBornMailDesc;
+class E_RoleBorn;
+class Sheet_RoleBorn;
+class E_RoleMastermaleAttributeDesc;
+class E_RoleMastermale;
+class Sheet_RoleMastermale;
+class E_RoleMasterfemaleAttributeDesc;
+class E_RoleMasterfemale;
+class Sheet_RoleMasterfemale;
+class E_RoleSicklemaleAttributeDesc;
+class E_RoleSicklemale;
+class Sheet_RoleSicklemale;
+class E_RoleSicklefemaleAttributeDesc;
+class E_RoleSicklefemale;
+class Sheet_RoleSicklefemale;
+class E_RoleSwordmaleAttributeDesc;
+class E_RoleSwordmale;
+class Sheet_RoleSwordmale;
+class E_RoleSwordfemaleAttributeDesc;
+class E_RoleSwordfemale;
+class Sheet_RoleSwordfemale;
+class E_RoleTaidaomaleAttributeDesc;
+class E_RoleTaidaomale;
+class Sheet_RoleTaidaomale;
+class E_RoleTaidaofemaleAttributeDesc;
+class E_RoleTaidaofemale;
+class Sheet_RoleTaidaofemale;
+class E_RoleExp;
+class Sheet_RoleExp;
+class E_RoleSkilltype;
+class Sheet_RoleSkilltype;
+class E_RoleAddskill;
+class Sheet_RoleAddskill;
+class E_RoleWorldexp;
+class Sheet_RoleWorldexp;
 
 // ===================================================================
 
-class rolebornitemDesc : public ::google::protobuf::Message {
+class E_RoleBornItemDesc : public ::google::protobuf::Message {
  public:
-  rolebornitemDesc();
-  virtual ~rolebornitemDesc();
+  E_RoleBornItemDesc();
+  virtual ~E_RoleBornItemDesc();
 
-  rolebornitemDesc(const rolebornitemDesc& from);
+  E_RoleBornItemDesc(const E_RoleBornItemDesc& from);
 
-  inline rolebornitemDesc& operator=(const rolebornitemDesc& from) {
+  inline E_RoleBornItemDesc& operator=(const E_RoleBornItemDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -94,17 +94,17 @@ class rolebornitemDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolebornitemDesc& default_instance();
+  static const E_RoleBornItemDesc& default_instance();
 
-  void Swap(rolebornitemDesc* other);
+  void Swap(E_RoleBornItemDesc* other);
 
   // implements Message ----------------------------------------------
 
-  rolebornitemDesc* New() const;
+  E_RoleBornItemDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolebornitemDesc& from);
-  void MergeFrom(const rolebornitemDesc& from);
+  void CopyFrom(const E_RoleBornItemDesc& from);
+  void MergeFrom(const E_RoleBornItemDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -127,31 +127,31 @@ class rolebornitemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 num = 1;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 1;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline ::google::protobuf::int64 name() const;
-  inline void set_name(::google::protobuf::int64 value);
+  // optional int64 m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline ::google::protobuf::int64 m_name() const;
+  inline void set_m_name(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolebornitemDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleBornItemDesc)
  private:
-  inline void set_has_num();
-  inline void clear_has_num();
-  inline void set_has_name();
-  inline void clear_has_name();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 name_;
-  ::google::protobuf::int32 num_;
+  ::google::protobuf::int64 m_name_;
+  ::google::protobuf::int32 m_num_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -161,18 +161,18 @@ class rolebornitemDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolebornitemDesc* default_instance_;
+  static E_RoleBornItemDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolebornmailDesc : public ::google::protobuf::Message {
+class E_RoleBornMailDesc : public ::google::protobuf::Message {
  public:
-  rolebornmailDesc();
-  virtual ~rolebornmailDesc();
+  E_RoleBornMailDesc();
+  virtual ~E_RoleBornMailDesc();
 
-  rolebornmailDesc(const rolebornmailDesc& from);
+  E_RoleBornMailDesc(const E_RoleBornMailDesc& from);
 
-  inline rolebornmailDesc& operator=(const rolebornmailDesc& from) {
+  inline E_RoleBornMailDesc& operator=(const E_RoleBornMailDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -186,17 +186,17 @@ class rolebornmailDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolebornmailDesc& default_instance();
+  static const E_RoleBornMailDesc& default_instance();
 
-  void Swap(rolebornmailDesc* other);
+  void Swap(E_RoleBornMailDesc* other);
 
   // implements Message ----------------------------------------------
 
-  rolebornmailDesc* New() const;
+  E_RoleBornMailDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolebornmailDesc& from);
-  void MergeFrom(const rolebornmailDesc& from);
+  void CopyFrom(const E_RoleBornMailDesc& from);
+  void MergeFrom(const E_RoleBornMailDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -219,31 +219,31 @@ class rolebornmailDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 num = 1;
-  inline bool has_num() const;
-  inline void clear_num();
-  static const int kNumFieldNumber = 1;
-  inline ::google::protobuf::int32 num() const;
-  inline void set_num(::google::protobuf::int32 value);
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline ::google::protobuf::int64 name() const;
-  inline void set_name(::google::protobuf::int64 value);
+  // optional int64 m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline ::google::protobuf::int64 m_name() const;
+  inline void set_m_name(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolebornmailDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleBornMailDesc)
  private:
-  inline void set_has_num();
-  inline void clear_has_num();
-  inline void set_has_name();
-  inline void clear_has_name();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 name_;
-  ::google::protobuf::int32 num_;
+  ::google::protobuf::int64 m_name_;
+  ::google::protobuf::int32 m_num_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -253,18 +253,18 @@ class rolebornmailDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolebornmailDesc* default_instance_;
+  static E_RoleBornMailDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleborn : public ::google::protobuf::Message {
+class E_RoleBorn : public ::google::protobuf::Message {
  public:
-  roleborn();
-  virtual ~roleborn();
+  E_RoleBorn();
+  virtual ~E_RoleBorn();
 
-  roleborn(const roleborn& from);
+  E_RoleBorn(const E_RoleBorn& from);
 
-  inline roleborn& operator=(const roleborn& from) {
+  inline E_RoleBorn& operator=(const E_RoleBorn& from) {
     CopyFrom(from);
     return *this;
   }
@@ -278,17 +278,17 @@ class roleborn : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleborn& default_instance();
+  static const E_RoleBorn& default_instance();
 
-  void Swap(roleborn* other);
+  void Swap(E_RoleBorn* other);
 
   // implements Message ----------------------------------------------
 
-  roleborn* New() const;
+  E_RoleBorn* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleborn& from);
-  void MergeFrom(const roleborn& from);
+  void CopyFrom(const E_RoleBorn& from);
+  void MergeFrom(const E_RoleBorn& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -311,483 +311,483 @@ class roleborn : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 bornID = 1;
-  inline bool has_bornid() const;
-  inline void clear_bornid();
-  static const int kBornIDFieldNumber = 1;
-  inline ::google::protobuf::int64 bornid() const;
-  inline void set_bornid(::google::protobuf::int64 value);
+  // optional int64 m_bornid = 1;
+  inline bool has_m_bornid() const;
+  inline void clear_m_bornid();
+  static const int kMBornidFieldNumber = 1;
+  inline ::google::protobuf::int64 m_bornid() const;
+  inline void set_m_bornid(::google::protobuf::int64 value);
 
-  // optional int32 professionID = 2;
-  inline bool has_professionid() const;
-  inline void clear_professionid();
-  static const int kProfessionIDFieldNumber = 2;
-  inline ::google::protobuf::int32 professionid() const;
-  inline void set_professionid(::google::protobuf::int32 value);
+  // optional int32 m_professionid = 2;
+  inline bool has_m_professionid() const;
+  inline void clear_m_professionid();
+  static const int kMProfessionidFieldNumber = 2;
+  inline ::google::protobuf::int32 m_professionid() const;
+  inline void set_m_professionid(::google::protobuf::int32 value);
 
-  // optional string professionName = 3;
-  inline bool has_professionname() const;
-  inline void clear_professionname();
-  static const int kProfessionNameFieldNumber = 3;
-  inline const ::std::string& professionname() const;
-  inline void set_professionname(const ::std::string& value);
-  inline void set_professionname(const char* value);
-  inline void set_professionname(const char* value, size_t size);
-  inline ::std::string* mutable_professionname();
-  inline ::std::string* release_professionname();
-  inline void set_allocated_professionname(::std::string* professionname);
+  // optional string m_professionname = 3;
+  inline bool has_m_professionname() const;
+  inline void clear_m_professionname();
+  static const int kMProfessionnameFieldNumber = 3;
+  inline const ::std::string& m_professionname() const;
+  inline void set_m_professionname(const ::std::string& value);
+  inline void set_m_professionname(const char* value);
+  inline void set_m_professionname(const char* value, size_t size);
+  inline ::std::string* mutable_m_professionname();
+  inline ::std::string* release_m_professionname();
+  inline void set_allocated_m_professionname(::std::string* m_professionname);
 
-  // optional string placement = 4;
-  inline bool has_placement() const;
-  inline void clear_placement();
-  static const int kPlacementFieldNumber = 4;
-  inline const ::std::string& placement() const;
-  inline void set_placement(const ::std::string& value);
-  inline void set_placement(const char* value);
-  inline void set_placement(const char* value, size_t size);
-  inline ::std::string* mutable_placement();
-  inline ::std::string* release_placement();
-  inline void set_allocated_placement(::std::string* placement);
+  // optional string m_placement = 4;
+  inline bool has_m_placement() const;
+  inline void clear_m_placement();
+  static const int kMPlacementFieldNumber = 4;
+  inline const ::std::string& m_placement() const;
+  inline void set_m_placement(const ::std::string& value);
+  inline void set_m_placement(const char* value);
+  inline void set_m_placement(const char* value, size_t size);
+  inline ::std::string* mutable_m_placement();
+  inline ::std::string* release_m_placement();
+  inline void set_allocated_m_placement(::std::string* m_placement);
 
-  // optional int32 gender = 5;
-  inline bool has_gender() const;
-  inline void clear_gender();
-  static const int kGenderFieldNumber = 5;
-  inline ::google::protobuf::int32 gender() const;
-  inline void set_gender(::google::protobuf::int32 value);
+  // optional int32 m_gender = 5;
+  inline bool has_m_gender() const;
+  inline void clear_m_gender();
+  static const int kMGenderFieldNumber = 5;
+  inline ::google::protobuf::int32 m_gender() const;
+  inline void set_m_gender(::google::protobuf::int32 value);
 
-  // optional int32 bornLevel = 6;
-  inline bool has_bornlevel() const;
-  inline void clear_bornlevel();
-  static const int kBornLevelFieldNumber = 6;
-  inline ::google::protobuf::int32 bornlevel() const;
-  inline void set_bornlevel(::google::protobuf::int32 value);
+  // optional int32 m_bornlevel = 6;
+  inline bool has_m_bornlevel() const;
+  inline void clear_m_bornlevel();
+  static const int kMBornlevelFieldNumber = 6;
+  inline ::google::protobuf::int32 m_bornlevel() const;
+  inline void set_m_bornlevel(::google::protobuf::int32 value);
 
-  // optional int32 bornTitle = 7;
-  inline bool has_borntitle() const;
-  inline void clear_borntitle();
-  static const int kBornTitleFieldNumber = 7;
-  inline ::google::protobuf::int32 borntitle() const;
-  inline void set_borntitle(::google::protobuf::int32 value);
+  // optional int32 m_borntitle = 7;
+  inline bool has_m_borntitle() const;
+  inline void clear_m_borntitle();
+  static const int kMBorntitleFieldNumber = 7;
+  inline ::google::protobuf::int32 m_borntitle() const;
+  inline void set_m_borntitle(::google::protobuf::int32 value);
 
-  // optional int64 diamond = 8;
-  inline bool has_diamond() const;
-  inline void clear_diamond();
-  static const int kDiamondFieldNumber = 8;
-  inline ::google::protobuf::int64 diamond() const;
-  inline void set_diamond(::google::protobuf::int64 value);
+  // optional int64 m_diamond = 8;
+  inline bool has_m_diamond() const;
+  inline void clear_m_diamond();
+  static const int kMDiamondFieldNumber = 8;
+  inline ::google::protobuf::int64 m_diamond() const;
+  inline void set_m_diamond(::google::protobuf::int64 value);
 
-  // optional int64 bindDiamond = 9;
-  inline bool has_binddiamond() const;
-  inline void clear_binddiamond();
-  static const int kBindDiamondFieldNumber = 9;
-  inline ::google::protobuf::int64 binddiamond() const;
-  inline void set_binddiamond(::google::protobuf::int64 value);
+  // optional int64 m_binddiamond = 9;
+  inline bool has_m_binddiamond() const;
+  inline void clear_m_binddiamond();
+  static const int kMBinddiamondFieldNumber = 9;
+  inline ::google::protobuf::int64 m_binddiamond() const;
+  inline void set_m_binddiamond(::google::protobuf::int64 value);
 
-  // optional int64 gold = 10;
-  inline bool has_gold() const;
-  inline void clear_gold();
-  static const int kGoldFieldNumber = 10;
-  inline ::google::protobuf::int64 gold() const;
-  inline void set_gold(::google::protobuf::int64 value);
+  // optional int64 m_gold = 10;
+  inline bool has_m_gold() const;
+  inline void clear_m_gold();
+  static const int kMGoldFieldNumber = 10;
+  inline ::google::protobuf::int64 m_gold() const;
+  inline void set_m_gold(::google::protobuf::int64 value);
 
-  // optional int64 mapID = 11;
-  inline bool has_mapid() const;
-  inline void clear_mapid();
-  static const int kMapIDFieldNumber = 11;
-  inline ::google::protobuf::int64 mapid() const;
-  inline void set_mapid(::google::protobuf::int64 value);
+  // optional int64 m_mapid = 11;
+  inline bool has_m_mapid() const;
+  inline void clear_m_mapid();
+  static const int kMMapidFieldNumber = 11;
+  inline ::google::protobuf::int64 m_mapid() const;
+  inline void set_m_mapid(::google::protobuf::int64 value);
 
-  // optional int32 birthFace = 12;
-  inline bool has_birthface() const;
-  inline void clear_birthface();
-  static const int kBirthFaceFieldNumber = 12;
-  inline ::google::protobuf::int32 birthface() const;
-  inline void set_birthface(::google::protobuf::int32 value);
+  // optional int32 m_birthface = 12;
+  inline bool has_m_birthface() const;
+  inline void clear_m_birthface();
+  static const int kMBirthfaceFieldNumber = 12;
+  inline ::google::protobuf::int32 m_birthface() const;
+  inline void set_m_birthface(::google::protobuf::int32 value);
 
-  // optional string icons = 13;
-  inline bool has_icons() const;
-  inline void clear_icons();
-  static const int kIconsFieldNumber = 13;
-  inline const ::std::string& icons() const;
-  inline void set_icons(const ::std::string& value);
-  inline void set_icons(const char* value);
-  inline void set_icons(const char* value, size_t size);
-  inline ::std::string* mutable_icons();
-  inline ::std::string* release_icons();
-  inline void set_allocated_icons(::std::string* icons);
+  // optional string m_icons = 13;
+  inline bool has_m_icons() const;
+  inline void clear_m_icons();
+  static const int kMIconsFieldNumber = 13;
+  inline const ::std::string& m_icons() const;
+  inline void set_m_icons(const ::std::string& value);
+  inline void set_m_icons(const char* value);
+  inline void set_m_icons(const char* value, size_t size);
+  inline ::std::string* mutable_m_icons();
+  inline ::std::string* release_m_icons();
+  inline void set_allocated_m_icons(::std::string* m_icons);
 
-  // optional string loginAvata = 14;
-  inline bool has_loginavata() const;
-  inline void clear_loginavata();
-  static const int kLoginAvataFieldNumber = 14;
-  inline const ::std::string& loginavata() const;
-  inline void set_loginavata(const ::std::string& value);
-  inline void set_loginavata(const char* value);
-  inline void set_loginavata(const char* value, size_t size);
-  inline ::std::string* mutable_loginavata();
-  inline ::std::string* release_loginavata();
-  inline void set_allocated_loginavata(::std::string* loginavata);
+  // optional string m_loginavata = 14;
+  inline bool has_m_loginavata() const;
+  inline void clear_m_loginavata();
+  static const int kMLoginavataFieldNumber = 14;
+  inline const ::std::string& m_loginavata() const;
+  inline void set_m_loginavata(const ::std::string& value);
+  inline void set_m_loginavata(const char* value);
+  inline void set_m_loginavata(const char* value, size_t size);
+  inline ::std::string* mutable_m_loginavata();
+  inline ::std::string* release_m_loginavata();
+  inline void set_allocated_m_loginavata(::std::string* m_loginavata);
 
-  // optional string newweapon = 15;
-  inline bool has_newweapon() const;
-  inline void clear_newweapon();
-  static const int kNewweaponFieldNumber = 15;
-  inline const ::std::string& newweapon() const;
-  inline void set_newweapon(const ::std::string& value);
-  inline void set_newweapon(const char* value);
-  inline void set_newweapon(const char* value, size_t size);
-  inline ::std::string* mutable_newweapon();
-  inline ::std::string* release_newweapon();
-  inline void set_allocated_newweapon(::std::string* newweapon);
+  // optional string m_newweapon = 15;
+  inline bool has_m_newweapon() const;
+  inline void clear_m_newweapon();
+  static const int kMNewweaponFieldNumber = 15;
+  inline const ::std::string& m_newweapon() const;
+  inline void set_m_newweapon(const ::std::string& value);
+  inline void set_m_newweapon(const char* value);
+  inline void set_m_newweapon(const char* value, size_t size);
+  inline ::std::string* mutable_m_newweapon();
+  inline ::std::string* release_m_newweapon();
+  inline void set_allocated_m_newweapon(::std::string* m_newweapon);
 
-  // optional string newclothing = 16;
-  inline bool has_newclothing() const;
-  inline void clear_newclothing();
-  static const int kNewclothingFieldNumber = 16;
-  inline const ::std::string& newclothing() const;
-  inline void set_newclothing(const ::std::string& value);
-  inline void set_newclothing(const char* value);
-  inline void set_newclothing(const char* value, size_t size);
-  inline ::std::string* mutable_newclothing();
-  inline ::std::string* release_newclothing();
-  inline void set_allocated_newclothing(::std::string* newclothing);
+  // optional string m_newclothing = 16;
+  inline bool has_m_newclothing() const;
+  inline void clear_m_newclothing();
+  static const int kMNewclothingFieldNumber = 16;
+  inline const ::std::string& m_newclothing() const;
+  inline void set_m_newclothing(const ::std::string& value);
+  inline void set_m_newclothing(const char* value);
+  inline void set_m_newclothing(const char* value, size_t size);
+  inline ::std::string* mutable_m_newclothing();
+  inline ::std::string* release_m_newclothing();
+  inline void set_allocated_m_newclothing(::std::string* m_newclothing);
 
-  // optional string weaponAvata = 17;
-  inline bool has_weaponavata() const;
-  inline void clear_weaponavata();
-  static const int kWeaponAvataFieldNumber = 17;
-  inline const ::std::string& weaponavata() const;
-  inline void set_weaponavata(const ::std::string& value);
-  inline void set_weaponavata(const char* value);
-  inline void set_weaponavata(const char* value, size_t size);
-  inline ::std::string* mutable_weaponavata();
-  inline ::std::string* release_weaponavata();
-  inline void set_allocated_weaponavata(::std::string* weaponavata);
+  // optional string m_weaponavata = 17;
+  inline bool has_m_weaponavata() const;
+  inline void clear_m_weaponavata();
+  static const int kMWeaponavataFieldNumber = 17;
+  inline const ::std::string& m_weaponavata() const;
+  inline void set_m_weaponavata(const ::std::string& value);
+  inline void set_m_weaponavata(const char* value);
+  inline void set_m_weaponavata(const char* value, size_t size);
+  inline ::std::string* mutable_m_weaponavata();
+  inline ::std::string* release_m_weaponavata();
+  inline void set_allocated_m_weaponavata(::std::string* m_weaponavata);
 
-  // optional string roleAvata = 18;
-  inline bool has_roleavata() const;
-  inline void clear_roleavata();
-  static const int kRoleAvataFieldNumber = 18;
-  inline const ::std::string& roleavata() const;
-  inline void set_roleavata(const ::std::string& value);
-  inline void set_roleavata(const char* value);
-  inline void set_roleavata(const char* value, size_t size);
-  inline ::std::string* mutable_roleavata();
-  inline ::std::string* release_roleavata();
-  inline void set_allocated_roleavata(::std::string* roleavata);
+  // optional string m_roleavata = 18;
+  inline bool has_m_roleavata() const;
+  inline void clear_m_roleavata();
+  static const int kMRoleavataFieldNumber = 18;
+  inline const ::std::string& m_roleavata() const;
+  inline void set_m_roleavata(const ::std::string& value);
+  inline void set_m_roleavata(const char* value);
+  inline void set_m_roleavata(const char* value, size_t size);
+  inline ::std::string* mutable_m_roleavata();
+  inline ::std::string* release_m_roleavata();
+  inline void set_allocated_m_roleavata(::std::string* m_roleavata);
 
-  // optional int32 hairColor = 19;
-  inline bool has_haircolor() const;
-  inline void clear_haircolor();
-  static const int kHairColorFieldNumber = 19;
-  inline ::google::protobuf::int32 haircolor() const;
-  inline void set_haircolor(::google::protobuf::int32 value);
+  // optional int32 m_haircolor = 19;
+  inline bool has_m_haircolor() const;
+  inline void clear_m_haircolor();
+  static const int kMHaircolorFieldNumber = 19;
+  inline ::google::protobuf::int32 m_haircolor() const;
+  inline void set_m_haircolor(::google::protobuf::int32 value);
 
-  // optional int32 clothesColor = 20;
-  inline bool has_clothescolor() const;
-  inline void clear_clothescolor();
-  static const int kClothesColorFieldNumber = 20;
-  inline ::google::protobuf::int32 clothescolor() const;
-  inline void set_clothescolor(::google::protobuf::int32 value);
+  // optional int32 m_clothescolor = 20;
+  inline bool has_m_clothescolor() const;
+  inline void clear_m_clothescolor();
+  static const int kMClothescolorFieldNumber = 20;
+  inline ::google::protobuf::int32 m_clothescolor() const;
+  inline void set_m_clothescolor(::google::protobuf::int32 value);
 
-  // optional int32 skinColor = 21;
-  inline bool has_skincolor() const;
-  inline void clear_skincolor();
-  static const int kSkinColorFieldNumber = 21;
-  inline ::google::protobuf::int32 skincolor() const;
-  inline void set_skincolor(::google::protobuf::int32 value);
+  // optional int32 m_skincolor = 21;
+  inline bool has_m_skincolor() const;
+  inline void clear_m_skincolor();
+  static const int kMSkincolorFieldNumber = 21;
+  inline ::google::protobuf::int32 m_skincolor() const;
+  inline void set_m_skincolor(::google::protobuf::int32 value);
 
-  // optional int64 carryWeapons = 22;
-  inline bool has_carryweapons() const;
-  inline void clear_carryweapons();
-  static const int kCarryWeaponsFieldNumber = 22;
-  inline ::google::protobuf::int64 carryweapons() const;
-  inline void set_carryweapons(::google::protobuf::int64 value);
+  // optional int64 m_carryweapons = 22;
+  inline bool has_m_carryweapons() const;
+  inline void clear_m_carryweapons();
+  static const int kMCarryweaponsFieldNumber = 22;
+  inline ::google::protobuf::int64 m_carryweapons() const;
+  inline void set_m_carryweapons(::google::protobuf::int64 value);
 
-  // optional int64 carryArmor = 23;
-  inline bool has_carryarmor() const;
-  inline void clear_carryarmor();
-  static const int kCarryArmorFieldNumber = 23;
-  inline ::google::protobuf::int64 carryarmor() const;
-  inline void set_carryarmor(::google::protobuf::int64 value);
+  // optional int64 m_carryarmor = 23;
+  inline bool has_m_carryarmor() const;
+  inline void clear_m_carryarmor();
+  static const int kMCarryarmorFieldNumber = 23;
+  inline ::google::protobuf::int64 m_carryarmor() const;
+  inline void set_m_carryarmor(::google::protobuf::int64 value);
 
-  // optional int64 carryCloak = 24;
-  inline bool has_carrycloak() const;
-  inline void clear_carrycloak();
-  static const int kCarryCloakFieldNumber = 24;
-  inline ::google::protobuf::int64 carrycloak() const;
-  inline void set_carrycloak(::google::protobuf::int64 value);
+  // optional int64 m_carrycloak = 24;
+  inline bool has_m_carrycloak() const;
+  inline void clear_m_carrycloak();
+  static const int kMCarrycloakFieldNumber = 24;
+  inline ::google::protobuf::int64 m_carrycloak() const;
+  inline void set_m_carrycloak(::google::protobuf::int64 value);
 
-  // optional int64 carryShoes = 25;
-  inline bool has_carryshoes() const;
-  inline void clear_carryshoes();
-  static const int kCarryShoesFieldNumber = 25;
-  inline ::google::protobuf::int64 carryshoes() const;
-  inline void set_carryshoes(::google::protobuf::int64 value);
+  // optional int64 m_carryshoes = 25;
+  inline bool has_m_carryshoes() const;
+  inline void clear_m_carryshoes();
+  static const int kMCarryshoesFieldNumber = 25;
+  inline ::google::protobuf::int64 m_carryshoes() const;
+  inline void set_m_carryshoes(::google::protobuf::int64 value);
 
-  // optional int64 carryNecklace = 26;
-  inline bool has_carrynecklace() const;
-  inline void clear_carrynecklace();
-  static const int kCarryNecklaceFieldNumber = 26;
-  inline ::google::protobuf::int64 carrynecklace() const;
-  inline void set_carrynecklace(::google::protobuf::int64 value);
+  // optional int64 m_carrynecklace = 26;
+  inline bool has_m_carrynecklace() const;
+  inline void clear_m_carrynecklace();
+  static const int kMCarrynecklaceFieldNumber = 26;
+  inline ::google::protobuf::int64 m_carrynecklace() const;
+  inline void set_m_carrynecklace(::google::protobuf::int64 value);
 
-  // optional int64 carryAmulet = 27;
-  inline bool has_carryamulet() const;
-  inline void clear_carryamulet();
-  static const int kCarryAmuletFieldNumber = 27;
-  inline ::google::protobuf::int64 carryamulet() const;
-  inline void set_carryamulet(::google::protobuf::int64 value);
+  // optional int64 m_carryamulet = 27;
+  inline bool has_m_carryamulet() const;
+  inline void clear_m_carryamulet();
+  static const int kMCarryamuletFieldNumber = 27;
+  inline ::google::protobuf::int64 m_carryamulet() const;
+  inline void set_m_carryamulet(::google::protobuf::int64 value);
 
-  // optional int64 carryBracer = 28;
-  inline bool has_carrybracer() const;
-  inline void clear_carrybracer();
-  static const int kCarryBracerFieldNumber = 28;
-  inline ::google::protobuf::int64 carrybracer() const;
-  inline void set_carrybracer(::google::protobuf::int64 value);
+  // optional int64 m_carrybracer = 28;
+  inline bool has_m_carrybracer() const;
+  inline void clear_m_carrybracer();
+  static const int kMCarrybracerFieldNumber = 28;
+  inline ::google::protobuf::int64 m_carrybracer() const;
+  inline void set_m_carrybracer(::google::protobuf::int64 value);
 
-  // optional int64 carryRing = 29;
-  inline bool has_carryring() const;
-  inline void clear_carryring();
-  static const int kCarryRingFieldNumber = 29;
-  inline ::google::protobuf::int64 carryring() const;
-  inline void set_carryring(::google::protobuf::int64 value);
+  // optional int64 m_carryring = 29;
+  inline bool has_m_carryring() const;
+  inline void clear_m_carryring();
+  static const int kMCarryringFieldNumber = 29;
+  inline ::google::protobuf::int64 m_carryring() const;
+  inline void set_m_carryring(::google::protobuf::int64 value);
 
-  // optional int64 carryFashionWeapons = 30;
-  inline bool has_carryfashionweapons() const;
-  inline void clear_carryfashionweapons();
-  static const int kCarryFashionWeaponsFieldNumber = 30;
-  inline ::google::protobuf::int64 carryfashionweapons() const;
-  inline void set_carryfashionweapons(::google::protobuf::int64 value);
+  // optional int64 m_carryfashionweapons = 30;
+  inline bool has_m_carryfashionweapons() const;
+  inline void clear_m_carryfashionweapons();
+  static const int kMCarryfashionweaponsFieldNumber = 30;
+  inline ::google::protobuf::int64 m_carryfashionweapons() const;
+  inline void set_m_carryfashionweapons(::google::protobuf::int64 value);
 
-  // optional int64 carryFashionArmor = 31;
-  inline bool has_carryfashionarmor() const;
-  inline void clear_carryfashionarmor();
-  static const int kCarryFashionArmorFieldNumber = 31;
-  inline ::google::protobuf::int64 carryfashionarmor() const;
-  inline void set_carryfashionarmor(::google::protobuf::int64 value);
+  // optional int64 m_carryfashionarmor = 31;
+  inline bool has_m_carryfashionarmor() const;
+  inline void clear_m_carryfashionarmor();
+  static const int kMCarryfashionarmorFieldNumber = 31;
+  inline ::google::protobuf::int64 m_carryfashionarmor() const;
+  inline void set_m_carryfashionarmor(::google::protobuf::int64 value);
 
-  // optional int64 carryWings = 32;
-  inline bool has_carrywings() const;
-  inline void clear_carrywings();
-  static const int kCarryWingsFieldNumber = 32;
-  inline ::google::protobuf::int64 carrywings() const;
-  inline void set_carrywings(::google::protobuf::int64 value);
+  // optional int64 m_carrywings = 32;
+  inline bool has_m_carrywings() const;
+  inline void clear_m_carrywings();
+  static const int kMCarrywingsFieldNumber = 32;
+  inline ::google::protobuf::int64 m_carrywings() const;
+  inline void set_m_carrywings(::google::protobuf::int64 value);
 
-  // optional int32 mSpeed = 33;
-  inline bool has_mspeed() const;
-  inline void clear_mspeed();
-  static const int kMSpeedFieldNumber = 33;
-  inline ::google::protobuf::int32 mspeed() const;
-  inline void set_mspeed(::google::protobuf::int32 value);
+  // optional int32 m_mspeed = 33;
+  inline bool has_m_mspeed() const;
+  inline void clear_m_mspeed();
+  static const int kMMspeedFieldNumber = 33;
+  inline ::google::protobuf::int32 m_mspeed() const;
+  inline void set_m_mspeed(::google::protobuf::int32 value);
 
-  // optional int32 view = 34;
-  inline bool has_view() const;
-  inline void clear_view();
-  static const int kViewFieldNumber = 34;
-  inline ::google::protobuf::int32 view() const;
-  inline void set_view(::google::protobuf::int32 value);
+  // optional int32 m_view = 34;
+  inline bool has_m_view() const;
+  inline void clear_m_view();
+  static const int kMViewFieldNumber = 34;
+  inline ::google::protobuf::int32 m_view() const;
+  inline void set_m_view(::google::protobuf::int32 value);
 
-  // optional int32 radius = 35;
-  inline bool has_radius() const;
-  inline void clear_radius();
-  static const int kRadiusFieldNumber = 35;
-  inline ::google::protobuf::int32 radius() const;
-  inline void set_radius(::google::protobuf::int32 value);
+  // optional int32 m_radius = 35;
+  inline bool has_m_radius() const;
+  inline void clear_m_radius();
+  static const int kMRadiusFieldNumber = 35;
+  inline ::google::protobuf::int32 m_radius() const;
+  inline void set_m_radius(::google::protobuf::int32 value);
 
-  // optional int32 group = 36;
-  inline bool has_group() const;
-  inline void clear_group();
-  static const int kGroupFieldNumber = 36;
-  inline ::google::protobuf::int32 group() const;
-  inline void set_group(::google::protobuf::int32 value);
+  // optional int32 m_group = 36;
+  inline bool has_m_group() const;
+  inline void clear_m_group();
+  static const int kMGroupFieldNumber = 36;
+  inline ::google::protobuf::int32 m_group() const;
+  inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int64 sheny = 37;
-  inline bool has_sheny() const;
-  inline void clear_sheny();
-  static const int kShenyFieldNumber = 37;
-  inline ::google::protobuf::int64 sheny() const;
-  inline void set_sheny(::google::protobuf::int64 value);
+  // optional int64 m_sheny = 37;
+  inline bool has_m_sheny() const;
+  inline void clear_m_sheny();
+  static const int kMShenyFieldNumber = 37;
+  inline ::google::protobuf::int64 m_sheny() const;
+  inline void set_m_sheny(::google::protobuf::int64 value);
 
-  // optional int64 shenw = 38;
-  inline bool has_shenw() const;
-  inline void clear_shenw();
-  static const int kShenwFieldNumber = 38;
-  inline ::google::protobuf::int64 shenw() const;
-  inline void set_shenw(::google::protobuf::int64 value);
+  // optional int64 m_shenw = 38;
+  inline bool has_m_shenw() const;
+  inline void clear_m_shenw();
+  static const int kMShenwFieldNumber = 38;
+  inline ::google::protobuf::int64 m_shenw() const;
+  inline void set_m_shenw(::google::protobuf::int64 value);
 
-  // repeated int32 actBuff = 39;
-  inline int actbuff_size() const;
-  inline void clear_actbuff();
-  static const int kActBuffFieldNumber = 39;
-  inline ::google::protobuf::int32 actbuff(int index) const;
-  inline void set_actbuff(int index, ::google::protobuf::int32 value);
-  inline void add_actbuff(::google::protobuf::int32 value);
+  // repeated int32 m_actbuff = 39;
+  inline int m_actbuff_size() const;
+  inline void clear_m_actbuff();
+  static const int kMActbuffFieldNumber = 39;
+  inline ::google::protobuf::int32 m_actbuff(int index) const;
+  inline void set_m_actbuff(int index, ::google::protobuf::int32 value);
+  inline void add_m_actbuff(::google::protobuf::int32 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      actbuff() const;
+      m_actbuff() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_actbuff();
+      mutable_m_actbuff();
 
-  // repeated .proto_ff.rolebornitemDesc item = 40;
-  inline int item_size() const;
-  inline void clear_item();
-  static const int kItemFieldNumber = 40;
-  inline const ::proto_ff::rolebornitemDesc& item(int index) const;
-  inline ::proto_ff::rolebornitemDesc* mutable_item(int index);
-  inline ::proto_ff::rolebornitemDesc* add_item();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornitemDesc >&
-      item() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornitemDesc >*
-      mutable_item();
+  // repeated .proto_ff.E_RoleBornItemDesc m_item = 40;
+  inline int m_item_size() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 40;
+  inline const ::proto_ff::E_RoleBornItemDesc& m_item(int index) const;
+  inline ::proto_ff::E_RoleBornItemDesc* mutable_m_item(int index);
+  inline ::proto_ff::E_RoleBornItemDesc* add_m_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornItemDesc >&
+      m_item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornItemDesc >*
+      mutable_m_item();
 
-  // repeated int64 actSkill = 41;
-  inline int actskill_size() const;
-  inline void clear_actskill();
-  static const int kActSkillFieldNumber = 41;
-  inline ::google::protobuf::int64 actskill(int index) const;
-  inline void set_actskill(int index, ::google::protobuf::int64 value);
-  inline void add_actskill(::google::protobuf::int64 value);
+  // repeated int64 m_actskill = 41;
+  inline int m_actskill_size() const;
+  inline void clear_m_actskill();
+  static const int kMActskillFieldNumber = 41;
+  inline ::google::protobuf::int64 m_actskill(int index) const;
+  inline void set_m_actskill(int index, ::google::protobuf::int64 value);
+  inline void add_m_actskill(::google::protobuf::int64 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-      actskill() const;
+      m_actskill() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-      mutable_actskill();
+      mutable_m_actskill();
 
-  // repeated .proto_ff.rolebornmailDesc mail = 42;
-  inline int mail_size() const;
-  inline void clear_mail();
-  static const int kMailFieldNumber = 42;
-  inline const ::proto_ff::rolebornmailDesc& mail(int index) const;
-  inline ::proto_ff::rolebornmailDesc* mutable_mail(int index);
-  inline ::proto_ff::rolebornmailDesc* add_mail();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornmailDesc >&
-      mail() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornmailDesc >*
-      mutable_mail();
+  // repeated .proto_ff.E_RoleBornMailDesc m_mail = 42;
+  inline int m_mail_size() const;
+  inline void clear_m_mail();
+  static const int kMMailFieldNumber = 42;
+  inline const ::proto_ff::E_RoleBornMailDesc& m_mail(int index) const;
+  inline ::proto_ff::E_RoleBornMailDesc* mutable_m_mail(int index);
+  inline ::proto_ff::E_RoleBornMailDesc* add_m_mail();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornMailDesc >&
+      m_mail() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornMailDesc >*
+      mutable_m_mail();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleborn)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleBorn)
  private:
-  inline void set_has_bornid();
-  inline void clear_has_bornid();
-  inline void set_has_professionid();
-  inline void clear_has_professionid();
-  inline void set_has_professionname();
-  inline void clear_has_professionname();
-  inline void set_has_placement();
-  inline void clear_has_placement();
-  inline void set_has_gender();
-  inline void clear_has_gender();
-  inline void set_has_bornlevel();
-  inline void clear_has_bornlevel();
-  inline void set_has_borntitle();
-  inline void clear_has_borntitle();
-  inline void set_has_diamond();
-  inline void clear_has_diamond();
-  inline void set_has_binddiamond();
-  inline void clear_has_binddiamond();
-  inline void set_has_gold();
-  inline void clear_has_gold();
-  inline void set_has_mapid();
-  inline void clear_has_mapid();
-  inline void set_has_birthface();
-  inline void clear_has_birthface();
-  inline void set_has_icons();
-  inline void clear_has_icons();
-  inline void set_has_loginavata();
-  inline void clear_has_loginavata();
-  inline void set_has_newweapon();
-  inline void clear_has_newweapon();
-  inline void set_has_newclothing();
-  inline void clear_has_newclothing();
-  inline void set_has_weaponavata();
-  inline void clear_has_weaponavata();
-  inline void set_has_roleavata();
-  inline void clear_has_roleavata();
-  inline void set_has_haircolor();
-  inline void clear_has_haircolor();
-  inline void set_has_clothescolor();
-  inline void clear_has_clothescolor();
-  inline void set_has_skincolor();
-  inline void clear_has_skincolor();
-  inline void set_has_carryweapons();
-  inline void clear_has_carryweapons();
-  inline void set_has_carryarmor();
-  inline void clear_has_carryarmor();
-  inline void set_has_carrycloak();
-  inline void clear_has_carrycloak();
-  inline void set_has_carryshoes();
-  inline void clear_has_carryshoes();
-  inline void set_has_carrynecklace();
-  inline void clear_has_carrynecklace();
-  inline void set_has_carryamulet();
-  inline void clear_has_carryamulet();
-  inline void set_has_carrybracer();
-  inline void clear_has_carrybracer();
-  inline void set_has_carryring();
-  inline void clear_has_carryring();
-  inline void set_has_carryfashionweapons();
-  inline void clear_has_carryfashionweapons();
-  inline void set_has_carryfashionarmor();
-  inline void clear_has_carryfashionarmor();
-  inline void set_has_carrywings();
-  inline void clear_has_carrywings();
-  inline void set_has_mspeed();
-  inline void clear_has_mspeed();
-  inline void set_has_view();
-  inline void clear_has_view();
-  inline void set_has_radius();
-  inline void clear_has_radius();
-  inline void set_has_group();
-  inline void clear_has_group();
-  inline void set_has_sheny();
-  inline void clear_has_sheny();
-  inline void set_has_shenw();
-  inline void clear_has_shenw();
+  inline void set_has_m_bornid();
+  inline void clear_has_m_bornid();
+  inline void set_has_m_professionid();
+  inline void clear_has_m_professionid();
+  inline void set_has_m_professionname();
+  inline void clear_has_m_professionname();
+  inline void set_has_m_placement();
+  inline void clear_has_m_placement();
+  inline void set_has_m_gender();
+  inline void clear_has_m_gender();
+  inline void set_has_m_bornlevel();
+  inline void clear_has_m_bornlevel();
+  inline void set_has_m_borntitle();
+  inline void clear_has_m_borntitle();
+  inline void set_has_m_diamond();
+  inline void clear_has_m_diamond();
+  inline void set_has_m_binddiamond();
+  inline void clear_has_m_binddiamond();
+  inline void set_has_m_gold();
+  inline void clear_has_m_gold();
+  inline void set_has_m_mapid();
+  inline void clear_has_m_mapid();
+  inline void set_has_m_birthface();
+  inline void clear_has_m_birthface();
+  inline void set_has_m_icons();
+  inline void clear_has_m_icons();
+  inline void set_has_m_loginavata();
+  inline void clear_has_m_loginavata();
+  inline void set_has_m_newweapon();
+  inline void clear_has_m_newweapon();
+  inline void set_has_m_newclothing();
+  inline void clear_has_m_newclothing();
+  inline void set_has_m_weaponavata();
+  inline void clear_has_m_weaponavata();
+  inline void set_has_m_roleavata();
+  inline void clear_has_m_roleavata();
+  inline void set_has_m_haircolor();
+  inline void clear_has_m_haircolor();
+  inline void set_has_m_clothescolor();
+  inline void clear_has_m_clothescolor();
+  inline void set_has_m_skincolor();
+  inline void clear_has_m_skincolor();
+  inline void set_has_m_carryweapons();
+  inline void clear_has_m_carryweapons();
+  inline void set_has_m_carryarmor();
+  inline void clear_has_m_carryarmor();
+  inline void set_has_m_carrycloak();
+  inline void clear_has_m_carrycloak();
+  inline void set_has_m_carryshoes();
+  inline void clear_has_m_carryshoes();
+  inline void set_has_m_carrynecklace();
+  inline void clear_has_m_carrynecklace();
+  inline void set_has_m_carryamulet();
+  inline void clear_has_m_carryamulet();
+  inline void set_has_m_carrybracer();
+  inline void clear_has_m_carrybracer();
+  inline void set_has_m_carryring();
+  inline void clear_has_m_carryring();
+  inline void set_has_m_carryfashionweapons();
+  inline void clear_has_m_carryfashionweapons();
+  inline void set_has_m_carryfashionarmor();
+  inline void clear_has_m_carryfashionarmor();
+  inline void set_has_m_carrywings();
+  inline void clear_has_m_carrywings();
+  inline void set_has_m_mspeed();
+  inline void clear_has_m_mspeed();
+  inline void set_has_m_view();
+  inline void clear_has_m_view();
+  inline void set_has_m_radius();
+  inline void clear_has_m_radius();
+  inline void set_has_m_group();
+  inline void clear_has_m_group();
+  inline void set_has_m_sheny();
+  inline void clear_has_m_sheny();
+  inline void set_has_m_shenw();
+  inline void clear_has_m_shenw();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 bornid_;
-  ::std::string* professionname_;
-  ::google::protobuf::int32 professionid_;
-  ::google::protobuf::int32 gender_;
-  ::std::string* placement_;
-  ::google::protobuf::int32 bornlevel_;
-  ::google::protobuf::int32 borntitle_;
-  ::google::protobuf::int64 diamond_;
-  ::google::protobuf::int64 binddiamond_;
-  ::google::protobuf::int64 gold_;
-  ::google::protobuf::int64 mapid_;
-  ::std::string* icons_;
-  ::std::string* loginavata_;
-  ::std::string* newweapon_;
-  ::google::protobuf::int32 birthface_;
-  ::google::protobuf::int32 haircolor_;
-  ::std::string* newclothing_;
-  ::std::string* weaponavata_;
-  ::std::string* roleavata_;
-  ::google::protobuf::int32 clothescolor_;
-  ::google::protobuf::int32 skincolor_;
-  ::google::protobuf::int64 carryweapons_;
-  ::google::protobuf::int64 carryarmor_;
-  ::google::protobuf::int64 carrycloak_;
-  ::google::protobuf::int64 carryshoes_;
-  ::google::protobuf::int64 carrynecklace_;
-  ::google::protobuf::int64 carryamulet_;
-  ::google::protobuf::int64 carrybracer_;
-  ::google::protobuf::int64 carryring_;
-  ::google::protobuf::int64 carryfashionweapons_;
-  ::google::protobuf::int64 carryfashionarmor_;
-  ::google::protobuf::int64 carrywings_;
-  ::google::protobuf::int32 mspeed_;
-  ::google::protobuf::int32 view_;
-  ::google::protobuf::int32 radius_;
-  ::google::protobuf::int32 group_;
-  ::google::protobuf::int64 sheny_;
-  ::google::protobuf::int64 shenw_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > actbuff_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornitemDesc > item_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > actskill_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornmailDesc > mail_;
+  ::google::protobuf::int64 m_bornid_;
+  ::std::string* m_professionname_;
+  ::google::protobuf::int32 m_professionid_;
+  ::google::protobuf::int32 m_gender_;
+  ::std::string* m_placement_;
+  ::google::protobuf::int32 m_bornlevel_;
+  ::google::protobuf::int32 m_borntitle_;
+  ::google::protobuf::int64 m_diamond_;
+  ::google::protobuf::int64 m_binddiamond_;
+  ::google::protobuf::int64 m_gold_;
+  ::google::protobuf::int64 m_mapid_;
+  ::std::string* m_icons_;
+  ::std::string* m_loginavata_;
+  ::std::string* m_newweapon_;
+  ::google::protobuf::int32 m_birthface_;
+  ::google::protobuf::int32 m_haircolor_;
+  ::std::string* m_newclothing_;
+  ::std::string* m_weaponavata_;
+  ::std::string* m_roleavata_;
+  ::google::protobuf::int32 m_clothescolor_;
+  ::google::protobuf::int32 m_skincolor_;
+  ::google::protobuf::int64 m_carryweapons_;
+  ::google::protobuf::int64 m_carryarmor_;
+  ::google::protobuf::int64 m_carrycloak_;
+  ::google::protobuf::int64 m_carryshoes_;
+  ::google::protobuf::int64 m_carrynecklace_;
+  ::google::protobuf::int64 m_carryamulet_;
+  ::google::protobuf::int64 m_carrybracer_;
+  ::google::protobuf::int64 m_carryring_;
+  ::google::protobuf::int64 m_carryfashionweapons_;
+  ::google::protobuf::int64 m_carryfashionarmor_;
+  ::google::protobuf::int64 m_carrywings_;
+  ::google::protobuf::int32 m_mspeed_;
+  ::google::protobuf::int32 m_view_;
+  ::google::protobuf::int32 m_radius_;
+  ::google::protobuf::int32 m_group_;
+  ::google::protobuf::int64 m_sheny_;
+  ::google::protobuf::int64 m_shenw_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_actbuff_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornItemDesc > m_item_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > m_actskill_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornMailDesc > m_mail_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(42 + 31) / 32];
@@ -797,18 +797,18 @@ class roleborn : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleborn* default_instance_;
+  static E_RoleBorn* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleborn : public ::google::protobuf::Message {
+class Sheet_RoleBorn : public ::google::protobuf::Message {
  public:
-  Sheet_roleborn();
-  virtual ~Sheet_roleborn();
+  Sheet_RoleBorn();
+  virtual ~Sheet_RoleBorn();
 
-  Sheet_roleborn(const Sheet_roleborn& from);
+  Sheet_RoleBorn(const Sheet_RoleBorn& from);
 
-  inline Sheet_roleborn& operator=(const Sheet_roleborn& from) {
+  inline Sheet_RoleBorn& operator=(const Sheet_RoleBorn& from) {
     CopyFrom(from);
     return *this;
   }
@@ -822,17 +822,17 @@ class Sheet_roleborn : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleborn& default_instance();
+  static const Sheet_RoleBorn& default_instance();
 
-  void Swap(Sheet_roleborn* other);
+  void Swap(Sheet_RoleBorn* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleborn* New() const;
+  Sheet_RoleBorn* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleborn& from);
-  void MergeFrom(const Sheet_roleborn& from);
+  void CopyFrom(const Sheet_RoleBorn& from);
+  void MergeFrom(const Sheet_RoleBorn& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -855,24 +855,24 @@ class Sheet_roleborn : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleborn roleborn_List = 1;
-  inline int roleborn_list_size() const;
-  inline void clear_roleborn_list();
-  static const int kRolebornListFieldNumber = 1;
-  inline const ::proto_ff::roleborn& roleborn_list(int index) const;
-  inline ::proto_ff::roleborn* mutable_roleborn_list(int index);
-  inline ::proto_ff::roleborn* add_roleborn_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleborn >&
-      roleborn_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleborn >*
-      mutable_roleborn_list();
+  // repeated .proto_ff.E_RoleBorn E_RoleBorn_List = 1;
+  inline int e_roleborn_list_size() const;
+  inline void clear_e_roleborn_list();
+  static const int kERoleBornListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleBorn& e_roleborn_list(int index) const;
+  inline ::proto_ff::E_RoleBorn* mutable_e_roleborn_list(int index);
+  inline ::proto_ff::E_RoleBorn* add_e_roleborn_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBorn >&
+      e_roleborn_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBorn >*
+      mutable_e_roleborn_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleborn)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleBorn)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleborn > roleborn_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBorn > e_roleborn_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -882,18 +882,18 @@ class Sheet_roleborn : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleborn* default_instance_;
+  static Sheet_RoleBorn* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolemasterMaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleMastermaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  rolemasterMaleattributeDesc();
-  virtual ~rolemasterMaleattributeDesc();
+  E_RoleMastermaleAttributeDesc();
+  virtual ~E_RoleMastermaleAttributeDesc();
 
-  rolemasterMaleattributeDesc(const rolemasterMaleattributeDesc& from);
+  E_RoleMastermaleAttributeDesc(const E_RoleMastermaleAttributeDesc& from);
 
-  inline rolemasterMaleattributeDesc& operator=(const rolemasterMaleattributeDesc& from) {
+  inline E_RoleMastermaleAttributeDesc& operator=(const E_RoleMastermaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -907,17 +907,17 @@ class rolemasterMaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolemasterMaleattributeDesc& default_instance();
+  static const E_RoleMastermaleAttributeDesc& default_instance();
 
-  void Swap(rolemasterMaleattributeDesc* other);
+  void Swap(E_RoleMastermaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  rolemasterMaleattributeDesc* New() const;
+  E_RoleMastermaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolemasterMaleattributeDesc& from);
-  void MergeFrom(const rolemasterMaleattributeDesc& from);
+  void CopyFrom(const E_RoleMastermaleAttributeDesc& from);
+  void MergeFrom(const E_RoleMastermaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -940,31 +940,31 @@ class rolemasterMaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolemasterMaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleMastermaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -974,18 +974,18 @@ class rolemasterMaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolemasterMaleattributeDesc* default_instance_;
+  static E_RoleMastermaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolemasterMale : public ::google::protobuf::Message {
+class E_RoleMastermale : public ::google::protobuf::Message {
  public:
-  rolemasterMale();
-  virtual ~rolemasterMale();
+  E_RoleMastermale();
+  virtual ~E_RoleMastermale();
 
-  rolemasterMale(const rolemasterMale& from);
+  E_RoleMastermale(const E_RoleMastermale& from);
 
-  inline rolemasterMale& operator=(const rolemasterMale& from) {
+  inline E_RoleMastermale& operator=(const E_RoleMastermale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -999,17 +999,17 @@ class rolemasterMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolemasterMale& default_instance();
+  static const E_RoleMastermale& default_instance();
 
-  void Swap(rolemasterMale* other);
+  void Swap(E_RoleMastermale* other);
 
   // implements Message ----------------------------------------------
 
-  rolemasterMale* New() const;
+  E_RoleMastermale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolemasterMale& from);
-  void MergeFrom(const rolemasterMale& from);
+  void CopyFrom(const E_RoleMastermale& from);
+  void MergeFrom(const E_RoleMastermale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1032,44 +1032,44 @@ class rolemasterMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.rolemasterMaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::rolemasterMaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::rolemasterMaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::rolemasterMaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleMastermaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleMastermaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleMastermaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleMastermaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolemasterMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleMastermale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -1079,18 +1079,18 @@ class rolemasterMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolemasterMale* default_instance_;
+  static E_RoleMastermale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_rolemasterMale : public ::google::protobuf::Message {
+class Sheet_RoleMastermale : public ::google::protobuf::Message {
  public:
-  Sheet_rolemasterMale();
-  virtual ~Sheet_rolemasterMale();
+  Sheet_RoleMastermale();
+  virtual ~Sheet_RoleMastermale();
 
-  Sheet_rolemasterMale(const Sheet_rolemasterMale& from);
+  Sheet_RoleMastermale(const Sheet_RoleMastermale& from);
 
-  inline Sheet_rolemasterMale& operator=(const Sheet_rolemasterMale& from) {
+  inline Sheet_RoleMastermale& operator=(const Sheet_RoleMastermale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1104,17 +1104,17 @@ class Sheet_rolemasterMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_rolemasterMale& default_instance();
+  static const Sheet_RoleMastermale& default_instance();
 
-  void Swap(Sheet_rolemasterMale* other);
+  void Swap(Sheet_RoleMastermale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_rolemasterMale* New() const;
+  Sheet_RoleMastermale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_rolemasterMale& from);
-  void MergeFrom(const Sheet_rolemasterMale& from);
+  void CopyFrom(const Sheet_RoleMastermale& from);
+  void MergeFrom(const Sheet_RoleMastermale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1137,24 +1137,24 @@ class Sheet_rolemasterMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.rolemasterMale rolemasterMale_List = 1;
-  inline int rolemastermale_list_size() const;
-  inline void clear_rolemastermale_list();
-  static const int kRolemasterMaleListFieldNumber = 1;
-  inline const ::proto_ff::rolemasterMale& rolemastermale_list(int index) const;
-  inline ::proto_ff::rolemasterMale* mutable_rolemastermale_list(int index);
-  inline ::proto_ff::rolemasterMale* add_rolemastermale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMale >&
-      rolemastermale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMale >*
-      mutable_rolemastermale_list();
+  // repeated .proto_ff.E_RoleMastermale E_RoleMastermale_List = 1;
+  inline int e_rolemastermale_list_size() const;
+  inline void clear_e_rolemastermale_list();
+  static const int kERoleMastermaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleMastermale& e_rolemastermale_list(int index) const;
+  inline ::proto_ff::E_RoleMastermale* mutable_e_rolemastermale_list(int index);
+  inline ::proto_ff::E_RoleMastermale* add_e_rolemastermale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermale >&
+      e_rolemastermale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermale >*
+      mutable_e_rolemastermale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_rolemasterMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleMastermale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMale > rolemastermale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermale > e_rolemastermale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1164,18 +1164,18 @@ class Sheet_rolemasterMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_rolemasterMale* default_instance_;
+  static Sheet_RoleMastermale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolemasterFemaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleMasterfemaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  rolemasterFemaleattributeDesc();
-  virtual ~rolemasterFemaleattributeDesc();
+  E_RoleMasterfemaleAttributeDesc();
+  virtual ~E_RoleMasterfemaleAttributeDesc();
 
-  rolemasterFemaleattributeDesc(const rolemasterFemaleattributeDesc& from);
+  E_RoleMasterfemaleAttributeDesc(const E_RoleMasterfemaleAttributeDesc& from);
 
-  inline rolemasterFemaleattributeDesc& operator=(const rolemasterFemaleattributeDesc& from) {
+  inline E_RoleMasterfemaleAttributeDesc& operator=(const E_RoleMasterfemaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1189,17 +1189,17 @@ class rolemasterFemaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolemasterFemaleattributeDesc& default_instance();
+  static const E_RoleMasterfemaleAttributeDesc& default_instance();
 
-  void Swap(rolemasterFemaleattributeDesc* other);
+  void Swap(E_RoleMasterfemaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  rolemasterFemaleattributeDesc* New() const;
+  E_RoleMasterfemaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolemasterFemaleattributeDesc& from);
-  void MergeFrom(const rolemasterFemaleattributeDesc& from);
+  void CopyFrom(const E_RoleMasterfemaleAttributeDesc& from);
+  void MergeFrom(const E_RoleMasterfemaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1222,31 +1222,31 @@ class rolemasterFemaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolemasterFemaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleMasterfemaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1256,18 +1256,18 @@ class rolemasterFemaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolemasterFemaleattributeDesc* default_instance_;
+  static E_RoleMasterfemaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolemasterFemale : public ::google::protobuf::Message {
+class E_RoleMasterfemale : public ::google::protobuf::Message {
  public:
-  rolemasterFemale();
-  virtual ~rolemasterFemale();
+  E_RoleMasterfemale();
+  virtual ~E_RoleMasterfemale();
 
-  rolemasterFemale(const rolemasterFemale& from);
+  E_RoleMasterfemale(const E_RoleMasterfemale& from);
 
-  inline rolemasterFemale& operator=(const rolemasterFemale& from) {
+  inline E_RoleMasterfemale& operator=(const E_RoleMasterfemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1281,17 +1281,17 @@ class rolemasterFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolemasterFemale& default_instance();
+  static const E_RoleMasterfemale& default_instance();
 
-  void Swap(rolemasterFemale* other);
+  void Swap(E_RoleMasterfemale* other);
 
   // implements Message ----------------------------------------------
 
-  rolemasterFemale* New() const;
+  E_RoleMasterfemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolemasterFemale& from);
-  void MergeFrom(const rolemasterFemale& from);
+  void CopyFrom(const E_RoleMasterfemale& from);
+  void MergeFrom(const E_RoleMasterfemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1314,44 +1314,44 @@ class rolemasterFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.rolemasterFemaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::rolemasterFemaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::rolemasterFemaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::rolemasterFemaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleMasterfemaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleMasterfemaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleMasterfemaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleMasterfemaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolemasterFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleMasterfemale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -1361,18 +1361,18 @@ class rolemasterFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolemasterFemale* default_instance_;
+  static E_RoleMasterfemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_rolemasterFemale : public ::google::protobuf::Message {
+class Sheet_RoleMasterfemale : public ::google::protobuf::Message {
  public:
-  Sheet_rolemasterFemale();
-  virtual ~Sheet_rolemasterFemale();
+  Sheet_RoleMasterfemale();
+  virtual ~Sheet_RoleMasterfemale();
 
-  Sheet_rolemasterFemale(const Sheet_rolemasterFemale& from);
+  Sheet_RoleMasterfemale(const Sheet_RoleMasterfemale& from);
 
-  inline Sheet_rolemasterFemale& operator=(const Sheet_rolemasterFemale& from) {
+  inline Sheet_RoleMasterfemale& operator=(const Sheet_RoleMasterfemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1386,17 +1386,17 @@ class Sheet_rolemasterFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_rolemasterFemale& default_instance();
+  static const Sheet_RoleMasterfemale& default_instance();
 
-  void Swap(Sheet_rolemasterFemale* other);
+  void Swap(Sheet_RoleMasterfemale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_rolemasterFemale* New() const;
+  Sheet_RoleMasterfemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_rolemasterFemale& from);
-  void MergeFrom(const Sheet_rolemasterFemale& from);
+  void CopyFrom(const Sheet_RoleMasterfemale& from);
+  void MergeFrom(const Sheet_RoleMasterfemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1419,24 +1419,24 @@ class Sheet_rolemasterFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.rolemasterFemale rolemasterFemale_List = 1;
-  inline int rolemasterfemale_list_size() const;
-  inline void clear_rolemasterfemale_list();
-  static const int kRolemasterFemaleListFieldNumber = 1;
-  inline const ::proto_ff::rolemasterFemale& rolemasterfemale_list(int index) const;
-  inline ::proto_ff::rolemasterFemale* mutable_rolemasterfemale_list(int index);
-  inline ::proto_ff::rolemasterFemale* add_rolemasterfemale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemale >&
-      rolemasterfemale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemale >*
-      mutable_rolemasterfemale_list();
+  // repeated .proto_ff.E_RoleMasterfemale E_RoleMasterfemale_List = 1;
+  inline int e_rolemasterfemale_list_size() const;
+  inline void clear_e_rolemasterfemale_list();
+  static const int kERoleMasterfemaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleMasterfemale& e_rolemasterfemale_list(int index) const;
+  inline ::proto_ff::E_RoleMasterfemale* mutable_e_rolemasterfemale_list(int index);
+  inline ::proto_ff::E_RoleMasterfemale* add_e_rolemasterfemale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemale >&
+      e_rolemasterfemale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemale >*
+      mutable_e_rolemasterfemale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_rolemasterFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleMasterfemale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemale > rolemasterfemale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemale > e_rolemasterfemale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1446,18 +1446,18 @@ class Sheet_rolemasterFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_rolemasterFemale* default_instance_;
+  static Sheet_RoleMasterfemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolesickleMaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleSicklemaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  rolesickleMaleattributeDesc();
-  virtual ~rolesickleMaleattributeDesc();
+  E_RoleSicklemaleAttributeDesc();
+  virtual ~E_RoleSicklemaleAttributeDesc();
 
-  rolesickleMaleattributeDesc(const rolesickleMaleattributeDesc& from);
+  E_RoleSicklemaleAttributeDesc(const E_RoleSicklemaleAttributeDesc& from);
 
-  inline rolesickleMaleattributeDesc& operator=(const rolesickleMaleattributeDesc& from) {
+  inline E_RoleSicklemaleAttributeDesc& operator=(const E_RoleSicklemaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1471,17 +1471,17 @@ class rolesickleMaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolesickleMaleattributeDesc& default_instance();
+  static const E_RoleSicklemaleAttributeDesc& default_instance();
 
-  void Swap(rolesickleMaleattributeDesc* other);
+  void Swap(E_RoleSicklemaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  rolesickleMaleattributeDesc* New() const;
+  E_RoleSicklemaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolesickleMaleattributeDesc& from);
-  void MergeFrom(const rolesickleMaleattributeDesc& from);
+  void CopyFrom(const E_RoleSicklemaleAttributeDesc& from);
+  void MergeFrom(const E_RoleSicklemaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1504,31 +1504,31 @@ class rolesickleMaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolesickleMaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSicklemaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1538,18 +1538,18 @@ class rolesickleMaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolesickleMaleattributeDesc* default_instance_;
+  static E_RoleSicklemaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolesickleMale : public ::google::protobuf::Message {
+class E_RoleSicklemale : public ::google::protobuf::Message {
  public:
-  rolesickleMale();
-  virtual ~rolesickleMale();
+  E_RoleSicklemale();
+  virtual ~E_RoleSicklemale();
 
-  rolesickleMale(const rolesickleMale& from);
+  E_RoleSicklemale(const E_RoleSicklemale& from);
 
-  inline rolesickleMale& operator=(const rolesickleMale& from) {
+  inline E_RoleSicklemale& operator=(const E_RoleSicklemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1563,17 +1563,17 @@ class rolesickleMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolesickleMale& default_instance();
+  static const E_RoleSicklemale& default_instance();
 
-  void Swap(rolesickleMale* other);
+  void Swap(E_RoleSicklemale* other);
 
   // implements Message ----------------------------------------------
 
-  rolesickleMale* New() const;
+  E_RoleSicklemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolesickleMale& from);
-  void MergeFrom(const rolesickleMale& from);
+  void CopyFrom(const E_RoleSicklemale& from);
+  void MergeFrom(const E_RoleSicklemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1596,44 +1596,44 @@ class rolesickleMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.rolesickleMaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::rolesickleMaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::rolesickleMaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::rolesickleMaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleSicklemaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleSicklemaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleSicklemaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleSicklemaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolesickleMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSicklemale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -1643,18 +1643,18 @@ class rolesickleMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolesickleMale* default_instance_;
+  static E_RoleSicklemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_rolesickleMale : public ::google::protobuf::Message {
+class Sheet_RoleSicklemale : public ::google::protobuf::Message {
  public:
-  Sheet_rolesickleMale();
-  virtual ~Sheet_rolesickleMale();
+  Sheet_RoleSicklemale();
+  virtual ~Sheet_RoleSicklemale();
 
-  Sheet_rolesickleMale(const Sheet_rolesickleMale& from);
+  Sheet_RoleSicklemale(const Sheet_RoleSicklemale& from);
 
-  inline Sheet_rolesickleMale& operator=(const Sheet_rolesickleMale& from) {
+  inline Sheet_RoleSicklemale& operator=(const Sheet_RoleSicklemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1668,17 +1668,17 @@ class Sheet_rolesickleMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_rolesickleMale& default_instance();
+  static const Sheet_RoleSicklemale& default_instance();
 
-  void Swap(Sheet_rolesickleMale* other);
+  void Swap(Sheet_RoleSicklemale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_rolesickleMale* New() const;
+  Sheet_RoleSicklemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_rolesickleMale& from);
-  void MergeFrom(const Sheet_rolesickleMale& from);
+  void CopyFrom(const Sheet_RoleSicklemale& from);
+  void MergeFrom(const Sheet_RoleSicklemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1701,24 +1701,24 @@ class Sheet_rolesickleMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.rolesickleMale rolesickleMale_List = 1;
-  inline int rolesicklemale_list_size() const;
-  inline void clear_rolesicklemale_list();
-  static const int kRolesickleMaleListFieldNumber = 1;
-  inline const ::proto_ff::rolesickleMale& rolesicklemale_list(int index) const;
-  inline ::proto_ff::rolesickleMale* mutable_rolesicklemale_list(int index);
-  inline ::proto_ff::rolesickleMale* add_rolesicklemale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMale >&
-      rolesicklemale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMale >*
-      mutable_rolesicklemale_list();
+  // repeated .proto_ff.E_RoleSicklemale E_RoleSicklemale_List = 1;
+  inline int e_rolesicklemale_list_size() const;
+  inline void clear_e_rolesicklemale_list();
+  static const int kERoleSicklemaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleSicklemale& e_rolesicklemale_list(int index) const;
+  inline ::proto_ff::E_RoleSicklemale* mutable_e_rolesicklemale_list(int index);
+  inline ::proto_ff::E_RoleSicklemale* add_e_rolesicklemale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemale >&
+      e_rolesicklemale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemale >*
+      mutable_e_rolesicklemale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_rolesickleMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleSicklemale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMale > rolesicklemale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemale > e_rolesicklemale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1728,18 +1728,18 @@ class Sheet_rolesickleMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_rolesickleMale* default_instance_;
+  static Sheet_RoleSicklemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolesickleFemaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleSicklefemaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  rolesickleFemaleattributeDesc();
-  virtual ~rolesickleFemaleattributeDesc();
+  E_RoleSicklefemaleAttributeDesc();
+  virtual ~E_RoleSicklefemaleAttributeDesc();
 
-  rolesickleFemaleattributeDesc(const rolesickleFemaleattributeDesc& from);
+  E_RoleSicklefemaleAttributeDesc(const E_RoleSicklefemaleAttributeDesc& from);
 
-  inline rolesickleFemaleattributeDesc& operator=(const rolesickleFemaleattributeDesc& from) {
+  inline E_RoleSicklefemaleAttributeDesc& operator=(const E_RoleSicklefemaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1753,17 +1753,17 @@ class rolesickleFemaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolesickleFemaleattributeDesc& default_instance();
+  static const E_RoleSicklefemaleAttributeDesc& default_instance();
 
-  void Swap(rolesickleFemaleattributeDesc* other);
+  void Swap(E_RoleSicklefemaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  rolesickleFemaleattributeDesc* New() const;
+  E_RoleSicklefemaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolesickleFemaleattributeDesc& from);
-  void MergeFrom(const rolesickleFemaleattributeDesc& from);
+  void CopyFrom(const E_RoleSicklefemaleAttributeDesc& from);
+  void MergeFrom(const E_RoleSicklefemaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1786,31 +1786,31 @@ class rolesickleFemaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolesickleFemaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSicklefemaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1820,18 +1820,18 @@ class rolesickleFemaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolesickleFemaleattributeDesc* default_instance_;
+  static E_RoleSicklefemaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class rolesickleFemale : public ::google::protobuf::Message {
+class E_RoleSicklefemale : public ::google::protobuf::Message {
  public:
-  rolesickleFemale();
-  virtual ~rolesickleFemale();
+  E_RoleSicklefemale();
+  virtual ~E_RoleSicklefemale();
 
-  rolesickleFemale(const rolesickleFemale& from);
+  E_RoleSicklefemale(const E_RoleSicklefemale& from);
 
-  inline rolesickleFemale& operator=(const rolesickleFemale& from) {
+  inline E_RoleSicklefemale& operator=(const E_RoleSicklefemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1845,17 +1845,17 @@ class rolesickleFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const rolesickleFemale& default_instance();
+  static const E_RoleSicklefemale& default_instance();
 
-  void Swap(rolesickleFemale* other);
+  void Swap(E_RoleSicklefemale* other);
 
   // implements Message ----------------------------------------------
 
-  rolesickleFemale* New() const;
+  E_RoleSicklefemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const rolesickleFemale& from);
-  void MergeFrom(const rolesickleFemale& from);
+  void CopyFrom(const E_RoleSicklefemale& from);
+  void MergeFrom(const E_RoleSicklefemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1878,44 +1878,44 @@ class rolesickleFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.rolesickleFemaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::rolesickleFemaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::rolesickleFemaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::rolesickleFemaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleSicklefemaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleSicklefemaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleSicklefemaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleSicklefemaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.rolesickleFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSicklefemale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -1925,18 +1925,18 @@ class rolesickleFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static rolesickleFemale* default_instance_;
+  static E_RoleSicklefemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_rolesickleFemale : public ::google::protobuf::Message {
+class Sheet_RoleSicklefemale : public ::google::protobuf::Message {
  public:
-  Sheet_rolesickleFemale();
-  virtual ~Sheet_rolesickleFemale();
+  Sheet_RoleSicklefemale();
+  virtual ~Sheet_RoleSicklefemale();
 
-  Sheet_rolesickleFemale(const Sheet_rolesickleFemale& from);
+  Sheet_RoleSicklefemale(const Sheet_RoleSicklefemale& from);
 
-  inline Sheet_rolesickleFemale& operator=(const Sheet_rolesickleFemale& from) {
+  inline Sheet_RoleSicklefemale& operator=(const Sheet_RoleSicklefemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1950,17 +1950,17 @@ class Sheet_rolesickleFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_rolesickleFemale& default_instance();
+  static const Sheet_RoleSicklefemale& default_instance();
 
-  void Swap(Sheet_rolesickleFemale* other);
+  void Swap(Sheet_RoleSicklefemale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_rolesickleFemale* New() const;
+  Sheet_RoleSicklefemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_rolesickleFemale& from);
-  void MergeFrom(const Sheet_rolesickleFemale& from);
+  void CopyFrom(const Sheet_RoleSicklefemale& from);
+  void MergeFrom(const Sheet_RoleSicklefemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1983,24 +1983,24 @@ class Sheet_rolesickleFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.rolesickleFemale rolesickleFemale_List = 1;
-  inline int rolesicklefemale_list_size() const;
-  inline void clear_rolesicklefemale_list();
-  static const int kRolesickleFemaleListFieldNumber = 1;
-  inline const ::proto_ff::rolesickleFemale& rolesicklefemale_list(int index) const;
-  inline ::proto_ff::rolesickleFemale* mutable_rolesicklefemale_list(int index);
-  inline ::proto_ff::rolesickleFemale* add_rolesicklefemale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemale >&
-      rolesicklefemale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemale >*
-      mutable_rolesicklefemale_list();
+  // repeated .proto_ff.E_RoleSicklefemale E_RoleSicklefemale_List = 1;
+  inline int e_rolesicklefemale_list_size() const;
+  inline void clear_e_rolesicklefemale_list();
+  static const int kERoleSicklefemaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleSicklefemale& e_rolesicklefemale_list(int index) const;
+  inline ::proto_ff::E_RoleSicklefemale* mutable_e_rolesicklefemale_list(int index);
+  inline ::proto_ff::E_RoleSicklefemale* add_e_rolesicklefemale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemale >&
+      e_rolesicklefemale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemale >*
+      mutable_e_rolesicklefemale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_rolesickleFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleSicklefemale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemale > rolesicklefemale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemale > e_rolesicklefemale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2010,18 +2010,18 @@ class Sheet_rolesickleFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_rolesickleFemale* default_instance_;
+  static Sheet_RoleSicklefemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleswordMaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleSwordmaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  roleswordMaleattributeDesc();
-  virtual ~roleswordMaleattributeDesc();
+  E_RoleSwordmaleAttributeDesc();
+  virtual ~E_RoleSwordmaleAttributeDesc();
 
-  roleswordMaleattributeDesc(const roleswordMaleattributeDesc& from);
+  E_RoleSwordmaleAttributeDesc(const E_RoleSwordmaleAttributeDesc& from);
 
-  inline roleswordMaleattributeDesc& operator=(const roleswordMaleattributeDesc& from) {
+  inline E_RoleSwordmaleAttributeDesc& operator=(const E_RoleSwordmaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2035,17 +2035,17 @@ class roleswordMaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleswordMaleattributeDesc& default_instance();
+  static const E_RoleSwordmaleAttributeDesc& default_instance();
 
-  void Swap(roleswordMaleattributeDesc* other);
+  void Swap(E_RoleSwordmaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  roleswordMaleattributeDesc* New() const;
+  E_RoleSwordmaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleswordMaleattributeDesc& from);
-  void MergeFrom(const roleswordMaleattributeDesc& from);
+  void CopyFrom(const E_RoleSwordmaleAttributeDesc& from);
+  void MergeFrom(const E_RoleSwordmaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2068,31 +2068,31 @@ class roleswordMaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleswordMaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSwordmaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2102,18 +2102,18 @@ class roleswordMaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleswordMaleattributeDesc* default_instance_;
+  static E_RoleSwordmaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleswordMale : public ::google::protobuf::Message {
+class E_RoleSwordmale : public ::google::protobuf::Message {
  public:
-  roleswordMale();
-  virtual ~roleswordMale();
+  E_RoleSwordmale();
+  virtual ~E_RoleSwordmale();
 
-  roleswordMale(const roleswordMale& from);
+  E_RoleSwordmale(const E_RoleSwordmale& from);
 
-  inline roleswordMale& operator=(const roleswordMale& from) {
+  inline E_RoleSwordmale& operator=(const E_RoleSwordmale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2127,17 +2127,17 @@ class roleswordMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleswordMale& default_instance();
+  static const E_RoleSwordmale& default_instance();
 
-  void Swap(roleswordMale* other);
+  void Swap(E_RoleSwordmale* other);
 
   // implements Message ----------------------------------------------
 
-  roleswordMale* New() const;
+  E_RoleSwordmale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleswordMale& from);
-  void MergeFrom(const roleswordMale& from);
+  void CopyFrom(const E_RoleSwordmale& from);
+  void MergeFrom(const E_RoleSwordmale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2160,44 +2160,44 @@ class roleswordMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.roleswordMaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::roleswordMaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::roleswordMaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::roleswordMaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleSwordmaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleSwordmaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleSwordmaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleSwordmaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleswordMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSwordmale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -2207,18 +2207,18 @@ class roleswordMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleswordMale* default_instance_;
+  static E_RoleSwordmale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleswordMale : public ::google::protobuf::Message {
+class Sheet_RoleSwordmale : public ::google::protobuf::Message {
  public:
-  Sheet_roleswordMale();
-  virtual ~Sheet_roleswordMale();
+  Sheet_RoleSwordmale();
+  virtual ~Sheet_RoleSwordmale();
 
-  Sheet_roleswordMale(const Sheet_roleswordMale& from);
+  Sheet_RoleSwordmale(const Sheet_RoleSwordmale& from);
 
-  inline Sheet_roleswordMale& operator=(const Sheet_roleswordMale& from) {
+  inline Sheet_RoleSwordmale& operator=(const Sheet_RoleSwordmale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2232,17 +2232,17 @@ class Sheet_roleswordMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleswordMale& default_instance();
+  static const Sheet_RoleSwordmale& default_instance();
 
-  void Swap(Sheet_roleswordMale* other);
+  void Swap(Sheet_RoleSwordmale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleswordMale* New() const;
+  Sheet_RoleSwordmale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleswordMale& from);
-  void MergeFrom(const Sheet_roleswordMale& from);
+  void CopyFrom(const Sheet_RoleSwordmale& from);
+  void MergeFrom(const Sheet_RoleSwordmale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2265,24 +2265,24 @@ class Sheet_roleswordMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleswordMale roleswordMale_List = 1;
-  inline int roleswordmale_list_size() const;
-  inline void clear_roleswordmale_list();
-  static const int kRoleswordMaleListFieldNumber = 1;
-  inline const ::proto_ff::roleswordMale& roleswordmale_list(int index) const;
-  inline ::proto_ff::roleswordMale* mutable_roleswordmale_list(int index);
-  inline ::proto_ff::roleswordMale* add_roleswordmale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMale >&
-      roleswordmale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMale >*
-      mutable_roleswordmale_list();
+  // repeated .proto_ff.E_RoleSwordmale E_RoleSwordmale_List = 1;
+  inline int e_roleswordmale_list_size() const;
+  inline void clear_e_roleswordmale_list();
+  static const int kERoleSwordmaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleSwordmale& e_roleswordmale_list(int index) const;
+  inline ::proto_ff::E_RoleSwordmale* mutable_e_roleswordmale_list(int index);
+  inline ::proto_ff::E_RoleSwordmale* add_e_roleswordmale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmale >&
+      e_roleswordmale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmale >*
+      mutable_e_roleswordmale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleswordMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleSwordmale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMale > roleswordmale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmale > e_roleswordmale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2292,18 +2292,18 @@ class Sheet_roleswordMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleswordMale* default_instance_;
+  static Sheet_RoleSwordmale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleswordFemaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleSwordfemaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  roleswordFemaleattributeDesc();
-  virtual ~roleswordFemaleattributeDesc();
+  E_RoleSwordfemaleAttributeDesc();
+  virtual ~E_RoleSwordfemaleAttributeDesc();
 
-  roleswordFemaleattributeDesc(const roleswordFemaleattributeDesc& from);
+  E_RoleSwordfemaleAttributeDesc(const E_RoleSwordfemaleAttributeDesc& from);
 
-  inline roleswordFemaleattributeDesc& operator=(const roleswordFemaleattributeDesc& from) {
+  inline E_RoleSwordfemaleAttributeDesc& operator=(const E_RoleSwordfemaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2317,17 +2317,17 @@ class roleswordFemaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleswordFemaleattributeDesc& default_instance();
+  static const E_RoleSwordfemaleAttributeDesc& default_instance();
 
-  void Swap(roleswordFemaleattributeDesc* other);
+  void Swap(E_RoleSwordfemaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  roleswordFemaleattributeDesc* New() const;
+  E_RoleSwordfemaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleswordFemaleattributeDesc& from);
-  void MergeFrom(const roleswordFemaleattributeDesc& from);
+  void CopyFrom(const E_RoleSwordfemaleAttributeDesc& from);
+  void MergeFrom(const E_RoleSwordfemaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2350,31 +2350,31 @@ class roleswordFemaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleswordFemaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSwordfemaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2384,18 +2384,18 @@ class roleswordFemaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleswordFemaleattributeDesc* default_instance_;
+  static E_RoleSwordfemaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleswordFemale : public ::google::protobuf::Message {
+class E_RoleSwordfemale : public ::google::protobuf::Message {
  public:
-  roleswordFemale();
-  virtual ~roleswordFemale();
+  E_RoleSwordfemale();
+  virtual ~E_RoleSwordfemale();
 
-  roleswordFemale(const roleswordFemale& from);
+  E_RoleSwordfemale(const E_RoleSwordfemale& from);
 
-  inline roleswordFemale& operator=(const roleswordFemale& from) {
+  inline E_RoleSwordfemale& operator=(const E_RoleSwordfemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2409,17 +2409,17 @@ class roleswordFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleswordFemale& default_instance();
+  static const E_RoleSwordfemale& default_instance();
 
-  void Swap(roleswordFemale* other);
+  void Swap(E_RoleSwordfemale* other);
 
   // implements Message ----------------------------------------------
 
-  roleswordFemale* New() const;
+  E_RoleSwordfemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleswordFemale& from);
-  void MergeFrom(const roleswordFemale& from);
+  void CopyFrom(const E_RoleSwordfemale& from);
+  void MergeFrom(const E_RoleSwordfemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2442,44 +2442,44 @@ class roleswordFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.roleswordFemaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::roleswordFemaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::roleswordFemaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::roleswordFemaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleSwordfemaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleSwordfemaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleSwordfemaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleSwordfemaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleswordFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSwordfemale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -2489,18 +2489,18 @@ class roleswordFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleswordFemale* default_instance_;
+  static E_RoleSwordfemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleswordFemale : public ::google::protobuf::Message {
+class Sheet_RoleSwordfemale : public ::google::protobuf::Message {
  public:
-  Sheet_roleswordFemale();
-  virtual ~Sheet_roleswordFemale();
+  Sheet_RoleSwordfemale();
+  virtual ~Sheet_RoleSwordfemale();
 
-  Sheet_roleswordFemale(const Sheet_roleswordFemale& from);
+  Sheet_RoleSwordfemale(const Sheet_RoleSwordfemale& from);
 
-  inline Sheet_roleswordFemale& operator=(const Sheet_roleswordFemale& from) {
+  inline Sheet_RoleSwordfemale& operator=(const Sheet_RoleSwordfemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2514,17 +2514,17 @@ class Sheet_roleswordFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleswordFemale& default_instance();
+  static const Sheet_RoleSwordfemale& default_instance();
 
-  void Swap(Sheet_roleswordFemale* other);
+  void Swap(Sheet_RoleSwordfemale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleswordFemale* New() const;
+  Sheet_RoleSwordfemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleswordFemale& from);
-  void MergeFrom(const Sheet_roleswordFemale& from);
+  void CopyFrom(const Sheet_RoleSwordfemale& from);
+  void MergeFrom(const Sheet_RoleSwordfemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2547,24 +2547,24 @@ class Sheet_roleswordFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleswordFemale roleswordFemale_List = 1;
-  inline int roleswordfemale_list_size() const;
-  inline void clear_roleswordfemale_list();
-  static const int kRoleswordFemaleListFieldNumber = 1;
-  inline const ::proto_ff::roleswordFemale& roleswordfemale_list(int index) const;
-  inline ::proto_ff::roleswordFemale* mutable_roleswordfemale_list(int index);
-  inline ::proto_ff::roleswordFemale* add_roleswordfemale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemale >&
-      roleswordfemale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemale >*
-      mutable_roleswordfemale_list();
+  // repeated .proto_ff.E_RoleSwordfemale E_RoleSwordfemale_List = 1;
+  inline int e_roleswordfemale_list_size() const;
+  inline void clear_e_roleswordfemale_list();
+  static const int kERoleSwordfemaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleSwordfemale& e_roleswordfemale_list(int index) const;
+  inline ::proto_ff::E_RoleSwordfemale* mutable_e_roleswordfemale_list(int index);
+  inline ::proto_ff::E_RoleSwordfemale* add_e_roleswordfemale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemale >&
+      e_roleswordfemale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemale >*
+      mutable_e_roleswordfemale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleswordFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleSwordfemale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemale > roleswordfemale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemale > e_roleswordfemale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2574,18 +2574,18 @@ class Sheet_roleswordFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleswordFemale* default_instance_;
+  static Sheet_RoleSwordfemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roletaidaoMaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleTaidaomaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  roletaidaoMaleattributeDesc();
-  virtual ~roletaidaoMaleattributeDesc();
+  E_RoleTaidaomaleAttributeDesc();
+  virtual ~E_RoleTaidaomaleAttributeDesc();
 
-  roletaidaoMaleattributeDesc(const roletaidaoMaleattributeDesc& from);
+  E_RoleTaidaomaleAttributeDesc(const E_RoleTaidaomaleAttributeDesc& from);
 
-  inline roletaidaoMaleattributeDesc& operator=(const roletaidaoMaleattributeDesc& from) {
+  inline E_RoleTaidaomaleAttributeDesc& operator=(const E_RoleTaidaomaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2599,17 +2599,17 @@ class roletaidaoMaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roletaidaoMaleattributeDesc& default_instance();
+  static const E_RoleTaidaomaleAttributeDesc& default_instance();
 
-  void Swap(roletaidaoMaleattributeDesc* other);
+  void Swap(E_RoleTaidaomaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  roletaidaoMaleattributeDesc* New() const;
+  E_RoleTaidaomaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roletaidaoMaleattributeDesc& from);
-  void MergeFrom(const roletaidaoMaleattributeDesc& from);
+  void CopyFrom(const E_RoleTaidaomaleAttributeDesc& from);
+  void MergeFrom(const E_RoleTaidaomaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2632,31 +2632,31 @@ class roletaidaoMaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roletaidaoMaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleTaidaomaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2666,18 +2666,18 @@ class roletaidaoMaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roletaidaoMaleattributeDesc* default_instance_;
+  static E_RoleTaidaomaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roletaidaoMale : public ::google::protobuf::Message {
+class E_RoleTaidaomale : public ::google::protobuf::Message {
  public:
-  roletaidaoMale();
-  virtual ~roletaidaoMale();
+  E_RoleTaidaomale();
+  virtual ~E_RoleTaidaomale();
 
-  roletaidaoMale(const roletaidaoMale& from);
+  E_RoleTaidaomale(const E_RoleTaidaomale& from);
 
-  inline roletaidaoMale& operator=(const roletaidaoMale& from) {
+  inline E_RoleTaidaomale& operator=(const E_RoleTaidaomale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2691,17 +2691,17 @@ class roletaidaoMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roletaidaoMale& default_instance();
+  static const E_RoleTaidaomale& default_instance();
 
-  void Swap(roletaidaoMale* other);
+  void Swap(E_RoleTaidaomale* other);
 
   // implements Message ----------------------------------------------
 
-  roletaidaoMale* New() const;
+  E_RoleTaidaomale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roletaidaoMale& from);
-  void MergeFrom(const roletaidaoMale& from);
+  void CopyFrom(const E_RoleTaidaomale& from);
+  void MergeFrom(const E_RoleTaidaomale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2724,44 +2724,44 @@ class roletaidaoMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.roletaidaoMaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::roletaidaoMaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::roletaidaoMaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::roletaidaoMaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleTaidaomaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleTaidaomaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleTaidaomaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleTaidaomaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roletaidaoMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleTaidaomale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -2771,18 +2771,18 @@ class roletaidaoMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roletaidaoMale* default_instance_;
+  static E_RoleTaidaomale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roletaidaoMale : public ::google::protobuf::Message {
+class Sheet_RoleTaidaomale : public ::google::protobuf::Message {
  public:
-  Sheet_roletaidaoMale();
-  virtual ~Sheet_roletaidaoMale();
+  Sheet_RoleTaidaomale();
+  virtual ~Sheet_RoleTaidaomale();
 
-  Sheet_roletaidaoMale(const Sheet_roletaidaoMale& from);
+  Sheet_RoleTaidaomale(const Sheet_RoleTaidaomale& from);
 
-  inline Sheet_roletaidaoMale& operator=(const Sheet_roletaidaoMale& from) {
+  inline Sheet_RoleTaidaomale& operator=(const Sheet_RoleTaidaomale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2796,17 +2796,17 @@ class Sheet_roletaidaoMale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roletaidaoMale& default_instance();
+  static const Sheet_RoleTaidaomale& default_instance();
 
-  void Swap(Sheet_roletaidaoMale* other);
+  void Swap(Sheet_RoleTaidaomale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roletaidaoMale* New() const;
+  Sheet_RoleTaidaomale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roletaidaoMale& from);
-  void MergeFrom(const Sheet_roletaidaoMale& from);
+  void CopyFrom(const Sheet_RoleTaidaomale& from);
+  void MergeFrom(const Sheet_RoleTaidaomale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2829,24 +2829,24 @@ class Sheet_roletaidaoMale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roletaidaoMale roletaidaoMale_List = 1;
-  inline int roletaidaomale_list_size() const;
-  inline void clear_roletaidaomale_list();
-  static const int kRoletaidaoMaleListFieldNumber = 1;
-  inline const ::proto_ff::roletaidaoMale& roletaidaomale_list(int index) const;
-  inline ::proto_ff::roletaidaoMale* mutable_roletaidaomale_list(int index);
-  inline ::proto_ff::roletaidaoMale* add_roletaidaomale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMale >&
-      roletaidaomale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMale >*
-      mutable_roletaidaomale_list();
+  // repeated .proto_ff.E_RoleTaidaomale E_RoleTaidaomale_List = 1;
+  inline int e_roletaidaomale_list_size() const;
+  inline void clear_e_roletaidaomale_list();
+  static const int kERoleTaidaomaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleTaidaomale& e_roletaidaomale_list(int index) const;
+  inline ::proto_ff::E_RoleTaidaomale* mutable_e_roletaidaomale_list(int index);
+  inline ::proto_ff::E_RoleTaidaomale* add_e_roletaidaomale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomale >&
+      e_roletaidaomale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomale >*
+      mutable_e_roletaidaomale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roletaidaoMale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleTaidaomale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMale > roletaidaomale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomale > e_roletaidaomale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -2856,18 +2856,18 @@ class Sheet_roletaidaoMale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roletaidaoMale* default_instance_;
+  static Sheet_RoleTaidaomale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roletaidaoFemaleattributeDesc : public ::google::protobuf::Message {
+class E_RoleTaidaofemaleAttributeDesc : public ::google::protobuf::Message {
  public:
-  roletaidaoFemaleattributeDesc();
-  virtual ~roletaidaoFemaleattributeDesc();
+  E_RoleTaidaofemaleAttributeDesc();
+  virtual ~E_RoleTaidaofemaleAttributeDesc();
 
-  roletaidaoFemaleattributeDesc(const roletaidaoFemaleattributeDesc& from);
+  E_RoleTaidaofemaleAttributeDesc(const E_RoleTaidaofemaleAttributeDesc& from);
 
-  inline roletaidaoFemaleattributeDesc& operator=(const roletaidaoFemaleattributeDesc& from) {
+  inline E_RoleTaidaofemaleAttributeDesc& operator=(const E_RoleTaidaofemaleAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2881,17 +2881,17 @@ class roletaidaoFemaleattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roletaidaoFemaleattributeDesc& default_instance();
+  static const E_RoleTaidaofemaleAttributeDesc& default_instance();
 
-  void Swap(roletaidaoFemaleattributeDesc* other);
+  void Swap(E_RoleTaidaofemaleAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  roletaidaoFemaleattributeDesc* New() const;
+  E_RoleTaidaofemaleAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roletaidaoFemaleattributeDesc& from);
-  void MergeFrom(const roletaidaoFemaleattributeDesc& from);
+  void CopyFrom(const E_RoleTaidaofemaleAttributeDesc& from);
+  void MergeFrom(const E_RoleTaidaofemaleAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2914,31 +2914,31 @@ class roletaidaoFemaleattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 Value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roletaidaoFemaleattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleTaidaofemaleAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2948,18 +2948,18 @@ class roletaidaoFemaleattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roletaidaoFemaleattributeDesc* default_instance_;
+  static E_RoleTaidaofemaleAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roletaidaoFemale : public ::google::protobuf::Message {
+class E_RoleTaidaofemale : public ::google::protobuf::Message {
  public:
-  roletaidaoFemale();
-  virtual ~roletaidaoFemale();
+  E_RoleTaidaofemale();
+  virtual ~E_RoleTaidaofemale();
 
-  roletaidaoFemale(const roletaidaoFemale& from);
+  E_RoleTaidaofemale(const E_RoleTaidaofemale& from);
 
-  inline roletaidaoFemale& operator=(const roletaidaoFemale& from) {
+  inline E_RoleTaidaofemale& operator=(const E_RoleTaidaofemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2973,17 +2973,17 @@ class roletaidaoFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roletaidaoFemale& default_instance();
+  static const E_RoleTaidaofemale& default_instance();
 
-  void Swap(roletaidaoFemale* other);
+  void Swap(E_RoleTaidaofemale* other);
 
   // implements Message ----------------------------------------------
 
-  roletaidaoFemale* New() const;
+  E_RoleTaidaofemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roletaidaoFemale& from);
-  void MergeFrom(const roletaidaoFemale& from);
+  void CopyFrom(const E_RoleTaidaofemale& from);
+  void MergeFrom(const E_RoleTaidaofemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3006,44 +3006,44 @@ class roletaidaoFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 upgradePoint = 2;
-  inline bool has_upgradepoint() const;
-  inline void clear_upgradepoint();
-  static const int kUpgradePointFieldNumber = 2;
-  inline ::google::protobuf::int32 upgradepoint() const;
-  inline void set_upgradepoint(::google::protobuf::int32 value);
+  // optional int32 m_upgradepoint = 2;
+  inline bool has_m_upgradepoint() const;
+  inline void clear_m_upgradepoint();
+  static const int kMUpgradepointFieldNumber = 2;
+  inline ::google::protobuf::int32 m_upgradepoint() const;
+  inline void set_m_upgradepoint(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.roletaidaoFemaleattributeDesc attribute = 3;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 3;
-  inline const ::proto_ff::roletaidaoFemaleattributeDesc& attribute(int index) const;
-  inline ::proto_ff::roletaidaoFemaleattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::roletaidaoFemaleattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemaleattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemaleattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_RoleTaidaofemaleAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_RoleTaidaofemaleAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_RoleTaidaofemaleAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_RoleTaidaofemaleAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemaleAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemaleAttributeDesc >*
+      mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roletaidaoFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleTaidaofemale)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_upgradepoint();
-  inline void clear_has_upgradepoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_upgradepoint();
+  inline void clear_has_m_upgradepoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 upgradepoint_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemaleattributeDesc > attribute_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_upgradepoint_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemaleAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -3053,18 +3053,18 @@ class roletaidaoFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roletaidaoFemale* default_instance_;
+  static E_RoleTaidaofemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roletaidaoFemale : public ::google::protobuf::Message {
+class Sheet_RoleTaidaofemale : public ::google::protobuf::Message {
  public:
-  Sheet_roletaidaoFemale();
-  virtual ~Sheet_roletaidaoFemale();
+  Sheet_RoleTaidaofemale();
+  virtual ~Sheet_RoleTaidaofemale();
 
-  Sheet_roletaidaoFemale(const Sheet_roletaidaoFemale& from);
+  Sheet_RoleTaidaofemale(const Sheet_RoleTaidaofemale& from);
 
-  inline Sheet_roletaidaoFemale& operator=(const Sheet_roletaidaoFemale& from) {
+  inline Sheet_RoleTaidaofemale& operator=(const Sheet_RoleTaidaofemale& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3078,17 +3078,17 @@ class Sheet_roletaidaoFemale : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roletaidaoFemale& default_instance();
+  static const Sheet_RoleTaidaofemale& default_instance();
 
-  void Swap(Sheet_roletaidaoFemale* other);
+  void Swap(Sheet_RoleTaidaofemale* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roletaidaoFemale* New() const;
+  Sheet_RoleTaidaofemale* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roletaidaoFemale& from);
-  void MergeFrom(const Sheet_roletaidaoFemale& from);
+  void CopyFrom(const Sheet_RoleTaidaofemale& from);
+  void MergeFrom(const Sheet_RoleTaidaofemale& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3111,24 +3111,24 @@ class Sheet_roletaidaoFemale : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roletaidaoFemale roletaidaoFemale_List = 1;
-  inline int roletaidaofemale_list_size() const;
-  inline void clear_roletaidaofemale_list();
-  static const int kRoletaidaoFemaleListFieldNumber = 1;
-  inline const ::proto_ff::roletaidaoFemale& roletaidaofemale_list(int index) const;
-  inline ::proto_ff::roletaidaoFemale* mutable_roletaidaofemale_list(int index);
-  inline ::proto_ff::roletaidaoFemale* add_roletaidaofemale_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemale >&
-      roletaidaofemale_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemale >*
-      mutable_roletaidaofemale_list();
+  // repeated .proto_ff.E_RoleTaidaofemale E_RoleTaidaofemale_List = 1;
+  inline int e_roletaidaofemale_list_size() const;
+  inline void clear_e_roletaidaofemale_list();
+  static const int kERoleTaidaofemaleListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleTaidaofemale& e_roletaidaofemale_list(int index) const;
+  inline ::proto_ff::E_RoleTaidaofemale* mutable_e_roletaidaofemale_list(int index);
+  inline ::proto_ff::E_RoleTaidaofemale* add_e_roletaidaofemale_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemale >&
+      e_roletaidaofemale_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemale >*
+      mutable_e_roletaidaofemale_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roletaidaoFemale)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleTaidaofemale)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemale > roletaidaofemale_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemale > e_roletaidaofemale_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3138,18 +3138,18 @@ class Sheet_roletaidaoFemale : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roletaidaoFemale* default_instance_;
+  static Sheet_RoleTaidaofemale* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleexp : public ::google::protobuf::Message {
+class E_RoleExp : public ::google::protobuf::Message {
  public:
-  roleexp();
-  virtual ~roleexp();
+  E_RoleExp();
+  virtual ~E_RoleExp();
 
-  roleexp(const roleexp& from);
+  E_RoleExp(const E_RoleExp& from);
 
-  inline roleexp& operator=(const roleexp& from) {
+  inline E_RoleExp& operator=(const E_RoleExp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3163,17 +3163,17 @@ class roleexp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleexp& default_instance();
+  static const E_RoleExp& default_instance();
 
-  void Swap(roleexp* other);
+  void Swap(E_RoleExp* other);
 
   // implements Message ----------------------------------------------
 
-  roleexp* New() const;
+  E_RoleExp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleexp& from);
-  void MergeFrom(const roleexp& from);
+  void CopyFrom(const E_RoleExp& from);
+  void MergeFrom(const E_RoleExp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3196,41 +3196,41 @@ class roleexp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int32 lv() const;
-  inline void set_lv(::google::protobuf::int32 value);
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int64 exp = 2;
-  inline bool has_exp() const;
-  inline void clear_exp();
-  static const int kExpFieldNumber = 2;
-  inline ::google::protobuf::int64 exp() const;
-  inline void set_exp(::google::protobuf::int64 value);
+  // optional int64 m_exp = 2;
+  inline bool has_m_exp() const;
+  inline void clear_m_exp();
+  static const int kMExpFieldNumber = 2;
+  inline ::google::protobuf::int64 m_exp() const;
+  inline void set_m_exp(::google::protobuf::int64 value);
 
-  // optional int32 skillPoint = 3;
-  inline bool has_skillpoint() const;
-  inline void clear_skillpoint();
-  static const int kSkillPointFieldNumber = 3;
-  inline ::google::protobuf::int32 skillpoint() const;
-  inline void set_skillpoint(::google::protobuf::int32 value);
+  // optional int32 m_skillpoint = 3;
+  inline bool has_m_skillpoint() const;
+  inline void clear_m_skillpoint();
+  static const int kMSkillpointFieldNumber = 3;
+  inline ::google::protobuf::int32 m_skillpoint() const;
+  inline void set_m_skillpoint(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleexp)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleExp)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_skillpoint();
-  inline void clear_has_skillpoint();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_exp();
+  inline void clear_has_m_exp();
+  inline void set_has_m_skillpoint();
+  inline void clear_has_m_skillpoint();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 exp_;
-  ::google::protobuf::int32 lv_;
-  ::google::protobuf::int32 skillpoint_;
+  ::google::protobuf::int64 m_exp_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_skillpoint_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -3240,18 +3240,18 @@ class roleexp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleexp* default_instance_;
+  static E_RoleExp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleexp : public ::google::protobuf::Message {
+class Sheet_RoleExp : public ::google::protobuf::Message {
  public:
-  Sheet_roleexp();
-  virtual ~Sheet_roleexp();
+  Sheet_RoleExp();
+  virtual ~Sheet_RoleExp();
 
-  Sheet_roleexp(const Sheet_roleexp& from);
+  Sheet_RoleExp(const Sheet_RoleExp& from);
 
-  inline Sheet_roleexp& operator=(const Sheet_roleexp& from) {
+  inline Sheet_RoleExp& operator=(const Sheet_RoleExp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3265,17 +3265,17 @@ class Sheet_roleexp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleexp& default_instance();
+  static const Sheet_RoleExp& default_instance();
 
-  void Swap(Sheet_roleexp* other);
+  void Swap(Sheet_RoleExp* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleexp* New() const;
+  Sheet_RoleExp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleexp& from);
-  void MergeFrom(const Sheet_roleexp& from);
+  void CopyFrom(const Sheet_RoleExp& from);
+  void MergeFrom(const Sheet_RoleExp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3298,24 +3298,24 @@ class Sheet_roleexp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleexp roleexp_List = 1;
-  inline int roleexp_list_size() const;
-  inline void clear_roleexp_list();
-  static const int kRoleexpListFieldNumber = 1;
-  inline const ::proto_ff::roleexp& roleexp_list(int index) const;
-  inline ::proto_ff::roleexp* mutable_roleexp_list(int index);
-  inline ::proto_ff::roleexp* add_roleexp_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleexp >&
-      roleexp_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleexp >*
-      mutable_roleexp_list();
+  // repeated .proto_ff.E_RoleExp E_RoleExp_List = 1;
+  inline int e_roleexp_list_size() const;
+  inline void clear_e_roleexp_list();
+  static const int kERoleExpListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleExp& e_roleexp_list(int index) const;
+  inline ::proto_ff::E_RoleExp* mutable_e_roleexp_list(int index);
+  inline ::proto_ff::E_RoleExp* add_e_roleexp_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleExp >&
+      e_roleexp_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleExp >*
+      mutable_e_roleexp_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleexp)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleExp)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleexp > roleexp_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleExp > e_roleexp_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3325,18 +3325,18 @@ class Sheet_roleexp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleexp* default_instance_;
+  static Sheet_RoleExp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleskillType : public ::google::protobuf::Message {
+class E_RoleSkilltype : public ::google::protobuf::Message {
  public:
-  roleskillType();
-  virtual ~roleskillType();
+  E_RoleSkilltype();
+  virtual ~E_RoleSkilltype();
 
-  roleskillType(const roleskillType& from);
+  E_RoleSkilltype(const E_RoleSkilltype& from);
 
-  inline roleskillType& operator=(const roleskillType& from) {
+  inline E_RoleSkilltype& operator=(const E_RoleSkilltype& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3350,17 +3350,17 @@ class roleskillType : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleskillType& default_instance();
+  static const E_RoleSkilltype& default_instance();
 
-  void Swap(roleskillType* other);
+  void Swap(E_RoleSkilltype* other);
 
   // implements Message ----------------------------------------------
 
-  roleskillType* New() const;
+  E_RoleSkilltype* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleskillType& from);
-  void MergeFrom(const roleskillType& from);
+  void CopyFrom(const E_RoleSkilltype& from);
+  void MergeFrom(const E_RoleSkilltype& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3383,31 +3383,31 @@ class roleskillType : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 skillId = 1;
-  inline bool has_skillid() const;
-  inline void clear_skillid();
-  static const int kSkillIdFieldNumber = 1;
-  inline ::google::protobuf::int64 skillid() const;
-  inline void set_skillid(::google::protobuf::int64 value);
+  // optional int64 m_skillid = 1;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillidFieldNumber = 1;
+  inline ::google::protobuf::int64 m_skillid() const;
+  inline void set_m_skillid(::google::protobuf::int64 value);
 
-  // optional int32 skillType = 2;
-  inline bool has_skilltype() const;
-  inline void clear_skilltype();
-  static const int kSkillTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 skilltype() const;
-  inline void set_skilltype(::google::protobuf::int32 value);
+  // optional int32 m_skilltype = 2;
+  inline bool has_m_skilltype() const;
+  inline void clear_m_skilltype();
+  static const int kMSkilltypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_skilltype() const;
+  inline void set_m_skilltype(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleskillType)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleSkilltype)
  private:
-  inline void set_has_skillid();
-  inline void clear_has_skillid();
-  inline void set_has_skilltype();
-  inline void clear_has_skilltype();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
+  inline void set_has_m_skilltype();
+  inline void clear_has_m_skilltype();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 skillid_;
-  ::google::protobuf::int32 skilltype_;
+  ::google::protobuf::int64 m_skillid_;
+  ::google::protobuf::int32 m_skilltype_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -3417,18 +3417,18 @@ class roleskillType : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleskillType* default_instance_;
+  static E_RoleSkilltype* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleskillType : public ::google::protobuf::Message {
+class Sheet_RoleSkilltype : public ::google::protobuf::Message {
  public:
-  Sheet_roleskillType();
-  virtual ~Sheet_roleskillType();
+  Sheet_RoleSkilltype();
+  virtual ~Sheet_RoleSkilltype();
 
-  Sheet_roleskillType(const Sheet_roleskillType& from);
+  Sheet_RoleSkilltype(const Sheet_RoleSkilltype& from);
 
-  inline Sheet_roleskillType& operator=(const Sheet_roleskillType& from) {
+  inline Sheet_RoleSkilltype& operator=(const Sheet_RoleSkilltype& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3442,17 +3442,17 @@ class Sheet_roleskillType : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleskillType& default_instance();
+  static const Sheet_RoleSkilltype& default_instance();
 
-  void Swap(Sheet_roleskillType* other);
+  void Swap(Sheet_RoleSkilltype* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleskillType* New() const;
+  Sheet_RoleSkilltype* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleskillType& from);
-  void MergeFrom(const Sheet_roleskillType& from);
+  void CopyFrom(const Sheet_RoleSkilltype& from);
+  void MergeFrom(const Sheet_RoleSkilltype& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3475,24 +3475,24 @@ class Sheet_roleskillType : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleskillType roleskillType_List = 1;
-  inline int roleskilltype_list_size() const;
-  inline void clear_roleskilltype_list();
-  static const int kRoleskillTypeListFieldNumber = 1;
-  inline const ::proto_ff::roleskillType& roleskilltype_list(int index) const;
-  inline ::proto_ff::roleskillType* mutable_roleskilltype_list(int index);
-  inline ::proto_ff::roleskillType* add_roleskilltype_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleskillType >&
-      roleskilltype_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleskillType >*
-      mutable_roleskilltype_list();
+  // repeated .proto_ff.E_RoleSkilltype E_RoleSkilltype_List = 1;
+  inline int e_roleskilltype_list_size() const;
+  inline void clear_e_roleskilltype_list();
+  static const int kERoleSkilltypeListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleSkilltype& e_roleskilltype_list(int index) const;
+  inline ::proto_ff::E_RoleSkilltype* mutable_e_roleskilltype_list(int index);
+  inline ::proto_ff::E_RoleSkilltype* add_e_roleskilltype_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSkilltype >&
+      e_roleskilltype_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSkilltype >*
+      mutable_e_roleskilltype_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleskillType)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleSkilltype)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleskillType > roleskilltype_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSkilltype > e_roleskilltype_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3502,18 +3502,18 @@ class Sheet_roleskillType : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleskillType* default_instance_;
+  static Sheet_RoleSkilltype* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleaddSkill : public ::google::protobuf::Message {
+class E_RoleAddskill : public ::google::protobuf::Message {
  public:
-  roleaddSkill();
-  virtual ~roleaddSkill();
+  E_RoleAddskill();
+  virtual ~E_RoleAddskill();
 
-  roleaddSkill(const roleaddSkill& from);
+  E_RoleAddskill(const E_RoleAddskill& from);
 
-  inline roleaddSkill& operator=(const roleaddSkill& from) {
+  inline E_RoleAddskill& operator=(const E_RoleAddskill& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3527,17 +3527,17 @@ class roleaddSkill : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleaddSkill& default_instance();
+  static const E_RoleAddskill& default_instance();
 
-  void Swap(roleaddSkill* other);
+  void Swap(E_RoleAddskill* other);
 
   // implements Message ----------------------------------------------
 
-  roleaddSkill* New() const;
+  E_RoleAddskill* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleaddSkill& from);
-  void MergeFrom(const roleaddSkill& from);
+  void CopyFrom(const E_RoleAddskill& from);
+  void MergeFrom(const E_RoleAddskill& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3560,31 +3560,31 @@ class roleaddSkill : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 Id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 skillId = 2;
-  inline bool has_skillid() const;
-  inline void clear_skillid();
-  static const int kSkillIdFieldNumber = 2;
-  inline ::google::protobuf::int64 skillid() const;
-  inline void set_skillid(::google::protobuf::int64 value);
+  // optional int64 m_skillid = 2;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillidFieldNumber = 2;
+  inline ::google::protobuf::int64 m_skillid() const;
+  inline void set_m_skillid(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleaddSkill)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleAddskill)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_skillid();
-  inline void clear_has_skillid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 skillid_;
-  ::google::protobuf::int32 id_;
+  ::google::protobuf::int64 m_skillid_;
+  ::google::protobuf::int32 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -3594,18 +3594,18 @@ class roleaddSkill : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleaddSkill* default_instance_;
+  static E_RoleAddskill* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleaddSkill : public ::google::protobuf::Message {
+class Sheet_RoleAddskill : public ::google::protobuf::Message {
  public:
-  Sheet_roleaddSkill();
-  virtual ~Sheet_roleaddSkill();
+  Sheet_RoleAddskill();
+  virtual ~Sheet_RoleAddskill();
 
-  Sheet_roleaddSkill(const Sheet_roleaddSkill& from);
+  Sheet_RoleAddskill(const Sheet_RoleAddskill& from);
 
-  inline Sheet_roleaddSkill& operator=(const Sheet_roleaddSkill& from) {
+  inline Sheet_RoleAddskill& operator=(const Sheet_RoleAddskill& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3619,17 +3619,17 @@ class Sheet_roleaddSkill : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleaddSkill& default_instance();
+  static const Sheet_RoleAddskill& default_instance();
 
-  void Swap(Sheet_roleaddSkill* other);
+  void Swap(Sheet_RoleAddskill* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleaddSkill* New() const;
+  Sheet_RoleAddskill* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleaddSkill& from);
-  void MergeFrom(const Sheet_roleaddSkill& from);
+  void CopyFrom(const Sheet_RoleAddskill& from);
+  void MergeFrom(const Sheet_RoleAddskill& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3652,24 +3652,24 @@ class Sheet_roleaddSkill : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleaddSkill roleaddSkill_List = 1;
-  inline int roleaddskill_list_size() const;
-  inline void clear_roleaddskill_list();
-  static const int kRoleaddSkillListFieldNumber = 1;
-  inline const ::proto_ff::roleaddSkill& roleaddskill_list(int index) const;
-  inline ::proto_ff::roleaddSkill* mutable_roleaddskill_list(int index);
-  inline ::proto_ff::roleaddSkill* add_roleaddskill_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleaddSkill >&
-      roleaddskill_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleaddSkill >*
-      mutable_roleaddskill_list();
+  // repeated .proto_ff.E_RoleAddskill E_RoleAddskill_List = 1;
+  inline int e_roleaddskill_list_size() const;
+  inline void clear_e_roleaddskill_list();
+  static const int kERoleAddskillListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleAddskill& e_roleaddskill_list(int index) const;
+  inline ::proto_ff::E_RoleAddskill* mutable_e_roleaddskill_list(int index);
+  inline ::proto_ff::E_RoleAddskill* add_e_roleaddskill_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleAddskill >&
+      e_roleaddskill_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleAddskill >*
+      mutable_e_roleaddskill_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleaddSkill)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleAddskill)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleaddSkill > roleaddskill_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleAddskill > e_roleaddskill_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3679,18 +3679,18 @@ class Sheet_roleaddSkill : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleaddSkill* default_instance_;
+  static Sheet_RoleAddskill* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class roleworldexp : public ::google::protobuf::Message {
+class E_RoleWorldexp : public ::google::protobuf::Message {
  public:
-  roleworldexp();
-  virtual ~roleworldexp();
+  E_RoleWorldexp();
+  virtual ~E_RoleWorldexp();
 
-  roleworldexp(const roleworldexp& from);
+  E_RoleWorldexp(const E_RoleWorldexp& from);
 
-  inline roleworldexp& operator=(const roleworldexp& from) {
+  inline E_RoleWorldexp& operator=(const E_RoleWorldexp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3704,17 +3704,17 @@ class roleworldexp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const roleworldexp& default_instance();
+  static const E_RoleWorldexp& default_instance();
 
-  void Swap(roleworldexp* other);
+  void Swap(E_RoleWorldexp* other);
 
   // implements Message ----------------------------------------------
 
-  roleworldexp* New() const;
+  E_RoleWorldexp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const roleworldexp& from);
-  void MergeFrom(const roleworldexp& from);
+  void CopyFrom(const E_RoleWorldexp& from);
+  void MergeFrom(const E_RoleWorldexp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3737,31 +3737,31 @@ class roleworldexp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 lv = 1;
-  inline bool has_lv() const;
-  inline void clear_lv();
-  static const int kLvFieldNumber = 1;
-  inline ::google::protobuf::int64 lv() const;
-  inline void set_lv(::google::protobuf::int64 value);
+  // optional int64 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int64 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int64 value);
 
-  // optional int32 worldExp = 2;
-  inline bool has_worldexp() const;
-  inline void clear_worldexp();
-  static const int kWorldExpFieldNumber = 2;
-  inline ::google::protobuf::int32 worldexp() const;
-  inline void set_worldexp(::google::protobuf::int32 value);
+  // optional int32 m_worldexp = 2;
+  inline bool has_m_worldexp() const;
+  inline void clear_m_worldexp();
+  static const int kMWorldexpFieldNumber = 2;
+  inline ::google::protobuf::int32 m_worldexp() const;
+  inline void set_m_worldexp(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.roleworldexp)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_RoleWorldexp)
  private:
-  inline void set_has_lv();
-  inline void clear_has_lv();
-  inline void set_has_worldexp();
-  inline void clear_has_worldexp();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_worldexp();
+  inline void clear_has_m_worldexp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 lv_;
-  ::google::protobuf::int32 worldexp_;
+  ::google::protobuf::int64 m_lv_;
+  ::google::protobuf::int32 m_worldexp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -3771,18 +3771,18 @@ class roleworldexp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static roleworldexp* default_instance_;
+  static E_RoleWorldexp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_roleworldexp : public ::google::protobuf::Message {
+class Sheet_RoleWorldexp : public ::google::protobuf::Message {
  public:
-  Sheet_roleworldexp();
-  virtual ~Sheet_roleworldexp();
+  Sheet_RoleWorldexp();
+  virtual ~Sheet_RoleWorldexp();
 
-  Sheet_roleworldexp(const Sheet_roleworldexp& from);
+  Sheet_RoleWorldexp(const Sheet_RoleWorldexp& from);
 
-  inline Sheet_roleworldexp& operator=(const Sheet_roleworldexp& from) {
+  inline Sheet_RoleWorldexp& operator=(const Sheet_RoleWorldexp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -3796,17 +3796,17 @@ class Sheet_roleworldexp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_roleworldexp& default_instance();
+  static const Sheet_RoleWorldexp& default_instance();
 
-  void Swap(Sheet_roleworldexp* other);
+  void Swap(Sheet_RoleWorldexp* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_roleworldexp* New() const;
+  Sheet_RoleWorldexp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_roleworldexp& from);
-  void MergeFrom(const Sheet_roleworldexp& from);
+  void CopyFrom(const Sheet_RoleWorldexp& from);
+  void MergeFrom(const Sheet_RoleWorldexp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -3829,24 +3829,24 @@ class Sheet_roleworldexp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.roleworldexp roleworldexp_List = 1;
-  inline int roleworldexp_list_size() const;
-  inline void clear_roleworldexp_list();
-  static const int kRoleworldexpListFieldNumber = 1;
-  inline const ::proto_ff::roleworldexp& roleworldexp_list(int index) const;
-  inline ::proto_ff::roleworldexp* mutable_roleworldexp_list(int index);
-  inline ::proto_ff::roleworldexp* add_roleworldexp_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleworldexp >&
-      roleworldexp_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleworldexp >*
-      mutable_roleworldexp_list();
+  // repeated .proto_ff.E_RoleWorldexp E_RoleWorldexp_List = 1;
+  inline int e_roleworldexp_list_size() const;
+  inline void clear_e_roleworldexp_list();
+  static const int kERoleWorldexpListFieldNumber = 1;
+  inline const ::proto_ff::E_RoleWorldexp& e_roleworldexp_list(int index) const;
+  inline ::proto_ff::E_RoleWorldexp* mutable_e_roleworldexp_list(int index);
+  inline ::proto_ff::E_RoleWorldexp* add_e_roleworldexp_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleWorldexp >&
+      e_roleworldexp_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleWorldexp >*
+      mutable_e_roleworldexp_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_roleworldexp)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_RoleWorldexp)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::roleworldexp > roleworldexp_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleWorldexp > e_roleworldexp_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -3856,2988 +3856,2988 @@ class Sheet_roleworldexp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_role_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_roleworldexp* default_instance_;
+  static Sheet_RoleWorldexp* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// rolebornitemDesc
+// E_RoleBornItemDesc
 
-// optional int32 num = 1;
-inline bool rolebornitemDesc::has_num() const {
+// optional int32 m_num = 1;
+inline bool E_RoleBornItemDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolebornitemDesc::set_has_num() {
+inline void E_RoleBornItemDesc::set_has_m_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolebornitemDesc::clear_has_num() {
+inline void E_RoleBornItemDesc::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolebornitemDesc::clear_num() {
-  num_ = 0;
-  clear_has_num();
+inline void E_RoleBornItemDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
 }
-inline ::google::protobuf::int32 rolebornitemDesc::num() const {
-  return num_;
+inline ::google::protobuf::int32 E_RoleBornItemDesc::m_num() const {
+  return m_num_;
 }
-inline void rolebornitemDesc::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
+inline void E_RoleBornItemDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
 }
 
-// optional int64 name = 2;
-inline bool rolebornitemDesc::has_name() const {
+// optional int64 m_name = 2;
+inline bool E_RoleBornItemDesc::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolebornitemDesc::set_has_name() {
+inline void E_RoleBornItemDesc::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolebornitemDesc::clear_has_name() {
+inline void E_RoleBornItemDesc::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolebornitemDesc::clear_name() {
-  name_ = GOOGLE_LONGLONG(0);
-  clear_has_name();
+inline void E_RoleBornItemDesc::clear_m_name() {
+  m_name_ = GOOGLE_LONGLONG(0);
+  clear_has_m_name();
 }
-inline ::google::protobuf::int64 rolebornitemDesc::name() const {
-  return name_;
+inline ::google::protobuf::int64 E_RoleBornItemDesc::m_name() const {
+  return m_name_;
 }
-inline void rolebornitemDesc::set_name(::google::protobuf::int64 value) {
-  set_has_name();
-  name_ = value;
+inline void E_RoleBornItemDesc::set_m_name(::google::protobuf::int64 value) {
+  set_has_m_name();
+  m_name_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// rolebornmailDesc
+// E_RoleBornMailDesc
 
-// optional int32 num = 1;
-inline bool rolebornmailDesc::has_num() const {
+// optional int32 m_num = 1;
+inline bool E_RoleBornMailDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolebornmailDesc::set_has_num() {
+inline void E_RoleBornMailDesc::set_has_m_num() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolebornmailDesc::clear_has_num() {
+inline void E_RoleBornMailDesc::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolebornmailDesc::clear_num() {
-  num_ = 0;
-  clear_has_num();
+inline void E_RoleBornMailDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
 }
-inline ::google::protobuf::int32 rolebornmailDesc::num() const {
-  return num_;
+inline ::google::protobuf::int32 E_RoleBornMailDesc::m_num() const {
+  return m_num_;
 }
-inline void rolebornmailDesc::set_num(::google::protobuf::int32 value) {
-  set_has_num();
-  num_ = value;
+inline void E_RoleBornMailDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
 }
 
-// optional int64 name = 2;
-inline bool rolebornmailDesc::has_name() const {
+// optional int64 m_name = 2;
+inline bool E_RoleBornMailDesc::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolebornmailDesc::set_has_name() {
+inline void E_RoleBornMailDesc::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolebornmailDesc::clear_has_name() {
+inline void E_RoleBornMailDesc::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolebornmailDesc::clear_name() {
-  name_ = GOOGLE_LONGLONG(0);
-  clear_has_name();
+inline void E_RoleBornMailDesc::clear_m_name() {
+  m_name_ = GOOGLE_LONGLONG(0);
+  clear_has_m_name();
 }
-inline ::google::protobuf::int64 rolebornmailDesc::name() const {
-  return name_;
+inline ::google::protobuf::int64 E_RoleBornMailDesc::m_name() const {
+  return m_name_;
 }
-inline void rolebornmailDesc::set_name(::google::protobuf::int64 value) {
-  set_has_name();
-  name_ = value;
+inline void E_RoleBornMailDesc::set_m_name(::google::protobuf::int64 value) {
+  set_has_m_name();
+  m_name_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roleborn
+// E_RoleBorn
 
-// optional int64 bornID = 1;
-inline bool roleborn::has_bornid() const {
+// optional int64 m_bornid = 1;
+inline bool E_RoleBorn::has_m_bornid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleborn::set_has_bornid() {
+inline void E_RoleBorn::set_has_m_bornid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleborn::clear_has_bornid() {
+inline void E_RoleBorn::clear_has_m_bornid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleborn::clear_bornid() {
-  bornid_ = GOOGLE_LONGLONG(0);
-  clear_has_bornid();
+inline void E_RoleBorn::clear_m_bornid() {
+  m_bornid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_bornid();
 }
-inline ::google::protobuf::int64 roleborn::bornid() const {
-  return bornid_;
+inline ::google::protobuf::int64 E_RoleBorn::m_bornid() const {
+  return m_bornid_;
 }
-inline void roleborn::set_bornid(::google::protobuf::int64 value) {
-  set_has_bornid();
-  bornid_ = value;
+inline void E_RoleBorn::set_m_bornid(::google::protobuf::int64 value) {
+  set_has_m_bornid();
+  m_bornid_ = value;
 }
 
-// optional int32 professionID = 2;
-inline bool roleborn::has_professionid() const {
+// optional int32 m_professionid = 2;
+inline bool E_RoleBorn::has_m_professionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleborn::set_has_professionid() {
+inline void E_RoleBorn::set_has_m_professionid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleborn::clear_has_professionid() {
+inline void E_RoleBorn::clear_has_m_professionid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleborn::clear_professionid() {
-  professionid_ = 0;
-  clear_has_professionid();
+inline void E_RoleBorn::clear_m_professionid() {
+  m_professionid_ = 0;
+  clear_has_m_professionid();
 }
-inline ::google::protobuf::int32 roleborn::professionid() const {
-  return professionid_;
+inline ::google::protobuf::int32 E_RoleBorn::m_professionid() const {
+  return m_professionid_;
 }
-inline void roleborn::set_professionid(::google::protobuf::int32 value) {
-  set_has_professionid();
-  professionid_ = value;
+inline void E_RoleBorn::set_m_professionid(::google::protobuf::int32 value) {
+  set_has_m_professionid();
+  m_professionid_ = value;
 }
 
-// optional string professionName = 3;
-inline bool roleborn::has_professionname() const {
+// optional string m_professionname = 3;
+inline bool E_RoleBorn::has_m_professionname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void roleborn::set_has_professionname() {
+inline void E_RoleBorn::set_has_m_professionname() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void roleborn::clear_has_professionname() {
+inline void E_RoleBorn::clear_has_m_professionname() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void roleborn::clear_professionname() {
-  if (professionname_ != &::google::protobuf::internal::kEmptyString) {
-    professionname_->clear();
+inline void E_RoleBorn::clear_m_professionname() {
+  if (m_professionname_ != &::google::protobuf::internal::kEmptyString) {
+    m_professionname_->clear();
   }
-  clear_has_professionname();
+  clear_has_m_professionname();
 }
-inline const ::std::string& roleborn::professionname() const {
-  return *professionname_;
+inline const ::std::string& E_RoleBorn::m_professionname() const {
+  return *m_professionname_;
 }
-inline void roleborn::set_professionname(const ::std::string& value) {
-  set_has_professionname();
-  if (professionname_ == &::google::protobuf::internal::kEmptyString) {
-    professionname_ = new ::std::string;
+inline void E_RoleBorn::set_m_professionname(const ::std::string& value) {
+  set_has_m_professionname();
+  if (m_professionname_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionname_ = new ::std::string;
   }
-  professionname_->assign(value);
+  m_professionname_->assign(value);
 }
-inline void roleborn::set_professionname(const char* value) {
-  set_has_professionname();
-  if (professionname_ == &::google::protobuf::internal::kEmptyString) {
-    professionname_ = new ::std::string;
+inline void E_RoleBorn::set_m_professionname(const char* value) {
+  set_has_m_professionname();
+  if (m_professionname_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionname_ = new ::std::string;
   }
-  professionname_->assign(value);
+  m_professionname_->assign(value);
 }
-inline void roleborn::set_professionname(const char* value, size_t size) {
-  set_has_professionname();
-  if (professionname_ == &::google::protobuf::internal::kEmptyString) {
-    professionname_ = new ::std::string;
+inline void E_RoleBorn::set_m_professionname(const char* value, size_t size) {
+  set_has_m_professionname();
+  if (m_professionname_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionname_ = new ::std::string;
   }
-  professionname_->assign(reinterpret_cast<const char*>(value), size);
+  m_professionname_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_professionname() {
-  set_has_professionname();
-  if (professionname_ == &::google::protobuf::internal::kEmptyString) {
-    professionname_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_professionname() {
+  set_has_m_professionname();
+  if (m_professionname_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionname_ = new ::std::string;
   }
-  return professionname_;
+  return m_professionname_;
 }
-inline ::std::string* roleborn::release_professionname() {
-  clear_has_professionname();
-  if (professionname_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_professionname() {
+  clear_has_m_professionname();
+  if (m_professionname_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = professionname_;
-    professionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_professionname_;
+    m_professionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_professionname(::std::string* professionname) {
-  if (professionname_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionname_;
+inline void E_RoleBorn::set_allocated_m_professionname(::std::string* m_professionname) {
+  if (m_professionname_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionname_;
   }
-  if (professionname) {
-    set_has_professionname();
-    professionname_ = professionname;
+  if (m_professionname) {
+    set_has_m_professionname();
+    m_professionname_ = m_professionname;
   } else {
-    clear_has_professionname();
-    professionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_professionname();
+    m_professionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string placement = 4;
-inline bool roleborn::has_placement() const {
+// optional string m_placement = 4;
+inline bool E_RoleBorn::has_m_placement() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void roleborn::set_has_placement() {
+inline void E_RoleBorn::set_has_m_placement() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void roleborn::clear_has_placement() {
+inline void E_RoleBorn::clear_has_m_placement() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void roleborn::clear_placement() {
-  if (placement_ != &::google::protobuf::internal::kEmptyString) {
-    placement_->clear();
+inline void E_RoleBorn::clear_m_placement() {
+  if (m_placement_ != &::google::protobuf::internal::kEmptyString) {
+    m_placement_->clear();
   }
-  clear_has_placement();
+  clear_has_m_placement();
 }
-inline const ::std::string& roleborn::placement() const {
-  return *placement_;
+inline const ::std::string& E_RoleBorn::m_placement() const {
+  return *m_placement_;
 }
-inline void roleborn::set_placement(const ::std::string& value) {
-  set_has_placement();
-  if (placement_ == &::google::protobuf::internal::kEmptyString) {
-    placement_ = new ::std::string;
+inline void E_RoleBorn::set_m_placement(const ::std::string& value) {
+  set_has_m_placement();
+  if (m_placement_ == &::google::protobuf::internal::kEmptyString) {
+    m_placement_ = new ::std::string;
   }
-  placement_->assign(value);
+  m_placement_->assign(value);
 }
-inline void roleborn::set_placement(const char* value) {
-  set_has_placement();
-  if (placement_ == &::google::protobuf::internal::kEmptyString) {
-    placement_ = new ::std::string;
+inline void E_RoleBorn::set_m_placement(const char* value) {
+  set_has_m_placement();
+  if (m_placement_ == &::google::protobuf::internal::kEmptyString) {
+    m_placement_ = new ::std::string;
   }
-  placement_->assign(value);
+  m_placement_->assign(value);
 }
-inline void roleborn::set_placement(const char* value, size_t size) {
-  set_has_placement();
-  if (placement_ == &::google::protobuf::internal::kEmptyString) {
-    placement_ = new ::std::string;
+inline void E_RoleBorn::set_m_placement(const char* value, size_t size) {
+  set_has_m_placement();
+  if (m_placement_ == &::google::protobuf::internal::kEmptyString) {
+    m_placement_ = new ::std::string;
   }
-  placement_->assign(reinterpret_cast<const char*>(value), size);
+  m_placement_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_placement() {
-  set_has_placement();
-  if (placement_ == &::google::protobuf::internal::kEmptyString) {
-    placement_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_placement() {
+  set_has_m_placement();
+  if (m_placement_ == &::google::protobuf::internal::kEmptyString) {
+    m_placement_ = new ::std::string;
   }
-  return placement_;
+  return m_placement_;
 }
-inline ::std::string* roleborn::release_placement() {
-  clear_has_placement();
-  if (placement_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_placement() {
+  clear_has_m_placement();
+  if (m_placement_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = placement_;
-    placement_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_placement_;
+    m_placement_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_placement(::std::string* placement) {
-  if (placement_ != &::google::protobuf::internal::kEmptyString) {
-    delete placement_;
+inline void E_RoleBorn::set_allocated_m_placement(::std::string* m_placement) {
+  if (m_placement_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_placement_;
   }
-  if (placement) {
-    set_has_placement();
-    placement_ = placement;
+  if (m_placement) {
+    set_has_m_placement();
+    m_placement_ = m_placement;
   } else {
-    clear_has_placement();
-    placement_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_placement();
+    m_placement_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 gender = 5;
-inline bool roleborn::has_gender() const {
+// optional int32 m_gender = 5;
+inline bool E_RoleBorn::has_m_gender() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void roleborn::set_has_gender() {
+inline void E_RoleBorn::set_has_m_gender() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void roleborn::clear_has_gender() {
+inline void E_RoleBorn::clear_has_m_gender() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void roleborn::clear_gender() {
-  gender_ = 0;
-  clear_has_gender();
+inline void E_RoleBorn::clear_m_gender() {
+  m_gender_ = 0;
+  clear_has_m_gender();
 }
-inline ::google::protobuf::int32 roleborn::gender() const {
-  return gender_;
+inline ::google::protobuf::int32 E_RoleBorn::m_gender() const {
+  return m_gender_;
 }
-inline void roleborn::set_gender(::google::protobuf::int32 value) {
-  set_has_gender();
-  gender_ = value;
+inline void E_RoleBorn::set_m_gender(::google::protobuf::int32 value) {
+  set_has_m_gender();
+  m_gender_ = value;
 }
 
-// optional int32 bornLevel = 6;
-inline bool roleborn::has_bornlevel() const {
+// optional int32 m_bornlevel = 6;
+inline bool E_RoleBorn::has_m_bornlevel() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void roleborn::set_has_bornlevel() {
+inline void E_RoleBorn::set_has_m_bornlevel() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void roleborn::clear_has_bornlevel() {
+inline void E_RoleBorn::clear_has_m_bornlevel() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void roleborn::clear_bornlevel() {
-  bornlevel_ = 0;
-  clear_has_bornlevel();
+inline void E_RoleBorn::clear_m_bornlevel() {
+  m_bornlevel_ = 0;
+  clear_has_m_bornlevel();
 }
-inline ::google::protobuf::int32 roleborn::bornlevel() const {
-  return bornlevel_;
+inline ::google::protobuf::int32 E_RoleBorn::m_bornlevel() const {
+  return m_bornlevel_;
 }
-inline void roleborn::set_bornlevel(::google::protobuf::int32 value) {
-  set_has_bornlevel();
-  bornlevel_ = value;
+inline void E_RoleBorn::set_m_bornlevel(::google::protobuf::int32 value) {
+  set_has_m_bornlevel();
+  m_bornlevel_ = value;
 }
 
-// optional int32 bornTitle = 7;
-inline bool roleborn::has_borntitle() const {
+// optional int32 m_borntitle = 7;
+inline bool E_RoleBorn::has_m_borntitle() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void roleborn::set_has_borntitle() {
+inline void E_RoleBorn::set_has_m_borntitle() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void roleborn::clear_has_borntitle() {
+inline void E_RoleBorn::clear_has_m_borntitle() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void roleborn::clear_borntitle() {
-  borntitle_ = 0;
-  clear_has_borntitle();
+inline void E_RoleBorn::clear_m_borntitle() {
+  m_borntitle_ = 0;
+  clear_has_m_borntitle();
 }
-inline ::google::protobuf::int32 roleborn::borntitle() const {
-  return borntitle_;
+inline ::google::protobuf::int32 E_RoleBorn::m_borntitle() const {
+  return m_borntitle_;
 }
-inline void roleborn::set_borntitle(::google::protobuf::int32 value) {
-  set_has_borntitle();
-  borntitle_ = value;
+inline void E_RoleBorn::set_m_borntitle(::google::protobuf::int32 value) {
+  set_has_m_borntitle();
+  m_borntitle_ = value;
 }
 
-// optional int64 diamond = 8;
-inline bool roleborn::has_diamond() const {
+// optional int64 m_diamond = 8;
+inline bool E_RoleBorn::has_m_diamond() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void roleborn::set_has_diamond() {
+inline void E_RoleBorn::set_has_m_diamond() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void roleborn::clear_has_diamond() {
+inline void E_RoleBorn::clear_has_m_diamond() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void roleborn::clear_diamond() {
-  diamond_ = GOOGLE_LONGLONG(0);
-  clear_has_diamond();
+inline void E_RoleBorn::clear_m_diamond() {
+  m_diamond_ = GOOGLE_LONGLONG(0);
+  clear_has_m_diamond();
 }
-inline ::google::protobuf::int64 roleborn::diamond() const {
-  return diamond_;
+inline ::google::protobuf::int64 E_RoleBorn::m_diamond() const {
+  return m_diamond_;
 }
-inline void roleborn::set_diamond(::google::protobuf::int64 value) {
-  set_has_diamond();
-  diamond_ = value;
+inline void E_RoleBorn::set_m_diamond(::google::protobuf::int64 value) {
+  set_has_m_diamond();
+  m_diamond_ = value;
 }
 
-// optional int64 bindDiamond = 9;
-inline bool roleborn::has_binddiamond() const {
+// optional int64 m_binddiamond = 9;
+inline bool E_RoleBorn::has_m_binddiamond() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void roleborn::set_has_binddiamond() {
+inline void E_RoleBorn::set_has_m_binddiamond() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void roleborn::clear_has_binddiamond() {
+inline void E_RoleBorn::clear_has_m_binddiamond() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void roleborn::clear_binddiamond() {
-  binddiamond_ = GOOGLE_LONGLONG(0);
-  clear_has_binddiamond();
+inline void E_RoleBorn::clear_m_binddiamond() {
+  m_binddiamond_ = GOOGLE_LONGLONG(0);
+  clear_has_m_binddiamond();
 }
-inline ::google::protobuf::int64 roleborn::binddiamond() const {
-  return binddiamond_;
+inline ::google::protobuf::int64 E_RoleBorn::m_binddiamond() const {
+  return m_binddiamond_;
 }
-inline void roleborn::set_binddiamond(::google::protobuf::int64 value) {
-  set_has_binddiamond();
-  binddiamond_ = value;
+inline void E_RoleBorn::set_m_binddiamond(::google::protobuf::int64 value) {
+  set_has_m_binddiamond();
+  m_binddiamond_ = value;
 }
 
-// optional int64 gold = 10;
-inline bool roleborn::has_gold() const {
+// optional int64 m_gold = 10;
+inline bool E_RoleBorn::has_m_gold() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void roleborn::set_has_gold() {
+inline void E_RoleBorn::set_has_m_gold() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void roleborn::clear_has_gold() {
+inline void E_RoleBorn::clear_has_m_gold() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void roleborn::clear_gold() {
-  gold_ = GOOGLE_LONGLONG(0);
-  clear_has_gold();
+inline void E_RoleBorn::clear_m_gold() {
+  m_gold_ = GOOGLE_LONGLONG(0);
+  clear_has_m_gold();
 }
-inline ::google::protobuf::int64 roleborn::gold() const {
-  return gold_;
+inline ::google::protobuf::int64 E_RoleBorn::m_gold() const {
+  return m_gold_;
 }
-inline void roleborn::set_gold(::google::protobuf::int64 value) {
-  set_has_gold();
-  gold_ = value;
+inline void E_RoleBorn::set_m_gold(::google::protobuf::int64 value) {
+  set_has_m_gold();
+  m_gold_ = value;
 }
 
-// optional int64 mapID = 11;
-inline bool roleborn::has_mapid() const {
+// optional int64 m_mapid = 11;
+inline bool E_RoleBorn::has_m_mapid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void roleborn::set_has_mapid() {
+inline void E_RoleBorn::set_has_m_mapid() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void roleborn::clear_has_mapid() {
+inline void E_RoleBorn::clear_has_m_mapid() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void roleborn::clear_mapid() {
-  mapid_ = GOOGLE_LONGLONG(0);
-  clear_has_mapid();
+inline void E_RoleBorn::clear_m_mapid() {
+  m_mapid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_mapid();
 }
-inline ::google::protobuf::int64 roleborn::mapid() const {
-  return mapid_;
+inline ::google::protobuf::int64 E_RoleBorn::m_mapid() const {
+  return m_mapid_;
 }
-inline void roleborn::set_mapid(::google::protobuf::int64 value) {
-  set_has_mapid();
-  mapid_ = value;
+inline void E_RoleBorn::set_m_mapid(::google::protobuf::int64 value) {
+  set_has_m_mapid();
+  m_mapid_ = value;
 }
 
-// optional int32 birthFace = 12;
-inline bool roleborn::has_birthface() const {
+// optional int32 m_birthface = 12;
+inline bool E_RoleBorn::has_m_birthface() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void roleborn::set_has_birthface() {
+inline void E_RoleBorn::set_has_m_birthface() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void roleborn::clear_has_birthface() {
+inline void E_RoleBorn::clear_has_m_birthface() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void roleborn::clear_birthface() {
-  birthface_ = 0;
-  clear_has_birthface();
+inline void E_RoleBorn::clear_m_birthface() {
+  m_birthface_ = 0;
+  clear_has_m_birthface();
 }
-inline ::google::protobuf::int32 roleborn::birthface() const {
-  return birthface_;
+inline ::google::protobuf::int32 E_RoleBorn::m_birthface() const {
+  return m_birthface_;
 }
-inline void roleborn::set_birthface(::google::protobuf::int32 value) {
-  set_has_birthface();
-  birthface_ = value;
+inline void E_RoleBorn::set_m_birthface(::google::protobuf::int32 value) {
+  set_has_m_birthface();
+  m_birthface_ = value;
 }
 
-// optional string icons = 13;
-inline bool roleborn::has_icons() const {
+// optional string m_icons = 13;
+inline bool E_RoleBorn::has_m_icons() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void roleborn::set_has_icons() {
+inline void E_RoleBorn::set_has_m_icons() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void roleborn::clear_has_icons() {
+inline void E_RoleBorn::clear_has_m_icons() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void roleborn::clear_icons() {
-  if (icons_ != &::google::protobuf::internal::kEmptyString) {
-    icons_->clear();
+inline void E_RoleBorn::clear_m_icons() {
+  if (m_icons_ != &::google::protobuf::internal::kEmptyString) {
+    m_icons_->clear();
   }
-  clear_has_icons();
+  clear_has_m_icons();
 }
-inline const ::std::string& roleborn::icons() const {
-  return *icons_;
+inline const ::std::string& E_RoleBorn::m_icons() const {
+  return *m_icons_;
 }
-inline void roleborn::set_icons(const ::std::string& value) {
-  set_has_icons();
-  if (icons_ == &::google::protobuf::internal::kEmptyString) {
-    icons_ = new ::std::string;
+inline void E_RoleBorn::set_m_icons(const ::std::string& value) {
+  set_has_m_icons();
+  if (m_icons_ == &::google::protobuf::internal::kEmptyString) {
+    m_icons_ = new ::std::string;
   }
-  icons_->assign(value);
+  m_icons_->assign(value);
 }
-inline void roleborn::set_icons(const char* value) {
-  set_has_icons();
-  if (icons_ == &::google::protobuf::internal::kEmptyString) {
-    icons_ = new ::std::string;
+inline void E_RoleBorn::set_m_icons(const char* value) {
+  set_has_m_icons();
+  if (m_icons_ == &::google::protobuf::internal::kEmptyString) {
+    m_icons_ = new ::std::string;
   }
-  icons_->assign(value);
+  m_icons_->assign(value);
 }
-inline void roleborn::set_icons(const char* value, size_t size) {
-  set_has_icons();
-  if (icons_ == &::google::protobuf::internal::kEmptyString) {
-    icons_ = new ::std::string;
+inline void E_RoleBorn::set_m_icons(const char* value, size_t size) {
+  set_has_m_icons();
+  if (m_icons_ == &::google::protobuf::internal::kEmptyString) {
+    m_icons_ = new ::std::string;
   }
-  icons_->assign(reinterpret_cast<const char*>(value), size);
+  m_icons_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_icons() {
-  set_has_icons();
-  if (icons_ == &::google::protobuf::internal::kEmptyString) {
-    icons_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_icons() {
+  set_has_m_icons();
+  if (m_icons_ == &::google::protobuf::internal::kEmptyString) {
+    m_icons_ = new ::std::string;
   }
-  return icons_;
+  return m_icons_;
 }
-inline ::std::string* roleborn::release_icons() {
-  clear_has_icons();
-  if (icons_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_icons() {
+  clear_has_m_icons();
+  if (m_icons_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = icons_;
-    icons_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_icons_;
+    m_icons_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_icons(::std::string* icons) {
-  if (icons_ != &::google::protobuf::internal::kEmptyString) {
-    delete icons_;
+inline void E_RoleBorn::set_allocated_m_icons(::std::string* m_icons) {
+  if (m_icons_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_icons_;
   }
-  if (icons) {
-    set_has_icons();
-    icons_ = icons;
+  if (m_icons) {
+    set_has_m_icons();
+    m_icons_ = m_icons;
   } else {
-    clear_has_icons();
-    icons_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_icons();
+    m_icons_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string loginAvata = 14;
-inline bool roleborn::has_loginavata() const {
+// optional string m_loginavata = 14;
+inline bool E_RoleBorn::has_m_loginavata() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void roleborn::set_has_loginavata() {
+inline void E_RoleBorn::set_has_m_loginavata() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void roleborn::clear_has_loginavata() {
+inline void E_RoleBorn::clear_has_m_loginavata() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void roleborn::clear_loginavata() {
-  if (loginavata_ != &::google::protobuf::internal::kEmptyString) {
-    loginavata_->clear();
+inline void E_RoleBorn::clear_m_loginavata() {
+  if (m_loginavata_ != &::google::protobuf::internal::kEmptyString) {
+    m_loginavata_->clear();
   }
-  clear_has_loginavata();
+  clear_has_m_loginavata();
 }
-inline const ::std::string& roleborn::loginavata() const {
-  return *loginavata_;
+inline const ::std::string& E_RoleBorn::m_loginavata() const {
+  return *m_loginavata_;
 }
-inline void roleborn::set_loginavata(const ::std::string& value) {
-  set_has_loginavata();
-  if (loginavata_ == &::google::protobuf::internal::kEmptyString) {
-    loginavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_loginavata(const ::std::string& value) {
+  set_has_m_loginavata();
+  if (m_loginavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_loginavata_ = new ::std::string;
   }
-  loginavata_->assign(value);
+  m_loginavata_->assign(value);
 }
-inline void roleborn::set_loginavata(const char* value) {
-  set_has_loginavata();
-  if (loginavata_ == &::google::protobuf::internal::kEmptyString) {
-    loginavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_loginavata(const char* value) {
+  set_has_m_loginavata();
+  if (m_loginavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_loginavata_ = new ::std::string;
   }
-  loginavata_->assign(value);
+  m_loginavata_->assign(value);
 }
-inline void roleborn::set_loginavata(const char* value, size_t size) {
-  set_has_loginavata();
-  if (loginavata_ == &::google::protobuf::internal::kEmptyString) {
-    loginavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_loginavata(const char* value, size_t size) {
+  set_has_m_loginavata();
+  if (m_loginavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_loginavata_ = new ::std::string;
   }
-  loginavata_->assign(reinterpret_cast<const char*>(value), size);
+  m_loginavata_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_loginavata() {
-  set_has_loginavata();
-  if (loginavata_ == &::google::protobuf::internal::kEmptyString) {
-    loginavata_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_loginavata() {
+  set_has_m_loginavata();
+  if (m_loginavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_loginavata_ = new ::std::string;
   }
-  return loginavata_;
+  return m_loginavata_;
 }
-inline ::std::string* roleborn::release_loginavata() {
-  clear_has_loginavata();
-  if (loginavata_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_loginavata() {
+  clear_has_m_loginavata();
+  if (m_loginavata_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = loginavata_;
-    loginavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_loginavata_;
+    m_loginavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_loginavata(::std::string* loginavata) {
-  if (loginavata_ != &::google::protobuf::internal::kEmptyString) {
-    delete loginavata_;
+inline void E_RoleBorn::set_allocated_m_loginavata(::std::string* m_loginavata) {
+  if (m_loginavata_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_loginavata_;
   }
-  if (loginavata) {
-    set_has_loginavata();
-    loginavata_ = loginavata;
+  if (m_loginavata) {
+    set_has_m_loginavata();
+    m_loginavata_ = m_loginavata;
   } else {
-    clear_has_loginavata();
-    loginavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_loginavata();
+    m_loginavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string newweapon = 15;
-inline bool roleborn::has_newweapon() const {
+// optional string m_newweapon = 15;
+inline bool E_RoleBorn::has_m_newweapon() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void roleborn::set_has_newweapon() {
+inline void E_RoleBorn::set_has_m_newweapon() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void roleborn::clear_has_newweapon() {
+inline void E_RoleBorn::clear_has_m_newweapon() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void roleborn::clear_newweapon() {
-  if (newweapon_ != &::google::protobuf::internal::kEmptyString) {
-    newweapon_->clear();
+inline void E_RoleBorn::clear_m_newweapon() {
+  if (m_newweapon_ != &::google::protobuf::internal::kEmptyString) {
+    m_newweapon_->clear();
   }
-  clear_has_newweapon();
+  clear_has_m_newweapon();
 }
-inline const ::std::string& roleborn::newweapon() const {
-  return *newweapon_;
+inline const ::std::string& E_RoleBorn::m_newweapon() const {
+  return *m_newweapon_;
 }
-inline void roleborn::set_newweapon(const ::std::string& value) {
-  set_has_newweapon();
-  if (newweapon_ == &::google::protobuf::internal::kEmptyString) {
-    newweapon_ = new ::std::string;
+inline void E_RoleBorn::set_m_newweapon(const ::std::string& value) {
+  set_has_m_newweapon();
+  if (m_newweapon_ == &::google::protobuf::internal::kEmptyString) {
+    m_newweapon_ = new ::std::string;
   }
-  newweapon_->assign(value);
+  m_newweapon_->assign(value);
 }
-inline void roleborn::set_newweapon(const char* value) {
-  set_has_newweapon();
-  if (newweapon_ == &::google::protobuf::internal::kEmptyString) {
-    newweapon_ = new ::std::string;
+inline void E_RoleBorn::set_m_newweapon(const char* value) {
+  set_has_m_newweapon();
+  if (m_newweapon_ == &::google::protobuf::internal::kEmptyString) {
+    m_newweapon_ = new ::std::string;
   }
-  newweapon_->assign(value);
+  m_newweapon_->assign(value);
 }
-inline void roleborn::set_newweapon(const char* value, size_t size) {
-  set_has_newweapon();
-  if (newweapon_ == &::google::protobuf::internal::kEmptyString) {
-    newweapon_ = new ::std::string;
+inline void E_RoleBorn::set_m_newweapon(const char* value, size_t size) {
+  set_has_m_newweapon();
+  if (m_newweapon_ == &::google::protobuf::internal::kEmptyString) {
+    m_newweapon_ = new ::std::string;
   }
-  newweapon_->assign(reinterpret_cast<const char*>(value), size);
+  m_newweapon_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_newweapon() {
-  set_has_newweapon();
-  if (newweapon_ == &::google::protobuf::internal::kEmptyString) {
-    newweapon_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_newweapon() {
+  set_has_m_newweapon();
+  if (m_newweapon_ == &::google::protobuf::internal::kEmptyString) {
+    m_newweapon_ = new ::std::string;
   }
-  return newweapon_;
+  return m_newweapon_;
 }
-inline ::std::string* roleborn::release_newweapon() {
-  clear_has_newweapon();
-  if (newweapon_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_newweapon() {
+  clear_has_m_newweapon();
+  if (m_newweapon_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = newweapon_;
-    newweapon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_newweapon_;
+    m_newweapon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_newweapon(::std::string* newweapon) {
-  if (newweapon_ != &::google::protobuf::internal::kEmptyString) {
-    delete newweapon_;
+inline void E_RoleBorn::set_allocated_m_newweapon(::std::string* m_newweapon) {
+  if (m_newweapon_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_newweapon_;
   }
-  if (newweapon) {
-    set_has_newweapon();
-    newweapon_ = newweapon;
+  if (m_newweapon) {
+    set_has_m_newweapon();
+    m_newweapon_ = m_newweapon;
   } else {
-    clear_has_newweapon();
-    newweapon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_newweapon();
+    m_newweapon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string newclothing = 16;
-inline bool roleborn::has_newclothing() const {
+// optional string m_newclothing = 16;
+inline bool E_RoleBorn::has_m_newclothing() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
-inline void roleborn::set_has_newclothing() {
+inline void E_RoleBorn::set_has_m_newclothing() {
   _has_bits_[0] |= 0x00008000u;
 }
-inline void roleborn::clear_has_newclothing() {
+inline void E_RoleBorn::clear_has_m_newclothing() {
   _has_bits_[0] &= ~0x00008000u;
 }
-inline void roleborn::clear_newclothing() {
-  if (newclothing_ != &::google::protobuf::internal::kEmptyString) {
-    newclothing_->clear();
+inline void E_RoleBorn::clear_m_newclothing() {
+  if (m_newclothing_ != &::google::protobuf::internal::kEmptyString) {
+    m_newclothing_->clear();
   }
-  clear_has_newclothing();
+  clear_has_m_newclothing();
 }
-inline const ::std::string& roleborn::newclothing() const {
-  return *newclothing_;
+inline const ::std::string& E_RoleBorn::m_newclothing() const {
+  return *m_newclothing_;
 }
-inline void roleborn::set_newclothing(const ::std::string& value) {
-  set_has_newclothing();
-  if (newclothing_ == &::google::protobuf::internal::kEmptyString) {
-    newclothing_ = new ::std::string;
+inline void E_RoleBorn::set_m_newclothing(const ::std::string& value) {
+  set_has_m_newclothing();
+  if (m_newclothing_ == &::google::protobuf::internal::kEmptyString) {
+    m_newclothing_ = new ::std::string;
   }
-  newclothing_->assign(value);
+  m_newclothing_->assign(value);
 }
-inline void roleborn::set_newclothing(const char* value) {
-  set_has_newclothing();
-  if (newclothing_ == &::google::protobuf::internal::kEmptyString) {
-    newclothing_ = new ::std::string;
+inline void E_RoleBorn::set_m_newclothing(const char* value) {
+  set_has_m_newclothing();
+  if (m_newclothing_ == &::google::protobuf::internal::kEmptyString) {
+    m_newclothing_ = new ::std::string;
   }
-  newclothing_->assign(value);
+  m_newclothing_->assign(value);
 }
-inline void roleborn::set_newclothing(const char* value, size_t size) {
-  set_has_newclothing();
-  if (newclothing_ == &::google::protobuf::internal::kEmptyString) {
-    newclothing_ = new ::std::string;
+inline void E_RoleBorn::set_m_newclothing(const char* value, size_t size) {
+  set_has_m_newclothing();
+  if (m_newclothing_ == &::google::protobuf::internal::kEmptyString) {
+    m_newclothing_ = new ::std::string;
   }
-  newclothing_->assign(reinterpret_cast<const char*>(value), size);
+  m_newclothing_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_newclothing() {
-  set_has_newclothing();
-  if (newclothing_ == &::google::protobuf::internal::kEmptyString) {
-    newclothing_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_newclothing() {
+  set_has_m_newclothing();
+  if (m_newclothing_ == &::google::protobuf::internal::kEmptyString) {
+    m_newclothing_ = new ::std::string;
   }
-  return newclothing_;
+  return m_newclothing_;
 }
-inline ::std::string* roleborn::release_newclothing() {
-  clear_has_newclothing();
-  if (newclothing_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_newclothing() {
+  clear_has_m_newclothing();
+  if (m_newclothing_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = newclothing_;
-    newclothing_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_newclothing_;
+    m_newclothing_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_newclothing(::std::string* newclothing) {
-  if (newclothing_ != &::google::protobuf::internal::kEmptyString) {
-    delete newclothing_;
+inline void E_RoleBorn::set_allocated_m_newclothing(::std::string* m_newclothing) {
+  if (m_newclothing_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_newclothing_;
   }
-  if (newclothing) {
-    set_has_newclothing();
-    newclothing_ = newclothing;
+  if (m_newclothing) {
+    set_has_m_newclothing();
+    m_newclothing_ = m_newclothing;
   } else {
-    clear_has_newclothing();
-    newclothing_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_newclothing();
+    m_newclothing_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string weaponAvata = 17;
-inline bool roleborn::has_weaponavata() const {
+// optional string m_weaponavata = 17;
+inline bool E_RoleBorn::has_m_weaponavata() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
-inline void roleborn::set_has_weaponavata() {
+inline void E_RoleBorn::set_has_m_weaponavata() {
   _has_bits_[0] |= 0x00010000u;
 }
-inline void roleborn::clear_has_weaponavata() {
+inline void E_RoleBorn::clear_has_m_weaponavata() {
   _has_bits_[0] &= ~0x00010000u;
 }
-inline void roleborn::clear_weaponavata() {
-  if (weaponavata_ != &::google::protobuf::internal::kEmptyString) {
-    weaponavata_->clear();
+inline void E_RoleBorn::clear_m_weaponavata() {
+  if (m_weaponavata_ != &::google::protobuf::internal::kEmptyString) {
+    m_weaponavata_->clear();
   }
-  clear_has_weaponavata();
+  clear_has_m_weaponavata();
 }
-inline const ::std::string& roleborn::weaponavata() const {
-  return *weaponavata_;
+inline const ::std::string& E_RoleBorn::m_weaponavata() const {
+  return *m_weaponavata_;
 }
-inline void roleborn::set_weaponavata(const ::std::string& value) {
-  set_has_weaponavata();
-  if (weaponavata_ == &::google::protobuf::internal::kEmptyString) {
-    weaponavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_weaponavata(const ::std::string& value) {
+  set_has_m_weaponavata();
+  if (m_weaponavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_weaponavata_ = new ::std::string;
   }
-  weaponavata_->assign(value);
+  m_weaponavata_->assign(value);
 }
-inline void roleborn::set_weaponavata(const char* value) {
-  set_has_weaponavata();
-  if (weaponavata_ == &::google::protobuf::internal::kEmptyString) {
-    weaponavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_weaponavata(const char* value) {
+  set_has_m_weaponavata();
+  if (m_weaponavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_weaponavata_ = new ::std::string;
   }
-  weaponavata_->assign(value);
+  m_weaponavata_->assign(value);
 }
-inline void roleborn::set_weaponavata(const char* value, size_t size) {
-  set_has_weaponavata();
-  if (weaponavata_ == &::google::protobuf::internal::kEmptyString) {
-    weaponavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_weaponavata(const char* value, size_t size) {
+  set_has_m_weaponavata();
+  if (m_weaponavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_weaponavata_ = new ::std::string;
   }
-  weaponavata_->assign(reinterpret_cast<const char*>(value), size);
+  m_weaponavata_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_weaponavata() {
-  set_has_weaponavata();
-  if (weaponavata_ == &::google::protobuf::internal::kEmptyString) {
-    weaponavata_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_weaponavata() {
+  set_has_m_weaponavata();
+  if (m_weaponavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_weaponavata_ = new ::std::string;
   }
-  return weaponavata_;
+  return m_weaponavata_;
 }
-inline ::std::string* roleborn::release_weaponavata() {
-  clear_has_weaponavata();
-  if (weaponavata_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_weaponavata() {
+  clear_has_m_weaponavata();
+  if (m_weaponavata_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = weaponavata_;
-    weaponavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_weaponavata_;
+    m_weaponavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_weaponavata(::std::string* weaponavata) {
-  if (weaponavata_ != &::google::protobuf::internal::kEmptyString) {
-    delete weaponavata_;
+inline void E_RoleBorn::set_allocated_m_weaponavata(::std::string* m_weaponavata) {
+  if (m_weaponavata_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_weaponavata_;
   }
-  if (weaponavata) {
-    set_has_weaponavata();
-    weaponavata_ = weaponavata;
+  if (m_weaponavata) {
+    set_has_m_weaponavata();
+    m_weaponavata_ = m_weaponavata;
   } else {
-    clear_has_weaponavata();
-    weaponavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_weaponavata();
+    m_weaponavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string roleAvata = 18;
-inline bool roleborn::has_roleavata() const {
+// optional string m_roleavata = 18;
+inline bool E_RoleBorn::has_m_roleavata() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
-inline void roleborn::set_has_roleavata() {
+inline void E_RoleBorn::set_has_m_roleavata() {
   _has_bits_[0] |= 0x00020000u;
 }
-inline void roleborn::clear_has_roleavata() {
+inline void E_RoleBorn::clear_has_m_roleavata() {
   _has_bits_[0] &= ~0x00020000u;
 }
-inline void roleborn::clear_roleavata() {
-  if (roleavata_ != &::google::protobuf::internal::kEmptyString) {
-    roleavata_->clear();
+inline void E_RoleBorn::clear_m_roleavata() {
+  if (m_roleavata_ != &::google::protobuf::internal::kEmptyString) {
+    m_roleavata_->clear();
   }
-  clear_has_roleavata();
+  clear_has_m_roleavata();
 }
-inline const ::std::string& roleborn::roleavata() const {
-  return *roleavata_;
+inline const ::std::string& E_RoleBorn::m_roleavata() const {
+  return *m_roleavata_;
 }
-inline void roleborn::set_roleavata(const ::std::string& value) {
-  set_has_roleavata();
-  if (roleavata_ == &::google::protobuf::internal::kEmptyString) {
-    roleavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_roleavata(const ::std::string& value) {
+  set_has_m_roleavata();
+  if (m_roleavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_roleavata_ = new ::std::string;
   }
-  roleavata_->assign(value);
+  m_roleavata_->assign(value);
 }
-inline void roleborn::set_roleavata(const char* value) {
-  set_has_roleavata();
-  if (roleavata_ == &::google::protobuf::internal::kEmptyString) {
-    roleavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_roleavata(const char* value) {
+  set_has_m_roleavata();
+  if (m_roleavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_roleavata_ = new ::std::string;
   }
-  roleavata_->assign(value);
+  m_roleavata_->assign(value);
 }
-inline void roleborn::set_roleavata(const char* value, size_t size) {
-  set_has_roleavata();
-  if (roleavata_ == &::google::protobuf::internal::kEmptyString) {
-    roleavata_ = new ::std::string;
+inline void E_RoleBorn::set_m_roleavata(const char* value, size_t size) {
+  set_has_m_roleavata();
+  if (m_roleavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_roleavata_ = new ::std::string;
   }
-  roleavata_->assign(reinterpret_cast<const char*>(value), size);
+  m_roleavata_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* roleborn::mutable_roleavata() {
-  set_has_roleavata();
-  if (roleavata_ == &::google::protobuf::internal::kEmptyString) {
-    roleavata_ = new ::std::string;
+inline ::std::string* E_RoleBorn::mutable_m_roleavata() {
+  set_has_m_roleavata();
+  if (m_roleavata_ == &::google::protobuf::internal::kEmptyString) {
+    m_roleavata_ = new ::std::string;
   }
-  return roleavata_;
+  return m_roleavata_;
 }
-inline ::std::string* roleborn::release_roleavata() {
-  clear_has_roleavata();
-  if (roleavata_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_RoleBorn::release_m_roleavata() {
+  clear_has_m_roleavata();
+  if (m_roleavata_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = roleavata_;
-    roleavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_roleavata_;
+    m_roleavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void roleborn::set_allocated_roleavata(::std::string* roleavata) {
-  if (roleavata_ != &::google::protobuf::internal::kEmptyString) {
-    delete roleavata_;
+inline void E_RoleBorn::set_allocated_m_roleavata(::std::string* m_roleavata) {
+  if (m_roleavata_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_roleavata_;
   }
-  if (roleavata) {
-    set_has_roleavata();
-    roleavata_ = roleavata;
+  if (m_roleavata) {
+    set_has_m_roleavata();
+    m_roleavata_ = m_roleavata;
   } else {
-    clear_has_roleavata();
-    roleavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_roleavata();
+    m_roleavata_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 hairColor = 19;
-inline bool roleborn::has_haircolor() const {
+// optional int32 m_haircolor = 19;
+inline bool E_RoleBorn::has_m_haircolor() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
-inline void roleborn::set_has_haircolor() {
+inline void E_RoleBorn::set_has_m_haircolor() {
   _has_bits_[0] |= 0x00040000u;
 }
-inline void roleborn::clear_has_haircolor() {
+inline void E_RoleBorn::clear_has_m_haircolor() {
   _has_bits_[0] &= ~0x00040000u;
 }
-inline void roleborn::clear_haircolor() {
-  haircolor_ = 0;
-  clear_has_haircolor();
+inline void E_RoleBorn::clear_m_haircolor() {
+  m_haircolor_ = 0;
+  clear_has_m_haircolor();
 }
-inline ::google::protobuf::int32 roleborn::haircolor() const {
-  return haircolor_;
+inline ::google::protobuf::int32 E_RoleBorn::m_haircolor() const {
+  return m_haircolor_;
 }
-inline void roleborn::set_haircolor(::google::protobuf::int32 value) {
-  set_has_haircolor();
-  haircolor_ = value;
+inline void E_RoleBorn::set_m_haircolor(::google::protobuf::int32 value) {
+  set_has_m_haircolor();
+  m_haircolor_ = value;
 }
 
-// optional int32 clothesColor = 20;
-inline bool roleborn::has_clothescolor() const {
+// optional int32 m_clothescolor = 20;
+inline bool E_RoleBorn::has_m_clothescolor() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
-inline void roleborn::set_has_clothescolor() {
+inline void E_RoleBorn::set_has_m_clothescolor() {
   _has_bits_[0] |= 0x00080000u;
 }
-inline void roleborn::clear_has_clothescolor() {
+inline void E_RoleBorn::clear_has_m_clothescolor() {
   _has_bits_[0] &= ~0x00080000u;
 }
-inline void roleborn::clear_clothescolor() {
-  clothescolor_ = 0;
-  clear_has_clothescolor();
+inline void E_RoleBorn::clear_m_clothescolor() {
+  m_clothescolor_ = 0;
+  clear_has_m_clothescolor();
 }
-inline ::google::protobuf::int32 roleborn::clothescolor() const {
-  return clothescolor_;
+inline ::google::protobuf::int32 E_RoleBorn::m_clothescolor() const {
+  return m_clothescolor_;
 }
-inline void roleborn::set_clothescolor(::google::protobuf::int32 value) {
-  set_has_clothescolor();
-  clothescolor_ = value;
+inline void E_RoleBorn::set_m_clothescolor(::google::protobuf::int32 value) {
+  set_has_m_clothescolor();
+  m_clothescolor_ = value;
 }
 
-// optional int32 skinColor = 21;
-inline bool roleborn::has_skincolor() const {
+// optional int32 m_skincolor = 21;
+inline bool E_RoleBorn::has_m_skincolor() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
-inline void roleborn::set_has_skincolor() {
+inline void E_RoleBorn::set_has_m_skincolor() {
   _has_bits_[0] |= 0x00100000u;
 }
-inline void roleborn::clear_has_skincolor() {
+inline void E_RoleBorn::clear_has_m_skincolor() {
   _has_bits_[0] &= ~0x00100000u;
 }
-inline void roleborn::clear_skincolor() {
-  skincolor_ = 0;
-  clear_has_skincolor();
+inline void E_RoleBorn::clear_m_skincolor() {
+  m_skincolor_ = 0;
+  clear_has_m_skincolor();
 }
-inline ::google::protobuf::int32 roleborn::skincolor() const {
-  return skincolor_;
+inline ::google::protobuf::int32 E_RoleBorn::m_skincolor() const {
+  return m_skincolor_;
 }
-inline void roleborn::set_skincolor(::google::protobuf::int32 value) {
-  set_has_skincolor();
-  skincolor_ = value;
+inline void E_RoleBorn::set_m_skincolor(::google::protobuf::int32 value) {
+  set_has_m_skincolor();
+  m_skincolor_ = value;
 }
 
-// optional int64 carryWeapons = 22;
-inline bool roleborn::has_carryweapons() const {
+// optional int64 m_carryweapons = 22;
+inline bool E_RoleBorn::has_m_carryweapons() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
-inline void roleborn::set_has_carryweapons() {
+inline void E_RoleBorn::set_has_m_carryweapons() {
   _has_bits_[0] |= 0x00200000u;
 }
-inline void roleborn::clear_has_carryweapons() {
+inline void E_RoleBorn::clear_has_m_carryweapons() {
   _has_bits_[0] &= ~0x00200000u;
 }
-inline void roleborn::clear_carryweapons() {
-  carryweapons_ = GOOGLE_LONGLONG(0);
-  clear_has_carryweapons();
+inline void E_RoleBorn::clear_m_carryweapons() {
+  m_carryweapons_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryweapons();
 }
-inline ::google::protobuf::int64 roleborn::carryweapons() const {
-  return carryweapons_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryweapons() const {
+  return m_carryweapons_;
 }
-inline void roleborn::set_carryweapons(::google::protobuf::int64 value) {
-  set_has_carryweapons();
-  carryweapons_ = value;
+inline void E_RoleBorn::set_m_carryweapons(::google::protobuf::int64 value) {
+  set_has_m_carryweapons();
+  m_carryweapons_ = value;
 }
 
-// optional int64 carryArmor = 23;
-inline bool roleborn::has_carryarmor() const {
+// optional int64 m_carryarmor = 23;
+inline bool E_RoleBorn::has_m_carryarmor() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
-inline void roleborn::set_has_carryarmor() {
+inline void E_RoleBorn::set_has_m_carryarmor() {
   _has_bits_[0] |= 0x00400000u;
 }
-inline void roleborn::clear_has_carryarmor() {
+inline void E_RoleBorn::clear_has_m_carryarmor() {
   _has_bits_[0] &= ~0x00400000u;
 }
-inline void roleborn::clear_carryarmor() {
-  carryarmor_ = GOOGLE_LONGLONG(0);
-  clear_has_carryarmor();
+inline void E_RoleBorn::clear_m_carryarmor() {
+  m_carryarmor_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryarmor();
 }
-inline ::google::protobuf::int64 roleborn::carryarmor() const {
-  return carryarmor_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryarmor() const {
+  return m_carryarmor_;
 }
-inline void roleborn::set_carryarmor(::google::protobuf::int64 value) {
-  set_has_carryarmor();
-  carryarmor_ = value;
+inline void E_RoleBorn::set_m_carryarmor(::google::protobuf::int64 value) {
+  set_has_m_carryarmor();
+  m_carryarmor_ = value;
 }
 
-// optional int64 carryCloak = 24;
-inline bool roleborn::has_carrycloak() const {
+// optional int64 m_carrycloak = 24;
+inline bool E_RoleBorn::has_m_carrycloak() const {
   return (_has_bits_[0] & 0x00800000u) != 0;
 }
-inline void roleborn::set_has_carrycloak() {
+inline void E_RoleBorn::set_has_m_carrycloak() {
   _has_bits_[0] |= 0x00800000u;
 }
-inline void roleborn::clear_has_carrycloak() {
+inline void E_RoleBorn::clear_has_m_carrycloak() {
   _has_bits_[0] &= ~0x00800000u;
 }
-inline void roleborn::clear_carrycloak() {
-  carrycloak_ = GOOGLE_LONGLONG(0);
-  clear_has_carrycloak();
+inline void E_RoleBorn::clear_m_carrycloak() {
+  m_carrycloak_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carrycloak();
 }
-inline ::google::protobuf::int64 roleborn::carrycloak() const {
-  return carrycloak_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carrycloak() const {
+  return m_carrycloak_;
 }
-inline void roleborn::set_carrycloak(::google::protobuf::int64 value) {
-  set_has_carrycloak();
-  carrycloak_ = value;
+inline void E_RoleBorn::set_m_carrycloak(::google::protobuf::int64 value) {
+  set_has_m_carrycloak();
+  m_carrycloak_ = value;
 }
 
-// optional int64 carryShoes = 25;
-inline bool roleborn::has_carryshoes() const {
+// optional int64 m_carryshoes = 25;
+inline bool E_RoleBorn::has_m_carryshoes() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
-inline void roleborn::set_has_carryshoes() {
+inline void E_RoleBorn::set_has_m_carryshoes() {
   _has_bits_[0] |= 0x01000000u;
 }
-inline void roleborn::clear_has_carryshoes() {
+inline void E_RoleBorn::clear_has_m_carryshoes() {
   _has_bits_[0] &= ~0x01000000u;
 }
-inline void roleborn::clear_carryshoes() {
-  carryshoes_ = GOOGLE_LONGLONG(0);
-  clear_has_carryshoes();
+inline void E_RoleBorn::clear_m_carryshoes() {
+  m_carryshoes_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryshoes();
 }
-inline ::google::protobuf::int64 roleborn::carryshoes() const {
-  return carryshoes_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryshoes() const {
+  return m_carryshoes_;
 }
-inline void roleborn::set_carryshoes(::google::protobuf::int64 value) {
-  set_has_carryshoes();
-  carryshoes_ = value;
+inline void E_RoleBorn::set_m_carryshoes(::google::protobuf::int64 value) {
+  set_has_m_carryshoes();
+  m_carryshoes_ = value;
 }
 
-// optional int64 carryNecklace = 26;
-inline bool roleborn::has_carrynecklace() const {
+// optional int64 m_carrynecklace = 26;
+inline bool E_RoleBorn::has_m_carrynecklace() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
-inline void roleborn::set_has_carrynecklace() {
+inline void E_RoleBorn::set_has_m_carrynecklace() {
   _has_bits_[0] |= 0x02000000u;
 }
-inline void roleborn::clear_has_carrynecklace() {
+inline void E_RoleBorn::clear_has_m_carrynecklace() {
   _has_bits_[0] &= ~0x02000000u;
 }
-inline void roleborn::clear_carrynecklace() {
-  carrynecklace_ = GOOGLE_LONGLONG(0);
-  clear_has_carrynecklace();
+inline void E_RoleBorn::clear_m_carrynecklace() {
+  m_carrynecklace_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carrynecklace();
 }
-inline ::google::protobuf::int64 roleborn::carrynecklace() const {
-  return carrynecklace_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carrynecklace() const {
+  return m_carrynecklace_;
 }
-inline void roleborn::set_carrynecklace(::google::protobuf::int64 value) {
-  set_has_carrynecklace();
-  carrynecklace_ = value;
+inline void E_RoleBorn::set_m_carrynecklace(::google::protobuf::int64 value) {
+  set_has_m_carrynecklace();
+  m_carrynecklace_ = value;
 }
 
-// optional int64 carryAmulet = 27;
-inline bool roleborn::has_carryamulet() const {
+// optional int64 m_carryamulet = 27;
+inline bool E_RoleBorn::has_m_carryamulet() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
-inline void roleborn::set_has_carryamulet() {
+inline void E_RoleBorn::set_has_m_carryamulet() {
   _has_bits_[0] |= 0x04000000u;
 }
-inline void roleborn::clear_has_carryamulet() {
+inline void E_RoleBorn::clear_has_m_carryamulet() {
   _has_bits_[0] &= ~0x04000000u;
 }
-inline void roleborn::clear_carryamulet() {
-  carryamulet_ = GOOGLE_LONGLONG(0);
-  clear_has_carryamulet();
+inline void E_RoleBorn::clear_m_carryamulet() {
+  m_carryamulet_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryamulet();
 }
-inline ::google::protobuf::int64 roleborn::carryamulet() const {
-  return carryamulet_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryamulet() const {
+  return m_carryamulet_;
 }
-inline void roleborn::set_carryamulet(::google::protobuf::int64 value) {
-  set_has_carryamulet();
-  carryamulet_ = value;
+inline void E_RoleBorn::set_m_carryamulet(::google::protobuf::int64 value) {
+  set_has_m_carryamulet();
+  m_carryamulet_ = value;
 }
 
-// optional int64 carryBracer = 28;
-inline bool roleborn::has_carrybracer() const {
+// optional int64 m_carrybracer = 28;
+inline bool E_RoleBorn::has_m_carrybracer() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
-inline void roleborn::set_has_carrybracer() {
+inline void E_RoleBorn::set_has_m_carrybracer() {
   _has_bits_[0] |= 0x08000000u;
 }
-inline void roleborn::clear_has_carrybracer() {
+inline void E_RoleBorn::clear_has_m_carrybracer() {
   _has_bits_[0] &= ~0x08000000u;
 }
-inline void roleborn::clear_carrybracer() {
-  carrybracer_ = GOOGLE_LONGLONG(0);
-  clear_has_carrybracer();
+inline void E_RoleBorn::clear_m_carrybracer() {
+  m_carrybracer_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carrybracer();
 }
-inline ::google::protobuf::int64 roleborn::carrybracer() const {
-  return carrybracer_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carrybracer() const {
+  return m_carrybracer_;
 }
-inline void roleborn::set_carrybracer(::google::protobuf::int64 value) {
-  set_has_carrybracer();
-  carrybracer_ = value;
+inline void E_RoleBorn::set_m_carrybracer(::google::protobuf::int64 value) {
+  set_has_m_carrybracer();
+  m_carrybracer_ = value;
 }
 
-// optional int64 carryRing = 29;
-inline bool roleborn::has_carryring() const {
+// optional int64 m_carryring = 29;
+inline bool E_RoleBorn::has_m_carryring() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
-inline void roleborn::set_has_carryring() {
+inline void E_RoleBorn::set_has_m_carryring() {
   _has_bits_[0] |= 0x10000000u;
 }
-inline void roleborn::clear_has_carryring() {
+inline void E_RoleBorn::clear_has_m_carryring() {
   _has_bits_[0] &= ~0x10000000u;
 }
-inline void roleborn::clear_carryring() {
-  carryring_ = GOOGLE_LONGLONG(0);
-  clear_has_carryring();
+inline void E_RoleBorn::clear_m_carryring() {
+  m_carryring_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryring();
 }
-inline ::google::protobuf::int64 roleborn::carryring() const {
-  return carryring_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryring() const {
+  return m_carryring_;
 }
-inline void roleborn::set_carryring(::google::protobuf::int64 value) {
-  set_has_carryring();
-  carryring_ = value;
+inline void E_RoleBorn::set_m_carryring(::google::protobuf::int64 value) {
+  set_has_m_carryring();
+  m_carryring_ = value;
 }
 
-// optional int64 carryFashionWeapons = 30;
-inline bool roleborn::has_carryfashionweapons() const {
+// optional int64 m_carryfashionweapons = 30;
+inline bool E_RoleBorn::has_m_carryfashionweapons() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
-inline void roleborn::set_has_carryfashionweapons() {
+inline void E_RoleBorn::set_has_m_carryfashionweapons() {
   _has_bits_[0] |= 0x20000000u;
 }
-inline void roleborn::clear_has_carryfashionweapons() {
+inline void E_RoleBorn::clear_has_m_carryfashionweapons() {
   _has_bits_[0] &= ~0x20000000u;
 }
-inline void roleborn::clear_carryfashionweapons() {
-  carryfashionweapons_ = GOOGLE_LONGLONG(0);
-  clear_has_carryfashionweapons();
+inline void E_RoleBorn::clear_m_carryfashionweapons() {
+  m_carryfashionweapons_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryfashionweapons();
 }
-inline ::google::protobuf::int64 roleborn::carryfashionweapons() const {
-  return carryfashionweapons_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryfashionweapons() const {
+  return m_carryfashionweapons_;
 }
-inline void roleborn::set_carryfashionweapons(::google::protobuf::int64 value) {
-  set_has_carryfashionweapons();
-  carryfashionweapons_ = value;
+inline void E_RoleBorn::set_m_carryfashionweapons(::google::protobuf::int64 value) {
+  set_has_m_carryfashionweapons();
+  m_carryfashionweapons_ = value;
 }
 
-// optional int64 carryFashionArmor = 31;
-inline bool roleborn::has_carryfashionarmor() const {
+// optional int64 m_carryfashionarmor = 31;
+inline bool E_RoleBorn::has_m_carryfashionarmor() const {
   return (_has_bits_[0] & 0x40000000u) != 0;
 }
-inline void roleborn::set_has_carryfashionarmor() {
+inline void E_RoleBorn::set_has_m_carryfashionarmor() {
   _has_bits_[0] |= 0x40000000u;
 }
-inline void roleborn::clear_has_carryfashionarmor() {
+inline void E_RoleBorn::clear_has_m_carryfashionarmor() {
   _has_bits_[0] &= ~0x40000000u;
 }
-inline void roleborn::clear_carryfashionarmor() {
-  carryfashionarmor_ = GOOGLE_LONGLONG(0);
-  clear_has_carryfashionarmor();
+inline void E_RoleBorn::clear_m_carryfashionarmor() {
+  m_carryfashionarmor_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carryfashionarmor();
 }
-inline ::google::protobuf::int64 roleborn::carryfashionarmor() const {
-  return carryfashionarmor_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carryfashionarmor() const {
+  return m_carryfashionarmor_;
 }
-inline void roleborn::set_carryfashionarmor(::google::protobuf::int64 value) {
-  set_has_carryfashionarmor();
-  carryfashionarmor_ = value;
+inline void E_RoleBorn::set_m_carryfashionarmor(::google::protobuf::int64 value) {
+  set_has_m_carryfashionarmor();
+  m_carryfashionarmor_ = value;
 }
 
-// optional int64 carryWings = 32;
-inline bool roleborn::has_carrywings() const {
+// optional int64 m_carrywings = 32;
+inline bool E_RoleBorn::has_m_carrywings() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
-inline void roleborn::set_has_carrywings() {
+inline void E_RoleBorn::set_has_m_carrywings() {
   _has_bits_[0] |= 0x80000000u;
 }
-inline void roleborn::clear_has_carrywings() {
+inline void E_RoleBorn::clear_has_m_carrywings() {
   _has_bits_[0] &= ~0x80000000u;
 }
-inline void roleborn::clear_carrywings() {
-  carrywings_ = GOOGLE_LONGLONG(0);
-  clear_has_carrywings();
+inline void E_RoleBorn::clear_m_carrywings() {
+  m_carrywings_ = GOOGLE_LONGLONG(0);
+  clear_has_m_carrywings();
 }
-inline ::google::protobuf::int64 roleborn::carrywings() const {
-  return carrywings_;
+inline ::google::protobuf::int64 E_RoleBorn::m_carrywings() const {
+  return m_carrywings_;
 }
-inline void roleborn::set_carrywings(::google::protobuf::int64 value) {
-  set_has_carrywings();
-  carrywings_ = value;
+inline void E_RoleBorn::set_m_carrywings(::google::protobuf::int64 value) {
+  set_has_m_carrywings();
+  m_carrywings_ = value;
 }
 
-// optional int32 mSpeed = 33;
-inline bool roleborn::has_mspeed() const {
+// optional int32 m_mspeed = 33;
+inline bool E_RoleBorn::has_m_mspeed() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
-inline void roleborn::set_has_mspeed() {
+inline void E_RoleBorn::set_has_m_mspeed() {
   _has_bits_[1] |= 0x00000001u;
 }
-inline void roleborn::clear_has_mspeed() {
+inline void E_RoleBorn::clear_has_m_mspeed() {
   _has_bits_[1] &= ~0x00000001u;
 }
-inline void roleborn::clear_mspeed() {
-  mspeed_ = 0;
-  clear_has_mspeed();
+inline void E_RoleBorn::clear_m_mspeed() {
+  m_mspeed_ = 0;
+  clear_has_m_mspeed();
 }
-inline ::google::protobuf::int32 roleborn::mspeed() const {
-  return mspeed_;
+inline ::google::protobuf::int32 E_RoleBorn::m_mspeed() const {
+  return m_mspeed_;
 }
-inline void roleborn::set_mspeed(::google::protobuf::int32 value) {
-  set_has_mspeed();
-  mspeed_ = value;
+inline void E_RoleBorn::set_m_mspeed(::google::protobuf::int32 value) {
+  set_has_m_mspeed();
+  m_mspeed_ = value;
 }
 
-// optional int32 view = 34;
-inline bool roleborn::has_view() const {
+// optional int32 m_view = 34;
+inline bool E_RoleBorn::has_m_view() const {
   return (_has_bits_[1] & 0x00000002u) != 0;
 }
-inline void roleborn::set_has_view() {
+inline void E_RoleBorn::set_has_m_view() {
   _has_bits_[1] |= 0x00000002u;
 }
-inline void roleborn::clear_has_view() {
+inline void E_RoleBorn::clear_has_m_view() {
   _has_bits_[1] &= ~0x00000002u;
 }
-inline void roleborn::clear_view() {
-  view_ = 0;
-  clear_has_view();
+inline void E_RoleBorn::clear_m_view() {
+  m_view_ = 0;
+  clear_has_m_view();
 }
-inline ::google::protobuf::int32 roleborn::view() const {
-  return view_;
+inline ::google::protobuf::int32 E_RoleBorn::m_view() const {
+  return m_view_;
 }
-inline void roleborn::set_view(::google::protobuf::int32 value) {
-  set_has_view();
-  view_ = value;
+inline void E_RoleBorn::set_m_view(::google::protobuf::int32 value) {
+  set_has_m_view();
+  m_view_ = value;
 }
 
-// optional int32 radius = 35;
-inline bool roleborn::has_radius() const {
+// optional int32 m_radius = 35;
+inline bool E_RoleBorn::has_m_radius() const {
   return (_has_bits_[1] & 0x00000004u) != 0;
 }
-inline void roleborn::set_has_radius() {
+inline void E_RoleBorn::set_has_m_radius() {
   _has_bits_[1] |= 0x00000004u;
 }
-inline void roleborn::clear_has_radius() {
+inline void E_RoleBorn::clear_has_m_radius() {
   _has_bits_[1] &= ~0x00000004u;
 }
-inline void roleborn::clear_radius() {
-  radius_ = 0;
-  clear_has_radius();
+inline void E_RoleBorn::clear_m_radius() {
+  m_radius_ = 0;
+  clear_has_m_radius();
 }
-inline ::google::protobuf::int32 roleborn::radius() const {
-  return radius_;
+inline ::google::protobuf::int32 E_RoleBorn::m_radius() const {
+  return m_radius_;
 }
-inline void roleborn::set_radius(::google::protobuf::int32 value) {
-  set_has_radius();
-  radius_ = value;
+inline void E_RoleBorn::set_m_radius(::google::protobuf::int32 value) {
+  set_has_m_radius();
+  m_radius_ = value;
 }
 
-// optional int32 group = 36;
-inline bool roleborn::has_group() const {
+// optional int32 m_group = 36;
+inline bool E_RoleBorn::has_m_group() const {
   return (_has_bits_[1] & 0x00000008u) != 0;
 }
-inline void roleborn::set_has_group() {
+inline void E_RoleBorn::set_has_m_group() {
   _has_bits_[1] |= 0x00000008u;
 }
-inline void roleborn::clear_has_group() {
+inline void E_RoleBorn::clear_has_m_group() {
   _has_bits_[1] &= ~0x00000008u;
 }
-inline void roleborn::clear_group() {
-  group_ = 0;
-  clear_has_group();
+inline void E_RoleBorn::clear_m_group() {
+  m_group_ = 0;
+  clear_has_m_group();
 }
-inline ::google::protobuf::int32 roleborn::group() const {
-  return group_;
+inline ::google::protobuf::int32 E_RoleBorn::m_group() const {
+  return m_group_;
 }
-inline void roleborn::set_group(::google::protobuf::int32 value) {
-  set_has_group();
-  group_ = value;
+inline void E_RoleBorn::set_m_group(::google::protobuf::int32 value) {
+  set_has_m_group();
+  m_group_ = value;
 }
 
-// optional int64 sheny = 37;
-inline bool roleborn::has_sheny() const {
+// optional int64 m_sheny = 37;
+inline bool E_RoleBorn::has_m_sheny() const {
   return (_has_bits_[1] & 0x00000010u) != 0;
 }
-inline void roleborn::set_has_sheny() {
+inline void E_RoleBorn::set_has_m_sheny() {
   _has_bits_[1] |= 0x00000010u;
 }
-inline void roleborn::clear_has_sheny() {
+inline void E_RoleBorn::clear_has_m_sheny() {
   _has_bits_[1] &= ~0x00000010u;
 }
-inline void roleborn::clear_sheny() {
-  sheny_ = GOOGLE_LONGLONG(0);
-  clear_has_sheny();
+inline void E_RoleBorn::clear_m_sheny() {
+  m_sheny_ = GOOGLE_LONGLONG(0);
+  clear_has_m_sheny();
 }
-inline ::google::protobuf::int64 roleborn::sheny() const {
-  return sheny_;
+inline ::google::protobuf::int64 E_RoleBorn::m_sheny() const {
+  return m_sheny_;
 }
-inline void roleborn::set_sheny(::google::protobuf::int64 value) {
-  set_has_sheny();
-  sheny_ = value;
+inline void E_RoleBorn::set_m_sheny(::google::protobuf::int64 value) {
+  set_has_m_sheny();
+  m_sheny_ = value;
 }
 
-// optional int64 shenw = 38;
-inline bool roleborn::has_shenw() const {
+// optional int64 m_shenw = 38;
+inline bool E_RoleBorn::has_m_shenw() const {
   return (_has_bits_[1] & 0x00000020u) != 0;
 }
-inline void roleborn::set_has_shenw() {
+inline void E_RoleBorn::set_has_m_shenw() {
   _has_bits_[1] |= 0x00000020u;
 }
-inline void roleborn::clear_has_shenw() {
+inline void E_RoleBorn::clear_has_m_shenw() {
   _has_bits_[1] &= ~0x00000020u;
 }
-inline void roleborn::clear_shenw() {
-  shenw_ = GOOGLE_LONGLONG(0);
-  clear_has_shenw();
+inline void E_RoleBorn::clear_m_shenw() {
+  m_shenw_ = GOOGLE_LONGLONG(0);
+  clear_has_m_shenw();
 }
-inline ::google::protobuf::int64 roleborn::shenw() const {
-  return shenw_;
+inline ::google::protobuf::int64 E_RoleBorn::m_shenw() const {
+  return m_shenw_;
 }
-inline void roleborn::set_shenw(::google::protobuf::int64 value) {
-  set_has_shenw();
-  shenw_ = value;
+inline void E_RoleBorn::set_m_shenw(::google::protobuf::int64 value) {
+  set_has_m_shenw();
+  m_shenw_ = value;
 }
 
-// repeated int32 actBuff = 39;
-inline int roleborn::actbuff_size() const {
-  return actbuff_.size();
+// repeated int32 m_actbuff = 39;
+inline int E_RoleBorn::m_actbuff_size() const {
+  return m_actbuff_.size();
 }
-inline void roleborn::clear_actbuff() {
-  actbuff_.Clear();
+inline void E_RoleBorn::clear_m_actbuff() {
+  m_actbuff_.Clear();
 }
-inline ::google::protobuf::int32 roleborn::actbuff(int index) const {
-  return actbuff_.Get(index);
+inline ::google::protobuf::int32 E_RoleBorn::m_actbuff(int index) const {
+  return m_actbuff_.Get(index);
 }
-inline void roleborn::set_actbuff(int index, ::google::protobuf::int32 value) {
-  actbuff_.Set(index, value);
+inline void E_RoleBorn::set_m_actbuff(int index, ::google::protobuf::int32 value) {
+  m_actbuff_.Set(index, value);
 }
-inline void roleborn::add_actbuff(::google::protobuf::int32 value) {
-  actbuff_.Add(value);
+inline void E_RoleBorn::add_m_actbuff(::google::protobuf::int32 value) {
+  m_actbuff_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-roleborn::actbuff() const {
-  return actbuff_;
+E_RoleBorn::m_actbuff() const {
+  return m_actbuff_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-roleborn::mutable_actbuff() {
-  return &actbuff_;
+E_RoleBorn::mutable_m_actbuff() {
+  return &m_actbuff_;
 }
 
-// repeated .proto_ff.rolebornitemDesc item = 40;
-inline int roleborn::item_size() const {
-  return item_.size();
+// repeated .proto_ff.E_RoleBornItemDesc m_item = 40;
+inline int E_RoleBorn::m_item_size() const {
+  return m_item_.size();
 }
-inline void roleborn::clear_item() {
-  item_.Clear();
+inline void E_RoleBorn::clear_m_item() {
+  m_item_.Clear();
 }
-inline const ::proto_ff::rolebornitemDesc& roleborn::item(int index) const {
-  return item_.Get(index);
+inline const ::proto_ff::E_RoleBornItemDesc& E_RoleBorn::m_item(int index) const {
+  return m_item_.Get(index);
 }
-inline ::proto_ff::rolebornitemDesc* roleborn::mutable_item(int index) {
-  return item_.Mutable(index);
+inline ::proto_ff::E_RoleBornItemDesc* E_RoleBorn::mutable_m_item(int index) {
+  return m_item_.Mutable(index);
 }
-inline ::proto_ff::rolebornitemDesc* roleborn::add_item() {
-  return item_.Add();
+inline ::proto_ff::E_RoleBornItemDesc* E_RoleBorn::add_m_item() {
+  return m_item_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornitemDesc >&
-roleborn::item() const {
-  return item_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornItemDesc >&
+E_RoleBorn::m_item() const {
+  return m_item_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornitemDesc >*
-roleborn::mutable_item() {
-  return &item_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornItemDesc >*
+E_RoleBorn::mutable_m_item() {
+  return &m_item_;
 }
 
-// repeated int64 actSkill = 41;
-inline int roleborn::actskill_size() const {
-  return actskill_.size();
+// repeated int64 m_actskill = 41;
+inline int E_RoleBorn::m_actskill_size() const {
+  return m_actskill_.size();
 }
-inline void roleborn::clear_actskill() {
-  actskill_.Clear();
+inline void E_RoleBorn::clear_m_actskill() {
+  m_actskill_.Clear();
 }
-inline ::google::protobuf::int64 roleborn::actskill(int index) const {
-  return actskill_.Get(index);
+inline ::google::protobuf::int64 E_RoleBorn::m_actskill(int index) const {
+  return m_actskill_.Get(index);
 }
-inline void roleborn::set_actskill(int index, ::google::protobuf::int64 value) {
-  actskill_.Set(index, value);
+inline void E_RoleBorn::set_m_actskill(int index, ::google::protobuf::int64 value) {
+  m_actskill_.Set(index, value);
 }
-inline void roleborn::add_actskill(::google::protobuf::int64 value) {
-  actskill_.Add(value);
+inline void E_RoleBorn::add_m_actskill(::google::protobuf::int64 value) {
+  m_actskill_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-roleborn::actskill() const {
-  return actskill_;
+E_RoleBorn::m_actskill() const {
+  return m_actskill_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-roleborn::mutable_actskill() {
-  return &actskill_;
+E_RoleBorn::mutable_m_actskill() {
+  return &m_actskill_;
 }
 
-// repeated .proto_ff.rolebornmailDesc mail = 42;
-inline int roleborn::mail_size() const {
-  return mail_.size();
+// repeated .proto_ff.E_RoleBornMailDesc m_mail = 42;
+inline int E_RoleBorn::m_mail_size() const {
+  return m_mail_.size();
 }
-inline void roleborn::clear_mail() {
-  mail_.Clear();
+inline void E_RoleBorn::clear_m_mail() {
+  m_mail_.Clear();
 }
-inline const ::proto_ff::rolebornmailDesc& roleborn::mail(int index) const {
-  return mail_.Get(index);
+inline const ::proto_ff::E_RoleBornMailDesc& E_RoleBorn::m_mail(int index) const {
+  return m_mail_.Get(index);
 }
-inline ::proto_ff::rolebornmailDesc* roleborn::mutable_mail(int index) {
-  return mail_.Mutable(index);
+inline ::proto_ff::E_RoleBornMailDesc* E_RoleBorn::mutable_m_mail(int index) {
+  return m_mail_.Mutable(index);
 }
-inline ::proto_ff::rolebornmailDesc* roleborn::add_mail() {
-  return mail_.Add();
+inline ::proto_ff::E_RoleBornMailDesc* E_RoleBorn::add_m_mail() {
+  return m_mail_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornmailDesc >&
-roleborn::mail() const {
-  return mail_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornMailDesc >&
+E_RoleBorn::m_mail() const {
+  return m_mail_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolebornmailDesc >*
-roleborn::mutable_mail() {
-  return &mail_;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_roleborn
-
-// repeated .proto_ff.roleborn roleborn_List = 1;
-inline int Sheet_roleborn::roleborn_list_size() const {
-  return roleborn_list_.size();
-}
-inline void Sheet_roleborn::clear_roleborn_list() {
-  roleborn_list_.Clear();
-}
-inline const ::proto_ff::roleborn& Sheet_roleborn::roleborn_list(int index) const {
-  return roleborn_list_.Get(index);
-}
-inline ::proto_ff::roleborn* Sheet_roleborn::mutable_roleborn_list(int index) {
-  return roleborn_list_.Mutable(index);
-}
-inline ::proto_ff::roleborn* Sheet_roleborn::add_roleborn_list() {
-  return roleborn_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleborn >&
-Sheet_roleborn::roleborn_list() const {
-  return roleborn_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleborn >*
-Sheet_roleborn::mutable_roleborn_list() {
-  return &roleborn_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBornMailDesc >*
+E_RoleBorn::mutable_m_mail() {
+  return &m_mail_;
 }
 
 // -------------------------------------------------------------------
 
-// rolemasterMaleattributeDesc
+// Sheet_RoleBorn
 
-// optional int32 Type = 1;
-inline bool rolemasterMaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleBorn E_RoleBorn_List = 1;
+inline int Sheet_RoleBorn::e_roleborn_list_size() const {
+  return e_roleborn_list_.size();
+}
+inline void Sheet_RoleBorn::clear_e_roleborn_list() {
+  e_roleborn_list_.Clear();
+}
+inline const ::proto_ff::E_RoleBorn& Sheet_RoleBorn::e_roleborn_list(int index) const {
+  return e_roleborn_list_.Get(index);
+}
+inline ::proto_ff::E_RoleBorn* Sheet_RoleBorn::mutable_e_roleborn_list(int index) {
+  return e_roleborn_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleBorn* Sheet_RoleBorn::add_e_roleborn_list() {
+  return e_roleborn_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBorn >&
+Sheet_RoleBorn::e_roleborn_list() const {
+  return e_roleborn_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleBorn >*
+Sheet_RoleBorn::mutable_e_roleborn_list() {
+  return &e_roleborn_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleMastermaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleMastermaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolemasterMaleattributeDesc::set_has_type() {
+inline void E_RoleMastermaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolemasterMaleattributeDesc::clear_has_type() {
+inline void E_RoleMastermaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolemasterMaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleMastermaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 rolemasterMaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleMastermaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void rolemasterMaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleMastermaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool rolemasterMaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleMastermaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolemasterMaleattributeDesc::set_has_value() {
+inline void E_RoleMastermaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolemasterMaleattributeDesc::clear_has_value() {
+inline void E_RoleMastermaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolemasterMaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleMastermaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 rolemasterMaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleMastermaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void rolemasterMaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleMastermaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// rolemasterMale
+// E_RoleMastermale
 
-// optional int32 lv = 1;
-inline bool rolemasterMale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleMastermale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolemasterMale::set_has_lv() {
+inline void E_RoleMastermale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolemasterMale::clear_has_lv() {
+inline void E_RoleMastermale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolemasterMale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleMastermale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 rolemasterMale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleMastermale::m_lv() const {
+  return m_lv_;
 }
-inline void rolemasterMale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleMastermale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool rolemasterMale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleMastermale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolemasterMale::set_has_upgradepoint() {
+inline void E_RoleMastermale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolemasterMale::clear_has_upgradepoint() {
+inline void E_RoleMastermale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolemasterMale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleMastermale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 rolemasterMale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleMastermale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void rolemasterMale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.rolemasterMaleattributeDesc attribute = 3;
-inline int rolemasterMale::attribute_size() const {
-  return attribute_.size();
-}
-inline void rolemasterMale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::rolemasterMaleattributeDesc& rolemasterMale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::rolemasterMaleattributeDesc* rolemasterMale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::rolemasterMaleattributeDesc* rolemasterMale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMaleattributeDesc >&
-rolemasterMale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMaleattributeDesc >*
-rolemasterMale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleMastermale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_rolemasterMale
-
-// repeated .proto_ff.rolemasterMale rolemasterMale_List = 1;
-inline int Sheet_rolemasterMale::rolemastermale_list_size() const {
-  return rolemastermale_list_.size();
+// repeated .proto_ff.E_RoleMastermaleAttributeDesc m_attribute = 3;
+inline int E_RoleMastermale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_rolemasterMale::clear_rolemastermale_list() {
-  rolemastermale_list_.Clear();
+inline void E_RoleMastermale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::rolemasterMale& Sheet_rolemasterMale::rolemastermale_list(int index) const {
-  return rolemastermale_list_.Get(index);
+inline const ::proto_ff::E_RoleMastermaleAttributeDesc& E_RoleMastermale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::rolemasterMale* Sheet_rolemasterMale::mutable_rolemastermale_list(int index) {
-  return rolemastermale_list_.Mutable(index);
+inline ::proto_ff::E_RoleMastermaleAttributeDesc* E_RoleMastermale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::rolemasterMale* Sheet_rolemasterMale::add_rolemastermale_list() {
-  return rolemastermale_list_.Add();
+inline ::proto_ff::E_RoleMastermaleAttributeDesc* E_RoleMastermale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMale >&
-Sheet_rolemasterMale::rolemastermale_list() const {
-  return rolemastermale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermaleAttributeDesc >&
+E_RoleMastermale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterMale >*
-Sheet_rolemasterMale::mutable_rolemastermale_list() {
-  return &rolemastermale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermaleAttributeDesc >*
+E_RoleMastermale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// rolemasterFemaleattributeDesc
+// Sheet_RoleMastermale
 
-// optional int32 Type = 1;
-inline bool rolemasterFemaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleMastermale E_RoleMastermale_List = 1;
+inline int Sheet_RoleMastermale::e_rolemastermale_list_size() const {
+  return e_rolemastermale_list_.size();
+}
+inline void Sheet_RoleMastermale::clear_e_rolemastermale_list() {
+  e_rolemastermale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleMastermale& Sheet_RoleMastermale::e_rolemastermale_list(int index) const {
+  return e_rolemastermale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleMastermale* Sheet_RoleMastermale::mutable_e_rolemastermale_list(int index) {
+  return e_rolemastermale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleMastermale* Sheet_RoleMastermale::add_e_rolemastermale_list() {
+  return e_rolemastermale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermale >&
+Sheet_RoleMastermale::e_rolemastermale_list() const {
+  return e_rolemastermale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMastermale >*
+Sheet_RoleMastermale::mutable_e_rolemastermale_list() {
+  return &e_rolemastermale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleMasterfemaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleMasterfemaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolemasterFemaleattributeDesc::set_has_type() {
+inline void E_RoleMasterfemaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolemasterFemaleattributeDesc::clear_has_type() {
+inline void E_RoleMasterfemaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolemasterFemaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleMasterfemaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 rolemasterFemaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleMasterfemaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void rolemasterFemaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleMasterfemaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool rolemasterFemaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleMasterfemaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolemasterFemaleattributeDesc::set_has_value() {
+inline void E_RoleMasterfemaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolemasterFemaleattributeDesc::clear_has_value() {
+inline void E_RoleMasterfemaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolemasterFemaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleMasterfemaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 rolemasterFemaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleMasterfemaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void rolemasterFemaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleMasterfemaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// rolemasterFemale
+// E_RoleMasterfemale
 
-// optional int32 lv = 1;
-inline bool rolemasterFemale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleMasterfemale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolemasterFemale::set_has_lv() {
+inline void E_RoleMasterfemale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolemasterFemale::clear_has_lv() {
+inline void E_RoleMasterfemale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolemasterFemale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleMasterfemale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 rolemasterFemale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleMasterfemale::m_lv() const {
+  return m_lv_;
 }
-inline void rolemasterFemale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleMasterfemale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool rolemasterFemale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleMasterfemale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolemasterFemale::set_has_upgradepoint() {
+inline void E_RoleMasterfemale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolemasterFemale::clear_has_upgradepoint() {
+inline void E_RoleMasterfemale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolemasterFemale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleMasterfemale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 rolemasterFemale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleMasterfemale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void rolemasterFemale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.rolemasterFemaleattributeDesc attribute = 3;
-inline int rolemasterFemale::attribute_size() const {
-  return attribute_.size();
-}
-inline void rolemasterFemale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::rolemasterFemaleattributeDesc& rolemasterFemale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::rolemasterFemaleattributeDesc* rolemasterFemale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::rolemasterFemaleattributeDesc* rolemasterFemale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemaleattributeDesc >&
-rolemasterFemale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemaleattributeDesc >*
-rolemasterFemale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleMasterfemale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_rolemasterFemale
-
-// repeated .proto_ff.rolemasterFemale rolemasterFemale_List = 1;
-inline int Sheet_rolemasterFemale::rolemasterfemale_list_size() const {
-  return rolemasterfemale_list_.size();
+// repeated .proto_ff.E_RoleMasterfemaleAttributeDesc m_attribute = 3;
+inline int E_RoleMasterfemale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_rolemasterFemale::clear_rolemasterfemale_list() {
-  rolemasterfemale_list_.Clear();
+inline void E_RoleMasterfemale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::rolemasterFemale& Sheet_rolemasterFemale::rolemasterfemale_list(int index) const {
-  return rolemasterfemale_list_.Get(index);
+inline const ::proto_ff::E_RoleMasterfemaleAttributeDesc& E_RoleMasterfemale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::rolemasterFemale* Sheet_rolemasterFemale::mutable_rolemasterfemale_list(int index) {
-  return rolemasterfemale_list_.Mutable(index);
+inline ::proto_ff::E_RoleMasterfemaleAttributeDesc* E_RoleMasterfemale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::rolemasterFemale* Sheet_rolemasterFemale::add_rolemasterfemale_list() {
-  return rolemasterfemale_list_.Add();
+inline ::proto_ff::E_RoleMasterfemaleAttributeDesc* E_RoleMasterfemale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemale >&
-Sheet_rolemasterFemale::rolemasterfemale_list() const {
-  return rolemasterfemale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemaleAttributeDesc >&
+E_RoleMasterfemale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolemasterFemale >*
-Sheet_rolemasterFemale::mutable_rolemasterfemale_list() {
-  return &rolemasterfemale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemaleAttributeDesc >*
+E_RoleMasterfemale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// rolesickleMaleattributeDesc
+// Sheet_RoleMasterfemale
 
-// optional int32 Type = 1;
-inline bool rolesickleMaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleMasterfemale E_RoleMasterfemale_List = 1;
+inline int Sheet_RoleMasterfemale::e_rolemasterfemale_list_size() const {
+  return e_rolemasterfemale_list_.size();
+}
+inline void Sheet_RoleMasterfemale::clear_e_rolemasterfemale_list() {
+  e_rolemasterfemale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleMasterfemale& Sheet_RoleMasterfemale::e_rolemasterfemale_list(int index) const {
+  return e_rolemasterfemale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleMasterfemale* Sheet_RoleMasterfemale::mutable_e_rolemasterfemale_list(int index) {
+  return e_rolemasterfemale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleMasterfemale* Sheet_RoleMasterfemale::add_e_rolemasterfemale_list() {
+  return e_rolemasterfemale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemale >&
+Sheet_RoleMasterfemale::e_rolemasterfemale_list() const {
+  return e_rolemasterfemale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleMasterfemale >*
+Sheet_RoleMasterfemale::mutable_e_rolemasterfemale_list() {
+  return &e_rolemasterfemale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleSicklemaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleSicklemaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolesickleMaleattributeDesc::set_has_type() {
+inline void E_RoleSicklemaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolesickleMaleattributeDesc::clear_has_type() {
+inline void E_RoleSicklemaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolesickleMaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleSicklemaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 rolesickleMaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleSicklemaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void rolesickleMaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleSicklemaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool rolesickleMaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleSicklemaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolesickleMaleattributeDesc::set_has_value() {
+inline void E_RoleSicklemaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolesickleMaleattributeDesc::clear_has_value() {
+inline void E_RoleSicklemaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolesickleMaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleSicklemaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 rolesickleMaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleSicklemaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void rolesickleMaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleSicklemaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// rolesickleMale
+// E_RoleSicklemale
 
-// optional int32 lv = 1;
-inline bool rolesickleMale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleSicklemale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolesickleMale::set_has_lv() {
+inline void E_RoleSicklemale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolesickleMale::clear_has_lv() {
+inline void E_RoleSicklemale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolesickleMale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleSicklemale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 rolesickleMale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleSicklemale::m_lv() const {
+  return m_lv_;
 }
-inline void rolesickleMale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleSicklemale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool rolesickleMale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleSicklemale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolesickleMale::set_has_upgradepoint() {
+inline void E_RoleSicklemale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolesickleMale::clear_has_upgradepoint() {
+inline void E_RoleSicklemale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolesickleMale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleSicklemale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 rolesickleMale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleSicklemale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void rolesickleMale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.rolesickleMaleattributeDesc attribute = 3;
-inline int rolesickleMale::attribute_size() const {
-  return attribute_.size();
-}
-inline void rolesickleMale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::rolesickleMaleattributeDesc& rolesickleMale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::rolesickleMaleattributeDesc* rolesickleMale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::rolesickleMaleattributeDesc* rolesickleMale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMaleattributeDesc >&
-rolesickleMale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMaleattributeDesc >*
-rolesickleMale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleSicklemale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_rolesickleMale
-
-// repeated .proto_ff.rolesickleMale rolesickleMale_List = 1;
-inline int Sheet_rolesickleMale::rolesicklemale_list_size() const {
-  return rolesicklemale_list_.size();
+// repeated .proto_ff.E_RoleSicklemaleAttributeDesc m_attribute = 3;
+inline int E_RoleSicklemale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_rolesickleMale::clear_rolesicklemale_list() {
-  rolesicklemale_list_.Clear();
+inline void E_RoleSicklemale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::rolesickleMale& Sheet_rolesickleMale::rolesicklemale_list(int index) const {
-  return rolesicklemale_list_.Get(index);
+inline const ::proto_ff::E_RoleSicklemaleAttributeDesc& E_RoleSicklemale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::rolesickleMale* Sheet_rolesickleMale::mutable_rolesicklemale_list(int index) {
-  return rolesicklemale_list_.Mutable(index);
+inline ::proto_ff::E_RoleSicklemaleAttributeDesc* E_RoleSicklemale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::rolesickleMale* Sheet_rolesickleMale::add_rolesicklemale_list() {
-  return rolesicklemale_list_.Add();
+inline ::proto_ff::E_RoleSicklemaleAttributeDesc* E_RoleSicklemale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMale >&
-Sheet_rolesickleMale::rolesicklemale_list() const {
-  return rolesicklemale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemaleAttributeDesc >&
+E_RoleSicklemale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleMale >*
-Sheet_rolesickleMale::mutable_rolesicklemale_list() {
-  return &rolesicklemale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemaleAttributeDesc >*
+E_RoleSicklemale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// rolesickleFemaleattributeDesc
+// Sheet_RoleSicklemale
 
-// optional int32 Type = 1;
-inline bool rolesickleFemaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleSicklemale E_RoleSicklemale_List = 1;
+inline int Sheet_RoleSicklemale::e_rolesicklemale_list_size() const {
+  return e_rolesicklemale_list_.size();
+}
+inline void Sheet_RoleSicklemale::clear_e_rolesicklemale_list() {
+  e_rolesicklemale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleSicklemale& Sheet_RoleSicklemale::e_rolesicklemale_list(int index) const {
+  return e_rolesicklemale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleSicklemale* Sheet_RoleSicklemale::mutable_e_rolesicklemale_list(int index) {
+  return e_rolesicklemale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleSicklemale* Sheet_RoleSicklemale::add_e_rolesicklemale_list() {
+  return e_rolesicklemale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemale >&
+Sheet_RoleSicklemale::e_rolesicklemale_list() const {
+  return e_rolesicklemale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklemale >*
+Sheet_RoleSicklemale::mutable_e_rolesicklemale_list() {
+  return &e_rolesicklemale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleSicklefemaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleSicklefemaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolesickleFemaleattributeDesc::set_has_type() {
+inline void E_RoleSicklefemaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolesickleFemaleattributeDesc::clear_has_type() {
+inline void E_RoleSicklefemaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolesickleFemaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleSicklefemaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 rolesickleFemaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleSicklefemaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void rolesickleFemaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleSicklefemaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool rolesickleFemaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleSicklefemaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolesickleFemaleattributeDesc::set_has_value() {
+inline void E_RoleSicklefemaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolesickleFemaleattributeDesc::clear_has_value() {
+inline void E_RoleSicklefemaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolesickleFemaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleSicklefemaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 rolesickleFemaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleSicklefemaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void rolesickleFemaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleSicklefemaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// rolesickleFemale
+// E_RoleSicklefemale
 
-// optional int32 lv = 1;
-inline bool rolesickleFemale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleSicklefemale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void rolesickleFemale::set_has_lv() {
+inline void E_RoleSicklefemale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void rolesickleFemale::clear_has_lv() {
+inline void E_RoleSicklefemale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void rolesickleFemale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleSicklefemale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 rolesickleFemale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleSicklefemale::m_lv() const {
+  return m_lv_;
 }
-inline void rolesickleFemale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleSicklefemale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool rolesickleFemale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleSicklefemale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void rolesickleFemale::set_has_upgradepoint() {
+inline void E_RoleSicklefemale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void rolesickleFemale::clear_has_upgradepoint() {
+inline void E_RoleSicklefemale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void rolesickleFemale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleSicklefemale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 rolesickleFemale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleSicklefemale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void rolesickleFemale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.rolesickleFemaleattributeDesc attribute = 3;
-inline int rolesickleFemale::attribute_size() const {
-  return attribute_.size();
-}
-inline void rolesickleFemale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::rolesickleFemaleattributeDesc& rolesickleFemale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::rolesickleFemaleattributeDesc* rolesickleFemale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::rolesickleFemaleattributeDesc* rolesickleFemale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemaleattributeDesc >&
-rolesickleFemale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemaleattributeDesc >*
-rolesickleFemale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleSicklefemale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_rolesickleFemale
-
-// repeated .proto_ff.rolesickleFemale rolesickleFemale_List = 1;
-inline int Sheet_rolesickleFemale::rolesicklefemale_list_size() const {
-  return rolesicklefemale_list_.size();
+// repeated .proto_ff.E_RoleSicklefemaleAttributeDesc m_attribute = 3;
+inline int E_RoleSicklefemale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_rolesickleFemale::clear_rolesicklefemale_list() {
-  rolesicklefemale_list_.Clear();
+inline void E_RoleSicklefemale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::rolesickleFemale& Sheet_rolesickleFemale::rolesicklefemale_list(int index) const {
-  return rolesicklefemale_list_.Get(index);
+inline const ::proto_ff::E_RoleSicklefemaleAttributeDesc& E_RoleSicklefemale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::rolesickleFemale* Sheet_rolesickleFemale::mutable_rolesicklefemale_list(int index) {
-  return rolesicklefemale_list_.Mutable(index);
+inline ::proto_ff::E_RoleSicklefemaleAttributeDesc* E_RoleSicklefemale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::rolesickleFemale* Sheet_rolesickleFemale::add_rolesicklefemale_list() {
-  return rolesicklefemale_list_.Add();
+inline ::proto_ff::E_RoleSicklefemaleAttributeDesc* E_RoleSicklefemale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemale >&
-Sheet_rolesickleFemale::rolesicklefemale_list() const {
-  return rolesicklefemale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemaleAttributeDesc >&
+E_RoleSicklefemale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::rolesickleFemale >*
-Sheet_rolesickleFemale::mutable_rolesicklefemale_list() {
-  return &rolesicklefemale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemaleAttributeDesc >*
+E_RoleSicklefemale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// roleswordMaleattributeDesc
+// Sheet_RoleSicklefemale
 
-// optional int32 Type = 1;
-inline bool roleswordMaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleSicklefemale E_RoleSicklefemale_List = 1;
+inline int Sheet_RoleSicklefemale::e_rolesicklefemale_list_size() const {
+  return e_rolesicklefemale_list_.size();
+}
+inline void Sheet_RoleSicklefemale::clear_e_rolesicklefemale_list() {
+  e_rolesicklefemale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleSicklefemale& Sheet_RoleSicklefemale::e_rolesicklefemale_list(int index) const {
+  return e_rolesicklefemale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleSicklefemale* Sheet_RoleSicklefemale::mutable_e_rolesicklefemale_list(int index) {
+  return e_rolesicklefemale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleSicklefemale* Sheet_RoleSicklefemale::add_e_rolesicklefemale_list() {
+  return e_rolesicklefemale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemale >&
+Sheet_RoleSicklefemale::e_rolesicklefemale_list() const {
+  return e_rolesicklefemale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSicklefemale >*
+Sheet_RoleSicklefemale::mutable_e_rolesicklefemale_list() {
+  return &e_rolesicklefemale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleSwordmaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleSwordmaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleswordMaleattributeDesc::set_has_type() {
+inline void E_RoleSwordmaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleswordMaleattributeDesc::clear_has_type() {
+inline void E_RoleSwordmaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleswordMaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleSwordmaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 roleswordMaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleSwordmaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void roleswordMaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleSwordmaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool roleswordMaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleSwordmaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleswordMaleattributeDesc::set_has_value() {
+inline void E_RoleSwordmaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleswordMaleattributeDesc::clear_has_value() {
+inline void E_RoleSwordmaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleswordMaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleSwordmaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 roleswordMaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleSwordmaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void roleswordMaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleSwordmaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roleswordMale
+// E_RoleSwordmale
 
-// optional int32 lv = 1;
-inline bool roleswordMale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleSwordmale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleswordMale::set_has_lv() {
+inline void E_RoleSwordmale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleswordMale::clear_has_lv() {
+inline void E_RoleSwordmale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleswordMale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleSwordmale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 roleswordMale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleSwordmale::m_lv() const {
+  return m_lv_;
 }
-inline void roleswordMale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleSwordmale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool roleswordMale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleSwordmale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleswordMale::set_has_upgradepoint() {
+inline void E_RoleSwordmale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleswordMale::clear_has_upgradepoint() {
+inline void E_RoleSwordmale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleswordMale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleSwordmale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 roleswordMale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleSwordmale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void roleswordMale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.roleswordMaleattributeDesc attribute = 3;
-inline int roleswordMale::attribute_size() const {
-  return attribute_.size();
-}
-inline void roleswordMale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::roleswordMaleattributeDesc& roleswordMale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::roleswordMaleattributeDesc* roleswordMale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::roleswordMaleattributeDesc* roleswordMale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMaleattributeDesc >&
-roleswordMale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMaleattributeDesc >*
-roleswordMale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleSwordmale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_roleswordMale
-
-// repeated .proto_ff.roleswordMale roleswordMale_List = 1;
-inline int Sheet_roleswordMale::roleswordmale_list_size() const {
-  return roleswordmale_list_.size();
+// repeated .proto_ff.E_RoleSwordmaleAttributeDesc m_attribute = 3;
+inline int E_RoleSwordmale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_roleswordMale::clear_roleswordmale_list() {
-  roleswordmale_list_.Clear();
+inline void E_RoleSwordmale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::roleswordMale& Sheet_roleswordMale::roleswordmale_list(int index) const {
-  return roleswordmale_list_.Get(index);
+inline const ::proto_ff::E_RoleSwordmaleAttributeDesc& E_RoleSwordmale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::roleswordMale* Sheet_roleswordMale::mutable_roleswordmale_list(int index) {
-  return roleswordmale_list_.Mutable(index);
+inline ::proto_ff::E_RoleSwordmaleAttributeDesc* E_RoleSwordmale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::roleswordMale* Sheet_roleswordMale::add_roleswordmale_list() {
-  return roleswordmale_list_.Add();
+inline ::proto_ff::E_RoleSwordmaleAttributeDesc* E_RoleSwordmale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMale >&
-Sheet_roleswordMale::roleswordmale_list() const {
-  return roleswordmale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmaleAttributeDesc >&
+E_RoleSwordmale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordMale >*
-Sheet_roleswordMale::mutable_roleswordmale_list() {
-  return &roleswordmale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmaleAttributeDesc >*
+E_RoleSwordmale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// roleswordFemaleattributeDesc
+// Sheet_RoleSwordmale
 
-// optional int32 Type = 1;
-inline bool roleswordFemaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleSwordmale E_RoleSwordmale_List = 1;
+inline int Sheet_RoleSwordmale::e_roleswordmale_list_size() const {
+  return e_roleswordmale_list_.size();
+}
+inline void Sheet_RoleSwordmale::clear_e_roleswordmale_list() {
+  e_roleswordmale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleSwordmale& Sheet_RoleSwordmale::e_roleswordmale_list(int index) const {
+  return e_roleswordmale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleSwordmale* Sheet_RoleSwordmale::mutable_e_roleswordmale_list(int index) {
+  return e_roleswordmale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleSwordmale* Sheet_RoleSwordmale::add_e_roleswordmale_list() {
+  return e_roleswordmale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmale >&
+Sheet_RoleSwordmale::e_roleswordmale_list() const {
+  return e_roleswordmale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordmale >*
+Sheet_RoleSwordmale::mutable_e_roleswordmale_list() {
+  return &e_roleswordmale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleSwordfemaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleSwordfemaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleswordFemaleattributeDesc::set_has_type() {
+inline void E_RoleSwordfemaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleswordFemaleattributeDesc::clear_has_type() {
+inline void E_RoleSwordfemaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleswordFemaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleSwordfemaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 roleswordFemaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleSwordfemaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void roleswordFemaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleSwordfemaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool roleswordFemaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleSwordfemaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleswordFemaleattributeDesc::set_has_value() {
+inline void E_RoleSwordfemaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleswordFemaleattributeDesc::clear_has_value() {
+inline void E_RoleSwordfemaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleswordFemaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleSwordfemaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 roleswordFemaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleSwordfemaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void roleswordFemaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleSwordfemaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roleswordFemale
+// E_RoleSwordfemale
 
-// optional int32 lv = 1;
-inline bool roleswordFemale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleSwordfemale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleswordFemale::set_has_lv() {
+inline void E_RoleSwordfemale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleswordFemale::clear_has_lv() {
+inline void E_RoleSwordfemale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleswordFemale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleSwordfemale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 roleswordFemale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleSwordfemale::m_lv() const {
+  return m_lv_;
 }
-inline void roleswordFemale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleSwordfemale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool roleswordFemale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleSwordfemale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleswordFemale::set_has_upgradepoint() {
+inline void E_RoleSwordfemale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleswordFemale::clear_has_upgradepoint() {
+inline void E_RoleSwordfemale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleswordFemale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleSwordfemale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 roleswordFemale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleSwordfemale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void roleswordFemale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.roleswordFemaleattributeDesc attribute = 3;
-inline int roleswordFemale::attribute_size() const {
-  return attribute_.size();
-}
-inline void roleswordFemale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::roleswordFemaleattributeDesc& roleswordFemale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::roleswordFemaleattributeDesc* roleswordFemale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::roleswordFemaleattributeDesc* roleswordFemale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemaleattributeDesc >&
-roleswordFemale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemaleattributeDesc >*
-roleswordFemale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleSwordfemale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_roleswordFemale
-
-// repeated .proto_ff.roleswordFemale roleswordFemale_List = 1;
-inline int Sheet_roleswordFemale::roleswordfemale_list_size() const {
-  return roleswordfemale_list_.size();
+// repeated .proto_ff.E_RoleSwordfemaleAttributeDesc m_attribute = 3;
+inline int E_RoleSwordfemale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_roleswordFemale::clear_roleswordfemale_list() {
-  roleswordfemale_list_.Clear();
+inline void E_RoleSwordfemale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::roleswordFemale& Sheet_roleswordFemale::roleswordfemale_list(int index) const {
-  return roleswordfemale_list_.Get(index);
+inline const ::proto_ff::E_RoleSwordfemaleAttributeDesc& E_RoleSwordfemale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::roleswordFemale* Sheet_roleswordFemale::mutable_roleswordfemale_list(int index) {
-  return roleswordfemale_list_.Mutable(index);
+inline ::proto_ff::E_RoleSwordfemaleAttributeDesc* E_RoleSwordfemale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::roleswordFemale* Sheet_roleswordFemale::add_roleswordfemale_list() {
-  return roleswordfemale_list_.Add();
+inline ::proto_ff::E_RoleSwordfemaleAttributeDesc* E_RoleSwordfemale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemale >&
-Sheet_roleswordFemale::roleswordfemale_list() const {
-  return roleswordfemale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemaleAttributeDesc >&
+E_RoleSwordfemale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleswordFemale >*
-Sheet_roleswordFemale::mutable_roleswordfemale_list() {
-  return &roleswordfemale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemaleAttributeDesc >*
+E_RoleSwordfemale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// roletaidaoMaleattributeDesc
+// Sheet_RoleSwordfemale
 
-// optional int32 Type = 1;
-inline bool roletaidaoMaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleSwordfemale E_RoleSwordfemale_List = 1;
+inline int Sheet_RoleSwordfemale::e_roleswordfemale_list_size() const {
+  return e_roleswordfemale_list_.size();
+}
+inline void Sheet_RoleSwordfemale::clear_e_roleswordfemale_list() {
+  e_roleswordfemale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleSwordfemale& Sheet_RoleSwordfemale::e_roleswordfemale_list(int index) const {
+  return e_roleswordfemale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleSwordfemale* Sheet_RoleSwordfemale::mutable_e_roleswordfemale_list(int index) {
+  return e_roleswordfemale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleSwordfemale* Sheet_RoleSwordfemale::add_e_roleswordfemale_list() {
+  return e_roleswordfemale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemale >&
+Sheet_RoleSwordfemale::e_roleswordfemale_list() const {
+  return e_roleswordfemale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSwordfemale >*
+Sheet_RoleSwordfemale::mutable_e_roleswordfemale_list() {
+  return &e_roleswordfemale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleTaidaomaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleTaidaomaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roletaidaoMaleattributeDesc::set_has_type() {
+inline void E_RoleTaidaomaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roletaidaoMaleattributeDesc::clear_has_type() {
+inline void E_RoleTaidaomaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roletaidaoMaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleTaidaomaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 roletaidaoMaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleTaidaomaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void roletaidaoMaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleTaidaomaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool roletaidaoMaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleTaidaomaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roletaidaoMaleattributeDesc::set_has_value() {
+inline void E_RoleTaidaomaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roletaidaoMaleattributeDesc::clear_has_value() {
+inline void E_RoleTaidaomaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roletaidaoMaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleTaidaomaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 roletaidaoMaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleTaidaomaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void roletaidaoMaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleTaidaomaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roletaidaoMale
+// E_RoleTaidaomale
 
-// optional int32 lv = 1;
-inline bool roletaidaoMale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleTaidaomale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roletaidaoMale::set_has_lv() {
+inline void E_RoleTaidaomale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roletaidaoMale::clear_has_lv() {
+inline void E_RoleTaidaomale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roletaidaoMale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleTaidaomale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 roletaidaoMale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleTaidaomale::m_lv() const {
+  return m_lv_;
 }
-inline void roletaidaoMale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleTaidaomale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool roletaidaoMale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleTaidaomale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roletaidaoMale::set_has_upgradepoint() {
+inline void E_RoleTaidaomale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roletaidaoMale::clear_has_upgradepoint() {
+inline void E_RoleTaidaomale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roletaidaoMale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleTaidaomale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 roletaidaoMale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleTaidaomale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void roletaidaoMale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.roletaidaoMaleattributeDesc attribute = 3;
-inline int roletaidaoMale::attribute_size() const {
-  return attribute_.size();
-}
-inline void roletaidaoMale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::roletaidaoMaleattributeDesc& roletaidaoMale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::roletaidaoMaleattributeDesc* roletaidaoMale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::roletaidaoMaleattributeDesc* roletaidaoMale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMaleattributeDesc >&
-roletaidaoMale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMaleattributeDesc >*
-roletaidaoMale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleTaidaomale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_roletaidaoMale
-
-// repeated .proto_ff.roletaidaoMale roletaidaoMale_List = 1;
-inline int Sheet_roletaidaoMale::roletaidaomale_list_size() const {
-  return roletaidaomale_list_.size();
+// repeated .proto_ff.E_RoleTaidaomaleAttributeDesc m_attribute = 3;
+inline int E_RoleTaidaomale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_roletaidaoMale::clear_roletaidaomale_list() {
-  roletaidaomale_list_.Clear();
+inline void E_RoleTaidaomale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::roletaidaoMale& Sheet_roletaidaoMale::roletaidaomale_list(int index) const {
-  return roletaidaomale_list_.Get(index);
+inline const ::proto_ff::E_RoleTaidaomaleAttributeDesc& E_RoleTaidaomale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::roletaidaoMale* Sheet_roletaidaoMale::mutable_roletaidaomale_list(int index) {
-  return roletaidaomale_list_.Mutable(index);
+inline ::proto_ff::E_RoleTaidaomaleAttributeDesc* E_RoleTaidaomale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::roletaidaoMale* Sheet_roletaidaoMale::add_roletaidaomale_list() {
-  return roletaidaomale_list_.Add();
+inline ::proto_ff::E_RoleTaidaomaleAttributeDesc* E_RoleTaidaomale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMale >&
-Sheet_roletaidaoMale::roletaidaomale_list() const {
-  return roletaidaomale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomaleAttributeDesc >&
+E_RoleTaidaomale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoMale >*
-Sheet_roletaidaoMale::mutable_roletaidaomale_list() {
-  return &roletaidaomale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomaleAttributeDesc >*
+E_RoleTaidaomale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// roletaidaoFemaleattributeDesc
+// Sheet_RoleTaidaomale
 
-// optional int32 Type = 1;
-inline bool roletaidaoFemaleattributeDesc::has_type() const {
+// repeated .proto_ff.E_RoleTaidaomale E_RoleTaidaomale_List = 1;
+inline int Sheet_RoleTaidaomale::e_roletaidaomale_list_size() const {
+  return e_roletaidaomale_list_.size();
+}
+inline void Sheet_RoleTaidaomale::clear_e_roletaidaomale_list() {
+  e_roletaidaomale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleTaidaomale& Sheet_RoleTaidaomale::e_roletaidaomale_list(int index) const {
+  return e_roletaidaomale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleTaidaomale* Sheet_RoleTaidaomale::mutable_e_roletaidaomale_list(int index) {
+  return e_roletaidaomale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleTaidaomale* Sheet_RoleTaidaomale::add_e_roletaidaomale_list() {
+  return e_roletaidaomale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomale >&
+Sheet_RoleTaidaomale::e_roletaidaomale_list() const {
+  return e_roletaidaomale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaomale >*
+Sheet_RoleTaidaomale::mutable_e_roletaidaomale_list() {
+  return &e_roletaidaomale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleTaidaofemaleAttributeDesc
+
+// optional int32 m_type = 1;
+inline bool E_RoleTaidaofemaleAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roletaidaoFemaleattributeDesc::set_has_type() {
+inline void E_RoleTaidaofemaleAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roletaidaoFemaleattributeDesc::clear_has_type() {
+inline void E_RoleTaidaofemaleAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roletaidaoFemaleattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_RoleTaidaofemaleAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 roletaidaoFemaleattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_RoleTaidaofemaleAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void roletaidaoFemaleattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_RoleTaidaofemaleAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 Value = 2;
-inline bool roletaidaoFemaleattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_RoleTaidaofemaleAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roletaidaoFemaleattributeDesc::set_has_value() {
+inline void E_RoleTaidaofemaleAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roletaidaoFemaleattributeDesc::clear_has_value() {
+inline void E_RoleTaidaofemaleAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roletaidaoFemaleattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_RoleTaidaofemaleAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 roletaidaoFemaleattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_RoleTaidaofemaleAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void roletaidaoFemaleattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_RoleTaidaofemaleAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roletaidaoFemale
+// E_RoleTaidaofemale
 
-// optional int32 lv = 1;
-inline bool roletaidaoFemale::has_lv() const {
+// optional int32 m_lv = 1;
+inline bool E_RoleTaidaofemale::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roletaidaoFemale::set_has_lv() {
+inline void E_RoleTaidaofemale::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roletaidaoFemale::clear_has_lv() {
+inline void E_RoleTaidaofemale::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roletaidaoFemale::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleTaidaofemale::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 roletaidaoFemale::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleTaidaofemale::m_lv() const {
+  return m_lv_;
 }
-inline void roletaidaoFemale::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleTaidaofemale::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 upgradePoint = 2;
-inline bool roletaidaoFemale::has_upgradepoint() const {
+// optional int32 m_upgradepoint = 2;
+inline bool E_RoleTaidaofemale::has_m_upgradepoint() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roletaidaoFemale::set_has_upgradepoint() {
+inline void E_RoleTaidaofemale::set_has_m_upgradepoint() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roletaidaoFemale::clear_has_upgradepoint() {
+inline void E_RoleTaidaofemale::clear_has_m_upgradepoint() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roletaidaoFemale::clear_upgradepoint() {
-  upgradepoint_ = 0;
-  clear_has_upgradepoint();
+inline void E_RoleTaidaofemale::clear_m_upgradepoint() {
+  m_upgradepoint_ = 0;
+  clear_has_m_upgradepoint();
 }
-inline ::google::protobuf::int32 roletaidaoFemale::upgradepoint() const {
-  return upgradepoint_;
+inline ::google::protobuf::int32 E_RoleTaidaofemale::m_upgradepoint() const {
+  return m_upgradepoint_;
 }
-inline void roletaidaoFemale::set_upgradepoint(::google::protobuf::int32 value) {
-  set_has_upgradepoint();
-  upgradepoint_ = value;
-}
-
-// repeated .proto_ff.roletaidaoFemaleattributeDesc attribute = 3;
-inline int roletaidaoFemale::attribute_size() const {
-  return attribute_.size();
-}
-inline void roletaidaoFemale::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::roletaidaoFemaleattributeDesc& roletaidaoFemale::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::roletaidaoFemaleattributeDesc* roletaidaoFemale::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::roletaidaoFemaleattributeDesc* roletaidaoFemale::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemaleattributeDesc >&
-roletaidaoFemale::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemaleattributeDesc >*
-roletaidaoFemale::mutable_attribute() {
-  return &attribute_;
+inline void E_RoleTaidaofemale::set_m_upgradepoint(::google::protobuf::int32 value) {
+  set_has_m_upgradepoint();
+  m_upgradepoint_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_roletaidaoFemale
-
-// repeated .proto_ff.roletaidaoFemale roletaidaoFemale_List = 1;
-inline int Sheet_roletaidaoFemale::roletaidaofemale_list_size() const {
-  return roletaidaofemale_list_.size();
+// repeated .proto_ff.E_RoleTaidaofemaleAttributeDesc m_attribute = 3;
+inline int E_RoleTaidaofemale::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void Sheet_roletaidaoFemale::clear_roletaidaofemale_list() {
-  roletaidaofemale_list_.Clear();
+inline void E_RoleTaidaofemale::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::roletaidaoFemale& Sheet_roletaidaoFemale::roletaidaofemale_list(int index) const {
-  return roletaidaofemale_list_.Get(index);
+inline const ::proto_ff::E_RoleTaidaofemaleAttributeDesc& E_RoleTaidaofemale::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::roletaidaoFemale* Sheet_roletaidaoFemale::mutable_roletaidaofemale_list(int index) {
-  return roletaidaofemale_list_.Mutable(index);
+inline ::proto_ff::E_RoleTaidaofemaleAttributeDesc* E_RoleTaidaofemale::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::roletaidaoFemale* Sheet_roletaidaoFemale::add_roletaidaofemale_list() {
-  return roletaidaofemale_list_.Add();
+inline ::proto_ff::E_RoleTaidaofemaleAttributeDesc* E_RoleTaidaofemale::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemale >&
-Sheet_roletaidaoFemale::roletaidaofemale_list() const {
-  return roletaidaofemale_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemaleAttributeDesc >&
+E_RoleTaidaofemale::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roletaidaoFemale >*
-Sheet_roletaidaoFemale::mutable_roletaidaofemale_list() {
-  return &roletaidaofemale_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemaleAttributeDesc >*
+E_RoleTaidaofemale::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// roleexp
+// Sheet_RoleTaidaofemale
 
-// optional int32 lv = 1;
-inline bool roleexp::has_lv() const {
+// repeated .proto_ff.E_RoleTaidaofemale E_RoleTaidaofemale_List = 1;
+inline int Sheet_RoleTaidaofemale::e_roletaidaofemale_list_size() const {
+  return e_roletaidaofemale_list_.size();
+}
+inline void Sheet_RoleTaidaofemale::clear_e_roletaidaofemale_list() {
+  e_roletaidaofemale_list_.Clear();
+}
+inline const ::proto_ff::E_RoleTaidaofemale& Sheet_RoleTaidaofemale::e_roletaidaofemale_list(int index) const {
+  return e_roletaidaofemale_list_.Get(index);
+}
+inline ::proto_ff::E_RoleTaidaofemale* Sheet_RoleTaidaofemale::mutable_e_roletaidaofemale_list(int index) {
+  return e_roletaidaofemale_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleTaidaofemale* Sheet_RoleTaidaofemale::add_e_roletaidaofemale_list() {
+  return e_roletaidaofemale_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemale >&
+Sheet_RoleTaidaofemale::e_roletaidaofemale_list() const {
+  return e_roletaidaofemale_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleTaidaofemale >*
+Sheet_RoleTaidaofemale::mutable_e_roletaidaofemale_list() {
+  return &e_roletaidaofemale_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleExp
+
+// optional int32 m_lv = 1;
+inline bool E_RoleExp::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleexp::set_has_lv() {
+inline void E_RoleExp::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleexp::clear_has_lv() {
+inline void E_RoleExp::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleexp::clear_lv() {
-  lv_ = 0;
-  clear_has_lv();
+inline void E_RoleExp::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int32 roleexp::lv() const {
-  return lv_;
+inline ::google::protobuf::int32 E_RoleExp::m_lv() const {
+  return m_lv_;
 }
-inline void roleexp::set_lv(::google::protobuf::int32 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleExp::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int64 exp = 2;
-inline bool roleexp::has_exp() const {
+// optional int64 m_exp = 2;
+inline bool E_RoleExp::has_m_exp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleexp::set_has_exp() {
+inline void E_RoleExp::set_has_m_exp() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleexp::clear_has_exp() {
+inline void E_RoleExp::clear_has_m_exp() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleexp::clear_exp() {
-  exp_ = GOOGLE_LONGLONG(0);
-  clear_has_exp();
+inline void E_RoleExp::clear_m_exp() {
+  m_exp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_exp();
 }
-inline ::google::protobuf::int64 roleexp::exp() const {
-  return exp_;
+inline ::google::protobuf::int64 E_RoleExp::m_exp() const {
+  return m_exp_;
 }
-inline void roleexp::set_exp(::google::protobuf::int64 value) {
-  set_has_exp();
-  exp_ = value;
+inline void E_RoleExp::set_m_exp(::google::protobuf::int64 value) {
+  set_has_m_exp();
+  m_exp_ = value;
 }
 
-// optional int32 skillPoint = 3;
-inline bool roleexp::has_skillpoint() const {
+// optional int32 m_skillpoint = 3;
+inline bool E_RoleExp::has_m_skillpoint() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void roleexp::set_has_skillpoint() {
+inline void E_RoleExp::set_has_m_skillpoint() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void roleexp::clear_has_skillpoint() {
+inline void E_RoleExp::clear_has_m_skillpoint() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void roleexp::clear_skillpoint() {
-  skillpoint_ = 0;
-  clear_has_skillpoint();
+inline void E_RoleExp::clear_m_skillpoint() {
+  m_skillpoint_ = 0;
+  clear_has_m_skillpoint();
 }
-inline ::google::protobuf::int32 roleexp::skillpoint() const {
-  return skillpoint_;
+inline ::google::protobuf::int32 E_RoleExp::m_skillpoint() const {
+  return m_skillpoint_;
 }
-inline void roleexp::set_skillpoint(::google::protobuf::int32 value) {
-  set_has_skillpoint();
-  skillpoint_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_roleexp
-
-// repeated .proto_ff.roleexp roleexp_List = 1;
-inline int Sheet_roleexp::roleexp_list_size() const {
-  return roleexp_list_.size();
-}
-inline void Sheet_roleexp::clear_roleexp_list() {
-  roleexp_list_.Clear();
-}
-inline const ::proto_ff::roleexp& Sheet_roleexp::roleexp_list(int index) const {
-  return roleexp_list_.Get(index);
-}
-inline ::proto_ff::roleexp* Sheet_roleexp::mutable_roleexp_list(int index) {
-  return roleexp_list_.Mutable(index);
-}
-inline ::proto_ff::roleexp* Sheet_roleexp::add_roleexp_list() {
-  return roleexp_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleexp >&
-Sheet_roleexp::roleexp_list() const {
-  return roleexp_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleexp >*
-Sheet_roleexp::mutable_roleexp_list() {
-  return &roleexp_list_;
+inline void E_RoleExp::set_m_skillpoint(::google::protobuf::int32 value) {
+  set_has_m_skillpoint();
+  m_skillpoint_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roleskillType
+// Sheet_RoleExp
 
-// optional int64 skillId = 1;
-inline bool roleskillType::has_skillid() const {
+// repeated .proto_ff.E_RoleExp E_RoleExp_List = 1;
+inline int Sheet_RoleExp::e_roleexp_list_size() const {
+  return e_roleexp_list_.size();
+}
+inline void Sheet_RoleExp::clear_e_roleexp_list() {
+  e_roleexp_list_.Clear();
+}
+inline const ::proto_ff::E_RoleExp& Sheet_RoleExp::e_roleexp_list(int index) const {
+  return e_roleexp_list_.Get(index);
+}
+inline ::proto_ff::E_RoleExp* Sheet_RoleExp::mutable_e_roleexp_list(int index) {
+  return e_roleexp_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleExp* Sheet_RoleExp::add_e_roleexp_list() {
+  return e_roleexp_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleExp >&
+Sheet_RoleExp::e_roleexp_list() const {
+  return e_roleexp_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleExp >*
+Sheet_RoleExp::mutable_e_roleexp_list() {
+  return &e_roleexp_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleSkilltype
+
+// optional int64 m_skillid = 1;
+inline bool E_RoleSkilltype::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleskillType::set_has_skillid() {
+inline void E_RoleSkilltype::set_has_m_skillid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleskillType::clear_has_skillid() {
+inline void E_RoleSkilltype::clear_has_m_skillid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleskillType::clear_skillid() {
-  skillid_ = GOOGLE_LONGLONG(0);
-  clear_has_skillid();
+inline void E_RoleSkilltype::clear_m_skillid() {
+  m_skillid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_skillid();
 }
-inline ::google::protobuf::int64 roleskillType::skillid() const {
-  return skillid_;
+inline ::google::protobuf::int64 E_RoleSkilltype::m_skillid() const {
+  return m_skillid_;
 }
-inline void roleskillType::set_skillid(::google::protobuf::int64 value) {
-  set_has_skillid();
-  skillid_ = value;
+inline void E_RoleSkilltype::set_m_skillid(::google::protobuf::int64 value) {
+  set_has_m_skillid();
+  m_skillid_ = value;
 }
 
-// optional int32 skillType = 2;
-inline bool roleskillType::has_skilltype() const {
+// optional int32 m_skilltype = 2;
+inline bool E_RoleSkilltype::has_m_skilltype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleskillType::set_has_skilltype() {
+inline void E_RoleSkilltype::set_has_m_skilltype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleskillType::clear_has_skilltype() {
+inline void E_RoleSkilltype::clear_has_m_skilltype() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleskillType::clear_skilltype() {
-  skilltype_ = 0;
-  clear_has_skilltype();
+inline void E_RoleSkilltype::clear_m_skilltype() {
+  m_skilltype_ = 0;
+  clear_has_m_skilltype();
 }
-inline ::google::protobuf::int32 roleskillType::skilltype() const {
-  return skilltype_;
+inline ::google::protobuf::int32 E_RoleSkilltype::m_skilltype() const {
+  return m_skilltype_;
 }
-inline void roleskillType::set_skilltype(::google::protobuf::int32 value) {
-  set_has_skilltype();
-  skilltype_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_roleskillType
-
-// repeated .proto_ff.roleskillType roleskillType_List = 1;
-inline int Sheet_roleskillType::roleskilltype_list_size() const {
-  return roleskilltype_list_.size();
-}
-inline void Sheet_roleskillType::clear_roleskilltype_list() {
-  roleskilltype_list_.Clear();
-}
-inline const ::proto_ff::roleskillType& Sheet_roleskillType::roleskilltype_list(int index) const {
-  return roleskilltype_list_.Get(index);
-}
-inline ::proto_ff::roleskillType* Sheet_roleskillType::mutable_roleskilltype_list(int index) {
-  return roleskilltype_list_.Mutable(index);
-}
-inline ::proto_ff::roleskillType* Sheet_roleskillType::add_roleskilltype_list() {
-  return roleskilltype_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleskillType >&
-Sheet_roleskillType::roleskilltype_list() const {
-  return roleskilltype_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleskillType >*
-Sheet_roleskillType::mutable_roleskilltype_list() {
-  return &roleskilltype_list_;
+inline void E_RoleSkilltype::set_m_skilltype(::google::protobuf::int32 value) {
+  set_has_m_skilltype();
+  m_skilltype_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roleaddSkill
+// Sheet_RoleSkilltype
 
-// optional int32 Id = 1;
-inline bool roleaddSkill::has_id() const {
+// repeated .proto_ff.E_RoleSkilltype E_RoleSkilltype_List = 1;
+inline int Sheet_RoleSkilltype::e_roleskilltype_list_size() const {
+  return e_roleskilltype_list_.size();
+}
+inline void Sheet_RoleSkilltype::clear_e_roleskilltype_list() {
+  e_roleskilltype_list_.Clear();
+}
+inline const ::proto_ff::E_RoleSkilltype& Sheet_RoleSkilltype::e_roleskilltype_list(int index) const {
+  return e_roleskilltype_list_.Get(index);
+}
+inline ::proto_ff::E_RoleSkilltype* Sheet_RoleSkilltype::mutable_e_roleskilltype_list(int index) {
+  return e_roleskilltype_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleSkilltype* Sheet_RoleSkilltype::add_e_roleskilltype_list() {
+  return e_roleskilltype_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSkilltype >&
+Sheet_RoleSkilltype::e_roleskilltype_list() const {
+  return e_roleskilltype_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleSkilltype >*
+Sheet_RoleSkilltype::mutable_e_roleskilltype_list() {
+  return &e_roleskilltype_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleAddskill
+
+// optional int32 m_id = 1;
+inline bool E_RoleAddskill::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleaddSkill::set_has_id() {
+inline void E_RoleAddskill::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleaddSkill::clear_has_id() {
+inline void E_RoleAddskill::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleaddSkill::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_RoleAddskill::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 roleaddSkill::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_RoleAddskill::m_id() const {
+  return m_id_;
 }
-inline void roleaddSkill::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_RoleAddskill::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int64 skillId = 2;
-inline bool roleaddSkill::has_skillid() const {
+// optional int64 m_skillid = 2;
+inline bool E_RoleAddskill::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleaddSkill::set_has_skillid() {
+inline void E_RoleAddskill::set_has_m_skillid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleaddSkill::clear_has_skillid() {
+inline void E_RoleAddskill::clear_has_m_skillid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleaddSkill::clear_skillid() {
-  skillid_ = GOOGLE_LONGLONG(0);
-  clear_has_skillid();
+inline void E_RoleAddskill::clear_m_skillid() {
+  m_skillid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_skillid();
 }
-inline ::google::protobuf::int64 roleaddSkill::skillid() const {
-  return skillid_;
+inline ::google::protobuf::int64 E_RoleAddskill::m_skillid() const {
+  return m_skillid_;
 }
-inline void roleaddSkill::set_skillid(::google::protobuf::int64 value) {
-  set_has_skillid();
-  skillid_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_roleaddSkill
-
-// repeated .proto_ff.roleaddSkill roleaddSkill_List = 1;
-inline int Sheet_roleaddSkill::roleaddskill_list_size() const {
-  return roleaddskill_list_.size();
-}
-inline void Sheet_roleaddSkill::clear_roleaddskill_list() {
-  roleaddskill_list_.Clear();
-}
-inline const ::proto_ff::roleaddSkill& Sheet_roleaddSkill::roleaddskill_list(int index) const {
-  return roleaddskill_list_.Get(index);
-}
-inline ::proto_ff::roleaddSkill* Sheet_roleaddSkill::mutable_roleaddskill_list(int index) {
-  return roleaddskill_list_.Mutable(index);
-}
-inline ::proto_ff::roleaddSkill* Sheet_roleaddSkill::add_roleaddskill_list() {
-  return roleaddskill_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleaddSkill >&
-Sheet_roleaddSkill::roleaddskill_list() const {
-  return roleaddskill_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleaddSkill >*
-Sheet_roleaddSkill::mutable_roleaddskill_list() {
-  return &roleaddskill_list_;
+inline void E_RoleAddskill::set_m_skillid(::google::protobuf::int64 value) {
+  set_has_m_skillid();
+  m_skillid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// roleworldexp
+// Sheet_RoleAddskill
 
-// optional int64 lv = 1;
-inline bool roleworldexp::has_lv() const {
+// repeated .proto_ff.E_RoleAddskill E_RoleAddskill_List = 1;
+inline int Sheet_RoleAddskill::e_roleaddskill_list_size() const {
+  return e_roleaddskill_list_.size();
+}
+inline void Sheet_RoleAddskill::clear_e_roleaddskill_list() {
+  e_roleaddskill_list_.Clear();
+}
+inline const ::proto_ff::E_RoleAddskill& Sheet_RoleAddskill::e_roleaddskill_list(int index) const {
+  return e_roleaddskill_list_.Get(index);
+}
+inline ::proto_ff::E_RoleAddskill* Sheet_RoleAddskill::mutable_e_roleaddskill_list(int index) {
+  return e_roleaddskill_list_.Mutable(index);
+}
+inline ::proto_ff::E_RoleAddskill* Sheet_RoleAddskill::add_e_roleaddskill_list() {
+  return e_roleaddskill_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleAddskill >&
+Sheet_RoleAddskill::e_roleaddskill_list() const {
+  return e_roleaddskill_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleAddskill >*
+Sheet_RoleAddskill::mutable_e_roleaddskill_list() {
+  return &e_roleaddskill_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_RoleWorldexp
+
+// optional int64 m_lv = 1;
+inline bool E_RoleWorldexp::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void roleworldexp::set_has_lv() {
+inline void E_RoleWorldexp::set_has_m_lv() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void roleworldexp::clear_has_lv() {
+inline void E_RoleWorldexp::clear_has_m_lv() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void roleworldexp::clear_lv() {
-  lv_ = GOOGLE_LONGLONG(0);
-  clear_has_lv();
+inline void E_RoleWorldexp::clear_m_lv() {
+  m_lv_ = GOOGLE_LONGLONG(0);
+  clear_has_m_lv();
 }
-inline ::google::protobuf::int64 roleworldexp::lv() const {
-  return lv_;
+inline ::google::protobuf::int64 E_RoleWorldexp::m_lv() const {
+  return m_lv_;
 }
-inline void roleworldexp::set_lv(::google::protobuf::int64 value) {
-  set_has_lv();
-  lv_ = value;
+inline void E_RoleWorldexp::set_m_lv(::google::protobuf::int64 value) {
+  set_has_m_lv();
+  m_lv_ = value;
 }
 
-// optional int32 worldExp = 2;
-inline bool roleworldexp::has_worldexp() const {
+// optional int32 m_worldexp = 2;
+inline bool E_RoleWorldexp::has_m_worldexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void roleworldexp::set_has_worldexp() {
+inline void E_RoleWorldexp::set_has_m_worldexp() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void roleworldexp::clear_has_worldexp() {
+inline void E_RoleWorldexp::clear_has_m_worldexp() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void roleworldexp::clear_worldexp() {
-  worldexp_ = 0;
-  clear_has_worldexp();
+inline void E_RoleWorldexp::clear_m_worldexp() {
+  m_worldexp_ = 0;
+  clear_has_m_worldexp();
 }
-inline ::google::protobuf::int32 roleworldexp::worldexp() const {
-  return worldexp_;
+inline ::google::protobuf::int32 E_RoleWorldexp::m_worldexp() const {
+  return m_worldexp_;
 }
-inline void roleworldexp::set_worldexp(::google::protobuf::int32 value) {
-  set_has_worldexp();
-  worldexp_ = value;
+inline void E_RoleWorldexp::set_m_worldexp(::google::protobuf::int32 value) {
+  set_has_m_worldexp();
+  m_worldexp_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_roleworldexp
+// Sheet_RoleWorldexp
 
-// repeated .proto_ff.roleworldexp roleworldexp_List = 1;
-inline int Sheet_roleworldexp::roleworldexp_list_size() const {
-  return roleworldexp_list_.size();
+// repeated .proto_ff.E_RoleWorldexp E_RoleWorldexp_List = 1;
+inline int Sheet_RoleWorldexp::e_roleworldexp_list_size() const {
+  return e_roleworldexp_list_.size();
 }
-inline void Sheet_roleworldexp::clear_roleworldexp_list() {
-  roleworldexp_list_.Clear();
+inline void Sheet_RoleWorldexp::clear_e_roleworldexp_list() {
+  e_roleworldexp_list_.Clear();
 }
-inline const ::proto_ff::roleworldexp& Sheet_roleworldexp::roleworldexp_list(int index) const {
-  return roleworldexp_list_.Get(index);
+inline const ::proto_ff::E_RoleWorldexp& Sheet_RoleWorldexp::e_roleworldexp_list(int index) const {
+  return e_roleworldexp_list_.Get(index);
 }
-inline ::proto_ff::roleworldexp* Sheet_roleworldexp::mutable_roleworldexp_list(int index) {
-  return roleworldexp_list_.Mutable(index);
+inline ::proto_ff::E_RoleWorldexp* Sheet_RoleWorldexp::mutable_e_roleworldexp_list(int index) {
+  return e_roleworldexp_list_.Mutable(index);
 }
-inline ::proto_ff::roleworldexp* Sheet_roleworldexp::add_roleworldexp_list() {
-  return roleworldexp_list_.Add();
+inline ::proto_ff::E_RoleWorldexp* Sheet_RoleWorldexp::add_e_roleworldexp_list() {
+  return e_roleworldexp_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::roleworldexp >&
-Sheet_roleworldexp::roleworldexp_list() const {
-  return roleworldexp_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleWorldexp >&
+Sheet_RoleWorldexp::e_roleworldexp_list() const {
+  return e_roleworldexp_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::roleworldexp >*
-Sheet_roleworldexp::mutable_roleworldexp_list() {
-  return &roleworldexp_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RoleWorldexp >*
+Sheet_RoleWorldexp::mutable_e_roleworldexp_list() {
+  return &e_roleworldexp_list_;
 }
 
 

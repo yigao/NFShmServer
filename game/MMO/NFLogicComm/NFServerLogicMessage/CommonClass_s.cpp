@@ -63,43 +63,43 @@ int EquipExt_s::ResumeInit() {
 }
 
 void EquipExt_s::write_to_pbmsg(::proto_ff::EquipExt & msg) const {
-	for(int32_t i = 0; i < (int32_t)base_attr.GetSize() && i < base_attr.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)base_attr.size(); ++i) {
 		msg.add_base_attr((int32_t)base_attr[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)star_attr.GetSize() && i < star_attr.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)star_attr.size(); ++i) {
 		msg.add_star_attr((int32_t)star_attr[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)blue_attr.GetSize() && i < blue_attr.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)blue_attr.size(); ++i) {
 		msg.add_blue_attr((int32_t)blue_attr[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)god_attr.GetSize() && i < god_attr.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)god_attr.size(); ++i) {
 		msg.add_god_attr((int32_t)god_attr[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)special_attr.GetSize() && i < special_attr.GetMaxSize(); ++i) {
+	for(int32_t i = 0; i < (int32_t)special_attr.size(); ++i) {
 		msg.add_special_attr((int32_t)special_attr[i]);
 	}
 }
 
 void EquipExt_s::read_from_pbmsg(const ::proto_ff::EquipExt & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct EquipExt_s));
-	base_attr.SetSize(msg.base_attr_size() > base_attr.GetMaxSize() ? base_attr.GetMaxSize() : msg.base_attr_size());
-	for(int32_t i = 0; i < (int32_t)base_attr.GetSize(); ++i) {
+	base_attr.resize((int)msg.base_attr_size() > (int)base_attr.max_size() ? base_attr.max_size() : msg.base_attr_size());
+	for(int32_t i = 0; i < (int32_t)base_attr.size(); ++i) {
 		base_attr[i] = msg.base_attr(i);
 	}
-	star_attr.SetSize(msg.star_attr_size() > star_attr.GetMaxSize() ? star_attr.GetMaxSize() : msg.star_attr_size());
-	for(int32_t i = 0; i < (int32_t)star_attr.GetSize(); ++i) {
+	star_attr.resize((int)msg.star_attr_size() > (int)star_attr.max_size() ? star_attr.max_size() : msg.star_attr_size());
+	for(int32_t i = 0; i < (int32_t)star_attr.size(); ++i) {
 		star_attr[i] = msg.star_attr(i);
 	}
-	blue_attr.SetSize(msg.blue_attr_size() > blue_attr.GetMaxSize() ? blue_attr.GetMaxSize() : msg.blue_attr_size());
-	for(int32_t i = 0; i < (int32_t)blue_attr.GetSize(); ++i) {
+	blue_attr.resize((int)msg.blue_attr_size() > (int)blue_attr.max_size() ? blue_attr.max_size() : msg.blue_attr_size());
+	for(int32_t i = 0; i < (int32_t)blue_attr.size(); ++i) {
 		blue_attr[i] = msg.blue_attr(i);
 	}
-	god_attr.SetSize(msg.god_attr_size() > god_attr.GetMaxSize() ? god_attr.GetMaxSize() : msg.god_attr_size());
-	for(int32_t i = 0; i < (int32_t)god_attr.GetSize(); ++i) {
+	god_attr.resize((int)msg.god_attr_size() > (int)god_attr.max_size() ? god_attr.max_size() : msg.god_attr_size());
+	for(int32_t i = 0; i < (int32_t)god_attr.size(); ++i) {
 		god_attr[i] = msg.god_attr(i);
 	}
-	special_attr.SetSize(msg.special_attr_size() > special_attr.GetMaxSize() ? special_attr.GetMaxSize() : msg.special_attr_size());
-	for(int32_t i = 0; i < (int32_t)special_attr.GetSize(); ++i) {
+	special_attr.resize((int)msg.special_attr_size() > (int)special_attr.max_size() ? special_attr.max_size() : msg.special_attr_size());
+	for(int32_t i = 0; i < (int32_t)special_attr.size(); ++i) {
 		special_attr[i] = msg.special_attr(i);
 	}
 }

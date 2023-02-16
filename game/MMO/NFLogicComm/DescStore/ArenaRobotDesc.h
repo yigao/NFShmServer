@@ -14,9 +14,9 @@ public:
 	virtual ~ArenaRobotDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::arenarobot_s* GetDesc(int id) const;
-	proto_ff_s::arenarobot_s* GetDesc(int id);
+	const proto_ff_s::E_ArenaRobot_s* GetDesc(int id) const;
+	proto_ff_s::E_ArenaRobot_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::arenarobot_s, arenarobot, MAX_ARENA_ROBOT_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaRobot_s, arenarobot, MAX_ARENA_ROBOT_NUM);
 DECLARE_IDCREATE(ArenaRobotDesc);
 };

@@ -20,18 +20,18 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* vipvip_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_VipVip_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  vipvip_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_vipvip_descriptor_ = NULL;
+  E_VipVip_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_VipVip_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_vipvip_reflection_ = NULL;
-const ::google::protobuf::Descriptor* vipprivilege_descriptor_ = NULL;
+  Sheet_VipVip_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_VipPrivilege_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  vipprivilege_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_vipprivilege_descriptor_ = NULL;
+  E_VipPrivilege_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_VipPrivilege_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_vipprivilege_reflection_ = NULL;
+  Sheet_VipPrivilege_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,73 +42,73 @@ void protobuf_AssignDesc_vip_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "vip.proto");
   GOOGLE_CHECK(file != NULL);
-  vipvip_descriptor_ = file->message_type(0);
-  static const int vipvip_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipvip, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipvip, level_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipvip, exp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipvip, privilege_group_),
+  E_VipVip_descriptor_ = file->message_type(0);
+  static const int E_VipVip_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipVip, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipVip, m_level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipVip, m_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipVip, m_privilege_group_),
   };
-  vipvip_reflection_ =
+  E_VipVip_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      vipvip_descriptor_,
-      vipvip::default_instance_,
-      vipvip_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipvip, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipvip, _unknown_fields_),
+      E_VipVip_descriptor_,
+      E_VipVip::default_instance_,
+      E_VipVip_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipVip, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipVip, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(vipvip));
-  Sheet_vipvip_descriptor_ = file->message_type(1);
-  static const int Sheet_vipvip_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_vipvip, vipvip_list_),
+      sizeof(E_VipVip));
+  Sheet_VipVip_descriptor_ = file->message_type(1);
+  static const int Sheet_VipVip_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_VipVip, e_vipvip_list_),
   };
-  Sheet_vipvip_reflection_ =
+  Sheet_VipVip_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_vipvip_descriptor_,
-      Sheet_vipvip::default_instance_,
-      Sheet_vipvip_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_vipvip, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_vipvip, _unknown_fields_),
+      Sheet_VipVip_descriptor_,
+      Sheet_VipVip::default_instance_,
+      Sheet_VipVip_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_VipVip, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_VipVip, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_vipvip));
-  vipprivilege_descriptor_ = file->message_type(2);
-  static const int vipprivilege_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, group_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, arg_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, args_),
+      sizeof(Sheet_VipVip));
+  E_VipPrivilege_descriptor_ = file->message_type(2);
+  static const int E_VipPrivilege_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, m_group_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, m_arg_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, m_args_),
   };
-  vipprivilege_reflection_ =
+  E_VipPrivilege_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      vipprivilege_descriptor_,
-      vipprivilege::default_instance_,
-      vipprivilege_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(vipprivilege, _unknown_fields_),
+      E_VipPrivilege_descriptor_,
+      E_VipPrivilege::default_instance_,
+      E_VipPrivilege_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_VipPrivilege, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(vipprivilege));
-  Sheet_vipprivilege_descriptor_ = file->message_type(3);
-  static const int Sheet_vipprivilege_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_vipprivilege, vipprivilege_list_),
+      sizeof(E_VipPrivilege));
+  Sheet_VipPrivilege_descriptor_ = file->message_type(3);
+  static const int Sheet_VipPrivilege_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_VipPrivilege, e_vipprivilege_list_),
   };
-  Sheet_vipprivilege_reflection_ =
+  Sheet_VipPrivilege_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_vipprivilege_descriptor_,
-      Sheet_vipprivilege::default_instance_,
-      Sheet_vipprivilege_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_vipprivilege, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_vipprivilege, _unknown_fields_),
+      Sheet_VipPrivilege_descriptor_,
+      Sheet_VipPrivilege::default_instance_,
+      Sheet_VipPrivilege_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_VipPrivilege, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_VipPrivilege, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_vipprivilege));
+      sizeof(Sheet_VipPrivilege));
 }
 
 namespace {
@@ -122,26 +122,26 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    vipvip_descriptor_, &vipvip::default_instance());
+    E_VipVip_descriptor_, &E_VipVip::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_vipvip_descriptor_, &Sheet_vipvip::default_instance());
+    Sheet_VipVip_descriptor_, &Sheet_VipVip::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    vipprivilege_descriptor_, &vipprivilege::default_instance());
+    E_VipPrivilege_descriptor_, &E_VipPrivilege::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_vipprivilege_descriptor_, &Sheet_vipprivilege::default_instance());
+    Sheet_VipPrivilege_descriptor_, &Sheet_VipPrivilege::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_vip_2eproto() {
-  delete vipvip::default_instance_;
-  delete vipvip_reflection_;
-  delete Sheet_vipvip::default_instance_;
-  delete Sheet_vipvip_reflection_;
-  delete vipprivilege::default_instance_;
-  delete vipprivilege_reflection_;
-  delete Sheet_vipprivilege::default_instance_;
-  delete Sheet_vipprivilege_reflection_;
+  delete E_VipVip::default_instance_;
+  delete E_VipVip_reflection_;
+  delete Sheet_VipVip::default_instance_;
+  delete Sheet_VipVip_reflection_;
+  delete E_VipPrivilege::default_instance_;
+  delete E_VipPrivilege_reflection_;
+  delete Sheet_VipPrivilege::default_instance_;
+  delete Sheet_VipPrivilege_reflection_;
 }
 
 void protobuf_AddDesc_vip_2eproto() {
@@ -153,27 +153,28 @@ void protobuf_AddDesc_vip_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tvip.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\"~\n\006vipvip\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\005le"
-    "vel\030\002 \001(\005B\r\302\377\024\tvip\347\255\211\347\272\247\022\032\n\003exp\030\003 \001(\005B\r\302"
-    "\377\024\t\347\273\217\351\252\214\345\200\274\022&\n\017privilege_group\030\004 \001(\005B\r\302"
-    "\377\024\t\347\211\271\346\235\203\347\273\204\";\n\014Sheet_vipvip\022+\n\013vipvip_L"
-    "ist\030\001 \003(\0132\020.proto_ff.vipvipB\004\210\301\024\024\"\245\001\n\014vi"
-    "pprivilege\022\022\n\002id\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\005group\030"
-    "\002 \001(\005B\t\302\377\024\005group\022\036\n\004type\030\003 \001(\005B\020\302\377\024\014\347\211\271\346"
-    "\235\203\347\261\273\345\236\213\022\035\n\003arg\030\004 \001(\005B\020\302\377\024\014\345\212\237\350\203\275\345\217\202\346\225\260\022"
-    "(\n\004args\030\005 \001(\tB\032\302\377\024\022\346\225\264\346\225\260\345\212\237\350\203\275\345\217\202\346\225\260\220\301\024"
-    "<\"M\n\022Sheet_vipprivilege\0227\n\021vipprivilege_"
-    "List\030\001 \003(\0132\026.proto_ff.vipprivilegeB\004\210\301\024<", 480);
+    "roto\"\210\001\n\010E_VipVip\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022"
+    "\036\n\007m_level\030\002 \001(\005B\r\302\377\024\tvip\347\255\211\347\272\247\022\034\n\005m_exp"
+    "\030\003 \001(\005B\r\302\377\024\t\347\273\217\351\252\214\345\200\274\022(\n\021m_privilege_gro"
+    "up\030\004 \001(\005B\r\302\377\024\t\347\211\271\346\235\203\347\273\204\"\?\n\014Sheet_VipVip\022"
+    "/\n\rE_VipVip_List\030\001 \003(\0132\022.proto_ff.E_VipV"
+    "ipB\004\210\301\024\024\"\261\001\n\016E_VipPrivilege\022\024\n\004m_id\030\001 \001("
+    "\005B\006\302\377\024\002ID\022\032\n\007m_group\030\002 \001(\005B\t\302\377\024\005group\022 \n"
+    "\006m_type\030\003 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261\273\345\236\213\022\037\n\005m_arg"
+    "\030\004 \001(\005B\020\302\377\024\014\345\212\237\350\203\275\345\217\202\346\225\260\022*\n\006m_args\030\005 \001(\t"
+    "B\032\302\377\024\022\346\225\264\346\225\260\345\212\237\350\203\275\345\217\202\346\225\260\220\301\024<\"Q\n\022Sheet_Vi"
+    "pPrivilege\022;\n\023E_VipPrivilege_List\030\001 \003(\0132"
+    "\030.proto_ff.E_VipPrivilegeB\004\210\301\024<", 511);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "vip.proto", &protobuf_RegisterTypes);
-  vipvip::default_instance_ = new vipvip();
-  Sheet_vipvip::default_instance_ = new Sheet_vipvip();
-  vipprivilege::default_instance_ = new vipprivilege();
-  Sheet_vipprivilege::default_instance_ = new Sheet_vipprivilege();
-  vipvip::default_instance_->InitAsDefaultInstance();
-  Sheet_vipvip::default_instance_->InitAsDefaultInstance();
-  vipprivilege::default_instance_->InitAsDefaultInstance();
-  Sheet_vipprivilege::default_instance_->InitAsDefaultInstance();
+  E_VipVip::default_instance_ = new E_VipVip();
+  Sheet_VipVip::default_instance_ = new Sheet_VipVip();
+  E_VipPrivilege::default_instance_ = new E_VipPrivilege();
+  Sheet_VipPrivilege::default_instance_ = new Sheet_VipPrivilege();
+  E_VipVip::default_instance_->InitAsDefaultInstance();
+  Sheet_VipVip::default_instance_->InitAsDefaultInstance();
+  E_VipPrivilege::default_instance_->InitAsDefaultInstance();
+  Sheet_VipPrivilege::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_vip_2eproto);
 }
 
@@ -187,138 +188,138 @@ struct StaticDescriptorInitializer_vip_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int vipvip::kIdFieldNumber;
-const int vipvip::kLevelFieldNumber;
-const int vipvip::kExpFieldNumber;
-const int vipvip::kPrivilegeGroupFieldNumber;
+const int E_VipVip::kMIdFieldNumber;
+const int E_VipVip::kMLevelFieldNumber;
+const int E_VipVip::kMExpFieldNumber;
+const int E_VipVip::kMPrivilegeGroupFieldNumber;
 #endif  // !_MSC_VER
 
-vipvip::vipvip()
+E_VipVip::E_VipVip()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void vipvip::InitAsDefaultInstance() {
+void E_VipVip::InitAsDefaultInstance() {
 }
 
-vipvip::vipvip(const vipvip& from)
+E_VipVip::E_VipVip(const E_VipVip& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void vipvip::SharedCtor() {
+void E_VipVip::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  level_ = 0;
-  exp_ = 0;
-  privilege_group_ = 0;
+  m_id_ = 0;
+  m_level_ = 0;
+  m_exp_ = 0;
+  m_privilege_group_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-vipvip::~vipvip() {
+E_VipVip::~E_VipVip() {
   SharedDtor();
 }
 
-void vipvip::SharedDtor() {
+void E_VipVip::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void vipvip::SetCachedSize(int size) const {
+void E_VipVip::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* vipvip::descriptor() {
+const ::google::protobuf::Descriptor* E_VipVip::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return vipvip_descriptor_;
+  return E_VipVip_descriptor_;
 }
 
-const vipvip& vipvip::default_instance() {
+const E_VipVip& E_VipVip::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_vip_2eproto();
   return *default_instance_;
 }
 
-vipvip* vipvip::default_instance_ = NULL;
+E_VipVip* E_VipVip::default_instance_ = NULL;
 
-vipvip* vipvip::New() const {
-  return new vipvip;
+E_VipVip* E_VipVip::New() const {
+  return new E_VipVip;
 }
 
-void vipvip::Clear() {
+void E_VipVip::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    level_ = 0;
-    exp_ = 0;
-    privilege_group_ = 0;
+    m_id_ = 0;
+    m_level_ = 0;
+    m_exp_ = 0;
+    m_privilege_group_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool vipvip::MergePartialFromCodedStream(
+bool E_VipVip::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_level;
+        if (input->ExpectTag(16)) goto parse_m_level;
         break;
       }
 
-      // optional int32 level = 2;
+      // optional int32 m_level = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_level:
+         parse_m_level:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &level_)));
-          set_has_level();
+                 input, &m_level_)));
+          set_has_m_level();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_exp;
+        if (input->ExpectTag(24)) goto parse_m_exp;
         break;
       }
 
-      // optional int32 exp = 3;
+      // optional int32 m_exp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_exp:
+         parse_m_exp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &exp_)));
-          set_has_exp();
+                 input, &m_exp_)));
+          set_has_m_exp();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_privilege_group;
+        if (input->ExpectTag(32)) goto parse_m_privilege_group;
         break;
       }
 
-      // optional int32 privilege_group = 4;
+      // optional int32 m_privilege_group = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_privilege_group:
+         parse_m_privilege_group:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &privilege_group_)));
-          set_has_privilege_group();
+                 input, &m_privilege_group_)));
+          set_has_m_privilege_group();
         } else {
           goto handle_uninterpreted;
         }
@@ -342,26 +343,26 @@ bool vipvip::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void vipvip::SerializeWithCachedSizes(
+void E_VipVip::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 level = 2;
-  if (has_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->level(), output);
+  // optional int32 m_level = 2;
+  if (has_m_level()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_level(), output);
   }
 
-  // optional int32 exp = 3;
-  if (has_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->exp(), output);
+  // optional int32 m_exp = 3;
+  if (has_m_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_exp(), output);
   }
 
-  // optional int32 privilege_group = 4;
-  if (has_privilege_group()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->privilege_group(), output);
+  // optional int32 m_privilege_group = 4;
+  if (has_m_privilege_group()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_privilege_group(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -370,26 +371,26 @@ void vipvip::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* vipvip::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_VipVip::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 level = 2;
-  if (has_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->level(), target);
+  // optional int32 m_level = 2;
+  if (has_m_level()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_level(), target);
   }
 
-  // optional int32 exp = 3;
-  if (has_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->exp(), target);
+  // optional int32 m_exp = 3;
+  if (has_m_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_exp(), target);
   }
 
-  // optional int32 privilege_group = 4;
-  if (has_privilege_group()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->privilege_group(), target);
+  // optional int32 m_privilege_group = 4;
+  if (has_m_privilege_group()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_privilege_group(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -399,36 +400,36 @@ void vipvip::SerializeWithCachedSizes(
   return target;
 }
 
-int vipvip::ByteSize() const {
+int E_VipVip::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 level = 2;
-    if (has_level()) {
+    // optional int32 m_level = 2;
+    if (has_m_level()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->level());
+          this->m_level());
     }
 
-    // optional int32 exp = 3;
-    if (has_exp()) {
+    // optional int32 m_exp = 3;
+    if (has_m_exp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->exp());
+          this->m_exp());
     }
 
-    // optional int32 privilege_group = 4;
-    if (has_privilege_group()) {
+    // optional int32 m_privilege_group = 4;
+    if (has_m_privilege_group()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->privilege_group());
+          this->m_privilege_group());
     }
 
   }
@@ -443,10 +444,10 @@ int vipvip::ByteSize() const {
   return total_size;
 }
 
-void vipvip::MergeFrom(const ::google::protobuf::Message& from) {
+void E_VipVip::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const vipvip* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const vipvip*>(
+  const E_VipVip* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_VipVip*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -455,59 +456,59 @@ void vipvip::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void vipvip::MergeFrom(const vipvip& from) {
+void E_VipVip::MergeFrom(const E_VipVip& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_level()) {
-      set_level(from.level());
+    if (from.has_m_level()) {
+      set_m_level(from.m_level());
     }
-    if (from.has_exp()) {
-      set_exp(from.exp());
+    if (from.has_m_exp()) {
+      set_m_exp(from.m_exp());
     }
-    if (from.has_privilege_group()) {
-      set_privilege_group(from.privilege_group());
+    if (from.has_m_privilege_group()) {
+      set_m_privilege_group(from.m_privilege_group());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void vipvip::CopyFrom(const ::google::protobuf::Message& from) {
+void E_VipVip::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void vipvip::CopyFrom(const vipvip& from) {
+void E_VipVip::CopyFrom(const E_VipVip& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool vipvip::IsInitialized() const {
+bool E_VipVip::IsInitialized() const {
 
   return true;
 }
 
-void vipvip::Swap(vipvip* other) {
+void E_VipVip::Swap(E_VipVip* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(level_, other->level_);
-    std::swap(exp_, other->exp_);
-    std::swap(privilege_group_, other->privilege_group_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_level_, other->m_level_);
+    std::swap(m_exp_, other->m_exp_);
+    std::swap(m_privilege_group_, other->m_privilege_group_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata vipvip::GetMetadata() const {
+::google::protobuf::Metadata E_VipVip::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = vipvip_descriptor_;
-  metadata.reflection = vipvip_reflection_;
+  metadata.descriptor = E_VipVip_descriptor_;
+  metadata.reflection = E_VipVip_reflection_;
   return metadata;
 }
 
@@ -515,81 +516,81 @@ void vipvip::Swap(vipvip* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_vipvip::kVipvipListFieldNumber;
+const int Sheet_VipVip::kEVipVipListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_vipvip::Sheet_vipvip()
+Sheet_VipVip::Sheet_VipVip()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_vipvip::InitAsDefaultInstance() {
+void Sheet_VipVip::InitAsDefaultInstance() {
 }
 
-Sheet_vipvip::Sheet_vipvip(const Sheet_vipvip& from)
+Sheet_VipVip::Sheet_VipVip(const Sheet_VipVip& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_vipvip::SharedCtor() {
+void Sheet_VipVip::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_vipvip::~Sheet_vipvip() {
+Sheet_VipVip::~Sheet_VipVip() {
   SharedDtor();
 }
 
-void Sheet_vipvip::SharedDtor() {
+void Sheet_VipVip::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_vipvip::SetCachedSize(int size) const {
+void Sheet_VipVip::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_vipvip::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_VipVip::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_vipvip_descriptor_;
+  return Sheet_VipVip_descriptor_;
 }
 
-const Sheet_vipvip& Sheet_vipvip::default_instance() {
+const Sheet_VipVip& Sheet_VipVip::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_vip_2eproto();
   return *default_instance_;
 }
 
-Sheet_vipvip* Sheet_vipvip::default_instance_ = NULL;
+Sheet_VipVip* Sheet_VipVip::default_instance_ = NULL;
 
-Sheet_vipvip* Sheet_vipvip::New() const {
-  return new Sheet_vipvip;
+Sheet_VipVip* Sheet_VipVip::New() const {
+  return new Sheet_VipVip;
 }
 
-void Sheet_vipvip::Clear() {
-  vipvip_list_.Clear();
+void Sheet_VipVip::Clear() {
+  e_vipvip_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_vipvip::MergePartialFromCodedStream(
+bool Sheet_VipVip::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.vipvip vipvip_List = 1;
+      // repeated .proto_ff.E_VipVip E_VipVip_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_vipvip_List:
+         parse_E_VipVip_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_vipvip_list()));
+                input, add_e_vipvip_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_vipvip_List;
+        if (input->ExpectTag(10)) goto parse_E_VipVip_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -610,12 +611,12 @@ bool Sheet_vipvip::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_vipvip::SerializeWithCachedSizes(
+void Sheet_VipVip::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.vipvip vipvip_List = 1;
-  for (int i = 0; i < this->vipvip_list_size(); i++) {
+  // repeated .proto_ff.E_VipVip E_VipVip_List = 1;
+  for (int i = 0; i < this->e_vipvip_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->vipvip_list(i), output);
+      1, this->e_vipvip_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -624,13 +625,13 @@ void Sheet_vipvip::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_vipvip::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_VipVip::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.vipvip vipvip_List = 1;
-  for (int i = 0; i < this->vipvip_list_size(); i++) {
+  // repeated .proto_ff.E_VipVip E_VipVip_List = 1;
+  for (int i = 0; i < this->e_vipvip_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->vipvip_list(i), target);
+        1, this->e_vipvip_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -640,15 +641,15 @@ void Sheet_vipvip::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_vipvip::ByteSize() const {
+int Sheet_VipVip::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.vipvip vipvip_List = 1;
-  total_size += 1 * this->vipvip_list_size();
-  for (int i = 0; i < this->vipvip_list_size(); i++) {
+  // repeated .proto_ff.E_VipVip E_VipVip_List = 1;
+  total_size += 1 * this->e_vipvip_list_size();
+  for (int i = 0; i < this->e_vipvip_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->vipvip_list(i));
+        this->e_vipvip_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -662,10 +663,10 @@ int Sheet_vipvip::ByteSize() const {
   return total_size;
 }
 
-void Sheet_vipvip::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_VipVip::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_vipvip* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_vipvip*>(
+  const Sheet_VipVip* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_VipVip*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -674,43 +675,43 @@ void Sheet_vipvip::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_vipvip::MergeFrom(const Sheet_vipvip& from) {
+void Sheet_VipVip::MergeFrom(const Sheet_VipVip& from) {
   GOOGLE_CHECK_NE(&from, this);
-  vipvip_list_.MergeFrom(from.vipvip_list_);
+  e_vipvip_list_.MergeFrom(from.e_vipvip_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_vipvip::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_VipVip::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_vipvip::CopyFrom(const Sheet_vipvip& from) {
+void Sheet_VipVip::CopyFrom(const Sheet_VipVip& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_vipvip::IsInitialized() const {
+bool Sheet_VipVip::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_vipvip::Swap(Sheet_vipvip* other) {
+void Sheet_VipVip::Swap(Sheet_VipVip* other) {
   if (other != this) {
-    vipvip_list_.Swap(&other->vipvip_list_);
+    e_vipvip_list_.Swap(&other->e_vipvip_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_vipvip::GetMetadata() const {
+::google::protobuf::Metadata Sheet_VipVip::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_vipvip_descriptor_;
-  metadata.reflection = Sheet_vipvip_reflection_;
+  metadata.descriptor = Sheet_VipVip_descriptor_;
+  metadata.reflection = Sheet_VipVip_reflection_;
   return metadata;
 }
 
@@ -718,79 +719,79 @@ void Sheet_vipvip::Swap(Sheet_vipvip* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int vipprivilege::kIdFieldNumber;
-const int vipprivilege::kGroupFieldNumber;
-const int vipprivilege::kTypeFieldNumber;
-const int vipprivilege::kArgFieldNumber;
-const int vipprivilege::kArgsFieldNumber;
+const int E_VipPrivilege::kMIdFieldNumber;
+const int E_VipPrivilege::kMGroupFieldNumber;
+const int E_VipPrivilege::kMTypeFieldNumber;
+const int E_VipPrivilege::kMArgFieldNumber;
+const int E_VipPrivilege::kMArgsFieldNumber;
 #endif  // !_MSC_VER
 
-vipprivilege::vipprivilege()
+E_VipPrivilege::E_VipPrivilege()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void vipprivilege::InitAsDefaultInstance() {
+void E_VipPrivilege::InitAsDefaultInstance() {
 }
 
-vipprivilege::vipprivilege(const vipprivilege& from)
+E_VipPrivilege::E_VipPrivilege(const E_VipPrivilege& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void vipprivilege::SharedCtor() {
+void E_VipPrivilege::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  group_ = 0;
-  type_ = 0;
-  arg_ = 0;
-  args_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_id_ = 0;
+  m_group_ = 0;
+  m_type_ = 0;
+  m_arg_ = 0;
+  m_args_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-vipprivilege::~vipprivilege() {
+E_VipPrivilege::~E_VipPrivilege() {
   SharedDtor();
 }
 
-void vipprivilege::SharedDtor() {
-  if (args_ != &::google::protobuf::internal::kEmptyString) {
-    delete args_;
+void E_VipPrivilege::SharedDtor() {
+  if (m_args_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_args_;
   }
   if (this != default_instance_) {
   }
 }
 
-void vipprivilege::SetCachedSize(int size) const {
+void E_VipPrivilege::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* vipprivilege::descriptor() {
+const ::google::protobuf::Descriptor* E_VipPrivilege::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return vipprivilege_descriptor_;
+  return E_VipPrivilege_descriptor_;
 }
 
-const vipprivilege& vipprivilege::default_instance() {
+const E_VipPrivilege& E_VipPrivilege::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_vip_2eproto();
   return *default_instance_;
 }
 
-vipprivilege* vipprivilege::default_instance_ = NULL;
+E_VipPrivilege* E_VipPrivilege::default_instance_ = NULL;
 
-vipprivilege* vipprivilege::New() const {
-  return new vipprivilege;
+E_VipPrivilege* E_VipPrivilege::New() const {
+  return new E_VipPrivilege;
 }
 
-void vipprivilege::Clear() {
+void E_VipPrivilege::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    group_ = 0;
-    type_ = 0;
-    arg_ = 0;
-    if (has_args()) {
-      if (args_ != &::google::protobuf::internal::kEmptyString) {
-        args_->clear();
+    m_id_ = 0;
+    m_group_ = 0;
+    m_type_ = 0;
+    m_arg_ = 0;
+    if (has_m_args()) {
+      if (m_args_ != &::google::protobuf::internal::kEmptyString) {
+        m_args_->clear();
       }
     }
   }
@@ -798,84 +799,84 @@ void vipprivilege::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool vipprivilege::MergePartialFromCodedStream(
+bool E_VipPrivilege::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_group;
+        if (input->ExpectTag(16)) goto parse_m_group;
         break;
       }
 
-      // optional int32 group = 2;
+      // optional int32 m_group = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_group:
+         parse_m_group:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &group_)));
-          set_has_group();
+                 input, &m_group_)));
+          set_has_m_group();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_type;
+        if (input->ExpectTag(24)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 3;
+      // optional int32 m_type = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_arg;
+        if (input->ExpectTag(32)) goto parse_m_arg;
         break;
       }
 
-      // optional int32 arg = 4;
+      // optional int32 m_arg = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_arg:
+         parse_m_arg:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &arg_)));
-          set_has_arg();
+                 input, &m_arg_)));
+          set_has_m_arg();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_args;
+        if (input->ExpectTag(42)) goto parse_m_args;
         break;
       }
 
-      // optional string args = 5;
+      // optional string m_args = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_args:
+         parse_m_args:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_args()));
+                input, this->mutable_m_args()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->args().data(), this->args().length(),
+            this->m_args().data(), this->m_args().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -900,35 +901,35 @@ bool vipprivilege::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void vipprivilege::SerializeWithCachedSizes(
+void E_VipPrivilege::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 group = 2;
-  if (has_group()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->group(), output);
+  // optional int32 m_group = 2;
+  if (has_m_group()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_group(), output);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->type(), output);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 arg = 4;
-  if (has_arg()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->arg(), output);
+  // optional int32 m_arg = 4;
+  if (has_m_arg()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_arg(), output);
   }
 
-  // optional string args = 5;
-  if (has_args()) {
+  // optional string m_args = 5;
+  if (has_m_args()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->args().data(), this->args().length(),
+      this->m_args().data(), this->m_args().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->args(), output);
+      5, this->m_args(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -937,36 +938,36 @@ void vipprivilege::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* vipprivilege::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_VipPrivilege::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 group = 2;
-  if (has_group()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->group(), target);
+  // optional int32 m_group = 2;
+  if (has_m_group()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_group(), target);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->type(), target);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 arg = 4;
-  if (has_arg()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->arg(), target);
+  // optional int32 m_arg = 4;
+  if (has_m_arg()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_arg(), target);
   }
 
-  // optional string args = 5;
-  if (has_args()) {
+  // optional string m_args = 5;
+  if (has_m_args()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->args().data(), this->args().length(),
+      this->m_args().data(), this->m_args().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->args(), target);
+        5, this->m_args(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -976,43 +977,43 @@ void vipprivilege::SerializeWithCachedSizes(
   return target;
 }
 
-int vipprivilege::ByteSize() const {
+int E_VipPrivilege::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 group = 2;
-    if (has_group()) {
+    // optional int32 m_group = 2;
+    if (has_m_group()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->group());
+          this->m_group());
     }
 
-    // optional int32 type = 3;
-    if (has_type()) {
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 arg = 4;
-    if (has_arg()) {
+    // optional int32 m_arg = 4;
+    if (has_m_arg()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->arg());
+          this->m_arg());
     }
 
-    // optional string args = 5;
-    if (has_args()) {
+    // optional string m_args = 5;
+    if (has_m_args()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->args());
+          this->m_args());
     }
 
   }
@@ -1027,10 +1028,10 @@ int vipprivilege::ByteSize() const {
   return total_size;
 }
 
-void vipprivilege::MergeFrom(const ::google::protobuf::Message& from) {
+void E_VipPrivilege::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const vipprivilege* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const vipprivilege*>(
+  const E_VipPrivilege* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_VipPrivilege*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1039,63 +1040,63 @@ void vipprivilege::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void vipprivilege::MergeFrom(const vipprivilege& from) {
+void E_VipPrivilege::MergeFrom(const E_VipPrivilege& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_group()) {
-      set_group(from.group());
+    if (from.has_m_group()) {
+      set_m_group(from.m_group());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_arg()) {
-      set_arg(from.arg());
+    if (from.has_m_arg()) {
+      set_m_arg(from.m_arg());
     }
-    if (from.has_args()) {
-      set_args(from.args());
+    if (from.has_m_args()) {
+      set_m_args(from.m_args());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void vipprivilege::CopyFrom(const ::google::protobuf::Message& from) {
+void E_VipPrivilege::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void vipprivilege::CopyFrom(const vipprivilege& from) {
+void E_VipPrivilege::CopyFrom(const E_VipPrivilege& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool vipprivilege::IsInitialized() const {
+bool E_VipPrivilege::IsInitialized() const {
 
   return true;
 }
 
-void vipprivilege::Swap(vipprivilege* other) {
+void E_VipPrivilege::Swap(E_VipPrivilege* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(group_, other->group_);
-    std::swap(type_, other->type_);
-    std::swap(arg_, other->arg_);
-    std::swap(args_, other->args_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_group_, other->m_group_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_arg_, other->m_arg_);
+    std::swap(m_args_, other->m_args_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata vipprivilege::GetMetadata() const {
+::google::protobuf::Metadata E_VipPrivilege::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = vipprivilege_descriptor_;
-  metadata.reflection = vipprivilege_reflection_;
+  metadata.descriptor = E_VipPrivilege_descriptor_;
+  metadata.reflection = E_VipPrivilege_reflection_;
   return metadata;
 }
 
@@ -1103,81 +1104,81 @@ void vipprivilege::Swap(vipprivilege* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_vipprivilege::kVipprivilegeListFieldNumber;
+const int Sheet_VipPrivilege::kEVipPrivilegeListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_vipprivilege::Sheet_vipprivilege()
+Sheet_VipPrivilege::Sheet_VipPrivilege()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_vipprivilege::InitAsDefaultInstance() {
+void Sheet_VipPrivilege::InitAsDefaultInstance() {
 }
 
-Sheet_vipprivilege::Sheet_vipprivilege(const Sheet_vipprivilege& from)
+Sheet_VipPrivilege::Sheet_VipPrivilege(const Sheet_VipPrivilege& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_vipprivilege::SharedCtor() {
+void Sheet_VipPrivilege::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_vipprivilege::~Sheet_vipprivilege() {
+Sheet_VipPrivilege::~Sheet_VipPrivilege() {
   SharedDtor();
 }
 
-void Sheet_vipprivilege::SharedDtor() {
+void Sheet_VipPrivilege::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_vipprivilege::SetCachedSize(int size) const {
+void Sheet_VipPrivilege::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_vipprivilege::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_VipPrivilege::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_vipprivilege_descriptor_;
+  return Sheet_VipPrivilege_descriptor_;
 }
 
-const Sheet_vipprivilege& Sheet_vipprivilege::default_instance() {
+const Sheet_VipPrivilege& Sheet_VipPrivilege::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_vip_2eproto();
   return *default_instance_;
 }
 
-Sheet_vipprivilege* Sheet_vipprivilege::default_instance_ = NULL;
+Sheet_VipPrivilege* Sheet_VipPrivilege::default_instance_ = NULL;
 
-Sheet_vipprivilege* Sheet_vipprivilege::New() const {
-  return new Sheet_vipprivilege;
+Sheet_VipPrivilege* Sheet_VipPrivilege::New() const {
+  return new Sheet_VipPrivilege;
 }
 
-void Sheet_vipprivilege::Clear() {
-  vipprivilege_list_.Clear();
+void Sheet_VipPrivilege::Clear() {
+  e_vipprivilege_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_vipprivilege::MergePartialFromCodedStream(
+bool Sheet_VipPrivilege::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.vipprivilege vipprivilege_List = 1;
+      // repeated .proto_ff.E_VipPrivilege E_VipPrivilege_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_vipprivilege_List:
+         parse_E_VipPrivilege_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_vipprivilege_list()));
+                input, add_e_vipprivilege_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_vipprivilege_List;
+        if (input->ExpectTag(10)) goto parse_E_VipPrivilege_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1198,12 +1199,12 @@ bool Sheet_vipprivilege::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_vipprivilege::SerializeWithCachedSizes(
+void Sheet_VipPrivilege::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.vipprivilege vipprivilege_List = 1;
-  for (int i = 0; i < this->vipprivilege_list_size(); i++) {
+  // repeated .proto_ff.E_VipPrivilege E_VipPrivilege_List = 1;
+  for (int i = 0; i < this->e_vipprivilege_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->vipprivilege_list(i), output);
+      1, this->e_vipprivilege_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1212,13 +1213,13 @@ void Sheet_vipprivilege::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_vipprivilege::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_VipPrivilege::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.vipprivilege vipprivilege_List = 1;
-  for (int i = 0; i < this->vipprivilege_list_size(); i++) {
+  // repeated .proto_ff.E_VipPrivilege E_VipPrivilege_List = 1;
+  for (int i = 0; i < this->e_vipprivilege_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->vipprivilege_list(i), target);
+        1, this->e_vipprivilege_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1228,15 +1229,15 @@ void Sheet_vipprivilege::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_vipprivilege::ByteSize() const {
+int Sheet_VipPrivilege::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.vipprivilege vipprivilege_List = 1;
-  total_size += 1 * this->vipprivilege_list_size();
-  for (int i = 0; i < this->vipprivilege_list_size(); i++) {
+  // repeated .proto_ff.E_VipPrivilege E_VipPrivilege_List = 1;
+  total_size += 1 * this->e_vipprivilege_list_size();
+  for (int i = 0; i < this->e_vipprivilege_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->vipprivilege_list(i));
+        this->e_vipprivilege_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1250,10 +1251,10 @@ int Sheet_vipprivilege::ByteSize() const {
   return total_size;
 }
 
-void Sheet_vipprivilege::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_VipPrivilege::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_vipprivilege* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_vipprivilege*>(
+  const Sheet_VipPrivilege* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_VipPrivilege*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1262,43 +1263,43 @@ void Sheet_vipprivilege::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_vipprivilege::MergeFrom(const Sheet_vipprivilege& from) {
+void Sheet_VipPrivilege::MergeFrom(const Sheet_VipPrivilege& from) {
   GOOGLE_CHECK_NE(&from, this);
-  vipprivilege_list_.MergeFrom(from.vipprivilege_list_);
+  e_vipprivilege_list_.MergeFrom(from.e_vipprivilege_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_vipprivilege::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_VipPrivilege::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_vipprivilege::CopyFrom(const Sheet_vipprivilege& from) {
+void Sheet_VipPrivilege::CopyFrom(const Sheet_VipPrivilege& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_vipprivilege::IsInitialized() const {
+bool Sheet_VipPrivilege::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_vipprivilege::Swap(Sheet_vipprivilege* other) {
+void Sheet_VipPrivilege::Swap(Sheet_VipPrivilege* other) {
   if (other != this) {
-    vipprivilege_list_.Swap(&other->vipprivilege_list_);
+    e_vipprivilege_list_.Swap(&other->e_vipprivilege_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_vipprivilege::GetMetadata() const {
+::google::protobuf::Metadata Sheet_VipPrivilege::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_vipprivilege_descriptor_;
-  metadata.reflection = Sheet_vipprivilege_reflection_;
+  metadata.descriptor = Sheet_VipPrivilege_descriptor_;
+  metadata.reflection = Sheet_VipPrivilege_reflection_;
   return metadata;
 }
 

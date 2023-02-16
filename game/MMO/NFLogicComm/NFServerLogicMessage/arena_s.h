@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "arena.pb.h"
@@ -10,224 +10,224 @@
 
 namespace proto_ff_s {
 
-	struct arenarobotattrDesc_s : public NFDescStoreSeqOP {
-		arenarobotattrDesc_s();
-		virtual ~arenarobotattrDesc_s(){}
+	struct E_ArenaRobotAttrDesc_s : public NFDescStoreSeqOP {
+		E_ArenaRobotAttrDesc_s();
+		virtual ~E_ArenaRobotAttrDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t val;
+		int32_t m_type;
+		int32_t m_val;
 
-		virtual void write_to_pbmsg(::proto_ff::arenarobotattrDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenarobotattrDesc & msg);
-		static ::proto_ff::arenarobotattrDesc* new_pbmsg(){ return new ::proto_ff::arenarobotattrDesc(); }
-		static ::proto_ff::arenarobotattrDesc make_pbmsg(){ return ::proto_ff::arenarobotattrDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobotAttrDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRobotAttrDesc & msg);
+		static ::proto_ff::E_ArenaRobotAttrDesc* new_pbmsg(){ return new ::proto_ff::E_ArenaRobotAttrDesc(); }
+		static ::proto_ff::E_ArenaRobotAttrDesc make_pbmsg(){ return ::proto_ff::E_ArenaRobotAttrDesc(); }
 	};
-	typedef struct arenarobotattrDesc_s arenarobotattrDesc_t;
+	typedef struct E_ArenaRobotAttrDesc_s E_ArenaRobotAttrDesc_t;
 
-	struct arenarobot_s : public NFDescStoreSeqOP {
-		arenarobot_s();
-		virtual ~arenarobot_s(){}
+	struct E_ArenaRobot_s : public NFDescStoreSeqOP {
+		E_ArenaRobot_s();
+		virtual ~E_ArenaRobot_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t arenaId;
-		NFShmString<60> robotname;
-		int32_t aiId;
-		int32_t rankId;
-		int32_t robotProfession;
-		int32_t robotLv;
-		int32_t sword;
-		int32_t occupationID;
-		NFArray<struct arenarobotattrDesc_s, 70> attr;
+		int32_t m_arenaid;
+		NFShmString<60> m_robotname;
+		int32_t m_aiid;
+		int32_t m_rankid;
+		int32_t m_robotprofession;
+		int32_t m_robotlv;
+		int32_t m_sword;
+		int32_t m_occupationid;
+		NFShmVector<struct E_ArenaRobotAttrDesc_s, 70> m_attr;
 
-		virtual void write_to_pbmsg(::proto_ff::arenarobot & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenarobot & msg);
-		static ::proto_ff::arenarobot* new_pbmsg(){ return new ::proto_ff::arenarobot(); }
-		static ::proto_ff::arenarobot make_pbmsg(){ return ::proto_ff::arenarobot(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobot & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRobot & msg);
+		static ::proto_ff::E_ArenaRobot* new_pbmsg(){ return new ::proto_ff::E_ArenaRobot(); }
+		static ::proto_ff::E_ArenaRobot make_pbmsg(){ return ::proto_ff::E_ArenaRobot(); }
 	};
-	typedef struct arenarobot_s arenarobot_t;
+	typedef struct E_ArenaRobot_s E_ArenaRobot_t;
 
-	struct Sheet_arenarobot_s : public NFDescStoreSeqOP {
-		Sheet_arenarobot_s();
-		virtual ~Sheet_arenarobot_s(){}
+	struct Sheet_ArenaRobot_s : public NFDescStoreSeqOP {
+		Sheet_ArenaRobot_s();
+		virtual ~Sheet_ArenaRobot_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenarobot_s, 6000> arenarobot_List;
+		NFShmVector<struct E_ArenaRobot_s, 6000> E_ArenaRobot_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_arenarobot & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenarobot & msg);
-		static ::proto_ff::Sheet_arenarobot* new_pbmsg(){ return new ::proto_ff::Sheet_arenarobot(); }
-		static ::proto_ff::Sheet_arenarobot make_pbmsg(){ return ::proto_ff::Sheet_arenarobot(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaRobot & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaRobot & msg);
+		static ::proto_ff::Sheet_ArenaRobot* new_pbmsg(){ return new ::proto_ff::Sheet_ArenaRobot(); }
+		static ::proto_ff::Sheet_ArenaRobot make_pbmsg(){ return ::proto_ff::Sheet_ArenaRobot(); }
 	};
-	typedef struct Sheet_arenarobot_s Sheet_arenarobot_t;
+	typedef struct Sheet_ArenaRobot_s Sheet_ArenaRobot_t;
 
-	struct arenaarenAwardRewardDesc_s : public NFDescStoreSeqOP {
-		arenaarenAwardRewardDesc_s();
-		virtual ~arenaarenAwardRewardDesc_s(){}
+	struct E_ArenaArenawardRewardDesc_s : public NFDescStoreSeqOP {
+		E_ArenaArenawardRewardDesc_s();
+		virtual ~E_ArenaArenawardRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t Value;
+		int32_t m_id;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::arenaarenAwardRewardDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenaarenAwardRewardDesc & msg);
-		static ::proto_ff::arenaarenAwardRewardDesc* new_pbmsg(){ return new ::proto_ff::arenaarenAwardRewardDesc(); }
-		static ::proto_ff::arenaarenAwardRewardDesc make_pbmsg(){ return ::proto_ff::arenaarenAwardRewardDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaArenawardRewardDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaArenawardRewardDesc & msg);
+		static ::proto_ff::E_ArenaArenawardRewardDesc* new_pbmsg(){ return new ::proto_ff::E_ArenaArenawardRewardDesc(); }
+		static ::proto_ff::E_ArenaArenawardRewardDesc make_pbmsg(){ return ::proto_ff::E_ArenaArenawardRewardDesc(); }
 	};
-	typedef struct arenaarenAwardRewardDesc_s arenaarenAwardRewardDesc_t;
+	typedef struct E_ArenaArenawardRewardDesc_s E_ArenaArenawardRewardDesc_t;
 
-	struct arenaarenAward_s : public NFDescStoreSeqOP {
-		arenaarenAward_s();
-		virtual ~arenaarenAward_s(){}
+	struct E_ArenaArenaward_s : public NFDescStoreSeqOP {
+		E_ArenaArenaward_s();
+		virtual ~E_ArenaArenaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t lvDown;
-		int32_t lvUp;
-		NFArray<struct arenaarenAwardRewardDesc_s, 5> Reward;
+		int32_t m_id;
+		int32_t m_lvdown;
+		int32_t m_lvup;
+		NFShmVector<struct E_ArenaArenawardRewardDesc_s, 5> m_reward;
 
-		virtual void write_to_pbmsg(::proto_ff::arenaarenAward & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenaarenAward & msg);
-		static ::proto_ff::arenaarenAward* new_pbmsg(){ return new ::proto_ff::arenaarenAward(); }
-		static ::proto_ff::arenaarenAward make_pbmsg(){ return ::proto_ff::arenaarenAward(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaArenaward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaArenaward & msg);
+		static ::proto_ff::E_ArenaArenaward* new_pbmsg(){ return new ::proto_ff::E_ArenaArenaward(); }
+		static ::proto_ff::E_ArenaArenaward make_pbmsg(){ return ::proto_ff::E_ArenaArenaward(); }
 	};
-	typedef struct arenaarenAward_s arenaarenAward_t;
+	typedef struct E_ArenaArenaward_s E_ArenaArenaward_t;
 
-	struct Sheet_arenaarenAward_s : public NFDescStoreSeqOP {
-		Sheet_arenaarenAward_s();
-		virtual ~Sheet_arenaarenAward_s(){}
+	struct Sheet_ArenaArenaward_s : public NFDescStoreSeqOP {
+		Sheet_ArenaArenaward_s();
+		virtual ~Sheet_ArenaArenaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenaarenAward_s, 2000> arenaarenAward_List;
+		NFShmVector<struct E_ArenaArenaward_s, 2000> E_ArenaArenaward_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_arenaarenAward & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenaarenAward & msg);
-		static ::proto_ff::Sheet_arenaarenAward* new_pbmsg(){ return new ::proto_ff::Sheet_arenaarenAward(); }
-		static ::proto_ff::Sheet_arenaarenAward make_pbmsg(){ return ::proto_ff::Sheet_arenaarenAward(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaArenaward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaArenaward & msg);
+		static ::proto_ff::Sheet_ArenaArenaward* new_pbmsg(){ return new ::proto_ff::Sheet_ArenaArenaward(); }
+		static ::proto_ff::Sheet_ArenaArenaward make_pbmsg(){ return ::proto_ff::Sheet_ArenaArenaward(); }
 	};
-	typedef struct Sheet_arenaarenAward_s Sheet_arenaarenAward_t;
+	typedef struct Sheet_ArenaArenaward_s Sheet_ArenaArenaward_t;
 
-	struct arenarankawardRewardDesc_s : public NFDescStoreSeqOP {
-		arenarankawardRewardDesc_s();
-		virtual ~arenarankawardRewardDesc_s(){}
+	struct E_ArenaRankawardRewardDesc_s : public NFDescStoreSeqOP {
+		E_ArenaRankawardRewardDesc_s();
+		virtual ~E_ArenaRankawardRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t Value;
+		int32_t m_id;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::arenarankawardRewardDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenarankawardRewardDesc & msg);
-		static ::proto_ff::arenarankawardRewardDesc* new_pbmsg(){ return new ::proto_ff::arenarankawardRewardDesc(); }
-		static ::proto_ff::arenarankawardRewardDesc make_pbmsg(){ return ::proto_ff::arenarankawardRewardDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaRankawardRewardDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRankawardRewardDesc & msg);
+		static ::proto_ff::E_ArenaRankawardRewardDesc* new_pbmsg(){ return new ::proto_ff::E_ArenaRankawardRewardDesc(); }
+		static ::proto_ff::E_ArenaRankawardRewardDesc make_pbmsg(){ return ::proto_ff::E_ArenaRankawardRewardDesc(); }
 	};
-	typedef struct arenarankawardRewardDesc_s arenarankawardRewardDesc_t;
+	typedef struct E_ArenaRankawardRewardDesc_s E_ArenaRankawardRewardDesc_t;
 
-	struct arenarankaward_s : public NFDescStoreSeqOP {
-		arenarankaward_s();
-		virtual ~arenarankaward_s(){}
+	struct E_ArenaRankaward_s : public NFDescStoreSeqOP {
+		E_ArenaRankaward_s();
+		virtual ~E_ArenaRankaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t PrizeId;
-		int32_t arenaDown;
-		int32_t arenaUp;
-		NFArray<struct arenarankawardRewardDesc_s, 5> Reward;
+		int32_t m_prizeid;
+		int32_t m_arenadown;
+		int32_t m_arenaup;
+		NFShmVector<struct E_ArenaRankawardRewardDesc_s, 5> m_reward;
 
-		virtual void write_to_pbmsg(::proto_ff::arenarankaward & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenarankaward & msg);
-		static ::proto_ff::arenarankaward* new_pbmsg(){ return new ::proto_ff::arenarankaward(); }
-		static ::proto_ff::arenarankaward make_pbmsg(){ return ::proto_ff::arenarankaward(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaRankaward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRankaward & msg);
+		static ::proto_ff::E_ArenaRankaward* new_pbmsg(){ return new ::proto_ff::E_ArenaRankaward(); }
+		static ::proto_ff::E_ArenaRankaward make_pbmsg(){ return ::proto_ff::E_ArenaRankaward(); }
 	};
-	typedef struct arenarankaward_s arenarankaward_t;
+	typedef struct E_ArenaRankaward_s E_ArenaRankaward_t;
 
-	struct Sheet_arenarankaward_s : public NFDescStoreSeqOP {
-		Sheet_arenarankaward_s();
-		virtual ~Sheet_arenarankaward_s(){}
+	struct Sheet_ArenaRankaward_s : public NFDescStoreSeqOP {
+		Sheet_ArenaRankaward_s();
+		virtual ~Sheet_ArenaRankaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenarankaward_s, 20> arenarankaward_List;
+		NFShmVector<struct E_ArenaRankaward_s, 20> E_ArenaRankaward_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_arenarankaward & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenarankaward & msg);
-		static ::proto_ff::Sheet_arenarankaward* new_pbmsg(){ return new ::proto_ff::Sheet_arenarankaward(); }
-		static ::proto_ff::Sheet_arenarankaward make_pbmsg(){ return ::proto_ff::Sheet_arenarankaward(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaRankaward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaRankaward & msg);
+		static ::proto_ff::Sheet_ArenaRankaward* new_pbmsg(){ return new ::proto_ff::Sheet_ArenaRankaward(); }
+		static ::proto_ff::Sheet_ArenaRankaward make_pbmsg(){ return ::proto_ff::Sheet_ArenaRankaward(); }
 	};
-	typedef struct Sheet_arenarankaward_s Sheet_arenarankaward_t;
+	typedef struct Sheet_ArenaRankaward_s Sheet_ArenaRankaward_t;
 
-	struct arenafirstrankRewardDesc_s : public NFDescStoreSeqOP {
-		arenafirstrankRewardDesc_s();
-		virtual ~arenafirstrankRewardDesc_s(){}
+	struct E_ArenaFirstrankRewardDesc_s : public NFDescStoreSeqOP {
+		E_ArenaFirstrankRewardDesc_s();
+		virtual ~E_ArenaFirstrankRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t Value;
+		int32_t m_id;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::arenafirstrankRewardDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenafirstrankRewardDesc & msg);
-		static ::proto_ff::arenafirstrankRewardDesc* new_pbmsg(){ return new ::proto_ff::arenafirstrankRewardDesc(); }
-		static ::proto_ff::arenafirstrankRewardDesc make_pbmsg(){ return ::proto_ff::arenafirstrankRewardDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaFirstrankRewardDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaFirstrankRewardDesc & msg);
+		static ::proto_ff::E_ArenaFirstrankRewardDesc* new_pbmsg(){ return new ::proto_ff::E_ArenaFirstrankRewardDesc(); }
+		static ::proto_ff::E_ArenaFirstrankRewardDesc make_pbmsg(){ return ::proto_ff::E_ArenaFirstrankRewardDesc(); }
 	};
-	typedef struct arenafirstrankRewardDesc_s arenafirstrankRewardDesc_t;
+	typedef struct E_ArenaFirstrankRewardDesc_s E_ArenaFirstrankRewardDesc_t;
 
-	struct arenafirstrank_s : public NFDescStoreSeqOP {
-		arenafirstrank_s();
-		virtual ~arenafirstrank_s(){}
+	struct E_ArenaFirstrank_s : public NFDescStoreSeqOP {
+		E_ArenaFirstrank_s();
+		virtual ~E_ArenaFirstrank_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t rankDown;
-		int32_t rankUp;
-		NFArray<struct arenafirstrankRewardDesc_s, 5> Reward;
+		int32_t m_id;
+		int32_t m_rankdown;
+		int32_t m_rankup;
+		NFShmVector<struct E_ArenaFirstrankRewardDesc_s, 5> m_reward;
 
-		virtual void write_to_pbmsg(::proto_ff::arenafirstrank & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenafirstrank & msg);
-		static ::proto_ff::arenafirstrank* new_pbmsg(){ return new ::proto_ff::arenafirstrank(); }
-		static ::proto_ff::arenafirstrank make_pbmsg(){ return ::proto_ff::arenafirstrank(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaFirstrank & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaFirstrank & msg);
+		static ::proto_ff::E_ArenaFirstrank* new_pbmsg(){ return new ::proto_ff::E_ArenaFirstrank(); }
+		static ::proto_ff::E_ArenaFirstrank make_pbmsg(){ return ::proto_ff::E_ArenaFirstrank(); }
 	};
-	typedef struct arenafirstrank_s arenafirstrank_t;
+	typedef struct E_ArenaFirstrank_s E_ArenaFirstrank_t;
 
-	struct Sheet_arenafirstrank_s : public NFDescStoreSeqOP {
-		Sheet_arenafirstrank_s();
-		virtual ~Sheet_arenafirstrank_s(){}
+	struct Sheet_ArenaFirstrank_s : public NFDescStoreSeqOP {
+		Sheet_ArenaFirstrank_s();
+		virtual ~Sheet_ArenaFirstrank_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenafirstrank_s, 20> arenafirstrank_List;
+		NFShmVector<struct E_ArenaFirstrank_s, 20> E_ArenaFirstrank_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_arenafirstrank & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenafirstrank & msg);
-		static ::proto_ff::Sheet_arenafirstrank* new_pbmsg(){ return new ::proto_ff::Sheet_arenafirstrank(); }
-		static ::proto_ff::Sheet_arenafirstrank make_pbmsg(){ return ::proto_ff::Sheet_arenafirstrank(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaFirstrank & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaFirstrank & msg);
+		static ::proto_ff::Sheet_ArenaFirstrank* new_pbmsg(){ return new ::proto_ff::Sheet_ArenaFirstrank(); }
+		static ::proto_ff::Sheet_ArenaFirstrank make_pbmsg(){ return ::proto_ff::Sheet_ArenaFirstrank(); }
 	};
-	typedef struct Sheet_arenafirstrank_s Sheet_arenafirstrank_t;
+	typedef struct Sheet_ArenaFirstrank_s Sheet_ArenaFirstrank_t;
 
-	struct arenabuychallenge_s : public NFDescStoreSeqOP {
-		arenabuychallenge_s();
-		virtual ~arenabuychallenge_s(){}
+	struct E_ArenaBuychallenge_s : public NFDescStoreSeqOP {
+		E_ArenaBuychallenge_s();
+		virtual ~E_ArenaBuychallenge_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t count;
-		int32_t costType;
-		int32_t cost;
+		int32_t m_count;
+		int32_t m_costtype;
+		int32_t m_cost;
 
-		virtual void write_to_pbmsg(::proto_ff::arenabuychallenge & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::arenabuychallenge & msg);
-		static ::proto_ff::arenabuychallenge* new_pbmsg(){ return new ::proto_ff::arenabuychallenge(); }
-		static ::proto_ff::arenabuychallenge make_pbmsg(){ return ::proto_ff::arenabuychallenge(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaBuychallenge & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaBuychallenge & msg);
+		static ::proto_ff::E_ArenaBuychallenge* new_pbmsg(){ return new ::proto_ff::E_ArenaBuychallenge(); }
+		static ::proto_ff::E_ArenaBuychallenge make_pbmsg(){ return ::proto_ff::E_ArenaBuychallenge(); }
 	};
-	typedef struct arenabuychallenge_s arenabuychallenge_t;
+	typedef struct E_ArenaBuychallenge_s E_ArenaBuychallenge_t;
 
-	struct Sheet_arenabuychallenge_s : public NFDescStoreSeqOP {
-		Sheet_arenabuychallenge_s();
-		virtual ~Sheet_arenabuychallenge_s(){}
+	struct Sheet_ArenaBuychallenge_s : public NFDescStoreSeqOP {
+		Sheet_ArenaBuychallenge_s();
+		virtual ~Sheet_ArenaBuychallenge_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct arenabuychallenge_s, 20> arenabuychallenge_List;
+		NFShmVector<struct E_ArenaBuychallenge_s, 20> E_ArenaBuychallenge_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_arenabuychallenge & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_arenabuychallenge & msg);
-		static ::proto_ff::Sheet_arenabuychallenge* new_pbmsg(){ return new ::proto_ff::Sheet_arenabuychallenge(); }
-		static ::proto_ff::Sheet_arenabuychallenge make_pbmsg(){ return ::proto_ff::Sheet_arenabuychallenge(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaBuychallenge & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaBuychallenge & msg);
+		static ::proto_ff::Sheet_ArenaBuychallenge* new_pbmsg(){ return new ::proto_ff::Sheet_ArenaBuychallenge(); }
+		static ::proto_ff::Sheet_ArenaBuychallenge make_pbmsg(){ return ::proto_ff::Sheet_ArenaBuychallenge(); }
 	};
-	typedef struct Sheet_arenabuychallenge_s Sheet_arenabuychallenge_t;
+	typedef struct Sheet_ArenaBuychallenge_s Sheet_ArenaBuychallenge_t;
 
 }
 

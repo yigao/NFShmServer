@@ -14,9 +14,9 @@ public:
 	virtual ~ItemItemDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::itemitem_s* GetDesc(int id) const;
-	proto_ff_s::itemitem_s* GetDesc(int id);
+	const proto_ff_s::E_ItemItem_s* GetDesc(int id) const;
+	proto_ff_s::E_ItemItem_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::itemitem_s, itemitem, MAX_ITEM_ITEM_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ItemItem_s, itemitem, MAX_ITEM_ITEM_NUM);
 DECLARE_IDCREATE(ItemItemDesc);
 };

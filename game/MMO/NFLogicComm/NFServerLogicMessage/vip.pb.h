@@ -34,21 +34,21 @@ void  protobuf_AddDesc_vip_2eproto();
 void protobuf_AssignDesc_vip_2eproto();
 void protobuf_ShutdownFile_vip_2eproto();
 
-class vipvip;
-class Sheet_vipvip;
-class vipprivilege;
-class Sheet_vipprivilege;
+class E_VipVip;
+class Sheet_VipVip;
+class E_VipPrivilege;
+class Sheet_VipPrivilege;
 
 // ===================================================================
 
-class vipvip : public ::google::protobuf::Message {
+class E_VipVip : public ::google::protobuf::Message {
  public:
-  vipvip();
-  virtual ~vipvip();
+  E_VipVip();
+  virtual ~E_VipVip();
 
-  vipvip(const vipvip& from);
+  E_VipVip(const E_VipVip& from);
 
-  inline vipvip& operator=(const vipvip& from) {
+  inline E_VipVip& operator=(const E_VipVip& from) {
     CopyFrom(from);
     return *this;
   }
@@ -62,17 +62,17 @@ class vipvip : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const vipvip& default_instance();
+  static const E_VipVip& default_instance();
 
-  void Swap(vipvip* other);
+  void Swap(E_VipVip* other);
 
   // implements Message ----------------------------------------------
 
-  vipvip* New() const;
+  E_VipVip* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const vipvip& from);
-  void MergeFrom(const vipvip& from);
+  void CopyFrom(const E_VipVip& from);
+  void MergeFrom(const E_VipVip& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -95,51 +95,51 @@ class vipvip : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 level = 2;
-  inline bool has_level() const;
-  inline void clear_level();
-  static const int kLevelFieldNumber = 2;
-  inline ::google::protobuf::int32 level() const;
-  inline void set_level(::google::protobuf::int32 value);
+  // optional int32 m_level = 2;
+  inline bool has_m_level() const;
+  inline void clear_m_level();
+  static const int kMLevelFieldNumber = 2;
+  inline ::google::protobuf::int32 m_level() const;
+  inline void set_m_level(::google::protobuf::int32 value);
 
-  // optional int32 exp = 3;
-  inline bool has_exp() const;
-  inline void clear_exp();
-  static const int kExpFieldNumber = 3;
-  inline ::google::protobuf::int32 exp() const;
-  inline void set_exp(::google::protobuf::int32 value);
+  // optional int32 m_exp = 3;
+  inline bool has_m_exp() const;
+  inline void clear_m_exp();
+  static const int kMExpFieldNumber = 3;
+  inline ::google::protobuf::int32 m_exp() const;
+  inline void set_m_exp(::google::protobuf::int32 value);
 
-  // optional int32 privilege_group = 4;
-  inline bool has_privilege_group() const;
-  inline void clear_privilege_group();
-  static const int kPrivilegeGroupFieldNumber = 4;
-  inline ::google::protobuf::int32 privilege_group() const;
-  inline void set_privilege_group(::google::protobuf::int32 value);
+  // optional int32 m_privilege_group = 4;
+  inline bool has_m_privilege_group() const;
+  inline void clear_m_privilege_group();
+  static const int kMPrivilegeGroupFieldNumber = 4;
+  inline ::google::protobuf::int32 m_privilege_group() const;
+  inline void set_m_privilege_group(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.vipvip)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_VipVip)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_level();
-  inline void clear_has_level();
-  inline void set_has_exp();
-  inline void clear_has_exp();
-  inline void set_has_privilege_group();
-  inline void clear_has_privilege_group();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_level();
+  inline void clear_has_m_level();
+  inline void set_has_m_exp();
+  inline void clear_has_m_exp();
+  inline void set_has_m_privilege_group();
+  inline void clear_has_m_privilege_group();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 level_;
-  ::google::protobuf::int32 exp_;
-  ::google::protobuf::int32 privilege_group_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_level_;
+  ::google::protobuf::int32 m_exp_;
+  ::google::protobuf::int32 m_privilege_group_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -149,18 +149,18 @@ class vipvip : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_vip_2eproto();
 
   void InitAsDefaultInstance();
-  static vipvip* default_instance_;
+  static E_VipVip* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_vipvip : public ::google::protobuf::Message {
+class Sheet_VipVip : public ::google::protobuf::Message {
  public:
-  Sheet_vipvip();
-  virtual ~Sheet_vipvip();
+  Sheet_VipVip();
+  virtual ~Sheet_VipVip();
 
-  Sheet_vipvip(const Sheet_vipvip& from);
+  Sheet_VipVip(const Sheet_VipVip& from);
 
-  inline Sheet_vipvip& operator=(const Sheet_vipvip& from) {
+  inline Sheet_VipVip& operator=(const Sheet_VipVip& from) {
     CopyFrom(from);
     return *this;
   }
@@ -174,17 +174,17 @@ class Sheet_vipvip : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_vipvip& default_instance();
+  static const Sheet_VipVip& default_instance();
 
-  void Swap(Sheet_vipvip* other);
+  void Swap(Sheet_VipVip* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_vipvip* New() const;
+  Sheet_VipVip* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_vipvip& from);
-  void MergeFrom(const Sheet_vipvip& from);
+  void CopyFrom(const Sheet_VipVip& from);
+  void MergeFrom(const Sheet_VipVip& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -207,24 +207,24 @@ class Sheet_vipvip : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.vipvip vipvip_List = 1;
-  inline int vipvip_list_size() const;
-  inline void clear_vipvip_list();
-  static const int kVipvipListFieldNumber = 1;
-  inline const ::proto_ff::vipvip& vipvip_list(int index) const;
-  inline ::proto_ff::vipvip* mutable_vipvip_list(int index);
-  inline ::proto_ff::vipvip* add_vipvip_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::vipvip >&
-      vipvip_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::vipvip >*
-      mutable_vipvip_list();
+  // repeated .proto_ff.E_VipVip E_VipVip_List = 1;
+  inline int e_vipvip_list_size() const;
+  inline void clear_e_vipvip_list();
+  static const int kEVipVipListFieldNumber = 1;
+  inline const ::proto_ff::E_VipVip& e_vipvip_list(int index) const;
+  inline ::proto_ff::E_VipVip* mutable_e_vipvip_list(int index);
+  inline ::proto_ff::E_VipVip* add_e_vipvip_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipVip >&
+      e_vipvip_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipVip >*
+      mutable_e_vipvip_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_vipvip)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_VipVip)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::vipvip > vipvip_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipVip > e_vipvip_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -234,18 +234,18 @@ class Sheet_vipvip : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_vip_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_vipvip* default_instance_;
+  static Sheet_VipVip* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class vipprivilege : public ::google::protobuf::Message {
+class E_VipPrivilege : public ::google::protobuf::Message {
  public:
-  vipprivilege();
-  virtual ~vipprivilege();
+  E_VipPrivilege();
+  virtual ~E_VipPrivilege();
 
-  vipprivilege(const vipprivilege& from);
+  E_VipPrivilege(const E_VipPrivilege& from);
 
-  inline vipprivilege& operator=(const vipprivilege& from) {
+  inline E_VipPrivilege& operator=(const E_VipPrivilege& from) {
     CopyFrom(from);
     return *this;
   }
@@ -259,17 +259,17 @@ class vipprivilege : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const vipprivilege& default_instance();
+  static const E_VipPrivilege& default_instance();
 
-  void Swap(vipprivilege* other);
+  void Swap(E_VipPrivilege* other);
 
   // implements Message ----------------------------------------------
 
-  vipprivilege* New() const;
+  E_VipPrivilege* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const vipprivilege& from);
-  void MergeFrom(const vipprivilege& from);
+  void CopyFrom(const E_VipPrivilege& from);
+  void MergeFrom(const E_VipPrivilege& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -292,66 +292,66 @@ class vipprivilege : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 group = 2;
-  inline bool has_group() const;
-  inline void clear_group();
-  static const int kGroupFieldNumber = 2;
-  inline ::google::protobuf::int32 group() const;
-  inline void set_group(::google::protobuf::int32 value);
+  // optional int32 m_group = 2;
+  inline bool has_m_group() const;
+  inline void clear_m_group();
+  static const int kMGroupFieldNumber = 2;
+  inline ::google::protobuf::int32 m_group() const;
+  inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 type = 3;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 arg = 4;
-  inline bool has_arg() const;
-  inline void clear_arg();
-  static const int kArgFieldNumber = 4;
-  inline ::google::protobuf::int32 arg() const;
-  inline void set_arg(::google::protobuf::int32 value);
+  // optional int32 m_arg = 4;
+  inline bool has_m_arg() const;
+  inline void clear_m_arg();
+  static const int kMArgFieldNumber = 4;
+  inline ::google::protobuf::int32 m_arg() const;
+  inline void set_m_arg(::google::protobuf::int32 value);
 
-  // optional string args = 5;
-  inline bool has_args() const;
-  inline void clear_args();
-  static const int kArgsFieldNumber = 5;
-  inline const ::std::string& args() const;
-  inline void set_args(const ::std::string& value);
-  inline void set_args(const char* value);
-  inline void set_args(const char* value, size_t size);
-  inline ::std::string* mutable_args();
-  inline ::std::string* release_args();
-  inline void set_allocated_args(::std::string* args);
+  // optional string m_args = 5;
+  inline bool has_m_args() const;
+  inline void clear_m_args();
+  static const int kMArgsFieldNumber = 5;
+  inline const ::std::string& m_args() const;
+  inline void set_m_args(const ::std::string& value);
+  inline void set_m_args(const char* value);
+  inline void set_m_args(const char* value, size_t size);
+  inline ::std::string* mutable_m_args();
+  inline ::std::string* release_m_args();
+  inline void set_allocated_m_args(::std::string* m_args);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.vipprivilege)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_VipPrivilege)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_group();
-  inline void clear_has_group();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_arg();
-  inline void clear_has_arg();
-  inline void set_has_args();
-  inline void clear_has_args();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_group();
+  inline void clear_has_m_group();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_arg();
+  inline void clear_has_m_arg();
+  inline void set_has_m_args();
+  inline void clear_has_m_args();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 group_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 arg_;
-  ::std::string* args_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_group_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_arg_;
+  ::std::string* m_args_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -361,18 +361,18 @@ class vipprivilege : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_vip_2eproto();
 
   void InitAsDefaultInstance();
-  static vipprivilege* default_instance_;
+  static E_VipPrivilege* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_vipprivilege : public ::google::protobuf::Message {
+class Sheet_VipPrivilege : public ::google::protobuf::Message {
  public:
-  Sheet_vipprivilege();
-  virtual ~Sheet_vipprivilege();
+  Sheet_VipPrivilege();
+  virtual ~Sheet_VipPrivilege();
 
-  Sheet_vipprivilege(const Sheet_vipprivilege& from);
+  Sheet_VipPrivilege(const Sheet_VipPrivilege& from);
 
-  inline Sheet_vipprivilege& operator=(const Sheet_vipprivilege& from) {
+  inline Sheet_VipPrivilege& operator=(const Sheet_VipPrivilege& from) {
     CopyFrom(from);
     return *this;
   }
@@ -386,17 +386,17 @@ class Sheet_vipprivilege : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_vipprivilege& default_instance();
+  static const Sheet_VipPrivilege& default_instance();
 
-  void Swap(Sheet_vipprivilege* other);
+  void Swap(Sheet_VipPrivilege* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_vipprivilege* New() const;
+  Sheet_VipPrivilege* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_vipprivilege& from);
-  void MergeFrom(const Sheet_vipprivilege& from);
+  void CopyFrom(const Sheet_VipPrivilege& from);
+  void MergeFrom(const Sheet_VipPrivilege& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -419,24 +419,24 @@ class Sheet_vipprivilege : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.vipprivilege vipprivilege_List = 1;
-  inline int vipprivilege_list_size() const;
-  inline void clear_vipprivilege_list();
-  static const int kVipprivilegeListFieldNumber = 1;
-  inline const ::proto_ff::vipprivilege& vipprivilege_list(int index) const;
-  inline ::proto_ff::vipprivilege* mutable_vipprivilege_list(int index);
-  inline ::proto_ff::vipprivilege* add_vipprivilege_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::vipprivilege >&
-      vipprivilege_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::vipprivilege >*
-      mutable_vipprivilege_list();
+  // repeated .proto_ff.E_VipPrivilege E_VipPrivilege_List = 1;
+  inline int e_vipprivilege_list_size() const;
+  inline void clear_e_vipprivilege_list();
+  static const int kEVipPrivilegeListFieldNumber = 1;
+  inline const ::proto_ff::E_VipPrivilege& e_vipprivilege_list(int index) const;
+  inline ::proto_ff::E_VipPrivilege* mutable_e_vipprivilege_list(int index);
+  inline ::proto_ff::E_VipPrivilege* add_e_vipprivilege_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipPrivilege >&
+      e_vipprivilege_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipPrivilege >*
+      mutable_e_vipprivilege_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_vipprivilege)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_VipPrivilege)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::vipprivilege > vipprivilege_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipPrivilege > e_vipprivilege_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -446,321 +446,321 @@ class Sheet_vipprivilege : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_vip_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_vipprivilege* default_instance_;
+  static Sheet_VipPrivilege* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// vipvip
+// E_VipVip
 
-// optional int32 id = 1;
-inline bool vipvip::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_VipVip::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void vipvip::set_has_id() {
+inline void E_VipVip::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void vipvip::clear_has_id() {
+inline void E_VipVip::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void vipvip::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_VipVip::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 vipvip::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_VipVip::m_id() const {
+  return m_id_;
 }
-inline void vipvip::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_VipVip::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 level = 2;
-inline bool vipvip::has_level() const {
+// optional int32 m_level = 2;
+inline bool E_VipVip::has_m_level() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void vipvip::set_has_level() {
+inline void E_VipVip::set_has_m_level() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void vipvip::clear_has_level() {
+inline void E_VipVip::clear_has_m_level() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void vipvip::clear_level() {
-  level_ = 0;
-  clear_has_level();
+inline void E_VipVip::clear_m_level() {
+  m_level_ = 0;
+  clear_has_m_level();
 }
-inline ::google::protobuf::int32 vipvip::level() const {
-  return level_;
+inline ::google::protobuf::int32 E_VipVip::m_level() const {
+  return m_level_;
 }
-inline void vipvip::set_level(::google::protobuf::int32 value) {
-  set_has_level();
-  level_ = value;
+inline void E_VipVip::set_m_level(::google::protobuf::int32 value) {
+  set_has_m_level();
+  m_level_ = value;
 }
 
-// optional int32 exp = 3;
-inline bool vipvip::has_exp() const {
+// optional int32 m_exp = 3;
+inline bool E_VipVip::has_m_exp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void vipvip::set_has_exp() {
+inline void E_VipVip::set_has_m_exp() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void vipvip::clear_has_exp() {
+inline void E_VipVip::clear_has_m_exp() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void vipvip::clear_exp() {
-  exp_ = 0;
-  clear_has_exp();
+inline void E_VipVip::clear_m_exp() {
+  m_exp_ = 0;
+  clear_has_m_exp();
 }
-inline ::google::protobuf::int32 vipvip::exp() const {
-  return exp_;
+inline ::google::protobuf::int32 E_VipVip::m_exp() const {
+  return m_exp_;
 }
-inline void vipvip::set_exp(::google::protobuf::int32 value) {
-  set_has_exp();
-  exp_ = value;
+inline void E_VipVip::set_m_exp(::google::protobuf::int32 value) {
+  set_has_m_exp();
+  m_exp_ = value;
 }
 
-// optional int32 privilege_group = 4;
-inline bool vipvip::has_privilege_group() const {
+// optional int32 m_privilege_group = 4;
+inline bool E_VipVip::has_m_privilege_group() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void vipvip::set_has_privilege_group() {
+inline void E_VipVip::set_has_m_privilege_group() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void vipvip::clear_has_privilege_group() {
+inline void E_VipVip::clear_has_m_privilege_group() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void vipvip::clear_privilege_group() {
-  privilege_group_ = 0;
-  clear_has_privilege_group();
+inline void E_VipVip::clear_m_privilege_group() {
+  m_privilege_group_ = 0;
+  clear_has_m_privilege_group();
 }
-inline ::google::protobuf::int32 vipvip::privilege_group() const {
-  return privilege_group_;
+inline ::google::protobuf::int32 E_VipVip::m_privilege_group() const {
+  return m_privilege_group_;
 }
-inline void vipvip::set_privilege_group(::google::protobuf::int32 value) {
-  set_has_privilege_group();
-  privilege_group_ = value;
+inline void E_VipVip::set_m_privilege_group(::google::protobuf::int32 value) {
+  set_has_m_privilege_group();
+  m_privilege_group_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_vipvip
+// Sheet_VipVip
 
-// repeated .proto_ff.vipvip vipvip_List = 1;
-inline int Sheet_vipvip::vipvip_list_size() const {
-  return vipvip_list_.size();
+// repeated .proto_ff.E_VipVip E_VipVip_List = 1;
+inline int Sheet_VipVip::e_vipvip_list_size() const {
+  return e_vipvip_list_.size();
 }
-inline void Sheet_vipvip::clear_vipvip_list() {
-  vipvip_list_.Clear();
+inline void Sheet_VipVip::clear_e_vipvip_list() {
+  e_vipvip_list_.Clear();
 }
-inline const ::proto_ff::vipvip& Sheet_vipvip::vipvip_list(int index) const {
-  return vipvip_list_.Get(index);
+inline const ::proto_ff::E_VipVip& Sheet_VipVip::e_vipvip_list(int index) const {
+  return e_vipvip_list_.Get(index);
 }
-inline ::proto_ff::vipvip* Sheet_vipvip::mutable_vipvip_list(int index) {
-  return vipvip_list_.Mutable(index);
+inline ::proto_ff::E_VipVip* Sheet_VipVip::mutable_e_vipvip_list(int index) {
+  return e_vipvip_list_.Mutable(index);
 }
-inline ::proto_ff::vipvip* Sheet_vipvip::add_vipvip_list() {
-  return vipvip_list_.Add();
+inline ::proto_ff::E_VipVip* Sheet_VipVip::add_e_vipvip_list() {
+  return e_vipvip_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::vipvip >&
-Sheet_vipvip::vipvip_list() const {
-  return vipvip_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipVip >&
+Sheet_VipVip::e_vipvip_list() const {
+  return e_vipvip_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::vipvip >*
-Sheet_vipvip::mutable_vipvip_list() {
-  return &vipvip_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipVip >*
+Sheet_VipVip::mutable_e_vipvip_list() {
+  return &e_vipvip_list_;
 }
 
 // -------------------------------------------------------------------
 
-// vipprivilege
+// E_VipPrivilege
 
-// optional int32 id = 1;
-inline bool vipprivilege::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_VipPrivilege::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void vipprivilege::set_has_id() {
+inline void E_VipPrivilege::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void vipprivilege::clear_has_id() {
+inline void E_VipPrivilege::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void vipprivilege::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_VipPrivilege::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 vipprivilege::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_VipPrivilege::m_id() const {
+  return m_id_;
 }
-inline void vipprivilege::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_VipPrivilege::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 group = 2;
-inline bool vipprivilege::has_group() const {
+// optional int32 m_group = 2;
+inline bool E_VipPrivilege::has_m_group() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void vipprivilege::set_has_group() {
+inline void E_VipPrivilege::set_has_m_group() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void vipprivilege::clear_has_group() {
+inline void E_VipPrivilege::clear_has_m_group() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void vipprivilege::clear_group() {
-  group_ = 0;
-  clear_has_group();
+inline void E_VipPrivilege::clear_m_group() {
+  m_group_ = 0;
+  clear_has_m_group();
 }
-inline ::google::protobuf::int32 vipprivilege::group() const {
-  return group_;
+inline ::google::protobuf::int32 E_VipPrivilege::m_group() const {
+  return m_group_;
 }
-inline void vipprivilege::set_group(::google::protobuf::int32 value) {
-  set_has_group();
-  group_ = value;
+inline void E_VipPrivilege::set_m_group(::google::protobuf::int32 value) {
+  set_has_m_group();
+  m_group_ = value;
 }
 
-// optional int32 type = 3;
-inline bool vipprivilege::has_type() const {
+// optional int32 m_type = 3;
+inline bool E_VipPrivilege::has_m_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void vipprivilege::set_has_type() {
+inline void E_VipPrivilege::set_has_m_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void vipprivilege::clear_has_type() {
+inline void E_VipPrivilege::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void vipprivilege::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_VipPrivilege::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 vipprivilege::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_VipPrivilege::m_type() const {
+  return m_type_;
 }
-inline void vipprivilege::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_VipPrivilege::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 arg = 4;
-inline bool vipprivilege::has_arg() const {
+// optional int32 m_arg = 4;
+inline bool E_VipPrivilege::has_m_arg() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void vipprivilege::set_has_arg() {
+inline void E_VipPrivilege::set_has_m_arg() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void vipprivilege::clear_has_arg() {
+inline void E_VipPrivilege::clear_has_m_arg() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void vipprivilege::clear_arg() {
-  arg_ = 0;
-  clear_has_arg();
+inline void E_VipPrivilege::clear_m_arg() {
+  m_arg_ = 0;
+  clear_has_m_arg();
 }
-inline ::google::protobuf::int32 vipprivilege::arg() const {
-  return arg_;
+inline ::google::protobuf::int32 E_VipPrivilege::m_arg() const {
+  return m_arg_;
 }
-inline void vipprivilege::set_arg(::google::protobuf::int32 value) {
-  set_has_arg();
-  arg_ = value;
+inline void E_VipPrivilege::set_m_arg(::google::protobuf::int32 value) {
+  set_has_m_arg();
+  m_arg_ = value;
 }
 
-// optional string args = 5;
-inline bool vipprivilege::has_args() const {
+// optional string m_args = 5;
+inline bool E_VipPrivilege::has_m_args() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void vipprivilege::set_has_args() {
+inline void E_VipPrivilege::set_has_m_args() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void vipprivilege::clear_has_args() {
+inline void E_VipPrivilege::clear_has_m_args() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void vipprivilege::clear_args() {
-  if (args_ != &::google::protobuf::internal::kEmptyString) {
-    args_->clear();
+inline void E_VipPrivilege::clear_m_args() {
+  if (m_args_ != &::google::protobuf::internal::kEmptyString) {
+    m_args_->clear();
   }
-  clear_has_args();
+  clear_has_m_args();
 }
-inline const ::std::string& vipprivilege::args() const {
-  return *args_;
+inline const ::std::string& E_VipPrivilege::m_args() const {
+  return *m_args_;
 }
-inline void vipprivilege::set_args(const ::std::string& value) {
-  set_has_args();
-  if (args_ == &::google::protobuf::internal::kEmptyString) {
-    args_ = new ::std::string;
+inline void E_VipPrivilege::set_m_args(const ::std::string& value) {
+  set_has_m_args();
+  if (m_args_ == &::google::protobuf::internal::kEmptyString) {
+    m_args_ = new ::std::string;
   }
-  args_->assign(value);
+  m_args_->assign(value);
 }
-inline void vipprivilege::set_args(const char* value) {
-  set_has_args();
-  if (args_ == &::google::protobuf::internal::kEmptyString) {
-    args_ = new ::std::string;
+inline void E_VipPrivilege::set_m_args(const char* value) {
+  set_has_m_args();
+  if (m_args_ == &::google::protobuf::internal::kEmptyString) {
+    m_args_ = new ::std::string;
   }
-  args_->assign(value);
+  m_args_->assign(value);
 }
-inline void vipprivilege::set_args(const char* value, size_t size) {
-  set_has_args();
-  if (args_ == &::google::protobuf::internal::kEmptyString) {
-    args_ = new ::std::string;
+inline void E_VipPrivilege::set_m_args(const char* value, size_t size) {
+  set_has_m_args();
+  if (m_args_ == &::google::protobuf::internal::kEmptyString) {
+    m_args_ = new ::std::string;
   }
-  args_->assign(reinterpret_cast<const char*>(value), size);
+  m_args_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* vipprivilege::mutable_args() {
-  set_has_args();
-  if (args_ == &::google::protobuf::internal::kEmptyString) {
-    args_ = new ::std::string;
+inline ::std::string* E_VipPrivilege::mutable_m_args() {
+  set_has_m_args();
+  if (m_args_ == &::google::protobuf::internal::kEmptyString) {
+    m_args_ = new ::std::string;
   }
-  return args_;
+  return m_args_;
 }
-inline ::std::string* vipprivilege::release_args() {
-  clear_has_args();
-  if (args_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_VipPrivilege::release_m_args() {
+  clear_has_m_args();
+  if (m_args_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = args_;
-    args_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_args_;
+    m_args_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void vipprivilege::set_allocated_args(::std::string* args) {
-  if (args_ != &::google::protobuf::internal::kEmptyString) {
-    delete args_;
+inline void E_VipPrivilege::set_allocated_m_args(::std::string* m_args) {
+  if (m_args_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_args_;
   }
-  if (args) {
-    set_has_args();
-    args_ = args;
+  if (m_args) {
+    set_has_m_args();
+    m_args_ = m_args;
   } else {
-    clear_has_args();
-    args_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_args();
+    m_args_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_vipprivilege
+// Sheet_VipPrivilege
 
-// repeated .proto_ff.vipprivilege vipprivilege_List = 1;
-inline int Sheet_vipprivilege::vipprivilege_list_size() const {
-  return vipprivilege_list_.size();
+// repeated .proto_ff.E_VipPrivilege E_VipPrivilege_List = 1;
+inline int Sheet_VipPrivilege::e_vipprivilege_list_size() const {
+  return e_vipprivilege_list_.size();
 }
-inline void Sheet_vipprivilege::clear_vipprivilege_list() {
-  vipprivilege_list_.Clear();
+inline void Sheet_VipPrivilege::clear_e_vipprivilege_list() {
+  e_vipprivilege_list_.Clear();
 }
-inline const ::proto_ff::vipprivilege& Sheet_vipprivilege::vipprivilege_list(int index) const {
-  return vipprivilege_list_.Get(index);
+inline const ::proto_ff::E_VipPrivilege& Sheet_VipPrivilege::e_vipprivilege_list(int index) const {
+  return e_vipprivilege_list_.Get(index);
 }
-inline ::proto_ff::vipprivilege* Sheet_vipprivilege::mutable_vipprivilege_list(int index) {
-  return vipprivilege_list_.Mutable(index);
+inline ::proto_ff::E_VipPrivilege* Sheet_VipPrivilege::mutable_e_vipprivilege_list(int index) {
+  return e_vipprivilege_list_.Mutable(index);
 }
-inline ::proto_ff::vipprivilege* Sheet_vipprivilege::add_vipprivilege_list() {
-  return vipprivilege_list_.Add();
+inline ::proto_ff::E_VipPrivilege* Sheet_VipPrivilege::add_e_vipprivilege_list() {
+  return e_vipprivilege_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::vipprivilege >&
-Sheet_vipprivilege::vipprivilege_list() const {
-  return vipprivilege_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipPrivilege >&
+Sheet_VipPrivilege::e_vipprivilege_list() const {
+  return e_vipprivilege_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::vipprivilege >*
-Sheet_vipprivilege::mutable_vipprivilege_list() {
-  return &vipprivilege_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_VipPrivilege >*
+Sheet_VipPrivilege::mutable_e_vipprivilege_list() {
+  return &e_vipprivilege_list_;
 }
 
 

@@ -3,22 +3,22 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message teamteam
+message E_TeamTeam
 {
-	optional int32 TeamObjectID = 1[(yd_fieldoptions.field_cname) = "组队目标ID"];
-	optional int32 FObjectNameID = 2[(yd_fieldoptions.field_cname) = "父目标名称ID"];
-	optional int32 SObjectNameID = 3[(yd_fieldoptions.field_cname) = "子目标名称ID"];
-	optional int64 duplicateId = 4[(yd_fieldoptions.field_cname) = "副本ID"];
-	optional int64 activityId = 5[(yd_fieldoptions.field_cname) = "活动ID"];
-	optional int32 LowLV = 6[(yd_fieldoptions.field_cname) = "下限等级"];
-	optional int32 UpLV = 7[(yd_fieldoptions.field_cname) = "上限等级"];
-	optional int32 isAutoMatch = 8[(yd_fieldoptions.field_cname) = "是否自动匹配"];
-	optional int32 speakChannel = 9[(yd_fieldoptions.field_cname) = "喊话频道"];
-	optional int32 teamnumber = 10[(yd_fieldoptions.field_cname) = "序列"];
+	optional int32 m_teamobjectid = 1[(yd_fieldoptions.field_cname) = "组队目标ID"];
+	optional int32 m_fobjectnameid = 2[(yd_fieldoptions.field_cname) = "父目标名称ID"];
+	optional int32 m_sobjectnameid = 3[(yd_fieldoptions.field_cname) = "子目标名称ID"];
+	optional int64 m_duplicateid = 4[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int64 m_activityid = 5[(yd_fieldoptions.field_cname) = "活动ID"];
+	optional int32 m_lowlv = 6[(yd_fieldoptions.field_cname) = "下限等级"];
+	optional int32 m_uplv = 7[(yd_fieldoptions.field_cname) = "上限等级"];
+	optional int32 m_isautomatch = 8[(yd_fieldoptions.field_cname) = "是否自动匹配"];
+	optional int32 m_speakchannel = 9[(yd_fieldoptions.field_cname) = "喊话频道"];
+	optional int32 m_teamnumber = 10[(yd_fieldoptions.field_cname) = "序列"];
 }
 
 
-message Sheet_teamteam
+message Sheet_TeamTeam
 {
-	repeated teamteam teamteam_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_TeamTeam E_TeamTeam_List = 1[(yd_fieldoptions.field_arysize)=40];
 }

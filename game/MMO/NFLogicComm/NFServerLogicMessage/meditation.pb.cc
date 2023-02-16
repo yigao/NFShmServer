@@ -20,18 +20,18 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* meditationmeditationattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_MeditationMeditationAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  meditationmeditationattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* meditationmeditationActiveAttributeDesc_descriptor_ = NULL;
+  E_MeditationMeditationAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MeditationMeditationActiveattributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  meditationmeditationActiveAttributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* meditationmeditation_descriptor_ = NULL;
+  E_MeditationMeditationActiveattributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_MeditationMeditation_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  meditationmeditation_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_meditationmeditation_descriptor_ = NULL;
+  E_MeditationMeditation_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_MeditationMeditation_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_meditationmeditation_reflection_ = NULL;
+  Sheet_MeditationMeditation_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,80 +42,80 @@ void protobuf_AssignDesc_meditation_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "meditation.proto");
   GOOGLE_CHECK(file != NULL);
-  meditationmeditationattributeDesc_descriptor_ = file->message_type(0);
-  static const int meditationmeditationattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationattributeDesc, value_),
+  E_MeditationMeditationAttributeDesc_descriptor_ = file->message_type(0);
+  static const int E_MeditationMeditationAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationAttributeDesc, m_value_),
   };
-  meditationmeditationattributeDesc_reflection_ =
+  E_MeditationMeditationAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      meditationmeditationattributeDesc_descriptor_,
-      meditationmeditationattributeDesc::default_instance_,
-      meditationmeditationattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationattributeDesc, _unknown_fields_),
+      E_MeditationMeditationAttributeDesc_descriptor_,
+      E_MeditationMeditationAttributeDesc::default_instance_,
+      E_MeditationMeditationAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(meditationmeditationattributeDesc));
-  meditationmeditationActiveAttributeDesc_descriptor_ = file->message_type(1);
-  static const int meditationmeditationActiveAttributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationActiveAttributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationActiveAttributeDesc, value_),
+      sizeof(E_MeditationMeditationAttributeDesc));
+  E_MeditationMeditationActiveattributeDesc_descriptor_ = file->message_type(1);
+  static const int E_MeditationMeditationActiveattributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationActiveattributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationActiveattributeDesc, m_value_),
   };
-  meditationmeditationActiveAttributeDesc_reflection_ =
+  E_MeditationMeditationActiveattributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      meditationmeditationActiveAttributeDesc_descriptor_,
-      meditationmeditationActiveAttributeDesc::default_instance_,
-      meditationmeditationActiveAttributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationActiveAttributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditationActiveAttributeDesc, _unknown_fields_),
+      E_MeditationMeditationActiveattributeDesc_descriptor_,
+      E_MeditationMeditationActiveattributeDesc::default_instance_,
+      E_MeditationMeditationActiveattributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationActiveattributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditationActiveattributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(meditationmeditationActiveAttributeDesc));
-  meditationmeditation_descriptor_ = file->message_type(2);
-  static const int meditationmeditation_offsets_[13] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, quality_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, professionlimit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, activationitem_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, activationnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, starid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, starnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, starup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, starber_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, attribute_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, activeattribute_),
+      sizeof(E_MeditationMeditationActiveattributeDesc));
+  E_MeditationMeditation_descriptor_ = file->message_type(2);
+  static const int E_MeditationMeditation_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_quality_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_professionlimit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_activationitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_activationnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_starid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_starnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_starup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_starber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_attribute_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, m_activeattribute_),
   };
-  meditationmeditation_reflection_ =
+  E_MeditationMeditation_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      meditationmeditation_descriptor_,
-      meditationmeditation::default_instance_,
-      meditationmeditation_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(meditationmeditation, _unknown_fields_),
+      E_MeditationMeditation_descriptor_,
+      E_MeditationMeditation::default_instance_,
+      E_MeditationMeditation_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MeditationMeditation, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(meditationmeditation));
-  Sheet_meditationmeditation_descriptor_ = file->message_type(3);
-  static const int Sheet_meditationmeditation_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_meditationmeditation, meditationmeditation_list_),
+      sizeof(E_MeditationMeditation));
+  Sheet_MeditationMeditation_descriptor_ = file->message_type(3);
+  static const int Sheet_MeditationMeditation_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MeditationMeditation, e_meditationmeditation_list_),
   };
-  Sheet_meditationmeditation_reflection_ =
+  Sheet_MeditationMeditation_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_meditationmeditation_descriptor_,
-      Sheet_meditationmeditation::default_instance_,
-      Sheet_meditationmeditation_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_meditationmeditation, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_meditationmeditation, _unknown_fields_),
+      Sheet_MeditationMeditation_descriptor_,
+      Sheet_MeditationMeditation::default_instance_,
+      Sheet_MeditationMeditation_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MeditationMeditation, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_MeditationMeditation, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_meditationmeditation));
+      sizeof(Sheet_MeditationMeditation));
 }
 
 namespace {
@@ -129,26 +129,26 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    meditationmeditationattributeDesc_descriptor_, &meditationmeditationattributeDesc::default_instance());
+    E_MeditationMeditationAttributeDesc_descriptor_, &E_MeditationMeditationAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    meditationmeditationActiveAttributeDesc_descriptor_, &meditationmeditationActiveAttributeDesc::default_instance());
+    E_MeditationMeditationActiveattributeDesc_descriptor_, &E_MeditationMeditationActiveattributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    meditationmeditation_descriptor_, &meditationmeditation::default_instance());
+    E_MeditationMeditation_descriptor_, &E_MeditationMeditation::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_meditationmeditation_descriptor_, &Sheet_meditationmeditation::default_instance());
+    Sheet_MeditationMeditation_descriptor_, &Sheet_MeditationMeditation::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_meditation_2eproto() {
-  delete meditationmeditationattributeDesc::default_instance_;
-  delete meditationmeditationattributeDesc_reflection_;
-  delete meditationmeditationActiveAttributeDesc::default_instance_;
-  delete meditationmeditationActiveAttributeDesc_reflection_;
-  delete meditationmeditation::default_instance_;
-  delete meditationmeditation_reflection_;
-  delete Sheet_meditationmeditation::default_instance_;
-  delete Sheet_meditationmeditation_reflection_;
+  delete E_MeditationMeditationAttributeDesc::default_instance_;
+  delete E_MeditationMeditationAttributeDesc_reflection_;
+  delete E_MeditationMeditationActiveattributeDesc::default_instance_;
+  delete E_MeditationMeditationActiveattributeDesc_reflection_;
+  delete E_MeditationMeditation::default_instance_;
+  delete E_MeditationMeditation_reflection_;
+  delete Sheet_MeditationMeditation::default_instance_;
+  delete Sheet_MeditationMeditation_reflection_;
 }
 
 void protobuf_AddDesc_meditation_2eproto() {
@@ -160,40 +160,41 @@ void protobuf_AddDesc_meditation_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020meditation.proto\022\010proto_ff\032\025yd_fieldop"
-    "tions.proto\"U\n!meditationmeditationattri"
-    "buteDesc\022\030\n\004type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005va"
-    "lue\030\002 \001(\005B\007\302\377\024\003\345\200\274\"[\n\'meditationmeditati"
-    "onActiveAttributeDesc\022\030\n\004type\030\001 \001(\005B\n\302\377\024"
-    "\006\347\261\273\345\236\213\022\026\n\005value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\205\005\n\024medi"
-    "tationmeditation\022\030\n\002ID\030\001 \001(\003B\014\302\377\024\010\346\211\223\345\235\220"
-    "ID\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\346\211\223\345\235\220\345\220\215\347\247\260\220\301\024<\022\036"
-    "\n\004type\030\003 \001(\005B\020\302\377\024\014\345\244\226\350\247\202\347\261\273\345\236\213\022!\n\007qualit"
-    "y\030\004 \001(\005B\020\302\377\024\014\346\211\223\345\235\220\345\223\201\350\264\250\022-\n\017professionL"
-    "imit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024<\022*\n\016acti"
-    "vationItem\030\006 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022-\n\r"
-    "activationNum\030\007 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260"
-    "\351\207\217\022\"\n\006starId\030\010 \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022"
-    ",\n\007starNum\030\t \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217"
-    "\220\301\024\254\002\022&\n\006starUp\030\n \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344"
-    "\270\212\351\231\220\022<\n\007starBer\030\013 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237"
-    "\345\261\236\346\200\247\345\242\236\345\212\240\347\232\204\347\231\276\345\210\206\346\257\224\345\200\274\022N\n\tattribute"
-    "\030\014 \003(\0132+.proto_ff.meditationmeditationat"
-    "tributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\022Z\n\017ActiveAtt"
-    "ribute\030\r \003(\01321.proto_ff.meditationmedita"
-    "tionActiveAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\""
-    "e\n\032Sheet_meditationmeditation\022G\n\031meditat"
-    "ionmeditation_List\030\001 \003(\0132\036.proto_ff.medi"
-    "tationmeditationB\004\210\301\024\024", 982);
+    "tions.proto\"[\n#E_MeditationMeditationAtt"
+    "ributeDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030"
+    "\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"a\n)E_Meditation"
+    "MeditationActiveattributeDesc\022\032\n\006m_type\030"
+    "\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003"
+    "\345\200\274\"\245\005\n\026E_MeditationMeditation\022\032\n\004m_id\030\001"
+    " \001(\003B\014\302\377\024\010\346\211\223\345\235\220ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014"
+    "\346\211\223\345\235\220\345\220\215\347\247\260\220\301\024<\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\345\244"
+    "\226\350\247\202\347\261\273\345\236\213\022#\n\tm_quality\030\004 \001(\005B\020\302\377\024\014\346\211\223\345\235"
+    "\220\345\223\201\350\264\250\022/\n\021m_professionlimit\030\005 \001(\tB\024\302\377\024\014"
+    "\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024<\022,\n\020m_activationitem\030\006 \001"
+    "(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022/\n\017m_activationnu"
+    "m\030\007 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_sta"
+    "rid\030\010 \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022.\n\tm_starn"
+    "um\030\t \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\254\002\022(\n"
+    "\010m_starup\030\n \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022"
+    ">\n\tm_starber\030\013 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346"
+    "\200\247\345\242\236\345\212\240\347\232\204\347\231\276\345\210\206\346\257\224\345\200\274\022R\n\013m_attribute\030\014"
+    " \003(\0132-.proto_ff.E_MeditationMeditationAt"
+    "tributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\022^\n\021m_activea"
+    "ttribute\030\r \003(\01323.proto_ff.E_MeditationMe"
+    "ditationActiveattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210"
+    "\301\024\006\"i\n\032Sheet_MeditationMeditation\022K\n\033E_M"
+    "editationMeditation_List\030\001 \003(\0132 .proto_f"
+    "f.E_MeditationMeditationB\004\210\301\024\024", 1030);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "meditation.proto", &protobuf_RegisterTypes);
-  meditationmeditationattributeDesc::default_instance_ = new meditationmeditationattributeDesc();
-  meditationmeditationActiveAttributeDesc::default_instance_ = new meditationmeditationActiveAttributeDesc();
-  meditationmeditation::default_instance_ = new meditationmeditation();
-  Sheet_meditationmeditation::default_instance_ = new Sheet_meditationmeditation();
-  meditationmeditationattributeDesc::default_instance_->InitAsDefaultInstance();
-  meditationmeditationActiveAttributeDesc::default_instance_->InitAsDefaultInstance();
-  meditationmeditation::default_instance_->InitAsDefaultInstance();
-  Sheet_meditationmeditation::default_instance_->InitAsDefaultInstance();
+  E_MeditationMeditationAttributeDesc::default_instance_ = new E_MeditationMeditationAttributeDesc();
+  E_MeditationMeditationActiveattributeDesc::default_instance_ = new E_MeditationMeditationActiveattributeDesc();
+  E_MeditationMeditation::default_instance_ = new E_MeditationMeditation();
+  Sheet_MeditationMeditation::default_instance_ = new Sheet_MeditationMeditation();
+  E_MeditationMeditationAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_MeditationMeditationActiveattributeDesc::default_instance_->InitAsDefaultInstance();
+  E_MeditationMeditation::default_instance_->InitAsDefaultInstance();
+  Sheet_MeditationMeditation::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_meditation_2eproto);
 }
 
@@ -207,100 +208,100 @@ struct StaticDescriptorInitializer_meditation_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int meditationmeditationattributeDesc::kTypeFieldNumber;
-const int meditationmeditationattributeDesc::kValueFieldNumber;
+const int E_MeditationMeditationAttributeDesc::kMTypeFieldNumber;
+const int E_MeditationMeditationAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-meditationmeditationattributeDesc::meditationmeditationattributeDesc()
+E_MeditationMeditationAttributeDesc::E_MeditationMeditationAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void meditationmeditationattributeDesc::InitAsDefaultInstance() {
+void E_MeditationMeditationAttributeDesc::InitAsDefaultInstance() {
 }
 
-meditationmeditationattributeDesc::meditationmeditationattributeDesc(const meditationmeditationattributeDesc& from)
+E_MeditationMeditationAttributeDesc::E_MeditationMeditationAttributeDesc(const E_MeditationMeditationAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void meditationmeditationattributeDesc::SharedCtor() {
+void E_MeditationMeditationAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-meditationmeditationattributeDesc::~meditationmeditationattributeDesc() {
+E_MeditationMeditationAttributeDesc::~E_MeditationMeditationAttributeDesc() {
   SharedDtor();
 }
 
-void meditationmeditationattributeDesc::SharedDtor() {
+void E_MeditationMeditationAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void meditationmeditationattributeDesc::SetCachedSize(int size) const {
+void E_MeditationMeditationAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* meditationmeditationattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_MeditationMeditationAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return meditationmeditationattributeDesc_descriptor_;
+  return E_MeditationMeditationAttributeDesc_descriptor_;
 }
 
-const meditationmeditationattributeDesc& meditationmeditationattributeDesc::default_instance() {
+const E_MeditationMeditationAttributeDesc& E_MeditationMeditationAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_meditation_2eproto();
   return *default_instance_;
 }
 
-meditationmeditationattributeDesc* meditationmeditationattributeDesc::default_instance_ = NULL;
+E_MeditationMeditationAttributeDesc* E_MeditationMeditationAttributeDesc::default_instance_ = NULL;
 
-meditationmeditationattributeDesc* meditationmeditationattributeDesc::New() const {
-  return new meditationmeditationattributeDesc;
+E_MeditationMeditationAttributeDesc* E_MeditationMeditationAttributeDesc::New() const {
+  return new E_MeditationMeditationAttributeDesc;
 }
 
-void meditationmeditationattributeDesc::Clear() {
+void E_MeditationMeditationAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool meditationmeditationattributeDesc::MergePartialFromCodedStream(
+bool E_MeditationMeditationAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -324,16 +325,16 @@ bool meditationmeditationattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void meditationmeditationattributeDesc::SerializeWithCachedSizes(
+void E_MeditationMeditationAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -342,16 +343,16 @@ void meditationmeditationattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* meditationmeditationattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MeditationMeditationAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -361,22 +362,22 @@ void meditationmeditationattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int meditationmeditationattributeDesc::ByteSize() const {
+int E_MeditationMeditationAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -391,10 +392,10 @@ int meditationmeditationattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void meditationmeditationattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MeditationMeditationAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const meditationmeditationattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const meditationmeditationattributeDesc*>(
+  const E_MeditationMeditationAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MeditationMeditationAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -403,51 +404,51 @@ void meditationmeditationattributeDesc::MergeFrom(const ::google::protobuf::Mess
   }
 }
 
-void meditationmeditationattributeDesc::MergeFrom(const meditationmeditationattributeDesc& from) {
+void E_MeditationMeditationAttributeDesc::MergeFrom(const E_MeditationMeditationAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void meditationmeditationattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MeditationMeditationAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void meditationmeditationattributeDesc::CopyFrom(const meditationmeditationattributeDesc& from) {
+void E_MeditationMeditationAttributeDesc::CopyFrom(const E_MeditationMeditationAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool meditationmeditationattributeDesc::IsInitialized() const {
+bool E_MeditationMeditationAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void meditationmeditationattributeDesc::Swap(meditationmeditationattributeDesc* other) {
+void E_MeditationMeditationAttributeDesc::Swap(E_MeditationMeditationAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata meditationmeditationattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_MeditationMeditationAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = meditationmeditationattributeDesc_descriptor_;
-  metadata.reflection = meditationmeditationattributeDesc_reflection_;
+  metadata.descriptor = E_MeditationMeditationAttributeDesc_descriptor_;
+  metadata.reflection = E_MeditationMeditationAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -455,100 +456,100 @@ void meditationmeditationattributeDesc::Swap(meditationmeditationattributeDesc* 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int meditationmeditationActiveAttributeDesc::kTypeFieldNumber;
-const int meditationmeditationActiveAttributeDesc::kValueFieldNumber;
+const int E_MeditationMeditationActiveattributeDesc::kMTypeFieldNumber;
+const int E_MeditationMeditationActiveattributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-meditationmeditationActiveAttributeDesc::meditationmeditationActiveAttributeDesc()
+E_MeditationMeditationActiveattributeDesc::E_MeditationMeditationActiveattributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void meditationmeditationActiveAttributeDesc::InitAsDefaultInstance() {
+void E_MeditationMeditationActiveattributeDesc::InitAsDefaultInstance() {
 }
 
-meditationmeditationActiveAttributeDesc::meditationmeditationActiveAttributeDesc(const meditationmeditationActiveAttributeDesc& from)
+E_MeditationMeditationActiveattributeDesc::E_MeditationMeditationActiveattributeDesc(const E_MeditationMeditationActiveattributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void meditationmeditationActiveAttributeDesc::SharedCtor() {
+void E_MeditationMeditationActiveattributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-meditationmeditationActiveAttributeDesc::~meditationmeditationActiveAttributeDesc() {
+E_MeditationMeditationActiveattributeDesc::~E_MeditationMeditationActiveattributeDesc() {
   SharedDtor();
 }
 
-void meditationmeditationActiveAttributeDesc::SharedDtor() {
+void E_MeditationMeditationActiveattributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void meditationmeditationActiveAttributeDesc::SetCachedSize(int size) const {
+void E_MeditationMeditationActiveattributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* meditationmeditationActiveAttributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_MeditationMeditationActiveattributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return meditationmeditationActiveAttributeDesc_descriptor_;
+  return E_MeditationMeditationActiveattributeDesc_descriptor_;
 }
 
-const meditationmeditationActiveAttributeDesc& meditationmeditationActiveAttributeDesc::default_instance() {
+const E_MeditationMeditationActiveattributeDesc& E_MeditationMeditationActiveattributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_meditation_2eproto();
   return *default_instance_;
 }
 
-meditationmeditationActiveAttributeDesc* meditationmeditationActiveAttributeDesc::default_instance_ = NULL;
+E_MeditationMeditationActiveattributeDesc* E_MeditationMeditationActiveattributeDesc::default_instance_ = NULL;
 
-meditationmeditationActiveAttributeDesc* meditationmeditationActiveAttributeDesc::New() const {
-  return new meditationmeditationActiveAttributeDesc;
+E_MeditationMeditationActiveattributeDesc* E_MeditationMeditationActiveattributeDesc::New() const {
+  return new E_MeditationMeditationActiveattributeDesc;
 }
 
-void meditationmeditationActiveAttributeDesc::Clear() {
+void E_MeditationMeditationActiveattributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool meditationmeditationActiveAttributeDesc::MergePartialFromCodedStream(
+bool E_MeditationMeditationActiveattributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -572,16 +573,16 @@ bool meditationmeditationActiveAttributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void meditationmeditationActiveAttributeDesc::SerializeWithCachedSizes(
+void E_MeditationMeditationActiveattributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -590,16 +591,16 @@ void meditationmeditationActiveAttributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* meditationmeditationActiveAttributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MeditationMeditationActiveattributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -609,22 +610,22 @@ void meditationmeditationActiveAttributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int meditationmeditationActiveAttributeDesc::ByteSize() const {
+int E_MeditationMeditationActiveattributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -639,10 +640,10 @@ int meditationmeditationActiveAttributeDesc::ByteSize() const {
   return total_size;
 }
 
-void meditationmeditationActiveAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MeditationMeditationActiveattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const meditationmeditationActiveAttributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const meditationmeditationActiveAttributeDesc*>(
+  const E_MeditationMeditationActiveattributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MeditationMeditationActiveattributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -651,51 +652,51 @@ void meditationmeditationActiveAttributeDesc::MergeFrom(const ::google::protobuf
   }
 }
 
-void meditationmeditationActiveAttributeDesc::MergeFrom(const meditationmeditationActiveAttributeDesc& from) {
+void E_MeditationMeditationActiveattributeDesc::MergeFrom(const E_MeditationMeditationActiveattributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void meditationmeditationActiveAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MeditationMeditationActiveattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void meditationmeditationActiveAttributeDesc::CopyFrom(const meditationmeditationActiveAttributeDesc& from) {
+void E_MeditationMeditationActiveattributeDesc::CopyFrom(const E_MeditationMeditationActiveattributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool meditationmeditationActiveAttributeDesc::IsInitialized() const {
+bool E_MeditationMeditationActiveattributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void meditationmeditationActiveAttributeDesc::Swap(meditationmeditationActiveAttributeDesc* other) {
+void E_MeditationMeditationActiveattributeDesc::Swap(E_MeditationMeditationActiveattributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata meditationmeditationActiveAttributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_MeditationMeditationActiveattributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = meditationmeditationActiveAttributeDesc_descriptor_;
-  metadata.reflection = meditationmeditationActiveAttributeDesc_reflection_;
+  metadata.descriptor = E_MeditationMeditationActiveattributeDesc_descriptor_;
+  metadata.reflection = E_MeditationMeditationActiveattributeDesc_reflection_;
   return metadata;
 }
 
@@ -703,334 +704,334 @@ void meditationmeditationActiveAttributeDesc::Swap(meditationmeditationActiveAtt
 // ===================================================================
 
 #ifndef _MSC_VER
-const int meditationmeditation::kIDFieldNumber;
-const int meditationmeditation::kNameFieldNumber;
-const int meditationmeditation::kTypeFieldNumber;
-const int meditationmeditation::kQualityFieldNumber;
-const int meditationmeditation::kProfessionLimitFieldNumber;
-const int meditationmeditation::kActivationItemFieldNumber;
-const int meditationmeditation::kActivationNumFieldNumber;
-const int meditationmeditation::kStarIdFieldNumber;
-const int meditationmeditation::kStarNumFieldNumber;
-const int meditationmeditation::kStarUpFieldNumber;
-const int meditationmeditation::kStarBerFieldNumber;
-const int meditationmeditation::kAttributeFieldNumber;
-const int meditationmeditation::kActiveAttributeFieldNumber;
+const int E_MeditationMeditation::kMIdFieldNumber;
+const int E_MeditationMeditation::kMNameFieldNumber;
+const int E_MeditationMeditation::kMTypeFieldNumber;
+const int E_MeditationMeditation::kMQualityFieldNumber;
+const int E_MeditationMeditation::kMProfessionlimitFieldNumber;
+const int E_MeditationMeditation::kMActivationitemFieldNumber;
+const int E_MeditationMeditation::kMActivationnumFieldNumber;
+const int E_MeditationMeditation::kMStaridFieldNumber;
+const int E_MeditationMeditation::kMStarnumFieldNumber;
+const int E_MeditationMeditation::kMStarupFieldNumber;
+const int E_MeditationMeditation::kMStarberFieldNumber;
+const int E_MeditationMeditation::kMAttributeFieldNumber;
+const int E_MeditationMeditation::kMActiveattributeFieldNumber;
 #endif  // !_MSC_VER
 
-meditationmeditation::meditationmeditation()
+E_MeditationMeditation::E_MeditationMeditation()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void meditationmeditation::InitAsDefaultInstance() {
+void E_MeditationMeditation::InitAsDefaultInstance() {
 }
 
-meditationmeditation::meditationmeditation(const meditationmeditation& from)
+E_MeditationMeditation::E_MeditationMeditation(const E_MeditationMeditation& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void meditationmeditation::SharedCtor() {
+void E_MeditationMeditation::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  type_ = 0;
-  quality_ = 0;
-  professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  activationitem_ = GOOGLE_LONGLONG(0);
-  activationnum_ = 0;
-  starid_ = GOOGLE_LONGLONG(0);
-  starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  starup_ = 0;
-  starber_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_type_ = 0;
+  m_quality_ = 0;
+  m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_activationitem_ = GOOGLE_LONGLONG(0);
+  m_activationnum_ = 0;
+  m_starid_ = GOOGLE_LONGLONG(0);
+  m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_starup_ = 0;
+  m_starber_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-meditationmeditation::~meditationmeditation() {
+E_MeditationMeditation::~E_MeditationMeditation() {
   SharedDtor();
 }
 
-void meditationmeditation::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+void E_MeditationMeditation::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionlimit_;
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionlimit_;
   }
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete starnum_;
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_starnum_;
   }
   if (this != default_instance_) {
   }
 }
 
-void meditationmeditation::SetCachedSize(int size) const {
+void E_MeditationMeditation::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* meditationmeditation::descriptor() {
+const ::google::protobuf::Descriptor* E_MeditationMeditation::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return meditationmeditation_descriptor_;
+  return E_MeditationMeditation_descriptor_;
 }
 
-const meditationmeditation& meditationmeditation::default_instance() {
+const E_MeditationMeditation& E_MeditationMeditation::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_meditation_2eproto();
   return *default_instance_;
 }
 
-meditationmeditation* meditationmeditation::default_instance_ = NULL;
+E_MeditationMeditation* E_MeditationMeditation::default_instance_ = NULL;
 
-meditationmeditation* meditationmeditation::New() const {
-  return new meditationmeditation;
+E_MeditationMeditation* E_MeditationMeditation::New() const {
+  return new E_MeditationMeditation;
 }
 
-void meditationmeditation::Clear() {
+void E_MeditationMeditation::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
+    m_id_ = GOOGLE_LONGLONG(0);
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
       }
     }
-    type_ = 0;
-    quality_ = 0;
-    if (has_professionlimit()) {
-      if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-        professionlimit_->clear();
+    m_type_ = 0;
+    m_quality_ = 0;
+    if (has_m_professionlimit()) {
+      if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+        m_professionlimit_->clear();
       }
     }
-    activationitem_ = GOOGLE_LONGLONG(0);
-    activationnum_ = 0;
-    starid_ = GOOGLE_LONGLONG(0);
+    m_activationitem_ = GOOGLE_LONGLONG(0);
+    m_activationnum_ = 0;
+    m_starid_ = GOOGLE_LONGLONG(0);
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (has_starnum()) {
-      if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-        starnum_->clear();
+    if (has_m_starnum()) {
+      if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+        m_starnum_->clear();
       }
     }
-    starup_ = 0;
-    starber_ = 0;
+    m_starup_ = 0;
+    m_starber_ = 0;
   }
-  attribute_.Clear();
-  activeattribute_.Clear();
+  m_attribute_.Clear();
+  m_activeattribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool meditationmeditation::MergePartialFromCodedStream(
+bool E_MeditationMeditation::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 ID = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_name;
+        if (input->ExpectTag(18)) goto parse_m_name;
         break;
       }
 
-      // optional string name = 2;
+      // optional string m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_name:
+         parse_m_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
+                input, this->mutable_m_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
+            this->m_name().data(), this->m_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_type;
+        if (input->ExpectTag(24)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 3;
+      // optional int32 m_type = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_quality;
+        if (input->ExpectTag(32)) goto parse_m_quality;
         break;
       }
 
-      // optional int32 quality = 4;
+      // optional int32 m_quality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_quality:
+         parse_m_quality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &quality_)));
-          set_has_quality();
+                 input, &m_quality_)));
+          set_has_m_quality();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_professionLimit;
+        if (input->ExpectTag(42)) goto parse_m_professionlimit;
         break;
       }
 
-      // optional string professionLimit = 5;
+      // optional string m_professionlimit = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_professionLimit:
+         parse_m_professionlimit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_professionlimit()));
+                input, this->mutable_m_professionlimit()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->professionlimit().data(), this->professionlimit().length(),
+            this->m_professionlimit().data(), this->m_professionlimit().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_activationItem;
+        if (input->ExpectTag(48)) goto parse_m_activationitem;
         break;
       }
 
-      // optional int64 activationItem = 6;
+      // optional int64 m_activationitem = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activationItem:
+         parse_m_activationitem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &activationitem_)));
-          set_has_activationitem();
+                 input, &m_activationitem_)));
+          set_has_m_activationitem();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_activationNum;
+        if (input->ExpectTag(56)) goto parse_m_activationnum;
         break;
       }
 
-      // optional int32 activationNum = 7;
+      // optional int32 m_activationnum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activationNum:
+         parse_m_activationnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &activationnum_)));
-          set_has_activationnum();
+                 input, &m_activationnum_)));
+          set_has_m_activationnum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_starId;
+        if (input->ExpectTag(64)) goto parse_m_starid;
         break;
       }
 
-      // optional int64 starId = 8;
+      // optional int64 m_starid = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starId:
+         parse_m_starid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &starid_)));
-          set_has_starid();
+                 input, &m_starid_)));
+          set_has_m_starid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_starNum;
+        if (input->ExpectTag(74)) goto parse_m_starnum;
         break;
       }
 
-      // optional string starNum = 9;
+      // optional string m_starnum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_starNum:
+         parse_m_starnum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_starnum()));
+                input, this->mutable_m_starnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->starnum().data(), this->starnum().length(),
+            this->m_starnum().data(), this->m_starnum().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_starUp;
+        if (input->ExpectTag(80)) goto parse_m_starup;
         break;
       }
 
-      // optional int32 starUp = 10;
+      // optional int32 m_starup = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starUp:
+         parse_m_starup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &starup_)));
-          set_has_starup();
+                 input, &m_starup_)));
+          set_has_m_starup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_starBer;
+        if (input->ExpectTag(88)) goto parse_m_starber;
         break;
       }
 
-      // optional int32 starBer = 11;
+      // optional int32 m_starber = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_starBer:
+         parse_m_starber:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &starber_)));
-          set_has_starber();
+                 input, &m_starber_)));
+          set_has_m_starber();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_attribute;
+        if (input->ExpectTag(98)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.meditationmeditationattributeDesc attribute = 12;
+      // repeated .proto_ff.E_MeditationMeditationAttributeDesc m_attribute = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_attribute;
-        if (input->ExpectTag(106)) goto parse_ActiveAttribute;
+        if (input->ExpectTag(98)) goto parse_m_attribute;
+        if (input->ExpectTag(106)) goto parse_m_activeattribute;
         break;
       }
 
-      // repeated .proto_ff.meditationmeditationActiveAttributeDesc ActiveAttribute = 13;
+      // repeated .proto_ff.E_MeditationMeditationActiveattributeDesc m_activeattribute = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ActiveAttribute:
+         parse_m_activeattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_activeattribute()));
+                input, add_m_activeattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_ActiveAttribute;
+        if (input->ExpectTag(106)) goto parse_m_activeattribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1051,85 +1052,85 @@ bool meditationmeditation::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void meditationmeditation::SerializeWithCachedSizes(
+void E_MeditationMeditation::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->name(), output);
+      2, this->m_name(), output);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->type(), output);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 quality = 4;
-  if (has_quality()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->quality(), output);
+  // optional int32 m_quality = 4;
+  if (has_m_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_quality(), output);
   }
 
-  // optional string professionLimit = 5;
-  if (has_professionlimit()) {
+  // optional string m_professionlimit = 5;
+  if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionlimit().data(), this->professionlimit().length(),
+      this->m_professionlimit().data(), this->m_professionlimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->professionlimit(), output);
+      5, this->m_professionlimit(), output);
   }
 
-  // optional int64 activationItem = 6;
-  if (has_activationitem()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->activationitem(), output);
+  // optional int64 m_activationitem = 6;
+  if (has_m_activationitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_activationitem(), output);
   }
 
-  // optional int32 activationNum = 7;
-  if (has_activationnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->activationnum(), output);
+  // optional int32 m_activationnum = 7;
+  if (has_m_activationnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_activationnum(), output);
   }
 
-  // optional int64 starId = 8;
-  if (has_starid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->starid(), output);
+  // optional int64 m_starid = 8;
+  if (has_m_starid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_starid(), output);
   }
 
-  // optional string starNum = 9;
-  if (has_starnum()) {
+  // optional string m_starnum = 9;
+  if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->starnum().data(), this->starnum().length(),
+      this->m_starnum().data(), this->m_starnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->starnum(), output);
+      9, this->m_starnum(), output);
   }
 
-  // optional int32 starUp = 10;
-  if (has_starup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->starup(), output);
+  // optional int32 m_starup = 10;
+  if (has_m_starup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_starup(), output);
   }
 
-  // optional int32 starBer = 11;
-  if (has_starber()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->starber(), output);
+  // optional int32 m_starber = 11;
+  if (has_m_starber()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_starber(), output);
   }
 
-  // repeated .proto_ff.meditationmeditationattributeDesc attribute = 12;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditationAttributeDesc m_attribute = 12;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      12, this->attribute(i), output);
+      12, this->m_attribute(i), output);
   }
 
-  // repeated .proto_ff.meditationmeditationActiveAttributeDesc ActiveAttribute = 13;
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditationActiveattributeDesc m_activeattribute = 13;
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      13, this->activeattribute(i), output);
+      13, this->m_activeattribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1138,90 +1139,90 @@ void meditationmeditation::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* meditationmeditation::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_MeditationMeditation::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
+        2, this->m_name(), target);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->type(), target);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 quality = 4;
-  if (has_quality()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->quality(), target);
+  // optional int32 m_quality = 4;
+  if (has_m_quality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_quality(), target);
   }
 
-  // optional string professionLimit = 5;
-  if (has_professionlimit()) {
+  // optional string m_professionlimit = 5;
+  if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->professionlimit().data(), this->professionlimit().length(),
+      this->m_professionlimit().data(), this->m_professionlimit().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->professionlimit(), target);
+        5, this->m_professionlimit(), target);
   }
 
-  // optional int64 activationItem = 6;
-  if (has_activationitem()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->activationitem(), target);
+  // optional int64 m_activationitem = 6;
+  if (has_m_activationitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_activationitem(), target);
   }
 
-  // optional int32 activationNum = 7;
-  if (has_activationnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->activationnum(), target);
+  // optional int32 m_activationnum = 7;
+  if (has_m_activationnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_activationnum(), target);
   }
 
-  // optional int64 starId = 8;
-  if (has_starid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->starid(), target);
+  // optional int64 m_starid = 8;
+  if (has_m_starid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_starid(), target);
   }
 
-  // optional string starNum = 9;
-  if (has_starnum()) {
+  // optional string m_starnum = 9;
+  if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->starnum().data(), this->starnum().length(),
+      this->m_starnum().data(), this->m_starnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->starnum(), target);
+        9, this->m_starnum(), target);
   }
 
-  // optional int32 starUp = 10;
-  if (has_starup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->starup(), target);
+  // optional int32 m_starup = 10;
+  if (has_m_starup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_starup(), target);
   }
 
-  // optional int32 starBer = 11;
-  if (has_starber()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->starber(), target);
+  // optional int32 m_starber = 11;
+  if (has_m_starber()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_starber(), target);
   }
 
-  // repeated .proto_ff.meditationmeditationattributeDesc attribute = 12;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditationAttributeDesc m_attribute = 12;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        12, this->attribute(i), target);
+        12, this->m_attribute(i), target);
   }
 
-  // repeated .proto_ff.meditationmeditationActiveAttributeDesc ActiveAttribute = 13;
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditationActiveattributeDesc m_activeattribute = 13;
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        13, this->activeattribute(i), target);
+        13, this->m_activeattribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1231,104 +1232,104 @@ void meditationmeditation::SerializeWithCachedSizes(
   return target;
 }
 
-int meditationmeditation::ByteSize() const {
+int E_MeditationMeditation::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 ID = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional string name = 2;
-    if (has_name()) {
+    // optional string m_name = 2;
+    if (has_m_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+          this->m_name());
     }
 
-    // optional int32 type = 3;
-    if (has_type()) {
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 quality = 4;
-    if (has_quality()) {
+    // optional int32 m_quality = 4;
+    if (has_m_quality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->quality());
+          this->m_quality());
     }
 
-    // optional string professionLimit = 5;
-    if (has_professionlimit()) {
+    // optional string m_professionlimit = 5;
+    if (has_m_professionlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->professionlimit());
+          this->m_professionlimit());
     }
 
-    // optional int64 activationItem = 6;
-    if (has_activationitem()) {
+    // optional int64 m_activationitem = 6;
+    if (has_m_activationitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->activationitem());
+          this->m_activationitem());
     }
 
-    // optional int32 activationNum = 7;
-    if (has_activationnum()) {
+    // optional int32 m_activationnum = 7;
+    if (has_m_activationnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->activationnum());
+          this->m_activationnum());
     }
 
-    // optional int64 starId = 8;
-    if (has_starid()) {
+    // optional int64 m_starid = 8;
+    if (has_m_starid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->starid());
+          this->m_starid());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string starNum = 9;
-    if (has_starnum()) {
+    // optional string m_starnum = 9;
+    if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->starnum());
+          this->m_starnum());
     }
 
-    // optional int32 starUp = 10;
-    if (has_starup()) {
+    // optional int32 m_starup = 10;
+    if (has_m_starup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->starup());
+          this->m_starup());
     }
 
-    // optional int32 starBer = 11;
-    if (has_starber()) {
+    // optional int32 m_starber = 11;
+    if (has_m_starber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->starber());
+          this->m_starber());
     }
 
   }
-  // repeated .proto_ff.meditationmeditationattributeDesc attribute = 12;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditationAttributeDesc m_attribute = 12;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
-  // repeated .proto_ff.meditationmeditationActiveAttributeDesc ActiveAttribute = 13;
-  total_size += 1 * this->activeattribute_size();
-  for (int i = 0; i < this->activeattribute_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditationActiveattributeDesc m_activeattribute = 13;
+  total_size += 1 * this->m_activeattribute_size();
+  for (int i = 0; i < this->m_activeattribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->activeattribute(i));
+        this->m_activeattribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1342,10 +1343,10 @@ int meditationmeditation::ByteSize() const {
   return total_size;
 }
 
-void meditationmeditation::MergeFrom(const ::google::protobuf::Message& from) {
+void E_MeditationMeditation::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const meditationmeditation* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const meditationmeditation*>(
+  const E_MeditationMeditation* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_MeditationMeditation*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1354,93 +1355,93 @@ void meditationmeditation::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void meditationmeditation::MergeFrom(const meditationmeditation& from) {
+void E_MeditationMeditation::MergeFrom(const E_MeditationMeditation& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
-  activeattribute_.MergeFrom(from.activeattribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  m_activeattribute_.MergeFrom(from.m_activeattribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_quality()) {
-      set_quality(from.quality());
+    if (from.has_m_quality()) {
+      set_m_quality(from.m_quality());
     }
-    if (from.has_professionlimit()) {
-      set_professionlimit(from.professionlimit());
+    if (from.has_m_professionlimit()) {
+      set_m_professionlimit(from.m_professionlimit());
     }
-    if (from.has_activationitem()) {
-      set_activationitem(from.activationitem());
+    if (from.has_m_activationitem()) {
+      set_m_activationitem(from.m_activationitem());
     }
-    if (from.has_activationnum()) {
-      set_activationnum(from.activationnum());
+    if (from.has_m_activationnum()) {
+      set_m_activationnum(from.m_activationnum());
     }
-    if (from.has_starid()) {
-      set_starid(from.starid());
+    if (from.has_m_starid()) {
+      set_m_starid(from.m_starid());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_starnum()) {
-      set_starnum(from.starnum());
+    if (from.has_m_starnum()) {
+      set_m_starnum(from.m_starnum());
     }
-    if (from.has_starup()) {
-      set_starup(from.starup());
+    if (from.has_m_starup()) {
+      set_m_starup(from.m_starup());
     }
-    if (from.has_starber()) {
-      set_starber(from.starber());
+    if (from.has_m_starber()) {
+      set_m_starber(from.m_starber());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void meditationmeditation::CopyFrom(const ::google::protobuf::Message& from) {
+void E_MeditationMeditation::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void meditationmeditation::CopyFrom(const meditationmeditation& from) {
+void E_MeditationMeditation::CopyFrom(const E_MeditationMeditation& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool meditationmeditation::IsInitialized() const {
+bool E_MeditationMeditation::IsInitialized() const {
 
   return true;
 }
 
-void meditationmeditation::Swap(meditationmeditation* other) {
+void E_MeditationMeditation::Swap(E_MeditationMeditation* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(name_, other->name_);
-    std::swap(type_, other->type_);
-    std::swap(quality_, other->quality_);
-    std::swap(professionlimit_, other->professionlimit_);
-    std::swap(activationitem_, other->activationitem_);
-    std::swap(activationnum_, other->activationnum_);
-    std::swap(starid_, other->starid_);
-    std::swap(starnum_, other->starnum_);
-    std::swap(starup_, other->starup_);
-    std::swap(starber_, other->starber_);
-    attribute_.Swap(&other->attribute_);
-    activeattribute_.Swap(&other->activeattribute_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_name_, other->m_name_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_quality_, other->m_quality_);
+    std::swap(m_professionlimit_, other->m_professionlimit_);
+    std::swap(m_activationitem_, other->m_activationitem_);
+    std::swap(m_activationnum_, other->m_activationnum_);
+    std::swap(m_starid_, other->m_starid_);
+    std::swap(m_starnum_, other->m_starnum_);
+    std::swap(m_starup_, other->m_starup_);
+    std::swap(m_starber_, other->m_starber_);
+    m_attribute_.Swap(&other->m_attribute_);
+    m_activeattribute_.Swap(&other->m_activeattribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata meditationmeditation::GetMetadata() const {
+::google::protobuf::Metadata E_MeditationMeditation::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = meditationmeditation_descriptor_;
-  metadata.reflection = meditationmeditation_reflection_;
+  metadata.descriptor = E_MeditationMeditation_descriptor_;
+  metadata.reflection = E_MeditationMeditation_reflection_;
   return metadata;
 }
 
@@ -1448,81 +1449,81 @@ void meditationmeditation::Swap(meditationmeditation* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_meditationmeditation::kMeditationmeditationListFieldNumber;
+const int Sheet_MeditationMeditation::kEMeditationMeditationListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_meditationmeditation::Sheet_meditationmeditation()
+Sheet_MeditationMeditation::Sheet_MeditationMeditation()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_meditationmeditation::InitAsDefaultInstance() {
+void Sheet_MeditationMeditation::InitAsDefaultInstance() {
 }
 
-Sheet_meditationmeditation::Sheet_meditationmeditation(const Sheet_meditationmeditation& from)
+Sheet_MeditationMeditation::Sheet_MeditationMeditation(const Sheet_MeditationMeditation& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_meditationmeditation::SharedCtor() {
+void Sheet_MeditationMeditation::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_meditationmeditation::~Sheet_meditationmeditation() {
+Sheet_MeditationMeditation::~Sheet_MeditationMeditation() {
   SharedDtor();
 }
 
-void Sheet_meditationmeditation::SharedDtor() {
+void Sheet_MeditationMeditation::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_meditationmeditation::SetCachedSize(int size) const {
+void Sheet_MeditationMeditation::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_meditationmeditation::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_MeditationMeditation::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_meditationmeditation_descriptor_;
+  return Sheet_MeditationMeditation_descriptor_;
 }
 
-const Sheet_meditationmeditation& Sheet_meditationmeditation::default_instance() {
+const Sheet_MeditationMeditation& Sheet_MeditationMeditation::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_meditation_2eproto();
   return *default_instance_;
 }
 
-Sheet_meditationmeditation* Sheet_meditationmeditation::default_instance_ = NULL;
+Sheet_MeditationMeditation* Sheet_MeditationMeditation::default_instance_ = NULL;
 
-Sheet_meditationmeditation* Sheet_meditationmeditation::New() const {
-  return new Sheet_meditationmeditation;
+Sheet_MeditationMeditation* Sheet_MeditationMeditation::New() const {
+  return new Sheet_MeditationMeditation;
 }
 
-void Sheet_meditationmeditation::Clear() {
-  meditationmeditation_list_.Clear();
+void Sheet_MeditationMeditation::Clear() {
+  e_meditationmeditation_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_meditationmeditation::MergePartialFromCodedStream(
+bool Sheet_MeditationMeditation::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.meditationmeditation meditationmeditation_List = 1;
+      // repeated .proto_ff.E_MeditationMeditation E_MeditationMeditation_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_meditationmeditation_List:
+         parse_E_MeditationMeditation_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_meditationmeditation_list()));
+                input, add_e_meditationmeditation_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_meditationmeditation_List;
+        if (input->ExpectTag(10)) goto parse_E_MeditationMeditation_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1543,12 +1544,12 @@ bool Sheet_meditationmeditation::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_meditationmeditation::SerializeWithCachedSizes(
+void Sheet_MeditationMeditation::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.meditationmeditation meditationmeditation_List = 1;
-  for (int i = 0; i < this->meditationmeditation_list_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditation E_MeditationMeditation_List = 1;
+  for (int i = 0; i < this->e_meditationmeditation_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->meditationmeditation_list(i), output);
+      1, this->e_meditationmeditation_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1557,13 +1558,13 @@ void Sheet_meditationmeditation::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_meditationmeditation::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_MeditationMeditation::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.meditationmeditation meditationmeditation_List = 1;
-  for (int i = 0; i < this->meditationmeditation_list_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditation E_MeditationMeditation_List = 1;
+  for (int i = 0; i < this->e_meditationmeditation_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->meditationmeditation_list(i), target);
+        1, this->e_meditationmeditation_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1573,15 +1574,15 @@ void Sheet_meditationmeditation::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_meditationmeditation::ByteSize() const {
+int Sheet_MeditationMeditation::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.meditationmeditation meditationmeditation_List = 1;
-  total_size += 1 * this->meditationmeditation_list_size();
-  for (int i = 0; i < this->meditationmeditation_list_size(); i++) {
+  // repeated .proto_ff.E_MeditationMeditation E_MeditationMeditation_List = 1;
+  total_size += 1 * this->e_meditationmeditation_list_size();
+  for (int i = 0; i < this->e_meditationmeditation_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->meditationmeditation_list(i));
+        this->e_meditationmeditation_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1595,10 +1596,10 @@ int Sheet_meditationmeditation::ByteSize() const {
   return total_size;
 }
 
-void Sheet_meditationmeditation::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_MeditationMeditation::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_meditationmeditation* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_meditationmeditation*>(
+  const Sheet_MeditationMeditation* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_MeditationMeditation*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1607,43 +1608,43 @@ void Sheet_meditationmeditation::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void Sheet_meditationmeditation::MergeFrom(const Sheet_meditationmeditation& from) {
+void Sheet_MeditationMeditation::MergeFrom(const Sheet_MeditationMeditation& from) {
   GOOGLE_CHECK_NE(&from, this);
-  meditationmeditation_list_.MergeFrom(from.meditationmeditation_list_);
+  e_meditationmeditation_list_.MergeFrom(from.e_meditationmeditation_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_meditationmeditation::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_MeditationMeditation::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_meditationmeditation::CopyFrom(const Sheet_meditationmeditation& from) {
+void Sheet_MeditationMeditation::CopyFrom(const Sheet_MeditationMeditation& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_meditationmeditation::IsInitialized() const {
+bool Sheet_MeditationMeditation::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_meditationmeditation::Swap(Sheet_meditationmeditation* other) {
+void Sheet_MeditationMeditation::Swap(Sheet_MeditationMeditation* other) {
   if (other != this) {
-    meditationmeditation_list_.Swap(&other->meditationmeditation_list_);
+    e_meditationmeditation_list_.Swap(&other->e_meditationmeditation_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_meditationmeditation::GetMetadata() const {
+::google::protobuf::Metadata Sheet_MeditationMeditation::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_meditationmeditation_descriptor_;
-  metadata.reflection = Sheet_meditationmeditation_reflection_;
+  metadata.descriptor = Sheet_MeditationMeditation_descriptor_;
+  metadata.reflection = Sheet_MeditationMeditation_reflection_;
   return metadata;
 }
 

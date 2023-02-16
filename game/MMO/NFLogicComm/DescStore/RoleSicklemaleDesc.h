@@ -14,9 +14,9 @@ public:
 	virtual ~RoleSicklemaleDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::rolesickleMale_s* GetDesc(int id) const;
-	proto_ff_s::rolesickleMale_s* GetDesc(int id);
+	const proto_ff_s::E_RoleSicklemale_s* GetDesc(int id) const;
+	proto_ff_s::E_RoleSicklemale_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::rolesickleMale_s, rolesickleMale, MAX_ROLE_SICKLEMALE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_RoleSicklemale_s, rolesickleMale, MAX_ROLE_SICKLEMALE_NUM);
 DECLARE_IDCREATE(RoleSicklemaleDesc);
 };

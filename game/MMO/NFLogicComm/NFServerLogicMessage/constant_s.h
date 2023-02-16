@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "constant.pb.h"
@@ -10,35 +10,35 @@
 
 namespace proto_ff_s {
 
-	struct constantconstant_s : public NFDescStoreSeqOP {
-		constantconstant_s();
-		virtual ~constantconstant_s(){}
+	struct E_ConstantConstant_s : public NFDescStoreSeqOP {
+		E_ConstantConstant_s();
+		virtual ~E_ConstantConstant_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t constantid;
-		int64_t constantdata;
-		NFShmString<200> stringdata;
+		int32_t m_constantid;
+		int64_t m_constantdata;
+		NFShmString<200> m_stringdata;
 
-		virtual void write_to_pbmsg(::proto_ff::constantconstant & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::constantconstant & msg);
-		static ::proto_ff::constantconstant* new_pbmsg(){ return new ::proto_ff::constantconstant(); }
-		static ::proto_ff::constantconstant make_pbmsg(){ return ::proto_ff::constantconstant(); }
+		virtual void write_to_pbmsg(::proto_ff::E_ConstantConstant & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ConstantConstant & msg);
+		static ::proto_ff::E_ConstantConstant* new_pbmsg(){ return new ::proto_ff::E_ConstantConstant(); }
+		static ::proto_ff::E_ConstantConstant make_pbmsg(){ return ::proto_ff::E_ConstantConstant(); }
 	};
-	typedef struct constantconstant_s constantconstant_t;
+	typedef struct E_ConstantConstant_s E_ConstantConstant_t;
 
-	struct Sheet_constantconstant_s : public NFDescStoreSeqOP {
-		Sheet_constantconstant_s();
-		virtual ~Sheet_constantconstant_s(){}
+	struct Sheet_ConstantConstant_s : public NFDescStoreSeqOP {
+		Sheet_ConstantConstant_s();
+		virtual ~Sheet_ConstantConstant_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct constantconstant_s, 300> constantconstant_List;
+		NFShmVector<struct E_ConstantConstant_s, 300> E_ConstantConstant_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_constantconstant & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_constantconstant & msg);
-		static ::proto_ff::Sheet_constantconstant* new_pbmsg(){ return new ::proto_ff::Sheet_constantconstant(); }
-		static ::proto_ff::Sheet_constantconstant make_pbmsg(){ return ::proto_ff::Sheet_constantconstant(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ConstantConstant & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ConstantConstant & msg);
+		static ::proto_ff::Sheet_ConstantConstant* new_pbmsg(){ return new ::proto_ff::Sheet_ConstantConstant(); }
+		static ::proto_ff::Sheet_ConstantConstant make_pbmsg(){ return ::proto_ff::Sheet_ConstantConstant(); }
 	};
-	typedef struct Sheet_constantconstant_s Sheet_constantconstant_t;
+	typedef struct Sheet_ConstantConstant_s Sheet_ConstantConstant_t;
 
 }
 

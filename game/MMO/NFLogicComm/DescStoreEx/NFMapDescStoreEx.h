@@ -175,7 +175,7 @@ public:
     int32_t BornPointCount(int64_t mapId);                                //地图出生地点数量
     const NFPoint3<float> *RandBornPoint(int64_t mapId);                //随机一个地图的出生点
     const VecPosCfg *GetBornPosCfg(int64_t mapId);                    //获取地图出生点配置
-    const proto_ff_s::roleborn_s *GetBornCfg(int32_t prof);                    //获取角色出生配置
+    const proto_ff_s::E_RoleBorn_s *GetBornCfg(int32_t prof);                    //获取角色出生配置
 
     bool IsDynamic(int64_t mapId);                                            //是否是动态地图
     bool IsActSpecMap(int64_t mapId);                                        //是否是活动特殊地图

@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-aiaihpDesc_s::aiaihpDesc_s() {
+E_AiAiHpDesc_s::E_AiAiHpDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,31 +10,31 @@ aiaihpDesc_s::aiaihpDesc_s() {
 	}
 }
 
-int aiaihpDesc_s::CreateInit() {
-	skill = (int64_t)0;
-	percent = (int32_t)0;
-	chat = (int64_t)0;
+int E_AiAiHpDesc_s::CreateInit() {
+	m_skill = (int64_t)0;
+	m_percent = (int32_t)0;
+	m_chat = (int64_t)0;
 	return 0;
 }
 
-int aiaihpDesc_s::ResumeInit() {
+int E_AiAiHpDesc_s::ResumeInit() {
 	return 0;
 }
 
-void aiaihpDesc_s::write_to_pbmsg(::proto_ff::aiaihpDesc & msg) const {
-	msg.set_skill((int64_t)skill);
-	msg.set_percent((int32_t)percent);
-	msg.set_chat((int64_t)chat);
+void E_AiAiHpDesc_s::write_to_pbmsg(::proto_ff::E_AiAiHpDesc & msg) const {
+	msg.set_m_skill((int64_t)m_skill);
+	msg.set_m_percent((int32_t)m_percent);
+	msg.set_m_chat((int64_t)m_chat);
 }
 
-void aiaihpDesc_s::read_from_pbmsg(const ::proto_ff::aiaihpDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct aiaihpDesc_s));
-	skill = msg.skill();
-	percent = msg.percent();
-	chat = msg.chat();
+void E_AiAiHpDesc_s::read_from_pbmsg(const ::proto_ff::E_AiAiHpDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_AiAiHpDesc_s));
+	m_skill = msg.m_skill();
+	m_percent = msg.m_percent();
+	m_chat = msg.m_chat();
 }
 
-aiai_s::aiai_s() {
+E_AiAi_s::E_AiAi_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -42,70 +42,70 @@ aiai_s::aiai_s() {
 	}
 }
 
-int aiai_s::CreateInit() {
-	id = (int64_t)0;
-	type = (int32_t)0;
-	isActive = (int32_t)0;
-	returnType = (int32_t)0;
-	view = (int32_t)0;
-	isAttackedShowOff = (int32_t)0;
-	pursueRange = (int32_t)0;
-	actionRange = (int32_t)0;
-	wakeupRadius = (int32_t)0;
-	isAIWorkWhenNobody = (int32_t)0;
-	bornEffectAIDelay = (int32_t)0;
+int E_AiAi_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_type = (int32_t)0;
+	m_isactive = (int32_t)0;
+	m_returntype = (int32_t)0;
+	m_view = (int32_t)0;
+	m_isattackedshowoff = (int32_t)0;
+	m_pursuerange = (int32_t)0;
+	m_actionrange = (int32_t)0;
+	m_wakeupradius = (int32_t)0;
+	m_isaiworkwhennobody = (int32_t)0;
+	m_borneffectaidelay = (int32_t)0;
 	return 0;
 }
 
-int aiai_s::ResumeInit() {
+int E_AiAi_s::ResumeInit() {
 	return 0;
 }
 
-void aiai_s::write_to_pbmsg(::proto_ff::aiai & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_type((int32_t)type);
-	msg.set_deadhateremain((const char*)deadHateRemain.Get());
-	msg.set_invisibleremain((const char*)invisibleRemain.Get());
-	msg.set_isactive((int32_t)isActive);
-	msg.set_returntype((int32_t)returnType);
-	msg.set_view((int32_t)view);
-	msg.set_isattackedshowoff((int32_t)isAttackedShowOff);
-	msg.set_pursuerange((int32_t)pursueRange);
-	msg.set_actionrange((int32_t)actionRange);
-	msg.set_wakeupradius((int32_t)wakeupRadius);
-	msg.set_isaiworkwhennobody((int32_t)isAIWorkWhenNobody);
-	msg.set_borneffectaidelay((int32_t)bornEffectAIDelay);
-	msg.set_initskills((const char*)initSkills.Get());
-	for(int32_t i = 0; i < (int32_t)hp.GetSize() && i < hp.GetMaxSize(); ++i) {
-		::proto_ff::aiaihpDesc* temp_hp = msg.add_hp();
-		hp[i].write_to_pbmsg(*temp_hp);
+void E_AiAi_s::write_to_pbmsg(::proto_ff::E_AiAi & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_deadhateremain((const char*)m_deadhateremain.data());
+	msg.set_m_invisibleremain((const char*)m_invisibleremain.data());
+	msg.set_m_isactive((int32_t)m_isactive);
+	msg.set_m_returntype((int32_t)m_returntype);
+	msg.set_m_view((int32_t)m_view);
+	msg.set_m_isattackedshowoff((int32_t)m_isattackedshowoff);
+	msg.set_m_pursuerange((int32_t)m_pursuerange);
+	msg.set_m_actionrange((int32_t)m_actionrange);
+	msg.set_m_wakeupradius((int32_t)m_wakeupradius);
+	msg.set_m_isaiworkwhennobody((int32_t)m_isaiworkwhennobody);
+	msg.set_m_borneffectaidelay((int32_t)m_borneffectaidelay);
+	msg.set_m_initskills((const char*)m_initskills.data());
+	for(int32_t i = 0; i < (int32_t)m_hp.size(); ++i) {
+		::proto_ff::E_AiAiHpDesc* temp_m_hp = msg.add_m_hp();
+		m_hp[i].write_to_pbmsg(*temp_m_hp);
 	}
 }
 
-void aiai_s::read_from_pbmsg(const ::proto_ff::aiai & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct aiai_s));
-	id = msg.id();
-	type = msg.type();
-	deadHateRemain.Copy(msg.deadhateremain());
-	invisibleRemain.Copy(msg.invisibleremain());
-	isActive = msg.isactive();
-	returnType = msg.returntype();
-	view = msg.view();
-	isAttackedShowOff = msg.isattackedshowoff();
-	pursueRange = msg.pursuerange();
-	actionRange = msg.actionrange();
-	wakeupRadius = msg.wakeupradius();
-	isAIWorkWhenNobody = msg.isaiworkwhennobody();
-	bornEffectAIDelay = msg.borneffectaidelay();
-	initSkills.Copy(msg.initskills());
-	hp.SetSize(msg.hp_size() > hp.GetMaxSize() ? hp.GetMaxSize() : msg.hp_size());
-	for(int32_t i = 0; i < (int32_t)hp.GetSize(); ++i) {
-		const ::proto_ff::aiaihpDesc & temp_hp = msg.hp(i);
-		hp[i].read_from_pbmsg(temp_hp);
+void E_AiAi_s::read_from_pbmsg(const ::proto_ff::E_AiAi & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_AiAi_s));
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_deadhateremain = msg.m_deadhateremain();
+	m_invisibleremain = msg.m_invisibleremain();
+	m_isactive = msg.m_isactive();
+	m_returntype = msg.m_returntype();
+	m_view = msg.m_view();
+	m_isattackedshowoff = msg.m_isattackedshowoff();
+	m_pursuerange = msg.m_pursuerange();
+	m_actionrange = msg.m_actionrange();
+	m_wakeupradius = msg.m_wakeupradius();
+	m_isaiworkwhennobody = msg.m_isaiworkwhennobody();
+	m_borneffectaidelay = msg.m_borneffectaidelay();
+	m_initskills = msg.m_initskills();
+	m_hp.resize((int)msg.m_hp_size() > (int)m_hp.max_size() ? m_hp.max_size() : msg.m_hp_size());
+	for(int32_t i = 0; i < (int32_t)m_hp.size(); ++i) {
+		const ::proto_ff::E_AiAiHpDesc & temp_m_hp = msg.m_hp(i);
+		m_hp[i].read_from_pbmsg(temp_m_hp);
 	}
 }
 
-Sheet_aiai_s::Sheet_aiai_s() {
+Sheet_AiAi_s::Sheet_AiAi_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -113,27 +113,27 @@ Sheet_aiai_s::Sheet_aiai_s() {
 	}
 }
 
-int Sheet_aiai_s::CreateInit() {
+int Sheet_AiAi_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_aiai_s::ResumeInit() {
+int Sheet_AiAi_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_aiai_s::write_to_pbmsg(::proto_ff::Sheet_aiai & msg) const {
-	for(int32_t i = 0; i < (int32_t)aiai_List.GetSize() && i < aiai_List.GetMaxSize(); ++i) {
-		::proto_ff::aiai* temp_aiai_list = msg.add_aiai_list();
-		aiai_List[i].write_to_pbmsg(*temp_aiai_list);
+void Sheet_AiAi_s::write_to_pbmsg(::proto_ff::Sheet_AiAi & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_AiAi_List.size(); ++i) {
+		::proto_ff::E_AiAi* temp_e_aiai_list = msg.add_e_aiai_list();
+		E_AiAi_List[i].write_to_pbmsg(*temp_e_aiai_list);
 	}
 }
 
-void Sheet_aiai_s::read_from_pbmsg(const ::proto_ff::Sheet_aiai & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_aiai_s));
-	aiai_List.SetSize(msg.aiai_list_size() > aiai_List.GetMaxSize() ? aiai_List.GetMaxSize() : msg.aiai_list_size());
-	for(int32_t i = 0; i < (int32_t)aiai_List.GetSize(); ++i) {
-		const ::proto_ff::aiai & temp_aiai_list = msg.aiai_list(i);
-		aiai_List[i].read_from_pbmsg(temp_aiai_list);
+void Sheet_AiAi_s::read_from_pbmsg(const ::proto_ff::Sheet_AiAi & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_AiAi_s));
+	E_AiAi_List.resize((int)msg.e_aiai_list_size() > (int)E_AiAi_List.max_size() ? E_AiAi_List.max_size() : msg.e_aiai_list_size());
+	for(int32_t i = 0; i < (int32_t)E_AiAi_List.size(); ++i) {
+		const ::proto_ff::E_AiAi & temp_e_aiai_list = msg.e_aiai_list(i);
+		E_AiAi_List[i].read_from_pbmsg(temp_e_aiai_list);
 	}
 }
 

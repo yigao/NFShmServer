@@ -34,23 +34,23 @@ void  protobuf_AddDesc_map_2eproto();
 void protobuf_AssignDesc_map_2eproto();
 void protobuf_ShutdownFile_map_2eproto();
 
-class mapmap;
-class Sheet_mapmap;
-class mapitemdrop;
-class Sheet_mapitemdrop;
-class mapdestroyitem;
-class Sheet_mapdestroyitem;
+class E_MapMap;
+class Sheet_MapMap;
+class E_MapItemdrop;
+class Sheet_MapItemdrop;
+class E_MapDestroyitem;
+class Sheet_MapDestroyitem;
 
 // ===================================================================
 
-class mapmap : public ::google::protobuf::Message {
+class E_MapMap : public ::google::protobuf::Message {
  public:
-  mapmap();
-  virtual ~mapmap();
+  E_MapMap();
+  virtual ~E_MapMap();
 
-  mapmap(const mapmap& from);
+  E_MapMap(const E_MapMap& from);
 
-  inline mapmap& operator=(const mapmap& from) {
+  inline E_MapMap& operator=(const E_MapMap& from) {
     CopyFrom(from);
     return *this;
   }
@@ -64,17 +64,17 @@ class mapmap : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const mapmap& default_instance();
+  static const E_MapMap& default_instance();
 
-  void Swap(mapmap* other);
+  void Swap(E_MapMap* other);
 
   // implements Message ----------------------------------------------
 
-  mapmap* New() const;
+  E_MapMap* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const mapmap& from);
-  void MergeFrom(const mapmap& from);
+  void CopyFrom(const E_MapMap& from);
+  void MergeFrom(const E_MapMap& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -97,346 +97,346 @@ class mapmap : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 mapId = 1;
-  inline bool has_mapid() const;
-  inline void clear_mapid();
-  static const int kMapIdFieldNumber = 1;
-  inline ::google::protobuf::int64 mapid() const;
-  inline void set_mapid(::google::protobuf::int64 value);
+  // optional int64 m_mapid = 1;
+  inline bool has_m_mapid() const;
+  inline void clear_m_mapid();
+  static const int kMMapidFieldNumber = 1;
+  inline ::google::protobuf::int64 m_mapid() const;
+  inline void set_m_mapid(::google::protobuf::int64 value);
 
-  // optional int32 levelLimit = 2;
-  inline bool has_levellimit() const;
-  inline void clear_levellimit();
-  static const int kLevelLimitFieldNumber = 2;
-  inline ::google::protobuf::int32 levellimit() const;
-  inline void set_levellimit(::google::protobuf::int32 value);
+  // optional int32 m_levellimit = 2;
+  inline bool has_m_levellimit() const;
+  inline void clear_m_levellimit();
+  static const int kMLevellimitFieldNumber = 2;
+  inline ::google::protobuf::int32 m_levellimit() const;
+  inline void set_m_levellimit(::google::protobuf::int32 value);
 
-  // optional string adviceLv = 3;
-  inline bool has_advicelv() const;
-  inline void clear_advicelv();
-  static const int kAdviceLvFieldNumber = 3;
-  inline const ::std::string& advicelv() const;
-  inline void set_advicelv(const ::std::string& value);
-  inline void set_advicelv(const char* value);
-  inline void set_advicelv(const char* value, size_t size);
-  inline ::std::string* mutable_advicelv();
-  inline ::std::string* release_advicelv();
-  inline void set_allocated_advicelv(::std::string* advicelv);
+  // optional string m_advicelv = 3;
+  inline bool has_m_advicelv() const;
+  inline void clear_m_advicelv();
+  static const int kMAdvicelvFieldNumber = 3;
+  inline const ::std::string& m_advicelv() const;
+  inline void set_m_advicelv(const ::std::string& value);
+  inline void set_m_advicelv(const char* value);
+  inline void set_m_advicelv(const char* value, size_t size);
+  inline ::std::string* mutable_m_advicelv();
+  inline ::std::string* release_m_advicelv();
+  inline void set_allocated_m_advicelv(::std::string* m_advicelv);
 
-  // optional int32 mapType = 4;
-  inline bool has_maptype() const;
-  inline void clear_maptype();
-  static const int kMapTypeFieldNumber = 4;
-  inline ::google::protobuf::int32 maptype() const;
-  inline void set_maptype(::google::protobuf::int32 value);
+  // optional int32 m_maptype = 4;
+  inline bool has_m_maptype() const;
+  inline void clear_m_maptype();
+  static const int kMMaptypeFieldNumber = 4;
+  inline ::google::protobuf::int32 m_maptype() const;
+  inline void set_m_maptype(::google::protobuf::int32 value);
 
-  // optional int32 mapSubType = 5;
-  inline bool has_mapsubtype() const;
-  inline void clear_mapsubtype();
-  static const int kMapSubTypeFieldNumber = 5;
-  inline ::google::protobuf::int32 mapsubtype() const;
-  inline void set_mapsubtype(::google::protobuf::int32 value);
+  // optional int32 m_mapsubtype = 5;
+  inline bool has_m_mapsubtype() const;
+  inline void clear_m_mapsubtype();
+  static const int kMMapsubtypeFieldNumber = 5;
+  inline ::google::protobuf::int32 m_mapsubtype() const;
+  inline void set_m_mapsubtype(::google::protobuf::int32 value);
 
-  // optional int32 clearanceTime = 6;
-  inline bool has_clearancetime() const;
-  inline void clear_clearancetime();
-  static const int kClearanceTimeFieldNumber = 6;
-  inline ::google::protobuf::int32 clearancetime() const;
-  inline void set_clearancetime(::google::protobuf::int32 value);
+  // optional int32 m_clearancetime = 6;
+  inline bool has_m_clearancetime() const;
+  inline void clear_m_clearancetime();
+  static const int kMClearancetimeFieldNumber = 6;
+  inline ::google::protobuf::int32 m_clearancetime() const;
+  inline void set_m_clearancetime(::google::protobuf::int32 value);
 
-  // optional int32 mapPkmode = 7;
-  inline bool has_mappkmode() const;
-  inline void clear_mappkmode();
-  static const int kMapPkmodeFieldNumber = 7;
-  inline ::google::protobuf::int32 mappkmode() const;
-  inline void set_mappkmode(::google::protobuf::int32 value);
+  // optional int32 m_mappkmode = 7;
+  inline bool has_m_mappkmode() const;
+  inline void clear_m_mappkmode();
+  static const int kMMappkmodeFieldNumber = 7;
+  inline ::google::protobuf::int32 m_mappkmode() const;
+  inline void set_m_mappkmode(::google::protobuf::int32 value);
 
-  // optional int32 pklock = 8;
-  inline bool has_pklock() const;
-  inline void clear_pklock();
-  static const int kPklockFieldNumber = 8;
-  inline ::google::protobuf::int32 pklock() const;
-  inline void set_pklock(::google::protobuf::int32 value);
+  // optional int32 m_pklock = 8;
+  inline bool has_m_pklock() const;
+  inline void clear_m_pklock();
+  static const int kMPklockFieldNumber = 8;
+  inline ::google::protobuf::int32 m_pklock() const;
+  inline void set_m_pklock(::google::protobuf::int32 value);
 
-  // optional int32 pk = 9;
-  inline bool has_pk() const;
-  inline void clear_pk();
-  static const int kPkFieldNumber = 9;
-  inline ::google::protobuf::int32 pk() const;
-  inline void set_pk(::google::protobuf::int32 value);
+  // optional int32 m_pk = 9;
+  inline bool has_m_pk() const;
+  inline void clear_m_pk();
+  static const int kMPkFieldNumber = 9;
+  inline ::google::protobuf::int32 m_pk() const;
+  inline void set_m_pk(::google::protobuf::int32 value);
 
-  // optional int32 killValue = 10;
-  inline bool has_killvalue() const;
-  inline void clear_killvalue();
-  static const int kKillValueFieldNumber = 10;
-  inline ::google::protobuf::int32 killvalue() const;
-  inline void set_killvalue(::google::protobuf::int32 value);
+  // optional int32 m_killvalue = 10;
+  inline bool has_m_killvalue() const;
+  inline void clear_m_killvalue();
+  static const int kMKillvalueFieldNumber = 10;
+  inline ::google::protobuf::int32 m_killvalue() const;
+  inline void set_m_killvalue(::google::protobuf::int32 value);
 
-  // optional int32 BanGroup = 11;
-  inline bool has_bangroup() const;
-  inline void clear_bangroup();
-  static const int kBanGroupFieldNumber = 11;
-  inline ::google::protobuf::int32 bangroup() const;
-  inline void set_bangroup(::google::protobuf::int32 value);
+  // optional int32 m_bangroup = 11;
+  inline bool has_m_bangroup() const;
+  inline void clear_m_bangroup();
+  static const int kMBangroupFieldNumber = 11;
+  inline ::google::protobuf::int32 m_bangroup() const;
+  inline void set_m_bangroup(::google::protobuf::int32 value);
 
-  // optional int32 reviveTime = 12;
-  inline bool has_revivetime() const;
-  inline void clear_revivetime();
-  static const int kReviveTimeFieldNumber = 12;
-  inline ::google::protobuf::int32 revivetime() const;
-  inline void set_revivetime(::google::protobuf::int32 value);
+  // optional int32 m_revivetime = 12;
+  inline bool has_m_revivetime() const;
+  inline void clear_m_revivetime();
+  static const int kMRevivetimeFieldNumber = 12;
+  inline ::google::protobuf::int32 m_revivetime() const;
+  inline void set_m_revivetime(::google::protobuf::int32 value);
 
-  // optional int32 mapWide = 13;
-  inline bool has_mapwide() const;
-  inline void clear_mapwide();
-  static const int kMapWideFieldNumber = 13;
-  inline ::google::protobuf::int32 mapwide() const;
-  inline void set_mapwide(::google::protobuf::int32 value);
+  // optional int32 m_mapwide = 13;
+  inline bool has_m_mapwide() const;
+  inline void clear_m_mapwide();
+  static const int kMMapwideFieldNumber = 13;
+  inline ::google::protobuf::int32 m_mapwide() const;
+  inline void set_m_mapwide(::google::protobuf::int32 value);
 
-  // optional int32 mapHeight = 14;
-  inline bool has_mapheight() const;
-  inline void clear_mapheight();
-  static const int kMapHeightFieldNumber = 14;
-  inline ::google::protobuf::int32 mapheight() const;
-  inline void set_mapheight(::google::protobuf::int32 value);
+  // optional int32 m_mapheight = 14;
+  inline bool has_m_mapheight() const;
+  inline void clear_m_mapheight();
+  static const int kMMapheightFieldNumber = 14;
+  inline ::google::protobuf::int32 m_mapheight() const;
+  inline void set_m_mapheight(::google::protobuf::int32 value);
 
-  // optional string mapResources = 15;
-  inline bool has_mapresources() const;
-  inline void clear_mapresources();
-  static const int kMapResourcesFieldNumber = 15;
-  inline const ::std::string& mapresources() const;
-  inline void set_mapresources(const ::std::string& value);
-  inline void set_mapresources(const char* value);
-  inline void set_mapresources(const char* value, size_t size);
-  inline ::std::string* mutable_mapresources();
-  inline ::std::string* release_mapresources();
-  inline void set_allocated_mapresources(::std::string* mapresources);
+  // optional string m_mapresources = 15;
+  inline bool has_m_mapresources() const;
+  inline void clear_m_mapresources();
+  static const int kMMapresourcesFieldNumber = 15;
+  inline const ::std::string& m_mapresources() const;
+  inline void set_m_mapresources(const ::std::string& value);
+  inline void set_m_mapresources(const char* value);
+  inline void set_m_mapresources(const char* value, size_t size);
+  inline ::std::string* mutable_m_mapresources();
+  inline ::std::string* release_m_mapresources();
+  inline void set_allocated_m_mapresources(::std::string* m_mapresources);
 
-  // optional int64 reviveSkill = 16;
-  inline bool has_reviveskill() const;
-  inline void clear_reviveskill();
-  static const int kReviveSkillFieldNumber = 16;
-  inline ::google::protobuf::int64 reviveskill() const;
-  inline void set_reviveskill(::google::protobuf::int64 value);
+  // optional int64 m_reviveskill = 16;
+  inline bool has_m_reviveskill() const;
+  inline void clear_m_reviveskill();
+  static const int kMReviveskillFieldNumber = 16;
+  inline ::google::protobuf::int64 m_reviveskill() const;
+  inline void set_m_reviveskill(::google::protobuf::int64 value);
 
-  // optional int32 reviveInPlaceType = 17;
-  inline bool has_reviveinplacetype() const;
-  inline void clear_reviveinplacetype();
-  static const int kReviveInPlaceTypeFieldNumber = 17;
-  inline ::google::protobuf::int32 reviveinplacetype() const;
-  inline void set_reviveinplacetype(::google::protobuf::int32 value);
+  // optional int32 m_reviveinplacetype = 17;
+  inline bool has_m_reviveinplacetype() const;
+  inline void clear_m_reviveinplacetype();
+  static const int kMReviveinplacetypeFieldNumber = 17;
+  inline ::google::protobuf::int32 m_reviveinplacetype() const;
+  inline void set_m_reviveinplacetype(::google::protobuf::int32 value);
 
-  // optional int32 isHangUp = 18;
-  inline bool has_ishangup() const;
-  inline void clear_ishangup();
-  static const int kIsHangUpFieldNumber = 18;
-  inline ::google::protobuf::int32 ishangup() const;
-  inline void set_ishangup(::google::protobuf::int32 value);
+  // optional int32 m_ishangup = 18;
+  inline bool has_m_ishangup() const;
+  inline void clear_m_ishangup();
+  static const int kMIshangupFieldNumber = 18;
+  inline ::google::protobuf::int32 m_ishangup() const;
+  inline void set_m_ishangup(::google::protobuf::int32 value);
 
-  // optional int32 itemDropType = 19;
-  inline bool has_itemdroptype() const;
-  inline void clear_itemdroptype();
-  static const int kItemDropTypeFieldNumber = 19;
-  inline ::google::protobuf::int32 itemdroptype() const;
-  inline void set_itemdroptype(::google::protobuf::int32 value);
+  // optional int32 m_itemdroptype = 19;
+  inline bool has_m_itemdroptype() const;
+  inline void clear_m_itemdroptype();
+  static const int kMItemdroptypeFieldNumber = 19;
+  inline ::google::protobuf::int32 m_itemdroptype() const;
+  inline void set_m_itemdroptype(::google::protobuf::int32 value);
 
-  // optional string itemDropID = 20;
-  inline bool has_itemdropid() const;
-  inline void clear_itemdropid();
-  static const int kItemDropIDFieldNumber = 20;
-  inline const ::std::string& itemdropid() const;
-  inline void set_itemdropid(const ::std::string& value);
-  inline void set_itemdropid(const char* value);
-  inline void set_itemdropid(const char* value, size_t size);
-  inline ::std::string* mutable_itemdropid();
-  inline ::std::string* release_itemdropid();
-  inline void set_allocated_itemdropid(::std::string* itemdropid);
+  // optional string m_itemdropid = 20;
+  inline bool has_m_itemdropid() const;
+  inline void clear_m_itemdropid();
+  static const int kMItemdropidFieldNumber = 20;
+  inline const ::std::string& m_itemdropid() const;
+  inline void set_m_itemdropid(const ::std::string& value);
+  inline void set_m_itemdropid(const char* value);
+  inline void set_m_itemdropid(const char* value, size_t size);
+  inline ::std::string* mutable_m_itemdropid();
+  inline ::std::string* release_m_itemdropid();
+  inline void set_allocated_m_itemdropid(::std::string* m_itemdropid);
 
-  // optional int64 linkOffLine = 21;
-  inline bool has_linkoffline() const;
-  inline void clear_linkoffline();
-  static const int kLinkOffLineFieldNumber = 21;
-  inline ::google::protobuf::int64 linkoffline() const;
-  inline void set_linkoffline(::google::protobuf::int64 value);
+  // optional int64 m_linkoffline = 21;
+  inline bool has_m_linkoffline() const;
+  inline void clear_m_linkoffline();
+  static const int kMLinkofflineFieldNumber = 21;
+  inline ::google::protobuf::int64 m_linkoffline() const;
+  inline void set_m_linkoffline(::google::protobuf::int64 value);
 
-  // optional int32 banOnHook = 22;
-  inline bool has_banonhook() const;
-  inline void clear_banonhook();
-  static const int kBanOnHookFieldNumber = 22;
-  inline ::google::protobuf::int32 banonhook() const;
-  inline void set_banonhook(::google::protobuf::int32 value);
+  // optional int32 m_banonhook = 22;
+  inline bool has_m_banonhook() const;
+  inline void clear_m_banonhook();
+  static const int kMBanonhookFieldNumber = 22;
+  inline ::google::protobuf::int32 m_banonhook() const;
+  inline void set_m_banonhook(::google::protobuf::int32 value);
 
-  // optional int32 Rewait = 23;
-  inline bool has_rewait() const;
-  inline void clear_rewait();
-  static const int kRewaitFieldNumber = 23;
-  inline ::google::protobuf::int32 rewait() const;
-  inline void set_rewait(::google::protobuf::int32 value);
+  // optional int32 m_rewait = 23;
+  inline bool has_m_rewait() const;
+  inline void clear_m_rewait();
+  static const int kMRewaitFieldNumber = 23;
+  inline ::google::protobuf::int32 m_rewait() const;
+  inline void set_m_rewait(::google::protobuf::int32 value);
 
-  // optional int32 REtime = 24;
-  inline bool has_retime() const;
-  inline void clear_retime();
-  static const int kREtimeFieldNumber = 24;
-  inline ::google::protobuf::int32 retime() const;
-  inline void set_retime(::google::protobuf::int32 value);
+  // optional int32 m_retime = 24;
+  inline bool has_m_retime() const;
+  inline void clear_m_retime();
+  static const int kMRetimeFieldNumber = 24;
+  inline ::google::protobuf::int32 m_retime() const;
+  inline void set_m_retime(::google::protobuf::int32 value);
 
-  // optional int32 HREBan = 25;
-  inline bool has_hreban() const;
-  inline void clear_hreban();
-  static const int kHREBanFieldNumber = 25;
-  inline ::google::protobuf::int32 hreban() const;
-  inline void set_hreban(::google::protobuf::int32 value);
+  // optional int32 m_hreban = 25;
+  inline bool has_m_hreban() const;
+  inline void clear_m_hreban();
+  static const int kMHrebanFieldNumber = 25;
+  inline ::google::protobuf::int32 m_hreban() const;
+  inline void set_m_hreban(::google::protobuf::int32 value);
 
-  // optional int32 Retiered = 26;
-  inline bool has_retiered() const;
-  inline void clear_retiered();
-  static const int kRetieredFieldNumber = 26;
-  inline ::google::protobuf::int32 retiered() const;
-  inline void set_retiered(::google::protobuf::int32 value);
+  // optional int32 m_retiered = 26;
+  inline bool has_m_retiered() const;
+  inline void clear_m_retiered();
+  static const int kMRetieredFieldNumber = 26;
+  inline ::google::protobuf::int32 m_retiered() const;
+  inline void set_m_retiered(::google::protobuf::int32 value);
 
-  // optional int32 REskillid = 27;
-  inline bool has_reskillid() const;
-  inline void clear_reskillid();
-  static const int kREskillidFieldNumber = 27;
-  inline ::google::protobuf::int32 reskillid() const;
-  inline void set_reskillid(::google::protobuf::int32 value);
+  // optional int32 m_reskillid = 27;
+  inline bool has_m_reskillid() const;
+  inline void clear_m_reskillid();
+  static const int kMReskillidFieldNumber = 27;
+  inline ::google::protobuf::int32 m_reskillid() const;
+  inline void set_m_reskillid(::google::protobuf::int32 value);
 
-  // optional int32 Reteimes = 28;
-  inline bool has_reteimes() const;
-  inline void clear_reteimes();
-  static const int kReteimesFieldNumber = 28;
-  inline ::google::protobuf::int32 reteimes() const;
-  inline void set_reteimes(::google::protobuf::int32 value);
+  // optional int32 m_reteimes = 28;
+  inline bool has_m_reteimes() const;
+  inline void clear_m_reteimes();
+  static const int kMReteimesFieldNumber = 28;
+  inline ::google::protobuf::int32 m_reteimes() const;
+  inline void set_m_reteimes(::google::protobuf::int32 value);
 
-  // optional int32 drivePoint = 29;
-  inline bool has_drivepoint() const;
-  inline void clear_drivepoint();
-  static const int kDrivePointFieldNumber = 29;
-  inline ::google::protobuf::int32 drivepoint() const;
-  inline void set_drivepoint(::google::protobuf::int32 value);
+  // optional int32 m_drivepoint = 29;
+  inline bool has_m_drivepoint() const;
+  inline void clear_m_drivepoint();
+  static const int kMDrivepointFieldNumber = 29;
+  inline ::google::protobuf::int32 m_drivepoint() const;
+  inline void set_m_drivepoint(::google::protobuf::int32 value);
 
-  // optional int32 dieDP = 30;
-  inline bool has_diedp() const;
-  inline void clear_diedp();
-  static const int kDieDPFieldNumber = 30;
-  inline ::google::protobuf::int32 diedp() const;
-  inline void set_diedp(::google::protobuf::int32 value);
+  // optional int32 m_diedp = 30;
+  inline bool has_m_diedp() const;
+  inline void clear_m_diedp();
+  static const int kMDiedpFieldNumber = 30;
+  inline ::google::protobuf::int32 m_diedp() const;
+  inline void set_m_diedp(::google::protobuf::int32 value);
 
-  // optional int32 timeDP = 31;
-  inline bool has_timedp() const;
-  inline void clear_timedp();
-  static const int kTimeDPFieldNumber = 31;
-  inline ::google::protobuf::int32 timedp() const;
-  inline void set_timedp(::google::protobuf::int32 value);
+  // optional int32 m_timedp = 31;
+  inline bool has_m_timedp() const;
+  inline void clear_m_timedp();
+  static const int kMTimedpFieldNumber = 31;
+  inline ::google::protobuf::int32 m_timedp() const;
+  inline void set_m_timedp(::google::protobuf::int32 value);
 
-  // optional int32 meditation = 32;
-  inline bool has_meditation() const;
-  inline void clear_meditation();
-  static const int kMeditationFieldNumber = 32;
-  inline ::google::protobuf::int32 meditation() const;
-  inline void set_meditation(::google::protobuf::int32 value);
+  // optional int32 m_meditation = 32;
+  inline bool has_m_meditation() const;
+  inline void clear_m_meditation();
+  static const int kMMeditationFieldNumber = 32;
+  inline ::google::protobuf::int32 m_meditation() const;
+  inline void set_m_meditation(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.mapmap)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_MapMap)
  private:
-  inline void set_has_mapid();
-  inline void clear_has_mapid();
-  inline void set_has_levellimit();
-  inline void clear_has_levellimit();
-  inline void set_has_advicelv();
-  inline void clear_has_advicelv();
-  inline void set_has_maptype();
-  inline void clear_has_maptype();
-  inline void set_has_mapsubtype();
-  inline void clear_has_mapsubtype();
-  inline void set_has_clearancetime();
-  inline void clear_has_clearancetime();
-  inline void set_has_mappkmode();
-  inline void clear_has_mappkmode();
-  inline void set_has_pklock();
-  inline void clear_has_pklock();
-  inline void set_has_pk();
-  inline void clear_has_pk();
-  inline void set_has_killvalue();
-  inline void clear_has_killvalue();
-  inline void set_has_bangroup();
-  inline void clear_has_bangroup();
-  inline void set_has_revivetime();
-  inline void clear_has_revivetime();
-  inline void set_has_mapwide();
-  inline void clear_has_mapwide();
-  inline void set_has_mapheight();
-  inline void clear_has_mapheight();
-  inline void set_has_mapresources();
-  inline void clear_has_mapresources();
-  inline void set_has_reviveskill();
-  inline void clear_has_reviveskill();
-  inline void set_has_reviveinplacetype();
-  inline void clear_has_reviveinplacetype();
-  inline void set_has_ishangup();
-  inline void clear_has_ishangup();
-  inline void set_has_itemdroptype();
-  inline void clear_has_itemdroptype();
-  inline void set_has_itemdropid();
-  inline void clear_has_itemdropid();
-  inline void set_has_linkoffline();
-  inline void clear_has_linkoffline();
-  inline void set_has_banonhook();
-  inline void clear_has_banonhook();
-  inline void set_has_rewait();
-  inline void clear_has_rewait();
-  inline void set_has_retime();
-  inline void clear_has_retime();
-  inline void set_has_hreban();
-  inline void clear_has_hreban();
-  inline void set_has_retiered();
-  inline void clear_has_retiered();
-  inline void set_has_reskillid();
-  inline void clear_has_reskillid();
-  inline void set_has_reteimes();
-  inline void clear_has_reteimes();
-  inline void set_has_drivepoint();
-  inline void clear_has_drivepoint();
-  inline void set_has_diedp();
-  inline void clear_has_diedp();
-  inline void set_has_timedp();
-  inline void clear_has_timedp();
-  inline void set_has_meditation();
-  inline void clear_has_meditation();
+  inline void set_has_m_mapid();
+  inline void clear_has_m_mapid();
+  inline void set_has_m_levellimit();
+  inline void clear_has_m_levellimit();
+  inline void set_has_m_advicelv();
+  inline void clear_has_m_advicelv();
+  inline void set_has_m_maptype();
+  inline void clear_has_m_maptype();
+  inline void set_has_m_mapsubtype();
+  inline void clear_has_m_mapsubtype();
+  inline void set_has_m_clearancetime();
+  inline void clear_has_m_clearancetime();
+  inline void set_has_m_mappkmode();
+  inline void clear_has_m_mappkmode();
+  inline void set_has_m_pklock();
+  inline void clear_has_m_pklock();
+  inline void set_has_m_pk();
+  inline void clear_has_m_pk();
+  inline void set_has_m_killvalue();
+  inline void clear_has_m_killvalue();
+  inline void set_has_m_bangroup();
+  inline void clear_has_m_bangroup();
+  inline void set_has_m_revivetime();
+  inline void clear_has_m_revivetime();
+  inline void set_has_m_mapwide();
+  inline void clear_has_m_mapwide();
+  inline void set_has_m_mapheight();
+  inline void clear_has_m_mapheight();
+  inline void set_has_m_mapresources();
+  inline void clear_has_m_mapresources();
+  inline void set_has_m_reviveskill();
+  inline void clear_has_m_reviveskill();
+  inline void set_has_m_reviveinplacetype();
+  inline void clear_has_m_reviveinplacetype();
+  inline void set_has_m_ishangup();
+  inline void clear_has_m_ishangup();
+  inline void set_has_m_itemdroptype();
+  inline void clear_has_m_itemdroptype();
+  inline void set_has_m_itemdropid();
+  inline void clear_has_m_itemdropid();
+  inline void set_has_m_linkoffline();
+  inline void clear_has_m_linkoffline();
+  inline void set_has_m_banonhook();
+  inline void clear_has_m_banonhook();
+  inline void set_has_m_rewait();
+  inline void clear_has_m_rewait();
+  inline void set_has_m_retime();
+  inline void clear_has_m_retime();
+  inline void set_has_m_hreban();
+  inline void clear_has_m_hreban();
+  inline void set_has_m_retiered();
+  inline void clear_has_m_retiered();
+  inline void set_has_m_reskillid();
+  inline void clear_has_m_reskillid();
+  inline void set_has_m_reteimes();
+  inline void clear_has_m_reteimes();
+  inline void set_has_m_drivepoint();
+  inline void clear_has_m_drivepoint();
+  inline void set_has_m_diedp();
+  inline void clear_has_m_diedp();
+  inline void set_has_m_timedp();
+  inline void clear_has_m_timedp();
+  inline void set_has_m_meditation();
+  inline void clear_has_m_meditation();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 mapid_;
-  ::std::string* advicelv_;
-  ::google::protobuf::int32 levellimit_;
-  ::google::protobuf::int32 maptype_;
-  ::google::protobuf::int32 mapsubtype_;
-  ::google::protobuf::int32 clearancetime_;
-  ::google::protobuf::int32 mappkmode_;
-  ::google::protobuf::int32 pklock_;
-  ::google::protobuf::int32 pk_;
-  ::google::protobuf::int32 killvalue_;
-  ::google::protobuf::int32 bangroup_;
-  ::google::protobuf::int32 revivetime_;
-  ::google::protobuf::int32 mapwide_;
-  ::google::protobuf::int32 mapheight_;
-  ::std::string* mapresources_;
-  ::google::protobuf::int64 reviveskill_;
-  ::google::protobuf::int32 reviveinplacetype_;
-  ::google::protobuf::int32 ishangup_;
-  ::std::string* itemdropid_;
-  ::google::protobuf::int32 itemdroptype_;
-  ::google::protobuf::int32 banonhook_;
-  ::google::protobuf::int64 linkoffline_;
-  ::google::protobuf::int32 rewait_;
-  ::google::protobuf::int32 retime_;
-  ::google::protobuf::int32 hreban_;
-  ::google::protobuf::int32 retiered_;
-  ::google::protobuf::int32 reskillid_;
-  ::google::protobuf::int32 reteimes_;
-  ::google::protobuf::int32 drivepoint_;
-  ::google::protobuf::int32 diedp_;
-  ::google::protobuf::int32 timedp_;
-  ::google::protobuf::int32 meditation_;
+  ::google::protobuf::int64 m_mapid_;
+  ::std::string* m_advicelv_;
+  ::google::protobuf::int32 m_levellimit_;
+  ::google::protobuf::int32 m_maptype_;
+  ::google::protobuf::int32 m_mapsubtype_;
+  ::google::protobuf::int32 m_clearancetime_;
+  ::google::protobuf::int32 m_mappkmode_;
+  ::google::protobuf::int32 m_pklock_;
+  ::google::protobuf::int32 m_pk_;
+  ::google::protobuf::int32 m_killvalue_;
+  ::google::protobuf::int32 m_bangroup_;
+  ::google::protobuf::int32 m_revivetime_;
+  ::google::protobuf::int32 m_mapwide_;
+  ::google::protobuf::int32 m_mapheight_;
+  ::std::string* m_mapresources_;
+  ::google::protobuf::int64 m_reviveskill_;
+  ::google::protobuf::int32 m_reviveinplacetype_;
+  ::google::protobuf::int32 m_ishangup_;
+  ::std::string* m_itemdropid_;
+  ::google::protobuf::int32 m_itemdroptype_;
+  ::google::protobuf::int32 m_banonhook_;
+  ::google::protobuf::int64 m_linkoffline_;
+  ::google::protobuf::int32 m_rewait_;
+  ::google::protobuf::int32 m_retime_;
+  ::google::protobuf::int32 m_hreban_;
+  ::google::protobuf::int32 m_retiered_;
+  ::google::protobuf::int32 m_reskillid_;
+  ::google::protobuf::int32 m_reteimes_;
+  ::google::protobuf::int32 m_drivepoint_;
+  ::google::protobuf::int32 m_diedp_;
+  ::google::protobuf::int32 m_timedp_;
+  ::google::protobuf::int32 m_meditation_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(32 + 31) / 32];
@@ -446,18 +446,18 @@ class mapmap : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_map_2eproto();
 
   void InitAsDefaultInstance();
-  static mapmap* default_instance_;
+  static E_MapMap* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_mapmap : public ::google::protobuf::Message {
+class Sheet_MapMap : public ::google::protobuf::Message {
  public:
-  Sheet_mapmap();
-  virtual ~Sheet_mapmap();
+  Sheet_MapMap();
+  virtual ~Sheet_MapMap();
 
-  Sheet_mapmap(const Sheet_mapmap& from);
+  Sheet_MapMap(const Sheet_MapMap& from);
 
-  inline Sheet_mapmap& operator=(const Sheet_mapmap& from) {
+  inline Sheet_MapMap& operator=(const Sheet_MapMap& from) {
     CopyFrom(from);
     return *this;
   }
@@ -471,17 +471,17 @@ class Sheet_mapmap : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_mapmap& default_instance();
+  static const Sheet_MapMap& default_instance();
 
-  void Swap(Sheet_mapmap* other);
+  void Swap(Sheet_MapMap* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_mapmap* New() const;
+  Sheet_MapMap* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_mapmap& from);
-  void MergeFrom(const Sheet_mapmap& from);
+  void CopyFrom(const Sheet_MapMap& from);
+  void MergeFrom(const Sheet_MapMap& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -504,24 +504,24 @@ class Sheet_mapmap : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.mapmap mapmap_List = 1;
-  inline int mapmap_list_size() const;
-  inline void clear_mapmap_list();
-  static const int kMapmapListFieldNumber = 1;
-  inline const ::proto_ff::mapmap& mapmap_list(int index) const;
-  inline ::proto_ff::mapmap* mutable_mapmap_list(int index);
-  inline ::proto_ff::mapmap* add_mapmap_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::mapmap >&
-      mapmap_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::mapmap >*
-      mutable_mapmap_list();
+  // repeated .proto_ff.E_MapMap E_MapMap_List = 1;
+  inline int e_mapmap_list_size() const;
+  inline void clear_e_mapmap_list();
+  static const int kEMapMapListFieldNumber = 1;
+  inline const ::proto_ff::E_MapMap& e_mapmap_list(int index) const;
+  inline ::proto_ff::E_MapMap* mutable_e_mapmap_list(int index);
+  inline ::proto_ff::E_MapMap* add_e_mapmap_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapMap >&
+      e_mapmap_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapMap >*
+      mutable_e_mapmap_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_mapmap)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_MapMap)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::mapmap > mapmap_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapMap > e_mapmap_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -531,18 +531,18 @@ class Sheet_mapmap : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_map_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_mapmap* default_instance_;
+  static Sheet_MapMap* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class mapitemdrop : public ::google::protobuf::Message {
+class E_MapItemdrop : public ::google::protobuf::Message {
  public:
-  mapitemdrop();
-  virtual ~mapitemdrop();
+  E_MapItemdrop();
+  virtual ~E_MapItemdrop();
 
-  mapitemdrop(const mapitemdrop& from);
+  E_MapItemdrop(const E_MapItemdrop& from);
 
-  inline mapitemdrop& operator=(const mapitemdrop& from) {
+  inline E_MapItemdrop& operator=(const E_MapItemdrop& from) {
     CopyFrom(from);
     return *this;
   }
@@ -556,17 +556,17 @@ class mapitemdrop : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const mapitemdrop& default_instance();
+  static const E_MapItemdrop& default_instance();
 
-  void Swap(mapitemdrop* other);
+  void Swap(E_MapItemdrop* other);
 
   // implements Message ----------------------------------------------
 
-  mapitemdrop* New() const;
+  E_MapItemdrop* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const mapitemdrop& from);
-  void MergeFrom(const mapitemdrop& from);
+  void CopyFrom(const E_MapItemdrop& from);
+  void MergeFrom(const E_MapItemdrop& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -589,101 +589,101 @@ class mapitemdrop : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 itemDropID = 1;
-  inline bool has_itemdropid() const;
-  inline void clear_itemdropid();
-  static const int kItemDropIDFieldNumber = 1;
-  inline ::google::protobuf::int32 itemdropid() const;
-  inline void set_itemdropid(::google::protobuf::int32 value);
+  // optional int32 m_itemdropid = 1;
+  inline bool has_m_itemdropid() const;
+  inline void clear_m_itemdropid();
+  static const int kMItemdropidFieldNumber = 1;
+  inline ::google::protobuf::int32 m_itemdropid() const;
+  inline void set_m_itemdropid(::google::protobuf::int32 value);
 
-  // optional int32 dropType = 2;
-  inline bool has_droptype() const;
-  inline void clear_droptype();
-  static const int kDropTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 droptype() const;
-  inline void set_droptype(::google::protobuf::int32 value);
+  // optional int32 m_droptype = 2;
+  inline bool has_m_droptype() const;
+  inline void clear_m_droptype();
+  static const int kMDroptypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_droptype() const;
+  inline void set_m_droptype(::google::protobuf::int32 value);
 
-  // optional int32 odds = 3;
-  inline bool has_odds() const;
-  inline void clear_odds();
-  static const int kOddsFieldNumber = 3;
-  inline ::google::protobuf::int32 odds() const;
-  inline void set_odds(::google::protobuf::int32 value);
+  // optional int32 m_odds = 3;
+  inline bool has_m_odds() const;
+  inline void clear_m_odds();
+  static const int kMOddsFieldNumber = 3;
+  inline ::google::protobuf::int32 m_odds() const;
+  inline void set_m_odds(::google::protobuf::int32 value);
 
-  // optional int32 dropvaluea = 4;
-  inline bool has_dropvaluea() const;
-  inline void clear_dropvaluea();
-  static const int kDropvalueaFieldNumber = 4;
-  inline ::google::protobuf::int32 dropvaluea() const;
-  inline void set_dropvaluea(::google::protobuf::int32 value);
+  // optional int32 m_dropvaluea = 4;
+  inline bool has_m_dropvaluea() const;
+  inline void clear_m_dropvaluea();
+  static const int kMDropvalueaFieldNumber = 4;
+  inline ::google::protobuf::int32 m_dropvaluea() const;
+  inline void set_m_dropvaluea(::google::protobuf::int32 value);
 
-  // optional int32 dropvalueb = 5;
-  inline bool has_dropvalueb() const;
-  inline void clear_dropvalueb();
-  static const int kDropvaluebFieldNumber = 5;
-  inline ::google::protobuf::int32 dropvalueb() const;
-  inline void set_dropvalueb(::google::protobuf::int32 value);
+  // optional int32 m_dropvalueb = 5;
+  inline bool has_m_dropvalueb() const;
+  inline void clear_m_dropvalueb();
+  static const int kMDropvaluebFieldNumber = 5;
+  inline ::google::protobuf::int32 m_dropvalueb() const;
+  inline void set_m_dropvalueb(::google::protobuf::int32 value);
 
-  // optional int32 dropvaluec = 6;
-  inline bool has_dropvaluec() const;
-  inline void clear_dropvaluec();
-  static const int kDropvaluecFieldNumber = 6;
-  inline ::google::protobuf::int32 dropvaluec() const;
-  inline void set_dropvaluec(::google::protobuf::int32 value);
+  // optional int32 m_dropvaluec = 6;
+  inline bool has_m_dropvaluec() const;
+  inline void clear_m_dropvaluec();
+  static const int kMDropvaluecFieldNumber = 6;
+  inline ::google::protobuf::int32 m_dropvaluec() const;
+  inline void set_m_dropvaluec(::google::protobuf::int32 value);
 
-  // optional int32 dropvalued = 7;
-  inline bool has_dropvalued() const;
-  inline void clear_dropvalued();
-  static const int kDropvaluedFieldNumber = 7;
-  inline ::google::protobuf::int32 dropvalued() const;
-  inline void set_dropvalued(::google::protobuf::int32 value);
+  // optional int32 m_dropvalued = 7;
+  inline bool has_m_dropvalued() const;
+  inline void clear_m_dropvalued();
+  static const int kMDropvaluedFieldNumber = 7;
+  inline ::google::protobuf::int32 m_dropvalued() const;
+  inline void set_m_dropvalued(::google::protobuf::int32 value);
 
-  // optional int32 dropvaluee = 8;
-  inline bool has_dropvaluee() const;
-  inline void clear_dropvaluee();
-  static const int kDropvalueeFieldNumber = 8;
-  inline ::google::protobuf::int32 dropvaluee() const;
-  inline void set_dropvaluee(::google::protobuf::int32 value);
+  // optional int32 m_dropvaluee = 8;
+  inline bool has_m_dropvaluee() const;
+  inline void clear_m_dropvaluee();
+  static const int kMDropvalueeFieldNumber = 8;
+  inline ::google::protobuf::int32 m_dropvaluee() const;
+  inline void set_m_dropvaluee(::google::protobuf::int32 value);
 
-  // optional int32 dropvaluef = 9;
-  inline bool has_dropvaluef() const;
-  inline void clear_dropvaluef();
-  static const int kDropvaluefFieldNumber = 9;
-  inline ::google::protobuf::int32 dropvaluef() const;
-  inline void set_dropvaluef(::google::protobuf::int32 value);
+  // optional int32 m_dropvaluef = 9;
+  inline bool has_m_dropvaluef() const;
+  inline void clear_m_dropvaluef();
+  static const int kMDropvaluefFieldNumber = 9;
+  inline ::google::protobuf::int32 m_dropvaluef() const;
+  inline void set_m_dropvaluef(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.mapitemdrop)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_MapItemdrop)
  private:
-  inline void set_has_itemdropid();
-  inline void clear_has_itemdropid();
-  inline void set_has_droptype();
-  inline void clear_has_droptype();
-  inline void set_has_odds();
-  inline void clear_has_odds();
-  inline void set_has_dropvaluea();
-  inline void clear_has_dropvaluea();
-  inline void set_has_dropvalueb();
-  inline void clear_has_dropvalueb();
-  inline void set_has_dropvaluec();
-  inline void clear_has_dropvaluec();
-  inline void set_has_dropvalued();
-  inline void clear_has_dropvalued();
-  inline void set_has_dropvaluee();
-  inline void clear_has_dropvaluee();
-  inline void set_has_dropvaluef();
-  inline void clear_has_dropvaluef();
+  inline void set_has_m_itemdropid();
+  inline void clear_has_m_itemdropid();
+  inline void set_has_m_droptype();
+  inline void clear_has_m_droptype();
+  inline void set_has_m_odds();
+  inline void clear_has_m_odds();
+  inline void set_has_m_dropvaluea();
+  inline void clear_has_m_dropvaluea();
+  inline void set_has_m_dropvalueb();
+  inline void clear_has_m_dropvalueb();
+  inline void set_has_m_dropvaluec();
+  inline void clear_has_m_dropvaluec();
+  inline void set_has_m_dropvalued();
+  inline void clear_has_m_dropvalued();
+  inline void set_has_m_dropvaluee();
+  inline void clear_has_m_dropvaluee();
+  inline void set_has_m_dropvaluef();
+  inline void clear_has_m_dropvaluef();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 itemdropid_;
-  ::google::protobuf::int32 droptype_;
-  ::google::protobuf::int32 odds_;
-  ::google::protobuf::int32 dropvaluea_;
-  ::google::protobuf::int32 dropvalueb_;
-  ::google::protobuf::int32 dropvaluec_;
-  ::google::protobuf::int32 dropvalued_;
-  ::google::protobuf::int32 dropvaluee_;
-  ::google::protobuf::int32 dropvaluef_;
+  ::google::protobuf::int32 m_itemdropid_;
+  ::google::protobuf::int32 m_droptype_;
+  ::google::protobuf::int32 m_odds_;
+  ::google::protobuf::int32 m_dropvaluea_;
+  ::google::protobuf::int32 m_dropvalueb_;
+  ::google::protobuf::int32 m_dropvaluec_;
+  ::google::protobuf::int32 m_dropvalued_;
+  ::google::protobuf::int32 m_dropvaluee_;
+  ::google::protobuf::int32 m_dropvaluef_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
@@ -693,18 +693,18 @@ class mapitemdrop : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_map_2eproto();
 
   void InitAsDefaultInstance();
-  static mapitemdrop* default_instance_;
+  static E_MapItemdrop* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_mapitemdrop : public ::google::protobuf::Message {
+class Sheet_MapItemdrop : public ::google::protobuf::Message {
  public:
-  Sheet_mapitemdrop();
-  virtual ~Sheet_mapitemdrop();
+  Sheet_MapItemdrop();
+  virtual ~Sheet_MapItemdrop();
 
-  Sheet_mapitemdrop(const Sheet_mapitemdrop& from);
+  Sheet_MapItemdrop(const Sheet_MapItemdrop& from);
 
-  inline Sheet_mapitemdrop& operator=(const Sheet_mapitemdrop& from) {
+  inline Sheet_MapItemdrop& operator=(const Sheet_MapItemdrop& from) {
     CopyFrom(from);
     return *this;
   }
@@ -718,17 +718,17 @@ class Sheet_mapitemdrop : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_mapitemdrop& default_instance();
+  static const Sheet_MapItemdrop& default_instance();
 
-  void Swap(Sheet_mapitemdrop* other);
+  void Swap(Sheet_MapItemdrop* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_mapitemdrop* New() const;
+  Sheet_MapItemdrop* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_mapitemdrop& from);
-  void MergeFrom(const Sheet_mapitemdrop& from);
+  void CopyFrom(const Sheet_MapItemdrop& from);
+  void MergeFrom(const Sheet_MapItemdrop& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -751,24 +751,24 @@ class Sheet_mapitemdrop : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.mapitemdrop mapitemdrop_List = 1;
-  inline int mapitemdrop_list_size() const;
-  inline void clear_mapitemdrop_list();
-  static const int kMapitemdropListFieldNumber = 1;
-  inline const ::proto_ff::mapitemdrop& mapitemdrop_list(int index) const;
-  inline ::proto_ff::mapitemdrop* mutable_mapitemdrop_list(int index);
-  inline ::proto_ff::mapitemdrop* add_mapitemdrop_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::mapitemdrop >&
-      mapitemdrop_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::mapitemdrop >*
-      mutable_mapitemdrop_list();
+  // repeated .proto_ff.E_MapItemdrop E_MapItemdrop_List = 1;
+  inline int e_mapitemdrop_list_size() const;
+  inline void clear_e_mapitemdrop_list();
+  static const int kEMapItemdropListFieldNumber = 1;
+  inline const ::proto_ff::E_MapItemdrop& e_mapitemdrop_list(int index) const;
+  inline ::proto_ff::E_MapItemdrop* mutable_e_mapitemdrop_list(int index);
+  inline ::proto_ff::E_MapItemdrop* add_e_mapitemdrop_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapItemdrop >&
+      e_mapitemdrop_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapItemdrop >*
+      mutable_e_mapitemdrop_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_mapitemdrop)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_MapItemdrop)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::mapitemdrop > mapitemdrop_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapItemdrop > e_mapitemdrop_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -778,18 +778,18 @@ class Sheet_mapitemdrop : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_map_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_mapitemdrop* default_instance_;
+  static Sheet_MapItemdrop* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class mapdestroyitem : public ::google::protobuf::Message {
+class E_MapDestroyitem : public ::google::protobuf::Message {
  public:
-  mapdestroyitem();
-  virtual ~mapdestroyitem();
+  E_MapDestroyitem();
+  virtual ~E_MapDestroyitem();
 
-  mapdestroyitem(const mapdestroyitem& from);
+  E_MapDestroyitem(const E_MapDestroyitem& from);
 
-  inline mapdestroyitem& operator=(const mapdestroyitem& from) {
+  inline E_MapDestroyitem& operator=(const E_MapDestroyitem& from) {
     CopyFrom(from);
     return *this;
   }
@@ -803,17 +803,17 @@ class mapdestroyitem : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const mapdestroyitem& default_instance();
+  static const E_MapDestroyitem& default_instance();
 
-  void Swap(mapdestroyitem* other);
+  void Swap(E_MapDestroyitem* other);
 
   // implements Message ----------------------------------------------
 
-  mapdestroyitem* New() const;
+  E_MapDestroyitem* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const mapdestroyitem& from);
-  void MergeFrom(const mapdestroyitem& from);
+  void CopyFrom(const E_MapDestroyitem& from);
+  void MergeFrom(const E_MapDestroyitem& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -836,21 +836,21 @@ class mapdestroyitem : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 destroyitemID = 1;
-  inline bool has_destroyitemid() const;
-  inline void clear_destroyitemid();
-  static const int kDestroyitemIDFieldNumber = 1;
-  inline ::google::protobuf::int64 destroyitemid() const;
-  inline void set_destroyitemid(::google::protobuf::int64 value);
+  // optional int64 m_destroyitemid = 1;
+  inline bool has_m_destroyitemid() const;
+  inline void clear_m_destroyitemid();
+  static const int kMDestroyitemidFieldNumber = 1;
+  inline ::google::protobuf::int64 m_destroyitemid() const;
+  inline void set_m_destroyitemid(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.mapdestroyitem)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_MapDestroyitem)
  private:
-  inline void set_has_destroyitemid();
-  inline void clear_has_destroyitemid();
+  inline void set_has_m_destroyitemid();
+  inline void clear_has_m_destroyitemid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 destroyitemid_;
+  ::google::protobuf::int64 m_destroyitemid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -860,18 +860,18 @@ class mapdestroyitem : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_map_2eproto();
 
   void InitAsDefaultInstance();
-  static mapdestroyitem* default_instance_;
+  static E_MapDestroyitem* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_mapdestroyitem : public ::google::protobuf::Message {
+class Sheet_MapDestroyitem : public ::google::protobuf::Message {
  public:
-  Sheet_mapdestroyitem();
-  virtual ~Sheet_mapdestroyitem();
+  Sheet_MapDestroyitem();
+  virtual ~Sheet_MapDestroyitem();
 
-  Sheet_mapdestroyitem(const Sheet_mapdestroyitem& from);
+  Sheet_MapDestroyitem(const Sheet_MapDestroyitem& from);
 
-  inline Sheet_mapdestroyitem& operator=(const Sheet_mapdestroyitem& from) {
+  inline Sheet_MapDestroyitem& operator=(const Sheet_MapDestroyitem& from) {
     CopyFrom(from);
     return *this;
   }
@@ -885,17 +885,17 @@ class Sheet_mapdestroyitem : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_mapdestroyitem& default_instance();
+  static const Sheet_MapDestroyitem& default_instance();
 
-  void Swap(Sheet_mapdestroyitem* other);
+  void Swap(Sheet_MapDestroyitem* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_mapdestroyitem* New() const;
+  Sheet_MapDestroyitem* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_mapdestroyitem& from);
-  void MergeFrom(const Sheet_mapdestroyitem& from);
+  void CopyFrom(const Sheet_MapDestroyitem& from);
+  void MergeFrom(const Sheet_MapDestroyitem& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -918,24 +918,24 @@ class Sheet_mapdestroyitem : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.mapdestroyitem mapdestroyitem_List = 1;
-  inline int mapdestroyitem_list_size() const;
-  inline void clear_mapdestroyitem_list();
-  static const int kMapdestroyitemListFieldNumber = 1;
-  inline const ::proto_ff::mapdestroyitem& mapdestroyitem_list(int index) const;
-  inline ::proto_ff::mapdestroyitem* mutable_mapdestroyitem_list(int index);
-  inline ::proto_ff::mapdestroyitem* add_mapdestroyitem_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::mapdestroyitem >&
-      mapdestroyitem_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::mapdestroyitem >*
-      mutable_mapdestroyitem_list();
+  // repeated .proto_ff.E_MapDestroyitem E_MapDestroyitem_List = 1;
+  inline int e_mapdestroyitem_list_size() const;
+  inline void clear_e_mapdestroyitem_list();
+  static const int kEMapDestroyitemListFieldNumber = 1;
+  inline const ::proto_ff::E_MapDestroyitem& e_mapdestroyitem_list(int index) const;
+  inline ::proto_ff::E_MapDestroyitem* mutable_e_mapdestroyitem_list(int index);
+  inline ::proto_ff::E_MapDestroyitem* add_e_mapdestroyitem_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapDestroyitem >&
+      e_mapdestroyitem_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapDestroyitem >*
+      mutable_e_mapdestroyitem_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_mapdestroyitem)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_MapDestroyitem)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::mapdestroyitem > mapdestroyitem_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapDestroyitem > e_mapdestroyitem_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -945,1176 +945,1176 @@ class Sheet_mapdestroyitem : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_map_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_mapdestroyitem* default_instance_;
+  static Sheet_MapDestroyitem* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// mapmap
+// E_MapMap
 
-// optional int64 mapId = 1;
-inline bool mapmap::has_mapid() const {
+// optional int64 m_mapid = 1;
+inline bool E_MapMap::has_m_mapid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void mapmap::set_has_mapid() {
+inline void E_MapMap::set_has_m_mapid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void mapmap::clear_has_mapid() {
+inline void E_MapMap::clear_has_m_mapid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void mapmap::clear_mapid() {
-  mapid_ = GOOGLE_LONGLONG(0);
-  clear_has_mapid();
+inline void E_MapMap::clear_m_mapid() {
+  m_mapid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_mapid();
 }
-inline ::google::protobuf::int64 mapmap::mapid() const {
-  return mapid_;
+inline ::google::protobuf::int64 E_MapMap::m_mapid() const {
+  return m_mapid_;
 }
-inline void mapmap::set_mapid(::google::protobuf::int64 value) {
-  set_has_mapid();
-  mapid_ = value;
+inline void E_MapMap::set_m_mapid(::google::protobuf::int64 value) {
+  set_has_m_mapid();
+  m_mapid_ = value;
 }
 
-// optional int32 levelLimit = 2;
-inline bool mapmap::has_levellimit() const {
+// optional int32 m_levellimit = 2;
+inline bool E_MapMap::has_m_levellimit() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void mapmap::set_has_levellimit() {
+inline void E_MapMap::set_has_m_levellimit() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void mapmap::clear_has_levellimit() {
+inline void E_MapMap::clear_has_m_levellimit() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void mapmap::clear_levellimit() {
-  levellimit_ = 0;
-  clear_has_levellimit();
+inline void E_MapMap::clear_m_levellimit() {
+  m_levellimit_ = 0;
+  clear_has_m_levellimit();
 }
-inline ::google::protobuf::int32 mapmap::levellimit() const {
-  return levellimit_;
+inline ::google::protobuf::int32 E_MapMap::m_levellimit() const {
+  return m_levellimit_;
 }
-inline void mapmap::set_levellimit(::google::protobuf::int32 value) {
-  set_has_levellimit();
-  levellimit_ = value;
+inline void E_MapMap::set_m_levellimit(::google::protobuf::int32 value) {
+  set_has_m_levellimit();
+  m_levellimit_ = value;
 }
 
-// optional string adviceLv = 3;
-inline bool mapmap::has_advicelv() const {
+// optional string m_advicelv = 3;
+inline bool E_MapMap::has_m_advicelv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void mapmap::set_has_advicelv() {
+inline void E_MapMap::set_has_m_advicelv() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void mapmap::clear_has_advicelv() {
+inline void E_MapMap::clear_has_m_advicelv() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void mapmap::clear_advicelv() {
-  if (advicelv_ != &::google::protobuf::internal::kEmptyString) {
-    advicelv_->clear();
+inline void E_MapMap::clear_m_advicelv() {
+  if (m_advicelv_ != &::google::protobuf::internal::kEmptyString) {
+    m_advicelv_->clear();
   }
-  clear_has_advicelv();
+  clear_has_m_advicelv();
 }
-inline const ::std::string& mapmap::advicelv() const {
-  return *advicelv_;
+inline const ::std::string& E_MapMap::m_advicelv() const {
+  return *m_advicelv_;
 }
-inline void mapmap::set_advicelv(const ::std::string& value) {
-  set_has_advicelv();
-  if (advicelv_ == &::google::protobuf::internal::kEmptyString) {
-    advicelv_ = new ::std::string;
+inline void E_MapMap::set_m_advicelv(const ::std::string& value) {
+  set_has_m_advicelv();
+  if (m_advicelv_ == &::google::protobuf::internal::kEmptyString) {
+    m_advicelv_ = new ::std::string;
   }
-  advicelv_->assign(value);
+  m_advicelv_->assign(value);
 }
-inline void mapmap::set_advicelv(const char* value) {
-  set_has_advicelv();
-  if (advicelv_ == &::google::protobuf::internal::kEmptyString) {
-    advicelv_ = new ::std::string;
+inline void E_MapMap::set_m_advicelv(const char* value) {
+  set_has_m_advicelv();
+  if (m_advicelv_ == &::google::protobuf::internal::kEmptyString) {
+    m_advicelv_ = new ::std::string;
   }
-  advicelv_->assign(value);
+  m_advicelv_->assign(value);
 }
-inline void mapmap::set_advicelv(const char* value, size_t size) {
-  set_has_advicelv();
-  if (advicelv_ == &::google::protobuf::internal::kEmptyString) {
-    advicelv_ = new ::std::string;
+inline void E_MapMap::set_m_advicelv(const char* value, size_t size) {
+  set_has_m_advicelv();
+  if (m_advicelv_ == &::google::protobuf::internal::kEmptyString) {
+    m_advicelv_ = new ::std::string;
   }
-  advicelv_->assign(reinterpret_cast<const char*>(value), size);
+  m_advicelv_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* mapmap::mutable_advicelv() {
-  set_has_advicelv();
-  if (advicelv_ == &::google::protobuf::internal::kEmptyString) {
-    advicelv_ = new ::std::string;
+inline ::std::string* E_MapMap::mutable_m_advicelv() {
+  set_has_m_advicelv();
+  if (m_advicelv_ == &::google::protobuf::internal::kEmptyString) {
+    m_advicelv_ = new ::std::string;
   }
-  return advicelv_;
+  return m_advicelv_;
 }
-inline ::std::string* mapmap::release_advicelv() {
-  clear_has_advicelv();
-  if (advicelv_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_MapMap::release_m_advicelv() {
+  clear_has_m_advicelv();
+  if (m_advicelv_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = advicelv_;
-    advicelv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_advicelv_;
+    m_advicelv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void mapmap::set_allocated_advicelv(::std::string* advicelv) {
-  if (advicelv_ != &::google::protobuf::internal::kEmptyString) {
-    delete advicelv_;
+inline void E_MapMap::set_allocated_m_advicelv(::std::string* m_advicelv) {
+  if (m_advicelv_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_advicelv_;
   }
-  if (advicelv) {
-    set_has_advicelv();
-    advicelv_ = advicelv;
+  if (m_advicelv) {
+    set_has_m_advicelv();
+    m_advicelv_ = m_advicelv;
   } else {
-    clear_has_advicelv();
-    advicelv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_advicelv();
+    m_advicelv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 mapType = 4;
-inline bool mapmap::has_maptype() const {
+// optional int32 m_maptype = 4;
+inline bool E_MapMap::has_m_maptype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void mapmap::set_has_maptype() {
+inline void E_MapMap::set_has_m_maptype() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void mapmap::clear_has_maptype() {
+inline void E_MapMap::clear_has_m_maptype() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void mapmap::clear_maptype() {
-  maptype_ = 0;
-  clear_has_maptype();
+inline void E_MapMap::clear_m_maptype() {
+  m_maptype_ = 0;
+  clear_has_m_maptype();
 }
-inline ::google::protobuf::int32 mapmap::maptype() const {
-  return maptype_;
+inline ::google::protobuf::int32 E_MapMap::m_maptype() const {
+  return m_maptype_;
 }
-inline void mapmap::set_maptype(::google::protobuf::int32 value) {
-  set_has_maptype();
-  maptype_ = value;
+inline void E_MapMap::set_m_maptype(::google::protobuf::int32 value) {
+  set_has_m_maptype();
+  m_maptype_ = value;
 }
 
-// optional int32 mapSubType = 5;
-inline bool mapmap::has_mapsubtype() const {
+// optional int32 m_mapsubtype = 5;
+inline bool E_MapMap::has_m_mapsubtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void mapmap::set_has_mapsubtype() {
+inline void E_MapMap::set_has_m_mapsubtype() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void mapmap::clear_has_mapsubtype() {
+inline void E_MapMap::clear_has_m_mapsubtype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void mapmap::clear_mapsubtype() {
-  mapsubtype_ = 0;
-  clear_has_mapsubtype();
+inline void E_MapMap::clear_m_mapsubtype() {
+  m_mapsubtype_ = 0;
+  clear_has_m_mapsubtype();
 }
-inline ::google::protobuf::int32 mapmap::mapsubtype() const {
-  return mapsubtype_;
+inline ::google::protobuf::int32 E_MapMap::m_mapsubtype() const {
+  return m_mapsubtype_;
 }
-inline void mapmap::set_mapsubtype(::google::protobuf::int32 value) {
-  set_has_mapsubtype();
-  mapsubtype_ = value;
+inline void E_MapMap::set_m_mapsubtype(::google::protobuf::int32 value) {
+  set_has_m_mapsubtype();
+  m_mapsubtype_ = value;
 }
 
-// optional int32 clearanceTime = 6;
-inline bool mapmap::has_clearancetime() const {
+// optional int32 m_clearancetime = 6;
+inline bool E_MapMap::has_m_clearancetime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void mapmap::set_has_clearancetime() {
+inline void E_MapMap::set_has_m_clearancetime() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void mapmap::clear_has_clearancetime() {
+inline void E_MapMap::clear_has_m_clearancetime() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void mapmap::clear_clearancetime() {
-  clearancetime_ = 0;
-  clear_has_clearancetime();
+inline void E_MapMap::clear_m_clearancetime() {
+  m_clearancetime_ = 0;
+  clear_has_m_clearancetime();
 }
-inline ::google::protobuf::int32 mapmap::clearancetime() const {
-  return clearancetime_;
+inline ::google::protobuf::int32 E_MapMap::m_clearancetime() const {
+  return m_clearancetime_;
 }
-inline void mapmap::set_clearancetime(::google::protobuf::int32 value) {
-  set_has_clearancetime();
-  clearancetime_ = value;
+inline void E_MapMap::set_m_clearancetime(::google::protobuf::int32 value) {
+  set_has_m_clearancetime();
+  m_clearancetime_ = value;
 }
 
-// optional int32 mapPkmode = 7;
-inline bool mapmap::has_mappkmode() const {
+// optional int32 m_mappkmode = 7;
+inline bool E_MapMap::has_m_mappkmode() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void mapmap::set_has_mappkmode() {
+inline void E_MapMap::set_has_m_mappkmode() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void mapmap::clear_has_mappkmode() {
+inline void E_MapMap::clear_has_m_mappkmode() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void mapmap::clear_mappkmode() {
-  mappkmode_ = 0;
-  clear_has_mappkmode();
+inline void E_MapMap::clear_m_mappkmode() {
+  m_mappkmode_ = 0;
+  clear_has_m_mappkmode();
 }
-inline ::google::protobuf::int32 mapmap::mappkmode() const {
-  return mappkmode_;
+inline ::google::protobuf::int32 E_MapMap::m_mappkmode() const {
+  return m_mappkmode_;
 }
-inline void mapmap::set_mappkmode(::google::protobuf::int32 value) {
-  set_has_mappkmode();
-  mappkmode_ = value;
+inline void E_MapMap::set_m_mappkmode(::google::protobuf::int32 value) {
+  set_has_m_mappkmode();
+  m_mappkmode_ = value;
 }
 
-// optional int32 pklock = 8;
-inline bool mapmap::has_pklock() const {
+// optional int32 m_pklock = 8;
+inline bool E_MapMap::has_m_pklock() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void mapmap::set_has_pklock() {
+inline void E_MapMap::set_has_m_pklock() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void mapmap::clear_has_pklock() {
+inline void E_MapMap::clear_has_m_pklock() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void mapmap::clear_pklock() {
-  pklock_ = 0;
-  clear_has_pklock();
+inline void E_MapMap::clear_m_pklock() {
+  m_pklock_ = 0;
+  clear_has_m_pklock();
 }
-inline ::google::protobuf::int32 mapmap::pklock() const {
-  return pklock_;
+inline ::google::protobuf::int32 E_MapMap::m_pklock() const {
+  return m_pklock_;
 }
-inline void mapmap::set_pklock(::google::protobuf::int32 value) {
-  set_has_pklock();
-  pklock_ = value;
+inline void E_MapMap::set_m_pklock(::google::protobuf::int32 value) {
+  set_has_m_pklock();
+  m_pklock_ = value;
 }
 
-// optional int32 pk = 9;
-inline bool mapmap::has_pk() const {
+// optional int32 m_pk = 9;
+inline bool E_MapMap::has_m_pk() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void mapmap::set_has_pk() {
+inline void E_MapMap::set_has_m_pk() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void mapmap::clear_has_pk() {
+inline void E_MapMap::clear_has_m_pk() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void mapmap::clear_pk() {
-  pk_ = 0;
-  clear_has_pk();
+inline void E_MapMap::clear_m_pk() {
+  m_pk_ = 0;
+  clear_has_m_pk();
 }
-inline ::google::protobuf::int32 mapmap::pk() const {
-  return pk_;
+inline ::google::protobuf::int32 E_MapMap::m_pk() const {
+  return m_pk_;
 }
-inline void mapmap::set_pk(::google::protobuf::int32 value) {
-  set_has_pk();
-  pk_ = value;
+inline void E_MapMap::set_m_pk(::google::protobuf::int32 value) {
+  set_has_m_pk();
+  m_pk_ = value;
 }
 
-// optional int32 killValue = 10;
-inline bool mapmap::has_killvalue() const {
+// optional int32 m_killvalue = 10;
+inline bool E_MapMap::has_m_killvalue() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void mapmap::set_has_killvalue() {
+inline void E_MapMap::set_has_m_killvalue() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void mapmap::clear_has_killvalue() {
+inline void E_MapMap::clear_has_m_killvalue() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void mapmap::clear_killvalue() {
-  killvalue_ = 0;
-  clear_has_killvalue();
+inline void E_MapMap::clear_m_killvalue() {
+  m_killvalue_ = 0;
+  clear_has_m_killvalue();
 }
-inline ::google::protobuf::int32 mapmap::killvalue() const {
-  return killvalue_;
+inline ::google::protobuf::int32 E_MapMap::m_killvalue() const {
+  return m_killvalue_;
 }
-inline void mapmap::set_killvalue(::google::protobuf::int32 value) {
-  set_has_killvalue();
-  killvalue_ = value;
+inline void E_MapMap::set_m_killvalue(::google::protobuf::int32 value) {
+  set_has_m_killvalue();
+  m_killvalue_ = value;
 }
 
-// optional int32 BanGroup = 11;
-inline bool mapmap::has_bangroup() const {
+// optional int32 m_bangroup = 11;
+inline bool E_MapMap::has_m_bangroup() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void mapmap::set_has_bangroup() {
+inline void E_MapMap::set_has_m_bangroup() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void mapmap::clear_has_bangroup() {
+inline void E_MapMap::clear_has_m_bangroup() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void mapmap::clear_bangroup() {
-  bangroup_ = 0;
-  clear_has_bangroup();
+inline void E_MapMap::clear_m_bangroup() {
+  m_bangroup_ = 0;
+  clear_has_m_bangroup();
 }
-inline ::google::protobuf::int32 mapmap::bangroup() const {
-  return bangroup_;
+inline ::google::protobuf::int32 E_MapMap::m_bangroup() const {
+  return m_bangroup_;
 }
-inline void mapmap::set_bangroup(::google::protobuf::int32 value) {
-  set_has_bangroup();
-  bangroup_ = value;
+inline void E_MapMap::set_m_bangroup(::google::protobuf::int32 value) {
+  set_has_m_bangroup();
+  m_bangroup_ = value;
 }
 
-// optional int32 reviveTime = 12;
-inline bool mapmap::has_revivetime() const {
+// optional int32 m_revivetime = 12;
+inline bool E_MapMap::has_m_revivetime() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void mapmap::set_has_revivetime() {
+inline void E_MapMap::set_has_m_revivetime() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void mapmap::clear_has_revivetime() {
+inline void E_MapMap::clear_has_m_revivetime() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void mapmap::clear_revivetime() {
-  revivetime_ = 0;
-  clear_has_revivetime();
+inline void E_MapMap::clear_m_revivetime() {
+  m_revivetime_ = 0;
+  clear_has_m_revivetime();
 }
-inline ::google::protobuf::int32 mapmap::revivetime() const {
-  return revivetime_;
+inline ::google::protobuf::int32 E_MapMap::m_revivetime() const {
+  return m_revivetime_;
 }
-inline void mapmap::set_revivetime(::google::protobuf::int32 value) {
-  set_has_revivetime();
-  revivetime_ = value;
+inline void E_MapMap::set_m_revivetime(::google::protobuf::int32 value) {
+  set_has_m_revivetime();
+  m_revivetime_ = value;
 }
 
-// optional int32 mapWide = 13;
-inline bool mapmap::has_mapwide() const {
+// optional int32 m_mapwide = 13;
+inline bool E_MapMap::has_m_mapwide() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void mapmap::set_has_mapwide() {
+inline void E_MapMap::set_has_m_mapwide() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void mapmap::clear_has_mapwide() {
+inline void E_MapMap::clear_has_m_mapwide() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void mapmap::clear_mapwide() {
-  mapwide_ = 0;
-  clear_has_mapwide();
+inline void E_MapMap::clear_m_mapwide() {
+  m_mapwide_ = 0;
+  clear_has_m_mapwide();
 }
-inline ::google::protobuf::int32 mapmap::mapwide() const {
-  return mapwide_;
+inline ::google::protobuf::int32 E_MapMap::m_mapwide() const {
+  return m_mapwide_;
 }
-inline void mapmap::set_mapwide(::google::protobuf::int32 value) {
-  set_has_mapwide();
-  mapwide_ = value;
+inline void E_MapMap::set_m_mapwide(::google::protobuf::int32 value) {
+  set_has_m_mapwide();
+  m_mapwide_ = value;
 }
 
-// optional int32 mapHeight = 14;
-inline bool mapmap::has_mapheight() const {
+// optional int32 m_mapheight = 14;
+inline bool E_MapMap::has_m_mapheight() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void mapmap::set_has_mapheight() {
+inline void E_MapMap::set_has_m_mapheight() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void mapmap::clear_has_mapheight() {
+inline void E_MapMap::clear_has_m_mapheight() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void mapmap::clear_mapheight() {
-  mapheight_ = 0;
-  clear_has_mapheight();
+inline void E_MapMap::clear_m_mapheight() {
+  m_mapheight_ = 0;
+  clear_has_m_mapheight();
 }
-inline ::google::protobuf::int32 mapmap::mapheight() const {
-  return mapheight_;
+inline ::google::protobuf::int32 E_MapMap::m_mapheight() const {
+  return m_mapheight_;
 }
-inline void mapmap::set_mapheight(::google::protobuf::int32 value) {
-  set_has_mapheight();
-  mapheight_ = value;
+inline void E_MapMap::set_m_mapheight(::google::protobuf::int32 value) {
+  set_has_m_mapheight();
+  m_mapheight_ = value;
 }
 
-// optional string mapResources = 15;
-inline bool mapmap::has_mapresources() const {
+// optional string m_mapresources = 15;
+inline bool E_MapMap::has_m_mapresources() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void mapmap::set_has_mapresources() {
+inline void E_MapMap::set_has_m_mapresources() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void mapmap::clear_has_mapresources() {
+inline void E_MapMap::clear_has_m_mapresources() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void mapmap::clear_mapresources() {
-  if (mapresources_ != &::google::protobuf::internal::kEmptyString) {
-    mapresources_->clear();
+inline void E_MapMap::clear_m_mapresources() {
+  if (m_mapresources_ != &::google::protobuf::internal::kEmptyString) {
+    m_mapresources_->clear();
   }
-  clear_has_mapresources();
+  clear_has_m_mapresources();
 }
-inline const ::std::string& mapmap::mapresources() const {
-  return *mapresources_;
+inline const ::std::string& E_MapMap::m_mapresources() const {
+  return *m_mapresources_;
 }
-inline void mapmap::set_mapresources(const ::std::string& value) {
-  set_has_mapresources();
-  if (mapresources_ == &::google::protobuf::internal::kEmptyString) {
-    mapresources_ = new ::std::string;
+inline void E_MapMap::set_m_mapresources(const ::std::string& value) {
+  set_has_m_mapresources();
+  if (m_mapresources_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapresources_ = new ::std::string;
   }
-  mapresources_->assign(value);
+  m_mapresources_->assign(value);
 }
-inline void mapmap::set_mapresources(const char* value) {
-  set_has_mapresources();
-  if (mapresources_ == &::google::protobuf::internal::kEmptyString) {
-    mapresources_ = new ::std::string;
+inline void E_MapMap::set_m_mapresources(const char* value) {
+  set_has_m_mapresources();
+  if (m_mapresources_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapresources_ = new ::std::string;
   }
-  mapresources_->assign(value);
+  m_mapresources_->assign(value);
 }
-inline void mapmap::set_mapresources(const char* value, size_t size) {
-  set_has_mapresources();
-  if (mapresources_ == &::google::protobuf::internal::kEmptyString) {
-    mapresources_ = new ::std::string;
+inline void E_MapMap::set_m_mapresources(const char* value, size_t size) {
+  set_has_m_mapresources();
+  if (m_mapresources_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapresources_ = new ::std::string;
   }
-  mapresources_->assign(reinterpret_cast<const char*>(value), size);
+  m_mapresources_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* mapmap::mutable_mapresources() {
-  set_has_mapresources();
-  if (mapresources_ == &::google::protobuf::internal::kEmptyString) {
-    mapresources_ = new ::std::string;
+inline ::std::string* E_MapMap::mutable_m_mapresources() {
+  set_has_m_mapresources();
+  if (m_mapresources_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapresources_ = new ::std::string;
   }
-  return mapresources_;
+  return m_mapresources_;
 }
-inline ::std::string* mapmap::release_mapresources() {
-  clear_has_mapresources();
-  if (mapresources_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_MapMap::release_m_mapresources() {
+  clear_has_m_mapresources();
+  if (m_mapresources_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = mapresources_;
-    mapresources_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_mapresources_;
+    m_mapresources_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void mapmap::set_allocated_mapresources(::std::string* mapresources) {
-  if (mapresources_ != &::google::protobuf::internal::kEmptyString) {
-    delete mapresources_;
+inline void E_MapMap::set_allocated_m_mapresources(::std::string* m_mapresources) {
+  if (m_mapresources_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mapresources_;
   }
-  if (mapresources) {
-    set_has_mapresources();
-    mapresources_ = mapresources;
+  if (m_mapresources) {
+    set_has_m_mapresources();
+    m_mapresources_ = m_mapresources;
   } else {
-    clear_has_mapresources();
-    mapresources_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_mapresources();
+    m_mapresources_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int64 reviveSkill = 16;
-inline bool mapmap::has_reviveskill() const {
+// optional int64 m_reviveskill = 16;
+inline bool E_MapMap::has_m_reviveskill() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
-inline void mapmap::set_has_reviveskill() {
+inline void E_MapMap::set_has_m_reviveskill() {
   _has_bits_[0] |= 0x00008000u;
 }
-inline void mapmap::clear_has_reviveskill() {
+inline void E_MapMap::clear_has_m_reviveskill() {
   _has_bits_[0] &= ~0x00008000u;
 }
-inline void mapmap::clear_reviveskill() {
-  reviveskill_ = GOOGLE_LONGLONG(0);
-  clear_has_reviveskill();
+inline void E_MapMap::clear_m_reviveskill() {
+  m_reviveskill_ = GOOGLE_LONGLONG(0);
+  clear_has_m_reviveskill();
 }
-inline ::google::protobuf::int64 mapmap::reviveskill() const {
-  return reviveskill_;
+inline ::google::protobuf::int64 E_MapMap::m_reviveskill() const {
+  return m_reviveskill_;
 }
-inline void mapmap::set_reviveskill(::google::protobuf::int64 value) {
-  set_has_reviveskill();
-  reviveskill_ = value;
+inline void E_MapMap::set_m_reviveskill(::google::protobuf::int64 value) {
+  set_has_m_reviveskill();
+  m_reviveskill_ = value;
 }
 
-// optional int32 reviveInPlaceType = 17;
-inline bool mapmap::has_reviveinplacetype() const {
+// optional int32 m_reviveinplacetype = 17;
+inline bool E_MapMap::has_m_reviveinplacetype() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
-inline void mapmap::set_has_reviveinplacetype() {
+inline void E_MapMap::set_has_m_reviveinplacetype() {
   _has_bits_[0] |= 0x00010000u;
 }
-inline void mapmap::clear_has_reviveinplacetype() {
+inline void E_MapMap::clear_has_m_reviveinplacetype() {
   _has_bits_[0] &= ~0x00010000u;
 }
-inline void mapmap::clear_reviveinplacetype() {
-  reviveinplacetype_ = 0;
-  clear_has_reviveinplacetype();
+inline void E_MapMap::clear_m_reviveinplacetype() {
+  m_reviveinplacetype_ = 0;
+  clear_has_m_reviveinplacetype();
 }
-inline ::google::protobuf::int32 mapmap::reviveinplacetype() const {
-  return reviveinplacetype_;
+inline ::google::protobuf::int32 E_MapMap::m_reviveinplacetype() const {
+  return m_reviveinplacetype_;
 }
-inline void mapmap::set_reviveinplacetype(::google::protobuf::int32 value) {
-  set_has_reviveinplacetype();
-  reviveinplacetype_ = value;
+inline void E_MapMap::set_m_reviveinplacetype(::google::protobuf::int32 value) {
+  set_has_m_reviveinplacetype();
+  m_reviveinplacetype_ = value;
 }
 
-// optional int32 isHangUp = 18;
-inline bool mapmap::has_ishangup() const {
+// optional int32 m_ishangup = 18;
+inline bool E_MapMap::has_m_ishangup() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
-inline void mapmap::set_has_ishangup() {
+inline void E_MapMap::set_has_m_ishangup() {
   _has_bits_[0] |= 0x00020000u;
 }
-inline void mapmap::clear_has_ishangup() {
+inline void E_MapMap::clear_has_m_ishangup() {
   _has_bits_[0] &= ~0x00020000u;
 }
-inline void mapmap::clear_ishangup() {
-  ishangup_ = 0;
-  clear_has_ishangup();
+inline void E_MapMap::clear_m_ishangup() {
+  m_ishangup_ = 0;
+  clear_has_m_ishangup();
 }
-inline ::google::protobuf::int32 mapmap::ishangup() const {
-  return ishangup_;
+inline ::google::protobuf::int32 E_MapMap::m_ishangup() const {
+  return m_ishangup_;
 }
-inline void mapmap::set_ishangup(::google::protobuf::int32 value) {
-  set_has_ishangup();
-  ishangup_ = value;
+inline void E_MapMap::set_m_ishangup(::google::protobuf::int32 value) {
+  set_has_m_ishangup();
+  m_ishangup_ = value;
 }
 
-// optional int32 itemDropType = 19;
-inline bool mapmap::has_itemdroptype() const {
+// optional int32 m_itemdroptype = 19;
+inline bool E_MapMap::has_m_itemdroptype() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
-inline void mapmap::set_has_itemdroptype() {
+inline void E_MapMap::set_has_m_itemdroptype() {
   _has_bits_[0] |= 0x00040000u;
 }
-inline void mapmap::clear_has_itemdroptype() {
+inline void E_MapMap::clear_has_m_itemdroptype() {
   _has_bits_[0] &= ~0x00040000u;
 }
-inline void mapmap::clear_itemdroptype() {
-  itemdroptype_ = 0;
-  clear_has_itemdroptype();
+inline void E_MapMap::clear_m_itemdroptype() {
+  m_itemdroptype_ = 0;
+  clear_has_m_itemdroptype();
 }
-inline ::google::protobuf::int32 mapmap::itemdroptype() const {
-  return itemdroptype_;
+inline ::google::protobuf::int32 E_MapMap::m_itemdroptype() const {
+  return m_itemdroptype_;
 }
-inline void mapmap::set_itemdroptype(::google::protobuf::int32 value) {
-  set_has_itemdroptype();
-  itemdroptype_ = value;
+inline void E_MapMap::set_m_itemdroptype(::google::protobuf::int32 value) {
+  set_has_m_itemdroptype();
+  m_itemdroptype_ = value;
 }
 
-// optional string itemDropID = 20;
-inline bool mapmap::has_itemdropid() const {
+// optional string m_itemdropid = 20;
+inline bool E_MapMap::has_m_itemdropid() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
-inline void mapmap::set_has_itemdropid() {
+inline void E_MapMap::set_has_m_itemdropid() {
   _has_bits_[0] |= 0x00080000u;
 }
-inline void mapmap::clear_has_itemdropid() {
+inline void E_MapMap::clear_has_m_itemdropid() {
   _has_bits_[0] &= ~0x00080000u;
 }
-inline void mapmap::clear_itemdropid() {
-  if (itemdropid_ != &::google::protobuf::internal::kEmptyString) {
-    itemdropid_->clear();
+inline void E_MapMap::clear_m_itemdropid() {
+  if (m_itemdropid_ != &::google::protobuf::internal::kEmptyString) {
+    m_itemdropid_->clear();
   }
-  clear_has_itemdropid();
+  clear_has_m_itemdropid();
 }
-inline const ::std::string& mapmap::itemdropid() const {
-  return *itemdropid_;
+inline const ::std::string& E_MapMap::m_itemdropid() const {
+  return *m_itemdropid_;
 }
-inline void mapmap::set_itemdropid(const ::std::string& value) {
-  set_has_itemdropid();
-  if (itemdropid_ == &::google::protobuf::internal::kEmptyString) {
-    itemdropid_ = new ::std::string;
+inline void E_MapMap::set_m_itemdropid(const ::std::string& value) {
+  set_has_m_itemdropid();
+  if (m_itemdropid_ == &::google::protobuf::internal::kEmptyString) {
+    m_itemdropid_ = new ::std::string;
   }
-  itemdropid_->assign(value);
+  m_itemdropid_->assign(value);
 }
-inline void mapmap::set_itemdropid(const char* value) {
-  set_has_itemdropid();
-  if (itemdropid_ == &::google::protobuf::internal::kEmptyString) {
-    itemdropid_ = new ::std::string;
+inline void E_MapMap::set_m_itemdropid(const char* value) {
+  set_has_m_itemdropid();
+  if (m_itemdropid_ == &::google::protobuf::internal::kEmptyString) {
+    m_itemdropid_ = new ::std::string;
   }
-  itemdropid_->assign(value);
+  m_itemdropid_->assign(value);
 }
-inline void mapmap::set_itemdropid(const char* value, size_t size) {
-  set_has_itemdropid();
-  if (itemdropid_ == &::google::protobuf::internal::kEmptyString) {
-    itemdropid_ = new ::std::string;
+inline void E_MapMap::set_m_itemdropid(const char* value, size_t size) {
+  set_has_m_itemdropid();
+  if (m_itemdropid_ == &::google::protobuf::internal::kEmptyString) {
+    m_itemdropid_ = new ::std::string;
   }
-  itemdropid_->assign(reinterpret_cast<const char*>(value), size);
+  m_itemdropid_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* mapmap::mutable_itemdropid() {
-  set_has_itemdropid();
-  if (itemdropid_ == &::google::protobuf::internal::kEmptyString) {
-    itemdropid_ = new ::std::string;
+inline ::std::string* E_MapMap::mutable_m_itemdropid() {
+  set_has_m_itemdropid();
+  if (m_itemdropid_ == &::google::protobuf::internal::kEmptyString) {
+    m_itemdropid_ = new ::std::string;
   }
-  return itemdropid_;
+  return m_itemdropid_;
 }
-inline ::std::string* mapmap::release_itemdropid() {
-  clear_has_itemdropid();
-  if (itemdropid_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_MapMap::release_m_itemdropid() {
+  clear_has_m_itemdropid();
+  if (m_itemdropid_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = itemdropid_;
-    itemdropid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_itemdropid_;
+    m_itemdropid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void mapmap::set_allocated_itemdropid(::std::string* itemdropid) {
-  if (itemdropid_ != &::google::protobuf::internal::kEmptyString) {
-    delete itemdropid_;
+inline void E_MapMap::set_allocated_m_itemdropid(::std::string* m_itemdropid) {
+  if (m_itemdropid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_itemdropid_;
   }
-  if (itemdropid) {
-    set_has_itemdropid();
-    itemdropid_ = itemdropid;
+  if (m_itemdropid) {
+    set_has_m_itemdropid();
+    m_itemdropid_ = m_itemdropid;
   } else {
-    clear_has_itemdropid();
-    itemdropid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_itemdropid();
+    m_itemdropid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int64 linkOffLine = 21;
-inline bool mapmap::has_linkoffline() const {
+// optional int64 m_linkoffline = 21;
+inline bool E_MapMap::has_m_linkoffline() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
-inline void mapmap::set_has_linkoffline() {
+inline void E_MapMap::set_has_m_linkoffline() {
   _has_bits_[0] |= 0x00100000u;
 }
-inline void mapmap::clear_has_linkoffline() {
+inline void E_MapMap::clear_has_m_linkoffline() {
   _has_bits_[0] &= ~0x00100000u;
 }
-inline void mapmap::clear_linkoffline() {
-  linkoffline_ = GOOGLE_LONGLONG(0);
-  clear_has_linkoffline();
+inline void E_MapMap::clear_m_linkoffline() {
+  m_linkoffline_ = GOOGLE_LONGLONG(0);
+  clear_has_m_linkoffline();
 }
-inline ::google::protobuf::int64 mapmap::linkoffline() const {
-  return linkoffline_;
+inline ::google::protobuf::int64 E_MapMap::m_linkoffline() const {
+  return m_linkoffline_;
 }
-inline void mapmap::set_linkoffline(::google::protobuf::int64 value) {
-  set_has_linkoffline();
-  linkoffline_ = value;
+inline void E_MapMap::set_m_linkoffline(::google::protobuf::int64 value) {
+  set_has_m_linkoffline();
+  m_linkoffline_ = value;
 }
 
-// optional int32 banOnHook = 22;
-inline bool mapmap::has_banonhook() const {
+// optional int32 m_banonhook = 22;
+inline bool E_MapMap::has_m_banonhook() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
-inline void mapmap::set_has_banonhook() {
+inline void E_MapMap::set_has_m_banonhook() {
   _has_bits_[0] |= 0x00200000u;
 }
-inline void mapmap::clear_has_banonhook() {
+inline void E_MapMap::clear_has_m_banonhook() {
   _has_bits_[0] &= ~0x00200000u;
 }
-inline void mapmap::clear_banonhook() {
-  banonhook_ = 0;
-  clear_has_banonhook();
+inline void E_MapMap::clear_m_banonhook() {
+  m_banonhook_ = 0;
+  clear_has_m_banonhook();
 }
-inline ::google::protobuf::int32 mapmap::banonhook() const {
-  return banonhook_;
+inline ::google::protobuf::int32 E_MapMap::m_banonhook() const {
+  return m_banonhook_;
 }
-inline void mapmap::set_banonhook(::google::protobuf::int32 value) {
-  set_has_banonhook();
-  banonhook_ = value;
+inline void E_MapMap::set_m_banonhook(::google::protobuf::int32 value) {
+  set_has_m_banonhook();
+  m_banonhook_ = value;
 }
 
-// optional int32 Rewait = 23;
-inline bool mapmap::has_rewait() const {
+// optional int32 m_rewait = 23;
+inline bool E_MapMap::has_m_rewait() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
-inline void mapmap::set_has_rewait() {
+inline void E_MapMap::set_has_m_rewait() {
   _has_bits_[0] |= 0x00400000u;
 }
-inline void mapmap::clear_has_rewait() {
+inline void E_MapMap::clear_has_m_rewait() {
   _has_bits_[0] &= ~0x00400000u;
 }
-inline void mapmap::clear_rewait() {
-  rewait_ = 0;
-  clear_has_rewait();
+inline void E_MapMap::clear_m_rewait() {
+  m_rewait_ = 0;
+  clear_has_m_rewait();
 }
-inline ::google::protobuf::int32 mapmap::rewait() const {
-  return rewait_;
+inline ::google::protobuf::int32 E_MapMap::m_rewait() const {
+  return m_rewait_;
 }
-inline void mapmap::set_rewait(::google::protobuf::int32 value) {
-  set_has_rewait();
-  rewait_ = value;
+inline void E_MapMap::set_m_rewait(::google::protobuf::int32 value) {
+  set_has_m_rewait();
+  m_rewait_ = value;
 }
 
-// optional int32 REtime = 24;
-inline bool mapmap::has_retime() const {
+// optional int32 m_retime = 24;
+inline bool E_MapMap::has_m_retime() const {
   return (_has_bits_[0] & 0x00800000u) != 0;
 }
-inline void mapmap::set_has_retime() {
+inline void E_MapMap::set_has_m_retime() {
   _has_bits_[0] |= 0x00800000u;
 }
-inline void mapmap::clear_has_retime() {
+inline void E_MapMap::clear_has_m_retime() {
   _has_bits_[0] &= ~0x00800000u;
 }
-inline void mapmap::clear_retime() {
-  retime_ = 0;
-  clear_has_retime();
+inline void E_MapMap::clear_m_retime() {
+  m_retime_ = 0;
+  clear_has_m_retime();
 }
-inline ::google::protobuf::int32 mapmap::retime() const {
-  return retime_;
+inline ::google::protobuf::int32 E_MapMap::m_retime() const {
+  return m_retime_;
 }
-inline void mapmap::set_retime(::google::protobuf::int32 value) {
-  set_has_retime();
-  retime_ = value;
+inline void E_MapMap::set_m_retime(::google::protobuf::int32 value) {
+  set_has_m_retime();
+  m_retime_ = value;
 }
 
-// optional int32 HREBan = 25;
-inline bool mapmap::has_hreban() const {
+// optional int32 m_hreban = 25;
+inline bool E_MapMap::has_m_hreban() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
-inline void mapmap::set_has_hreban() {
+inline void E_MapMap::set_has_m_hreban() {
   _has_bits_[0] |= 0x01000000u;
 }
-inline void mapmap::clear_has_hreban() {
+inline void E_MapMap::clear_has_m_hreban() {
   _has_bits_[0] &= ~0x01000000u;
 }
-inline void mapmap::clear_hreban() {
-  hreban_ = 0;
-  clear_has_hreban();
+inline void E_MapMap::clear_m_hreban() {
+  m_hreban_ = 0;
+  clear_has_m_hreban();
 }
-inline ::google::protobuf::int32 mapmap::hreban() const {
-  return hreban_;
+inline ::google::protobuf::int32 E_MapMap::m_hreban() const {
+  return m_hreban_;
 }
-inline void mapmap::set_hreban(::google::protobuf::int32 value) {
-  set_has_hreban();
-  hreban_ = value;
+inline void E_MapMap::set_m_hreban(::google::protobuf::int32 value) {
+  set_has_m_hreban();
+  m_hreban_ = value;
 }
 
-// optional int32 Retiered = 26;
-inline bool mapmap::has_retiered() const {
+// optional int32 m_retiered = 26;
+inline bool E_MapMap::has_m_retiered() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
-inline void mapmap::set_has_retiered() {
+inline void E_MapMap::set_has_m_retiered() {
   _has_bits_[0] |= 0x02000000u;
 }
-inline void mapmap::clear_has_retiered() {
+inline void E_MapMap::clear_has_m_retiered() {
   _has_bits_[0] &= ~0x02000000u;
 }
-inline void mapmap::clear_retiered() {
-  retiered_ = 0;
-  clear_has_retiered();
+inline void E_MapMap::clear_m_retiered() {
+  m_retiered_ = 0;
+  clear_has_m_retiered();
 }
-inline ::google::protobuf::int32 mapmap::retiered() const {
-  return retiered_;
+inline ::google::protobuf::int32 E_MapMap::m_retiered() const {
+  return m_retiered_;
 }
-inline void mapmap::set_retiered(::google::protobuf::int32 value) {
-  set_has_retiered();
-  retiered_ = value;
+inline void E_MapMap::set_m_retiered(::google::protobuf::int32 value) {
+  set_has_m_retiered();
+  m_retiered_ = value;
 }
 
-// optional int32 REskillid = 27;
-inline bool mapmap::has_reskillid() const {
+// optional int32 m_reskillid = 27;
+inline bool E_MapMap::has_m_reskillid() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
-inline void mapmap::set_has_reskillid() {
+inline void E_MapMap::set_has_m_reskillid() {
   _has_bits_[0] |= 0x04000000u;
 }
-inline void mapmap::clear_has_reskillid() {
+inline void E_MapMap::clear_has_m_reskillid() {
   _has_bits_[0] &= ~0x04000000u;
 }
-inline void mapmap::clear_reskillid() {
-  reskillid_ = 0;
-  clear_has_reskillid();
+inline void E_MapMap::clear_m_reskillid() {
+  m_reskillid_ = 0;
+  clear_has_m_reskillid();
 }
-inline ::google::protobuf::int32 mapmap::reskillid() const {
-  return reskillid_;
+inline ::google::protobuf::int32 E_MapMap::m_reskillid() const {
+  return m_reskillid_;
 }
-inline void mapmap::set_reskillid(::google::protobuf::int32 value) {
-  set_has_reskillid();
-  reskillid_ = value;
+inline void E_MapMap::set_m_reskillid(::google::protobuf::int32 value) {
+  set_has_m_reskillid();
+  m_reskillid_ = value;
 }
 
-// optional int32 Reteimes = 28;
-inline bool mapmap::has_reteimes() const {
+// optional int32 m_reteimes = 28;
+inline bool E_MapMap::has_m_reteimes() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
-inline void mapmap::set_has_reteimes() {
+inline void E_MapMap::set_has_m_reteimes() {
   _has_bits_[0] |= 0x08000000u;
 }
-inline void mapmap::clear_has_reteimes() {
+inline void E_MapMap::clear_has_m_reteimes() {
   _has_bits_[0] &= ~0x08000000u;
 }
-inline void mapmap::clear_reteimes() {
-  reteimes_ = 0;
-  clear_has_reteimes();
+inline void E_MapMap::clear_m_reteimes() {
+  m_reteimes_ = 0;
+  clear_has_m_reteimes();
 }
-inline ::google::protobuf::int32 mapmap::reteimes() const {
-  return reteimes_;
+inline ::google::protobuf::int32 E_MapMap::m_reteimes() const {
+  return m_reteimes_;
 }
-inline void mapmap::set_reteimes(::google::protobuf::int32 value) {
-  set_has_reteimes();
-  reteimes_ = value;
+inline void E_MapMap::set_m_reteimes(::google::protobuf::int32 value) {
+  set_has_m_reteimes();
+  m_reteimes_ = value;
 }
 
-// optional int32 drivePoint = 29;
-inline bool mapmap::has_drivepoint() const {
+// optional int32 m_drivepoint = 29;
+inline bool E_MapMap::has_m_drivepoint() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
-inline void mapmap::set_has_drivepoint() {
+inline void E_MapMap::set_has_m_drivepoint() {
   _has_bits_[0] |= 0x10000000u;
 }
-inline void mapmap::clear_has_drivepoint() {
+inline void E_MapMap::clear_has_m_drivepoint() {
   _has_bits_[0] &= ~0x10000000u;
 }
-inline void mapmap::clear_drivepoint() {
-  drivepoint_ = 0;
-  clear_has_drivepoint();
+inline void E_MapMap::clear_m_drivepoint() {
+  m_drivepoint_ = 0;
+  clear_has_m_drivepoint();
 }
-inline ::google::protobuf::int32 mapmap::drivepoint() const {
-  return drivepoint_;
+inline ::google::protobuf::int32 E_MapMap::m_drivepoint() const {
+  return m_drivepoint_;
 }
-inline void mapmap::set_drivepoint(::google::protobuf::int32 value) {
-  set_has_drivepoint();
-  drivepoint_ = value;
+inline void E_MapMap::set_m_drivepoint(::google::protobuf::int32 value) {
+  set_has_m_drivepoint();
+  m_drivepoint_ = value;
 }
 
-// optional int32 dieDP = 30;
-inline bool mapmap::has_diedp() const {
+// optional int32 m_diedp = 30;
+inline bool E_MapMap::has_m_diedp() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
-inline void mapmap::set_has_diedp() {
+inline void E_MapMap::set_has_m_diedp() {
   _has_bits_[0] |= 0x20000000u;
 }
-inline void mapmap::clear_has_diedp() {
+inline void E_MapMap::clear_has_m_diedp() {
   _has_bits_[0] &= ~0x20000000u;
 }
-inline void mapmap::clear_diedp() {
-  diedp_ = 0;
-  clear_has_diedp();
+inline void E_MapMap::clear_m_diedp() {
+  m_diedp_ = 0;
+  clear_has_m_diedp();
 }
-inline ::google::protobuf::int32 mapmap::diedp() const {
-  return diedp_;
+inline ::google::protobuf::int32 E_MapMap::m_diedp() const {
+  return m_diedp_;
 }
-inline void mapmap::set_diedp(::google::protobuf::int32 value) {
-  set_has_diedp();
-  diedp_ = value;
+inline void E_MapMap::set_m_diedp(::google::protobuf::int32 value) {
+  set_has_m_diedp();
+  m_diedp_ = value;
 }
 
-// optional int32 timeDP = 31;
-inline bool mapmap::has_timedp() const {
+// optional int32 m_timedp = 31;
+inline bool E_MapMap::has_m_timedp() const {
   return (_has_bits_[0] & 0x40000000u) != 0;
 }
-inline void mapmap::set_has_timedp() {
+inline void E_MapMap::set_has_m_timedp() {
   _has_bits_[0] |= 0x40000000u;
 }
-inline void mapmap::clear_has_timedp() {
+inline void E_MapMap::clear_has_m_timedp() {
   _has_bits_[0] &= ~0x40000000u;
 }
-inline void mapmap::clear_timedp() {
-  timedp_ = 0;
-  clear_has_timedp();
+inline void E_MapMap::clear_m_timedp() {
+  m_timedp_ = 0;
+  clear_has_m_timedp();
 }
-inline ::google::protobuf::int32 mapmap::timedp() const {
-  return timedp_;
+inline ::google::protobuf::int32 E_MapMap::m_timedp() const {
+  return m_timedp_;
 }
-inline void mapmap::set_timedp(::google::protobuf::int32 value) {
-  set_has_timedp();
-  timedp_ = value;
+inline void E_MapMap::set_m_timedp(::google::protobuf::int32 value) {
+  set_has_m_timedp();
+  m_timedp_ = value;
 }
 
-// optional int32 meditation = 32;
-inline bool mapmap::has_meditation() const {
+// optional int32 m_meditation = 32;
+inline bool E_MapMap::has_m_meditation() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
-inline void mapmap::set_has_meditation() {
+inline void E_MapMap::set_has_m_meditation() {
   _has_bits_[0] |= 0x80000000u;
 }
-inline void mapmap::clear_has_meditation() {
+inline void E_MapMap::clear_has_m_meditation() {
   _has_bits_[0] &= ~0x80000000u;
 }
-inline void mapmap::clear_meditation() {
-  meditation_ = 0;
-  clear_has_meditation();
+inline void E_MapMap::clear_m_meditation() {
+  m_meditation_ = 0;
+  clear_has_m_meditation();
 }
-inline ::google::protobuf::int32 mapmap::meditation() const {
-  return meditation_;
+inline ::google::protobuf::int32 E_MapMap::m_meditation() const {
+  return m_meditation_;
 }
-inline void mapmap::set_meditation(::google::protobuf::int32 value) {
-  set_has_meditation();
-  meditation_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_mapmap
-
-// repeated .proto_ff.mapmap mapmap_List = 1;
-inline int Sheet_mapmap::mapmap_list_size() const {
-  return mapmap_list_.size();
-}
-inline void Sheet_mapmap::clear_mapmap_list() {
-  mapmap_list_.Clear();
-}
-inline const ::proto_ff::mapmap& Sheet_mapmap::mapmap_list(int index) const {
-  return mapmap_list_.Get(index);
-}
-inline ::proto_ff::mapmap* Sheet_mapmap::mutable_mapmap_list(int index) {
-  return mapmap_list_.Mutable(index);
-}
-inline ::proto_ff::mapmap* Sheet_mapmap::add_mapmap_list() {
-  return mapmap_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::mapmap >&
-Sheet_mapmap::mapmap_list() const {
-  return mapmap_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::mapmap >*
-Sheet_mapmap::mutable_mapmap_list() {
-  return &mapmap_list_;
+inline void E_MapMap::set_m_meditation(::google::protobuf::int32 value) {
+  set_has_m_meditation();
+  m_meditation_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// mapitemdrop
+// Sheet_MapMap
 
-// optional int32 itemDropID = 1;
-inline bool mapitemdrop::has_itemdropid() const {
+// repeated .proto_ff.E_MapMap E_MapMap_List = 1;
+inline int Sheet_MapMap::e_mapmap_list_size() const {
+  return e_mapmap_list_.size();
+}
+inline void Sheet_MapMap::clear_e_mapmap_list() {
+  e_mapmap_list_.Clear();
+}
+inline const ::proto_ff::E_MapMap& Sheet_MapMap::e_mapmap_list(int index) const {
+  return e_mapmap_list_.Get(index);
+}
+inline ::proto_ff::E_MapMap* Sheet_MapMap::mutable_e_mapmap_list(int index) {
+  return e_mapmap_list_.Mutable(index);
+}
+inline ::proto_ff::E_MapMap* Sheet_MapMap::add_e_mapmap_list() {
+  return e_mapmap_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapMap >&
+Sheet_MapMap::e_mapmap_list() const {
+  return e_mapmap_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapMap >*
+Sheet_MapMap::mutable_e_mapmap_list() {
+  return &e_mapmap_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_MapItemdrop
+
+// optional int32 m_itemdropid = 1;
+inline bool E_MapItemdrop::has_m_itemdropid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void mapitemdrop::set_has_itemdropid() {
+inline void E_MapItemdrop::set_has_m_itemdropid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void mapitemdrop::clear_has_itemdropid() {
+inline void E_MapItemdrop::clear_has_m_itemdropid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void mapitemdrop::clear_itemdropid() {
-  itemdropid_ = 0;
-  clear_has_itemdropid();
+inline void E_MapItemdrop::clear_m_itemdropid() {
+  m_itemdropid_ = 0;
+  clear_has_m_itemdropid();
 }
-inline ::google::protobuf::int32 mapitemdrop::itemdropid() const {
-  return itemdropid_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_itemdropid() const {
+  return m_itemdropid_;
 }
-inline void mapitemdrop::set_itemdropid(::google::protobuf::int32 value) {
-  set_has_itemdropid();
-  itemdropid_ = value;
+inline void E_MapItemdrop::set_m_itemdropid(::google::protobuf::int32 value) {
+  set_has_m_itemdropid();
+  m_itemdropid_ = value;
 }
 
-// optional int32 dropType = 2;
-inline bool mapitemdrop::has_droptype() const {
+// optional int32 m_droptype = 2;
+inline bool E_MapItemdrop::has_m_droptype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void mapitemdrop::set_has_droptype() {
+inline void E_MapItemdrop::set_has_m_droptype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void mapitemdrop::clear_has_droptype() {
+inline void E_MapItemdrop::clear_has_m_droptype() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void mapitemdrop::clear_droptype() {
-  droptype_ = 0;
-  clear_has_droptype();
+inline void E_MapItemdrop::clear_m_droptype() {
+  m_droptype_ = 0;
+  clear_has_m_droptype();
 }
-inline ::google::protobuf::int32 mapitemdrop::droptype() const {
-  return droptype_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_droptype() const {
+  return m_droptype_;
 }
-inline void mapitemdrop::set_droptype(::google::protobuf::int32 value) {
-  set_has_droptype();
-  droptype_ = value;
+inline void E_MapItemdrop::set_m_droptype(::google::protobuf::int32 value) {
+  set_has_m_droptype();
+  m_droptype_ = value;
 }
 
-// optional int32 odds = 3;
-inline bool mapitemdrop::has_odds() const {
+// optional int32 m_odds = 3;
+inline bool E_MapItemdrop::has_m_odds() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void mapitemdrop::set_has_odds() {
+inline void E_MapItemdrop::set_has_m_odds() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void mapitemdrop::clear_has_odds() {
+inline void E_MapItemdrop::clear_has_m_odds() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void mapitemdrop::clear_odds() {
-  odds_ = 0;
-  clear_has_odds();
+inline void E_MapItemdrop::clear_m_odds() {
+  m_odds_ = 0;
+  clear_has_m_odds();
 }
-inline ::google::protobuf::int32 mapitemdrop::odds() const {
-  return odds_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_odds() const {
+  return m_odds_;
 }
-inline void mapitemdrop::set_odds(::google::protobuf::int32 value) {
-  set_has_odds();
-  odds_ = value;
+inline void E_MapItemdrop::set_m_odds(::google::protobuf::int32 value) {
+  set_has_m_odds();
+  m_odds_ = value;
 }
 
-// optional int32 dropvaluea = 4;
-inline bool mapitemdrop::has_dropvaluea() const {
+// optional int32 m_dropvaluea = 4;
+inline bool E_MapItemdrop::has_m_dropvaluea() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void mapitemdrop::set_has_dropvaluea() {
+inline void E_MapItemdrop::set_has_m_dropvaluea() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void mapitemdrop::clear_has_dropvaluea() {
+inline void E_MapItemdrop::clear_has_m_dropvaluea() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void mapitemdrop::clear_dropvaluea() {
-  dropvaluea_ = 0;
-  clear_has_dropvaluea();
+inline void E_MapItemdrop::clear_m_dropvaluea() {
+  m_dropvaluea_ = 0;
+  clear_has_m_dropvaluea();
 }
-inline ::google::protobuf::int32 mapitemdrop::dropvaluea() const {
-  return dropvaluea_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_dropvaluea() const {
+  return m_dropvaluea_;
 }
-inline void mapitemdrop::set_dropvaluea(::google::protobuf::int32 value) {
-  set_has_dropvaluea();
-  dropvaluea_ = value;
+inline void E_MapItemdrop::set_m_dropvaluea(::google::protobuf::int32 value) {
+  set_has_m_dropvaluea();
+  m_dropvaluea_ = value;
 }
 
-// optional int32 dropvalueb = 5;
-inline bool mapitemdrop::has_dropvalueb() const {
+// optional int32 m_dropvalueb = 5;
+inline bool E_MapItemdrop::has_m_dropvalueb() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void mapitemdrop::set_has_dropvalueb() {
+inline void E_MapItemdrop::set_has_m_dropvalueb() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void mapitemdrop::clear_has_dropvalueb() {
+inline void E_MapItemdrop::clear_has_m_dropvalueb() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void mapitemdrop::clear_dropvalueb() {
-  dropvalueb_ = 0;
-  clear_has_dropvalueb();
+inline void E_MapItemdrop::clear_m_dropvalueb() {
+  m_dropvalueb_ = 0;
+  clear_has_m_dropvalueb();
 }
-inline ::google::protobuf::int32 mapitemdrop::dropvalueb() const {
-  return dropvalueb_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_dropvalueb() const {
+  return m_dropvalueb_;
 }
-inline void mapitemdrop::set_dropvalueb(::google::protobuf::int32 value) {
-  set_has_dropvalueb();
-  dropvalueb_ = value;
+inline void E_MapItemdrop::set_m_dropvalueb(::google::protobuf::int32 value) {
+  set_has_m_dropvalueb();
+  m_dropvalueb_ = value;
 }
 
-// optional int32 dropvaluec = 6;
-inline bool mapitemdrop::has_dropvaluec() const {
+// optional int32 m_dropvaluec = 6;
+inline bool E_MapItemdrop::has_m_dropvaluec() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void mapitemdrop::set_has_dropvaluec() {
+inline void E_MapItemdrop::set_has_m_dropvaluec() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void mapitemdrop::clear_has_dropvaluec() {
+inline void E_MapItemdrop::clear_has_m_dropvaluec() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void mapitemdrop::clear_dropvaluec() {
-  dropvaluec_ = 0;
-  clear_has_dropvaluec();
+inline void E_MapItemdrop::clear_m_dropvaluec() {
+  m_dropvaluec_ = 0;
+  clear_has_m_dropvaluec();
 }
-inline ::google::protobuf::int32 mapitemdrop::dropvaluec() const {
-  return dropvaluec_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_dropvaluec() const {
+  return m_dropvaluec_;
 }
-inline void mapitemdrop::set_dropvaluec(::google::protobuf::int32 value) {
-  set_has_dropvaluec();
-  dropvaluec_ = value;
+inline void E_MapItemdrop::set_m_dropvaluec(::google::protobuf::int32 value) {
+  set_has_m_dropvaluec();
+  m_dropvaluec_ = value;
 }
 
-// optional int32 dropvalued = 7;
-inline bool mapitemdrop::has_dropvalued() const {
+// optional int32 m_dropvalued = 7;
+inline bool E_MapItemdrop::has_m_dropvalued() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void mapitemdrop::set_has_dropvalued() {
+inline void E_MapItemdrop::set_has_m_dropvalued() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void mapitemdrop::clear_has_dropvalued() {
+inline void E_MapItemdrop::clear_has_m_dropvalued() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void mapitemdrop::clear_dropvalued() {
-  dropvalued_ = 0;
-  clear_has_dropvalued();
+inline void E_MapItemdrop::clear_m_dropvalued() {
+  m_dropvalued_ = 0;
+  clear_has_m_dropvalued();
 }
-inline ::google::protobuf::int32 mapitemdrop::dropvalued() const {
-  return dropvalued_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_dropvalued() const {
+  return m_dropvalued_;
 }
-inline void mapitemdrop::set_dropvalued(::google::protobuf::int32 value) {
-  set_has_dropvalued();
-  dropvalued_ = value;
+inline void E_MapItemdrop::set_m_dropvalued(::google::protobuf::int32 value) {
+  set_has_m_dropvalued();
+  m_dropvalued_ = value;
 }
 
-// optional int32 dropvaluee = 8;
-inline bool mapitemdrop::has_dropvaluee() const {
+// optional int32 m_dropvaluee = 8;
+inline bool E_MapItemdrop::has_m_dropvaluee() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void mapitemdrop::set_has_dropvaluee() {
+inline void E_MapItemdrop::set_has_m_dropvaluee() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void mapitemdrop::clear_has_dropvaluee() {
+inline void E_MapItemdrop::clear_has_m_dropvaluee() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void mapitemdrop::clear_dropvaluee() {
-  dropvaluee_ = 0;
-  clear_has_dropvaluee();
+inline void E_MapItemdrop::clear_m_dropvaluee() {
+  m_dropvaluee_ = 0;
+  clear_has_m_dropvaluee();
 }
-inline ::google::protobuf::int32 mapitemdrop::dropvaluee() const {
-  return dropvaluee_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_dropvaluee() const {
+  return m_dropvaluee_;
 }
-inline void mapitemdrop::set_dropvaluee(::google::protobuf::int32 value) {
-  set_has_dropvaluee();
-  dropvaluee_ = value;
+inline void E_MapItemdrop::set_m_dropvaluee(::google::protobuf::int32 value) {
+  set_has_m_dropvaluee();
+  m_dropvaluee_ = value;
 }
 
-// optional int32 dropvaluef = 9;
-inline bool mapitemdrop::has_dropvaluef() const {
+// optional int32 m_dropvaluef = 9;
+inline bool E_MapItemdrop::has_m_dropvaluef() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void mapitemdrop::set_has_dropvaluef() {
+inline void E_MapItemdrop::set_has_m_dropvaluef() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void mapitemdrop::clear_has_dropvaluef() {
+inline void E_MapItemdrop::clear_has_m_dropvaluef() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void mapitemdrop::clear_dropvaluef() {
-  dropvaluef_ = 0;
-  clear_has_dropvaluef();
+inline void E_MapItemdrop::clear_m_dropvaluef() {
+  m_dropvaluef_ = 0;
+  clear_has_m_dropvaluef();
 }
-inline ::google::protobuf::int32 mapitemdrop::dropvaluef() const {
-  return dropvaluef_;
+inline ::google::protobuf::int32 E_MapItemdrop::m_dropvaluef() const {
+  return m_dropvaluef_;
 }
-inline void mapitemdrop::set_dropvaluef(::google::protobuf::int32 value) {
-  set_has_dropvaluef();
-  dropvaluef_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_mapitemdrop
-
-// repeated .proto_ff.mapitemdrop mapitemdrop_List = 1;
-inline int Sheet_mapitemdrop::mapitemdrop_list_size() const {
-  return mapitemdrop_list_.size();
-}
-inline void Sheet_mapitemdrop::clear_mapitemdrop_list() {
-  mapitemdrop_list_.Clear();
-}
-inline const ::proto_ff::mapitemdrop& Sheet_mapitemdrop::mapitemdrop_list(int index) const {
-  return mapitemdrop_list_.Get(index);
-}
-inline ::proto_ff::mapitemdrop* Sheet_mapitemdrop::mutable_mapitemdrop_list(int index) {
-  return mapitemdrop_list_.Mutable(index);
-}
-inline ::proto_ff::mapitemdrop* Sheet_mapitemdrop::add_mapitemdrop_list() {
-  return mapitemdrop_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::mapitemdrop >&
-Sheet_mapitemdrop::mapitemdrop_list() const {
-  return mapitemdrop_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::mapitemdrop >*
-Sheet_mapitemdrop::mutable_mapitemdrop_list() {
-  return &mapitemdrop_list_;
+inline void E_MapItemdrop::set_m_dropvaluef(::google::protobuf::int32 value) {
+  set_has_m_dropvaluef();
+  m_dropvaluef_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// mapdestroyitem
+// Sheet_MapItemdrop
 
-// optional int64 destroyitemID = 1;
-inline bool mapdestroyitem::has_destroyitemid() const {
+// repeated .proto_ff.E_MapItemdrop E_MapItemdrop_List = 1;
+inline int Sheet_MapItemdrop::e_mapitemdrop_list_size() const {
+  return e_mapitemdrop_list_.size();
+}
+inline void Sheet_MapItemdrop::clear_e_mapitemdrop_list() {
+  e_mapitemdrop_list_.Clear();
+}
+inline const ::proto_ff::E_MapItemdrop& Sheet_MapItemdrop::e_mapitemdrop_list(int index) const {
+  return e_mapitemdrop_list_.Get(index);
+}
+inline ::proto_ff::E_MapItemdrop* Sheet_MapItemdrop::mutable_e_mapitemdrop_list(int index) {
+  return e_mapitemdrop_list_.Mutable(index);
+}
+inline ::proto_ff::E_MapItemdrop* Sheet_MapItemdrop::add_e_mapitemdrop_list() {
+  return e_mapitemdrop_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapItemdrop >&
+Sheet_MapItemdrop::e_mapitemdrop_list() const {
+  return e_mapitemdrop_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapItemdrop >*
+Sheet_MapItemdrop::mutable_e_mapitemdrop_list() {
+  return &e_mapitemdrop_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_MapDestroyitem
+
+// optional int64 m_destroyitemid = 1;
+inline bool E_MapDestroyitem::has_m_destroyitemid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void mapdestroyitem::set_has_destroyitemid() {
+inline void E_MapDestroyitem::set_has_m_destroyitemid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void mapdestroyitem::clear_has_destroyitemid() {
+inline void E_MapDestroyitem::clear_has_m_destroyitemid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void mapdestroyitem::clear_destroyitemid() {
-  destroyitemid_ = GOOGLE_LONGLONG(0);
-  clear_has_destroyitemid();
+inline void E_MapDestroyitem::clear_m_destroyitemid() {
+  m_destroyitemid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_destroyitemid();
 }
-inline ::google::protobuf::int64 mapdestroyitem::destroyitemid() const {
-  return destroyitemid_;
+inline ::google::protobuf::int64 E_MapDestroyitem::m_destroyitemid() const {
+  return m_destroyitemid_;
 }
-inline void mapdestroyitem::set_destroyitemid(::google::protobuf::int64 value) {
-  set_has_destroyitemid();
-  destroyitemid_ = value;
+inline void E_MapDestroyitem::set_m_destroyitemid(::google::protobuf::int64 value) {
+  set_has_m_destroyitemid();
+  m_destroyitemid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_mapdestroyitem
+// Sheet_MapDestroyitem
 
-// repeated .proto_ff.mapdestroyitem mapdestroyitem_List = 1;
-inline int Sheet_mapdestroyitem::mapdestroyitem_list_size() const {
-  return mapdestroyitem_list_.size();
+// repeated .proto_ff.E_MapDestroyitem E_MapDestroyitem_List = 1;
+inline int Sheet_MapDestroyitem::e_mapdestroyitem_list_size() const {
+  return e_mapdestroyitem_list_.size();
 }
-inline void Sheet_mapdestroyitem::clear_mapdestroyitem_list() {
-  mapdestroyitem_list_.Clear();
+inline void Sheet_MapDestroyitem::clear_e_mapdestroyitem_list() {
+  e_mapdestroyitem_list_.Clear();
 }
-inline const ::proto_ff::mapdestroyitem& Sheet_mapdestroyitem::mapdestroyitem_list(int index) const {
-  return mapdestroyitem_list_.Get(index);
+inline const ::proto_ff::E_MapDestroyitem& Sheet_MapDestroyitem::e_mapdestroyitem_list(int index) const {
+  return e_mapdestroyitem_list_.Get(index);
 }
-inline ::proto_ff::mapdestroyitem* Sheet_mapdestroyitem::mutable_mapdestroyitem_list(int index) {
-  return mapdestroyitem_list_.Mutable(index);
+inline ::proto_ff::E_MapDestroyitem* Sheet_MapDestroyitem::mutable_e_mapdestroyitem_list(int index) {
+  return e_mapdestroyitem_list_.Mutable(index);
 }
-inline ::proto_ff::mapdestroyitem* Sheet_mapdestroyitem::add_mapdestroyitem_list() {
-  return mapdestroyitem_list_.Add();
+inline ::proto_ff::E_MapDestroyitem* Sheet_MapDestroyitem::add_e_mapdestroyitem_list() {
+  return e_mapdestroyitem_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::mapdestroyitem >&
-Sheet_mapdestroyitem::mapdestroyitem_list() const {
-  return mapdestroyitem_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapDestroyitem >&
+Sheet_MapDestroyitem::e_mapdestroyitem_list() const {
+  return e_mapdestroyitem_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::mapdestroyitem >*
-Sheet_mapdestroyitem::mutable_mapdestroyitem_list() {
-  return &mapdestroyitem_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MapDestroyitem >*
+Sheet_MapDestroyitem::mutable_e_mapdestroyitem_list() {
+  return &e_mapdestroyitem_list_;
 }
 
 

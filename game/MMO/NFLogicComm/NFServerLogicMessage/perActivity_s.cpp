@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-perActivityperActivity_s::perActivityperActivity_s() {
+E_PeractivityPeractivity_s::E_PeractivityPeractivity_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,55 +10,55 @@ perActivityperActivity_s::perActivityperActivity_s() {
 	}
 }
 
-int perActivityperActivity_s::CreateInit() {
-	activeId = (int64_t)0;
-	typeId = (int32_t)0;
-	functionID = (int32_t)0;
-	serverdelayTime = (int32_t)0;
-	serverTime = (int32_t)0;
-	openingTime = (int32_t)0;
-	advanceTime = (int32_t)0;
-	intervalTime = (int32_t)0;
-	isCross = (int32_t)0;
+int E_PeractivityPeractivity_s::CreateInit() {
+	m_activeid = (int64_t)0;
+	m_typeid = (int32_t)0;
+	m_functionid = (int32_t)0;
+	m_serverdelaytime = (int32_t)0;
+	m_servertime = (int32_t)0;
+	m_openingtime = (int32_t)0;
+	m_advancetime = (int32_t)0;
+	m_intervaltime = (int32_t)0;
+	m_iscross = (int32_t)0;
 	return 0;
 }
 
-int perActivityperActivity_s::ResumeInit() {
+int E_PeractivityPeractivity_s::ResumeInit() {
 	return 0;
 }
 
-void perActivityperActivity_s::write_to_pbmsg(::proto_ff::perActivityperActivity & msg) const {
-	msg.set_activeid((int64_t)activeId);
-	msg.set_activename((const char*)activeName.Get());
-	msg.set_typeid_((int32_t)typeId);
-	msg.set_functionid((int32_t)functionID);
-	msg.set_opeday((const char*)opeDay.Get());
-	msg.set_closeday((const char*)closeDay.Get());
-	msg.set_serverdelaytime((int32_t)serverdelayTime);
-	msg.set_servertime((int32_t)serverTime);
-	msg.set_openingtime((int32_t)openingTime);
-	msg.set_advancetime((int32_t)advanceTime);
-	msg.set_intervaltime((int32_t)intervalTime);
-	msg.set_iscross((int32_t)isCross);
+void E_PeractivityPeractivity_s::write_to_pbmsg(::proto_ff::E_PeractivityPeractivity & msg) const {
+	msg.set_m_activeid((int64_t)m_activeid);
+	msg.set_m_activename((const char*)m_activename.data());
+	msg.set_m_typeid((int32_t)m_typeid);
+	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_opeday((const char*)m_opeday.data());
+	msg.set_m_closeday((const char*)m_closeday.data());
+	msg.set_m_serverdelaytime((int32_t)m_serverdelaytime);
+	msg.set_m_servertime((int32_t)m_servertime);
+	msg.set_m_openingtime((int32_t)m_openingtime);
+	msg.set_m_advancetime((int32_t)m_advancetime);
+	msg.set_m_intervaltime((int32_t)m_intervaltime);
+	msg.set_m_iscross((int32_t)m_iscross);
 }
 
-void perActivityperActivity_s::read_from_pbmsg(const ::proto_ff::perActivityperActivity & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct perActivityperActivity_s));
-	activeId = msg.activeid();
-	activeName.Copy(msg.activename());
-	typeId = msg.typeid_();
-	functionID = msg.functionid();
-	opeDay.Copy(msg.opeday());
-	closeDay.Copy(msg.closeday());
-	serverdelayTime = msg.serverdelaytime();
-	serverTime = msg.servertime();
-	openingTime = msg.openingtime();
-	advanceTime = msg.advancetime();
-	intervalTime = msg.intervaltime();
-	isCross = msg.iscross();
+void E_PeractivityPeractivity_s::read_from_pbmsg(const ::proto_ff::E_PeractivityPeractivity & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_PeractivityPeractivity_s));
+	m_activeid = msg.m_activeid();
+	m_activename = msg.m_activename();
+	m_typeid = msg.m_typeid();
+	m_functionid = msg.m_functionid();
+	m_opeday = msg.m_opeday();
+	m_closeday = msg.m_closeday();
+	m_serverdelaytime = msg.m_serverdelaytime();
+	m_servertime = msg.m_servertime();
+	m_openingtime = msg.m_openingtime();
+	m_advancetime = msg.m_advancetime();
+	m_intervaltime = msg.m_intervaltime();
+	m_iscross = msg.m_iscross();
 }
 
-Sheet_perActivityperActivity_s::Sheet_perActivityperActivity_s() {
+Sheet_PeractivityPeractivity_s::Sheet_PeractivityPeractivity_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -66,31 +66,31 @@ Sheet_perActivityperActivity_s::Sheet_perActivityperActivity_s() {
 	}
 }
 
-int Sheet_perActivityperActivity_s::CreateInit() {
+int Sheet_PeractivityPeractivity_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_perActivityperActivity_s::ResumeInit() {
+int Sheet_PeractivityPeractivity_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_perActivityperActivity_s::write_to_pbmsg(::proto_ff::Sheet_perActivityperActivity & msg) const {
-	for(int32_t i = 0; i < (int32_t)perActivityperActivity_List.GetSize() && i < perActivityperActivity_List.GetMaxSize(); ++i) {
-		::proto_ff::perActivityperActivity* temp_peractivityperactivity_list = msg.add_peractivityperactivity_list();
-		perActivityperActivity_List[i].write_to_pbmsg(*temp_peractivityperactivity_list);
+void Sheet_PeractivityPeractivity_s::write_to_pbmsg(::proto_ff::Sheet_PeractivityPeractivity & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PeractivityPeractivity_List.size(); ++i) {
+		::proto_ff::E_PeractivityPeractivity* temp_e_peractivityperactivity_list = msg.add_e_peractivityperactivity_list();
+		E_PeractivityPeractivity_List[i].write_to_pbmsg(*temp_e_peractivityperactivity_list);
 	}
 }
 
-void Sheet_perActivityperActivity_s::read_from_pbmsg(const ::proto_ff::Sheet_perActivityperActivity & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_perActivityperActivity_s));
-	perActivityperActivity_List.SetSize(msg.peractivityperactivity_list_size() > perActivityperActivity_List.GetMaxSize() ? perActivityperActivity_List.GetMaxSize() : msg.peractivityperactivity_list_size());
-	for(int32_t i = 0; i < (int32_t)perActivityperActivity_List.GetSize(); ++i) {
-		const ::proto_ff::perActivityperActivity & temp_peractivityperactivity_list = msg.peractivityperactivity_list(i);
-		perActivityperActivity_List[i].read_from_pbmsg(temp_peractivityperactivity_list);
+void Sheet_PeractivityPeractivity_s::read_from_pbmsg(const ::proto_ff::Sheet_PeractivityPeractivity & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_PeractivityPeractivity_s));
+	E_PeractivityPeractivity_List.resize((int)msg.e_peractivityperactivity_list_size() > (int)E_PeractivityPeractivity_List.max_size() ? E_PeractivityPeractivity_List.max_size() : msg.e_peractivityperactivity_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PeractivityPeractivity_List.size(); ++i) {
+		const ::proto_ff::E_PeractivityPeractivity & temp_e_peractivityperactivity_list = msg.e_peractivityperactivity_list(i);
+		E_PeractivityPeractivity_List[i].read_from_pbmsg(temp_e_peractivityperactivity_list);
 	}
 }
 
-perActivityweek_s::perActivityweek_s() {
+E_PeractivityWeek_s::E_PeractivityWeek_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -98,34 +98,34 @@ perActivityweek_s::perActivityweek_s() {
 	}
 }
 
-int perActivityweek_s::CreateInit() {
-	id = (int32_t)0;
+int E_PeractivityWeek_s::CreateInit() {
+	m_id = (int32_t)0;
 	return 0;
 }
 
-int perActivityweek_s::ResumeInit() {
+int E_PeractivityWeek_s::ResumeInit() {
 	return 0;
 }
 
-void perActivityweek_s::write_to_pbmsg(::proto_ff::perActivityweek & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_time((const char*)time.Get());
-	for(int32_t i = 0; i < (int32_t)week.GetSize() && i < week.GetMaxSize(); ++i) {
-		msg.add_week((const char*)week[i].Get());
+void E_PeractivityWeek_s::write_to_pbmsg(::proto_ff::E_PeractivityWeek & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_time((const char*)m_time.data());
+	for(int32_t i = 0; i < (int32_t)m_week.size(); ++i) {
+		msg.add_m_week((const char*)m_week[i].data());
 	}
 }
 
-void perActivityweek_s::read_from_pbmsg(const ::proto_ff::perActivityweek & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct perActivityweek_s));
-	id = msg.id();
-	time.Copy(msg.time());
-	week.SetSize(msg.week_size() > week.GetMaxSize() ? week.GetMaxSize() : msg.week_size());
-	for(int32_t i = 0; i < (int32_t)week.GetSize(); ++i) {
-		week[i].Copy(msg.week(i));
+void E_PeractivityWeek_s::read_from_pbmsg(const ::proto_ff::E_PeractivityWeek & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_PeractivityWeek_s));
+	m_id = msg.m_id();
+	m_time = msg.m_time();
+	m_week.resize((int)msg.m_week_size() > (int)m_week.max_size() ? m_week.max_size() : msg.m_week_size());
+	for(int32_t i = 0; i < (int32_t)m_week.size(); ++i) {
+		m_week[i] = msg.m_week(i);
 	}
 }
 
-Sheet_perActivityweek_s::Sheet_perActivityweek_s() {
+Sheet_PeractivityWeek_s::Sheet_PeractivityWeek_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -133,27 +133,27 @@ Sheet_perActivityweek_s::Sheet_perActivityweek_s() {
 	}
 }
 
-int Sheet_perActivityweek_s::CreateInit() {
+int Sheet_PeractivityWeek_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_perActivityweek_s::ResumeInit() {
+int Sheet_PeractivityWeek_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_perActivityweek_s::write_to_pbmsg(::proto_ff::Sheet_perActivityweek & msg) const {
-	for(int32_t i = 0; i < (int32_t)perActivityweek_List.GetSize() && i < perActivityweek_List.GetMaxSize(); ++i) {
-		::proto_ff::perActivityweek* temp_peractivityweek_list = msg.add_peractivityweek_list();
-		perActivityweek_List[i].write_to_pbmsg(*temp_peractivityweek_list);
+void Sheet_PeractivityWeek_s::write_to_pbmsg(::proto_ff::Sheet_PeractivityWeek & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PeractivityWeek_List.size(); ++i) {
+		::proto_ff::E_PeractivityWeek* temp_e_peractivityweek_list = msg.add_e_peractivityweek_list();
+		E_PeractivityWeek_List[i].write_to_pbmsg(*temp_e_peractivityweek_list);
 	}
 }
 
-void Sheet_perActivityweek_s::read_from_pbmsg(const ::proto_ff::Sheet_perActivityweek & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_perActivityweek_s));
-	perActivityweek_List.SetSize(msg.peractivityweek_list_size() > perActivityweek_List.GetMaxSize() ? perActivityweek_List.GetMaxSize() : msg.peractivityweek_list_size());
-	for(int32_t i = 0; i < (int32_t)perActivityweek_List.GetSize(); ++i) {
-		const ::proto_ff::perActivityweek & temp_peractivityweek_list = msg.peractivityweek_list(i);
-		perActivityweek_List[i].read_from_pbmsg(temp_peractivityweek_list);
+void Sheet_PeractivityWeek_s::read_from_pbmsg(const ::proto_ff::Sheet_PeractivityWeek & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_PeractivityWeek_s));
+	E_PeractivityWeek_List.resize((int)msg.e_peractivityweek_list_size() > (int)E_PeractivityWeek_List.max_size() ? E_PeractivityWeek_List.max_size() : msg.e_peractivityweek_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PeractivityWeek_List.size(); ++i) {
+		const ::proto_ff::E_PeractivityWeek & temp_e_peractivityweek_list = msg.e_peractivityweek_list(i);
+		E_PeractivityWeek_List[i].read_from_pbmsg(temp_e_peractivityweek_list);
 	}
 }
 

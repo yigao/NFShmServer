@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-pathpath_s::pathpath_s() {
+E_PathPath_s::E_PathPath_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ pathpath_s::pathpath_s() {
 	}
 }
 
-int pathpath_s::CreateInit() {
-	id = (int64_t)0;
-	belongToSceneID = (int64_t)0;
+int E_PathPath_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_belongtosceneid = (int64_t)0;
 	return 0;
 }
 
-int pathpath_s::ResumeInit() {
+int E_PathPath_s::ResumeInit() {
 	return 0;
 }
 
-void pathpath_s::write_to_pbmsg(::proto_ff::pathpath & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_belongtosceneid((int64_t)belongToSceneID);
+void E_PathPath_s::write_to_pbmsg(::proto_ff::E_PathPath & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_belongtosceneid((int64_t)m_belongtosceneid);
 }
 
-void pathpath_s::read_from_pbmsg(const ::proto_ff::pathpath & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct pathpath_s));
-	id = msg.id();
-	belongToSceneID = msg.belongtosceneid();
+void E_PathPath_s::read_from_pbmsg(const ::proto_ff::E_PathPath & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_PathPath_s));
+	m_id = msg.m_id();
+	m_belongtosceneid = msg.m_belongtosceneid();
 }
 
-Sheet_pathpath_s::Sheet_pathpath_s() {
+Sheet_PathPath_s::Sheet_PathPath_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,27 +39,27 @@ Sheet_pathpath_s::Sheet_pathpath_s() {
 	}
 }
 
-int Sheet_pathpath_s::CreateInit() {
+int Sheet_PathPath_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_pathpath_s::ResumeInit() {
+int Sheet_PathPath_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_pathpath_s::write_to_pbmsg(::proto_ff::Sheet_pathpath & msg) const {
-	for(int32_t i = 0; i < (int32_t)pathpath_List.GetSize() && i < pathpath_List.GetMaxSize(); ++i) {
-		::proto_ff::pathpath* temp_pathpath_list = msg.add_pathpath_list();
-		pathpath_List[i].write_to_pbmsg(*temp_pathpath_list);
+void Sheet_PathPath_s::write_to_pbmsg(::proto_ff::Sheet_PathPath & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PathPath_List.size(); ++i) {
+		::proto_ff::E_PathPath* temp_e_pathpath_list = msg.add_e_pathpath_list();
+		E_PathPath_List[i].write_to_pbmsg(*temp_e_pathpath_list);
 	}
 }
 
-void Sheet_pathpath_s::read_from_pbmsg(const ::proto_ff::Sheet_pathpath & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_pathpath_s));
-	pathpath_List.SetSize(msg.pathpath_list_size() > pathpath_List.GetMaxSize() ? pathpath_List.GetMaxSize() : msg.pathpath_list_size());
-	for(int32_t i = 0; i < (int32_t)pathpath_List.GetSize(); ++i) {
-		const ::proto_ff::pathpath & temp_pathpath_list = msg.pathpath_list(i);
-		pathpath_List[i].read_from_pbmsg(temp_pathpath_list);
+void Sheet_PathPath_s::read_from_pbmsg(const ::proto_ff::Sheet_PathPath & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_PathPath_s));
+	E_PathPath_List.resize((int)msg.e_pathpath_list_size() > (int)E_PathPath_List.max_size() ? E_PathPath_List.max_size() : msg.e_pathpath_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PathPath_List.size(); ++i) {
+		const ::proto_ff::E_PathPath & temp_e_pathpath_list = msg.e_pathpath_list(i);
+		E_PathPath_List[i].read_from_pbmsg(temp_e_pathpath_list);
 	}
 }
 

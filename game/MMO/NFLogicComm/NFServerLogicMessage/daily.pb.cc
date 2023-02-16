@@ -20,27 +20,27 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* dailydaily_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_DailyDaily_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  dailydaily_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_dailydaily_descriptor_ = NULL;
+  E_DailyDaily_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_DailyDaily_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_dailydaily_reflection_ = NULL;
-const ::google::protobuf::Descriptor* dailyreward_descriptor_ = NULL;
+  Sheet_DailyDaily_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_DailyReward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  dailyreward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_dailyreward_descriptor_ = NULL;
+  E_DailyReward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_DailyReward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_dailyreward_reflection_ = NULL;
-const ::google::protobuf::Descriptor* dailycultivateattributeDesc_descriptor_ = NULL;
+  Sheet_DailyReward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_DailyCultivateAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  dailycultivateattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* dailycultivate_descriptor_ = NULL;
+  E_DailyCultivateAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_DailyCultivate_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  dailycultivate_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_dailycultivate_descriptor_ = NULL;
+  E_DailyCultivate_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_DailyCultivate_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_dailycultivate_reflection_ = NULL;
+  Sheet_DailyCultivate_reflection_ = NULL;
 
 }  // namespace
 
@@ -51,131 +51,131 @@ void protobuf_AssignDesc_daily_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "daily.proto");
   GOOGLE_CHECK(file != NULL);
-  dailydaily_descriptor_ = file->message_type(0);
-  static const int dailydaily_offsets_[13] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, args_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, playtype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, playargs_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, funciontid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, number_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, viptype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, othernum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, eachscore_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, cycle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, regreward_),
+  E_DailyDaily_descriptor_ = file->message_type(0);
+  static const int E_DailyDaily_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_args_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_playtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_playargs_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_funciontid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_viptype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_othernum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_eachscore_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_cycle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, m_regreward_),
   };
-  dailydaily_reflection_ =
+  E_DailyDaily_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      dailydaily_descriptor_,
-      dailydaily::default_instance_,
-      dailydaily_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailydaily, _unknown_fields_),
+      E_DailyDaily_descriptor_,
+      E_DailyDaily::default_instance_,
+      E_DailyDaily_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyDaily, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(dailydaily));
-  Sheet_dailydaily_descriptor_ = file->message_type(1);
-  static const int Sheet_dailydaily_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailydaily, dailydaily_list_),
+      sizeof(E_DailyDaily));
+  Sheet_DailyDaily_descriptor_ = file->message_type(1);
+  static const int Sheet_DailyDaily_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyDaily, e_dailydaily_list_),
   };
-  Sheet_dailydaily_reflection_ =
+  Sheet_DailyDaily_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_dailydaily_descriptor_,
-      Sheet_dailydaily::default_instance_,
-      Sheet_dailydaily_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailydaily, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailydaily, _unknown_fields_),
+      Sheet_DailyDaily_descriptor_,
+      Sheet_DailyDaily::default_instance_,
+      Sheet_DailyDaily_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyDaily, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyDaily, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_dailydaily));
-  dailyreward_descriptor_ = file->message_type(2);
-  static const int dailyreward_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, activescore_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, rewardid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, rewardnum_),
+      sizeof(Sheet_DailyDaily));
+  E_DailyReward_descriptor_ = file->message_type(2);
+  static const int E_DailyReward_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, m_activescore_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, m_rewardid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, m_rewardnum_),
   };
-  dailyreward_reflection_ =
+  E_DailyReward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      dailyreward_descriptor_,
-      dailyreward::default_instance_,
-      dailyreward_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailyreward, _unknown_fields_),
+      E_DailyReward_descriptor_,
+      E_DailyReward::default_instance_,
+      E_DailyReward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyReward, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(dailyreward));
-  Sheet_dailyreward_descriptor_ = file->message_type(3);
-  static const int Sheet_dailyreward_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailyreward, dailyreward_list_),
+      sizeof(E_DailyReward));
+  Sheet_DailyReward_descriptor_ = file->message_type(3);
+  static const int Sheet_DailyReward_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyReward, e_dailyreward_list_),
   };
-  Sheet_dailyreward_reflection_ =
+  Sheet_DailyReward_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_dailyreward_descriptor_,
-      Sheet_dailyreward::default_instance_,
-      Sheet_dailyreward_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailyreward, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailyreward, _unknown_fields_),
+      Sheet_DailyReward_descriptor_,
+      Sheet_DailyReward::default_instance_,
+      Sheet_DailyReward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyReward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyReward, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_dailyreward));
-  dailycultivateattributeDesc_descriptor_ = file->message_type(4);
-  static const int dailycultivateattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivateattributeDesc, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivateattributeDesc, value_),
+      sizeof(Sheet_DailyReward));
+  E_DailyCultivateAttributeDesc_descriptor_ = file->message_type(4);
+  static const int E_DailyCultivateAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivateAttributeDesc, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivateAttributeDesc, m_value_),
   };
-  dailycultivateattributeDesc_reflection_ =
+  E_DailyCultivateAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      dailycultivateattributeDesc_descriptor_,
-      dailycultivateattributeDesc::default_instance_,
-      dailycultivateattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivateattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivateattributeDesc, _unknown_fields_),
+      E_DailyCultivateAttributeDesc_descriptor_,
+      E_DailyCultivateAttributeDesc::default_instance_,
+      E_DailyCultivateAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivateAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivateAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(dailycultivateattributeDesc));
-  dailycultivate_descriptor_ = file->message_type(5);
-  static const int dailycultivate_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivate, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivate, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivate, exp_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivate, attribute_),
+      sizeof(E_DailyCultivateAttributeDesc));
+  E_DailyCultivate_descriptor_ = file->message_type(5);
+  static const int E_DailyCultivate_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivate, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivate, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivate, m_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivate, m_attribute_),
   };
-  dailycultivate_reflection_ =
+  E_DailyCultivate_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      dailycultivate_descriptor_,
-      dailycultivate::default_instance_,
-      dailycultivate_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivate, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(dailycultivate, _unknown_fields_),
+      E_DailyCultivate_descriptor_,
+      E_DailyCultivate::default_instance_,
+      E_DailyCultivate_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivate, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyCultivate, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(dailycultivate));
-  Sheet_dailycultivate_descriptor_ = file->message_type(6);
-  static const int Sheet_dailycultivate_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailycultivate, dailycultivate_list_),
+      sizeof(E_DailyCultivate));
+  Sheet_DailyCultivate_descriptor_ = file->message_type(6);
+  static const int Sheet_DailyCultivate_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyCultivate, e_dailycultivate_list_),
   };
-  Sheet_dailycultivate_reflection_ =
+  Sheet_DailyCultivate_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_dailycultivate_descriptor_,
-      Sheet_dailycultivate::default_instance_,
-      Sheet_dailycultivate_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailycultivate, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_dailycultivate, _unknown_fields_),
+      Sheet_DailyCultivate_descriptor_,
+      Sheet_DailyCultivate::default_instance_,
+      Sheet_DailyCultivate_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyCultivate, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailyCultivate, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_dailycultivate));
+      sizeof(Sheet_DailyCultivate));
 }
 
 namespace {
@@ -189,38 +189,38 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    dailydaily_descriptor_, &dailydaily::default_instance());
+    E_DailyDaily_descriptor_, &E_DailyDaily::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_dailydaily_descriptor_, &Sheet_dailydaily::default_instance());
+    Sheet_DailyDaily_descriptor_, &Sheet_DailyDaily::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    dailyreward_descriptor_, &dailyreward::default_instance());
+    E_DailyReward_descriptor_, &E_DailyReward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_dailyreward_descriptor_, &Sheet_dailyreward::default_instance());
+    Sheet_DailyReward_descriptor_, &Sheet_DailyReward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    dailycultivateattributeDesc_descriptor_, &dailycultivateattributeDesc::default_instance());
+    E_DailyCultivateAttributeDesc_descriptor_, &E_DailyCultivateAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    dailycultivate_descriptor_, &dailycultivate::default_instance());
+    E_DailyCultivate_descriptor_, &E_DailyCultivate::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_dailycultivate_descriptor_, &Sheet_dailycultivate::default_instance());
+    Sheet_DailyCultivate_descriptor_, &Sheet_DailyCultivate::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_daily_2eproto() {
-  delete dailydaily::default_instance_;
-  delete dailydaily_reflection_;
-  delete Sheet_dailydaily::default_instance_;
-  delete Sheet_dailydaily_reflection_;
-  delete dailyreward::default_instance_;
-  delete dailyreward_reflection_;
-  delete Sheet_dailyreward::default_instance_;
-  delete Sheet_dailyreward_reflection_;
-  delete dailycultivateattributeDesc::default_instance_;
-  delete dailycultivateattributeDesc_reflection_;
-  delete dailycultivate::default_instance_;
-  delete dailycultivate_reflection_;
-  delete Sheet_dailycultivate::default_instance_;
-  delete Sheet_dailycultivate_reflection_;
+  delete E_DailyDaily::default_instance_;
+  delete E_DailyDaily_reflection_;
+  delete Sheet_DailyDaily::default_instance_;
+  delete Sheet_DailyDaily_reflection_;
+  delete E_DailyReward::default_instance_;
+  delete E_DailyReward_reflection_;
+  delete Sheet_DailyReward::default_instance_;
+  delete Sheet_DailyReward_reflection_;
+  delete E_DailyCultivateAttributeDesc::default_instance_;
+  delete E_DailyCultivateAttributeDesc_reflection_;
+  delete E_DailyCultivate::default_instance_;
+  delete E_DailyCultivate_reflection_;
+  delete Sheet_DailyCultivate::default_instance_;
+  delete Sheet_DailyCultivate_reflection_;
 }
 
 void protobuf_AddDesc_daily_2eproto() {
@@ -232,51 +232,53 @@ void protobuf_AddDesc_daily_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013daily.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\"\326\003\n\ndailydaily\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347"
-    "\261\273\345\236\213ID\022\"\n\004name\030\002 \001(\tB\024\302\377\024\014\346\230\276\347\244\272\345\220\215\347\247\260\220"
-    "\301\024<\022\036\n\004type\030\003 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\347\261\273\345\236\213\022\036\n\004a"
-    "rgs\030\004 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022\"\n\010playType\030"
-    "\005 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\347\261\273\345\236\213\022\"\n\010playArgs\030\006 \001("
-    "\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022 \n\nfunciontID\030\007 \001(\003B"
-    "\014\302\377\024\010\345\212\237\350\203\275ID\022\032\n\006number\030\010 \001(\005B\n\302\377\024\006\346\254\241\346\225"
-    "\260\022\036\n\007viptype\030\t \001(\005B\r\302\377\024\tVIP\347\261\273\345\236\213\022+\n\010oth"
-    "erNum\030\n \001(\005B\031\302\377\024\025\345\205\266\344\275\231\345\217\257\350\264\255\344\271\260\346\254\241\346\225\260\022&"
-    "\n\teachScore\030\013 \001(\005B\023\302\377\024\017\346\257\217\346\254\241\346\264\273\350\267\203\345\200\274\022\037"
-    "\n\005cycle\030\014 \001(\005B\020\302\377\024\014\351\207\215\347\275\256\345\221\250\346\234\237\022.\n\tregRe"
-    "ward\030\r \001(\005B\033\302\377\024\027\346\212\245\345\220\215\345\245\226\345\212\261\351\201\223\345\205\267boxid\""
-    "G\n\020Sheet_dailydaily\0223\n\017dailydaily_List\030\001"
-    " \003(\0132\024.proto_ff.dailydailyB\004\210\301\024\024\"\253\001\n\013dai"
-    "lyreward\022\026\n\002id\030\001 \001(\005B\n\302\377\024\006\347\264\242\345\274\225\022\030\n\004type"
-    "\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022%\n\013activeScore\030\003 \001(\005B"
-    "\020\302\377\024\014\346\264\273\350\267\203\345\272\246\345\200\274\022\036\n\010rewardId\030\004 \001(\003B\014\302\377\024"
-    "\010\345\245\226\345\212\261ID\022#\n\trewardNum\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261"
-    "\346\225\260\351\207\217\"J\n\021Sheet_dailyreward\0225\n\020dailyrewa"
-    "rd_List\030\001 \003(\0132\025.proto_ff.dailyrewardB\004\210\301"
-    "\024\024\"I\n\033dailycultivateattributeDesc\022\022\n\002ID\030"
-    "\001 \001(\005B\006\302\377\024\002id\022\026\n\005Value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\253\001"
-    "\n\016dailycultivate\022\022\n\002ID\030\001 \001(\005B\006\302\377\024\002id\022\026\n\002"
-    "lv\030\002 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022#\n\003exp\030\003 \001(\005B\026\302\377\024\022\345"
-    "\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022H\n\tattribute\030\004 \003(\0132%.p"
-    "roto_ff.dailycultivateattributeDescB\016\302\377\024"
-    "\006\345\261\236\346\200\247\210\301\024\004\"S\n\024Sheet_dailycultivate\022;\n\023d"
-    "ailycultivate_List\030\001 \003(\0132\030.proto_ff.dail"
-    "ycultivateB\004\210\301\024(", 1176);
+    ".proto\"\362\003\n\014E_DailyDaily\022\032\n\004m_id\030\001 \001(\003B\014\302"
+    "\377\024\010\347\261\273\345\236\213ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\346\230\276\347\244\272\345"
+    "\220\215\347\247\260\220\301\024<\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\347\261\273"
+    "\345\236\213\022 \n\006m_args\030\004 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022$\n"
+    "\nm_playtype\030\005 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\347\261\273\345\236\213\022$\n\nm"
+    "_playargs\030\006 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022\"\n\014m_f"
+    "unciontid\030\007 \001(\003B\014\302\377\024\010\345\212\237\350\203\275ID\022\034\n\010m_numbe"
+    "r\030\010 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022 \n\tm_viptype\030\t \001(\005B\r"
+    "\302\377\024\tVIP\347\261\273\345\236\213\022-\n\nm_othernum\030\n \001(\005B\031\302\377\024\025\345"
+    "\205\266\344\275\231\345\217\257\350\264\255\344\271\260\346\254\241\346\225\260\022(\n\013m_eachscore\030\013 \001("
+    "\005B\023\302\377\024\017\346\257\217\346\254\241\346\264\273\350\267\203\345\200\274\022!\n\007m_cycle\030\014 \001(\005B"
+    "\020\302\377\024\014\351\207\215\347\275\256\345\221\250\346\234\237\0220\n\013m_regreward\030\r \001(\005B\033"
+    "\302\377\024\027\346\212\245\345\220\215\345\245\226\345\212\261\351\201\223\345\205\267boxid\"K\n\020Sheet_Dai"
+    "lyDaily\0227\n\021E_DailyDaily_List\030\001 \003(\0132\026.pro"
+    "to_ff.E_DailyDailyB\004\210\301\024\024\"\267\001\n\rE_DailyRewa"
+    "rd\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\264\242\345\274\225\022\032\n\006m_type\030\002"
+    " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\'\n\rm_activescore\030\003 \001(\005B"
+    "\020\302\377\024\014\346\264\273\350\267\203\345\272\246\345\200\274\022 \n\nm_rewardid\030\004 \001(\003B\014\302"
+    "\377\024\010\345\245\226\345\212\261ID\022%\n\013m_rewardnum\030\005 \001(\005B\020\302\377\024\014\345\245"
+    "\226\345\212\261\346\225\260\351\207\217\"N\n\021Sheet_DailyReward\0229\n\022E_Dai"
+    "lyReward_List\030\001 \003(\0132\027.proto_ff.E_DailyRe"
+    "wardB\004\210\301\024\024\"O\n\035E_DailyCultivateAttributeD"
+    "esc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\030\n\007m_value\030\002 \001"
+    "(\005B\007\302\377\024\003\345\200\274\"\267\001\n\020E_DailyCultivate\022\024\n\004m_id"
+    "\030\001 \001(\005B\006\302\377\024\002id\022\030\n\004m_lv\030\002 \001(\005B\n\302\377\024\006\347\255\211\347\272\247"
+    "\022%\n\005m_exp\030\003 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022"
+    "L\n\013m_attribute\030\004 \003(\0132\'.proto_ff.E_DailyC"
+    "ultivateAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"W\n"
+    "\024Sheet_DailyCultivate\022\?\n\025E_DailyCultivat"
+    "e_List\030\001 \003(\0132\032.proto_ff.E_DailyCultivate"
+    "B\004\210\301\024(", 1246);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "daily.proto", &protobuf_RegisterTypes);
-  dailydaily::default_instance_ = new dailydaily();
-  Sheet_dailydaily::default_instance_ = new Sheet_dailydaily();
-  dailyreward::default_instance_ = new dailyreward();
-  Sheet_dailyreward::default_instance_ = new Sheet_dailyreward();
-  dailycultivateattributeDesc::default_instance_ = new dailycultivateattributeDesc();
-  dailycultivate::default_instance_ = new dailycultivate();
-  Sheet_dailycultivate::default_instance_ = new Sheet_dailycultivate();
-  dailydaily::default_instance_->InitAsDefaultInstance();
-  Sheet_dailydaily::default_instance_->InitAsDefaultInstance();
-  dailyreward::default_instance_->InitAsDefaultInstance();
-  Sheet_dailyreward::default_instance_->InitAsDefaultInstance();
-  dailycultivateattributeDesc::default_instance_->InitAsDefaultInstance();
-  dailycultivate::default_instance_->InitAsDefaultInstance();
-  Sheet_dailycultivate::default_instance_->InitAsDefaultInstance();
+  E_DailyDaily::default_instance_ = new E_DailyDaily();
+  Sheet_DailyDaily::default_instance_ = new Sheet_DailyDaily();
+  E_DailyReward::default_instance_ = new E_DailyReward();
+  Sheet_DailyReward::default_instance_ = new Sheet_DailyReward();
+  E_DailyCultivateAttributeDesc::default_instance_ = new E_DailyCultivateAttributeDesc();
+  E_DailyCultivate::default_instance_ = new E_DailyCultivate();
+  Sheet_DailyCultivate::default_instance_ = new Sheet_DailyCultivate();
+  E_DailyDaily::default_instance_->InitAsDefaultInstance();
+  Sheet_DailyDaily::default_instance_->InitAsDefaultInstance();
+  E_DailyReward::default_instance_->InitAsDefaultInstance();
+  Sheet_DailyReward::default_instance_->InitAsDefaultInstance();
+  E_DailyCultivateAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_DailyCultivate::default_instance_->InitAsDefaultInstance();
+  Sheet_DailyCultivate::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_daily_2eproto);
 }
 
@@ -290,319 +292,319 @@ struct StaticDescriptorInitializer_daily_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int dailydaily::kIdFieldNumber;
-const int dailydaily::kNameFieldNumber;
-const int dailydaily::kTypeFieldNumber;
-const int dailydaily::kArgsFieldNumber;
-const int dailydaily::kPlayTypeFieldNumber;
-const int dailydaily::kPlayArgsFieldNumber;
-const int dailydaily::kFunciontIDFieldNumber;
-const int dailydaily::kNumberFieldNumber;
-const int dailydaily::kViptypeFieldNumber;
-const int dailydaily::kOtherNumFieldNumber;
-const int dailydaily::kEachScoreFieldNumber;
-const int dailydaily::kCycleFieldNumber;
-const int dailydaily::kRegRewardFieldNumber;
+const int E_DailyDaily::kMIdFieldNumber;
+const int E_DailyDaily::kMNameFieldNumber;
+const int E_DailyDaily::kMTypeFieldNumber;
+const int E_DailyDaily::kMArgsFieldNumber;
+const int E_DailyDaily::kMPlaytypeFieldNumber;
+const int E_DailyDaily::kMPlayargsFieldNumber;
+const int E_DailyDaily::kMFunciontidFieldNumber;
+const int E_DailyDaily::kMNumberFieldNumber;
+const int E_DailyDaily::kMViptypeFieldNumber;
+const int E_DailyDaily::kMOthernumFieldNumber;
+const int E_DailyDaily::kMEachscoreFieldNumber;
+const int E_DailyDaily::kMCycleFieldNumber;
+const int E_DailyDaily::kMRegrewardFieldNumber;
 #endif  // !_MSC_VER
 
-dailydaily::dailydaily()
+E_DailyDaily::E_DailyDaily()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void dailydaily::InitAsDefaultInstance() {
+void E_DailyDaily::InitAsDefaultInstance() {
 }
 
-dailydaily::dailydaily(const dailydaily& from)
+E_DailyDaily::E_DailyDaily(const E_DailyDaily& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void dailydaily::SharedCtor() {
+void E_DailyDaily::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  type_ = 0;
-  args_ = 0;
-  playtype_ = 0;
-  playargs_ = 0;
-  funciontid_ = GOOGLE_LONGLONG(0);
-  number_ = 0;
-  viptype_ = 0;
-  othernum_ = 0;
-  eachscore_ = 0;
-  cycle_ = 0;
-  regreward_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_type_ = 0;
+  m_args_ = 0;
+  m_playtype_ = 0;
+  m_playargs_ = 0;
+  m_funciontid_ = GOOGLE_LONGLONG(0);
+  m_number_ = 0;
+  m_viptype_ = 0;
+  m_othernum_ = 0;
+  m_eachscore_ = 0;
+  m_cycle_ = 0;
+  m_regreward_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-dailydaily::~dailydaily() {
+E_DailyDaily::~E_DailyDaily() {
   SharedDtor();
 }
 
-void dailydaily::SharedDtor() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+void E_DailyDaily::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
   if (this != default_instance_) {
   }
 }
 
-void dailydaily::SetCachedSize(int size) const {
+void E_DailyDaily::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* dailydaily::descriptor() {
+const ::google::protobuf::Descriptor* E_DailyDaily::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return dailydaily_descriptor_;
+  return E_DailyDaily_descriptor_;
 }
 
-const dailydaily& dailydaily::default_instance() {
+const E_DailyDaily& E_DailyDaily::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-dailydaily* dailydaily::default_instance_ = NULL;
+E_DailyDaily* E_DailyDaily::default_instance_ = NULL;
 
-dailydaily* dailydaily::New() const {
-  return new dailydaily;
+E_DailyDaily* E_DailyDaily::New() const {
+  return new E_DailyDaily;
 }
 
-void dailydaily::Clear() {
+void E_DailyDaily::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    if (has_name()) {
-      if (name_ != &::google::protobuf::internal::kEmptyString) {
-        name_->clear();
+    m_id_ = GOOGLE_LONGLONG(0);
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
       }
     }
-    type_ = 0;
-    args_ = 0;
-    playtype_ = 0;
-    playargs_ = 0;
-    funciontid_ = GOOGLE_LONGLONG(0);
-    number_ = 0;
+    m_type_ = 0;
+    m_args_ = 0;
+    m_playtype_ = 0;
+    m_playargs_ = 0;
+    m_funciontid_ = GOOGLE_LONGLONG(0);
+    m_number_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    viptype_ = 0;
-    othernum_ = 0;
-    eachscore_ = 0;
-    cycle_ = 0;
-    regreward_ = 0;
+    m_viptype_ = 0;
+    m_othernum_ = 0;
+    m_eachscore_ = 0;
+    m_cycle_ = 0;
+    m_regreward_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool dailydaily::MergePartialFromCodedStream(
+bool E_DailyDaily::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_name;
+        if (input->ExpectTag(18)) goto parse_m_name;
         break;
       }
 
-      // optional string name = 2;
+      // optional string m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_name:
+         parse_m_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
+                input, this->mutable_m_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->name().data(), this->name().length(),
+            this->m_name().data(), this->m_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_type;
+        if (input->ExpectTag(24)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 3;
+      // optional int32 m_type = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_args;
+        if (input->ExpectTag(32)) goto parse_m_args;
         break;
       }
 
-      // optional int32 args = 4;
+      // optional int32 m_args = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_args:
+         parse_m_args:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &args_)));
-          set_has_args();
+                 input, &m_args_)));
+          set_has_m_args();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_playType;
+        if (input->ExpectTag(40)) goto parse_m_playtype;
         break;
       }
 
-      // optional int32 playType = 5;
+      // optional int32 m_playtype = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_playType:
+         parse_m_playtype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &playtype_)));
-          set_has_playtype();
+                 input, &m_playtype_)));
+          set_has_m_playtype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_playArgs;
+        if (input->ExpectTag(48)) goto parse_m_playargs;
         break;
       }
 
-      // optional int32 playArgs = 6;
+      // optional int32 m_playargs = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_playArgs:
+         parse_m_playargs:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &playargs_)));
-          set_has_playargs();
+                 input, &m_playargs_)));
+          set_has_m_playargs();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_funciontID;
+        if (input->ExpectTag(56)) goto parse_m_funciontid;
         break;
       }
 
-      // optional int64 funciontID = 7;
+      // optional int64 m_funciontid = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_funciontID:
+         parse_m_funciontid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &funciontid_)));
-          set_has_funciontid();
+                 input, &m_funciontid_)));
+          set_has_m_funciontid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_number;
+        if (input->ExpectTag(64)) goto parse_m_number;
         break;
       }
 
-      // optional int32 number = 8;
+      // optional int32 m_number = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_number:
+         parse_m_number:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &number_)));
-          set_has_number();
+                 input, &m_number_)));
+          set_has_m_number();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_viptype;
+        if (input->ExpectTag(72)) goto parse_m_viptype;
         break;
       }
 
-      // optional int32 viptype = 9;
+      // optional int32 m_viptype = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_viptype:
+         parse_m_viptype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &viptype_)));
-          set_has_viptype();
+                 input, &m_viptype_)));
+          set_has_m_viptype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_otherNum;
+        if (input->ExpectTag(80)) goto parse_m_othernum;
         break;
       }
 
-      // optional int32 otherNum = 10;
+      // optional int32 m_othernum = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_otherNum:
+         parse_m_othernum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &othernum_)));
-          set_has_othernum();
+                 input, &m_othernum_)));
+          set_has_m_othernum();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_eachScore;
+        if (input->ExpectTag(88)) goto parse_m_eachscore;
         break;
       }
 
-      // optional int32 eachScore = 11;
+      // optional int32 m_eachscore = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_eachScore:
+         parse_m_eachscore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &eachscore_)));
-          set_has_eachscore();
+                 input, &m_eachscore_)));
+          set_has_m_eachscore();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_cycle;
+        if (input->ExpectTag(96)) goto parse_m_cycle;
         break;
       }
 
-      // optional int32 cycle = 12;
+      // optional int32 m_cycle = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_cycle:
+         parse_m_cycle:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &cycle_)));
-          set_has_cycle();
+                 input, &m_cycle_)));
+          set_has_m_cycle();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_regReward;
+        if (input->ExpectTag(104)) goto parse_m_regreward;
         break;
       }
 
-      // optional int32 regReward = 13;
+      // optional int32 m_regreward = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_regReward:
+         parse_m_regreward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &regreward_)));
-          set_has_regreward();
+                 input, &m_regreward_)));
+          set_has_m_regreward();
         } else {
           goto handle_uninterpreted;
         }
@@ -626,75 +628,75 @@ bool dailydaily::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void dailydaily::SerializeWithCachedSizes(
+void E_DailyDaily::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->name(), output);
+      2, this->m_name(), output);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->type(), output);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 args = 4;
-  if (has_args()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->args(), output);
+  // optional int32 m_args = 4;
+  if (has_m_args()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_args(), output);
   }
 
-  // optional int32 playType = 5;
-  if (has_playtype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->playtype(), output);
+  // optional int32 m_playtype = 5;
+  if (has_m_playtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_playtype(), output);
   }
 
-  // optional int32 playArgs = 6;
-  if (has_playargs()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->playargs(), output);
+  // optional int32 m_playargs = 6;
+  if (has_m_playargs()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_playargs(), output);
   }
 
-  // optional int64 funciontID = 7;
-  if (has_funciontid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->funciontid(), output);
+  // optional int64 m_funciontid = 7;
+  if (has_m_funciontid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->m_funciontid(), output);
   }
 
-  // optional int32 number = 8;
-  if (has_number()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->number(), output);
+  // optional int32 m_number = 8;
+  if (has_m_number()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_number(), output);
   }
 
-  // optional int32 viptype = 9;
-  if (has_viptype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->viptype(), output);
+  // optional int32 m_viptype = 9;
+  if (has_m_viptype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_viptype(), output);
   }
 
-  // optional int32 otherNum = 10;
-  if (has_othernum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->othernum(), output);
+  // optional int32 m_othernum = 10;
+  if (has_m_othernum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_othernum(), output);
   }
 
-  // optional int32 eachScore = 11;
-  if (has_eachscore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->eachscore(), output);
+  // optional int32 m_eachscore = 11;
+  if (has_m_eachscore()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_eachscore(), output);
   }
 
-  // optional int32 cycle = 12;
-  if (has_cycle()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->cycle(), output);
+  // optional int32 m_cycle = 12;
+  if (has_m_cycle()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_cycle(), output);
   }
 
-  // optional int32 regReward = 13;
-  if (has_regreward()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->regreward(), output);
+  // optional int32 m_regreward = 13;
+  if (has_m_regreward()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_regreward(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -703,76 +705,76 @@ void dailydaily::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* dailydaily::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_DailyDaily::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional string name = 2;
-  if (has_name()) {
+  // optional string m_name = 2;
+  if (has_m_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->name().data(), this->name().length(),
+      this->m_name().data(), this->m_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->name(), target);
+        2, this->m_name(), target);
   }
 
-  // optional int32 type = 3;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->type(), target);
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 args = 4;
-  if (has_args()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->args(), target);
+  // optional int32 m_args = 4;
+  if (has_m_args()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_args(), target);
   }
 
-  // optional int32 playType = 5;
-  if (has_playtype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->playtype(), target);
+  // optional int32 m_playtype = 5;
+  if (has_m_playtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_playtype(), target);
   }
 
-  // optional int32 playArgs = 6;
-  if (has_playargs()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->playargs(), target);
+  // optional int32 m_playargs = 6;
+  if (has_m_playargs()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_playargs(), target);
   }
 
-  // optional int64 funciontID = 7;
-  if (has_funciontid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->funciontid(), target);
+  // optional int64 m_funciontid = 7;
+  if (has_m_funciontid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->m_funciontid(), target);
   }
 
-  // optional int32 number = 8;
-  if (has_number()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->number(), target);
+  // optional int32 m_number = 8;
+  if (has_m_number()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_number(), target);
   }
 
-  // optional int32 viptype = 9;
-  if (has_viptype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->viptype(), target);
+  // optional int32 m_viptype = 9;
+  if (has_m_viptype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_viptype(), target);
   }
 
-  // optional int32 otherNum = 10;
-  if (has_othernum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->othernum(), target);
+  // optional int32 m_othernum = 10;
+  if (has_m_othernum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_othernum(), target);
   }
 
-  // optional int32 eachScore = 11;
-  if (has_eachscore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->eachscore(), target);
+  // optional int32 m_eachscore = 11;
+  if (has_m_eachscore()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_eachscore(), target);
   }
 
-  // optional int32 cycle = 12;
-  if (has_cycle()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->cycle(), target);
+  // optional int32 m_cycle = 12;
+  if (has_m_cycle()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_cycle(), target);
   }
 
-  // optional int32 regReward = 13;
-  if (has_regreward()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->regreward(), target);
+  // optional int32 m_regreward = 13;
+  if (has_m_regreward()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_regreward(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -782,101 +784,101 @@ void dailydaily::SerializeWithCachedSizes(
   return target;
 }
 
-int dailydaily::ByteSize() const {
+int E_DailyDaily::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional string name = 2;
-    if (has_name()) {
+    // optional string m_name = 2;
+    if (has_m_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name());
+          this->m_name());
     }
 
-    // optional int32 type = 3;
-    if (has_type()) {
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 args = 4;
-    if (has_args()) {
+    // optional int32 m_args = 4;
+    if (has_m_args()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->args());
+          this->m_args());
     }
 
-    // optional int32 playType = 5;
-    if (has_playtype()) {
+    // optional int32 m_playtype = 5;
+    if (has_m_playtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->playtype());
+          this->m_playtype());
     }
 
-    // optional int32 playArgs = 6;
-    if (has_playargs()) {
+    // optional int32 m_playargs = 6;
+    if (has_m_playargs()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->playargs());
+          this->m_playargs());
     }
 
-    // optional int64 funciontID = 7;
-    if (has_funciontid()) {
+    // optional int64 m_funciontid = 7;
+    if (has_m_funciontid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->funciontid());
+          this->m_funciontid());
     }
 
-    // optional int32 number = 8;
-    if (has_number()) {
+    // optional int32 m_number = 8;
+    if (has_m_number()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->number());
+          this->m_number());
     }
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 viptype = 9;
-    if (has_viptype()) {
+    // optional int32 m_viptype = 9;
+    if (has_m_viptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->viptype());
+          this->m_viptype());
     }
 
-    // optional int32 otherNum = 10;
-    if (has_othernum()) {
+    // optional int32 m_othernum = 10;
+    if (has_m_othernum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->othernum());
+          this->m_othernum());
     }
 
-    // optional int32 eachScore = 11;
-    if (has_eachscore()) {
+    // optional int32 m_eachscore = 11;
+    if (has_m_eachscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->eachscore());
+          this->m_eachscore());
     }
 
-    // optional int32 cycle = 12;
-    if (has_cycle()) {
+    // optional int32 m_cycle = 12;
+    if (has_m_cycle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->cycle());
+          this->m_cycle());
     }
 
-    // optional int32 regReward = 13;
-    if (has_regreward()) {
+    // optional int32 m_regreward = 13;
+    if (has_m_regreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->regreward());
+          this->m_regreward());
     }
 
   }
@@ -891,10 +893,10 @@ int dailydaily::ByteSize() const {
   return total_size;
 }
 
-void dailydaily::MergeFrom(const ::google::protobuf::Message& from) {
+void E_DailyDaily::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const dailydaily* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const dailydaily*>(
+  const E_DailyDaily* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_DailyDaily*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -903,97 +905,97 @@ void dailydaily::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void dailydaily::MergeFrom(const dailydaily& from) {
+void E_DailyDaily::MergeFrom(const E_DailyDaily& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_name()) {
-      set_name(from.name());
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_args()) {
-      set_args(from.args());
+    if (from.has_m_args()) {
+      set_m_args(from.m_args());
     }
-    if (from.has_playtype()) {
-      set_playtype(from.playtype());
+    if (from.has_m_playtype()) {
+      set_m_playtype(from.m_playtype());
     }
-    if (from.has_playargs()) {
-      set_playargs(from.playargs());
+    if (from.has_m_playargs()) {
+      set_m_playargs(from.m_playargs());
     }
-    if (from.has_funciontid()) {
-      set_funciontid(from.funciontid());
+    if (from.has_m_funciontid()) {
+      set_m_funciontid(from.m_funciontid());
     }
-    if (from.has_number()) {
-      set_number(from.number());
+    if (from.has_m_number()) {
+      set_m_number(from.m_number());
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_viptype()) {
-      set_viptype(from.viptype());
+    if (from.has_m_viptype()) {
+      set_m_viptype(from.m_viptype());
     }
-    if (from.has_othernum()) {
-      set_othernum(from.othernum());
+    if (from.has_m_othernum()) {
+      set_m_othernum(from.m_othernum());
     }
-    if (from.has_eachscore()) {
-      set_eachscore(from.eachscore());
+    if (from.has_m_eachscore()) {
+      set_m_eachscore(from.m_eachscore());
     }
-    if (from.has_cycle()) {
-      set_cycle(from.cycle());
+    if (from.has_m_cycle()) {
+      set_m_cycle(from.m_cycle());
     }
-    if (from.has_regreward()) {
-      set_regreward(from.regreward());
+    if (from.has_m_regreward()) {
+      set_m_regreward(from.m_regreward());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void dailydaily::CopyFrom(const ::google::protobuf::Message& from) {
+void E_DailyDaily::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void dailydaily::CopyFrom(const dailydaily& from) {
+void E_DailyDaily::CopyFrom(const E_DailyDaily& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool dailydaily::IsInitialized() const {
+bool E_DailyDaily::IsInitialized() const {
 
   return true;
 }
 
-void dailydaily::Swap(dailydaily* other) {
+void E_DailyDaily::Swap(E_DailyDaily* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(name_, other->name_);
-    std::swap(type_, other->type_);
-    std::swap(args_, other->args_);
-    std::swap(playtype_, other->playtype_);
-    std::swap(playargs_, other->playargs_);
-    std::swap(funciontid_, other->funciontid_);
-    std::swap(number_, other->number_);
-    std::swap(viptype_, other->viptype_);
-    std::swap(othernum_, other->othernum_);
-    std::swap(eachscore_, other->eachscore_);
-    std::swap(cycle_, other->cycle_);
-    std::swap(regreward_, other->regreward_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_name_, other->m_name_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_args_, other->m_args_);
+    std::swap(m_playtype_, other->m_playtype_);
+    std::swap(m_playargs_, other->m_playargs_);
+    std::swap(m_funciontid_, other->m_funciontid_);
+    std::swap(m_number_, other->m_number_);
+    std::swap(m_viptype_, other->m_viptype_);
+    std::swap(m_othernum_, other->m_othernum_);
+    std::swap(m_eachscore_, other->m_eachscore_);
+    std::swap(m_cycle_, other->m_cycle_);
+    std::swap(m_regreward_, other->m_regreward_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata dailydaily::GetMetadata() const {
+::google::protobuf::Metadata E_DailyDaily::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = dailydaily_descriptor_;
-  metadata.reflection = dailydaily_reflection_;
+  metadata.descriptor = E_DailyDaily_descriptor_;
+  metadata.reflection = E_DailyDaily_reflection_;
   return metadata;
 }
 
@@ -1001,81 +1003,81 @@ void dailydaily::Swap(dailydaily* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_dailydaily::kDailydailyListFieldNumber;
+const int Sheet_DailyDaily::kEDailyDailyListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_dailydaily::Sheet_dailydaily()
+Sheet_DailyDaily::Sheet_DailyDaily()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_dailydaily::InitAsDefaultInstance() {
+void Sheet_DailyDaily::InitAsDefaultInstance() {
 }
 
-Sheet_dailydaily::Sheet_dailydaily(const Sheet_dailydaily& from)
+Sheet_DailyDaily::Sheet_DailyDaily(const Sheet_DailyDaily& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_dailydaily::SharedCtor() {
+void Sheet_DailyDaily::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_dailydaily::~Sheet_dailydaily() {
+Sheet_DailyDaily::~Sheet_DailyDaily() {
   SharedDtor();
 }
 
-void Sheet_dailydaily::SharedDtor() {
+void Sheet_DailyDaily::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_dailydaily::SetCachedSize(int size) const {
+void Sheet_DailyDaily::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_dailydaily::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_DailyDaily::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_dailydaily_descriptor_;
+  return Sheet_DailyDaily_descriptor_;
 }
 
-const Sheet_dailydaily& Sheet_dailydaily::default_instance() {
+const Sheet_DailyDaily& Sheet_DailyDaily::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-Sheet_dailydaily* Sheet_dailydaily::default_instance_ = NULL;
+Sheet_DailyDaily* Sheet_DailyDaily::default_instance_ = NULL;
 
-Sheet_dailydaily* Sheet_dailydaily::New() const {
-  return new Sheet_dailydaily;
+Sheet_DailyDaily* Sheet_DailyDaily::New() const {
+  return new Sheet_DailyDaily;
 }
 
-void Sheet_dailydaily::Clear() {
-  dailydaily_list_.Clear();
+void Sheet_DailyDaily::Clear() {
+  e_dailydaily_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_dailydaily::MergePartialFromCodedStream(
+bool Sheet_DailyDaily::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.dailydaily dailydaily_List = 1;
+      // repeated .proto_ff.E_DailyDaily E_DailyDaily_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_dailydaily_List:
+         parse_E_DailyDaily_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_dailydaily_list()));
+                input, add_e_dailydaily_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_dailydaily_List;
+        if (input->ExpectTag(10)) goto parse_E_DailyDaily_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1096,12 +1098,12 @@ bool Sheet_dailydaily::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_dailydaily::SerializeWithCachedSizes(
+void Sheet_DailyDaily::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.dailydaily dailydaily_List = 1;
-  for (int i = 0; i < this->dailydaily_list_size(); i++) {
+  // repeated .proto_ff.E_DailyDaily E_DailyDaily_List = 1;
+  for (int i = 0; i < this->e_dailydaily_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->dailydaily_list(i), output);
+      1, this->e_dailydaily_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1110,13 +1112,13 @@ void Sheet_dailydaily::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_dailydaily::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_DailyDaily::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.dailydaily dailydaily_List = 1;
-  for (int i = 0; i < this->dailydaily_list_size(); i++) {
+  // repeated .proto_ff.E_DailyDaily E_DailyDaily_List = 1;
+  for (int i = 0; i < this->e_dailydaily_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->dailydaily_list(i), target);
+        1, this->e_dailydaily_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1126,15 +1128,15 @@ void Sheet_dailydaily::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_dailydaily::ByteSize() const {
+int Sheet_DailyDaily::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.dailydaily dailydaily_List = 1;
-  total_size += 1 * this->dailydaily_list_size();
-  for (int i = 0; i < this->dailydaily_list_size(); i++) {
+  // repeated .proto_ff.E_DailyDaily E_DailyDaily_List = 1;
+  total_size += 1 * this->e_dailydaily_list_size();
+  for (int i = 0; i < this->e_dailydaily_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->dailydaily_list(i));
+        this->e_dailydaily_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1148,10 +1150,10 @@ int Sheet_dailydaily::ByteSize() const {
   return total_size;
 }
 
-void Sheet_dailydaily::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_DailyDaily::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_dailydaily* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_dailydaily*>(
+  const Sheet_DailyDaily* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_DailyDaily*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1160,43 +1162,43 @@ void Sheet_dailydaily::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_dailydaily::MergeFrom(const Sheet_dailydaily& from) {
+void Sheet_DailyDaily::MergeFrom(const Sheet_DailyDaily& from) {
   GOOGLE_CHECK_NE(&from, this);
-  dailydaily_list_.MergeFrom(from.dailydaily_list_);
+  e_dailydaily_list_.MergeFrom(from.e_dailydaily_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_dailydaily::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_DailyDaily::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_dailydaily::CopyFrom(const Sheet_dailydaily& from) {
+void Sheet_DailyDaily::CopyFrom(const Sheet_DailyDaily& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_dailydaily::IsInitialized() const {
+bool Sheet_DailyDaily::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_dailydaily::Swap(Sheet_dailydaily* other) {
+void Sheet_DailyDaily::Swap(Sheet_DailyDaily* other) {
   if (other != this) {
-    dailydaily_list_.Swap(&other->dailydaily_list_);
+    e_dailydaily_list_.Swap(&other->e_dailydaily_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_dailydaily::GetMetadata() const {
+::google::protobuf::Metadata Sheet_DailyDaily::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_dailydaily_descriptor_;
-  metadata.reflection = Sheet_dailydaily_reflection_;
+  metadata.descriptor = Sheet_DailyDaily_descriptor_;
+  metadata.reflection = Sheet_DailyDaily_reflection_;
   return metadata;
 }
 
@@ -1204,157 +1206,157 @@ void Sheet_dailydaily::Swap(Sheet_dailydaily* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int dailyreward::kIdFieldNumber;
-const int dailyreward::kTypeFieldNumber;
-const int dailyreward::kActiveScoreFieldNumber;
-const int dailyreward::kRewardIdFieldNumber;
-const int dailyreward::kRewardNumFieldNumber;
+const int E_DailyReward::kMIdFieldNumber;
+const int E_DailyReward::kMTypeFieldNumber;
+const int E_DailyReward::kMActivescoreFieldNumber;
+const int E_DailyReward::kMRewardidFieldNumber;
+const int E_DailyReward::kMRewardnumFieldNumber;
 #endif  // !_MSC_VER
 
-dailyreward::dailyreward()
+E_DailyReward::E_DailyReward()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void dailyreward::InitAsDefaultInstance() {
+void E_DailyReward::InitAsDefaultInstance() {
 }
 
-dailyreward::dailyreward(const dailyreward& from)
+E_DailyReward::E_DailyReward(const E_DailyReward& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void dailyreward::SharedCtor() {
+void E_DailyReward::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  type_ = 0;
-  activescore_ = 0;
-  rewardid_ = GOOGLE_LONGLONG(0);
-  rewardnum_ = 0;
+  m_id_ = 0;
+  m_type_ = 0;
+  m_activescore_ = 0;
+  m_rewardid_ = GOOGLE_LONGLONG(0);
+  m_rewardnum_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-dailyreward::~dailyreward() {
+E_DailyReward::~E_DailyReward() {
   SharedDtor();
 }
 
-void dailyreward::SharedDtor() {
+void E_DailyReward::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void dailyreward::SetCachedSize(int size) const {
+void E_DailyReward::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* dailyreward::descriptor() {
+const ::google::protobuf::Descriptor* E_DailyReward::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return dailyreward_descriptor_;
+  return E_DailyReward_descriptor_;
 }
 
-const dailyreward& dailyreward::default_instance() {
+const E_DailyReward& E_DailyReward::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-dailyreward* dailyreward::default_instance_ = NULL;
+E_DailyReward* E_DailyReward::default_instance_ = NULL;
 
-dailyreward* dailyreward::New() const {
-  return new dailyreward;
+E_DailyReward* E_DailyReward::New() const {
+  return new E_DailyReward;
 }
 
-void dailyreward::Clear() {
+void E_DailyReward::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    type_ = 0;
-    activescore_ = 0;
-    rewardid_ = GOOGLE_LONGLONG(0);
-    rewardnum_ = 0;
+    m_id_ = 0;
+    m_type_ = 0;
+    m_activescore_ = 0;
+    m_rewardid_ = GOOGLE_LONGLONG(0);
+    m_rewardnum_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool dailyreward::MergePartialFromCodedStream(
+bool E_DailyReward::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_type;
+        if (input->ExpectTag(16)) goto parse_m_type;
         break;
       }
 
-      // optional int32 type = 2;
+      // optional int32 m_type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_type:
+         parse_m_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_activeScore;
+        if (input->ExpectTag(24)) goto parse_m_activescore;
         break;
       }
 
-      // optional int32 activeScore = 3;
+      // optional int32 m_activescore = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_activeScore:
+         parse_m_activescore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &activescore_)));
-          set_has_activescore();
+                 input, &m_activescore_)));
+          set_has_m_activescore();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_rewardId;
+        if (input->ExpectTag(32)) goto parse_m_rewardid;
         break;
       }
 
-      // optional int64 rewardId = 4;
+      // optional int64 m_rewardid = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rewardId:
+         parse_m_rewardid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &rewardid_)));
-          set_has_rewardid();
+                 input, &m_rewardid_)));
+          set_has_m_rewardid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_rewardNum;
+        if (input->ExpectTag(40)) goto parse_m_rewardnum;
         break;
       }
 
-      // optional int32 rewardNum = 5;
+      // optional int32 m_rewardnum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_rewardNum:
+         parse_m_rewardnum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &rewardnum_)));
-          set_has_rewardnum();
+                 input, &m_rewardnum_)));
+          set_has_m_rewardnum();
         } else {
           goto handle_uninterpreted;
         }
@@ -1378,31 +1380,31 @@ bool dailyreward::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void dailyreward::SerializeWithCachedSizes(
+void E_DailyReward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 activeScore = 3;
-  if (has_activescore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->activescore(), output);
+  // optional int32 m_activescore = 3;
+  if (has_m_activescore()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_activescore(), output);
   }
 
-  // optional int64 rewardId = 4;
-  if (has_rewardid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->rewardid(), output);
+  // optional int64 m_rewardid = 4;
+  if (has_m_rewardid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_rewardid(), output);
   }
 
-  // optional int32 rewardNum = 5;
-  if (has_rewardnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->rewardnum(), output);
+  // optional int32 m_rewardnum = 5;
+  if (has_m_rewardnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewardnum(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1411,31 +1413,31 @@ void dailyreward::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* dailyreward::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_DailyReward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 type = 2;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 activeScore = 3;
-  if (has_activescore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->activescore(), target);
+  // optional int32 m_activescore = 3;
+  if (has_m_activescore()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_activescore(), target);
   }
 
-  // optional int64 rewardId = 4;
-  if (has_rewardid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->rewardid(), target);
+  // optional int64 m_rewardid = 4;
+  if (has_m_rewardid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_rewardid(), target);
   }
 
-  // optional int32 rewardNum = 5;
-  if (has_rewardnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->rewardnum(), target);
+  // optional int32 m_rewardnum = 5;
+  if (has_m_rewardnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewardnum(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1445,43 +1447,43 @@ void dailyreward::SerializeWithCachedSizes(
   return target;
 }
 
-int dailyreward::ByteSize() const {
+int E_DailyReward::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 type = 2;
-    if (has_type()) {
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 activeScore = 3;
-    if (has_activescore()) {
+    // optional int32 m_activescore = 3;
+    if (has_m_activescore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->activescore());
+          this->m_activescore());
     }
 
-    // optional int64 rewardId = 4;
-    if (has_rewardid()) {
+    // optional int64 m_rewardid = 4;
+    if (has_m_rewardid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->rewardid());
+          this->m_rewardid());
     }
 
-    // optional int32 rewardNum = 5;
-    if (has_rewardnum()) {
+    // optional int32 m_rewardnum = 5;
+    if (has_m_rewardnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->rewardnum());
+          this->m_rewardnum());
     }
 
   }
@@ -1496,10 +1498,10 @@ int dailyreward::ByteSize() const {
   return total_size;
 }
 
-void dailyreward::MergeFrom(const ::google::protobuf::Message& from) {
+void E_DailyReward::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const dailyreward* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const dailyreward*>(
+  const E_DailyReward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_DailyReward*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1508,63 +1510,63 @@ void dailyreward::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void dailyreward::MergeFrom(const dailyreward& from) {
+void E_DailyReward::MergeFrom(const E_DailyReward& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_activescore()) {
-      set_activescore(from.activescore());
+    if (from.has_m_activescore()) {
+      set_m_activescore(from.m_activescore());
     }
-    if (from.has_rewardid()) {
-      set_rewardid(from.rewardid());
+    if (from.has_m_rewardid()) {
+      set_m_rewardid(from.m_rewardid());
     }
-    if (from.has_rewardnum()) {
-      set_rewardnum(from.rewardnum());
+    if (from.has_m_rewardnum()) {
+      set_m_rewardnum(from.m_rewardnum());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void dailyreward::CopyFrom(const ::google::protobuf::Message& from) {
+void E_DailyReward::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void dailyreward::CopyFrom(const dailyreward& from) {
+void E_DailyReward::CopyFrom(const E_DailyReward& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool dailyreward::IsInitialized() const {
+bool E_DailyReward::IsInitialized() const {
 
   return true;
 }
 
-void dailyreward::Swap(dailyreward* other) {
+void E_DailyReward::Swap(E_DailyReward* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(type_, other->type_);
-    std::swap(activescore_, other->activescore_);
-    std::swap(rewardid_, other->rewardid_);
-    std::swap(rewardnum_, other->rewardnum_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_activescore_, other->m_activescore_);
+    std::swap(m_rewardid_, other->m_rewardid_);
+    std::swap(m_rewardnum_, other->m_rewardnum_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata dailyreward::GetMetadata() const {
+::google::protobuf::Metadata E_DailyReward::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = dailyreward_descriptor_;
-  metadata.reflection = dailyreward_reflection_;
+  metadata.descriptor = E_DailyReward_descriptor_;
+  metadata.reflection = E_DailyReward_reflection_;
   return metadata;
 }
 
@@ -1572,81 +1574,81 @@ void dailyreward::Swap(dailyreward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_dailyreward::kDailyrewardListFieldNumber;
+const int Sheet_DailyReward::kEDailyRewardListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_dailyreward::Sheet_dailyreward()
+Sheet_DailyReward::Sheet_DailyReward()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_dailyreward::InitAsDefaultInstance() {
+void Sheet_DailyReward::InitAsDefaultInstance() {
 }
 
-Sheet_dailyreward::Sheet_dailyreward(const Sheet_dailyreward& from)
+Sheet_DailyReward::Sheet_DailyReward(const Sheet_DailyReward& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_dailyreward::SharedCtor() {
+void Sheet_DailyReward::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_dailyreward::~Sheet_dailyreward() {
+Sheet_DailyReward::~Sheet_DailyReward() {
   SharedDtor();
 }
 
-void Sheet_dailyreward::SharedDtor() {
+void Sheet_DailyReward::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_dailyreward::SetCachedSize(int size) const {
+void Sheet_DailyReward::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_dailyreward::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_DailyReward::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_dailyreward_descriptor_;
+  return Sheet_DailyReward_descriptor_;
 }
 
-const Sheet_dailyreward& Sheet_dailyreward::default_instance() {
+const Sheet_DailyReward& Sheet_DailyReward::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-Sheet_dailyreward* Sheet_dailyreward::default_instance_ = NULL;
+Sheet_DailyReward* Sheet_DailyReward::default_instance_ = NULL;
 
-Sheet_dailyreward* Sheet_dailyreward::New() const {
-  return new Sheet_dailyreward;
+Sheet_DailyReward* Sheet_DailyReward::New() const {
+  return new Sheet_DailyReward;
 }
 
-void Sheet_dailyreward::Clear() {
-  dailyreward_list_.Clear();
+void Sheet_DailyReward::Clear() {
+  e_dailyreward_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_dailyreward::MergePartialFromCodedStream(
+bool Sheet_DailyReward::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.dailyreward dailyreward_List = 1;
+      // repeated .proto_ff.E_DailyReward E_DailyReward_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_dailyreward_List:
+         parse_E_DailyReward_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_dailyreward_list()));
+                input, add_e_dailyreward_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_dailyreward_List;
+        if (input->ExpectTag(10)) goto parse_E_DailyReward_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1667,12 +1669,12 @@ bool Sheet_dailyreward::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_dailyreward::SerializeWithCachedSizes(
+void Sheet_DailyReward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.dailyreward dailyreward_List = 1;
-  for (int i = 0; i < this->dailyreward_list_size(); i++) {
+  // repeated .proto_ff.E_DailyReward E_DailyReward_List = 1;
+  for (int i = 0; i < this->e_dailyreward_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->dailyreward_list(i), output);
+      1, this->e_dailyreward_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1681,13 +1683,13 @@ void Sheet_dailyreward::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_dailyreward::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_DailyReward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.dailyreward dailyreward_List = 1;
-  for (int i = 0; i < this->dailyreward_list_size(); i++) {
+  // repeated .proto_ff.E_DailyReward E_DailyReward_List = 1;
+  for (int i = 0; i < this->e_dailyreward_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->dailyreward_list(i), target);
+        1, this->e_dailyreward_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1697,15 +1699,15 @@ void Sheet_dailyreward::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_dailyreward::ByteSize() const {
+int Sheet_DailyReward::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.dailyreward dailyreward_List = 1;
-  total_size += 1 * this->dailyreward_list_size();
-  for (int i = 0; i < this->dailyreward_list_size(); i++) {
+  // repeated .proto_ff.E_DailyReward E_DailyReward_List = 1;
+  total_size += 1 * this->e_dailyreward_list_size();
+  for (int i = 0; i < this->e_dailyreward_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->dailyreward_list(i));
+        this->e_dailyreward_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1719,10 +1721,10 @@ int Sheet_dailyreward::ByteSize() const {
   return total_size;
 }
 
-void Sheet_dailyreward::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_DailyReward::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_dailyreward* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_dailyreward*>(
+  const Sheet_DailyReward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_DailyReward*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1731,43 +1733,43 @@ void Sheet_dailyreward::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_dailyreward::MergeFrom(const Sheet_dailyreward& from) {
+void Sheet_DailyReward::MergeFrom(const Sheet_DailyReward& from) {
   GOOGLE_CHECK_NE(&from, this);
-  dailyreward_list_.MergeFrom(from.dailyreward_list_);
+  e_dailyreward_list_.MergeFrom(from.e_dailyreward_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_dailyreward::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_DailyReward::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_dailyreward::CopyFrom(const Sheet_dailyreward& from) {
+void Sheet_DailyReward::CopyFrom(const Sheet_DailyReward& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_dailyreward::IsInitialized() const {
+bool Sheet_DailyReward::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_dailyreward::Swap(Sheet_dailyreward* other) {
+void Sheet_DailyReward::Swap(Sheet_DailyReward* other) {
   if (other != this) {
-    dailyreward_list_.Swap(&other->dailyreward_list_);
+    e_dailyreward_list_.Swap(&other->e_dailyreward_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_dailyreward::GetMetadata() const {
+::google::protobuf::Metadata Sheet_DailyReward::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_dailyreward_descriptor_;
-  metadata.reflection = Sheet_dailyreward_reflection_;
+  metadata.descriptor = Sheet_DailyReward_descriptor_;
+  metadata.reflection = Sheet_DailyReward_reflection_;
   return metadata;
 }
 
@@ -1775,100 +1777,100 @@ void Sheet_dailyreward::Swap(Sheet_dailyreward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int dailycultivateattributeDesc::kIDFieldNumber;
-const int dailycultivateattributeDesc::kValueFieldNumber;
+const int E_DailyCultivateAttributeDesc::kMIdFieldNumber;
+const int E_DailyCultivateAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-dailycultivateattributeDesc::dailycultivateattributeDesc()
+E_DailyCultivateAttributeDesc::E_DailyCultivateAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void dailycultivateattributeDesc::InitAsDefaultInstance() {
+void E_DailyCultivateAttributeDesc::InitAsDefaultInstance() {
 }
 
-dailycultivateattributeDesc::dailycultivateattributeDesc(const dailycultivateattributeDesc& from)
+E_DailyCultivateAttributeDesc::E_DailyCultivateAttributeDesc(const E_DailyCultivateAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void dailycultivateattributeDesc::SharedCtor() {
+void E_DailyCultivateAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  value_ = 0;
+  m_id_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-dailycultivateattributeDesc::~dailycultivateattributeDesc() {
+E_DailyCultivateAttributeDesc::~E_DailyCultivateAttributeDesc() {
   SharedDtor();
 }
 
-void dailycultivateattributeDesc::SharedDtor() {
+void E_DailyCultivateAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void dailycultivateattributeDesc::SetCachedSize(int size) const {
+void E_DailyCultivateAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* dailycultivateattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_DailyCultivateAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return dailycultivateattributeDesc_descriptor_;
+  return E_DailyCultivateAttributeDesc_descriptor_;
 }
 
-const dailycultivateattributeDesc& dailycultivateattributeDesc::default_instance() {
+const E_DailyCultivateAttributeDesc& E_DailyCultivateAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-dailycultivateattributeDesc* dailycultivateattributeDesc::default_instance_ = NULL;
+E_DailyCultivateAttributeDesc* E_DailyCultivateAttributeDesc::default_instance_ = NULL;
 
-dailycultivateattributeDesc* dailycultivateattributeDesc::New() const {
-  return new dailycultivateattributeDesc;
+E_DailyCultivateAttributeDesc* E_DailyCultivateAttributeDesc::New() const {
+  return new E_DailyCultivateAttributeDesc;
 }
 
-void dailycultivateattributeDesc::Clear() {
+void E_DailyCultivateAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    value_ = 0;
+    m_id_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool dailycultivateattributeDesc::MergePartialFromCodedStream(
+bool E_DailyCultivateAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 ID = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 Value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -1892,16 +1894,16 @@ bool dailycultivateattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void dailycultivateattributeDesc::SerializeWithCachedSizes(
+void E_DailyCultivateAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1910,16 +1912,16 @@ void dailycultivateattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* dailycultivateattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_DailyCultivateAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 Value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1929,22 +1931,22 @@ void dailycultivateattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int dailycultivateattributeDesc::ByteSize() const {
+int E_DailyCultivateAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 ID = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 Value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -1959,10 +1961,10 @@ int dailycultivateattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void dailycultivateattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_DailyCultivateAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const dailycultivateattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const dailycultivateattributeDesc*>(
+  const E_DailyCultivateAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_DailyCultivateAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1971,51 +1973,51 @@ void dailycultivateattributeDesc::MergeFrom(const ::google::protobuf::Message& f
   }
 }
 
-void dailycultivateattributeDesc::MergeFrom(const dailycultivateattributeDesc& from) {
+void E_DailyCultivateAttributeDesc::MergeFrom(const E_DailyCultivateAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void dailycultivateattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_DailyCultivateAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void dailycultivateattributeDesc::CopyFrom(const dailycultivateattributeDesc& from) {
+void E_DailyCultivateAttributeDesc::CopyFrom(const E_DailyCultivateAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool dailycultivateattributeDesc::IsInitialized() const {
+bool E_DailyCultivateAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void dailycultivateattributeDesc::Swap(dailycultivateattributeDesc* other) {
+void E_DailyCultivateAttributeDesc::Swap(E_DailyCultivateAttributeDesc* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(value_, other->value_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata dailycultivateattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_DailyCultivateAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = dailycultivateattributeDesc_descriptor_;
-  metadata.reflection = dailycultivateattributeDesc_reflection_;
+  metadata.descriptor = E_DailyCultivateAttributeDesc_descriptor_;
+  metadata.reflection = E_DailyCultivateAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -2023,139 +2025,139 @@ void dailycultivateattributeDesc::Swap(dailycultivateattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int dailycultivate::kIDFieldNumber;
-const int dailycultivate::kLvFieldNumber;
-const int dailycultivate::kExpFieldNumber;
-const int dailycultivate::kAttributeFieldNumber;
+const int E_DailyCultivate::kMIdFieldNumber;
+const int E_DailyCultivate::kMLvFieldNumber;
+const int E_DailyCultivate::kMExpFieldNumber;
+const int E_DailyCultivate::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-dailycultivate::dailycultivate()
+E_DailyCultivate::E_DailyCultivate()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void dailycultivate::InitAsDefaultInstance() {
+void E_DailyCultivate::InitAsDefaultInstance() {
 }
 
-dailycultivate::dailycultivate(const dailycultivate& from)
+E_DailyCultivate::E_DailyCultivate(const E_DailyCultivate& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void dailycultivate::SharedCtor() {
+void E_DailyCultivate::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  lv_ = 0;
-  exp_ = 0;
+  m_id_ = 0;
+  m_lv_ = 0;
+  m_exp_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-dailycultivate::~dailycultivate() {
+E_DailyCultivate::~E_DailyCultivate() {
   SharedDtor();
 }
 
-void dailycultivate::SharedDtor() {
+void E_DailyCultivate::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void dailycultivate::SetCachedSize(int size) const {
+void E_DailyCultivate::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* dailycultivate::descriptor() {
+const ::google::protobuf::Descriptor* E_DailyCultivate::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return dailycultivate_descriptor_;
+  return E_DailyCultivate_descriptor_;
 }
 
-const dailycultivate& dailycultivate::default_instance() {
+const E_DailyCultivate& E_DailyCultivate::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-dailycultivate* dailycultivate::default_instance_ = NULL;
+E_DailyCultivate* E_DailyCultivate::default_instance_ = NULL;
 
-dailycultivate* dailycultivate::New() const {
-  return new dailycultivate;
+E_DailyCultivate* E_DailyCultivate::New() const {
+  return new E_DailyCultivate;
 }
 
-void dailycultivate::Clear() {
+void E_DailyCultivate::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    lv_ = 0;
-    exp_ = 0;
+    m_id_ = 0;
+    m_lv_ = 0;
+    m_exp_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool dailycultivate::MergePartialFromCodedStream(
+bool E_DailyCultivate::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 ID = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_lv;
+        if (input->ExpectTag(16)) goto parse_m_lv;
         break;
       }
 
-      // optional int32 lv = 2;
+      // optional int32 m_lv = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_lv:
+         parse_m_lv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_exp;
+        if (input->ExpectTag(24)) goto parse_m_exp;
         break;
       }
 
-      // optional int32 exp = 3;
+      // optional int32 m_exp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_exp:
+         parse_m_exp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &exp_)));
-          set_has_exp();
+                 input, &m_exp_)));
+          set_has_m_exp();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_attribute;
+        if (input->ExpectTag(34)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.dailycultivateattributeDesc attribute = 4;
+      // repeated .proto_ff.E_DailyCultivateAttributeDesc m_attribute = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_attribute;
+        if (input->ExpectTag(34)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2176,27 +2178,27 @@ bool dailycultivate::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void dailycultivate::SerializeWithCachedSizes(
+void E_DailyCultivate::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 lv = 2;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->lv(), output);
+  // optional int32 m_lv = 2;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lv(), output);
   }
 
-  // optional int32 exp = 3;
-  if (has_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->exp(), output);
+  // optional int32 m_exp = 3;
+  if (has_m_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_exp(), output);
   }
 
-  // repeated .proto_ff.dailycultivateattributeDesc attribute = 4;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_DailyCultivateAttributeDesc m_attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->attribute(i), output);
+      4, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2205,28 +2207,28 @@ void dailycultivate::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* dailycultivate::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_DailyCultivate::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 ID = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 lv = 2;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->lv(), target);
+  // optional int32 m_lv = 2;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lv(), target);
   }
 
-  // optional int32 exp = 3;
-  if (has_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->exp(), target);
+  // optional int32 m_exp = 3;
+  if (has_m_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_exp(), target);
   }
 
-  // repeated .proto_ff.dailycultivateattributeDesc attribute = 4;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_DailyCultivateAttributeDesc m_attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->attribute(i), target);
+        4, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2236,38 +2238,38 @@ void dailycultivate::SerializeWithCachedSizes(
   return target;
 }
 
-int dailycultivate::ByteSize() const {
+int E_DailyCultivate::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 ID = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 lv = 2;
-    if (has_lv()) {
+    // optional int32 m_lv = 2;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 exp = 3;
-    if (has_exp()) {
+    // optional int32 m_exp = 3;
+    if (has_m_exp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->exp());
+          this->m_exp());
     }
 
   }
-  // repeated .proto_ff.dailycultivateattributeDesc attribute = 4;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_DailyCultivateAttributeDesc m_attribute = 4;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2281,10 +2283,10 @@ int dailycultivate::ByteSize() const {
   return total_size;
 }
 
-void dailycultivate::MergeFrom(const ::google::protobuf::Message& from) {
+void E_DailyCultivate::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const dailycultivate* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const dailycultivate*>(
+  const E_DailyCultivate* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_DailyCultivate*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2293,57 +2295,57 @@ void dailycultivate::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void dailycultivate::MergeFrom(const dailycultivate& from) {
+void E_DailyCultivate::MergeFrom(const E_DailyCultivate& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_exp()) {
-      set_exp(from.exp());
+    if (from.has_m_exp()) {
+      set_m_exp(from.m_exp());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void dailycultivate::CopyFrom(const ::google::protobuf::Message& from) {
+void E_DailyCultivate::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void dailycultivate::CopyFrom(const dailycultivate& from) {
+void E_DailyCultivate::CopyFrom(const E_DailyCultivate& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool dailycultivate::IsInitialized() const {
+bool E_DailyCultivate::IsInitialized() const {
 
   return true;
 }
 
-void dailycultivate::Swap(dailycultivate* other) {
+void E_DailyCultivate::Swap(E_DailyCultivate* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(lv_, other->lv_);
-    std::swap(exp_, other->exp_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_exp_, other->m_exp_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata dailycultivate::GetMetadata() const {
+::google::protobuf::Metadata E_DailyCultivate::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = dailycultivate_descriptor_;
-  metadata.reflection = dailycultivate_reflection_;
+  metadata.descriptor = E_DailyCultivate_descriptor_;
+  metadata.reflection = E_DailyCultivate_reflection_;
   return metadata;
 }
 
@@ -2351,81 +2353,81 @@ void dailycultivate::Swap(dailycultivate* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_dailycultivate::kDailycultivateListFieldNumber;
+const int Sheet_DailyCultivate::kEDailyCultivateListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_dailycultivate::Sheet_dailycultivate()
+Sheet_DailyCultivate::Sheet_DailyCultivate()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_dailycultivate::InitAsDefaultInstance() {
+void Sheet_DailyCultivate::InitAsDefaultInstance() {
 }
 
-Sheet_dailycultivate::Sheet_dailycultivate(const Sheet_dailycultivate& from)
+Sheet_DailyCultivate::Sheet_DailyCultivate(const Sheet_DailyCultivate& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_dailycultivate::SharedCtor() {
+void Sheet_DailyCultivate::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_dailycultivate::~Sheet_dailycultivate() {
+Sheet_DailyCultivate::~Sheet_DailyCultivate() {
   SharedDtor();
 }
 
-void Sheet_dailycultivate::SharedDtor() {
+void Sheet_DailyCultivate::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_dailycultivate::SetCachedSize(int size) const {
+void Sheet_DailyCultivate::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_dailycultivate::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_DailyCultivate::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_dailycultivate_descriptor_;
+  return Sheet_DailyCultivate_descriptor_;
 }
 
-const Sheet_dailycultivate& Sheet_dailycultivate::default_instance() {
+const Sheet_DailyCultivate& Sheet_DailyCultivate::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
   return *default_instance_;
 }
 
-Sheet_dailycultivate* Sheet_dailycultivate::default_instance_ = NULL;
+Sheet_DailyCultivate* Sheet_DailyCultivate::default_instance_ = NULL;
 
-Sheet_dailycultivate* Sheet_dailycultivate::New() const {
-  return new Sheet_dailycultivate;
+Sheet_DailyCultivate* Sheet_DailyCultivate::New() const {
+  return new Sheet_DailyCultivate;
 }
 
-void Sheet_dailycultivate::Clear() {
-  dailycultivate_list_.Clear();
+void Sheet_DailyCultivate::Clear() {
+  e_dailycultivate_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_dailycultivate::MergePartialFromCodedStream(
+bool Sheet_DailyCultivate::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.dailycultivate dailycultivate_List = 1;
+      // repeated .proto_ff.E_DailyCultivate E_DailyCultivate_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_dailycultivate_List:
+         parse_E_DailyCultivate_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_dailycultivate_list()));
+                input, add_e_dailycultivate_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_dailycultivate_List;
+        if (input->ExpectTag(10)) goto parse_E_DailyCultivate_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2446,12 +2448,12 @@ bool Sheet_dailycultivate::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_dailycultivate::SerializeWithCachedSizes(
+void Sheet_DailyCultivate::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.dailycultivate dailycultivate_List = 1;
-  for (int i = 0; i < this->dailycultivate_list_size(); i++) {
+  // repeated .proto_ff.E_DailyCultivate E_DailyCultivate_List = 1;
+  for (int i = 0; i < this->e_dailycultivate_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->dailycultivate_list(i), output);
+      1, this->e_dailycultivate_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2460,13 +2462,13 @@ void Sheet_dailycultivate::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_dailycultivate::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_DailyCultivate::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.dailycultivate dailycultivate_List = 1;
-  for (int i = 0; i < this->dailycultivate_list_size(); i++) {
+  // repeated .proto_ff.E_DailyCultivate E_DailyCultivate_List = 1;
+  for (int i = 0; i < this->e_dailycultivate_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->dailycultivate_list(i), target);
+        1, this->e_dailycultivate_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2476,15 +2478,15 @@ void Sheet_dailycultivate::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_dailycultivate::ByteSize() const {
+int Sheet_DailyCultivate::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.dailycultivate dailycultivate_List = 1;
-  total_size += 1 * this->dailycultivate_list_size();
-  for (int i = 0; i < this->dailycultivate_list_size(); i++) {
+  // repeated .proto_ff.E_DailyCultivate E_DailyCultivate_List = 1;
+  total_size += 1 * this->e_dailycultivate_list_size();
+  for (int i = 0; i < this->e_dailycultivate_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->dailycultivate_list(i));
+        this->e_dailycultivate_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -2498,10 +2500,10 @@ int Sheet_dailycultivate::ByteSize() const {
   return total_size;
 }
 
-void Sheet_dailycultivate::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_DailyCultivate::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_dailycultivate* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_dailycultivate*>(
+  const Sheet_DailyCultivate* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_DailyCultivate*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -2510,43 +2512,43 @@ void Sheet_dailycultivate::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_dailycultivate::MergeFrom(const Sheet_dailycultivate& from) {
+void Sheet_DailyCultivate::MergeFrom(const Sheet_DailyCultivate& from) {
   GOOGLE_CHECK_NE(&from, this);
-  dailycultivate_list_.MergeFrom(from.dailycultivate_list_);
+  e_dailycultivate_list_.MergeFrom(from.e_dailycultivate_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_dailycultivate::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_DailyCultivate::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_dailycultivate::CopyFrom(const Sheet_dailycultivate& from) {
+void Sheet_DailyCultivate::CopyFrom(const Sheet_DailyCultivate& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_dailycultivate::IsInitialized() const {
+bool Sheet_DailyCultivate::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_dailycultivate::Swap(Sheet_dailycultivate* other) {
+void Sheet_DailyCultivate::Swap(Sheet_DailyCultivate* other) {
   if (other != this) {
-    dailycultivate_list_.Swap(&other->dailycultivate_list_);
+    e_dailycultivate_list_.Swap(&other->e_dailycultivate_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_dailycultivate::GetMetadata() const {
+::google::protobuf::Metadata Sheet_DailyCultivate::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_dailycultivate_descriptor_;
-  metadata.reflection = Sheet_dailycultivate_reflection_;
+  metadata.descriptor = Sheet_DailyCultivate_descriptor_;
+  metadata.reflection = Sheet_DailyCultivate_reflection_;
   return metadata;
 }
 

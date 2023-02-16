@@ -14,9 +14,9 @@ public:
 	virtual ~AiAiDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::aiai_s* GetDesc(int id) const;
-	proto_ff_s::aiai_s* GetDesc(int id);
+	const proto_ff_s::E_AiAi_s* GetDesc(int id) const;
+	proto_ff_s::E_AiAi_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::aiai_s, aiai, MAX_AI_AI_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_AiAi_s, aiai, MAX_AI_AI_NUM);
 DECLARE_IDCREATE(AiAiDesc);
 };

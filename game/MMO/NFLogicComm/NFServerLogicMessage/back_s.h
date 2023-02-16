@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "back.pb.h"
@@ -10,49 +10,49 @@
 
 namespace proto_ff_s {
 
-	struct backback_s : public NFDescStoreSeqOP {
-		backback_s();
-		virtual ~backback_s(){}
+	struct E_BackBack_s : public NFDescStoreSeqOP {
+		E_BackBack_s();
+		virtual ~E_BackBack_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t id;
-		int32_t type;
-		int32_t typeParam;
-		NFShmString<60> name;
-		int32_t group;
-		int32_t functionUnlock;
-		int32_t levelLimit;
-		int64_t PboxId;
-		int64_t boxId;
-		int32_t backDay;
-		int32_t costItemID;
-		int32_t costNum;
-		int32_t PcostItemID;
-		int32_t PcostNum;
-		int32_t AcostItemID;
-		int32_t AcostNum;
-		NFArray<int32_t, 2> param;
+		int32_t m_id;
+		int32_t m_type;
+		int32_t m_typeparam;
+		NFShmString<60> m_name;
+		int32_t m_group;
+		int32_t m_functionunlock;
+		int32_t m_levellimit;
+		int64_t m_pboxid;
+		int64_t m_boxid;
+		int32_t m_backday;
+		int32_t m_costitemid;
+		int32_t m_costnum;
+		int32_t m_pcostitemid;
+		int32_t m_pcostnum;
+		int32_t m_acostitemid;
+		int32_t m_acostnum;
+		NFShmVector<int32_t, 2> m_param;
 
-		virtual void write_to_pbmsg(::proto_ff::backback & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::backback & msg);
-		static ::proto_ff::backback* new_pbmsg(){ return new ::proto_ff::backback(); }
-		static ::proto_ff::backback make_pbmsg(){ return ::proto_ff::backback(); }
+		virtual void write_to_pbmsg(::proto_ff::E_BackBack & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BackBack & msg);
+		static ::proto_ff::E_BackBack* new_pbmsg(){ return new ::proto_ff::E_BackBack(); }
+		static ::proto_ff::E_BackBack make_pbmsg(){ return ::proto_ff::E_BackBack(); }
 	};
-	typedef struct backback_s backback_t;
+	typedef struct E_BackBack_s E_BackBack_t;
 
-	struct Sheet_backback_s : public NFDescStoreSeqOP {
-		Sheet_backback_s();
-		virtual ~Sheet_backback_s(){}
+	struct Sheet_BackBack_s : public NFDescStoreSeqOP {
+		Sheet_BackBack_s();
+		virtual ~Sheet_BackBack_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct backback_s, 20> backback_List;
+		NFShmVector<struct E_BackBack_s, 20> E_BackBack_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_backback & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_backback & msg);
-		static ::proto_ff::Sheet_backback* new_pbmsg(){ return new ::proto_ff::Sheet_backback(); }
-		static ::proto_ff::Sheet_backback make_pbmsg(){ return ::proto_ff::Sheet_backback(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BackBack & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BackBack & msg);
+		static ::proto_ff::Sheet_BackBack* new_pbmsg(){ return new ::proto_ff::Sheet_BackBack(); }
+		static ::proto_ff::Sheet_BackBack make_pbmsg(){ return ::proto_ff::Sheet_BackBack(); }
 	};
-	typedef struct Sheet_backback_s Sheet_backback_t;
+	typedef struct Sheet_BackBack_s Sheet_BackBack_t;
 
 }
 

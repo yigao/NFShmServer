@@ -14,9 +14,9 @@ public:
 	virtual ~DupBplevelDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::dupBPlevel_s* GetDesc(int id) const;
-	proto_ff_s::dupBPlevel_s* GetDesc(int id);
+	const proto_ff_s::E_DupBplevel_s* GetDesc(int id) const;
+	proto_ff_s::E_DupBplevel_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::dupBPlevel_s, dupBPlevel, MAX_DUP_BPLEVEL_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_DupBplevel_s, dupBPlevel, MAX_DUP_BPLEVEL_NUM);
 DECLARE_IDCREATE(DupBplevelDesc);
 };

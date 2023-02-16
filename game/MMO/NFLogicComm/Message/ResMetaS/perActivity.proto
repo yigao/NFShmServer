@@ -3,37 +3,37 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message perActivityperActivity
+message E_PeractivityPeractivity
 {
-	optional int64 activeId = 1[(yd_fieldoptions.field_cname) = "活动ID"];
-	optional string activeName = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 typeId = 3[(yd_fieldoptions.field_cname) = "类型ID"];
-	optional int32 functionID = 4[(yd_fieldoptions.field_cname) = "功能开放ID"];
-	optional string opeDay = 5[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 60];
-	optional string closeDay = 6[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 serverdelayTime = 7[(yd_fieldoptions.field_cname) = "开服后多少天活动开启"];
-	optional int32 serverTime = 8[(yd_fieldoptions.field_cname) = "开服后多少活动结束"];
-	optional int32 openingTime = 9[(yd_fieldoptions.field_cname) = "开启时长"];
-	optional int32 advanceTime = 10[(yd_fieldoptions.field_cname) = "提前广播时间"];
-	optional int32 intervalTime = 11[(yd_fieldoptions.field_cname) = "广播间隔"];
-	optional int32 isCross = 12[(yd_fieldoptions.field_cname) = "是否跨服"];
+	optional int64 m_activeid = 1[(yd_fieldoptions.field_cname) = "活动ID"];
+	optional string m_activename = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_typeid = 3[(yd_fieldoptions.field_cname) = "类型ID"];
+	optional int32 m_functionid = 4[(yd_fieldoptions.field_cname) = "功能开放ID"];
+	optional string m_opeday = 5[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_closeday = 6[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_serverdelaytime = 7[(yd_fieldoptions.field_cname) = "开服后多少天活动开启"];
+	optional int32 m_servertime = 8[(yd_fieldoptions.field_cname) = "开服后多少活动结束"];
+	optional int32 m_openingtime = 9[(yd_fieldoptions.field_cname) = "开启时长"];
+	optional int32 m_advancetime = 10[(yd_fieldoptions.field_cname) = "提前广播时间"];
+	optional int32 m_intervaltime = 11[(yd_fieldoptions.field_cname) = "广播间隔"];
+	optional int32 m_iscross = 12[(yd_fieldoptions.field_cname) = "是否跨服"];
 }
 
 
-message Sheet_perActivityperActivity
+message Sheet_PeractivityPeractivity
 {
-	repeated perActivityperActivity perActivityperActivity_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_PeractivityPeractivity E_PeractivityPeractivity_List = 1[(yd_fieldoptions.field_arysize)=20];
 }
 
-message perActivityweek
+message E_PeractivityWeek
 {
-	optional int32 id = 1[(yd_fieldoptions.field_cname) = "序号"];
-	optional string time = 2[(yd_fieldoptions.field_cname) = "时间", (yd_fieldoptions.field_bufsize) = 60];
-	repeated string week = 3[(yd_fieldoptions.field_cname) = "周", (yd_fieldoptions.field_arysize) = 7, (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_time = 2[(yd_fieldoptions.field_cname) = "时间", (yd_fieldoptions.field_bufsize) = 60];
+	repeated string m_week = 3[(yd_fieldoptions.field_cname) = "周", (yd_fieldoptions.field_arysize) = 7, (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
-message Sheet_perActivityweek
+message Sheet_PeractivityWeek
 {
-	repeated perActivityweek perActivityweek_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_PeractivityWeek E_PeractivityWeek_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

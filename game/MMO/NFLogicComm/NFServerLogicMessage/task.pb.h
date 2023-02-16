@@ -34,19 +34,19 @@ void  protobuf_AddDesc_task_2eproto();
 void protobuf_AssignDesc_task_2eproto();
 void protobuf_ShutdownFile_task_2eproto();
 
-class tasktask;
-class Sheet_tasktask;
+class E_TaskTask;
+class Sheet_TaskTask;
 
 // ===================================================================
 
-class tasktask : public ::google::protobuf::Message {
+class E_TaskTask : public ::google::protobuf::Message {
  public:
-  tasktask();
-  virtual ~tasktask();
+  E_TaskTask();
+  virtual ~E_TaskTask();
 
-  tasktask(const tasktask& from);
+  E_TaskTask(const E_TaskTask& from);
 
-  inline tasktask& operator=(const tasktask& from) {
+  inline E_TaskTask& operator=(const E_TaskTask& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class tasktask : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const tasktask& default_instance();
+  static const E_TaskTask& default_instance();
 
-  void Swap(tasktask* other);
+  void Swap(E_TaskTask* other);
 
   // implements Message ----------------------------------------------
 
-  tasktask* New() const;
+  E_TaskTask* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const tasktask& from);
-  void MergeFrom(const tasktask& from);
+  void CopyFrom(const E_TaskTask& from);
+  void MergeFrom(const E_TaskTask& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,228 +93,228 @@ class tasktask : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 minlv = 2;
-  inline bool has_minlv() const;
-  inline void clear_minlv();
-  static const int kMinlvFieldNumber = 2;
-  inline ::google::protobuf::int32 minlv() const;
-  inline void set_minlv(::google::protobuf::int32 value);
+  // optional int32 m_minlv = 2;
+  inline bool has_m_minlv() const;
+  inline void clear_m_minlv();
+  static const int kMMinlvFieldNumber = 2;
+  inline ::google::protobuf::int32 m_minlv() const;
+  inline void set_m_minlv(::google::protobuf::int32 value);
 
-  // optional int32 truelv = 3;
-  inline bool has_truelv() const;
-  inline void clear_truelv();
-  static const int kTruelvFieldNumber = 3;
-  inline ::google::protobuf::int32 truelv() const;
-  inline void set_truelv(::google::protobuf::int32 value);
+  // optional int32 m_truelv = 3;
+  inline bool has_m_truelv() const;
+  inline void clear_m_truelv();
+  static const int kMTruelvFieldNumber = 3;
+  inline ::google::protobuf::int32 m_truelv() const;
+  inline void set_m_truelv(::google::protobuf::int32 value);
 
-  // optional int32 type = 4;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 4;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 4;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 4;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional string showtype = 5;
-  inline bool has_showtype() const;
-  inline void clear_showtype();
-  static const int kShowtypeFieldNumber = 5;
-  inline const ::std::string& showtype() const;
-  inline void set_showtype(const ::std::string& value);
-  inline void set_showtype(const char* value);
-  inline void set_showtype(const char* value, size_t size);
-  inline ::std::string* mutable_showtype();
-  inline ::std::string* release_showtype();
-  inline void set_allocated_showtype(::std::string* showtype);
+  // optional string m_showtype = 5;
+  inline bool has_m_showtype() const;
+  inline void clear_m_showtype();
+  static const int kMShowtypeFieldNumber = 5;
+  inline const ::std::string& m_showtype() const;
+  inline void set_m_showtype(const ::std::string& value);
+  inline void set_m_showtype(const char* value);
+  inline void set_m_showtype(const char* value, size_t size);
+  inline ::std::string* mutable_m_showtype();
+  inline ::std::string* release_m_showtype();
+  inline void set_allocated_m_showtype(::std::string* m_showtype);
 
-  // optional int32 weights = 6;
-  inline bool has_weights() const;
-  inline void clear_weights();
-  static const int kWeightsFieldNumber = 6;
-  inline ::google::protobuf::int32 weights() const;
-  inline void set_weights(::google::protobuf::int32 value);
+  // optional int32 m_weights = 6;
+  inline bool has_m_weights() const;
+  inline void clear_m_weights();
+  static const int kMWeightsFieldNumber = 6;
+  inline ::google::protobuf::int32 m_weights() const;
+  inline void set_m_weights(::google::protobuf::int32 value);
 
-  // optional string name = 7;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 7;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 7;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 7;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string rececond = 8;
-  inline bool has_rececond() const;
-  inline void clear_rececond();
-  static const int kRececondFieldNumber = 8;
-  inline const ::std::string& rececond() const;
-  inline void set_rececond(const ::std::string& value);
-  inline void set_rececond(const char* value);
-  inline void set_rececond(const char* value, size_t size);
-  inline ::std::string* mutable_rececond();
-  inline ::std::string* release_rececond();
-  inline void set_allocated_rececond(::std::string* rececond);
+  // optional string m_rececond = 8;
+  inline bool has_m_rececond() const;
+  inline void clear_m_rececond();
+  static const int kMRececondFieldNumber = 8;
+  inline const ::std::string& m_rececond() const;
+  inline void set_m_rececond(const ::std::string& value);
+  inline void set_m_rececond(const char* value);
+  inline void set_m_rececond(const char* value, size_t size);
+  inline ::std::string* mutable_m_rececond();
+  inline ::std::string* release_m_rececond();
+  inline void set_allocated_m_rececond(::std::string* m_rececond);
 
-  // optional string receadd = 9;
-  inline bool has_receadd() const;
-  inline void clear_receadd();
-  static const int kReceaddFieldNumber = 9;
-  inline const ::std::string& receadd() const;
-  inline void set_receadd(const ::std::string& value);
-  inline void set_receadd(const char* value);
-  inline void set_receadd(const char* value, size_t size);
-  inline ::std::string* mutable_receadd();
-  inline ::std::string* release_receadd();
-  inline void set_allocated_receadd(::std::string* receadd);
+  // optional string m_receadd = 9;
+  inline bool has_m_receadd() const;
+  inline void clear_m_receadd();
+  static const int kMReceaddFieldNumber = 9;
+  inline const ::std::string& m_receadd() const;
+  inline void set_m_receadd(const ::std::string& value);
+  inline void set_m_receadd(const char* value);
+  inline void set_m_receadd(const char* value, size_t size);
+  inline ::std::string* mutable_m_receadd();
+  inline ::std::string* release_m_receadd();
+  inline void set_allocated_m_receadd(::std::string* m_receadd);
 
-  // optional string comcond = 10;
-  inline bool has_comcond() const;
-  inline void clear_comcond();
-  static const int kComcondFieldNumber = 10;
-  inline const ::std::string& comcond() const;
-  inline void set_comcond(const ::std::string& value);
-  inline void set_comcond(const char* value);
-  inline void set_comcond(const char* value, size_t size);
-  inline ::std::string* mutable_comcond();
-  inline ::std::string* release_comcond();
-  inline void set_allocated_comcond(::std::string* comcond);
+  // optional string m_comcond = 10;
+  inline bool has_m_comcond() const;
+  inline void clear_m_comcond();
+  static const int kMComcondFieldNumber = 10;
+  inline const ::std::string& m_comcond() const;
+  inline void set_m_comcond(const ::std::string& value);
+  inline void set_m_comcond(const char* value);
+  inline void set_m_comcond(const char* value, size_t size);
+  inline ::std::string* mutable_m_comcond();
+  inline ::std::string* release_m_comcond();
+  inline void set_allocated_m_comcond(::std::string* m_comcond);
 
-  // optional int32 nexttask = 11;
-  inline bool has_nexttask() const;
-  inline void clear_nexttask();
-  static const int kNexttaskFieldNumber = 11;
-  inline ::google::protobuf::int32 nexttask() const;
-  inline void set_nexttask(::google::protobuf::int32 value);
+  // optional int32 m_nexttask = 11;
+  inline bool has_m_nexttask() const;
+  inline void clear_m_nexttask();
+  static const int kMNexttaskFieldNumber = 11;
+  inline ::google::protobuf::int32 m_nexttask() const;
+  inline void set_m_nexttask(::google::protobuf::int32 value);
 
-  // optional string tracker = 12;
-  inline bool has_tracker() const;
-  inline void clear_tracker();
-  static const int kTrackerFieldNumber = 12;
-  inline const ::std::string& tracker() const;
-  inline void set_tracker(const ::std::string& value);
-  inline void set_tracker(const char* value);
-  inline void set_tracker(const char* value, size_t size);
-  inline ::std::string* mutable_tracker();
-  inline ::std::string* release_tracker();
-  inline void set_allocated_tracker(::std::string* tracker);
+  // optional string m_tracker = 12;
+  inline bool has_m_tracker() const;
+  inline void clear_m_tracker();
+  static const int kMTrackerFieldNumber = 12;
+  inline const ::std::string& m_tracker() const;
+  inline void set_m_tracker(const ::std::string& value);
+  inline void set_m_tracker(const char* value);
+  inline void set_m_tracker(const char* value, size_t size);
+  inline ::std::string* mutable_m_tracker();
+  inline ::std::string* release_m_tracker();
+  inline void set_allocated_m_tracker(::std::string* m_tracker);
 
-  // optional string subtype = 13;
-  inline bool has_subtype() const;
-  inline void clear_subtype();
-  static const int kSubtypeFieldNumber = 13;
-  inline const ::std::string& subtype() const;
-  inline void set_subtype(const ::std::string& value);
-  inline void set_subtype(const char* value);
-  inline void set_subtype(const char* value, size_t size);
-  inline ::std::string* mutable_subtype();
-  inline ::std::string* release_subtype();
-  inline void set_allocated_subtype(::std::string* subtype);
+  // optional string m_subtype = 13;
+  inline bool has_m_subtype() const;
+  inline void clear_m_subtype();
+  static const int kMSubtypeFieldNumber = 13;
+  inline const ::std::string& m_subtype() const;
+  inline void set_m_subtype(const ::std::string& value);
+  inline void set_m_subtype(const char* value);
+  inline void set_m_subtype(const char* value, size_t size);
+  inline ::std::string* mutable_m_subtype();
+  inline ::std::string* release_m_subtype();
+  inline void set_allocated_m_subtype(::std::string* m_subtype);
 
-  // optional int32 subnpc = 14;
-  inline bool has_subnpc() const;
-  inline void clear_subnpc();
-  static const int kSubnpcFieldNumber = 14;
-  inline ::google::protobuf::int32 subnpc() const;
-  inline void set_subnpc(::google::protobuf::int32 value);
+  // optional int32 m_subnpc = 14;
+  inline bool has_m_subnpc() const;
+  inline void clear_m_subnpc();
+  static const int kMSubnpcFieldNumber = 14;
+  inline ::google::protobuf::int32 m_subnpc() const;
+  inline void set_m_subnpc(::google::protobuf::int32 value);
 
-  // optional string subdesc = 15;
-  inline bool has_subdesc() const;
-  inline void clear_subdesc();
-  static const int kSubdescFieldNumber = 15;
-  inline const ::std::string& subdesc() const;
-  inline void set_subdesc(const ::std::string& value);
-  inline void set_subdesc(const char* value);
-  inline void set_subdesc(const char* value, size_t size);
-  inline ::std::string* mutable_subdesc();
-  inline ::std::string* release_subdesc();
-  inline void set_allocated_subdesc(::std::string* subdesc);
+  // optional string m_subdesc = 15;
+  inline bool has_m_subdesc() const;
+  inline void clear_m_subdesc();
+  static const int kMSubdescFieldNumber = 15;
+  inline const ::std::string& m_subdesc() const;
+  inline void set_m_subdesc(const ::std::string& value);
+  inline void set_m_subdesc(const char* value);
+  inline void set_m_subdesc(const char* value, size_t size);
+  inline ::std::string* mutable_m_subdesc();
+  inline ::std::string* release_m_subdesc();
+  inline void set_allocated_m_subdesc(::std::string* m_subdesc);
 
-  // optional int32 subaward = 16;
-  inline bool has_subaward() const;
-  inline void clear_subaward();
-  static const int kSubawardFieldNumber = 16;
-  inline ::google::protobuf::int32 subaward() const;
-  inline void set_subaward(::google::protobuf::int32 value);
+  // optional int32 m_subaward = 16;
+  inline bool has_m_subaward() const;
+  inline void clear_m_subaward();
+  static const int kMSubawardFieldNumber = 16;
+  inline ::google::protobuf::int32 m_subaward() const;
+  inline void set_m_subaward(::google::protobuf::int32 value);
 
-  // repeated string submsg = 17;
-  inline int submsg_size() const;
-  inline void clear_submsg();
-  static const int kSubmsgFieldNumber = 17;
-  inline const ::std::string& submsg(int index) const;
-  inline ::std::string* mutable_submsg(int index);
-  inline void set_submsg(int index, const ::std::string& value);
-  inline void set_submsg(int index, const char* value);
-  inline void set_submsg(int index, const char* value, size_t size);
-  inline ::std::string* add_submsg();
-  inline void add_submsg(const ::std::string& value);
-  inline void add_submsg(const char* value);
-  inline void add_submsg(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& submsg() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_submsg();
+  // repeated string m_submsg = 17;
+  inline int m_submsg_size() const;
+  inline void clear_m_submsg();
+  static const int kMSubmsgFieldNumber = 17;
+  inline const ::std::string& m_submsg(int index) const;
+  inline ::std::string* mutable_m_submsg(int index);
+  inline void set_m_submsg(int index, const ::std::string& value);
+  inline void set_m_submsg(int index, const char* value);
+  inline void set_m_submsg(int index, const char* value, size_t size);
+  inline ::std::string* add_m_submsg();
+  inline void add_m_submsg(const ::std::string& value);
+  inline void add_m_submsg(const char* value);
+  inline void add_m_submsg(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_submsg() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_submsg();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.tasktask)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_TaskTask)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_minlv();
-  inline void clear_has_minlv();
-  inline void set_has_truelv();
-  inline void clear_has_truelv();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_showtype();
-  inline void clear_has_showtype();
-  inline void set_has_weights();
-  inline void clear_has_weights();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_rececond();
-  inline void clear_has_rececond();
-  inline void set_has_receadd();
-  inline void clear_has_receadd();
-  inline void set_has_comcond();
-  inline void clear_has_comcond();
-  inline void set_has_nexttask();
-  inline void clear_has_nexttask();
-  inline void set_has_tracker();
-  inline void clear_has_tracker();
-  inline void set_has_subtype();
-  inline void clear_has_subtype();
-  inline void set_has_subnpc();
-  inline void clear_has_subnpc();
-  inline void set_has_subdesc();
-  inline void clear_has_subdesc();
-  inline void set_has_subaward();
-  inline void clear_has_subaward();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_minlv();
+  inline void clear_has_m_minlv();
+  inline void set_has_m_truelv();
+  inline void clear_has_m_truelv();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_showtype();
+  inline void clear_has_m_showtype();
+  inline void set_has_m_weights();
+  inline void clear_has_m_weights();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_rececond();
+  inline void clear_has_m_rececond();
+  inline void set_has_m_receadd();
+  inline void clear_has_m_receadd();
+  inline void set_has_m_comcond();
+  inline void clear_has_m_comcond();
+  inline void set_has_m_nexttask();
+  inline void clear_has_m_nexttask();
+  inline void set_has_m_tracker();
+  inline void clear_has_m_tracker();
+  inline void set_has_m_subtype();
+  inline void clear_has_m_subtype();
+  inline void set_has_m_subnpc();
+  inline void clear_has_m_subnpc();
+  inline void set_has_m_subdesc();
+  inline void clear_has_m_subdesc();
+  inline void set_has_m_subaward();
+  inline void clear_has_m_subaward();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 minlv_;
-  ::google::protobuf::int32 truelv_;
-  ::google::protobuf::int32 type_;
-  ::std::string* showtype_;
-  ::std::string* name_;
-  ::std::string* rececond_;
-  ::google::protobuf::int32 weights_;
-  ::google::protobuf::int32 nexttask_;
-  ::std::string* receadd_;
-  ::std::string* comcond_;
-  ::std::string* tracker_;
-  ::std::string* subtype_;
-  ::std::string* subdesc_;
-  ::google::protobuf::int32 subnpc_;
-  ::google::protobuf::int32 subaward_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> submsg_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_minlv_;
+  ::google::protobuf::int32 m_truelv_;
+  ::google::protobuf::int32 m_type_;
+  ::std::string* m_showtype_;
+  ::std::string* m_name_;
+  ::std::string* m_rececond_;
+  ::google::protobuf::int32 m_weights_;
+  ::google::protobuf::int32 m_nexttask_;
+  ::std::string* m_receadd_;
+  ::std::string* m_comcond_;
+  ::std::string* m_tracker_;
+  ::std::string* m_subtype_;
+  ::std::string* m_subdesc_;
+  ::google::protobuf::int32 m_subnpc_;
+  ::google::protobuf::int32 m_subaward_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> m_submsg_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
@@ -324,18 +324,18 @@ class tasktask : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_task_2eproto();
 
   void InitAsDefaultInstance();
-  static tasktask* default_instance_;
+  static E_TaskTask* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_tasktask : public ::google::protobuf::Message {
+class Sheet_TaskTask : public ::google::protobuf::Message {
  public:
-  Sheet_tasktask();
-  virtual ~Sheet_tasktask();
+  Sheet_TaskTask();
+  virtual ~Sheet_TaskTask();
 
-  Sheet_tasktask(const Sheet_tasktask& from);
+  Sheet_TaskTask(const Sheet_TaskTask& from);
 
-  inline Sheet_tasktask& operator=(const Sheet_tasktask& from) {
+  inline Sheet_TaskTask& operator=(const Sheet_TaskTask& from) {
     CopyFrom(from);
     return *this;
   }
@@ -349,17 +349,17 @@ class Sheet_tasktask : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_tasktask& default_instance();
+  static const Sheet_TaskTask& default_instance();
 
-  void Swap(Sheet_tasktask* other);
+  void Swap(Sheet_TaskTask* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_tasktask* New() const;
+  Sheet_TaskTask* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_tasktask& from);
-  void MergeFrom(const Sheet_tasktask& from);
+  void CopyFrom(const Sheet_TaskTask& from);
+  void MergeFrom(const Sheet_TaskTask& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -382,24 +382,24 @@ class Sheet_tasktask : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.tasktask tasktask_List = 1;
-  inline int tasktask_list_size() const;
-  inline void clear_tasktask_list();
-  static const int kTasktaskListFieldNumber = 1;
-  inline const ::proto_ff::tasktask& tasktask_list(int index) const;
-  inline ::proto_ff::tasktask* mutable_tasktask_list(int index);
-  inline ::proto_ff::tasktask* add_tasktask_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::tasktask >&
-      tasktask_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::tasktask >*
-      mutable_tasktask_list();
+  // repeated .proto_ff.E_TaskTask E_TaskTask_List = 1;
+  inline int e_tasktask_list_size() const;
+  inline void clear_e_tasktask_list();
+  static const int kETaskTaskListFieldNumber = 1;
+  inline const ::proto_ff::E_TaskTask& e_tasktask_list(int index) const;
+  inline ::proto_ff::E_TaskTask* mutable_e_tasktask_list(int index);
+  inline ::proto_ff::E_TaskTask* add_e_tasktask_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TaskTask >&
+      e_tasktask_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TaskTask >*
+      mutable_e_tasktask_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_tasktask)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_TaskTask)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::tasktask > tasktask_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TaskTask > e_tasktask_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -409,822 +409,822 @@ class Sheet_tasktask : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_task_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_tasktask* default_instance_;
+  static Sheet_TaskTask* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// tasktask
+// E_TaskTask
 
-// optional int32 id = 1;
-inline bool tasktask::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_TaskTask::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void tasktask::set_has_id() {
+inline void E_TaskTask::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void tasktask::clear_has_id() {
+inline void E_TaskTask::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void tasktask::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_TaskTask::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 tasktask::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_TaskTask::m_id() const {
+  return m_id_;
 }
-inline void tasktask::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_TaskTask::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 minlv = 2;
-inline bool tasktask::has_minlv() const {
+// optional int32 m_minlv = 2;
+inline bool E_TaskTask::has_m_minlv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void tasktask::set_has_minlv() {
+inline void E_TaskTask::set_has_m_minlv() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void tasktask::clear_has_minlv() {
+inline void E_TaskTask::clear_has_m_minlv() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void tasktask::clear_minlv() {
-  minlv_ = 0;
-  clear_has_minlv();
+inline void E_TaskTask::clear_m_minlv() {
+  m_minlv_ = 0;
+  clear_has_m_minlv();
 }
-inline ::google::protobuf::int32 tasktask::minlv() const {
-  return minlv_;
+inline ::google::protobuf::int32 E_TaskTask::m_minlv() const {
+  return m_minlv_;
 }
-inline void tasktask::set_minlv(::google::protobuf::int32 value) {
-  set_has_minlv();
-  minlv_ = value;
+inline void E_TaskTask::set_m_minlv(::google::protobuf::int32 value) {
+  set_has_m_minlv();
+  m_minlv_ = value;
 }
 
-// optional int32 truelv = 3;
-inline bool tasktask::has_truelv() const {
+// optional int32 m_truelv = 3;
+inline bool E_TaskTask::has_m_truelv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void tasktask::set_has_truelv() {
+inline void E_TaskTask::set_has_m_truelv() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void tasktask::clear_has_truelv() {
+inline void E_TaskTask::clear_has_m_truelv() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void tasktask::clear_truelv() {
-  truelv_ = 0;
-  clear_has_truelv();
+inline void E_TaskTask::clear_m_truelv() {
+  m_truelv_ = 0;
+  clear_has_m_truelv();
 }
-inline ::google::protobuf::int32 tasktask::truelv() const {
-  return truelv_;
+inline ::google::protobuf::int32 E_TaskTask::m_truelv() const {
+  return m_truelv_;
 }
-inline void tasktask::set_truelv(::google::protobuf::int32 value) {
-  set_has_truelv();
-  truelv_ = value;
+inline void E_TaskTask::set_m_truelv(::google::protobuf::int32 value) {
+  set_has_m_truelv();
+  m_truelv_ = value;
 }
 
-// optional int32 type = 4;
-inline bool tasktask::has_type() const {
+// optional int32 m_type = 4;
+inline bool E_TaskTask::has_m_type() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void tasktask::set_has_type() {
+inline void E_TaskTask::set_has_m_type() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void tasktask::clear_has_type() {
+inline void E_TaskTask::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void tasktask::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_TaskTask::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 tasktask::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_TaskTask::m_type() const {
+  return m_type_;
 }
-inline void tasktask::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_TaskTask::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional string showtype = 5;
-inline bool tasktask::has_showtype() const {
+// optional string m_showtype = 5;
+inline bool E_TaskTask::has_m_showtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void tasktask::set_has_showtype() {
+inline void E_TaskTask::set_has_m_showtype() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void tasktask::clear_has_showtype() {
+inline void E_TaskTask::clear_has_m_showtype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void tasktask::clear_showtype() {
-  if (showtype_ != &::google::protobuf::internal::kEmptyString) {
-    showtype_->clear();
+inline void E_TaskTask::clear_m_showtype() {
+  if (m_showtype_ != &::google::protobuf::internal::kEmptyString) {
+    m_showtype_->clear();
   }
-  clear_has_showtype();
+  clear_has_m_showtype();
 }
-inline const ::std::string& tasktask::showtype() const {
-  return *showtype_;
+inline const ::std::string& E_TaskTask::m_showtype() const {
+  return *m_showtype_;
 }
-inline void tasktask::set_showtype(const ::std::string& value) {
-  set_has_showtype();
-  if (showtype_ == &::google::protobuf::internal::kEmptyString) {
-    showtype_ = new ::std::string;
+inline void E_TaskTask::set_m_showtype(const ::std::string& value) {
+  set_has_m_showtype();
+  if (m_showtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_showtype_ = new ::std::string;
   }
-  showtype_->assign(value);
+  m_showtype_->assign(value);
 }
-inline void tasktask::set_showtype(const char* value) {
-  set_has_showtype();
-  if (showtype_ == &::google::protobuf::internal::kEmptyString) {
-    showtype_ = new ::std::string;
+inline void E_TaskTask::set_m_showtype(const char* value) {
+  set_has_m_showtype();
+  if (m_showtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_showtype_ = new ::std::string;
   }
-  showtype_->assign(value);
+  m_showtype_->assign(value);
 }
-inline void tasktask::set_showtype(const char* value, size_t size) {
-  set_has_showtype();
-  if (showtype_ == &::google::protobuf::internal::kEmptyString) {
-    showtype_ = new ::std::string;
+inline void E_TaskTask::set_m_showtype(const char* value, size_t size) {
+  set_has_m_showtype();
+  if (m_showtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_showtype_ = new ::std::string;
   }
-  showtype_->assign(reinterpret_cast<const char*>(value), size);
+  m_showtype_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_showtype() {
-  set_has_showtype();
-  if (showtype_ == &::google::protobuf::internal::kEmptyString) {
-    showtype_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_showtype() {
+  set_has_m_showtype();
+  if (m_showtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_showtype_ = new ::std::string;
   }
-  return showtype_;
+  return m_showtype_;
 }
-inline ::std::string* tasktask::release_showtype() {
-  clear_has_showtype();
-  if (showtype_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_showtype() {
+  clear_has_m_showtype();
+  if (m_showtype_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = showtype_;
-    showtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_showtype_;
+    m_showtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_showtype(::std::string* showtype) {
-  if (showtype_ != &::google::protobuf::internal::kEmptyString) {
-    delete showtype_;
+inline void E_TaskTask::set_allocated_m_showtype(::std::string* m_showtype) {
+  if (m_showtype_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_showtype_;
   }
-  if (showtype) {
-    set_has_showtype();
-    showtype_ = showtype;
+  if (m_showtype) {
+    set_has_m_showtype();
+    m_showtype_ = m_showtype;
   } else {
-    clear_has_showtype();
-    showtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_showtype();
+    m_showtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 weights = 6;
-inline bool tasktask::has_weights() const {
+// optional int32 m_weights = 6;
+inline bool E_TaskTask::has_m_weights() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void tasktask::set_has_weights() {
+inline void E_TaskTask::set_has_m_weights() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void tasktask::clear_has_weights() {
+inline void E_TaskTask::clear_has_m_weights() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void tasktask::clear_weights() {
-  weights_ = 0;
-  clear_has_weights();
+inline void E_TaskTask::clear_m_weights() {
+  m_weights_ = 0;
+  clear_has_m_weights();
 }
-inline ::google::protobuf::int32 tasktask::weights() const {
-  return weights_;
+inline ::google::protobuf::int32 E_TaskTask::m_weights() const {
+  return m_weights_;
 }
-inline void tasktask::set_weights(::google::protobuf::int32 value) {
-  set_has_weights();
-  weights_ = value;
+inline void E_TaskTask::set_m_weights(::google::protobuf::int32 value) {
+  set_has_m_weights();
+  m_weights_ = value;
 }
 
-// optional string name = 7;
-inline bool tasktask::has_name() const {
+// optional string m_name = 7;
+inline bool E_TaskTask::has_m_name() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void tasktask::set_has_name() {
+inline void E_TaskTask::set_has_m_name() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void tasktask::clear_has_name() {
+inline void E_TaskTask::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void tasktask::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_TaskTask::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& tasktask::name() const {
-  return *name_;
+inline const ::std::string& E_TaskTask::m_name() const {
+  return *m_name_;
 }
-inline void tasktask::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_TaskTask::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void tasktask::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_TaskTask::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void tasktask::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_TaskTask::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* tasktask::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_TaskTask::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string rececond = 8;
-inline bool tasktask::has_rececond() const {
+// optional string m_rececond = 8;
+inline bool E_TaskTask::has_m_rececond() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void tasktask::set_has_rececond() {
+inline void E_TaskTask::set_has_m_rececond() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void tasktask::clear_has_rececond() {
+inline void E_TaskTask::clear_has_m_rececond() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void tasktask::clear_rececond() {
-  if (rececond_ != &::google::protobuf::internal::kEmptyString) {
-    rececond_->clear();
+inline void E_TaskTask::clear_m_rececond() {
+  if (m_rececond_ != &::google::protobuf::internal::kEmptyString) {
+    m_rececond_->clear();
   }
-  clear_has_rececond();
+  clear_has_m_rececond();
 }
-inline const ::std::string& tasktask::rececond() const {
-  return *rececond_;
+inline const ::std::string& E_TaskTask::m_rececond() const {
+  return *m_rececond_;
 }
-inline void tasktask::set_rececond(const ::std::string& value) {
-  set_has_rececond();
-  if (rececond_ == &::google::protobuf::internal::kEmptyString) {
-    rececond_ = new ::std::string;
+inline void E_TaskTask::set_m_rececond(const ::std::string& value) {
+  set_has_m_rececond();
+  if (m_rececond_ == &::google::protobuf::internal::kEmptyString) {
+    m_rececond_ = new ::std::string;
   }
-  rececond_->assign(value);
+  m_rececond_->assign(value);
 }
-inline void tasktask::set_rececond(const char* value) {
-  set_has_rececond();
-  if (rececond_ == &::google::protobuf::internal::kEmptyString) {
-    rececond_ = new ::std::string;
+inline void E_TaskTask::set_m_rececond(const char* value) {
+  set_has_m_rececond();
+  if (m_rececond_ == &::google::protobuf::internal::kEmptyString) {
+    m_rececond_ = new ::std::string;
   }
-  rececond_->assign(value);
+  m_rececond_->assign(value);
 }
-inline void tasktask::set_rececond(const char* value, size_t size) {
-  set_has_rececond();
-  if (rececond_ == &::google::protobuf::internal::kEmptyString) {
-    rececond_ = new ::std::string;
+inline void E_TaskTask::set_m_rececond(const char* value, size_t size) {
+  set_has_m_rececond();
+  if (m_rececond_ == &::google::protobuf::internal::kEmptyString) {
+    m_rececond_ = new ::std::string;
   }
-  rececond_->assign(reinterpret_cast<const char*>(value), size);
+  m_rececond_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_rececond() {
-  set_has_rececond();
-  if (rececond_ == &::google::protobuf::internal::kEmptyString) {
-    rececond_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_rececond() {
+  set_has_m_rececond();
+  if (m_rececond_ == &::google::protobuf::internal::kEmptyString) {
+    m_rececond_ = new ::std::string;
   }
-  return rececond_;
+  return m_rececond_;
 }
-inline ::std::string* tasktask::release_rececond() {
-  clear_has_rececond();
-  if (rececond_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_rececond() {
+  clear_has_m_rececond();
+  if (m_rececond_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = rececond_;
-    rececond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_rececond_;
+    m_rececond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_rececond(::std::string* rececond) {
-  if (rececond_ != &::google::protobuf::internal::kEmptyString) {
-    delete rececond_;
+inline void E_TaskTask::set_allocated_m_rececond(::std::string* m_rececond) {
+  if (m_rececond_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_rececond_;
   }
-  if (rececond) {
-    set_has_rececond();
-    rececond_ = rececond;
+  if (m_rececond) {
+    set_has_m_rececond();
+    m_rececond_ = m_rececond;
   } else {
-    clear_has_rececond();
-    rececond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_rececond();
+    m_rececond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string receadd = 9;
-inline bool tasktask::has_receadd() const {
+// optional string m_receadd = 9;
+inline bool E_TaskTask::has_m_receadd() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void tasktask::set_has_receadd() {
+inline void E_TaskTask::set_has_m_receadd() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void tasktask::clear_has_receadd() {
+inline void E_TaskTask::clear_has_m_receadd() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void tasktask::clear_receadd() {
-  if (receadd_ != &::google::protobuf::internal::kEmptyString) {
-    receadd_->clear();
+inline void E_TaskTask::clear_m_receadd() {
+  if (m_receadd_ != &::google::protobuf::internal::kEmptyString) {
+    m_receadd_->clear();
   }
-  clear_has_receadd();
+  clear_has_m_receadd();
 }
-inline const ::std::string& tasktask::receadd() const {
-  return *receadd_;
+inline const ::std::string& E_TaskTask::m_receadd() const {
+  return *m_receadd_;
 }
-inline void tasktask::set_receadd(const ::std::string& value) {
-  set_has_receadd();
-  if (receadd_ == &::google::protobuf::internal::kEmptyString) {
-    receadd_ = new ::std::string;
+inline void E_TaskTask::set_m_receadd(const ::std::string& value) {
+  set_has_m_receadd();
+  if (m_receadd_ == &::google::protobuf::internal::kEmptyString) {
+    m_receadd_ = new ::std::string;
   }
-  receadd_->assign(value);
+  m_receadd_->assign(value);
 }
-inline void tasktask::set_receadd(const char* value) {
-  set_has_receadd();
-  if (receadd_ == &::google::protobuf::internal::kEmptyString) {
-    receadd_ = new ::std::string;
+inline void E_TaskTask::set_m_receadd(const char* value) {
+  set_has_m_receadd();
+  if (m_receadd_ == &::google::protobuf::internal::kEmptyString) {
+    m_receadd_ = new ::std::string;
   }
-  receadd_->assign(value);
+  m_receadd_->assign(value);
 }
-inline void tasktask::set_receadd(const char* value, size_t size) {
-  set_has_receadd();
-  if (receadd_ == &::google::protobuf::internal::kEmptyString) {
-    receadd_ = new ::std::string;
+inline void E_TaskTask::set_m_receadd(const char* value, size_t size) {
+  set_has_m_receadd();
+  if (m_receadd_ == &::google::protobuf::internal::kEmptyString) {
+    m_receadd_ = new ::std::string;
   }
-  receadd_->assign(reinterpret_cast<const char*>(value), size);
+  m_receadd_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_receadd() {
-  set_has_receadd();
-  if (receadd_ == &::google::protobuf::internal::kEmptyString) {
-    receadd_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_receadd() {
+  set_has_m_receadd();
+  if (m_receadd_ == &::google::protobuf::internal::kEmptyString) {
+    m_receadd_ = new ::std::string;
   }
-  return receadd_;
+  return m_receadd_;
 }
-inline ::std::string* tasktask::release_receadd() {
-  clear_has_receadd();
-  if (receadd_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_receadd() {
+  clear_has_m_receadd();
+  if (m_receadd_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = receadd_;
-    receadd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_receadd_;
+    m_receadd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_receadd(::std::string* receadd) {
-  if (receadd_ != &::google::protobuf::internal::kEmptyString) {
-    delete receadd_;
+inline void E_TaskTask::set_allocated_m_receadd(::std::string* m_receadd) {
+  if (m_receadd_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_receadd_;
   }
-  if (receadd) {
-    set_has_receadd();
-    receadd_ = receadd;
+  if (m_receadd) {
+    set_has_m_receadd();
+    m_receadd_ = m_receadd;
   } else {
-    clear_has_receadd();
-    receadd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_receadd();
+    m_receadd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string comcond = 10;
-inline bool tasktask::has_comcond() const {
+// optional string m_comcond = 10;
+inline bool E_TaskTask::has_m_comcond() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void tasktask::set_has_comcond() {
+inline void E_TaskTask::set_has_m_comcond() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void tasktask::clear_has_comcond() {
+inline void E_TaskTask::clear_has_m_comcond() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void tasktask::clear_comcond() {
-  if (comcond_ != &::google::protobuf::internal::kEmptyString) {
-    comcond_->clear();
+inline void E_TaskTask::clear_m_comcond() {
+  if (m_comcond_ != &::google::protobuf::internal::kEmptyString) {
+    m_comcond_->clear();
   }
-  clear_has_comcond();
+  clear_has_m_comcond();
 }
-inline const ::std::string& tasktask::comcond() const {
-  return *comcond_;
+inline const ::std::string& E_TaskTask::m_comcond() const {
+  return *m_comcond_;
 }
-inline void tasktask::set_comcond(const ::std::string& value) {
-  set_has_comcond();
-  if (comcond_ == &::google::protobuf::internal::kEmptyString) {
-    comcond_ = new ::std::string;
+inline void E_TaskTask::set_m_comcond(const ::std::string& value) {
+  set_has_m_comcond();
+  if (m_comcond_ == &::google::protobuf::internal::kEmptyString) {
+    m_comcond_ = new ::std::string;
   }
-  comcond_->assign(value);
+  m_comcond_->assign(value);
 }
-inline void tasktask::set_comcond(const char* value) {
-  set_has_comcond();
-  if (comcond_ == &::google::protobuf::internal::kEmptyString) {
-    comcond_ = new ::std::string;
+inline void E_TaskTask::set_m_comcond(const char* value) {
+  set_has_m_comcond();
+  if (m_comcond_ == &::google::protobuf::internal::kEmptyString) {
+    m_comcond_ = new ::std::string;
   }
-  comcond_->assign(value);
+  m_comcond_->assign(value);
 }
-inline void tasktask::set_comcond(const char* value, size_t size) {
-  set_has_comcond();
-  if (comcond_ == &::google::protobuf::internal::kEmptyString) {
-    comcond_ = new ::std::string;
+inline void E_TaskTask::set_m_comcond(const char* value, size_t size) {
+  set_has_m_comcond();
+  if (m_comcond_ == &::google::protobuf::internal::kEmptyString) {
+    m_comcond_ = new ::std::string;
   }
-  comcond_->assign(reinterpret_cast<const char*>(value), size);
+  m_comcond_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_comcond() {
-  set_has_comcond();
-  if (comcond_ == &::google::protobuf::internal::kEmptyString) {
-    comcond_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_comcond() {
+  set_has_m_comcond();
+  if (m_comcond_ == &::google::protobuf::internal::kEmptyString) {
+    m_comcond_ = new ::std::string;
   }
-  return comcond_;
+  return m_comcond_;
 }
-inline ::std::string* tasktask::release_comcond() {
-  clear_has_comcond();
-  if (comcond_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_comcond() {
+  clear_has_m_comcond();
+  if (m_comcond_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = comcond_;
-    comcond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_comcond_;
+    m_comcond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_comcond(::std::string* comcond) {
-  if (comcond_ != &::google::protobuf::internal::kEmptyString) {
-    delete comcond_;
+inline void E_TaskTask::set_allocated_m_comcond(::std::string* m_comcond) {
+  if (m_comcond_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_comcond_;
   }
-  if (comcond) {
-    set_has_comcond();
-    comcond_ = comcond;
+  if (m_comcond) {
+    set_has_m_comcond();
+    m_comcond_ = m_comcond;
   } else {
-    clear_has_comcond();
-    comcond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_comcond();
+    m_comcond_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 nexttask = 11;
-inline bool tasktask::has_nexttask() const {
+// optional int32 m_nexttask = 11;
+inline bool E_TaskTask::has_m_nexttask() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void tasktask::set_has_nexttask() {
+inline void E_TaskTask::set_has_m_nexttask() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void tasktask::clear_has_nexttask() {
+inline void E_TaskTask::clear_has_m_nexttask() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void tasktask::clear_nexttask() {
-  nexttask_ = 0;
-  clear_has_nexttask();
+inline void E_TaskTask::clear_m_nexttask() {
+  m_nexttask_ = 0;
+  clear_has_m_nexttask();
 }
-inline ::google::protobuf::int32 tasktask::nexttask() const {
-  return nexttask_;
+inline ::google::protobuf::int32 E_TaskTask::m_nexttask() const {
+  return m_nexttask_;
 }
-inline void tasktask::set_nexttask(::google::protobuf::int32 value) {
-  set_has_nexttask();
-  nexttask_ = value;
+inline void E_TaskTask::set_m_nexttask(::google::protobuf::int32 value) {
+  set_has_m_nexttask();
+  m_nexttask_ = value;
 }
 
-// optional string tracker = 12;
-inline bool tasktask::has_tracker() const {
+// optional string m_tracker = 12;
+inline bool E_TaskTask::has_m_tracker() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void tasktask::set_has_tracker() {
+inline void E_TaskTask::set_has_m_tracker() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void tasktask::clear_has_tracker() {
+inline void E_TaskTask::clear_has_m_tracker() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void tasktask::clear_tracker() {
-  if (tracker_ != &::google::protobuf::internal::kEmptyString) {
-    tracker_->clear();
+inline void E_TaskTask::clear_m_tracker() {
+  if (m_tracker_ != &::google::protobuf::internal::kEmptyString) {
+    m_tracker_->clear();
   }
-  clear_has_tracker();
+  clear_has_m_tracker();
 }
-inline const ::std::string& tasktask::tracker() const {
-  return *tracker_;
+inline const ::std::string& E_TaskTask::m_tracker() const {
+  return *m_tracker_;
 }
-inline void tasktask::set_tracker(const ::std::string& value) {
-  set_has_tracker();
-  if (tracker_ == &::google::protobuf::internal::kEmptyString) {
-    tracker_ = new ::std::string;
+inline void E_TaskTask::set_m_tracker(const ::std::string& value) {
+  set_has_m_tracker();
+  if (m_tracker_ == &::google::protobuf::internal::kEmptyString) {
+    m_tracker_ = new ::std::string;
   }
-  tracker_->assign(value);
+  m_tracker_->assign(value);
 }
-inline void tasktask::set_tracker(const char* value) {
-  set_has_tracker();
-  if (tracker_ == &::google::protobuf::internal::kEmptyString) {
-    tracker_ = new ::std::string;
+inline void E_TaskTask::set_m_tracker(const char* value) {
+  set_has_m_tracker();
+  if (m_tracker_ == &::google::protobuf::internal::kEmptyString) {
+    m_tracker_ = new ::std::string;
   }
-  tracker_->assign(value);
+  m_tracker_->assign(value);
 }
-inline void tasktask::set_tracker(const char* value, size_t size) {
-  set_has_tracker();
-  if (tracker_ == &::google::protobuf::internal::kEmptyString) {
-    tracker_ = new ::std::string;
+inline void E_TaskTask::set_m_tracker(const char* value, size_t size) {
+  set_has_m_tracker();
+  if (m_tracker_ == &::google::protobuf::internal::kEmptyString) {
+    m_tracker_ = new ::std::string;
   }
-  tracker_->assign(reinterpret_cast<const char*>(value), size);
+  m_tracker_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_tracker() {
-  set_has_tracker();
-  if (tracker_ == &::google::protobuf::internal::kEmptyString) {
-    tracker_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_tracker() {
+  set_has_m_tracker();
+  if (m_tracker_ == &::google::protobuf::internal::kEmptyString) {
+    m_tracker_ = new ::std::string;
   }
-  return tracker_;
+  return m_tracker_;
 }
-inline ::std::string* tasktask::release_tracker() {
-  clear_has_tracker();
-  if (tracker_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_tracker() {
+  clear_has_m_tracker();
+  if (m_tracker_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = tracker_;
-    tracker_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_tracker_;
+    m_tracker_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_tracker(::std::string* tracker) {
-  if (tracker_ != &::google::protobuf::internal::kEmptyString) {
-    delete tracker_;
+inline void E_TaskTask::set_allocated_m_tracker(::std::string* m_tracker) {
+  if (m_tracker_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_tracker_;
   }
-  if (tracker) {
-    set_has_tracker();
-    tracker_ = tracker;
+  if (m_tracker) {
+    set_has_m_tracker();
+    m_tracker_ = m_tracker;
   } else {
-    clear_has_tracker();
-    tracker_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_tracker();
+    m_tracker_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string subtype = 13;
-inline bool tasktask::has_subtype() const {
+// optional string m_subtype = 13;
+inline bool E_TaskTask::has_m_subtype() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void tasktask::set_has_subtype() {
+inline void E_TaskTask::set_has_m_subtype() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void tasktask::clear_has_subtype() {
+inline void E_TaskTask::clear_has_m_subtype() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void tasktask::clear_subtype() {
-  if (subtype_ != &::google::protobuf::internal::kEmptyString) {
-    subtype_->clear();
+inline void E_TaskTask::clear_m_subtype() {
+  if (m_subtype_ != &::google::protobuf::internal::kEmptyString) {
+    m_subtype_->clear();
   }
-  clear_has_subtype();
+  clear_has_m_subtype();
 }
-inline const ::std::string& tasktask::subtype() const {
-  return *subtype_;
+inline const ::std::string& E_TaskTask::m_subtype() const {
+  return *m_subtype_;
 }
-inline void tasktask::set_subtype(const ::std::string& value) {
-  set_has_subtype();
-  if (subtype_ == &::google::protobuf::internal::kEmptyString) {
-    subtype_ = new ::std::string;
+inline void E_TaskTask::set_m_subtype(const ::std::string& value) {
+  set_has_m_subtype();
+  if (m_subtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_subtype_ = new ::std::string;
   }
-  subtype_->assign(value);
+  m_subtype_->assign(value);
 }
-inline void tasktask::set_subtype(const char* value) {
-  set_has_subtype();
-  if (subtype_ == &::google::protobuf::internal::kEmptyString) {
-    subtype_ = new ::std::string;
+inline void E_TaskTask::set_m_subtype(const char* value) {
+  set_has_m_subtype();
+  if (m_subtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_subtype_ = new ::std::string;
   }
-  subtype_->assign(value);
+  m_subtype_->assign(value);
 }
-inline void tasktask::set_subtype(const char* value, size_t size) {
-  set_has_subtype();
-  if (subtype_ == &::google::protobuf::internal::kEmptyString) {
-    subtype_ = new ::std::string;
+inline void E_TaskTask::set_m_subtype(const char* value, size_t size) {
+  set_has_m_subtype();
+  if (m_subtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_subtype_ = new ::std::string;
   }
-  subtype_->assign(reinterpret_cast<const char*>(value), size);
+  m_subtype_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_subtype() {
-  set_has_subtype();
-  if (subtype_ == &::google::protobuf::internal::kEmptyString) {
-    subtype_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_subtype() {
+  set_has_m_subtype();
+  if (m_subtype_ == &::google::protobuf::internal::kEmptyString) {
+    m_subtype_ = new ::std::string;
   }
-  return subtype_;
+  return m_subtype_;
 }
-inline ::std::string* tasktask::release_subtype() {
-  clear_has_subtype();
-  if (subtype_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_subtype() {
+  clear_has_m_subtype();
+  if (m_subtype_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = subtype_;
-    subtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_subtype_;
+    m_subtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_subtype(::std::string* subtype) {
-  if (subtype_ != &::google::protobuf::internal::kEmptyString) {
-    delete subtype_;
+inline void E_TaskTask::set_allocated_m_subtype(::std::string* m_subtype) {
+  if (m_subtype_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_subtype_;
   }
-  if (subtype) {
-    set_has_subtype();
-    subtype_ = subtype;
+  if (m_subtype) {
+    set_has_m_subtype();
+    m_subtype_ = m_subtype;
   } else {
-    clear_has_subtype();
-    subtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_subtype();
+    m_subtype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 subnpc = 14;
-inline bool tasktask::has_subnpc() const {
+// optional int32 m_subnpc = 14;
+inline bool E_TaskTask::has_m_subnpc() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void tasktask::set_has_subnpc() {
+inline void E_TaskTask::set_has_m_subnpc() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void tasktask::clear_has_subnpc() {
+inline void E_TaskTask::clear_has_m_subnpc() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void tasktask::clear_subnpc() {
-  subnpc_ = 0;
-  clear_has_subnpc();
+inline void E_TaskTask::clear_m_subnpc() {
+  m_subnpc_ = 0;
+  clear_has_m_subnpc();
 }
-inline ::google::protobuf::int32 tasktask::subnpc() const {
-  return subnpc_;
+inline ::google::protobuf::int32 E_TaskTask::m_subnpc() const {
+  return m_subnpc_;
 }
-inline void tasktask::set_subnpc(::google::protobuf::int32 value) {
-  set_has_subnpc();
-  subnpc_ = value;
+inline void E_TaskTask::set_m_subnpc(::google::protobuf::int32 value) {
+  set_has_m_subnpc();
+  m_subnpc_ = value;
 }
 
-// optional string subdesc = 15;
-inline bool tasktask::has_subdesc() const {
+// optional string m_subdesc = 15;
+inline bool E_TaskTask::has_m_subdesc() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void tasktask::set_has_subdesc() {
+inline void E_TaskTask::set_has_m_subdesc() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void tasktask::clear_has_subdesc() {
+inline void E_TaskTask::clear_has_m_subdesc() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void tasktask::clear_subdesc() {
-  if (subdesc_ != &::google::protobuf::internal::kEmptyString) {
-    subdesc_->clear();
+inline void E_TaskTask::clear_m_subdesc() {
+  if (m_subdesc_ != &::google::protobuf::internal::kEmptyString) {
+    m_subdesc_->clear();
   }
-  clear_has_subdesc();
+  clear_has_m_subdesc();
 }
-inline const ::std::string& tasktask::subdesc() const {
-  return *subdesc_;
+inline const ::std::string& E_TaskTask::m_subdesc() const {
+  return *m_subdesc_;
 }
-inline void tasktask::set_subdesc(const ::std::string& value) {
-  set_has_subdesc();
-  if (subdesc_ == &::google::protobuf::internal::kEmptyString) {
-    subdesc_ = new ::std::string;
+inline void E_TaskTask::set_m_subdesc(const ::std::string& value) {
+  set_has_m_subdesc();
+  if (m_subdesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_subdesc_ = new ::std::string;
   }
-  subdesc_->assign(value);
+  m_subdesc_->assign(value);
 }
-inline void tasktask::set_subdesc(const char* value) {
-  set_has_subdesc();
-  if (subdesc_ == &::google::protobuf::internal::kEmptyString) {
-    subdesc_ = new ::std::string;
+inline void E_TaskTask::set_m_subdesc(const char* value) {
+  set_has_m_subdesc();
+  if (m_subdesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_subdesc_ = new ::std::string;
   }
-  subdesc_->assign(value);
+  m_subdesc_->assign(value);
 }
-inline void tasktask::set_subdesc(const char* value, size_t size) {
-  set_has_subdesc();
-  if (subdesc_ == &::google::protobuf::internal::kEmptyString) {
-    subdesc_ = new ::std::string;
+inline void E_TaskTask::set_m_subdesc(const char* value, size_t size) {
+  set_has_m_subdesc();
+  if (m_subdesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_subdesc_ = new ::std::string;
   }
-  subdesc_->assign(reinterpret_cast<const char*>(value), size);
+  m_subdesc_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::mutable_subdesc() {
-  set_has_subdesc();
-  if (subdesc_ == &::google::protobuf::internal::kEmptyString) {
-    subdesc_ = new ::std::string;
+inline ::std::string* E_TaskTask::mutable_m_subdesc() {
+  set_has_m_subdesc();
+  if (m_subdesc_ == &::google::protobuf::internal::kEmptyString) {
+    m_subdesc_ = new ::std::string;
   }
-  return subdesc_;
+  return m_subdesc_;
 }
-inline ::std::string* tasktask::release_subdesc() {
-  clear_has_subdesc();
-  if (subdesc_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_TaskTask::release_m_subdesc() {
+  clear_has_m_subdesc();
+  if (m_subdesc_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = subdesc_;
-    subdesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_subdesc_;
+    m_subdesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void tasktask::set_allocated_subdesc(::std::string* subdesc) {
-  if (subdesc_ != &::google::protobuf::internal::kEmptyString) {
-    delete subdesc_;
+inline void E_TaskTask::set_allocated_m_subdesc(::std::string* m_subdesc) {
+  if (m_subdesc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_subdesc_;
   }
-  if (subdesc) {
-    set_has_subdesc();
-    subdesc_ = subdesc;
+  if (m_subdesc) {
+    set_has_m_subdesc();
+    m_subdesc_ = m_subdesc;
   } else {
-    clear_has_subdesc();
-    subdesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_subdesc();
+    m_subdesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 subaward = 16;
-inline bool tasktask::has_subaward() const {
+// optional int32 m_subaward = 16;
+inline bool E_TaskTask::has_m_subaward() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
-inline void tasktask::set_has_subaward() {
+inline void E_TaskTask::set_has_m_subaward() {
   _has_bits_[0] |= 0x00008000u;
 }
-inline void tasktask::clear_has_subaward() {
+inline void E_TaskTask::clear_has_m_subaward() {
   _has_bits_[0] &= ~0x00008000u;
 }
-inline void tasktask::clear_subaward() {
-  subaward_ = 0;
-  clear_has_subaward();
+inline void E_TaskTask::clear_m_subaward() {
+  m_subaward_ = 0;
+  clear_has_m_subaward();
 }
-inline ::google::protobuf::int32 tasktask::subaward() const {
-  return subaward_;
+inline ::google::protobuf::int32 E_TaskTask::m_subaward() const {
+  return m_subaward_;
 }
-inline void tasktask::set_subaward(::google::protobuf::int32 value) {
-  set_has_subaward();
-  subaward_ = value;
+inline void E_TaskTask::set_m_subaward(::google::protobuf::int32 value) {
+  set_has_m_subaward();
+  m_subaward_ = value;
 }
 
-// repeated string submsg = 17;
-inline int tasktask::submsg_size() const {
-  return submsg_.size();
+// repeated string m_submsg = 17;
+inline int E_TaskTask::m_submsg_size() const {
+  return m_submsg_.size();
 }
-inline void tasktask::clear_submsg() {
-  submsg_.Clear();
+inline void E_TaskTask::clear_m_submsg() {
+  m_submsg_.Clear();
 }
-inline const ::std::string& tasktask::submsg(int index) const {
-  return submsg_.Get(index);
+inline const ::std::string& E_TaskTask::m_submsg(int index) const {
+  return m_submsg_.Get(index);
 }
-inline ::std::string* tasktask::mutable_submsg(int index) {
-  return submsg_.Mutable(index);
+inline ::std::string* E_TaskTask::mutable_m_submsg(int index) {
+  return m_submsg_.Mutable(index);
 }
-inline void tasktask::set_submsg(int index, const ::std::string& value) {
-  submsg_.Mutable(index)->assign(value);
+inline void E_TaskTask::set_m_submsg(int index, const ::std::string& value) {
+  m_submsg_.Mutable(index)->assign(value);
 }
-inline void tasktask::set_submsg(int index, const char* value) {
-  submsg_.Mutable(index)->assign(value);
+inline void E_TaskTask::set_m_submsg(int index, const char* value) {
+  m_submsg_.Mutable(index)->assign(value);
 }
-inline void tasktask::set_submsg(int index, const char* value, size_t size) {
-  submsg_.Mutable(index)->assign(
+inline void E_TaskTask::set_m_submsg(int index, const char* value, size_t size) {
+  m_submsg_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tasktask::add_submsg() {
-  return submsg_.Add();
+inline ::std::string* E_TaskTask::add_m_submsg() {
+  return m_submsg_.Add();
 }
-inline void tasktask::add_submsg(const ::std::string& value) {
-  submsg_.Add()->assign(value);
+inline void E_TaskTask::add_m_submsg(const ::std::string& value) {
+  m_submsg_.Add()->assign(value);
 }
-inline void tasktask::add_submsg(const char* value) {
-  submsg_.Add()->assign(value);
+inline void E_TaskTask::add_m_submsg(const char* value) {
+  m_submsg_.Add()->assign(value);
 }
-inline void tasktask::add_submsg(const char* value, size_t size) {
-  submsg_.Add()->assign(reinterpret_cast<const char*>(value), size);
+inline void E_TaskTask::add_m_submsg(const char* value, size_t size) {
+  m_submsg_.Add()->assign(reinterpret_cast<const char*>(value), size);
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-tasktask::submsg() const {
-  return submsg_;
+E_TaskTask::m_submsg() const {
+  return m_submsg_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-tasktask::mutable_submsg() {
-  return &submsg_;
+E_TaskTask::mutable_m_submsg() {
+  return &m_submsg_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_tasktask
+// Sheet_TaskTask
 
-// repeated .proto_ff.tasktask tasktask_List = 1;
-inline int Sheet_tasktask::tasktask_list_size() const {
-  return tasktask_list_.size();
+// repeated .proto_ff.E_TaskTask E_TaskTask_List = 1;
+inline int Sheet_TaskTask::e_tasktask_list_size() const {
+  return e_tasktask_list_.size();
 }
-inline void Sheet_tasktask::clear_tasktask_list() {
-  tasktask_list_.Clear();
+inline void Sheet_TaskTask::clear_e_tasktask_list() {
+  e_tasktask_list_.Clear();
 }
-inline const ::proto_ff::tasktask& Sheet_tasktask::tasktask_list(int index) const {
-  return tasktask_list_.Get(index);
+inline const ::proto_ff::E_TaskTask& Sheet_TaskTask::e_tasktask_list(int index) const {
+  return e_tasktask_list_.Get(index);
 }
-inline ::proto_ff::tasktask* Sheet_tasktask::mutable_tasktask_list(int index) {
-  return tasktask_list_.Mutable(index);
+inline ::proto_ff::E_TaskTask* Sheet_TaskTask::mutable_e_tasktask_list(int index) {
+  return e_tasktask_list_.Mutable(index);
 }
-inline ::proto_ff::tasktask* Sheet_tasktask::add_tasktask_list() {
-  return tasktask_list_.Add();
+inline ::proto_ff::E_TaskTask* Sheet_TaskTask::add_e_tasktask_list() {
+  return e_tasktask_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::tasktask >&
-Sheet_tasktask::tasktask_list() const {
-  return tasktask_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TaskTask >&
+Sheet_TaskTask::e_tasktask_list() const {
+  return e_tasktask_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::tasktask >*
-Sheet_tasktask::mutable_tasktask_list() {
-  return &tasktask_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TaskTask >*
+Sheet_TaskTask::mutable_e_tasktask_list() {
+  return &e_tasktask_list_;
 }
 
 

@@ -34,26 +34,26 @@ void  protobuf_AddDesc_boss_2eproto();
 void protobuf_AssignDesc_boss_2eproto();
 void protobuf_ShutdownFile_boss_2eproto();
 
-class bossrareItem;
-class Sheet_bossrareItem;
-class bossboss;
-class Sheet_bossboss;
-class bossbosstypegroupDesc;
-class bossbosstype;
-class Sheet_bossbosstype;
-class bosslayer;
-class Sheet_bosslayer;
+class E_BossRareitem;
+class Sheet_BossRareitem;
+class E_BossBoss;
+class Sheet_BossBoss;
+class E_BossBosstypeGroupDesc;
+class E_BossBosstype;
+class Sheet_BossBosstype;
+class E_BossLayer;
+class Sheet_BossLayer;
 
 // ===================================================================
 
-class bossrareItem : public ::google::protobuf::Message {
+class E_BossRareitem : public ::google::protobuf::Message {
  public:
-  bossrareItem();
-  virtual ~bossrareItem();
+  E_BossRareitem();
+  virtual ~E_BossRareitem();
 
-  bossrareItem(const bossrareItem& from);
+  E_BossRareitem(const E_BossRareitem& from);
 
-  inline bossrareItem& operator=(const bossrareItem& from) {
+  inline E_BossRareitem& operator=(const E_BossRareitem& from) {
     CopyFrom(from);
     return *this;
   }
@@ -67,17 +67,17 @@ class bossrareItem : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const bossrareItem& default_instance();
+  static const E_BossRareitem& default_instance();
 
-  void Swap(bossrareItem* other);
+  void Swap(E_BossRareitem* other);
 
   // implements Message ----------------------------------------------
 
-  bossrareItem* New() const;
+  E_BossRareitem* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const bossrareItem& from);
-  void MergeFrom(const bossrareItem& from);
+  void CopyFrom(const E_BossRareitem& from);
+  void MergeFrom(const E_BossRareitem& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -100,31 +100,31 @@ class bossrareItem : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 itemID = 1;
-  inline bool has_itemid() const;
-  inline void clear_itemid();
-  static const int kItemIDFieldNumber = 1;
-  inline ::google::protobuf::int64 itemid() const;
-  inline void set_itemid(::google::protobuf::int64 value);
+  // optional int64 m_itemid = 1;
+  inline bool has_m_itemid() const;
+  inline void clear_m_itemid();
+  static const int kMItemidFieldNumber = 1;
+  inline ::google::protobuf::int64 m_itemid() const;
+  inline void set_m_itemid(::google::protobuf::int64 value);
 
-  // optional int32 top = 2;
-  inline bool has_top() const;
-  inline void clear_top();
-  static const int kTopFieldNumber = 2;
-  inline ::google::protobuf::int32 top() const;
-  inline void set_top(::google::protobuf::int32 value);
+  // optional int32 m_top = 2;
+  inline bool has_m_top() const;
+  inline void clear_m_top();
+  static const int kMTopFieldNumber = 2;
+  inline ::google::protobuf::int32 m_top() const;
+  inline void set_m_top(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.bossrareItem)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BossRareitem)
  private:
-  inline void set_has_itemid();
-  inline void clear_has_itemid();
-  inline void set_has_top();
-  inline void clear_has_top();
+  inline void set_has_m_itemid();
+  inline void clear_has_m_itemid();
+  inline void set_has_m_top();
+  inline void clear_has_m_top();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 itemid_;
-  ::google::protobuf::int32 top_;
+  ::google::protobuf::int64 m_itemid_;
+  ::google::protobuf::int32 m_top_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -134,18 +134,18 @@ class bossrareItem : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static bossrareItem* default_instance_;
+  static E_BossRareitem* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_bossrareItem : public ::google::protobuf::Message {
+class Sheet_BossRareitem : public ::google::protobuf::Message {
  public:
-  Sheet_bossrareItem();
-  virtual ~Sheet_bossrareItem();
+  Sheet_BossRareitem();
+  virtual ~Sheet_BossRareitem();
 
-  Sheet_bossrareItem(const Sheet_bossrareItem& from);
+  Sheet_BossRareitem(const Sheet_BossRareitem& from);
 
-  inline Sheet_bossrareItem& operator=(const Sheet_bossrareItem& from) {
+  inline Sheet_BossRareitem& operator=(const Sheet_BossRareitem& from) {
     CopyFrom(from);
     return *this;
   }
@@ -159,17 +159,17 @@ class Sheet_bossrareItem : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_bossrareItem& default_instance();
+  static const Sheet_BossRareitem& default_instance();
 
-  void Swap(Sheet_bossrareItem* other);
+  void Swap(Sheet_BossRareitem* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_bossrareItem* New() const;
+  Sheet_BossRareitem* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_bossrareItem& from);
-  void MergeFrom(const Sheet_bossrareItem& from);
+  void CopyFrom(const Sheet_BossRareitem& from);
+  void MergeFrom(const Sheet_BossRareitem& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -192,24 +192,24 @@ class Sheet_bossrareItem : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.bossrareItem bossrareItem_List = 1;
-  inline int bossrareitem_list_size() const;
-  inline void clear_bossrareitem_list();
-  static const int kBossrareItemListFieldNumber = 1;
-  inline const ::proto_ff::bossrareItem& bossrareitem_list(int index) const;
-  inline ::proto_ff::bossrareItem* mutable_bossrareitem_list(int index);
-  inline ::proto_ff::bossrareItem* add_bossrareitem_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossrareItem >&
-      bossrareitem_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossrareItem >*
-      mutable_bossrareitem_list();
+  // repeated .proto_ff.E_BossRareitem E_BossRareitem_List = 1;
+  inline int e_bossrareitem_list_size() const;
+  inline void clear_e_bossrareitem_list();
+  static const int kEBossRareitemListFieldNumber = 1;
+  inline const ::proto_ff::E_BossRareitem& e_bossrareitem_list(int index) const;
+  inline ::proto_ff::E_BossRareitem* mutable_e_bossrareitem_list(int index);
+  inline ::proto_ff::E_BossRareitem* add_e_bossrareitem_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossRareitem >&
+      e_bossrareitem_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossRareitem >*
+      mutable_e_bossrareitem_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_bossrareItem)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_BossRareitem)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::bossrareItem > bossrareitem_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossRareitem > e_bossrareitem_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -219,18 +219,18 @@ class Sheet_bossrareItem : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_bossrareItem* default_instance_;
+  static Sheet_BossRareitem* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class bossboss : public ::google::protobuf::Message {
+class E_BossBoss : public ::google::protobuf::Message {
  public:
-  bossboss();
-  virtual ~bossboss();
+  E_BossBoss();
+  virtual ~E_BossBoss();
 
-  bossboss(const bossboss& from);
+  E_BossBoss(const E_BossBoss& from);
 
-  inline bossboss& operator=(const bossboss& from) {
+  inline E_BossBoss& operator=(const E_BossBoss& from) {
     CopyFrom(from);
     return *this;
   }
@@ -244,17 +244,17 @@ class bossboss : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const bossboss& default_instance();
+  static const E_BossBoss& default_instance();
 
-  void Swap(bossboss* other);
+  void Swap(E_BossBoss* other);
 
   // implements Message ----------------------------------------------
 
-  bossboss* New() const;
+  E_BossBoss* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const bossboss& from);
-  void MergeFrom(const bossboss& from);
+  void CopyFrom(const E_BossBoss& from);
+  void MergeFrom(const E_BossBoss& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -277,131 +277,131 @@ class bossboss : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 bossType = 2;
-  inline bool has_bosstype() const;
-  inline void clear_bosstype();
-  static const int kBossTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 bosstype() const;
-  inline void set_bosstype(::google::protobuf::int32 value);
+  // optional int32 m_bosstype = 2;
+  inline bool has_m_bosstype() const;
+  inline void clear_m_bosstype();
+  static const int kMBosstypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_bosstype() const;
+  inline void set_m_bosstype(::google::protobuf::int32 value);
 
-  // optional int32 monsterID = 3;
-  inline bool has_monsterid() const;
-  inline void clear_monsterid();
-  static const int kMonsterIDFieldNumber = 3;
-  inline ::google::protobuf::int32 monsterid() const;
-  inline void set_monsterid(::google::protobuf::int32 value);
+  // optional int32 m_monsterid = 3;
+  inline bool has_m_monsterid() const;
+  inline void clear_m_monsterid();
+  static const int kMMonsteridFieldNumber = 3;
+  inline ::google::protobuf::int32 m_monsterid() const;
+  inline void set_m_monsterid(::google::protobuf::int32 value);
 
-  // optional int32 classOrder = 4;
-  inline bool has_classorder() const;
-  inline void clear_classorder();
-  static const int kClassOrderFieldNumber = 4;
-  inline ::google::protobuf::int32 classorder() const;
-  inline void set_classorder(::google::protobuf::int32 value);
+  // optional int32 m_classorder = 4;
+  inline bool has_m_classorder() const;
+  inline void clear_m_classorder();
+  static const int kMClassorderFieldNumber = 4;
+  inline ::google::protobuf::int32 m_classorder() const;
+  inline void set_m_classorder(::google::protobuf::int32 value);
 
-  // optional int32 sceneOrder = 5;
-  inline bool has_sceneorder() const;
-  inline void clear_sceneorder();
-  static const int kSceneOrderFieldNumber = 5;
-  inline ::google::protobuf::int32 sceneorder() const;
-  inline void set_sceneorder(::google::protobuf::int32 value);
+  // optional int32 m_sceneorder = 5;
+  inline bool has_m_sceneorder() const;
+  inline void clear_m_sceneorder();
+  static const int kMSceneorderFieldNumber = 5;
+  inline ::google::protobuf::int32 m_sceneorder() const;
+  inline void set_m_sceneorder(::google::protobuf::int32 value);
 
-  // optional int32 duplicateID = 6;
-  inline bool has_duplicateid() const;
-  inline void clear_duplicateid();
-  static const int kDuplicateIDFieldNumber = 6;
-  inline ::google::protobuf::int32 duplicateid() const;
-  inline void set_duplicateid(::google::protobuf::int32 value);
+  // optional int32 m_duplicateid = 6;
+  inline bool has_m_duplicateid() const;
+  inline void clear_m_duplicateid();
+  static const int kMDuplicateidFieldNumber = 6;
+  inline ::google::protobuf::int32 m_duplicateid() const;
+  inline void set_m_duplicateid(::google::protobuf::int32 value);
 
-  // optional int32 peaceMask = 7;
-  inline bool has_peacemask() const;
-  inline void clear_peacemask();
-  static const int kPeaceMaskFieldNumber = 7;
-  inline ::google::protobuf::int32 peacemask() const;
-  inline void set_peacemask(::google::protobuf::int32 value);
+  // optional int32 m_peacemask = 7;
+  inline bool has_m_peacemask() const;
+  inline void clear_m_peacemask();
+  static const int kMPeacemaskFieldNumber = 7;
+  inline ::google::protobuf::int32 m_peacemask() const;
+  inline void set_m_peacemask(::google::protobuf::int32 value);
 
-  // optional int32 pointID = 8;
-  inline bool has_pointid() const;
-  inline void clear_pointid();
-  static const int kPointIDFieldNumber = 8;
-  inline ::google::protobuf::int32 pointid() const;
-  inline void set_pointid(::google::protobuf::int32 value);
+  // optional int32 m_pointid = 8;
+  inline bool has_m_pointid() const;
+  inline void clear_m_pointid();
+  static const int kMPointidFieldNumber = 8;
+  inline ::google::protobuf::int32 m_pointid() const;
+  inline void set_m_pointid(::google::protobuf::int32 value);
 
-  // optional int32 group_type = 9;
-  inline bool has_group_type() const;
-  inline void clear_group_type();
-  static const int kGroupTypeFieldNumber = 9;
-  inline ::google::protobuf::int32 group_type() const;
-  inline void set_group_type(::google::protobuf::int32 value);
+  // optional int32 m_group_type = 9;
+  inline bool has_m_group_type() const;
+  inline void clear_m_group_type();
+  static const int kMGroupTypeFieldNumber = 9;
+  inline ::google::protobuf::int32 m_group_type() const;
+  inline void set_m_group_type(::google::protobuf::int32 value);
 
-  // optional int32 flashTime = 10;
-  inline bool has_flashtime() const;
-  inline void clear_flashtime();
-  static const int kFlashTimeFieldNumber = 10;
-  inline ::google::protobuf::int32 flashtime() const;
-  inline void set_flashtime(::google::protobuf::int32 value);
+  // optional int32 m_flashtime = 10;
+  inline bool has_m_flashtime() const;
+  inline void clear_m_flashtime();
+  static const int kMFlashtimeFieldNumber = 10;
+  inline ::google::protobuf::int32 m_flashtime() const;
+  inline void set_m_flashtime(::google::protobuf::int32 value);
 
-  // optional int32 retrieveGiftID = 11;
-  inline bool has_retrievegiftid() const;
-  inline void clear_retrievegiftid();
-  static const int kRetrieveGiftIDFieldNumber = 11;
-  inline ::google::protobuf::int32 retrievegiftid() const;
-  inline void set_retrievegiftid(::google::protobuf::int32 value);
+  // optional int32 m_retrievegiftid = 11;
+  inline bool has_m_retrievegiftid() const;
+  inline void clear_m_retrievegiftid();
+  static const int kMRetrievegiftidFieldNumber = 11;
+  inline ::google::protobuf::int32 m_retrievegiftid() const;
+  inline void set_m_retrievegiftid(::google::protobuf::int32 value);
 
-  // optional int32 noTimes = 12;
-  inline bool has_notimes() const;
-  inline void clear_notimes();
-  static const int kNoTimesFieldNumber = 12;
-  inline ::google::protobuf::int32 notimes() const;
-  inline void set_notimes(::google::protobuf::int32 value);
+  // optional int32 m_notimes = 12;
+  inline bool has_m_notimes() const;
+  inline void clear_m_notimes();
+  static const int kMNotimesFieldNumber = 12;
+  inline ::google::protobuf::int32 m_notimes() const;
+  inline void set_m_notimes(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.bossboss)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BossBoss)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_bosstype();
-  inline void clear_has_bosstype();
-  inline void set_has_monsterid();
-  inline void clear_has_monsterid();
-  inline void set_has_classorder();
-  inline void clear_has_classorder();
-  inline void set_has_sceneorder();
-  inline void clear_has_sceneorder();
-  inline void set_has_duplicateid();
-  inline void clear_has_duplicateid();
-  inline void set_has_peacemask();
-  inline void clear_has_peacemask();
-  inline void set_has_pointid();
-  inline void clear_has_pointid();
-  inline void set_has_group_type();
-  inline void clear_has_group_type();
-  inline void set_has_flashtime();
-  inline void clear_has_flashtime();
-  inline void set_has_retrievegiftid();
-  inline void clear_has_retrievegiftid();
-  inline void set_has_notimes();
-  inline void clear_has_notimes();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_bosstype();
+  inline void clear_has_m_bosstype();
+  inline void set_has_m_monsterid();
+  inline void clear_has_m_monsterid();
+  inline void set_has_m_classorder();
+  inline void clear_has_m_classorder();
+  inline void set_has_m_sceneorder();
+  inline void clear_has_m_sceneorder();
+  inline void set_has_m_duplicateid();
+  inline void clear_has_m_duplicateid();
+  inline void set_has_m_peacemask();
+  inline void clear_has_m_peacemask();
+  inline void set_has_m_pointid();
+  inline void clear_has_m_pointid();
+  inline void set_has_m_group_type();
+  inline void clear_has_m_group_type();
+  inline void set_has_m_flashtime();
+  inline void clear_has_m_flashtime();
+  inline void set_has_m_retrievegiftid();
+  inline void clear_has_m_retrievegiftid();
+  inline void set_has_m_notimes();
+  inline void clear_has_m_notimes();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 bosstype_;
-  ::google::protobuf::int32 monsterid_;
-  ::google::protobuf::int32 classorder_;
-  ::google::protobuf::int32 sceneorder_;
-  ::google::protobuf::int32 duplicateid_;
-  ::google::protobuf::int32 peacemask_;
-  ::google::protobuf::int32 pointid_;
-  ::google::protobuf::int32 group_type_;
-  ::google::protobuf::int32 flashtime_;
-  ::google::protobuf::int32 retrievegiftid_;
-  ::google::protobuf::int32 notimes_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_bosstype_;
+  ::google::protobuf::int32 m_monsterid_;
+  ::google::protobuf::int32 m_classorder_;
+  ::google::protobuf::int32 m_sceneorder_;
+  ::google::protobuf::int32 m_duplicateid_;
+  ::google::protobuf::int32 m_peacemask_;
+  ::google::protobuf::int32 m_pointid_;
+  ::google::protobuf::int32 m_group_type_;
+  ::google::protobuf::int32 m_flashtime_;
+  ::google::protobuf::int32 m_retrievegiftid_;
+  ::google::protobuf::int32 m_notimes_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
@@ -411,18 +411,18 @@ class bossboss : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static bossboss* default_instance_;
+  static E_BossBoss* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_bossboss : public ::google::protobuf::Message {
+class Sheet_BossBoss : public ::google::protobuf::Message {
  public:
-  Sheet_bossboss();
-  virtual ~Sheet_bossboss();
+  Sheet_BossBoss();
+  virtual ~Sheet_BossBoss();
 
-  Sheet_bossboss(const Sheet_bossboss& from);
+  Sheet_BossBoss(const Sheet_BossBoss& from);
 
-  inline Sheet_bossboss& operator=(const Sheet_bossboss& from) {
+  inline Sheet_BossBoss& operator=(const Sheet_BossBoss& from) {
     CopyFrom(from);
     return *this;
   }
@@ -436,17 +436,17 @@ class Sheet_bossboss : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_bossboss& default_instance();
+  static const Sheet_BossBoss& default_instance();
 
-  void Swap(Sheet_bossboss* other);
+  void Swap(Sheet_BossBoss* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_bossboss* New() const;
+  Sheet_BossBoss* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_bossboss& from);
-  void MergeFrom(const Sheet_bossboss& from);
+  void CopyFrom(const Sheet_BossBoss& from);
+  void MergeFrom(const Sheet_BossBoss& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -469,24 +469,24 @@ class Sheet_bossboss : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.bossboss bossboss_List = 1;
-  inline int bossboss_list_size() const;
-  inline void clear_bossboss_list();
-  static const int kBossbossListFieldNumber = 1;
-  inline const ::proto_ff::bossboss& bossboss_list(int index) const;
-  inline ::proto_ff::bossboss* mutable_bossboss_list(int index);
-  inline ::proto_ff::bossboss* add_bossboss_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossboss >&
-      bossboss_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossboss >*
-      mutable_bossboss_list();
+  // repeated .proto_ff.E_BossBoss E_BossBoss_List = 1;
+  inline int e_bossboss_list_size() const;
+  inline void clear_e_bossboss_list();
+  static const int kEBossBossListFieldNumber = 1;
+  inline const ::proto_ff::E_BossBoss& e_bossboss_list(int index) const;
+  inline ::proto_ff::E_BossBoss* mutable_e_bossboss_list(int index);
+  inline ::proto_ff::E_BossBoss* add_e_bossboss_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBoss >&
+      e_bossboss_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBoss >*
+      mutable_e_bossboss_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_bossboss)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_BossBoss)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::bossboss > bossboss_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBoss > e_bossboss_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -496,18 +496,18 @@ class Sheet_bossboss : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_bossboss* default_instance_;
+  static Sheet_BossBoss* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class bossbosstypegroupDesc : public ::google::protobuf::Message {
+class E_BossBosstypeGroupDesc : public ::google::protobuf::Message {
  public:
-  bossbosstypegroupDesc();
-  virtual ~bossbosstypegroupDesc();
+  E_BossBosstypeGroupDesc();
+  virtual ~E_BossBosstypeGroupDesc();
 
-  bossbosstypegroupDesc(const bossbosstypegroupDesc& from);
+  E_BossBosstypeGroupDesc(const E_BossBosstypeGroupDesc& from);
 
-  inline bossbosstypegroupDesc& operator=(const bossbosstypegroupDesc& from) {
+  inline E_BossBosstypeGroupDesc& operator=(const E_BossBosstypeGroupDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -521,17 +521,17 @@ class bossbosstypegroupDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const bossbosstypegroupDesc& default_instance();
+  static const E_BossBosstypeGroupDesc& default_instance();
 
-  void Swap(bossbosstypegroupDesc* other);
+  void Swap(E_BossBosstypeGroupDesc* other);
 
   // implements Message ----------------------------------------------
 
-  bossbosstypegroupDesc* New() const;
+  E_BossBosstypeGroupDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const bossbosstypegroupDesc& from);
-  void MergeFrom(const bossbosstypegroupDesc& from);
+  void CopyFrom(const E_BossBosstypeGroupDesc& from);
+  void MergeFrom(const E_BossBosstypeGroupDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -554,31 +554,31 @@ class bossbosstypegroupDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 times = 2;
-  inline bool has_times() const;
-  inline void clear_times();
-  static const int kTimesFieldNumber = 2;
-  inline ::google::protobuf::int32 times() const;
-  inline void set_times(::google::protobuf::int32 value);
+  // optional int32 m_times = 2;
+  inline bool has_m_times() const;
+  inline void clear_m_times();
+  static const int kMTimesFieldNumber = 2;
+  inline ::google::protobuf::int32 m_times() const;
+  inline void set_m_times(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.bossbosstypegroupDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BossBosstypeGroupDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_times();
-  inline void clear_has_times();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_times();
+  inline void clear_has_m_times();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 times_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_times_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -588,18 +588,18 @@ class bossbosstypegroupDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static bossbosstypegroupDesc* default_instance_;
+  static E_BossBosstypeGroupDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class bossbosstype : public ::google::protobuf::Message {
+class E_BossBosstype : public ::google::protobuf::Message {
  public:
-  bossbosstype();
-  virtual ~bossbosstype();
+  E_BossBosstype();
+  virtual ~E_BossBosstype();
 
-  bossbosstype(const bossbosstype& from);
+  E_BossBosstype(const E_BossBosstype& from);
 
-  inline bossbosstype& operator=(const bossbosstype& from) {
+  inline E_BossBosstype& operator=(const E_BossBosstype& from) {
     CopyFrom(from);
     return *this;
   }
@@ -613,17 +613,17 @@ class bossbosstype : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const bossbosstype& default_instance();
+  static const E_BossBosstype& default_instance();
 
-  void Swap(bossbosstype* other);
+  void Swap(E_BossBosstype* other);
 
   // implements Message ----------------------------------------------
 
-  bossbosstype* New() const;
+  E_BossBosstype* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const bossbosstype& from);
-  void MergeFrom(const bossbosstype& from);
+  void CopyFrom(const E_BossBosstype& from);
+  void MergeFrom(const E_BossBosstype& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -646,179 +646,179 @@ class bossbosstype : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 bossType = 1;
-  inline bool has_bosstype() const;
-  inline void clear_bosstype();
-  static const int kBossTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 bosstype() const;
-  inline void set_bosstype(::google::protobuf::int32 value);
+  // optional int32 m_bosstype = 1;
+  inline bool has_m_bosstype() const;
+  inline void clear_m_bosstype();
+  static const int kMBosstypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_bosstype() const;
+  inline void set_m_bosstype(::google::protobuf::int32 value);
 
-  // optional int32 mapType = 2;
-  inline bool has_maptype() const;
-  inline void clear_maptype();
-  static const int kMapTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 maptype() const;
-  inline void set_maptype(::google::protobuf::int32 value);
+  // optional int32 m_maptype = 2;
+  inline bool has_m_maptype() const;
+  inline void clear_m_maptype();
+  static const int kMMaptypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_maptype() const;
+  inline void set_m_maptype(::google::protobuf::int32 value);
 
-  // optional int32 functionId = 3;
-  inline bool has_functionid() const;
-  inline void clear_functionid();
-  static const int kFunctionIdFieldNumber = 3;
-  inline ::google::protobuf::int32 functionid() const;
-  inline void set_functionid(::google::protobuf::int32 value);
+  // optional int32 m_functionid = 3;
+  inline bool has_m_functionid() const;
+  inline void clear_m_functionid();
+  static const int kMFunctionidFieldNumber = 3;
+  inline ::google::protobuf::int32 m_functionid() const;
+  inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional int32 duplicateGroupID = 4;
-  inline bool has_duplicategroupid() const;
-  inline void clear_duplicategroupid();
-  static const int kDuplicateGroupIDFieldNumber = 4;
-  inline ::google::protobuf::int32 duplicategroupid() const;
-  inline void set_duplicategroupid(::google::protobuf::int32 value);
+  // optional int32 m_duplicategroupid = 4;
+  inline bool has_m_duplicategroupid() const;
+  inline void clear_m_duplicategroupid();
+  static const int kMDuplicategroupidFieldNumber = 4;
+  inline ::google::protobuf::int32 m_duplicategroupid() const;
+  inline void set_m_duplicategroupid(::google::protobuf::int32 value);
 
-  // optional int32 privilegeType = 5;
-  inline bool has_privilegetype() const;
-  inline void clear_privilegetype();
-  static const int kPrivilegeTypeFieldNumber = 5;
-  inline ::google::protobuf::int32 privilegetype() const;
-  inline void set_privilegetype(::google::protobuf::int32 value);
+  // optional int32 m_privilegetype = 5;
+  inline bool has_m_privilegetype() const;
+  inline void clear_m_privilegetype();
+  static const int kMPrivilegetypeFieldNumber = 5;
+  inline ::google::protobuf::int32 m_privilegetype() const;
+  inline void set_m_privilegetype(::google::protobuf::int32 value);
 
-  // optional int64 callingCardId = 6;
-  inline bool has_callingcardid() const;
-  inline void clear_callingcardid();
-  static const int kCallingCardIdFieldNumber = 6;
-  inline ::google::protobuf::int64 callingcardid() const;
-  inline void set_callingcardid(::google::protobuf::int64 value);
+  // optional int64 m_callingcardid = 6;
+  inline bool has_m_callingcardid() const;
+  inline void clear_m_callingcardid();
+  static const int kMCallingcardidFieldNumber = 6;
+  inline ::google::protobuf::int64 m_callingcardid() const;
+  inline void set_m_callingcardid(::google::protobuf::int64 value);
 
-  // optional int32 enterTimes = 7;
-  inline bool has_entertimes() const;
-  inline void clear_entertimes();
-  static const int kEnterTimesFieldNumber = 7;
-  inline ::google::protobuf::int32 entertimes() const;
-  inline void set_entertimes(::google::protobuf::int32 value);
+  // optional int32 m_entertimes = 7;
+  inline bool has_m_entertimes() const;
+  inline void clear_m_entertimes();
+  static const int kMEntertimesFieldNumber = 7;
+  inline ::google::protobuf::int32 m_entertimes() const;
+  inline void set_m_entertimes(::google::protobuf::int32 value);
 
-  // optional int32 costitem = 8;
-  inline bool has_costitem() const;
-  inline void clear_costitem();
-  static const int kCostitemFieldNumber = 8;
-  inline ::google::protobuf::int32 costitem() const;
-  inline void set_costitem(::google::protobuf::int32 value);
+  // optional int32 m_costitem = 8;
+  inline bool has_m_costitem() const;
+  inline void clear_m_costitem();
+  static const int kMCostitemFieldNumber = 8;
+  inline ::google::protobuf::int32 m_costitem() const;
+  inline void set_m_costitem(::google::protobuf::int32 value);
 
-  // optional string costnum = 9;
-  inline bool has_costnum() const;
-  inline void clear_costnum();
-  static const int kCostnumFieldNumber = 9;
-  inline const ::std::string& costnum() const;
-  inline void set_costnum(const ::std::string& value);
-  inline void set_costnum(const char* value);
-  inline void set_costnum(const char* value, size_t size);
-  inline ::std::string* mutable_costnum();
-  inline ::std::string* release_costnum();
-  inline void set_allocated_costnum(::std::string* costnum);
+  // optional string m_costnum = 9;
+  inline bool has_m_costnum() const;
+  inline void clear_m_costnum();
+  static const int kMCostnumFieldNumber = 9;
+  inline const ::std::string& m_costnum() const;
+  inline void set_m_costnum(const ::std::string& value);
+  inline void set_m_costnum(const char* value);
+  inline void set_m_costnum(const char* value, size_t size);
+  inline ::std::string* mutable_m_costnum();
+  inline ::std::string* release_m_costnum();
+  inline void set_allocated_m_costnum(::std::string* m_costnum);
 
-  // optional int32 bossTimes = 10;
-  inline bool has_bosstimes() const;
-  inline void clear_bosstimes();
-  static const int kBossTimesFieldNumber = 10;
-  inline ::google::protobuf::int32 bosstimes() const;
-  inline void set_bosstimes(::google::protobuf::int32 value);
+  // optional int32 m_bosstimes = 10;
+  inline bool has_m_bosstimes() const;
+  inline void clear_m_bosstimes();
+  static const int kMBosstimesFieldNumber = 10;
+  inline ::google::protobuf::int32 m_bosstimes() const;
+  inline void set_m_bosstimes(::google::protobuf::int32 value);
 
-  // optional int32 addItemID = 11;
-  inline bool has_additemid() const;
-  inline void clear_additemid();
-  static const int kAddItemIDFieldNumber = 11;
-  inline ::google::protobuf::int32 additemid() const;
-  inline void set_additemid(::google::protobuf::int32 value);
+  // optional int32 m_additemid = 11;
+  inline bool has_m_additemid() const;
+  inline void clear_m_additemid();
+  static const int kMAdditemidFieldNumber = 11;
+  inline ::google::protobuf::int32 m_additemid() const;
+  inline void set_m_additemid(::google::protobuf::int32 value);
 
-  // optional int32 canhelp = 12;
-  inline bool has_canhelp() const;
-  inline void clear_canhelp();
-  static const int kCanhelpFieldNumber = 12;
-  inline ::google::protobuf::int32 canhelp() const;
-  inline void set_canhelp(::google::protobuf::int32 value);
+  // optional int32 m_canhelp = 12;
+  inline bool has_m_canhelp() const;
+  inline void clear_m_canhelp();
+  static const int kMCanhelpFieldNumber = 12;
+  inline ::google::protobuf::int32 m_canhelp() const;
+  inline void set_m_canhelp(::google::protobuf::int32 value);
 
-  // optional int32 qkill = 13;
-  inline bool has_qkill() const;
-  inline void clear_qkill();
-  static const int kQkillFieldNumber = 13;
-  inline ::google::protobuf::int32 qkill() const;
-  inline void set_qkill(::google::protobuf::int32 value);
+  // optional int32 m_qkill = 13;
+  inline bool has_m_qkill() const;
+  inline void clear_m_qkill();
+  static const int kMQkillFieldNumber = 13;
+  inline ::google::protobuf::int32 m_qkill() const;
+  inline void set_m_qkill(::google::protobuf::int32 value);
 
-  // optional int32 retrievedDays = 14;
-  inline bool has_retrieveddays() const;
-  inline void clear_retrieveddays();
-  static const int kRetrievedDaysFieldNumber = 14;
-  inline ::google::protobuf::int32 retrieveddays() const;
-  inline void set_retrieveddays(::google::protobuf::int32 value);
+  // optional int32 m_retrieveddays = 14;
+  inline bool has_m_retrieveddays() const;
+  inline void clear_m_retrieveddays();
+  static const int kMRetrieveddaysFieldNumber = 14;
+  inline ::google::protobuf::int32 m_retrieveddays() const;
+  inline void set_m_retrieveddays(::google::protobuf::int32 value);
 
-  // optional int32 skill = 15;
-  inline bool has_skill() const;
-  inline void clear_skill();
-  static const int kSkillFieldNumber = 15;
-  inline ::google::protobuf::int32 skill() const;
-  inline void set_skill(::google::protobuf::int32 value);
+  // optional int32 m_skill = 15;
+  inline bool has_m_skill() const;
+  inline void clear_m_skill();
+  static const int kMSkillFieldNumber = 15;
+  inline ::google::protobuf::int32 m_skill() const;
+  inline void set_m_skill(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.bossbosstypegroupDesc group = 16;
-  inline int group_size() const;
-  inline void clear_group();
-  static const int kGroupFieldNumber = 16;
-  inline const ::proto_ff::bossbosstypegroupDesc& group(int index) const;
-  inline ::proto_ff::bossbosstypegroupDesc* mutable_group(int index);
-  inline ::proto_ff::bossbosstypegroupDesc* add_group();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstypegroupDesc >&
-      group() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstypegroupDesc >*
-      mutable_group();
+  // repeated .proto_ff.E_BossBosstypeGroupDesc m_group = 16;
+  inline int m_group_size() const;
+  inline void clear_m_group();
+  static const int kMGroupFieldNumber = 16;
+  inline const ::proto_ff::E_BossBosstypeGroupDesc& m_group(int index) const;
+  inline ::proto_ff::E_BossBosstypeGroupDesc* mutable_m_group(int index);
+  inline ::proto_ff::E_BossBosstypeGroupDesc* add_m_group();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstypeGroupDesc >&
+      m_group() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstypeGroupDesc >*
+      mutable_m_group();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.bossbosstype)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BossBosstype)
  private:
-  inline void set_has_bosstype();
-  inline void clear_has_bosstype();
-  inline void set_has_maptype();
-  inline void clear_has_maptype();
-  inline void set_has_functionid();
-  inline void clear_has_functionid();
-  inline void set_has_duplicategroupid();
-  inline void clear_has_duplicategroupid();
-  inline void set_has_privilegetype();
-  inline void clear_has_privilegetype();
-  inline void set_has_callingcardid();
-  inline void clear_has_callingcardid();
-  inline void set_has_entertimes();
-  inline void clear_has_entertimes();
-  inline void set_has_costitem();
-  inline void clear_has_costitem();
-  inline void set_has_costnum();
-  inline void clear_has_costnum();
-  inline void set_has_bosstimes();
-  inline void clear_has_bosstimes();
-  inline void set_has_additemid();
-  inline void clear_has_additemid();
-  inline void set_has_canhelp();
-  inline void clear_has_canhelp();
-  inline void set_has_qkill();
-  inline void clear_has_qkill();
-  inline void set_has_retrieveddays();
-  inline void clear_has_retrieveddays();
-  inline void set_has_skill();
-  inline void clear_has_skill();
+  inline void set_has_m_bosstype();
+  inline void clear_has_m_bosstype();
+  inline void set_has_m_maptype();
+  inline void clear_has_m_maptype();
+  inline void set_has_m_functionid();
+  inline void clear_has_m_functionid();
+  inline void set_has_m_duplicategroupid();
+  inline void clear_has_m_duplicategroupid();
+  inline void set_has_m_privilegetype();
+  inline void clear_has_m_privilegetype();
+  inline void set_has_m_callingcardid();
+  inline void clear_has_m_callingcardid();
+  inline void set_has_m_entertimes();
+  inline void clear_has_m_entertimes();
+  inline void set_has_m_costitem();
+  inline void clear_has_m_costitem();
+  inline void set_has_m_costnum();
+  inline void clear_has_m_costnum();
+  inline void set_has_m_bosstimes();
+  inline void clear_has_m_bosstimes();
+  inline void set_has_m_additemid();
+  inline void clear_has_m_additemid();
+  inline void set_has_m_canhelp();
+  inline void clear_has_m_canhelp();
+  inline void set_has_m_qkill();
+  inline void clear_has_m_qkill();
+  inline void set_has_m_retrieveddays();
+  inline void clear_has_m_retrieveddays();
+  inline void set_has_m_skill();
+  inline void clear_has_m_skill();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 bosstype_;
-  ::google::protobuf::int32 maptype_;
-  ::google::protobuf::int32 functionid_;
-  ::google::protobuf::int32 duplicategroupid_;
-  ::google::protobuf::int64 callingcardid_;
-  ::google::protobuf::int32 privilegetype_;
-  ::google::protobuf::int32 entertimes_;
-  ::std::string* costnum_;
-  ::google::protobuf::int32 costitem_;
-  ::google::protobuf::int32 bosstimes_;
-  ::google::protobuf::int32 additemid_;
-  ::google::protobuf::int32 canhelp_;
-  ::google::protobuf::int32 qkill_;
-  ::google::protobuf::int32 retrieveddays_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstypegroupDesc > group_;
-  ::google::protobuf::int32 skill_;
+  ::google::protobuf::int32 m_bosstype_;
+  ::google::protobuf::int32 m_maptype_;
+  ::google::protobuf::int32 m_functionid_;
+  ::google::protobuf::int32 m_duplicategroupid_;
+  ::google::protobuf::int64 m_callingcardid_;
+  ::google::protobuf::int32 m_privilegetype_;
+  ::google::protobuf::int32 m_entertimes_;
+  ::std::string* m_costnum_;
+  ::google::protobuf::int32 m_costitem_;
+  ::google::protobuf::int32 m_bosstimes_;
+  ::google::protobuf::int32 m_additemid_;
+  ::google::protobuf::int32 m_canhelp_;
+  ::google::protobuf::int32 m_qkill_;
+  ::google::protobuf::int32 m_retrieveddays_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstypeGroupDesc > m_group_;
+  ::google::protobuf::int32 m_skill_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
@@ -828,18 +828,18 @@ class bossbosstype : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static bossbosstype* default_instance_;
+  static E_BossBosstype* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_bossbosstype : public ::google::protobuf::Message {
+class Sheet_BossBosstype : public ::google::protobuf::Message {
  public:
-  Sheet_bossbosstype();
-  virtual ~Sheet_bossbosstype();
+  Sheet_BossBosstype();
+  virtual ~Sheet_BossBosstype();
 
-  Sheet_bossbosstype(const Sheet_bossbosstype& from);
+  Sheet_BossBosstype(const Sheet_BossBosstype& from);
 
-  inline Sheet_bossbosstype& operator=(const Sheet_bossbosstype& from) {
+  inline Sheet_BossBosstype& operator=(const Sheet_BossBosstype& from) {
     CopyFrom(from);
     return *this;
   }
@@ -853,17 +853,17 @@ class Sheet_bossbosstype : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_bossbosstype& default_instance();
+  static const Sheet_BossBosstype& default_instance();
 
-  void Swap(Sheet_bossbosstype* other);
+  void Swap(Sheet_BossBosstype* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_bossbosstype* New() const;
+  Sheet_BossBosstype* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_bossbosstype& from);
-  void MergeFrom(const Sheet_bossbosstype& from);
+  void CopyFrom(const Sheet_BossBosstype& from);
+  void MergeFrom(const Sheet_BossBosstype& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -886,24 +886,24 @@ class Sheet_bossbosstype : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.bossbosstype bossbosstype_List = 1;
-  inline int bossbosstype_list_size() const;
-  inline void clear_bossbosstype_list();
-  static const int kBossbosstypeListFieldNumber = 1;
-  inline const ::proto_ff::bossbosstype& bossbosstype_list(int index) const;
-  inline ::proto_ff::bossbosstype* mutable_bossbosstype_list(int index);
-  inline ::proto_ff::bossbosstype* add_bossbosstype_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstype >&
-      bossbosstype_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstype >*
-      mutable_bossbosstype_list();
+  // repeated .proto_ff.E_BossBosstype E_BossBosstype_List = 1;
+  inline int e_bossbosstype_list_size() const;
+  inline void clear_e_bossbosstype_list();
+  static const int kEBossBosstypeListFieldNumber = 1;
+  inline const ::proto_ff::E_BossBosstype& e_bossbosstype_list(int index) const;
+  inline ::proto_ff::E_BossBosstype* mutable_e_bossbosstype_list(int index);
+  inline ::proto_ff::E_BossBosstype* add_e_bossbosstype_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstype >&
+      e_bossbosstype_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstype >*
+      mutable_e_bossbosstype_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_bossbosstype)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_BossBosstype)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstype > bossbosstype_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstype > e_bossbosstype_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -913,18 +913,18 @@ class Sheet_bossbosstype : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_bossbosstype* default_instance_;
+  static Sheet_BossBosstype* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class bosslayer : public ::google::protobuf::Message {
+class E_BossLayer : public ::google::protobuf::Message {
  public:
-  bosslayer();
-  virtual ~bosslayer();
+  E_BossLayer();
+  virtual ~E_BossLayer();
 
-  bosslayer(const bosslayer& from);
+  E_BossLayer(const E_BossLayer& from);
 
-  inline bosslayer& operator=(const bosslayer& from) {
+  inline E_BossLayer& operator=(const E_BossLayer& from) {
     CopyFrom(from);
     return *this;
   }
@@ -938,17 +938,17 @@ class bosslayer : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const bosslayer& default_instance();
+  static const E_BossLayer& default_instance();
 
-  void Swap(bosslayer* other);
+  void Swap(E_BossLayer* other);
 
   // implements Message ----------------------------------------------
 
-  bosslayer* New() const;
+  E_BossLayer* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const bosslayer& from);
-  void MergeFrom(const bosslayer& from);
+  void CopyFrom(const E_BossLayer& from);
+  void MergeFrom(const E_BossLayer& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -971,96 +971,96 @@ class bosslayer : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 bossType = 2;
-  inline bool has_bosstype() const;
-  inline void clear_bosstype();
-  static const int kBossTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 bosstype() const;
-  inline void set_bosstype(::google::protobuf::int32 value);
+  // optional int32 m_bosstype = 2;
+  inline bool has_m_bosstype() const;
+  inline void clear_m_bosstype();
+  static const int kMBosstypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_bosstype() const;
+  inline void set_m_bosstype(::google::protobuf::int32 value);
 
-  // optional int32 order = 3;
-  inline bool has_order() const;
-  inline void clear_order();
-  static const int kOrderFieldNumber = 3;
-  inline ::google::protobuf::int32 order() const;
-  inline void set_order(::google::protobuf::int32 value);
+  // optional int32 m_order = 3;
+  inline bool has_m_order() const;
+  inline void clear_m_order();
+  static const int kMOrderFieldNumber = 3;
+  inline ::google::protobuf::int32 m_order() const;
+  inline void set_m_order(::google::protobuf::int32 value);
 
-  // optional string name = 4;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 4;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 4;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 4;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string enterCondition = 5;
-  inline bool has_entercondition() const;
-  inline void clear_entercondition();
-  static const int kEnterConditionFieldNumber = 5;
-  inline const ::std::string& entercondition() const;
-  inline void set_entercondition(const ::std::string& value);
-  inline void set_entercondition(const char* value);
-  inline void set_entercondition(const char* value, size_t size);
-  inline ::std::string* mutable_entercondition();
-  inline ::std::string* release_entercondition();
-  inline void set_allocated_entercondition(::std::string* entercondition);
+  // optional string m_entercondition = 5;
+  inline bool has_m_entercondition() const;
+  inline void clear_m_entercondition();
+  static const int kMEnterconditionFieldNumber = 5;
+  inline const ::std::string& m_entercondition() const;
+  inline void set_m_entercondition(const ::std::string& value);
+  inline void set_m_entercondition(const char* value);
+  inline void set_m_entercondition(const char* value, size_t size);
+  inline ::std::string* mutable_m_entercondition();
+  inline ::std::string* release_m_entercondition();
+  inline void set_allocated_m_entercondition(::std::string* m_entercondition);
 
-  // optional string unlockCondition = 6;
-  inline bool has_unlockcondition() const;
-  inline void clear_unlockcondition();
-  static const int kUnlockConditionFieldNumber = 6;
-  inline const ::std::string& unlockcondition() const;
-  inline void set_unlockcondition(const ::std::string& value);
-  inline void set_unlockcondition(const char* value);
-  inline void set_unlockcondition(const char* value, size_t size);
-  inline ::std::string* mutable_unlockcondition();
-  inline ::std::string* release_unlockcondition();
-  inline void set_allocated_unlockcondition(::std::string* unlockcondition);
+  // optional string m_unlockcondition = 6;
+  inline bool has_m_unlockcondition() const;
+  inline void clear_m_unlockcondition();
+  static const int kMUnlockconditionFieldNumber = 6;
+  inline const ::std::string& m_unlockcondition() const;
+  inline void set_m_unlockcondition(const ::std::string& value);
+  inline void set_m_unlockcondition(const char* value);
+  inline void set_m_unlockcondition(const char* value, size_t size);
+  inline ::std::string* mutable_m_unlockcondition();
+  inline ::std::string* release_m_unlockcondition();
+  inline void set_allocated_m_unlockcondition(::std::string* m_unlockcondition);
 
-  // optional int32 mapID = 7;
-  inline bool has_mapid() const;
-  inline void clear_mapid();
-  static const int kMapIDFieldNumber = 7;
-  inline ::google::protobuf::int32 mapid() const;
-  inline void set_mapid(::google::protobuf::int32 value);
+  // optional int32 m_mapid = 7;
+  inline bool has_m_mapid() const;
+  inline void clear_m_mapid();
+  static const int kMMapidFieldNumber = 7;
+  inline ::google::protobuf::int32 m_mapid() const;
+  inline void set_m_mapid(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.bosslayer)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_BossLayer)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_bosstype();
-  inline void clear_has_bosstype();
-  inline void set_has_order();
-  inline void clear_has_order();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_entercondition();
-  inline void clear_has_entercondition();
-  inline void set_has_unlockcondition();
-  inline void clear_has_unlockcondition();
-  inline void set_has_mapid();
-  inline void clear_has_mapid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_bosstype();
+  inline void clear_has_m_bosstype();
+  inline void set_has_m_order();
+  inline void clear_has_m_order();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_entercondition();
+  inline void clear_has_m_entercondition();
+  inline void set_has_m_unlockcondition();
+  inline void clear_has_m_unlockcondition();
+  inline void set_has_m_mapid();
+  inline void clear_has_m_mapid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 id_;
-  ::google::protobuf::int32 bosstype_;
-  ::std::string* name_;
-  ::std::string* entercondition_;
-  ::google::protobuf::int32 order_;
-  ::google::protobuf::int32 mapid_;
-  ::std::string* unlockcondition_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_bosstype_;
+  ::std::string* m_name_;
+  ::std::string* m_entercondition_;
+  ::google::protobuf::int32 m_order_;
+  ::google::protobuf::int32 m_mapid_;
+  ::std::string* m_unlockcondition_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -1070,18 +1070,18 @@ class bosslayer : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static bosslayer* default_instance_;
+  static E_BossLayer* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_bosslayer : public ::google::protobuf::Message {
+class Sheet_BossLayer : public ::google::protobuf::Message {
  public:
-  Sheet_bosslayer();
-  virtual ~Sheet_bosslayer();
+  Sheet_BossLayer();
+  virtual ~Sheet_BossLayer();
 
-  Sheet_bosslayer(const Sheet_bosslayer& from);
+  Sheet_BossLayer(const Sheet_BossLayer& from);
 
-  inline Sheet_bosslayer& operator=(const Sheet_bosslayer& from) {
+  inline Sheet_BossLayer& operator=(const Sheet_BossLayer& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1095,17 +1095,17 @@ class Sheet_bosslayer : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_bosslayer& default_instance();
+  static const Sheet_BossLayer& default_instance();
 
-  void Swap(Sheet_bosslayer* other);
+  void Swap(Sheet_BossLayer* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_bosslayer* New() const;
+  Sheet_BossLayer* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_bosslayer& from);
-  void MergeFrom(const Sheet_bosslayer& from);
+  void CopyFrom(const Sheet_BossLayer& from);
+  void MergeFrom(const Sheet_BossLayer& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1128,24 +1128,24 @@ class Sheet_bosslayer : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.bosslayer bosslayer_List = 1;
-  inline int bosslayer_list_size() const;
-  inline void clear_bosslayer_list();
-  static const int kBosslayerListFieldNumber = 1;
-  inline const ::proto_ff::bosslayer& bosslayer_list(int index) const;
-  inline ::proto_ff::bosslayer* mutable_bosslayer_list(int index);
-  inline ::proto_ff::bosslayer* add_bosslayer_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bosslayer >&
-      bosslayer_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bosslayer >*
-      mutable_bosslayer_list();
+  // repeated .proto_ff.E_BossLayer E_BossLayer_List = 1;
+  inline int e_bosslayer_list_size() const;
+  inline void clear_e_bosslayer_list();
+  static const int kEBossLayerListFieldNumber = 1;
+  inline const ::proto_ff::E_BossLayer& e_bosslayer_list(int index) const;
+  inline ::proto_ff::E_BossLayer* mutable_e_bosslayer_list(int index);
+  inline ::proto_ff::E_BossLayer* add_e_bosslayer_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossLayer >&
+      e_bosslayer_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossLayer >*
+      mutable_e_bosslayer_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_bosslayer)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_BossLayer)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::bosslayer > bosslayer_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossLayer > e_bosslayer_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1155,1198 +1155,1198 @@ class Sheet_bosslayer : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_boss_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_bosslayer* default_instance_;
+  static Sheet_BossLayer* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// bossrareItem
+// E_BossRareitem
 
-// optional int64 itemID = 1;
-inline bool bossrareItem::has_itemid() const {
+// optional int64 m_itemid = 1;
+inline bool E_BossRareitem::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void bossrareItem::set_has_itemid() {
+inline void E_BossRareitem::set_has_m_itemid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void bossrareItem::clear_has_itemid() {
+inline void E_BossRareitem::clear_has_m_itemid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void bossrareItem::clear_itemid() {
-  itemid_ = GOOGLE_LONGLONG(0);
-  clear_has_itemid();
+inline void E_BossRareitem::clear_m_itemid() {
+  m_itemid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_itemid();
 }
-inline ::google::protobuf::int64 bossrareItem::itemid() const {
-  return itemid_;
+inline ::google::protobuf::int64 E_BossRareitem::m_itemid() const {
+  return m_itemid_;
 }
-inline void bossrareItem::set_itemid(::google::protobuf::int64 value) {
-  set_has_itemid();
-  itemid_ = value;
+inline void E_BossRareitem::set_m_itemid(::google::protobuf::int64 value) {
+  set_has_m_itemid();
+  m_itemid_ = value;
 }
 
-// optional int32 top = 2;
-inline bool bossrareItem::has_top() const {
+// optional int32 m_top = 2;
+inline bool E_BossRareitem::has_m_top() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void bossrareItem::set_has_top() {
+inline void E_BossRareitem::set_has_m_top() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void bossrareItem::clear_has_top() {
+inline void E_BossRareitem::clear_has_m_top() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void bossrareItem::clear_top() {
-  top_ = 0;
-  clear_has_top();
+inline void E_BossRareitem::clear_m_top() {
+  m_top_ = 0;
+  clear_has_m_top();
 }
-inline ::google::protobuf::int32 bossrareItem::top() const {
-  return top_;
+inline ::google::protobuf::int32 E_BossRareitem::m_top() const {
+  return m_top_;
 }
-inline void bossrareItem::set_top(::google::protobuf::int32 value) {
-  set_has_top();
-  top_ = value;
+inline void E_BossRareitem::set_m_top(::google::protobuf::int32 value) {
+  set_has_m_top();
+  m_top_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_bossrareItem
+// Sheet_BossRareitem
 
-// repeated .proto_ff.bossrareItem bossrareItem_List = 1;
-inline int Sheet_bossrareItem::bossrareitem_list_size() const {
-  return bossrareitem_list_.size();
+// repeated .proto_ff.E_BossRareitem E_BossRareitem_List = 1;
+inline int Sheet_BossRareitem::e_bossrareitem_list_size() const {
+  return e_bossrareitem_list_.size();
 }
-inline void Sheet_bossrareItem::clear_bossrareitem_list() {
-  bossrareitem_list_.Clear();
+inline void Sheet_BossRareitem::clear_e_bossrareitem_list() {
+  e_bossrareitem_list_.Clear();
 }
-inline const ::proto_ff::bossrareItem& Sheet_bossrareItem::bossrareitem_list(int index) const {
-  return bossrareitem_list_.Get(index);
+inline const ::proto_ff::E_BossRareitem& Sheet_BossRareitem::e_bossrareitem_list(int index) const {
+  return e_bossrareitem_list_.Get(index);
 }
-inline ::proto_ff::bossrareItem* Sheet_bossrareItem::mutable_bossrareitem_list(int index) {
-  return bossrareitem_list_.Mutable(index);
+inline ::proto_ff::E_BossRareitem* Sheet_BossRareitem::mutable_e_bossrareitem_list(int index) {
+  return e_bossrareitem_list_.Mutable(index);
 }
-inline ::proto_ff::bossrareItem* Sheet_bossrareItem::add_bossrareitem_list() {
-  return bossrareitem_list_.Add();
+inline ::proto_ff::E_BossRareitem* Sheet_BossRareitem::add_e_bossrareitem_list() {
+  return e_bossrareitem_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossrareItem >&
-Sheet_bossrareItem::bossrareitem_list() const {
-  return bossrareitem_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossRareitem >&
+Sheet_BossRareitem::e_bossrareitem_list() const {
+  return e_bossrareitem_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossrareItem >*
-Sheet_bossrareItem::mutable_bossrareitem_list() {
-  return &bossrareitem_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossRareitem >*
+Sheet_BossRareitem::mutable_e_bossrareitem_list() {
+  return &e_bossrareitem_list_;
 }
 
 // -------------------------------------------------------------------
 
-// bossboss
+// E_BossBoss
 
-// optional int32 id = 1;
-inline bool bossboss::has_id() const {
+// optional int32 m_id = 1;
+inline bool E_BossBoss::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void bossboss::set_has_id() {
+inline void E_BossBoss::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void bossboss::clear_has_id() {
+inline void E_BossBoss::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void bossboss::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_BossBoss::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 bossboss::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_BossBoss::m_id() const {
+  return m_id_;
 }
-inline void bossboss::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_BossBoss::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 bossType = 2;
-inline bool bossboss::has_bosstype() const {
+// optional int32 m_bosstype = 2;
+inline bool E_BossBoss::has_m_bosstype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void bossboss::set_has_bosstype() {
+inline void E_BossBoss::set_has_m_bosstype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void bossboss::clear_has_bosstype() {
+inline void E_BossBoss::clear_has_m_bosstype() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void bossboss::clear_bosstype() {
-  bosstype_ = 0;
-  clear_has_bosstype();
+inline void E_BossBoss::clear_m_bosstype() {
+  m_bosstype_ = 0;
+  clear_has_m_bosstype();
 }
-inline ::google::protobuf::int32 bossboss::bosstype() const {
-  return bosstype_;
+inline ::google::protobuf::int32 E_BossBoss::m_bosstype() const {
+  return m_bosstype_;
 }
-inline void bossboss::set_bosstype(::google::protobuf::int32 value) {
-  set_has_bosstype();
-  bosstype_ = value;
+inline void E_BossBoss::set_m_bosstype(::google::protobuf::int32 value) {
+  set_has_m_bosstype();
+  m_bosstype_ = value;
 }
 
-// optional int32 monsterID = 3;
-inline bool bossboss::has_monsterid() const {
+// optional int32 m_monsterid = 3;
+inline bool E_BossBoss::has_m_monsterid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void bossboss::set_has_monsterid() {
+inline void E_BossBoss::set_has_m_monsterid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void bossboss::clear_has_monsterid() {
+inline void E_BossBoss::clear_has_m_monsterid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void bossboss::clear_monsterid() {
-  monsterid_ = 0;
-  clear_has_monsterid();
+inline void E_BossBoss::clear_m_monsterid() {
+  m_monsterid_ = 0;
+  clear_has_m_monsterid();
 }
-inline ::google::protobuf::int32 bossboss::monsterid() const {
-  return monsterid_;
+inline ::google::protobuf::int32 E_BossBoss::m_monsterid() const {
+  return m_monsterid_;
 }
-inline void bossboss::set_monsterid(::google::protobuf::int32 value) {
-  set_has_monsterid();
-  monsterid_ = value;
+inline void E_BossBoss::set_m_monsterid(::google::protobuf::int32 value) {
+  set_has_m_monsterid();
+  m_monsterid_ = value;
 }
 
-// optional int32 classOrder = 4;
-inline bool bossboss::has_classorder() const {
+// optional int32 m_classorder = 4;
+inline bool E_BossBoss::has_m_classorder() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void bossboss::set_has_classorder() {
+inline void E_BossBoss::set_has_m_classorder() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void bossboss::clear_has_classorder() {
+inline void E_BossBoss::clear_has_m_classorder() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void bossboss::clear_classorder() {
-  classorder_ = 0;
-  clear_has_classorder();
+inline void E_BossBoss::clear_m_classorder() {
+  m_classorder_ = 0;
+  clear_has_m_classorder();
 }
-inline ::google::protobuf::int32 bossboss::classorder() const {
-  return classorder_;
+inline ::google::protobuf::int32 E_BossBoss::m_classorder() const {
+  return m_classorder_;
 }
-inline void bossboss::set_classorder(::google::protobuf::int32 value) {
-  set_has_classorder();
-  classorder_ = value;
+inline void E_BossBoss::set_m_classorder(::google::protobuf::int32 value) {
+  set_has_m_classorder();
+  m_classorder_ = value;
 }
 
-// optional int32 sceneOrder = 5;
-inline bool bossboss::has_sceneorder() const {
+// optional int32 m_sceneorder = 5;
+inline bool E_BossBoss::has_m_sceneorder() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void bossboss::set_has_sceneorder() {
+inline void E_BossBoss::set_has_m_sceneorder() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void bossboss::clear_has_sceneorder() {
+inline void E_BossBoss::clear_has_m_sceneorder() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void bossboss::clear_sceneorder() {
-  sceneorder_ = 0;
-  clear_has_sceneorder();
+inline void E_BossBoss::clear_m_sceneorder() {
+  m_sceneorder_ = 0;
+  clear_has_m_sceneorder();
 }
-inline ::google::protobuf::int32 bossboss::sceneorder() const {
-  return sceneorder_;
+inline ::google::protobuf::int32 E_BossBoss::m_sceneorder() const {
+  return m_sceneorder_;
 }
-inline void bossboss::set_sceneorder(::google::protobuf::int32 value) {
-  set_has_sceneorder();
-  sceneorder_ = value;
+inline void E_BossBoss::set_m_sceneorder(::google::protobuf::int32 value) {
+  set_has_m_sceneorder();
+  m_sceneorder_ = value;
 }
 
-// optional int32 duplicateID = 6;
-inline bool bossboss::has_duplicateid() const {
+// optional int32 m_duplicateid = 6;
+inline bool E_BossBoss::has_m_duplicateid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void bossboss::set_has_duplicateid() {
+inline void E_BossBoss::set_has_m_duplicateid() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void bossboss::clear_has_duplicateid() {
+inline void E_BossBoss::clear_has_m_duplicateid() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void bossboss::clear_duplicateid() {
-  duplicateid_ = 0;
-  clear_has_duplicateid();
+inline void E_BossBoss::clear_m_duplicateid() {
+  m_duplicateid_ = 0;
+  clear_has_m_duplicateid();
 }
-inline ::google::protobuf::int32 bossboss::duplicateid() const {
-  return duplicateid_;
+inline ::google::protobuf::int32 E_BossBoss::m_duplicateid() const {
+  return m_duplicateid_;
 }
-inline void bossboss::set_duplicateid(::google::protobuf::int32 value) {
-  set_has_duplicateid();
-  duplicateid_ = value;
+inline void E_BossBoss::set_m_duplicateid(::google::protobuf::int32 value) {
+  set_has_m_duplicateid();
+  m_duplicateid_ = value;
 }
 
-// optional int32 peaceMask = 7;
-inline bool bossboss::has_peacemask() const {
+// optional int32 m_peacemask = 7;
+inline bool E_BossBoss::has_m_peacemask() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void bossboss::set_has_peacemask() {
+inline void E_BossBoss::set_has_m_peacemask() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void bossboss::clear_has_peacemask() {
+inline void E_BossBoss::clear_has_m_peacemask() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void bossboss::clear_peacemask() {
-  peacemask_ = 0;
-  clear_has_peacemask();
+inline void E_BossBoss::clear_m_peacemask() {
+  m_peacemask_ = 0;
+  clear_has_m_peacemask();
 }
-inline ::google::protobuf::int32 bossboss::peacemask() const {
-  return peacemask_;
+inline ::google::protobuf::int32 E_BossBoss::m_peacemask() const {
+  return m_peacemask_;
 }
-inline void bossboss::set_peacemask(::google::protobuf::int32 value) {
-  set_has_peacemask();
-  peacemask_ = value;
+inline void E_BossBoss::set_m_peacemask(::google::protobuf::int32 value) {
+  set_has_m_peacemask();
+  m_peacemask_ = value;
 }
 
-// optional int32 pointID = 8;
-inline bool bossboss::has_pointid() const {
+// optional int32 m_pointid = 8;
+inline bool E_BossBoss::has_m_pointid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void bossboss::set_has_pointid() {
+inline void E_BossBoss::set_has_m_pointid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void bossboss::clear_has_pointid() {
+inline void E_BossBoss::clear_has_m_pointid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void bossboss::clear_pointid() {
-  pointid_ = 0;
-  clear_has_pointid();
+inline void E_BossBoss::clear_m_pointid() {
+  m_pointid_ = 0;
+  clear_has_m_pointid();
 }
-inline ::google::protobuf::int32 bossboss::pointid() const {
-  return pointid_;
+inline ::google::protobuf::int32 E_BossBoss::m_pointid() const {
+  return m_pointid_;
 }
-inline void bossboss::set_pointid(::google::protobuf::int32 value) {
-  set_has_pointid();
-  pointid_ = value;
+inline void E_BossBoss::set_m_pointid(::google::protobuf::int32 value) {
+  set_has_m_pointid();
+  m_pointid_ = value;
 }
 
-// optional int32 group_type = 9;
-inline bool bossboss::has_group_type() const {
+// optional int32 m_group_type = 9;
+inline bool E_BossBoss::has_m_group_type() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void bossboss::set_has_group_type() {
+inline void E_BossBoss::set_has_m_group_type() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void bossboss::clear_has_group_type() {
+inline void E_BossBoss::clear_has_m_group_type() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void bossboss::clear_group_type() {
-  group_type_ = 0;
-  clear_has_group_type();
+inline void E_BossBoss::clear_m_group_type() {
+  m_group_type_ = 0;
+  clear_has_m_group_type();
 }
-inline ::google::protobuf::int32 bossboss::group_type() const {
-  return group_type_;
+inline ::google::protobuf::int32 E_BossBoss::m_group_type() const {
+  return m_group_type_;
 }
-inline void bossboss::set_group_type(::google::protobuf::int32 value) {
-  set_has_group_type();
-  group_type_ = value;
+inline void E_BossBoss::set_m_group_type(::google::protobuf::int32 value) {
+  set_has_m_group_type();
+  m_group_type_ = value;
 }
 
-// optional int32 flashTime = 10;
-inline bool bossboss::has_flashtime() const {
+// optional int32 m_flashtime = 10;
+inline bool E_BossBoss::has_m_flashtime() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void bossboss::set_has_flashtime() {
+inline void E_BossBoss::set_has_m_flashtime() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void bossboss::clear_has_flashtime() {
+inline void E_BossBoss::clear_has_m_flashtime() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void bossboss::clear_flashtime() {
-  flashtime_ = 0;
-  clear_has_flashtime();
+inline void E_BossBoss::clear_m_flashtime() {
+  m_flashtime_ = 0;
+  clear_has_m_flashtime();
 }
-inline ::google::protobuf::int32 bossboss::flashtime() const {
-  return flashtime_;
+inline ::google::protobuf::int32 E_BossBoss::m_flashtime() const {
+  return m_flashtime_;
 }
-inline void bossboss::set_flashtime(::google::protobuf::int32 value) {
-  set_has_flashtime();
-  flashtime_ = value;
+inline void E_BossBoss::set_m_flashtime(::google::protobuf::int32 value) {
+  set_has_m_flashtime();
+  m_flashtime_ = value;
 }
 
-// optional int32 retrieveGiftID = 11;
-inline bool bossboss::has_retrievegiftid() const {
+// optional int32 m_retrievegiftid = 11;
+inline bool E_BossBoss::has_m_retrievegiftid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void bossboss::set_has_retrievegiftid() {
+inline void E_BossBoss::set_has_m_retrievegiftid() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void bossboss::clear_has_retrievegiftid() {
+inline void E_BossBoss::clear_has_m_retrievegiftid() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void bossboss::clear_retrievegiftid() {
-  retrievegiftid_ = 0;
-  clear_has_retrievegiftid();
+inline void E_BossBoss::clear_m_retrievegiftid() {
+  m_retrievegiftid_ = 0;
+  clear_has_m_retrievegiftid();
 }
-inline ::google::protobuf::int32 bossboss::retrievegiftid() const {
-  return retrievegiftid_;
+inline ::google::protobuf::int32 E_BossBoss::m_retrievegiftid() const {
+  return m_retrievegiftid_;
 }
-inline void bossboss::set_retrievegiftid(::google::protobuf::int32 value) {
-  set_has_retrievegiftid();
-  retrievegiftid_ = value;
+inline void E_BossBoss::set_m_retrievegiftid(::google::protobuf::int32 value) {
+  set_has_m_retrievegiftid();
+  m_retrievegiftid_ = value;
 }
 
-// optional int32 noTimes = 12;
-inline bool bossboss::has_notimes() const {
+// optional int32 m_notimes = 12;
+inline bool E_BossBoss::has_m_notimes() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void bossboss::set_has_notimes() {
+inline void E_BossBoss::set_has_m_notimes() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void bossboss::clear_has_notimes() {
+inline void E_BossBoss::clear_has_m_notimes() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void bossboss::clear_notimes() {
-  notimes_ = 0;
-  clear_has_notimes();
+inline void E_BossBoss::clear_m_notimes() {
+  m_notimes_ = 0;
+  clear_has_m_notimes();
 }
-inline ::google::protobuf::int32 bossboss::notimes() const {
-  return notimes_;
+inline ::google::protobuf::int32 E_BossBoss::m_notimes() const {
+  return m_notimes_;
 }
-inline void bossboss::set_notimes(::google::protobuf::int32 value) {
-  set_has_notimes();
-  notimes_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_bossboss
-
-// repeated .proto_ff.bossboss bossboss_List = 1;
-inline int Sheet_bossboss::bossboss_list_size() const {
-  return bossboss_list_.size();
-}
-inline void Sheet_bossboss::clear_bossboss_list() {
-  bossboss_list_.Clear();
-}
-inline const ::proto_ff::bossboss& Sheet_bossboss::bossboss_list(int index) const {
-  return bossboss_list_.Get(index);
-}
-inline ::proto_ff::bossboss* Sheet_bossboss::mutable_bossboss_list(int index) {
-  return bossboss_list_.Mutable(index);
-}
-inline ::proto_ff::bossboss* Sheet_bossboss::add_bossboss_list() {
-  return bossboss_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossboss >&
-Sheet_bossboss::bossboss_list() const {
-  return bossboss_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossboss >*
-Sheet_bossboss::mutable_bossboss_list() {
-  return &bossboss_list_;
+inline void E_BossBoss::set_m_notimes(::google::protobuf::int32 value) {
+  set_has_m_notimes();
+  m_notimes_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// bossbosstypegroupDesc
+// Sheet_BossBoss
 
-// optional int32 type = 1;
-inline bool bossbosstypegroupDesc::has_type() const {
+// repeated .proto_ff.E_BossBoss E_BossBoss_List = 1;
+inline int Sheet_BossBoss::e_bossboss_list_size() const {
+  return e_bossboss_list_.size();
+}
+inline void Sheet_BossBoss::clear_e_bossboss_list() {
+  e_bossboss_list_.Clear();
+}
+inline const ::proto_ff::E_BossBoss& Sheet_BossBoss::e_bossboss_list(int index) const {
+  return e_bossboss_list_.Get(index);
+}
+inline ::proto_ff::E_BossBoss* Sheet_BossBoss::mutable_e_bossboss_list(int index) {
+  return e_bossboss_list_.Mutable(index);
+}
+inline ::proto_ff::E_BossBoss* Sheet_BossBoss::add_e_bossboss_list() {
+  return e_bossboss_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBoss >&
+Sheet_BossBoss::e_bossboss_list() const {
+  return e_bossboss_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBoss >*
+Sheet_BossBoss::mutable_e_bossboss_list() {
+  return &e_bossboss_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_BossBosstypeGroupDesc
+
+// optional int32 m_type = 1;
+inline bool E_BossBosstypeGroupDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void bossbosstypegroupDesc::set_has_type() {
+inline void E_BossBosstypeGroupDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void bossbosstypegroupDesc::clear_has_type() {
+inline void E_BossBosstypeGroupDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void bossbosstypegroupDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_BossBosstypeGroupDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 bossbosstypegroupDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_BossBosstypeGroupDesc::m_type() const {
+  return m_type_;
 }
-inline void bossbosstypegroupDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_BossBosstypeGroupDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 times = 2;
-inline bool bossbosstypegroupDesc::has_times() const {
+// optional int32 m_times = 2;
+inline bool E_BossBosstypeGroupDesc::has_m_times() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void bossbosstypegroupDesc::set_has_times() {
+inline void E_BossBosstypeGroupDesc::set_has_m_times() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void bossbosstypegroupDesc::clear_has_times() {
+inline void E_BossBosstypeGroupDesc::clear_has_m_times() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void bossbosstypegroupDesc::clear_times() {
-  times_ = 0;
-  clear_has_times();
+inline void E_BossBosstypeGroupDesc::clear_m_times() {
+  m_times_ = 0;
+  clear_has_m_times();
 }
-inline ::google::protobuf::int32 bossbosstypegroupDesc::times() const {
-  return times_;
+inline ::google::protobuf::int32 E_BossBosstypeGroupDesc::m_times() const {
+  return m_times_;
 }
-inline void bossbosstypegroupDesc::set_times(::google::protobuf::int32 value) {
-  set_has_times();
-  times_ = value;
+inline void E_BossBosstypeGroupDesc::set_m_times(::google::protobuf::int32 value) {
+  set_has_m_times();
+  m_times_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// bossbosstype
+// E_BossBosstype
 
-// optional int32 bossType = 1;
-inline bool bossbosstype::has_bosstype() const {
+// optional int32 m_bosstype = 1;
+inline bool E_BossBosstype::has_m_bosstype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void bossbosstype::set_has_bosstype() {
+inline void E_BossBosstype::set_has_m_bosstype() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void bossbosstype::clear_has_bosstype() {
+inline void E_BossBosstype::clear_has_m_bosstype() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void bossbosstype::clear_bosstype() {
-  bosstype_ = 0;
-  clear_has_bosstype();
+inline void E_BossBosstype::clear_m_bosstype() {
+  m_bosstype_ = 0;
+  clear_has_m_bosstype();
 }
-inline ::google::protobuf::int32 bossbosstype::bosstype() const {
-  return bosstype_;
+inline ::google::protobuf::int32 E_BossBosstype::m_bosstype() const {
+  return m_bosstype_;
 }
-inline void bossbosstype::set_bosstype(::google::protobuf::int32 value) {
-  set_has_bosstype();
-  bosstype_ = value;
+inline void E_BossBosstype::set_m_bosstype(::google::protobuf::int32 value) {
+  set_has_m_bosstype();
+  m_bosstype_ = value;
 }
 
-// optional int32 mapType = 2;
-inline bool bossbosstype::has_maptype() const {
+// optional int32 m_maptype = 2;
+inline bool E_BossBosstype::has_m_maptype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void bossbosstype::set_has_maptype() {
+inline void E_BossBosstype::set_has_m_maptype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void bossbosstype::clear_has_maptype() {
+inline void E_BossBosstype::clear_has_m_maptype() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void bossbosstype::clear_maptype() {
-  maptype_ = 0;
-  clear_has_maptype();
+inline void E_BossBosstype::clear_m_maptype() {
+  m_maptype_ = 0;
+  clear_has_m_maptype();
 }
-inline ::google::protobuf::int32 bossbosstype::maptype() const {
-  return maptype_;
+inline ::google::protobuf::int32 E_BossBosstype::m_maptype() const {
+  return m_maptype_;
 }
-inline void bossbosstype::set_maptype(::google::protobuf::int32 value) {
-  set_has_maptype();
-  maptype_ = value;
+inline void E_BossBosstype::set_m_maptype(::google::protobuf::int32 value) {
+  set_has_m_maptype();
+  m_maptype_ = value;
 }
 
-// optional int32 functionId = 3;
-inline bool bossbosstype::has_functionid() const {
+// optional int32 m_functionid = 3;
+inline bool E_BossBosstype::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void bossbosstype::set_has_functionid() {
+inline void E_BossBosstype::set_has_m_functionid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void bossbosstype::clear_has_functionid() {
+inline void E_BossBosstype::clear_has_m_functionid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void bossbosstype::clear_functionid() {
-  functionid_ = 0;
-  clear_has_functionid();
+inline void E_BossBosstype::clear_m_functionid() {
+  m_functionid_ = 0;
+  clear_has_m_functionid();
 }
-inline ::google::protobuf::int32 bossbosstype::functionid() const {
-  return functionid_;
+inline ::google::protobuf::int32 E_BossBosstype::m_functionid() const {
+  return m_functionid_;
 }
-inline void bossbosstype::set_functionid(::google::protobuf::int32 value) {
-  set_has_functionid();
-  functionid_ = value;
+inline void E_BossBosstype::set_m_functionid(::google::protobuf::int32 value) {
+  set_has_m_functionid();
+  m_functionid_ = value;
 }
 
-// optional int32 duplicateGroupID = 4;
-inline bool bossbosstype::has_duplicategroupid() const {
+// optional int32 m_duplicategroupid = 4;
+inline bool E_BossBosstype::has_m_duplicategroupid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void bossbosstype::set_has_duplicategroupid() {
+inline void E_BossBosstype::set_has_m_duplicategroupid() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void bossbosstype::clear_has_duplicategroupid() {
+inline void E_BossBosstype::clear_has_m_duplicategroupid() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void bossbosstype::clear_duplicategroupid() {
-  duplicategroupid_ = 0;
-  clear_has_duplicategroupid();
+inline void E_BossBosstype::clear_m_duplicategroupid() {
+  m_duplicategroupid_ = 0;
+  clear_has_m_duplicategroupid();
 }
-inline ::google::protobuf::int32 bossbosstype::duplicategroupid() const {
-  return duplicategroupid_;
+inline ::google::protobuf::int32 E_BossBosstype::m_duplicategroupid() const {
+  return m_duplicategroupid_;
 }
-inline void bossbosstype::set_duplicategroupid(::google::protobuf::int32 value) {
-  set_has_duplicategroupid();
-  duplicategroupid_ = value;
+inline void E_BossBosstype::set_m_duplicategroupid(::google::protobuf::int32 value) {
+  set_has_m_duplicategroupid();
+  m_duplicategroupid_ = value;
 }
 
-// optional int32 privilegeType = 5;
-inline bool bossbosstype::has_privilegetype() const {
+// optional int32 m_privilegetype = 5;
+inline bool E_BossBosstype::has_m_privilegetype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void bossbosstype::set_has_privilegetype() {
+inline void E_BossBosstype::set_has_m_privilegetype() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void bossbosstype::clear_has_privilegetype() {
+inline void E_BossBosstype::clear_has_m_privilegetype() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void bossbosstype::clear_privilegetype() {
-  privilegetype_ = 0;
-  clear_has_privilegetype();
+inline void E_BossBosstype::clear_m_privilegetype() {
+  m_privilegetype_ = 0;
+  clear_has_m_privilegetype();
 }
-inline ::google::protobuf::int32 bossbosstype::privilegetype() const {
-  return privilegetype_;
+inline ::google::protobuf::int32 E_BossBosstype::m_privilegetype() const {
+  return m_privilegetype_;
 }
-inline void bossbosstype::set_privilegetype(::google::protobuf::int32 value) {
-  set_has_privilegetype();
-  privilegetype_ = value;
+inline void E_BossBosstype::set_m_privilegetype(::google::protobuf::int32 value) {
+  set_has_m_privilegetype();
+  m_privilegetype_ = value;
 }
 
-// optional int64 callingCardId = 6;
-inline bool bossbosstype::has_callingcardid() const {
+// optional int64 m_callingcardid = 6;
+inline bool E_BossBosstype::has_m_callingcardid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void bossbosstype::set_has_callingcardid() {
+inline void E_BossBosstype::set_has_m_callingcardid() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void bossbosstype::clear_has_callingcardid() {
+inline void E_BossBosstype::clear_has_m_callingcardid() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void bossbosstype::clear_callingcardid() {
-  callingcardid_ = GOOGLE_LONGLONG(0);
-  clear_has_callingcardid();
+inline void E_BossBosstype::clear_m_callingcardid() {
+  m_callingcardid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_callingcardid();
 }
-inline ::google::protobuf::int64 bossbosstype::callingcardid() const {
-  return callingcardid_;
+inline ::google::protobuf::int64 E_BossBosstype::m_callingcardid() const {
+  return m_callingcardid_;
 }
-inline void bossbosstype::set_callingcardid(::google::protobuf::int64 value) {
-  set_has_callingcardid();
-  callingcardid_ = value;
+inline void E_BossBosstype::set_m_callingcardid(::google::protobuf::int64 value) {
+  set_has_m_callingcardid();
+  m_callingcardid_ = value;
 }
 
-// optional int32 enterTimes = 7;
-inline bool bossbosstype::has_entertimes() const {
+// optional int32 m_entertimes = 7;
+inline bool E_BossBosstype::has_m_entertimes() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void bossbosstype::set_has_entertimes() {
+inline void E_BossBosstype::set_has_m_entertimes() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void bossbosstype::clear_has_entertimes() {
+inline void E_BossBosstype::clear_has_m_entertimes() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void bossbosstype::clear_entertimes() {
-  entertimes_ = 0;
-  clear_has_entertimes();
+inline void E_BossBosstype::clear_m_entertimes() {
+  m_entertimes_ = 0;
+  clear_has_m_entertimes();
 }
-inline ::google::protobuf::int32 bossbosstype::entertimes() const {
-  return entertimes_;
+inline ::google::protobuf::int32 E_BossBosstype::m_entertimes() const {
+  return m_entertimes_;
 }
-inline void bossbosstype::set_entertimes(::google::protobuf::int32 value) {
-  set_has_entertimes();
-  entertimes_ = value;
+inline void E_BossBosstype::set_m_entertimes(::google::protobuf::int32 value) {
+  set_has_m_entertimes();
+  m_entertimes_ = value;
 }
 
-// optional int32 costitem = 8;
-inline bool bossbosstype::has_costitem() const {
+// optional int32 m_costitem = 8;
+inline bool E_BossBosstype::has_m_costitem() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void bossbosstype::set_has_costitem() {
+inline void E_BossBosstype::set_has_m_costitem() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void bossbosstype::clear_has_costitem() {
+inline void E_BossBosstype::clear_has_m_costitem() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void bossbosstype::clear_costitem() {
-  costitem_ = 0;
-  clear_has_costitem();
+inline void E_BossBosstype::clear_m_costitem() {
+  m_costitem_ = 0;
+  clear_has_m_costitem();
 }
-inline ::google::protobuf::int32 bossbosstype::costitem() const {
-  return costitem_;
+inline ::google::protobuf::int32 E_BossBosstype::m_costitem() const {
+  return m_costitem_;
 }
-inline void bossbosstype::set_costitem(::google::protobuf::int32 value) {
-  set_has_costitem();
-  costitem_ = value;
+inline void E_BossBosstype::set_m_costitem(::google::protobuf::int32 value) {
+  set_has_m_costitem();
+  m_costitem_ = value;
 }
 
-// optional string costnum = 9;
-inline bool bossbosstype::has_costnum() const {
+// optional string m_costnum = 9;
+inline bool E_BossBosstype::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void bossbosstype::set_has_costnum() {
+inline void E_BossBosstype::set_has_m_costnum() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void bossbosstype::clear_has_costnum() {
+inline void E_BossBosstype::clear_has_m_costnum() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void bossbosstype::clear_costnum() {
-  if (costnum_ != &::google::protobuf::internal::kEmptyString) {
-    costnum_->clear();
+inline void E_BossBosstype::clear_m_costnum() {
+  if (m_costnum_ != &::google::protobuf::internal::kEmptyString) {
+    m_costnum_->clear();
   }
-  clear_has_costnum();
+  clear_has_m_costnum();
 }
-inline const ::std::string& bossbosstype::costnum() const {
-  return *costnum_;
+inline const ::std::string& E_BossBosstype::m_costnum() const {
+  return *m_costnum_;
 }
-inline void bossbosstype::set_costnum(const ::std::string& value) {
-  set_has_costnum();
-  if (costnum_ == &::google::protobuf::internal::kEmptyString) {
-    costnum_ = new ::std::string;
+inline void E_BossBosstype::set_m_costnum(const ::std::string& value) {
+  set_has_m_costnum();
+  if (m_costnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_costnum_ = new ::std::string;
   }
-  costnum_->assign(value);
+  m_costnum_->assign(value);
 }
-inline void bossbosstype::set_costnum(const char* value) {
-  set_has_costnum();
-  if (costnum_ == &::google::protobuf::internal::kEmptyString) {
-    costnum_ = new ::std::string;
+inline void E_BossBosstype::set_m_costnum(const char* value) {
+  set_has_m_costnum();
+  if (m_costnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_costnum_ = new ::std::string;
   }
-  costnum_->assign(value);
+  m_costnum_->assign(value);
 }
-inline void bossbosstype::set_costnum(const char* value, size_t size) {
-  set_has_costnum();
-  if (costnum_ == &::google::protobuf::internal::kEmptyString) {
-    costnum_ = new ::std::string;
+inline void E_BossBosstype::set_m_costnum(const char* value, size_t size) {
+  set_has_m_costnum();
+  if (m_costnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_costnum_ = new ::std::string;
   }
-  costnum_->assign(reinterpret_cast<const char*>(value), size);
+  m_costnum_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* bossbosstype::mutable_costnum() {
-  set_has_costnum();
-  if (costnum_ == &::google::protobuf::internal::kEmptyString) {
-    costnum_ = new ::std::string;
+inline ::std::string* E_BossBosstype::mutable_m_costnum() {
+  set_has_m_costnum();
+  if (m_costnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_costnum_ = new ::std::string;
   }
-  return costnum_;
+  return m_costnum_;
 }
-inline ::std::string* bossbosstype::release_costnum() {
-  clear_has_costnum();
-  if (costnum_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BossBosstype::release_m_costnum() {
+  clear_has_m_costnum();
+  if (m_costnum_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = costnum_;
-    costnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_costnum_;
+    m_costnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void bossbosstype::set_allocated_costnum(::std::string* costnum) {
-  if (costnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete costnum_;
+inline void E_BossBosstype::set_allocated_m_costnum(::std::string* m_costnum) {
+  if (m_costnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_costnum_;
   }
-  if (costnum) {
-    set_has_costnum();
-    costnum_ = costnum;
+  if (m_costnum) {
+    set_has_m_costnum();
+    m_costnum_ = m_costnum;
   } else {
-    clear_has_costnum();
-    costnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_costnum();
+    m_costnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 bossTimes = 10;
-inline bool bossbosstype::has_bosstimes() const {
+// optional int32 m_bosstimes = 10;
+inline bool E_BossBosstype::has_m_bosstimes() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void bossbosstype::set_has_bosstimes() {
+inline void E_BossBosstype::set_has_m_bosstimes() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void bossbosstype::clear_has_bosstimes() {
+inline void E_BossBosstype::clear_has_m_bosstimes() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void bossbosstype::clear_bosstimes() {
-  bosstimes_ = 0;
-  clear_has_bosstimes();
+inline void E_BossBosstype::clear_m_bosstimes() {
+  m_bosstimes_ = 0;
+  clear_has_m_bosstimes();
 }
-inline ::google::protobuf::int32 bossbosstype::bosstimes() const {
-  return bosstimes_;
+inline ::google::protobuf::int32 E_BossBosstype::m_bosstimes() const {
+  return m_bosstimes_;
 }
-inline void bossbosstype::set_bosstimes(::google::protobuf::int32 value) {
-  set_has_bosstimes();
-  bosstimes_ = value;
+inline void E_BossBosstype::set_m_bosstimes(::google::protobuf::int32 value) {
+  set_has_m_bosstimes();
+  m_bosstimes_ = value;
 }
 
-// optional int32 addItemID = 11;
-inline bool bossbosstype::has_additemid() const {
+// optional int32 m_additemid = 11;
+inline bool E_BossBosstype::has_m_additemid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void bossbosstype::set_has_additemid() {
+inline void E_BossBosstype::set_has_m_additemid() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void bossbosstype::clear_has_additemid() {
+inline void E_BossBosstype::clear_has_m_additemid() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void bossbosstype::clear_additemid() {
-  additemid_ = 0;
-  clear_has_additemid();
+inline void E_BossBosstype::clear_m_additemid() {
+  m_additemid_ = 0;
+  clear_has_m_additemid();
 }
-inline ::google::protobuf::int32 bossbosstype::additemid() const {
-  return additemid_;
+inline ::google::protobuf::int32 E_BossBosstype::m_additemid() const {
+  return m_additemid_;
 }
-inline void bossbosstype::set_additemid(::google::protobuf::int32 value) {
-  set_has_additemid();
-  additemid_ = value;
+inline void E_BossBosstype::set_m_additemid(::google::protobuf::int32 value) {
+  set_has_m_additemid();
+  m_additemid_ = value;
 }
 
-// optional int32 canhelp = 12;
-inline bool bossbosstype::has_canhelp() const {
+// optional int32 m_canhelp = 12;
+inline bool E_BossBosstype::has_m_canhelp() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void bossbosstype::set_has_canhelp() {
+inline void E_BossBosstype::set_has_m_canhelp() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void bossbosstype::clear_has_canhelp() {
+inline void E_BossBosstype::clear_has_m_canhelp() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void bossbosstype::clear_canhelp() {
-  canhelp_ = 0;
-  clear_has_canhelp();
+inline void E_BossBosstype::clear_m_canhelp() {
+  m_canhelp_ = 0;
+  clear_has_m_canhelp();
 }
-inline ::google::protobuf::int32 bossbosstype::canhelp() const {
-  return canhelp_;
+inline ::google::protobuf::int32 E_BossBosstype::m_canhelp() const {
+  return m_canhelp_;
 }
-inline void bossbosstype::set_canhelp(::google::protobuf::int32 value) {
-  set_has_canhelp();
-  canhelp_ = value;
+inline void E_BossBosstype::set_m_canhelp(::google::protobuf::int32 value) {
+  set_has_m_canhelp();
+  m_canhelp_ = value;
 }
 
-// optional int32 qkill = 13;
-inline bool bossbosstype::has_qkill() const {
+// optional int32 m_qkill = 13;
+inline bool E_BossBosstype::has_m_qkill() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void bossbosstype::set_has_qkill() {
+inline void E_BossBosstype::set_has_m_qkill() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void bossbosstype::clear_has_qkill() {
+inline void E_BossBosstype::clear_has_m_qkill() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void bossbosstype::clear_qkill() {
-  qkill_ = 0;
-  clear_has_qkill();
+inline void E_BossBosstype::clear_m_qkill() {
+  m_qkill_ = 0;
+  clear_has_m_qkill();
 }
-inline ::google::protobuf::int32 bossbosstype::qkill() const {
-  return qkill_;
+inline ::google::protobuf::int32 E_BossBosstype::m_qkill() const {
+  return m_qkill_;
 }
-inline void bossbosstype::set_qkill(::google::protobuf::int32 value) {
-  set_has_qkill();
-  qkill_ = value;
+inline void E_BossBosstype::set_m_qkill(::google::protobuf::int32 value) {
+  set_has_m_qkill();
+  m_qkill_ = value;
 }
 
-// optional int32 retrievedDays = 14;
-inline bool bossbosstype::has_retrieveddays() const {
+// optional int32 m_retrieveddays = 14;
+inline bool E_BossBosstype::has_m_retrieveddays() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void bossbosstype::set_has_retrieveddays() {
+inline void E_BossBosstype::set_has_m_retrieveddays() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void bossbosstype::clear_has_retrieveddays() {
+inline void E_BossBosstype::clear_has_m_retrieveddays() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void bossbosstype::clear_retrieveddays() {
-  retrieveddays_ = 0;
-  clear_has_retrieveddays();
+inline void E_BossBosstype::clear_m_retrieveddays() {
+  m_retrieveddays_ = 0;
+  clear_has_m_retrieveddays();
 }
-inline ::google::protobuf::int32 bossbosstype::retrieveddays() const {
-  return retrieveddays_;
+inline ::google::protobuf::int32 E_BossBosstype::m_retrieveddays() const {
+  return m_retrieveddays_;
 }
-inline void bossbosstype::set_retrieveddays(::google::protobuf::int32 value) {
-  set_has_retrieveddays();
-  retrieveddays_ = value;
+inline void E_BossBosstype::set_m_retrieveddays(::google::protobuf::int32 value) {
+  set_has_m_retrieveddays();
+  m_retrieveddays_ = value;
 }
 
-// optional int32 skill = 15;
-inline bool bossbosstype::has_skill() const {
+// optional int32 m_skill = 15;
+inline bool E_BossBosstype::has_m_skill() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void bossbosstype::set_has_skill() {
+inline void E_BossBosstype::set_has_m_skill() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void bossbosstype::clear_has_skill() {
+inline void E_BossBosstype::clear_has_m_skill() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void bossbosstype::clear_skill() {
-  skill_ = 0;
-  clear_has_skill();
+inline void E_BossBosstype::clear_m_skill() {
+  m_skill_ = 0;
+  clear_has_m_skill();
 }
-inline ::google::protobuf::int32 bossbosstype::skill() const {
-  return skill_;
+inline ::google::protobuf::int32 E_BossBosstype::m_skill() const {
+  return m_skill_;
 }
-inline void bossbosstype::set_skill(::google::protobuf::int32 value) {
-  set_has_skill();
-  skill_ = value;
-}
-
-// repeated .proto_ff.bossbosstypegroupDesc group = 16;
-inline int bossbosstype::group_size() const {
-  return group_.size();
-}
-inline void bossbosstype::clear_group() {
-  group_.Clear();
-}
-inline const ::proto_ff::bossbosstypegroupDesc& bossbosstype::group(int index) const {
-  return group_.Get(index);
-}
-inline ::proto_ff::bossbosstypegroupDesc* bossbosstype::mutable_group(int index) {
-  return group_.Mutable(index);
-}
-inline ::proto_ff::bossbosstypegroupDesc* bossbosstype::add_group() {
-  return group_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstypegroupDesc >&
-bossbosstype::group() const {
-  return group_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstypegroupDesc >*
-bossbosstype::mutable_group() {
-  return &group_;
+inline void E_BossBosstype::set_m_skill(::google::protobuf::int32 value) {
+  set_has_m_skill();
+  m_skill_ = value;
 }
 
-// -------------------------------------------------------------------
-
-// Sheet_bossbosstype
-
-// repeated .proto_ff.bossbosstype bossbosstype_List = 1;
-inline int Sheet_bossbosstype::bossbosstype_list_size() const {
-  return bossbosstype_list_.size();
+// repeated .proto_ff.E_BossBosstypeGroupDesc m_group = 16;
+inline int E_BossBosstype::m_group_size() const {
+  return m_group_.size();
 }
-inline void Sheet_bossbosstype::clear_bossbosstype_list() {
-  bossbosstype_list_.Clear();
+inline void E_BossBosstype::clear_m_group() {
+  m_group_.Clear();
 }
-inline const ::proto_ff::bossbosstype& Sheet_bossbosstype::bossbosstype_list(int index) const {
-  return bossbosstype_list_.Get(index);
+inline const ::proto_ff::E_BossBosstypeGroupDesc& E_BossBosstype::m_group(int index) const {
+  return m_group_.Get(index);
 }
-inline ::proto_ff::bossbosstype* Sheet_bossbosstype::mutable_bossbosstype_list(int index) {
-  return bossbosstype_list_.Mutable(index);
+inline ::proto_ff::E_BossBosstypeGroupDesc* E_BossBosstype::mutable_m_group(int index) {
+  return m_group_.Mutable(index);
 }
-inline ::proto_ff::bossbosstype* Sheet_bossbosstype::add_bossbosstype_list() {
-  return bossbosstype_list_.Add();
+inline ::proto_ff::E_BossBosstypeGroupDesc* E_BossBosstype::add_m_group() {
+  return m_group_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstype >&
-Sheet_bossbosstype::bossbosstype_list() const {
-  return bossbosstype_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstypeGroupDesc >&
+E_BossBosstype::m_group() const {
+  return m_group_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bossbosstype >*
-Sheet_bossbosstype::mutable_bossbosstype_list() {
-  return &bossbosstype_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstypeGroupDesc >*
+E_BossBosstype::mutable_m_group() {
+  return &m_group_;
 }
 
 // -------------------------------------------------------------------
 
-// bosslayer
+// Sheet_BossBosstype
 
-// optional int32 ID = 1;
-inline bool bosslayer::has_id() const {
+// repeated .proto_ff.E_BossBosstype E_BossBosstype_List = 1;
+inline int Sheet_BossBosstype::e_bossbosstype_list_size() const {
+  return e_bossbosstype_list_.size();
+}
+inline void Sheet_BossBosstype::clear_e_bossbosstype_list() {
+  e_bossbosstype_list_.Clear();
+}
+inline const ::proto_ff::E_BossBosstype& Sheet_BossBosstype::e_bossbosstype_list(int index) const {
+  return e_bossbosstype_list_.Get(index);
+}
+inline ::proto_ff::E_BossBosstype* Sheet_BossBosstype::mutable_e_bossbosstype_list(int index) {
+  return e_bossbosstype_list_.Mutable(index);
+}
+inline ::proto_ff::E_BossBosstype* Sheet_BossBosstype::add_e_bossbosstype_list() {
+  return e_bossbosstype_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstype >&
+Sheet_BossBosstype::e_bossbosstype_list() const {
+  return e_bossbosstype_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossBosstype >*
+Sheet_BossBosstype::mutable_e_bossbosstype_list() {
+  return &e_bossbosstype_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_BossLayer
+
+// optional int32 m_id = 1;
+inline bool E_BossLayer::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void bosslayer::set_has_id() {
+inline void E_BossLayer::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void bosslayer::clear_has_id() {
+inline void E_BossLayer::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void bosslayer::clear_id() {
-  id_ = 0;
-  clear_has_id();
+inline void E_BossLayer::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 bosslayer::id() const {
-  return id_;
+inline ::google::protobuf::int32 E_BossLayer::m_id() const {
+  return m_id_;
 }
-inline void bosslayer::set_id(::google::protobuf::int32 value) {
-  set_has_id();
-  id_ = value;
+inline void E_BossLayer::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 bossType = 2;
-inline bool bosslayer::has_bosstype() const {
+// optional int32 m_bosstype = 2;
+inline bool E_BossLayer::has_m_bosstype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void bosslayer::set_has_bosstype() {
+inline void E_BossLayer::set_has_m_bosstype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void bosslayer::clear_has_bosstype() {
+inline void E_BossLayer::clear_has_m_bosstype() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void bosslayer::clear_bosstype() {
-  bosstype_ = 0;
-  clear_has_bosstype();
+inline void E_BossLayer::clear_m_bosstype() {
+  m_bosstype_ = 0;
+  clear_has_m_bosstype();
 }
-inline ::google::protobuf::int32 bosslayer::bosstype() const {
-  return bosstype_;
+inline ::google::protobuf::int32 E_BossLayer::m_bosstype() const {
+  return m_bosstype_;
 }
-inline void bosslayer::set_bosstype(::google::protobuf::int32 value) {
-  set_has_bosstype();
-  bosstype_ = value;
+inline void E_BossLayer::set_m_bosstype(::google::protobuf::int32 value) {
+  set_has_m_bosstype();
+  m_bosstype_ = value;
 }
 
-// optional int32 order = 3;
-inline bool bosslayer::has_order() const {
+// optional int32 m_order = 3;
+inline bool E_BossLayer::has_m_order() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void bosslayer::set_has_order() {
+inline void E_BossLayer::set_has_m_order() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void bosslayer::clear_has_order() {
+inline void E_BossLayer::clear_has_m_order() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void bosslayer::clear_order() {
-  order_ = 0;
-  clear_has_order();
+inline void E_BossLayer::clear_m_order() {
+  m_order_ = 0;
+  clear_has_m_order();
 }
-inline ::google::protobuf::int32 bosslayer::order() const {
-  return order_;
+inline ::google::protobuf::int32 E_BossLayer::m_order() const {
+  return m_order_;
 }
-inline void bosslayer::set_order(::google::protobuf::int32 value) {
-  set_has_order();
-  order_ = value;
+inline void E_BossLayer::set_m_order(::google::protobuf::int32 value) {
+  set_has_m_order();
+  m_order_ = value;
 }
 
-// optional string name = 4;
-inline bool bosslayer::has_name() const {
+// optional string m_name = 4;
+inline bool E_BossLayer::has_m_name() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void bosslayer::set_has_name() {
+inline void E_BossLayer::set_has_m_name() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void bosslayer::clear_has_name() {
+inline void E_BossLayer::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void bosslayer::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_BossLayer::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& bosslayer::name() const {
-  return *name_;
+inline const ::std::string& E_BossLayer::m_name() const {
+  return *m_name_;
 }
-inline void bosslayer::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_BossLayer::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void bosslayer::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_BossLayer::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void bosslayer::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_BossLayer::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* bosslayer::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_BossLayer::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* bosslayer::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BossLayer::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void bosslayer::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_BossLayer::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string enterCondition = 5;
-inline bool bosslayer::has_entercondition() const {
+// optional string m_entercondition = 5;
+inline bool E_BossLayer::has_m_entercondition() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void bosslayer::set_has_entercondition() {
+inline void E_BossLayer::set_has_m_entercondition() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void bosslayer::clear_has_entercondition() {
+inline void E_BossLayer::clear_has_m_entercondition() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void bosslayer::clear_entercondition() {
-  if (entercondition_ != &::google::protobuf::internal::kEmptyString) {
-    entercondition_->clear();
+inline void E_BossLayer::clear_m_entercondition() {
+  if (m_entercondition_ != &::google::protobuf::internal::kEmptyString) {
+    m_entercondition_->clear();
   }
-  clear_has_entercondition();
+  clear_has_m_entercondition();
 }
-inline const ::std::string& bosslayer::entercondition() const {
-  return *entercondition_;
+inline const ::std::string& E_BossLayer::m_entercondition() const {
+  return *m_entercondition_;
 }
-inline void bosslayer::set_entercondition(const ::std::string& value) {
-  set_has_entercondition();
-  if (entercondition_ == &::google::protobuf::internal::kEmptyString) {
-    entercondition_ = new ::std::string;
+inline void E_BossLayer::set_m_entercondition(const ::std::string& value) {
+  set_has_m_entercondition();
+  if (m_entercondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_entercondition_ = new ::std::string;
   }
-  entercondition_->assign(value);
+  m_entercondition_->assign(value);
 }
-inline void bosslayer::set_entercondition(const char* value) {
-  set_has_entercondition();
-  if (entercondition_ == &::google::protobuf::internal::kEmptyString) {
-    entercondition_ = new ::std::string;
+inline void E_BossLayer::set_m_entercondition(const char* value) {
+  set_has_m_entercondition();
+  if (m_entercondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_entercondition_ = new ::std::string;
   }
-  entercondition_->assign(value);
+  m_entercondition_->assign(value);
 }
-inline void bosslayer::set_entercondition(const char* value, size_t size) {
-  set_has_entercondition();
-  if (entercondition_ == &::google::protobuf::internal::kEmptyString) {
-    entercondition_ = new ::std::string;
+inline void E_BossLayer::set_m_entercondition(const char* value, size_t size) {
+  set_has_m_entercondition();
+  if (m_entercondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_entercondition_ = new ::std::string;
   }
-  entercondition_->assign(reinterpret_cast<const char*>(value), size);
+  m_entercondition_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* bosslayer::mutable_entercondition() {
-  set_has_entercondition();
-  if (entercondition_ == &::google::protobuf::internal::kEmptyString) {
-    entercondition_ = new ::std::string;
+inline ::std::string* E_BossLayer::mutable_m_entercondition() {
+  set_has_m_entercondition();
+  if (m_entercondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_entercondition_ = new ::std::string;
   }
-  return entercondition_;
+  return m_entercondition_;
 }
-inline ::std::string* bosslayer::release_entercondition() {
-  clear_has_entercondition();
-  if (entercondition_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BossLayer::release_m_entercondition() {
+  clear_has_m_entercondition();
+  if (m_entercondition_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = entercondition_;
-    entercondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_entercondition_;
+    m_entercondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void bosslayer::set_allocated_entercondition(::std::string* entercondition) {
-  if (entercondition_ != &::google::protobuf::internal::kEmptyString) {
-    delete entercondition_;
+inline void E_BossLayer::set_allocated_m_entercondition(::std::string* m_entercondition) {
+  if (m_entercondition_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_entercondition_;
   }
-  if (entercondition) {
-    set_has_entercondition();
-    entercondition_ = entercondition;
+  if (m_entercondition) {
+    set_has_m_entercondition();
+    m_entercondition_ = m_entercondition;
   } else {
-    clear_has_entercondition();
-    entercondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_entercondition();
+    m_entercondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string unlockCondition = 6;
-inline bool bosslayer::has_unlockcondition() const {
+// optional string m_unlockcondition = 6;
+inline bool E_BossLayer::has_m_unlockcondition() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void bosslayer::set_has_unlockcondition() {
+inline void E_BossLayer::set_has_m_unlockcondition() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void bosslayer::clear_has_unlockcondition() {
+inline void E_BossLayer::clear_has_m_unlockcondition() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void bosslayer::clear_unlockcondition() {
-  if (unlockcondition_ != &::google::protobuf::internal::kEmptyString) {
-    unlockcondition_->clear();
+inline void E_BossLayer::clear_m_unlockcondition() {
+  if (m_unlockcondition_ != &::google::protobuf::internal::kEmptyString) {
+    m_unlockcondition_->clear();
   }
-  clear_has_unlockcondition();
+  clear_has_m_unlockcondition();
 }
-inline const ::std::string& bosslayer::unlockcondition() const {
-  return *unlockcondition_;
+inline const ::std::string& E_BossLayer::m_unlockcondition() const {
+  return *m_unlockcondition_;
 }
-inline void bosslayer::set_unlockcondition(const ::std::string& value) {
-  set_has_unlockcondition();
-  if (unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
-    unlockcondition_ = new ::std::string;
+inline void E_BossLayer::set_m_unlockcondition(const ::std::string& value) {
+  set_has_m_unlockcondition();
+  if (m_unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_unlockcondition_ = new ::std::string;
   }
-  unlockcondition_->assign(value);
+  m_unlockcondition_->assign(value);
 }
-inline void bosslayer::set_unlockcondition(const char* value) {
-  set_has_unlockcondition();
-  if (unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
-    unlockcondition_ = new ::std::string;
+inline void E_BossLayer::set_m_unlockcondition(const char* value) {
+  set_has_m_unlockcondition();
+  if (m_unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_unlockcondition_ = new ::std::string;
   }
-  unlockcondition_->assign(value);
+  m_unlockcondition_->assign(value);
 }
-inline void bosslayer::set_unlockcondition(const char* value, size_t size) {
-  set_has_unlockcondition();
-  if (unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
-    unlockcondition_ = new ::std::string;
+inline void E_BossLayer::set_m_unlockcondition(const char* value, size_t size) {
+  set_has_m_unlockcondition();
+  if (m_unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_unlockcondition_ = new ::std::string;
   }
-  unlockcondition_->assign(reinterpret_cast<const char*>(value), size);
+  m_unlockcondition_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* bosslayer::mutable_unlockcondition() {
-  set_has_unlockcondition();
-  if (unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
-    unlockcondition_ = new ::std::string;
+inline ::std::string* E_BossLayer::mutable_m_unlockcondition() {
+  set_has_m_unlockcondition();
+  if (m_unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_unlockcondition_ = new ::std::string;
   }
-  return unlockcondition_;
+  return m_unlockcondition_;
 }
-inline ::std::string* bosslayer::release_unlockcondition() {
-  clear_has_unlockcondition();
-  if (unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_BossLayer::release_m_unlockcondition() {
+  clear_has_m_unlockcondition();
+  if (m_unlockcondition_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = unlockcondition_;
-    unlockcondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_unlockcondition_;
+    m_unlockcondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void bosslayer::set_allocated_unlockcondition(::std::string* unlockcondition) {
-  if (unlockcondition_ != &::google::protobuf::internal::kEmptyString) {
-    delete unlockcondition_;
+inline void E_BossLayer::set_allocated_m_unlockcondition(::std::string* m_unlockcondition) {
+  if (m_unlockcondition_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_unlockcondition_;
   }
-  if (unlockcondition) {
-    set_has_unlockcondition();
-    unlockcondition_ = unlockcondition;
+  if (m_unlockcondition) {
+    set_has_m_unlockcondition();
+    m_unlockcondition_ = m_unlockcondition;
   } else {
-    clear_has_unlockcondition();
-    unlockcondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_unlockcondition();
+    m_unlockcondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 mapID = 7;
-inline bool bosslayer::has_mapid() const {
+// optional int32 m_mapid = 7;
+inline bool E_BossLayer::has_m_mapid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void bosslayer::set_has_mapid() {
+inline void E_BossLayer::set_has_m_mapid() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void bosslayer::clear_has_mapid() {
+inline void E_BossLayer::clear_has_m_mapid() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void bosslayer::clear_mapid() {
-  mapid_ = 0;
-  clear_has_mapid();
+inline void E_BossLayer::clear_m_mapid() {
+  m_mapid_ = 0;
+  clear_has_m_mapid();
 }
-inline ::google::protobuf::int32 bosslayer::mapid() const {
-  return mapid_;
+inline ::google::protobuf::int32 E_BossLayer::m_mapid() const {
+  return m_mapid_;
 }
-inline void bosslayer::set_mapid(::google::protobuf::int32 value) {
-  set_has_mapid();
-  mapid_ = value;
+inline void E_BossLayer::set_m_mapid(::google::protobuf::int32 value) {
+  set_has_m_mapid();
+  m_mapid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_bosslayer
+// Sheet_BossLayer
 
-// repeated .proto_ff.bosslayer bosslayer_List = 1;
-inline int Sheet_bosslayer::bosslayer_list_size() const {
-  return bosslayer_list_.size();
+// repeated .proto_ff.E_BossLayer E_BossLayer_List = 1;
+inline int Sheet_BossLayer::e_bosslayer_list_size() const {
+  return e_bosslayer_list_.size();
 }
-inline void Sheet_bosslayer::clear_bosslayer_list() {
-  bosslayer_list_.Clear();
+inline void Sheet_BossLayer::clear_e_bosslayer_list() {
+  e_bosslayer_list_.Clear();
 }
-inline const ::proto_ff::bosslayer& Sheet_bosslayer::bosslayer_list(int index) const {
-  return bosslayer_list_.Get(index);
+inline const ::proto_ff::E_BossLayer& Sheet_BossLayer::e_bosslayer_list(int index) const {
+  return e_bosslayer_list_.Get(index);
 }
-inline ::proto_ff::bosslayer* Sheet_bosslayer::mutable_bosslayer_list(int index) {
-  return bosslayer_list_.Mutable(index);
+inline ::proto_ff::E_BossLayer* Sheet_BossLayer::mutable_e_bosslayer_list(int index) {
+  return e_bosslayer_list_.Mutable(index);
 }
-inline ::proto_ff::bosslayer* Sheet_bosslayer::add_bosslayer_list() {
-  return bosslayer_list_.Add();
+inline ::proto_ff::E_BossLayer* Sheet_BossLayer::add_e_bosslayer_list() {
+  return e_bosslayer_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::bosslayer >&
-Sheet_bosslayer::bosslayer_list() const {
-  return bosslayer_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossLayer >&
+Sheet_BossLayer::e_bosslayer_list() const {
+  return e_bosslayer_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::bosslayer >*
-Sheet_bosslayer::mutable_bosslayer_list() {
-  return &bosslayer_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BossLayer >*
+Sheet_BossLayer::mutable_e_bosslayer_list() {
+  return &e_bosslayer_list_;
 }
 
 

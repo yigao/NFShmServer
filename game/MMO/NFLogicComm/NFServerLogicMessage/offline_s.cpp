@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-offlineoffline_s::offlineoffline_s() {
+E_OfflineOffline_s::E_OfflineOffline_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ offlineoffline_s::offlineoffline_s() {
 	}
 }
 
-int offlineoffline_s::CreateInit() {
-	lv = (int32_t)0;
-	offlineExp = (int64_t)0;
+int E_OfflineOffline_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_offlineexp = (int64_t)0;
 	return 0;
 }
 
-int offlineoffline_s::ResumeInit() {
+int E_OfflineOffline_s::ResumeInit() {
 	return 0;
 }
 
-void offlineoffline_s::write_to_pbmsg(::proto_ff::offlineoffline & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_offlineexp((int64_t)offlineExp);
+void E_OfflineOffline_s::write_to_pbmsg(::proto_ff::E_OfflineOffline & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_offlineexp((int64_t)m_offlineexp);
 }
 
-void offlineoffline_s::read_from_pbmsg(const ::proto_ff::offlineoffline & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct offlineoffline_s));
-	lv = msg.lv();
-	offlineExp = msg.offlineexp();
+void E_OfflineOffline_s::read_from_pbmsg(const ::proto_ff::E_OfflineOffline & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_OfflineOffline_s));
+	m_lv = msg.m_lv();
+	m_offlineexp = msg.m_offlineexp();
 }
 
-Sheet_offlineoffline_s::Sheet_offlineoffline_s() {
+Sheet_OfflineOffline_s::Sheet_OfflineOffline_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,31 +39,31 @@ Sheet_offlineoffline_s::Sheet_offlineoffline_s() {
 	}
 }
 
-int Sheet_offlineoffline_s::CreateInit() {
+int Sheet_OfflineOffline_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_offlineoffline_s::ResumeInit() {
+int Sheet_OfflineOffline_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_offlineoffline_s::write_to_pbmsg(::proto_ff::Sheet_offlineoffline & msg) const {
-	for(int32_t i = 0; i < (int32_t)offlineoffline_List.GetSize() && i < offlineoffline_List.GetMaxSize(); ++i) {
-		::proto_ff::offlineoffline* temp_offlineoffline_list = msg.add_offlineoffline_list();
-		offlineoffline_List[i].write_to_pbmsg(*temp_offlineoffline_list);
+void Sheet_OfflineOffline_s::write_to_pbmsg(::proto_ff::Sheet_OfflineOffline & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_OfflineOffline_List.size(); ++i) {
+		::proto_ff::E_OfflineOffline* temp_e_offlineoffline_list = msg.add_e_offlineoffline_list();
+		E_OfflineOffline_List[i].write_to_pbmsg(*temp_e_offlineoffline_list);
 	}
 }
 
-void Sheet_offlineoffline_s::read_from_pbmsg(const ::proto_ff::Sheet_offlineoffline & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_offlineoffline_s));
-	offlineoffline_List.SetSize(msg.offlineoffline_list_size() > offlineoffline_List.GetMaxSize() ? offlineoffline_List.GetMaxSize() : msg.offlineoffline_list_size());
-	for(int32_t i = 0; i < (int32_t)offlineoffline_List.GetSize(); ++i) {
-		const ::proto_ff::offlineoffline & temp_offlineoffline_list = msg.offlineoffline_list(i);
-		offlineoffline_List[i].read_from_pbmsg(temp_offlineoffline_list);
+void Sheet_OfflineOffline_s::read_from_pbmsg(const ::proto_ff::Sheet_OfflineOffline & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_OfflineOffline_s));
+	E_OfflineOffline_List.resize((int)msg.e_offlineoffline_list_size() > (int)E_OfflineOffline_List.max_size() ? E_OfflineOffline_List.max_size() : msg.e_offlineoffline_list_size());
+	for(int32_t i = 0; i < (int32_t)E_OfflineOffline_List.size(); ++i) {
+		const ::proto_ff::E_OfflineOffline & temp_e_offlineoffline_list = msg.e_offlineoffline_list(i);
+		E_OfflineOffline_List[i].read_from_pbmsg(temp_e_offlineoffline_list);
 	}
 }
 
-offlineitemlistitemDesc_s::offlineitemlistitemDesc_s() {
+E_OfflineItemlistItemDesc_s::E_OfflineItemlistItemDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -71,31 +71,31 @@ offlineitemlistitemDesc_s::offlineitemlistitemDesc_s() {
 	}
 }
 
-int offlineitemlistitemDesc_s::CreateInit() {
-	Num = (int32_t)0;
-	Vle = (int32_t)0;
-	ID = (int64_t)0;
+int E_OfflineItemlistItemDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_vle = (int32_t)0;
+	m_id = (int64_t)0;
 	return 0;
 }
 
-int offlineitemlistitemDesc_s::ResumeInit() {
+int E_OfflineItemlistItemDesc_s::ResumeInit() {
 	return 0;
 }
 
-void offlineitemlistitemDesc_s::write_to_pbmsg(::proto_ff::offlineitemlistitemDesc & msg) const {
-	msg.set_num((int32_t)Num);
-	msg.set_vle((int32_t)Vle);
-	msg.set_id((int64_t)ID);
+void E_OfflineItemlistItemDesc_s::write_to_pbmsg(::proto_ff::E_OfflineItemlistItemDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_vle((int32_t)m_vle);
+	msg.set_m_id((int64_t)m_id);
 }
 
-void offlineitemlistitemDesc_s::read_from_pbmsg(const ::proto_ff::offlineitemlistitemDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct offlineitemlistitemDesc_s));
-	Num = msg.num();
-	Vle = msg.vle();
-	ID = msg.id();
+void E_OfflineItemlistItemDesc_s::read_from_pbmsg(const ::proto_ff::E_OfflineItemlistItemDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_OfflineItemlistItemDesc_s));
+	m_num = msg.m_num();
+	m_vle = msg.m_vle();
+	m_id = msg.m_id();
 }
 
-offlineitemlist_s::offlineitemlist_s() {
+E_OfflineItemlist_s::E_OfflineItemlist_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -103,43 +103,43 @@ offlineitemlist_s::offlineitemlist_s() {
 	}
 }
 
-int offlineitemlist_s::CreateInit() {
-	id = (int32_t)0;
-	Lvdown = (int32_t)0;
-	Lvup = (int32_t)0;
-	daoju = (int32_t)0;
+int E_OfflineItemlist_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_lvdown = (int32_t)0;
+	m_lvup = (int32_t)0;
+	m_daoju = (int32_t)0;
 	return 0;
 }
 
-int offlineitemlist_s::ResumeInit() {
+int E_OfflineItemlist_s::ResumeInit() {
 	return 0;
 }
 
-void offlineitemlist_s::write_to_pbmsg(::proto_ff::offlineitemlist & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_lvdown((int32_t)Lvdown);
-	msg.set_lvup((int32_t)Lvup);
-	msg.set_daoju((int32_t)daoju);
-	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
-		::proto_ff::offlineitemlistitemDesc* temp_item = msg.add_item();
-		item[i].write_to_pbmsg(*temp_item);
+void E_OfflineItemlist_s::write_to_pbmsg(::proto_ff::E_OfflineItemlist & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_lvdown((int32_t)m_lvdown);
+	msg.set_m_lvup((int32_t)m_lvup);
+	msg.set_m_daoju((int32_t)m_daoju);
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		::proto_ff::E_OfflineItemlistItemDesc* temp_m_item = msg.add_m_item();
+		m_item[i].write_to_pbmsg(*temp_m_item);
 	}
 }
 
-void offlineitemlist_s::read_from_pbmsg(const ::proto_ff::offlineitemlist & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct offlineitemlist_s));
-	id = msg.id();
-	Lvdown = msg.lvdown();
-	Lvup = msg.lvup();
-	daoju = msg.daoju();
-	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
-	for(int32_t i = 0; i < (int32_t)item.GetSize(); ++i) {
-		const ::proto_ff::offlineitemlistitemDesc & temp_item = msg.item(i);
-		item[i].read_from_pbmsg(temp_item);
+void E_OfflineItemlist_s::read_from_pbmsg(const ::proto_ff::E_OfflineItemlist & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_OfflineItemlist_s));
+	m_id = msg.m_id();
+	m_lvdown = msg.m_lvdown();
+	m_lvup = msg.m_lvup();
+	m_daoju = msg.m_daoju();
+	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		const ::proto_ff::E_OfflineItemlistItemDesc & temp_m_item = msg.m_item(i);
+		m_item[i].read_from_pbmsg(temp_m_item);
 	}
 }
 
-Sheet_offlineitemlist_s::Sheet_offlineitemlist_s() {
+Sheet_OfflineItemlist_s::Sheet_OfflineItemlist_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -147,27 +147,27 @@ Sheet_offlineitemlist_s::Sheet_offlineitemlist_s() {
 	}
 }
 
-int Sheet_offlineitemlist_s::CreateInit() {
+int Sheet_OfflineItemlist_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_offlineitemlist_s::ResumeInit() {
+int Sheet_OfflineItemlist_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_offlineitemlist_s::write_to_pbmsg(::proto_ff::Sheet_offlineitemlist & msg) const {
-	for(int32_t i = 0; i < (int32_t)offlineitemlist_List.GetSize() && i < offlineitemlist_List.GetMaxSize(); ++i) {
-		::proto_ff::offlineitemlist* temp_offlineitemlist_list = msg.add_offlineitemlist_list();
-		offlineitemlist_List[i].write_to_pbmsg(*temp_offlineitemlist_list);
+void Sheet_OfflineItemlist_s::write_to_pbmsg(::proto_ff::Sheet_OfflineItemlist & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_OfflineItemlist_List.size(); ++i) {
+		::proto_ff::E_OfflineItemlist* temp_e_offlineitemlist_list = msg.add_e_offlineitemlist_list();
+		E_OfflineItemlist_List[i].write_to_pbmsg(*temp_e_offlineitemlist_list);
 	}
 }
 
-void Sheet_offlineitemlist_s::read_from_pbmsg(const ::proto_ff::Sheet_offlineitemlist & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_offlineitemlist_s));
-	offlineitemlist_List.SetSize(msg.offlineitemlist_list_size() > offlineitemlist_List.GetMaxSize() ? offlineitemlist_List.GetMaxSize() : msg.offlineitemlist_list_size());
-	for(int32_t i = 0; i < (int32_t)offlineitemlist_List.GetSize(); ++i) {
-		const ::proto_ff::offlineitemlist & temp_offlineitemlist_list = msg.offlineitemlist_list(i);
-		offlineitemlist_List[i].read_from_pbmsg(temp_offlineitemlist_list);
+void Sheet_OfflineItemlist_s::read_from_pbmsg(const ::proto_ff::Sheet_OfflineItemlist & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_OfflineItemlist_s));
+	E_OfflineItemlist_List.resize((int)msg.e_offlineitemlist_list_size() > (int)E_OfflineItemlist_List.max_size() ? E_OfflineItemlist_List.max_size() : msg.e_offlineitemlist_list_size());
+	for(int32_t i = 0; i < (int32_t)E_OfflineItemlist_List.size(); ++i) {
+		const ::proto_ff::E_OfflineItemlist & temp_e_offlineitemlist_list = msg.e_offlineitemlist_list(i);
+		E_OfflineItemlist_List[i].read_from_pbmsg(temp_e_offlineitemlist_list);
 	}
 }
 

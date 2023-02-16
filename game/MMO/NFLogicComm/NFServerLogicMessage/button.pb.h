@@ -34,19 +34,19 @@ void  protobuf_AddDesc_button_2eproto();
 void protobuf_AssignDesc_button_2eproto();
 void protobuf_ShutdownFile_button_2eproto();
 
-class buttonbutton;
-class Sheet_buttonbutton;
+class E_ButtonButton;
+class Sheet_ButtonButton;
 
 // ===================================================================
 
-class buttonbutton : public ::google::protobuf::Message {
+class E_ButtonButton : public ::google::protobuf::Message {
  public:
-  buttonbutton();
-  virtual ~buttonbutton();
+  E_ButtonButton();
+  virtual ~E_ButtonButton();
 
-  buttonbutton(const buttonbutton& from);
+  E_ButtonButton(const E_ButtonButton& from);
 
-  inline buttonbutton& operator=(const buttonbutton& from) {
+  inline E_ButtonButton& operator=(const E_ButtonButton& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class buttonbutton : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const buttonbutton& default_instance();
+  static const E_ButtonButton& default_instance();
 
-  void Swap(buttonbutton* other);
+  void Swap(E_ButtonButton* other);
 
   // implements Message ----------------------------------------------
 
-  buttonbutton* New() const;
+  E_ButtonButton* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const buttonbutton& from);
-  void MergeFrom(const buttonbutton& from);
+  void CopyFrom(const E_ButtonButton& from);
+  void MergeFrom(const E_ButtonButton& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,31 +93,31 @@ class buttonbutton : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 time = 2;
-  inline bool has_time() const;
-  inline void clear_time();
-  static const int kTimeFieldNumber = 2;
-  inline ::google::protobuf::int32 time() const;
-  inline void set_time(::google::protobuf::int32 value);
+  // optional int32 m_time = 2;
+  inline bool has_m_time() const;
+  inline void clear_m_time();
+  static const int kMTimeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_time() const;
+  inline void set_m_time(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.buttonbutton)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ButtonButton)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_time();
-  inline void clear_has_time();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_time();
+  inline void clear_has_m_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int32 time_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_time_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -127,18 +127,18 @@ class buttonbutton : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_button_2eproto();
 
   void InitAsDefaultInstance();
-  static buttonbutton* default_instance_;
+  static E_ButtonButton* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_buttonbutton : public ::google::protobuf::Message {
+class Sheet_ButtonButton : public ::google::protobuf::Message {
  public:
-  Sheet_buttonbutton();
-  virtual ~Sheet_buttonbutton();
+  Sheet_ButtonButton();
+  virtual ~Sheet_ButtonButton();
 
-  Sheet_buttonbutton(const Sheet_buttonbutton& from);
+  Sheet_ButtonButton(const Sheet_ButtonButton& from);
 
-  inline Sheet_buttonbutton& operator=(const Sheet_buttonbutton& from) {
+  inline Sheet_ButtonButton& operator=(const Sheet_ButtonButton& from) {
     CopyFrom(from);
     return *this;
   }
@@ -152,17 +152,17 @@ class Sheet_buttonbutton : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_buttonbutton& default_instance();
+  static const Sheet_ButtonButton& default_instance();
 
-  void Swap(Sheet_buttonbutton* other);
+  void Swap(Sheet_ButtonButton* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_buttonbutton* New() const;
+  Sheet_ButtonButton* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_buttonbutton& from);
-  void MergeFrom(const Sheet_buttonbutton& from);
+  void CopyFrom(const Sheet_ButtonButton& from);
+  void MergeFrom(const Sheet_ButtonButton& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -185,24 +185,24 @@ class Sheet_buttonbutton : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.buttonbutton buttonbutton_List = 1;
-  inline int buttonbutton_list_size() const;
-  inline void clear_buttonbutton_list();
-  static const int kButtonbuttonListFieldNumber = 1;
-  inline const ::proto_ff::buttonbutton& buttonbutton_list(int index) const;
-  inline ::proto_ff::buttonbutton* mutable_buttonbutton_list(int index);
-  inline ::proto_ff::buttonbutton* add_buttonbutton_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::buttonbutton >&
-      buttonbutton_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::buttonbutton >*
-      mutable_buttonbutton_list();
+  // repeated .proto_ff.E_ButtonButton E_ButtonButton_List = 1;
+  inline int e_buttonbutton_list_size() const;
+  inline void clear_e_buttonbutton_list();
+  static const int kEButtonButtonListFieldNumber = 1;
+  inline const ::proto_ff::E_ButtonButton& e_buttonbutton_list(int index) const;
+  inline ::proto_ff::E_ButtonButton* mutable_e_buttonbutton_list(int index);
+  inline ::proto_ff::E_ButtonButton* add_e_buttonbutton_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ButtonButton >&
+      e_buttonbutton_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ButtonButton >*
+      mutable_e_buttonbutton_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_buttonbutton)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ButtonButton)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::buttonbutton > buttonbutton_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ButtonButton > e_buttonbutton_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -212,86 +212,86 @@ class Sheet_buttonbutton : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_button_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_buttonbutton* default_instance_;
+  static Sheet_ButtonButton* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// buttonbutton
+// E_ButtonButton
 
-// optional int64 id = 1;
-inline bool buttonbutton::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_ButtonButton::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void buttonbutton::set_has_id() {
+inline void E_ButtonButton::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void buttonbutton::clear_has_id() {
+inline void E_ButtonButton::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void buttonbutton::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_ButtonButton::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 buttonbutton::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_ButtonButton::m_id() const {
+  return m_id_;
 }
-inline void buttonbutton::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_ButtonButton::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 time = 2;
-inline bool buttonbutton::has_time() const {
+// optional int32 m_time = 2;
+inline bool E_ButtonButton::has_m_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void buttonbutton::set_has_time() {
+inline void E_ButtonButton::set_has_m_time() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void buttonbutton::clear_has_time() {
+inline void E_ButtonButton::clear_has_m_time() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void buttonbutton::clear_time() {
-  time_ = 0;
-  clear_has_time();
+inline void E_ButtonButton::clear_m_time() {
+  m_time_ = 0;
+  clear_has_m_time();
 }
-inline ::google::protobuf::int32 buttonbutton::time() const {
-  return time_;
+inline ::google::protobuf::int32 E_ButtonButton::m_time() const {
+  return m_time_;
 }
-inline void buttonbutton::set_time(::google::protobuf::int32 value) {
-  set_has_time();
-  time_ = value;
+inline void E_ButtonButton::set_m_time(::google::protobuf::int32 value) {
+  set_has_m_time();
+  m_time_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_buttonbutton
+// Sheet_ButtonButton
 
-// repeated .proto_ff.buttonbutton buttonbutton_List = 1;
-inline int Sheet_buttonbutton::buttonbutton_list_size() const {
-  return buttonbutton_list_.size();
+// repeated .proto_ff.E_ButtonButton E_ButtonButton_List = 1;
+inline int Sheet_ButtonButton::e_buttonbutton_list_size() const {
+  return e_buttonbutton_list_.size();
 }
-inline void Sheet_buttonbutton::clear_buttonbutton_list() {
-  buttonbutton_list_.Clear();
+inline void Sheet_ButtonButton::clear_e_buttonbutton_list() {
+  e_buttonbutton_list_.Clear();
 }
-inline const ::proto_ff::buttonbutton& Sheet_buttonbutton::buttonbutton_list(int index) const {
-  return buttonbutton_list_.Get(index);
+inline const ::proto_ff::E_ButtonButton& Sheet_ButtonButton::e_buttonbutton_list(int index) const {
+  return e_buttonbutton_list_.Get(index);
 }
-inline ::proto_ff::buttonbutton* Sheet_buttonbutton::mutable_buttonbutton_list(int index) {
-  return buttonbutton_list_.Mutable(index);
+inline ::proto_ff::E_ButtonButton* Sheet_ButtonButton::mutable_e_buttonbutton_list(int index) {
+  return e_buttonbutton_list_.Mutable(index);
 }
-inline ::proto_ff::buttonbutton* Sheet_buttonbutton::add_buttonbutton_list() {
-  return buttonbutton_list_.Add();
+inline ::proto_ff::E_ButtonButton* Sheet_ButtonButton::add_e_buttonbutton_list() {
+  return e_buttonbutton_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::buttonbutton >&
-Sheet_buttonbutton::buttonbutton_list() const {
-  return buttonbutton_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ButtonButton >&
+Sheet_ButtonButton::e_buttonbutton_list() const {
+  return e_buttonbutton_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::buttonbutton >*
-Sheet_buttonbutton::mutable_buttonbutton_list() {
-  return &buttonbutton_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ButtonButton >*
+Sheet_ButtonButton::mutable_e_buttonbutton_list() {
+  return &e_buttonbutton_list_;
 }
 
 

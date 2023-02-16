@@ -34,21 +34,21 @@ void  protobuf_AddDesc_halo_2eproto();
 void protobuf_AssignDesc_halo_2eproto();
 void protobuf_ShutdownFile_halo_2eproto();
 
-class halohaloattributeDesc;
-class halohaloActiveAttributeDesc;
-class halohalo;
-class Sheet_halohalo;
+class E_HaloHaloAttributeDesc;
+class E_HaloHaloActiveattributeDesc;
+class E_HaloHalo;
+class Sheet_HaloHalo;
 
 // ===================================================================
 
-class halohaloattributeDesc : public ::google::protobuf::Message {
+class E_HaloHaloAttributeDesc : public ::google::protobuf::Message {
  public:
-  halohaloattributeDesc();
-  virtual ~halohaloattributeDesc();
+  E_HaloHaloAttributeDesc();
+  virtual ~E_HaloHaloAttributeDesc();
 
-  halohaloattributeDesc(const halohaloattributeDesc& from);
+  E_HaloHaloAttributeDesc(const E_HaloHaloAttributeDesc& from);
 
-  inline halohaloattributeDesc& operator=(const halohaloattributeDesc& from) {
+  inline E_HaloHaloAttributeDesc& operator=(const E_HaloHaloAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -62,17 +62,17 @@ class halohaloattributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const halohaloattributeDesc& default_instance();
+  static const E_HaloHaloAttributeDesc& default_instance();
 
-  void Swap(halohaloattributeDesc* other);
+  void Swap(E_HaloHaloAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  halohaloattributeDesc* New() const;
+  E_HaloHaloAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const halohaloattributeDesc& from);
-  void MergeFrom(const halohaloattributeDesc& from);
+  void CopyFrom(const E_HaloHaloAttributeDesc& from);
+  void MergeFrom(const E_HaloHaloAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -95,31 +95,31 @@ class halohaloattributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.halohaloattributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_HaloHaloAttributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -129,18 +129,18 @@ class halohaloattributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_halo_2eproto();
 
   void InitAsDefaultInstance();
-  static halohaloattributeDesc* default_instance_;
+  static E_HaloHaloAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class halohaloActiveAttributeDesc : public ::google::protobuf::Message {
+class E_HaloHaloActiveattributeDesc : public ::google::protobuf::Message {
  public:
-  halohaloActiveAttributeDesc();
-  virtual ~halohaloActiveAttributeDesc();
+  E_HaloHaloActiveattributeDesc();
+  virtual ~E_HaloHaloActiveattributeDesc();
 
-  halohaloActiveAttributeDesc(const halohaloActiveAttributeDesc& from);
+  E_HaloHaloActiveattributeDesc(const E_HaloHaloActiveattributeDesc& from);
 
-  inline halohaloActiveAttributeDesc& operator=(const halohaloActiveAttributeDesc& from) {
+  inline E_HaloHaloActiveattributeDesc& operator=(const E_HaloHaloActiveattributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -154,17 +154,17 @@ class halohaloActiveAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const halohaloActiveAttributeDesc& default_instance();
+  static const E_HaloHaloActiveattributeDesc& default_instance();
 
-  void Swap(halohaloActiveAttributeDesc* other);
+  void Swap(E_HaloHaloActiveattributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  halohaloActiveAttributeDesc* New() const;
+  E_HaloHaloActiveattributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const halohaloActiveAttributeDesc& from);
-  void MergeFrom(const halohaloActiveAttributeDesc& from);
+  void CopyFrom(const E_HaloHaloActiveattributeDesc& from);
+  void MergeFrom(const E_HaloHaloActiveattributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -187,31 +187,31 @@ class halohaloActiveAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 type = 1;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 value = 2;
-  inline bool has_value() const;
-  inline void clear_value();
-  static const int kValueFieldNumber = 2;
-  inline ::google::protobuf::int32 value() const;
-  inline void set_value(::google::protobuf::int32 value);
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.halohaloActiveAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_HaloHaloActiveattributeDesc)
  private:
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_value();
-  inline void clear_has_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 value_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -221,18 +221,18 @@ class halohaloActiveAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_halo_2eproto();
 
   void InitAsDefaultInstance();
-  static halohaloActiveAttributeDesc* default_instance_;
+  static E_HaloHaloActiveattributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class halohalo : public ::google::protobuf::Message {
+class E_HaloHalo : public ::google::protobuf::Message {
  public:
-  halohalo();
-  virtual ~halohalo();
+  E_HaloHalo();
+  virtual ~E_HaloHalo();
 
-  halohalo(const halohalo& from);
+  E_HaloHalo(const E_HaloHalo& from);
 
-  inline halohalo& operator=(const halohalo& from) {
+  inline E_HaloHalo& operator=(const E_HaloHalo& from) {
     CopyFrom(from);
     return *this;
   }
@@ -246,17 +246,17 @@ class halohalo : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const halohalo& default_instance();
+  static const E_HaloHalo& default_instance();
 
-  void Swap(halohalo* other);
+  void Swap(E_HaloHalo* other);
 
   // implements Message ----------------------------------------------
 
-  halohalo* New() const;
+  E_HaloHalo* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const halohalo& from);
-  void MergeFrom(const halohalo& from);
+  void CopyFrom(const E_HaloHalo& from);
+  void MergeFrom(const E_HaloHalo& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -279,162 +279,162 @@ class halohalo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 ID = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIDFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional string name = 2;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 2;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 type = 3;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 quality = 4;
-  inline bool has_quality() const;
-  inline void clear_quality();
-  static const int kQualityFieldNumber = 4;
-  inline ::google::protobuf::int32 quality() const;
-  inline void set_quality(::google::protobuf::int32 value);
+  // optional int32 m_quality = 4;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 4;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional string professionLimit = 5;
-  inline bool has_professionlimit() const;
-  inline void clear_professionlimit();
-  static const int kProfessionLimitFieldNumber = 5;
-  inline const ::std::string& professionlimit() const;
-  inline void set_professionlimit(const ::std::string& value);
-  inline void set_professionlimit(const char* value);
-  inline void set_professionlimit(const char* value, size_t size);
-  inline ::std::string* mutable_professionlimit();
-  inline ::std::string* release_professionlimit();
-  inline void set_allocated_professionlimit(::std::string* professionlimit);
+  // optional string m_professionlimit = 5;
+  inline bool has_m_professionlimit() const;
+  inline void clear_m_professionlimit();
+  static const int kMProfessionlimitFieldNumber = 5;
+  inline const ::std::string& m_professionlimit() const;
+  inline void set_m_professionlimit(const ::std::string& value);
+  inline void set_m_professionlimit(const char* value);
+  inline void set_m_professionlimit(const char* value, size_t size);
+  inline ::std::string* mutable_m_professionlimit();
+  inline ::std::string* release_m_professionlimit();
+  inline void set_allocated_m_professionlimit(::std::string* m_professionlimit);
 
-  // optional int64 activationItem = 6;
-  inline bool has_activationitem() const;
-  inline void clear_activationitem();
-  static const int kActivationItemFieldNumber = 6;
-  inline ::google::protobuf::int64 activationitem() const;
-  inline void set_activationitem(::google::protobuf::int64 value);
+  // optional int64 m_activationitem = 6;
+  inline bool has_m_activationitem() const;
+  inline void clear_m_activationitem();
+  static const int kMActivationitemFieldNumber = 6;
+  inline ::google::protobuf::int64 m_activationitem() const;
+  inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 activationNum = 7;
-  inline bool has_activationnum() const;
-  inline void clear_activationnum();
-  static const int kActivationNumFieldNumber = 7;
-  inline ::google::protobuf::int32 activationnum() const;
-  inline void set_activationnum(::google::protobuf::int32 value);
+  // optional int32 m_activationnum = 7;
+  inline bool has_m_activationnum() const;
+  inline void clear_m_activationnum();
+  static const int kMActivationnumFieldNumber = 7;
+  inline ::google::protobuf::int32 m_activationnum() const;
+  inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 starId = 8;
-  inline bool has_starid() const;
-  inline void clear_starid();
-  static const int kStarIdFieldNumber = 8;
-  inline ::google::protobuf::int64 starid() const;
-  inline void set_starid(::google::protobuf::int64 value);
+  // optional int64 m_starid = 8;
+  inline bool has_m_starid() const;
+  inline void clear_m_starid();
+  static const int kMStaridFieldNumber = 8;
+  inline ::google::protobuf::int64 m_starid() const;
+  inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string starNum = 9;
-  inline bool has_starnum() const;
-  inline void clear_starnum();
-  static const int kStarNumFieldNumber = 9;
-  inline const ::std::string& starnum() const;
-  inline void set_starnum(const ::std::string& value);
-  inline void set_starnum(const char* value);
-  inline void set_starnum(const char* value, size_t size);
-  inline ::std::string* mutable_starnum();
-  inline ::std::string* release_starnum();
-  inline void set_allocated_starnum(::std::string* starnum);
+  // optional string m_starnum = 9;
+  inline bool has_m_starnum() const;
+  inline void clear_m_starnum();
+  static const int kMStarnumFieldNumber = 9;
+  inline const ::std::string& m_starnum() const;
+  inline void set_m_starnum(const ::std::string& value);
+  inline void set_m_starnum(const char* value);
+  inline void set_m_starnum(const char* value, size_t size);
+  inline ::std::string* mutable_m_starnum();
+  inline ::std::string* release_m_starnum();
+  inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 starUp = 10;
-  inline bool has_starup() const;
-  inline void clear_starup();
-  static const int kStarUpFieldNumber = 10;
-  inline ::google::protobuf::int32 starup() const;
-  inline void set_starup(::google::protobuf::int32 value);
+  // optional int32 m_starup = 10;
+  inline bool has_m_starup() const;
+  inline void clear_m_starup();
+  static const int kMStarupFieldNumber = 10;
+  inline ::google::protobuf::int32 m_starup() const;
+  inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 starBer = 11;
-  inline bool has_starber() const;
-  inline void clear_starber();
-  static const int kStarBerFieldNumber = 11;
-  inline ::google::protobuf::int32 starber() const;
-  inline void set_starber(::google::protobuf::int32 value);
+  // optional int32 m_starber = 11;
+  inline bool has_m_starber() const;
+  inline void clear_m_starber();
+  static const int kMStarberFieldNumber = 11;
+  inline ::google::protobuf::int32 m_starber() const;
+  inline void set_m_starber(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.halohaloattributeDesc attribute = 12;
-  inline int attribute_size() const;
-  inline void clear_attribute();
-  static const int kAttributeFieldNumber = 12;
-  inline const ::proto_ff::halohaloattributeDesc& attribute(int index) const;
-  inline ::proto_ff::halohaloattributeDesc* mutable_attribute(int index);
-  inline ::proto_ff::halohaloattributeDesc* add_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloattributeDesc >&
-      attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloattributeDesc >*
-      mutable_attribute();
+  // repeated .proto_ff.E_HaloHaloAttributeDesc m_attribute = 12;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 12;
+  inline const ::proto_ff::E_HaloHaloAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_HaloHaloAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_HaloHaloAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloAttributeDesc >*
+      mutable_m_attribute();
 
-  // repeated .proto_ff.halohaloActiveAttributeDesc ActiveAttribute = 13;
-  inline int activeattribute_size() const;
-  inline void clear_activeattribute();
-  static const int kActiveAttributeFieldNumber = 13;
-  inline const ::proto_ff::halohaloActiveAttributeDesc& activeattribute(int index) const;
-  inline ::proto_ff::halohaloActiveAttributeDesc* mutable_activeattribute(int index);
-  inline ::proto_ff::halohaloActiveAttributeDesc* add_activeattribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloActiveAttributeDesc >&
-      activeattribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloActiveAttributeDesc >*
-      mutable_activeattribute();
+  // repeated .proto_ff.E_HaloHaloActiveattributeDesc m_activeattribute = 13;
+  inline int m_activeattribute_size() const;
+  inline void clear_m_activeattribute();
+  static const int kMActiveattributeFieldNumber = 13;
+  inline const ::proto_ff::E_HaloHaloActiveattributeDesc& m_activeattribute(int index) const;
+  inline ::proto_ff::E_HaloHaloActiveattributeDesc* mutable_m_activeattribute(int index);
+  inline ::proto_ff::E_HaloHaloActiveattributeDesc* add_m_activeattribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloActiveattributeDesc >&
+      m_activeattribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloActiveattributeDesc >*
+      mutable_m_activeattribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.halohalo)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_HaloHalo)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_quality();
-  inline void clear_has_quality();
-  inline void set_has_professionlimit();
-  inline void clear_has_professionlimit();
-  inline void set_has_activationitem();
-  inline void clear_has_activationitem();
-  inline void set_has_activationnum();
-  inline void clear_has_activationnum();
-  inline void set_has_starid();
-  inline void clear_has_starid();
-  inline void set_has_starnum();
-  inline void clear_has_starnum();
-  inline void set_has_starup();
-  inline void clear_has_starup();
-  inline void set_has_starber();
-  inline void clear_has_starber();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+  inline void set_has_m_professionlimit();
+  inline void clear_has_m_professionlimit();
+  inline void set_has_m_activationitem();
+  inline void clear_has_m_activationitem();
+  inline void set_has_m_activationnum();
+  inline void clear_has_m_activationnum();
+  inline void set_has_m_starid();
+  inline void clear_has_m_starid();
+  inline void set_has_m_starnum();
+  inline void clear_has_m_starnum();
+  inline void set_has_m_starup();
+  inline void clear_has_m_starup();
+  inline void set_has_m_starber();
+  inline void clear_has_m_starber();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* name_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 quality_;
-  ::std::string* professionlimit_;
-  ::google::protobuf::int64 activationitem_;
-  ::google::protobuf::int64 starid_;
-  ::google::protobuf::int32 activationnum_;
-  ::google::protobuf::int32 starup_;
-  ::std::string* starnum_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloattributeDesc > attribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloActiveAttributeDesc > activeattribute_;
-  ::google::protobuf::int32 starber_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_quality_;
+  ::std::string* m_professionlimit_;
+  ::google::protobuf::int64 m_activationitem_;
+  ::google::protobuf::int64 m_starid_;
+  ::google::protobuf::int32 m_activationnum_;
+  ::google::protobuf::int32 m_starup_;
+  ::std::string* m_starnum_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloActiveattributeDesc > m_activeattribute_;
+  ::google::protobuf::int32 m_starber_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
@@ -444,18 +444,18 @@ class halohalo : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_halo_2eproto();
 
   void InitAsDefaultInstance();
-  static halohalo* default_instance_;
+  static E_HaloHalo* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_halohalo : public ::google::protobuf::Message {
+class Sheet_HaloHalo : public ::google::protobuf::Message {
  public:
-  Sheet_halohalo();
-  virtual ~Sheet_halohalo();
+  Sheet_HaloHalo();
+  virtual ~Sheet_HaloHalo();
 
-  Sheet_halohalo(const Sheet_halohalo& from);
+  Sheet_HaloHalo(const Sheet_HaloHalo& from);
 
-  inline Sheet_halohalo& operator=(const Sheet_halohalo& from) {
+  inline Sheet_HaloHalo& operator=(const Sheet_HaloHalo& from) {
     CopyFrom(from);
     return *this;
   }
@@ -469,17 +469,17 @@ class Sheet_halohalo : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_halohalo& default_instance();
+  static const Sheet_HaloHalo& default_instance();
 
-  void Swap(Sheet_halohalo* other);
+  void Swap(Sheet_HaloHalo* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_halohalo* New() const;
+  Sheet_HaloHalo* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_halohalo& from);
-  void MergeFrom(const Sheet_halohalo& from);
+  void CopyFrom(const Sheet_HaloHalo& from);
+  void MergeFrom(const Sheet_HaloHalo& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -502,24 +502,24 @@ class Sheet_halohalo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.halohalo halohalo_List = 1;
-  inline int halohalo_list_size() const;
-  inline void clear_halohalo_list();
-  static const int kHalohaloListFieldNumber = 1;
-  inline const ::proto_ff::halohalo& halohalo_list(int index) const;
-  inline ::proto_ff::halohalo* mutable_halohalo_list(int index);
-  inline ::proto_ff::halohalo* add_halohalo_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::halohalo >&
-      halohalo_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::halohalo >*
-      mutable_halohalo_list();
+  // repeated .proto_ff.E_HaloHalo E_HaloHalo_List = 1;
+  inline int e_halohalo_list_size() const;
+  inline void clear_e_halohalo_list();
+  static const int kEHaloHaloListFieldNumber = 1;
+  inline const ::proto_ff::E_HaloHalo& e_halohalo_list(int index) const;
+  inline ::proto_ff::E_HaloHalo* mutable_e_halohalo_list(int index);
+  inline ::proto_ff::E_HaloHalo* add_e_halohalo_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHalo >&
+      e_halohalo_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHalo >*
+      mutable_e_halohalo_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_halohalo)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_HaloHalo)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::halohalo > halohalo_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHalo > e_halohalo_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -529,574 +529,574 @@ class Sheet_halohalo : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_halo_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_halohalo* default_instance_;
+  static Sheet_HaloHalo* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// halohaloattributeDesc
+// E_HaloHaloAttributeDesc
 
-// optional int32 type = 1;
-inline bool halohaloattributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_HaloHaloAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void halohaloattributeDesc::set_has_type() {
+inline void E_HaloHaloAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void halohaloattributeDesc::clear_has_type() {
+inline void E_HaloHaloAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void halohaloattributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_HaloHaloAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 halohaloattributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_HaloHaloAttributeDesc::m_type() const {
+  return m_type_;
 }
-inline void halohaloattributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_HaloHaloAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool halohaloattributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_HaloHaloAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void halohaloattributeDesc::set_has_value() {
+inline void E_HaloHaloAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void halohaloattributeDesc::clear_has_value() {
+inline void E_HaloHaloAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void halohaloattributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_HaloHaloAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 halohaloattributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_HaloHaloAttributeDesc::m_value() const {
+  return m_value_;
 }
-inline void halohaloattributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_HaloHaloAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// halohaloActiveAttributeDesc
+// E_HaloHaloActiveattributeDesc
 
-// optional int32 type = 1;
-inline bool halohaloActiveAttributeDesc::has_type() const {
+// optional int32 m_type = 1;
+inline bool E_HaloHaloActiveattributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void halohaloActiveAttributeDesc::set_has_type() {
+inline void E_HaloHaloActiveattributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void halohaloActiveAttributeDesc::clear_has_type() {
+inline void E_HaloHaloActiveattributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void halohaloActiveAttributeDesc::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_HaloHaloActiveattributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 halohaloActiveAttributeDesc::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_HaloHaloActiveattributeDesc::m_type() const {
+  return m_type_;
 }
-inline void halohaloActiveAttributeDesc::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_HaloHaloActiveattributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 value = 2;
-inline bool halohaloActiveAttributeDesc::has_value() const {
+// optional int32 m_value = 2;
+inline bool E_HaloHaloActiveattributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void halohaloActiveAttributeDesc::set_has_value() {
+inline void E_HaloHaloActiveattributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void halohaloActiveAttributeDesc::clear_has_value() {
+inline void E_HaloHaloActiveattributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void halohaloActiveAttributeDesc::clear_value() {
-  value_ = 0;
-  clear_has_value();
+inline void E_HaloHaloActiveattributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
 }
-inline ::google::protobuf::int32 halohaloActiveAttributeDesc::value() const {
-  return value_;
+inline ::google::protobuf::int32 E_HaloHaloActiveattributeDesc::m_value() const {
+  return m_value_;
 }
-inline void halohaloActiveAttributeDesc::set_value(::google::protobuf::int32 value) {
-  set_has_value();
-  value_ = value;
+inline void E_HaloHaloActiveattributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// halohalo
+// E_HaloHalo
 
-// optional int64 ID = 1;
-inline bool halohalo::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_HaloHalo::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void halohalo::set_has_id() {
+inline void E_HaloHalo::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void halohalo::clear_has_id() {
+inline void E_HaloHalo::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void halohalo::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_HaloHalo::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 halohalo::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_HaloHalo::m_id() const {
+  return m_id_;
 }
-inline void halohalo::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_HaloHalo::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional string name = 2;
-inline bool halohalo::has_name() const {
+// optional string m_name = 2;
+inline bool E_HaloHalo::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void halohalo::set_has_name() {
+inline void E_HaloHalo::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void halohalo::clear_has_name() {
+inline void E_HaloHalo::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void halohalo::clear_name() {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    name_->clear();
+inline void E_HaloHalo::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
   }
-  clear_has_name();
+  clear_has_m_name();
 }
-inline const ::std::string& halohalo::name() const {
-  return *name_;
+inline const ::std::string& E_HaloHalo::m_name() const {
+  return *m_name_;
 }
-inline void halohalo::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_HaloHalo::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void halohalo::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_HaloHalo::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(value);
+  m_name_->assign(value);
 }
-inline void halohalo::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline void E_HaloHalo::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  name_->assign(reinterpret_cast<const char*>(value), size);
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* halohalo::mutable_name() {
-  set_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
-    name_ = new ::std::string;
+inline ::std::string* E_HaloHalo::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
   }
-  return name_;
+  return m_name_;
 }
-inline ::std::string* halohalo::release_name() {
-  clear_has_name();
-  if (name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_HaloHalo::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void halohalo::set_allocated_name(::std::string* name) {
-  if (name_ != &::google::protobuf::internal::kEmptyString) {
-    delete name_;
+inline void E_HaloHalo::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
   }
-  if (name) {
-    set_has_name();
-    name_ = name;
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
   } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 type = 3;
-inline bool halohalo::has_type() const {
+// optional int32 m_type = 3;
+inline bool E_HaloHalo::has_m_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void halohalo::set_has_type() {
+inline void E_HaloHalo::set_has_m_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void halohalo::clear_has_type() {
+inline void E_HaloHalo::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void halohalo::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_HaloHalo::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 halohalo::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_HaloHalo::m_type() const {
+  return m_type_;
 }
-inline void halohalo::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_HaloHalo::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional int32 quality = 4;
-inline bool halohalo::has_quality() const {
+// optional int32 m_quality = 4;
+inline bool E_HaloHalo::has_m_quality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void halohalo::set_has_quality() {
+inline void E_HaloHalo::set_has_m_quality() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void halohalo::clear_has_quality() {
+inline void E_HaloHalo::clear_has_m_quality() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void halohalo::clear_quality() {
-  quality_ = 0;
-  clear_has_quality();
+inline void E_HaloHalo::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
 }
-inline ::google::protobuf::int32 halohalo::quality() const {
-  return quality_;
+inline ::google::protobuf::int32 E_HaloHalo::m_quality() const {
+  return m_quality_;
 }
-inline void halohalo::set_quality(::google::protobuf::int32 value) {
-  set_has_quality();
-  quality_ = value;
+inline void E_HaloHalo::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
 }
 
-// optional string professionLimit = 5;
-inline bool halohalo::has_professionlimit() const {
+// optional string m_professionlimit = 5;
+inline bool E_HaloHalo::has_m_professionlimit() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void halohalo::set_has_professionlimit() {
+inline void E_HaloHalo::set_has_m_professionlimit() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void halohalo::clear_has_professionlimit() {
+inline void E_HaloHalo::clear_has_m_professionlimit() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void halohalo::clear_professionlimit() {
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    professionlimit_->clear();
+inline void E_HaloHalo::clear_m_professionlimit() {
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_->clear();
   }
-  clear_has_professionlimit();
+  clear_has_m_professionlimit();
 }
-inline const ::std::string& halohalo::professionlimit() const {
-  return *professionlimit_;
+inline const ::std::string& E_HaloHalo::m_professionlimit() const {
+  return *m_professionlimit_;
 }
-inline void halohalo::set_professionlimit(const ::std::string& value) {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline void E_HaloHalo::set_m_professionlimit(const ::std::string& value) {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  professionlimit_->assign(value);
+  m_professionlimit_->assign(value);
 }
-inline void halohalo::set_professionlimit(const char* value) {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline void E_HaloHalo::set_m_professionlimit(const char* value) {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  professionlimit_->assign(value);
+  m_professionlimit_->assign(value);
 }
-inline void halohalo::set_professionlimit(const char* value, size_t size) {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline void E_HaloHalo::set_m_professionlimit(const char* value, size_t size) {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  professionlimit_->assign(reinterpret_cast<const char*>(value), size);
+  m_professionlimit_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* halohalo::mutable_professionlimit() {
-  set_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
-    professionlimit_ = new ::std::string;
+inline ::std::string* E_HaloHalo::mutable_m_professionlimit() {
+  set_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+    m_professionlimit_ = new ::std::string;
   }
-  return professionlimit_;
+  return m_professionlimit_;
 }
-inline ::std::string* halohalo::release_professionlimit() {
-  clear_has_professionlimit();
-  if (professionlimit_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_HaloHalo::release_m_professionlimit() {
+  clear_has_m_professionlimit();
+  if (m_professionlimit_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = professionlimit_;
-    professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_professionlimit_;
+    m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void halohalo::set_allocated_professionlimit(::std::string* professionlimit) {
-  if (professionlimit_ != &::google::protobuf::internal::kEmptyString) {
-    delete professionlimit_;
+inline void E_HaloHalo::set_allocated_m_professionlimit(::std::string* m_professionlimit) {
+  if (m_professionlimit_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_professionlimit_;
   }
-  if (professionlimit) {
-    set_has_professionlimit();
-    professionlimit_ = professionlimit;
+  if (m_professionlimit) {
+    set_has_m_professionlimit();
+    m_professionlimit_ = m_professionlimit;
   } else {
-    clear_has_professionlimit();
-    professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_professionlimit();
+    m_professionlimit_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int64 activationItem = 6;
-inline bool halohalo::has_activationitem() const {
+// optional int64 m_activationitem = 6;
+inline bool E_HaloHalo::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void halohalo::set_has_activationitem() {
+inline void E_HaloHalo::set_has_m_activationitem() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void halohalo::clear_has_activationitem() {
+inline void E_HaloHalo::clear_has_m_activationitem() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void halohalo::clear_activationitem() {
-  activationitem_ = GOOGLE_LONGLONG(0);
-  clear_has_activationitem();
+inline void E_HaloHalo::clear_m_activationitem() {
+  m_activationitem_ = GOOGLE_LONGLONG(0);
+  clear_has_m_activationitem();
 }
-inline ::google::protobuf::int64 halohalo::activationitem() const {
-  return activationitem_;
+inline ::google::protobuf::int64 E_HaloHalo::m_activationitem() const {
+  return m_activationitem_;
 }
-inline void halohalo::set_activationitem(::google::protobuf::int64 value) {
-  set_has_activationitem();
-  activationitem_ = value;
+inline void E_HaloHalo::set_m_activationitem(::google::protobuf::int64 value) {
+  set_has_m_activationitem();
+  m_activationitem_ = value;
 }
 
-// optional int32 activationNum = 7;
-inline bool halohalo::has_activationnum() const {
+// optional int32 m_activationnum = 7;
+inline bool E_HaloHalo::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void halohalo::set_has_activationnum() {
+inline void E_HaloHalo::set_has_m_activationnum() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void halohalo::clear_has_activationnum() {
+inline void E_HaloHalo::clear_has_m_activationnum() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void halohalo::clear_activationnum() {
-  activationnum_ = 0;
-  clear_has_activationnum();
+inline void E_HaloHalo::clear_m_activationnum() {
+  m_activationnum_ = 0;
+  clear_has_m_activationnum();
 }
-inline ::google::protobuf::int32 halohalo::activationnum() const {
-  return activationnum_;
+inline ::google::protobuf::int32 E_HaloHalo::m_activationnum() const {
+  return m_activationnum_;
 }
-inline void halohalo::set_activationnum(::google::protobuf::int32 value) {
-  set_has_activationnum();
-  activationnum_ = value;
+inline void E_HaloHalo::set_m_activationnum(::google::protobuf::int32 value) {
+  set_has_m_activationnum();
+  m_activationnum_ = value;
 }
 
-// optional int64 starId = 8;
-inline bool halohalo::has_starid() const {
+// optional int64 m_starid = 8;
+inline bool E_HaloHalo::has_m_starid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void halohalo::set_has_starid() {
+inline void E_HaloHalo::set_has_m_starid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void halohalo::clear_has_starid() {
+inline void E_HaloHalo::clear_has_m_starid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void halohalo::clear_starid() {
-  starid_ = GOOGLE_LONGLONG(0);
-  clear_has_starid();
+inline void E_HaloHalo::clear_m_starid() {
+  m_starid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_starid();
 }
-inline ::google::protobuf::int64 halohalo::starid() const {
-  return starid_;
+inline ::google::protobuf::int64 E_HaloHalo::m_starid() const {
+  return m_starid_;
 }
-inline void halohalo::set_starid(::google::protobuf::int64 value) {
-  set_has_starid();
-  starid_ = value;
+inline void E_HaloHalo::set_m_starid(::google::protobuf::int64 value) {
+  set_has_m_starid();
+  m_starid_ = value;
 }
 
-// optional string starNum = 9;
-inline bool halohalo::has_starnum() const {
+// optional string m_starnum = 9;
+inline bool E_HaloHalo::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void halohalo::set_has_starnum() {
+inline void E_HaloHalo::set_has_m_starnum() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void halohalo::clear_has_starnum() {
+inline void E_HaloHalo::clear_has_m_starnum() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void halohalo::clear_starnum() {
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    starnum_->clear();
+inline void E_HaloHalo::clear_m_starnum() {
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    m_starnum_->clear();
   }
-  clear_has_starnum();
+  clear_has_m_starnum();
 }
-inline const ::std::string& halohalo::starnum() const {
-  return *starnum_;
+inline const ::std::string& E_HaloHalo::m_starnum() const {
+  return *m_starnum_;
 }
-inline void halohalo::set_starnum(const ::std::string& value) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_HaloHalo::set_m_starnum(const ::std::string& value) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(value);
+  m_starnum_->assign(value);
 }
-inline void halohalo::set_starnum(const char* value) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_HaloHalo::set_m_starnum(const char* value) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(value);
+  m_starnum_->assign(value);
 }
-inline void halohalo::set_starnum(const char* value, size_t size) {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline void E_HaloHalo::set_m_starnum(const char* value, size_t size) {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  starnum_->assign(reinterpret_cast<const char*>(value), size);
+  m_starnum_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* halohalo::mutable_starnum() {
-  set_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
-    starnum_ = new ::std::string;
+inline ::std::string* E_HaloHalo::mutable_m_starnum() {
+  set_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
+    m_starnum_ = new ::std::string;
   }
-  return starnum_;
+  return m_starnum_;
 }
-inline ::std::string* halohalo::release_starnum() {
-  clear_has_starnum();
-  if (starnum_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_HaloHalo::release_m_starnum() {
+  clear_has_m_starnum();
+  if (m_starnum_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = starnum_;
-    starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_starnum_;
+    m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void halohalo::set_allocated_starnum(::std::string* starnum) {
-  if (starnum_ != &::google::protobuf::internal::kEmptyString) {
-    delete starnum_;
+inline void E_HaloHalo::set_allocated_m_starnum(::std::string* m_starnum) {
+  if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_starnum_;
   }
-  if (starnum) {
-    set_has_starnum();
-    starnum_ = starnum;
+  if (m_starnum) {
+    set_has_m_starnum();
+    m_starnum_ = m_starnum;
   } else {
-    clear_has_starnum();
-    starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_starnum();
+    m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 starUp = 10;
-inline bool halohalo::has_starup() const {
+// optional int32 m_starup = 10;
+inline bool E_HaloHalo::has_m_starup() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void halohalo::set_has_starup() {
+inline void E_HaloHalo::set_has_m_starup() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void halohalo::clear_has_starup() {
+inline void E_HaloHalo::clear_has_m_starup() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void halohalo::clear_starup() {
-  starup_ = 0;
-  clear_has_starup();
+inline void E_HaloHalo::clear_m_starup() {
+  m_starup_ = 0;
+  clear_has_m_starup();
 }
-inline ::google::protobuf::int32 halohalo::starup() const {
-  return starup_;
+inline ::google::protobuf::int32 E_HaloHalo::m_starup() const {
+  return m_starup_;
 }
-inline void halohalo::set_starup(::google::protobuf::int32 value) {
-  set_has_starup();
-  starup_ = value;
+inline void E_HaloHalo::set_m_starup(::google::protobuf::int32 value) {
+  set_has_m_starup();
+  m_starup_ = value;
 }
 
-// optional int32 starBer = 11;
-inline bool halohalo::has_starber() const {
+// optional int32 m_starber = 11;
+inline bool E_HaloHalo::has_m_starber() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void halohalo::set_has_starber() {
+inline void E_HaloHalo::set_has_m_starber() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void halohalo::clear_has_starber() {
+inline void E_HaloHalo::clear_has_m_starber() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void halohalo::clear_starber() {
-  starber_ = 0;
-  clear_has_starber();
+inline void E_HaloHalo::clear_m_starber() {
+  m_starber_ = 0;
+  clear_has_m_starber();
 }
-inline ::google::protobuf::int32 halohalo::starber() const {
-  return starber_;
+inline ::google::protobuf::int32 E_HaloHalo::m_starber() const {
+  return m_starber_;
 }
-inline void halohalo::set_starber(::google::protobuf::int32 value) {
-  set_has_starber();
-  starber_ = value;
-}
-
-// repeated .proto_ff.halohaloattributeDesc attribute = 12;
-inline int halohalo::attribute_size() const {
-  return attribute_.size();
-}
-inline void halohalo::clear_attribute() {
-  attribute_.Clear();
-}
-inline const ::proto_ff::halohaloattributeDesc& halohalo::attribute(int index) const {
-  return attribute_.Get(index);
-}
-inline ::proto_ff::halohaloattributeDesc* halohalo::mutable_attribute(int index) {
-  return attribute_.Mutable(index);
-}
-inline ::proto_ff::halohaloattributeDesc* halohalo::add_attribute() {
-  return attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloattributeDesc >&
-halohalo::attribute() const {
-  return attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloattributeDesc >*
-halohalo::mutable_attribute() {
-  return &attribute_;
+inline void E_HaloHalo::set_m_starber(::google::protobuf::int32 value) {
+  set_has_m_starber();
+  m_starber_ = value;
 }
 
-// repeated .proto_ff.halohaloActiveAttributeDesc ActiveAttribute = 13;
-inline int halohalo::activeattribute_size() const {
-  return activeattribute_.size();
+// repeated .proto_ff.E_HaloHaloAttributeDesc m_attribute = 12;
+inline int E_HaloHalo::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void halohalo::clear_activeattribute() {
-  activeattribute_.Clear();
+inline void E_HaloHalo::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline const ::proto_ff::halohaloActiveAttributeDesc& halohalo::activeattribute(int index) const {
-  return activeattribute_.Get(index);
+inline const ::proto_ff::E_HaloHaloAttributeDesc& E_HaloHalo::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline ::proto_ff::halohaloActiveAttributeDesc* halohalo::mutable_activeattribute(int index) {
-  return activeattribute_.Mutable(index);
+inline ::proto_ff::E_HaloHaloAttributeDesc* E_HaloHalo::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::halohaloActiveAttributeDesc* halohalo::add_activeattribute() {
-  return activeattribute_.Add();
+inline ::proto_ff::E_HaloHaloAttributeDesc* E_HaloHalo::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloActiveAttributeDesc >&
-halohalo::activeattribute() const {
-  return activeattribute_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloAttributeDesc >&
+E_HaloHalo::m_attribute() const {
+  return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::halohaloActiveAttributeDesc >*
-halohalo::mutable_activeattribute() {
-  return &activeattribute_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloAttributeDesc >*
+E_HaloHalo::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// repeated .proto_ff.E_HaloHaloActiveattributeDesc m_activeattribute = 13;
+inline int E_HaloHalo::m_activeattribute_size() const {
+  return m_activeattribute_.size();
+}
+inline void E_HaloHalo::clear_m_activeattribute() {
+  m_activeattribute_.Clear();
+}
+inline const ::proto_ff::E_HaloHaloActiveattributeDesc& E_HaloHalo::m_activeattribute(int index) const {
+  return m_activeattribute_.Get(index);
+}
+inline ::proto_ff::E_HaloHaloActiveattributeDesc* E_HaloHalo::mutable_m_activeattribute(int index) {
+  return m_activeattribute_.Mutable(index);
+}
+inline ::proto_ff::E_HaloHaloActiveattributeDesc* E_HaloHalo::add_m_activeattribute() {
+  return m_activeattribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloActiveattributeDesc >&
+E_HaloHalo::m_activeattribute() const {
+  return m_activeattribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHaloActiveattributeDesc >*
+E_HaloHalo::mutable_m_activeattribute() {
+  return &m_activeattribute_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_halohalo
+// Sheet_HaloHalo
 
-// repeated .proto_ff.halohalo halohalo_List = 1;
-inline int Sheet_halohalo::halohalo_list_size() const {
-  return halohalo_list_.size();
+// repeated .proto_ff.E_HaloHalo E_HaloHalo_List = 1;
+inline int Sheet_HaloHalo::e_halohalo_list_size() const {
+  return e_halohalo_list_.size();
 }
-inline void Sheet_halohalo::clear_halohalo_list() {
-  halohalo_list_.Clear();
+inline void Sheet_HaloHalo::clear_e_halohalo_list() {
+  e_halohalo_list_.Clear();
 }
-inline const ::proto_ff::halohalo& Sheet_halohalo::halohalo_list(int index) const {
-  return halohalo_list_.Get(index);
+inline const ::proto_ff::E_HaloHalo& Sheet_HaloHalo::e_halohalo_list(int index) const {
+  return e_halohalo_list_.Get(index);
 }
-inline ::proto_ff::halohalo* Sheet_halohalo::mutable_halohalo_list(int index) {
-  return halohalo_list_.Mutable(index);
+inline ::proto_ff::E_HaloHalo* Sheet_HaloHalo::mutable_e_halohalo_list(int index) {
+  return e_halohalo_list_.Mutable(index);
 }
-inline ::proto_ff::halohalo* Sheet_halohalo::add_halohalo_list() {
-  return halohalo_list_.Add();
+inline ::proto_ff::E_HaloHalo* Sheet_HaloHalo::add_e_halohalo_list() {
+  return e_halohalo_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::halohalo >&
-Sheet_halohalo::halohalo_list() const {
-  return halohalo_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHalo >&
+Sheet_HaloHalo::e_halohalo_list() const {
+  return e_halohalo_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::halohalo >*
-Sheet_halohalo::mutable_halohalo_list() {
-  return &halohalo_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HaloHalo >*
+Sheet_HaloHalo::mutable_e_halohalo_list() {
+  return &e_halohalo_list_;
 }
 
 

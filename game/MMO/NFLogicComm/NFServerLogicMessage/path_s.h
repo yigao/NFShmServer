@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "path.pb.h"
@@ -10,34 +10,34 @@
 
 namespace proto_ff_s {
 
-	struct pathpath_s : public NFDescStoreSeqOP {
-		pathpath_s();
-		virtual ~pathpath_s(){}
+	struct E_PathPath_s : public NFDescStoreSeqOP {
+		E_PathPath_s();
+		virtual ~E_PathPath_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int64_t belongToSceneID;
+		int64_t m_id;
+		int64_t m_belongtosceneid;
 
-		virtual void write_to_pbmsg(::proto_ff::pathpath & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::pathpath & msg);
-		static ::proto_ff::pathpath* new_pbmsg(){ return new ::proto_ff::pathpath(); }
-		static ::proto_ff::pathpath make_pbmsg(){ return ::proto_ff::pathpath(); }
+		virtual void write_to_pbmsg(::proto_ff::E_PathPath & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PathPath & msg);
+		static ::proto_ff::E_PathPath* new_pbmsg(){ return new ::proto_ff::E_PathPath(); }
+		static ::proto_ff::E_PathPath make_pbmsg(){ return ::proto_ff::E_PathPath(); }
 	};
-	typedef struct pathpath_s pathpath_t;
+	typedef struct E_PathPath_s E_PathPath_t;
 
-	struct Sheet_pathpath_s : public NFDescStoreSeqOP {
-		Sheet_pathpath_s();
-		virtual ~Sheet_pathpath_s(){}
+	struct Sheet_PathPath_s : public NFDescStoreSeqOP {
+		Sheet_PathPath_s();
+		virtual ~Sheet_PathPath_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct pathpath_s, 20> pathpath_List;
+		NFShmVector<struct E_PathPath_s, 20> E_PathPath_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_pathpath & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_pathpath & msg);
-		static ::proto_ff::Sheet_pathpath* new_pbmsg(){ return new ::proto_ff::Sheet_pathpath(); }
-		static ::proto_ff::Sheet_pathpath make_pbmsg(){ return ::proto_ff::Sheet_pathpath(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PathPath & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PathPath & msg);
+		static ::proto_ff::Sheet_PathPath* new_pbmsg(){ return new ::proto_ff::Sheet_PathPath(); }
+		static ::proto_ff::Sheet_PathPath make_pbmsg(){ return ::proto_ff::Sheet_PathPath(); }
 	};
-	typedef struct Sheet_pathpath_s Sheet_pathpath_t;
+	typedef struct Sheet_PathPath_s Sheet_PathPath_t;
 
 }
 

@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-uieffect_s::uieffect_s() {
+E_UiEffect_s::E_UiEffect_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ uieffect_s::uieffect_s() {
 	}
 }
 
-int uieffect_s::CreateInit() {
-	id = (int64_t)0;
-	time = (int32_t)0;
+int E_UiEffect_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_time = (int32_t)0;
 	return 0;
 }
 
-int uieffect_s::ResumeInit() {
+int E_UiEffect_s::ResumeInit() {
 	return 0;
 }
 
-void uieffect_s::write_to_pbmsg(::proto_ff::uieffect & msg) const {
-	msg.set_id((int64_t)id);
-	msg.set_time((int32_t)time);
+void E_UiEffect_s::write_to_pbmsg(::proto_ff::E_UiEffect & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_time((int32_t)m_time);
 }
 
-void uieffect_s::read_from_pbmsg(const ::proto_ff::uieffect & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct uieffect_s));
-	id = msg.id();
-	time = msg.time();
+void E_UiEffect_s::read_from_pbmsg(const ::proto_ff::E_UiEffect & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_UiEffect_s));
+	m_id = msg.m_id();
+	m_time = msg.m_time();
 }
 
-Sheet_uieffect_s::Sheet_uieffect_s() {
+Sheet_UiEffect_s::Sheet_UiEffect_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,27 +39,27 @@ Sheet_uieffect_s::Sheet_uieffect_s() {
 	}
 }
 
-int Sheet_uieffect_s::CreateInit() {
+int Sheet_UiEffect_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_uieffect_s::ResumeInit() {
+int Sheet_UiEffect_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_uieffect_s::write_to_pbmsg(::proto_ff::Sheet_uieffect & msg) const {
-	for(int32_t i = 0; i < (int32_t)uieffect_List.GetSize() && i < uieffect_List.GetMaxSize(); ++i) {
-		::proto_ff::uieffect* temp_uieffect_list = msg.add_uieffect_list();
-		uieffect_List[i].write_to_pbmsg(*temp_uieffect_list);
+void Sheet_UiEffect_s::write_to_pbmsg(::proto_ff::Sheet_UiEffect & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_UiEffect_List.size(); ++i) {
+		::proto_ff::E_UiEffect* temp_e_uieffect_list = msg.add_e_uieffect_list();
+		E_UiEffect_List[i].write_to_pbmsg(*temp_e_uieffect_list);
 	}
 }
 
-void Sheet_uieffect_s::read_from_pbmsg(const ::proto_ff::Sheet_uieffect & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_uieffect_s));
-	uieffect_List.SetSize(msg.uieffect_list_size() > uieffect_List.GetMaxSize() ? uieffect_List.GetMaxSize() : msg.uieffect_list_size());
-	for(int32_t i = 0; i < (int32_t)uieffect_List.GetSize(); ++i) {
-		const ::proto_ff::uieffect & temp_uieffect_list = msg.uieffect_list(i);
-		uieffect_List[i].read_from_pbmsg(temp_uieffect_list);
+void Sheet_UiEffect_s::read_from_pbmsg(const ::proto_ff::Sheet_UiEffect & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_UiEffect_s));
+	E_UiEffect_List.resize((int)msg.e_uieffect_list_size() > (int)E_UiEffect_List.max_size() ? E_UiEffect_List.max_size() : msg.e_uieffect_list_size());
+	for(int32_t i = 0; i < (int32_t)E_UiEffect_List.size(); ++i) {
+		const ::proto_ff::E_UiEffect & temp_e_uieffect_list = msg.e_uieffect_list(i);
+		E_UiEffect_List[i].read_from_pbmsg(temp_e_uieffect_list);
 	}
 }
 

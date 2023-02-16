@@ -14,9 +14,9 @@ public:
 	virtual ~FunctionunlockPreviewDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::functionunlockpreview_s* GetDesc(int id) const;
-	proto_ff_s::functionunlockpreview_s* GetDesc(int id);
+	const proto_ff_s::E_FunctionunlockPreview_s* GetDesc(int id) const;
+	proto_ff_s::E_FunctionunlockPreview_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::functionunlockpreview_s, functionunlockpreview, MAX_FUNCTIONUNLOCK_PREVIEW_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_FunctionunlockPreview_s, functionunlockpreview, MAX_FUNCTIONUNLOCK_PREVIEW_NUM);
 DECLARE_IDCREATE(FunctionunlockPreviewDesc);
 };

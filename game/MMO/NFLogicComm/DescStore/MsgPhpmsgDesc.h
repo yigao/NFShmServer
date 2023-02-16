@@ -14,9 +14,9 @@ public:
 	virtual ~MsgPhpmsgDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::msgphpmsg_s* GetDesc(int id) const;
-	proto_ff_s::msgphpmsg_s* GetDesc(int id);
+	const proto_ff_s::E_MsgPhpmsg_s* GetDesc(int id) const;
+	proto_ff_s::E_MsgPhpmsg_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::msgphpmsg_s, msgphpmsg, MAX_MSG_PHPMSG_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_MsgPhpmsg_s, msgphpmsg, MAX_MSG_PHPMSG_NUM);
 DECLARE_IDCREATE(MsgPhpmsgDesc);
 };

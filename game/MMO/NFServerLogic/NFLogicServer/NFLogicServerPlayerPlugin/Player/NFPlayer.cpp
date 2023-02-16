@@ -1116,14 +1116,14 @@ void NFPlayer::CheckExp(int64_t oldexp, SCommonSource *pSource)
     auto pExpCfg = RoleExpDesc::Instance(m_pObjPluginManager)->GetDesc(level);
     if (nullptr != pExpCfg)
     {
-        while (nullptr != pExpCfg && curexp >= pExpCfg->exp)
+        while (nullptr != pExpCfg && curexp >= pExpCfg->m_exp)
         {
             if (level >= (int32_t) maxLv)
             {
                 break;
             }
             //升级
-            curexp -= pExpCfg->exp;
+            curexp -= pExpCfg->m_exp;
             level += 1;
             m_pAttr->SetAttr(proto_ff::A_LEVEL, level);
             m_pAttr->SetAttr(proto_ff::A_EXP, curexp);
@@ -1193,12 +1193,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleMastermaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1209,12 +1209,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleMasterfemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1225,12 +1225,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSicklemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1241,12 +1241,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSicklefemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1257,12 +1257,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSwordmaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1273,12 +1273,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSwordfemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1289,12 +1289,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleTaidaomaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1305,12 +1305,12 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleTaidaofemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->attribute.GetSize(); i++)
+                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
                 {
-                    auto pInfo = pcfg->attribute.Get(i);
-                    if (pInfo->Type > 0 && pInfo->Value > 0)
+                    auto pInfo = &pcfg->m_attribute.at(i);
+                    if (pInfo->m_type > 0 && pInfo->m_value > 0)
                     {
-                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->Type, pInfo->Value);
+                        SetAttrGroupCache(proto_ff::EAttrGroup_Level, pInfo->m_type, pInfo->m_value);
                     }
                 }
             }
@@ -1324,7 +1324,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
     auto pborncfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->GetBornCfg(prof);
     if (nullptr != pborncfg)
     {
-        speed += pborncfg->mSpeed;
+        speed += pborncfg->m_mspeed;
         SetAttrGroupCache(proto_ff::EAttrGroup_Level, proto_ff::A_SPEED, speed);
     }
 

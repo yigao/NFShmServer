@@ -14,9 +14,9 @@ public:
 	virtual ~FacadeSoulactiveDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::facadesoulActive_s* GetDesc(int id) const;
-	proto_ff_s::facadesoulActive_s* GetDesc(int id);
+	const proto_ff_s::E_FacadeSoulactive_s* GetDesc(int id) const;
+	proto_ff_s::E_FacadeSoulactive_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::facadesoulActive_s, facadesoulActive, MAX_FACADE_SOULACTIVE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_FacadeSoulactive_s, facadesoulActive, MAX_FACADE_SOULACTIVE_NUM);
 DECLARE_IDCREATE(FacadeSoulactiveDesc);
 };

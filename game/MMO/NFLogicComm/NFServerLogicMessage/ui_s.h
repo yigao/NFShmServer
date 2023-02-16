@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "ui.pb.h"
@@ -10,34 +10,34 @@
 
 namespace proto_ff_s {
 
-	struct uieffect_s : public NFDescStoreSeqOP {
-		uieffect_s();
-		virtual ~uieffect_s(){}
+	struct E_UiEffect_s : public NFDescStoreSeqOP {
+		E_UiEffect_s();
+		virtual ~E_UiEffect_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t time;
+		int64_t m_id;
+		int32_t m_time;
 
-		virtual void write_to_pbmsg(::proto_ff::uieffect & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::uieffect & msg);
-		static ::proto_ff::uieffect* new_pbmsg(){ return new ::proto_ff::uieffect(); }
-		static ::proto_ff::uieffect make_pbmsg(){ return ::proto_ff::uieffect(); }
+		virtual void write_to_pbmsg(::proto_ff::E_UiEffect & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_UiEffect & msg);
+		static ::proto_ff::E_UiEffect* new_pbmsg(){ return new ::proto_ff::E_UiEffect(); }
+		static ::proto_ff::E_UiEffect make_pbmsg(){ return ::proto_ff::E_UiEffect(); }
 	};
-	typedef struct uieffect_s uieffect_t;
+	typedef struct E_UiEffect_s E_UiEffect_t;
 
-	struct Sheet_uieffect_s : public NFDescStoreSeqOP {
-		Sheet_uieffect_s();
-		virtual ~Sheet_uieffect_s(){}
+	struct Sheet_UiEffect_s : public NFDescStoreSeqOP {
+		Sheet_UiEffect_s();
+		virtual ~Sheet_UiEffect_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct uieffect_s, 20> uieffect_List;
+		NFShmVector<struct E_UiEffect_s, 20> E_UiEffect_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_uieffect & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_uieffect & msg);
-		static ::proto_ff::Sheet_uieffect* new_pbmsg(){ return new ::proto_ff::Sheet_uieffect(); }
-		static ::proto_ff::Sheet_uieffect make_pbmsg(){ return ::proto_ff::Sheet_uieffect(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_UiEffect & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_UiEffect & msg);
+		static ::proto_ff::Sheet_UiEffect* new_pbmsg(){ return new ::proto_ff::Sheet_UiEffect(); }
+		static ::proto_ff::Sheet_UiEffect make_pbmsg(){ return ::proto_ff::Sheet_UiEffect(); }
 	};
-	typedef struct Sheet_uieffect_s Sheet_uieffect_t;
+	typedef struct Sheet_UiEffect_s Sheet_UiEffect_t;
 
 }
 

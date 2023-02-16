@@ -34,19 +34,19 @@ void  protobuf_AddDesc_path_2eproto();
 void protobuf_AssignDesc_path_2eproto();
 void protobuf_ShutdownFile_path_2eproto();
 
-class pathpath;
-class Sheet_pathpath;
+class E_PathPath;
+class Sheet_PathPath;
 
 // ===================================================================
 
-class pathpath : public ::google::protobuf::Message {
+class E_PathPath : public ::google::protobuf::Message {
  public:
-  pathpath();
-  virtual ~pathpath();
+  E_PathPath();
+  virtual ~E_PathPath();
 
-  pathpath(const pathpath& from);
+  E_PathPath(const E_PathPath& from);
 
-  inline pathpath& operator=(const pathpath& from) {
+  inline E_PathPath& operator=(const E_PathPath& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +60,17 @@ class pathpath : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const pathpath& default_instance();
+  static const E_PathPath& default_instance();
 
-  void Swap(pathpath* other);
+  void Swap(E_PathPath* other);
 
   // implements Message ----------------------------------------------
 
-  pathpath* New() const;
+  E_PathPath* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const pathpath& from);
-  void MergeFrom(const pathpath& from);
+  void CopyFrom(const E_PathPath& from);
+  void MergeFrom(const E_PathPath& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -93,31 +93,31 @@ class pathpath : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int64 belongToSceneID = 2;
-  inline bool has_belongtosceneid() const;
-  inline void clear_belongtosceneid();
-  static const int kBelongToSceneIDFieldNumber = 2;
-  inline ::google::protobuf::int64 belongtosceneid() const;
-  inline void set_belongtosceneid(::google::protobuf::int64 value);
+  // optional int64 m_belongtosceneid = 2;
+  inline bool has_m_belongtosceneid() const;
+  inline void clear_m_belongtosceneid();
+  static const int kMBelongtosceneidFieldNumber = 2;
+  inline ::google::protobuf::int64 m_belongtosceneid() const;
+  inline void set_m_belongtosceneid(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.pathpath)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_PathPath)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_belongtosceneid();
-  inline void clear_has_belongtosceneid();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_belongtosceneid();
+  inline void clear_has_m_belongtosceneid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::google::protobuf::int64 belongtosceneid_;
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int64 m_belongtosceneid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -127,18 +127,18 @@ class pathpath : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_path_2eproto();
 
   void InitAsDefaultInstance();
-  static pathpath* default_instance_;
+  static E_PathPath* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_pathpath : public ::google::protobuf::Message {
+class Sheet_PathPath : public ::google::protobuf::Message {
  public:
-  Sheet_pathpath();
-  virtual ~Sheet_pathpath();
+  Sheet_PathPath();
+  virtual ~Sheet_PathPath();
 
-  Sheet_pathpath(const Sheet_pathpath& from);
+  Sheet_PathPath(const Sheet_PathPath& from);
 
-  inline Sheet_pathpath& operator=(const Sheet_pathpath& from) {
+  inline Sheet_PathPath& operator=(const Sheet_PathPath& from) {
     CopyFrom(from);
     return *this;
   }
@@ -152,17 +152,17 @@ class Sheet_pathpath : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_pathpath& default_instance();
+  static const Sheet_PathPath& default_instance();
 
-  void Swap(Sheet_pathpath* other);
+  void Swap(Sheet_PathPath* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_pathpath* New() const;
+  Sheet_PathPath* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_pathpath& from);
-  void MergeFrom(const Sheet_pathpath& from);
+  void CopyFrom(const Sheet_PathPath& from);
+  void MergeFrom(const Sheet_PathPath& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -185,24 +185,24 @@ class Sheet_pathpath : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.pathpath pathpath_List = 1;
-  inline int pathpath_list_size() const;
-  inline void clear_pathpath_list();
-  static const int kPathpathListFieldNumber = 1;
-  inline const ::proto_ff::pathpath& pathpath_list(int index) const;
-  inline ::proto_ff::pathpath* mutable_pathpath_list(int index);
-  inline ::proto_ff::pathpath* add_pathpath_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pathpath >&
-      pathpath_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pathpath >*
-      mutable_pathpath_list();
+  // repeated .proto_ff.E_PathPath E_PathPath_List = 1;
+  inline int e_pathpath_list_size() const;
+  inline void clear_e_pathpath_list();
+  static const int kEPathPathListFieldNumber = 1;
+  inline const ::proto_ff::E_PathPath& e_pathpath_list(int index) const;
+  inline ::proto_ff::E_PathPath* mutable_e_pathpath_list(int index);
+  inline ::proto_ff::E_PathPath* add_e_pathpath_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PathPath >&
+      e_pathpath_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PathPath >*
+      mutable_e_pathpath_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_pathpath)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_PathPath)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::pathpath > pathpath_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PathPath > e_pathpath_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -212,86 +212,86 @@ class Sheet_pathpath : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_path_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_pathpath* default_instance_;
+  static Sheet_PathPath* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// pathpath
+// E_PathPath
 
-// optional int64 id = 1;
-inline bool pathpath::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_PathPath::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void pathpath::set_has_id() {
+inline void E_PathPath::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void pathpath::clear_has_id() {
+inline void E_PathPath::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void pathpath::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_PathPath::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 pathpath::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_PathPath::m_id() const {
+  return m_id_;
 }
-inline void pathpath::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_PathPath::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int64 belongToSceneID = 2;
-inline bool pathpath::has_belongtosceneid() const {
+// optional int64 m_belongtosceneid = 2;
+inline bool E_PathPath::has_m_belongtosceneid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void pathpath::set_has_belongtosceneid() {
+inline void E_PathPath::set_has_m_belongtosceneid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void pathpath::clear_has_belongtosceneid() {
+inline void E_PathPath::clear_has_m_belongtosceneid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void pathpath::clear_belongtosceneid() {
-  belongtosceneid_ = GOOGLE_LONGLONG(0);
-  clear_has_belongtosceneid();
+inline void E_PathPath::clear_m_belongtosceneid() {
+  m_belongtosceneid_ = GOOGLE_LONGLONG(0);
+  clear_has_m_belongtosceneid();
 }
-inline ::google::protobuf::int64 pathpath::belongtosceneid() const {
-  return belongtosceneid_;
+inline ::google::protobuf::int64 E_PathPath::m_belongtosceneid() const {
+  return m_belongtosceneid_;
 }
-inline void pathpath::set_belongtosceneid(::google::protobuf::int64 value) {
-  set_has_belongtosceneid();
-  belongtosceneid_ = value;
+inline void E_PathPath::set_m_belongtosceneid(::google::protobuf::int64 value) {
+  set_has_m_belongtosceneid();
+  m_belongtosceneid_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_pathpath
+// Sheet_PathPath
 
-// repeated .proto_ff.pathpath pathpath_List = 1;
-inline int Sheet_pathpath::pathpath_list_size() const {
-  return pathpath_list_.size();
+// repeated .proto_ff.E_PathPath E_PathPath_List = 1;
+inline int Sheet_PathPath::e_pathpath_list_size() const {
+  return e_pathpath_list_.size();
 }
-inline void Sheet_pathpath::clear_pathpath_list() {
-  pathpath_list_.Clear();
+inline void Sheet_PathPath::clear_e_pathpath_list() {
+  e_pathpath_list_.Clear();
 }
-inline const ::proto_ff::pathpath& Sheet_pathpath::pathpath_list(int index) const {
-  return pathpath_list_.Get(index);
+inline const ::proto_ff::E_PathPath& Sheet_PathPath::e_pathpath_list(int index) const {
+  return e_pathpath_list_.Get(index);
 }
-inline ::proto_ff::pathpath* Sheet_pathpath::mutable_pathpath_list(int index) {
-  return pathpath_list_.Mutable(index);
+inline ::proto_ff::E_PathPath* Sheet_PathPath::mutable_e_pathpath_list(int index) {
+  return e_pathpath_list_.Mutable(index);
 }
-inline ::proto_ff::pathpath* Sheet_pathpath::add_pathpath_list() {
-  return pathpath_list_.Add();
+inline ::proto_ff::E_PathPath* Sheet_PathPath::add_e_pathpath_list() {
+  return e_pathpath_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::pathpath >&
-Sheet_pathpath::pathpath_list() const {
-  return pathpath_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PathPath >&
+Sheet_PathPath::e_pathpath_list() const {
+  return e_pathpath_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::pathpath >*
-Sheet_pathpath::mutable_pathpath_list() {
-  return &pathpath_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PathPath >*
+Sheet_PathPath::mutable_e_pathpath_list() {
+  return &e_pathpath_list_;
 }
 
 

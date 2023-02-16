@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "decorate.pb.h"
@@ -10,75 +10,75 @@
 
 namespace proto_ff_s {
 
-	struct decoratedecorateattributeDesc_s : public NFDescStoreSeqOP {
-		decoratedecorateattributeDesc_s();
-		virtual ~decoratedecorateattributeDesc_s(){}
+	struct E_DecorateDecorateAttributeDesc_s : public NFDescStoreSeqOP {
+		E_DecorateDecorateAttributeDesc_s();
+		virtual ~E_DecorateDecorateAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::decoratedecorateattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::decoratedecorateattributeDesc & msg);
-		static ::proto_ff::decoratedecorateattributeDesc* new_pbmsg(){ return new ::proto_ff::decoratedecorateattributeDesc(); }
-		static ::proto_ff::decoratedecorateattributeDesc make_pbmsg(){ return ::proto_ff::decoratedecorateattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DecorateDecorateAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DecorateDecorateAttributeDesc & msg);
+		static ::proto_ff::E_DecorateDecorateAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_DecorateDecorateAttributeDesc(); }
+		static ::proto_ff::E_DecorateDecorateAttributeDesc make_pbmsg(){ return ::proto_ff::E_DecorateDecorateAttributeDesc(); }
 	};
-	typedef struct decoratedecorateattributeDesc_s decoratedecorateattributeDesc_t;
+	typedef struct E_DecorateDecorateAttributeDesc_s E_DecorateDecorateAttributeDesc_t;
 
-	struct decoratedecorateActiveAttributeDesc_s : public NFDescStoreSeqOP {
-		decoratedecorateActiveAttributeDesc_s();
-		virtual ~decoratedecorateActiveAttributeDesc_s(){}
+	struct E_DecorateDecorateActiveattributeDesc_s : public NFDescStoreSeqOP {
+		E_DecorateDecorateActiveattributeDesc_s();
+		virtual ~E_DecorateDecorateActiveattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::decoratedecorateActiveAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::decoratedecorateActiveAttributeDesc & msg);
-		static ::proto_ff::decoratedecorateActiveAttributeDesc* new_pbmsg(){ return new ::proto_ff::decoratedecorateActiveAttributeDesc(); }
-		static ::proto_ff::decoratedecorateActiveAttributeDesc make_pbmsg(){ return ::proto_ff::decoratedecorateActiveAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DecorateDecorateActiveattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DecorateDecorateActiveattributeDesc & msg);
+		static ::proto_ff::E_DecorateDecorateActiveattributeDesc* new_pbmsg(){ return new ::proto_ff::E_DecorateDecorateActiveattributeDesc(); }
+		static ::proto_ff::E_DecorateDecorateActiveattributeDesc make_pbmsg(){ return ::proto_ff::E_DecorateDecorateActiveattributeDesc(); }
 	};
-	typedef struct decoratedecorateActiveAttributeDesc_s decoratedecorateActiveAttributeDesc_t;
+	typedef struct E_DecorateDecorateActiveattributeDesc_s E_DecorateDecorateActiveattributeDesc_t;
 
-	struct decoratedecorate_s : public NFDescStoreSeqOP {
-		decoratedecorate_s();
-		virtual ~decoratedecorate_s(){}
+	struct E_DecorateDecorate_s : public NFDescStoreSeqOP {
+		E_DecorateDecorate_s();
+		virtual ~E_DecorateDecorate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
-		NFShmString<60> name;
-		int32_t type;
-		int32_t quality;
-		NFShmString<60> professionLimit;
-		int64_t activationItem;
-		int32_t activationNum;
-		int64_t starId;
-		NFShmString<200> starNum;
-		int32_t starUp;
-		int32_t starBer;
-		NFArray<struct decoratedecorateattributeDesc_s, 6> attribute;
-		NFArray<struct decoratedecorateActiveAttributeDesc_s, 6> ActiveAttribute;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_type;
+		int32_t m_quality;
+		NFShmString<60> m_professionlimit;
+		int64_t m_activationitem;
+		int32_t m_activationnum;
+		int64_t m_starid;
+		NFShmString<200> m_starnum;
+		int32_t m_starup;
+		int32_t m_starber;
+		NFShmVector<struct E_DecorateDecorateAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_DecorateDecorateActiveattributeDesc_s, 6> m_activeattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::decoratedecorate & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::decoratedecorate & msg);
-		static ::proto_ff::decoratedecorate* new_pbmsg(){ return new ::proto_ff::decoratedecorate(); }
-		static ::proto_ff::decoratedecorate make_pbmsg(){ return ::proto_ff::decoratedecorate(); }
+		virtual void write_to_pbmsg(::proto_ff::E_DecorateDecorate & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DecorateDecorate & msg);
+		static ::proto_ff::E_DecorateDecorate* new_pbmsg(){ return new ::proto_ff::E_DecorateDecorate(); }
+		static ::proto_ff::E_DecorateDecorate make_pbmsg(){ return ::proto_ff::E_DecorateDecorate(); }
 	};
-	typedef struct decoratedecorate_s decoratedecorate_t;
+	typedef struct E_DecorateDecorate_s E_DecorateDecorate_t;
 
-	struct Sheet_decoratedecorate_s : public NFDescStoreSeqOP {
-		Sheet_decoratedecorate_s();
-		virtual ~Sheet_decoratedecorate_s(){}
+	struct Sheet_DecorateDecorate_s : public NFDescStoreSeqOP {
+		Sheet_DecorateDecorate_s();
+		virtual ~Sheet_DecorateDecorate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct decoratedecorate_s, 40> decoratedecorate_List;
+		NFShmVector<struct E_DecorateDecorate_s, 40> E_DecorateDecorate_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_decoratedecorate & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_decoratedecorate & msg);
-		static ::proto_ff::Sheet_decoratedecorate* new_pbmsg(){ return new ::proto_ff::Sheet_decoratedecorate(); }
-		static ::proto_ff::Sheet_decoratedecorate make_pbmsg(){ return ::proto_ff::Sheet_decoratedecorate(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_DecorateDecorate & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DecorateDecorate & msg);
+		static ::proto_ff::Sheet_DecorateDecorate* new_pbmsg(){ return new ::proto_ff::Sheet_DecorateDecorate(); }
+		static ::proto_ff::Sheet_DecorateDecorate make_pbmsg(){ return ::proto_ff::Sheet_DecorateDecorate(); }
 	};
-	typedef struct Sheet_decoratedecorate_s Sheet_decoratedecorate_t;
+	typedef struct Sheet_DecorateDecorate_s Sheet_DecorateDecorate_t;
 
 }
 

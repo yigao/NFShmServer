@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "equip.pb.h"
@@ -10,359 +10,359 @@
 
 namespace proto_ff_s {
 
-	struct equipequipattributeDesc_s : public NFDescStoreSeqOP {
-		equipequipattributeDesc_s();
-		virtual ~equipequipattributeDesc_s(){}
+	struct E_EquipEquipAttributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipEquipAttributeDesc_s();
+		virtual ~E_EquipEquipAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t valueMin;
-		int32_t type;
-		int32_t valueMax;
+		int32_t m_valuemin;
+		int32_t m_type;
+		int32_t m_valuemax;
 
-		virtual void write_to_pbmsg(::proto_ff::equipequipattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipequipattributeDesc & msg);
-		static ::proto_ff::equipequipattributeDesc* new_pbmsg(){ return new ::proto_ff::equipequipattributeDesc(); }
-		static ::proto_ff::equipequipattributeDesc make_pbmsg(){ return ::proto_ff::equipequipattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipEquipAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquipAttributeDesc & msg);
+		static ::proto_ff::E_EquipEquipAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipEquipAttributeDesc(); }
+		static ::proto_ff::E_EquipEquipAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipEquipAttributeDesc(); }
 	};
-	typedef struct equipequipattributeDesc_s equipequipattributeDesc_t;
+	typedef struct E_EquipEquipAttributeDesc_s E_EquipEquipAttributeDesc_t;
 
-	struct equipequipgodAttributeDesc_s : public NFDescStoreSeqOP {
-		equipequipgodAttributeDesc_s();
-		virtual ~equipequipgodAttributeDesc_s(){}
+	struct E_EquipEquipGodattributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipEquipGodattributeDesc_s();
+		virtual ~E_EquipEquipGodattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t valueMin;
-		int32_t type;
-		int32_t valueMax;
+		int32_t m_valuemin;
+		int32_t m_type;
+		int32_t m_valuemax;
 
-		virtual void write_to_pbmsg(::proto_ff::equipequipgodAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipequipgodAttributeDesc & msg);
-		static ::proto_ff::equipequipgodAttributeDesc* new_pbmsg(){ return new ::proto_ff::equipequipgodAttributeDesc(); }
-		static ::proto_ff::equipequipgodAttributeDesc make_pbmsg(){ return ::proto_ff::equipequipgodAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipEquipGodattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquipGodattributeDesc & msg);
+		static ::proto_ff::E_EquipEquipGodattributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipEquipGodattributeDesc(); }
+		static ::proto_ff::E_EquipEquipGodattributeDesc make_pbmsg(){ return ::proto_ff::E_EquipEquipGodattributeDesc(); }
 	};
-	typedef struct equipequipgodAttributeDesc_s equipequipgodAttributeDesc_t;
+	typedef struct E_EquipEquipGodattributeDesc_s E_EquipEquipGodattributeDesc_t;
 
-	struct equipequip_s : public NFDescStoreSeqOP {
-		equipequip_s();
-		virtual ~equipequip_s(){}
+	struct E_EquipEquip_s : public NFDescStoreSeqOP {
+		E_EquipEquip_s();
+		virtual ~E_EquipEquip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		NFShmString<60> name;
-		int32_t wearQuality;
-		int32_t position;
-		NFShmString<60> profession;
-		int32_t professionLv;
-		int32_t level;
-		int32_t quality;
-		int32_t star;
-		int32_t refineAttributeDown;
-		int32_t refineAttributeUp;
-		NFShmString<60> refineAttribute_typeLibrary;
-		NFShmString<60> refineAttribute_valueMin;
-		NFShmString<60> refineAttribute_valueMax;
-		int32_t blueStarNum;
-		NFShmString<60> blueStar_type;
-		NFShmString<60> blueStar_lv;
-		NFShmString<60> blueStar_number;
-		int32_t isCanbind;
-		int32_t isTradeBind;
-		int32_t sellPrice;
-		NFShmString<60> icon;
-		int32_t time;
-		int32_t broadcast;
-		NFShmString<60> meltingResult;
-		int32_t specialAttributeDown;
-		int32_t specialAttributeUp;
-		NFShmString<60> specialAttribute_typeLibrary;
-		NFShmString<60> specialAttribute_valueMin;
-		NFShmString<60> specialAttribute_valueMax;
-		NFShmString<60> skillId;
-		NFArray<struct equipequipattributeDesc_s, 3> attribute;
-		NFArray<struct equipequipgodAttributeDesc_s, 2> godAttribute;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_wearquality;
+		int32_t m_position;
+		NFShmString<60> m_profession;
+		int32_t m_professionlv;
+		int32_t m_level;
+		int32_t m_quality;
+		int32_t m_star;
+		int32_t m_refineattributedown;
+		int32_t m_refineattributeup;
+		NFShmString<60> m_refineattribute_typelibrary;
+		NFShmString<60> m_refineattribute_valuemin;
+		NFShmString<60> m_refineattribute_valuemax;
+		int32_t m_bluestarnum;
+		NFShmString<60> m_bluestar_type;
+		NFShmString<60> m_bluestar_lv;
+		NFShmString<60> m_bluestar_number;
+		int32_t m_iscanbind;
+		int32_t m_istradebind;
+		int32_t m_sellprice;
+		NFShmString<60> m_icon;
+		int32_t m_time;
+		int32_t m_broadcast;
+		NFShmString<60> m_meltingresult;
+		int32_t m_specialattributedown;
+		int32_t m_specialattributeup;
+		NFShmString<60> m_specialattribute_typelibrary;
+		NFShmString<60> m_specialattribute_valuemin;
+		NFShmString<60> m_specialattribute_valuemax;
+		NFShmString<60> m_skillid;
+		NFShmVector<struct E_EquipEquipAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_EquipEquipGodattributeDesc_s, 2> m_godattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::equipequip & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipequip & msg);
-		static ::proto_ff::equipequip* new_pbmsg(){ return new ::proto_ff::equipequip(); }
-		static ::proto_ff::equipequip make_pbmsg(){ return ::proto_ff::equipequip(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg);
+		static ::proto_ff::E_EquipEquip* new_pbmsg(){ return new ::proto_ff::E_EquipEquip(); }
+		static ::proto_ff::E_EquipEquip make_pbmsg(){ return ::proto_ff::E_EquipEquip(); }
 	};
-	typedef struct equipequip_s equipequip_t;
+	typedef struct E_EquipEquip_s E_EquipEquip_t;
 
-	struct Sheet_equipequip_s : public NFDescStoreSeqOP {
-		Sheet_equipequip_s();
-		virtual ~Sheet_equipequip_s(){}
+	struct Sheet_EquipEquip_s : public NFDescStoreSeqOP {
+		Sheet_EquipEquip_s();
+		virtual ~Sheet_EquipEquip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipequip_s, 20> equipequip_List;
+		NFShmVector<struct E_EquipEquip_s, 20> E_EquipEquip_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipequip & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipequip & msg);
-		static ::proto_ff::Sheet_equipequip* new_pbmsg(){ return new ::proto_ff::Sheet_equipequip(); }
-		static ::proto_ff::Sheet_equipequip make_pbmsg(){ return ::proto_ff::Sheet_equipequip(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipEquip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipEquip & msg);
+		static ::proto_ff::Sheet_EquipEquip* new_pbmsg(){ return new ::proto_ff::Sheet_EquipEquip(); }
+		static ::proto_ff::Sheet_EquipEquip make_pbmsg(){ return ::proto_ff::Sheet_EquipEquip(); }
 	};
-	typedef struct Sheet_equipequip_s Sheet_equipequip_t;
+	typedef struct Sheet_EquipEquip_s Sheet_EquipEquip_t;
 
-	struct equipstrongtypeDesc_s : public NFDescStoreSeqOP {
-		equipstrongtypeDesc_s();
-		virtual ~equipstrongtypeDesc_s(){}
+	struct E_EquipStrongTypeDesc_s : public NFDescStoreSeqOP {
+		E_EquipStrongTypeDesc_s();
+		virtual ~E_EquipStrongTypeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmString<60> num;
-		int32_t id;
+		NFShmString<60> m_num;
+		int32_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstrongtypeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstrongtypeDesc & msg);
-		static ::proto_ff::equipstrongtypeDesc* new_pbmsg(){ return new ::proto_ff::equipstrongtypeDesc(); }
-		static ::proto_ff::equipstrongtypeDesc make_pbmsg(){ return ::proto_ff::equipstrongtypeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongTypeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongTypeDesc & msg);
+		static ::proto_ff::E_EquipStrongTypeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipStrongTypeDesc(); }
+		static ::proto_ff::E_EquipStrongTypeDesc make_pbmsg(){ return ::proto_ff::E_EquipStrongTypeDesc(); }
 	};
-	typedef struct equipstrongtypeDesc_s equipstrongtypeDesc_t;
+	typedef struct E_EquipStrongTypeDesc_s E_EquipStrongTypeDesc_t;
 
-	struct equipstrong_s : public NFDescStoreSeqOP {
-		equipstrong_s();
-		virtual ~equipstrong_s(){}
+	struct E_EquipStrong_s : public NFDescStoreSeqOP {
+		E_EquipStrong_s();
+		virtual ~E_EquipStrong_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t position;
-		int32_t wearQuality;
-		int32_t srtongUp;
-		NFArray<struct equipstrongtypeDesc_s, 2> type;
+		int64_t m_id;
+		int32_t m_position;
+		int32_t m_wearquality;
+		int32_t m_srtongup;
+		NFShmVector<struct E_EquipStrongTypeDesc_s, 2> m_type;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstrong & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstrong & msg);
-		static ::proto_ff::equipstrong* new_pbmsg(){ return new ::proto_ff::equipstrong(); }
-		static ::proto_ff::equipstrong make_pbmsg(){ return ::proto_ff::equipstrong(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStrong & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrong & msg);
+		static ::proto_ff::E_EquipStrong* new_pbmsg(){ return new ::proto_ff::E_EquipStrong(); }
+		static ::proto_ff::E_EquipStrong make_pbmsg(){ return ::proto_ff::E_EquipStrong(); }
 	};
-	typedef struct equipstrong_s equipstrong_t;
+	typedef struct E_EquipStrong_s E_EquipStrong_t;
 
-	struct Sheet_equipstrong_s : public NFDescStoreSeqOP {
-		Sheet_equipstrong_s();
-		virtual ~Sheet_equipstrong_s(){}
+	struct Sheet_EquipStrong_s : public NFDescStoreSeqOP {
+		Sheet_EquipStrong_s();
+		virtual ~Sheet_EquipStrong_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstrong_s, 400> equipstrong_List;
+		NFShmVector<struct E_EquipStrong_s, 400> E_EquipStrong_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstrong & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstrong & msg);
-		static ::proto_ff::Sheet_equipstrong* new_pbmsg(){ return new ::proto_ff::Sheet_equipstrong(); }
-		static ::proto_ff::Sheet_equipstrong make_pbmsg(){ return ::proto_ff::Sheet_equipstrong(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrong & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrong & msg);
+		static ::proto_ff::Sheet_EquipStrong* new_pbmsg(){ return new ::proto_ff::Sheet_EquipStrong(); }
+		static ::proto_ff::Sheet_EquipStrong make_pbmsg(){ return ::proto_ff::Sheet_EquipStrong(); }
 	};
-	typedef struct Sheet_equipstrong_s Sheet_equipstrong_t;
+	typedef struct Sheet_EquipStrong_s Sheet_EquipStrong_t;
 
-	struct equipstrongexp_s : public NFDescStoreSeqOP {
-		equipstrongexp_s();
-		virtual ~equipstrongexp_s(){}
+	struct E_EquipStrongexp_s : public NFDescStoreSeqOP {
+		E_EquipStrongexp_s();
+		virtual ~E_EquipStrongexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t Lv;
-		int32_t gold;
-		NFArray<int32_t, 2> costItem;
-		NFArray<NFShmString<60>, 2> positionType;
-		NFArray<int32_t, 2> costNum;
+		int32_t m_lv;
+		int32_t m_gold;
+		NFShmVector<int32_t, 2> m_costitem;
+		NFShmVector<NFShmString<60>, 2> m_positiontype;
+		NFShmVector<int32_t, 2> m_costnum;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstrongexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstrongexp & msg);
-		static ::proto_ff::equipstrongexp* new_pbmsg(){ return new ::proto_ff::equipstrongexp(); }
-		static ::proto_ff::equipstrongexp make_pbmsg(){ return ::proto_ff::equipstrongexp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongexp & msg);
+		static ::proto_ff::E_EquipStrongexp* new_pbmsg(){ return new ::proto_ff::E_EquipStrongexp(); }
+		static ::proto_ff::E_EquipStrongexp make_pbmsg(){ return ::proto_ff::E_EquipStrongexp(); }
 	};
-	typedef struct equipstrongexp_s equipstrongexp_t;
+	typedef struct E_EquipStrongexp_s E_EquipStrongexp_t;
 
-	struct Sheet_equipstrongexp_s : public NFDescStoreSeqOP {
-		Sheet_equipstrongexp_s();
-		virtual ~Sheet_equipstrongexp_s(){}
+	struct Sheet_EquipStrongexp_s : public NFDescStoreSeqOP {
+		Sheet_EquipStrongexp_s();
+		virtual ~Sheet_EquipStrongexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstrongexp_s, 800> equipstrongexp_List;
+		NFShmVector<struct E_EquipStrongexp_s, 800> E_EquipStrongexp_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstrongexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstrongexp & msg);
-		static ::proto_ff::Sheet_equipstrongexp* new_pbmsg(){ return new ::proto_ff::Sheet_equipstrongexp(); }
-		static ::proto_ff::Sheet_equipstrongexp make_pbmsg(){ return ::proto_ff::Sheet_equipstrongexp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrongexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrongexp & msg);
+		static ::proto_ff::Sheet_EquipStrongexp* new_pbmsg(){ return new ::proto_ff::Sheet_EquipStrongexp(); }
+		static ::proto_ff::Sheet_EquipStrongexp make_pbmsg(){ return ::proto_ff::Sheet_EquipStrongexp(); }
 	};
-	typedef struct Sheet_equipstrongexp_s Sheet_equipstrongexp_t;
+	typedef struct Sheet_EquipStrongexp_s Sheet_EquipStrongexp_t;
 
-	struct equipstrongtotalattributeDesc_s : public NFDescStoreSeqOP {
-		equipstrongtotalattributeDesc_s();
-		virtual ~equipstrongtotalattributeDesc_s(){}
+	struct E_EquipStrongtotalAttributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipStrongtotalAttributeDesc_s();
+		virtual ~E_EquipStrongtotalAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstrongtotalattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstrongtotalattributeDesc & msg);
-		static ::proto_ff::equipstrongtotalattributeDesc* new_pbmsg(){ return new ::proto_ff::equipstrongtotalattributeDesc(); }
-		static ::proto_ff::equipstrongtotalattributeDesc make_pbmsg(){ return ::proto_ff::equipstrongtotalattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongtotalAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongtotalAttributeDesc & msg);
+		static ::proto_ff::E_EquipStrongtotalAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipStrongtotalAttributeDesc(); }
+		static ::proto_ff::E_EquipStrongtotalAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipStrongtotalAttributeDesc(); }
 	};
-	typedef struct equipstrongtotalattributeDesc_s equipstrongtotalattributeDesc_t;
+	typedef struct E_EquipStrongtotalAttributeDesc_s E_EquipStrongtotalAttributeDesc_t;
 
-	struct equipstrongtotal_s : public NFDescStoreSeqOP {
-		equipstrongtotal_s();
-		virtual ~equipstrongtotal_s(){}
+	struct E_EquipStrongtotal_s : public NFDescStoreSeqOP {
+		E_EquipStrongtotal_s();
+		virtual ~E_EquipStrongtotal_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		int32_t idType;
-		int32_t idNum;
-		NFArray<struct equipstrongtotalattributeDesc_s, 4> attribute;
+		int64_t m_id;
+		int32_t m_idtype;
+		int32_t m_idnum;
+		NFShmVector<struct E_EquipStrongtotalAttributeDesc_s, 4> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstrongtotal & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstrongtotal & msg);
-		static ::proto_ff::equipstrongtotal* new_pbmsg(){ return new ::proto_ff::equipstrongtotal(); }
-		static ::proto_ff::equipstrongtotal make_pbmsg(){ return ::proto_ff::equipstrongtotal(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongtotal & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongtotal & msg);
+		static ::proto_ff::E_EquipStrongtotal* new_pbmsg(){ return new ::proto_ff::E_EquipStrongtotal(); }
+		static ::proto_ff::E_EquipStrongtotal make_pbmsg(){ return ::proto_ff::E_EquipStrongtotal(); }
 	};
-	typedef struct equipstrongtotal_s equipstrongtotal_t;
+	typedef struct E_EquipStrongtotal_s E_EquipStrongtotal_t;
 
-	struct Sheet_equipstrongtotal_s : public NFDescStoreSeqOP {
-		Sheet_equipstrongtotal_s();
-		virtual ~Sheet_equipstrongtotal_s(){}
+	struct Sheet_EquipStrongtotal_s : public NFDescStoreSeqOP {
+		Sheet_EquipStrongtotal_s();
+		virtual ~Sheet_EquipStrongtotal_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstrongtotal_s, 300> equipstrongtotal_List;
+		NFShmVector<struct E_EquipStrongtotal_s, 300> E_EquipStrongtotal_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstrongtotal & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstrongtotal & msg);
-		static ::proto_ff::Sheet_equipstrongtotal* new_pbmsg(){ return new ::proto_ff::Sheet_equipstrongtotal(); }
-		static ::proto_ff::Sheet_equipstrongtotal make_pbmsg(){ return ::proto_ff::Sheet_equipstrongtotal(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrongtotal & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrongtotal & msg);
+		static ::proto_ff::Sheet_EquipStrongtotal* new_pbmsg(){ return new ::proto_ff::Sheet_EquipStrongtotal(); }
+		static ::proto_ff::Sheet_EquipStrongtotal make_pbmsg(){ return ::proto_ff::Sheet_EquipStrongtotal(); }
 	};
-	typedef struct Sheet_equipstrongtotal_s Sheet_equipstrongtotal_t;
+	typedef struct Sheet_EquipStrongtotal_s Sheet_EquipStrongtotal_t;
 
-	struct equipgem_s : public NFDescStoreSeqOP {
-		equipgem_s();
-		virtual ~equipgem_s(){}
+	struct E_EquipGem_s : public NFDescStoreSeqOP {
+		E_EquipGem_s();
+		virtual ~E_EquipGem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t position;
-		NFShmString<60> gemType;
-		int32_t speciallyGemType;
-		int32_t payUnlockItem;
-		int32_t payUnlockNnm;
-		NFArray<int32_t, 5> gemUnlock;
+		int32_t m_position;
+		NFShmString<60> m_gemtype;
+		int32_t m_speciallygemtype;
+		int32_t m_payunlockitem;
+		int32_t m_payunlocknnm;
+		NFShmVector<int32_t, 5> m_gemunlock;
 
-		virtual void write_to_pbmsg(::proto_ff::equipgem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipgem & msg);
-		static ::proto_ff::equipgem* new_pbmsg(){ return new ::proto_ff::equipgem(); }
-		static ::proto_ff::equipgem make_pbmsg(){ return ::proto_ff::equipgem(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipGem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGem & msg);
+		static ::proto_ff::E_EquipGem* new_pbmsg(){ return new ::proto_ff::E_EquipGem(); }
+		static ::proto_ff::E_EquipGem make_pbmsg(){ return ::proto_ff::E_EquipGem(); }
 	};
-	typedef struct equipgem_s equipgem_t;
+	typedef struct E_EquipGem_s E_EquipGem_t;
 
-	struct Sheet_equipgem_s : public NFDescStoreSeqOP {
-		Sheet_equipgem_s();
-		virtual ~Sheet_equipgem_s(){}
+	struct Sheet_EquipGem_s : public NFDescStoreSeqOP {
+		Sheet_EquipGem_s();
+		virtual ~Sheet_EquipGem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipgem_s, 20> equipgem_List;
+		NFShmVector<struct E_EquipGem_s, 20> E_EquipGem_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipgem & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipgem & msg);
-		static ::proto_ff::Sheet_equipgem* new_pbmsg(){ return new ::proto_ff::Sheet_equipgem(); }
-		static ::proto_ff::Sheet_equipgem make_pbmsg(){ return ::proto_ff::Sheet_equipgem(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipGem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipGem & msg);
+		static ::proto_ff::Sheet_EquipGem* new_pbmsg(){ return new ::proto_ff::Sheet_EquipGem(); }
+		static ::proto_ff::Sheet_EquipGem make_pbmsg(){ return ::proto_ff::Sheet_EquipGem(); }
 	};
-	typedef struct Sheet_equipgem_s Sheet_equipgem_t;
+	typedef struct Sheet_EquipGem_s Sheet_EquipGem_t;
 
-	struct equipstoveattattributeDesc_s : public NFDescStoreSeqOP {
-		equipstoveattattributeDesc_s();
-		virtual ~equipstoveattattributeDesc_s(){}
+	struct E_EquipStoveattAttributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipStoveattAttributeDesc_s();
+		virtual ~E_EquipStoveattAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstoveattattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstoveattattributeDesc & msg);
-		static ::proto_ff::equipstoveattattributeDesc* new_pbmsg(){ return new ::proto_ff::equipstoveattattributeDesc(); }
-		static ::proto_ff::equipstoveattattributeDesc make_pbmsg(){ return ::proto_ff::equipstoveattattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStoveattAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStoveattAttributeDesc & msg);
+		static ::proto_ff::E_EquipStoveattAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipStoveattAttributeDesc(); }
+		static ::proto_ff::E_EquipStoveattAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipStoveattAttributeDesc(); }
 	};
-	typedef struct equipstoveattattributeDesc_s equipstoveattattributeDesc_t;
+	typedef struct E_EquipStoveattAttributeDesc_s E_EquipStoveattAttributeDesc_t;
 
-	struct equipstoveatt_s : public NFDescStoreSeqOP {
-		equipstoveatt_s();
-		virtual ~equipstoveatt_s(){}
+	struct E_EquipStoveatt_s : public NFDescStoreSeqOP {
+		E_EquipStoveatt_s();
+		virtual ~E_EquipStoveatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t lv;
-		int64_t exp;
-		NFArray<struct equipstoveattattributeDesc_s, 4> attribute;
+		int32_t m_lv;
+		int64_t m_exp;
+		NFShmVector<struct E_EquipStoveattAttributeDesc_s, 4> m_attribute;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstoveatt & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstoveatt & msg);
-		static ::proto_ff::equipstoveatt* new_pbmsg(){ return new ::proto_ff::equipstoveatt(); }
-		static ::proto_ff::equipstoveatt make_pbmsg(){ return ::proto_ff::equipstoveatt(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStoveatt & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStoveatt & msg);
+		static ::proto_ff::E_EquipStoveatt* new_pbmsg(){ return new ::proto_ff::E_EquipStoveatt(); }
+		static ::proto_ff::E_EquipStoveatt make_pbmsg(){ return ::proto_ff::E_EquipStoveatt(); }
 	};
-	typedef struct equipstoveatt_s equipstoveatt_t;
+	typedef struct E_EquipStoveatt_s E_EquipStoveatt_t;
 
-	struct Sheet_equipstoveatt_s : public NFDescStoreSeqOP {
-		Sheet_equipstoveatt_s();
-		virtual ~Sheet_equipstoveatt_s(){}
+	struct Sheet_EquipStoveatt_s : public NFDescStoreSeqOP {
+		Sheet_EquipStoveatt_s();
+		virtual ~Sheet_EquipStoveatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstoveatt_s, 2000> equipstoveatt_List;
+		NFShmVector<struct E_EquipStoveatt_s, 2000> E_EquipStoveatt_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstoveatt & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstoveatt & msg);
-		static ::proto_ff::Sheet_equipstoveatt* new_pbmsg(){ return new ::proto_ff::Sheet_equipstoveatt(); }
-		static ::proto_ff::Sheet_equipstoveatt make_pbmsg(){ return ::proto_ff::Sheet_equipstoveatt(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStoveatt & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStoveatt & msg);
+		static ::proto_ff::Sheet_EquipStoveatt* new_pbmsg(){ return new ::proto_ff::Sheet_EquipStoveatt(); }
+		static ::proto_ff::Sheet_EquipStoveatt make_pbmsg(){ return ::proto_ff::Sheet_EquipStoveatt(); }
 	};
-	typedef struct Sheet_equipstoveatt_s Sheet_equipstoveatt_t;
+	typedef struct Sheet_EquipStoveatt_s Sheet_EquipStoveatt_t;
 
-	struct equipstoveexp_s : public NFDescStoreSeqOP {
-		equipstoveexp_s();
-		virtual ~equipstoveexp_s(){}
+	struct E_EquipStoveexp_s : public NFDescStoreSeqOP {
+		E_EquipStoveexp_s();
+		virtual ~E_EquipStoveexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
-		int32_t exp;
-		int32_t wearQuality;
-		int32_t quality;
+		int32_t m_id;
+		int32_t m_exp;
+		int32_t m_wearquality;
+		int32_t m_quality;
 
-		virtual void write_to_pbmsg(::proto_ff::equipstoveexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipstoveexp & msg);
-		static ::proto_ff::equipstoveexp* new_pbmsg(){ return new ::proto_ff::equipstoveexp(); }
-		static ::proto_ff::equipstoveexp make_pbmsg(){ return ::proto_ff::equipstoveexp(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStoveexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStoveexp & msg);
+		static ::proto_ff::E_EquipStoveexp* new_pbmsg(){ return new ::proto_ff::E_EquipStoveexp(); }
+		static ::proto_ff::E_EquipStoveexp make_pbmsg(){ return ::proto_ff::E_EquipStoveexp(); }
 	};
-	typedef struct equipstoveexp_s equipstoveexp_t;
+	typedef struct E_EquipStoveexp_s E_EquipStoveexp_t;
 
-	struct Sheet_equipstoveexp_s : public NFDescStoreSeqOP {
-		Sheet_equipstoveexp_s();
-		virtual ~Sheet_equipstoveexp_s(){}
+	struct Sheet_EquipStoveexp_s : public NFDescStoreSeqOP {
+		Sheet_EquipStoveexp_s();
+		virtual ~Sheet_EquipStoveexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipstoveexp_s, 200> equipstoveexp_List;
+		NFShmVector<struct E_EquipStoveexp_s, 200> E_EquipStoveexp_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipstoveexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipstoveexp & msg);
-		static ::proto_ff::Sheet_equipstoveexp* new_pbmsg(){ return new ::proto_ff::Sheet_equipstoveexp(); }
-		static ::proto_ff::Sheet_equipstoveexp make_pbmsg(){ return ::proto_ff::Sheet_equipstoveexp(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStoveexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStoveexp & msg);
+		static ::proto_ff::Sheet_EquipStoveexp* new_pbmsg(){ return new ::proto_ff::Sheet_EquipStoveexp(); }
+		static ::proto_ff::Sheet_EquipStoveexp make_pbmsg(){ return ::proto_ff::Sheet_EquipStoveexp(); }
 	};
-	typedef struct Sheet_equipstoveexp_s Sheet_equipstoveexp_t;
+	typedef struct Sheet_EquipStoveexp_s Sheet_EquipStoveexp_t;
 
-	struct equipgrade_s : public NFDescStoreSeqOP {
-		equipgrade_s();
-		virtual ~equipgrade_s(){}
+	struct E_EquipGrade_s : public NFDescStoreSeqOP {
+		E_EquipGrade_s();
+		virtual ~E_EquipGrade_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t ID;
+		int32_t m_id;
 
-		virtual void write_to_pbmsg(::proto_ff::equipgrade & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::equipgrade & msg);
-		static ::proto_ff::equipgrade* new_pbmsg(){ return new ::proto_ff::equipgrade(); }
-		static ::proto_ff::equipgrade make_pbmsg(){ return ::proto_ff::equipgrade(); }
+		virtual void write_to_pbmsg(::proto_ff::E_EquipGrade & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGrade & msg);
+		static ::proto_ff::E_EquipGrade* new_pbmsg(){ return new ::proto_ff::E_EquipGrade(); }
+		static ::proto_ff::E_EquipGrade make_pbmsg(){ return ::proto_ff::E_EquipGrade(); }
 	};
-	typedef struct equipgrade_s equipgrade_t;
+	typedef struct E_EquipGrade_s E_EquipGrade_t;
 
-	struct Sheet_equipgrade_s : public NFDescStoreSeqOP {
-		Sheet_equipgrade_s();
-		virtual ~Sheet_equipgrade_s(){}
+	struct Sheet_EquipGrade_s : public NFDescStoreSeqOP {
+		Sheet_EquipGrade_s();
+		virtual ~Sheet_EquipGrade_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct equipgrade_s, 40> equipgrade_List;
+		NFShmVector<struct E_EquipGrade_s, 40> E_EquipGrade_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_equipgrade & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_equipgrade & msg);
-		static ::proto_ff::Sheet_equipgrade* new_pbmsg(){ return new ::proto_ff::Sheet_equipgrade(); }
-		static ::proto_ff::Sheet_equipgrade make_pbmsg(){ return ::proto_ff::Sheet_equipgrade(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipGrade & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipGrade & msg);
+		static ::proto_ff::Sheet_EquipGrade* new_pbmsg(){ return new ::proto_ff::Sheet_EquipGrade(); }
+		static ::proto_ff::Sheet_EquipGrade make_pbmsg(){ return ::proto_ff::Sheet_EquipGrade(); }
 	};
-	typedef struct Sheet_equipgrade_s Sheet_equipgrade_t;
+	typedef struct Sheet_EquipGrade_s Sheet_EquipGrade_t;
 
 }
 

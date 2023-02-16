@@ -14,9 +14,9 @@ public:
 	virtual ~DailyDailyDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::dailydaily_s* GetDesc(int id) const;
-	proto_ff_s::dailydaily_s* GetDesc(int id);
+	const proto_ff_s::E_DailyDaily_s* GetDesc(int id) const;
+	proto_ff_s::E_DailyDaily_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::dailydaily_s, dailydaily, MAX_DAILY_DAILY_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_DailyDaily_s, dailydaily, MAX_DAILY_DAILY_NUM);
 DECLARE_IDCREATE(DailyDailyDesc);
 };

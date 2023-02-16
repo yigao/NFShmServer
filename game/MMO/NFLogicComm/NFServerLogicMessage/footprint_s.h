@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "footprint.pb.h"
@@ -10,75 +10,75 @@
 
 namespace proto_ff_s {
 
-	struct footprintfootprintattributeDesc_s : public NFDescStoreSeqOP {
-		footprintfootprintattributeDesc_s();
-		virtual ~footprintfootprintattributeDesc_s(){}
+	struct E_FootprintFootprintAttributeDesc_s : public NFDescStoreSeqOP {
+		E_FootprintFootprintAttributeDesc_s();
+		virtual ~E_FootprintFootprintAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::footprintfootprintattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::footprintfootprintattributeDesc & msg);
-		static ::proto_ff::footprintfootprintattributeDesc* new_pbmsg(){ return new ::proto_ff::footprintfootprintattributeDesc(); }
-		static ::proto_ff::footprintfootprintattributeDesc make_pbmsg(){ return ::proto_ff::footprintfootprintattributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FootprintFootprintAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FootprintFootprintAttributeDesc & msg);
+		static ::proto_ff::E_FootprintFootprintAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_FootprintFootprintAttributeDesc(); }
+		static ::proto_ff::E_FootprintFootprintAttributeDesc make_pbmsg(){ return ::proto_ff::E_FootprintFootprintAttributeDesc(); }
 	};
-	typedef struct footprintfootprintattributeDesc_s footprintfootprintattributeDesc_t;
+	typedef struct E_FootprintFootprintAttributeDesc_s E_FootprintFootprintAttributeDesc_t;
 
-	struct footprintfootprintActiveAttributeDesc_s : public NFDescStoreSeqOP {
-		footprintfootprintActiveAttributeDesc_s();
-		virtual ~footprintfootprintActiveAttributeDesc_s(){}
+	struct E_FootprintFootprintActiveattributeDesc_s : public NFDescStoreSeqOP {
+		E_FootprintFootprintActiveattributeDesc_s();
+		virtual ~E_FootprintFootprintActiveattributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t type;
-		int32_t value;
+		int32_t m_type;
+		int32_t m_value;
 
-		virtual void write_to_pbmsg(::proto_ff::footprintfootprintActiveAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::footprintfootprintActiveAttributeDesc & msg);
-		static ::proto_ff::footprintfootprintActiveAttributeDesc* new_pbmsg(){ return new ::proto_ff::footprintfootprintActiveAttributeDesc(); }
-		static ::proto_ff::footprintfootprintActiveAttributeDesc make_pbmsg(){ return ::proto_ff::footprintfootprintActiveAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FootprintFootprintActiveattributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FootprintFootprintActiveattributeDesc & msg);
+		static ::proto_ff::E_FootprintFootprintActiveattributeDesc* new_pbmsg(){ return new ::proto_ff::E_FootprintFootprintActiveattributeDesc(); }
+		static ::proto_ff::E_FootprintFootprintActiveattributeDesc make_pbmsg(){ return ::proto_ff::E_FootprintFootprintActiveattributeDesc(); }
 	};
-	typedef struct footprintfootprintActiveAttributeDesc_s footprintfootprintActiveAttributeDesc_t;
+	typedef struct E_FootprintFootprintActiveattributeDesc_s E_FootprintFootprintActiveattributeDesc_t;
 
-	struct footprintfootprint_s : public NFDescStoreSeqOP {
-		footprintfootprint_s();
-		virtual ~footprintfootprint_s(){}
+	struct E_FootprintFootprint_s : public NFDescStoreSeqOP {
+		E_FootprintFootprint_s();
+		virtual ~E_FootprintFootprint_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t ID;
-		NFShmString<60> name;
-		int32_t type;
-		int32_t quality;
-		NFShmString<60> professionLimit;
-		int64_t activationItem;
-		int32_t activationNum;
-		int64_t starId;
-		NFShmString<300> starNum;
-		int32_t starUp;
-		int32_t starBer;
-		NFArray<struct footprintfootprintattributeDesc_s, 6> attribute;
-		NFArray<struct footprintfootprintActiveAttributeDesc_s, 6> ActiveAttribute;
+		int64_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_type;
+		int32_t m_quality;
+		NFShmString<60> m_professionlimit;
+		int64_t m_activationitem;
+		int32_t m_activationnum;
+		int64_t m_starid;
+		NFShmString<300> m_starnum;
+		int32_t m_starup;
+		int32_t m_starber;
+		NFShmVector<struct E_FootprintFootprintAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_FootprintFootprintActiveattributeDesc_s, 6> m_activeattribute;
 
-		virtual void write_to_pbmsg(::proto_ff::footprintfootprint & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::footprintfootprint & msg);
-		static ::proto_ff::footprintfootprint* new_pbmsg(){ return new ::proto_ff::footprintfootprint(); }
-		static ::proto_ff::footprintfootprint make_pbmsg(){ return ::proto_ff::footprintfootprint(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FootprintFootprint & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FootprintFootprint & msg);
+		static ::proto_ff::E_FootprintFootprint* new_pbmsg(){ return new ::proto_ff::E_FootprintFootprint(); }
+		static ::proto_ff::E_FootprintFootprint make_pbmsg(){ return ::proto_ff::E_FootprintFootprint(); }
 	};
-	typedef struct footprintfootprint_s footprintfootprint_t;
+	typedef struct E_FootprintFootprint_s E_FootprintFootprint_t;
 
-	struct Sheet_footprintfootprint_s : public NFDescStoreSeqOP {
-		Sheet_footprintfootprint_s();
-		virtual ~Sheet_footprintfootprint_s(){}
+	struct Sheet_FootprintFootprint_s : public NFDescStoreSeqOP {
+		Sheet_FootprintFootprint_s();
+		virtual ~Sheet_FootprintFootprint_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct footprintfootprint_s, 20> footprintfootprint_List;
+		NFShmVector<struct E_FootprintFootprint_s, 20> E_FootprintFootprint_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_footprintfootprint & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_footprintfootprint & msg);
-		static ::proto_ff::Sheet_footprintfootprint* new_pbmsg(){ return new ::proto_ff::Sheet_footprintfootprint(); }
-		static ::proto_ff::Sheet_footprintfootprint make_pbmsg(){ return ::proto_ff::Sheet_footprintfootprint(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FootprintFootprint & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FootprintFootprint & msg);
+		static ::proto_ff::Sheet_FootprintFootprint* new_pbmsg(){ return new ::proto_ff::Sheet_FootprintFootprint(); }
+		static ::proto_ff::Sheet_FootprintFootprint make_pbmsg(){ return ::proto_ff::Sheet_FootprintFootprint(); }
 	};
-	typedef struct Sheet_footprintfootprint_s Sheet_footprintfootprint_t;
+	typedef struct Sheet_FootprintFootprint_s Sheet_FootprintFootprint_t;
 
 }
 

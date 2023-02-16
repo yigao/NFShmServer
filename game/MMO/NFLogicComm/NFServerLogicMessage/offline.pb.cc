@@ -20,21 +20,21 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* offlineoffline_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_OfflineOffline_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  offlineoffline_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_offlineoffline_descriptor_ = NULL;
+  E_OfflineOffline_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_OfflineOffline_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_offlineoffline_reflection_ = NULL;
-const ::google::protobuf::Descriptor* offlineitemlistitemDesc_descriptor_ = NULL;
+  Sheet_OfflineOffline_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_OfflineItemlistItemDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  offlineitemlistitemDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* offlineitemlist_descriptor_ = NULL;
+  E_OfflineItemlistItemDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_OfflineItemlist_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  offlineitemlist_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_offlineitemlist_descriptor_ = NULL;
+  E_OfflineItemlist_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_OfflineItemlist_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_offlineitemlist_reflection_ = NULL;
+  Sheet_OfflineItemlist_reflection_ = NULL;
 
 }  // namespace
 
@@ -45,88 +45,88 @@ void protobuf_AssignDesc_offline_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "offline.proto");
   GOOGLE_CHECK(file != NULL);
-  offlineoffline_descriptor_ = file->message_type(0);
-  static const int offlineoffline_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineoffline, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineoffline, offlineexp_),
+  E_OfflineOffline_descriptor_ = file->message_type(0);
+  static const int E_OfflineOffline_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineOffline, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineOffline, m_offlineexp_),
   };
-  offlineoffline_reflection_ =
+  E_OfflineOffline_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      offlineoffline_descriptor_,
-      offlineoffline::default_instance_,
-      offlineoffline_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineoffline, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineoffline, _unknown_fields_),
+      E_OfflineOffline_descriptor_,
+      E_OfflineOffline::default_instance_,
+      E_OfflineOffline_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineOffline, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineOffline, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(offlineoffline));
-  Sheet_offlineoffline_descriptor_ = file->message_type(1);
-  static const int Sheet_offlineoffline_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_offlineoffline, offlineoffline_list_),
+      sizeof(E_OfflineOffline));
+  Sheet_OfflineOffline_descriptor_ = file->message_type(1);
+  static const int Sheet_OfflineOffline_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_OfflineOffline, e_offlineoffline_list_),
   };
-  Sheet_offlineoffline_reflection_ =
+  Sheet_OfflineOffline_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_offlineoffline_descriptor_,
-      Sheet_offlineoffline::default_instance_,
-      Sheet_offlineoffline_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_offlineoffline, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_offlineoffline, _unknown_fields_),
+      Sheet_OfflineOffline_descriptor_,
+      Sheet_OfflineOffline::default_instance_,
+      Sheet_OfflineOffline_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_OfflineOffline, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_OfflineOffline, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_offlineoffline));
-  offlineitemlistitemDesc_descriptor_ = file->message_type(2);
-  static const int offlineitemlistitemDesc_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlistitemDesc, num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlistitemDesc, vle_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlistitemDesc, id_),
+      sizeof(Sheet_OfflineOffline));
+  E_OfflineItemlistItemDesc_descriptor_ = file->message_type(2);
+  static const int E_OfflineItemlistItemDesc_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlistItemDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlistItemDesc, m_vle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlistItemDesc, m_id_),
   };
-  offlineitemlistitemDesc_reflection_ =
+  E_OfflineItemlistItemDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      offlineitemlistitemDesc_descriptor_,
-      offlineitemlistitemDesc::default_instance_,
-      offlineitemlistitemDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlistitemDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlistitemDesc, _unknown_fields_),
+      E_OfflineItemlistItemDesc_descriptor_,
+      E_OfflineItemlistItemDesc::default_instance_,
+      E_OfflineItemlistItemDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlistItemDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlistItemDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(offlineitemlistitemDesc));
-  offlineitemlist_descriptor_ = file->message_type(3);
-  static const int offlineitemlist_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, lvdown_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, lvup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, daoju_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, item_),
+      sizeof(E_OfflineItemlistItemDesc));
+  E_OfflineItemlist_descriptor_ = file->message_type(3);
+  static const int E_OfflineItemlist_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, m_lvdown_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, m_lvup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, m_daoju_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, m_item_),
   };
-  offlineitemlist_reflection_ =
+  E_OfflineItemlist_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      offlineitemlist_descriptor_,
-      offlineitemlist::default_instance_,
-      offlineitemlist_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(offlineitemlist, _unknown_fields_),
+      E_OfflineItemlist_descriptor_,
+      E_OfflineItemlist::default_instance_,
+      E_OfflineItemlist_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_OfflineItemlist, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(offlineitemlist));
-  Sheet_offlineitemlist_descriptor_ = file->message_type(4);
-  static const int Sheet_offlineitemlist_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_offlineitemlist, offlineitemlist_list_),
+      sizeof(E_OfflineItemlist));
+  Sheet_OfflineItemlist_descriptor_ = file->message_type(4);
+  static const int Sheet_OfflineItemlist_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_OfflineItemlist, e_offlineitemlist_list_),
   };
-  Sheet_offlineitemlist_reflection_ =
+  Sheet_OfflineItemlist_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_offlineitemlist_descriptor_,
-      Sheet_offlineitemlist::default_instance_,
-      Sheet_offlineitemlist_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_offlineitemlist, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_offlineitemlist, _unknown_fields_),
+      Sheet_OfflineItemlist_descriptor_,
+      Sheet_OfflineItemlist::default_instance_,
+      Sheet_OfflineItemlist_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_OfflineItemlist, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_OfflineItemlist, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_offlineitemlist));
+      sizeof(Sheet_OfflineItemlist));
 }
 
 namespace {
@@ -140,30 +140,30 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    offlineoffline_descriptor_, &offlineoffline::default_instance());
+    E_OfflineOffline_descriptor_, &E_OfflineOffline::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_offlineoffline_descriptor_, &Sheet_offlineoffline::default_instance());
+    Sheet_OfflineOffline_descriptor_, &Sheet_OfflineOffline::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    offlineitemlistitemDesc_descriptor_, &offlineitemlistitemDesc::default_instance());
+    E_OfflineItemlistItemDesc_descriptor_, &E_OfflineItemlistItemDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    offlineitemlist_descriptor_, &offlineitemlist::default_instance());
+    E_OfflineItemlist_descriptor_, &E_OfflineItemlist::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_offlineitemlist_descriptor_, &Sheet_offlineitemlist::default_instance());
+    Sheet_OfflineItemlist_descriptor_, &Sheet_OfflineItemlist::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_offline_2eproto() {
-  delete offlineoffline::default_instance_;
-  delete offlineoffline_reflection_;
-  delete Sheet_offlineoffline::default_instance_;
-  delete Sheet_offlineoffline_reflection_;
-  delete offlineitemlistitemDesc::default_instance_;
-  delete offlineitemlistitemDesc_reflection_;
-  delete offlineitemlist::default_instance_;
-  delete offlineitemlist_reflection_;
-  delete Sheet_offlineitemlist::default_instance_;
-  delete Sheet_offlineitemlist_reflection_;
+  delete E_OfflineOffline::default_instance_;
+  delete E_OfflineOffline_reflection_;
+  delete Sheet_OfflineOffline::default_instance_;
+  delete Sheet_OfflineOffline_reflection_;
+  delete E_OfflineItemlistItemDesc::default_instance_;
+  delete E_OfflineItemlistItemDesc_reflection_;
+  delete E_OfflineItemlist::default_instance_;
+  delete E_OfflineItemlist_reflection_;
+  delete Sheet_OfflineItemlist::default_instance_;
+  delete Sheet_OfflineItemlist_reflection_;
 }
 
 void protobuf_AddDesc_offline_2eproto() {
@@ -175,33 +175,34 @@ void protobuf_AddDesc_offline_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\roffline.proto\022\010proto_ff\032\025yd_fieldoptio"
-    "ns.proto\"Z\n\016offlineoffline\022\034\n\002lv\030\001 \001(\005B\020"
-    "\302\377\024\014\350\247\222\350\211\262\347\255\211\347\272\247\022*\n\nofflineExp\030\002 \001(\003B\026\302\377"
-    "\024\022\347\246\273\347\272\277\345\237\272\347\241\200\347\273\217\351\252\214\"T\n\024Sheet_offlineoff"
-    "line\022<\n\023offlineoffline_List\030\001 \003(\0132\030.prot"
-    "o_ff.offlineofflineB\005\210\301\024\320\017\"_\n\027offlineite"
-    "mlistitemDesc\022\027\n\003Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\027"
-    "\n\003Vle\030\002 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022\022\n\002ID\030\003 \001(\003B\006\302\377\024"
-    "\002ID\"\320\001\n\017offlineitemlist\022\026\n\002id\030\001 \001(\005B\n\302\377\024"
-    "\006\345\272\217\345\217\267\022 \n\006Lvdown\030\002 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\213\351\231"
-    "\220\022\036\n\004Lvup\030\003 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220\022\"\n\005dao"
-    "ju\030\004 \001(\005B\023\302\377\024\017\351\201\223\345\205\267\347\261\273\345\236\213\345\272\223\022\?\n\004item\030\005 "
-    "\003(\0132!.proto_ff.offlineitemlistitemDescB\016"
-    "\302\377\024\006\351\201\223\345\205\267\210\301\024\026\"V\n\025Sheet_offlineitemlist\022"
-    "=\n\024offlineitemlist_List\030\001 \003(\0132\031.proto_ff"
-    ".offlineitemlistB\004\210\301\024<", 622);
+    "ns.proto\"`\n\020E_OfflineOffline\022\036\n\004m_lv\030\001 \001"
+    "(\005B\020\302\377\024\014\350\247\222\350\211\262\347\255\211\347\272\247\022,\n\014m_offlineexp\030\002 \001"
+    "(\003B\026\302\377\024\022\347\246\273\347\272\277\345\237\272\347\241\200\347\273\217\351\252\214\"X\n\024Sheet_Offl"
+    "ineOffline\022@\n\025E_OfflineOffline_List\030\001 \003("
+    "\0132\032.proto_ff.E_OfflineOfflineB\005\210\301\024\320\017\"g\n\031"
+    "E_OfflineItemlistItemDesc\022\031\n\005m_num\030\001 \001(\005"
+    "B\n\302\377\024\006\346\225\260\351\207\217\022\031\n\005m_vle\030\002 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022"
+    "\024\n\004m_id\030\003 \001(\003B\006\302\377\024\002ID\"\336\001\n\021E_OfflineIteml"
+    "ist\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022\"\n\010m_lvdow"
+    "n\030\002 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\213\351\231\220\022 \n\006m_lvup\030\003 \001("
+    "\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220\022$\n\007m_daoju\030\004 \001(\005B\023\302\377"
+    "\024\017\351\201\223\345\205\267\347\261\273\345\236\213\345\272\223\022C\n\006m_item\030\005 \003(\0132#.prot"
+    "o_ff.E_OfflineItemlistItemDescB\016\302\377\024\006\351\201\223\345"
+    "\205\267\210\301\024\026\"Z\n\025Sheet_OfflineItemlist\022A\n\026E_Off"
+    "lineItemlist_List\030\001 \003(\0132\033.proto_ff.E_Off"
+    "lineItemlistB\004\210\301\024<", 658);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "offline.proto", &protobuf_RegisterTypes);
-  offlineoffline::default_instance_ = new offlineoffline();
-  Sheet_offlineoffline::default_instance_ = new Sheet_offlineoffline();
-  offlineitemlistitemDesc::default_instance_ = new offlineitemlistitemDesc();
-  offlineitemlist::default_instance_ = new offlineitemlist();
-  Sheet_offlineitemlist::default_instance_ = new Sheet_offlineitemlist();
-  offlineoffline::default_instance_->InitAsDefaultInstance();
-  Sheet_offlineoffline::default_instance_->InitAsDefaultInstance();
-  offlineitemlistitemDesc::default_instance_->InitAsDefaultInstance();
-  offlineitemlist::default_instance_->InitAsDefaultInstance();
-  Sheet_offlineitemlist::default_instance_->InitAsDefaultInstance();
+  E_OfflineOffline::default_instance_ = new E_OfflineOffline();
+  Sheet_OfflineOffline::default_instance_ = new Sheet_OfflineOffline();
+  E_OfflineItemlistItemDesc::default_instance_ = new E_OfflineItemlistItemDesc();
+  E_OfflineItemlist::default_instance_ = new E_OfflineItemlist();
+  Sheet_OfflineItemlist::default_instance_ = new Sheet_OfflineItemlist();
+  E_OfflineOffline::default_instance_->InitAsDefaultInstance();
+  Sheet_OfflineOffline::default_instance_->InitAsDefaultInstance();
+  E_OfflineItemlistItemDesc::default_instance_->InitAsDefaultInstance();
+  E_OfflineItemlist::default_instance_->InitAsDefaultInstance();
+  Sheet_OfflineItemlist::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_offline_2eproto);
 }
 
@@ -215,100 +216,100 @@ struct StaticDescriptorInitializer_offline_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int offlineoffline::kLvFieldNumber;
-const int offlineoffline::kOfflineExpFieldNumber;
+const int E_OfflineOffline::kMLvFieldNumber;
+const int E_OfflineOffline::kMOfflineexpFieldNumber;
 #endif  // !_MSC_VER
 
-offlineoffline::offlineoffline()
+E_OfflineOffline::E_OfflineOffline()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void offlineoffline::InitAsDefaultInstance() {
+void E_OfflineOffline::InitAsDefaultInstance() {
 }
 
-offlineoffline::offlineoffline(const offlineoffline& from)
+E_OfflineOffline::E_OfflineOffline(const E_OfflineOffline& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void offlineoffline::SharedCtor() {
+void E_OfflineOffline::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  offlineexp_ = GOOGLE_LONGLONG(0);
+  m_lv_ = 0;
+  m_offlineexp_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-offlineoffline::~offlineoffline() {
+E_OfflineOffline::~E_OfflineOffline() {
   SharedDtor();
 }
 
-void offlineoffline::SharedDtor() {
+void E_OfflineOffline::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void offlineoffline::SetCachedSize(int size) const {
+void E_OfflineOffline::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* offlineoffline::descriptor() {
+const ::google::protobuf::Descriptor* E_OfflineOffline::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return offlineoffline_descriptor_;
+  return E_OfflineOffline_descriptor_;
 }
 
-const offlineoffline& offlineoffline::default_instance() {
+const E_OfflineOffline& E_OfflineOffline::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_offline_2eproto();
   return *default_instance_;
 }
 
-offlineoffline* offlineoffline::default_instance_ = NULL;
+E_OfflineOffline* E_OfflineOffline::default_instance_ = NULL;
 
-offlineoffline* offlineoffline::New() const {
-  return new offlineoffline;
+E_OfflineOffline* E_OfflineOffline::New() const {
+  return new E_OfflineOffline;
 }
 
-void offlineoffline::Clear() {
+void E_OfflineOffline::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    offlineexp_ = GOOGLE_LONGLONG(0);
+    m_lv_ = 0;
+    m_offlineexp_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool offlineoffline::MergePartialFromCodedStream(
+bool E_OfflineOffline::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_offlineExp;
+        if (input->ExpectTag(16)) goto parse_m_offlineexp;
         break;
       }
 
-      // optional int64 offlineExp = 2;
+      // optional int64 m_offlineexp = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_offlineExp:
+         parse_m_offlineexp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &offlineexp_)));
-          set_has_offlineexp();
+                 input, &m_offlineexp_)));
+          set_has_m_offlineexp();
         } else {
           goto handle_uninterpreted;
         }
@@ -332,16 +333,16 @@ bool offlineoffline::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void offlineoffline::SerializeWithCachedSizes(
+void E_OfflineOffline::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int64 offlineExp = 2;
-  if (has_offlineexp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->offlineexp(), output);
+  // optional int64 m_offlineexp = 2;
+  if (has_m_offlineexp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_offlineexp(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -350,16 +351,16 @@ void offlineoffline::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* offlineoffline::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_OfflineOffline::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int64 offlineExp = 2;
-  if (has_offlineexp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->offlineexp(), target);
+  // optional int64 m_offlineexp = 2;
+  if (has_m_offlineexp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_offlineexp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -369,22 +370,22 @@ void offlineoffline::SerializeWithCachedSizes(
   return target;
 }
 
-int offlineoffline::ByteSize() const {
+int E_OfflineOffline::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int64 offlineExp = 2;
-    if (has_offlineexp()) {
+    // optional int64 m_offlineexp = 2;
+    if (has_m_offlineexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->offlineexp());
+          this->m_offlineexp());
     }
 
   }
@@ -399,10 +400,10 @@ int offlineoffline::ByteSize() const {
   return total_size;
 }
 
-void offlineoffline::MergeFrom(const ::google::protobuf::Message& from) {
+void E_OfflineOffline::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const offlineoffline* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const offlineoffline*>(
+  const E_OfflineOffline* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_OfflineOffline*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -411,51 +412,51 @@ void offlineoffline::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void offlineoffline::MergeFrom(const offlineoffline& from) {
+void E_OfflineOffline::MergeFrom(const E_OfflineOffline& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_offlineexp()) {
-      set_offlineexp(from.offlineexp());
+    if (from.has_m_offlineexp()) {
+      set_m_offlineexp(from.m_offlineexp());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void offlineoffline::CopyFrom(const ::google::protobuf::Message& from) {
+void E_OfflineOffline::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void offlineoffline::CopyFrom(const offlineoffline& from) {
+void E_OfflineOffline::CopyFrom(const E_OfflineOffline& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool offlineoffline::IsInitialized() const {
+bool E_OfflineOffline::IsInitialized() const {
 
   return true;
 }
 
-void offlineoffline::Swap(offlineoffline* other) {
+void E_OfflineOffline::Swap(E_OfflineOffline* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(offlineexp_, other->offlineexp_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_offlineexp_, other->m_offlineexp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata offlineoffline::GetMetadata() const {
+::google::protobuf::Metadata E_OfflineOffline::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = offlineoffline_descriptor_;
-  metadata.reflection = offlineoffline_reflection_;
+  metadata.descriptor = E_OfflineOffline_descriptor_;
+  metadata.reflection = E_OfflineOffline_reflection_;
   return metadata;
 }
 
@@ -463,81 +464,81 @@ void offlineoffline::Swap(offlineoffline* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_offlineoffline::kOfflineofflineListFieldNumber;
+const int Sheet_OfflineOffline::kEOfflineOfflineListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_offlineoffline::Sheet_offlineoffline()
+Sheet_OfflineOffline::Sheet_OfflineOffline()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_offlineoffline::InitAsDefaultInstance() {
+void Sheet_OfflineOffline::InitAsDefaultInstance() {
 }
 
-Sheet_offlineoffline::Sheet_offlineoffline(const Sheet_offlineoffline& from)
+Sheet_OfflineOffline::Sheet_OfflineOffline(const Sheet_OfflineOffline& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_offlineoffline::SharedCtor() {
+void Sheet_OfflineOffline::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_offlineoffline::~Sheet_offlineoffline() {
+Sheet_OfflineOffline::~Sheet_OfflineOffline() {
   SharedDtor();
 }
 
-void Sheet_offlineoffline::SharedDtor() {
+void Sheet_OfflineOffline::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_offlineoffline::SetCachedSize(int size) const {
+void Sheet_OfflineOffline::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_offlineoffline::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_OfflineOffline::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_offlineoffline_descriptor_;
+  return Sheet_OfflineOffline_descriptor_;
 }
 
-const Sheet_offlineoffline& Sheet_offlineoffline::default_instance() {
+const Sheet_OfflineOffline& Sheet_OfflineOffline::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_offline_2eproto();
   return *default_instance_;
 }
 
-Sheet_offlineoffline* Sheet_offlineoffline::default_instance_ = NULL;
+Sheet_OfflineOffline* Sheet_OfflineOffline::default_instance_ = NULL;
 
-Sheet_offlineoffline* Sheet_offlineoffline::New() const {
-  return new Sheet_offlineoffline;
+Sheet_OfflineOffline* Sheet_OfflineOffline::New() const {
+  return new Sheet_OfflineOffline;
 }
 
-void Sheet_offlineoffline::Clear() {
-  offlineoffline_list_.Clear();
+void Sheet_OfflineOffline::Clear() {
+  e_offlineoffline_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_offlineoffline::MergePartialFromCodedStream(
+bool Sheet_OfflineOffline::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.offlineoffline offlineoffline_List = 1;
+      // repeated .proto_ff.E_OfflineOffline E_OfflineOffline_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_offlineoffline_List:
+         parse_E_OfflineOffline_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_offlineoffline_list()));
+                input, add_e_offlineoffline_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_offlineoffline_List;
+        if (input->ExpectTag(10)) goto parse_E_OfflineOffline_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -558,12 +559,12 @@ bool Sheet_offlineoffline::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_offlineoffline::SerializeWithCachedSizes(
+void Sheet_OfflineOffline::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.offlineoffline offlineoffline_List = 1;
-  for (int i = 0; i < this->offlineoffline_list_size(); i++) {
+  // repeated .proto_ff.E_OfflineOffline E_OfflineOffline_List = 1;
+  for (int i = 0; i < this->e_offlineoffline_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->offlineoffline_list(i), output);
+      1, this->e_offlineoffline_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -572,13 +573,13 @@ void Sheet_offlineoffline::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_offlineoffline::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_OfflineOffline::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.offlineoffline offlineoffline_List = 1;
-  for (int i = 0; i < this->offlineoffline_list_size(); i++) {
+  // repeated .proto_ff.E_OfflineOffline E_OfflineOffline_List = 1;
+  for (int i = 0; i < this->e_offlineoffline_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->offlineoffline_list(i), target);
+        1, this->e_offlineoffline_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -588,15 +589,15 @@ void Sheet_offlineoffline::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_offlineoffline::ByteSize() const {
+int Sheet_OfflineOffline::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.offlineoffline offlineoffline_List = 1;
-  total_size += 1 * this->offlineoffline_list_size();
-  for (int i = 0; i < this->offlineoffline_list_size(); i++) {
+  // repeated .proto_ff.E_OfflineOffline E_OfflineOffline_List = 1;
+  total_size += 1 * this->e_offlineoffline_list_size();
+  for (int i = 0; i < this->e_offlineoffline_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->offlineoffline_list(i));
+        this->e_offlineoffline_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -610,10 +611,10 @@ int Sheet_offlineoffline::ByteSize() const {
   return total_size;
 }
 
-void Sheet_offlineoffline::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_OfflineOffline::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_offlineoffline* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_offlineoffline*>(
+  const Sheet_OfflineOffline* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_OfflineOffline*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -622,43 +623,43 @@ void Sheet_offlineoffline::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_offlineoffline::MergeFrom(const Sheet_offlineoffline& from) {
+void Sheet_OfflineOffline::MergeFrom(const Sheet_OfflineOffline& from) {
   GOOGLE_CHECK_NE(&from, this);
-  offlineoffline_list_.MergeFrom(from.offlineoffline_list_);
+  e_offlineoffline_list_.MergeFrom(from.e_offlineoffline_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_offlineoffline::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_OfflineOffline::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_offlineoffline::CopyFrom(const Sheet_offlineoffline& from) {
+void Sheet_OfflineOffline::CopyFrom(const Sheet_OfflineOffline& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_offlineoffline::IsInitialized() const {
+bool Sheet_OfflineOffline::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_offlineoffline::Swap(Sheet_offlineoffline* other) {
+void Sheet_OfflineOffline::Swap(Sheet_OfflineOffline* other) {
   if (other != this) {
-    offlineoffline_list_.Swap(&other->offlineoffline_list_);
+    e_offlineoffline_list_.Swap(&other->e_offlineoffline_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_offlineoffline::GetMetadata() const {
+::google::protobuf::Metadata Sheet_OfflineOffline::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_offlineoffline_descriptor_;
-  metadata.reflection = Sheet_offlineoffline_reflection_;
+  metadata.descriptor = Sheet_OfflineOffline_descriptor_;
+  metadata.reflection = Sheet_OfflineOffline_reflection_;
   return metadata;
 }
 
@@ -666,119 +667,119 @@ void Sheet_offlineoffline::Swap(Sheet_offlineoffline* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int offlineitemlistitemDesc::kNumFieldNumber;
-const int offlineitemlistitemDesc::kVleFieldNumber;
-const int offlineitemlistitemDesc::kIDFieldNumber;
+const int E_OfflineItemlistItemDesc::kMNumFieldNumber;
+const int E_OfflineItemlistItemDesc::kMVleFieldNumber;
+const int E_OfflineItemlistItemDesc::kMIdFieldNumber;
 #endif  // !_MSC_VER
 
-offlineitemlistitemDesc::offlineitemlistitemDesc()
+E_OfflineItemlistItemDesc::E_OfflineItemlistItemDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void offlineitemlistitemDesc::InitAsDefaultInstance() {
+void E_OfflineItemlistItemDesc::InitAsDefaultInstance() {
 }
 
-offlineitemlistitemDesc::offlineitemlistitemDesc(const offlineitemlistitemDesc& from)
+E_OfflineItemlistItemDesc::E_OfflineItemlistItemDesc(const E_OfflineItemlistItemDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void offlineitemlistitemDesc::SharedCtor() {
+void E_OfflineItemlistItemDesc::SharedCtor() {
   _cached_size_ = 0;
-  num_ = 0;
-  vle_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
+  m_num_ = 0;
+  m_vle_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-offlineitemlistitemDesc::~offlineitemlistitemDesc() {
+E_OfflineItemlistItemDesc::~E_OfflineItemlistItemDesc() {
   SharedDtor();
 }
 
-void offlineitemlistitemDesc::SharedDtor() {
+void E_OfflineItemlistItemDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void offlineitemlistitemDesc::SetCachedSize(int size) const {
+void E_OfflineItemlistItemDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* offlineitemlistitemDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_OfflineItemlistItemDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return offlineitemlistitemDesc_descriptor_;
+  return E_OfflineItemlistItemDesc_descriptor_;
 }
 
-const offlineitemlistitemDesc& offlineitemlistitemDesc::default_instance() {
+const E_OfflineItemlistItemDesc& E_OfflineItemlistItemDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_offline_2eproto();
   return *default_instance_;
 }
 
-offlineitemlistitemDesc* offlineitemlistitemDesc::default_instance_ = NULL;
+E_OfflineItemlistItemDesc* E_OfflineItemlistItemDesc::default_instance_ = NULL;
 
-offlineitemlistitemDesc* offlineitemlistitemDesc::New() const {
-  return new offlineitemlistitemDesc;
+E_OfflineItemlistItemDesc* E_OfflineItemlistItemDesc::New() const {
+  return new E_OfflineItemlistItemDesc;
 }
 
-void offlineitemlistitemDesc::Clear() {
+void E_OfflineItemlistItemDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    num_ = 0;
-    vle_ = 0;
-    id_ = GOOGLE_LONGLONG(0);
+    m_num_ = 0;
+    m_vle_ = 0;
+    m_id_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool offlineitemlistitemDesc::MergePartialFromCodedStream(
+bool E_OfflineItemlistItemDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 Num = 1;
+      // optional int32 m_num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &num_)));
-          set_has_num();
+                 input, &m_num_)));
+          set_has_m_num();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Vle;
+        if (input->ExpectTag(16)) goto parse_m_vle;
         break;
       }
 
-      // optional int32 Vle = 2;
+      // optional int32 m_vle = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Vle:
+         parse_m_vle:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &vle_)));
-          set_has_vle();
+                 input, &m_vle_)));
+          set_has_m_vle();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_ID;
+        if (input->ExpectTag(24)) goto parse_m_id;
         break;
       }
 
-      // optional int64 ID = 3;
+      // optional int64 m_id = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_ID:
+         parse_m_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -802,21 +803,21 @@ bool offlineitemlistitemDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void offlineitemlistitemDesc::SerializeWithCachedSizes(
+void E_OfflineItemlistItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 Num = 1;
-  if (has_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int32 Vle = 2;
-  if (has_vle()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->vle(), output);
+  // optional int32 m_vle = 2;
+  if (has_m_vle()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_vle(), output);
   }
 
-  // optional int64 ID = 3;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->id(), output);
+  // optional int64 m_id = 3;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->m_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -825,21 +826,21 @@ void offlineitemlistitemDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* offlineitemlistitemDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_OfflineItemlistItemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 Num = 1;
-  if (has_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 Vle = 2;
-  if (has_vle()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->vle(), target);
+  // optional int32 m_vle = 2;
+  if (has_m_vle()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_vle(), target);
   }
 
-  // optional int64 ID = 3;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->id(), target);
+  // optional int64 m_id = 3;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->m_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -849,29 +850,29 @@ void offlineitemlistitemDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int offlineitemlistitemDesc::ByteSize() const {
+int E_OfflineItemlistItemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 Num = 1;
-    if (has_num()) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->num());
+          this->m_num());
     }
 
-    // optional int32 Vle = 2;
-    if (has_vle()) {
+    // optional int32 m_vle = 2;
+    if (has_m_vle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->vle());
+          this->m_vle());
     }
 
-    // optional int64 ID = 3;
-    if (has_id()) {
+    // optional int64 m_id = 3;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
   }
@@ -886,10 +887,10 @@ int offlineitemlistitemDesc::ByteSize() const {
   return total_size;
 }
 
-void offlineitemlistitemDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_OfflineItemlistItemDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const offlineitemlistitemDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const offlineitemlistitemDesc*>(
+  const E_OfflineItemlistItemDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_OfflineItemlistItemDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -898,55 +899,55 @@ void offlineitemlistitemDesc::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void offlineitemlistitemDesc::MergeFrom(const offlineitemlistitemDesc& from) {
+void E_OfflineItemlistItemDesc::MergeFrom(const E_OfflineItemlistItemDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_num()) {
-      set_num(from.num());
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
     }
-    if (from.has_vle()) {
-      set_vle(from.vle());
+    if (from.has_m_vle()) {
+      set_m_vle(from.m_vle());
     }
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void offlineitemlistitemDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_OfflineItemlistItemDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void offlineitemlistitemDesc::CopyFrom(const offlineitemlistitemDesc& from) {
+void E_OfflineItemlistItemDesc::CopyFrom(const E_OfflineItemlistItemDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool offlineitemlistitemDesc::IsInitialized() const {
+bool E_OfflineItemlistItemDesc::IsInitialized() const {
 
   return true;
 }
 
-void offlineitemlistitemDesc::Swap(offlineitemlistitemDesc* other) {
+void E_OfflineItemlistItemDesc::Swap(E_OfflineItemlistItemDesc* other) {
   if (other != this) {
-    std::swap(num_, other->num_);
-    std::swap(vle_, other->vle_);
-    std::swap(id_, other->id_);
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_vle_, other->m_vle_);
+    std::swap(m_id_, other->m_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata offlineitemlistitemDesc::GetMetadata() const {
+::google::protobuf::Metadata E_OfflineItemlistItemDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = offlineitemlistitemDesc_descriptor_;
-  metadata.reflection = offlineitemlistitemDesc_reflection_;
+  metadata.descriptor = E_OfflineItemlistItemDesc_descriptor_;
+  metadata.reflection = E_OfflineItemlistItemDesc_reflection_;
   return metadata;
 }
 
@@ -954,158 +955,158 @@ void offlineitemlistitemDesc::Swap(offlineitemlistitemDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int offlineitemlist::kIdFieldNumber;
-const int offlineitemlist::kLvdownFieldNumber;
-const int offlineitemlist::kLvupFieldNumber;
-const int offlineitemlist::kDaojuFieldNumber;
-const int offlineitemlist::kItemFieldNumber;
+const int E_OfflineItemlist::kMIdFieldNumber;
+const int E_OfflineItemlist::kMLvdownFieldNumber;
+const int E_OfflineItemlist::kMLvupFieldNumber;
+const int E_OfflineItemlist::kMDaojuFieldNumber;
+const int E_OfflineItemlist::kMItemFieldNumber;
 #endif  // !_MSC_VER
 
-offlineitemlist::offlineitemlist()
+E_OfflineItemlist::E_OfflineItemlist()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void offlineitemlist::InitAsDefaultInstance() {
+void E_OfflineItemlist::InitAsDefaultInstance() {
 }
 
-offlineitemlist::offlineitemlist(const offlineitemlist& from)
+E_OfflineItemlist::E_OfflineItemlist(const E_OfflineItemlist& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void offlineitemlist::SharedCtor() {
+void E_OfflineItemlist::SharedCtor() {
   _cached_size_ = 0;
-  id_ = 0;
-  lvdown_ = 0;
-  lvup_ = 0;
-  daoju_ = 0;
+  m_id_ = 0;
+  m_lvdown_ = 0;
+  m_lvup_ = 0;
+  m_daoju_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-offlineitemlist::~offlineitemlist() {
+E_OfflineItemlist::~E_OfflineItemlist() {
   SharedDtor();
 }
 
-void offlineitemlist::SharedDtor() {
+void E_OfflineItemlist::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void offlineitemlist::SetCachedSize(int size) const {
+void E_OfflineItemlist::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* offlineitemlist::descriptor() {
+const ::google::protobuf::Descriptor* E_OfflineItemlist::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return offlineitemlist_descriptor_;
+  return E_OfflineItemlist_descriptor_;
 }
 
-const offlineitemlist& offlineitemlist::default_instance() {
+const E_OfflineItemlist& E_OfflineItemlist::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_offline_2eproto();
   return *default_instance_;
 }
 
-offlineitemlist* offlineitemlist::default_instance_ = NULL;
+E_OfflineItemlist* E_OfflineItemlist::default_instance_ = NULL;
 
-offlineitemlist* offlineitemlist::New() const {
-  return new offlineitemlist;
+E_OfflineItemlist* E_OfflineItemlist::New() const {
+  return new E_OfflineItemlist;
 }
 
-void offlineitemlist::Clear() {
+void E_OfflineItemlist::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = 0;
-    lvdown_ = 0;
-    lvup_ = 0;
-    daoju_ = 0;
+    m_id_ = 0;
+    m_lvdown_ = 0;
+    m_lvup_ = 0;
+    m_daoju_ = 0;
   }
-  item_.Clear();
+  m_item_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool offlineitemlist::MergePartialFromCodedStream(
+bool E_OfflineItemlist::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 id = 1;
+      // optional int32 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_Lvdown;
+        if (input->ExpectTag(16)) goto parse_m_lvdown;
         break;
       }
 
-      // optional int32 Lvdown = 2;
+      // optional int32 m_lvdown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Lvdown:
+         parse_m_lvdown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lvdown_)));
-          set_has_lvdown();
+                 input, &m_lvdown_)));
+          set_has_m_lvdown();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_Lvup;
+        if (input->ExpectTag(24)) goto parse_m_lvup;
         break;
       }
 
-      // optional int32 Lvup = 3;
+      // optional int32 m_lvup = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_Lvup:
+         parse_m_lvup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lvup_)));
-          set_has_lvup();
+                 input, &m_lvup_)));
+          set_has_m_lvup();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_daoju;
+        if (input->ExpectTag(32)) goto parse_m_daoju;
         break;
       }
 
-      // optional int32 daoju = 4;
+      // optional int32 m_daoju = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_daoju:
+         parse_m_daoju:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &daoju_)));
-          set_has_daoju();
+                 input, &m_daoju_)));
+          set_has_m_daoju();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_item;
+        if (input->ExpectTag(42)) goto parse_m_item;
         break;
       }
 
-      // repeated .proto_ff.offlineitemlistitemDesc item = 5;
+      // repeated .proto_ff.E_OfflineItemlistItemDesc m_item = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_item:
+         parse_m_item:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_item()));
+                input, add_m_item()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_item;
+        if (input->ExpectTag(42)) goto parse_m_item;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1126,32 +1127,32 @@ bool offlineitemlist::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void offlineitemlist::SerializeWithCachedSizes(
+void E_OfflineItemlist::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 Lvdown = 2;
-  if (has_lvdown()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->lvdown(), output);
+  // optional int32 m_lvdown = 2;
+  if (has_m_lvdown()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lvdown(), output);
   }
 
-  // optional int32 Lvup = 3;
-  if (has_lvup()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->lvup(), output);
+  // optional int32 m_lvup = 3;
+  if (has_m_lvup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvup(), output);
   }
 
-  // optional int32 daoju = 4;
-  if (has_daoju()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->daoju(), output);
+  // optional int32 m_daoju = 4;
+  if (has_m_daoju()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_daoju(), output);
   }
 
-  // repeated .proto_ff.offlineitemlistitemDesc item = 5;
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_OfflineItemlistItemDesc m_item = 5;
+  for (int i = 0; i < this->m_item_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->item(i), output);
+      5, this->m_item(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1160,33 +1161,33 @@ void offlineitemlist::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* offlineitemlist::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_OfflineItemlist::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 Lvdown = 2;
-  if (has_lvdown()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->lvdown(), target);
+  // optional int32 m_lvdown = 2;
+  if (has_m_lvdown()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lvdown(), target);
   }
 
-  // optional int32 Lvup = 3;
-  if (has_lvup()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->lvup(), target);
+  // optional int32 m_lvup = 3;
+  if (has_m_lvup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvup(), target);
   }
 
-  // optional int32 daoju = 4;
-  if (has_daoju()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->daoju(), target);
+  // optional int32 m_daoju = 4;
+  if (has_m_daoju()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_daoju(), target);
   }
 
-  // repeated .proto_ff.offlineitemlistitemDesc item = 5;
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_OfflineItemlistItemDesc m_item = 5;
+  for (int i = 0; i < this->m_item_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        5, this->item(i), target);
+        5, this->m_item(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1196,45 +1197,45 @@ void offlineitemlist::SerializeWithCachedSizes(
   return target;
 }
 
-int offlineitemlist::ByteSize() const {
+int E_OfflineItemlist::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 id = 1;
-    if (has_id()) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 Lvdown = 2;
-    if (has_lvdown()) {
+    // optional int32 m_lvdown = 2;
+    if (has_m_lvdown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lvdown());
+          this->m_lvdown());
     }
 
-    // optional int32 Lvup = 3;
-    if (has_lvup()) {
+    // optional int32 m_lvup = 3;
+    if (has_m_lvup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lvup());
+          this->m_lvup());
     }
 
-    // optional int32 daoju = 4;
-    if (has_daoju()) {
+    // optional int32 m_daoju = 4;
+    if (has_m_daoju()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->daoju());
+          this->m_daoju());
     }
 
   }
-  // repeated .proto_ff.offlineitemlistitemDesc item = 5;
-  total_size += 1 * this->item_size();
-  for (int i = 0; i < this->item_size(); i++) {
+  // repeated .proto_ff.E_OfflineItemlistItemDesc m_item = 5;
+  total_size += 1 * this->m_item_size();
+  for (int i = 0; i < this->m_item_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->item(i));
+        this->m_item(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1248,10 +1249,10 @@ int offlineitemlist::ByteSize() const {
   return total_size;
 }
 
-void offlineitemlist::MergeFrom(const ::google::protobuf::Message& from) {
+void E_OfflineItemlist::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const offlineitemlist* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const offlineitemlist*>(
+  const E_OfflineItemlist* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_OfflineItemlist*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1260,61 +1261,61 @@ void offlineitemlist::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void offlineitemlist::MergeFrom(const offlineitemlist& from) {
+void E_OfflineItemlist::MergeFrom(const E_OfflineItemlist& from) {
   GOOGLE_CHECK_NE(&from, this);
-  item_.MergeFrom(from.item_);
+  m_item_.MergeFrom(from.m_item_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_lvdown()) {
-      set_lvdown(from.lvdown());
+    if (from.has_m_lvdown()) {
+      set_m_lvdown(from.m_lvdown());
     }
-    if (from.has_lvup()) {
-      set_lvup(from.lvup());
+    if (from.has_m_lvup()) {
+      set_m_lvup(from.m_lvup());
     }
-    if (from.has_daoju()) {
-      set_daoju(from.daoju());
+    if (from.has_m_daoju()) {
+      set_m_daoju(from.m_daoju());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void offlineitemlist::CopyFrom(const ::google::protobuf::Message& from) {
+void E_OfflineItemlist::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void offlineitemlist::CopyFrom(const offlineitemlist& from) {
+void E_OfflineItemlist::CopyFrom(const E_OfflineItemlist& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool offlineitemlist::IsInitialized() const {
+bool E_OfflineItemlist::IsInitialized() const {
 
   return true;
 }
 
-void offlineitemlist::Swap(offlineitemlist* other) {
+void E_OfflineItemlist::Swap(E_OfflineItemlist* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(lvdown_, other->lvdown_);
-    std::swap(lvup_, other->lvup_);
-    std::swap(daoju_, other->daoju_);
-    item_.Swap(&other->item_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_lvdown_, other->m_lvdown_);
+    std::swap(m_lvup_, other->m_lvup_);
+    std::swap(m_daoju_, other->m_daoju_);
+    m_item_.Swap(&other->m_item_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata offlineitemlist::GetMetadata() const {
+::google::protobuf::Metadata E_OfflineItemlist::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = offlineitemlist_descriptor_;
-  metadata.reflection = offlineitemlist_reflection_;
+  metadata.descriptor = E_OfflineItemlist_descriptor_;
+  metadata.reflection = E_OfflineItemlist_reflection_;
   return metadata;
 }
 
@@ -1322,81 +1323,81 @@ void offlineitemlist::Swap(offlineitemlist* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_offlineitemlist::kOfflineitemlistListFieldNumber;
+const int Sheet_OfflineItemlist::kEOfflineItemlistListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_offlineitemlist::Sheet_offlineitemlist()
+Sheet_OfflineItemlist::Sheet_OfflineItemlist()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_offlineitemlist::InitAsDefaultInstance() {
+void Sheet_OfflineItemlist::InitAsDefaultInstance() {
 }
 
-Sheet_offlineitemlist::Sheet_offlineitemlist(const Sheet_offlineitemlist& from)
+Sheet_OfflineItemlist::Sheet_OfflineItemlist(const Sheet_OfflineItemlist& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_offlineitemlist::SharedCtor() {
+void Sheet_OfflineItemlist::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_offlineitemlist::~Sheet_offlineitemlist() {
+Sheet_OfflineItemlist::~Sheet_OfflineItemlist() {
   SharedDtor();
 }
 
-void Sheet_offlineitemlist::SharedDtor() {
+void Sheet_OfflineItemlist::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_offlineitemlist::SetCachedSize(int size) const {
+void Sheet_OfflineItemlist::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_offlineitemlist::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_OfflineItemlist::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_offlineitemlist_descriptor_;
+  return Sheet_OfflineItemlist_descriptor_;
 }
 
-const Sheet_offlineitemlist& Sheet_offlineitemlist::default_instance() {
+const Sheet_OfflineItemlist& Sheet_OfflineItemlist::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_offline_2eproto();
   return *default_instance_;
 }
 
-Sheet_offlineitemlist* Sheet_offlineitemlist::default_instance_ = NULL;
+Sheet_OfflineItemlist* Sheet_OfflineItemlist::default_instance_ = NULL;
 
-Sheet_offlineitemlist* Sheet_offlineitemlist::New() const {
-  return new Sheet_offlineitemlist;
+Sheet_OfflineItemlist* Sheet_OfflineItemlist::New() const {
+  return new Sheet_OfflineItemlist;
 }
 
-void Sheet_offlineitemlist::Clear() {
-  offlineitemlist_list_.Clear();
+void Sheet_OfflineItemlist::Clear() {
+  e_offlineitemlist_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_offlineitemlist::MergePartialFromCodedStream(
+bool Sheet_OfflineItemlist::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.offlineitemlist offlineitemlist_List = 1;
+      // repeated .proto_ff.E_OfflineItemlist E_OfflineItemlist_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_offlineitemlist_List:
+         parse_E_OfflineItemlist_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_offlineitemlist_list()));
+                input, add_e_offlineitemlist_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_offlineitemlist_List;
+        if (input->ExpectTag(10)) goto parse_E_OfflineItemlist_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1417,12 +1418,12 @@ bool Sheet_offlineitemlist::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_offlineitemlist::SerializeWithCachedSizes(
+void Sheet_OfflineItemlist::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.offlineitemlist offlineitemlist_List = 1;
-  for (int i = 0; i < this->offlineitemlist_list_size(); i++) {
+  // repeated .proto_ff.E_OfflineItemlist E_OfflineItemlist_List = 1;
+  for (int i = 0; i < this->e_offlineitemlist_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->offlineitemlist_list(i), output);
+      1, this->e_offlineitemlist_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1431,13 +1432,13 @@ void Sheet_offlineitemlist::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_offlineitemlist::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_OfflineItemlist::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.offlineitemlist offlineitemlist_List = 1;
-  for (int i = 0; i < this->offlineitemlist_list_size(); i++) {
+  // repeated .proto_ff.E_OfflineItemlist E_OfflineItemlist_List = 1;
+  for (int i = 0; i < this->e_offlineitemlist_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->offlineitemlist_list(i), target);
+        1, this->e_offlineitemlist_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1447,15 +1448,15 @@ void Sheet_offlineitemlist::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_offlineitemlist::ByteSize() const {
+int Sheet_OfflineItemlist::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.offlineitemlist offlineitemlist_List = 1;
-  total_size += 1 * this->offlineitemlist_list_size();
-  for (int i = 0; i < this->offlineitemlist_list_size(); i++) {
+  // repeated .proto_ff.E_OfflineItemlist E_OfflineItemlist_List = 1;
+  total_size += 1 * this->e_offlineitemlist_list_size();
+  for (int i = 0; i < this->e_offlineitemlist_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->offlineitemlist_list(i));
+        this->e_offlineitemlist_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1469,10 +1470,10 @@ int Sheet_offlineitemlist::ByteSize() const {
   return total_size;
 }
 
-void Sheet_offlineitemlist::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_OfflineItemlist::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_offlineitemlist* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_offlineitemlist*>(
+  const Sheet_OfflineItemlist* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_OfflineItemlist*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1481,43 +1482,43 @@ void Sheet_offlineitemlist::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_offlineitemlist::MergeFrom(const Sheet_offlineitemlist& from) {
+void Sheet_OfflineItemlist::MergeFrom(const Sheet_OfflineItemlist& from) {
   GOOGLE_CHECK_NE(&from, this);
-  offlineitemlist_list_.MergeFrom(from.offlineitemlist_list_);
+  e_offlineitemlist_list_.MergeFrom(from.e_offlineitemlist_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_offlineitemlist::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_OfflineItemlist::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_offlineitemlist::CopyFrom(const Sheet_offlineitemlist& from) {
+void Sheet_OfflineItemlist::CopyFrom(const Sheet_OfflineItemlist& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_offlineitemlist::IsInitialized() const {
+bool Sheet_OfflineItemlist::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_offlineitemlist::Swap(Sheet_offlineitemlist* other) {
+void Sheet_OfflineItemlist::Swap(Sheet_OfflineItemlist* other) {
   if (other != this) {
-    offlineitemlist_list_.Swap(&other->offlineitemlist_list_);
+    e_offlineitemlist_list_.Swap(&other->e_offlineitemlist_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_offlineitemlist::GetMetadata() const {
+::google::protobuf::Metadata Sheet_OfflineItemlist::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_offlineitemlist_descriptor_;
-  metadata.reflection = Sheet_offlineitemlist_reflection_;
+  metadata.descriptor = Sheet_OfflineItemlist_descriptor_;
+  metadata.reflection = Sheet_OfflineItemlist_reflection_;
   return metadata;
 }
 

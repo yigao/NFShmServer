@@ -20,21 +20,21 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* intimacyintimacyattributeDesc_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_IntimacyIntimacyAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  intimacyintimacyattributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* intimacyintimacy_descriptor_ = NULL;
+  E_IntimacyIntimacyAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_IntimacyIntimacy_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  intimacyintimacy_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_intimacyintimacy_descriptor_ = NULL;
+  E_IntimacyIntimacy_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_IntimacyIntimacy_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_intimacyintimacy_reflection_ = NULL;
-const ::google::protobuf::Descriptor* intimacygift_descriptor_ = NULL;
+  Sheet_IntimacyIntimacy_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_IntimacyGift_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  intimacygift_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_intimacygift_descriptor_ = NULL;
+  E_IntimacyGift_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_IntimacyGift_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_intimacygift_reflection_ = NULL;
+  Sheet_IntimacyGift_reflection_ = NULL;
 
 }  // namespace
 
@@ -45,88 +45,88 @@ void protobuf_AssignDesc_intimacy_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "intimacy.proto");
   GOOGLE_CHECK(file != NULL);
-  intimacyintimacyattributeDesc_descriptor_ = file->message_type(0);
-  static const int intimacyintimacyattributeDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacyattributeDesc, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacyattributeDesc, value_),
+  E_IntimacyIntimacyAttributeDesc_descriptor_ = file->message_type(0);
+  static const int E_IntimacyIntimacyAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacyAttributeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacyAttributeDesc, m_value_),
   };
-  intimacyintimacyattributeDesc_reflection_ =
+  E_IntimacyIntimacyAttributeDesc_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      intimacyintimacyattributeDesc_descriptor_,
-      intimacyintimacyattributeDesc::default_instance_,
-      intimacyintimacyattributeDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacyattributeDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacyattributeDesc, _unknown_fields_),
+      E_IntimacyIntimacyAttributeDesc_descriptor_,
+      E_IntimacyIntimacyAttributeDesc::default_instance_,
+      E_IntimacyIntimacyAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacyAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacyAttributeDesc, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(intimacyintimacyattributeDesc));
-  intimacyintimacy_descriptor_ = file->message_type(1);
-  static const int intimacyintimacy_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacy, lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacy, intimacymin_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacy, intimacymax_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacy, attribute_),
+      sizeof(E_IntimacyIntimacyAttributeDesc));
+  E_IntimacyIntimacy_descriptor_ = file->message_type(1);
+  static const int E_IntimacyIntimacy_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacy, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacy, m_intimacymin_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacy, m_intimacymax_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacy, m_attribute_),
   };
-  intimacyintimacy_reflection_ =
+  E_IntimacyIntimacy_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      intimacyintimacy_descriptor_,
-      intimacyintimacy::default_instance_,
-      intimacyintimacy_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacy, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacyintimacy, _unknown_fields_),
+      E_IntimacyIntimacy_descriptor_,
+      E_IntimacyIntimacy::default_instance_,
+      E_IntimacyIntimacy_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacy, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyIntimacy, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(intimacyintimacy));
-  Sheet_intimacyintimacy_descriptor_ = file->message_type(2);
-  static const int Sheet_intimacyintimacy_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_intimacyintimacy, intimacyintimacy_list_),
+      sizeof(E_IntimacyIntimacy));
+  Sheet_IntimacyIntimacy_descriptor_ = file->message_type(2);
+  static const int Sheet_IntimacyIntimacy_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_IntimacyIntimacy, e_intimacyintimacy_list_),
   };
-  Sheet_intimacyintimacy_reflection_ =
+  Sheet_IntimacyIntimacy_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_intimacyintimacy_descriptor_,
-      Sheet_intimacyintimacy::default_instance_,
-      Sheet_intimacyintimacy_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_intimacyintimacy, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_intimacyintimacy, _unknown_fields_),
+      Sheet_IntimacyIntimacy_descriptor_,
+      Sheet_IntimacyIntimacy::default_instance_,
+      Sheet_IntimacyIntimacy_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_IntimacyIntimacy, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_IntimacyIntimacy, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_intimacyintimacy));
-  intimacygift_descriptor_ = file->message_type(3);
-  static const int intimacygift_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacygift, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacygift, moneytype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacygift, price_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacygift, intimacy_),
+      sizeof(Sheet_IntimacyIntimacy));
+  E_IntimacyGift_descriptor_ = file->message_type(3);
+  static const int E_IntimacyGift_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_moneytype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_intimacy_),
   };
-  intimacygift_reflection_ =
+  E_IntimacyGift_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      intimacygift_descriptor_,
-      intimacygift::default_instance_,
-      intimacygift_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacygift, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(intimacygift, _unknown_fields_),
+      E_IntimacyGift_descriptor_,
+      E_IntimacyGift::default_instance_,
+      E_IntimacyGift_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(intimacygift));
-  Sheet_intimacygift_descriptor_ = file->message_type(4);
-  static const int Sheet_intimacygift_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_intimacygift, intimacygift_list_),
+      sizeof(E_IntimacyGift));
+  Sheet_IntimacyGift_descriptor_ = file->message_type(4);
+  static const int Sheet_IntimacyGift_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_IntimacyGift, e_intimacygift_list_),
   };
-  Sheet_intimacygift_reflection_ =
+  Sheet_IntimacyGift_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_intimacygift_descriptor_,
-      Sheet_intimacygift::default_instance_,
-      Sheet_intimacygift_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_intimacygift, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_intimacygift, _unknown_fields_),
+      Sheet_IntimacyGift_descriptor_,
+      Sheet_IntimacyGift::default_instance_,
+      Sheet_IntimacyGift_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_IntimacyGift, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_IntimacyGift, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_intimacygift));
+      sizeof(Sheet_IntimacyGift));
 }
 
 namespace {
@@ -140,30 +140,30 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    intimacyintimacyattributeDesc_descriptor_, &intimacyintimacyattributeDesc::default_instance());
+    E_IntimacyIntimacyAttributeDesc_descriptor_, &E_IntimacyIntimacyAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    intimacyintimacy_descriptor_, &intimacyintimacy::default_instance());
+    E_IntimacyIntimacy_descriptor_, &E_IntimacyIntimacy::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_intimacyintimacy_descriptor_, &Sheet_intimacyintimacy::default_instance());
+    Sheet_IntimacyIntimacy_descriptor_, &Sheet_IntimacyIntimacy::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    intimacygift_descriptor_, &intimacygift::default_instance());
+    E_IntimacyGift_descriptor_, &E_IntimacyGift::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_intimacygift_descriptor_, &Sheet_intimacygift::default_instance());
+    Sheet_IntimacyGift_descriptor_, &Sheet_IntimacyGift::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_intimacy_2eproto() {
-  delete intimacyintimacyattributeDesc::default_instance_;
-  delete intimacyintimacyattributeDesc_reflection_;
-  delete intimacyintimacy::default_instance_;
-  delete intimacyintimacy_reflection_;
-  delete Sheet_intimacyintimacy::default_instance_;
-  delete Sheet_intimacyintimacy_reflection_;
-  delete intimacygift::default_instance_;
-  delete intimacygift_reflection_;
-  delete Sheet_intimacygift::default_instance_;
-  delete Sheet_intimacygift_reflection_;
+  delete E_IntimacyIntimacyAttributeDesc::default_instance_;
+  delete E_IntimacyIntimacyAttributeDesc_reflection_;
+  delete E_IntimacyIntimacy::default_instance_;
+  delete E_IntimacyIntimacy_reflection_;
+  delete Sheet_IntimacyIntimacy::default_instance_;
+  delete Sheet_IntimacyIntimacy_reflection_;
+  delete E_IntimacyGift::default_instance_;
+  delete E_IntimacyGift_reflection_;
+  delete Sheet_IntimacyGift::default_instance_;
+  delete Sheet_IntimacyGift_reflection_;
 }
 
 void protobuf_AddDesc_intimacy_2eproto() {
@@ -175,34 +175,35 @@ void protobuf_AddDesc_intimacy_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016intimacy.proto\022\010proto_ff\032\025yd_fieldopti"
-    "ons.proto\"M\n\035intimacyintimacyattributeDe"
-    "sc\022\024\n\004type\030\001 \001(\005B\006\302\377\024\002ID\022\026\n\005value\030\002 \001(\005B"
-    "\007\302\377\024\003\345\200\274\"\320\001\n\020intimacyintimacy\022\026\n\002lv\030\001 \001("
-    "\005B\n\302\377\024\006\347\255\211\347\272\247\022(\n\013intimacyMin\030\002 \001(\005B\023\302\377\024\017"
-    "\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022(\n\013intimacyMax\030\003 \001(\005B\023\302\377"
-    "\024\017\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022P\n\tattribute\030\004 \003(\0132\'.p"
-    "roto_ff.intimacyintimacyattributeDescB\024\302"
-    "\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\003\"Y\n\026Sheet_intimacyint"
-    "imacy\022\?\n\025intimacyintimacy_List\030\001 \003(\0132\032.p"
-    "roto_ff.intimacyintimacyB\004\210\301\024\024\"\211\001\n\014intim"
-    "acygift\022\030\n\002id\030\001 \001(\003B\014\302\377\024\010\347\211\251\345\223\201id\022#\n\tmon"
-    "eyType\030\002 \001(\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\031\n\005price\030"
-    "\003 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022\037\n\010intimacy\030\004 \001(\005B\r\302\377\024"
-    "\t\344\272\262\345\257\206\345\272\246\"M\n\022Sheet_intimacygift\0227\n\021inti"
-    "macygift_List\030\001 \003(\0132\026.proto_ff.intimacyg"
-    "iftB\004\210\301\024\024", 649);
+    "ons.proto\"S\n\037E_IntimacyIntimacyAttribute"
+    "Desc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030"
+    "\002 \001(\005B\007\302\377\024\003\345\200\274\"\334\001\n\022E_IntimacyIntimacy\022\030\n"
+    "\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022*\n\rm_intimacymin"
+    "\030\002 \001(\005B\023\302\377\024\017\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022*\n\rm_intimac"
+    "ymax\030\003 \001(\005B\023\302\377\024\017\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022T\n\013m_att"
+    "ribute\030\004 \003(\0132).proto_ff.E_IntimacyIntima"
+    "cyAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\003\"]\n"
+    "\026Sheet_IntimacyIntimacy\022C\n\027E_IntimacyInt"
+    "imacy_List\030\001 \003(\0132\034.proto_ff.E_IntimacyIn"
+    "timacyB\004\210\301\024\024\"\223\001\n\016E_IntimacyGift\022\032\n\004m_id\030"
+    "\001 \001(\003B\014\302\377\024\010\347\211\251\345\223\201id\022%\n\013m_moneytype\030\002 \001(\005"
+    "B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\033\n\007m_price\030\003 \001(\005B\n\302\377\024"
+    "\006\344\273\267\346\240\274\022!\n\nm_intimacy\030\004 \001(\005B\r\302\377\024\t\344\272\262\345\257\206\345"
+    "\272\246\"Q\n\022Sheet_IntimacyGift\022;\n\023E_IntimacyGi"
+    "ft_List\030\001 \003(\0132\030.proto_ff.E_IntimacyGiftB"
+    "\004\210\301\024\024", 685);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "intimacy.proto", &protobuf_RegisterTypes);
-  intimacyintimacyattributeDesc::default_instance_ = new intimacyintimacyattributeDesc();
-  intimacyintimacy::default_instance_ = new intimacyintimacy();
-  Sheet_intimacyintimacy::default_instance_ = new Sheet_intimacyintimacy();
-  intimacygift::default_instance_ = new intimacygift();
-  Sheet_intimacygift::default_instance_ = new Sheet_intimacygift();
-  intimacyintimacyattributeDesc::default_instance_->InitAsDefaultInstance();
-  intimacyintimacy::default_instance_->InitAsDefaultInstance();
-  Sheet_intimacyintimacy::default_instance_->InitAsDefaultInstance();
-  intimacygift::default_instance_->InitAsDefaultInstance();
-  Sheet_intimacygift::default_instance_->InitAsDefaultInstance();
+  E_IntimacyIntimacyAttributeDesc::default_instance_ = new E_IntimacyIntimacyAttributeDesc();
+  E_IntimacyIntimacy::default_instance_ = new E_IntimacyIntimacy();
+  Sheet_IntimacyIntimacy::default_instance_ = new Sheet_IntimacyIntimacy();
+  E_IntimacyGift::default_instance_ = new E_IntimacyGift();
+  Sheet_IntimacyGift::default_instance_ = new Sheet_IntimacyGift();
+  E_IntimacyIntimacyAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_IntimacyIntimacy::default_instance_->InitAsDefaultInstance();
+  Sheet_IntimacyIntimacy::default_instance_->InitAsDefaultInstance();
+  E_IntimacyGift::default_instance_->InitAsDefaultInstance();
+  Sheet_IntimacyGift::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_intimacy_2eproto);
 }
 
@@ -216,100 +217,100 @@ struct StaticDescriptorInitializer_intimacy_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int intimacyintimacyattributeDesc::kTypeFieldNumber;
-const int intimacyintimacyattributeDesc::kValueFieldNumber;
+const int E_IntimacyIntimacyAttributeDesc::kMTypeFieldNumber;
+const int E_IntimacyIntimacyAttributeDesc::kMValueFieldNumber;
 #endif  // !_MSC_VER
 
-intimacyintimacyattributeDesc::intimacyintimacyattributeDesc()
+E_IntimacyIntimacyAttributeDesc::E_IntimacyIntimacyAttributeDesc()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void intimacyintimacyattributeDesc::InitAsDefaultInstance() {
+void E_IntimacyIntimacyAttributeDesc::InitAsDefaultInstance() {
 }
 
-intimacyintimacyattributeDesc::intimacyintimacyattributeDesc(const intimacyintimacyattributeDesc& from)
+E_IntimacyIntimacyAttributeDesc::E_IntimacyIntimacyAttributeDesc(const E_IntimacyIntimacyAttributeDesc& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void intimacyintimacyattributeDesc::SharedCtor() {
+void E_IntimacyIntimacyAttributeDesc::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 0;
-  value_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-intimacyintimacyattributeDesc::~intimacyintimacyattributeDesc() {
+E_IntimacyIntimacyAttributeDesc::~E_IntimacyIntimacyAttributeDesc() {
   SharedDtor();
 }
 
-void intimacyintimacyattributeDesc::SharedDtor() {
+void E_IntimacyIntimacyAttributeDesc::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void intimacyintimacyattributeDesc::SetCachedSize(int size) const {
+void E_IntimacyIntimacyAttributeDesc::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* intimacyintimacyattributeDesc::descriptor() {
+const ::google::protobuf::Descriptor* E_IntimacyIntimacyAttributeDesc::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return intimacyintimacyattributeDesc_descriptor_;
+  return E_IntimacyIntimacyAttributeDesc_descriptor_;
 }
 
-const intimacyintimacyattributeDesc& intimacyintimacyattributeDesc::default_instance() {
+const E_IntimacyIntimacyAttributeDesc& E_IntimacyIntimacyAttributeDesc::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_intimacy_2eproto();
   return *default_instance_;
 }
 
-intimacyintimacyattributeDesc* intimacyintimacyattributeDesc::default_instance_ = NULL;
+E_IntimacyIntimacyAttributeDesc* E_IntimacyIntimacyAttributeDesc::default_instance_ = NULL;
 
-intimacyintimacyattributeDesc* intimacyintimacyattributeDesc::New() const {
-  return new intimacyintimacyattributeDesc;
+E_IntimacyIntimacyAttributeDesc* E_IntimacyIntimacyAttributeDesc::New() const {
+  return new E_IntimacyIntimacyAttributeDesc;
 }
 
-void intimacyintimacyattributeDesc::Clear() {
+void E_IntimacyIntimacyAttributeDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    type_ = 0;
-    value_ = 0;
+    m_type_ = 0;
+    m_value_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool intimacyintimacyattributeDesc::MergePartialFromCodedStream(
+bool E_IntimacyIntimacyAttributeDesc::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 type = 1;
+      // optional int32 m_type = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &type_)));
-          set_has_type();
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_value;
+        if (input->ExpectTag(16)) goto parse_m_value;
         break;
       }
 
-      // optional int32 value = 2;
+      // optional int32 m_value = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_value:
+         parse_m_value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-          set_has_value();
+                 input, &m_value_)));
+          set_has_m_value();
         } else {
           goto handle_uninterpreted;
         }
@@ -333,16 +334,16 @@ bool intimacyintimacyattributeDesc::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void intimacyintimacyattributeDesc::SerializeWithCachedSizes(
+void E_IntimacyIntimacyAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->value(), output);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -351,16 +352,16 @@ void intimacyintimacyattributeDesc::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* intimacyintimacyattributeDesc::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_IntimacyIntimacyAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 type = 1;
-  if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
   }
 
-  // optional int32 value = 2;
-  if (has_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->value(), target);
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -370,22 +371,22 @@ void intimacyintimacyattributeDesc::SerializeWithCachedSizes(
   return target;
 }
 
-int intimacyintimacyattributeDesc::ByteSize() const {
+int E_IntimacyIntimacyAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 type = 1;
-    if (has_type()) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->type());
+          this->m_type());
     }
 
-    // optional int32 value = 2;
-    if (has_value()) {
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->value());
+          this->m_value());
     }
 
   }
@@ -400,10 +401,10 @@ int intimacyintimacyattributeDesc::ByteSize() const {
   return total_size;
 }
 
-void intimacyintimacyattributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+void E_IntimacyIntimacyAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const intimacyintimacyattributeDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const intimacyintimacyattributeDesc*>(
+  const E_IntimacyIntimacyAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_IntimacyIntimacyAttributeDesc*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -412,51 +413,51 @@ void intimacyintimacyattributeDesc::MergeFrom(const ::google::protobuf::Message&
   }
 }
 
-void intimacyintimacyattributeDesc::MergeFrom(const intimacyintimacyattributeDesc& from) {
+void E_IntimacyIntimacyAttributeDesc::MergeFrom(const E_IntimacyIntimacyAttributeDesc& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_type()) {
-      set_type(from.type());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
-    if (from.has_value()) {
-      set_value(from.value());
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void intimacyintimacyattributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+void E_IntimacyIntimacyAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void intimacyintimacyattributeDesc::CopyFrom(const intimacyintimacyattributeDesc& from) {
+void E_IntimacyIntimacyAttributeDesc::CopyFrom(const E_IntimacyIntimacyAttributeDesc& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool intimacyintimacyattributeDesc::IsInitialized() const {
+bool E_IntimacyIntimacyAttributeDesc::IsInitialized() const {
 
   return true;
 }
 
-void intimacyintimacyattributeDesc::Swap(intimacyintimacyattributeDesc* other) {
+void E_IntimacyIntimacyAttributeDesc::Swap(E_IntimacyIntimacyAttributeDesc* other) {
   if (other != this) {
-    std::swap(type_, other->type_);
-    std::swap(value_, other->value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata intimacyintimacyattributeDesc::GetMetadata() const {
+::google::protobuf::Metadata E_IntimacyIntimacyAttributeDesc::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = intimacyintimacyattributeDesc_descriptor_;
-  metadata.reflection = intimacyintimacyattributeDesc_reflection_;
+  metadata.descriptor = E_IntimacyIntimacyAttributeDesc_descriptor_;
+  metadata.reflection = E_IntimacyIntimacyAttributeDesc_reflection_;
   return metadata;
 }
 
@@ -464,139 +465,139 @@ void intimacyintimacyattributeDesc::Swap(intimacyintimacyattributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int intimacyintimacy::kLvFieldNumber;
-const int intimacyintimacy::kIntimacyMinFieldNumber;
-const int intimacyintimacy::kIntimacyMaxFieldNumber;
-const int intimacyintimacy::kAttributeFieldNumber;
+const int E_IntimacyIntimacy::kMLvFieldNumber;
+const int E_IntimacyIntimacy::kMIntimacyminFieldNumber;
+const int E_IntimacyIntimacy::kMIntimacymaxFieldNumber;
+const int E_IntimacyIntimacy::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
-intimacyintimacy::intimacyintimacy()
+E_IntimacyIntimacy::E_IntimacyIntimacy()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void intimacyintimacy::InitAsDefaultInstance() {
+void E_IntimacyIntimacy::InitAsDefaultInstance() {
 }
 
-intimacyintimacy::intimacyintimacy(const intimacyintimacy& from)
+E_IntimacyIntimacy::E_IntimacyIntimacy(const E_IntimacyIntimacy& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void intimacyintimacy::SharedCtor() {
+void E_IntimacyIntimacy::SharedCtor() {
   _cached_size_ = 0;
-  lv_ = 0;
-  intimacymin_ = 0;
-  intimacymax_ = 0;
+  m_lv_ = 0;
+  m_intimacymin_ = 0;
+  m_intimacymax_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-intimacyintimacy::~intimacyintimacy() {
+E_IntimacyIntimacy::~E_IntimacyIntimacy() {
   SharedDtor();
 }
 
-void intimacyintimacy::SharedDtor() {
+void E_IntimacyIntimacy::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void intimacyintimacy::SetCachedSize(int size) const {
+void E_IntimacyIntimacy::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* intimacyintimacy::descriptor() {
+const ::google::protobuf::Descriptor* E_IntimacyIntimacy::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return intimacyintimacy_descriptor_;
+  return E_IntimacyIntimacy_descriptor_;
 }
 
-const intimacyintimacy& intimacyintimacy::default_instance() {
+const E_IntimacyIntimacy& E_IntimacyIntimacy::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_intimacy_2eproto();
   return *default_instance_;
 }
 
-intimacyintimacy* intimacyintimacy::default_instance_ = NULL;
+E_IntimacyIntimacy* E_IntimacyIntimacy::default_instance_ = NULL;
 
-intimacyintimacy* intimacyintimacy::New() const {
-  return new intimacyintimacy;
+E_IntimacyIntimacy* E_IntimacyIntimacy::New() const {
+  return new E_IntimacyIntimacy;
 }
 
-void intimacyintimacy::Clear() {
+void E_IntimacyIntimacy::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    lv_ = 0;
-    intimacymin_ = 0;
-    intimacymax_ = 0;
+    m_lv_ = 0;
+    m_intimacymin_ = 0;
+    m_intimacymax_ = 0;
   }
-  attribute_.Clear();
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool intimacyintimacy::MergePartialFromCodedStream(
+bool E_IntimacyIntimacy::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 lv = 1;
+      // optional int32 m_lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lv_)));
-          set_has_lv();
+                 input, &m_lv_)));
+          set_has_m_lv();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_intimacyMin;
+        if (input->ExpectTag(16)) goto parse_m_intimacymin;
         break;
       }
 
-      // optional int32 intimacyMin = 2;
+      // optional int32 m_intimacymin = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_intimacyMin:
+         parse_m_intimacymin:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &intimacymin_)));
-          set_has_intimacymin();
+                 input, &m_intimacymin_)));
+          set_has_m_intimacymin();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_intimacyMax;
+        if (input->ExpectTag(24)) goto parse_m_intimacymax;
         break;
       }
 
-      // optional int32 intimacyMax = 3;
+      // optional int32 m_intimacymax = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_intimacyMax:
+         parse_m_intimacymax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &intimacymax_)));
-          set_has_intimacymax();
+                 input, &m_intimacymax_)));
+          set_has_m_intimacymax();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_attribute;
+        if (input->ExpectTag(34)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.intimacyintimacyattributeDesc attribute = 4;
+      // repeated .proto_ff.E_IntimacyIntimacyAttributeDesc m_attribute = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attribute:
+         parse_m_attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_attribute()));
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_attribute;
+        if (input->ExpectTag(34)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -617,27 +618,27 @@ bool intimacyintimacy::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void intimacyintimacy::SerializeWithCachedSizes(
+void E_IntimacyIntimacy::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lv(), output);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 intimacyMin = 2;
-  if (has_intimacymin()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->intimacymin(), output);
+  // optional int32 m_intimacymin = 2;
+  if (has_m_intimacymin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_intimacymin(), output);
   }
 
-  // optional int32 intimacyMax = 3;
-  if (has_intimacymax()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->intimacymax(), output);
+  // optional int32 m_intimacymax = 3;
+  if (has_m_intimacymax()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_intimacymax(), output);
   }
 
-  // repeated .proto_ff.intimacyintimacyattributeDesc attribute = 4;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_IntimacyIntimacyAttributeDesc m_attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->attribute(i), output);
+      4, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -646,28 +647,28 @@ void intimacyintimacy::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* intimacyintimacy::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_IntimacyIntimacy::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 lv = 1;
-  if (has_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lv(), target);
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 intimacyMin = 2;
-  if (has_intimacymin()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->intimacymin(), target);
+  // optional int32 m_intimacymin = 2;
+  if (has_m_intimacymin()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_intimacymin(), target);
   }
 
-  // optional int32 intimacyMax = 3;
-  if (has_intimacymax()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->intimacymax(), target);
+  // optional int32 m_intimacymax = 3;
+  if (has_m_intimacymax()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_intimacymax(), target);
   }
 
-  // repeated .proto_ff.intimacyintimacyattributeDesc attribute = 4;
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_IntimacyIntimacyAttributeDesc m_attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->attribute(i), target);
+        4, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -677,38 +678,38 @@ void intimacyintimacy::SerializeWithCachedSizes(
   return target;
 }
 
-int intimacyintimacy::ByteSize() const {
+int E_IntimacyIntimacy::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 lv = 1;
-    if (has_lv()) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->lv());
+          this->m_lv());
     }
 
-    // optional int32 intimacyMin = 2;
-    if (has_intimacymin()) {
+    // optional int32 m_intimacymin = 2;
+    if (has_m_intimacymin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->intimacymin());
+          this->m_intimacymin());
     }
 
-    // optional int32 intimacyMax = 3;
-    if (has_intimacymax()) {
+    // optional int32 m_intimacymax = 3;
+    if (has_m_intimacymax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->intimacymax());
+          this->m_intimacymax());
     }
 
   }
-  // repeated .proto_ff.intimacyintimacyattributeDesc attribute = 4;
-  total_size += 1 * this->attribute_size();
-  for (int i = 0; i < this->attribute_size(); i++) {
+  // repeated .proto_ff.E_IntimacyIntimacyAttributeDesc m_attribute = 4;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->attribute(i));
+        this->m_attribute(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -722,10 +723,10 @@ int intimacyintimacy::ByteSize() const {
   return total_size;
 }
 
-void intimacyintimacy::MergeFrom(const ::google::protobuf::Message& from) {
+void E_IntimacyIntimacy::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const intimacyintimacy* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const intimacyintimacy*>(
+  const E_IntimacyIntimacy* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_IntimacyIntimacy*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -734,57 +735,57 @@ void intimacyintimacy::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void intimacyintimacy::MergeFrom(const intimacyintimacy& from) {
+void E_IntimacyIntimacy::MergeFrom(const E_IntimacyIntimacy& from) {
   GOOGLE_CHECK_NE(&from, this);
-  attribute_.MergeFrom(from.attribute_);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_lv()) {
-      set_lv(from.lv());
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
     }
-    if (from.has_intimacymin()) {
-      set_intimacymin(from.intimacymin());
+    if (from.has_m_intimacymin()) {
+      set_m_intimacymin(from.m_intimacymin());
     }
-    if (from.has_intimacymax()) {
-      set_intimacymax(from.intimacymax());
+    if (from.has_m_intimacymax()) {
+      set_m_intimacymax(from.m_intimacymax());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void intimacyintimacy::CopyFrom(const ::google::protobuf::Message& from) {
+void E_IntimacyIntimacy::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void intimacyintimacy::CopyFrom(const intimacyintimacy& from) {
+void E_IntimacyIntimacy::CopyFrom(const E_IntimacyIntimacy& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool intimacyintimacy::IsInitialized() const {
+bool E_IntimacyIntimacy::IsInitialized() const {
 
   return true;
 }
 
-void intimacyintimacy::Swap(intimacyintimacy* other) {
+void E_IntimacyIntimacy::Swap(E_IntimacyIntimacy* other) {
   if (other != this) {
-    std::swap(lv_, other->lv_);
-    std::swap(intimacymin_, other->intimacymin_);
-    std::swap(intimacymax_, other->intimacymax_);
-    attribute_.Swap(&other->attribute_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_intimacymin_, other->m_intimacymin_);
+    std::swap(m_intimacymax_, other->m_intimacymax_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata intimacyintimacy::GetMetadata() const {
+::google::protobuf::Metadata E_IntimacyIntimacy::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = intimacyintimacy_descriptor_;
-  metadata.reflection = intimacyintimacy_reflection_;
+  metadata.descriptor = E_IntimacyIntimacy_descriptor_;
+  metadata.reflection = E_IntimacyIntimacy_reflection_;
   return metadata;
 }
 
@@ -792,81 +793,81 @@ void intimacyintimacy::Swap(intimacyintimacy* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_intimacyintimacy::kIntimacyintimacyListFieldNumber;
+const int Sheet_IntimacyIntimacy::kEIntimacyIntimacyListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_intimacyintimacy::Sheet_intimacyintimacy()
+Sheet_IntimacyIntimacy::Sheet_IntimacyIntimacy()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_intimacyintimacy::InitAsDefaultInstance() {
+void Sheet_IntimacyIntimacy::InitAsDefaultInstance() {
 }
 
-Sheet_intimacyintimacy::Sheet_intimacyintimacy(const Sheet_intimacyintimacy& from)
+Sheet_IntimacyIntimacy::Sheet_IntimacyIntimacy(const Sheet_IntimacyIntimacy& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_intimacyintimacy::SharedCtor() {
+void Sheet_IntimacyIntimacy::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_intimacyintimacy::~Sheet_intimacyintimacy() {
+Sheet_IntimacyIntimacy::~Sheet_IntimacyIntimacy() {
   SharedDtor();
 }
 
-void Sheet_intimacyintimacy::SharedDtor() {
+void Sheet_IntimacyIntimacy::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_intimacyintimacy::SetCachedSize(int size) const {
+void Sheet_IntimacyIntimacy::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_intimacyintimacy::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_IntimacyIntimacy::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_intimacyintimacy_descriptor_;
+  return Sheet_IntimacyIntimacy_descriptor_;
 }
 
-const Sheet_intimacyintimacy& Sheet_intimacyintimacy::default_instance() {
+const Sheet_IntimacyIntimacy& Sheet_IntimacyIntimacy::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_intimacy_2eproto();
   return *default_instance_;
 }
 
-Sheet_intimacyintimacy* Sheet_intimacyintimacy::default_instance_ = NULL;
+Sheet_IntimacyIntimacy* Sheet_IntimacyIntimacy::default_instance_ = NULL;
 
-Sheet_intimacyintimacy* Sheet_intimacyintimacy::New() const {
-  return new Sheet_intimacyintimacy;
+Sheet_IntimacyIntimacy* Sheet_IntimacyIntimacy::New() const {
+  return new Sheet_IntimacyIntimacy;
 }
 
-void Sheet_intimacyintimacy::Clear() {
-  intimacyintimacy_list_.Clear();
+void Sheet_IntimacyIntimacy::Clear() {
+  e_intimacyintimacy_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_intimacyintimacy::MergePartialFromCodedStream(
+bool Sheet_IntimacyIntimacy::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.intimacyintimacy intimacyintimacy_List = 1;
+      // repeated .proto_ff.E_IntimacyIntimacy E_IntimacyIntimacy_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_intimacyintimacy_List:
+         parse_E_IntimacyIntimacy_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_intimacyintimacy_list()));
+                input, add_e_intimacyintimacy_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_intimacyintimacy_List;
+        if (input->ExpectTag(10)) goto parse_E_IntimacyIntimacy_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -887,12 +888,12 @@ bool Sheet_intimacyintimacy::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_intimacyintimacy::SerializeWithCachedSizes(
+void Sheet_IntimacyIntimacy::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.intimacyintimacy intimacyintimacy_List = 1;
-  for (int i = 0; i < this->intimacyintimacy_list_size(); i++) {
+  // repeated .proto_ff.E_IntimacyIntimacy E_IntimacyIntimacy_List = 1;
+  for (int i = 0; i < this->e_intimacyintimacy_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->intimacyintimacy_list(i), output);
+      1, this->e_intimacyintimacy_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -901,13 +902,13 @@ void Sheet_intimacyintimacy::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_intimacyintimacy::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_IntimacyIntimacy::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.intimacyintimacy intimacyintimacy_List = 1;
-  for (int i = 0; i < this->intimacyintimacy_list_size(); i++) {
+  // repeated .proto_ff.E_IntimacyIntimacy E_IntimacyIntimacy_List = 1;
+  for (int i = 0; i < this->e_intimacyintimacy_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->intimacyintimacy_list(i), target);
+        1, this->e_intimacyintimacy_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -917,15 +918,15 @@ void Sheet_intimacyintimacy::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_intimacyintimacy::ByteSize() const {
+int Sheet_IntimacyIntimacy::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.intimacyintimacy intimacyintimacy_List = 1;
-  total_size += 1 * this->intimacyintimacy_list_size();
-  for (int i = 0; i < this->intimacyintimacy_list_size(); i++) {
+  // repeated .proto_ff.E_IntimacyIntimacy E_IntimacyIntimacy_List = 1;
+  total_size += 1 * this->e_intimacyintimacy_list_size();
+  for (int i = 0; i < this->e_intimacyintimacy_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->intimacyintimacy_list(i));
+        this->e_intimacyintimacy_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -939,10 +940,10 @@ int Sheet_intimacyintimacy::ByteSize() const {
   return total_size;
 }
 
-void Sheet_intimacyintimacy::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_IntimacyIntimacy::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_intimacyintimacy* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_intimacyintimacy*>(
+  const Sheet_IntimacyIntimacy* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_IntimacyIntimacy*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -951,43 +952,43 @@ void Sheet_intimacyintimacy::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void Sheet_intimacyintimacy::MergeFrom(const Sheet_intimacyintimacy& from) {
+void Sheet_IntimacyIntimacy::MergeFrom(const Sheet_IntimacyIntimacy& from) {
   GOOGLE_CHECK_NE(&from, this);
-  intimacyintimacy_list_.MergeFrom(from.intimacyintimacy_list_);
+  e_intimacyintimacy_list_.MergeFrom(from.e_intimacyintimacy_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_intimacyintimacy::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_IntimacyIntimacy::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_intimacyintimacy::CopyFrom(const Sheet_intimacyintimacy& from) {
+void Sheet_IntimacyIntimacy::CopyFrom(const Sheet_IntimacyIntimacy& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_intimacyintimacy::IsInitialized() const {
+bool Sheet_IntimacyIntimacy::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_intimacyintimacy::Swap(Sheet_intimacyintimacy* other) {
+void Sheet_IntimacyIntimacy::Swap(Sheet_IntimacyIntimacy* other) {
   if (other != this) {
-    intimacyintimacy_list_.Swap(&other->intimacyintimacy_list_);
+    e_intimacyintimacy_list_.Swap(&other->e_intimacyintimacy_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_intimacyintimacy::GetMetadata() const {
+::google::protobuf::Metadata Sheet_IntimacyIntimacy::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_intimacyintimacy_descriptor_;
-  metadata.reflection = Sheet_intimacyintimacy_reflection_;
+  metadata.descriptor = Sheet_IntimacyIntimacy_descriptor_;
+  metadata.reflection = Sheet_IntimacyIntimacy_reflection_;
   return metadata;
 }
 
@@ -995,138 +996,138 @@ void Sheet_intimacyintimacy::Swap(Sheet_intimacyintimacy* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int intimacygift::kIdFieldNumber;
-const int intimacygift::kMoneyTypeFieldNumber;
-const int intimacygift::kPriceFieldNumber;
-const int intimacygift::kIntimacyFieldNumber;
+const int E_IntimacyGift::kMIdFieldNumber;
+const int E_IntimacyGift::kMMoneytypeFieldNumber;
+const int E_IntimacyGift::kMPriceFieldNumber;
+const int E_IntimacyGift::kMIntimacyFieldNumber;
 #endif  // !_MSC_VER
 
-intimacygift::intimacygift()
+E_IntimacyGift::E_IntimacyGift()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void intimacygift::InitAsDefaultInstance() {
+void E_IntimacyGift::InitAsDefaultInstance() {
 }
 
-intimacygift::intimacygift(const intimacygift& from)
+E_IntimacyGift::E_IntimacyGift(const E_IntimacyGift& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void intimacygift::SharedCtor() {
+void E_IntimacyGift::SharedCtor() {
   _cached_size_ = 0;
-  id_ = GOOGLE_LONGLONG(0);
-  moneytype_ = 0;
-  price_ = 0;
-  intimacy_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  m_moneytype_ = 0;
+  m_price_ = 0;
+  m_intimacy_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-intimacygift::~intimacygift() {
+E_IntimacyGift::~E_IntimacyGift() {
   SharedDtor();
 }
 
-void intimacygift::SharedDtor() {
+void E_IntimacyGift::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void intimacygift::SetCachedSize(int size) const {
+void E_IntimacyGift::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* intimacygift::descriptor() {
+const ::google::protobuf::Descriptor* E_IntimacyGift::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return intimacygift_descriptor_;
+  return E_IntimacyGift_descriptor_;
 }
 
-const intimacygift& intimacygift::default_instance() {
+const E_IntimacyGift& E_IntimacyGift::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_intimacy_2eproto();
   return *default_instance_;
 }
 
-intimacygift* intimacygift::default_instance_ = NULL;
+E_IntimacyGift* E_IntimacyGift::default_instance_ = NULL;
 
-intimacygift* intimacygift::New() const {
-  return new intimacygift;
+E_IntimacyGift* E_IntimacyGift::New() const {
+  return new E_IntimacyGift;
 }
 
-void intimacygift::Clear() {
+void E_IntimacyGift::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_LONGLONG(0);
-    moneytype_ = 0;
-    price_ = 0;
-    intimacy_ = 0;
+    m_id_ = GOOGLE_LONGLONG(0);
+    m_moneytype_ = 0;
+    m_price_ = 0;
+    m_intimacy_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool intimacygift::MergePartialFromCodedStream(
+bool E_IntimacyGift::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 id = 1;
+      // optional int64 m_id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &id_)));
-          set_has_id();
+                 input, &m_id_)));
+          set_has_m_id();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_moneyType;
+        if (input->ExpectTag(16)) goto parse_m_moneytype;
         break;
       }
 
-      // optional int32 moneyType = 2;
+      // optional int32 m_moneytype = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_moneyType:
+         parse_m_moneytype:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &moneytype_)));
-          set_has_moneytype();
+                 input, &m_moneytype_)));
+          set_has_m_moneytype();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_price;
+        if (input->ExpectTag(24)) goto parse_m_price;
         break;
       }
 
-      // optional int32 price = 3;
+      // optional int32 m_price = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_price:
+         parse_m_price:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &price_)));
-          set_has_price();
+                 input, &m_price_)));
+          set_has_m_price();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_intimacy;
+        if (input->ExpectTag(32)) goto parse_m_intimacy;
         break;
       }
 
-      // optional int32 intimacy = 4;
+      // optional int32 m_intimacy = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_intimacy:
+         parse_m_intimacy:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &intimacy_)));
-          set_has_intimacy();
+                 input, &m_intimacy_)));
+          set_has_m_intimacy();
         } else {
           goto handle_uninterpreted;
         }
@@ -1150,26 +1151,26 @@ bool intimacygift::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void intimacygift::SerializeWithCachedSizes(
+void E_IntimacyGift::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 moneyType = 2;
-  if (has_moneytype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->moneytype(), output);
+  // optional int32 m_moneytype = 2;
+  if (has_m_moneytype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_moneytype(), output);
   }
 
-  // optional int32 price = 3;
-  if (has_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->price(), output);
+  // optional int32 m_price = 3;
+  if (has_m_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_price(), output);
   }
 
-  // optional int32 intimacy = 4;
-  if (has_intimacy()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->intimacy(), output);
+  // optional int32 m_intimacy = 4;
+  if (has_m_intimacy()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_intimacy(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1178,26 +1179,26 @@ void intimacygift::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* intimacygift::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_IntimacyGift::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  // optional int64 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 moneyType = 2;
-  if (has_moneytype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->moneytype(), target);
+  // optional int32 m_moneytype = 2;
+  if (has_m_moneytype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_moneytype(), target);
   }
 
-  // optional int32 price = 3;
-  if (has_price()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->price(), target);
+  // optional int32 m_price = 3;
+  if (has_m_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_price(), target);
   }
 
-  // optional int32 intimacy = 4;
-  if (has_intimacy()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->intimacy(), target);
+  // optional int32 m_intimacy = 4;
+  if (has_m_intimacy()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_intimacy(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1207,36 +1208,36 @@ void intimacygift::SerializeWithCachedSizes(
   return target;
 }
 
-int intimacygift::ByteSize() const {
+int E_IntimacyGift::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 id = 1;
-    if (has_id()) {
+    // optional int64 m_id = 1;
+    if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->id());
+          this->m_id());
     }
 
-    // optional int32 moneyType = 2;
-    if (has_moneytype()) {
+    // optional int32 m_moneytype = 2;
+    if (has_m_moneytype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->moneytype());
+          this->m_moneytype());
     }
 
-    // optional int32 price = 3;
-    if (has_price()) {
+    // optional int32 m_price = 3;
+    if (has_m_price()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->price());
+          this->m_price());
     }
 
-    // optional int32 intimacy = 4;
-    if (has_intimacy()) {
+    // optional int32 m_intimacy = 4;
+    if (has_m_intimacy()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->intimacy());
+          this->m_intimacy());
     }
 
   }
@@ -1251,10 +1252,10 @@ int intimacygift::ByteSize() const {
   return total_size;
 }
 
-void intimacygift::MergeFrom(const ::google::protobuf::Message& from) {
+void E_IntimacyGift::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const intimacygift* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const intimacygift*>(
+  const E_IntimacyGift* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_IntimacyGift*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1263,59 +1264,59 @@ void intimacygift::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void intimacygift::MergeFrom(const intimacygift& from) {
+void E_IntimacyGift::MergeFrom(const E_IntimacyGift& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
     }
-    if (from.has_moneytype()) {
-      set_moneytype(from.moneytype());
+    if (from.has_m_moneytype()) {
+      set_m_moneytype(from.m_moneytype());
     }
-    if (from.has_price()) {
-      set_price(from.price());
+    if (from.has_m_price()) {
+      set_m_price(from.m_price());
     }
-    if (from.has_intimacy()) {
-      set_intimacy(from.intimacy());
+    if (from.has_m_intimacy()) {
+      set_m_intimacy(from.m_intimacy());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void intimacygift::CopyFrom(const ::google::protobuf::Message& from) {
+void E_IntimacyGift::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void intimacygift::CopyFrom(const intimacygift& from) {
+void E_IntimacyGift::CopyFrom(const E_IntimacyGift& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool intimacygift::IsInitialized() const {
+bool E_IntimacyGift::IsInitialized() const {
 
   return true;
 }
 
-void intimacygift::Swap(intimacygift* other) {
+void E_IntimacyGift::Swap(E_IntimacyGift* other) {
   if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(moneytype_, other->moneytype_);
-    std::swap(price_, other->price_);
-    std::swap(intimacy_, other->intimacy_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_moneytype_, other->m_moneytype_);
+    std::swap(m_price_, other->m_price_);
+    std::swap(m_intimacy_, other->m_intimacy_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata intimacygift::GetMetadata() const {
+::google::protobuf::Metadata E_IntimacyGift::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = intimacygift_descriptor_;
-  metadata.reflection = intimacygift_reflection_;
+  metadata.descriptor = E_IntimacyGift_descriptor_;
+  metadata.reflection = E_IntimacyGift_reflection_;
   return metadata;
 }
 
@@ -1323,81 +1324,81 @@ void intimacygift::Swap(intimacygift* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_intimacygift::kIntimacygiftListFieldNumber;
+const int Sheet_IntimacyGift::kEIntimacyGiftListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_intimacygift::Sheet_intimacygift()
+Sheet_IntimacyGift::Sheet_IntimacyGift()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_intimacygift::InitAsDefaultInstance() {
+void Sheet_IntimacyGift::InitAsDefaultInstance() {
 }
 
-Sheet_intimacygift::Sheet_intimacygift(const Sheet_intimacygift& from)
+Sheet_IntimacyGift::Sheet_IntimacyGift(const Sheet_IntimacyGift& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_intimacygift::SharedCtor() {
+void Sheet_IntimacyGift::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_intimacygift::~Sheet_intimacygift() {
+Sheet_IntimacyGift::~Sheet_IntimacyGift() {
   SharedDtor();
 }
 
-void Sheet_intimacygift::SharedDtor() {
+void Sheet_IntimacyGift::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_intimacygift::SetCachedSize(int size) const {
+void Sheet_IntimacyGift::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_intimacygift::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_IntimacyGift::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_intimacygift_descriptor_;
+  return Sheet_IntimacyGift_descriptor_;
 }
 
-const Sheet_intimacygift& Sheet_intimacygift::default_instance() {
+const Sheet_IntimacyGift& Sheet_IntimacyGift::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_intimacy_2eproto();
   return *default_instance_;
 }
 
-Sheet_intimacygift* Sheet_intimacygift::default_instance_ = NULL;
+Sheet_IntimacyGift* Sheet_IntimacyGift::default_instance_ = NULL;
 
-Sheet_intimacygift* Sheet_intimacygift::New() const {
-  return new Sheet_intimacygift;
+Sheet_IntimacyGift* Sheet_IntimacyGift::New() const {
+  return new Sheet_IntimacyGift;
 }
 
-void Sheet_intimacygift::Clear() {
-  intimacygift_list_.Clear();
+void Sheet_IntimacyGift::Clear() {
+  e_intimacygift_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_intimacygift::MergePartialFromCodedStream(
+bool Sheet_IntimacyGift::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.intimacygift intimacygift_List = 1;
+      // repeated .proto_ff.E_IntimacyGift E_IntimacyGift_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_intimacygift_List:
+         parse_E_IntimacyGift_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_intimacygift_list()));
+                input, add_e_intimacygift_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_intimacygift_List;
+        if (input->ExpectTag(10)) goto parse_E_IntimacyGift_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1418,12 +1419,12 @@ bool Sheet_intimacygift::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_intimacygift::SerializeWithCachedSizes(
+void Sheet_IntimacyGift::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.intimacygift intimacygift_List = 1;
-  for (int i = 0; i < this->intimacygift_list_size(); i++) {
+  // repeated .proto_ff.E_IntimacyGift E_IntimacyGift_List = 1;
+  for (int i = 0; i < this->e_intimacygift_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->intimacygift_list(i), output);
+      1, this->e_intimacygift_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1432,13 +1433,13 @@ void Sheet_intimacygift::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_intimacygift::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_IntimacyGift::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.intimacygift intimacygift_List = 1;
-  for (int i = 0; i < this->intimacygift_list_size(); i++) {
+  // repeated .proto_ff.E_IntimacyGift E_IntimacyGift_List = 1;
+  for (int i = 0; i < this->e_intimacygift_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->intimacygift_list(i), target);
+        1, this->e_intimacygift_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1448,15 +1449,15 @@ void Sheet_intimacygift::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_intimacygift::ByteSize() const {
+int Sheet_IntimacyGift::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.intimacygift intimacygift_List = 1;
-  total_size += 1 * this->intimacygift_list_size();
-  for (int i = 0; i < this->intimacygift_list_size(); i++) {
+  // repeated .proto_ff.E_IntimacyGift E_IntimacyGift_List = 1;
+  total_size += 1 * this->e_intimacygift_list_size();
+  for (int i = 0; i < this->e_intimacygift_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->intimacygift_list(i));
+        this->e_intimacygift_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1470,10 +1471,10 @@ int Sheet_intimacygift::ByteSize() const {
   return total_size;
 }
 
-void Sheet_intimacygift::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_IntimacyGift::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_intimacygift* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_intimacygift*>(
+  const Sheet_IntimacyGift* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_IntimacyGift*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1482,43 +1483,43 @@ void Sheet_intimacygift::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_intimacygift::MergeFrom(const Sheet_intimacygift& from) {
+void Sheet_IntimacyGift::MergeFrom(const Sheet_IntimacyGift& from) {
   GOOGLE_CHECK_NE(&from, this);
-  intimacygift_list_.MergeFrom(from.intimacygift_list_);
+  e_intimacygift_list_.MergeFrom(from.e_intimacygift_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_intimacygift::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_IntimacyGift::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_intimacygift::CopyFrom(const Sheet_intimacygift& from) {
+void Sheet_IntimacyGift::CopyFrom(const Sheet_IntimacyGift& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_intimacygift::IsInitialized() const {
+bool Sheet_IntimacyGift::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_intimacygift::Swap(Sheet_intimacygift* other) {
+void Sheet_IntimacyGift::Swap(Sheet_IntimacyGift* other) {
   if (other != this) {
-    intimacygift_list_.Swap(&other->intimacygift_list_);
+    e_intimacygift_list_.Swap(&other->e_intimacygift_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_intimacygift::GetMetadata() const {
+::google::protobuf::Metadata Sheet_IntimacyGift::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_intimacygift_descriptor_;
-  metadata.reflection = Sheet_intimacygift_reflection_;
+  metadata.descriptor = Sheet_IntimacyGift_descriptor_;
+  metadata.reflection = Sheet_IntimacyGift_reflection_;
   return metadata;
 }
 

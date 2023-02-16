@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "link.pb.h"
@@ -10,38 +10,38 @@
 
 namespace proto_ff_s {
 
-	struct linklink_s : public NFDescStoreSeqOP {
-		linklink_s();
-		virtual ~linklink_s(){}
+	struct E_LinkLink_s : public NFDescStoreSeqOP {
+		E_LinkLink_s();
+		virtual ~E_LinkLink_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t id;
-		NFShmString<60> icon;
-		NFShmString<60> dbArgs;
-		NFShmString<60> argsm;
-		int32_t functionUnlock;
-		NFShmString<60> linkNpc;
+		int64_t m_id;
+		NFShmString<60> m_icon;
+		NFShmString<60> m_dbargs;
+		NFShmString<60> m_argsm;
+		int32_t m_functionunlock;
+		NFShmString<60> m_linknpc;
 
-		virtual void write_to_pbmsg(::proto_ff::linklink & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::linklink & msg);
-		static ::proto_ff::linklink* new_pbmsg(){ return new ::proto_ff::linklink(); }
-		static ::proto_ff::linklink make_pbmsg(){ return ::proto_ff::linklink(); }
+		virtual void write_to_pbmsg(::proto_ff::E_LinkLink & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_LinkLink & msg);
+		static ::proto_ff::E_LinkLink* new_pbmsg(){ return new ::proto_ff::E_LinkLink(); }
+		static ::proto_ff::E_LinkLink make_pbmsg(){ return ::proto_ff::E_LinkLink(); }
 	};
-	typedef struct linklink_s linklink_t;
+	typedef struct E_LinkLink_s E_LinkLink_t;
 
-	struct Sheet_linklink_s : public NFDescStoreSeqOP {
-		Sheet_linklink_s();
-		virtual ~Sheet_linklink_s(){}
+	struct Sheet_LinkLink_s : public NFDescStoreSeqOP {
+		Sheet_LinkLink_s();
+		virtual ~Sheet_LinkLink_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFArray<struct linklink_s, 40> linklink_List;
+		NFShmVector<struct E_LinkLink_s, 40> E_LinkLink_List;
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_linklink & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_linklink & msg);
-		static ::proto_ff::Sheet_linklink* new_pbmsg(){ return new ::proto_ff::Sheet_linklink(); }
-		static ::proto_ff::Sheet_linklink make_pbmsg(){ return ::proto_ff::Sheet_linklink(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_LinkLink & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_LinkLink & msg);
+		static ::proto_ff::Sheet_LinkLink* new_pbmsg(){ return new ::proto_ff::Sheet_LinkLink(); }
+		static ::proto_ff::Sheet_LinkLink make_pbmsg(){ return ::proto_ff::Sheet_LinkLink(); }
 	};
-	typedef struct Sheet_linklink_s Sheet_linklink_t;
+	typedef struct Sheet_LinkLink_s Sheet_LinkLink_t;
 
 }
 

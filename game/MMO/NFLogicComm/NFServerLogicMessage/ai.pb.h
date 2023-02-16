@@ -34,20 +34,20 @@ void  protobuf_AddDesc_ai_2eproto();
 void protobuf_AssignDesc_ai_2eproto();
 void protobuf_ShutdownFile_ai_2eproto();
 
-class aiaihpDesc;
-class aiai;
-class Sheet_aiai;
+class E_AiAiHpDesc;
+class E_AiAi;
+class Sheet_AiAi;
 
 // ===================================================================
 
-class aiaihpDesc : public ::google::protobuf::Message {
+class E_AiAiHpDesc : public ::google::protobuf::Message {
  public:
-  aiaihpDesc();
-  virtual ~aiaihpDesc();
+  E_AiAiHpDesc();
+  virtual ~E_AiAiHpDesc();
 
-  aiaihpDesc(const aiaihpDesc& from);
+  E_AiAiHpDesc(const E_AiAiHpDesc& from);
 
-  inline aiaihpDesc& operator=(const aiaihpDesc& from) {
+  inline E_AiAiHpDesc& operator=(const E_AiAiHpDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -61,17 +61,17 @@ class aiaihpDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const aiaihpDesc& default_instance();
+  static const E_AiAiHpDesc& default_instance();
 
-  void Swap(aiaihpDesc* other);
+  void Swap(E_AiAiHpDesc* other);
 
   // implements Message ----------------------------------------------
 
-  aiaihpDesc* New() const;
+  E_AiAiHpDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const aiaihpDesc& from);
-  void MergeFrom(const aiaihpDesc& from);
+  void CopyFrom(const E_AiAiHpDesc& from);
+  void MergeFrom(const E_AiAiHpDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -94,41 +94,41 @@ class aiaihpDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 skill = 1;
-  inline bool has_skill() const;
-  inline void clear_skill();
-  static const int kSkillFieldNumber = 1;
-  inline ::google::protobuf::int64 skill() const;
-  inline void set_skill(::google::protobuf::int64 value);
+  // optional int64 m_skill = 1;
+  inline bool has_m_skill() const;
+  inline void clear_m_skill();
+  static const int kMSkillFieldNumber = 1;
+  inline ::google::protobuf::int64 m_skill() const;
+  inline void set_m_skill(::google::protobuf::int64 value);
 
-  // optional int32 percent = 2;
-  inline bool has_percent() const;
-  inline void clear_percent();
-  static const int kPercentFieldNumber = 2;
-  inline ::google::protobuf::int32 percent() const;
-  inline void set_percent(::google::protobuf::int32 value);
+  // optional int32 m_percent = 2;
+  inline bool has_m_percent() const;
+  inline void clear_m_percent();
+  static const int kMPercentFieldNumber = 2;
+  inline ::google::protobuf::int32 m_percent() const;
+  inline void set_m_percent(::google::protobuf::int32 value);
 
-  // optional int64 chat = 3;
-  inline bool has_chat() const;
-  inline void clear_chat();
-  static const int kChatFieldNumber = 3;
-  inline ::google::protobuf::int64 chat() const;
-  inline void set_chat(::google::protobuf::int64 value);
+  // optional int64 m_chat = 3;
+  inline bool has_m_chat() const;
+  inline void clear_m_chat();
+  static const int kMChatFieldNumber = 3;
+  inline ::google::protobuf::int64 m_chat() const;
+  inline void set_m_chat(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.aiaihpDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AiAiHpDesc)
  private:
-  inline void set_has_skill();
-  inline void clear_has_skill();
-  inline void set_has_percent();
-  inline void clear_has_percent();
-  inline void set_has_chat();
-  inline void clear_has_chat();
+  inline void set_has_m_skill();
+  inline void clear_has_m_skill();
+  inline void set_has_m_percent();
+  inline void clear_has_m_percent();
+  inline void set_has_m_chat();
+  inline void clear_has_m_chat();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 skill_;
-  ::google::protobuf::int64 chat_;
-  ::google::protobuf::int32 percent_;
+  ::google::protobuf::int64 m_skill_;
+  ::google::protobuf::int64 m_chat_;
+  ::google::protobuf::int32 m_percent_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -138,18 +138,18 @@ class aiaihpDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ai_2eproto();
 
   void InitAsDefaultInstance();
-  static aiaihpDesc* default_instance_;
+  static E_AiAiHpDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class aiai : public ::google::protobuf::Message {
+class E_AiAi : public ::google::protobuf::Message {
  public:
-  aiai();
-  virtual ~aiai();
+  E_AiAi();
+  virtual ~E_AiAi();
 
-  aiai(const aiai& from);
+  E_AiAi(const E_AiAi& from);
 
-  inline aiai& operator=(const aiai& from) {
+  inline E_AiAi& operator=(const E_AiAi& from) {
     CopyFrom(from);
     return *this;
   }
@@ -163,17 +163,17 @@ class aiai : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const aiai& default_instance();
+  static const E_AiAi& default_instance();
 
-  void Swap(aiai* other);
+  void Swap(E_AiAi* other);
 
   // implements Message ----------------------------------------------
 
-  aiai* New() const;
+  E_AiAi* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const aiai& from);
-  void MergeFrom(const aiai& from);
+  void CopyFrom(const E_AiAi& from);
+  void MergeFrom(const E_AiAi& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -196,179 +196,179 @@ class aiai : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 id = 1;
-  inline bool has_id() const;
-  inline void clear_id();
-  static const int kIdFieldNumber = 1;
-  inline ::google::protobuf::int64 id() const;
-  inline void set_id(::google::protobuf::int64 value);
+  // optional int64 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 type = 2;
-  inline bool has_type() const;
-  inline void clear_type();
-  static const int kTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 type() const;
-  inline void set_type(::google::protobuf::int32 value);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional string deadHateRemain = 3;
-  inline bool has_deadhateremain() const;
-  inline void clear_deadhateremain();
-  static const int kDeadHateRemainFieldNumber = 3;
-  inline const ::std::string& deadhateremain() const;
-  inline void set_deadhateremain(const ::std::string& value);
-  inline void set_deadhateremain(const char* value);
-  inline void set_deadhateremain(const char* value, size_t size);
-  inline ::std::string* mutable_deadhateremain();
-  inline ::std::string* release_deadhateremain();
-  inline void set_allocated_deadhateremain(::std::string* deadhateremain);
+  // optional string m_deadhateremain = 3;
+  inline bool has_m_deadhateremain() const;
+  inline void clear_m_deadhateremain();
+  static const int kMDeadhateremainFieldNumber = 3;
+  inline const ::std::string& m_deadhateremain() const;
+  inline void set_m_deadhateremain(const ::std::string& value);
+  inline void set_m_deadhateremain(const char* value);
+  inline void set_m_deadhateremain(const char* value, size_t size);
+  inline ::std::string* mutable_m_deadhateremain();
+  inline ::std::string* release_m_deadhateremain();
+  inline void set_allocated_m_deadhateremain(::std::string* m_deadhateremain);
 
-  // optional string invisibleRemain = 4;
-  inline bool has_invisibleremain() const;
-  inline void clear_invisibleremain();
-  static const int kInvisibleRemainFieldNumber = 4;
-  inline const ::std::string& invisibleremain() const;
-  inline void set_invisibleremain(const ::std::string& value);
-  inline void set_invisibleremain(const char* value);
-  inline void set_invisibleremain(const char* value, size_t size);
-  inline ::std::string* mutable_invisibleremain();
-  inline ::std::string* release_invisibleremain();
-  inline void set_allocated_invisibleremain(::std::string* invisibleremain);
+  // optional string m_invisibleremain = 4;
+  inline bool has_m_invisibleremain() const;
+  inline void clear_m_invisibleremain();
+  static const int kMInvisibleremainFieldNumber = 4;
+  inline const ::std::string& m_invisibleremain() const;
+  inline void set_m_invisibleremain(const ::std::string& value);
+  inline void set_m_invisibleremain(const char* value);
+  inline void set_m_invisibleremain(const char* value, size_t size);
+  inline ::std::string* mutable_m_invisibleremain();
+  inline ::std::string* release_m_invisibleremain();
+  inline void set_allocated_m_invisibleremain(::std::string* m_invisibleremain);
 
-  // optional int32 isActive = 5;
-  inline bool has_isactive() const;
-  inline void clear_isactive();
-  static const int kIsActiveFieldNumber = 5;
-  inline ::google::protobuf::int32 isactive() const;
-  inline void set_isactive(::google::protobuf::int32 value);
+  // optional int32 m_isactive = 5;
+  inline bool has_m_isactive() const;
+  inline void clear_m_isactive();
+  static const int kMIsactiveFieldNumber = 5;
+  inline ::google::protobuf::int32 m_isactive() const;
+  inline void set_m_isactive(::google::protobuf::int32 value);
 
-  // optional int32 returnType = 6;
-  inline bool has_returntype() const;
-  inline void clear_returntype();
-  static const int kReturnTypeFieldNumber = 6;
-  inline ::google::protobuf::int32 returntype() const;
-  inline void set_returntype(::google::protobuf::int32 value);
+  // optional int32 m_returntype = 6;
+  inline bool has_m_returntype() const;
+  inline void clear_m_returntype();
+  static const int kMReturntypeFieldNumber = 6;
+  inline ::google::protobuf::int32 m_returntype() const;
+  inline void set_m_returntype(::google::protobuf::int32 value);
 
-  // optional int32 view = 7;
-  inline bool has_view() const;
-  inline void clear_view();
-  static const int kViewFieldNumber = 7;
-  inline ::google::protobuf::int32 view() const;
-  inline void set_view(::google::protobuf::int32 value);
+  // optional int32 m_view = 7;
+  inline bool has_m_view() const;
+  inline void clear_m_view();
+  static const int kMViewFieldNumber = 7;
+  inline ::google::protobuf::int32 m_view() const;
+  inline void set_m_view(::google::protobuf::int32 value);
 
-  // optional int32 isAttackedShowOff = 8;
-  inline bool has_isattackedshowoff() const;
-  inline void clear_isattackedshowoff();
-  static const int kIsAttackedShowOffFieldNumber = 8;
-  inline ::google::protobuf::int32 isattackedshowoff() const;
-  inline void set_isattackedshowoff(::google::protobuf::int32 value);
+  // optional int32 m_isattackedshowoff = 8;
+  inline bool has_m_isattackedshowoff() const;
+  inline void clear_m_isattackedshowoff();
+  static const int kMIsattackedshowoffFieldNumber = 8;
+  inline ::google::protobuf::int32 m_isattackedshowoff() const;
+  inline void set_m_isattackedshowoff(::google::protobuf::int32 value);
 
-  // optional int32 pursueRange = 9;
-  inline bool has_pursuerange() const;
-  inline void clear_pursuerange();
-  static const int kPursueRangeFieldNumber = 9;
-  inline ::google::protobuf::int32 pursuerange() const;
-  inline void set_pursuerange(::google::protobuf::int32 value);
+  // optional int32 m_pursuerange = 9;
+  inline bool has_m_pursuerange() const;
+  inline void clear_m_pursuerange();
+  static const int kMPursuerangeFieldNumber = 9;
+  inline ::google::protobuf::int32 m_pursuerange() const;
+  inline void set_m_pursuerange(::google::protobuf::int32 value);
 
-  // optional int32 actionRange = 10;
-  inline bool has_actionrange() const;
-  inline void clear_actionrange();
-  static const int kActionRangeFieldNumber = 10;
-  inline ::google::protobuf::int32 actionrange() const;
-  inline void set_actionrange(::google::protobuf::int32 value);
+  // optional int32 m_actionrange = 10;
+  inline bool has_m_actionrange() const;
+  inline void clear_m_actionrange();
+  static const int kMActionrangeFieldNumber = 10;
+  inline ::google::protobuf::int32 m_actionrange() const;
+  inline void set_m_actionrange(::google::protobuf::int32 value);
 
-  // optional int32 wakeupRadius = 11;
-  inline bool has_wakeupradius() const;
-  inline void clear_wakeupradius();
-  static const int kWakeupRadiusFieldNumber = 11;
-  inline ::google::protobuf::int32 wakeupradius() const;
-  inline void set_wakeupradius(::google::protobuf::int32 value);
+  // optional int32 m_wakeupradius = 11;
+  inline bool has_m_wakeupradius() const;
+  inline void clear_m_wakeupradius();
+  static const int kMWakeupradiusFieldNumber = 11;
+  inline ::google::protobuf::int32 m_wakeupradius() const;
+  inline void set_m_wakeupradius(::google::protobuf::int32 value);
 
-  // optional int32 isAIWorkWhenNobody = 12;
-  inline bool has_isaiworkwhennobody() const;
-  inline void clear_isaiworkwhennobody();
-  static const int kIsAIWorkWhenNobodyFieldNumber = 12;
-  inline ::google::protobuf::int32 isaiworkwhennobody() const;
-  inline void set_isaiworkwhennobody(::google::protobuf::int32 value);
+  // optional int32 m_isaiworkwhennobody = 12;
+  inline bool has_m_isaiworkwhennobody() const;
+  inline void clear_m_isaiworkwhennobody();
+  static const int kMIsaiworkwhennobodyFieldNumber = 12;
+  inline ::google::protobuf::int32 m_isaiworkwhennobody() const;
+  inline void set_m_isaiworkwhennobody(::google::protobuf::int32 value);
 
-  // optional int32 bornEffectAIDelay = 13;
-  inline bool has_borneffectaidelay() const;
-  inline void clear_borneffectaidelay();
-  static const int kBornEffectAIDelayFieldNumber = 13;
-  inline ::google::protobuf::int32 borneffectaidelay() const;
-  inline void set_borneffectaidelay(::google::protobuf::int32 value);
+  // optional int32 m_borneffectaidelay = 13;
+  inline bool has_m_borneffectaidelay() const;
+  inline void clear_m_borneffectaidelay();
+  static const int kMBorneffectaidelayFieldNumber = 13;
+  inline ::google::protobuf::int32 m_borneffectaidelay() const;
+  inline void set_m_borneffectaidelay(::google::protobuf::int32 value);
 
-  // optional string initSkills = 14;
-  inline bool has_initskills() const;
-  inline void clear_initskills();
-  static const int kInitSkillsFieldNumber = 14;
-  inline const ::std::string& initskills() const;
-  inline void set_initskills(const ::std::string& value);
-  inline void set_initskills(const char* value);
-  inline void set_initskills(const char* value, size_t size);
-  inline ::std::string* mutable_initskills();
-  inline ::std::string* release_initskills();
-  inline void set_allocated_initskills(::std::string* initskills);
+  // optional string m_initskills = 14;
+  inline bool has_m_initskills() const;
+  inline void clear_m_initskills();
+  static const int kMInitskillsFieldNumber = 14;
+  inline const ::std::string& m_initskills() const;
+  inline void set_m_initskills(const ::std::string& value);
+  inline void set_m_initskills(const char* value);
+  inline void set_m_initskills(const char* value, size_t size);
+  inline ::std::string* mutable_m_initskills();
+  inline ::std::string* release_m_initskills();
+  inline void set_allocated_m_initskills(::std::string* m_initskills);
 
-  // repeated .proto_ff.aiaihpDesc hp = 15;
-  inline int hp_size() const;
-  inline void clear_hp();
-  static const int kHpFieldNumber = 15;
-  inline const ::proto_ff::aiaihpDesc& hp(int index) const;
-  inline ::proto_ff::aiaihpDesc* mutable_hp(int index);
-  inline ::proto_ff::aiaihpDesc* add_hp();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::aiaihpDesc >&
-      hp() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::aiaihpDesc >*
-      mutable_hp();
+  // repeated .proto_ff.E_AiAiHpDesc m_hp = 15;
+  inline int m_hp_size() const;
+  inline void clear_m_hp();
+  static const int kMHpFieldNumber = 15;
+  inline const ::proto_ff::E_AiAiHpDesc& m_hp(int index) const;
+  inline ::proto_ff::E_AiAiHpDesc* mutable_m_hp(int index);
+  inline ::proto_ff::E_AiAiHpDesc* add_m_hp();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAiHpDesc >&
+      m_hp() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAiHpDesc >*
+      mutable_m_hp();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.aiai)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AiAi)
  private:
-  inline void set_has_id();
-  inline void clear_has_id();
-  inline void set_has_type();
-  inline void clear_has_type();
-  inline void set_has_deadhateremain();
-  inline void clear_has_deadhateremain();
-  inline void set_has_invisibleremain();
-  inline void clear_has_invisibleremain();
-  inline void set_has_isactive();
-  inline void clear_has_isactive();
-  inline void set_has_returntype();
-  inline void clear_has_returntype();
-  inline void set_has_view();
-  inline void clear_has_view();
-  inline void set_has_isattackedshowoff();
-  inline void clear_has_isattackedshowoff();
-  inline void set_has_pursuerange();
-  inline void clear_has_pursuerange();
-  inline void set_has_actionrange();
-  inline void clear_has_actionrange();
-  inline void set_has_wakeupradius();
-  inline void clear_has_wakeupradius();
-  inline void set_has_isaiworkwhennobody();
-  inline void clear_has_isaiworkwhennobody();
-  inline void set_has_borneffectaidelay();
-  inline void clear_has_borneffectaidelay();
-  inline void set_has_initskills();
-  inline void clear_has_initskills();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_deadhateremain();
+  inline void clear_has_m_deadhateremain();
+  inline void set_has_m_invisibleremain();
+  inline void clear_has_m_invisibleremain();
+  inline void set_has_m_isactive();
+  inline void clear_has_m_isactive();
+  inline void set_has_m_returntype();
+  inline void clear_has_m_returntype();
+  inline void set_has_m_view();
+  inline void clear_has_m_view();
+  inline void set_has_m_isattackedshowoff();
+  inline void clear_has_m_isattackedshowoff();
+  inline void set_has_m_pursuerange();
+  inline void clear_has_m_pursuerange();
+  inline void set_has_m_actionrange();
+  inline void clear_has_m_actionrange();
+  inline void set_has_m_wakeupradius();
+  inline void clear_has_m_wakeupradius();
+  inline void set_has_m_isaiworkwhennobody();
+  inline void clear_has_m_isaiworkwhennobody();
+  inline void set_has_m_borneffectaidelay();
+  inline void clear_has_m_borneffectaidelay();
+  inline void set_has_m_initskills();
+  inline void clear_has_m_initskills();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int64 id_;
-  ::std::string* deadhateremain_;
-  ::google::protobuf::int32 type_;
-  ::google::protobuf::int32 isactive_;
-  ::std::string* invisibleremain_;
-  ::google::protobuf::int32 returntype_;
-  ::google::protobuf::int32 view_;
-  ::google::protobuf::int32 isattackedshowoff_;
-  ::google::protobuf::int32 pursuerange_;
-  ::google::protobuf::int32 actionrange_;
-  ::google::protobuf::int32 wakeupradius_;
-  ::google::protobuf::int32 isaiworkwhennobody_;
-  ::google::protobuf::int32 borneffectaidelay_;
-  ::std::string* initskills_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::aiaihpDesc > hp_;
+  ::google::protobuf::int64 m_id_;
+  ::std::string* m_deadhateremain_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_isactive_;
+  ::std::string* m_invisibleremain_;
+  ::google::protobuf::int32 m_returntype_;
+  ::google::protobuf::int32 m_view_;
+  ::google::protobuf::int32 m_isattackedshowoff_;
+  ::google::protobuf::int32 m_pursuerange_;
+  ::google::protobuf::int32 m_actionrange_;
+  ::google::protobuf::int32 m_wakeupradius_;
+  ::google::protobuf::int32 m_isaiworkwhennobody_;
+  ::google::protobuf::int32 m_borneffectaidelay_;
+  ::std::string* m_initskills_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAiHpDesc > m_hp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
@@ -378,18 +378,18 @@ class aiai : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ai_2eproto();
 
   void InitAsDefaultInstance();
-  static aiai* default_instance_;
+  static E_AiAi* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_aiai : public ::google::protobuf::Message {
+class Sheet_AiAi : public ::google::protobuf::Message {
  public:
-  Sheet_aiai();
-  virtual ~Sheet_aiai();
+  Sheet_AiAi();
+  virtual ~Sheet_AiAi();
 
-  Sheet_aiai(const Sheet_aiai& from);
+  Sheet_AiAi(const Sheet_AiAi& from);
 
-  inline Sheet_aiai& operator=(const Sheet_aiai& from) {
+  inline Sheet_AiAi& operator=(const Sheet_AiAi& from) {
     CopyFrom(from);
     return *this;
   }
@@ -403,17 +403,17 @@ class Sheet_aiai : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_aiai& default_instance();
+  static const Sheet_AiAi& default_instance();
 
-  void Swap(Sheet_aiai* other);
+  void Swap(Sheet_AiAi* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_aiai* New() const;
+  Sheet_AiAi* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_aiai& from);
-  void MergeFrom(const Sheet_aiai& from);
+  void CopyFrom(const Sheet_AiAi& from);
+  void MergeFrom(const Sheet_AiAi& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -436,24 +436,24 @@ class Sheet_aiai : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.aiai aiai_List = 1;
-  inline int aiai_list_size() const;
-  inline void clear_aiai_list();
-  static const int kAiaiListFieldNumber = 1;
-  inline const ::proto_ff::aiai& aiai_list(int index) const;
-  inline ::proto_ff::aiai* mutable_aiai_list(int index);
-  inline ::proto_ff::aiai* add_aiai_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::aiai >&
-      aiai_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::aiai >*
-      mutable_aiai_list();
+  // repeated .proto_ff.E_AiAi E_AiAi_List = 1;
+  inline int e_aiai_list_size() const;
+  inline void clear_e_aiai_list();
+  static const int kEAiAiListFieldNumber = 1;
+  inline const ::proto_ff::E_AiAi& e_aiai_list(int index) const;
+  inline ::proto_ff::E_AiAi* mutable_e_aiai_list(int index);
+  inline ::proto_ff::E_AiAi* add_e_aiai_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAi >&
+      e_aiai_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAi >*
+      mutable_e_aiai_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_aiai)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AiAi)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::aiai > aiai_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAi > e_aiai_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -463,589 +463,589 @@ class Sheet_aiai : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ai_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_aiai* default_instance_;
+  static Sheet_AiAi* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// aiaihpDesc
+// E_AiAiHpDesc
 
-// optional int64 skill = 1;
-inline bool aiaihpDesc::has_skill() const {
+// optional int64 m_skill = 1;
+inline bool E_AiAiHpDesc::has_m_skill() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void aiaihpDesc::set_has_skill() {
+inline void E_AiAiHpDesc::set_has_m_skill() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void aiaihpDesc::clear_has_skill() {
+inline void E_AiAiHpDesc::clear_has_m_skill() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void aiaihpDesc::clear_skill() {
-  skill_ = GOOGLE_LONGLONG(0);
-  clear_has_skill();
+inline void E_AiAiHpDesc::clear_m_skill() {
+  m_skill_ = GOOGLE_LONGLONG(0);
+  clear_has_m_skill();
 }
-inline ::google::protobuf::int64 aiaihpDesc::skill() const {
-  return skill_;
+inline ::google::protobuf::int64 E_AiAiHpDesc::m_skill() const {
+  return m_skill_;
 }
-inline void aiaihpDesc::set_skill(::google::protobuf::int64 value) {
-  set_has_skill();
-  skill_ = value;
+inline void E_AiAiHpDesc::set_m_skill(::google::protobuf::int64 value) {
+  set_has_m_skill();
+  m_skill_ = value;
 }
 
-// optional int32 percent = 2;
-inline bool aiaihpDesc::has_percent() const {
+// optional int32 m_percent = 2;
+inline bool E_AiAiHpDesc::has_m_percent() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void aiaihpDesc::set_has_percent() {
+inline void E_AiAiHpDesc::set_has_m_percent() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void aiaihpDesc::clear_has_percent() {
+inline void E_AiAiHpDesc::clear_has_m_percent() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void aiaihpDesc::clear_percent() {
-  percent_ = 0;
-  clear_has_percent();
+inline void E_AiAiHpDesc::clear_m_percent() {
+  m_percent_ = 0;
+  clear_has_m_percent();
 }
-inline ::google::protobuf::int32 aiaihpDesc::percent() const {
-  return percent_;
+inline ::google::protobuf::int32 E_AiAiHpDesc::m_percent() const {
+  return m_percent_;
 }
-inline void aiaihpDesc::set_percent(::google::protobuf::int32 value) {
-  set_has_percent();
-  percent_ = value;
+inline void E_AiAiHpDesc::set_m_percent(::google::protobuf::int32 value) {
+  set_has_m_percent();
+  m_percent_ = value;
 }
 
-// optional int64 chat = 3;
-inline bool aiaihpDesc::has_chat() const {
+// optional int64 m_chat = 3;
+inline bool E_AiAiHpDesc::has_m_chat() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void aiaihpDesc::set_has_chat() {
+inline void E_AiAiHpDesc::set_has_m_chat() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void aiaihpDesc::clear_has_chat() {
+inline void E_AiAiHpDesc::clear_has_m_chat() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void aiaihpDesc::clear_chat() {
-  chat_ = GOOGLE_LONGLONG(0);
-  clear_has_chat();
+inline void E_AiAiHpDesc::clear_m_chat() {
+  m_chat_ = GOOGLE_LONGLONG(0);
+  clear_has_m_chat();
 }
-inline ::google::protobuf::int64 aiaihpDesc::chat() const {
-  return chat_;
+inline ::google::protobuf::int64 E_AiAiHpDesc::m_chat() const {
+  return m_chat_;
 }
-inline void aiaihpDesc::set_chat(::google::protobuf::int64 value) {
-  set_has_chat();
-  chat_ = value;
+inline void E_AiAiHpDesc::set_m_chat(::google::protobuf::int64 value) {
+  set_has_m_chat();
+  m_chat_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// aiai
+// E_AiAi
 
-// optional int64 id = 1;
-inline bool aiai::has_id() const {
+// optional int64 m_id = 1;
+inline bool E_AiAi::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void aiai::set_has_id() {
+inline void E_AiAi::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void aiai::clear_has_id() {
+inline void E_AiAi::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void aiai::clear_id() {
-  id_ = GOOGLE_LONGLONG(0);
-  clear_has_id();
+inline void E_AiAi::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
 }
-inline ::google::protobuf::int64 aiai::id() const {
-  return id_;
+inline ::google::protobuf::int64 E_AiAi::m_id() const {
+  return m_id_;
 }
-inline void aiai::set_id(::google::protobuf::int64 value) {
-  set_has_id();
-  id_ = value;
+inline void E_AiAi::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
-// optional int32 type = 2;
-inline bool aiai::has_type() const {
+// optional int32 m_type = 2;
+inline bool E_AiAi::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void aiai::set_has_type() {
+inline void E_AiAi::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void aiai::clear_has_type() {
+inline void E_AiAi::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void aiai::clear_type() {
-  type_ = 0;
-  clear_has_type();
+inline void E_AiAi::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline ::google::protobuf::int32 aiai::type() const {
-  return type_;
+inline ::google::protobuf::int32 E_AiAi::m_type() const {
+  return m_type_;
 }
-inline void aiai::set_type(::google::protobuf::int32 value) {
-  set_has_type();
-  type_ = value;
+inline void E_AiAi::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
-// optional string deadHateRemain = 3;
-inline bool aiai::has_deadhateremain() const {
+// optional string m_deadhateremain = 3;
+inline bool E_AiAi::has_m_deadhateremain() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void aiai::set_has_deadhateremain() {
+inline void E_AiAi::set_has_m_deadhateremain() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void aiai::clear_has_deadhateremain() {
+inline void E_AiAi::clear_has_m_deadhateremain() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void aiai::clear_deadhateremain() {
-  if (deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
-    deadhateremain_->clear();
+inline void E_AiAi::clear_m_deadhateremain() {
+  if (m_deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
+    m_deadhateremain_->clear();
   }
-  clear_has_deadhateremain();
+  clear_has_m_deadhateremain();
 }
-inline const ::std::string& aiai::deadhateremain() const {
-  return *deadhateremain_;
+inline const ::std::string& E_AiAi::m_deadhateremain() const {
+  return *m_deadhateremain_;
 }
-inline void aiai::set_deadhateremain(const ::std::string& value) {
-  set_has_deadhateremain();
-  if (deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
-    deadhateremain_ = new ::std::string;
+inline void E_AiAi::set_m_deadhateremain(const ::std::string& value) {
+  set_has_m_deadhateremain();
+  if (m_deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_deadhateremain_ = new ::std::string;
   }
-  deadhateremain_->assign(value);
+  m_deadhateremain_->assign(value);
 }
-inline void aiai::set_deadhateremain(const char* value) {
-  set_has_deadhateremain();
-  if (deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
-    deadhateremain_ = new ::std::string;
+inline void E_AiAi::set_m_deadhateremain(const char* value) {
+  set_has_m_deadhateremain();
+  if (m_deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_deadhateremain_ = new ::std::string;
   }
-  deadhateremain_->assign(value);
+  m_deadhateremain_->assign(value);
 }
-inline void aiai::set_deadhateremain(const char* value, size_t size) {
-  set_has_deadhateremain();
-  if (deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
-    deadhateremain_ = new ::std::string;
+inline void E_AiAi::set_m_deadhateremain(const char* value, size_t size) {
+  set_has_m_deadhateremain();
+  if (m_deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_deadhateremain_ = new ::std::string;
   }
-  deadhateremain_->assign(reinterpret_cast<const char*>(value), size);
+  m_deadhateremain_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* aiai::mutable_deadhateremain() {
-  set_has_deadhateremain();
-  if (deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
-    deadhateremain_ = new ::std::string;
+inline ::std::string* E_AiAi::mutable_m_deadhateremain() {
+  set_has_m_deadhateremain();
+  if (m_deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_deadhateremain_ = new ::std::string;
   }
-  return deadhateremain_;
+  return m_deadhateremain_;
 }
-inline ::std::string* aiai::release_deadhateremain() {
-  clear_has_deadhateremain();
-  if (deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_AiAi::release_m_deadhateremain() {
+  clear_has_m_deadhateremain();
+  if (m_deadhateremain_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = deadhateremain_;
-    deadhateremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_deadhateremain_;
+    m_deadhateremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void aiai::set_allocated_deadhateremain(::std::string* deadhateremain) {
-  if (deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
-    delete deadhateremain_;
+inline void E_AiAi::set_allocated_m_deadhateremain(::std::string* m_deadhateremain) {
+  if (m_deadhateremain_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_deadhateremain_;
   }
-  if (deadhateremain) {
-    set_has_deadhateremain();
-    deadhateremain_ = deadhateremain;
+  if (m_deadhateremain) {
+    set_has_m_deadhateremain();
+    m_deadhateremain_ = m_deadhateremain;
   } else {
-    clear_has_deadhateremain();
-    deadhateremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_deadhateremain();
+    m_deadhateremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional string invisibleRemain = 4;
-inline bool aiai::has_invisibleremain() const {
+// optional string m_invisibleremain = 4;
+inline bool E_AiAi::has_m_invisibleremain() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void aiai::set_has_invisibleremain() {
+inline void E_AiAi::set_has_m_invisibleremain() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void aiai::clear_has_invisibleremain() {
+inline void E_AiAi::clear_has_m_invisibleremain() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void aiai::clear_invisibleremain() {
-  if (invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
-    invisibleremain_->clear();
+inline void E_AiAi::clear_m_invisibleremain() {
+  if (m_invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
+    m_invisibleremain_->clear();
   }
-  clear_has_invisibleremain();
+  clear_has_m_invisibleremain();
 }
-inline const ::std::string& aiai::invisibleremain() const {
-  return *invisibleremain_;
+inline const ::std::string& E_AiAi::m_invisibleremain() const {
+  return *m_invisibleremain_;
 }
-inline void aiai::set_invisibleremain(const ::std::string& value) {
-  set_has_invisibleremain();
-  if (invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
-    invisibleremain_ = new ::std::string;
+inline void E_AiAi::set_m_invisibleremain(const ::std::string& value) {
+  set_has_m_invisibleremain();
+  if (m_invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_invisibleremain_ = new ::std::string;
   }
-  invisibleremain_->assign(value);
+  m_invisibleremain_->assign(value);
 }
-inline void aiai::set_invisibleremain(const char* value) {
-  set_has_invisibleremain();
-  if (invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
-    invisibleremain_ = new ::std::string;
+inline void E_AiAi::set_m_invisibleremain(const char* value) {
+  set_has_m_invisibleremain();
+  if (m_invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_invisibleremain_ = new ::std::string;
   }
-  invisibleremain_->assign(value);
+  m_invisibleremain_->assign(value);
 }
-inline void aiai::set_invisibleremain(const char* value, size_t size) {
-  set_has_invisibleremain();
-  if (invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
-    invisibleremain_ = new ::std::string;
+inline void E_AiAi::set_m_invisibleremain(const char* value, size_t size) {
+  set_has_m_invisibleremain();
+  if (m_invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_invisibleremain_ = new ::std::string;
   }
-  invisibleremain_->assign(reinterpret_cast<const char*>(value), size);
+  m_invisibleremain_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* aiai::mutable_invisibleremain() {
-  set_has_invisibleremain();
-  if (invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
-    invisibleremain_ = new ::std::string;
+inline ::std::string* E_AiAi::mutable_m_invisibleremain() {
+  set_has_m_invisibleremain();
+  if (m_invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
+    m_invisibleremain_ = new ::std::string;
   }
-  return invisibleremain_;
+  return m_invisibleremain_;
 }
-inline ::std::string* aiai::release_invisibleremain() {
-  clear_has_invisibleremain();
-  if (invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_AiAi::release_m_invisibleremain() {
+  clear_has_m_invisibleremain();
+  if (m_invisibleremain_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = invisibleremain_;
-    invisibleremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_invisibleremain_;
+    m_invisibleremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void aiai::set_allocated_invisibleremain(::std::string* invisibleremain) {
-  if (invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
-    delete invisibleremain_;
+inline void E_AiAi::set_allocated_m_invisibleremain(::std::string* m_invisibleremain) {
+  if (m_invisibleremain_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_invisibleremain_;
   }
-  if (invisibleremain) {
-    set_has_invisibleremain();
-    invisibleremain_ = invisibleremain;
+  if (m_invisibleremain) {
+    set_has_m_invisibleremain();
+    m_invisibleremain_ = m_invisibleremain;
   } else {
-    clear_has_invisibleremain();
-    invisibleremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_invisibleremain();
+    m_invisibleremain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// optional int32 isActive = 5;
-inline bool aiai::has_isactive() const {
+// optional int32 m_isactive = 5;
+inline bool E_AiAi::has_m_isactive() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void aiai::set_has_isactive() {
+inline void E_AiAi::set_has_m_isactive() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void aiai::clear_has_isactive() {
+inline void E_AiAi::clear_has_m_isactive() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void aiai::clear_isactive() {
-  isactive_ = 0;
-  clear_has_isactive();
+inline void E_AiAi::clear_m_isactive() {
+  m_isactive_ = 0;
+  clear_has_m_isactive();
 }
-inline ::google::protobuf::int32 aiai::isactive() const {
-  return isactive_;
+inline ::google::protobuf::int32 E_AiAi::m_isactive() const {
+  return m_isactive_;
 }
-inline void aiai::set_isactive(::google::protobuf::int32 value) {
-  set_has_isactive();
-  isactive_ = value;
+inline void E_AiAi::set_m_isactive(::google::protobuf::int32 value) {
+  set_has_m_isactive();
+  m_isactive_ = value;
 }
 
-// optional int32 returnType = 6;
-inline bool aiai::has_returntype() const {
+// optional int32 m_returntype = 6;
+inline bool E_AiAi::has_m_returntype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void aiai::set_has_returntype() {
+inline void E_AiAi::set_has_m_returntype() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void aiai::clear_has_returntype() {
+inline void E_AiAi::clear_has_m_returntype() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void aiai::clear_returntype() {
-  returntype_ = 0;
-  clear_has_returntype();
+inline void E_AiAi::clear_m_returntype() {
+  m_returntype_ = 0;
+  clear_has_m_returntype();
 }
-inline ::google::protobuf::int32 aiai::returntype() const {
-  return returntype_;
+inline ::google::protobuf::int32 E_AiAi::m_returntype() const {
+  return m_returntype_;
 }
-inline void aiai::set_returntype(::google::protobuf::int32 value) {
-  set_has_returntype();
-  returntype_ = value;
+inline void E_AiAi::set_m_returntype(::google::protobuf::int32 value) {
+  set_has_m_returntype();
+  m_returntype_ = value;
 }
 
-// optional int32 view = 7;
-inline bool aiai::has_view() const {
+// optional int32 m_view = 7;
+inline bool E_AiAi::has_m_view() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void aiai::set_has_view() {
+inline void E_AiAi::set_has_m_view() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void aiai::clear_has_view() {
+inline void E_AiAi::clear_has_m_view() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void aiai::clear_view() {
-  view_ = 0;
-  clear_has_view();
+inline void E_AiAi::clear_m_view() {
+  m_view_ = 0;
+  clear_has_m_view();
 }
-inline ::google::protobuf::int32 aiai::view() const {
-  return view_;
+inline ::google::protobuf::int32 E_AiAi::m_view() const {
+  return m_view_;
 }
-inline void aiai::set_view(::google::protobuf::int32 value) {
-  set_has_view();
-  view_ = value;
+inline void E_AiAi::set_m_view(::google::protobuf::int32 value) {
+  set_has_m_view();
+  m_view_ = value;
 }
 
-// optional int32 isAttackedShowOff = 8;
-inline bool aiai::has_isattackedshowoff() const {
+// optional int32 m_isattackedshowoff = 8;
+inline bool E_AiAi::has_m_isattackedshowoff() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void aiai::set_has_isattackedshowoff() {
+inline void E_AiAi::set_has_m_isattackedshowoff() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void aiai::clear_has_isattackedshowoff() {
+inline void E_AiAi::clear_has_m_isattackedshowoff() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void aiai::clear_isattackedshowoff() {
-  isattackedshowoff_ = 0;
-  clear_has_isattackedshowoff();
+inline void E_AiAi::clear_m_isattackedshowoff() {
+  m_isattackedshowoff_ = 0;
+  clear_has_m_isattackedshowoff();
 }
-inline ::google::protobuf::int32 aiai::isattackedshowoff() const {
-  return isattackedshowoff_;
+inline ::google::protobuf::int32 E_AiAi::m_isattackedshowoff() const {
+  return m_isattackedshowoff_;
 }
-inline void aiai::set_isattackedshowoff(::google::protobuf::int32 value) {
-  set_has_isattackedshowoff();
-  isattackedshowoff_ = value;
+inline void E_AiAi::set_m_isattackedshowoff(::google::protobuf::int32 value) {
+  set_has_m_isattackedshowoff();
+  m_isattackedshowoff_ = value;
 }
 
-// optional int32 pursueRange = 9;
-inline bool aiai::has_pursuerange() const {
+// optional int32 m_pursuerange = 9;
+inline bool E_AiAi::has_m_pursuerange() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void aiai::set_has_pursuerange() {
+inline void E_AiAi::set_has_m_pursuerange() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void aiai::clear_has_pursuerange() {
+inline void E_AiAi::clear_has_m_pursuerange() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void aiai::clear_pursuerange() {
-  pursuerange_ = 0;
-  clear_has_pursuerange();
+inline void E_AiAi::clear_m_pursuerange() {
+  m_pursuerange_ = 0;
+  clear_has_m_pursuerange();
 }
-inline ::google::protobuf::int32 aiai::pursuerange() const {
-  return pursuerange_;
+inline ::google::protobuf::int32 E_AiAi::m_pursuerange() const {
+  return m_pursuerange_;
 }
-inline void aiai::set_pursuerange(::google::protobuf::int32 value) {
-  set_has_pursuerange();
-  pursuerange_ = value;
+inline void E_AiAi::set_m_pursuerange(::google::protobuf::int32 value) {
+  set_has_m_pursuerange();
+  m_pursuerange_ = value;
 }
 
-// optional int32 actionRange = 10;
-inline bool aiai::has_actionrange() const {
+// optional int32 m_actionrange = 10;
+inline bool E_AiAi::has_m_actionrange() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void aiai::set_has_actionrange() {
+inline void E_AiAi::set_has_m_actionrange() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void aiai::clear_has_actionrange() {
+inline void E_AiAi::clear_has_m_actionrange() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void aiai::clear_actionrange() {
-  actionrange_ = 0;
-  clear_has_actionrange();
+inline void E_AiAi::clear_m_actionrange() {
+  m_actionrange_ = 0;
+  clear_has_m_actionrange();
 }
-inline ::google::protobuf::int32 aiai::actionrange() const {
-  return actionrange_;
+inline ::google::protobuf::int32 E_AiAi::m_actionrange() const {
+  return m_actionrange_;
 }
-inline void aiai::set_actionrange(::google::protobuf::int32 value) {
-  set_has_actionrange();
-  actionrange_ = value;
+inline void E_AiAi::set_m_actionrange(::google::protobuf::int32 value) {
+  set_has_m_actionrange();
+  m_actionrange_ = value;
 }
 
-// optional int32 wakeupRadius = 11;
-inline bool aiai::has_wakeupradius() const {
+// optional int32 m_wakeupradius = 11;
+inline bool E_AiAi::has_m_wakeupradius() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void aiai::set_has_wakeupradius() {
+inline void E_AiAi::set_has_m_wakeupradius() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void aiai::clear_has_wakeupradius() {
+inline void E_AiAi::clear_has_m_wakeupradius() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void aiai::clear_wakeupradius() {
-  wakeupradius_ = 0;
-  clear_has_wakeupradius();
+inline void E_AiAi::clear_m_wakeupradius() {
+  m_wakeupradius_ = 0;
+  clear_has_m_wakeupradius();
 }
-inline ::google::protobuf::int32 aiai::wakeupradius() const {
-  return wakeupradius_;
+inline ::google::protobuf::int32 E_AiAi::m_wakeupradius() const {
+  return m_wakeupradius_;
 }
-inline void aiai::set_wakeupradius(::google::protobuf::int32 value) {
-  set_has_wakeupradius();
-  wakeupradius_ = value;
+inline void E_AiAi::set_m_wakeupradius(::google::protobuf::int32 value) {
+  set_has_m_wakeupradius();
+  m_wakeupradius_ = value;
 }
 
-// optional int32 isAIWorkWhenNobody = 12;
-inline bool aiai::has_isaiworkwhennobody() const {
+// optional int32 m_isaiworkwhennobody = 12;
+inline bool E_AiAi::has_m_isaiworkwhennobody() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void aiai::set_has_isaiworkwhennobody() {
+inline void E_AiAi::set_has_m_isaiworkwhennobody() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void aiai::clear_has_isaiworkwhennobody() {
+inline void E_AiAi::clear_has_m_isaiworkwhennobody() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void aiai::clear_isaiworkwhennobody() {
-  isaiworkwhennobody_ = 0;
-  clear_has_isaiworkwhennobody();
+inline void E_AiAi::clear_m_isaiworkwhennobody() {
+  m_isaiworkwhennobody_ = 0;
+  clear_has_m_isaiworkwhennobody();
 }
-inline ::google::protobuf::int32 aiai::isaiworkwhennobody() const {
-  return isaiworkwhennobody_;
+inline ::google::protobuf::int32 E_AiAi::m_isaiworkwhennobody() const {
+  return m_isaiworkwhennobody_;
 }
-inline void aiai::set_isaiworkwhennobody(::google::protobuf::int32 value) {
-  set_has_isaiworkwhennobody();
-  isaiworkwhennobody_ = value;
+inline void E_AiAi::set_m_isaiworkwhennobody(::google::protobuf::int32 value) {
+  set_has_m_isaiworkwhennobody();
+  m_isaiworkwhennobody_ = value;
 }
 
-// optional int32 bornEffectAIDelay = 13;
-inline bool aiai::has_borneffectaidelay() const {
+// optional int32 m_borneffectaidelay = 13;
+inline bool E_AiAi::has_m_borneffectaidelay() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void aiai::set_has_borneffectaidelay() {
+inline void E_AiAi::set_has_m_borneffectaidelay() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void aiai::clear_has_borneffectaidelay() {
+inline void E_AiAi::clear_has_m_borneffectaidelay() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void aiai::clear_borneffectaidelay() {
-  borneffectaidelay_ = 0;
-  clear_has_borneffectaidelay();
+inline void E_AiAi::clear_m_borneffectaidelay() {
+  m_borneffectaidelay_ = 0;
+  clear_has_m_borneffectaidelay();
 }
-inline ::google::protobuf::int32 aiai::borneffectaidelay() const {
-  return borneffectaidelay_;
+inline ::google::protobuf::int32 E_AiAi::m_borneffectaidelay() const {
+  return m_borneffectaidelay_;
 }
-inline void aiai::set_borneffectaidelay(::google::protobuf::int32 value) {
-  set_has_borneffectaidelay();
-  borneffectaidelay_ = value;
+inline void E_AiAi::set_m_borneffectaidelay(::google::protobuf::int32 value) {
+  set_has_m_borneffectaidelay();
+  m_borneffectaidelay_ = value;
 }
 
-// optional string initSkills = 14;
-inline bool aiai::has_initskills() const {
+// optional string m_initskills = 14;
+inline bool E_AiAi::has_m_initskills() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void aiai::set_has_initskills() {
+inline void E_AiAi::set_has_m_initskills() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void aiai::clear_has_initskills() {
+inline void E_AiAi::clear_has_m_initskills() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void aiai::clear_initskills() {
-  if (initskills_ != &::google::protobuf::internal::kEmptyString) {
-    initskills_->clear();
+inline void E_AiAi::clear_m_initskills() {
+  if (m_initskills_ != &::google::protobuf::internal::kEmptyString) {
+    m_initskills_->clear();
   }
-  clear_has_initskills();
+  clear_has_m_initskills();
 }
-inline const ::std::string& aiai::initskills() const {
-  return *initskills_;
+inline const ::std::string& E_AiAi::m_initskills() const {
+  return *m_initskills_;
 }
-inline void aiai::set_initskills(const ::std::string& value) {
-  set_has_initskills();
-  if (initskills_ == &::google::protobuf::internal::kEmptyString) {
-    initskills_ = new ::std::string;
+inline void E_AiAi::set_m_initskills(const ::std::string& value) {
+  set_has_m_initskills();
+  if (m_initskills_ == &::google::protobuf::internal::kEmptyString) {
+    m_initskills_ = new ::std::string;
   }
-  initskills_->assign(value);
+  m_initskills_->assign(value);
 }
-inline void aiai::set_initskills(const char* value) {
-  set_has_initskills();
-  if (initskills_ == &::google::protobuf::internal::kEmptyString) {
-    initskills_ = new ::std::string;
+inline void E_AiAi::set_m_initskills(const char* value) {
+  set_has_m_initskills();
+  if (m_initskills_ == &::google::protobuf::internal::kEmptyString) {
+    m_initskills_ = new ::std::string;
   }
-  initskills_->assign(value);
+  m_initskills_->assign(value);
 }
-inline void aiai::set_initskills(const char* value, size_t size) {
-  set_has_initskills();
-  if (initskills_ == &::google::protobuf::internal::kEmptyString) {
-    initskills_ = new ::std::string;
+inline void E_AiAi::set_m_initskills(const char* value, size_t size) {
+  set_has_m_initskills();
+  if (m_initskills_ == &::google::protobuf::internal::kEmptyString) {
+    m_initskills_ = new ::std::string;
   }
-  initskills_->assign(reinterpret_cast<const char*>(value), size);
+  m_initskills_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* aiai::mutable_initskills() {
-  set_has_initskills();
-  if (initskills_ == &::google::protobuf::internal::kEmptyString) {
-    initskills_ = new ::std::string;
+inline ::std::string* E_AiAi::mutable_m_initskills() {
+  set_has_m_initskills();
+  if (m_initskills_ == &::google::protobuf::internal::kEmptyString) {
+    m_initskills_ = new ::std::string;
   }
-  return initskills_;
+  return m_initskills_;
 }
-inline ::std::string* aiai::release_initskills() {
-  clear_has_initskills();
-  if (initskills_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* E_AiAi::release_m_initskills() {
+  clear_has_m_initskills();
+  if (m_initskills_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = initskills_;
-    initskills_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = m_initskills_;
+    m_initskills_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void aiai::set_allocated_initskills(::std::string* initskills) {
-  if (initskills_ != &::google::protobuf::internal::kEmptyString) {
-    delete initskills_;
+inline void E_AiAi::set_allocated_m_initskills(::std::string* m_initskills) {
+  if (m_initskills_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_initskills_;
   }
-  if (initskills) {
-    set_has_initskills();
-    initskills_ = initskills;
+  if (m_initskills) {
+    set_has_m_initskills();
+    m_initskills_ = m_initskills;
   } else {
-    clear_has_initskills();
-    initskills_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_m_initskills();
+    m_initskills_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
-// repeated .proto_ff.aiaihpDesc hp = 15;
-inline int aiai::hp_size() const {
-  return hp_.size();
+// repeated .proto_ff.E_AiAiHpDesc m_hp = 15;
+inline int E_AiAi::m_hp_size() const {
+  return m_hp_.size();
 }
-inline void aiai::clear_hp() {
-  hp_.Clear();
+inline void E_AiAi::clear_m_hp() {
+  m_hp_.Clear();
 }
-inline const ::proto_ff::aiaihpDesc& aiai::hp(int index) const {
-  return hp_.Get(index);
+inline const ::proto_ff::E_AiAiHpDesc& E_AiAi::m_hp(int index) const {
+  return m_hp_.Get(index);
 }
-inline ::proto_ff::aiaihpDesc* aiai::mutable_hp(int index) {
-  return hp_.Mutable(index);
+inline ::proto_ff::E_AiAiHpDesc* E_AiAi::mutable_m_hp(int index) {
+  return m_hp_.Mutable(index);
 }
-inline ::proto_ff::aiaihpDesc* aiai::add_hp() {
-  return hp_.Add();
+inline ::proto_ff::E_AiAiHpDesc* E_AiAi::add_m_hp() {
+  return m_hp_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::aiaihpDesc >&
-aiai::hp() const {
-  return hp_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAiHpDesc >&
+E_AiAi::m_hp() const {
+  return m_hp_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::aiaihpDesc >*
-aiai::mutable_hp() {
-  return &hp_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAiHpDesc >*
+E_AiAi::mutable_m_hp() {
+  return &m_hp_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_aiai
+// Sheet_AiAi
 
-// repeated .proto_ff.aiai aiai_List = 1;
-inline int Sheet_aiai::aiai_list_size() const {
-  return aiai_list_.size();
+// repeated .proto_ff.E_AiAi E_AiAi_List = 1;
+inline int Sheet_AiAi::e_aiai_list_size() const {
+  return e_aiai_list_.size();
 }
-inline void Sheet_aiai::clear_aiai_list() {
-  aiai_list_.Clear();
+inline void Sheet_AiAi::clear_e_aiai_list() {
+  e_aiai_list_.Clear();
 }
-inline const ::proto_ff::aiai& Sheet_aiai::aiai_list(int index) const {
-  return aiai_list_.Get(index);
+inline const ::proto_ff::E_AiAi& Sheet_AiAi::e_aiai_list(int index) const {
+  return e_aiai_list_.Get(index);
 }
-inline ::proto_ff::aiai* Sheet_aiai::mutable_aiai_list(int index) {
-  return aiai_list_.Mutable(index);
+inline ::proto_ff::E_AiAi* Sheet_AiAi::mutable_e_aiai_list(int index) {
+  return e_aiai_list_.Mutable(index);
 }
-inline ::proto_ff::aiai* Sheet_aiai::add_aiai_list() {
-  return aiai_list_.Add();
+inline ::proto_ff::E_AiAi* Sheet_AiAi::add_e_aiai_list() {
+  return e_aiai_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::aiai >&
-Sheet_aiai::aiai_list() const {
-  return aiai_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAi >&
+Sheet_AiAi::e_aiai_list() const {
+  return e_aiai_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::aiai >*
-Sheet_aiai::mutable_aiai_list() {
-  return &aiai_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AiAi >*
+Sheet_AiAi::mutable_e_aiai_list() {
+  return &e_aiai_list_;
 }
 
 

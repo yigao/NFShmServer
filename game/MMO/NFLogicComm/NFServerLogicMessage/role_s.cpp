@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-rolebornitemDesc_s::rolebornitemDesc_s() {
+E_RoleBornItemDesc_s::E_RoleBornItemDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ rolebornitemDesc_s::rolebornitemDesc_s() {
 	}
 }
 
-int rolebornitemDesc_s::CreateInit() {
-	num = (int32_t)0;
-	name = (int64_t)0;
+int E_RoleBornItemDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_name = (int64_t)0;
 	return 0;
 }
 
-int rolebornitemDesc_s::ResumeInit() {
+int E_RoleBornItemDesc_s::ResumeInit() {
 	return 0;
 }
 
-void rolebornitemDesc_s::write_to_pbmsg(::proto_ff::rolebornitemDesc & msg) const {
-	msg.set_num((int32_t)num);
-	msg.set_name((int64_t)name);
+void E_RoleBornItemDesc_s::write_to_pbmsg(::proto_ff::E_RoleBornItemDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_name((int64_t)m_name);
 }
 
-void rolebornitemDesc_s::read_from_pbmsg(const ::proto_ff::rolebornitemDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolebornitemDesc_s));
-	num = msg.num();
-	name = msg.name();
+void E_RoleBornItemDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleBornItemDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleBornItemDesc_s));
+	m_num = msg.m_num();
+	m_name = msg.m_name();
 }
 
-rolebornmailDesc_s::rolebornmailDesc_s() {
+E_RoleBornMailDesc_s::E_RoleBornMailDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,28 +39,28 @@ rolebornmailDesc_s::rolebornmailDesc_s() {
 	}
 }
 
-int rolebornmailDesc_s::CreateInit() {
-	num = (int32_t)0;
-	name = (int64_t)0;
+int E_RoleBornMailDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_name = (int64_t)0;
 	return 0;
 }
 
-int rolebornmailDesc_s::ResumeInit() {
+int E_RoleBornMailDesc_s::ResumeInit() {
 	return 0;
 }
 
-void rolebornmailDesc_s::write_to_pbmsg(::proto_ff::rolebornmailDesc & msg) const {
-	msg.set_num((int32_t)num);
-	msg.set_name((int64_t)name);
+void E_RoleBornMailDesc_s::write_to_pbmsg(::proto_ff::E_RoleBornMailDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_name((int64_t)m_name);
 }
 
-void rolebornmailDesc_s::read_from_pbmsg(const ::proto_ff::rolebornmailDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolebornmailDesc_s));
-	num = msg.num();
-	name = msg.name();
+void E_RoleBornMailDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleBornMailDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleBornMailDesc_s));
+	m_num = msg.m_num();
+	m_name = msg.m_name();
 }
 
-roleborn_s::roleborn_s() {
+E_RoleBorn_s::E_RoleBorn_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -68,160 +68,160 @@ roleborn_s::roleborn_s() {
 	}
 }
 
-int roleborn_s::CreateInit() {
-	bornID = (int64_t)0;
-	professionID = (int32_t)0;
-	gender = (int32_t)0;
-	bornLevel = (int32_t)0;
-	bornTitle = (int32_t)0;
-	diamond = (int64_t)0;
-	bindDiamond = (int64_t)0;
-	gold = (int64_t)0;
-	mapID = (int64_t)0;
-	birthFace = (int32_t)0;
-	hairColor = (int32_t)0;
-	clothesColor = (int32_t)0;
-	skinColor = (int32_t)0;
-	carryWeapons = (int64_t)0;
-	carryArmor = (int64_t)0;
-	carryCloak = (int64_t)0;
-	carryShoes = (int64_t)0;
-	carryNecklace = (int64_t)0;
-	carryAmulet = (int64_t)0;
-	carryBracer = (int64_t)0;
-	carryRing = (int64_t)0;
-	carryFashionWeapons = (int64_t)0;
-	carryFashionArmor = (int64_t)0;
-	carryWings = (int64_t)0;
-	mSpeed = (int32_t)0;
-	view = (int32_t)0;
-	radius = (int32_t)0;
-	group = (int32_t)0;
-	sheny = (int64_t)0;
-	shenw = (int64_t)0;
+int E_RoleBorn_s::CreateInit() {
+	m_bornid = (int64_t)0;
+	m_professionid = (int32_t)0;
+	m_gender = (int32_t)0;
+	m_bornlevel = (int32_t)0;
+	m_borntitle = (int32_t)0;
+	m_diamond = (int64_t)0;
+	m_binddiamond = (int64_t)0;
+	m_gold = (int64_t)0;
+	m_mapid = (int64_t)0;
+	m_birthface = (int32_t)0;
+	m_haircolor = (int32_t)0;
+	m_clothescolor = (int32_t)0;
+	m_skincolor = (int32_t)0;
+	m_carryweapons = (int64_t)0;
+	m_carryarmor = (int64_t)0;
+	m_carrycloak = (int64_t)0;
+	m_carryshoes = (int64_t)0;
+	m_carrynecklace = (int64_t)0;
+	m_carryamulet = (int64_t)0;
+	m_carrybracer = (int64_t)0;
+	m_carryring = (int64_t)0;
+	m_carryfashionweapons = (int64_t)0;
+	m_carryfashionarmor = (int64_t)0;
+	m_carrywings = (int64_t)0;
+	m_mspeed = (int32_t)0;
+	m_view = (int32_t)0;
+	m_radius = (int32_t)0;
+	m_group = (int32_t)0;
+	m_sheny = (int64_t)0;
+	m_shenw = (int64_t)0;
 	return 0;
 }
 
-int roleborn_s::ResumeInit() {
+int E_RoleBorn_s::ResumeInit() {
 	return 0;
 }
 
-void roleborn_s::write_to_pbmsg(::proto_ff::roleborn & msg) const {
-	msg.set_bornid((int64_t)bornID);
-	msg.set_professionid((int32_t)professionID);
-	msg.set_professionname((const char*)professionName.Get());
-	msg.set_placement((const char*)placement.Get());
-	msg.set_gender((int32_t)gender);
-	msg.set_bornlevel((int32_t)bornLevel);
-	msg.set_borntitle((int32_t)bornTitle);
-	msg.set_diamond((int64_t)diamond);
-	msg.set_binddiamond((int64_t)bindDiamond);
-	msg.set_gold((int64_t)gold);
-	msg.set_mapid((int64_t)mapID);
-	msg.set_birthface((int32_t)birthFace);
-	msg.set_icons((const char*)icons.Get());
-	msg.set_loginavata((const char*)loginAvata.Get());
-	msg.set_newweapon((const char*)newweapon.Get());
-	msg.set_newclothing((const char*)newclothing.Get());
-	msg.set_weaponavata((const char*)weaponAvata.Get());
-	msg.set_roleavata((const char*)roleAvata.Get());
-	msg.set_haircolor((int32_t)hairColor);
-	msg.set_clothescolor((int32_t)clothesColor);
-	msg.set_skincolor((int32_t)skinColor);
-	msg.set_carryweapons((int64_t)carryWeapons);
-	msg.set_carryarmor((int64_t)carryArmor);
-	msg.set_carrycloak((int64_t)carryCloak);
-	msg.set_carryshoes((int64_t)carryShoes);
-	msg.set_carrynecklace((int64_t)carryNecklace);
-	msg.set_carryamulet((int64_t)carryAmulet);
-	msg.set_carrybracer((int64_t)carryBracer);
-	msg.set_carryring((int64_t)carryRing);
-	msg.set_carryfashionweapons((int64_t)carryFashionWeapons);
-	msg.set_carryfashionarmor((int64_t)carryFashionArmor);
-	msg.set_carrywings((int64_t)carryWings);
-	msg.set_mspeed((int32_t)mSpeed);
-	msg.set_view((int32_t)view);
-	msg.set_radius((int32_t)radius);
-	msg.set_group((int32_t)group);
-	msg.set_sheny((int64_t)sheny);
-	msg.set_shenw((int64_t)shenw);
-	for(int32_t i = 0; i < (int32_t)actBuff.GetSize() && i < actBuff.GetMaxSize(); ++i) {
-		msg.add_actbuff((int32_t)actBuff[i]);
+void E_RoleBorn_s::write_to_pbmsg(::proto_ff::E_RoleBorn & msg) const {
+	msg.set_m_bornid((int64_t)m_bornid);
+	msg.set_m_professionid((int32_t)m_professionid);
+	msg.set_m_professionname((const char*)m_professionname.data());
+	msg.set_m_placement((const char*)m_placement.data());
+	msg.set_m_gender((int32_t)m_gender);
+	msg.set_m_bornlevel((int32_t)m_bornlevel);
+	msg.set_m_borntitle((int32_t)m_borntitle);
+	msg.set_m_diamond((int64_t)m_diamond);
+	msg.set_m_binddiamond((int64_t)m_binddiamond);
+	msg.set_m_gold((int64_t)m_gold);
+	msg.set_m_mapid((int64_t)m_mapid);
+	msg.set_m_birthface((int32_t)m_birthface);
+	msg.set_m_icons((const char*)m_icons.data());
+	msg.set_m_loginavata((const char*)m_loginavata.data());
+	msg.set_m_newweapon((const char*)m_newweapon.data());
+	msg.set_m_newclothing((const char*)m_newclothing.data());
+	msg.set_m_weaponavata((const char*)m_weaponavata.data());
+	msg.set_m_roleavata((const char*)m_roleavata.data());
+	msg.set_m_haircolor((int32_t)m_haircolor);
+	msg.set_m_clothescolor((int32_t)m_clothescolor);
+	msg.set_m_skincolor((int32_t)m_skincolor);
+	msg.set_m_carryweapons((int64_t)m_carryweapons);
+	msg.set_m_carryarmor((int64_t)m_carryarmor);
+	msg.set_m_carrycloak((int64_t)m_carrycloak);
+	msg.set_m_carryshoes((int64_t)m_carryshoes);
+	msg.set_m_carrynecklace((int64_t)m_carrynecklace);
+	msg.set_m_carryamulet((int64_t)m_carryamulet);
+	msg.set_m_carrybracer((int64_t)m_carrybracer);
+	msg.set_m_carryring((int64_t)m_carryring);
+	msg.set_m_carryfashionweapons((int64_t)m_carryfashionweapons);
+	msg.set_m_carryfashionarmor((int64_t)m_carryfashionarmor);
+	msg.set_m_carrywings((int64_t)m_carrywings);
+	msg.set_m_mspeed((int32_t)m_mspeed);
+	msg.set_m_view((int32_t)m_view);
+	msg.set_m_radius((int32_t)m_radius);
+	msg.set_m_group((int32_t)m_group);
+	msg.set_m_sheny((int64_t)m_sheny);
+	msg.set_m_shenw((int64_t)m_shenw);
+	for(int32_t i = 0; i < (int32_t)m_actbuff.size(); ++i) {
+		msg.add_m_actbuff((int32_t)m_actbuff[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)item.GetSize() && i < item.GetMaxSize(); ++i) {
-		::proto_ff::rolebornitemDesc* temp_item = msg.add_item();
-		item[i].write_to_pbmsg(*temp_item);
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		::proto_ff::E_RoleBornItemDesc* temp_m_item = msg.add_m_item();
+		m_item[i].write_to_pbmsg(*temp_m_item);
 	}
-	for(int32_t i = 0; i < (int32_t)actSkill.GetSize() && i < actSkill.GetMaxSize(); ++i) {
-		msg.add_actskill((int64_t)actSkill[i]);
+	for(int32_t i = 0; i < (int32_t)m_actskill.size(); ++i) {
+		msg.add_m_actskill((int64_t)m_actskill[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)mail.GetSize() && i < mail.GetMaxSize(); ++i) {
-		::proto_ff::rolebornmailDesc* temp_mail = msg.add_mail();
-		mail[i].write_to_pbmsg(*temp_mail);
-	}
-}
-
-void roleborn_s::read_from_pbmsg(const ::proto_ff::roleborn & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleborn_s));
-	bornID = msg.bornid();
-	professionID = msg.professionid();
-	professionName.Copy(msg.professionname());
-	placement.Copy(msg.placement());
-	gender = msg.gender();
-	bornLevel = msg.bornlevel();
-	bornTitle = msg.borntitle();
-	diamond = msg.diamond();
-	bindDiamond = msg.binddiamond();
-	gold = msg.gold();
-	mapID = msg.mapid();
-	birthFace = msg.birthface();
-	icons.Copy(msg.icons());
-	loginAvata.Copy(msg.loginavata());
-	newweapon.Copy(msg.newweapon());
-	newclothing.Copy(msg.newclothing());
-	weaponAvata.Copy(msg.weaponavata());
-	roleAvata.Copy(msg.roleavata());
-	hairColor = msg.haircolor();
-	clothesColor = msg.clothescolor();
-	skinColor = msg.skincolor();
-	carryWeapons = msg.carryweapons();
-	carryArmor = msg.carryarmor();
-	carryCloak = msg.carrycloak();
-	carryShoes = msg.carryshoes();
-	carryNecklace = msg.carrynecklace();
-	carryAmulet = msg.carryamulet();
-	carryBracer = msg.carrybracer();
-	carryRing = msg.carryring();
-	carryFashionWeapons = msg.carryfashionweapons();
-	carryFashionArmor = msg.carryfashionarmor();
-	carryWings = msg.carrywings();
-	mSpeed = msg.mspeed();
-	view = msg.view();
-	radius = msg.radius();
-	group = msg.group();
-	sheny = msg.sheny();
-	shenw = msg.shenw();
-	actBuff.SetSize(msg.actbuff_size() > actBuff.GetMaxSize() ? actBuff.GetMaxSize() : msg.actbuff_size());
-	for(int32_t i = 0; i < (int32_t)actBuff.GetSize(); ++i) {
-		actBuff[i] = msg.actbuff(i);
-	}
-	item.SetSize(msg.item_size() > item.GetMaxSize() ? item.GetMaxSize() : msg.item_size());
-	for(int32_t i = 0; i < (int32_t)item.GetSize(); ++i) {
-		const ::proto_ff::rolebornitemDesc & temp_item = msg.item(i);
-		item[i].read_from_pbmsg(temp_item);
-	}
-	actSkill.SetSize(msg.actskill_size() > actSkill.GetMaxSize() ? actSkill.GetMaxSize() : msg.actskill_size());
-	for(int32_t i = 0; i < (int32_t)actSkill.GetSize(); ++i) {
-		actSkill[i] = msg.actskill(i);
-	}
-	mail.SetSize(msg.mail_size() > mail.GetMaxSize() ? mail.GetMaxSize() : msg.mail_size());
-	for(int32_t i = 0; i < (int32_t)mail.GetSize(); ++i) {
-		const ::proto_ff::rolebornmailDesc & temp_mail = msg.mail(i);
-		mail[i].read_from_pbmsg(temp_mail);
+	for(int32_t i = 0; i < (int32_t)m_mail.size(); ++i) {
+		::proto_ff::E_RoleBornMailDesc* temp_m_mail = msg.add_m_mail();
+		m_mail[i].write_to_pbmsg(*temp_m_mail);
 	}
 }
 
-Sheet_roleborn_s::Sheet_roleborn_s() {
+void E_RoleBorn_s::read_from_pbmsg(const ::proto_ff::E_RoleBorn & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleBorn_s));
+	m_bornid = msg.m_bornid();
+	m_professionid = msg.m_professionid();
+	m_professionname = msg.m_professionname();
+	m_placement = msg.m_placement();
+	m_gender = msg.m_gender();
+	m_bornlevel = msg.m_bornlevel();
+	m_borntitle = msg.m_borntitle();
+	m_diamond = msg.m_diamond();
+	m_binddiamond = msg.m_binddiamond();
+	m_gold = msg.m_gold();
+	m_mapid = msg.m_mapid();
+	m_birthface = msg.m_birthface();
+	m_icons = msg.m_icons();
+	m_loginavata = msg.m_loginavata();
+	m_newweapon = msg.m_newweapon();
+	m_newclothing = msg.m_newclothing();
+	m_weaponavata = msg.m_weaponavata();
+	m_roleavata = msg.m_roleavata();
+	m_haircolor = msg.m_haircolor();
+	m_clothescolor = msg.m_clothescolor();
+	m_skincolor = msg.m_skincolor();
+	m_carryweapons = msg.m_carryweapons();
+	m_carryarmor = msg.m_carryarmor();
+	m_carrycloak = msg.m_carrycloak();
+	m_carryshoes = msg.m_carryshoes();
+	m_carrynecklace = msg.m_carrynecklace();
+	m_carryamulet = msg.m_carryamulet();
+	m_carrybracer = msg.m_carrybracer();
+	m_carryring = msg.m_carryring();
+	m_carryfashionweapons = msg.m_carryfashionweapons();
+	m_carryfashionarmor = msg.m_carryfashionarmor();
+	m_carrywings = msg.m_carrywings();
+	m_mspeed = msg.m_mspeed();
+	m_view = msg.m_view();
+	m_radius = msg.m_radius();
+	m_group = msg.m_group();
+	m_sheny = msg.m_sheny();
+	m_shenw = msg.m_shenw();
+	m_actbuff.resize((int)msg.m_actbuff_size() > (int)m_actbuff.max_size() ? m_actbuff.max_size() : msg.m_actbuff_size());
+	for(int32_t i = 0; i < (int32_t)m_actbuff.size(); ++i) {
+		m_actbuff[i] = msg.m_actbuff(i);
+	}
+	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		const ::proto_ff::E_RoleBornItemDesc & temp_m_item = msg.m_item(i);
+		m_item[i].read_from_pbmsg(temp_m_item);
+	}
+	m_actskill.resize((int)msg.m_actskill_size() > (int)m_actskill.max_size() ? m_actskill.max_size() : msg.m_actskill_size());
+	for(int32_t i = 0; i < (int32_t)m_actskill.size(); ++i) {
+		m_actskill[i] = msg.m_actskill(i);
+	}
+	m_mail.resize((int)msg.m_mail_size() > (int)m_mail.max_size() ? m_mail.max_size() : msg.m_mail_size());
+	for(int32_t i = 0; i < (int32_t)m_mail.size(); ++i) {
+		const ::proto_ff::E_RoleBornMailDesc & temp_m_mail = msg.m_mail(i);
+		m_mail[i].read_from_pbmsg(temp_m_mail);
+	}
+}
+
+Sheet_RoleBorn_s::Sheet_RoleBorn_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -229,31 +229,31 @@ Sheet_roleborn_s::Sheet_roleborn_s() {
 	}
 }
 
-int Sheet_roleborn_s::CreateInit() {
+int Sheet_RoleBorn_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleborn_s::ResumeInit() {
+int Sheet_RoleBorn_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleborn_s::write_to_pbmsg(::proto_ff::Sheet_roleborn & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleborn_List.GetSize() && i < roleborn_List.GetMaxSize(); ++i) {
-		::proto_ff::roleborn* temp_roleborn_list = msg.add_roleborn_list();
-		roleborn_List[i].write_to_pbmsg(*temp_roleborn_list);
+void Sheet_RoleBorn_s::write_to_pbmsg(::proto_ff::Sheet_RoleBorn & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleBorn_List.size(); ++i) {
+		::proto_ff::E_RoleBorn* temp_e_roleborn_list = msg.add_e_roleborn_list();
+		E_RoleBorn_List[i].write_to_pbmsg(*temp_e_roleborn_list);
 	}
 }
 
-void Sheet_roleborn_s::read_from_pbmsg(const ::proto_ff::Sheet_roleborn & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleborn_s));
-	roleborn_List.SetSize(msg.roleborn_list_size() > roleborn_List.GetMaxSize() ? roleborn_List.GetMaxSize() : msg.roleborn_list_size());
-	for(int32_t i = 0; i < (int32_t)roleborn_List.GetSize(); ++i) {
-		const ::proto_ff::roleborn & temp_roleborn_list = msg.roleborn_list(i);
-		roleborn_List[i].read_from_pbmsg(temp_roleborn_list);
+void Sheet_RoleBorn_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleBorn & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleBorn_s));
+	E_RoleBorn_List.resize((int)msg.e_roleborn_list_size() > (int)E_RoleBorn_List.max_size() ? E_RoleBorn_List.max_size() : msg.e_roleborn_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleBorn_List.size(); ++i) {
+		const ::proto_ff::E_RoleBorn & temp_e_roleborn_list = msg.e_roleborn_list(i);
+		E_RoleBorn_List[i].read_from_pbmsg(temp_e_roleborn_list);
 	}
 }
 
-rolemasterMaleattributeDesc_s::rolemasterMaleattributeDesc_s() {
+E_RoleMastermaleAttributeDesc_s::E_RoleMastermaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -261,28 +261,28 @@ rolemasterMaleattributeDesc_s::rolemasterMaleattributeDesc_s() {
 	}
 }
 
-int rolemasterMaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleMastermaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int rolemasterMaleattributeDesc_s::ResumeInit() {
+int E_RoleMastermaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void rolemasterMaleattributeDesc_s::write_to_pbmsg(::proto_ff::rolemasterMaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleMastermaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleMastermaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void rolemasterMaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::rolemasterMaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolemasterMaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleMastermaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleMastermaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleMastermaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-rolemasterMale_s::rolemasterMale_s() {
+E_RoleMastermale_s::E_RoleMastermale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -290,37 +290,37 @@ rolemasterMale_s::rolemasterMale_s() {
 	}
 }
 
-int rolemasterMale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleMastermale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int rolemasterMale_s::ResumeInit() {
+int E_RoleMastermale_s::ResumeInit() {
 	return 0;
 }
 
-void rolemasterMale_s::write_to_pbmsg(::proto_ff::rolemasterMale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::rolemasterMaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleMastermale_s::write_to_pbmsg(::proto_ff::E_RoleMastermale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleMastermaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void rolemasterMale_s::read_from_pbmsg(const ::proto_ff::rolemasterMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolemasterMale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::rolemasterMaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleMastermale_s::read_from_pbmsg(const ::proto_ff::E_RoleMastermale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleMastermale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleMastermaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_rolemasterMale_s::Sheet_rolemasterMale_s() {
+Sheet_RoleMastermale_s::Sheet_RoleMastermale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -328,31 +328,31 @@ Sheet_rolemasterMale_s::Sheet_rolemasterMale_s() {
 	}
 }
 
-int Sheet_rolemasterMale_s::CreateInit() {
+int Sheet_RoleMastermale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_rolemasterMale_s::ResumeInit() {
+int Sheet_RoleMastermale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_rolemasterMale_s::write_to_pbmsg(::proto_ff::Sheet_rolemasterMale & msg) const {
-	for(int32_t i = 0; i < (int32_t)rolemasterMale_List.GetSize() && i < rolemasterMale_List.GetMaxSize(); ++i) {
-		::proto_ff::rolemasterMale* temp_rolemastermale_list = msg.add_rolemastermale_list();
-		rolemasterMale_List[i].write_to_pbmsg(*temp_rolemastermale_list);
+void Sheet_RoleMastermale_s::write_to_pbmsg(::proto_ff::Sheet_RoleMastermale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleMastermale_List.size(); ++i) {
+		::proto_ff::E_RoleMastermale* temp_e_rolemastermale_list = msg.add_e_rolemastermale_list();
+		E_RoleMastermale_List[i].write_to_pbmsg(*temp_e_rolemastermale_list);
 	}
 }
 
-void Sheet_rolemasterMale_s::read_from_pbmsg(const ::proto_ff::Sheet_rolemasterMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_rolemasterMale_s));
-	rolemasterMale_List.SetSize(msg.rolemastermale_list_size() > rolemasterMale_List.GetMaxSize() ? rolemasterMale_List.GetMaxSize() : msg.rolemastermale_list_size());
-	for(int32_t i = 0; i < (int32_t)rolemasterMale_List.GetSize(); ++i) {
-		const ::proto_ff::rolemasterMale & temp_rolemastermale_list = msg.rolemastermale_list(i);
-		rolemasterMale_List[i].read_from_pbmsg(temp_rolemastermale_list);
+void Sheet_RoleMastermale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleMastermale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleMastermale_s));
+	E_RoleMastermale_List.resize((int)msg.e_rolemastermale_list_size() > (int)E_RoleMastermale_List.max_size() ? E_RoleMastermale_List.max_size() : msg.e_rolemastermale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleMastermale_List.size(); ++i) {
+		const ::proto_ff::E_RoleMastermale & temp_e_rolemastermale_list = msg.e_rolemastermale_list(i);
+		E_RoleMastermale_List[i].read_from_pbmsg(temp_e_rolemastermale_list);
 	}
 }
 
-rolemasterFemaleattributeDesc_s::rolemasterFemaleattributeDesc_s() {
+E_RoleMasterfemaleAttributeDesc_s::E_RoleMasterfemaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -360,28 +360,28 @@ rolemasterFemaleattributeDesc_s::rolemasterFemaleattributeDesc_s() {
 	}
 }
 
-int rolemasterFemaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleMasterfemaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int rolemasterFemaleattributeDesc_s::ResumeInit() {
+int E_RoleMasterfemaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void rolemasterFemaleattributeDesc_s::write_to_pbmsg(::proto_ff::rolemasterFemaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleMasterfemaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleMasterfemaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void rolemasterFemaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::rolemasterFemaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolemasterFemaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleMasterfemaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleMasterfemaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleMasterfemaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-rolemasterFemale_s::rolemasterFemale_s() {
+E_RoleMasterfemale_s::E_RoleMasterfemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -389,37 +389,37 @@ rolemasterFemale_s::rolemasterFemale_s() {
 	}
 }
 
-int rolemasterFemale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleMasterfemale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int rolemasterFemale_s::ResumeInit() {
+int E_RoleMasterfemale_s::ResumeInit() {
 	return 0;
 }
 
-void rolemasterFemale_s::write_to_pbmsg(::proto_ff::rolemasterFemale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::rolemasterFemaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleMasterfemale_s::write_to_pbmsg(::proto_ff::E_RoleMasterfemale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleMasterfemaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void rolemasterFemale_s::read_from_pbmsg(const ::proto_ff::rolemasterFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolemasterFemale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::rolemasterFemaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleMasterfemale_s::read_from_pbmsg(const ::proto_ff::E_RoleMasterfemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleMasterfemale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleMasterfemaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_rolemasterFemale_s::Sheet_rolemasterFemale_s() {
+Sheet_RoleMasterfemale_s::Sheet_RoleMasterfemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -427,31 +427,31 @@ Sheet_rolemasterFemale_s::Sheet_rolemasterFemale_s() {
 	}
 }
 
-int Sheet_rolemasterFemale_s::CreateInit() {
+int Sheet_RoleMasterfemale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_rolemasterFemale_s::ResumeInit() {
+int Sheet_RoleMasterfemale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_rolemasterFemale_s::write_to_pbmsg(::proto_ff::Sheet_rolemasterFemale & msg) const {
-	for(int32_t i = 0; i < (int32_t)rolemasterFemale_List.GetSize() && i < rolemasterFemale_List.GetMaxSize(); ++i) {
-		::proto_ff::rolemasterFemale* temp_rolemasterfemale_list = msg.add_rolemasterfemale_list();
-		rolemasterFemale_List[i].write_to_pbmsg(*temp_rolemasterfemale_list);
+void Sheet_RoleMasterfemale_s::write_to_pbmsg(::proto_ff::Sheet_RoleMasterfemale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleMasterfemale_List.size(); ++i) {
+		::proto_ff::E_RoleMasterfemale* temp_e_rolemasterfemale_list = msg.add_e_rolemasterfemale_list();
+		E_RoleMasterfemale_List[i].write_to_pbmsg(*temp_e_rolemasterfemale_list);
 	}
 }
 
-void Sheet_rolemasterFemale_s::read_from_pbmsg(const ::proto_ff::Sheet_rolemasterFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_rolemasterFemale_s));
-	rolemasterFemale_List.SetSize(msg.rolemasterfemale_list_size() > rolemasterFemale_List.GetMaxSize() ? rolemasterFemale_List.GetMaxSize() : msg.rolemasterfemale_list_size());
-	for(int32_t i = 0; i < (int32_t)rolemasterFemale_List.GetSize(); ++i) {
-		const ::proto_ff::rolemasterFemale & temp_rolemasterfemale_list = msg.rolemasterfemale_list(i);
-		rolemasterFemale_List[i].read_from_pbmsg(temp_rolemasterfemale_list);
+void Sheet_RoleMasterfemale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleMasterfemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleMasterfemale_s));
+	E_RoleMasterfemale_List.resize((int)msg.e_rolemasterfemale_list_size() > (int)E_RoleMasterfemale_List.max_size() ? E_RoleMasterfemale_List.max_size() : msg.e_rolemasterfemale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleMasterfemale_List.size(); ++i) {
+		const ::proto_ff::E_RoleMasterfemale & temp_e_rolemasterfemale_list = msg.e_rolemasterfemale_list(i);
+		E_RoleMasterfemale_List[i].read_from_pbmsg(temp_e_rolemasterfemale_list);
 	}
 }
 
-rolesickleMaleattributeDesc_s::rolesickleMaleattributeDesc_s() {
+E_RoleSicklemaleAttributeDesc_s::E_RoleSicklemaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -459,28 +459,28 @@ rolesickleMaleattributeDesc_s::rolesickleMaleattributeDesc_s() {
 	}
 }
 
-int rolesickleMaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleSicklemaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int rolesickleMaleattributeDesc_s::ResumeInit() {
+int E_RoleSicklemaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void rolesickleMaleattributeDesc_s::write_to_pbmsg(::proto_ff::rolesickleMaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleSicklemaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleSicklemaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void rolesickleMaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::rolesickleMaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolesickleMaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleSicklemaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleSicklemaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSicklemaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-rolesickleMale_s::rolesickleMale_s() {
+E_RoleSicklemale_s::E_RoleSicklemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -488,37 +488,37 @@ rolesickleMale_s::rolesickleMale_s() {
 	}
 }
 
-int rolesickleMale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleSicklemale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int rolesickleMale_s::ResumeInit() {
+int E_RoleSicklemale_s::ResumeInit() {
 	return 0;
 }
 
-void rolesickleMale_s::write_to_pbmsg(::proto_ff::rolesickleMale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::rolesickleMaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleSicklemale_s::write_to_pbmsg(::proto_ff::E_RoleSicklemale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleSicklemaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void rolesickleMale_s::read_from_pbmsg(const ::proto_ff::rolesickleMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolesickleMale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::rolesickleMaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleSicklemale_s::read_from_pbmsg(const ::proto_ff::E_RoleSicklemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSicklemale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleSicklemaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_rolesickleMale_s::Sheet_rolesickleMale_s() {
+Sheet_RoleSicklemale_s::Sheet_RoleSicklemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -526,31 +526,31 @@ Sheet_rolesickleMale_s::Sheet_rolesickleMale_s() {
 	}
 }
 
-int Sheet_rolesickleMale_s::CreateInit() {
+int Sheet_RoleSicklemale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_rolesickleMale_s::ResumeInit() {
+int Sheet_RoleSicklemale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_rolesickleMale_s::write_to_pbmsg(::proto_ff::Sheet_rolesickleMale & msg) const {
-	for(int32_t i = 0; i < (int32_t)rolesickleMale_List.GetSize() && i < rolesickleMale_List.GetMaxSize(); ++i) {
-		::proto_ff::rolesickleMale* temp_rolesicklemale_list = msg.add_rolesicklemale_list();
-		rolesickleMale_List[i].write_to_pbmsg(*temp_rolesicklemale_list);
+void Sheet_RoleSicklemale_s::write_to_pbmsg(::proto_ff::Sheet_RoleSicklemale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleSicklemale_List.size(); ++i) {
+		::proto_ff::E_RoleSicklemale* temp_e_rolesicklemale_list = msg.add_e_rolesicklemale_list();
+		E_RoleSicklemale_List[i].write_to_pbmsg(*temp_e_rolesicklemale_list);
 	}
 }
 
-void Sheet_rolesickleMale_s::read_from_pbmsg(const ::proto_ff::Sheet_rolesickleMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_rolesickleMale_s));
-	rolesickleMale_List.SetSize(msg.rolesicklemale_list_size() > rolesickleMale_List.GetMaxSize() ? rolesickleMale_List.GetMaxSize() : msg.rolesicklemale_list_size());
-	for(int32_t i = 0; i < (int32_t)rolesickleMale_List.GetSize(); ++i) {
-		const ::proto_ff::rolesickleMale & temp_rolesicklemale_list = msg.rolesicklemale_list(i);
-		rolesickleMale_List[i].read_from_pbmsg(temp_rolesicklemale_list);
+void Sheet_RoleSicklemale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleSicklemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleSicklemale_s));
+	E_RoleSicklemale_List.resize((int)msg.e_rolesicklemale_list_size() > (int)E_RoleSicklemale_List.max_size() ? E_RoleSicklemale_List.max_size() : msg.e_rolesicklemale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleSicklemale_List.size(); ++i) {
+		const ::proto_ff::E_RoleSicklemale & temp_e_rolesicklemale_list = msg.e_rolesicklemale_list(i);
+		E_RoleSicklemale_List[i].read_from_pbmsg(temp_e_rolesicklemale_list);
 	}
 }
 
-rolesickleFemaleattributeDesc_s::rolesickleFemaleattributeDesc_s() {
+E_RoleSicklefemaleAttributeDesc_s::E_RoleSicklefemaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -558,28 +558,28 @@ rolesickleFemaleattributeDesc_s::rolesickleFemaleattributeDesc_s() {
 	}
 }
 
-int rolesickleFemaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleSicklefemaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int rolesickleFemaleattributeDesc_s::ResumeInit() {
+int E_RoleSicklefemaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void rolesickleFemaleattributeDesc_s::write_to_pbmsg(::proto_ff::rolesickleFemaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleSicklefemaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleSicklefemaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void rolesickleFemaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::rolesickleFemaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolesickleFemaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleSicklefemaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleSicklefemaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSicklefemaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-rolesickleFemale_s::rolesickleFemale_s() {
+E_RoleSicklefemale_s::E_RoleSicklefemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -587,37 +587,37 @@ rolesickleFemale_s::rolesickleFemale_s() {
 	}
 }
 
-int rolesickleFemale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleSicklefemale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int rolesickleFemale_s::ResumeInit() {
+int E_RoleSicklefemale_s::ResumeInit() {
 	return 0;
 }
 
-void rolesickleFemale_s::write_to_pbmsg(::proto_ff::rolesickleFemale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::rolesickleFemaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleSicklefemale_s::write_to_pbmsg(::proto_ff::E_RoleSicklefemale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleSicklefemaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void rolesickleFemale_s::read_from_pbmsg(const ::proto_ff::rolesickleFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct rolesickleFemale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::rolesickleFemaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleSicklefemale_s::read_from_pbmsg(const ::proto_ff::E_RoleSicklefemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSicklefemale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleSicklefemaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_rolesickleFemale_s::Sheet_rolesickleFemale_s() {
+Sheet_RoleSicklefemale_s::Sheet_RoleSicklefemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -625,31 +625,31 @@ Sheet_rolesickleFemale_s::Sheet_rolesickleFemale_s() {
 	}
 }
 
-int Sheet_rolesickleFemale_s::CreateInit() {
+int Sheet_RoleSicklefemale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_rolesickleFemale_s::ResumeInit() {
+int Sheet_RoleSicklefemale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_rolesickleFemale_s::write_to_pbmsg(::proto_ff::Sheet_rolesickleFemale & msg) const {
-	for(int32_t i = 0; i < (int32_t)rolesickleFemale_List.GetSize() && i < rolesickleFemale_List.GetMaxSize(); ++i) {
-		::proto_ff::rolesickleFemale* temp_rolesicklefemale_list = msg.add_rolesicklefemale_list();
-		rolesickleFemale_List[i].write_to_pbmsg(*temp_rolesicklefemale_list);
+void Sheet_RoleSicklefemale_s::write_to_pbmsg(::proto_ff::Sheet_RoleSicklefemale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleSicklefemale_List.size(); ++i) {
+		::proto_ff::E_RoleSicklefemale* temp_e_rolesicklefemale_list = msg.add_e_rolesicklefemale_list();
+		E_RoleSicklefemale_List[i].write_to_pbmsg(*temp_e_rolesicklefemale_list);
 	}
 }
 
-void Sheet_rolesickleFemale_s::read_from_pbmsg(const ::proto_ff::Sheet_rolesickleFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_rolesickleFemale_s));
-	rolesickleFemale_List.SetSize(msg.rolesicklefemale_list_size() > rolesickleFemale_List.GetMaxSize() ? rolesickleFemale_List.GetMaxSize() : msg.rolesicklefemale_list_size());
-	for(int32_t i = 0; i < (int32_t)rolesickleFemale_List.GetSize(); ++i) {
-		const ::proto_ff::rolesickleFemale & temp_rolesicklefemale_list = msg.rolesicklefemale_list(i);
-		rolesickleFemale_List[i].read_from_pbmsg(temp_rolesicklefemale_list);
+void Sheet_RoleSicklefemale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleSicklefemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleSicklefemale_s));
+	E_RoleSicklefemale_List.resize((int)msg.e_rolesicklefemale_list_size() > (int)E_RoleSicklefemale_List.max_size() ? E_RoleSicklefemale_List.max_size() : msg.e_rolesicklefemale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleSicklefemale_List.size(); ++i) {
+		const ::proto_ff::E_RoleSicklefemale & temp_e_rolesicklefemale_list = msg.e_rolesicklefemale_list(i);
+		E_RoleSicklefemale_List[i].read_from_pbmsg(temp_e_rolesicklefemale_list);
 	}
 }
 
-roleswordMaleattributeDesc_s::roleswordMaleattributeDesc_s() {
+E_RoleSwordmaleAttributeDesc_s::E_RoleSwordmaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -657,28 +657,28 @@ roleswordMaleattributeDesc_s::roleswordMaleattributeDesc_s() {
 	}
 }
 
-int roleswordMaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleSwordmaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int roleswordMaleattributeDesc_s::ResumeInit() {
+int E_RoleSwordmaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void roleswordMaleattributeDesc_s::write_to_pbmsg(::proto_ff::roleswordMaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleSwordmaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleSwordmaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void roleswordMaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::roleswordMaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleswordMaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleSwordmaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleSwordmaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSwordmaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-roleswordMale_s::roleswordMale_s() {
+E_RoleSwordmale_s::E_RoleSwordmale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -686,37 +686,37 @@ roleswordMale_s::roleswordMale_s() {
 	}
 }
 
-int roleswordMale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleSwordmale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int roleswordMale_s::ResumeInit() {
+int E_RoleSwordmale_s::ResumeInit() {
 	return 0;
 }
 
-void roleswordMale_s::write_to_pbmsg(::proto_ff::roleswordMale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::roleswordMaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleSwordmale_s::write_to_pbmsg(::proto_ff::E_RoleSwordmale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleSwordmaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void roleswordMale_s::read_from_pbmsg(const ::proto_ff::roleswordMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleswordMale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::roleswordMaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleSwordmale_s::read_from_pbmsg(const ::proto_ff::E_RoleSwordmale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSwordmale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleSwordmaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_roleswordMale_s::Sheet_roleswordMale_s() {
+Sheet_RoleSwordmale_s::Sheet_RoleSwordmale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -724,31 +724,31 @@ Sheet_roleswordMale_s::Sheet_roleswordMale_s() {
 	}
 }
 
-int Sheet_roleswordMale_s::CreateInit() {
+int Sheet_RoleSwordmale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleswordMale_s::ResumeInit() {
+int Sheet_RoleSwordmale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleswordMale_s::write_to_pbmsg(::proto_ff::Sheet_roleswordMale & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleswordMale_List.GetSize() && i < roleswordMale_List.GetMaxSize(); ++i) {
-		::proto_ff::roleswordMale* temp_roleswordmale_list = msg.add_roleswordmale_list();
-		roleswordMale_List[i].write_to_pbmsg(*temp_roleswordmale_list);
+void Sheet_RoleSwordmale_s::write_to_pbmsg(::proto_ff::Sheet_RoleSwordmale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleSwordmale_List.size(); ++i) {
+		::proto_ff::E_RoleSwordmale* temp_e_roleswordmale_list = msg.add_e_roleswordmale_list();
+		E_RoleSwordmale_List[i].write_to_pbmsg(*temp_e_roleswordmale_list);
 	}
 }
 
-void Sheet_roleswordMale_s::read_from_pbmsg(const ::proto_ff::Sheet_roleswordMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleswordMale_s));
-	roleswordMale_List.SetSize(msg.roleswordmale_list_size() > roleswordMale_List.GetMaxSize() ? roleswordMale_List.GetMaxSize() : msg.roleswordmale_list_size());
-	for(int32_t i = 0; i < (int32_t)roleswordMale_List.GetSize(); ++i) {
-		const ::proto_ff::roleswordMale & temp_roleswordmale_list = msg.roleswordmale_list(i);
-		roleswordMale_List[i].read_from_pbmsg(temp_roleswordmale_list);
+void Sheet_RoleSwordmale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleSwordmale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleSwordmale_s));
+	E_RoleSwordmale_List.resize((int)msg.e_roleswordmale_list_size() > (int)E_RoleSwordmale_List.max_size() ? E_RoleSwordmale_List.max_size() : msg.e_roleswordmale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleSwordmale_List.size(); ++i) {
+		const ::proto_ff::E_RoleSwordmale & temp_e_roleswordmale_list = msg.e_roleswordmale_list(i);
+		E_RoleSwordmale_List[i].read_from_pbmsg(temp_e_roleswordmale_list);
 	}
 }
 
-roleswordFemaleattributeDesc_s::roleswordFemaleattributeDesc_s() {
+E_RoleSwordfemaleAttributeDesc_s::E_RoleSwordfemaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -756,28 +756,28 @@ roleswordFemaleattributeDesc_s::roleswordFemaleattributeDesc_s() {
 	}
 }
 
-int roleswordFemaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleSwordfemaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int roleswordFemaleattributeDesc_s::ResumeInit() {
+int E_RoleSwordfemaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void roleswordFemaleattributeDesc_s::write_to_pbmsg(::proto_ff::roleswordFemaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleSwordfemaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleSwordfemaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void roleswordFemaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::roleswordFemaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleswordFemaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleSwordfemaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleSwordfemaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSwordfemaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-roleswordFemale_s::roleswordFemale_s() {
+E_RoleSwordfemale_s::E_RoleSwordfemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -785,37 +785,37 @@ roleswordFemale_s::roleswordFemale_s() {
 	}
 }
 
-int roleswordFemale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleSwordfemale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int roleswordFemale_s::ResumeInit() {
+int E_RoleSwordfemale_s::ResumeInit() {
 	return 0;
 }
 
-void roleswordFemale_s::write_to_pbmsg(::proto_ff::roleswordFemale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::roleswordFemaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleSwordfemale_s::write_to_pbmsg(::proto_ff::E_RoleSwordfemale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleSwordfemaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void roleswordFemale_s::read_from_pbmsg(const ::proto_ff::roleswordFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleswordFemale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::roleswordFemaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleSwordfemale_s::read_from_pbmsg(const ::proto_ff::E_RoleSwordfemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSwordfemale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleSwordfemaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_roleswordFemale_s::Sheet_roleswordFemale_s() {
+Sheet_RoleSwordfemale_s::Sheet_RoleSwordfemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -823,31 +823,31 @@ Sheet_roleswordFemale_s::Sheet_roleswordFemale_s() {
 	}
 }
 
-int Sheet_roleswordFemale_s::CreateInit() {
+int Sheet_RoleSwordfemale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleswordFemale_s::ResumeInit() {
+int Sheet_RoleSwordfemale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleswordFemale_s::write_to_pbmsg(::proto_ff::Sheet_roleswordFemale & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleswordFemale_List.GetSize() && i < roleswordFemale_List.GetMaxSize(); ++i) {
-		::proto_ff::roleswordFemale* temp_roleswordfemale_list = msg.add_roleswordfemale_list();
-		roleswordFemale_List[i].write_to_pbmsg(*temp_roleswordfemale_list);
+void Sheet_RoleSwordfemale_s::write_to_pbmsg(::proto_ff::Sheet_RoleSwordfemale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleSwordfemale_List.size(); ++i) {
+		::proto_ff::E_RoleSwordfemale* temp_e_roleswordfemale_list = msg.add_e_roleswordfemale_list();
+		E_RoleSwordfemale_List[i].write_to_pbmsg(*temp_e_roleswordfemale_list);
 	}
 }
 
-void Sheet_roleswordFemale_s::read_from_pbmsg(const ::proto_ff::Sheet_roleswordFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleswordFemale_s));
-	roleswordFemale_List.SetSize(msg.roleswordfemale_list_size() > roleswordFemale_List.GetMaxSize() ? roleswordFemale_List.GetMaxSize() : msg.roleswordfemale_list_size());
-	for(int32_t i = 0; i < (int32_t)roleswordFemale_List.GetSize(); ++i) {
-		const ::proto_ff::roleswordFemale & temp_roleswordfemale_list = msg.roleswordfemale_list(i);
-		roleswordFemale_List[i].read_from_pbmsg(temp_roleswordfemale_list);
+void Sheet_RoleSwordfemale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleSwordfemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleSwordfemale_s));
+	E_RoleSwordfemale_List.resize((int)msg.e_roleswordfemale_list_size() > (int)E_RoleSwordfemale_List.max_size() ? E_RoleSwordfemale_List.max_size() : msg.e_roleswordfemale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleSwordfemale_List.size(); ++i) {
+		const ::proto_ff::E_RoleSwordfemale & temp_e_roleswordfemale_list = msg.e_roleswordfemale_list(i);
+		E_RoleSwordfemale_List[i].read_from_pbmsg(temp_e_roleswordfemale_list);
 	}
 }
 
-roletaidaoMaleattributeDesc_s::roletaidaoMaleattributeDesc_s() {
+E_RoleTaidaomaleAttributeDesc_s::E_RoleTaidaomaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -855,28 +855,28 @@ roletaidaoMaleattributeDesc_s::roletaidaoMaleattributeDesc_s() {
 	}
 }
 
-int roletaidaoMaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleTaidaomaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int roletaidaoMaleattributeDesc_s::ResumeInit() {
+int E_RoleTaidaomaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void roletaidaoMaleattributeDesc_s::write_to_pbmsg(::proto_ff::roletaidaoMaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleTaidaomaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleTaidaomaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void roletaidaoMaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::roletaidaoMaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roletaidaoMaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleTaidaomaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleTaidaomaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleTaidaomaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-roletaidaoMale_s::roletaidaoMale_s() {
+E_RoleTaidaomale_s::E_RoleTaidaomale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -884,37 +884,37 @@ roletaidaoMale_s::roletaidaoMale_s() {
 	}
 }
 
-int roletaidaoMale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleTaidaomale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int roletaidaoMale_s::ResumeInit() {
+int E_RoleTaidaomale_s::ResumeInit() {
 	return 0;
 }
 
-void roletaidaoMale_s::write_to_pbmsg(::proto_ff::roletaidaoMale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::roletaidaoMaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleTaidaomale_s::write_to_pbmsg(::proto_ff::E_RoleTaidaomale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleTaidaomaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void roletaidaoMale_s::read_from_pbmsg(const ::proto_ff::roletaidaoMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roletaidaoMale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::roletaidaoMaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleTaidaomale_s::read_from_pbmsg(const ::proto_ff::E_RoleTaidaomale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleTaidaomale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleTaidaomaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_roletaidaoMale_s::Sheet_roletaidaoMale_s() {
+Sheet_RoleTaidaomale_s::Sheet_RoleTaidaomale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -922,31 +922,31 @@ Sheet_roletaidaoMale_s::Sheet_roletaidaoMale_s() {
 	}
 }
 
-int Sheet_roletaidaoMale_s::CreateInit() {
+int Sheet_RoleTaidaomale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roletaidaoMale_s::ResumeInit() {
+int Sheet_RoleTaidaomale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roletaidaoMale_s::write_to_pbmsg(::proto_ff::Sheet_roletaidaoMale & msg) const {
-	for(int32_t i = 0; i < (int32_t)roletaidaoMale_List.GetSize() && i < roletaidaoMale_List.GetMaxSize(); ++i) {
-		::proto_ff::roletaidaoMale* temp_roletaidaomale_list = msg.add_roletaidaomale_list();
-		roletaidaoMale_List[i].write_to_pbmsg(*temp_roletaidaomale_list);
+void Sheet_RoleTaidaomale_s::write_to_pbmsg(::proto_ff::Sheet_RoleTaidaomale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleTaidaomale_List.size(); ++i) {
+		::proto_ff::E_RoleTaidaomale* temp_e_roletaidaomale_list = msg.add_e_roletaidaomale_list();
+		E_RoleTaidaomale_List[i].write_to_pbmsg(*temp_e_roletaidaomale_list);
 	}
 }
 
-void Sheet_roletaidaoMale_s::read_from_pbmsg(const ::proto_ff::Sheet_roletaidaoMale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roletaidaoMale_s));
-	roletaidaoMale_List.SetSize(msg.roletaidaomale_list_size() > roletaidaoMale_List.GetMaxSize() ? roletaidaoMale_List.GetMaxSize() : msg.roletaidaomale_list_size());
-	for(int32_t i = 0; i < (int32_t)roletaidaoMale_List.GetSize(); ++i) {
-		const ::proto_ff::roletaidaoMale & temp_roletaidaomale_list = msg.roletaidaomale_list(i);
-		roletaidaoMale_List[i].read_from_pbmsg(temp_roletaidaomale_list);
+void Sheet_RoleTaidaomale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleTaidaomale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleTaidaomale_s));
+	E_RoleTaidaomale_List.resize((int)msg.e_roletaidaomale_list_size() > (int)E_RoleTaidaomale_List.max_size() ? E_RoleTaidaomale_List.max_size() : msg.e_roletaidaomale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleTaidaomale_List.size(); ++i) {
+		const ::proto_ff::E_RoleTaidaomale & temp_e_roletaidaomale_list = msg.e_roletaidaomale_list(i);
+		E_RoleTaidaomale_List[i].read_from_pbmsg(temp_e_roletaidaomale_list);
 	}
 }
 
-roletaidaoFemaleattributeDesc_s::roletaidaoFemaleattributeDesc_s() {
+E_RoleTaidaofemaleAttributeDesc_s::E_RoleTaidaofemaleAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -954,28 +954,28 @@ roletaidaoFemaleattributeDesc_s::roletaidaoFemaleattributeDesc_s() {
 	}
 }
 
-int roletaidaoFemaleattributeDesc_s::CreateInit() {
-	Type = (int32_t)0;
-	Value = (int32_t)0;
+int E_RoleTaidaofemaleAttributeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
 	return 0;
 }
 
-int roletaidaoFemaleattributeDesc_s::ResumeInit() {
+int E_RoleTaidaofemaleAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void roletaidaoFemaleattributeDesc_s::write_to_pbmsg(::proto_ff::roletaidaoFemaleattributeDesc & msg) const {
-	msg.set_type((int32_t)Type);
-	msg.set_value((int32_t)Value);
+void E_RoleTaidaofemaleAttributeDesc_s::write_to_pbmsg(::proto_ff::E_RoleTaidaofemaleAttributeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
 }
 
-void roletaidaoFemaleattributeDesc_s::read_from_pbmsg(const ::proto_ff::roletaidaoFemaleattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roletaidaoFemaleattributeDesc_s));
-	Type = msg.type();
-	Value = msg.value();
+void E_RoleTaidaofemaleAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemaleAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleTaidaofemaleAttributeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
-roletaidaoFemale_s::roletaidaoFemale_s() {
+E_RoleTaidaofemale_s::E_RoleTaidaofemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -983,37 +983,37 @@ roletaidaoFemale_s::roletaidaoFemale_s() {
 	}
 }
 
-int roletaidaoFemale_s::CreateInit() {
-	lv = (int32_t)0;
-	upgradePoint = (int32_t)0;
+int E_RoleTaidaofemale_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_upgradepoint = (int32_t)0;
 	return 0;
 }
 
-int roletaidaoFemale_s::ResumeInit() {
+int E_RoleTaidaofemale_s::ResumeInit() {
 	return 0;
 }
 
-void roletaidaoFemale_s::write_to_pbmsg(::proto_ff::roletaidaoFemale & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_upgradepoint((int32_t)upgradePoint);
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize() && i < attribute.GetMaxSize(); ++i) {
-		::proto_ff::roletaidaoFemaleattributeDesc* temp_attribute = msg.add_attribute();
-		attribute[i].write_to_pbmsg(*temp_attribute);
+void E_RoleTaidaofemale_s::write_to_pbmsg(::proto_ff::E_RoleTaidaofemale & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_upgradepoint((int32_t)m_upgradepoint);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_RoleTaidaofemaleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
-void roletaidaoFemale_s::read_from_pbmsg(const ::proto_ff::roletaidaoFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roletaidaoFemale_s));
-	lv = msg.lv();
-	upgradePoint = msg.upgradepoint();
-	attribute.SetSize(msg.attribute_size() > attribute.GetMaxSize() ? attribute.GetMaxSize() : msg.attribute_size());
-	for(int32_t i = 0; i < (int32_t)attribute.GetSize(); ++i) {
-		const ::proto_ff::roletaidaoFemaleattributeDesc & temp_attribute = msg.attribute(i);
-		attribute[i].read_from_pbmsg(temp_attribute);
+void E_RoleTaidaofemale_s::read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleTaidaofemale_s));
+	m_lv = msg.m_lv();
+	m_upgradepoint = msg.m_upgradepoint();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_RoleTaidaofemaleAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
-Sheet_roletaidaoFemale_s::Sheet_roletaidaoFemale_s() {
+Sheet_RoleTaidaofemale_s::Sheet_RoleTaidaofemale_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1021,31 +1021,31 @@ Sheet_roletaidaoFemale_s::Sheet_roletaidaoFemale_s() {
 	}
 }
 
-int Sheet_roletaidaoFemale_s::CreateInit() {
+int Sheet_RoleTaidaofemale_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roletaidaoFemale_s::ResumeInit() {
+int Sheet_RoleTaidaofemale_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roletaidaoFemale_s::write_to_pbmsg(::proto_ff::Sheet_roletaidaoFemale & msg) const {
-	for(int32_t i = 0; i < (int32_t)roletaidaoFemale_List.GetSize() && i < roletaidaoFemale_List.GetMaxSize(); ++i) {
-		::proto_ff::roletaidaoFemale* temp_roletaidaofemale_list = msg.add_roletaidaofemale_list();
-		roletaidaoFemale_List[i].write_to_pbmsg(*temp_roletaidaofemale_list);
+void Sheet_RoleTaidaofemale_s::write_to_pbmsg(::proto_ff::Sheet_RoleTaidaofemale & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleTaidaofemale_List.size(); ++i) {
+		::proto_ff::E_RoleTaidaofemale* temp_e_roletaidaofemale_list = msg.add_e_roletaidaofemale_list();
+		E_RoleTaidaofemale_List[i].write_to_pbmsg(*temp_e_roletaidaofemale_list);
 	}
 }
 
-void Sheet_roletaidaoFemale_s::read_from_pbmsg(const ::proto_ff::Sheet_roletaidaoFemale & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roletaidaoFemale_s));
-	roletaidaoFemale_List.SetSize(msg.roletaidaofemale_list_size() > roletaidaoFemale_List.GetMaxSize() ? roletaidaoFemale_List.GetMaxSize() : msg.roletaidaofemale_list_size());
-	for(int32_t i = 0; i < (int32_t)roletaidaoFemale_List.GetSize(); ++i) {
-		const ::proto_ff::roletaidaoFemale & temp_roletaidaofemale_list = msg.roletaidaofemale_list(i);
-		roletaidaoFemale_List[i].read_from_pbmsg(temp_roletaidaofemale_list);
+void Sheet_RoleTaidaofemale_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleTaidaofemale & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleTaidaofemale_s));
+	E_RoleTaidaofemale_List.resize((int)msg.e_roletaidaofemale_list_size() > (int)E_RoleTaidaofemale_List.max_size() ? E_RoleTaidaofemale_List.max_size() : msg.e_roletaidaofemale_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleTaidaofemale_List.size(); ++i) {
+		const ::proto_ff::E_RoleTaidaofemale & temp_e_roletaidaofemale_list = msg.e_roletaidaofemale_list(i);
+		E_RoleTaidaofemale_List[i].read_from_pbmsg(temp_e_roletaidaofemale_list);
 	}
 }
 
-roleexp_s::roleexp_s() {
+E_RoleExp_s::E_RoleExp_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1053,31 +1053,31 @@ roleexp_s::roleexp_s() {
 	}
 }
 
-int roleexp_s::CreateInit() {
-	lv = (int32_t)0;
-	exp = (int64_t)0;
-	skillPoint = (int32_t)0;
+int E_RoleExp_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_exp = (int64_t)0;
+	m_skillpoint = (int32_t)0;
 	return 0;
 }
 
-int roleexp_s::ResumeInit() {
+int E_RoleExp_s::ResumeInit() {
 	return 0;
 }
 
-void roleexp_s::write_to_pbmsg(::proto_ff::roleexp & msg) const {
-	msg.set_lv((int32_t)lv);
-	msg.set_exp((int64_t)exp);
-	msg.set_skillpoint((int32_t)skillPoint);
+void E_RoleExp_s::write_to_pbmsg(::proto_ff::E_RoleExp & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_exp((int64_t)m_exp);
+	msg.set_m_skillpoint((int32_t)m_skillpoint);
 }
 
-void roleexp_s::read_from_pbmsg(const ::proto_ff::roleexp & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleexp_s));
-	lv = msg.lv();
-	exp = msg.exp();
-	skillPoint = msg.skillpoint();
+void E_RoleExp_s::read_from_pbmsg(const ::proto_ff::E_RoleExp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleExp_s));
+	m_lv = msg.m_lv();
+	m_exp = msg.m_exp();
+	m_skillpoint = msg.m_skillpoint();
 }
 
-Sheet_roleexp_s::Sheet_roleexp_s() {
+Sheet_RoleExp_s::Sheet_RoleExp_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1085,31 +1085,31 @@ Sheet_roleexp_s::Sheet_roleexp_s() {
 	}
 }
 
-int Sheet_roleexp_s::CreateInit() {
+int Sheet_RoleExp_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleexp_s::ResumeInit() {
+int Sheet_RoleExp_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleexp_s::write_to_pbmsg(::proto_ff::Sheet_roleexp & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleexp_List.GetSize() && i < roleexp_List.GetMaxSize(); ++i) {
-		::proto_ff::roleexp* temp_roleexp_list = msg.add_roleexp_list();
-		roleexp_List[i].write_to_pbmsg(*temp_roleexp_list);
+void Sheet_RoleExp_s::write_to_pbmsg(::proto_ff::Sheet_RoleExp & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleExp_List.size(); ++i) {
+		::proto_ff::E_RoleExp* temp_e_roleexp_list = msg.add_e_roleexp_list();
+		E_RoleExp_List[i].write_to_pbmsg(*temp_e_roleexp_list);
 	}
 }
 
-void Sheet_roleexp_s::read_from_pbmsg(const ::proto_ff::Sheet_roleexp & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleexp_s));
-	roleexp_List.SetSize(msg.roleexp_list_size() > roleexp_List.GetMaxSize() ? roleexp_List.GetMaxSize() : msg.roleexp_list_size());
-	for(int32_t i = 0; i < (int32_t)roleexp_List.GetSize(); ++i) {
-		const ::proto_ff::roleexp & temp_roleexp_list = msg.roleexp_list(i);
-		roleexp_List[i].read_from_pbmsg(temp_roleexp_list);
+void Sheet_RoleExp_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleExp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleExp_s));
+	E_RoleExp_List.resize((int)msg.e_roleexp_list_size() > (int)E_RoleExp_List.max_size() ? E_RoleExp_List.max_size() : msg.e_roleexp_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleExp_List.size(); ++i) {
+		const ::proto_ff::E_RoleExp & temp_e_roleexp_list = msg.e_roleexp_list(i);
+		E_RoleExp_List[i].read_from_pbmsg(temp_e_roleexp_list);
 	}
 }
 
-roleskillType_s::roleskillType_s() {
+E_RoleSkilltype_s::E_RoleSkilltype_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1117,28 +1117,28 @@ roleskillType_s::roleskillType_s() {
 	}
 }
 
-int roleskillType_s::CreateInit() {
-	skillId = (int64_t)0;
-	skillType = (int32_t)0;
+int E_RoleSkilltype_s::CreateInit() {
+	m_skillid = (int64_t)0;
+	m_skilltype = (int32_t)0;
 	return 0;
 }
 
-int roleskillType_s::ResumeInit() {
+int E_RoleSkilltype_s::ResumeInit() {
 	return 0;
 }
 
-void roleskillType_s::write_to_pbmsg(::proto_ff::roleskillType & msg) const {
-	msg.set_skillid((int64_t)skillId);
-	msg.set_skilltype((int32_t)skillType);
+void E_RoleSkilltype_s::write_to_pbmsg(::proto_ff::E_RoleSkilltype & msg) const {
+	msg.set_m_skillid((int64_t)m_skillid);
+	msg.set_m_skilltype((int32_t)m_skilltype);
 }
 
-void roleskillType_s::read_from_pbmsg(const ::proto_ff::roleskillType & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleskillType_s));
-	skillId = msg.skillid();
-	skillType = msg.skilltype();
+void E_RoleSkilltype_s::read_from_pbmsg(const ::proto_ff::E_RoleSkilltype & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleSkilltype_s));
+	m_skillid = msg.m_skillid();
+	m_skilltype = msg.m_skilltype();
 }
 
-Sheet_roleskillType_s::Sheet_roleskillType_s() {
+Sheet_RoleSkilltype_s::Sheet_RoleSkilltype_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1146,31 +1146,31 @@ Sheet_roleskillType_s::Sheet_roleskillType_s() {
 	}
 }
 
-int Sheet_roleskillType_s::CreateInit() {
+int Sheet_RoleSkilltype_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleskillType_s::ResumeInit() {
+int Sheet_RoleSkilltype_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleskillType_s::write_to_pbmsg(::proto_ff::Sheet_roleskillType & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleskillType_List.GetSize() && i < roleskillType_List.GetMaxSize(); ++i) {
-		::proto_ff::roleskillType* temp_roleskilltype_list = msg.add_roleskilltype_list();
-		roleskillType_List[i].write_to_pbmsg(*temp_roleskilltype_list);
+void Sheet_RoleSkilltype_s::write_to_pbmsg(::proto_ff::Sheet_RoleSkilltype & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleSkilltype_List.size(); ++i) {
+		::proto_ff::E_RoleSkilltype* temp_e_roleskilltype_list = msg.add_e_roleskilltype_list();
+		E_RoleSkilltype_List[i].write_to_pbmsg(*temp_e_roleskilltype_list);
 	}
 }
 
-void Sheet_roleskillType_s::read_from_pbmsg(const ::proto_ff::Sheet_roleskillType & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleskillType_s));
-	roleskillType_List.SetSize(msg.roleskilltype_list_size() > roleskillType_List.GetMaxSize() ? roleskillType_List.GetMaxSize() : msg.roleskilltype_list_size());
-	for(int32_t i = 0; i < (int32_t)roleskillType_List.GetSize(); ++i) {
-		const ::proto_ff::roleskillType & temp_roleskilltype_list = msg.roleskilltype_list(i);
-		roleskillType_List[i].read_from_pbmsg(temp_roleskilltype_list);
+void Sheet_RoleSkilltype_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleSkilltype & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleSkilltype_s));
+	E_RoleSkilltype_List.resize((int)msg.e_roleskilltype_list_size() > (int)E_RoleSkilltype_List.max_size() ? E_RoleSkilltype_List.max_size() : msg.e_roleskilltype_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleSkilltype_List.size(); ++i) {
+		const ::proto_ff::E_RoleSkilltype & temp_e_roleskilltype_list = msg.e_roleskilltype_list(i);
+		E_RoleSkilltype_List[i].read_from_pbmsg(temp_e_roleskilltype_list);
 	}
 }
 
-roleaddSkill_s::roleaddSkill_s() {
+E_RoleAddskill_s::E_RoleAddskill_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1178,28 +1178,28 @@ roleaddSkill_s::roleaddSkill_s() {
 	}
 }
 
-int roleaddSkill_s::CreateInit() {
-	Id = (int32_t)0;
-	skillId = (int64_t)0;
+int E_RoleAddskill_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_skillid = (int64_t)0;
 	return 0;
 }
 
-int roleaddSkill_s::ResumeInit() {
+int E_RoleAddskill_s::ResumeInit() {
 	return 0;
 }
 
-void roleaddSkill_s::write_to_pbmsg(::proto_ff::roleaddSkill & msg) const {
-	msg.set_id((int32_t)Id);
-	msg.set_skillid((int64_t)skillId);
+void E_RoleAddskill_s::write_to_pbmsg(::proto_ff::E_RoleAddskill & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_skillid((int64_t)m_skillid);
 }
 
-void roleaddSkill_s::read_from_pbmsg(const ::proto_ff::roleaddSkill & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleaddSkill_s));
-	Id = msg.id();
-	skillId = msg.skillid();
+void E_RoleAddskill_s::read_from_pbmsg(const ::proto_ff::E_RoleAddskill & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleAddskill_s));
+	m_id = msg.m_id();
+	m_skillid = msg.m_skillid();
 }
 
-Sheet_roleaddSkill_s::Sheet_roleaddSkill_s() {
+Sheet_RoleAddskill_s::Sheet_RoleAddskill_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1207,31 +1207,31 @@ Sheet_roleaddSkill_s::Sheet_roleaddSkill_s() {
 	}
 }
 
-int Sheet_roleaddSkill_s::CreateInit() {
+int Sheet_RoleAddskill_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleaddSkill_s::ResumeInit() {
+int Sheet_RoleAddskill_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleaddSkill_s::write_to_pbmsg(::proto_ff::Sheet_roleaddSkill & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleaddSkill_List.GetSize() && i < roleaddSkill_List.GetMaxSize(); ++i) {
-		::proto_ff::roleaddSkill* temp_roleaddskill_list = msg.add_roleaddskill_list();
-		roleaddSkill_List[i].write_to_pbmsg(*temp_roleaddskill_list);
+void Sheet_RoleAddskill_s::write_to_pbmsg(::proto_ff::Sheet_RoleAddskill & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleAddskill_List.size(); ++i) {
+		::proto_ff::E_RoleAddskill* temp_e_roleaddskill_list = msg.add_e_roleaddskill_list();
+		E_RoleAddskill_List[i].write_to_pbmsg(*temp_e_roleaddskill_list);
 	}
 }
 
-void Sheet_roleaddSkill_s::read_from_pbmsg(const ::proto_ff::Sheet_roleaddSkill & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleaddSkill_s));
-	roleaddSkill_List.SetSize(msg.roleaddskill_list_size() > roleaddSkill_List.GetMaxSize() ? roleaddSkill_List.GetMaxSize() : msg.roleaddskill_list_size());
-	for(int32_t i = 0; i < (int32_t)roleaddSkill_List.GetSize(); ++i) {
-		const ::proto_ff::roleaddSkill & temp_roleaddskill_list = msg.roleaddskill_list(i);
-		roleaddSkill_List[i].read_from_pbmsg(temp_roleaddskill_list);
+void Sheet_RoleAddskill_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleAddskill & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleAddskill_s));
+	E_RoleAddskill_List.resize((int)msg.e_roleaddskill_list_size() > (int)E_RoleAddskill_List.max_size() ? E_RoleAddskill_List.max_size() : msg.e_roleaddskill_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleAddskill_List.size(); ++i) {
+		const ::proto_ff::E_RoleAddskill & temp_e_roleaddskill_list = msg.e_roleaddskill_list(i);
+		E_RoleAddskill_List[i].read_from_pbmsg(temp_e_roleaddskill_list);
 	}
 }
 
-roleworldexp_s::roleworldexp_s() {
+E_RoleWorldexp_s::E_RoleWorldexp_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1239,28 +1239,28 @@ roleworldexp_s::roleworldexp_s() {
 	}
 }
 
-int roleworldexp_s::CreateInit() {
-	lv = (int64_t)0;
-	worldExp = (int32_t)0;
+int E_RoleWorldexp_s::CreateInit() {
+	m_lv = (int64_t)0;
+	m_worldexp = (int32_t)0;
 	return 0;
 }
 
-int roleworldexp_s::ResumeInit() {
+int E_RoleWorldexp_s::ResumeInit() {
 	return 0;
 }
 
-void roleworldexp_s::write_to_pbmsg(::proto_ff::roleworldexp & msg) const {
-	msg.set_lv((int64_t)lv);
-	msg.set_worldexp((int32_t)worldExp);
+void E_RoleWorldexp_s::write_to_pbmsg(::proto_ff::E_RoleWorldexp & msg) const {
+	msg.set_m_lv((int64_t)m_lv);
+	msg.set_m_worldexp((int32_t)m_worldexp);
 }
 
-void roleworldexp_s::read_from_pbmsg(const ::proto_ff::roleworldexp & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct roleworldexp_s));
-	lv = msg.lv();
-	worldExp = msg.worldexp();
+void E_RoleWorldexp_s::read_from_pbmsg(const ::proto_ff::E_RoleWorldexp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_RoleWorldexp_s));
+	m_lv = msg.m_lv();
+	m_worldexp = msg.m_worldexp();
 }
 
-Sheet_roleworldexp_s::Sheet_roleworldexp_s() {
+Sheet_RoleWorldexp_s::Sheet_RoleWorldexp_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1268,27 +1268,27 @@ Sheet_roleworldexp_s::Sheet_roleworldexp_s() {
 	}
 }
 
-int Sheet_roleworldexp_s::CreateInit() {
+int Sheet_RoleWorldexp_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_roleworldexp_s::ResumeInit() {
+int Sheet_RoleWorldexp_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_roleworldexp_s::write_to_pbmsg(::proto_ff::Sheet_roleworldexp & msg) const {
-	for(int32_t i = 0; i < (int32_t)roleworldexp_List.GetSize() && i < roleworldexp_List.GetMaxSize(); ++i) {
-		::proto_ff::roleworldexp* temp_roleworldexp_list = msg.add_roleworldexp_list();
-		roleworldexp_List[i].write_to_pbmsg(*temp_roleworldexp_list);
+void Sheet_RoleWorldexp_s::write_to_pbmsg(::proto_ff::Sheet_RoleWorldexp & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_RoleWorldexp_List.size(); ++i) {
+		::proto_ff::E_RoleWorldexp* temp_e_roleworldexp_list = msg.add_e_roleworldexp_list();
+		E_RoleWorldexp_List[i].write_to_pbmsg(*temp_e_roleworldexp_list);
 	}
 }
 
-void Sheet_roleworldexp_s::read_from_pbmsg(const ::proto_ff::Sheet_roleworldexp & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_roleworldexp_s));
-	roleworldexp_List.SetSize(msg.roleworldexp_list_size() > roleworldexp_List.GetMaxSize() ? roleworldexp_List.GetMaxSize() : msg.roleworldexp_list_size());
-	for(int32_t i = 0; i < (int32_t)roleworldexp_List.GetSize(); ++i) {
-		const ::proto_ff::roleworldexp & temp_roleworldexp_list = msg.roleworldexp_list(i);
-		roleworldexp_List[i].read_from_pbmsg(temp_roleworldexp_list);
+void Sheet_RoleWorldexp_s::read_from_pbmsg(const ::proto_ff::Sheet_RoleWorldexp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_RoleWorldexp_s));
+	E_RoleWorldexp_List.resize((int)msg.e_roleworldexp_list_size() > (int)E_RoleWorldexp_List.max_size() ? E_RoleWorldexp_List.max_size() : msg.e_roleworldexp_list_size());
+	for(int32_t i = 0; i < (int32_t)E_RoleWorldexp_List.size(); ++i) {
+		const ::proto_ff::E_RoleWorldexp & temp_e_roleworldexp_list = msg.e_roleworldexp_list(i);
+		E_RoleWorldexp_List[i].read_from_pbmsg(temp_e_roleworldexp_list);
 	}
 }
 

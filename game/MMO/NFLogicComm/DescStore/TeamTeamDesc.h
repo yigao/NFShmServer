@@ -14,9 +14,9 @@ public:
 	virtual ~TeamTeamDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::teamteam_s* GetDesc(int id) const;
-	proto_ff_s::teamteam_s* GetDesc(int id);
+	const proto_ff_s::E_TeamTeam_s* GetDesc(int id) const;
+	proto_ff_s::E_TeamTeam_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::teamteam_s, teamteam, MAX_TEAM_TEAM_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_TeamTeam_s, teamteam, MAX_TEAM_TEAM_NUM);
 DECLARE_IDCREATE(TeamTeamDesc);
 };

@@ -2,7 +2,7 @@
 
 namespace proto_ff_s {
 
-bossrareItem_s::bossrareItem_s() {
+E_BossRareitem_s::E_BossRareitem_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -10,28 +10,28 @@ bossrareItem_s::bossrareItem_s() {
 	}
 }
 
-int bossrareItem_s::CreateInit() {
-	itemID = (int64_t)0;
-	top = (int32_t)0;
+int E_BossRareitem_s::CreateInit() {
+	m_itemid = (int64_t)0;
+	m_top = (int32_t)0;
 	return 0;
 }
 
-int bossrareItem_s::ResumeInit() {
+int E_BossRareitem_s::ResumeInit() {
 	return 0;
 }
 
-void bossrareItem_s::write_to_pbmsg(::proto_ff::bossrareItem & msg) const {
-	msg.set_itemid((int64_t)itemID);
-	msg.set_top((int32_t)top);
+void E_BossRareitem_s::write_to_pbmsg(::proto_ff::E_BossRareitem & msg) const {
+	msg.set_m_itemid((int64_t)m_itemid);
+	msg.set_m_top((int32_t)m_top);
 }
 
-void bossrareItem_s::read_from_pbmsg(const ::proto_ff::bossrareItem & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct bossrareItem_s));
-	itemID = msg.itemid();
-	top = msg.top();
+void E_BossRareitem_s::read_from_pbmsg(const ::proto_ff::E_BossRareitem & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_BossRareitem_s));
+	m_itemid = msg.m_itemid();
+	m_top = msg.m_top();
 }
 
-Sheet_bossrareItem_s::Sheet_bossrareItem_s() {
+Sheet_BossRareitem_s::Sheet_BossRareitem_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -39,31 +39,31 @@ Sheet_bossrareItem_s::Sheet_bossrareItem_s() {
 	}
 }
 
-int Sheet_bossrareItem_s::CreateInit() {
+int Sheet_BossRareitem_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_bossrareItem_s::ResumeInit() {
+int Sheet_BossRareitem_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_bossrareItem_s::write_to_pbmsg(::proto_ff::Sheet_bossrareItem & msg) const {
-	for(int32_t i = 0; i < (int32_t)bossrareItem_List.GetSize() && i < bossrareItem_List.GetMaxSize(); ++i) {
-		::proto_ff::bossrareItem* temp_bossrareitem_list = msg.add_bossrareitem_list();
-		bossrareItem_List[i].write_to_pbmsg(*temp_bossrareitem_list);
+void Sheet_BossRareitem_s::write_to_pbmsg(::proto_ff::Sheet_BossRareitem & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_BossRareitem_List.size(); ++i) {
+		::proto_ff::E_BossRareitem* temp_e_bossrareitem_list = msg.add_e_bossrareitem_list();
+		E_BossRareitem_List[i].write_to_pbmsg(*temp_e_bossrareitem_list);
 	}
 }
 
-void Sheet_bossrareItem_s::read_from_pbmsg(const ::proto_ff::Sheet_bossrareItem & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_bossrareItem_s));
-	bossrareItem_List.SetSize(msg.bossrareitem_list_size() > bossrareItem_List.GetMaxSize() ? bossrareItem_List.GetMaxSize() : msg.bossrareitem_list_size());
-	for(int32_t i = 0; i < (int32_t)bossrareItem_List.GetSize(); ++i) {
-		const ::proto_ff::bossrareItem & temp_bossrareitem_list = msg.bossrareitem_list(i);
-		bossrareItem_List[i].read_from_pbmsg(temp_bossrareitem_list);
+void Sheet_BossRareitem_s::read_from_pbmsg(const ::proto_ff::Sheet_BossRareitem & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_BossRareitem_s));
+	E_BossRareitem_List.resize((int)msg.e_bossrareitem_list_size() > (int)E_BossRareitem_List.max_size() ? E_BossRareitem_List.max_size() : msg.e_bossrareitem_list_size());
+	for(int32_t i = 0; i < (int32_t)E_BossRareitem_List.size(); ++i) {
+		const ::proto_ff::E_BossRareitem & temp_e_bossrareitem_list = msg.e_bossrareitem_list(i);
+		E_BossRareitem_List[i].read_from_pbmsg(temp_e_bossrareitem_list);
 	}
 }
 
-bossboss_s::bossboss_s() {
+E_BossBoss_s::E_BossBoss_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -71,58 +71,58 @@ bossboss_s::bossboss_s() {
 	}
 }
 
-int bossboss_s::CreateInit() {
-	id = (int32_t)0;
-	bossType = (int32_t)0;
-	monsterID = (int32_t)0;
-	classOrder = (int32_t)0;
-	sceneOrder = (int32_t)0;
-	duplicateID = (int32_t)0;
-	peaceMask = (int32_t)0;
-	pointID = (int32_t)0;
-	group_type = (int32_t)0;
-	flashTime = (int32_t)0;
-	retrieveGiftID = (int32_t)0;
-	noTimes = (int32_t)0;
+int E_BossBoss_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_bosstype = (int32_t)0;
+	m_monsterid = (int32_t)0;
+	m_classorder = (int32_t)0;
+	m_sceneorder = (int32_t)0;
+	m_duplicateid = (int32_t)0;
+	m_peacemask = (int32_t)0;
+	m_pointid = (int32_t)0;
+	m_group_type = (int32_t)0;
+	m_flashtime = (int32_t)0;
+	m_retrievegiftid = (int32_t)0;
+	m_notimes = (int32_t)0;
 	return 0;
 }
 
-int bossboss_s::ResumeInit() {
+int E_BossBoss_s::ResumeInit() {
 	return 0;
 }
 
-void bossboss_s::write_to_pbmsg(::proto_ff::bossboss & msg) const {
-	msg.set_id((int32_t)id);
-	msg.set_bosstype((int32_t)bossType);
-	msg.set_monsterid((int32_t)monsterID);
-	msg.set_classorder((int32_t)classOrder);
-	msg.set_sceneorder((int32_t)sceneOrder);
-	msg.set_duplicateid((int32_t)duplicateID);
-	msg.set_peacemask((int32_t)peaceMask);
-	msg.set_pointid((int32_t)pointID);
-	msg.set_group_type((int32_t)group_type);
-	msg.set_flashtime((int32_t)flashTime);
-	msg.set_retrievegiftid((int32_t)retrieveGiftID);
-	msg.set_notimes((int32_t)noTimes);
+void E_BossBoss_s::write_to_pbmsg(::proto_ff::E_BossBoss & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_bosstype((int32_t)m_bosstype);
+	msg.set_m_monsterid((int32_t)m_monsterid);
+	msg.set_m_classorder((int32_t)m_classorder);
+	msg.set_m_sceneorder((int32_t)m_sceneorder);
+	msg.set_m_duplicateid((int32_t)m_duplicateid);
+	msg.set_m_peacemask((int32_t)m_peacemask);
+	msg.set_m_pointid((int32_t)m_pointid);
+	msg.set_m_group_type((int32_t)m_group_type);
+	msg.set_m_flashtime((int32_t)m_flashtime);
+	msg.set_m_retrievegiftid((int32_t)m_retrievegiftid);
+	msg.set_m_notimes((int32_t)m_notimes);
 }
 
-void bossboss_s::read_from_pbmsg(const ::proto_ff::bossboss & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct bossboss_s));
-	id = msg.id();
-	bossType = msg.bosstype();
-	monsterID = msg.monsterid();
-	classOrder = msg.classorder();
-	sceneOrder = msg.sceneorder();
-	duplicateID = msg.duplicateid();
-	peaceMask = msg.peacemask();
-	pointID = msg.pointid();
-	group_type = msg.group_type();
-	flashTime = msg.flashtime();
-	retrieveGiftID = msg.retrievegiftid();
-	noTimes = msg.notimes();
+void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_BossBoss_s));
+	m_id = msg.m_id();
+	m_bosstype = msg.m_bosstype();
+	m_monsterid = msg.m_monsterid();
+	m_classorder = msg.m_classorder();
+	m_sceneorder = msg.m_sceneorder();
+	m_duplicateid = msg.m_duplicateid();
+	m_peacemask = msg.m_peacemask();
+	m_pointid = msg.m_pointid();
+	m_group_type = msg.m_group_type();
+	m_flashtime = msg.m_flashtime();
+	m_retrievegiftid = msg.m_retrievegiftid();
+	m_notimes = msg.m_notimes();
 }
 
-Sheet_bossboss_s::Sheet_bossboss_s() {
+Sheet_BossBoss_s::Sheet_BossBoss_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -130,31 +130,31 @@ Sheet_bossboss_s::Sheet_bossboss_s() {
 	}
 }
 
-int Sheet_bossboss_s::CreateInit() {
+int Sheet_BossBoss_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_bossboss_s::ResumeInit() {
+int Sheet_BossBoss_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_bossboss_s::write_to_pbmsg(::proto_ff::Sheet_bossboss & msg) const {
-	for(int32_t i = 0; i < (int32_t)bossboss_List.GetSize() && i < bossboss_List.GetMaxSize(); ++i) {
-		::proto_ff::bossboss* temp_bossboss_list = msg.add_bossboss_list();
-		bossboss_List[i].write_to_pbmsg(*temp_bossboss_list);
+void Sheet_BossBoss_s::write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_BossBoss_List.size(); ++i) {
+		::proto_ff::E_BossBoss* temp_e_bossboss_list = msg.add_e_bossboss_list();
+		E_BossBoss_List[i].write_to_pbmsg(*temp_e_bossboss_list);
 	}
 }
 
-void Sheet_bossboss_s::read_from_pbmsg(const ::proto_ff::Sheet_bossboss & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_bossboss_s));
-	bossboss_List.SetSize(msg.bossboss_list_size() > bossboss_List.GetMaxSize() ? bossboss_List.GetMaxSize() : msg.bossboss_list_size());
-	for(int32_t i = 0; i < (int32_t)bossboss_List.GetSize(); ++i) {
-		const ::proto_ff::bossboss & temp_bossboss_list = msg.bossboss_list(i);
-		bossboss_List[i].read_from_pbmsg(temp_bossboss_list);
+void Sheet_BossBoss_s::read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_BossBoss_s));
+	E_BossBoss_List.resize((int)msg.e_bossboss_list_size() > (int)E_BossBoss_List.max_size() ? E_BossBoss_List.max_size() : msg.e_bossboss_list_size());
+	for(int32_t i = 0; i < (int32_t)E_BossBoss_List.size(); ++i) {
+		const ::proto_ff::E_BossBoss & temp_e_bossboss_list = msg.e_bossboss_list(i);
+		E_BossBoss_List[i].read_from_pbmsg(temp_e_bossboss_list);
 	}
 }
 
-bossbosstypegroupDesc_s::bossbosstypegroupDesc_s() {
+E_BossBosstypeGroupDesc_s::E_BossBosstypeGroupDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -162,28 +162,28 @@ bossbosstypegroupDesc_s::bossbosstypegroupDesc_s() {
 	}
 }
 
-int bossbosstypegroupDesc_s::CreateInit() {
-	type = (int32_t)0;
-	times = (int32_t)0;
+int E_BossBosstypeGroupDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_times = (int32_t)0;
 	return 0;
 }
 
-int bossbosstypegroupDesc_s::ResumeInit() {
+int E_BossBosstypeGroupDesc_s::ResumeInit() {
 	return 0;
 }
 
-void bossbosstypegroupDesc_s::write_to_pbmsg(::proto_ff::bossbosstypegroupDesc & msg) const {
-	msg.set_type((int32_t)type);
-	msg.set_times((int32_t)times);
+void E_BossBosstypeGroupDesc_s::write_to_pbmsg(::proto_ff::E_BossBosstypeGroupDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_times((int32_t)m_times);
 }
 
-void bossbosstypegroupDesc_s::read_from_pbmsg(const ::proto_ff::bossbosstypegroupDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct bossbosstypegroupDesc_s));
-	type = msg.type();
-	times = msg.times();
+void E_BossBosstypeGroupDesc_s::read_from_pbmsg(const ::proto_ff::E_BossBosstypeGroupDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_BossBosstypeGroupDesc_s));
+	m_type = msg.m_type();
+	m_times = msg.m_times();
 }
 
-bossbosstype_s::bossbosstype_s() {
+E_BossBosstype_s::E_BossBosstype_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -191,75 +191,75 @@ bossbosstype_s::bossbosstype_s() {
 	}
 }
 
-int bossbosstype_s::CreateInit() {
-	bossType = (int32_t)0;
-	mapType = (int32_t)0;
-	functionId = (int32_t)0;
-	duplicateGroupID = (int32_t)0;
-	privilegeType = (int32_t)0;
-	callingCardId = (int64_t)0;
-	enterTimes = (int32_t)0;
-	costitem = (int32_t)0;
-	bossTimes = (int32_t)0;
-	addItemID = (int32_t)0;
-	canhelp = (int32_t)0;
-	qkill = (int32_t)0;
-	retrievedDays = (int32_t)0;
-	skill = (int32_t)0;
+int E_BossBosstype_s::CreateInit() {
+	m_bosstype = (int32_t)0;
+	m_maptype = (int32_t)0;
+	m_functionid = (int32_t)0;
+	m_duplicategroupid = (int32_t)0;
+	m_privilegetype = (int32_t)0;
+	m_callingcardid = (int64_t)0;
+	m_entertimes = (int32_t)0;
+	m_costitem = (int32_t)0;
+	m_bosstimes = (int32_t)0;
+	m_additemid = (int32_t)0;
+	m_canhelp = (int32_t)0;
+	m_qkill = (int32_t)0;
+	m_retrieveddays = (int32_t)0;
+	m_skill = (int32_t)0;
 	return 0;
 }
 
-int bossbosstype_s::ResumeInit() {
+int E_BossBosstype_s::ResumeInit() {
 	return 0;
 }
 
-void bossbosstype_s::write_to_pbmsg(::proto_ff::bossbosstype & msg) const {
-	msg.set_bosstype((int32_t)bossType);
-	msg.set_maptype((int32_t)mapType);
-	msg.set_functionid((int32_t)functionId);
-	msg.set_duplicategroupid((int32_t)duplicateGroupID);
-	msg.set_privilegetype((int32_t)privilegeType);
-	msg.set_callingcardid((int64_t)callingCardId);
-	msg.set_entertimes((int32_t)enterTimes);
-	msg.set_costitem((int32_t)costitem);
-	msg.set_costnum((const char*)costnum.Get());
-	msg.set_bosstimes((int32_t)bossTimes);
-	msg.set_additemid((int32_t)addItemID);
-	msg.set_canhelp((int32_t)canhelp);
-	msg.set_qkill((int32_t)qkill);
-	msg.set_retrieveddays((int32_t)retrievedDays);
-	msg.set_skill((int32_t)skill);
-	for(int32_t i = 0; i < (int32_t)group.GetSize() && i < group.GetMaxSize(); ++i) {
-		::proto_ff::bossbosstypegroupDesc* temp_group = msg.add_group();
-		group[i].write_to_pbmsg(*temp_group);
+void E_BossBosstype_s::write_to_pbmsg(::proto_ff::E_BossBosstype & msg) const {
+	msg.set_m_bosstype((int32_t)m_bosstype);
+	msg.set_m_maptype((int32_t)m_maptype);
+	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_duplicategroupid((int32_t)m_duplicategroupid);
+	msg.set_m_privilegetype((int32_t)m_privilegetype);
+	msg.set_m_callingcardid((int64_t)m_callingcardid);
+	msg.set_m_entertimes((int32_t)m_entertimes);
+	msg.set_m_costitem((int32_t)m_costitem);
+	msg.set_m_costnum((const char*)m_costnum.data());
+	msg.set_m_bosstimes((int32_t)m_bosstimes);
+	msg.set_m_additemid((int32_t)m_additemid);
+	msg.set_m_canhelp((int32_t)m_canhelp);
+	msg.set_m_qkill((int32_t)m_qkill);
+	msg.set_m_retrieveddays((int32_t)m_retrieveddays);
+	msg.set_m_skill((int32_t)m_skill);
+	for(int32_t i = 0; i < (int32_t)m_group.size(); ++i) {
+		::proto_ff::E_BossBosstypeGroupDesc* temp_m_group = msg.add_m_group();
+		m_group[i].write_to_pbmsg(*temp_m_group);
 	}
 }
 
-void bossbosstype_s::read_from_pbmsg(const ::proto_ff::bossbosstype & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct bossbosstype_s));
-	bossType = msg.bosstype();
-	mapType = msg.maptype();
-	functionId = msg.functionid();
-	duplicateGroupID = msg.duplicategroupid();
-	privilegeType = msg.privilegetype();
-	callingCardId = msg.callingcardid();
-	enterTimes = msg.entertimes();
-	costitem = msg.costitem();
-	costnum.Copy(msg.costnum());
-	bossTimes = msg.bosstimes();
-	addItemID = msg.additemid();
-	canhelp = msg.canhelp();
-	qkill = msg.qkill();
-	retrievedDays = msg.retrieveddays();
-	skill = msg.skill();
-	group.SetSize(msg.group_size() > group.GetMaxSize() ? group.GetMaxSize() : msg.group_size());
-	for(int32_t i = 0; i < (int32_t)group.GetSize(); ++i) {
-		const ::proto_ff::bossbosstypegroupDesc & temp_group = msg.group(i);
-		group[i].read_from_pbmsg(temp_group);
+void E_BossBosstype_s::read_from_pbmsg(const ::proto_ff::E_BossBosstype & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_BossBosstype_s));
+	m_bosstype = msg.m_bosstype();
+	m_maptype = msg.m_maptype();
+	m_functionid = msg.m_functionid();
+	m_duplicategroupid = msg.m_duplicategroupid();
+	m_privilegetype = msg.m_privilegetype();
+	m_callingcardid = msg.m_callingcardid();
+	m_entertimes = msg.m_entertimes();
+	m_costitem = msg.m_costitem();
+	m_costnum = msg.m_costnum();
+	m_bosstimes = msg.m_bosstimes();
+	m_additemid = msg.m_additemid();
+	m_canhelp = msg.m_canhelp();
+	m_qkill = msg.m_qkill();
+	m_retrieveddays = msg.m_retrieveddays();
+	m_skill = msg.m_skill();
+	m_group.resize((int)msg.m_group_size() > (int)m_group.max_size() ? m_group.max_size() : msg.m_group_size());
+	for(int32_t i = 0; i < (int32_t)m_group.size(); ++i) {
+		const ::proto_ff::E_BossBosstypeGroupDesc & temp_m_group = msg.m_group(i);
+		m_group[i].read_from_pbmsg(temp_m_group);
 	}
 }
 
-Sheet_bossbosstype_s::Sheet_bossbosstype_s() {
+Sheet_BossBosstype_s::Sheet_BossBosstype_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -267,31 +267,31 @@ Sheet_bossbosstype_s::Sheet_bossbosstype_s() {
 	}
 }
 
-int Sheet_bossbosstype_s::CreateInit() {
+int Sheet_BossBosstype_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_bossbosstype_s::ResumeInit() {
+int Sheet_BossBosstype_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_bossbosstype_s::write_to_pbmsg(::proto_ff::Sheet_bossbosstype & msg) const {
-	for(int32_t i = 0; i < (int32_t)bossbosstype_List.GetSize() && i < bossbosstype_List.GetMaxSize(); ++i) {
-		::proto_ff::bossbosstype* temp_bossbosstype_list = msg.add_bossbosstype_list();
-		bossbosstype_List[i].write_to_pbmsg(*temp_bossbosstype_list);
+void Sheet_BossBosstype_s::write_to_pbmsg(::proto_ff::Sheet_BossBosstype & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_BossBosstype_List.size(); ++i) {
+		::proto_ff::E_BossBosstype* temp_e_bossbosstype_list = msg.add_e_bossbosstype_list();
+		E_BossBosstype_List[i].write_to_pbmsg(*temp_e_bossbosstype_list);
 	}
 }
 
-void Sheet_bossbosstype_s::read_from_pbmsg(const ::proto_ff::Sheet_bossbosstype & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_bossbosstype_s));
-	bossbosstype_List.SetSize(msg.bossbosstype_list_size() > bossbosstype_List.GetMaxSize() ? bossbosstype_List.GetMaxSize() : msg.bossbosstype_list_size());
-	for(int32_t i = 0; i < (int32_t)bossbosstype_List.GetSize(); ++i) {
-		const ::proto_ff::bossbosstype & temp_bossbosstype_list = msg.bossbosstype_list(i);
-		bossbosstype_List[i].read_from_pbmsg(temp_bossbosstype_list);
+void Sheet_BossBosstype_s::read_from_pbmsg(const ::proto_ff::Sheet_BossBosstype & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_BossBosstype_s));
+	E_BossBosstype_List.resize((int)msg.e_bossbosstype_list_size() > (int)E_BossBosstype_List.max_size() ? E_BossBosstype_List.max_size() : msg.e_bossbosstype_list_size());
+	for(int32_t i = 0; i < (int32_t)E_BossBosstype_List.size(); ++i) {
+		const ::proto_ff::E_BossBosstype & temp_e_bossbosstype_list = msg.e_bossbosstype_list(i);
+		E_BossBosstype_List[i].read_from_pbmsg(temp_e_bossbosstype_list);
 	}
 }
 
-bosslayer_s::bosslayer_s() {
+E_BossLayer_s::E_BossLayer_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -299,40 +299,40 @@ bosslayer_s::bosslayer_s() {
 	}
 }
 
-int bosslayer_s::CreateInit() {
-	ID = (int32_t)0;
-	bossType = (int32_t)0;
-	order = (int32_t)0;
-	mapID = (int32_t)0;
+int E_BossLayer_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_bosstype = (int32_t)0;
+	m_order = (int32_t)0;
+	m_mapid = (int32_t)0;
 	return 0;
 }
 
-int bosslayer_s::ResumeInit() {
+int E_BossLayer_s::ResumeInit() {
 	return 0;
 }
 
-void bosslayer_s::write_to_pbmsg(::proto_ff::bosslayer & msg) const {
-	msg.set_id((int32_t)ID);
-	msg.set_bosstype((int32_t)bossType);
-	msg.set_order((int32_t)order);
-	msg.set_name((const char*)name.Get());
-	msg.set_entercondition((const char*)enterCondition.Get());
-	msg.set_unlockcondition((const char*)unlockCondition.Get());
-	msg.set_mapid((int32_t)mapID);
+void E_BossLayer_s::write_to_pbmsg(::proto_ff::E_BossLayer & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_bosstype((int32_t)m_bosstype);
+	msg.set_m_order((int32_t)m_order);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_entercondition((const char*)m_entercondition.data());
+	msg.set_m_unlockcondition((const char*)m_unlockcondition.data());
+	msg.set_m_mapid((int32_t)m_mapid);
 }
 
-void bosslayer_s::read_from_pbmsg(const ::proto_ff::bosslayer & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct bosslayer_s));
-	ID = msg.id();
-	bossType = msg.bosstype();
-	order = msg.order();
-	name.Copy(msg.name());
-	enterCondition.Copy(msg.entercondition());
-	unlockCondition.Copy(msg.unlockcondition());
-	mapID = msg.mapid();
+void E_BossLayer_s::read_from_pbmsg(const ::proto_ff::E_BossLayer & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_BossLayer_s));
+	m_id = msg.m_id();
+	m_bosstype = msg.m_bosstype();
+	m_order = msg.m_order();
+	m_name = msg.m_name();
+	m_entercondition = msg.m_entercondition();
+	m_unlockcondition = msg.m_unlockcondition();
+	m_mapid = msg.m_mapid();
 }
 
-Sheet_bosslayer_s::Sheet_bosslayer_s() {
+Sheet_BossLayer_s::Sheet_BossLayer_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -340,27 +340,27 @@ Sheet_bosslayer_s::Sheet_bosslayer_s() {
 	}
 }
 
-int Sheet_bosslayer_s::CreateInit() {
+int Sheet_BossLayer_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_bosslayer_s::ResumeInit() {
+int Sheet_BossLayer_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_bosslayer_s::write_to_pbmsg(::proto_ff::Sheet_bosslayer & msg) const {
-	for(int32_t i = 0; i < (int32_t)bosslayer_List.GetSize() && i < bosslayer_List.GetMaxSize(); ++i) {
-		::proto_ff::bosslayer* temp_bosslayer_list = msg.add_bosslayer_list();
-		bosslayer_List[i].write_to_pbmsg(*temp_bosslayer_list);
+void Sheet_BossLayer_s::write_to_pbmsg(::proto_ff::Sheet_BossLayer & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_BossLayer_List.size(); ++i) {
+		::proto_ff::E_BossLayer* temp_e_bosslayer_list = msg.add_e_bosslayer_list();
+		E_BossLayer_List[i].write_to_pbmsg(*temp_e_bosslayer_list);
 	}
 }
 
-void Sheet_bosslayer_s::read_from_pbmsg(const ::proto_ff::Sheet_bosslayer & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_bosslayer_s));
-	bosslayer_List.SetSize(msg.bosslayer_list_size() > bosslayer_List.GetMaxSize() ? bosslayer_List.GetMaxSize() : msg.bosslayer_list_size());
-	for(int32_t i = 0; i < (int32_t)bosslayer_List.GetSize(); ++i) {
-		const ::proto_ff::bosslayer & temp_bosslayer_list = msg.bosslayer_list(i);
-		bosslayer_List[i].read_from_pbmsg(temp_bosslayer_list);
+void Sheet_BossLayer_s::read_from_pbmsg(const ::proto_ff::Sheet_BossLayer & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_BossLayer_s));
+	E_BossLayer_List.resize((int)msg.e_bosslayer_list_size() > (int)E_BossLayer_List.max_size() ? E_BossLayer_List.max_size() : msg.e_bosslayer_list_size());
+	for(int32_t i = 0; i < (int32_t)E_BossLayer_List.size(); ++i) {
+		const ::proto_ff::E_BossLayer & temp_e_bosslayer_list = msg.e_bosslayer_list(i);
+		E_BossLayer_List[i].read_from_pbmsg(temp_e_bosslayer_list);
 	}
 }
 
