@@ -575,10 +575,10 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
         return 0;
     }
 
-    const NFPoint3<float> *pPoscfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandBornPoint(pBornProf->mapID);
+    const NFPoint3<float> *pPoscfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandBornPoint(pBornProf->m_mapid);
     if (nullptr == pPoscfg)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, uid, "create role, RandBornPoint error...uid:{},mapId:{}", uid, pBornProf->mapID);
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "create role, RandBornPoint error...uid:{},mapId:{}", uid, pBornProf->m_mapid);
         proto_ff::ClientCreateRoleRsp clientRsp;
         clientRsp.set_result(proto_ff::RET_LOGIN_CHARACTER_PROF_ERROR);
         pPlayer->SendMsgToClient(proto_ff::CLIENT_CREATE_ROLE_RSP, clientRsp);
@@ -593,17 +593,17 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
     createRoleReq.set_born_zid(pPlayer->GetZid());
     createRoleReq.set_name(name);
     createRoleReq.set_prof(prof);
-    createRoleReq.set_level(pBornProf->bornLevel);
+    createRoleReq.set_level(pBornProf->m_bornlevel);
     createRoleReq.set_color(color);
 
-    createRoleReq.set_enter_scene_id(pBornProf->mapID);
-    createRoleReq.set_enter_map_id(pBornProf->mapID);
+    createRoleReq.set_enter_scene_id(pBornProf->m_mapid);
+    createRoleReq.set_enter_map_id(pBornProf->m_mapid);
     createRoleReq.set_enterposx(pPoscfg->x);
     createRoleReq.set_enterposy(pPoscfg->y);
     createRoleReq.set_enterposz(pPoscfg->z);
 
-    createRoleReq.set_lastsceneid(pBornProf->mapID);
-    createRoleReq.set_lastmapid(pBornProf->mapID);
+    createRoleReq.set_lastsceneid(pBornProf->m_mapid);
+    createRoleReq.set_lastmapid(pBornProf->m_mapid);
     createRoleReq.set_lastposx(pPoscfg->x);
     createRoleReq.set_lastposy(pPoscfg->y);
     createRoleReq.set_lastposz(pPoscfg->z);

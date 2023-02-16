@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_ConditionCondition_s* GetDesc(int id) const;
 	proto_ff_s::E_ConditionCondition_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ConditionCondition_s, conditioncondition, MAX_CONDITION_CONDITION_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ConditionCondition_s, E_ConditionCondition, MAX_CONDITION_CONDITION_NUM);
 DECLARE_IDCREATE(ConditionConditionDesc);
 };

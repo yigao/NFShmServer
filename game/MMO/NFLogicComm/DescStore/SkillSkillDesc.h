@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_SkillSkill_s* GetDesc(int id) const;
 	proto_ff_s::E_SkillSkill_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_SkillSkill_s, skillskill, MAX_SKILL_SKILL_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_SkillSkill_s, E_SkillSkill, MAX_SKILL_SKILL_NUM);
 DECLARE_IDCREATE(SkillSkillDesc);
 };

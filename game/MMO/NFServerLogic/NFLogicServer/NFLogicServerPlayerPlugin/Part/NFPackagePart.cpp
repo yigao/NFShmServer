@@ -124,10 +124,10 @@ NFBagPage *NFPackagePart::GetItemPackageBag(uint64_t nItemID)
 uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
 {
     uint32_t nPackageType = proto_ff::EPackageType_None;
-    const proto_ff_s::itemitem_s *pItemCfg = ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(nItemID);
+    auto pItemCfg = ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(nItemID);
     if (pItemCfg == NULL)
     {
-        const proto_ff_s::equipequip_s *pEquipCfg = EquipEquipDesc::Instance(m_pObjPluginManager)->GetDesc(nItemID);
+        auto pEquipCfg = EquipEquipDesc::Instance(m_pObjPluginManager)->GetDesc(nItemID);
         if (nullptr == pEquipCfg)
         {
             return proto_ff::EPackageType_None;
@@ -135,7 +135,7 @@ uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
         return proto_ff::EPackageType_Common;
     }
 
-    switch (pItemCfg->itemType)
+    switch (pItemCfg->m_itemtype)
     {
         case proto_ff::EItemType_Material:
             nPackageType = proto_ff::EPackageType_Common;
@@ -664,7 +664,7 @@ int32_t NFPackagePart::UseItem(NFGridItem *pItem, int64_t &nNum, proto_ff::UseIt
             {
                 //使用物品事件
                 proto_ff::ItemUseEvent useEvent;
-                useEvent.set_itemid(pItemCfg->id);
+                useEvent.set_itemid(pItemCfg->m_id);
                 useEvent.set_num(nNum);
                 FireExecute(NF_ST_LOGIC_SERVER, EVENT_ITEM_USE, m_pMaster->GetRoleId(), CREATURE_PLAYER, useEvent);
             }
@@ -711,7 +711,7 @@ int32_t NFPackagePart::UseItem(uint16_t nIndex, int64_t &nNum, proto_ff::UseItem
     {
         SCommonSource sourceParam;
         sourceParam.src = S_USE_ITEM;
-        sourceParam.param1 = pItemCfg->id;
+        sourceParam.param1 = pItemCfg->m_id;
         RemoveItemByIndex(proto_ff::EPackageType_Common, nIndex, nNum, sourceParam);
     }
 /*    if (pItemCfg->dayUse)

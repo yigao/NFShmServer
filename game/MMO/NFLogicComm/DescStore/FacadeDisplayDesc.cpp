@@ -46,7 +46,7 @@ int FacadeDisplayDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_facadedisplay_list_size() < 0) || (table.e_facadedisplay_list_size() > (int)(m_astDesc.size())))
+	if ((table.e_facadedisplay_list_size() < 0) || (table.e_facadedisplay_list_size() > (int)(m_astDesc.max_size())))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_facadedisplay_list_size());
 		return -2;
@@ -66,7 +66,7 @@ int FacadeDisplayDesc::Load(NFResDB *pDB)
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
-		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
+		NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = &m_astDesc[i];
 		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);

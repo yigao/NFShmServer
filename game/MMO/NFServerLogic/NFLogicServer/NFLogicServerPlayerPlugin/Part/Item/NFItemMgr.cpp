@@ -308,26 +308,26 @@ int8_t NFItemMgr::BindStateByWay(uint64_t nItemId, int8_t byBind, int8_t bindWay
     return BindStateByWay(pItemCfg, byBind, bindWay);
 }
 
-int8_t NFItemMgr::BindStateByWay(const proto_ff_s::itemitem_s *pItemCfg, int8_t byBind, int8_t bindWay)
+int8_t NFItemMgr::BindStateByWay(const proto_ff_s::E_ItemItem_s *pItemCfg, int8_t byBind, int8_t bindWay)
 {
     if ((int8_t) EBindState::EBindState_bind == byBind)
     {
         return byBind;
     }
-    if (nullptr != pItemCfg && pItemCfg->bindType)
+    if (nullptr != pItemCfg && pItemCfg->m_bindtype)
     {
         return (int8_t) EBindState::EBindState_bind;
     }
     return byBind;
 }
 
-int8_t NFItemMgr::BindStateByWay(const proto_ff_s::equipequip_s *pEquipCfg, int8_t byBind, int8_t bindWay)
+int8_t NFItemMgr::BindStateByWay(const proto_ff_s::E_EquipEquip_s *pEquipCfg, int8_t byBind, int8_t bindWay)
 {
     if ((int8_t) EBindState::EBindState_bind == byBind)
     {
         return byBind;
     }
-    if (nullptr != pEquipCfg && pEquipCfg->isCanbind)
+    if (nullptr != pEquipCfg && pEquipCfg->m_iscanbind)
     {
         return (int8_t) EBindState::EBindState_bind;
     }
@@ -350,25 +350,25 @@ int64_t NFItemMgr::ItemMaxPile(uint64_t itemId)
     return maxPile;
 }
 
-int64_t NFItemMgr::ItemMaxPile(const proto_ff_s::itemitem_s *pItemCfg)
+int64_t NFItemMgr::ItemMaxPile(const proto_ff_s::E_ItemItem_s *pItemCfg)
 {
     int64_t maxPile = 1;
     if (nullptr != pItemCfg)
     {
-        if (IsVirItem(pItemCfg->id))
+        if (IsVirItem(pItemCfg->m_id))
         {
             //虚拟物品,对叠数是int64_t 类型上限
             maxPile = INT64_MAX;
         }
         else
         {
-            maxPile = (pItemCfg->stackLimit < 1) ? 1 : pItemCfg->stackLimit;
+            maxPile = (pItemCfg->m_stacklimit < 1) ? 1 : pItemCfg->m_stacklimit;
         }
     }
     return maxPile;
 }
 
-int64_t NFItemMgr::ItemMaxPile(const proto_ff_s::equipequip_s *pEquipCfg)
+int64_t NFItemMgr::ItemMaxPile(const proto_ff_s::E_EquipEquip_s *pEquipCfg)
 {
     int64_t maxPile = 1;
     if (nullptr != pEquipCfg)
@@ -426,7 +426,7 @@ bool NFItemMgr::CanSell(uint64_t itemId, int8_t byInBind)
 bool NFItemMgr::IsTaskItem(uint64_t itemId)
 {
     auto *pItemCfg = ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(itemId);
-    if (nullptr != pItemCfg && proto_ff::EItemType_Task == pItemCfg->itemType)
+    if (nullptr != pItemCfg && proto_ff::EItemType_Task == pItemCfg->m_itemtype)
     {
         return true;
     }
@@ -727,16 +727,16 @@ bool NFItemMgr::CompareStarFunc_(const NFGridItem *pItemA, const NFGridItem *pIt
     {
         return false;
     }
-    if (pItemCfgA->quality == pItemCfgB->quality)
+    if (pItemCfgA->m_quality == pItemCfgB->m_quality)
     {
         if (pItemA->GetLevel() == pItemB->GetLevel())
         {
-            return pItemCfgA->id > pItemCfgB->id;
+            return pItemCfgA->m_id > pItemCfgB->m_id;
         }
         return pItemA->GetLevel() > pItemB->GetLevel();
     }
 
-    return pItemCfgA->quality > pItemCfgB->quality;
+    return pItemCfgA->m_quality > pItemCfgB->m_quality;
 }
 
 
@@ -756,16 +756,16 @@ bool NFItemMgr::CompareGodhoodFunc_(const NFGridItem *pItemA, const NFGridItem *
     {
         return false;
     }
-    if (pItemCfgA->quality == pItemCfgB->quality)
+    if (pItemCfgA->m_quality == pItemCfgB->m_quality)
     {
         if (pItemA->GetLevel() == pItemB->GetLevel())
         {
-            return pItemCfgA->id > pItemCfgB->id;
+            return pItemCfgA->m_id > pItemCfgB->m_id;
         }
         return pItemA->GetLevel() > pItemB->GetLevel();
     }
 
-    return pItemCfgA->quality > pItemCfgB->quality;
+    return pItemCfgA->m_quality > pItemCfgB->m_quality;
 }
 
 bool NFItemMgr::CompareSundryFunc_(const NFGridItem *pItemA, const NFGridItem *pItemB)
@@ -786,16 +786,16 @@ bool NFItemMgr::CompareSundryFunc_(const NFGridItem *pItemA, const NFGridItem *p
     {
         return false;
     }
-    if (pItemCfgA->quality == pItemCfgB->quality)
+    if (pItemCfgA->m_quality == pItemCfgB->m_quality)
     {
-        if (pItemCfgA->id == pItemCfgB->id)
+        if (pItemCfgA->m_id == pItemCfgB->m_id)
         {
             return pItemA->GetBind() > pItemB->GetBind();
         }
-        return pItemCfgA->id > pItemCfgB->id;
+        return pItemCfgA->m_id > pItemCfgB->m_id;
     }
 
-    return pItemCfgA->quality > pItemCfgB->quality;
+    return pItemCfgA->m_quality > pItemCfgB->m_quality;
 }
 
 bool NFItemMgr::CompareMaterialFunc_(const NFGridItem *pItemA, const NFGridItem *pItemB)
@@ -818,21 +818,21 @@ bool NFItemMgr::CompareMaterialFunc_(const NFGridItem *pItemA, const NFGridItem 
     {
         return false;
     }
-    if (pItemCfgA->quality == pItemCfgB->quality)
+    if (pItemCfgA->m_quality == pItemCfgB->m_quality)
     {
-        if (pItemCfgA->functionType == pItemCfgB->functionType)
+        if (pItemCfgA->m_functiontype == pItemCfgB->m_functiontype)
         {
-            if (pItemCfgA->id == pItemCfgB->id)
+            if (pItemCfgA->m_id == pItemCfgB->m_id)
             {
                 return pItemA->GetBind() < pItemB->GetBind();
             }
-            return pItemCfgA->id > pItemCfgB->id;
+            return pItemCfgA->m_id > pItemCfgB->m_id;
         }
 
-        return pItemCfgA->functionType < pItemCfgB->functionType;
+        return pItemCfgA->m_functiontype < pItemCfgB->m_functiontype;
     }
 
-    return pItemCfgA->quality > pItemCfgB->quality;
+    return pItemCfgA->m_quality > pItemCfgB->m_quality;
 
 }
 
@@ -897,8 +897,8 @@ bool NFItemMgr::CompareEquipFunc_(const NFGridItem *pItemA, const NFGridItem *pI
 // 		{
 // 			itypeA = 2;
 // 		}
-        positionA = pItemCfg->position;
-        qualityA = pItemCfg->wearQuality;
+        positionA = pItemCfg->m_position;
+        qualityA = pItemCfg->m_wearquality;
     }
     else
     {
@@ -907,7 +907,7 @@ bool NFItemMgr::CompareEquipFunc_(const NFGridItem *pItemA, const NFGridItem *pI
         {
             return false;
         }
-        if (pItemCfg->functionType != (int32_t) EItemFuncType::EItemFuncType_Fashion)
+        if (pItemCfg->m_functiontype != (int32_t) EItemFuncType::EItemFuncType_Fashion)
         {
             return false;
         }
@@ -925,8 +925,8 @@ bool NFItemMgr::CompareEquipFunc_(const NFGridItem *pItemA, const NFGridItem *pI
 // 		{
 // 			itypeB = 2;
 // 		}
-        positionB = pItemCfg->position;
-        qualityB = pItemCfg->wearQuality;
+        positionB = pItemCfg->m_position;
+        qualityB = pItemCfg->m_wearquality;
     }
     else
     {
@@ -935,7 +935,7 @@ bool NFItemMgr::CompareEquipFunc_(const NFGridItem *pItemA, const NFGridItem *pI
         {
             return false;
         }
-        if (pItemCfg->functionType != (int32_t) EItemFuncType::EItemFuncType_Fashion)
+        if (pItemCfg->m_functiontype != (int32_t) EItemFuncType::EItemFuncType_Fashion)
         {
             return false;
         }

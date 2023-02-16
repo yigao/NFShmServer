@@ -158,7 +158,7 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
     {
         auto pPreview = &pPreviewMap->at(i);
 
-        if ((uint64_t)pPreview->functionId == msgReq.function_id())
+        if ((uint64_t)pPreview->m_functionid == msgReq.function_id())
         {
             NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
             if (pPackage)
@@ -166,7 +166,7 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
                 SCommonSource sourceParam;
                 sourceParam.src = S_FunctionUnlock;
                 LIST_ITEM lstItem;
-                SItem item(pPreview->rewardItem, pPreview->rewardNum, EBindState::EBindState_no);
+                SItem item(pPreview->m_rewarditem, pPreview->m_rewardnum, EBindState::EBindState_no);
                 lstItem.push_back(item);
                 ret = pPackage->AddItem(lstItem, sourceParam, true, true);
             }
@@ -199,10 +199,10 @@ int NFFunctionUnlockPart::UnlockAllFunc()
     {
         auto pInfo = &pArrayUnlockCfg->at(i);
         CHECK_NULL(pInfo);
-        if (!isFunctionUnlock(pInfo->functionId))
+        if (!isFunctionUnlock(pInfo->m_functionid))
         {
-            AddUnlock(pInfo->functionId);
-            noticeList.push_back(pInfo->functionId);
+            AddUnlock(pInfo->m_functionid);
+            noticeList.push_back(pInfo->m_functionid);
         }
     }
     //
@@ -223,28 +223,28 @@ int NFFunctionUnlockPart::UnlockAllFunc()
     return true;
 }
 
-bool NFFunctionUnlockPart::isFunctionUnlock(uint64_t functionId)
+bool NFFunctionUnlockPart::isFunctionUnlock(uint64_t m_functionid)
 {
-    auto iter = m_mapUnLock.find(functionId);
+    auto iter = m_mapUnLock.find(m_functionid);
     return (iter != m_mapUnLock.end());
 }
 
-void NFFunctionUnlockPart::Unlock(int64_t functionId)
+void NFFunctionUnlockPart::Unlock(int64_t m_functionid)
 {
-    if (isFunctionUnlock(functionId)) return;
-    AddUnlock(functionId);
+    if (isFunctionUnlock(m_functionid)) return;
+    AddUnlock(m_functionid);
     sendFunctionUnlockInfo(nullptr);
 }
 
-void NFFunctionUnlockPart::UnlockSendAdd(int64_t functionId)
+void NFFunctionUnlockPart::UnlockSendAdd(int64_t m_functionid)
 {
-    if (isFunctionUnlock(functionId)) return;
-    AddUnlock(functionId);
-    auto iter = m_mapUnLock.find(functionId);
+    if (isFunctionUnlock(m_functionid)) return;
+    AddUnlock(m_functionid);
+    auto iter = m_mapUnLock.find(m_functionid);
     if (iter != m_mapUnLock.end())
     {
         VEC_UINT64 list;
-        list.push_back(functionId);
+        list.push_back(m_functionid);
         sendFunctionUnlockInfo(&list);
     }
 }
@@ -285,31 +285,31 @@ void NFFunctionUnlockPart::checkUnlock(uint32_t nType, int64_t nValue)
     //
     for(auto iter = pList->Begin(); iter != pList->End(); iter++)
     {
-        uint32_t functionId = *(iter->first);
-        auto pUnlockCfg = FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetDesc(functionId);
+        uint32_t m_functionid = *(iter->first);
+        auto pUnlockCfg = FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetDesc(m_functionid);
         if (nullptr == pUnlockCfg)
         {
             continue;
         }
-        if(FUNCTION_UNLOCK_TYPE_SPECIAL == pUnlockCfg->openType)
+        if(FUNCTION_UNLOCK_TYPE_SPECIAL == pUnlockCfg->m_opentype)
         {
             continue;
         }
         //
         bool unlockFlag = CheckUnlock(level, ocGrade, opendays, viplevel, totalrmb, *pUnlockCfg);
         //
-        if (isFunctionUnlock(pUnlockCfg->functionId))
+        if (isFunctionUnlock(pUnlockCfg->m_functionid))
         {
             if (!unlockFlag)
             {
                 delFlag = true;
-                DelUnlock(pUnlockCfg->functionId);
+                DelUnlock(pUnlockCfg->m_functionid);
             }
         }
         else if (unlockFlag)
         {
-            vecAddLst.push_back(pUnlockCfg->functionId);
-            AddUnlock(pUnlockCfg->functionId);
+            vecAddLst.push_back(pUnlockCfg->m_functionid);
+            AddUnlock(pUnlockCfg->m_functionid);
         }
     }
     //
@@ -404,25 +404,25 @@ int NFFunctionUnlockPart::CheckALLFunctions(bool sync)
         auto pInfo = &pArrayUnLockCfg->at(i);
         CHECK_NULL(pInfo);
 
-        if(FUNCTION_UNLOCK_TYPE_SPECIAL ==  pInfo->openType)
+        if(FUNCTION_UNLOCK_TYPE_SPECIAL ==  pInfo->m_opentype)
         {
             continue;
         }
         //
         bool unlockFlag = CheckUnlock(level, ocGrade, opendays, viplevel, totalrmb, *pInfo);
         //
-        if (isFunctionUnlock(pInfo->functionId))
+        if (isFunctionUnlock(pInfo->m_functionid))
         {
             if (!unlockFlag)
             {
                 delFlag = true;
-                DelUnlock(pInfo->functionId);
+                DelUnlock(pInfo->m_functionid);
             }
         }
         else if (unlockFlag)
         {
-            vecAddLst.push_back(pInfo->functionId);
-            AddUnlock(pInfo->functionId);
+            vecAddLst.push_back(pInfo->m_functionid);
+            AddUnlock(pInfo->m_functionid);
         }
     }
     //
@@ -466,37 +466,37 @@ uint32_t NFFunctionUnlockPart::GetOccupationGrade(uint64_t occupationId)
 }
 
 bool NFFunctionUnlockPart::CheckUnlock(int32_t Lev, int32_t occupationLev, uint32_t opendays, int32_t viplev, int32_t totalrmb,
-                                       const proto_ff_s::functionunlockfunctionUnlock_s &cfg)
+                                       const proto_ff_s::E_FunctionunlockFunctionunlock_s &cfg)
 {
-    if ((int32_t)opendays < cfg.openDaily)
+    if ((int32_t)opendays < cfg.m_opendaily)
     {
         return false;
     }
-    int32_t opentype = cfg.openType;
-    int64_t openval = cfg.openVal;
-    if (FUNCTION_UNLOCK_TYPE_LEVEL == opentype)
+    int32_t m_opentype = cfg.m_opentype;
+    int64_t m_openval = cfg.m_openval;
+    if (FUNCTION_UNLOCK_TYPE_LEVEL == m_opentype)
     {
-        return ((int64_t)Lev >= openval);
+        return ((int64_t)Lev >= m_openval);
     }
-    else if (FUNCTION_UNLOCK_TYPE_TAST == opentype)
+    else if (FUNCTION_UNLOCK_TYPE_TAST == m_opentype)
     {
 /*		if (nullptr == pMissionPart)
 		{
 			return false;
 		}
-		return pMissionPart->HaveSubmited(openval);*/
+		return pMissionPart->HaveSubmited(m_openval);*/
     }
-    else if (FUNCTION_UNLOCK_TYPE_TRANSFER == opentype)
+    else if (FUNCTION_UNLOCK_TYPE_TRANSFER == m_opentype)
     {
-        return ((int64_t)occupationLev >= openval);
+        return ((int64_t)occupationLev >= m_openval);
     }
-    else if (FUNCTION_UNLOCK_TYPE_PAYRMB == opentype)
+    else if (FUNCTION_UNLOCK_TYPE_PAYRMB == m_opentype)
     {
-        return ((int64_t)totalrmb >= openval);
+        return ((int64_t)totalrmb >= m_openval);
     }
-    else if (FUNCTION_UNLOCK_TYPE_VIP_LEV == opentype)
+    else if (FUNCTION_UNLOCK_TYPE_VIP_LEV == m_opentype)
     {
-        return ((int64_t)viplev >= openval);
+        return ((int64_t)viplev >= m_openval);
     }
 
     return false;

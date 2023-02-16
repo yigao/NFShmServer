@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_BossLayer_s* GetDesc(int id) const;
 	proto_ff_s::E_BossLayer_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_BossLayer_s, bosslayer, MAX_BOSS_LAYER_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_BossLayer_s, E_BossLayer, MAX_BOSS_LAYER_NUM);
 DECLARE_IDCREATE(BossLayerDesc);
 };

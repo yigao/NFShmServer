@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_RoleAddskill_s* GetDesc(int id) const;
 	proto_ff_s::E_RoleAddskill_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_RoleAddskill_s, roleaddSkill, MAX_ROLE_ADDSKILL_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_RoleAddskill_s, E_RoleAddskill, MAX_ROLE_ADDSKILL_NUM);
 DECLARE_IDCREATE(RoleAddskillDesc);
 };

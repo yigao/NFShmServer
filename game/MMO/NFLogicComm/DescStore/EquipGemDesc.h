@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_EquipGem_s* GetDesc(int id) const;
 	proto_ff_s::E_EquipGem_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_EquipGem_s, equipgem, MAX_EQUIP_GEM_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_EquipGem_s, E_EquipGem, MAX_EQUIP_GEM_NUM);
 DECLARE_IDCREATE(EquipGemDesc);
 };

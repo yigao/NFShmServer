@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_PeractivityPeractivity_s* GetDesc(int id) const;
 	proto_ff_s::E_PeractivityPeractivity_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_PeractivityPeractivity_s, perActivityperActivity, MAX_PERACTIVITY_PERACTIVITY_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_PeractivityPeractivity_s, E_PeractivityPeractivity, MAX_PERACTIVITY_PERACTIVITY_NUM);
 DECLARE_IDCREATE(PeractivityPeractivityDesc);
 };

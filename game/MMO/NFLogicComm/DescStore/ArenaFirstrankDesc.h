@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_ArenaFirstrank_s* GetDesc(int id) const;
 	proto_ff_s::E_ArenaFirstrank_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaFirstrank_s, arenafirstrank, MAX_ARENA_FIRSTRANK_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaFirstrank_s, E_ArenaFirstrank, MAX_ARENA_FIRSTRANK_NUM);
 DECLARE_IDCREATE(ArenaFirstrankDesc);
 };

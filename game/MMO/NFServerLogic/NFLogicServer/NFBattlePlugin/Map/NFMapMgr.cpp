@@ -64,8 +64,8 @@ int NFMapMgr::LoadConfig()
     for (int i = 0; i < (int) arrayMap.size(); i++)
     {
         auto &info = arrayMap[i];
-        NFMap* pMap = CreateMap(info.mapId);
-        CHECK_EXPR_ASSERT(pMap, -1, "CreateMap Failed, mapId:{}", info.mapId);
+        NFMap* pMap = CreateMap(info.m_mapid);
+        CHECK_EXPR_ASSERT(pMap, -1, "CreateMap Failed, mapId:{}", info.m_mapid);
     }
     return 0;
 }

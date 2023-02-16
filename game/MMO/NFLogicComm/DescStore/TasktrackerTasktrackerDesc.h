@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_TasktrackerTasktracker_s* GetDesc(int id) const;
 	proto_ff_s::E_TasktrackerTasktracker_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TasktrackerTasktracker_s, tasktrackertasktracker, MAX_TASKTRACKER_TASKTRACKER_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_TasktrackerTasktracker_s, E_TasktrackerTasktracker, MAX_TASKTRACKER_TASKTRACKER_NUM);
 DECLARE_IDCREATE(TasktrackerTasktrackerDesc);
 };

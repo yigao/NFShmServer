@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_MonsterValueparam_s* GetDesc(int id) const;
 	proto_ff_s::E_MonsterValueparam_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MonsterValueparam_s, monstervalueParam, MAX_MONSTER_VALUEPARAM_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_MonsterValueparam_s, E_MonsterValueparam, MAX_MONSTER_VALUEPARAM_NUM);
 DECLARE_IDCREATE(MonsterValueparamDesc);
 };

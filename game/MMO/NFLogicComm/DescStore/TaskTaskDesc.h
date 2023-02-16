@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_TaskTask_s* GetDesc(int id) const;
 	proto_ff_s::E_TaskTask_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TaskTask_s, tasktask, MAX_TASK_TASK_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_TaskTask_s, E_TaskTask, MAX_TASK_TASK_NUM);
 DECLARE_IDCREATE(TaskTaskDesc);
 };

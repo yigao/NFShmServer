@@ -94,12 +94,12 @@ int NFMap::Init()
         NFLogError(NF_LOG_SYSTEMLOG, 0, "MapMapDesc GetDesc Failed:{}", m_mapId);
         return -1;
     }
-    m_width = pMapCfg->mapWide;
-    m_height = pMapCfg->mapHeight;
-    m_isDynamic = (DYNAMIC_MAP == pMapCfg->mapType);
+    m_width = pMapCfg->m_mapwide;
+    m_height = pMapCfg->m_mapheight;
+    m_isDynamic = (DYNAMIC_MAP == pMapCfg->m_maptype);
 
-    retCode = LoadNavMesh(pMapCfg->mapResources.ToString());
-    CHECK_RET(retCode, "_LoadNavMesh Failed, mapId:{} mapResource:{}", m_mapId, pMapCfg->mapResources.ToString());
+    retCode = LoadNavMesh(pMapCfg->m_mapresources.ToString());
+    CHECK_RET(retCode, "_LoadNavMesh Failed, mapId:{} mapResource:{}", m_mapId, pMapCfg->m_mapresources.ToString());
 
     //关闭所有行走开发
     m_normalFilter->setIncludeFlags(0);
@@ -238,7 +238,7 @@ bool NFMap::IsDynamic() const
     return m_isDynamic;
 }
 
-const proto_ff_s::mapmap_s *NFMap::GetMapCfg()
+const proto_ff_s::E_MapMap_s *NFMap::GetMapCfg()
 {
     return MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(m_mapId);
 }

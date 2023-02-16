@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_DupGroup_s* GetDesc(int id) const;
 	proto_ff_s::E_DupGroup_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DupGroup_s, dupgroup, MAX_DUP_GROUP_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_DupGroup_s, E_DupGroup, MAX_DUP_GROUP_NUM);
 DECLARE_IDCREATE(DupGroupDesc);
 };

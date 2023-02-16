@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_EquipStrongtotal_s* GetDesc(int id) const;
 	proto_ff_s::E_EquipStrongtotal_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_EquipStrongtotal_s, equipstrongtotal, MAX_EQUIP_STRONGTOTAL_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_EquipStrongtotal_s, E_EquipStrongtotal, MAX_EQUIP_STRONGTOTAL_NUM);
 DECLARE_IDCREATE(EquipStrongtotalDesc);
 };

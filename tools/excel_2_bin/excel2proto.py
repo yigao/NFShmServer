@@ -26,6 +26,9 @@ import string
 
 import yd_fieldoptions_pb2
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from google.protobuf import descriptor
 from google.protobuf import message
 from google.protobuf import reflection
@@ -79,7 +82,7 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int id) const;\n");
 	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int id);\n");
 	desc_file.write("public:\n")
-	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, " + excel_name + sheet_name + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
+	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, E_" + excel_name.capitalize() + sheet_name.capitalize() + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
 	desc_file.write("DECLARE_IDCREATE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc);\n")
 	desc_file.write("};\n")
 	desc_file.close()
@@ -143,7 +146,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\n")
 	desc_file.write("\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", table.Utf8DebugString());\n")
 	desc_file.write("\n")
-	desc_file.write("\tif ((table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size() < 0) || (table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size() > (int)(m_astDesc.size())))\n")
+	desc_file.write("\tif ((table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size() < 0) || (table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size() > (int)(m_astDesc.max_size())))\n")
 	desc_file.write("\t{\n")
 	desc_file.write("\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"Invalid TotalNum:{}\", table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
 	desc_file.write("\t\treturn -2;\n")

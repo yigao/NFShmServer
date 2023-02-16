@@ -62,7 +62,7 @@ int NFBagPage::InitGrid(NFPlayer *pMaster, uint32_t nPackageType, uint32_t nInit
     m_maxGrid = nMaxGrid;
 
     m_grids.CreateInit();
-    m_grids.SetSize(m_nOpenGrid);
+    m_grids.resize(m_nOpenGrid);
     return 0;
 }
 
@@ -72,7 +72,7 @@ int NFBagPage::Init(const proto_ff::RoleDBUnitBagData &dbData)
     m_nExpandNum = refSimpleData.expand_num();
     m_nOpenGrid += m_nExpandNum;
     m_grids.CreateInit();
-    m_grids.SetSize(m_nOpenGrid);
+    m_grids.resize(m_nOpenGrid);
 
     int32_t partSize = dbData.parts_size();
 
@@ -636,7 +636,7 @@ int NFBagPage::AddItem(const LIST_ITEM &lstItem, SCommonSource &sourceParam, boo
 
 NFGridItem *NFBagPage::GetItemByIndex(uint32_t nIndex)
 {
-    CHECK_EXPR(nIndex < (uint32_t) m_grids.GetSize(), NULL, "index error:{}", nIndex);
+    CHECK_EXPR(nIndex < (uint32_t) m_grids.size(), NULL, "index error:{}", nIndex);
 
     if (m_grids[nIndex].base.item_id > 0)
     {
@@ -649,7 +649,7 @@ NFGridItem *NFBagPage::GetItemByIndex(uint32_t nIndex)
 uint32_t NFBagPage::GetEmptyGrid(VEC_UINT32 &vecGrid)
 {
     vecGrid.clear();
-    for (int i = 0; i < (int) m_grids.GetSize(); i++)
+    for (int i = 0; i < (int) m_grids.size(); i++)
     {
         if (GetItemByIndex(i) == nullptr)
             vecGrid.push_back(i);
@@ -703,7 +703,7 @@ void NFBagPage::MergeItemList(const LIST_ITEM &inlstItem, const VEC_ITEM_PROTO_E
         }
         else
         {
-            byType = pItemCfg->itemType;
+            byType = pItemCfg->m_itemtype;
             byBind = NFItemMgr::Instance(m_pObjPluginManager)->BindStateByWay(pItemCfg, in.byBind);
             maxPile = NFItemMgr::Instance(m_pObjPluginManager)->ItemMaxPile(pItemCfg);
         }
@@ -855,7 +855,7 @@ void NFBagPage::MergeItemList(const LIST_ITEM &inlstItem, const VEC_ITEM_PROTO_E
         }
         else
         {
-            byType = pItemCfg->itemType;
+            byType = pItemCfg->m_itemtype;
             byBind = NFItemMgr::Instance(m_pObjPluginManager)->BindStateByWay(pItemCfg, proto.bind());
             maxPile = NFItemMgr::Instance(m_pObjPluginManager)->ItemMaxPile(pItemCfg);
         }
@@ -1111,7 +1111,7 @@ int64_t NFBagPage::GetLabelItemLeftPile(uint8_t byLabel, uint64_t nItemID, int64
     mapBindGridHas.clear();
 
     //
-    for (size_t i = 0; i < (size_t) m_grids.GetSize(); ++i)
+    for (size_t i = 0; i < (size_t) m_grids.size(); ++i)
     {
         NFGridItem *pItem = GetItemByIndex(i);
         if (nullptr != pItem && nItemID == pItem->base.item_id)
@@ -1138,7 +1138,7 @@ int64_t NFBagPage::GetLabelItemLeftPile(uint8_t byLabel, uint64_t nItemID, int64
 
 int NFBagPage::SetItemByIndex(uint32_t nIndex, NFGridItem *pItem)
 {
-    if (nIndex < (uint32_t) m_grids.Size())
+    if (nIndex < (uint32_t) m_grids.size())
     {
         if (pItem)
         {
@@ -1155,7 +1155,7 @@ int NFBagPage::SetItemByIndex(uint32_t nIndex, NFGridItem *pItem)
 
 int NFBagPage::SetItemByIndex(uint32_t nIndex, const proto_ff::ItemProtoInfo &protoItem)
 {
-    CHECK_EXPR(nIndex < (uint32_t) m_grids.GetSize(), NULL, "index error:{}", nIndex);
+    CHECK_EXPR(nIndex < (uint32_t) m_grids.size(), NULL, "index error:{}", nIndex);
     m_grids[nIndex].read_from_pbmsg(protoItem);
     return nIndex;
 }
@@ -1989,13 +1989,13 @@ bool NFBagPage::RemoveAllByType(int32_t itemSubType, SCommonSource &sourceParam)
 {
     MAP_UINT16_INT64 mapIdxNum;
     mapIdxNum.clear();
-    for (int i = 0; i < (int) m_grids.GetSize(); ++i)
+    for (int i = 0; i < (int) m_grids.size(); ++i)
     {
         NFGridItem *pItemBase = GetItemByIndex(i);
         if (nullptr != pItemBase)
         {
             auto pItemCfg = ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pItemBase->GetItemID());
-            if (nullptr != pItemCfg && itemSubType == pItemCfg->subType)
+            if (nullptr != pItemCfg && itemSubType == pItemCfg->m_subtype)
             {
                 mapIdxNum[pItemBase->GetIndex()] = pItemBase->GetNum();
             }
@@ -2013,7 +2013,7 @@ bool NFBagPage::RemoveAllByItemID(uint64_t nItemID, SCommonSource &sourceParam)
 {
     MAP_UINT16_INT64 mapIdxNum;
     mapIdxNum.clear();
-    for (int i = 0; i < (int) m_grids.GetSize(); ++i)
+    for (int i = 0; i < (int) m_grids.size(); ++i)
     {
         NFGridItem *pItemBase = GetItemByIndex(i);
         if (nullptr != pItemBase && pItemBase->GetItemID() == nItemID)
@@ -2098,12 +2098,12 @@ bool NFBagPage::BagItemSort()
         else
         {
             auto pItemCfg = ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pItem->GetItemID());
-            if (nullptr != pItemCfg && proto_ff::EItemType_Material == pItemCfg->itemType)
+            if (nullptr != pItemCfg && proto_ff::EItemType_Material == pItemCfg->m_itemtype)
             {
                 //材料
                 vecMaterial.push_back(*pItem);
             }
-            else if (nullptr != pItemCfg && (int32_t) EItemFuncType::EItemFuncType_Fashion == pItemCfg->functionType)
+            else if (nullptr != pItemCfg && (int32_t) EItemFuncType::EItemFuncType_Fashion == pItemCfg->m_functiontype)
             {
                 //时装解锁类物品，需要跟装备一起排序，所以，这里加到装备vector中
                 proto_ff::ItemProtoInfo proto;
@@ -2112,7 +2112,7 @@ bool NFBagPage::BagItemSort()
                     vecEquipProtoEx.push_back(proto);
                 }
             }
-            else if (nullptr != pItemCfg && proto_ff::EItemType_Star == pItemCfg->itemType)
+            else if (nullptr != pItemCfg && proto_ff::EItemType_Star == pItemCfg->m_itemtype)
             {
                 //命星
                 proto_ff::ItemProtoInfo proto;
@@ -2121,7 +2121,7 @@ bool NFBagPage::BagItemSort()
                     vecStarProtoEx.push_back(proto);
                 }
             }
-            else if (pItemCfg && pItemCfg->itemType == proto_ff::EItemType_Soul)
+            else if (pItemCfg && pItemCfg->m_itemtype == proto_ff::EItemType_Soul)
             {
                 //神格
                 proto_ff::ItemProtoInfo proto;

@@ -50,7 +50,7 @@ public:
      * @brief
      * @return
      */
-    const proto_ff_s::mapmap_s *GetMapCfg();
+    const proto_ff_s::E_MapMap_s *GetMapCfg();
 
     /**
      * @brief

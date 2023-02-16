@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_UiEffect_s* GetDesc(int id) const;
 	proto_ff_s::E_UiEffect_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_UiEffect_s, uieffect, MAX_UI_EFFECT_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_UiEffect_s, E_UiEffect, MAX_UI_EFFECT_NUM);
 DECLARE_IDCREATE(UiEffectDesc);
 };

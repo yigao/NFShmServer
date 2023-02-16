@@ -102,8 +102,8 @@ int NFWorldGMModule::GMMsgHandler(uint64_t uid, uint64_t roleId, const string &c
         auto pcfg = GmcommandGmcommandDesc::Instance(m_pObjPluginManager)->GetDesc(cmdid);
         if (nullptr != pcfg)
         {
-            strcmd = pcfg->Key.ToString();
-            argcount = pcfg->ParamCount;
+            strcmd = pcfg->m_key.ToString();
+            argcount = pcfg->m_paramcount;
         }
     }
     else
@@ -114,9 +114,9 @@ int NFWorldGMModule::GMMsgHandler(uint64_t uid, uint64_t roleId, const string &c
             for (int i = 0; i < (int)pmap->size(); i++)
             {
                 auto pInfo = &pmap->at(i);
-                if (strcmd == pInfo->Key.ToString())
+                if (strcmd == pInfo->m_key.ToString())
                 {
-                    argcount = pInfo->ParamCount;
+                    argcount = pInfo->m_paramcount;
                 }
             }
         }

@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_TaskrewardTasktype_s* GetDesc(int id) const;
 	proto_ff_s::E_TaskrewardTasktype_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TaskrewardTasktype_s, taskrewardtasktype, MAX_TASKREWARD_TASKTYPE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_TaskrewardTasktype_s, E_TaskrewardTasktype, MAX_TASKREWARD_TASKTYPE_NUM);
 DECLARE_IDCREATE(TaskrewardTasktypeDesc);
 };

@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_VipVip_s* GetDesc(int id) const;
 	proto_ff_s::E_VipVip_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_VipVip_s, vipvip, MAX_VIP_VIP_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_VipVip_s, E_VipVip, MAX_VIP_VIP_NUM);
 DECLARE_IDCREATE(VipVipDesc);
 };

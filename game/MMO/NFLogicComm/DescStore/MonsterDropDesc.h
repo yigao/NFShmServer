@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_MonsterDrop_s* GetDesc(int id) const;
 	proto_ff_s::E_MonsterDrop_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MonsterDrop_s, monsterdrop, MAX_MONSTER_DROP_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_MonsterDrop_s, E_MonsterDrop, MAX_MONSTER_DROP_NUM);
 DECLARE_IDCREATE(MonsterDropDesc);
 };

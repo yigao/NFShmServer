@@ -44,7 +44,7 @@ class NFBagPage : public NFObject, public NFSeqOP
     //index - ItemProtoInfo
     typedef std::map<uint16_t, proto_ff::ItemProtoInfo> MAP_INDEX_ITEM_PROTO_EX;
 public:
-    NFArray<NFGridItem, STORAGE_PACKAGE_MAX_GRID_NUM> m_grids;
+    NFShmVector<NFGridItem, STORAGE_PACKAGE_MAX_GRID_NUM> m_grids;
     uint64_t m_nLastSortTime;						//上次整理的时间
     uint32_t m_nExpandNum;							//扩展格子数
     uint32_t m_nOpenGrid;							//背包开启格子数

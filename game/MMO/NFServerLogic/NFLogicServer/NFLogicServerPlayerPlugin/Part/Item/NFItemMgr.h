@@ -81,16 +81,16 @@ public:
     //物品的绑定状态-根据获得途径 bindWay: EItemBindWay 枚举类型
     int8_t BindStateByWay(uint64_t nItemId, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
 
-    int8_t BindStateByWay(const proto_ff_s::itemitem_s *pItemCfg, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
+    int8_t BindStateByWay(const proto_ff_s::E_ItemItem_s *pItemCfg, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
 
-    int8_t BindStateByWay(const proto_ff_s::equipequip_s *pEquipCfg, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
+    int8_t BindStateByWay(const proto_ff_s::E_EquipEquip_s *pEquipCfg, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
 
     //获取物品堆叠数
     int64_t ItemMaxPile(uint64_t itemId);
 
-    int64_t ItemMaxPile(const proto_ff_s::itemitem_s *pItemCfg);
+    int64_t ItemMaxPile(const proto_ff_s::E_ItemItem_s *pItemCfg);
 
-    int64_t ItemMaxPile(const proto_ff_s::equipequip_s *pEquipCfg);
+    int64_t ItemMaxPile(const proto_ff_s::E_EquipEquip_s *pEquipCfg);
 
     //设置物品信息
     bool SetItemProtoInfo(const LIST_ITEM &lstItem, VEC_ITEM_PROTO_EX &vecProto,SItemCond &itemCond);

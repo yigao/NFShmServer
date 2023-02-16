@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_PathPath_s* GetDesc(int id) const;
 	proto_ff_s::E_PathPath_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_PathPath_s, pathpath, MAX_PATH_PATH_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_PathPath_s, E_PathPath, MAX_PATH_PATH_NUM);
 DECLARE_IDCREATE(PathPathDesc);
 };

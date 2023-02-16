@@ -135,15 +135,15 @@ def parse_object_properties(record_object):
 			field_typename = "Normal"
 
 		#field的cname，对应excel的列名
-		column_name = sheet_object_field_options.Extensions[yd_fieldoptions_pb2.field_cname]
+		column_name = str(sheet_object_field_options.Extensions[yd_fieldoptions_pb2.field_cname])
 		if 0 != column_name:
 			#插入field所有属性
 			g_sheet_object_field_proterties.add((column_name, \
 												 sheet_object_field_dec.index, \
-												 sheet_object_field_dec.name, \
+												 str(sheet_object_field_dec.name), \
 												 sheet_object_field_dec.label, \
 												 sheet_object_field_dec.type, \
-												 record_object.DESCRIPTOR.full_name, \
+												 str(record_object.DESCRIPTOR.full_name), \
 												 field_typename))
 			#print "line(%s:%d) column_name[%s] index[%d] name[%s] label[%d] type[%d] belong_message_fullname[%s]" % \
 			#	  (__file__, sys._getframe().f_lineno, column_name, sheet_object_field_dec.index, sheet_object_field_dec.name, \
@@ -275,7 +275,7 @@ def fill_record(record, sheet, row_index, col_index, excel_sheet_col_count, recu
 	last_ok_col_index = -1;
 	while col_index < excel_sheet_col_count:
 		#得到sheet的列名
-		col_en_name = str(sheet.cell_value(0, col_index)).strip()
+		col_en_name = str(sheet.cell_value(0, col_index)).strip().lower()
 		column_name = str(sheet.cell_value(1, col_index)).strip()
 		col_type = str(sheet.cell_value(2, col_index)).strip()
 

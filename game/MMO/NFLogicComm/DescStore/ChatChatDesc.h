@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_ChatChat_s* GetDesc(int id) const;
 	proto_ff_s::E_ChatChat_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ChatChat_s, chatchat, MAX_CHAT_CHAT_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_ChatChat_s, E_ChatChat, MAX_CHAT_CHAT_NUM);
 DECLARE_IDCREATE(ChatChatDesc);
 };

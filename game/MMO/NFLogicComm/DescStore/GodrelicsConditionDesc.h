@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_GodrelicsCondition_s* GetDesc(int id) const;
 	proto_ff_s::E_GodrelicsCondition_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GodrelicsCondition_s, godRelicscondition, MAX_GODRELICS_CONDITION_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_GodrelicsCondition_s, E_GodrelicsCondition, MAX_GODRELICS_CONDITION_NUM);
 DECLARE_IDCREATE(GodrelicsConditionDesc);
 };

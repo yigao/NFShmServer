@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_SkillSkillawake_s* GetDesc(int id) const;
 	proto_ff_s::E_SkillSkillawake_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_SkillSkillawake_s, skillskillAwake, MAX_SKILL_SKILLAWAKE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_SkillSkillawake_s, E_SkillSkillawake, MAX_SKILL_SKILLAWAKE_NUM);
 DECLARE_IDCREATE(SkillSkillawakeDesc);
 };

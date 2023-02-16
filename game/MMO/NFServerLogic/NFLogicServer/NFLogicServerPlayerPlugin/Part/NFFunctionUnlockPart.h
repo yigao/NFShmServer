@@ -118,7 +118,7 @@ private:
 
     //检查功能是否解锁
     bool CheckUnlock(int32_t Lev, int32_t occupationLev, uint32_t opendays, int32_t viplev, int32_t totalrmb,
-                     const proto_ff_s::functionunlockfunctionUnlock_s &cfg);
+                     const proto_ff_s::E_FunctionunlockFunctionunlock_s &cfg);
 
     //开服天数
     uint32_t OpenDays();

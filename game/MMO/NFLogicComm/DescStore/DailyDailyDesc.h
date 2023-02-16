@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_DailyDaily_s* GetDesc(int id) const;
 	proto_ff_s::E_DailyDaily_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DailyDaily_s, dailydaily, MAX_DAILY_DAILY_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_DailyDaily_s, E_DailyDaily, MAX_DAILY_DAILY_NUM);
 DECLARE_IDCREATE(DailyDailyDesc);
 };

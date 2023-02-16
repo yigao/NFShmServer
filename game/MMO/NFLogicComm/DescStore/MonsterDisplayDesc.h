@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_MonsterDisplay_s* GetDesc(int id) const;
 	proto_ff_s::E_MonsterDisplay_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MonsterDisplay_s, monsterdisplay, MAX_MONSTER_DISPLAY_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_MonsterDisplay_s, E_MonsterDisplay, MAX_MONSTER_DISPLAY_NUM);
 DECLARE_IDCREATE(MonsterDisplayDesc);
 };

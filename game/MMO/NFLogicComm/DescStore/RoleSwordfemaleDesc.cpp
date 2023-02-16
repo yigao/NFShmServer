@@ -46,7 +46,7 @@ int RoleSwordfemaleDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_roleswordfemale_list_size() < 0) || (table.e_roleswordfemale_list_size() > (int)(m_astDesc.size())))
+	if ((table.e_roleswordfemale_list_size() < 0) || (table.e_roleswordfemale_list_size() > (int)(m_astDesc.max_size())))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_roleswordfemale_list_size());
 		return -2;

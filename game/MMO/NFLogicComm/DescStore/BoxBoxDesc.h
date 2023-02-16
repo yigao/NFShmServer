@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_BoxBox_s* GetDesc(int id) const;
 	proto_ff_s::E_BoxBox_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_BoxBox_s, boxbox, MAX_BOX_BOX_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_BoxBox_s, E_BoxBox, MAX_BOX_BOX_NUM);
 DECLARE_IDCREATE(BoxBoxDesc);
 };

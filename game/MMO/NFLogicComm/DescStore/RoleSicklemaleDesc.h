@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_RoleSicklemale_s* GetDesc(int id) const;
 	proto_ff_s::E_RoleSicklemale_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_RoleSicklemale_s, rolesickleMale, MAX_ROLE_SICKLEMALE_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_RoleSicklemale_s, E_RoleSicklemale, MAX_ROLE_SICKLEMALE_NUM);
 DECLARE_IDCREATE(RoleSicklemaleDesc);
 };

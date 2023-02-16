@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_AiAi_s* GetDesc(int id) const;
 	proto_ff_s::E_AiAi_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AiAi_s, aiai, MAX_AI_AI_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_AiAi_s, E_AiAi, MAX_AI_AI_NUM);
 DECLARE_IDCREATE(AiAiDesc);
 };

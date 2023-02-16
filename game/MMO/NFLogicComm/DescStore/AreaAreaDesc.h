@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_AreaArea_s* GetDesc(int id) const;
 	proto_ff_s::E_AreaArea_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AreaArea_s, areaarea, MAX_AREA_AREA_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_AreaArea_s, E_AreaArea, MAX_AREA_AREA_NUM);
 DECLARE_IDCREATE(AreaAreaDesc);
 };

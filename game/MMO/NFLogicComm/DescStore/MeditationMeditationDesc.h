@@ -17,6 +17,6 @@ public:
 	const proto_ff_s::E_MeditationMeditation_s* GetDesc(int id) const;
 	proto_ff_s::E_MeditationMeditation_s* GetDesc(int id);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MeditationMeditation_s, meditationmeditation, MAX_MEDITATION_MEDITATION_NUM);
+IMPL_RES_HASH_DESC(proto_ff_s::E_MeditationMeditation_s, E_MeditationMeditation, MAX_MEDITATION_MEDITATION_NUM);
 DECLARE_IDCREATE(MeditationMeditationDesc);
 };
