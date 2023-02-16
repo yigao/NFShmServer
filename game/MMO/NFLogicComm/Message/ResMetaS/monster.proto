@@ -36,7 +36,7 @@ message E_MonsterMonster
 
 message Sheet_MonsterMonster
 {
-	repeated E_MonsterMonster E_MonsterMonster_List = 1[(yd_fieldoptions.field_arysize)=200];
+	repeated E_MonsterMonster E_MonsterMonster_List = 1[(yd_fieldoptions.field_arysize)=400];
 }
 
 message E_MonsterDisplaySkillDesc
@@ -60,7 +60,7 @@ message E_MonsterDisplay
 
 message Sheet_MonsterDisplay
 {
-	repeated E_MonsterDisplay E_MonsterDisplay_List = 1[(yd_fieldoptions.field_arysize)=80];
+	repeated E_MonsterDisplay E_MonsterDisplay_List = 1[(yd_fieldoptions.field_arysize)=100];
 }
 
 message E_MonsterValue
@@ -139,12 +139,13 @@ message E_MonsterValue
 	optional int64 m_recover_hp_add = 72[(yd_fieldoptions.field_cname) = "回血增效"];
 	optional int64 m_week_add = 73[(yd_fieldoptions.field_cname) = "虚弱增伤"];
 	optional int64 m_shield = 74[(yd_fieldoptions.field_cname) = "护盾"];
+	optional int64 m_exp = 75[(yd_fieldoptions.field_cname) = "怪物经验"];
 }
 
 
 message Sheet_MonsterValue
 {
-	repeated E_MonsterValue E_MonsterValue_List = 1[(yd_fieldoptions.field_arysize)=200];
+	repeated E_MonsterValue E_MonsterValue_List = 1[(yd_fieldoptions.field_arysize)=2000];
 }
 
 message E_MonsterValueparam

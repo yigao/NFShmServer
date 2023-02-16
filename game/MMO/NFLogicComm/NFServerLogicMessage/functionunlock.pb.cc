@@ -43,12 +43,13 @@ void protobuf_AssignDesc_functionunlock_2eproto() {
       "functionunlock.proto");
   GOOGLE_CHECK(file != NULL);
   E_FunctionunlockFunctionunlock_descriptor_ = file->message_type(0);
-  static const int E_FunctionunlockFunctionunlock_offsets_[6] = {
+  static const int E_FunctionunlockFunctionunlock_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_functionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_opendaily_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_opentype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_openval_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_iconopenval_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_icondisapear_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FunctionunlockFunctionunlock, m_belong_),
   };
   E_FunctionunlockFunctionunlock_reflection_ =
@@ -153,24 +154,25 @@ void protobuf_AddDesc_functionunlock_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024functionunlock.proto\022\010proto_ff\032\025yd_fie"
-    "ldoptions.proto\"\220\002\n\036E_FunctionunlockFunc"
+    "ldoptions.proto\"\302\002\n\036E_FunctionunlockFunc"
     "tionunlock\022\"\n\014m_functionid\030\001 \001(\005B\014\302\377\024\010\345\212"
     "\237\350\203\275id\022.\n\013m_opendaily\030\002 \001(\005B\031\302\377\024\025\345\274\200\346\234\215\345"
     "\244\232\345\260\221\345\244\251\345\274\200\346\224\276\022$\n\nm_opentype\030\003 \001(\005B\020\302\377\024\014"
     "\345\274\200\346\224\276\346\226\271\345\274\217\022#\n\tm_openval\030\004 \001(\003B\020\302\377\024\014\345\274\200"
     "\346\224\276\346\225\260\345\200\274\0221\n\rm_iconopenval\030\005 \001(\005B\032\302\377\024\026\346\217"
-    "\220\345\211\215\346\230\276\347\244\272icon\345\217\202\346\225\260\022\034\n\010m_belong\030\006 \001(\005B\n"
-    "\302\377\024\006\351\231\204\345\261\236\"\202\001\n\"Sheet_FunctionunlockFunct"
-    "ionunlock\022\\\n#E_FunctionunlockFunctionunl"
-    "ock_List\030\001 \003(\0132(.proto_ff.E_Functionunlo"
-    "ckFunctionunlockB\005\210\301\024\310\001\"\224\001\n\027E_Functionun"
-    "lockPreview\022\"\n\014m_functionid\030\001 \001(\005B\014\302\377\024\010\345"
-    "\212\237\350\203\275id\022+\n\014m_rewarditem\030\002 \001(\005B\025\302\377\024\021\345\245\226\345\212"
-    "\261\347\232\204\351\201\223\345\205\267ID\022(\n\013m_rewardnum\030\003 \001(\005B\023\302\377\024\017\351"
-    "\201\223\345\205\267\347\232\204\346\225\260\351\207\217\"l\n\033Sheet_FunctionunlockPr"
-    "eview\022M\n\034E_FunctionunlockPreview_List\030\001 "
-    "\003(\0132!.proto_ff.E_FunctionunlockPreviewB\004"
-    "\210\301\024\024", 724);
+    "\220\345\211\215\346\230\276\347\244\272icon\345\217\202\346\225\260\0220\n\016m_icondisapear\030\006"
+    " \001(\tB\030\302\377\024\020icon\346\266\210\345\244\261\346\235\241\344\273\266\220\301\024<\022\034\n\010m_belo"
+    "ng\030\007 \001(\005B\n\302\377\024\006\351\231\204\345\261\236\"\202\001\n\"Sheet_Functionu"
+    "nlockFunctionunlock\022\\\n#E_FunctionunlockF"
+    "unctionunlock_List\030\001 \003(\0132(.proto_ff.E_Fu"
+    "nctionunlockFunctionunlockB\005\210\301\024\310\001\"\224\001\n\027E_"
+    "FunctionunlockPreview\022\"\n\014m_functionid\030\001 "
+    "\001(\005B\014\302\377\024\010\345\212\237\350\203\275id\022+\n\014m_rewarditem\030\002 \001(\005B"
+    "\025\302\377\024\021\345\245\226\345\212\261\347\232\204\351\201\223\345\205\267ID\022(\n\013m_rewardnum\030\003 "
+    "\001(\005B\023\302\377\024\017\351\201\223\345\205\267\347\232\204\346\225\260\351\207\217\"l\n\033Sheet_Functi"
+    "onunlockPreview\022M\n\034E_FunctionunlockPrevi"
+    "ew_List\030\001 \003(\0132!.proto_ff.E_Functionunloc"
+    "kPreviewB\004\210\301\024\024", 774);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "functionunlock.proto", &protobuf_RegisterTypes);
   E_FunctionunlockFunctionunlock::default_instance_ = new E_FunctionunlockFunctionunlock();
@@ -199,6 +201,7 @@ const int E_FunctionunlockFunctionunlock::kMOpendailyFieldNumber;
 const int E_FunctionunlockFunctionunlock::kMOpentypeFieldNumber;
 const int E_FunctionunlockFunctionunlock::kMOpenvalFieldNumber;
 const int E_FunctionunlockFunctionunlock::kMIconopenvalFieldNumber;
+const int E_FunctionunlockFunctionunlock::kMIcondisapearFieldNumber;
 const int E_FunctionunlockFunctionunlock::kMBelongFieldNumber;
 #endif  // !_MSC_VER
 
@@ -223,6 +226,7 @@ void E_FunctionunlockFunctionunlock::SharedCtor() {
   m_opentype_ = 0;
   m_openval_ = GOOGLE_LONGLONG(0);
   m_iconopenval_ = 0;
+  m_icondisapear_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_belong_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -232,6 +236,9 @@ E_FunctionunlockFunctionunlock::~E_FunctionunlockFunctionunlock() {
 }
 
 void E_FunctionunlockFunctionunlock::SharedDtor() {
+  if (m_icondisapear_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_icondisapear_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -264,6 +271,11 @@ void E_FunctionunlockFunctionunlock::Clear() {
     m_opentype_ = 0;
     m_openval_ = GOOGLE_LONGLONG(0);
     m_iconopenval_ = 0;
+    if (has_m_icondisapear()) {
+      if (m_icondisapear_ != &::google::protobuf::internal::kEmptyString) {
+        m_icondisapear_->clear();
+      }
+    }
     m_belong_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -351,12 +363,29 @@ bool E_FunctionunlockFunctionunlock::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_belong;
+        if (input->ExpectTag(50)) goto parse_m_icondisapear;
         break;
       }
 
-      // optional int32 m_belong = 6;
+      // optional string m_icondisapear = 6;
       case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_icondisapear:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_icondisapear()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_icondisapear().data(), this->m_icondisapear().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_belong;
+        break;
+      }
+
+      // optional int32 m_belong = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_belong:
@@ -414,9 +443,18 @@ void E_FunctionunlockFunctionunlock::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_iconopenval(), output);
   }
 
-  // optional int32 m_belong = 6;
+  // optional string m_icondisapear = 6;
+  if (has_m_icondisapear()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_icondisapear().data(), this->m_icondisapear().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->m_icondisapear(), output);
+  }
+
+  // optional int32 m_belong = 7;
   if (has_m_belong()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_belong(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_belong(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -452,9 +490,19 @@ void E_FunctionunlockFunctionunlock::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_iconopenval(), target);
   }
 
-  // optional int32 m_belong = 6;
+  // optional string m_icondisapear = 6;
+  if (has_m_icondisapear()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_icondisapear().data(), this->m_icondisapear().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->m_icondisapear(), target);
+  }
+
+  // optional int32 m_belong = 7;
   if (has_m_belong()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_belong(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_belong(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -503,7 +551,14 @@ int E_FunctionunlockFunctionunlock::ByteSize() const {
           this->m_iconopenval());
     }
 
-    // optional int32 m_belong = 6;
+    // optional string m_icondisapear = 6;
+    if (has_m_icondisapear()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_icondisapear());
+    }
+
+    // optional int32 m_belong = 7;
     if (has_m_belong()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -552,6 +607,9 @@ void E_FunctionunlockFunctionunlock::MergeFrom(const E_FunctionunlockFunctionunl
     if (from.has_m_iconopenval()) {
       set_m_iconopenval(from.m_iconopenval());
     }
+    if (from.has_m_icondisapear()) {
+      set_m_icondisapear(from.m_icondisapear());
+    }
     if (from.has_m_belong()) {
       set_m_belong(from.m_belong());
     }
@@ -583,6 +641,7 @@ void E_FunctionunlockFunctionunlock::Swap(E_FunctionunlockFunctionunlock* other)
     std::swap(m_opentype_, other->m_opentype_);
     std::swap(m_openval_, other->m_openval_);
     std::swap(m_iconopenval_, other->m_iconopenval_);
+    std::swap(m_icondisapear_, other->m_icondisapear_);
     std::swap(m_belong_, other->m_belong_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/box_s.h"
 
-#define MAX_BOX_BOX_NUM 20
+#define MAX_BOX_BOX_NUM 40
 
 class BoxBoxDesc : public NFIDescStore
 {

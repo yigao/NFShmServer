@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/dup_s.h"
 
-#define MAX_DUP_DUP_NUM 80
+#define MAX_DUP_DUP_NUM 200
 
 class DupDupDesc : public NFIDescStore
 {

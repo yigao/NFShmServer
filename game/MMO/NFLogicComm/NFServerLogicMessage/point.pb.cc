@@ -105,9 +105,9 @@ void protobuf_AddDesc_point_2eproto() {
     "\n\013point.proto\022\010proto_ff\032\025yd_fieldoptions"
     ".proto\"W\n\014E_PointPoint\022\032\n\004m_id\030\001 \001(\003B\014\302\377"
     "\024\010\350\267\257\345\276\204ID\022+\n\021m_belongtosceneid\030\002 \001(\003B\020\302"
-    "\377\024\014\346\211\200\345\261\236\345\234\272\346\231\257\"K\n\020Sheet_PointPoint\0227\n\021E"
+    "\377\024\014\346\211\200\345\261\236\345\234\272\346\231\257\"L\n\020Sheet_PointPoint\0228\n\021E"
     "_PointPoint_List\030\001 \003(\0132\026.proto_ff.E_Poin"
-    "tPointB\004\210\301\024d", 212);
+    "tPointB\005\210\301\024\310\001", 213);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "point.proto", &protobuf_RegisterTypes);
   E_PointPoint::default_instance_ = new E_PointPoint();

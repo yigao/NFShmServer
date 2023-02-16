@@ -84,6 +84,7 @@ int E_BossBoss_s::CreateInit() {
 	m_flashtime = (int32_t)0;
 	m_retrievegiftid = (int32_t)0;
 	m_notimes = (int32_t)0;
+	m_assistprestige = (int32_t)0;
 	return 0;
 }
 
@@ -104,6 +105,7 @@ void E_BossBoss_s::write_to_pbmsg(::proto_ff::E_BossBoss & msg) const {
 	msg.set_m_flashtime((int32_t)m_flashtime);
 	msg.set_m_retrievegiftid((int32_t)m_retrievegiftid);
 	msg.set_m_notimes((int32_t)m_notimes);
+	msg.set_m_assistprestige((int32_t)m_assistprestige);
 }
 
 void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
@@ -120,6 +122,7 @@ void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
 	m_flashtime = msg.m_flashtime();
 	m_retrievegiftid = msg.m_retrievegiftid();
 	m_notimes = msg.m_notimes();
+	m_assistprestige = msg.m_assistprestige();
 }
 
 Sheet_BossBoss_s::Sheet_BossBoss_s() {

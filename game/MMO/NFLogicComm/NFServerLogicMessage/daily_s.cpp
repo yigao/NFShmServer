@@ -18,8 +18,6 @@ int E_DailyDaily_s::CreateInit() {
 	m_playargs = (int32_t)0;
 	m_funciontid = (int64_t)0;
 	m_number = (int32_t)0;
-	m_viptype = (int32_t)0;
-	m_othernum = (int32_t)0;
 	m_eachscore = (int32_t)0;
 	m_cycle = (int32_t)0;
 	m_regreward = (int32_t)0;
@@ -39,8 +37,6 @@ void E_DailyDaily_s::write_to_pbmsg(::proto_ff::E_DailyDaily & msg) const {
 	msg.set_m_playargs((int32_t)m_playargs);
 	msg.set_m_funciontid((int64_t)m_funciontid);
 	msg.set_m_number((int32_t)m_number);
-	msg.set_m_viptype((int32_t)m_viptype);
-	msg.set_m_othernum((int32_t)m_othernum);
 	msg.set_m_eachscore((int32_t)m_eachscore);
 	msg.set_m_cycle((int32_t)m_cycle);
 	msg.set_m_regreward((int32_t)m_regreward);
@@ -56,8 +52,6 @@ void E_DailyDaily_s::read_from_pbmsg(const ::proto_ff::E_DailyDaily & msg) {
 	m_playargs = msg.m_playargs();
 	m_funciontid = msg.m_funciontid();
 	m_number = msg.m_number();
-	m_viptype = msg.m_viptype();
-	m_othernum = msg.m_othernum();
 	m_eachscore = msg.m_eachscore();
 	m_cycle = msg.m_cycle();
 	m_regreward = msg.m_regreward();

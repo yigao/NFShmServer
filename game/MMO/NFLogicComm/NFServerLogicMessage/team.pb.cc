@@ -123,7 +123,7 @@ void protobuf_AddDesc_team_2eproto() {
     "channel\030\t \001(\005B\020\302\377\024\014\345\226\212\350\257\235\351\242\221\351\201\223\022 \n\014m_tea"
     "mnumber\030\n \001(\005B\n\302\377\024\006\345\272\217\345\210\227\"E\n\016Sheet_TeamT"
     "eam\0223\n\017E_TeamTeam_List\030\001 \003(\0132\024.proto_ff."
-    "E_TeamTeamB\004\210\301\024(", 536);
+    "E_TeamTeamB\004\210\301\024\024", 536);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "team.proto", &protobuf_RegisterTypes);
   E_TeamTeam::default_instance_ = new E_TeamTeam();

@@ -54,7 +54,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterMonster_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterMonster_s, 200> E_MonsterMonster_List;
+		NFShmVector<struct E_MonsterMonster_s, 400> E_MonsterMonster_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterMonster & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterMonster & msg);
@@ -104,7 +104,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterDisplay_s, 80> E_MonsterDisplay_List;
+		NFShmVector<struct E_MonsterDisplay_s, 100> E_MonsterDisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterDisplay & msg);
@@ -192,6 +192,7 @@ namespace proto_ff_s {
 		int64_t m_recover_hp_add;
 		int64_t m_week_add;
 		int64_t m_shield;
+		int64_t m_exp;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MonsterValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MonsterValue & msg);
@@ -205,7 +206,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterValue_s, 200> E_MonsterValue_List;
+		NFShmVector<struct E_MonsterValue_s, 2000> E_MonsterValue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterValue & msg);

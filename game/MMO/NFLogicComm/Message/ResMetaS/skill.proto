@@ -30,7 +30,7 @@ message E_SkillBuff
 
 message Sheet_SkillBuff
 {
-	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=100];
+	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=160];
 }
 
 message E_SkillSkillAdvancetype1buffDesc
@@ -79,47 +79,49 @@ message E_SkillSkill
 	optional int32 m_cd = 15[(yd_fieldoptions.field_cname) = "cd"];
 	optional int32 m_nolock = 16[(yd_fieldoptions.field_cname) = "是否锁定"];
 	optional int32 m_priority = 17[(yd_fieldoptions.field_cname) = "挂机使用优先级"];
-	optional string m_fighting = 18[(yd_fieldoptions.field_cname) = "初始战斗力", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_fighting = 18[(yd_fieldoptions.field_cname) = "初始战斗力"];
 	optional float m_fightingparama = 19[(yd_fieldoptions.field_cname) = "战斗力成长系数"];
 	optional int32 m_releasetype = 20[(yd_fieldoptions.field_cname) = "释放类型"];
 	optional int32 m_processtypes = 21[(yd_fieldoptions.field_cname) = "过程类型"];
 	optional int32 m_flyspeed = 22[(yd_fieldoptions.field_cname) = "飞行速度"];
 	optional int32 m_acttime = 23[(yd_fieldoptions.field_cname) = "动作总时间"];
-	optional int32 m_readytime = 24[(yd_fieldoptions.field_cname) = "准备特效延迟时间"];
-	optional int32 m_attacktime = 25[(yd_fieldoptions.field_cname) = "攻击总时间"];
-	optional string m_damagetime = 26[(yd_fieldoptions.field_cname) = "伤害生效时间点", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_attackdistance = 27[(yd_fieldoptions.field_cname) = "攻击距离"];
-	optional int32 m_rangetype = 28[(yd_fieldoptions.field_cname) = "范围类型"];
-	optional string m_rangetypevalue = 29[(yd_fieldoptions.field_cname) = "范围类型值", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_warn = 30[(yd_fieldoptions.field_cname) = "预警id"];
-	optional int32 m_dazetime = 31[(yd_fieldoptions.field_cname) = "发呆时间"];
-	optional int32 m_warntime = 32[(yd_fieldoptions.field_cname) = "预警时间"];
-	optional string m_infomationid = 33[(yd_fieldoptions.field_cname) = "提示ID", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_attackmindistance = 34[(yd_fieldoptions.field_cname) = "攻击最小距离"];
-	optional int32 m_goalmaxnum = 35[(yd_fieldoptions.field_cname) = "目标最大数量"];
-	optional int32 m_goalmaxnummonster = 36[(yd_fieldoptions.field_cname) = "目标最大数量（怪物）"];
-	optional int32 m_damagetype = 37[(yd_fieldoptions.field_cname) = "伤害类型"];
-	optional int32 m_damagerate = 38[(yd_fieldoptions.field_cname) = "伤害倍率"];
-	optional int32 m_awakedamagerate = 39[(yd_fieldoptions.field_cname) = "觉醒后技能倍率"];
-	optional int32 m_advancetype1damagerate = 40[(yd_fieldoptions.field_cname) = "进阶火后技能倍率"];
-	optional int32 m_advancetype2damagerate = 41[(yd_fieldoptions.field_cname) = "进阶雷后技能倍率"];
-	optional int32 m_advancetype3damagerate = 42[(yd_fieldoptions.field_cname) = "进阶冰后技能倍率"];
-	optional int32 m_damagevalue = 43[(yd_fieldoptions.field_cname) = "附加伤害初始值"];
-	optional float m_damageparama = 44[(yd_fieldoptions.field_cname) = "伤害固定值成长系数"];
-	optional int32 m_addhitrate = 45[(yd_fieldoptions.field_cname) = "附加命中率"];
-	optional int32 m_awakeitemid = 46[(yd_fieldoptions.field_cname) = "觉醒消耗的道具ID"];
-	optional int32 m_awakecostnum = 47[(yd_fieldoptions.field_cname) = "道具数量"];
-	repeated E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48[(yd_fieldoptions.field_cname) = "进阶火buff包", (yd_fieldoptions.field_arysize) = 5];
-	repeated E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49[(yd_fieldoptions.field_cname) = "进阶雷buff包", (yd_fieldoptions.field_arysize) = 5];
-	repeated E_SkillSkillAwakebuffDesc m_awakebuff = 50[(yd_fieldoptions.field_cname) = "觉醒buff包", (yd_fieldoptions.field_arysize) = 5];
-	repeated E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51[(yd_fieldoptions.field_cname) = "进阶冰buff包", (yd_fieldoptions.field_arysize) = 5];
-	repeated E_SkillSkillBuffDesc m_buff = 52[(yd_fieldoptions.field_cname) = "buff包", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_readytime = 24[(yd_fieldoptions.field_cname) = "攻击特效延迟时间"];
+	optional int32 m_readytimeex = 25[(yd_fieldoptions.field_cname) = "攻击特效延迟时间ex"];
+	optional int32 m_attacktime = 26[(yd_fieldoptions.field_cname) = "攻击总时间"];
+	optional string m_damagetime = 27[(yd_fieldoptions.field_cname) = "伤害生效时间点", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_damagetimeex = 28[(yd_fieldoptions.field_cname) = "伤害生效时间点ex", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_attackdistance = 29[(yd_fieldoptions.field_cname) = "攻击距离"];
+	optional int32 m_rangetype = 30[(yd_fieldoptions.field_cname) = "范围类型"];
+	optional string m_rangetypevalue = 31[(yd_fieldoptions.field_cname) = "范围类型值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_rangetypeex = 32[(yd_fieldoptions.field_cname) = "范围类型ex"];
+	optional string m_rangetypevalueex = 33[(yd_fieldoptions.field_cname) = "范围类型值ex", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_warn = 34[(yd_fieldoptions.field_cname) = "预警id"];
+	optional int32 m_dazetime = 35[(yd_fieldoptions.field_cname) = "发呆时间"];
+	optional int32 m_warntime = 36[(yd_fieldoptions.field_cname) = "预警时间"];
+	optional string m_infomationid = 37[(yd_fieldoptions.field_cname) = "提示ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_attackmindistance = 38[(yd_fieldoptions.field_cname) = "攻击最小距离"];
+	optional int32 m_goalmaxnum = 39[(yd_fieldoptions.field_cname) = "目标最大数量"];
+	optional int32 m_goalmaxnummonster = 40[(yd_fieldoptions.field_cname) = "目标最大数量（怪物）"];
+	optional int32 m_damagetype = 41[(yd_fieldoptions.field_cname) = "伤害类型"];
+	optional int32 m_damagerate = 42[(yd_fieldoptions.field_cname) = "伤害倍率"];
+	optional int32 m_awakedamagerate = 43[(yd_fieldoptions.field_cname) = "觉醒后技能倍率"];
+	optional int32 m_advancetype1damagerate = 44[(yd_fieldoptions.field_cname) = "进阶火后技能倍率加成"];
+	optional int32 m_advancetype2damagerate = 45[(yd_fieldoptions.field_cname) = "进阶雷后技能倍率加成"];
+	optional int32 m_advancetype3damagerate = 46[(yd_fieldoptions.field_cname) = "进阶冰后技能倍率加成"];
+	optional int32 m_damagevalue = 47[(yd_fieldoptions.field_cname) = "附加伤害初始值"];
+	optional float m_damageparama = 48[(yd_fieldoptions.field_cname) = "伤害固定值成长系数"];
+	optional int32 m_addhitrate = 49[(yd_fieldoptions.field_cname) = "附加命中率"];
+	repeated E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50[(yd_fieldoptions.field_cname) = "进阶火buff等级", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51[(yd_fieldoptions.field_cname) = "进阶雷buff等级", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_SkillSkillAwakebuffDesc m_awakebuff = 52[(yd_fieldoptions.field_cname) = "觉醒buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53[(yd_fieldoptions.field_cname) = "进阶冰buff等级", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_SkillSkillBuffDesc m_buff = 54[(yd_fieldoptions.field_cname) = "buff包", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
 message Sheet_SkillSkill
 {
-	repeated E_SkillSkill E_SkillSkill_List = 1[(yd_fieldoptions.field_arysize)=180];
+	repeated E_SkillSkill E_SkillSkill_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message E_SkillBuffup
@@ -133,7 +135,7 @@ message E_SkillBuffup
 
 message Sheet_SkillBuffup
 {
-	repeated E_SkillBuffup E_SkillBuffup_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_SkillBuffup E_SkillBuffup_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message E_SkillSkillup
@@ -141,7 +143,7 @@ message E_SkillSkillup
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
 	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组id"];
 	optional int32 m_skilllv = 3[(yd_fieldoptions.field_cname) = "技能等级"];
-	optional string m_skillids = 4[(yd_fieldoptions.field_cname) = "技能ID组", (yd_fieldoptions.field_bufsize) = 80];
+	optional string m_skillids = 4[(yd_fieldoptions.field_cname) = "技能ID组", (yd_fieldoptions.field_bufsize) = 140];
 	optional int32 m_rolelv = 5[(yd_fieldoptions.field_cname) = "需求人物等级"];
 	optional int64 m_costitemid = 6[(yd_fieldoptions.field_cname) = "消耗的道具ID"];
 	optional int32 m_costnum = 7[(yd_fieldoptions.field_cname) = "道具数量"];
@@ -150,7 +152,7 @@ message E_SkillSkillup
 
 message Sheet_SkillSkillup
 {
-	repeated E_SkillSkillup E_SkillSkillup_List = 1[(yd_fieldoptions.field_arysize)=140];
+	repeated E_SkillSkillup E_SkillSkillup_List = 1[(yd_fieldoptions.field_arysize)=400];
 }
 
 message E_SkillSkillawake
@@ -164,4 +166,20 @@ message E_SkillSkillawake
 message Sheet_SkillSkillawake
 {
 	repeated E_SkillSkillawake E_SkillSkillawake_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_SkillSkilladvance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_profession = 2[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_advancelv = 4[(yd_fieldoptions.field_cname) = "进阶等级"];
+	optional string m_advancecondition = 5[(yd_fieldoptions.field_cname) = "进阶条件", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_skillid = 6[(yd_fieldoptions.field_cname) = "技能ID", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_SkillSkilladvance
+{
+	repeated E_SkillSkilladvance E_SkillSkilladvance_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

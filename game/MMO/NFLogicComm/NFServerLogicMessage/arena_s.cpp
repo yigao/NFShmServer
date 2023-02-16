@@ -46,6 +46,7 @@ int E_ArenaRobot_s::CreateInit() {
 	m_robotprofession = (int32_t)0;
 	m_robotlv = (int32_t)0;
 	m_sword = (int32_t)0;
+	m_facadeid = (int32_t)0;
 	m_occupationid = (int32_t)0;
 	return 0;
 }
@@ -62,6 +63,7 @@ void E_ArenaRobot_s::write_to_pbmsg(::proto_ff::E_ArenaRobot & msg) const {
 	msg.set_m_robotprofession((int32_t)m_robotprofession);
 	msg.set_m_robotlv((int32_t)m_robotlv);
 	msg.set_m_sword((int32_t)m_sword);
+	msg.set_m_facadeid((int32_t)m_facadeid);
 	msg.set_m_occupationid((int32_t)m_occupationid);
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		::proto_ff::E_ArenaRobotAttrDesc* temp_m_attr = msg.add_m_attr();
@@ -78,6 +80,7 @@ void E_ArenaRobot_s::read_from_pbmsg(const ::proto_ff::E_ArenaRobot & msg) {
 	m_robotprofession = msg.m_robotprofession();
 	m_robotlv = msg.m_robotlv();
 	m_sword = msg.m_sword();
+	m_facadeid = msg.m_facadeid();
 	m_occupationid = msg.m_occupationid();
 	m_attr.resize((int)msg.m_attr_size() > (int)m_attr.max_size() ? m_attr.max_size() : msg.m_attr_size());
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
@@ -115,6 +118,105 @@ void Sheet_ArenaRobot_s::read_from_pbmsg(const ::proto_ff::Sheet_ArenaRobot & ms
 	for(int32_t i = 0; i < (int32_t)E_ArenaRobot_List.size(); ++i) {
 		const ::proto_ff::E_ArenaRobot & temp_e_arenarobot_list = msg.e_arenarobot_list(i);
 		E_ArenaRobot_List[i].read_from_pbmsg(temp_e_arenarobot_list);
+	}
+}
+
+E_ArenaRobotfacadeFacadeDesc_s::E_ArenaRobotfacadeFacadeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_ArenaRobotfacadeFacadeDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
+	return 0;
+}
+
+int E_ArenaRobotfacadeFacadeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_ArenaRobotfacadeFacadeDesc_s::write_to_pbmsg(::proto_ff::E_ArenaRobotfacadeFacadeDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
+}
+
+void E_ArenaRobotfacadeFacadeDesc_s::read_from_pbmsg(const ::proto_ff::E_ArenaRobotfacadeFacadeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_ArenaRobotfacadeFacadeDesc_s));
+	m_type = msg.m_type();
+	m_value = msg.m_value();
+}
+
+E_ArenaRobotfacade_s::E_ArenaRobotfacade_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_ArenaRobotfacade_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_color = (int32_t)0;
+	return 0;
+}
+
+int E_ArenaRobotfacade_s::ResumeInit() {
+	return 0;
+}
+
+void E_ArenaRobotfacade_s::write_to_pbmsg(::proto_ff::E_ArenaRobotfacade & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_color((int32_t)m_color);
+	for(int32_t i = 0; i < (int32_t)m_facade.size(); ++i) {
+		::proto_ff::E_ArenaRobotfacadeFacadeDesc* temp_m_facade = msg.add_m_facade();
+		m_facade[i].write_to_pbmsg(*temp_m_facade);
+	}
+}
+
+void E_ArenaRobotfacade_s::read_from_pbmsg(const ::proto_ff::E_ArenaRobotfacade & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_ArenaRobotfacade_s));
+	m_id = msg.m_id();
+	m_color = msg.m_color();
+	m_facade.resize((int)msg.m_facade_size() > (int)m_facade.max_size() ? m_facade.max_size() : msg.m_facade_size());
+	for(int32_t i = 0; i < (int32_t)m_facade.size(); ++i) {
+		const ::proto_ff::E_ArenaRobotfacadeFacadeDesc & temp_m_facade = msg.m_facade(i);
+		m_facade[i].read_from_pbmsg(temp_m_facade);
+	}
+}
+
+Sheet_ArenaRobotfacade_s::Sheet_ArenaRobotfacade_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_ArenaRobotfacade_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_ArenaRobotfacade_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_ArenaRobotfacade_s::write_to_pbmsg(::proto_ff::Sheet_ArenaRobotfacade & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_ArenaRobotfacade_List.size(); ++i) {
+		::proto_ff::E_ArenaRobotfacade* temp_e_arenarobotfacade_list = msg.add_e_arenarobotfacade_list();
+		E_ArenaRobotfacade_List[i].write_to_pbmsg(*temp_e_arenarobotfacade_list);
+	}
+}
+
+void Sheet_ArenaRobotfacade_s::read_from_pbmsg(const ::proto_ff::Sheet_ArenaRobotfacade & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_ArenaRobotfacade_s));
+	E_ArenaRobotfacade_List.resize((int)msg.e_arenarobotfacade_list_size() > (int)E_ArenaRobotfacade_List.max_size() ? E_ArenaRobotfacade_List.max_size() : msg.e_arenarobotfacade_list_size());
+	for(int32_t i = 0; i < (int32_t)E_ArenaRobotfacade_List.size(); ++i) {
+		const ::proto_ff::E_ArenaRobotfacade & temp_e_arenarobotfacade_list = msg.e_arenarobotfacade_list(i);
+		E_ArenaRobotfacade_List[i].read_from_pbmsg(temp_e_arenarobotfacade_list);
 	}
 }
 

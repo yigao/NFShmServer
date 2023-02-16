@@ -130,10 +130,22 @@ class E_FunctionunlockFunctionunlock : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_iconopenval() const;
   inline void set_m_iconopenval(::google::protobuf::int32 value);
 
-  // optional int32 m_belong = 6;
+  // optional string m_icondisapear = 6;
+  inline bool has_m_icondisapear() const;
+  inline void clear_m_icondisapear();
+  static const int kMIcondisapearFieldNumber = 6;
+  inline const ::std::string& m_icondisapear() const;
+  inline void set_m_icondisapear(const ::std::string& value);
+  inline void set_m_icondisapear(const char* value);
+  inline void set_m_icondisapear(const char* value, size_t size);
+  inline ::std::string* mutable_m_icondisapear();
+  inline ::std::string* release_m_icondisapear();
+  inline void set_allocated_m_icondisapear(::std::string* m_icondisapear);
+
+  // optional int32 m_belong = 7;
   inline bool has_m_belong() const;
   inline void clear_m_belong();
-  static const int kMBelongFieldNumber = 6;
+  static const int kMBelongFieldNumber = 7;
   inline ::google::protobuf::int32 m_belong() const;
   inline void set_m_belong(::google::protobuf::int32 value);
 
@@ -149,6 +161,8 @@ class E_FunctionunlockFunctionunlock : public ::google::protobuf::Message {
   inline void clear_has_m_openval();
   inline void set_has_m_iconopenval();
   inline void clear_has_m_iconopenval();
+  inline void set_has_m_icondisapear();
+  inline void clear_has_m_icondisapear();
   inline void set_has_m_belong();
   inline void clear_has_m_belong();
 
@@ -159,10 +173,11 @@ class E_FunctionunlockFunctionunlock : public ::google::protobuf::Message {
   ::google::protobuf::int64 m_openval_;
   ::google::protobuf::int32 m_opentype_;
   ::google::protobuf::int32 m_iconopenval_;
+  ::std::string* m_icondisapear_;
   ::google::protobuf::int32 m_belong_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_functionunlock_2eproto();
   friend void protobuf_AssignDesc_functionunlock_2eproto();
@@ -560,15 +575,85 @@ inline void E_FunctionunlockFunctionunlock::set_m_iconopenval(::google::protobuf
   m_iconopenval_ = value;
 }
 
-// optional int32 m_belong = 6;
-inline bool E_FunctionunlockFunctionunlock::has_m_belong() const {
+// optional string m_icondisapear = 6;
+inline bool E_FunctionunlockFunctionunlock::has_m_icondisapear() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void E_FunctionunlockFunctionunlock::set_has_m_belong() {
+inline void E_FunctionunlockFunctionunlock::set_has_m_icondisapear() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void E_FunctionunlockFunctionunlock::clear_has_m_belong() {
+inline void E_FunctionunlockFunctionunlock::clear_has_m_icondisapear() {
   _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_FunctionunlockFunctionunlock::clear_m_icondisapear() {
+  if (m_icondisapear_ != &::google::protobuf::internal::kEmptyString) {
+    m_icondisapear_->clear();
+  }
+  clear_has_m_icondisapear();
+}
+inline const ::std::string& E_FunctionunlockFunctionunlock::m_icondisapear() const {
+  return *m_icondisapear_;
+}
+inline void E_FunctionunlockFunctionunlock::set_m_icondisapear(const ::std::string& value) {
+  set_has_m_icondisapear();
+  if (m_icondisapear_ == &::google::protobuf::internal::kEmptyString) {
+    m_icondisapear_ = new ::std::string;
+  }
+  m_icondisapear_->assign(value);
+}
+inline void E_FunctionunlockFunctionunlock::set_m_icondisapear(const char* value) {
+  set_has_m_icondisapear();
+  if (m_icondisapear_ == &::google::protobuf::internal::kEmptyString) {
+    m_icondisapear_ = new ::std::string;
+  }
+  m_icondisapear_->assign(value);
+}
+inline void E_FunctionunlockFunctionunlock::set_m_icondisapear(const char* value, size_t size) {
+  set_has_m_icondisapear();
+  if (m_icondisapear_ == &::google::protobuf::internal::kEmptyString) {
+    m_icondisapear_ = new ::std::string;
+  }
+  m_icondisapear_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_FunctionunlockFunctionunlock::mutable_m_icondisapear() {
+  set_has_m_icondisapear();
+  if (m_icondisapear_ == &::google::protobuf::internal::kEmptyString) {
+    m_icondisapear_ = new ::std::string;
+  }
+  return m_icondisapear_;
+}
+inline ::std::string* E_FunctionunlockFunctionunlock::release_m_icondisapear() {
+  clear_has_m_icondisapear();
+  if (m_icondisapear_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_icondisapear_;
+    m_icondisapear_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_FunctionunlockFunctionunlock::set_allocated_m_icondisapear(::std::string* m_icondisapear) {
+  if (m_icondisapear_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_icondisapear_;
+  }
+  if (m_icondisapear) {
+    set_has_m_icondisapear();
+    m_icondisapear_ = m_icondisapear;
+  } else {
+    clear_has_m_icondisapear();
+    m_icondisapear_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_belong = 7;
+inline bool E_FunctionunlockFunctionunlock::has_m_belong() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_FunctionunlockFunctionunlock::set_has_m_belong() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_FunctionunlockFunctionunlock::clear_has_m_belong() {
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_FunctionunlockFunctionunlock::clear_m_belong() {
   m_belong_ = 0;

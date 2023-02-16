@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/daily_s.h"
 
-#define MAX_DAILY_DAILY_NUM 20
+#define MAX_DAILY_DAILY_NUM 60
 
 class DailyDailyDesc : public NFIDescStore
 {

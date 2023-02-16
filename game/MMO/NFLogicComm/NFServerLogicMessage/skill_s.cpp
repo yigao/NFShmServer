@@ -266,15 +266,18 @@ int E_SkillSkill_s::CreateInit() {
 	m_cd = (int32_t)0;
 	m_nolock = (int32_t)0;
 	m_priority = (int32_t)0;
+	m_fighting = (int32_t)0;
 	m_fightingparama = (float)0;
 	m_releasetype = (int32_t)0;
 	m_processtypes = (int32_t)0;
 	m_flyspeed = (int32_t)0;
 	m_acttime = (int32_t)0;
 	m_readytime = (int32_t)0;
+	m_readytimeex = (int32_t)0;
 	m_attacktime = (int32_t)0;
 	m_attackdistance = (int32_t)0;
 	m_rangetype = (int32_t)0;
+	m_rangetypeex = (int32_t)0;
 	m_warn = (int32_t)0;
 	m_dazetime = (int32_t)0;
 	m_warntime = (int32_t)0;
@@ -290,8 +293,6 @@ int E_SkillSkill_s::CreateInit() {
 	m_damagevalue = (int32_t)0;
 	m_damageparama = (float)0;
 	m_addhitrate = (int32_t)0;
-	m_awakeitemid = (int32_t)0;
-	m_awakecostnum = (int32_t)0;
 	return 0;
 }
 
@@ -317,18 +318,22 @@ void E_SkillSkill_s::write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const {
 	msg.set_m_cd((int32_t)m_cd);
 	msg.set_m_nolock((int32_t)m_nolock);
 	msg.set_m_priority((int32_t)m_priority);
-	msg.set_m_fighting((const char*)m_fighting.data());
+	msg.set_m_fighting((int32_t)m_fighting);
 	msg.set_m_fightingparama((float)m_fightingparama);
 	msg.set_m_releasetype((int32_t)m_releasetype);
 	msg.set_m_processtypes((int32_t)m_processtypes);
 	msg.set_m_flyspeed((int32_t)m_flyspeed);
 	msg.set_m_acttime((int32_t)m_acttime);
 	msg.set_m_readytime((int32_t)m_readytime);
+	msg.set_m_readytimeex((int32_t)m_readytimeex);
 	msg.set_m_attacktime((int32_t)m_attacktime);
 	msg.set_m_damagetime((const char*)m_damagetime.data());
+	msg.set_m_damagetimeex((const char*)m_damagetimeex.data());
 	msg.set_m_attackdistance((int32_t)m_attackdistance);
 	msg.set_m_rangetype((int32_t)m_rangetype);
 	msg.set_m_rangetypevalue((const char*)m_rangetypevalue.data());
+	msg.set_m_rangetypeex((int32_t)m_rangetypeex);
+	msg.set_m_rangetypevalueex((const char*)m_rangetypevalueex.data());
 	msg.set_m_warn((int32_t)m_warn);
 	msg.set_m_dazetime((int32_t)m_dazetime);
 	msg.set_m_warntime((int32_t)m_warntime);
@@ -345,8 +350,6 @@ void E_SkillSkill_s::write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const {
 	msg.set_m_damagevalue((int32_t)m_damagevalue);
 	msg.set_m_damageparama((float)m_damageparama);
 	msg.set_m_addhitrate((int32_t)m_addhitrate);
-	msg.set_m_awakeitemid((int32_t)m_awakeitemid);
-	msg.set_m_awakecostnum((int32_t)m_awakecostnum);
 	for(int32_t i = 0; i < (int32_t)m_advancetype1buff.size(); ++i) {
 		::proto_ff::E_SkillSkillAdvancetype1buffDesc* temp_m_advancetype1buff = msg.add_m_advancetype1buff();
 		m_advancetype1buff[i].write_to_pbmsg(*temp_m_advancetype1buff);
@@ -395,11 +398,15 @@ void E_SkillSkill_s::read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg) {
 	m_flyspeed = msg.m_flyspeed();
 	m_acttime = msg.m_acttime();
 	m_readytime = msg.m_readytime();
+	m_readytimeex = msg.m_readytimeex();
 	m_attacktime = msg.m_attacktime();
 	m_damagetime = msg.m_damagetime();
+	m_damagetimeex = msg.m_damagetimeex();
 	m_attackdistance = msg.m_attackdistance();
 	m_rangetype = msg.m_rangetype();
 	m_rangetypevalue = msg.m_rangetypevalue();
+	m_rangetypeex = msg.m_rangetypeex();
+	m_rangetypevalueex = msg.m_rangetypevalueex();
 	m_warn = msg.m_warn();
 	m_dazetime = msg.m_dazetime();
 	m_warntime = msg.m_warntime();
@@ -416,8 +423,6 @@ void E_SkillSkill_s::read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg) {
 	m_damagevalue = msg.m_damagevalue();
 	m_damageparama = msg.m_damageparama();
 	m_addhitrate = msg.m_addhitrate();
-	m_awakeitemid = msg.m_awakeitemid();
-	m_awakecostnum = msg.m_awakecostnum();
 	m_advancetype1buff.resize((int)msg.m_advancetype1buff_size() > (int)m_advancetype1buff.max_size() ? m_advancetype1buff.max_size() : msg.m_advancetype1buff_size());
 	for(int32_t i = 0; i < (int32_t)m_advancetype1buff.size(); ++i) {
 		const ::proto_ff::E_SkillSkillAdvancetype1buffDesc & temp_m_advancetype1buff = msg.m_advancetype1buff(i);
@@ -680,6 +685,77 @@ void Sheet_SkillSkillawake_s::read_from_pbmsg(const ::proto_ff::Sheet_SkillSkill
 	for(int32_t i = 0; i < (int32_t)E_SkillSkillawake_List.size(); ++i) {
 		const ::proto_ff::E_SkillSkillawake & temp_e_skillskillawake_list = msg.e_skillskillawake_list(i);
 		E_SkillSkillawake_List[i].read_from_pbmsg(temp_e_skillskillawake_list);
+	}
+}
+
+E_SkillSkilladvance_s::E_SkillSkilladvance_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SkillSkilladvance_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_profession = (int32_t)0;
+	m_type = (int32_t)0;
+	m_advancelv = (int32_t)0;
+	return 0;
+}
+
+int E_SkillSkilladvance_s::ResumeInit() {
+	return 0;
+}
+
+void E_SkillSkilladvance_s::write_to_pbmsg(::proto_ff::E_SkillSkilladvance & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_profession((int32_t)m_profession);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_advancelv((int32_t)m_advancelv);
+	msg.set_m_advancecondition((const char*)m_advancecondition.data());
+	msg.set_m_skillid((const char*)m_skillid.data());
+}
+
+void E_SkillSkilladvance_s::read_from_pbmsg(const ::proto_ff::E_SkillSkilladvance & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_SkillSkilladvance_s));
+	m_id = msg.m_id();
+	m_profession = msg.m_profession();
+	m_type = msg.m_type();
+	m_advancelv = msg.m_advancelv();
+	m_advancecondition = msg.m_advancecondition();
+	m_skillid = msg.m_skillid();
+}
+
+Sheet_SkillSkilladvance_s::Sheet_SkillSkilladvance_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_SkillSkilladvance_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_SkillSkilladvance_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_SkillSkilladvance_s::write_to_pbmsg(::proto_ff::Sheet_SkillSkilladvance & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_SkillSkilladvance_List.size(); ++i) {
+		::proto_ff::E_SkillSkilladvance* temp_e_skillskilladvance_list = msg.add_e_skillskilladvance_list();
+		E_SkillSkilladvance_List[i].write_to_pbmsg(*temp_e_skillskilladvance_list);
+	}
+}
+
+void Sheet_SkillSkilladvance_s::read_from_pbmsg(const ::proto_ff::Sheet_SkillSkilladvance & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_SkillSkilladvance_s));
+	E_SkillSkilladvance_List.resize((int)msg.e_skillskilladvance_list_size() > (int)E_SkillSkilladvance_List.max_size() ? E_SkillSkilladvance_List.max_size() : msg.e_skillskilladvance_list_size());
+	for(int32_t i = 0; i < (int32_t)E_SkillSkilladvance_List.size(); ++i) {
+		const ::proto_ff::E_SkillSkilladvance & temp_e_skillskilladvance_list = msg.e_skillskilladvance_list(i);
+		E_SkillSkilladvance_List[i].read_from_pbmsg(temp_e_skillskilladvance_list);
 	}
 }
 

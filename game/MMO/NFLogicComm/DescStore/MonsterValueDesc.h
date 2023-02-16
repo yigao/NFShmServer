@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/monster_s.h"
 
-#define MAX_MONSTER_VALUE_NUM 200
+#define MAX_MONSTER_VALUE_NUM 2000
 
 class MonsterValueDesc : public NFIDescStore
 {

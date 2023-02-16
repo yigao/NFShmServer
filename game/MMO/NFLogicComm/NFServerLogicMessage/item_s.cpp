@@ -15,6 +15,7 @@ int E_ItemItem_s::CreateInit() {
 	m_itemtype = (int32_t)0;
 	m_subtype = (int32_t)0;
 	m_functiontype = (int32_t)0;
+	m_waiguanlink = (int64_t)0;
 	m_level = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_levelrequest = (int32_t)0;
@@ -46,6 +47,7 @@ void E_ItemItem_s::write_to_pbmsg(::proto_ff::E_ItemItem & msg) const {
 	msg.set_m_functiontype((int32_t)m_functiontype);
 	msg.set_m_functionvalue((const char*)m_functionvalue.data());
 	msg.set_m_usecondition((const char*)m_usecondition.data());
+	msg.set_m_waiguanlink((int64_t)m_waiguanlink);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_levelrequest((int32_t)m_levelrequest);
@@ -75,6 +77,7 @@ void E_ItemItem_s::read_from_pbmsg(const ::proto_ff::E_ItemItem & msg) {
 	m_functiontype = msg.m_functiontype();
 	m_functionvalue = msg.m_functionvalue();
 	m_usecondition = msg.m_usecondition();
+	m_waiguanlink = msg.m_waiguanlink();
 	m_level = msg.m_level();
 	m_quality = msg.m_quality();
 	m_levelrequest = msg.m_levelrequest();

@@ -34,7 +34,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_LinkLink_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_LinkLink_s, 40> E_LinkLink_List;
+		NFShmVector<struct E_LinkLink_s, 120> E_LinkLink_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_LinkLink & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_LinkLink & msg);

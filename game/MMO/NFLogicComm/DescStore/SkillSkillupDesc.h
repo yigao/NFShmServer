@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/skill_s.h"
 
-#define MAX_SKILL_SKILLUP_NUM 140
+#define MAX_SKILL_SKILLUP_NUM 400
 
 class SkillSkillupDesc : public NFIDescStore
 {

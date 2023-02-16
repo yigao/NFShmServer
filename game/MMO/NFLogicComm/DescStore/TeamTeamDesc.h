@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/team_s.h"
 
-#define MAX_TEAM_TEAM_NUM 40
+#define MAX_TEAM_TEAM_NUM 20
 
 class TeamTeamDesc : public NFIDescStore
 {

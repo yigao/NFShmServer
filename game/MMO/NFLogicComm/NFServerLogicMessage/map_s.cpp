@@ -80,6 +80,7 @@ void E_MapMap_s::write_to_pbmsg(::proto_ff::E_MapMap & msg) const {
 	msg.set_m_diedp((int32_t)m_diedp);
 	msg.set_m_timedp((int32_t)m_timedp);
 	msg.set_m_meditation((int32_t)m_meditation);
+	msg.set_m_mapbutton((const char*)m_mapbutton.data());
 }
 
 void E_MapMap_s::read_from_pbmsg(const ::proto_ff::E_MapMap & msg) {
@@ -116,6 +117,7 @@ void E_MapMap_s::read_from_pbmsg(const ::proto_ff::E_MapMap & msg) {
 	m_diedp = msg.m_diedp();
 	m_timedp = msg.m_timedp();
 	m_meditation = msg.m_meditation();
+	m_mapbutton = msg.m_mapbutton();
 }
 
 Sheet_MapMap_s::Sheet_MapMap_s() {

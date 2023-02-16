@@ -42,7 +42,7 @@ E_FacadeDisplay_s::E_FacadeDisplay_s() {
 int E_FacadeDisplay_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
-	m_soulitemid = (int32_t)0;
+	m_souliid = (int32_t)0;
 	return 0;
 }
 
@@ -58,7 +58,7 @@ void E_FacadeDisplay_s::write_to_pbmsg(::proto_ff::E_FacadeDisplay & msg) const 
 	msg.set_m_activedesc((const char*)m_activedesc.data());
 	msg.set_m_professionid((const char*)m_professionid.data());
 	msg.set_m_skillid((const char*)m_skillid.data());
-	msg.set_m_soulitemid((int32_t)m_soulitemid);
+	msg.set_m_souliid((int32_t)m_souliid);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_FacadeDisplayMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
@@ -77,7 +77,7 @@ void E_FacadeDisplay_s::read_from_pbmsg(const ::proto_ff::E_FacadeDisplay & msg)
 	m_activedesc = msg.m_activedesc();
 	m_professionid = msg.m_professionid();
 	m_skillid = msg.m_skillid();
-	m_soulitemid = msg.m_soulitemid();
+	m_souliid = msg.m_souliid();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_FacadeDisplayMaterialDesc & temp_m_material = msg.m_material(i);
@@ -833,6 +833,7 @@ void E_FacadeSoul_s::write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_rechargeid((int32_t)m_rechargeid);
 	msg.set_m_mainskill((int32_t)m_mainskill);
+	msg.set_m_attributetype((const char*)m_attributetype.data());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_FacadeSoulAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -847,6 +848,7 @@ void E_FacadeSoul_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoul & msg) {
 	m_id = msg.m_id();
 	m_rechargeid = msg.m_rechargeid();
 	m_mainskill = msg.m_mainskill();
+	m_attributetype = msg.m_attributetype();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_FacadeSoulAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -890,6 +892,34 @@ void Sheet_FacadeSoul_s::read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoul & ms
 	}
 }
 
+E_FacadeSoulactiveUnlockDesc_s::E_FacadeSoulactiveUnlockDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FacadeSoulactiveUnlockDesc_s::CreateInit() {
+	m_condition = (int32_t)0;
+	return 0;
+}
+
+int E_FacadeSoulactiveUnlockDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_FacadeSoulactiveUnlockDesc_s::write_to_pbmsg(::proto_ff::E_FacadeSoulactiveUnlockDesc & msg) const {
+	msg.set_m_parama((const char*)m_parama.data());
+	msg.set_m_condition((int32_t)m_condition);
+}
+
+void E_FacadeSoulactiveUnlockDesc_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoulactiveUnlockDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoulactiveUnlockDesc_s));
+	m_parama = msg.m_parama();
+	m_condition = msg.m_condition();
+}
+
 E_FacadeSoulactive_s::E_FacadeSoulactive_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -909,24 +939,19 @@ int E_FacadeSoulactive_s::ResumeInit() {
 
 void E_FacadeSoulactive_s::write_to_pbmsg(::proto_ff::E_FacadeSoulactive & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	for(int32_t i = 0; i < (int32_t)m_parama.size(); ++i) {
-		msg.add_m_parama((const char*)m_parama[i].data());
-	}
-	for(int32_t i = 0; i < (int32_t)m_condition.size(); ++i) {
-		msg.add_m_condition((int32_t)m_condition[i]);
+	for(int32_t i = 0; i < (int32_t)m_unlock.size(); ++i) {
+		::proto_ff::E_FacadeSoulactiveUnlockDesc* temp_m_unlock = msg.add_m_unlock();
+		m_unlock[i].write_to_pbmsg(*temp_m_unlock);
 	}
 }
 
 void E_FacadeSoulactive_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoulactive & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoulactive_s));
 	m_id = msg.m_id();
-	m_parama.resize((int)msg.m_parama_size() > (int)m_parama.max_size() ? m_parama.max_size() : msg.m_parama_size());
-	for(int32_t i = 0; i < (int32_t)m_parama.size(); ++i) {
-		m_parama[i] = msg.m_parama(i);
-	}
-	m_condition.resize((int)msg.m_condition_size() > (int)m_condition.max_size() ? m_condition.max_size() : msg.m_condition_size());
-	for(int32_t i = 0; i < (int32_t)m_condition.size(); ++i) {
-		m_condition[i] = msg.m_condition(i);
+	m_unlock.resize((int)msg.m_unlock_size() > (int)m_unlock.max_size() ? m_unlock.max_size() : msg.m_unlock_size());
+	for(int32_t i = 0; i < (int32_t)m_unlock.size(); ++i) {
+		const ::proto_ff::E_FacadeSoulactiveUnlockDesc & temp_m_unlock = msg.m_unlock(i);
+		m_unlock[i].read_from_pbmsg(temp_m_unlock);
 	}
 }
 
@@ -1001,6 +1026,7 @@ E_FacadeSoullv_s::E_FacadeSoullv_s() {
 
 int E_FacadeSoullv_s::CreateInit() {
 	m_id = (int64_t)0;
+	m_soulllv = (int32_t)0;
 	m_soulid = (int32_t)0;
 	m_itemid = (int32_t)0;
 	m_num = (int32_t)0;
@@ -1015,6 +1041,7 @@ int E_FacadeSoullv_s::ResumeInit() {
 
 void E_FacadeSoullv_s::write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const {
 	msg.set_m_id((int64_t)m_id);
+	msg.set_m_soulllv((int32_t)m_soulllv);
 	msg.set_m_soulid((int32_t)m_soulid);
 	msg.set_m_itemid((int32_t)m_itemid);
 	msg.set_m_num((int32_t)m_num);
@@ -1029,6 +1056,7 @@ void E_FacadeSoullv_s::write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const {
 void E_FacadeSoullv_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoullv & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FacadeSoullv_s));
 	m_id = msg.m_id();
+	m_soulllv = msg.m_soulllv();
 	m_soulid = msg.m_soulid();
 	m_itemid = msg.m_itemid();
 	m_num = msg.m_num();

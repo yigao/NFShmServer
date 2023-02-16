@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/taskreward_s.h"
 
-#define MAX_TASKREWARD_TASKREWARD_NUM 200
+#define MAX_TASKREWARD_TASKREWARD_NUM 700
 
 class TaskrewardTaskrewardDesc : public NFIDescStore
 {

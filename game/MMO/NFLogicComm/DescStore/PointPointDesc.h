@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/point_s.h"
 
-#define MAX_POINT_POINT_NUM 100
+#define MAX_POINT_POINT_NUM 200
 
 class PointPointDesc : public NFIDescStore
 {

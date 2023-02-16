@@ -217,7 +217,7 @@ void protobuf_AddDesc_flash_2eproto() {
     "\022D\n\tm_monster\030\010 \003(\0132!.proto_ff.E_FlashFl"
     "ashMonsterDescB\016\302\377\024\006\347\224\237\347\211\251\210\301\024\005\"K\n\020Sheet_"
     "FlashFlash\0227\n\021E_FlashFlash_List\030\001 \003(\0132\026."
-    "proto_ff.E_FlashFlashB\004\210\301\024\024\"Q\n\033E_FlashIt"
+    "proto_ff.E_FlashFlashB\004\210\301\024(\"Q\n\033E_FlashIt"
     "emflashMonsterDesc\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002ID"
     "\022\034\n\010m_weight\030\002 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\"\244\002\n\020E_Fla"
     "shItemflash\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\345\210\267\346\226\260ID\022"

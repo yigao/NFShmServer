@@ -1,0 +1,65 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_GuildConstant
+{
+	optional int32 m_constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
+	optional int32 m_setitem = 2[(yd_fieldoptions.field_cname) = "创建公会需要道具ID"];
+	optional int32 m_nameitem = 3[(yd_fieldoptions.field_cname) = "公会改名需要道具ID"];
+	optional int32 m_editrequirelv = 4[(yd_fieldoptions.field_cname) = "修改公会公告要求公告等级"];
+	optional int32 m_giftcd = 5[(yd_fieldoptions.field_cname) = "红包清理时间"];
+	optional int32 m_dismiss = 6[(yd_fieldoptions.field_cname) = "解散公会时间"];
+	optional int32 m_transferguild = 7[(yd_fieldoptions.field_cname) = "代理会长可申请时间"];
+	optional int32 m_territory = 8[(yd_fieldoptions.field_cname) = "公会领地场景id"];
+}
+
+
+message Sheet_GuildConstant
+{
+	repeated E_GuildConstant E_GuildConstant_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_GuildLevel
+{
+	optional int32 m_guildlevel = 1[(yd_fieldoptions.field_cname) = "公会等级"];
+	optional int32 m_guildlevel_exp = 2[(yd_fieldoptions.field_cname) = "公会升级经验"];
+	optional int32 m_guildlevel_member = 3[(yd_fieldoptions.field_cname) = "公会成员总人数"];
+	optional int32 m_guildlevel_vp = 4[(yd_fieldoptions.field_cname) = "公会副会长人数"];
+	optional int32 m_guildlevel_np = 5[(yd_fieldoptions.field_cname) = "公会长老数"];
+	optional int32 m_guildlevel_g = 6[(yd_fieldoptions.field_cname) = "护法人数"];
+}
+
+
+message Sheet_GuildLevel
+{
+	repeated E_GuildLevel E_GuildLevel_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_GuildPosition
+{
+	optional int32 m_positionid = 1[(yd_fieldoptions.field_cname) = "职位ID"];
+	optional int32 m_admitnewcomer = 2[(yd_fieldoptions.field_cname) = "接收新成员"];
+	optional int32 m_appointandremovevp = 3[(yd_fieldoptions.field_cname) = "任命/解除副会长"];
+	optional int32 m_appointandremoveelder = 4[(yd_fieldoptions.field_cname) = "任命/解除长老"];
+	optional int32 m_appointandremoveg = 5[(yd_fieldoptions.field_cname) = "任命/解除护法"];
+	optional int32 m_appointandremoveelite = 6[(yd_fieldoptions.field_cname) = "任命/解除精英"];
+	optional int32 m_expelvp = 7[(yd_fieldoptions.field_cname) = "踢出副会长"];
+	optional int32 m_expelelder = 8[(yd_fieldoptions.field_cname) = "踢出长老"];
+	optional int32 m_expelg = 9[(yd_fieldoptions.field_cname) = "踢出护法"];
+	optional int32 m_expelmass = 10[(yd_fieldoptions.field_cname) = "踢出普通成员"];
+	optional int32 m_announcementediting = 11[(yd_fieldoptions.field_cname) = "编辑公告"];
+	optional int32 m_rname = 12[(yd_fieldoptions.field_cname) = "修改名字"];
+	optional int32 m_joincondition = 13[(yd_fieldoptions.field_cname) = "设置加入方式"];
+	optional int32 m_guildactivity = 14[(yd_fieldoptions.field_cname) = "开启公会玩法"];
+	optional int32 m_dissolveassignguild = 15[(yd_fieldoptions.field_cname) = "解散/转让公会"];
+	optional int32 m_changename = 16[(yd_fieldoptions.field_cname) = "改名权限"];
+	optional int32 m_recruitchat = 17[(yd_fieldoptions.field_cname) = "发布招贤纳士"];
+}
+
+
+message Sheet_GuildPosition
+{
+	repeated E_GuildPosition E_GuildPosition_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

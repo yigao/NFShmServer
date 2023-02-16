@@ -47,6 +47,7 @@ namespace proto_ff_s {
 		int32_t m_diedp;
 		int32_t m_timedp;
 		int32_t m_meditation;
+		NFShmString<60> m_mapbutton;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MapMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MapMap & msg);
@@ -60,7 +61,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MapMap_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MapMap_s, 40> E_MapMap_List;
+		NFShmVector<struct E_MapMap_s, 60> E_MapMap_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MapMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapMap & msg);

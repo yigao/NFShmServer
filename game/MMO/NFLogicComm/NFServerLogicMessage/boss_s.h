@@ -56,6 +56,7 @@ namespace proto_ff_s {
 		int32_t m_flashtime;
 		int32_t m_retrievegiftid;
 		int32_t m_notimes;
+		int32_t m_assistprestige;
 
 		virtual void write_to_pbmsg(::proto_ff::E_BossBoss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BossBoss & msg);
@@ -69,7 +70,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossBoss_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossBoss_s, 80> E_BossBoss_List;
+		NFShmVector<struct E_BossBoss_s, 200> E_BossBoss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg);

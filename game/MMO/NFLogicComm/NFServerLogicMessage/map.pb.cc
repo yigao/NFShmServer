@@ -49,7 +49,7 @@ void protobuf_AssignDesc_map_2eproto() {
       "map.proto");
   GOOGLE_CHECK(file != NULL);
   E_MapMap_descriptor_ = file->message_type(0);
-  static const int E_MapMap_offsets_[32] = {
+  static const int E_MapMap_offsets_[33] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_mapid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_levellimit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_advicelv_),
@@ -82,6 +82,7 @@ void protobuf_AssignDesc_map_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_diedp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_timedp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_meditation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapMap, m_mapbutton_),
   };
   E_MapMap_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -229,7 +230,7 @@ void protobuf_AddDesc_map_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tmap.proto\022\010proto_ff\032\025yd_fieldoptions.p"
-    "roto\"\375\013\n\010E_MapMap\022\035\n\007m_mapid\030\001 \001(\003B\014\302\377\024\010"
+    "roto\"\250\014\n\010E_MapMap\022\035\n\007m_mapid\030\001 \001(\003B\014\302\377\024\010"
     "\345\234\260\345\233\276id\022,\n\014m_levellimit\030\002 \001(\005B\026\302\377\024\022\345\234\260\345"
     "\233\276\347\255\211\347\272\247\351\231\220\345\210\266\0221\n\nm_advicelv\030\003 \001(\tB\035\302\377\024\025"
     "\345\234\260\345\233\276\346\216\250\350\215\220\347\255\211\347\272\247\346\256\265\220\301\024<\022#\n\tm_maptype\030\004"
@@ -267,24 +268,25 @@ void protobuf_AddDesc_map_2eproto() {
     "\200\274\022*\n\007m_diedp\030\036 \001(\005B\031\302\377\024\025\346\255\273\344\272\241\345\242\236\345\212\240\351\251\261"
     "\350\265\266\345\200\274\022.\n\010m_timedp\030\037 \001(\005B\034\302\377\024\030\346\257\217\345\210\206\351\222\237\345"
     "\242\236\345\212\240\351\251\261\350\265\266\345\200\274\022,\n\014m_meditation\030  \001(\005B\026\302\377"
-    "\024\022\346\230\257\345\220\246\345\205\201\350\256\270\346\211\223\345\235\220\"\?\n\014Sheet_MapMap\022/\n\r"
-    "E_MapMap_List\030\001 \003(\0132\022.proto_ff.E_MapMapB"
-    "\004\210\301\024(\"\361\002\n\rE_MapItemdrop\022\"\n\014m_itemdropid\030"
-    "\001 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022$\n\nm_droptype\030\002 \001(\005B"
-    "\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022 \n\006m_odds\030\003 \001(\005B\020\302\377\024\014\350"
-    "\247\246\345\217\221\345\207\240\347\216\207\022\'\n\014m_dropvaluea\030\004 \001(\005B\021\302\377\024\r\346"
-    "\216\211\350\220\275\345\217\202\346\225\260a\022\'\n\014m_dropvalueb\030\005 \001(\005B\021\302\377\024\r"
-    "\346\216\211\350\220\275\345\217\202\346\225\260b\022\'\n\014m_dropvaluec\030\006 \001(\005B\021\302\377\024"
-    "\r\346\216\211\350\220\275\345\217\202\346\225\260c\022\'\n\014m_dropvalued\030\007 \001(\005B\021\302\377"
-    "\024\r\346\216\211\350\220\275\345\217\202\346\225\260d\022\'\n\014m_dropvaluee\030\010 \001(\005B\021\302"
-    "\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260e\022\'\n\014m_dropvaluef\030\t \001(\005B\021"
-    "\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260f\"N\n\021Sheet_MapItemdrop\0229"
-    "\n\022E_MapItemdrop_List\030\001 \003(\0132\027.proto_ff.E_"
-    "MapItemdropB\004\210\301\024(\"E\n\020E_MapDestroyitem\0221\n"
-    "\017m_destroyitemid\030\001 \001(\003B\030\302\377\024\024\350\247\246\345\217\221\346\221\247\346\257\201"
-    "\351\201\223\345\205\267ID\"X\n\024Sheet_MapDestroyitem\022@\n\025E_Ma"
-    "pDestroyitem_List\030\001 \003(\0132\032.proto_ff.E_Map"
-    "DestroyitemB\005\210\301\024\310\001", 2258);
+    "\024\022\346\230\257\345\220\246\345\205\201\350\256\270\346\211\223\345\235\220\022)\n\013m_mapbutton\030! \001("
+    "\tB\024\302\377\024\014\345\234\260\345\233\276\346\214\211\351\222\256\220\301\024<\"\?\n\014Sheet_MapMap\022"
+    "/\n\rE_MapMap_List\030\001 \003(\0132\022.proto_ff.E_MapM"
+    "apB\004\210\301\024<\"\361\002\n\rE_MapItemdrop\022\"\n\014m_itemdrop"
+    "id\030\001 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022$\n\nm_droptype\030\002 \001"
+    "(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022 \n\006m_odds\030\003 \001(\005B\020\302\377"
+    "\024\014\350\247\246\345\217\221\345\207\240\347\216\207\022\'\n\014m_dropvaluea\030\004 \001(\005B\021\302\377"
+    "\024\r\346\216\211\350\220\275\345\217\202\346\225\260a\022\'\n\014m_dropvalueb\030\005 \001(\005B\021\302"
+    "\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260b\022\'\n\014m_dropvaluec\030\006 \001(\005B\021"
+    "\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260c\022\'\n\014m_dropvalued\030\007 \001(\005B"
+    "\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260d\022\'\n\014m_dropvaluee\030\010 \001(\005"
+    "B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260e\022\'\n\014m_dropvaluef\030\t \001("
+    "\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260f\"N\n\021Sheet_MapItemdro"
+    "p\0229\n\022E_MapItemdrop_List\030\001 \003(\0132\027.proto_ff"
+    ".E_MapItemdropB\004\210\301\024(\"E\n\020E_MapDestroyitem"
+    "\0221\n\017m_destroyitemid\030\001 \001(\003B\030\302\377\024\024\350\247\246\345\217\221\346\221\247"
+    "\346\257\201\351\201\223\345\205\267ID\"X\n\024Sheet_MapDestroyitem\022@\n\025E"
+    "_MapDestroyitem_List\030\001 \003(\0132\032.proto_ff.E_"
+    "MapDestroyitemB\005\210\301\024\310\001", 2301);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "map.proto", &protobuf_RegisterTypes);
   E_MapMap::default_instance_ = new E_MapMap();
@@ -344,6 +346,7 @@ const int E_MapMap::kMDrivepointFieldNumber;
 const int E_MapMap::kMDiedpFieldNumber;
 const int E_MapMap::kMTimedpFieldNumber;
 const int E_MapMap::kMMeditationFieldNumber;
+const int E_MapMap::kMMapbuttonFieldNumber;
 #endif  // !_MSC_VER
 
 E_MapMap::E_MapMap()
@@ -394,6 +397,7 @@ void E_MapMap::SharedCtor() {
   m_diedp_ = 0;
   m_timedp_ = 0;
   m_meditation_ = 0;
+  m_mapbutton_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -410,6 +414,9 @@ void E_MapMap::SharedDtor() {
   }
   if (m_itemdropid_ != &::google::protobuf::internal::kEmptyString) {
     delete m_itemdropid_;
+  }
+  if (m_mapbutton_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mapbutton_;
   }
   if (this != default_instance_) {
   }
@@ -488,6 +495,13 @@ void E_MapMap::Clear() {
     m_diedp_ = 0;
     m_timedp_ = 0;
     m_meditation_ = 0;
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    if (has_m_mapbutton()) {
+      if (m_mapbutton_ != &::google::protobuf::internal::kEmptyString) {
+        m_mapbutton_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1009,6 +1023,23 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(266)) goto parse_m_mapbutton;
+        break;
+      }
+
+      // optional string m_mapbutton = 33;
+      case 33: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_mapbutton:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_mapbutton()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_mapbutton().data(), this->m_mapbutton().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1203,6 +1234,15 @@ void E_MapMap::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->m_meditation(), output);
   }
 
+  // optional string m_mapbutton = 33;
+  if (has_m_mapbutton()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mapbutton().data(), this->m_mapbutton().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      33, this->m_mapbutton(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1384,6 +1424,16 @@ void E_MapMap::SerializeWithCachedSizes(
   // optional int32 m_meditation = 32;
   if (has_m_meditation()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->m_meditation(), target);
+  }
+
+  // optional string m_mapbutton = 33;
+  if (has_m_mapbutton()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mapbutton().data(), this->m_mapbutton().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        33, this->m_mapbutton(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1628,6 +1678,15 @@ int E_MapMap::ByteSize() const {
     }
 
   }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    // optional string m_mapbutton = 33;
+    if (has_m_mapbutton()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_mapbutton());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1757,6 +1816,11 @@ void E_MapMap::MergeFrom(const E_MapMap& from) {
       set_m_meditation(from.m_meditation());
     }
   }
+  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    if (from.has_m_mapbutton()) {
+      set_m_mapbutton(from.m_mapbutton());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1811,7 +1875,9 @@ void E_MapMap::Swap(E_MapMap* other) {
     std::swap(m_diedp_, other->m_diedp_);
     std::swap(m_timedp_, other->m_timedp_);
     std::swap(m_meditation_, other->m_meditation_);
+    std::swap(m_mapbutton_, other->m_mapbutton_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_has_bits_[1], other->_has_bits_[1]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }

@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/daily_s.h"
 
-#define MAX_DAILY_CULTIVATE_NUM 40
+#define MAX_DAILY_CULTIVATE_NUM 80
 
 class DailyCultivateDesc : public NFIDescStore
 {

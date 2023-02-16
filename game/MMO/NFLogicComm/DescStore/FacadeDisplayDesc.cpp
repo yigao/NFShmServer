@@ -66,7 +66,7 @@ int FacadeDisplayDesc::Load(NFResDB *pDB)
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
-		NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
+		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = &m_astDesc[i];
 		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);

@@ -13,17 +13,15 @@ message E_DailyDaily
 	optional int32 m_playargs = 6[(yd_fieldoptions.field_cname) = "玩法参数"];
 	optional int64 m_funciontid = 7[(yd_fieldoptions.field_cname) = "功能ID"];
 	optional int32 m_number = 8[(yd_fieldoptions.field_cname) = "次数"];
-	optional int32 m_viptype = 9[(yd_fieldoptions.field_cname) = "VIP类型"];
-	optional int32 m_othernum = 10[(yd_fieldoptions.field_cname) = "其余可购买次数"];
-	optional int32 m_eachscore = 11[(yd_fieldoptions.field_cname) = "每次活跃值"];
-	optional int32 m_cycle = 12[(yd_fieldoptions.field_cname) = "重置周期"];
-	optional int32 m_regreward = 13[(yd_fieldoptions.field_cname) = "报名奖励道具boxid"];
+	optional int32 m_eachscore = 9[(yd_fieldoptions.field_cname) = "每次活跃值"];
+	optional int32 m_cycle = 10[(yd_fieldoptions.field_cname) = "重置周期"];
+	optional int32 m_regreward = 11[(yd_fieldoptions.field_cname) = "报名奖励道具boxid"];
 }
 
 
 message Sheet_DailyDaily
 {
-	repeated E_DailyDaily E_DailyDaily_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_DailyDaily E_DailyDaily_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message E_DailyReward
@@ -58,5 +56,5 @@ message E_DailyCultivate
 
 message Sheet_DailyCultivate
 {
-	repeated E_DailyCultivate E_DailyCultivate_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_DailyCultivate E_DailyCultivate_List = 1[(yd_fieldoptions.field_arysize)=80];
 }

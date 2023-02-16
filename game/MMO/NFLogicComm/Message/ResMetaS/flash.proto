@@ -24,7 +24,7 @@ message E_FlashFlash
 
 message Sheet_FlashFlash
 {
-	repeated E_FlashFlash E_FlashFlash_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_FlashFlash E_FlashFlash_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message E_FlashItemflashMonsterDesc

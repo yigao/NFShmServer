@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/skill_s.h"
 
-#define MAX_SKILL_BUFF_NUM 100
+#define MAX_SKILL_BUFF_NUM 160
 
 class SkillBuffDesc : public NFIDescStore
 {

@@ -23,8 +23,6 @@ namespace proto_ff_s {
 		int32_t m_playargs;
 		int64_t m_funciontid;
 		int32_t m_number;
-		int32_t m_viptype;
-		int32_t m_othernum;
 		int32_t m_eachscore;
 		int32_t m_cycle;
 		int32_t m_regreward;
@@ -41,7 +39,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DailyDaily_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DailyDaily_s, 20> E_DailyDaily_List;
+		NFShmVector<struct E_DailyDaily_s, 60> E_DailyDaily_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyDaily & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyDaily & msg);
@@ -119,7 +117,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DailyCultivate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DailyCultivate_s, 40> E_DailyCultivate_List;
+		NFShmVector<struct E_DailyCultivate_s, 80> E_DailyCultivate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyCultivate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyCultivate & msg);

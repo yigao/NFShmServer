@@ -361,6 +361,13 @@ class E_BossBoss : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_notimes() const;
   inline void set_m_notimes(::google::protobuf::int32 value);
 
+  // optional int32 m_assistprestige = 13;
+  inline bool has_m_assistprestige() const;
+  inline void clear_m_assistprestige();
+  static const int kMAssistprestigeFieldNumber = 13;
+  inline ::google::protobuf::int32 m_assistprestige() const;
+  inline void set_m_assistprestige(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_BossBoss)
  private:
   inline void set_has_m_id();
@@ -387,6 +394,8 @@ class E_BossBoss : public ::google::protobuf::Message {
   inline void clear_has_m_retrievegiftid();
   inline void set_has_m_notimes();
   inline void clear_has_m_notimes();
+  inline void set_has_m_assistprestige();
+  inline void clear_has_m_assistprestige();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -402,9 +411,10 @@ class E_BossBoss : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_flashtime_;
   ::google::protobuf::int32 m_retrievegiftid_;
   ::google::protobuf::int32 m_notimes_;
+  ::google::protobuf::int32 m_assistprestige_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
 
   friend void  protobuf_AddDesc_boss_2eproto();
   friend void protobuf_AssignDesc_boss_2eproto();
@@ -1503,6 +1513,28 @@ inline ::google::protobuf::int32 E_BossBoss::m_notimes() const {
 inline void E_BossBoss::set_m_notimes(::google::protobuf::int32 value) {
   set_has_m_notimes();
   m_notimes_ = value;
+}
+
+// optional int32 m_assistprestige = 13;
+inline bool E_BossBoss::has_m_assistprestige() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void E_BossBoss::set_has_m_assistprestige() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void E_BossBoss::clear_has_m_assistprestige() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void E_BossBoss::clear_m_assistprestige() {
+  m_assistprestige_ = 0;
+  clear_has_m_assistprestige();
+}
+inline ::google::protobuf::int32 E_BossBoss::m_assistprestige() const {
+  return m_assistprestige_;
+}
+inline void E_BossBoss::set_m_assistprestige(::google::protobuf::int32 value) {
+  set_has_m_assistprestige();
+  m_assistprestige_ = value;
 }
 
 // -------------------------------------------------------------------

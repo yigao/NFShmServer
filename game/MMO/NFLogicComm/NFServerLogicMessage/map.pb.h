@@ -336,6 +336,18 @@ class E_MapMap : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_meditation() const;
   inline void set_m_meditation(::google::protobuf::int32 value);
 
+  // optional string m_mapbutton = 33;
+  inline bool has_m_mapbutton() const;
+  inline void clear_m_mapbutton();
+  static const int kMMapbuttonFieldNumber = 33;
+  inline const ::std::string& m_mapbutton() const;
+  inline void set_m_mapbutton(const ::std::string& value);
+  inline void set_m_mapbutton(const char* value);
+  inline void set_m_mapbutton(const char* value, size_t size);
+  inline ::std::string* mutable_m_mapbutton();
+  inline ::std::string* release_m_mapbutton();
+  inline void set_allocated_m_mapbutton(::std::string* m_mapbutton);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_MapMap)
  private:
   inline void set_has_m_mapid();
@@ -402,6 +414,8 @@ class E_MapMap : public ::google::protobuf::Message {
   inline void clear_has_m_timedp();
   inline void set_has_m_meditation();
   inline void clear_has_m_meditation();
+  inline void set_has_m_mapbutton();
+  inline void clear_has_m_mapbutton();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -437,9 +451,10 @@ class E_MapMap : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_diedp_;
   ::google::protobuf::int32 m_timedp_;
   ::google::protobuf::int32 m_meditation_;
+  ::std::string* m_mapbutton_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(32 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
 
   friend void  protobuf_AddDesc_map_2eproto();
   friend void protobuf_AssignDesc_map_2eproto();
@@ -1800,6 +1815,76 @@ inline ::google::protobuf::int32 E_MapMap::m_meditation() const {
 inline void E_MapMap::set_m_meditation(::google::protobuf::int32 value) {
   set_has_m_meditation();
   m_meditation_ = value;
+}
+
+// optional string m_mapbutton = 33;
+inline bool E_MapMap::has_m_mapbutton() const {
+  return (_has_bits_[1] & 0x00000001u) != 0;
+}
+inline void E_MapMap::set_has_m_mapbutton() {
+  _has_bits_[1] |= 0x00000001u;
+}
+inline void E_MapMap::clear_has_m_mapbutton() {
+  _has_bits_[1] &= ~0x00000001u;
+}
+inline void E_MapMap::clear_m_mapbutton() {
+  if (m_mapbutton_ != &::google::protobuf::internal::kEmptyString) {
+    m_mapbutton_->clear();
+  }
+  clear_has_m_mapbutton();
+}
+inline const ::std::string& E_MapMap::m_mapbutton() const {
+  return *m_mapbutton_;
+}
+inline void E_MapMap::set_m_mapbutton(const ::std::string& value) {
+  set_has_m_mapbutton();
+  if (m_mapbutton_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapbutton_ = new ::std::string;
+  }
+  m_mapbutton_->assign(value);
+}
+inline void E_MapMap::set_m_mapbutton(const char* value) {
+  set_has_m_mapbutton();
+  if (m_mapbutton_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapbutton_ = new ::std::string;
+  }
+  m_mapbutton_->assign(value);
+}
+inline void E_MapMap::set_m_mapbutton(const char* value, size_t size) {
+  set_has_m_mapbutton();
+  if (m_mapbutton_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapbutton_ = new ::std::string;
+  }
+  m_mapbutton_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_MapMap::mutable_m_mapbutton() {
+  set_has_m_mapbutton();
+  if (m_mapbutton_ == &::google::protobuf::internal::kEmptyString) {
+    m_mapbutton_ = new ::std::string;
+  }
+  return m_mapbutton_;
+}
+inline ::std::string* E_MapMap::release_m_mapbutton() {
+  clear_has_m_mapbutton();
+  if (m_mapbutton_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_mapbutton_;
+    m_mapbutton_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_MapMap::set_allocated_m_mapbutton(::std::string* m_mapbutton) {
+  if (m_mapbutton_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mapbutton_;
+  }
+  if (m_mapbutton) {
+    set_has_m_mapbutton();
+    m_mapbutton_ = m_mapbutton;
+  } else {
+    clear_has_m_mapbutton();
+    m_mapbutton_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // -------------------------------------------------------------------

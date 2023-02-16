@@ -93,7 +93,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipEquip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipEquip_s, 20> E_EquipEquip_List;
+		NFShmVector<struct E_EquipEquip_s, 160> E_EquipEquip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipEquip & msg);
@@ -140,7 +140,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStrong_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStrong_s, 400> E_EquipStrong_List;
+		NFShmVector<struct E_EquipStrong_s, 500> E_EquipStrong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrong & msg);
@@ -149,6 +149,21 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_EquipStrong_s Sheet_EquipStrong_t;
 
+	struct E_EquipStrongexpCostDesc_s : public NFDescStoreSeqOP {
+		E_EquipStrongexpCostDesc_s();
+		virtual ~E_EquipStrongexpCostDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_item;
+		int32_t m_num;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexpCostDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongexpCostDesc & msg);
+		static ::proto_ff::E_EquipStrongexpCostDesc* new_pbmsg(){ return new ::proto_ff::E_EquipStrongexpCostDesc(); }
+		static ::proto_ff::E_EquipStrongexpCostDesc make_pbmsg(){ return ::proto_ff::E_EquipStrongexpCostDesc(); }
+	};
+	typedef struct E_EquipStrongexpCostDesc_s E_EquipStrongexpCostDesc_t;
+
 	struct E_EquipStrongexp_s : public NFDescStoreSeqOP {
 		E_EquipStrongexp_s();
 		virtual ~E_EquipStrongexp_s(){}
@@ -156,9 +171,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_gold;
-		NFShmVector<int32_t, 2> m_costitem;
-		NFShmVector<NFShmString<60>, 2> m_positiontype;
-		NFShmVector<int32_t, 2> m_costnum;
+		NFShmVector<struct E_EquipStrongexpCostDesc_s, 3> m_cost;
+		NFShmVector<NFShmString<60>, 3> m_positiontype;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongexp & msg);
@@ -218,7 +232,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStrongtotal_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStrongtotal_s, 300> E_EquipStrongtotal_List;
+		NFShmVector<struct E_EquipStrongtotal_s, 200> E_EquipStrongtotal_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrongtotal & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrongtotal & msg);
@@ -237,7 +251,9 @@ namespace proto_ff_s {
 		int32_t m_speciallygemtype;
 		int32_t m_payunlockitem;
 		int32_t m_payunlocknnm;
-		NFShmVector<int32_t, 5> m_gemunlock;
+		NFShmString<60> m_commongembuy;
+		NFShmString<60> m_speciallygembuy;
+		NFShmVector<int32_t, 4> m_gemunlock;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipGem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGem & msg);
@@ -259,6 +275,38 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_EquipGem make_pbmsg(){ return ::proto_ff::Sheet_EquipGem(); }
 	};
 	typedef struct Sheet_EquipGem_s Sheet_EquipGem_t;
+
+	struct E_EquipGemlv_s : public NFDescStoreSeqOP {
+		E_EquipGemlv_s();
+		virtual ~E_EquipGemlv_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		int32_t m_nextid;
+		NFShmString<60> m_numb;
+		int32_t m_nextvalue;
+		int32_t m_costgold;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipGemlv & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGemlv & msg);
+		static ::proto_ff::E_EquipGemlv* new_pbmsg(){ return new ::proto_ff::E_EquipGemlv(); }
+		static ::proto_ff::E_EquipGemlv make_pbmsg(){ return ::proto_ff::E_EquipGemlv(); }
+	};
+	typedef struct E_EquipGemlv_s E_EquipGemlv_t;
+
+	struct Sheet_EquipGemlv_s : public NFDescStoreSeqOP {
+		Sheet_EquipGemlv_s();
+		virtual ~Sheet_EquipGemlv_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_EquipGemlv_s, 300> E_EquipGemlv_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipGemlv & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipGemlv & msg);
+		static ::proto_ff::Sheet_EquipGemlv* new_pbmsg(){ return new ::proto_ff::Sheet_EquipGemlv(); }
+		static ::proto_ff::Sheet_EquipGemlv make_pbmsg(){ return ::proto_ff::Sheet_EquipGemlv(); }
+	};
+	typedef struct Sheet_EquipGemlv_s Sheet_EquipGemlv_t;
 
 	struct E_EquipStoveattAttributeDesc_s : public NFDescStoreSeqOP {
 		E_EquipStoveattAttributeDesc_s();
@@ -363,6 +411,171 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_EquipGrade make_pbmsg(){ return ::proto_ff::Sheet_EquipGrade(); }
 	};
 	typedef struct Sheet_EquipGrade_s Sheet_EquipGrade_t;
+
+	struct E_EquipClearAttributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipClearAttributeDesc_s();
+		virtual ~E_EquipClearAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmString<60> m_value;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipClearAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipClearAttributeDesc & msg);
+		static ::proto_ff::E_EquipClearAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipClearAttributeDesc(); }
+		static ::proto_ff::E_EquipClearAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipClearAttributeDesc(); }
+	};
+	typedef struct E_EquipClearAttributeDesc_s E_EquipClearAttributeDesc_t;
+
+	struct E_EquipClearSectionDesc_s : public NFDescStoreSeqOP {
+		E_EquipClearSectionDesc_s();
+		virtual ~E_EquipClearSectionDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmString<60> m_down;
+		int32_t m_p;
+		NFShmString<60> m_type;
+		NFShmString<60> m_up;
+		NFShmString<60> m_g;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipClearSectionDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipClearSectionDesc & msg);
+		static ::proto_ff::E_EquipClearSectionDesc* new_pbmsg(){ return new ::proto_ff::E_EquipClearSectionDesc(); }
+		static ::proto_ff::E_EquipClearSectionDesc make_pbmsg(){ return ::proto_ff::E_EquipClearSectionDesc(); }
+	};
+	typedef struct E_EquipClearSectionDesc_s E_EquipClearSectionDesc_t;
+
+	struct E_EquipClear_s : public NFDescStoreSeqOP {
+		E_EquipClear_s();
+		virtual ~E_EquipClear_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		NFShmString<60> m_value;
+		int64_t m_consumeid;
+		NFShmString<60> m_consumenum;
+		NFShmString<60> m_lockingid;
+		NFShmString<60> m_lockingnum;
+		NFShmVector<struct E_EquipClearAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_EquipClearSectionDesc_s, 6> m_section;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipClear & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipClear & msg);
+		static ::proto_ff::E_EquipClear* new_pbmsg(){ return new ::proto_ff::E_EquipClear(); }
+		static ::proto_ff::E_EquipClear make_pbmsg(){ return ::proto_ff::E_EquipClear(); }
+	};
+	typedef struct E_EquipClear_s E_EquipClear_t;
+
+	struct Sheet_EquipClear_s : public NFDescStoreSeqOP {
+		Sheet_EquipClear_s();
+		virtual ~Sheet_EquipClear_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_EquipClear_s, 20> E_EquipClear_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipClear & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipClear & msg);
+		static ::proto_ff::Sheet_EquipClear* new_pbmsg(){ return new ::proto_ff::Sheet_EquipClear(); }
+		static ::proto_ff::Sheet_EquipClear make_pbmsg(){ return ::proto_ff::Sheet_EquipClear(); }
+	};
+	typedef struct Sheet_EquipClear_s Sheet_EquipClear_t;
+
+	struct E_EquipSuitAttributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipSuitAttributeDesc_s();
+		virtual ~E_EquipSuitAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_sctivation;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipSuitAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipSuitAttributeDesc & msg);
+		static ::proto_ff::E_EquipSuitAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipSuitAttributeDesc(); }
+		static ::proto_ff::E_EquipSuitAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipSuitAttributeDesc(); }
+	};
+	typedef struct E_EquipSuitAttributeDesc_s E_EquipSuitAttributeDesc_t;
+
+	struct E_EquipSuit_s : public NFDescStoreSeqOP {
+		E_EquipSuit_s();
+		virtual ~E_EquipSuit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t m_id;
+		NFShmString<60> m_profession;
+		int32_t m_suitlv;
+		int32_t m_level;
+		int32_t m_colour;
+		NFShmString<60> m_aftername;
+		int32_t m_suitevalue;
+		NFShmVector<struct E_EquipSuitAttributeDesc_s, 3> m_attribute;
+		NFShmVector<NFShmString<60>, 10> m_position;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg);
+		static ::proto_ff::E_EquipSuit* new_pbmsg(){ return new ::proto_ff::E_EquipSuit(); }
+		static ::proto_ff::E_EquipSuit make_pbmsg(){ return ::proto_ff::E_EquipSuit(); }
+	};
+	typedef struct E_EquipSuit_s E_EquipSuit_t;
+
+	struct Sheet_EquipSuit_s : public NFDescStoreSeqOP {
+		Sheet_EquipSuit_s();
+		virtual ~Sheet_EquipSuit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_EquipSuit_s, 120> E_EquipSuit_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipSuit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipSuit & msg);
+		static ::proto_ff::Sheet_EquipSuit* new_pbmsg(){ return new ::proto_ff::Sheet_EquipSuit(); }
+		static ::proto_ff::Sheet_EquipSuit make_pbmsg(){ return ::proto_ff::Sheet_EquipSuit(); }
+	};
+	typedef struct Sheet_EquipSuit_s Sheet_EquipSuit_t;
+
+	struct E_EquipBreakBreakDesc_s : public NFDescStoreSeqOP {
+		E_EquipBreakBreakDesc_s();
+		virtual ~E_EquipBreakBreakDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_item;
+		int32_t m_num;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipBreakBreakDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipBreakBreakDesc & msg);
+		static ::proto_ff::E_EquipBreakBreakDesc* new_pbmsg(){ return new ::proto_ff::E_EquipBreakBreakDesc(); }
+		static ::proto_ff::E_EquipBreakBreakDesc make_pbmsg(){ return ::proto_ff::E_EquipBreakBreakDesc(); }
+	};
+	typedef struct E_EquipBreakBreakDesc_s E_EquipBreakBreakDesc_t;
+
+	struct E_EquipBreak_s : public NFDescStoreSeqOP {
+		E_EquipBreak_s();
+		virtual ~E_EquipBreak_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_lv;
+		int32_t m_step;
+		NFShmString<60> m_positiontype;
+		int32_t m_basic;
+		int32_t m_star;
+		NFShmVector<struct E_EquipBreakBreakDesc_s, 2> m_break;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipBreak & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipBreak & msg);
+		static ::proto_ff::E_EquipBreak* new_pbmsg(){ return new ::proto_ff::E_EquipBreak(); }
+		static ::proto_ff::E_EquipBreak make_pbmsg(){ return ::proto_ff::E_EquipBreak(); }
+	};
+	typedef struct E_EquipBreak_s E_EquipBreak_t;
+
+	struct Sheet_EquipBreak_s : public NFDescStoreSeqOP {
+		Sheet_EquipBreak_s();
+		virtual ~Sheet_EquipBreak_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_EquipBreak_s, 60> E_EquipBreak_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipBreak & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipBreak & msg);
+		static ::proto_ff::Sheet_EquipBreak* new_pbmsg(){ return new ::proto_ff::Sheet_EquipBreak(); }
+		static ::proto_ff::Sheet_EquipBreak make_pbmsg(){ return ::proto_ff::Sheet_EquipBreak(); }
+	};
+	typedef struct Sheet_EquipBreak_s Sheet_EquipBreak_t;
 
 }
 

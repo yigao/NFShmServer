@@ -65,6 +65,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_SkillSkillawake_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_SkillSkillawake_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_SkillSkilladvance_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_SkillSkilladvance_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_SkillSkilladvance_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_SkillSkilladvance_reflection_ = NULL;
 
 }  // namespace
 
@@ -202,7 +208,7 @@ void protobuf_AssignDesc_skill_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_SkillSkillBuffDesc));
   E_SkillSkill_descriptor_ = file->message_type(7);
-  static const int E_SkillSkill_offsets_[52] = {
+  static const int E_SkillSkill_offsets_[54] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_skillid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_skilltype_),
@@ -227,11 +233,15 @@ void protobuf_AssignDesc_skill_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_flyspeed_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_acttime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_readytime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_readytimeex_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_attacktime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_damagetime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_damagetimeex_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_attackdistance_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_rangetype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_rangetypevalue_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_rangetypeex_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_rangetypevalueex_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_warn_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_dazetime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_warntime_),
@@ -248,8 +258,6 @@ void protobuf_AssignDesc_skill_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_damagevalue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_damageparama_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_addhitrate_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_awakeitemid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_awakecostnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_advancetype1buff_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_advancetype2buff_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkill, m_awakebuff_),
@@ -383,6 +391,41 @@ void protobuf_AssignDesc_skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_SkillSkillawake));
+  E_SkillSkilladvance_descriptor_ = file->message_type(15);
+  static const int E_SkillSkilladvance_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, m_profession_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, m_advancelv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, m_advancecondition_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, m_skillid_),
+  };
+  E_SkillSkilladvance_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_SkillSkilladvance_descriptor_,
+      E_SkillSkilladvance::default_instance_,
+      E_SkillSkilladvance_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_SkillSkilladvance, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_SkillSkilladvance));
+  Sheet_SkillSkilladvance_descriptor_ = file->message_type(16);
+  static const int Sheet_SkillSkilladvance_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_SkillSkilladvance, e_skillskilladvance_list_),
+  };
+  Sheet_SkillSkilladvance_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_SkillSkilladvance_descriptor_,
+      Sheet_SkillSkilladvance::default_instance_,
+      Sheet_SkillSkilladvance_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_SkillSkilladvance, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_SkillSkilladvance, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_SkillSkilladvance));
 }
 
 namespace {
@@ -425,6 +468,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_SkillSkillawake_descriptor_, &E_SkillSkillawake::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_SkillSkillawake_descriptor_, &Sheet_SkillSkillawake::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_SkillSkilladvance_descriptor_, &E_SkillSkilladvance::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_SkillSkilladvance_descriptor_, &Sheet_SkillSkilladvance::default_instance());
 }
 
 }  // namespace
@@ -460,6 +507,10 @@ void protobuf_ShutdownFile_skill_2eproto() {
   delete E_SkillSkillawake_reflection_;
   delete Sheet_SkillSkillawake::default_instance_;
   delete Sheet_SkillSkillawake_reflection_;
+  delete E_SkillSkilladvance::default_instance_;
+  delete E_SkillSkilladvance_reflection_;
+  delete Sheet_SkillSkilladvance::default_instance_;
+  delete Sheet_SkillSkilladvance_reflection_;
 }
 
 void protobuf_AddDesc_skill_2eproto() {
@@ -493,103 +544,115 @@ void protobuf_AddDesc_skill_2eproto() {
     "_effect_type\030\022 \001(\005B\020\302\377\024\014\346\225\210\346\236\234\347\261\273\345\236\213\022,\n\016"
     "m_effect_param\030\023 \001(\tB\024\302\377\024\014\346\225\210\346\236\234\345\217\202\346\225\260\220\301"
     "\024<\022\'\n\013m_effect_up\030\024 \001(\005B\022\302\377\024\016\346\210\220\351\225\277\347\263\273\346\225"
-    "\260ID\"H\n\017Sheet_SkillBuff\0225\n\020E_SkillBuff_Li"
-    "st\030\001 \003(\0132\025.proto_ff.E_SkillBuffB\004\210\301\024d\"8\n"
-    " E_SkillSkillAdvancetype1buffDesc\022\024\n\004m_i"
-    "d\030\001 \001(\003B\006\302\377\024\002id\"8\n E_SkillSkillAdvancety"
-    "pe2buffDesc\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\"1\n\031E_S"
-    "killSkillAwakebuffDesc\022\024\n\004m_id\030\001 \001(\003B\006\302\377"
-    "\024\002id\"8\n E_SkillSkillAdvancetype3buffDesc"
-    "\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\"j\n\024E_SkillSkillBu"
-    "ffDesc\022\034\n\010m_target\030\001 \001(\005B\n\302\377\024\006\345\275\222\345\261\236\022\024\n\004"
-    "m_id\030\002 \001(\003B\006\302\377\024\002id\022\036\n\007m_point\030\003 \001(\005B\r\302\377\024"
-    "\t\347\224\237\346\225\210\347\202\271\"\356\023\n\014E_SkillSkill\022\037\n\tm_skillid"
-    "\030\001 \001(\003B\014\302\377\024\010\346\212\200\350\203\275id\022\036\n\006m_name\030\002 \001(\tB\016\302\377"
-    "\024\006\345\220\215\347\247\260\220\301\024<\022%\n\013m_skilltype\030\003 \001(\005B\020\302\377\024\014\346"
-    "\212\200\350\203\275\347\261\273\345\236\213\022\036\n\007m_group\030\004 \001(\005B\r\302\377\024\t\346\212\200\350\203\275"
-    "\347\273\204\022$\n\nm_position\030\005 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\344\275\215\347\275"
-    "\256\0221\n\016m_displacetime\030\006 \001(\005B\031\302\377\024\025\344\275\215\347\247\273\345\274\200"
-    "\345\247\213\346\227\266\351\227\264\347\202\271\022.\n\016m_displacesign\030\007 \001(\005B\026\302\377"
-    "\024\022\344\275\215\347\247\273\346\255\243\350\264\237\346\240\207\350\256\260\022-\n\017m_displacespeed\030"
-    "\010 \001(\tB\024\302\377\024\014\344\275\215\347\247\273\351\200\237\345\272\246\220\301\024<\022(\n\nm_distime"
-    "s\030\t \001(\tB\024\302\377\024\014\344\275\215\347\247\273\346\227\266\351\227\264\220\301\024<\022%\n\013m_break"
-    "type\030\n \001(\005B\020\302\377\024\014\346\211\223\346\226\255\347\261\273\345\236\213\022%\n\tm_cdskil"
-    "l\030\013 \001(\005B\022\302\377\024\016CD\350\203\275\345\220\246\345\207\217\345\260\221\022$\n\nm_relatio"
-    "n\030\014 \001(\003B\020\302\377\024\014\346\231\256\346\224\273\345\205\263\350\201\224\022/\n\021m_unlockcon"
-    "dition\030\r \001(\tB\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024<\022 \n\006m_"
-    "type\030\016 \001(\005B\020\302\377\024\014\347\233\256\346\240\207\347\261\273\345\236\213\022\024\n\004m_cd\030\017 \001"
-    "(\005B\006\302\377\024\002cd\022\"\n\010m_nolock\030\020 \001(\005B\020\302\377\024\014\346\230\257\345\220\246"
-    "\351\224\201\345\256\232\022-\n\nm_priority\030\021 \001(\005B\031\302\377\024\025\346\214\202\346\234\272\344\275"
-    "\277\347\224\250\344\274\230\345\205\210\347\272\247\022+\n\nm_fighting\030\022 \001(\tB\027\302\377\024\017\345"
-    "\210\235\345\247\213\346\210\230\346\226\227\345\212\233\220\301\024<\0223\n\020m_fightingparama\030\023"
-    " \001(\002B\031\302\377\024\025\346\210\230\346\226\227\345\212\233\346\210\220\351\225\277\347\263\273\346\225\260\022\'\n\rm_rel"
-    "easetype\030\024 \001(\005B\020\302\377\024\014\351\207\212\346\224\276\347\261\273\345\236\213\022(\n\016m_pr"
-    "ocesstypes\030\025 \001(\005B\020\302\377\024\014\350\277\207\347\250\213\347\261\273\345\236\213\022$\n\nm_"
-    "flyspeed\030\026 \001(\005B\020\302\377\024\014\351\243\236\350\241\214\351\200\237\345\272\246\022&\n\tm_ac"
-    "ttime\030\027 \001(\005B\023\302\377\024\017\345\212\250\344\275\234\346\200\273\346\227\266\351\227\264\0221\n\013m_re"
-    "adytime\030\030 \001(\005B\034\302\377\024\030\345\207\206\345\244\207\347\211\271\346\225\210\345\273\266\350\277\237\346\227\266"
-    "\351\227\264\022)\n\014m_attacktime\030\031 \001(\005B\023\302\377\024\017\346\224\273\345\207\273\346\200\273"
-    "\346\227\266\351\227\264\0223\n\014m_damagetime\030\032 \001(\tB\035\302\377\024\025\344\274\244\345\256\263"
-    "\347\224\237\346\225\210\346\227\266\351\227\264\347\202\271\220\301\024<\022*\n\020m_attackdistance\030"
-    "\033 \001(\005B\020\302\377\024\014\346\224\273\345\207\273\350\267\235\347\246\273\022%\n\013m_rangetype\030\034"
-    " \001(\005B\020\302\377\024\014\350\214\203\345\233\264\347\261\273\345\236\213\0221\n\020m_rangetypeval"
-    "ue\030\035 \001(\tB\027\302\377\024\017\350\214\203\345\233\264\347\261\273\345\236\213\345\200\274\220\301\024<\022\034\n\006m_w"
-    "arn\030\036 \001(\005B\014\302\377\024\010\351\242\204\350\255\246id\022$\n\nm_dazetime\030\037 "
-    "\001(\005B\020\302\377\024\014\345\217\221\345\221\206\346\227\266\351\227\264\022$\n\nm_warntime\030  \001("
-    "\005B\020\302\377\024\014\351\242\204\350\255\246\346\227\266\351\227\264\022(\n\016m_infomationid\030! "
-    "\001(\tB\020\302\377\024\010\346\217\220\347\244\272ID\220\301\024<\0223\n\023m_attackmindist"
-    "ance\030\" \001(\005B\026\302\377\024\022\346\224\273\345\207\273\346\234\200\345\260\217\350\267\235\347\246\273\022,\n\014m_"
-    "goalmaxnum\030# \001(\005B\026\302\377\024\022\347\233\256\346\240\207\346\234\200\345\244\247\346\225\260\351\207\217"
-    "\022\?\n\023m_goalmaxnummonster\030$ \001(\005B\"\302\377\024\036\347\233\256\346\240"
-    "\207\346\234\200\345\244\247\346\225\260\351\207\217\357\274\210\346\200\252\347\211\251\357\274\211\022&\n\014m_damagetyp"
-    "e\030% \001(\005B\020\302\377\024\014\344\274\244\345\256\263\347\261\273\345\236\213\022&\n\014m_damagerat"
-    "e\030& \001(\005B\020\302\377\024\014\344\274\244\345\256\263\345\200\215\347\216\207\0224\n\021m_awakedama"
-    "gerate\030\' \001(\005B\031\302\377\024\025\350\247\211\351\206\222\345\220\216\346\212\200\350\203\275\345\200\215\347\216\207\022"
-    ">\n\030m_advancetype1damagerate\030( \001(\005B\034\302\377\024\030\350"
-    "\277\233\351\230\266\347\201\253\345\220\216\346\212\200\350\203\275\345\200\215\347\216\207\022>\n\030m_advancetype"
-    "2damagerate\030) \001(\005B\034\302\377\024\030\350\277\233\351\230\266\351\233\267\345\220\216\346\212\200\350\203"
-    "\275\345\200\215\347\216\207\022>\n\030m_advancetype3damagerate\030* \001("
-    "\005B\034\302\377\024\030\350\277\233\351\230\266\345\206\260\345\220\216\346\212\200\350\203\275\345\200\215\347\216\207\0220\n\rm_dam"
-    "agevalue\030+ \001(\005B\031\302\377\024\025\351\231\204\345\212\240\344\274\244\345\256\263\345\210\235\345\247\213\345\200"
-    "\274\0227\n\016m_damageparama\030, \001(\002B\037\302\377\024\033\344\274\244\345\256\263\345\233\272"
-    "\345\256\232\345\200\274\346\210\220\351\225\277\347\263\273\346\225\260\022)\n\014m_addhitrate\030- \001(\005"
-    "B\023\302\377\024\017\351\231\204\345\212\240\345\221\275\344\270\255\347\216\207\0222\n\rm_awakeitemid\030."
-    " \001(\005B\033\302\377\024\027\350\247\211\351\206\222\346\266\210\350\200\227\347\232\204\351\201\223\345\205\267ID\022(\n\016m_a"
-    "wakecostnum\030/ \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\022`\n\022m"
-    "_advancetype1buff\0300 \003(\0132*.proto_ff.E_Ski"
-    "llSkillAdvancetype1buffDescB\030\302\377\024\020\350\277\233\351\230\266\347"
-    "\201\253buff\345\214\205\210\301\024\005\022`\n\022m_advancetype2buff\0301 \003("
-    "\0132*.proto_ff.E_SkillSkillAdvancetype2buf"
-    "fDescB\030\302\377\024\020\350\277\233\351\230\266\351\233\267buff\345\214\205\210\301\024\005\022O\n\013m_awa"
-    "kebuff\0302 \003(\0132#.proto_ff.E_SkillSkillAwak"
-    "ebuffDescB\025\302\377\024\r\350\247\211\351\206\222buff\345\214\205\210\301\024\005\022`\n\022m_ad"
-    "vancetype3buff\0303 \003(\0132*.proto_ff.E_SkillS"
-    "killAdvancetype3buffDescB\030\302\377\024\020\350\277\233\351\230\266\345\206\260b"
-    "uff\345\214\205\210\301\024\005\022\?\n\006m_buff\0304 \003(\0132\036.proto_ff.E_"
-    "SkillSkillBuffDescB\017\302\377\024\007buff\345\214\205\210\301\024\005\"L\n\020S"
-    "heet_SkillSkill\0228\n\021E_SkillSkill_List\030\001 \003"
-    "(\0132\026.proto_ff.E_SkillSkillB\005\210\301\024\264\001\"\251\001\n\rE_"
-    "SkillBuffup\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010id\345\272\217\345\217\267\022"
-    "2\n\025m_addstartprobability\030\002 \001(\005B\023\302\377\024\017\346\246\202\347"
-    "\216\207\346\210\220\351\225\277\345\200\274\022\'\n\rm_attributeid\030\003 \001(\005B\020\302\377\024\014"
-    "\345\261\236\346\200\247\347\261\273\345\236\213\022\037\n\010m_parama\030\004 \001(\005B\r\302\377\024\t\346\210\220\351"
-    "\225\277\345\200\274\"N\n\021Sheet_SkillBuffup\0229\n\022E_SkillBuf"
-    "fup_List\030\001 \003(\0132\027.proto_ff.E_SkillBuffupB"
-    "\004\210\301\024(\"\222\002\n\016E_SkillSkillup\022\032\n\004m_id\030\001 \001(\005B\014"
-    "\302\377\024\010\345\224\257\344\270\200id\022\032\n\007m_group\030\002 \001(\005B\t\302\377\024\005\347\273\204id"
-    "\022#\n\tm_skilllv\030\003 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347\255\211\347\272\247\022\'\n"
-    "\nm_skillids\030\004 \001(\tB\023\302\377\024\013\346\212\200\350\203\275ID\347\273\204\220\301\024P\022("
-    "\n\010m_rolelv\030\005 \001(\005B\026\302\377\024\022\351\234\200\346\261\202\344\272\272\347\211\251\347\255\211\347\272\247"
-    "\022+\n\014m_costitemid\030\006 \001(\003B\025\302\377\024\021\346\266\210\350\200\227\347\232\204\351\201\223"
-    "\345\205\267ID\022#\n\tm_costnum\030\007 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351"
-    "\207\217\"R\n\022Sheet_SkillSkillup\022<\n\023E_SkillSkill"
-    "up_List\030\001 \003(\0132\030.proto_ff.E_SkillSkillupB"
-    "\005\210\301\024\214\001\"\206\001\n\021E_SkillSkillawake\022\037\n\tm_skilli"
-    "d\030\001 \001(\005B\014\302\377\024\010\346\212\200\350\203\275ID\022+\n\014m_costitemid\030\002 "
-    "\001(\005B\025\302\377\024\021\346\266\210\350\200\227\347\232\204\351\201\223\345\205\267ID\022#\n\tm_costnum\030"
-    "\003 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"Z\n\025Sheet_SkillSk"
-    "illawake\022A\n\026E_SkillSkillawake_List\030\001 \003(\013"
-    "2\033.proto_ff.E_SkillSkillawakeB\004\210\301\024\024", 4795);
+    "\260ID\"I\n\017Sheet_SkillBuff\0226\n\020E_SkillBuff_Li"
+    "st\030\001 \003(\0132\025.proto_ff.E_SkillBuffB\005\210\301\024\240\001\"8"
+    "\n E_SkillSkillAdvancetype1buffDesc\022\024\n\004m_"
+    "id\030\001 \001(\003B\006\302\377\024\002id\"8\n E_SkillSkillAdvancet"
+    "ype2buffDesc\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\"1\n\031E_"
+    "SkillSkillAwakebuffDesc\022\024\n\004m_id\030\001 \001(\003B\006\302"
+    "\377\024\002id\"8\n E_SkillSkillAdvancetype3buffDes"
+    "c\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\"j\n\024E_SkillSkillB"
+    "uffDesc\022\034\n\010m_target\030\001 \001(\005B\n\302\377\024\006\345\275\222\345\261\236\022\024\n"
+    "\004m_id\030\002 \001(\003B\006\302\377\024\002id\022\036\n\007m_point\030\003 \001(\005B\r\302\377"
+    "\024\t\347\224\237\346\225\210\347\202\271\"\371\024\n\014E_SkillSkill\022\037\n\tm_skilli"
+    "d\030\001 \001(\003B\014\302\377\024\010\346\212\200\350\203\275id\022\036\n\006m_name\030\002 \001(\tB\016\302"
+    "\377\024\006\345\220\215\347\247\260\220\301\024<\022%\n\013m_skilltype\030\003 \001(\005B\020\302\377\024\014"
+    "\346\212\200\350\203\275\347\261\273\345\236\213\022\036\n\007m_group\030\004 \001(\005B\r\302\377\024\t\346\212\200\350\203"
+    "\275\347\273\204\022$\n\nm_position\030\005 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\344\275\215\347"
+    "\275\256\0221\n\016m_displacetime\030\006 \001(\005B\031\302\377\024\025\344\275\215\347\247\273\345\274"
+    "\200\345\247\213\346\227\266\351\227\264\347\202\271\022.\n\016m_displacesign\030\007 \001(\005B\026\302"
+    "\377\024\022\344\275\215\347\247\273\346\255\243\350\264\237\346\240\207\350\256\260\022-\n\017m_displacespeed"
+    "\030\010 \001(\tB\024\302\377\024\014\344\275\215\347\247\273\351\200\237\345\272\246\220\301\024<\022(\n\nm_distim"
+    "es\030\t \001(\tB\024\302\377\024\014\344\275\215\347\247\273\346\227\266\351\227\264\220\301\024<\022%\n\013m_brea"
+    "ktype\030\n \001(\005B\020\302\377\024\014\346\211\223\346\226\255\347\261\273\345\236\213\022%\n\tm_cdski"
+    "ll\030\013 \001(\005B\022\302\377\024\016CD\350\203\275\345\220\246\345\207\217\345\260\221\022$\n\nm_relati"
+    "on\030\014 \001(\003B\020\302\377\024\014\346\231\256\346\224\273\345\205\263\350\201\224\022/\n\021m_unlockco"
+    "ndition\030\r \001(\tB\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024<\022 \n\006m"
+    "_type\030\016 \001(\005B\020\302\377\024\014\347\233\256\346\240\207\347\261\273\345\236\213\022\024\n\004m_cd\030\017 "
+    "\001(\005B\006\302\377\024\002cd\022\"\n\010m_nolock\030\020 \001(\005B\020\302\377\024\014\346\230\257\345\220"
+    "\246\351\224\201\345\256\232\022-\n\nm_priority\030\021 \001(\005B\031\302\377\024\025\346\214\202\346\234\272\344"
+    "\275\277\347\224\250\344\274\230\345\205\210\347\272\247\022\'\n\nm_fighting\030\022 \001(\005B\023\302\377\024\017"
+    "\345\210\235\345\247\213\346\210\230\346\226\227\345\212\233\0223\n\020m_fightingparama\030\023 \001("
+    "\002B\031\302\377\024\025\346\210\230\346\226\227\345\212\233\346\210\220\351\225\277\347\263\273\346\225\260\022\'\n\rm_releas"
+    "etype\030\024 \001(\005B\020\302\377\024\014\351\207\212\346\224\276\347\261\273\345\236\213\022(\n\016m_proce"
+    "sstypes\030\025 \001(\005B\020\302\377\024\014\350\277\207\347\250\213\347\261\273\345\236\213\022$\n\nm_fly"
+    "speed\030\026 \001(\005B\020\302\377\024\014\351\243\236\350\241\214\351\200\237\345\272\246\022&\n\tm_actti"
+    "me\030\027 \001(\005B\023\302\377\024\017\345\212\250\344\275\234\346\200\273\346\227\266\351\227\264\0221\n\013m_ready"
+    "time\030\030 \001(\005B\034\302\377\024\030\346\224\273\345\207\273\347\211\271\346\225\210\345\273\266\350\277\237\346\227\266\351\227\264"
+    "\0225\n\rm_readytimeex\030\031 \001(\005B\036\302\377\024\032\346\224\273\345\207\273\347\211\271\346\225"
+    "\210\345\273\266\350\277\237\346\227\266\351\227\264ex\022)\n\014m_attacktime\030\032 \001(\005B\023\302"
+    "\377\024\017\346\224\273\345\207\273\346\200\273\346\227\266\351\227\264\0223\n\014m_damagetime\030\033 \001(\t"
+    "B\035\302\377\024\025\344\274\244\345\256\263\347\224\237\346\225\210\346\227\266\351\227\264\347\202\271\220\301\024<\0227\n\016m_dam"
+    "agetimeex\030\034 \001(\tB\037\302\377\024\027\344\274\244\345\256\263\347\224\237\346\225\210\346\227\266\351\227\264\347"
+    "\202\271ex\220\301\024<\022*\n\020m_attackdistance\030\035 \001(\005B\020\302\377\024\014"
+    "\346\224\273\345\207\273\350\267\235\347\246\273\022%\n\013m_rangetype\030\036 \001(\005B\020\302\377\024\014\350"
+    "\214\203\345\233\264\347\261\273\345\236\213\0221\n\020m_rangetypevalue\030\037 \001(\tB\027\302"
+    "\377\024\017\350\214\203\345\233\264\347\261\273\345\236\213\345\200\274\220\301\024<\022)\n\rm_rangetypeex\030"
+    "  \001(\005B\022\302\377\024\016\350\214\203\345\233\264\347\261\273\345\236\213ex\0225\n\022m_rangetype"
+    "valueex\030! \001(\tB\031\302\377\024\021\350\214\203\345\233\264\347\261\273\345\236\213\345\200\274ex\220\301\024<"
+    "\022\034\n\006m_warn\030\" \001(\005B\014\302\377\024\010\351\242\204\350\255\246id\022$\n\nm_daze"
+    "time\030# \001(\005B\020\302\377\024\014\345\217\221\345\221\206\346\227\266\351\227\264\022$\n\nm_warnti"
+    "me\030$ \001(\005B\020\302\377\024\014\351\242\204\350\255\246\346\227\266\351\227\264\022(\n\016m_infomati"
+    "onid\030% \001(\tB\020\302\377\024\010\346\217\220\347\244\272ID\220\301\024<\0223\n\023m_attack"
+    "mindistance\030& \001(\005B\026\302\377\024\022\346\224\273\345\207\273\346\234\200\345\260\217\350\267\235\347\246"
+    "\273\022,\n\014m_goalmaxnum\030\' \001(\005B\026\302\377\024\022\347\233\256\346\240\207\346\234\200\345\244"
+    "\247\346\225\260\351\207\217\022\?\n\023m_goalmaxnummonster\030( \001(\005B\"\302\377"
+    "\024\036\347\233\256\346\240\207\346\234\200\345\244\247\346\225\260\351\207\217\357\274\210\346\200\252\347\211\251\357\274\211\022&\n\014m_da"
+    "magetype\030) \001(\005B\020\302\377\024\014\344\274\244\345\256\263\347\261\273\345\236\213\022&\n\014m_da"
+    "magerate\030* \001(\005B\020\302\377\024\014\344\274\244\345\256\263\345\200\215\347\216\207\0224\n\021m_aw"
+    "akedamagerate\030+ \001(\005B\031\302\377\024\025\350\247\211\351\206\222\345\220\216\346\212\200\350\203\275"
+    "\345\200\215\347\216\207\022D\n\030m_advancetype1damagerate\030, \001(\005"
+    "B\"\302\377\024\036\350\277\233\351\230\266\347\201\253\345\220\216\346\212\200\350\203\275\345\200\215\347\216\207\345\212\240\346\210\220\022D\n\030"
+    "m_advancetype2damagerate\030- \001(\005B\"\302\377\024\036\350\277\233\351"
+    "\230\266\351\233\267\345\220\216\346\212\200\350\203\275\345\200\215\347\216\207\345\212\240\346\210\220\022D\n\030m_advancet"
+    "ype3damagerate\030. \001(\005B\"\302\377\024\036\350\277\233\351\230\266\345\206\260\345\220\216\346\212"
+    "\200\350\203\275\345\200\215\347\216\207\345\212\240\346\210\220\0220\n\rm_damagevalue\030/ \001(\005B"
+    "\031\302\377\024\025\351\231\204\345\212\240\344\274\244\345\256\263\345\210\235\345\247\213\345\200\274\0227\n\016m_damagepa"
+    "rama\0300 \001(\002B\037\302\377\024\033\344\274\244\345\256\263\345\233\272\345\256\232\345\200\274\346\210\220\351\225\277\347\263\273"
+    "\346\225\260\022)\n\014m_addhitrate\0301 \001(\005B\023\302\377\024\017\351\231\204\345\212\240\345\221\275"
+    "\344\270\255\347\216\207\022c\n\022m_advancetype1buff\0302 \003(\0132*.pro"
+    "to_ff.E_SkillSkillAdvancetype1buffDescB\033"
+    "\302\377\024\023\350\277\233\351\230\266\347\201\253buff\347\255\211\347\272\247\210\301\024\003\022c\n\022m_advance"
+    "type2buff\0303 \003(\0132*.proto_ff.E_SkillSkillA"
+    "dvancetype2buffDescB\033\302\377\024\023\350\277\233\351\230\266\351\233\267buff\347\255"
+    "\211\347\272\247\210\301\024\003\022O\n\013m_awakebuff\0304 \003(\0132#.proto_ff"
+    ".E_SkillSkillAwakebuffDescB\025\302\377\024\r\350\247\211\351\206\222bu"
+    "ff\345\214\205\210\301\024\005\022c\n\022m_advancetype3buff\0305 \003(\0132*."
+    "proto_ff.E_SkillSkillAdvancetype3buffDes"
+    "cB\033\302\377\024\023\350\277\233\351\230\266\345\206\260buff\347\255\211\347\272\247\210\301\024\003\022\?\n\006m_buff"
+    "\0306 \003(\0132\036.proto_ff.E_SkillSkillBuffDescB\017"
+    "\302\377\024\007buff\345\214\205\210\301\024\005\"L\n\020Sheet_SkillSkill\0228\n\021E"
+    "_SkillSkill_List\030\001 \003(\0132\026.proto_ff.E_Skil"
+    "lSkillB\005\210\301\024\254\002\"\251\001\n\rE_SkillBuffup\022\032\n\004m_id\030"
+    "\001 \001(\005B\014\302\377\024\010id\345\272\217\345\217\267\0222\n\025m_addstartprobabi"
+    "lity\030\002 \001(\005B\023\302\377\024\017\346\246\202\347\216\207\346\210\220\351\225\277\345\200\274\022\'\n\rm_att"
+    "ributeid\030\003 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\347\261\273\345\236\213\022\037\n\010m_pa"
+    "rama\030\004 \001(\005B\r\302\377\024\t\346\210\220\351\225\277\345\200\274\"N\n\021Sheet_Skill"
+    "Buffup\0229\n\022E_SkillBuffup_List\030\001 \003(\0132\027.pro"
+    "to_ff.E_SkillBuffupB\004\210\301\024<\"\223\002\n\016E_SkillSki"
+    "llup\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022\032\n\007m_gr"
+    "oup\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022#\n\tm_skilllv\030\003 \001(\005B"
+    "\020\302\377\024\014\346\212\200\350\203\275\347\255\211\347\272\247\022(\n\nm_skillids\030\004 \001(\tB\024\302"
+    "\377\024\013\346\212\200\350\203\275ID\347\273\204\220\301\024\214\001\022(\n\010m_rolelv\030\005 \001(\005B\026\302"
+    "\377\024\022\351\234\200\346\261\202\344\272\272\347\211\251\347\255\211\347\272\247\022+\n\014m_costitemid\030\006 "
+    "\001(\003B\025\302\377\024\021\346\266\210\350\200\227\347\232\204\351\201\223\345\205\267ID\022#\n\tm_costnum\030"
+    "\007 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"R\n\022Sheet_SkillSk"
+    "illup\022<\n\023E_SkillSkillup_List\030\001 \003(\0132\030.pro"
+    "to_ff.E_SkillSkillupB\005\210\301\024\220\003\"\206\001\n\021E_SkillS"
+    "killawake\022\037\n\tm_skillid\030\001 \001(\005B\014\302\377\024\010\346\212\200\350\203\275"
+    "ID\022+\n\014m_costitemid\030\002 \001(\005B\025\302\377\024\021\346\266\210\350\200\227\347\232\204\351"
+    "\201\223\345\205\267ID\022#\n\tm_costnum\030\003 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225"
+    "\260\351\207\217\"Z\n\025Sheet_SkillSkillawake\022A\n\026E_Skill"
+    "Skillawake_List\030\001 \003(\0132\033.proto_ff.E_Skill"
+    "SkillawakeB\004\210\301\024\024\"\347\001\n\023E_SkillSkilladvance"
+    "\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\014m_profession\030\002"
+    " \001(\005B\n\302\377\024\006\350\201\214\344\270\232\022\032\n\006m_type\030\003 \001(\005B\n\302\377\024\006\347\261"
+    "\273\345\236\213\022%\n\013m_advancelv\030\004 \001(\005B\020\302\377\024\014\350\277\233\351\230\266\347\255\211"
+    "\347\272\247\0220\n\022m_advancecondition\030\005 \001(\tB\024\302\377\024\014\350\277\233"
+    "\351\230\266\346\235\241\344\273\266\220\301\024<\022#\n\tm_skillid\030\006 \001(\tB\020\302\377\024\010\346\212"
+    "\200\350\203\275ID\220\301\024<\"`\n\027Sheet_SkillSkilladvance\022E\n"
+    "\030E_SkillSkilladvance_List\030\001 \003(\0132\035.proto_"
+    "ff.E_SkillSkilladvanceB\004\210\301\024\024", 5268);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skill.proto", &protobuf_RegisterTypes);
   E_SkillBuff::default_instance_ = new E_SkillBuff();
@@ -607,6 +670,8 @@ void protobuf_AddDesc_skill_2eproto() {
   Sheet_SkillSkillup::default_instance_ = new Sheet_SkillSkillup();
   E_SkillSkillawake::default_instance_ = new E_SkillSkillawake();
   Sheet_SkillSkillawake::default_instance_ = new Sheet_SkillSkillawake();
+  E_SkillSkilladvance::default_instance_ = new E_SkillSkilladvance();
+  Sheet_SkillSkilladvance::default_instance_ = new Sheet_SkillSkilladvance();
   E_SkillBuff::default_instance_->InitAsDefaultInstance();
   Sheet_SkillBuff::default_instance_->InitAsDefaultInstance();
   E_SkillSkillAdvancetype1buffDesc::default_instance_->InitAsDefaultInstance();
@@ -622,6 +687,8 @@ void protobuf_AddDesc_skill_2eproto() {
   Sheet_SkillSkillup::default_instance_->InitAsDefaultInstance();
   E_SkillSkillawake::default_instance_->InitAsDefaultInstance();
   Sheet_SkillSkillawake::default_instance_->InitAsDefaultInstance();
+  E_SkillSkilladvance::default_instance_->InitAsDefaultInstance();
+  Sheet_SkillSkilladvance::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_skill_2eproto);
 }
 
@@ -3115,11 +3182,15 @@ const int E_SkillSkill::kMProcesstypesFieldNumber;
 const int E_SkillSkill::kMFlyspeedFieldNumber;
 const int E_SkillSkill::kMActtimeFieldNumber;
 const int E_SkillSkill::kMReadytimeFieldNumber;
+const int E_SkillSkill::kMReadytimeexFieldNumber;
 const int E_SkillSkill::kMAttacktimeFieldNumber;
 const int E_SkillSkill::kMDamagetimeFieldNumber;
+const int E_SkillSkill::kMDamagetimeexFieldNumber;
 const int E_SkillSkill::kMAttackdistanceFieldNumber;
 const int E_SkillSkill::kMRangetypeFieldNumber;
 const int E_SkillSkill::kMRangetypevalueFieldNumber;
+const int E_SkillSkill::kMRangetypeexFieldNumber;
+const int E_SkillSkill::kMRangetypevalueexFieldNumber;
 const int E_SkillSkill::kMWarnFieldNumber;
 const int E_SkillSkill::kMDazetimeFieldNumber;
 const int E_SkillSkill::kMWarntimeFieldNumber;
@@ -3136,8 +3207,6 @@ const int E_SkillSkill::kMAdvancetype3DamagerateFieldNumber;
 const int E_SkillSkill::kMDamagevalueFieldNumber;
 const int E_SkillSkill::kMDamageparamaFieldNumber;
 const int E_SkillSkill::kMAddhitrateFieldNumber;
-const int E_SkillSkill::kMAwakeitemidFieldNumber;
-const int E_SkillSkill::kMAwakecostnumFieldNumber;
 const int E_SkillSkill::kMAdvancetype1BuffFieldNumber;
 const int E_SkillSkill::kMAdvancetype2BuffFieldNumber;
 const int E_SkillSkill::kMAwakebuffFieldNumber;
@@ -3178,18 +3247,22 @@ void E_SkillSkill::SharedCtor() {
   m_cd_ = 0;
   m_nolock_ = 0;
   m_priority_ = 0;
-  m_fighting_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_fighting_ = 0;
   m_fightingparama_ = 0;
   m_releasetype_ = 0;
   m_processtypes_ = 0;
   m_flyspeed_ = 0;
   m_acttime_ = 0;
   m_readytime_ = 0;
+  m_readytimeex_ = 0;
   m_attacktime_ = 0;
   m_damagetime_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_damagetimeex_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_attackdistance_ = 0;
   m_rangetype_ = 0;
   m_rangetypevalue_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_rangetypeex_ = 0;
+  m_rangetypevalueex_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_warn_ = 0;
   m_dazetime_ = 0;
   m_warntime_ = 0;
@@ -3206,8 +3279,6 @@ void E_SkillSkill::SharedCtor() {
   m_damagevalue_ = 0;
   m_damageparama_ = 0;
   m_addhitrate_ = 0;
-  m_awakeitemid_ = 0;
-  m_awakecostnum_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3228,14 +3299,17 @@ void E_SkillSkill::SharedDtor() {
   if (m_unlockcondition_ != &::google::protobuf::internal::kEmptyString) {
     delete m_unlockcondition_;
   }
-  if (m_fighting_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_fighting_;
-  }
   if (m_damagetime_ != &::google::protobuf::internal::kEmptyString) {
     delete m_damagetime_;
   }
+  if (m_damagetimeex_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_damagetimeex_;
+  }
   if (m_rangetypevalue_ != &::google::protobuf::internal::kEmptyString) {
     delete m_rangetypevalue_;
+  }
+  if (m_rangetypevalueex_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_rangetypevalueex_;
   }
   if (m_infomationid_ != &::google::protobuf::internal::kEmptyString) {
     delete m_infomationid_;
@@ -3304,11 +3378,7 @@ void E_SkillSkill::Clear() {
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     m_priority_ = 0;
-    if (has_m_fighting()) {
-      if (m_fighting_ != &::google::protobuf::internal::kEmptyString) {
-        m_fighting_->clear();
-      }
-    }
+    m_fighting_ = 0;
     m_fightingparama_ = 0;
     m_releasetype_ = 0;
     m_processtypes_ = 0;
@@ -3317,10 +3387,16 @@ void E_SkillSkill::Clear() {
     m_readytime_ = 0;
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    m_readytimeex_ = 0;
     m_attacktime_ = 0;
     if (has_m_damagetime()) {
       if (m_damagetime_ != &::google::protobuf::internal::kEmptyString) {
         m_damagetime_->clear();
+      }
+    }
+    if (has_m_damagetimeex()) {
+      if (m_damagetimeex_ != &::google::protobuf::internal::kEmptyString) {
+        m_damagetimeex_->clear();
       }
     }
     m_attackdistance_ = 0;
@@ -3330,11 +3406,17 @@ void E_SkillSkill::Clear() {
         m_rangetypevalue_->clear();
       }
     }
+    m_rangetypeex_ = 0;
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    if (has_m_rangetypevalueex()) {
+      if (m_rangetypevalueex_ != &::google::protobuf::internal::kEmptyString) {
+        m_rangetypevalueex_->clear();
+      }
+    }
     m_warn_ = 0;
     m_dazetime_ = 0;
     m_warntime_ = 0;
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (has_m_infomationid()) {
       if (m_infomationid_ != &::google::protobuf::internal::kEmptyString) {
         m_infomationid_->clear();
@@ -3343,19 +3425,19 @@ void E_SkillSkill::Clear() {
     m_attackmindistance_ = 0;
     m_goalmaxnum_ = 0;
     m_goalmaxnummonster_ = 0;
+  }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     m_damagetype_ = 0;
     m_damagerate_ = 0;
     m_awakedamagerate_ = 0;
     m_advancetype1damagerate_ = 0;
-  }
-  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     m_advancetype2damagerate_ = 0;
     m_advancetype3damagerate_ = 0;
     m_damagevalue_ = 0;
     m_damageparama_ = 0;
+  }
+  if (_has_bits_[48 / 32] & (0xffu << (48 % 32))) {
     m_addhitrate_ = 0;
-    m_awakeitemid_ = 0;
-    m_awakecostnum_ = 0;
   }
   m_advancetype1buff_.Clear();
   m_advancetype2buff_.Clear();
@@ -3643,20 +3725,19 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(146)) goto parse_m_fighting;
+        if (input->ExpectTag(144)) goto parse_m_fighting;
         break;
       }
 
-      // optional string m_fighting = 18;
+      // optional int32 m_fighting = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_fighting:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_m_fighting()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->m_fighting().data(), this->m_fighting().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_fighting_)));
+          set_has_m_fighting();
         } else {
           goto handle_uninterpreted;
         }
@@ -3756,12 +3837,28 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_m_attacktime;
+        if (input->ExpectTag(200)) goto parse_m_readytimeex;
         break;
       }
 
-      // optional int32 m_attacktime = 25;
+      // optional int32 m_readytimeex = 25;
       case 25: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_readytimeex:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_readytimeex_)));
+          set_has_m_readytimeex();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(208)) goto parse_m_attacktime;
+        break;
+      }
+
+      // optional int32 m_attacktime = 26;
+      case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_attacktime:
@@ -3772,12 +3869,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(210)) goto parse_m_damagetime;
+        if (input->ExpectTag(218)) goto parse_m_damagetime;
         break;
       }
 
-      // optional string m_damagetime = 26;
-      case 26: {
+      // optional string m_damagetime = 27;
+      case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_damagetime:
@@ -3789,12 +3886,29 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_m_attackdistance;
+        if (input->ExpectTag(226)) goto parse_m_damagetimeex;
         break;
       }
 
-      // optional int32 m_attackdistance = 27;
-      case 27: {
+      // optional string m_damagetimeex = 28;
+      case 28: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_damagetimeex:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_damagetimeex()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_damagetimeex().data(), this->m_damagetimeex().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(232)) goto parse_m_attackdistance;
+        break;
+      }
+
+      // optional int32 m_attackdistance = 29;
+      case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_attackdistance:
@@ -3805,12 +3919,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_m_rangetype;
+        if (input->ExpectTag(240)) goto parse_m_rangetype;
         break;
       }
 
-      // optional int32 m_rangetype = 28;
-      case 28: {
+      // optional int32 m_rangetype = 30;
+      case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_rangetype:
@@ -3821,12 +3935,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(234)) goto parse_m_rangetypevalue;
+        if (input->ExpectTag(250)) goto parse_m_rangetypevalue;
         break;
       }
 
-      // optional string m_rangetypevalue = 29;
-      case 29: {
+      // optional string m_rangetypevalue = 31;
+      case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_rangetypevalue:
@@ -3838,12 +3952,45 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_m_warn;
+        if (input->ExpectTag(256)) goto parse_m_rangetypeex;
         break;
       }
 
-      // optional int32 m_warn = 30;
-      case 30: {
+      // optional int32 m_rangetypeex = 32;
+      case 32: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_rangetypeex:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_rangetypeex_)));
+          set_has_m_rangetypeex();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(266)) goto parse_m_rangetypevalueex;
+        break;
+      }
+
+      // optional string m_rangetypevalueex = 33;
+      case 33: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_rangetypevalueex:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_rangetypevalueex()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_rangetypevalueex().data(), this->m_rangetypevalueex().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(272)) goto parse_m_warn;
+        break;
+      }
+
+      // optional int32 m_warn = 34;
+      case 34: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_warn:
@@ -3854,12 +4001,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(248)) goto parse_m_dazetime;
+        if (input->ExpectTag(280)) goto parse_m_dazetime;
         break;
       }
 
-      // optional int32 m_dazetime = 31;
-      case 31: {
+      // optional int32 m_dazetime = 35;
+      case 35: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dazetime:
@@ -3870,12 +4017,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(256)) goto parse_m_warntime;
+        if (input->ExpectTag(288)) goto parse_m_warntime;
         break;
       }
 
-      // optional int32 m_warntime = 32;
-      case 32: {
+      // optional int32 m_warntime = 36;
+      case 36: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_warntime:
@@ -3886,12 +4033,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(266)) goto parse_m_infomationid;
+        if (input->ExpectTag(298)) goto parse_m_infomationid;
         break;
       }
 
-      // optional string m_infomationid = 33;
-      case 33: {
+      // optional string m_infomationid = 37;
+      case 37: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_infomationid:
@@ -3903,12 +4050,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(272)) goto parse_m_attackmindistance;
+        if (input->ExpectTag(304)) goto parse_m_attackmindistance;
         break;
       }
 
-      // optional int32 m_attackmindistance = 34;
-      case 34: {
+      // optional int32 m_attackmindistance = 38;
+      case 38: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_attackmindistance:
@@ -3919,12 +4066,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(280)) goto parse_m_goalmaxnum;
+        if (input->ExpectTag(312)) goto parse_m_goalmaxnum;
         break;
       }
 
-      // optional int32 m_goalmaxnum = 35;
-      case 35: {
+      // optional int32 m_goalmaxnum = 39;
+      case 39: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_goalmaxnum:
@@ -3935,12 +4082,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(288)) goto parse_m_goalmaxnummonster;
+        if (input->ExpectTag(320)) goto parse_m_goalmaxnummonster;
         break;
       }
 
-      // optional int32 m_goalmaxnummonster = 36;
-      case 36: {
+      // optional int32 m_goalmaxnummonster = 40;
+      case 40: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_goalmaxnummonster:
@@ -3951,12 +4098,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(296)) goto parse_m_damagetype;
+        if (input->ExpectTag(328)) goto parse_m_damagetype;
         break;
       }
 
-      // optional int32 m_damagetype = 37;
-      case 37: {
+      // optional int32 m_damagetype = 41;
+      case 41: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_damagetype:
@@ -3967,12 +4114,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(304)) goto parse_m_damagerate;
+        if (input->ExpectTag(336)) goto parse_m_damagerate;
         break;
       }
 
-      // optional int32 m_damagerate = 38;
-      case 38: {
+      // optional int32 m_damagerate = 42;
+      case 42: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_damagerate:
@@ -3983,12 +4130,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(312)) goto parse_m_awakedamagerate;
+        if (input->ExpectTag(344)) goto parse_m_awakedamagerate;
         break;
       }
 
-      // optional int32 m_awakedamagerate = 39;
-      case 39: {
+      // optional int32 m_awakedamagerate = 43;
+      case 43: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_awakedamagerate:
@@ -3999,12 +4146,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(320)) goto parse_m_advancetype1damagerate;
+        if (input->ExpectTag(352)) goto parse_m_advancetype1damagerate;
         break;
       }
 
-      // optional int32 m_advancetype1damagerate = 40;
-      case 40: {
+      // optional int32 m_advancetype1damagerate = 44;
+      case 44: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_advancetype1damagerate:
@@ -4015,12 +4162,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(328)) goto parse_m_advancetype2damagerate;
+        if (input->ExpectTag(360)) goto parse_m_advancetype2damagerate;
         break;
       }
 
-      // optional int32 m_advancetype2damagerate = 41;
-      case 41: {
+      // optional int32 m_advancetype2damagerate = 45;
+      case 45: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_advancetype2damagerate:
@@ -4031,12 +4178,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(336)) goto parse_m_advancetype3damagerate;
+        if (input->ExpectTag(368)) goto parse_m_advancetype3damagerate;
         break;
       }
 
-      // optional int32 m_advancetype3damagerate = 42;
-      case 42: {
+      // optional int32 m_advancetype3damagerate = 46;
+      case 46: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_advancetype3damagerate:
@@ -4047,12 +4194,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(344)) goto parse_m_damagevalue;
+        if (input->ExpectTag(376)) goto parse_m_damagevalue;
         break;
       }
 
-      // optional int32 m_damagevalue = 43;
-      case 43: {
+      // optional int32 m_damagevalue = 47;
+      case 47: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_damagevalue:
@@ -4063,12 +4210,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(357)) goto parse_m_damageparama;
+        if (input->ExpectTag(389)) goto parse_m_damageparama;
         break;
       }
 
-      // optional float m_damageparama = 44;
-      case 44: {
+      // optional float m_damageparama = 48;
+      case 48: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
          parse_m_damageparama:
@@ -4079,12 +4226,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(360)) goto parse_m_addhitrate;
+        if (input->ExpectTag(392)) goto parse_m_addhitrate;
         break;
       }
 
-      // optional int32 m_addhitrate = 45;
-      case 45: {
+      // optional int32 m_addhitrate = 49;
+      case 49: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_addhitrate:
@@ -4095,44 +4242,12 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(368)) goto parse_m_awakeitemid;
+        if (input->ExpectTag(402)) goto parse_m_advancetype1buff;
         break;
       }
 
-      // optional int32 m_awakeitemid = 46;
-      case 46: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeitemid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_awakeitemid_)));
-          set_has_m_awakeitemid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(376)) goto parse_m_awakecostnum;
-        break;
-      }
-
-      // optional int32 m_awakecostnum = 47;
-      case 47: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakecostnum:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_awakecostnum_)));
-          set_has_m_awakecostnum();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(386)) goto parse_m_advancetype1buff;
-        break;
-      }
-
-      // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48;
-      case 48: {
+      // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50;
+      case 50: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_advancetype1buff:
@@ -4141,13 +4256,13 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(386)) goto parse_m_advancetype1buff;
-        if (input->ExpectTag(394)) goto parse_m_advancetype2buff;
+        if (input->ExpectTag(402)) goto parse_m_advancetype1buff;
+        if (input->ExpectTag(410)) goto parse_m_advancetype2buff;
         break;
       }
 
-      // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49;
-      case 49: {
+      // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51;
+      case 51: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_advancetype2buff:
@@ -4156,13 +4271,13 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(394)) goto parse_m_advancetype2buff;
-        if (input->ExpectTag(402)) goto parse_m_awakebuff;
+        if (input->ExpectTag(410)) goto parse_m_advancetype2buff;
+        if (input->ExpectTag(418)) goto parse_m_awakebuff;
         break;
       }
 
-      // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 50;
-      case 50: {
+      // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 52;
+      case 52: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_awakebuff:
@@ -4171,13 +4286,13 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(402)) goto parse_m_awakebuff;
-        if (input->ExpectTag(410)) goto parse_m_advancetype3buff;
+        if (input->ExpectTag(418)) goto parse_m_awakebuff;
+        if (input->ExpectTag(426)) goto parse_m_advancetype3buff;
         break;
       }
 
-      // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51;
-      case 51: {
+      // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53;
+      case 53: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_advancetype3buff:
@@ -4186,13 +4301,13 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(410)) goto parse_m_advancetype3buff;
-        if (input->ExpectTag(418)) goto parse_m_buff;
+        if (input->ExpectTag(426)) goto parse_m_advancetype3buff;
+        if (input->ExpectTag(434)) goto parse_m_buff;
         break;
       }
 
-      // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 52;
-      case 52: {
+      // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 54;
+      case 54: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_buff:
@@ -4201,7 +4316,7 @@ bool E_SkillSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(418)) goto parse_m_buff;
+        if (input->ExpectTag(434)) goto parse_m_buff;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4325,13 +4440,9 @@ void E_SkillSkill::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_priority(), output);
   }
 
-  // optional string m_fighting = 18;
+  // optional int32 m_fighting = 18;
   if (has_m_fighting()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_fighting().data(), this->m_fighting().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      18, this->m_fighting(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_fighting(), output);
   }
 
   // optional float m_fightingparama = 19;
@@ -4364,161 +4475,179 @@ void E_SkillSkill::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->m_readytime(), output);
   }
 
-  // optional int32 m_attacktime = 25;
-  if (has_m_attacktime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_attacktime(), output);
+  // optional int32 m_readytimeex = 25;
+  if (has_m_readytimeex()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_readytimeex(), output);
   }
 
-  // optional string m_damagetime = 26;
+  // optional int32 m_attacktime = 26;
+  if (has_m_attacktime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_attacktime(), output);
+  }
+
+  // optional string m_damagetime = 27;
   if (has_m_damagetime()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_damagetime().data(), this->m_damagetime().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      26, this->m_damagetime(), output);
+      27, this->m_damagetime(), output);
   }
 
-  // optional int32 m_attackdistance = 27;
+  // optional string m_damagetimeex = 28;
+  if (has_m_damagetimeex()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_damagetimeex().data(), this->m_damagetimeex().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      28, this->m_damagetimeex(), output);
+  }
+
+  // optional int32 m_attackdistance = 29;
   if (has_m_attackdistance()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->m_attackdistance(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(29, this->m_attackdistance(), output);
   }
 
-  // optional int32 m_rangetype = 28;
+  // optional int32 m_rangetype = 30;
   if (has_m_rangetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->m_rangetype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->m_rangetype(), output);
   }
 
-  // optional string m_rangetypevalue = 29;
+  // optional string m_rangetypevalue = 31;
   if (has_m_rangetypevalue()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_rangetypevalue().data(), this->m_rangetypevalue().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      29, this->m_rangetypevalue(), output);
+      31, this->m_rangetypevalue(), output);
   }
 
-  // optional int32 m_warn = 30;
+  // optional int32 m_rangetypeex = 32;
+  if (has_m_rangetypeex()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->m_rangetypeex(), output);
+  }
+
+  // optional string m_rangetypevalueex = 33;
+  if (has_m_rangetypevalueex()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_rangetypevalueex().data(), this->m_rangetypevalueex().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      33, this->m_rangetypevalueex(), output);
+  }
+
+  // optional int32 m_warn = 34;
   if (has_m_warn()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->m_warn(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_warn(), output);
   }
 
-  // optional int32 m_dazetime = 31;
+  // optional int32 m_dazetime = 35;
   if (has_m_dazetime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(31, this->m_dazetime(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(35, this->m_dazetime(), output);
   }
 
-  // optional int32 m_warntime = 32;
+  // optional int32 m_warntime = 36;
   if (has_m_warntime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->m_warntime(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->m_warntime(), output);
   }
 
-  // optional string m_infomationid = 33;
+  // optional string m_infomationid = 37;
   if (has_m_infomationid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_infomationid().data(), this->m_infomationid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      33, this->m_infomationid(), output);
+      37, this->m_infomationid(), output);
   }
 
-  // optional int32 m_attackmindistance = 34;
+  // optional int32 m_attackmindistance = 38;
   if (has_m_attackmindistance()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_attackmindistance(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->m_attackmindistance(), output);
   }
 
-  // optional int32 m_goalmaxnum = 35;
+  // optional int32 m_goalmaxnum = 39;
   if (has_m_goalmaxnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(35, this->m_goalmaxnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->m_goalmaxnum(), output);
   }
 
-  // optional int32 m_goalmaxnummonster = 36;
+  // optional int32 m_goalmaxnummonster = 40;
   if (has_m_goalmaxnummonster()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->m_goalmaxnummonster(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->m_goalmaxnummonster(), output);
   }
 
-  // optional int32 m_damagetype = 37;
+  // optional int32 m_damagetype = 41;
   if (has_m_damagetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->m_damagetype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->m_damagetype(), output);
   }
 
-  // optional int32 m_damagerate = 38;
+  // optional int32 m_damagerate = 42;
   if (has_m_damagerate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->m_damagerate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(42, this->m_damagerate(), output);
   }
 
-  // optional int32 m_awakedamagerate = 39;
+  // optional int32 m_awakedamagerate = 43;
   if (has_m_awakedamagerate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->m_awakedamagerate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(43, this->m_awakedamagerate(), output);
   }
 
-  // optional int32 m_advancetype1damagerate = 40;
+  // optional int32 m_advancetype1damagerate = 44;
   if (has_m_advancetype1damagerate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->m_advancetype1damagerate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(44, this->m_advancetype1damagerate(), output);
   }
 
-  // optional int32 m_advancetype2damagerate = 41;
+  // optional int32 m_advancetype2damagerate = 45;
   if (has_m_advancetype2damagerate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->m_advancetype2damagerate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(45, this->m_advancetype2damagerate(), output);
   }
 
-  // optional int32 m_advancetype3damagerate = 42;
+  // optional int32 m_advancetype3damagerate = 46;
   if (has_m_advancetype3damagerate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(42, this->m_advancetype3damagerate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(46, this->m_advancetype3damagerate(), output);
   }
 
-  // optional int32 m_damagevalue = 43;
+  // optional int32 m_damagevalue = 47;
   if (has_m_damagevalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(43, this->m_damagevalue(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(47, this->m_damagevalue(), output);
   }
 
-  // optional float m_damageparama = 44;
+  // optional float m_damageparama = 48;
   if (has_m_damageparama()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(44, this->m_damageparama(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(48, this->m_damageparama(), output);
   }
 
-  // optional int32 m_addhitrate = 45;
+  // optional int32 m_addhitrate = 49;
   if (has_m_addhitrate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(45, this->m_addhitrate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(49, this->m_addhitrate(), output);
   }
 
-  // optional int32 m_awakeitemid = 46;
-  if (has_m_awakeitemid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(46, this->m_awakeitemid(), output);
-  }
-
-  // optional int32 m_awakecostnum = 47;
-  if (has_m_awakecostnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(47, this->m_awakecostnum(), output);
-  }
-
-  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48;
+  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50;
   for (int i = 0; i < this->m_advancetype1buff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      48, this->m_advancetype1buff(i), output);
+      50, this->m_advancetype1buff(i), output);
   }
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49;
+  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51;
   for (int i = 0; i < this->m_advancetype2buff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      49, this->m_advancetype2buff(i), output);
+      51, this->m_advancetype2buff(i), output);
   }
 
-  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 50;
+  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 52;
   for (int i = 0; i < this->m_awakebuff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      50, this->m_awakebuff(i), output);
+      52, this->m_awakebuff(i), output);
   }
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51;
+  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53;
   for (int i = 0; i < this->m_advancetype3buff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      51, this->m_advancetype3buff(i), output);
+      53, this->m_advancetype3buff(i), output);
   }
 
-  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 52;
+  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 54;
   for (int i = 0; i < this->m_buff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      52, this->m_buff(i), output);
+      54, this->m_buff(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4634,14 +4763,9 @@ void E_SkillSkill::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_priority(), target);
   }
 
-  // optional string m_fighting = 18;
+  // optional int32 m_fighting = 18;
   if (has_m_fighting()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_fighting().data(), this->m_fighting().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        18, this->m_fighting(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_fighting(), target);
   }
 
   // optional float m_fightingparama = 19;
@@ -4674,169 +4798,189 @@ void E_SkillSkill::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->m_readytime(), target);
   }
 
-  // optional int32 m_attacktime = 25;
-  if (has_m_attacktime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_attacktime(), target);
+  // optional int32 m_readytimeex = 25;
+  if (has_m_readytimeex()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_readytimeex(), target);
   }
 
-  // optional string m_damagetime = 26;
+  // optional int32 m_attacktime = 26;
+  if (has_m_attacktime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_attacktime(), target);
+  }
+
+  // optional string m_damagetime = 27;
   if (has_m_damagetime()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_damagetime().data(), this->m_damagetime().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        26, this->m_damagetime(), target);
+        27, this->m_damagetime(), target);
   }
 
-  // optional int32 m_attackdistance = 27;
+  // optional string m_damagetimeex = 28;
+  if (has_m_damagetimeex()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_damagetimeex().data(), this->m_damagetimeex().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        28, this->m_damagetimeex(), target);
+  }
+
+  // optional int32 m_attackdistance = 29;
   if (has_m_attackdistance()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->m_attackdistance(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(29, this->m_attackdistance(), target);
   }
 
-  // optional int32 m_rangetype = 28;
+  // optional int32 m_rangetype = 30;
   if (has_m_rangetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->m_rangetype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->m_rangetype(), target);
   }
 
-  // optional string m_rangetypevalue = 29;
+  // optional string m_rangetypevalue = 31;
   if (has_m_rangetypevalue()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_rangetypevalue().data(), this->m_rangetypevalue().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        29, this->m_rangetypevalue(), target);
+        31, this->m_rangetypevalue(), target);
   }
 
-  // optional int32 m_warn = 30;
+  // optional int32 m_rangetypeex = 32;
+  if (has_m_rangetypeex()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->m_rangetypeex(), target);
+  }
+
+  // optional string m_rangetypevalueex = 33;
+  if (has_m_rangetypevalueex()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_rangetypevalueex().data(), this->m_rangetypevalueex().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        33, this->m_rangetypevalueex(), target);
+  }
+
+  // optional int32 m_warn = 34;
   if (has_m_warn()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->m_warn(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_warn(), target);
   }
 
-  // optional int32 m_dazetime = 31;
+  // optional int32 m_dazetime = 35;
   if (has_m_dazetime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(31, this->m_dazetime(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(35, this->m_dazetime(), target);
   }
 
-  // optional int32 m_warntime = 32;
+  // optional int32 m_warntime = 36;
   if (has_m_warntime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->m_warntime(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->m_warntime(), target);
   }
 
-  // optional string m_infomationid = 33;
+  // optional string m_infomationid = 37;
   if (has_m_infomationid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_infomationid().data(), this->m_infomationid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        33, this->m_infomationid(), target);
+        37, this->m_infomationid(), target);
   }
 
-  // optional int32 m_attackmindistance = 34;
+  // optional int32 m_attackmindistance = 38;
   if (has_m_attackmindistance()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_attackmindistance(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->m_attackmindistance(), target);
   }
 
-  // optional int32 m_goalmaxnum = 35;
+  // optional int32 m_goalmaxnum = 39;
   if (has_m_goalmaxnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(35, this->m_goalmaxnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->m_goalmaxnum(), target);
   }
 
-  // optional int32 m_goalmaxnummonster = 36;
+  // optional int32 m_goalmaxnummonster = 40;
   if (has_m_goalmaxnummonster()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->m_goalmaxnummonster(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->m_goalmaxnummonster(), target);
   }
 
-  // optional int32 m_damagetype = 37;
+  // optional int32 m_damagetype = 41;
   if (has_m_damagetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->m_damagetype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->m_damagetype(), target);
   }
 
-  // optional int32 m_damagerate = 38;
+  // optional int32 m_damagerate = 42;
   if (has_m_damagerate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->m_damagerate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(42, this->m_damagerate(), target);
   }
 
-  // optional int32 m_awakedamagerate = 39;
+  // optional int32 m_awakedamagerate = 43;
   if (has_m_awakedamagerate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->m_awakedamagerate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(43, this->m_awakedamagerate(), target);
   }
 
-  // optional int32 m_advancetype1damagerate = 40;
+  // optional int32 m_advancetype1damagerate = 44;
   if (has_m_advancetype1damagerate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->m_advancetype1damagerate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(44, this->m_advancetype1damagerate(), target);
   }
 
-  // optional int32 m_advancetype2damagerate = 41;
+  // optional int32 m_advancetype2damagerate = 45;
   if (has_m_advancetype2damagerate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->m_advancetype2damagerate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(45, this->m_advancetype2damagerate(), target);
   }
 
-  // optional int32 m_advancetype3damagerate = 42;
+  // optional int32 m_advancetype3damagerate = 46;
   if (has_m_advancetype3damagerate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(42, this->m_advancetype3damagerate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(46, this->m_advancetype3damagerate(), target);
   }
 
-  // optional int32 m_damagevalue = 43;
+  // optional int32 m_damagevalue = 47;
   if (has_m_damagevalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(43, this->m_damagevalue(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(47, this->m_damagevalue(), target);
   }
 
-  // optional float m_damageparama = 44;
+  // optional float m_damageparama = 48;
   if (has_m_damageparama()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(44, this->m_damageparama(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(48, this->m_damageparama(), target);
   }
 
-  // optional int32 m_addhitrate = 45;
+  // optional int32 m_addhitrate = 49;
   if (has_m_addhitrate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(45, this->m_addhitrate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(49, this->m_addhitrate(), target);
   }
 
-  // optional int32 m_awakeitemid = 46;
-  if (has_m_awakeitemid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(46, this->m_awakeitemid(), target);
-  }
-
-  // optional int32 m_awakecostnum = 47;
-  if (has_m_awakecostnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(47, this->m_awakecostnum(), target);
-  }
-
-  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48;
+  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50;
   for (int i = 0; i < this->m_advancetype1buff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        48, this->m_advancetype1buff(i), target);
+        50, this->m_advancetype1buff(i), target);
   }
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49;
+  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51;
   for (int i = 0; i < this->m_advancetype2buff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        49, this->m_advancetype2buff(i), target);
+        51, this->m_advancetype2buff(i), target);
   }
 
-  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 50;
+  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 52;
   for (int i = 0; i < this->m_awakebuff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        50, this->m_awakebuff(i), target);
+        52, this->m_awakebuff(i), target);
   }
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51;
+  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53;
   for (int i = 0; i < this->m_advancetype3buff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        51, this->m_advancetype3buff(i), target);
+        53, this->m_advancetype3buff(i), target);
   }
 
-  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 52;
+  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 54;
   for (int i = 0; i < this->m_buff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        52, this->m_buff(i), target);
+        54, this->m_buff(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4973,10 +5117,10 @@ int E_SkillSkill::ByteSize() const {
           this->m_priority());
     }
 
-    // optional string m_fighting = 18;
+    // optional int32 m_fighting = 18;
     if (has_m_fighting()) {
       total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fighting());
     }
 
@@ -5022,171 +5166,187 @@ int E_SkillSkill::ByteSize() const {
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int32 m_attacktime = 25;
+    // optional int32 m_readytimeex = 25;
+    if (has_m_readytimeex()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_readytimeex());
+    }
+
+    // optional int32 m_attacktime = 26;
     if (has_m_attacktime()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_attacktime());
     }
 
-    // optional string m_damagetime = 26;
+    // optional string m_damagetime = 27;
     if (has_m_damagetime()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_damagetime());
     }
 
-    // optional int32 m_attackdistance = 27;
+    // optional string m_damagetimeex = 28;
+    if (has_m_damagetimeex()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_damagetimeex());
+    }
+
+    // optional int32 m_attackdistance = 29;
     if (has_m_attackdistance()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_attackdistance());
     }
 
-    // optional int32 m_rangetype = 28;
+    // optional int32 m_rangetype = 30;
     if (has_m_rangetype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rangetype());
     }
 
-    // optional string m_rangetypevalue = 29;
+    // optional string m_rangetypevalue = 31;
     if (has_m_rangetypevalue()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_rangetypevalue());
     }
 
-    // optional int32 m_warn = 30;
+    // optional int32 m_rangetypeex = 32;
+    if (has_m_rangetypeex()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_rangetypeex());
+    }
+
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    // optional string m_rangetypevalueex = 33;
+    if (has_m_rangetypevalueex()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_rangetypevalueex());
+    }
+
+    // optional int32 m_warn = 34;
     if (has_m_warn()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_warn());
     }
 
-    // optional int32 m_dazetime = 31;
+    // optional int32 m_dazetime = 35;
     if (has_m_dazetime()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dazetime());
     }
 
-    // optional int32 m_warntime = 32;
+    // optional int32 m_warntime = 36;
     if (has_m_warntime()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_warntime());
     }
 
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    // optional string m_infomationid = 33;
+    // optional string m_infomationid = 37;
     if (has_m_infomationid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_infomationid());
     }
 
-    // optional int32 m_attackmindistance = 34;
+    // optional int32 m_attackmindistance = 38;
     if (has_m_attackmindistance()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_attackmindistance());
     }
 
-    // optional int32 m_goalmaxnum = 35;
+    // optional int32 m_goalmaxnum = 39;
     if (has_m_goalmaxnum()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_goalmaxnum());
     }
 
-    // optional int32 m_goalmaxnummonster = 36;
+    // optional int32 m_goalmaxnummonster = 40;
     if (has_m_goalmaxnummonster()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_goalmaxnummonster());
     }
 
-    // optional int32 m_damagetype = 37;
+  }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    // optional int32 m_damagetype = 41;
     if (has_m_damagetype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_damagetype());
     }
 
-    // optional int32 m_damagerate = 38;
+    // optional int32 m_damagerate = 42;
     if (has_m_damagerate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_damagerate());
     }
 
-    // optional int32 m_awakedamagerate = 39;
+    // optional int32 m_awakedamagerate = 43;
     if (has_m_awakedamagerate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakedamagerate());
     }
 
-    // optional int32 m_advancetype1damagerate = 40;
+    // optional int32 m_advancetype1damagerate = 44;
     if (has_m_advancetype1damagerate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_advancetype1damagerate());
     }
 
-  }
-  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
-    // optional int32 m_advancetype2damagerate = 41;
+    // optional int32 m_advancetype2damagerate = 45;
     if (has_m_advancetype2damagerate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_advancetype2damagerate());
     }
 
-    // optional int32 m_advancetype3damagerate = 42;
+    // optional int32 m_advancetype3damagerate = 46;
     if (has_m_advancetype3damagerate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_advancetype3damagerate());
     }
 
-    // optional int32 m_damagevalue = 43;
+    // optional int32 m_damagevalue = 47;
     if (has_m_damagevalue()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_damagevalue());
     }
 
-    // optional float m_damageparama = 44;
+    // optional float m_damageparama = 48;
     if (has_m_damageparama()) {
       total_size += 2 + 4;
     }
 
-    // optional int32 m_addhitrate = 45;
+  }
+  if (_has_bits_[48 / 32] & (0xffu << (48 % 32))) {
+    // optional int32 m_addhitrate = 49;
     if (has_m_addhitrate()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_addhitrate());
     }
 
-    // optional int32 m_awakeitemid = 46;
-    if (has_m_awakeitemid()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_awakeitemid());
-    }
-
-    // optional int32 m_awakecostnum = 47;
-    if (has_m_awakecostnum()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_awakecostnum());
-    }
-
   }
-  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48;
+  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50;
   total_size += 2 * this->m_advancetype1buff_size();
   for (int i = 0; i < this->m_advancetype1buff_size(); i++) {
     total_size +=
@@ -5194,7 +5354,7 @@ int E_SkillSkill::ByteSize() const {
         this->m_advancetype1buff(i));
   }
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49;
+  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51;
   total_size += 2 * this->m_advancetype2buff_size();
   for (int i = 0; i < this->m_advancetype2buff_size(); i++) {
     total_size +=
@@ -5202,7 +5362,7 @@ int E_SkillSkill::ByteSize() const {
         this->m_advancetype2buff(i));
   }
 
-  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 50;
+  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 52;
   total_size += 2 * this->m_awakebuff_size();
   for (int i = 0; i < this->m_awakebuff_size(); i++) {
     total_size +=
@@ -5210,7 +5370,7 @@ int E_SkillSkill::ByteSize() const {
         this->m_awakebuff(i));
   }
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51;
+  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53;
   total_size += 2 * this->m_advancetype3buff_size();
   for (int i = 0; i < this->m_advancetype3buff_size(); i++) {
     total_size +=
@@ -5218,7 +5378,7 @@ int E_SkillSkill::ByteSize() const {
         this->m_advancetype3buff(i));
   }
 
-  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 52;
+  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 54;
   total_size += 2 * this->m_buff_size();
   for (int i = 0; i < this->m_buff_size(); i++) {
     total_size +=
@@ -5335,11 +5495,17 @@ void E_SkillSkill::MergeFrom(const E_SkillSkill& from) {
     }
   }
   if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    if (from.has_m_readytimeex()) {
+      set_m_readytimeex(from.m_readytimeex());
+    }
     if (from.has_m_attacktime()) {
       set_m_attacktime(from.m_attacktime());
     }
     if (from.has_m_damagetime()) {
       set_m_damagetime(from.m_damagetime());
+    }
+    if (from.has_m_damagetimeex()) {
+      set_m_damagetimeex(from.m_damagetimeex());
     }
     if (from.has_m_attackdistance()) {
       set_m_attackdistance(from.m_attackdistance());
@@ -5350,6 +5516,14 @@ void E_SkillSkill::MergeFrom(const E_SkillSkill& from) {
     if (from.has_m_rangetypevalue()) {
       set_m_rangetypevalue(from.m_rangetypevalue());
     }
+    if (from.has_m_rangetypeex()) {
+      set_m_rangetypeex(from.m_rangetypeex());
+    }
+  }
+  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
+    if (from.has_m_rangetypevalueex()) {
+      set_m_rangetypevalueex(from.m_rangetypevalueex());
+    }
     if (from.has_m_warn()) {
       set_m_warn(from.m_warn());
     }
@@ -5359,8 +5533,6 @@ void E_SkillSkill::MergeFrom(const E_SkillSkill& from) {
     if (from.has_m_warntime()) {
       set_m_warntime(from.m_warntime());
     }
-  }
-  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_m_infomationid()) {
       set_m_infomationid(from.m_infomationid());
     }
@@ -5373,6 +5545,8 @@ void E_SkillSkill::MergeFrom(const E_SkillSkill& from) {
     if (from.has_m_goalmaxnummonster()) {
       set_m_goalmaxnummonster(from.m_goalmaxnummonster());
     }
+  }
+  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     if (from.has_m_damagetype()) {
       set_m_damagetype(from.m_damagetype());
     }
@@ -5385,8 +5559,6 @@ void E_SkillSkill::MergeFrom(const E_SkillSkill& from) {
     if (from.has_m_advancetype1damagerate()) {
       set_m_advancetype1damagerate(from.m_advancetype1damagerate());
     }
-  }
-  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
     if (from.has_m_advancetype2damagerate()) {
       set_m_advancetype2damagerate(from.m_advancetype2damagerate());
     }
@@ -5399,14 +5571,10 @@ void E_SkillSkill::MergeFrom(const E_SkillSkill& from) {
     if (from.has_m_damageparama()) {
       set_m_damageparama(from.m_damageparama());
     }
+  }
+  if (from._has_bits_[48 / 32] & (0xffu << (48 % 32))) {
     if (from.has_m_addhitrate()) {
       set_m_addhitrate(from.m_addhitrate());
-    }
-    if (from.has_m_awakeitemid()) {
-      set_m_awakeitemid(from.m_awakeitemid());
-    }
-    if (from.has_m_awakecostnum()) {
-      set_m_awakecostnum(from.m_awakecostnum());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -5455,11 +5623,15 @@ void E_SkillSkill::Swap(E_SkillSkill* other) {
     std::swap(m_flyspeed_, other->m_flyspeed_);
     std::swap(m_acttime_, other->m_acttime_);
     std::swap(m_readytime_, other->m_readytime_);
+    std::swap(m_readytimeex_, other->m_readytimeex_);
     std::swap(m_attacktime_, other->m_attacktime_);
     std::swap(m_damagetime_, other->m_damagetime_);
+    std::swap(m_damagetimeex_, other->m_damagetimeex_);
     std::swap(m_attackdistance_, other->m_attackdistance_);
     std::swap(m_rangetype_, other->m_rangetype_);
     std::swap(m_rangetypevalue_, other->m_rangetypevalue_);
+    std::swap(m_rangetypeex_, other->m_rangetypeex_);
+    std::swap(m_rangetypevalueex_, other->m_rangetypevalueex_);
     std::swap(m_warn_, other->m_warn_);
     std::swap(m_dazetime_, other->m_dazetime_);
     std::swap(m_warntime_, other->m_warntime_);
@@ -5476,8 +5648,6 @@ void E_SkillSkill::Swap(E_SkillSkill* other) {
     std::swap(m_damagevalue_, other->m_damagevalue_);
     std::swap(m_damageparama_, other->m_damageparama_);
     std::swap(m_addhitrate_, other->m_addhitrate_);
-    std::swap(m_awakeitemid_, other->m_awakeitemid_);
-    std::swap(m_awakecostnum_, other->m_awakecostnum_);
     m_advancetype1buff_.Swap(&other->m_advancetype1buff_);
     m_advancetype2buff_.Swap(&other->m_advancetype2buff_);
     m_awakebuff_.Swap(&other->m_awakebuff_);
@@ -7388,6 +7558,651 @@ void Sheet_SkillSkillawake::Swap(Sheet_SkillSkillawake* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_SkillSkillawake_descriptor_;
   metadata.reflection = Sheet_SkillSkillawake_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_SkillSkilladvance::kMIdFieldNumber;
+const int E_SkillSkilladvance::kMProfessionFieldNumber;
+const int E_SkillSkilladvance::kMTypeFieldNumber;
+const int E_SkillSkilladvance::kMAdvancelvFieldNumber;
+const int E_SkillSkilladvance::kMAdvanceconditionFieldNumber;
+const int E_SkillSkilladvance::kMSkillidFieldNumber;
+#endif  // !_MSC_VER
+
+E_SkillSkilladvance::E_SkillSkilladvance()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_SkillSkilladvance::InitAsDefaultInstance() {
+}
+
+E_SkillSkilladvance::E_SkillSkilladvance(const E_SkillSkilladvance& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_SkillSkilladvance::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_profession_ = 0;
+  m_type_ = 0;
+  m_advancelv_ = 0;
+  m_advancecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_SkillSkilladvance::~E_SkillSkilladvance() {
+  SharedDtor();
+}
+
+void E_SkillSkilladvance::SharedDtor() {
+  if (m_advancecondition_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_advancecondition_;
+  }
+  if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_skillid_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_SkillSkilladvance::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_SkillSkilladvance::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_SkillSkilladvance_descriptor_;
+}
+
+const E_SkillSkilladvance& E_SkillSkilladvance::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_skill_2eproto();
+  return *default_instance_;
+}
+
+E_SkillSkilladvance* E_SkillSkilladvance::default_instance_ = NULL;
+
+E_SkillSkilladvance* E_SkillSkilladvance::New() const {
+  return new E_SkillSkilladvance;
+}
+
+void E_SkillSkilladvance::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_profession_ = 0;
+    m_type_ = 0;
+    m_advancelv_ = 0;
+    if (has_m_advancecondition()) {
+      if (m_advancecondition_ != &::google::protobuf::internal::kEmptyString) {
+        m_advancecondition_->clear();
+      }
+    }
+    if (has_m_skillid()) {
+      if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
+        m_skillid_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_SkillSkilladvance::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_profession;
+        break;
+      }
+
+      // optional int32 m_profession = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_profession:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_profession_)));
+          set_has_m_profession();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_advancelv;
+        break;
+      }
+
+      // optional int32 m_advancelv = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_advancelv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_advancelv_)));
+          set_has_m_advancelv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_m_advancecondition;
+        break;
+      }
+
+      // optional string m_advancecondition = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_advancecondition:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_advancecondition()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_advancecondition().data(), this->m_advancecondition().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_m_skillid;
+        break;
+      }
+
+      // optional string m_skillid = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_skillid:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_skillid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_skillid().data(), this->m_skillid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_SkillSkilladvance::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_profession = 2;
+  if (has_m_profession()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_profession(), output);
+  }
+
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
+  }
+
+  // optional int32 m_advancelv = 4;
+  if (has_m_advancelv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_advancelv(), output);
+  }
+
+  // optional string m_advancecondition = 5;
+  if (has_m_advancecondition()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_advancecondition().data(), this->m_advancecondition().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->m_advancecondition(), output);
+  }
+
+  // optional string m_skillid = 6;
+  if (has_m_skillid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_skillid().data(), this->m_skillid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->m_skillid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_SkillSkilladvance::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_profession = 2;
+  if (has_m_profession()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_profession(), target);
+  }
+
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
+  }
+
+  // optional int32 m_advancelv = 4;
+  if (has_m_advancelv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_advancelv(), target);
+  }
+
+  // optional string m_advancecondition = 5;
+  if (has_m_advancecondition()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_advancecondition().data(), this->m_advancecondition().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->m_advancecondition(), target);
+  }
+
+  // optional string m_skillid = 6;
+  if (has_m_skillid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_skillid().data(), this->m_skillid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->m_skillid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_SkillSkilladvance::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_profession = 2;
+    if (has_m_profession()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_profession());
+    }
+
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+    // optional int32 m_advancelv = 4;
+    if (has_m_advancelv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_advancelv());
+    }
+
+    // optional string m_advancecondition = 5;
+    if (has_m_advancecondition()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_advancecondition());
+    }
+
+    // optional string m_skillid = 6;
+    if (has_m_skillid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_skillid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_SkillSkilladvance::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_SkillSkilladvance* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_SkillSkilladvance*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_SkillSkilladvance::MergeFrom(const E_SkillSkilladvance& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_profession()) {
+      set_m_profession(from.m_profession());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+    if (from.has_m_advancelv()) {
+      set_m_advancelv(from.m_advancelv());
+    }
+    if (from.has_m_advancecondition()) {
+      set_m_advancecondition(from.m_advancecondition());
+    }
+    if (from.has_m_skillid()) {
+      set_m_skillid(from.m_skillid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_SkillSkilladvance::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_SkillSkilladvance::CopyFrom(const E_SkillSkilladvance& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_SkillSkilladvance::IsInitialized() const {
+
+  return true;
+}
+
+void E_SkillSkilladvance::Swap(E_SkillSkilladvance* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_profession_, other->m_profession_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_advancelv_, other->m_advancelv_);
+    std::swap(m_advancecondition_, other->m_advancecondition_);
+    std::swap(m_skillid_, other->m_skillid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_SkillSkilladvance::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_SkillSkilladvance_descriptor_;
+  metadata.reflection = E_SkillSkilladvance_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_SkillSkilladvance::kESkillSkilladvanceListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_SkillSkilladvance::Sheet_SkillSkilladvance()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_SkillSkilladvance::InitAsDefaultInstance() {
+}
+
+Sheet_SkillSkilladvance::Sheet_SkillSkilladvance(const Sheet_SkillSkilladvance& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_SkillSkilladvance::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_SkillSkilladvance::~Sheet_SkillSkilladvance() {
+  SharedDtor();
+}
+
+void Sheet_SkillSkilladvance::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_SkillSkilladvance::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_SkillSkilladvance::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_SkillSkilladvance_descriptor_;
+}
+
+const Sheet_SkillSkilladvance& Sheet_SkillSkilladvance::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_skill_2eproto();
+  return *default_instance_;
+}
+
+Sheet_SkillSkilladvance* Sheet_SkillSkilladvance::default_instance_ = NULL;
+
+Sheet_SkillSkilladvance* Sheet_SkillSkilladvance::New() const {
+  return new Sheet_SkillSkilladvance;
+}
+
+void Sheet_SkillSkilladvance::Clear() {
+  e_skillskilladvance_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_SkillSkilladvance::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_SkillSkilladvance E_SkillSkilladvance_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_SkillSkilladvance_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_skillskilladvance_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_SkillSkilladvance_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_SkillSkilladvance::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_SkillSkilladvance E_SkillSkilladvance_List = 1;
+  for (int i = 0; i < this->e_skillskilladvance_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_skillskilladvance_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_SkillSkilladvance::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_SkillSkilladvance E_SkillSkilladvance_List = 1;
+  for (int i = 0; i < this->e_skillskilladvance_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_skillskilladvance_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_SkillSkilladvance::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_SkillSkilladvance E_SkillSkilladvance_List = 1;
+  total_size += 1 * this->e_skillskilladvance_list_size();
+  for (int i = 0; i < this->e_skillskilladvance_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_skillskilladvance_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_SkillSkilladvance::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_SkillSkilladvance* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_SkillSkilladvance*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_SkillSkilladvance::MergeFrom(const Sheet_SkillSkilladvance& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_skillskilladvance_list_.MergeFrom(from.e_skillskilladvance_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_SkillSkilladvance::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_SkillSkilladvance::CopyFrom(const Sheet_SkillSkilladvance& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_SkillSkilladvance::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_SkillSkilladvance::Swap(Sheet_SkillSkilladvance* other) {
+  if (other != this) {
+    e_skillskilladvance_list_.Swap(&other->e_skillskilladvance_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_SkillSkilladvance::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_SkillSkilladvance_descriptor_;
+  metadata.reflection = Sheet_SkillSkilladvance_reflection_;
   return metadata;
 }
 

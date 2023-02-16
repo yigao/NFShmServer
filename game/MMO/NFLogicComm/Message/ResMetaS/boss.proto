@@ -29,12 +29,13 @@ message E_BossBoss
 	optional int32 m_flashtime = 10[(yd_fieldoptions.field_cname) = "刷新间隔"];
 	optional int32 m_retrievegiftid = 11[(yd_fieldoptions.field_cname) = "找回礼包id"];
 	optional int32 m_notimes = 12[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
+	optional int32 m_assistprestige = 13[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
 }
 
 
 message Sheet_BossBoss
 {
-	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=80];
+	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message E_BossBosstypeGroupDesc

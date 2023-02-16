@@ -37,7 +37,7 @@ namespace proto_ff_s {
 		NFShmString<100> m_activedesc;
 		NFShmString<60> m_professionid;
 		NFShmString<80> m_skillid;
-		int32_t m_soulitemid;
+		int32_t m_souliid;
 		NFShmVector<struct E_FacadeDisplayMaterialDesc_s, 3> m_material;
 		NFShmVector<int64_t, 3> m_fragmentid;
 
@@ -377,6 +377,7 @@ namespace proto_ff_s {
 		int64_t m_id;
 		int32_t m_rechargeid;
 		int32_t m_mainskill;
+		NFShmString<60> m_attributetype;
 		NFShmVector<struct E_FacadeSoulAttributeDesc_s, 4> m_attribute;
 		NFShmVector<int32_t, 8> m_minorskill;
 
@@ -401,14 +402,28 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_FacadeSoul_s Sheet_FacadeSoul_t;
 
+	struct E_FacadeSoulactiveUnlockDesc_s : public NFDescStoreSeqOP {
+		E_FacadeSoulactiveUnlockDesc_s();
+		virtual ~E_FacadeSoulactiveUnlockDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmString<60> m_parama;
+		int32_t m_condition;
+
+		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulactiveUnlockDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoulactiveUnlockDesc & msg);
+		static ::proto_ff::E_FacadeSoulactiveUnlockDesc* new_pbmsg(){ return new ::proto_ff::E_FacadeSoulactiveUnlockDesc(); }
+		static ::proto_ff::E_FacadeSoulactiveUnlockDesc make_pbmsg(){ return ::proto_ff::E_FacadeSoulactiveUnlockDesc(); }
+	};
+	typedef struct E_FacadeSoulactiveUnlockDesc_s E_FacadeSoulactiveUnlockDesc_t;
+
 	struct E_FacadeSoulactive_s : public NFDescStoreSeqOP {
 		E_FacadeSoulactive_s();
 		virtual ~E_FacadeSoulactive_s(){}
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;
-		NFShmVector<NFShmString<60>, 2> m_parama;
-		NFShmVector<int32_t, 2> m_condition;
+		NFShmVector<struct E_FacadeSoulactiveUnlockDesc_s, 2> m_unlock;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulactive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoulactive & msg);
@@ -452,6 +467,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;
+		int32_t m_soulllv;
 		int32_t m_soulid;
 		int32_t m_itemid;
 		int32_t m_num;

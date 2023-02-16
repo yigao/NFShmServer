@@ -330,6 +330,7 @@ int E_MonsterValue_s::CreateInit() {
 	m_recover_hp_add = (int64_t)0;
 	m_week_add = (int64_t)0;
 	m_shield = (int64_t)0;
+	m_exp = (int64_t)0;
 	return 0;
 }
 
@@ -412,6 +413,7 @@ void E_MonsterValue_s::write_to_pbmsg(::proto_ff::E_MonsterValue & msg) const {
 	msg.set_m_recover_hp_add((int64_t)m_recover_hp_add);
 	msg.set_m_week_add((int64_t)m_week_add);
 	msg.set_m_shield((int64_t)m_shield);
+	msg.set_m_exp((int64_t)m_exp);
 }
 
 void E_MonsterValue_s::read_from_pbmsg(const ::proto_ff::E_MonsterValue & msg) {
@@ -490,6 +492,7 @@ void E_MonsterValue_s::read_from_pbmsg(const ::proto_ff::E_MonsterValue & msg) {
 	m_recover_hp_add = msg.m_recover_hp_add();
 	m_week_add = msg.m_week_add();
 	m_shield = msg.m_shield();
+	m_exp = msg.m_exp();
 }
 
 Sheet_MonsterValue_s::Sheet_MonsterValue_s() {

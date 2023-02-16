@@ -37,6 +37,9 @@ void protobuf_ShutdownFile_arena_2eproto();
 class E_ArenaRobotAttrDesc;
 class E_ArenaRobot;
 class Sheet_ArenaRobot;
+class E_ArenaRobotfacadeFacadeDesc;
+class E_ArenaRobotfacade;
+class Sheet_ArenaRobotfacade;
 class E_ArenaArenawardRewardDesc;
 class E_ArenaArenaward;
 class Sheet_ArenaArenaward;
@@ -251,17 +254,24 @@ class E_ArenaRobot : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_sword() const;
   inline void set_m_sword(::google::protobuf::int32 value);
 
-  // optional int32 m_occupationid = 8;
+  // optional int32 m_facadeid = 8;
+  inline bool has_m_facadeid() const;
+  inline void clear_m_facadeid();
+  static const int kMFacadeidFieldNumber = 8;
+  inline ::google::protobuf::int32 m_facadeid() const;
+  inline void set_m_facadeid(::google::protobuf::int32 value);
+
+  // optional int32 m_occupationid = 9;
   inline bool has_m_occupationid() const;
   inline void clear_m_occupationid();
-  static const int kMOccupationidFieldNumber = 8;
+  static const int kMOccupationidFieldNumber = 9;
   inline ::google::protobuf::int32 m_occupationid() const;
   inline void set_m_occupationid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 10;
   inline int m_attr_size() const;
   inline void clear_m_attr();
-  static const int kMAttrFieldNumber = 9;
+  static const int kMAttrFieldNumber = 10;
   inline const ::proto_ff::E_ArenaRobotAttrDesc& m_attr(int index) const;
   inline ::proto_ff::E_ArenaRobotAttrDesc* mutable_m_attr(int index);
   inline ::proto_ff::E_ArenaRobotAttrDesc* add_m_attr();
@@ -286,6 +296,8 @@ class E_ArenaRobot : public ::google::protobuf::Message {
   inline void clear_has_m_robotlv();
   inline void set_has_m_sword();
   inline void clear_has_m_sword();
+  inline void set_has_m_facadeid();
+  inline void clear_has_m_facadeid();
   inline void set_has_m_occupationid();
   inline void clear_has_m_occupationid();
 
@@ -298,11 +310,12 @@ class E_ArenaRobot : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_robotprofession_;
   ::google::protobuf::int32 m_robotlv_;
   ::google::protobuf::int32 m_sword_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc > m_attr_;
+  ::google::protobuf::int32 m_facadeid_;
   ::google::protobuf::int32 m_occupationid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotAttrDesc > m_attr_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_arena_2eproto();
   friend void protobuf_AssignDesc_arena_2eproto();
@@ -395,6 +408,288 @@ class Sheet_ArenaRobot : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_ArenaRobot* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_ArenaRobotfacadeFacadeDesc : public ::google::protobuf::Message {
+ public:
+  E_ArenaRobotfacadeFacadeDesc();
+  virtual ~E_ArenaRobotfacadeFacadeDesc();
+
+  E_ArenaRobotfacadeFacadeDesc(const E_ArenaRobotfacadeFacadeDesc& from);
+
+  inline E_ArenaRobotfacadeFacadeDesc& operator=(const E_ArenaRobotfacadeFacadeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_ArenaRobotfacadeFacadeDesc& default_instance();
+
+  void Swap(E_ArenaRobotfacadeFacadeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_ArenaRobotfacadeFacadeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_ArenaRobotfacadeFacadeDesc& from);
+  void MergeFrom(const E_ArenaRobotfacadeFacadeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_type = 1;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaRobotfacadeFacadeDesc)
+ private:
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_arena_2eproto();
+  friend void protobuf_AssignDesc_arena_2eproto();
+  friend void protobuf_ShutdownFile_arena_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_ArenaRobotfacadeFacadeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_ArenaRobotfacade : public ::google::protobuf::Message {
+ public:
+  E_ArenaRobotfacade();
+  virtual ~E_ArenaRobotfacade();
+
+  E_ArenaRobotfacade(const E_ArenaRobotfacade& from);
+
+  inline E_ArenaRobotfacade& operator=(const E_ArenaRobotfacade& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_ArenaRobotfacade& default_instance();
+
+  void Swap(E_ArenaRobotfacade* other);
+
+  // implements Message ----------------------------------------------
+
+  E_ArenaRobotfacade* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_ArenaRobotfacade& from);
+  void MergeFrom(const E_ArenaRobotfacade& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_color = 2;
+  inline bool has_m_color() const;
+  inline void clear_m_color();
+  static const int kMColorFieldNumber = 2;
+  inline ::google::protobuf::int32 m_color() const;
+  inline void set_m_color(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_ArenaRobotfacadeFacadeDesc m_facade = 3;
+  inline int m_facade_size() const;
+  inline void clear_m_facade();
+  static const int kMFacadeFieldNumber = 3;
+  inline const ::proto_ff::E_ArenaRobotfacadeFacadeDesc& m_facade(int index) const;
+  inline ::proto_ff::E_ArenaRobotfacadeFacadeDesc* mutable_m_facade(int index);
+  inline ::proto_ff::E_ArenaRobotfacadeFacadeDesc* add_m_facade();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacadeFacadeDesc >&
+      m_facade() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacadeFacadeDesc >*
+      mutable_m_facade();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ArenaRobotfacade)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_color();
+  inline void clear_has_m_color();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_color_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacadeFacadeDesc > m_facade_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_arena_2eproto();
+  friend void protobuf_AssignDesc_arena_2eproto();
+  friend void protobuf_ShutdownFile_arena_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_ArenaRobotfacade* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_ArenaRobotfacade : public ::google::protobuf::Message {
+ public:
+  Sheet_ArenaRobotfacade();
+  virtual ~Sheet_ArenaRobotfacade();
+
+  Sheet_ArenaRobotfacade(const Sheet_ArenaRobotfacade& from);
+
+  inline Sheet_ArenaRobotfacade& operator=(const Sheet_ArenaRobotfacade& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_ArenaRobotfacade& default_instance();
+
+  void Swap(Sheet_ArenaRobotfacade* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_ArenaRobotfacade* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_ArenaRobotfacade& from);
+  void MergeFrom(const Sheet_ArenaRobotfacade& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_ArenaRobotfacade E_ArenaRobotfacade_List = 1;
+  inline int e_arenarobotfacade_list_size() const;
+  inline void clear_e_arenarobotfacade_list();
+  static const int kEArenaRobotfacadeListFieldNumber = 1;
+  inline const ::proto_ff::E_ArenaRobotfacade& e_arenarobotfacade_list(int index) const;
+  inline ::proto_ff::E_ArenaRobotfacade* mutable_e_arenarobotfacade_list(int index);
+  inline ::proto_ff::E_ArenaRobotfacade* add_e_arenarobotfacade_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacade >&
+      e_arenarobotfacade_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacade >*
+      mutable_e_arenarobotfacade_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_ArenaRobotfacade)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacade > e_arenarobotfacade_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_arena_2eproto();
+  friend void protobuf_AssignDesc_arena_2eproto();
+  friend void protobuf_ShutdownFile_arena_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_ArenaRobotfacade* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1716,15 +2011,37 @@ inline void E_ArenaRobot::set_m_sword(::google::protobuf::int32 value) {
   m_sword_ = value;
 }
 
-// optional int32 m_occupationid = 8;
-inline bool E_ArenaRobot::has_m_occupationid() const {
+// optional int32 m_facadeid = 8;
+inline bool E_ArenaRobot::has_m_facadeid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void E_ArenaRobot::set_has_m_occupationid() {
+inline void E_ArenaRobot::set_has_m_facadeid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void E_ArenaRobot::clear_has_m_occupationid() {
+inline void E_ArenaRobot::clear_has_m_facadeid() {
   _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_ArenaRobot::clear_m_facadeid() {
+  m_facadeid_ = 0;
+  clear_has_m_facadeid();
+}
+inline ::google::protobuf::int32 E_ArenaRobot::m_facadeid() const {
+  return m_facadeid_;
+}
+inline void E_ArenaRobot::set_m_facadeid(::google::protobuf::int32 value) {
+  set_has_m_facadeid();
+  m_facadeid_ = value;
+}
+
+// optional int32 m_occupationid = 9;
+inline bool E_ArenaRobot::has_m_occupationid() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_ArenaRobot::set_has_m_occupationid() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_ArenaRobot::clear_has_m_occupationid() {
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_ArenaRobot::clear_m_occupationid() {
   m_occupationid_ = 0;
@@ -1738,7 +2055,7 @@ inline void E_ArenaRobot::set_m_occupationid(::google::protobuf::int32 value) {
   m_occupationid_ = value;
 }
 
-// repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+// repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 10;
 inline int E_ArenaRobot::m_attr_size() const {
   return m_attr_.size();
 }
@@ -1790,6 +2107,156 @@ Sheet_ArenaRobot::e_arenarobot_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobot >*
 Sheet_ArenaRobot::mutable_e_arenarobot_list() {
   return &e_arenarobot_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_ArenaRobotfacadeFacadeDesc
+
+// optional int32 m_type = 1;
+inline bool E_ArenaRobotfacadeFacadeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_ArenaRobotfacadeFacadeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_value = 2;
+inline bool E_ArenaRobotfacadeFacadeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_ArenaRobotfacadeFacadeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_ArenaRobotfacadeFacadeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_ArenaRobotfacade
+
+// optional int32 m_id = 1;
+inline bool E_ArenaRobotfacade::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_ArenaRobotfacade::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_ArenaRobotfacade::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_ArenaRobotfacade::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_ArenaRobotfacade::m_id() const {
+  return m_id_;
+}
+inline void E_ArenaRobotfacade::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_color = 2;
+inline bool E_ArenaRobotfacade::has_m_color() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_ArenaRobotfacade::set_has_m_color() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_ArenaRobotfacade::clear_has_m_color() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_ArenaRobotfacade::clear_m_color() {
+  m_color_ = 0;
+  clear_has_m_color();
+}
+inline ::google::protobuf::int32 E_ArenaRobotfacade::m_color() const {
+  return m_color_;
+}
+inline void E_ArenaRobotfacade::set_m_color(::google::protobuf::int32 value) {
+  set_has_m_color();
+  m_color_ = value;
+}
+
+// repeated .proto_ff.E_ArenaRobotfacadeFacadeDesc m_facade = 3;
+inline int E_ArenaRobotfacade::m_facade_size() const {
+  return m_facade_.size();
+}
+inline void E_ArenaRobotfacade::clear_m_facade() {
+  m_facade_.Clear();
+}
+inline const ::proto_ff::E_ArenaRobotfacadeFacadeDesc& E_ArenaRobotfacade::m_facade(int index) const {
+  return m_facade_.Get(index);
+}
+inline ::proto_ff::E_ArenaRobotfacadeFacadeDesc* E_ArenaRobotfacade::mutable_m_facade(int index) {
+  return m_facade_.Mutable(index);
+}
+inline ::proto_ff::E_ArenaRobotfacadeFacadeDesc* E_ArenaRobotfacade::add_m_facade() {
+  return m_facade_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacadeFacadeDesc >&
+E_ArenaRobotfacade::m_facade() const {
+  return m_facade_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacadeFacadeDesc >*
+E_ArenaRobotfacade::mutable_m_facade() {
+  return &m_facade_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_ArenaRobotfacade
+
+// repeated .proto_ff.E_ArenaRobotfacade E_ArenaRobotfacade_List = 1;
+inline int Sheet_ArenaRobotfacade::e_arenarobotfacade_list_size() const {
+  return e_arenarobotfacade_list_.size();
+}
+inline void Sheet_ArenaRobotfacade::clear_e_arenarobotfacade_list() {
+  e_arenarobotfacade_list_.Clear();
+}
+inline const ::proto_ff::E_ArenaRobotfacade& Sheet_ArenaRobotfacade::e_arenarobotfacade_list(int index) const {
+  return e_arenarobotfacade_list_.Get(index);
+}
+inline ::proto_ff::E_ArenaRobotfacade* Sheet_ArenaRobotfacade::mutable_e_arenarobotfacade_list(int index) {
+  return e_arenarobotfacade_list_.Mutable(index);
+}
+inline ::proto_ff::E_ArenaRobotfacade* Sheet_ArenaRobotfacade::add_e_arenarobotfacade_list() {
+  return e_arenarobotfacade_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacade >&
+Sheet_ArenaRobotfacade::e_arenarobotfacade_list() const {
+  return e_arenarobotfacade_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ArenaRobotfacade >*
+Sheet_ArenaRobotfacade::mutable_e_arenarobotfacade_list() {
+  return &e_arenarobotfacade_list_;
 }
 
 // -------------------------------------------------------------------

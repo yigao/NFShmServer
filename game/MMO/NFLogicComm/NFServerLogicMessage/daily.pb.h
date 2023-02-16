@@ -159,38 +159,24 @@ class E_DailyDaily : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_number() const;
   inline void set_m_number(::google::protobuf::int32 value);
 
-  // optional int32 m_viptype = 9;
-  inline bool has_m_viptype() const;
-  inline void clear_m_viptype();
-  static const int kMViptypeFieldNumber = 9;
-  inline ::google::protobuf::int32 m_viptype() const;
-  inline void set_m_viptype(::google::protobuf::int32 value);
-
-  // optional int32 m_othernum = 10;
-  inline bool has_m_othernum() const;
-  inline void clear_m_othernum();
-  static const int kMOthernumFieldNumber = 10;
-  inline ::google::protobuf::int32 m_othernum() const;
-  inline void set_m_othernum(::google::protobuf::int32 value);
-
-  // optional int32 m_eachscore = 11;
+  // optional int32 m_eachscore = 9;
   inline bool has_m_eachscore() const;
   inline void clear_m_eachscore();
-  static const int kMEachscoreFieldNumber = 11;
+  static const int kMEachscoreFieldNumber = 9;
   inline ::google::protobuf::int32 m_eachscore() const;
   inline void set_m_eachscore(::google::protobuf::int32 value);
 
-  // optional int32 m_cycle = 12;
+  // optional int32 m_cycle = 10;
   inline bool has_m_cycle() const;
   inline void clear_m_cycle();
-  static const int kMCycleFieldNumber = 12;
+  static const int kMCycleFieldNumber = 10;
   inline ::google::protobuf::int32 m_cycle() const;
   inline void set_m_cycle(::google::protobuf::int32 value);
 
-  // optional int32 m_regreward = 13;
+  // optional int32 m_regreward = 11;
   inline bool has_m_regreward() const;
   inline void clear_m_regreward();
-  static const int kMRegrewardFieldNumber = 13;
+  static const int kMRegrewardFieldNumber = 11;
   inline ::google::protobuf::int32 m_regreward() const;
   inline void set_m_regreward(::google::protobuf::int32 value);
 
@@ -212,10 +198,6 @@ class E_DailyDaily : public ::google::protobuf::Message {
   inline void clear_has_m_funciontid();
   inline void set_has_m_number();
   inline void clear_has_m_number();
-  inline void set_has_m_viptype();
-  inline void clear_has_m_viptype();
-  inline void set_has_m_othernum();
-  inline void clear_has_m_othernum();
   inline void set_has_m_eachscore();
   inline void clear_has_m_eachscore();
   inline void set_has_m_cycle();
@@ -233,14 +215,12 @@ class E_DailyDaily : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_playargs_;
   ::google::protobuf::int64 m_funciontid_;
   ::google::protobuf::int32 m_number_;
-  ::google::protobuf::int32 m_viptype_;
-  ::google::protobuf::int32 m_othernum_;
   ::google::protobuf::int32 m_eachscore_;
   ::google::protobuf::int32 m_cycle_;
   ::google::protobuf::int32 m_regreward_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
 
   friend void  protobuf_AddDesc_daily_2eproto();
   friend void protobuf_AssignDesc_daily_2eproto();
@@ -1064,59 +1044,15 @@ inline void E_DailyDaily::set_m_number(::google::protobuf::int32 value) {
   m_number_ = value;
 }
 
-// optional int32 m_viptype = 9;
-inline bool E_DailyDaily::has_m_viptype() const {
+// optional int32 m_eachscore = 9;
+inline bool E_DailyDaily::has_m_eachscore() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void E_DailyDaily::set_has_m_viptype() {
+inline void E_DailyDaily::set_has_m_eachscore() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void E_DailyDaily::clear_has_m_viptype() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void E_DailyDaily::clear_m_viptype() {
-  m_viptype_ = 0;
-  clear_has_m_viptype();
-}
-inline ::google::protobuf::int32 E_DailyDaily::m_viptype() const {
-  return m_viptype_;
-}
-inline void E_DailyDaily::set_m_viptype(::google::protobuf::int32 value) {
-  set_has_m_viptype();
-  m_viptype_ = value;
-}
-
-// optional int32 m_othernum = 10;
-inline bool E_DailyDaily::has_m_othernum() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void E_DailyDaily::set_has_m_othernum() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void E_DailyDaily::clear_has_m_othernum() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void E_DailyDaily::clear_m_othernum() {
-  m_othernum_ = 0;
-  clear_has_m_othernum();
-}
-inline ::google::protobuf::int32 E_DailyDaily::m_othernum() const {
-  return m_othernum_;
-}
-inline void E_DailyDaily::set_m_othernum(::google::protobuf::int32 value) {
-  set_has_m_othernum();
-  m_othernum_ = value;
-}
-
-// optional int32 m_eachscore = 11;
-inline bool E_DailyDaily::has_m_eachscore() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void E_DailyDaily::set_has_m_eachscore() {
-  _has_bits_[0] |= 0x00000400u;
-}
 inline void E_DailyDaily::clear_has_m_eachscore() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_DailyDaily::clear_m_eachscore() {
   m_eachscore_ = 0;
@@ -1130,15 +1066,15 @@ inline void E_DailyDaily::set_m_eachscore(::google::protobuf::int32 value) {
   m_eachscore_ = value;
 }
 
-// optional int32 m_cycle = 12;
+// optional int32 m_cycle = 10;
 inline bool E_DailyDaily::has_m_cycle() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_DailyDaily::set_has_m_cycle() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_DailyDaily::clear_has_m_cycle() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_DailyDaily::clear_m_cycle() {
   m_cycle_ = 0;
@@ -1152,15 +1088,15 @@ inline void E_DailyDaily::set_m_cycle(::google::protobuf::int32 value) {
   m_cycle_ = value;
 }
 
-// optional int32 m_regreward = 13;
+// optional int32 m_regreward = 11;
 inline bool E_DailyDaily::has_m_regreward() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_DailyDaily::set_has_m_regreward() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_DailyDaily::clear_has_m_regreward() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_DailyDaily::clear_m_regreward() {
   m_regreward_ = 0;

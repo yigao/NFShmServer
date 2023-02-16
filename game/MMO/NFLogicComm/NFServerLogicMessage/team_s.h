@@ -38,7 +38,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TeamTeam_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TeamTeam_s, 40> E_TeamTeam_List;
+		NFShmVector<struct E_TeamTeam_s, 20> E_TeamTeam_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TeamTeam & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TeamTeam & msg);

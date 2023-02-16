@@ -49,6 +49,8 @@ class E_SkillSkillup;
 class Sheet_SkillSkillup;
 class E_SkillSkillawake;
 class Sheet_SkillSkillawake;
+class E_SkillSkilladvance;
+class Sheet_SkillSkilladvance;
 
 // ===================================================================
 
@@ -1077,17 +1079,12 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_priority() const;
   inline void set_m_priority(::google::protobuf::int32 value);
 
-  // optional string m_fighting = 18;
+  // optional int32 m_fighting = 18;
   inline bool has_m_fighting() const;
   inline void clear_m_fighting();
   static const int kMFightingFieldNumber = 18;
-  inline const ::std::string& m_fighting() const;
-  inline void set_m_fighting(const ::std::string& value);
-  inline void set_m_fighting(const char* value);
-  inline void set_m_fighting(const char* value, size_t size);
-  inline ::std::string* mutable_m_fighting();
-  inline ::std::string* release_m_fighting();
-  inline void set_allocated_m_fighting(::std::string* m_fighting);
+  inline ::google::protobuf::int32 m_fighting() const;
+  inline void set_m_fighting(::google::protobuf::int32 value);
 
   // optional float m_fightingparama = 19;
   inline bool has_m_fightingparama() const;
@@ -1131,17 +1128,24 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_readytime() const;
   inline void set_m_readytime(::google::protobuf::int32 value);
 
-  // optional int32 m_attacktime = 25;
+  // optional int32 m_readytimeex = 25;
+  inline bool has_m_readytimeex() const;
+  inline void clear_m_readytimeex();
+  static const int kMReadytimeexFieldNumber = 25;
+  inline ::google::protobuf::int32 m_readytimeex() const;
+  inline void set_m_readytimeex(::google::protobuf::int32 value);
+
+  // optional int32 m_attacktime = 26;
   inline bool has_m_attacktime() const;
   inline void clear_m_attacktime();
-  static const int kMAttacktimeFieldNumber = 25;
+  static const int kMAttacktimeFieldNumber = 26;
   inline ::google::protobuf::int32 m_attacktime() const;
   inline void set_m_attacktime(::google::protobuf::int32 value);
 
-  // optional string m_damagetime = 26;
+  // optional string m_damagetime = 27;
   inline bool has_m_damagetime() const;
   inline void clear_m_damagetime();
-  static const int kMDamagetimeFieldNumber = 26;
+  static const int kMDamagetimeFieldNumber = 27;
   inline const ::std::string& m_damagetime() const;
   inline void set_m_damagetime(const ::std::string& value);
   inline void set_m_damagetime(const char* value);
@@ -1150,24 +1154,36 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::std::string* release_m_damagetime();
   inline void set_allocated_m_damagetime(::std::string* m_damagetime);
 
-  // optional int32 m_attackdistance = 27;
+  // optional string m_damagetimeex = 28;
+  inline bool has_m_damagetimeex() const;
+  inline void clear_m_damagetimeex();
+  static const int kMDamagetimeexFieldNumber = 28;
+  inline const ::std::string& m_damagetimeex() const;
+  inline void set_m_damagetimeex(const ::std::string& value);
+  inline void set_m_damagetimeex(const char* value);
+  inline void set_m_damagetimeex(const char* value, size_t size);
+  inline ::std::string* mutable_m_damagetimeex();
+  inline ::std::string* release_m_damagetimeex();
+  inline void set_allocated_m_damagetimeex(::std::string* m_damagetimeex);
+
+  // optional int32 m_attackdistance = 29;
   inline bool has_m_attackdistance() const;
   inline void clear_m_attackdistance();
-  static const int kMAttackdistanceFieldNumber = 27;
+  static const int kMAttackdistanceFieldNumber = 29;
   inline ::google::protobuf::int32 m_attackdistance() const;
   inline void set_m_attackdistance(::google::protobuf::int32 value);
 
-  // optional int32 m_rangetype = 28;
+  // optional int32 m_rangetype = 30;
   inline bool has_m_rangetype() const;
   inline void clear_m_rangetype();
-  static const int kMRangetypeFieldNumber = 28;
+  static const int kMRangetypeFieldNumber = 30;
   inline ::google::protobuf::int32 m_rangetype() const;
   inline void set_m_rangetype(::google::protobuf::int32 value);
 
-  // optional string m_rangetypevalue = 29;
+  // optional string m_rangetypevalue = 31;
   inline bool has_m_rangetypevalue() const;
   inline void clear_m_rangetypevalue();
-  static const int kMRangetypevalueFieldNumber = 29;
+  static const int kMRangetypevalueFieldNumber = 31;
   inline const ::std::string& m_rangetypevalue() const;
   inline void set_m_rangetypevalue(const ::std::string& value);
   inline void set_m_rangetypevalue(const char* value);
@@ -1176,31 +1192,50 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::std::string* release_m_rangetypevalue();
   inline void set_allocated_m_rangetypevalue(::std::string* m_rangetypevalue);
 
-  // optional int32 m_warn = 30;
+  // optional int32 m_rangetypeex = 32;
+  inline bool has_m_rangetypeex() const;
+  inline void clear_m_rangetypeex();
+  static const int kMRangetypeexFieldNumber = 32;
+  inline ::google::protobuf::int32 m_rangetypeex() const;
+  inline void set_m_rangetypeex(::google::protobuf::int32 value);
+
+  // optional string m_rangetypevalueex = 33;
+  inline bool has_m_rangetypevalueex() const;
+  inline void clear_m_rangetypevalueex();
+  static const int kMRangetypevalueexFieldNumber = 33;
+  inline const ::std::string& m_rangetypevalueex() const;
+  inline void set_m_rangetypevalueex(const ::std::string& value);
+  inline void set_m_rangetypevalueex(const char* value);
+  inline void set_m_rangetypevalueex(const char* value, size_t size);
+  inline ::std::string* mutable_m_rangetypevalueex();
+  inline ::std::string* release_m_rangetypevalueex();
+  inline void set_allocated_m_rangetypevalueex(::std::string* m_rangetypevalueex);
+
+  // optional int32 m_warn = 34;
   inline bool has_m_warn() const;
   inline void clear_m_warn();
-  static const int kMWarnFieldNumber = 30;
+  static const int kMWarnFieldNumber = 34;
   inline ::google::protobuf::int32 m_warn() const;
   inline void set_m_warn(::google::protobuf::int32 value);
 
-  // optional int32 m_dazetime = 31;
+  // optional int32 m_dazetime = 35;
   inline bool has_m_dazetime() const;
   inline void clear_m_dazetime();
-  static const int kMDazetimeFieldNumber = 31;
+  static const int kMDazetimeFieldNumber = 35;
   inline ::google::protobuf::int32 m_dazetime() const;
   inline void set_m_dazetime(::google::protobuf::int32 value);
 
-  // optional int32 m_warntime = 32;
+  // optional int32 m_warntime = 36;
   inline bool has_m_warntime() const;
   inline void clear_m_warntime();
-  static const int kMWarntimeFieldNumber = 32;
+  static const int kMWarntimeFieldNumber = 36;
   inline ::google::protobuf::int32 m_warntime() const;
   inline void set_m_warntime(::google::protobuf::int32 value);
 
-  // optional string m_infomationid = 33;
+  // optional string m_infomationid = 37;
   inline bool has_m_infomationid() const;
   inline void clear_m_infomationid();
-  static const int kMInfomationidFieldNumber = 33;
+  static const int kMInfomationidFieldNumber = 37;
   inline const ::std::string& m_infomationid() const;
   inline void set_m_infomationid(const ::std::string& value);
   inline void set_m_infomationid(const char* value);
@@ -1209,108 +1244,94 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::std::string* release_m_infomationid();
   inline void set_allocated_m_infomationid(::std::string* m_infomationid);
 
-  // optional int32 m_attackmindistance = 34;
+  // optional int32 m_attackmindistance = 38;
   inline bool has_m_attackmindistance() const;
   inline void clear_m_attackmindistance();
-  static const int kMAttackmindistanceFieldNumber = 34;
+  static const int kMAttackmindistanceFieldNumber = 38;
   inline ::google::protobuf::int32 m_attackmindistance() const;
   inline void set_m_attackmindistance(::google::protobuf::int32 value);
 
-  // optional int32 m_goalmaxnum = 35;
+  // optional int32 m_goalmaxnum = 39;
   inline bool has_m_goalmaxnum() const;
   inline void clear_m_goalmaxnum();
-  static const int kMGoalmaxnumFieldNumber = 35;
+  static const int kMGoalmaxnumFieldNumber = 39;
   inline ::google::protobuf::int32 m_goalmaxnum() const;
   inline void set_m_goalmaxnum(::google::protobuf::int32 value);
 
-  // optional int32 m_goalmaxnummonster = 36;
+  // optional int32 m_goalmaxnummonster = 40;
   inline bool has_m_goalmaxnummonster() const;
   inline void clear_m_goalmaxnummonster();
-  static const int kMGoalmaxnummonsterFieldNumber = 36;
+  static const int kMGoalmaxnummonsterFieldNumber = 40;
   inline ::google::protobuf::int32 m_goalmaxnummonster() const;
   inline void set_m_goalmaxnummonster(::google::protobuf::int32 value);
 
-  // optional int32 m_damagetype = 37;
+  // optional int32 m_damagetype = 41;
   inline bool has_m_damagetype() const;
   inline void clear_m_damagetype();
-  static const int kMDamagetypeFieldNumber = 37;
+  static const int kMDamagetypeFieldNumber = 41;
   inline ::google::protobuf::int32 m_damagetype() const;
   inline void set_m_damagetype(::google::protobuf::int32 value);
 
-  // optional int32 m_damagerate = 38;
+  // optional int32 m_damagerate = 42;
   inline bool has_m_damagerate() const;
   inline void clear_m_damagerate();
-  static const int kMDamagerateFieldNumber = 38;
+  static const int kMDamagerateFieldNumber = 42;
   inline ::google::protobuf::int32 m_damagerate() const;
   inline void set_m_damagerate(::google::protobuf::int32 value);
 
-  // optional int32 m_awakedamagerate = 39;
+  // optional int32 m_awakedamagerate = 43;
   inline bool has_m_awakedamagerate() const;
   inline void clear_m_awakedamagerate();
-  static const int kMAwakedamagerateFieldNumber = 39;
+  static const int kMAwakedamagerateFieldNumber = 43;
   inline ::google::protobuf::int32 m_awakedamagerate() const;
   inline void set_m_awakedamagerate(::google::protobuf::int32 value);
 
-  // optional int32 m_advancetype1damagerate = 40;
+  // optional int32 m_advancetype1damagerate = 44;
   inline bool has_m_advancetype1damagerate() const;
   inline void clear_m_advancetype1damagerate();
-  static const int kMAdvancetype1DamagerateFieldNumber = 40;
+  static const int kMAdvancetype1DamagerateFieldNumber = 44;
   inline ::google::protobuf::int32 m_advancetype1damagerate() const;
   inline void set_m_advancetype1damagerate(::google::protobuf::int32 value);
 
-  // optional int32 m_advancetype2damagerate = 41;
+  // optional int32 m_advancetype2damagerate = 45;
   inline bool has_m_advancetype2damagerate() const;
   inline void clear_m_advancetype2damagerate();
-  static const int kMAdvancetype2DamagerateFieldNumber = 41;
+  static const int kMAdvancetype2DamagerateFieldNumber = 45;
   inline ::google::protobuf::int32 m_advancetype2damagerate() const;
   inline void set_m_advancetype2damagerate(::google::protobuf::int32 value);
 
-  // optional int32 m_advancetype3damagerate = 42;
+  // optional int32 m_advancetype3damagerate = 46;
   inline bool has_m_advancetype3damagerate() const;
   inline void clear_m_advancetype3damagerate();
-  static const int kMAdvancetype3DamagerateFieldNumber = 42;
+  static const int kMAdvancetype3DamagerateFieldNumber = 46;
   inline ::google::protobuf::int32 m_advancetype3damagerate() const;
   inline void set_m_advancetype3damagerate(::google::protobuf::int32 value);
 
-  // optional int32 m_damagevalue = 43;
+  // optional int32 m_damagevalue = 47;
   inline bool has_m_damagevalue() const;
   inline void clear_m_damagevalue();
-  static const int kMDamagevalueFieldNumber = 43;
+  static const int kMDamagevalueFieldNumber = 47;
   inline ::google::protobuf::int32 m_damagevalue() const;
   inline void set_m_damagevalue(::google::protobuf::int32 value);
 
-  // optional float m_damageparama = 44;
+  // optional float m_damageparama = 48;
   inline bool has_m_damageparama() const;
   inline void clear_m_damageparama();
-  static const int kMDamageparamaFieldNumber = 44;
+  static const int kMDamageparamaFieldNumber = 48;
   inline float m_damageparama() const;
   inline void set_m_damageparama(float value);
 
-  // optional int32 m_addhitrate = 45;
+  // optional int32 m_addhitrate = 49;
   inline bool has_m_addhitrate() const;
   inline void clear_m_addhitrate();
-  static const int kMAddhitrateFieldNumber = 45;
+  static const int kMAddhitrateFieldNumber = 49;
   inline ::google::protobuf::int32 m_addhitrate() const;
   inline void set_m_addhitrate(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeitemid = 46;
-  inline bool has_m_awakeitemid() const;
-  inline void clear_m_awakeitemid();
-  static const int kMAwakeitemidFieldNumber = 46;
-  inline ::google::protobuf::int32 m_awakeitemid() const;
-  inline void set_m_awakeitemid(::google::protobuf::int32 value);
-
-  // optional int32 m_awakecostnum = 47;
-  inline bool has_m_awakecostnum() const;
-  inline void clear_m_awakecostnum();
-  static const int kMAwakecostnumFieldNumber = 47;
-  inline ::google::protobuf::int32 m_awakecostnum() const;
-  inline void set_m_awakecostnum(::google::protobuf::int32 value);
-
-  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48;
+  // repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50;
   inline int m_advancetype1buff_size() const;
   inline void clear_m_advancetype1buff();
-  static const int kMAdvancetype1BuffFieldNumber = 48;
+  static const int kMAdvancetype1BuffFieldNumber = 50;
   inline const ::proto_ff::E_SkillSkillAdvancetype1buffDesc& m_advancetype1buff(int index) const;
   inline ::proto_ff::E_SkillSkillAdvancetype1buffDesc* mutable_m_advancetype1buff(int index);
   inline ::proto_ff::E_SkillSkillAdvancetype1buffDesc* add_m_advancetype1buff();
@@ -1319,10 +1340,10 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAdvancetype1buffDesc >*
       mutable_m_advancetype1buff();
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49;
+  // repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51;
   inline int m_advancetype2buff_size() const;
   inline void clear_m_advancetype2buff();
-  static const int kMAdvancetype2BuffFieldNumber = 49;
+  static const int kMAdvancetype2BuffFieldNumber = 51;
   inline const ::proto_ff::E_SkillSkillAdvancetype2buffDesc& m_advancetype2buff(int index) const;
   inline ::proto_ff::E_SkillSkillAdvancetype2buffDesc* mutable_m_advancetype2buff(int index);
   inline ::proto_ff::E_SkillSkillAdvancetype2buffDesc* add_m_advancetype2buff();
@@ -1331,10 +1352,10 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAdvancetype2buffDesc >*
       mutable_m_advancetype2buff();
 
-  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 50;
+  // repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 52;
   inline int m_awakebuff_size() const;
   inline void clear_m_awakebuff();
-  static const int kMAwakebuffFieldNumber = 50;
+  static const int kMAwakebuffFieldNumber = 52;
   inline const ::proto_ff::E_SkillSkillAwakebuffDesc& m_awakebuff(int index) const;
   inline ::proto_ff::E_SkillSkillAwakebuffDesc* mutable_m_awakebuff(int index);
   inline ::proto_ff::E_SkillSkillAwakebuffDesc* add_m_awakebuff();
@@ -1343,10 +1364,10 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAwakebuffDesc >*
       mutable_m_awakebuff();
 
-  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51;
+  // repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53;
   inline int m_advancetype3buff_size() const;
   inline void clear_m_advancetype3buff();
-  static const int kMAdvancetype3BuffFieldNumber = 51;
+  static const int kMAdvancetype3BuffFieldNumber = 53;
   inline const ::proto_ff::E_SkillSkillAdvancetype3buffDesc& m_advancetype3buff(int index) const;
   inline ::proto_ff::E_SkillSkillAdvancetype3buffDesc* mutable_m_advancetype3buff(int index);
   inline ::proto_ff::E_SkillSkillAdvancetype3buffDesc* add_m_advancetype3buff();
@@ -1355,10 +1376,10 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAdvancetype3buffDesc >*
       mutable_m_advancetype3buff();
 
-  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 52;
+  // repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 54;
   inline int m_buff_size() const;
   inline void clear_m_buff();
-  static const int kMBuffFieldNumber = 52;
+  static const int kMBuffFieldNumber = 54;
   inline const ::proto_ff::E_SkillSkillBuffDesc& m_buff(int index) const;
   inline ::proto_ff::E_SkillSkillBuffDesc* mutable_m_buff(int index);
   inline ::proto_ff::E_SkillSkillBuffDesc* add_m_buff();
@@ -1417,16 +1438,24 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline void clear_has_m_acttime();
   inline void set_has_m_readytime();
   inline void clear_has_m_readytime();
+  inline void set_has_m_readytimeex();
+  inline void clear_has_m_readytimeex();
   inline void set_has_m_attacktime();
   inline void clear_has_m_attacktime();
   inline void set_has_m_damagetime();
   inline void clear_has_m_damagetime();
+  inline void set_has_m_damagetimeex();
+  inline void clear_has_m_damagetimeex();
   inline void set_has_m_attackdistance();
   inline void clear_has_m_attackdistance();
   inline void set_has_m_rangetype();
   inline void clear_has_m_rangetype();
   inline void set_has_m_rangetypevalue();
   inline void clear_has_m_rangetypevalue();
+  inline void set_has_m_rangetypeex();
+  inline void clear_has_m_rangetypeex();
+  inline void set_has_m_rangetypevalueex();
+  inline void clear_has_m_rangetypevalueex();
   inline void set_has_m_warn();
   inline void clear_has_m_warn();
   inline void set_has_m_dazetime();
@@ -1459,10 +1488,6 @@ class E_SkillSkill : public ::google::protobuf::Message {
   inline void clear_has_m_damageparama();
   inline void set_has_m_addhitrate();
   inline void clear_has_m_addhitrate();
-  inline void set_has_m_awakeitemid();
-  inline void clear_has_m_awakeitemid();
-  inline void set_has_m_awakecostnum();
-  inline void clear_has_m_awakecostnum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1482,23 +1507,27 @@ class E_SkillSkill : public ::google::protobuf::Message {
   ::std::string* m_unlockcondition_;
   ::google::protobuf::int32 m_cd_;
   ::google::protobuf::int32 m_nolock_;
-  ::std::string* m_fighting_;
   ::google::protobuf::int32 m_priority_;
+  ::google::protobuf::int32 m_fighting_;
   float m_fightingparama_;
   ::google::protobuf::int32 m_releasetype_;
   ::google::protobuf::int32 m_processtypes_;
   ::google::protobuf::int32 m_flyspeed_;
   ::google::protobuf::int32 m_acttime_;
   ::google::protobuf::int32 m_readytime_;
+  ::google::protobuf::int32 m_readytimeex_;
   ::google::protobuf::int32 m_attacktime_;
   ::std::string* m_damagetime_;
+  ::std::string* m_damagetimeex_;
   ::google::protobuf::int32 m_attackdistance_;
   ::google::protobuf::int32 m_rangetype_;
   ::std::string* m_rangetypevalue_;
+  ::google::protobuf::int32 m_rangetypeex_;
   ::google::protobuf::int32 m_warn_;
+  ::std::string* m_rangetypevalueex_;
   ::google::protobuf::int32 m_dazetime_;
-  ::std::string* m_infomationid_;
   ::google::protobuf::int32 m_warntime_;
+  ::std::string* m_infomationid_;
   ::google::protobuf::int32 m_attackmindistance_;
   ::google::protobuf::int32 m_goalmaxnum_;
   ::google::protobuf::int32 m_goalmaxnummonster_;
@@ -1511,16 +1540,14 @@ class E_SkillSkill : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_damagevalue_;
   float m_damageparama_;
   ::google::protobuf::int32 m_addhitrate_;
-  ::google::protobuf::int32 m_awakeitemid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAdvancetype1buffDesc > m_advancetype1buff_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAdvancetype2buffDesc > m_advancetype2buff_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAwakebuffDesc > m_awakebuff_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillAdvancetype3buffDesc > m_advancetype3buff_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillBuffDesc > m_buff_;
-  ::google::protobuf::int32 m_awakecostnum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(52 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(54 + 31) / 32];
 
   friend void  protobuf_AddDesc_skill_2eproto();
   friend void protobuf_AssignDesc_skill_2eproto();
@@ -2229,6 +2256,233 @@ class Sheet_SkillSkillawake : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_SkillSkillawake* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SkillSkilladvance : public ::google::protobuf::Message {
+ public:
+  E_SkillSkilladvance();
+  virtual ~E_SkillSkilladvance();
+
+  E_SkillSkilladvance(const E_SkillSkilladvance& from);
+
+  inline E_SkillSkilladvance& operator=(const E_SkillSkilladvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SkillSkilladvance& default_instance();
+
+  void Swap(E_SkillSkilladvance* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SkillSkilladvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SkillSkilladvance& from);
+  void MergeFrom(const E_SkillSkilladvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_profession = 2;
+  inline bool has_m_profession() const;
+  inline void clear_m_profession();
+  static const int kMProfessionFieldNumber = 2;
+  inline ::google::protobuf::int32 m_profession() const;
+  inline void set_m_profession(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_advancelv = 4;
+  inline bool has_m_advancelv() const;
+  inline void clear_m_advancelv();
+  static const int kMAdvancelvFieldNumber = 4;
+  inline ::google::protobuf::int32 m_advancelv() const;
+  inline void set_m_advancelv(::google::protobuf::int32 value);
+
+  // optional string m_advancecondition = 5;
+  inline bool has_m_advancecondition() const;
+  inline void clear_m_advancecondition();
+  static const int kMAdvanceconditionFieldNumber = 5;
+  inline const ::std::string& m_advancecondition() const;
+  inline void set_m_advancecondition(const ::std::string& value);
+  inline void set_m_advancecondition(const char* value);
+  inline void set_m_advancecondition(const char* value, size_t size);
+  inline ::std::string* mutable_m_advancecondition();
+  inline ::std::string* release_m_advancecondition();
+  inline void set_allocated_m_advancecondition(::std::string* m_advancecondition);
+
+  // optional string m_skillid = 6;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillidFieldNumber = 6;
+  inline const ::std::string& m_skillid() const;
+  inline void set_m_skillid(const ::std::string& value);
+  inline void set_m_skillid(const char* value);
+  inline void set_m_skillid(const char* value, size_t size);
+  inline ::std::string* mutable_m_skillid();
+  inline ::std::string* release_m_skillid();
+  inline void set_allocated_m_skillid(::std::string* m_skillid);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SkillSkilladvance)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_profession();
+  inline void clear_has_m_profession();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_advancelv();
+  inline void clear_has_m_advancelv();
+  inline void set_has_m_advancecondition();
+  inline void clear_has_m_advancecondition();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_profession_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_advancelv_;
+  ::std::string* m_advancecondition_;
+  ::std::string* m_skillid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_skill_2eproto();
+  friend void protobuf_AssignDesc_skill_2eproto();
+  friend void protobuf_ShutdownFile_skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SkillSkilladvance* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SkillSkilladvance : public ::google::protobuf::Message {
+ public:
+  Sheet_SkillSkilladvance();
+  virtual ~Sheet_SkillSkilladvance();
+
+  Sheet_SkillSkilladvance(const Sheet_SkillSkilladvance& from);
+
+  inline Sheet_SkillSkilladvance& operator=(const Sheet_SkillSkilladvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SkillSkilladvance& default_instance();
+
+  void Swap(Sheet_SkillSkilladvance* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SkillSkilladvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SkillSkilladvance& from);
+  void MergeFrom(const Sheet_SkillSkilladvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SkillSkilladvance E_SkillSkilladvance_List = 1;
+  inline int e_skillskilladvance_list_size() const;
+  inline void clear_e_skillskilladvance_list();
+  static const int kESkillSkilladvanceListFieldNumber = 1;
+  inline const ::proto_ff::E_SkillSkilladvance& e_skillskilladvance_list(int index) const;
+  inline ::proto_ff::E_SkillSkilladvance* mutable_e_skillskilladvance_list(int index);
+  inline ::proto_ff::E_SkillSkilladvance* add_e_skillskilladvance_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkilladvance >&
+      e_skillskilladvance_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkilladvance >*
+      mutable_e_skillskilladvance_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SkillSkilladvance)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkilladvance > e_skillskilladvance_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_skill_2eproto();
+  friend void protobuf_AssignDesc_skill_2eproto();
+  friend void protobuf_ShutdownFile_skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SkillSkilladvance* default_instance_;
 };
 // ===================================================================
 
@@ -3882,7 +4136,7 @@ inline void E_SkillSkill::set_m_priority(::google::protobuf::int32 value) {
   m_priority_ = value;
 }
 
-// optional string m_fighting = 18;
+// optional int32 m_fighting = 18;
 inline bool E_SkillSkill::has_m_fighting() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -3893,63 +4147,15 @@ inline void E_SkillSkill::clear_has_m_fighting() {
   _has_bits_[0] &= ~0x00020000u;
 }
 inline void E_SkillSkill::clear_m_fighting() {
-  if (m_fighting_ != &::google::protobuf::internal::kEmptyString) {
-    m_fighting_->clear();
-  }
+  m_fighting_ = 0;
   clear_has_m_fighting();
 }
-inline const ::std::string& E_SkillSkill::m_fighting() const {
-  return *m_fighting_;
-}
-inline void E_SkillSkill::set_m_fighting(const ::std::string& value) {
-  set_has_m_fighting();
-  if (m_fighting_ == &::google::protobuf::internal::kEmptyString) {
-    m_fighting_ = new ::std::string;
-  }
-  m_fighting_->assign(value);
-}
-inline void E_SkillSkill::set_m_fighting(const char* value) {
-  set_has_m_fighting();
-  if (m_fighting_ == &::google::protobuf::internal::kEmptyString) {
-    m_fighting_ = new ::std::string;
-  }
-  m_fighting_->assign(value);
-}
-inline void E_SkillSkill::set_m_fighting(const char* value, size_t size) {
-  set_has_m_fighting();
-  if (m_fighting_ == &::google::protobuf::internal::kEmptyString) {
-    m_fighting_ = new ::std::string;
-  }
-  m_fighting_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_SkillSkill::mutable_m_fighting() {
-  set_has_m_fighting();
-  if (m_fighting_ == &::google::protobuf::internal::kEmptyString) {
-    m_fighting_ = new ::std::string;
-  }
+inline ::google::protobuf::int32 E_SkillSkill::m_fighting() const {
   return m_fighting_;
 }
-inline ::std::string* E_SkillSkill::release_m_fighting() {
-  clear_has_m_fighting();
-  if (m_fighting_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_fighting_;
-    m_fighting_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_SkillSkill::set_allocated_m_fighting(::std::string* m_fighting) {
-  if (m_fighting_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_fighting_;
-  }
-  if (m_fighting) {
-    set_has_m_fighting();
-    m_fighting_ = m_fighting;
-  } else {
-    clear_has_m_fighting();
-    m_fighting_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void E_SkillSkill::set_m_fighting(::google::protobuf::int32 value) {
+  set_has_m_fighting();
+  m_fighting_ = value;
 }
 
 // optional float m_fightingparama = 19;
@@ -4084,15 +4290,37 @@ inline void E_SkillSkill::set_m_readytime(::google::protobuf::int32 value) {
   m_readytime_ = value;
 }
 
-// optional int32 m_attacktime = 25;
-inline bool E_SkillSkill::has_m_attacktime() const {
+// optional int32 m_readytimeex = 25;
+inline bool E_SkillSkill::has_m_readytimeex() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
-inline void E_SkillSkill::set_has_m_attacktime() {
+inline void E_SkillSkill::set_has_m_readytimeex() {
   _has_bits_[0] |= 0x01000000u;
 }
-inline void E_SkillSkill::clear_has_m_attacktime() {
+inline void E_SkillSkill::clear_has_m_readytimeex() {
   _has_bits_[0] &= ~0x01000000u;
+}
+inline void E_SkillSkill::clear_m_readytimeex() {
+  m_readytimeex_ = 0;
+  clear_has_m_readytimeex();
+}
+inline ::google::protobuf::int32 E_SkillSkill::m_readytimeex() const {
+  return m_readytimeex_;
+}
+inline void E_SkillSkill::set_m_readytimeex(::google::protobuf::int32 value) {
+  set_has_m_readytimeex();
+  m_readytimeex_ = value;
+}
+
+// optional int32 m_attacktime = 26;
+inline bool E_SkillSkill::has_m_attacktime() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+inline void E_SkillSkill::set_has_m_attacktime() {
+  _has_bits_[0] |= 0x02000000u;
+}
+inline void E_SkillSkill::clear_has_m_attacktime() {
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void E_SkillSkill::clear_m_attacktime() {
   m_attacktime_ = 0;
@@ -4106,15 +4334,15 @@ inline void E_SkillSkill::set_m_attacktime(::google::protobuf::int32 value) {
   m_attacktime_ = value;
 }
 
-// optional string m_damagetime = 26;
+// optional string m_damagetime = 27;
 inline bool E_SkillSkill::has_m_damagetime() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_damagetime() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void E_SkillSkill::clear_has_m_damagetime() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void E_SkillSkill::clear_m_damagetime() {
   if (m_damagetime_ != &::google::protobuf::internal::kEmptyString) {
@@ -4176,15 +4404,85 @@ inline void E_SkillSkill::set_allocated_m_damagetime(::std::string* m_damagetime
   }
 }
 
-// optional int32 m_attackdistance = 27;
+// optional string m_damagetimeex = 28;
+inline bool E_SkillSkill::has_m_damagetimeex() const {
+  return (_has_bits_[0] & 0x08000000u) != 0;
+}
+inline void E_SkillSkill::set_has_m_damagetimeex() {
+  _has_bits_[0] |= 0x08000000u;
+}
+inline void E_SkillSkill::clear_has_m_damagetimeex() {
+  _has_bits_[0] &= ~0x08000000u;
+}
+inline void E_SkillSkill::clear_m_damagetimeex() {
+  if (m_damagetimeex_ != &::google::protobuf::internal::kEmptyString) {
+    m_damagetimeex_->clear();
+  }
+  clear_has_m_damagetimeex();
+}
+inline const ::std::string& E_SkillSkill::m_damagetimeex() const {
+  return *m_damagetimeex_;
+}
+inline void E_SkillSkill::set_m_damagetimeex(const ::std::string& value) {
+  set_has_m_damagetimeex();
+  if (m_damagetimeex_ == &::google::protobuf::internal::kEmptyString) {
+    m_damagetimeex_ = new ::std::string;
+  }
+  m_damagetimeex_->assign(value);
+}
+inline void E_SkillSkill::set_m_damagetimeex(const char* value) {
+  set_has_m_damagetimeex();
+  if (m_damagetimeex_ == &::google::protobuf::internal::kEmptyString) {
+    m_damagetimeex_ = new ::std::string;
+  }
+  m_damagetimeex_->assign(value);
+}
+inline void E_SkillSkill::set_m_damagetimeex(const char* value, size_t size) {
+  set_has_m_damagetimeex();
+  if (m_damagetimeex_ == &::google::protobuf::internal::kEmptyString) {
+    m_damagetimeex_ = new ::std::string;
+  }
+  m_damagetimeex_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SkillSkill::mutable_m_damagetimeex() {
+  set_has_m_damagetimeex();
+  if (m_damagetimeex_ == &::google::protobuf::internal::kEmptyString) {
+    m_damagetimeex_ = new ::std::string;
+  }
+  return m_damagetimeex_;
+}
+inline ::std::string* E_SkillSkill::release_m_damagetimeex() {
+  clear_has_m_damagetimeex();
+  if (m_damagetimeex_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_damagetimeex_;
+    m_damagetimeex_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SkillSkill::set_allocated_m_damagetimeex(::std::string* m_damagetimeex) {
+  if (m_damagetimeex_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_damagetimeex_;
+  }
+  if (m_damagetimeex) {
+    set_has_m_damagetimeex();
+    m_damagetimeex_ = m_damagetimeex;
+  } else {
+    clear_has_m_damagetimeex();
+    m_damagetimeex_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_attackdistance = 29;
 inline bool E_SkillSkill::has_m_attackdistance() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x10000000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_attackdistance() {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x10000000u;
 }
 inline void E_SkillSkill::clear_has_m_attackdistance() {
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void E_SkillSkill::clear_m_attackdistance() {
   m_attackdistance_ = 0;
@@ -4198,15 +4496,15 @@ inline void E_SkillSkill::set_m_attackdistance(::google::protobuf::int32 value) 
   m_attackdistance_ = value;
 }
 
-// optional int32 m_rangetype = 28;
+// optional int32 m_rangetype = 30;
 inline bool E_SkillSkill::has_m_rangetype() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_rangetype() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void E_SkillSkill::clear_has_m_rangetype() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void E_SkillSkill::clear_m_rangetype() {
   m_rangetype_ = 0;
@@ -4220,15 +4518,15 @@ inline void E_SkillSkill::set_m_rangetype(::google::protobuf::int32 value) {
   m_rangetype_ = value;
 }
 
-// optional string m_rangetypevalue = 29;
+// optional string m_rangetypevalue = 31;
 inline bool E_SkillSkill::has_m_rangetypevalue() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x40000000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_rangetypevalue() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x40000000u;
 }
 inline void E_SkillSkill::clear_has_m_rangetypevalue() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline void E_SkillSkill::clear_m_rangetypevalue() {
   if (m_rangetypevalue_ != &::google::protobuf::internal::kEmptyString) {
@@ -4290,15 +4588,107 @@ inline void E_SkillSkill::set_allocated_m_rangetypevalue(::std::string* m_ranget
   }
 }
 
-// optional int32 m_warn = 30;
+// optional int32 m_rangetypeex = 32;
+inline bool E_SkillSkill::has_m_rangetypeex() const {
+  return (_has_bits_[0] & 0x80000000u) != 0;
+}
+inline void E_SkillSkill::set_has_m_rangetypeex() {
+  _has_bits_[0] |= 0x80000000u;
+}
+inline void E_SkillSkill::clear_has_m_rangetypeex() {
+  _has_bits_[0] &= ~0x80000000u;
+}
+inline void E_SkillSkill::clear_m_rangetypeex() {
+  m_rangetypeex_ = 0;
+  clear_has_m_rangetypeex();
+}
+inline ::google::protobuf::int32 E_SkillSkill::m_rangetypeex() const {
+  return m_rangetypeex_;
+}
+inline void E_SkillSkill::set_m_rangetypeex(::google::protobuf::int32 value) {
+  set_has_m_rangetypeex();
+  m_rangetypeex_ = value;
+}
+
+// optional string m_rangetypevalueex = 33;
+inline bool E_SkillSkill::has_m_rangetypevalueex() const {
+  return (_has_bits_[1] & 0x00000001u) != 0;
+}
+inline void E_SkillSkill::set_has_m_rangetypevalueex() {
+  _has_bits_[1] |= 0x00000001u;
+}
+inline void E_SkillSkill::clear_has_m_rangetypevalueex() {
+  _has_bits_[1] &= ~0x00000001u;
+}
+inline void E_SkillSkill::clear_m_rangetypevalueex() {
+  if (m_rangetypevalueex_ != &::google::protobuf::internal::kEmptyString) {
+    m_rangetypevalueex_->clear();
+  }
+  clear_has_m_rangetypevalueex();
+}
+inline const ::std::string& E_SkillSkill::m_rangetypevalueex() const {
+  return *m_rangetypevalueex_;
+}
+inline void E_SkillSkill::set_m_rangetypevalueex(const ::std::string& value) {
+  set_has_m_rangetypevalueex();
+  if (m_rangetypevalueex_ == &::google::protobuf::internal::kEmptyString) {
+    m_rangetypevalueex_ = new ::std::string;
+  }
+  m_rangetypevalueex_->assign(value);
+}
+inline void E_SkillSkill::set_m_rangetypevalueex(const char* value) {
+  set_has_m_rangetypevalueex();
+  if (m_rangetypevalueex_ == &::google::protobuf::internal::kEmptyString) {
+    m_rangetypevalueex_ = new ::std::string;
+  }
+  m_rangetypevalueex_->assign(value);
+}
+inline void E_SkillSkill::set_m_rangetypevalueex(const char* value, size_t size) {
+  set_has_m_rangetypevalueex();
+  if (m_rangetypevalueex_ == &::google::protobuf::internal::kEmptyString) {
+    m_rangetypevalueex_ = new ::std::string;
+  }
+  m_rangetypevalueex_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SkillSkill::mutable_m_rangetypevalueex() {
+  set_has_m_rangetypevalueex();
+  if (m_rangetypevalueex_ == &::google::protobuf::internal::kEmptyString) {
+    m_rangetypevalueex_ = new ::std::string;
+  }
+  return m_rangetypevalueex_;
+}
+inline ::std::string* E_SkillSkill::release_m_rangetypevalueex() {
+  clear_has_m_rangetypevalueex();
+  if (m_rangetypevalueex_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_rangetypevalueex_;
+    m_rangetypevalueex_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SkillSkill::set_allocated_m_rangetypevalueex(::std::string* m_rangetypevalueex) {
+  if (m_rangetypevalueex_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_rangetypevalueex_;
+  }
+  if (m_rangetypevalueex) {
+    set_has_m_rangetypevalueex();
+    m_rangetypevalueex_ = m_rangetypevalueex;
+  } else {
+    clear_has_m_rangetypevalueex();
+    m_rangetypevalueex_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_warn = 34;
 inline bool E_SkillSkill::has_m_warn() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
+  return (_has_bits_[1] & 0x00000002u) != 0;
 }
 inline void E_SkillSkill::set_has_m_warn() {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[1] |= 0x00000002u;
 }
 inline void E_SkillSkill::clear_has_m_warn() {
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[1] &= ~0x00000002u;
 }
 inline void E_SkillSkill::clear_m_warn() {
   m_warn_ = 0;
@@ -4312,15 +4702,15 @@ inline void E_SkillSkill::set_m_warn(::google::protobuf::int32 value) {
   m_warn_ = value;
 }
 
-// optional int32 m_dazetime = 31;
+// optional int32 m_dazetime = 35;
 inline bool E_SkillSkill::has_m_dazetime() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
+  return (_has_bits_[1] & 0x00000004u) != 0;
 }
 inline void E_SkillSkill::set_has_m_dazetime() {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[1] |= 0x00000004u;
 }
 inline void E_SkillSkill::clear_has_m_dazetime() {
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[1] &= ~0x00000004u;
 }
 inline void E_SkillSkill::clear_m_dazetime() {
   m_dazetime_ = 0;
@@ -4334,15 +4724,15 @@ inline void E_SkillSkill::set_m_dazetime(::google::protobuf::int32 value) {
   m_dazetime_ = value;
 }
 
-// optional int32 m_warntime = 32;
+// optional int32 m_warntime = 36;
 inline bool E_SkillSkill::has_m_warntime() const {
-  return (_has_bits_[0] & 0x80000000u) != 0;
+  return (_has_bits_[1] & 0x00000008u) != 0;
 }
 inline void E_SkillSkill::set_has_m_warntime() {
-  _has_bits_[0] |= 0x80000000u;
+  _has_bits_[1] |= 0x00000008u;
 }
 inline void E_SkillSkill::clear_has_m_warntime() {
-  _has_bits_[0] &= ~0x80000000u;
+  _has_bits_[1] &= ~0x00000008u;
 }
 inline void E_SkillSkill::clear_m_warntime() {
   m_warntime_ = 0;
@@ -4356,15 +4746,15 @@ inline void E_SkillSkill::set_m_warntime(::google::protobuf::int32 value) {
   m_warntime_ = value;
 }
 
-// optional string m_infomationid = 33;
+// optional string m_infomationid = 37;
 inline bool E_SkillSkill::has_m_infomationid() const {
-  return (_has_bits_[1] & 0x00000001u) != 0;
+  return (_has_bits_[1] & 0x00000010u) != 0;
 }
 inline void E_SkillSkill::set_has_m_infomationid() {
-  _has_bits_[1] |= 0x00000001u;
+  _has_bits_[1] |= 0x00000010u;
 }
 inline void E_SkillSkill::clear_has_m_infomationid() {
-  _has_bits_[1] &= ~0x00000001u;
+  _has_bits_[1] &= ~0x00000010u;
 }
 inline void E_SkillSkill::clear_m_infomationid() {
   if (m_infomationid_ != &::google::protobuf::internal::kEmptyString) {
@@ -4426,15 +4816,15 @@ inline void E_SkillSkill::set_allocated_m_infomationid(::std::string* m_infomati
   }
 }
 
-// optional int32 m_attackmindistance = 34;
+// optional int32 m_attackmindistance = 38;
 inline bool E_SkillSkill::has_m_attackmindistance() const {
-  return (_has_bits_[1] & 0x00000002u) != 0;
+  return (_has_bits_[1] & 0x00000020u) != 0;
 }
 inline void E_SkillSkill::set_has_m_attackmindistance() {
-  _has_bits_[1] |= 0x00000002u;
+  _has_bits_[1] |= 0x00000020u;
 }
 inline void E_SkillSkill::clear_has_m_attackmindistance() {
-  _has_bits_[1] &= ~0x00000002u;
+  _has_bits_[1] &= ~0x00000020u;
 }
 inline void E_SkillSkill::clear_m_attackmindistance() {
   m_attackmindistance_ = 0;
@@ -4448,15 +4838,15 @@ inline void E_SkillSkill::set_m_attackmindistance(::google::protobuf::int32 valu
   m_attackmindistance_ = value;
 }
 
-// optional int32 m_goalmaxnum = 35;
+// optional int32 m_goalmaxnum = 39;
 inline bool E_SkillSkill::has_m_goalmaxnum() const {
-  return (_has_bits_[1] & 0x00000004u) != 0;
+  return (_has_bits_[1] & 0x00000040u) != 0;
 }
 inline void E_SkillSkill::set_has_m_goalmaxnum() {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[1] |= 0x00000040u;
 }
 inline void E_SkillSkill::clear_has_m_goalmaxnum() {
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[1] &= ~0x00000040u;
 }
 inline void E_SkillSkill::clear_m_goalmaxnum() {
   m_goalmaxnum_ = 0;
@@ -4470,15 +4860,15 @@ inline void E_SkillSkill::set_m_goalmaxnum(::google::protobuf::int32 value) {
   m_goalmaxnum_ = value;
 }
 
-// optional int32 m_goalmaxnummonster = 36;
+// optional int32 m_goalmaxnummonster = 40;
 inline bool E_SkillSkill::has_m_goalmaxnummonster() const {
-  return (_has_bits_[1] & 0x00000008u) != 0;
+  return (_has_bits_[1] & 0x00000080u) != 0;
 }
 inline void E_SkillSkill::set_has_m_goalmaxnummonster() {
-  _has_bits_[1] |= 0x00000008u;
+  _has_bits_[1] |= 0x00000080u;
 }
 inline void E_SkillSkill::clear_has_m_goalmaxnummonster() {
-  _has_bits_[1] &= ~0x00000008u;
+  _has_bits_[1] &= ~0x00000080u;
 }
 inline void E_SkillSkill::clear_m_goalmaxnummonster() {
   m_goalmaxnummonster_ = 0;
@@ -4492,15 +4882,15 @@ inline void E_SkillSkill::set_m_goalmaxnummonster(::google::protobuf::int32 valu
   m_goalmaxnummonster_ = value;
 }
 
-// optional int32 m_damagetype = 37;
+// optional int32 m_damagetype = 41;
 inline bool E_SkillSkill::has_m_damagetype() const {
-  return (_has_bits_[1] & 0x00000010u) != 0;
+  return (_has_bits_[1] & 0x00000100u) != 0;
 }
 inline void E_SkillSkill::set_has_m_damagetype() {
-  _has_bits_[1] |= 0x00000010u;
+  _has_bits_[1] |= 0x00000100u;
 }
 inline void E_SkillSkill::clear_has_m_damagetype() {
-  _has_bits_[1] &= ~0x00000010u;
+  _has_bits_[1] &= ~0x00000100u;
 }
 inline void E_SkillSkill::clear_m_damagetype() {
   m_damagetype_ = 0;
@@ -4514,15 +4904,15 @@ inline void E_SkillSkill::set_m_damagetype(::google::protobuf::int32 value) {
   m_damagetype_ = value;
 }
 
-// optional int32 m_damagerate = 38;
+// optional int32 m_damagerate = 42;
 inline bool E_SkillSkill::has_m_damagerate() const {
-  return (_has_bits_[1] & 0x00000020u) != 0;
+  return (_has_bits_[1] & 0x00000200u) != 0;
 }
 inline void E_SkillSkill::set_has_m_damagerate() {
-  _has_bits_[1] |= 0x00000020u;
+  _has_bits_[1] |= 0x00000200u;
 }
 inline void E_SkillSkill::clear_has_m_damagerate() {
-  _has_bits_[1] &= ~0x00000020u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline void E_SkillSkill::clear_m_damagerate() {
   m_damagerate_ = 0;
@@ -4536,15 +4926,15 @@ inline void E_SkillSkill::set_m_damagerate(::google::protobuf::int32 value) {
   m_damagerate_ = value;
 }
 
-// optional int32 m_awakedamagerate = 39;
+// optional int32 m_awakedamagerate = 43;
 inline bool E_SkillSkill::has_m_awakedamagerate() const {
-  return (_has_bits_[1] & 0x00000040u) != 0;
+  return (_has_bits_[1] & 0x00000400u) != 0;
 }
 inline void E_SkillSkill::set_has_m_awakedamagerate() {
-  _has_bits_[1] |= 0x00000040u;
+  _has_bits_[1] |= 0x00000400u;
 }
 inline void E_SkillSkill::clear_has_m_awakedamagerate() {
-  _has_bits_[1] &= ~0x00000040u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline void E_SkillSkill::clear_m_awakedamagerate() {
   m_awakedamagerate_ = 0;
@@ -4558,15 +4948,15 @@ inline void E_SkillSkill::set_m_awakedamagerate(::google::protobuf::int32 value)
   m_awakedamagerate_ = value;
 }
 
-// optional int32 m_advancetype1damagerate = 40;
+// optional int32 m_advancetype1damagerate = 44;
 inline bool E_SkillSkill::has_m_advancetype1damagerate() const {
-  return (_has_bits_[1] & 0x00000080u) != 0;
+  return (_has_bits_[1] & 0x00000800u) != 0;
 }
 inline void E_SkillSkill::set_has_m_advancetype1damagerate() {
-  _has_bits_[1] |= 0x00000080u;
+  _has_bits_[1] |= 0x00000800u;
 }
 inline void E_SkillSkill::clear_has_m_advancetype1damagerate() {
-  _has_bits_[1] &= ~0x00000080u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline void E_SkillSkill::clear_m_advancetype1damagerate() {
   m_advancetype1damagerate_ = 0;
@@ -4580,15 +4970,15 @@ inline void E_SkillSkill::set_m_advancetype1damagerate(::google::protobuf::int32
   m_advancetype1damagerate_ = value;
 }
 
-// optional int32 m_advancetype2damagerate = 41;
+// optional int32 m_advancetype2damagerate = 45;
 inline bool E_SkillSkill::has_m_advancetype2damagerate() const {
-  return (_has_bits_[1] & 0x00000100u) != 0;
+  return (_has_bits_[1] & 0x00001000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_advancetype2damagerate() {
-  _has_bits_[1] |= 0x00000100u;
+  _has_bits_[1] |= 0x00001000u;
 }
 inline void E_SkillSkill::clear_has_m_advancetype2damagerate() {
-  _has_bits_[1] &= ~0x00000100u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline void E_SkillSkill::clear_m_advancetype2damagerate() {
   m_advancetype2damagerate_ = 0;
@@ -4602,15 +4992,15 @@ inline void E_SkillSkill::set_m_advancetype2damagerate(::google::protobuf::int32
   m_advancetype2damagerate_ = value;
 }
 
-// optional int32 m_advancetype3damagerate = 42;
+// optional int32 m_advancetype3damagerate = 46;
 inline bool E_SkillSkill::has_m_advancetype3damagerate() const {
-  return (_has_bits_[1] & 0x00000200u) != 0;
+  return (_has_bits_[1] & 0x00002000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_advancetype3damagerate() {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00002000u;
 }
 inline void E_SkillSkill::clear_has_m_advancetype3damagerate() {
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00002000u;
 }
 inline void E_SkillSkill::clear_m_advancetype3damagerate() {
   m_advancetype3damagerate_ = 0;
@@ -4624,15 +5014,15 @@ inline void E_SkillSkill::set_m_advancetype3damagerate(::google::protobuf::int32
   m_advancetype3damagerate_ = value;
 }
 
-// optional int32 m_damagevalue = 43;
+// optional int32 m_damagevalue = 47;
 inline bool E_SkillSkill::has_m_damagevalue() const {
-  return (_has_bits_[1] & 0x00000400u) != 0;
+  return (_has_bits_[1] & 0x00004000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_damagevalue() {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00004000u;
 }
 inline void E_SkillSkill::clear_has_m_damagevalue() {
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00004000u;
 }
 inline void E_SkillSkill::clear_m_damagevalue() {
   m_damagevalue_ = 0;
@@ -4646,15 +5036,15 @@ inline void E_SkillSkill::set_m_damagevalue(::google::protobuf::int32 value) {
   m_damagevalue_ = value;
 }
 
-// optional float m_damageparama = 44;
+// optional float m_damageparama = 48;
 inline bool E_SkillSkill::has_m_damageparama() const {
-  return (_has_bits_[1] & 0x00000800u) != 0;
+  return (_has_bits_[1] & 0x00008000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_damageparama() {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00008000u;
 }
 inline void E_SkillSkill::clear_has_m_damageparama() {
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00008000u;
 }
 inline void E_SkillSkill::clear_m_damageparama() {
   m_damageparama_ = 0;
@@ -4668,15 +5058,15 @@ inline void E_SkillSkill::set_m_damageparama(float value) {
   m_damageparama_ = value;
 }
 
-// optional int32 m_addhitrate = 45;
+// optional int32 m_addhitrate = 49;
 inline bool E_SkillSkill::has_m_addhitrate() const {
-  return (_has_bits_[1] & 0x00001000u) != 0;
+  return (_has_bits_[1] & 0x00010000u) != 0;
 }
 inline void E_SkillSkill::set_has_m_addhitrate() {
-  _has_bits_[1] |= 0x00001000u;
+  _has_bits_[1] |= 0x00010000u;
 }
 inline void E_SkillSkill::clear_has_m_addhitrate() {
-  _has_bits_[1] &= ~0x00001000u;
+  _has_bits_[1] &= ~0x00010000u;
 }
 inline void E_SkillSkill::clear_m_addhitrate() {
   m_addhitrate_ = 0;
@@ -4690,51 +5080,7 @@ inline void E_SkillSkill::set_m_addhitrate(::google::protobuf::int32 value) {
   m_addhitrate_ = value;
 }
 
-// optional int32 m_awakeitemid = 46;
-inline bool E_SkillSkill::has_m_awakeitemid() const {
-  return (_has_bits_[1] & 0x00002000u) != 0;
-}
-inline void E_SkillSkill::set_has_m_awakeitemid() {
-  _has_bits_[1] |= 0x00002000u;
-}
-inline void E_SkillSkill::clear_has_m_awakeitemid() {
-  _has_bits_[1] &= ~0x00002000u;
-}
-inline void E_SkillSkill::clear_m_awakeitemid() {
-  m_awakeitemid_ = 0;
-  clear_has_m_awakeitemid();
-}
-inline ::google::protobuf::int32 E_SkillSkill::m_awakeitemid() const {
-  return m_awakeitemid_;
-}
-inline void E_SkillSkill::set_m_awakeitemid(::google::protobuf::int32 value) {
-  set_has_m_awakeitemid();
-  m_awakeitemid_ = value;
-}
-
-// optional int32 m_awakecostnum = 47;
-inline bool E_SkillSkill::has_m_awakecostnum() const {
-  return (_has_bits_[1] & 0x00004000u) != 0;
-}
-inline void E_SkillSkill::set_has_m_awakecostnum() {
-  _has_bits_[1] |= 0x00004000u;
-}
-inline void E_SkillSkill::clear_has_m_awakecostnum() {
-  _has_bits_[1] &= ~0x00004000u;
-}
-inline void E_SkillSkill::clear_m_awakecostnum() {
-  m_awakecostnum_ = 0;
-  clear_has_m_awakecostnum();
-}
-inline ::google::protobuf::int32 E_SkillSkill::m_awakecostnum() const {
-  return m_awakecostnum_;
-}
-inline void E_SkillSkill::set_m_awakecostnum(::google::protobuf::int32 value) {
-  set_has_m_awakecostnum();
-  m_awakecostnum_ = value;
-}
-
-// repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 48;
+// repeated .proto_ff.E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 50;
 inline int E_SkillSkill::m_advancetype1buff_size() const {
   return m_advancetype1buff_.size();
 }
@@ -4759,7 +5105,7 @@ E_SkillSkill::mutable_m_advancetype1buff() {
   return &m_advancetype1buff_;
 }
 
-// repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 49;
+// repeated .proto_ff.E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51;
 inline int E_SkillSkill::m_advancetype2buff_size() const {
   return m_advancetype2buff_.size();
 }
@@ -4784,7 +5130,7 @@ E_SkillSkill::mutable_m_advancetype2buff() {
   return &m_advancetype2buff_;
 }
 
-// repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 50;
+// repeated .proto_ff.E_SkillSkillAwakebuffDesc m_awakebuff = 52;
 inline int E_SkillSkill::m_awakebuff_size() const {
   return m_awakebuff_.size();
 }
@@ -4809,7 +5155,7 @@ E_SkillSkill::mutable_m_awakebuff() {
   return &m_awakebuff_;
 }
 
-// repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 51;
+// repeated .proto_ff.E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53;
 inline int E_SkillSkill::m_advancetype3buff_size() const {
   return m_advancetype3buff_.size();
 }
@@ -4834,7 +5180,7 @@ E_SkillSkill::mutable_m_advancetype3buff() {
   return &m_advancetype3buff_;
 }
 
-// repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 52;
+// repeated .proto_ff.E_SkillSkillBuffDesc m_buff = 54;
 inline int E_SkillSkill::m_buff_size() const {
   return m_buff_.size();
 }
@@ -5341,6 +5687,267 @@ Sheet_SkillSkillawake::e_skillskillawake_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkillawake >*
 Sheet_SkillSkillawake::mutable_e_skillskillawake_list() {
   return &e_skillskillawake_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SkillSkilladvance
+
+// optional int32 m_id = 1;
+inline bool E_SkillSkilladvance::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SkillSkilladvance::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SkillSkilladvance::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SkillSkilladvance::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SkillSkilladvance::m_id() const {
+  return m_id_;
+}
+inline void E_SkillSkilladvance::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_profession = 2;
+inline bool E_SkillSkilladvance::has_m_profession() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SkillSkilladvance::set_has_m_profession() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SkillSkilladvance::clear_has_m_profession() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SkillSkilladvance::clear_m_profession() {
+  m_profession_ = 0;
+  clear_has_m_profession();
+}
+inline ::google::protobuf::int32 E_SkillSkilladvance::m_profession() const {
+  return m_profession_;
+}
+inline void E_SkillSkilladvance::set_m_profession(::google::protobuf::int32 value) {
+  set_has_m_profession();
+  m_profession_ = value;
+}
+
+// optional int32 m_type = 3;
+inline bool E_SkillSkilladvance::has_m_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SkillSkilladvance::set_has_m_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SkillSkilladvance::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SkillSkilladvance::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SkillSkilladvance::m_type() const {
+  return m_type_;
+}
+inline void E_SkillSkilladvance::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_advancelv = 4;
+inline bool E_SkillSkilladvance::has_m_advancelv() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_SkillSkilladvance::set_has_m_advancelv() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_SkillSkilladvance::clear_has_m_advancelv() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_SkillSkilladvance::clear_m_advancelv() {
+  m_advancelv_ = 0;
+  clear_has_m_advancelv();
+}
+inline ::google::protobuf::int32 E_SkillSkilladvance::m_advancelv() const {
+  return m_advancelv_;
+}
+inline void E_SkillSkilladvance::set_m_advancelv(::google::protobuf::int32 value) {
+  set_has_m_advancelv();
+  m_advancelv_ = value;
+}
+
+// optional string m_advancecondition = 5;
+inline bool E_SkillSkilladvance::has_m_advancecondition() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_SkillSkilladvance::set_has_m_advancecondition() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_SkillSkilladvance::clear_has_m_advancecondition() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_SkillSkilladvance::clear_m_advancecondition() {
+  if (m_advancecondition_ != &::google::protobuf::internal::kEmptyString) {
+    m_advancecondition_->clear();
+  }
+  clear_has_m_advancecondition();
+}
+inline const ::std::string& E_SkillSkilladvance::m_advancecondition() const {
+  return *m_advancecondition_;
+}
+inline void E_SkillSkilladvance::set_m_advancecondition(const ::std::string& value) {
+  set_has_m_advancecondition();
+  if (m_advancecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_advancecondition_ = new ::std::string;
+  }
+  m_advancecondition_->assign(value);
+}
+inline void E_SkillSkilladvance::set_m_advancecondition(const char* value) {
+  set_has_m_advancecondition();
+  if (m_advancecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_advancecondition_ = new ::std::string;
+  }
+  m_advancecondition_->assign(value);
+}
+inline void E_SkillSkilladvance::set_m_advancecondition(const char* value, size_t size) {
+  set_has_m_advancecondition();
+  if (m_advancecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_advancecondition_ = new ::std::string;
+  }
+  m_advancecondition_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SkillSkilladvance::mutable_m_advancecondition() {
+  set_has_m_advancecondition();
+  if (m_advancecondition_ == &::google::protobuf::internal::kEmptyString) {
+    m_advancecondition_ = new ::std::string;
+  }
+  return m_advancecondition_;
+}
+inline ::std::string* E_SkillSkilladvance::release_m_advancecondition() {
+  clear_has_m_advancecondition();
+  if (m_advancecondition_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_advancecondition_;
+    m_advancecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SkillSkilladvance::set_allocated_m_advancecondition(::std::string* m_advancecondition) {
+  if (m_advancecondition_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_advancecondition_;
+  }
+  if (m_advancecondition) {
+    set_has_m_advancecondition();
+    m_advancecondition_ = m_advancecondition;
+  } else {
+    clear_has_m_advancecondition();
+    m_advancecondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_skillid = 6;
+inline bool E_SkillSkilladvance::has_m_skillid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_SkillSkilladvance::set_has_m_skillid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_SkillSkilladvance::clear_has_m_skillid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_SkillSkilladvance::clear_m_skillid() {
+  if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
+    m_skillid_->clear();
+  }
+  clear_has_m_skillid();
+}
+inline const ::std::string& E_SkillSkilladvance::m_skillid() const {
+  return *m_skillid_;
+}
+inline void E_SkillSkilladvance::set_m_skillid(const ::std::string& value) {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
+  }
+  m_skillid_->assign(value);
+}
+inline void E_SkillSkilladvance::set_m_skillid(const char* value) {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
+  }
+  m_skillid_->assign(value);
+}
+inline void E_SkillSkilladvance::set_m_skillid(const char* value, size_t size) {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
+  }
+  m_skillid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SkillSkilladvance::mutable_m_skillid() {
+  set_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    m_skillid_ = new ::std::string;
+  }
+  return m_skillid_;
+}
+inline ::std::string* E_SkillSkilladvance::release_m_skillid() {
+  clear_has_m_skillid();
+  if (m_skillid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_skillid_;
+    m_skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SkillSkilladvance::set_allocated_m_skillid(::std::string* m_skillid) {
+  if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_skillid_;
+  }
+  if (m_skillid) {
+    set_has_m_skillid();
+    m_skillid_ = m_skillid;
+  } else {
+    clear_has_m_skillid();
+    m_skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SkillSkilladvance
+
+// repeated .proto_ff.E_SkillSkilladvance E_SkillSkilladvance_List = 1;
+inline int Sheet_SkillSkilladvance::e_skillskilladvance_list_size() const {
+  return e_skillskilladvance_list_.size();
+}
+inline void Sheet_SkillSkilladvance::clear_e_skillskilladvance_list() {
+  e_skillskilladvance_list_.Clear();
+}
+inline const ::proto_ff::E_SkillSkilladvance& Sheet_SkillSkilladvance::e_skillskilladvance_list(int index) const {
+  return e_skillskilladvance_list_.Get(index);
+}
+inline ::proto_ff::E_SkillSkilladvance* Sheet_SkillSkilladvance::mutable_e_skillskilladvance_list(int index) {
+  return e_skillskilladvance_list_.Mutable(index);
+}
+inline ::proto_ff::E_SkillSkilladvance* Sheet_SkillSkilladvance::add_e_skillskilladvance_list() {
+  return e_skillskilladvance_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkilladvance >&
+Sheet_SkillSkilladvance::e_skillskilladvance_list() const {
+  return e_skillskilladvance_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SkillSkilladvance >*
+Sheet_SkillSkilladvance::mutable_e_skillskilladvance_list() {
+  return &e_skillskilladvance_list_;
 }
 
 

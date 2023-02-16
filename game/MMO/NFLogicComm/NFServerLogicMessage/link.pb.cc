@@ -115,7 +115,7 @@ void protobuf_AddDesc_link_2eproto() {
     "lock\030\005 \001(\005B\026\302\377\024\022\345\205\263\350\201\224\345\212\237\350\203\275\345\274\200\346\224\276\022$\n\tm_"
     "linknpc\030\006 \001(\tB\021\302\377\024\t\345\205\263\350\201\224npc\220\301\024<\"E\n\016Shee"
     "t_LinkLink\0223\n\017E_LinkLink_List\030\001 \003(\0132\024.pr"
-    "oto_ff.E_LinkLinkB\004\210\301\024(", 383);
+    "oto_ff.E_LinkLinkB\004\210\301\024x", 383);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "link.proto", &protobuf_RegisterTypes);
   E_LinkLink::default_instance_ = new E_LinkLink();

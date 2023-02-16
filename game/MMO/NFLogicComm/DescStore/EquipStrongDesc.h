@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/equip_s.h"
 
-#define MAX_EQUIP_STRONG_NUM 400
+#define MAX_EQUIP_STRONG_NUM 500
 
 class EquipStrongDesc : public NFIDescStore
 {

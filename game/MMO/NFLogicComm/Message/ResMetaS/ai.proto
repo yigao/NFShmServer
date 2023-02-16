@@ -25,7 +25,7 @@ message E_AiAi
 	optional int32 m_wakeupradius = 11[(yd_fieldoptions.field_cname) = "唤醒半径"];
 	optional int32 m_isaiworkwhennobody = 12[(yd_fieldoptions.field_cname) = "是否无人时启用AI"];
 	optional int32 m_borneffectaidelay = 13[(yd_fieldoptions.field_cname) = "出生AI延时"];
-	optional string m_initskills = 14[(yd_fieldoptions.field_cname) = "技能池初始技能组", (yd_fieldoptions.field_bufsize) = 100];
+	optional string m_initskills = 14[(yd_fieldoptions.field_cname) = "技能池初始技能组", (yd_fieldoptions.field_bufsize) = 60];
 	repeated E_AiAiHpDesc m_hp = 15[(yd_fieldoptions.field_cname) = "触发血量", (yd_fieldoptions.field_arysize) = 2];
 }
 

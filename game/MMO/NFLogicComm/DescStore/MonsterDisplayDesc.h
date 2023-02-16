@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/monster_s.h"
 
-#define MAX_MONSTER_DISPLAY_NUM 80
+#define MAX_MONSTER_DISPLAY_NUM 100
 
 class MonsterDisplayDesc : public NFIDescStore
 {

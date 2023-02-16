@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/item_s.h"
 
-#define MAX_ITEM_ITEM_NUM 1000
+#define MAX_ITEM_ITEM_NUM 2000
 
 class ItemItemDesc : public NFIDescStore
 {

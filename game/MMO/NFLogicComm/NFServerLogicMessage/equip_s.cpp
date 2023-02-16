@@ -322,6 +322,35 @@ void Sheet_EquipStrong_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipStrong & 
 	}
 }
 
+E_EquipStrongexpCostDesc_s::E_EquipStrongexpCostDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipStrongexpCostDesc_s::CreateInit() {
+	m_item = (int32_t)0;
+	m_num = (int32_t)0;
+	return 0;
+}
+
+int E_EquipStrongexpCostDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipStrongexpCostDesc_s::write_to_pbmsg(::proto_ff::E_EquipStrongexpCostDesc & msg) const {
+	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_num);
+}
+
+void E_EquipStrongexpCostDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipStrongexpCostDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipStrongexpCostDesc_s));
+	m_item = msg.m_item();
+	m_num = msg.m_num();
+}
+
 E_EquipStrongexp_s::E_EquipStrongexp_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -343,14 +372,12 @@ int E_EquipStrongexp_s::ResumeInit() {
 void E_EquipStrongexp_s::write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_gold((int32_t)m_gold);
-	for(int32_t i = 0; i < (int32_t)m_costitem.size(); ++i) {
-		msg.add_m_costitem((int32_t)m_costitem[i]);
+	for(int32_t i = 0; i < (int32_t)m_cost.size(); ++i) {
+		::proto_ff::E_EquipStrongexpCostDesc* temp_m_cost = msg.add_m_cost();
+		m_cost[i].write_to_pbmsg(*temp_m_cost);
 	}
 	for(int32_t i = 0; i < (int32_t)m_positiontype.size(); ++i) {
 		msg.add_m_positiontype((const char*)m_positiontype[i].data());
-	}
-	for(int32_t i = 0; i < (int32_t)m_costnum.size(); ++i) {
-		msg.add_m_costnum((int32_t)m_costnum[i]);
 	}
 }
 
@@ -358,17 +385,14 @@ void E_EquipStrongexp_s::read_from_pbmsg(const ::proto_ff::E_EquipStrongexp & ms
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipStrongexp_s));
 	m_lv = msg.m_lv();
 	m_gold = msg.m_gold();
-	m_costitem.resize((int)msg.m_costitem_size() > (int)m_costitem.max_size() ? m_costitem.max_size() : msg.m_costitem_size());
-	for(int32_t i = 0; i < (int32_t)m_costitem.size(); ++i) {
-		m_costitem[i] = msg.m_costitem(i);
+	m_cost.resize((int)msg.m_cost_size() > (int)m_cost.max_size() ? m_cost.max_size() : msg.m_cost_size());
+	for(int32_t i = 0; i < (int32_t)m_cost.size(); ++i) {
+		const ::proto_ff::E_EquipStrongexpCostDesc & temp_m_cost = msg.m_cost(i);
+		m_cost[i].read_from_pbmsg(temp_m_cost);
 	}
 	m_positiontype.resize((int)msg.m_positiontype_size() > (int)m_positiontype.max_size() ? m_positiontype.max_size() : msg.m_positiontype_size());
 	for(int32_t i = 0; i < (int32_t)m_positiontype.size(); ++i) {
 		m_positiontype[i] = msg.m_positiontype(i);
-	}
-	m_costnum.resize((int)msg.m_costnum_size() > (int)m_costnum.max_size() ? m_costnum.max_size() : msg.m_costnum_size());
-	for(int32_t i = 0; i < (int32_t)m_costnum.size(); ++i) {
-		m_costnum[i] = msg.m_costnum(i);
 	}
 }
 
@@ -532,6 +556,8 @@ void E_EquipGem_s::write_to_pbmsg(::proto_ff::E_EquipGem & msg) const {
 	msg.set_m_speciallygemtype((int32_t)m_speciallygemtype);
 	msg.set_m_payunlockitem((int32_t)m_payunlockitem);
 	msg.set_m_payunlocknnm((int32_t)m_payunlocknnm);
+	msg.set_m_commongembuy((const char*)m_commongembuy.data());
+	msg.set_m_speciallygembuy((const char*)m_speciallygembuy.data());
 	for(int32_t i = 0; i < (int32_t)m_gemunlock.size(); ++i) {
 		msg.add_m_gemunlock((int32_t)m_gemunlock[i]);
 	}
@@ -544,6 +570,8 @@ void E_EquipGem_s::read_from_pbmsg(const ::proto_ff::E_EquipGem & msg) {
 	m_speciallygemtype = msg.m_speciallygemtype();
 	m_payunlockitem = msg.m_payunlockitem();
 	m_payunlocknnm = msg.m_payunlocknnm();
+	m_commongembuy = msg.m_commongembuy();
+	m_speciallygembuy = msg.m_speciallygembuy();
 	m_gemunlock.resize((int)msg.m_gemunlock_size() > (int)m_gemunlock.max_size() ? m_gemunlock.max_size() : msg.m_gemunlock_size());
 	for(int32_t i = 0; i < (int32_t)m_gemunlock.size(); ++i) {
 		m_gemunlock[i] = msg.m_gemunlock(i);
@@ -579,6 +607,75 @@ void Sheet_EquipGem_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipGem & msg) {
 	for(int32_t i = 0; i < (int32_t)E_EquipGem_List.size(); ++i) {
 		const ::proto_ff::E_EquipGem & temp_e_equipgem_list = msg.e_equipgem_list(i);
 		E_EquipGem_List[i].read_from_pbmsg(temp_e_equipgem_list);
+	}
+}
+
+E_EquipGemlv_s::E_EquipGemlv_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipGemlv_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_nextid = (int32_t)0;
+	m_nextvalue = (int32_t)0;
+	m_costgold = (int32_t)0;
+	return 0;
+}
+
+int E_EquipGemlv_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipGemlv_s::write_to_pbmsg(::proto_ff::E_EquipGemlv & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_nextid((int32_t)m_nextid);
+	msg.set_m_numb((const char*)m_numb.data());
+	msg.set_m_nextvalue((int32_t)m_nextvalue);
+	msg.set_m_costgold((int32_t)m_costgold);
+}
+
+void E_EquipGemlv_s::read_from_pbmsg(const ::proto_ff::E_EquipGemlv & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipGemlv_s));
+	m_id = msg.m_id();
+	m_nextid = msg.m_nextid();
+	m_numb = msg.m_numb();
+	m_nextvalue = msg.m_nextvalue();
+	m_costgold = msg.m_costgold();
+}
+
+Sheet_EquipGemlv_s::Sheet_EquipGemlv_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_EquipGemlv_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_EquipGemlv_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_EquipGemlv_s::write_to_pbmsg(::proto_ff::Sheet_EquipGemlv & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_EquipGemlv_List.size(); ++i) {
+		::proto_ff::E_EquipGemlv* temp_e_equipgemlv_list = msg.add_e_equipgemlv_list();
+		E_EquipGemlv_List[i].write_to_pbmsg(*temp_e_equipgemlv_list);
+	}
+}
+
+void Sheet_EquipGemlv_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipGemlv & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_EquipGemlv_s));
+	E_EquipGemlv_List.resize((int)msg.e_equipgemlv_list_size() > (int)E_EquipGemlv_List.max_size() ? E_EquipGemlv_List.max_size() : msg.e_equipgemlv_list_size());
+	for(int32_t i = 0; i < (int32_t)E_EquipGemlv_List.size(); ++i) {
+		const ::proto_ff::E_EquipGemlv & temp_e_equipgemlv_list = msg.e_equipgemlv_list(i);
+		E_EquipGemlv_List[i].read_from_pbmsg(temp_e_equipgemlv_list);
 	}
 }
 
@@ -803,6 +900,375 @@ void Sheet_EquipGrade_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipGrade & ms
 	for(int32_t i = 0; i < (int32_t)E_EquipGrade_List.size(); ++i) {
 		const ::proto_ff::E_EquipGrade & temp_e_equipgrade_list = msg.e_equipgrade_list(i);
 		E_EquipGrade_List[i].read_from_pbmsg(temp_e_equipgrade_list);
+	}
+}
+
+E_EquipClearAttributeDesc_s::E_EquipClearAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipClearAttributeDesc_s::CreateInit() {
+	return 0;
+}
+
+int E_EquipClearAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipClearAttributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipClearAttributeDesc & msg) const {
+	msg.set_m_value((const char*)m_value.data());
+}
+
+void E_EquipClearAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipClearAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipClearAttributeDesc_s));
+	m_value = msg.m_value();
+}
+
+E_EquipClearSectionDesc_s::E_EquipClearSectionDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipClearSectionDesc_s::CreateInit() {
+	m_p = (int32_t)0;
+	return 0;
+}
+
+int E_EquipClearSectionDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipClearSectionDesc_s::write_to_pbmsg(::proto_ff::E_EquipClearSectionDesc & msg) const {
+	msg.set_m_down((const char*)m_down.data());
+	msg.set_m_p((int32_t)m_p);
+	msg.set_m_type((const char*)m_type.data());
+	msg.set_m_up((const char*)m_up.data());
+	msg.set_m_g((const char*)m_g.data());
+}
+
+void E_EquipClearSectionDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipClearSectionDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipClearSectionDesc_s));
+	m_down = msg.m_down();
+	m_p = msg.m_p();
+	m_type = msg.m_type();
+	m_up = msg.m_up();
+	m_g = msg.m_g();
+}
+
+E_EquipClear_s::E_EquipClear_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipClear_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_consumeid = (int64_t)0;
+	return 0;
+}
+
+int E_EquipClear_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipClear_s::write_to_pbmsg(::proto_ff::E_EquipClear & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_value((const char*)m_value.data());
+	msg.set_m_consumeid((int64_t)m_consumeid);
+	msg.set_m_consumenum((const char*)m_consumenum.data());
+	msg.set_m_lockingid((const char*)m_lockingid.data());
+	msg.set_m_lockingnum((const char*)m_lockingnum.data());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_EquipClearAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+	for(int32_t i = 0; i < (int32_t)m_section.size(); ++i) {
+		::proto_ff::E_EquipClearSectionDesc* temp_m_section = msg.add_m_section();
+		m_section[i].write_to_pbmsg(*temp_m_section);
+	}
+}
+
+void E_EquipClear_s::read_from_pbmsg(const ::proto_ff::E_EquipClear & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipClear_s));
+	m_id = msg.m_id();
+	m_value = msg.m_value();
+	m_consumeid = msg.m_consumeid();
+	m_consumenum = msg.m_consumenum();
+	m_lockingid = msg.m_lockingid();
+	m_lockingnum = msg.m_lockingnum();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_EquipClearAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_section.resize((int)msg.m_section_size() > (int)m_section.max_size() ? m_section.max_size() : msg.m_section_size());
+	for(int32_t i = 0; i < (int32_t)m_section.size(); ++i) {
+		const ::proto_ff::E_EquipClearSectionDesc & temp_m_section = msg.m_section(i);
+		m_section[i].read_from_pbmsg(temp_m_section);
+	}
+}
+
+Sheet_EquipClear_s::Sheet_EquipClear_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_EquipClear_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_EquipClear_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_EquipClear_s::write_to_pbmsg(::proto_ff::Sheet_EquipClear & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_EquipClear_List.size(); ++i) {
+		::proto_ff::E_EquipClear* temp_e_equipclear_list = msg.add_e_equipclear_list();
+		E_EquipClear_List[i].write_to_pbmsg(*temp_e_equipclear_list);
+	}
+}
+
+void Sheet_EquipClear_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipClear & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_EquipClear_s));
+	E_EquipClear_List.resize((int)msg.e_equipclear_list_size() > (int)E_EquipClear_List.max_size() ? E_EquipClear_List.max_size() : msg.e_equipclear_list_size());
+	for(int32_t i = 0; i < (int32_t)E_EquipClear_List.size(); ++i) {
+		const ::proto_ff::E_EquipClear & temp_e_equipclear_list = msg.e_equipclear_list(i);
+		E_EquipClear_List[i].read_from_pbmsg(temp_e_equipclear_list);
+	}
+}
+
+E_EquipSuitAttributeDesc_s::E_EquipSuitAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipSuitAttributeDesc_s::CreateInit() {
+	m_sctivation = (int32_t)0;
+	return 0;
+}
+
+int E_EquipSuitAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipSuitAttributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipSuitAttributeDesc & msg) const {
+	msg.set_m_sctivation((int32_t)m_sctivation);
+}
+
+void E_EquipSuitAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipSuitAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipSuitAttributeDesc_s));
+	m_sctivation = msg.m_sctivation();
+}
+
+E_EquipSuit_s::E_EquipSuit_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipSuit_s::CreateInit() {
+	m_id = (int64_t)0;
+	m_suitlv = (int32_t)0;
+	m_level = (int32_t)0;
+	m_colour = (int32_t)0;
+	m_suitevalue = (int32_t)0;
+	return 0;
+}
+
+int E_EquipSuit_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipSuit_s::write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const {
+	msg.set_m_id((int64_t)m_id);
+	msg.set_m_profession((const char*)m_profession.data());
+	msg.set_m_suitlv((int32_t)m_suitlv);
+	msg.set_m_level((int32_t)m_level);
+	msg.set_m_colour((int32_t)m_colour);
+	msg.set_m_aftername((const char*)m_aftername.data());
+	msg.set_m_suitevalue((int32_t)m_suitevalue);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_EquipSuitAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+	for(int32_t i = 0; i < (int32_t)m_position.size(); ++i) {
+		msg.add_m_position((const char*)m_position[i].data());
+	}
+}
+
+void E_EquipSuit_s::read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipSuit_s));
+	m_id = msg.m_id();
+	m_profession = msg.m_profession();
+	m_suitlv = msg.m_suitlv();
+	m_level = msg.m_level();
+	m_colour = msg.m_colour();
+	m_aftername = msg.m_aftername();
+	m_suitevalue = msg.m_suitevalue();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_EquipSuitAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_position.resize((int)msg.m_position_size() > (int)m_position.max_size() ? m_position.max_size() : msg.m_position_size());
+	for(int32_t i = 0; i < (int32_t)m_position.size(); ++i) {
+		m_position[i] = msg.m_position(i);
+	}
+}
+
+Sheet_EquipSuit_s::Sheet_EquipSuit_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_EquipSuit_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_EquipSuit_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_EquipSuit_s::write_to_pbmsg(::proto_ff::Sheet_EquipSuit & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_EquipSuit_List.size(); ++i) {
+		::proto_ff::E_EquipSuit* temp_e_equipsuit_list = msg.add_e_equipsuit_list();
+		E_EquipSuit_List[i].write_to_pbmsg(*temp_e_equipsuit_list);
+	}
+}
+
+void Sheet_EquipSuit_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipSuit & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_EquipSuit_s));
+	E_EquipSuit_List.resize((int)msg.e_equipsuit_list_size() > (int)E_EquipSuit_List.max_size() ? E_EquipSuit_List.max_size() : msg.e_equipsuit_list_size());
+	for(int32_t i = 0; i < (int32_t)E_EquipSuit_List.size(); ++i) {
+		const ::proto_ff::E_EquipSuit & temp_e_equipsuit_list = msg.e_equipsuit_list(i);
+		E_EquipSuit_List[i].read_from_pbmsg(temp_e_equipsuit_list);
+	}
+}
+
+E_EquipBreakBreakDesc_s::E_EquipBreakBreakDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipBreakBreakDesc_s::CreateInit() {
+	m_item = (int32_t)0;
+	m_num = (int32_t)0;
+	return 0;
+}
+
+int E_EquipBreakBreakDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipBreakBreakDesc_s::write_to_pbmsg(::proto_ff::E_EquipBreakBreakDesc & msg) const {
+	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_num);
+}
+
+void E_EquipBreakBreakDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipBreakBreakDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipBreakBreakDesc_s));
+	m_item = msg.m_item();
+	m_num = msg.m_num();
+}
+
+E_EquipBreak_s::E_EquipBreak_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipBreak_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_step = (int32_t)0;
+	m_basic = (int32_t)0;
+	m_star = (int32_t)0;
+	return 0;
+}
+
+int E_EquipBreak_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipBreak_s::write_to_pbmsg(::proto_ff::E_EquipBreak & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_step((int32_t)m_step);
+	msg.set_m_positiontype((const char*)m_positiontype.data());
+	msg.set_m_basic((int32_t)m_basic);
+	msg.set_m_star((int32_t)m_star);
+	for(int32_t i = 0; i < (int32_t)m_break.size(); ++i) {
+		::proto_ff::E_EquipBreakBreakDesc* temp_m_break = msg.add_m_break();
+		m_break[i].write_to_pbmsg(*temp_m_break);
+	}
+}
+
+void E_EquipBreak_s::read_from_pbmsg(const ::proto_ff::E_EquipBreak & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipBreak_s));
+	m_lv = msg.m_lv();
+	m_step = msg.m_step();
+	m_positiontype = msg.m_positiontype();
+	m_basic = msg.m_basic();
+	m_star = msg.m_star();
+	m_break.resize((int)msg.m_break_size() > (int)m_break.max_size() ? m_break.max_size() : msg.m_break_size());
+	for(int32_t i = 0; i < (int32_t)m_break.size(); ++i) {
+		const ::proto_ff::E_EquipBreakBreakDesc & temp_m_break = msg.m_break(i);
+		m_break[i].read_from_pbmsg(temp_m_break);
+	}
+}
+
+Sheet_EquipBreak_s::Sheet_EquipBreak_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_EquipBreak_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_EquipBreak_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_EquipBreak_s::write_to_pbmsg(::proto_ff::Sheet_EquipBreak & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_EquipBreak_List.size(); ++i) {
+		::proto_ff::E_EquipBreak* temp_e_equipbreak_list = msg.add_e_equipbreak_list();
+		E_EquipBreak_List[i].write_to_pbmsg(*temp_e_equipbreak_list);
+	}
+}
+
+void Sheet_EquipBreak_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipBreak & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_EquipBreak_s));
+	E_EquipBreak_List.resize((int)msg.e_equipbreak_list_size() > (int)E_EquipBreak_List.max_size() ? E_EquipBreak_List.max_size() : msg.e_equipbreak_list_size());
+	for(int32_t i = 0; i < (int32_t)E_EquipBreak_List.size(); ++i) {
+		const ::proto_ff::E_EquipBreak & temp_e_equipbreak_list = msg.e_equipbreak_list(i);
+		E_EquipBreak_List[i].read_from_pbmsg(temp_e_equipbreak_list);
 	}
 }
 

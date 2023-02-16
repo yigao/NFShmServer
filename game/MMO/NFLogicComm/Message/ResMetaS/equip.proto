@@ -57,7 +57,7 @@ message E_EquipEquip
 
 message Sheet_EquipEquip
 {
-	repeated E_EquipEquip E_EquipEquip_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_EquipEquip E_EquipEquip_List = 1[(yd_fieldoptions.field_arysize)=160];
 }
 
 message E_EquipStrongTypeDesc
@@ -78,16 +78,21 @@ message E_EquipStrong
 
 message Sheet_EquipStrong
 {
-	repeated E_EquipStrong E_EquipStrong_List = 1[(yd_fieldoptions.field_arysize)=400];
+	repeated E_EquipStrong E_EquipStrong_List = 1[(yd_fieldoptions.field_arysize)=500];
+}
+
+message E_EquipStrongexpCostDesc
+{
+	optional int32 m_item = 1[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "道具数量"];
 }
 
 message E_EquipStrongexp
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
 	optional int32 m_gold = 2[(yd_fieldoptions.field_cname) = "强化消耗金币"];
-	repeated int32 m_costitem = 3[(yd_fieldoptions.field_cname) = "部位类型9999消耗道具", (yd_fieldoptions.field_arysize) = 2];
-	repeated string m_positiontype = 4[(yd_fieldoptions.field_cname) = "部位类型", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 60];
-	repeated int32 m_costnum = 5[(yd_fieldoptions.field_cname) = "部位类型9999道具数量", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_EquipStrongexpCostDesc m_cost = 3[(yd_fieldoptions.field_cname) = "部位类型", (yd_fieldoptions.field_arysize) = 3];
+	repeated string m_positiontype = 4[(yd_fieldoptions.field_cname) = "部位类型", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
@@ -113,7 +118,7 @@ message E_EquipStrongtotal
 
 message Sheet_EquipStrongtotal
 {
-	repeated E_EquipStrongtotal E_EquipStrongtotal_List = 1[(yd_fieldoptions.field_arysize)=300];
+	repeated E_EquipStrongtotal E_EquipStrongtotal_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message E_EquipGem
@@ -123,13 +128,30 @@ message E_EquipGem
 	optional int32 m_speciallygemtype = 3[(yd_fieldoptions.field_cname) = "特殊槽位宝石类型"];
 	optional int32 m_payunlockitem = 4[(yd_fieldoptions.field_cname) = "付费解锁槽道具"];
 	optional int32 m_payunlocknnm = 5[(yd_fieldoptions.field_cname) = "解锁道具数量"];
-	repeated int32 m_gemunlock = 6[(yd_fieldoptions.field_cname) = "装备槽解锁品阶", (yd_fieldoptions.field_arysize) = 5];
+	optional string m_commongembuy = 6[(yd_fieldoptions.field_cname) = "普通槽位快捷购买", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_speciallygembuy = 7[(yd_fieldoptions.field_cname) = "特殊槽位快捷购买", (yd_fieldoptions.field_bufsize) = 60];
+	repeated int32 m_gemunlock = 8[(yd_fieldoptions.field_cname) = "装备槽解锁品阶", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
 message Sheet_EquipGem
 {
 	repeated E_EquipGem E_EquipGem_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_EquipGemlv
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_nextid = 2[(yd_fieldoptions.field_cname) = "下级宝石ID"];
+	optional string m_numb = 3[(yd_fieldoptions.field_cname) = "对应一级宝石数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_nextvalue = 4[(yd_fieldoptions.field_cname) = "下级差值"];
+	optional int32 m_costgold = 5[(yd_fieldoptions.field_cname) = "下级消耗金币"];
+}
+
+
+message Sheet_EquipGemlv
+{
+	repeated E_EquipGemlv E_EquipGemlv_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message E_EquipStoveattAttributeDesc
@@ -174,4 +196,82 @@ message E_EquipGrade
 message Sheet_EquipGrade
 {
 	repeated E_EquipGrade E_EquipGrade_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message E_EquipClearAttributeDesc
+{
+	optional string m_value = 1[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+message E_EquipClearSectionDesc
+{
+	optional string m_down = 1[(yd_fieldoptions.field_cname) = "最小值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_p = 2[(yd_fieldoptions.field_cname) = "普通洗练"];
+	optional string m_type = 3[(yd_fieldoptions.field_cname) = "库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_up = 4[(yd_fieldoptions.field_cname) = "最大值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_g = 5[(yd_fieldoptions.field_cname) = "高级洗练", (yd_fieldoptions.field_bufsize) = 60];
+}
+
+message E_EquipClear
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "洗练数据id"];
+	optional string m_value = 2[(yd_fieldoptions.field_cname) = "开孔绑钻花费", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 m_consumeid = 3[(yd_fieldoptions.field_cname) = "消耗道具ID"];
+	optional string m_consumenum = 4[(yd_fieldoptions.field_cname) = "消耗道具数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_lockingid = 5[(yd_fieldoptions.field_cname) = "高级道具ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_lockingnum = 6[(yd_fieldoptions.field_cname) = "高级道具数量", (yd_fieldoptions.field_bufsize) = 60];
+	repeated E_EquipClearAttributeDesc m_attribute = 7[(yd_fieldoptions.field_cname) = "属性达标激活", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_EquipClearSectionDesc m_section = 8[(yd_fieldoptions.field_cname) = "属性类型", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_EquipClear
+{
+	repeated E_EquipClear E_EquipClear_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_EquipSuitAttributeDesc
+{
+	optional int32 m_sctivation = 1[(yd_fieldoptions.field_cname) = "穿戴数量"];
+}
+
+message E_EquipSuit
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "套装ID"];
+	optional string m_profession = 2[(yd_fieldoptions.field_cname) = "职业", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_suitlv = 3[(yd_fieldoptions.field_cname) = "套装等级"];
+	optional int32 m_level = 4[(yd_fieldoptions.field_cname) = "套装打造等级"];
+	optional int32 m_colour = 5[(yd_fieldoptions.field_cname) = "套装打造品质"];
+	optional string m_aftername = 6[(yd_fieldoptions.field_cname) = "套装命前缀", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_suitevalue = 7[(yd_fieldoptions.field_cname) = "套装套件数量"];
+	repeated E_EquipSuitAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "套件激活属性", (yd_fieldoptions.field_arysize) = 3];
+	repeated string m_position = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_arysize) = 10, (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_EquipSuit
+{
+	repeated E_EquipSuit E_EquipSuit_List = 1[(yd_fieldoptions.field_arysize)=120];
+}
+
+message E_EquipBreakBreakDesc
+{
+	optional int32 m_item = 1[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+message E_EquipBreak
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_step = 2[(yd_fieldoptions.field_cname) = "阶数"];
+	optional string m_positiontype = 3[(yd_fieldoptions.field_cname) = "部位类型", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_basic = 4[(yd_fieldoptions.field_cname) = "提升基础属性万分比"];
+	optional int32 m_star = 5[(yd_fieldoptions.field_cname) = "提升星级属性万分比"];
+	repeated E_EquipBreakBreakDesc m_break = 6[(yd_fieldoptions.field_cname) = "突破消耗", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_EquipBreak
+{
+	repeated E_EquipBreak E_EquipBreak_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

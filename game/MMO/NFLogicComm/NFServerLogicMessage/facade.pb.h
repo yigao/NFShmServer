@@ -58,6 +58,7 @@ class Sheet_FacadeStarup;
 class E_FacadeSoulAttributeDesc;
 class E_FacadeSoul;
 class Sheet_FacadeSoul;
+class E_FacadeSoulactiveUnlockDesc;
 class E_FacadeSoulactive;
 class Sheet_FacadeSoulactive;
 class E_FacadeSoullvAttributeDesc;
@@ -288,12 +289,12 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional int32 m_soulitemid = 8;
-  inline bool has_m_soulitemid() const;
-  inline void clear_m_soulitemid();
-  static const int kMSoulitemidFieldNumber = 8;
-  inline ::google::protobuf::int32 m_soulitemid() const;
-  inline void set_m_soulitemid(::google::protobuf::int32 value);
+  // optional int32 m_souliid = 8;
+  inline bool has_m_souliid() const;
+  inline void clear_m_souliid();
+  static const int kMSouliidFieldNumber = 8;
+  inline ::google::protobuf::int32 m_souliid() const;
+  inline void set_m_souliid(::google::protobuf::int32 value);
 
   // repeated .proto_ff.E_FacadeDisplayMaterialDesc m_material = 9;
   inline int m_material_size() const;
@@ -335,8 +336,8 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline void clear_has_m_professionid();
   inline void set_has_m_skillid();
   inline void clear_has_m_skillid();
-  inline void set_has_m_soulitemid();
-  inline void clear_has_m_soulitemid();
+  inline void set_has_m_souliid();
+  inline void clear_has_m_souliid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -345,7 +346,7 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   ::std::string* m_name_;
   ::std::string* m_activedesc_;
   ::google::protobuf::int32 m_type_;
-  ::google::protobuf::int32 m_soulitemid_;
+  ::google::protobuf::int32 m_souliid_;
   ::std::string* m_professionid_;
   ::std::string* m_skillid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc > m_material_;
@@ -2560,10 +2561,22 @@ class E_FacadeSoul : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_mainskill() const;
   inline void set_m_mainskill(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+  // optional string m_attributetype = 4;
+  inline bool has_m_attributetype() const;
+  inline void clear_m_attributetype();
+  static const int kMAttributetypeFieldNumber = 4;
+  inline const ::std::string& m_attributetype() const;
+  inline void set_m_attributetype(const ::std::string& value);
+  inline void set_m_attributetype(const char* value);
+  inline void set_m_attributetype(const char* value, size_t size);
+  inline ::std::string* mutable_m_attributetype();
+  inline ::std::string* release_m_attributetype();
+  inline void set_allocated_m_attributetype(::std::string* m_attributetype);
+
+  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 5;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 4;
+  static const int kMAttributeFieldNumber = 5;
   inline const ::proto_ff::E_FacadeSoulAttributeDesc& m_attribute(int index) const;
   inline ::proto_ff::E_FacadeSoulAttributeDesc* mutable_m_attribute(int index);
   inline ::proto_ff::E_FacadeSoulAttributeDesc* add_m_attribute();
@@ -2572,10 +2585,10 @@ class E_FacadeSoul : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated int32 m_minorskill = 5;
+  // repeated int32 m_minorskill = 6;
   inline int m_minorskill_size() const;
   inline void clear_m_minorskill();
-  static const int kMMinorskillFieldNumber = 5;
+  static const int kMMinorskillFieldNumber = 6;
   inline ::google::protobuf::int32 m_minorskill(int index) const;
   inline void set_m_minorskill(int index, ::google::protobuf::int32 value);
   inline void add_m_minorskill(::google::protobuf::int32 value);
@@ -2592,17 +2605,20 @@ class E_FacadeSoul : public ::google::protobuf::Message {
   inline void clear_has_m_rechargeid();
   inline void set_has_m_mainskill();
   inline void clear_has_m_mainskill();
+  inline void set_has_m_attributetype();
+  inline void clear_has_m_attributetype();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 m_id_;
   ::google::protobuf::int32 m_rechargeid_;
   ::google::protobuf::int32 m_mainskill_;
+  ::std::string* m_attributetype_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulAttributeDesc > m_attribute_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_minorskill_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_facade_2eproto();
   friend void protobuf_AssignDesc_facade_2eproto();
@@ -2698,6 +2714,103 @@ class Sheet_FacadeSoul : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class E_FacadeSoulactiveUnlockDesc : public ::google::protobuf::Message {
+ public:
+  E_FacadeSoulactiveUnlockDesc();
+  virtual ~E_FacadeSoulactiveUnlockDesc();
+
+  E_FacadeSoulactiveUnlockDesc(const E_FacadeSoulactiveUnlockDesc& from);
+
+  inline E_FacadeSoulactiveUnlockDesc& operator=(const E_FacadeSoulactiveUnlockDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FacadeSoulactiveUnlockDesc& default_instance();
+
+  void Swap(E_FacadeSoulactiveUnlockDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FacadeSoulactiveUnlockDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FacadeSoulactiveUnlockDesc& from);
+  void MergeFrom(const E_FacadeSoulactiveUnlockDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string m_parama = 1;
+  inline bool has_m_parama() const;
+  inline void clear_m_parama();
+  static const int kMParamaFieldNumber = 1;
+  inline const ::std::string& m_parama() const;
+  inline void set_m_parama(const ::std::string& value);
+  inline void set_m_parama(const char* value);
+  inline void set_m_parama(const char* value, size_t size);
+  inline ::std::string* mutable_m_parama();
+  inline ::std::string* release_m_parama();
+  inline void set_allocated_m_parama(::std::string* m_parama);
+
+  // optional int32 m_condition = 2;
+  inline bool has_m_condition() const;
+  inline void clear_m_condition();
+  static const int kMConditionFieldNumber = 2;
+  inline ::google::protobuf::int32 m_condition() const;
+  inline void set_m_condition(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoulactiveUnlockDesc)
+ private:
+  inline void set_has_m_parama();
+  inline void clear_has_m_parama();
+  inline void set_has_m_condition();
+  inline void clear_has_m_condition();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* m_parama_;
+  ::google::protobuf::int32 m_condition_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_facade_2eproto();
+  friend void protobuf_AssignDesc_facade_2eproto();
+  friend void protobuf_ShutdownFile_facade_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FacadeSoulactiveUnlockDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class E_FacadeSoulactive : public ::google::protobuf::Message {
  public:
   E_FacadeSoulactive();
@@ -2759,33 +2872,17 @@ class E_FacadeSoulactive : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // repeated string m_parama = 2;
-  inline int m_parama_size() const;
-  inline void clear_m_parama();
-  static const int kMParamaFieldNumber = 2;
-  inline const ::std::string& m_parama(int index) const;
-  inline ::std::string* mutable_m_parama(int index);
-  inline void set_m_parama(int index, const ::std::string& value);
-  inline void set_m_parama(int index, const char* value);
-  inline void set_m_parama(int index, const char* value, size_t size);
-  inline ::std::string* add_m_parama();
-  inline void add_m_parama(const ::std::string& value);
-  inline void add_m_parama(const char* value);
-  inline void add_m_parama(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_parama() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_parama();
-
-  // repeated int32 m_condition = 3;
-  inline int m_condition_size() const;
-  inline void clear_m_condition();
-  static const int kMConditionFieldNumber = 3;
-  inline ::google::protobuf::int32 m_condition(int index) const;
-  inline void set_m_condition(int index, ::google::protobuf::int32 value);
-  inline void add_m_condition(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      m_condition() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_m_condition();
+  // repeated .proto_ff.E_FacadeSoulactiveUnlockDesc m_unlock = 2;
+  inline int m_unlock_size() const;
+  inline void clear_m_unlock();
+  static const int kMUnlockFieldNumber = 2;
+  inline const ::proto_ff::E_FacadeSoulactiveUnlockDesc& m_unlock(int index) const;
+  inline ::proto_ff::E_FacadeSoulactiveUnlockDesc* mutable_m_unlock(int index);
+  inline ::proto_ff::E_FacadeSoulactiveUnlockDesc* add_m_unlock();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactiveUnlockDesc >&
+      m_unlock() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactiveUnlockDesc >*
+      mutable_m_unlock();
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_FacadeSoulactive)
  private:
@@ -2795,11 +2892,10 @@ class E_FacadeSoulactive : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 m_id_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> m_parama_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_condition_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactiveUnlockDesc > m_unlock_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_facade_2eproto();
   friend void protobuf_AssignDesc_facade_2eproto();
@@ -3048,45 +3144,52 @@ class E_FacadeSoullv : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulllv = 2;
+  inline bool has_m_soulllv() const;
+  inline void clear_m_soulllv();
+  static const int kMSoulllvFieldNumber = 2;
+  inline ::google::protobuf::int32 m_soulllv() const;
+  inline void set_m_soulllv(::google::protobuf::int32 value);
+
+  // optional int32 m_soulid = 3;
   inline bool has_m_soulid() const;
   inline void clear_m_soulid();
-  static const int kMSoulidFieldNumber = 2;
+  static const int kMSoulidFieldNumber = 3;
   inline ::google::protobuf::int32 m_soulid() const;
   inline void set_m_soulid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemid = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 3;
+  static const int kMItemidFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_num = 4;
+  // optional int32 m_num = 5;
   inline bool has_m_num() const;
   inline void clear_m_num();
-  static const int kMNumFieldNumber = 4;
+  static const int kMNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_successrate = 5;
+  // optional int32 m_successrate = 6;
   inline bool has_m_successrate() const;
   inline void clear_m_successrate();
-  static const int kMSuccessrateFieldNumber = 5;
+  static const int kMSuccessrateFieldNumber = 6;
   inline ::google::protobuf::int32 m_successrate() const;
   inline void set_m_successrate(::google::protobuf::int32 value);
 
-  // optional int32 m_downlv = 6;
+  // optional int32 m_downlv = 7;
   inline bool has_m_downlv() const;
   inline void clear_m_downlv();
-  static const int kMDownlvFieldNumber = 6;
+  static const int kMDownlvFieldNumber = 7;
   inline ::google::protobuf::int32 m_downlv() const;
   inline void set_m_downlv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 8;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 7;
+  static const int kMAttributeFieldNumber = 8;
   inline const ::proto_ff::E_FacadeSoullvAttributeDesc& m_attribute(int index) const;
   inline ::proto_ff::E_FacadeSoullvAttributeDesc* mutable_m_attribute(int index);
   inline ::proto_ff::E_FacadeSoullvAttributeDesc* add_m_attribute();
@@ -3099,6 +3202,8 @@ class E_FacadeSoullv : public ::google::protobuf::Message {
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
+  inline void set_has_m_soulllv();
+  inline void clear_has_m_soulllv();
   inline void set_has_m_soulid();
   inline void clear_has_m_soulid();
   inline void set_has_m_itemid();
@@ -3113,15 +3218,16 @@ class E_FacadeSoullv : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_soulllv_;
   ::google::protobuf::int32 m_soulid_;
   ::google::protobuf::int32 m_itemid_;
   ::google::protobuf::int32 m_num_;
   ::google::protobuf::int32 m_successrate_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc > m_attribute_;
   ::google::protobuf::int32 m_downlv_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoullvAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_facade_2eproto();
   friend void protobuf_AssignDesc_facade_2eproto();
@@ -3881,26 +3987,26 @@ inline void E_FacadeDisplay::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional int32 m_soulitemid = 8;
-inline bool E_FacadeDisplay::has_m_soulitemid() const {
+// optional int32 m_souliid = 8;
+inline bool E_FacadeDisplay::has_m_souliid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void E_FacadeDisplay::set_has_m_soulitemid() {
+inline void E_FacadeDisplay::set_has_m_souliid() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void E_FacadeDisplay::clear_has_m_soulitemid() {
+inline void E_FacadeDisplay::clear_has_m_souliid() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void E_FacadeDisplay::clear_m_soulitemid() {
-  m_soulitemid_ = 0;
-  clear_has_m_soulitemid();
+inline void E_FacadeDisplay::clear_m_souliid() {
+  m_souliid_ = 0;
+  clear_has_m_souliid();
 }
-inline ::google::protobuf::int32 E_FacadeDisplay::m_soulitemid() const {
-  return m_soulitemid_;
+inline ::google::protobuf::int32 E_FacadeDisplay::m_souliid() const {
+  return m_souliid_;
 }
-inline void E_FacadeDisplay::set_m_soulitemid(::google::protobuf::int32 value) {
-  set_has_m_soulitemid();
-  m_soulitemid_ = value;
+inline void E_FacadeDisplay::set_m_souliid(::google::protobuf::int32 value) {
+  set_has_m_souliid();
+  m_souliid_ = value;
 }
 
 // repeated .proto_ff.E_FacadeDisplayMaterialDesc m_material = 9;
@@ -5775,7 +5881,77 @@ inline void E_FacadeSoul::set_m_mainskill(::google::protobuf::int32 value) {
   m_mainskill_ = value;
 }
 
-// repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+// optional string m_attributetype = 4;
+inline bool E_FacadeSoul::has_m_attributetype() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_FacadeSoul::set_has_m_attributetype() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_FacadeSoul::clear_has_m_attributetype() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_FacadeSoul::clear_m_attributetype() {
+  if (m_attributetype_ != &::google::protobuf::internal::kEmptyString) {
+    m_attributetype_->clear();
+  }
+  clear_has_m_attributetype();
+}
+inline const ::std::string& E_FacadeSoul::m_attributetype() const {
+  return *m_attributetype_;
+}
+inline void E_FacadeSoul::set_m_attributetype(const ::std::string& value) {
+  set_has_m_attributetype();
+  if (m_attributetype_ == &::google::protobuf::internal::kEmptyString) {
+    m_attributetype_ = new ::std::string;
+  }
+  m_attributetype_->assign(value);
+}
+inline void E_FacadeSoul::set_m_attributetype(const char* value) {
+  set_has_m_attributetype();
+  if (m_attributetype_ == &::google::protobuf::internal::kEmptyString) {
+    m_attributetype_ = new ::std::string;
+  }
+  m_attributetype_->assign(value);
+}
+inline void E_FacadeSoul::set_m_attributetype(const char* value, size_t size) {
+  set_has_m_attributetype();
+  if (m_attributetype_ == &::google::protobuf::internal::kEmptyString) {
+    m_attributetype_ = new ::std::string;
+  }
+  m_attributetype_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_FacadeSoul::mutable_m_attributetype() {
+  set_has_m_attributetype();
+  if (m_attributetype_ == &::google::protobuf::internal::kEmptyString) {
+    m_attributetype_ = new ::std::string;
+  }
+  return m_attributetype_;
+}
+inline ::std::string* E_FacadeSoul::release_m_attributetype() {
+  clear_has_m_attributetype();
+  if (m_attributetype_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_attributetype_;
+    m_attributetype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_FacadeSoul::set_allocated_m_attributetype(::std::string* m_attributetype) {
+  if (m_attributetype_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_attributetype_;
+  }
+  if (m_attributetype) {
+    set_has_m_attributetype();
+    m_attributetype_ = m_attributetype;
+  } else {
+    clear_has_m_attributetype();
+    m_attributetype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 5;
 inline int E_FacadeSoul::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -5800,7 +5976,7 @@ E_FacadeSoul::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated int32 m_minorskill = 5;
+// repeated int32 m_minorskill = 6;
 inline int E_FacadeSoul::m_minorskill_size() const {
   return m_minorskill_.size();
 }
@@ -5856,6 +6032,102 @@ Sheet_FacadeSoul::mutable_e_facadesoul_list() {
 
 // -------------------------------------------------------------------
 
+// E_FacadeSoulactiveUnlockDesc
+
+// optional string m_parama = 1;
+inline bool E_FacadeSoulactiveUnlockDesc::has_m_parama() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_has_m_parama() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FacadeSoulactiveUnlockDesc::clear_has_m_parama() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FacadeSoulactiveUnlockDesc::clear_m_parama() {
+  if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+    m_parama_->clear();
+  }
+  clear_has_m_parama();
+}
+inline const ::std::string& E_FacadeSoulactiveUnlockDesc::m_parama() const {
+  return *m_parama_;
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_m_parama(const ::std::string& value) {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
+  }
+  m_parama_->assign(value);
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_m_parama(const char* value) {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
+  }
+  m_parama_->assign(value);
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_m_parama(const char* value, size_t size) {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
+  }
+  m_parama_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_FacadeSoulactiveUnlockDesc::mutable_m_parama() {
+  set_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    m_parama_ = new ::std::string;
+  }
+  return m_parama_;
+}
+inline ::std::string* E_FacadeSoulactiveUnlockDesc::release_m_parama() {
+  clear_has_m_parama();
+  if (m_parama_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_parama_;
+    m_parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_allocated_m_parama(::std::string* m_parama) {
+  if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_parama_;
+  }
+  if (m_parama) {
+    set_has_m_parama();
+    m_parama_ = m_parama;
+  } else {
+    clear_has_m_parama();
+    m_parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_condition = 2;
+inline bool E_FacadeSoulactiveUnlockDesc::has_m_condition() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_has_m_condition() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FacadeSoulactiveUnlockDesc::clear_has_m_condition() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FacadeSoulactiveUnlockDesc::clear_m_condition() {
+  m_condition_ = 0;
+  clear_has_m_condition();
+}
+inline ::google::protobuf::int32 E_FacadeSoulactiveUnlockDesc::m_condition() const {
+  return m_condition_;
+}
+inline void E_FacadeSoulactiveUnlockDesc::set_m_condition(::google::protobuf::int32 value) {
+  set_has_m_condition();
+  m_condition_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // E_FacadeSoulactive
 
 // optional int64 m_id = 1;
@@ -5880,73 +6152,29 @@ inline void E_FacadeSoulactive::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// repeated string m_parama = 2;
-inline int E_FacadeSoulactive::m_parama_size() const {
-  return m_parama_.size();
+// repeated .proto_ff.E_FacadeSoulactiveUnlockDesc m_unlock = 2;
+inline int E_FacadeSoulactive::m_unlock_size() const {
+  return m_unlock_.size();
 }
-inline void E_FacadeSoulactive::clear_m_parama() {
-  m_parama_.Clear();
+inline void E_FacadeSoulactive::clear_m_unlock() {
+  m_unlock_.Clear();
 }
-inline const ::std::string& E_FacadeSoulactive::m_parama(int index) const {
-  return m_parama_.Get(index);
+inline const ::proto_ff::E_FacadeSoulactiveUnlockDesc& E_FacadeSoulactive::m_unlock(int index) const {
+  return m_unlock_.Get(index);
 }
-inline ::std::string* E_FacadeSoulactive::mutable_m_parama(int index) {
-  return m_parama_.Mutable(index);
+inline ::proto_ff::E_FacadeSoulactiveUnlockDesc* E_FacadeSoulactive::mutable_m_unlock(int index) {
+  return m_unlock_.Mutable(index);
 }
-inline void E_FacadeSoulactive::set_m_parama(int index, const ::std::string& value) {
-  m_parama_.Mutable(index)->assign(value);
+inline ::proto_ff::E_FacadeSoulactiveUnlockDesc* E_FacadeSoulactive::add_m_unlock() {
+  return m_unlock_.Add();
 }
-inline void E_FacadeSoulactive::set_m_parama(int index, const char* value) {
-  m_parama_.Mutable(index)->assign(value);
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactiveUnlockDesc >&
+E_FacadeSoulactive::m_unlock() const {
+  return m_unlock_;
 }
-inline void E_FacadeSoulactive::set_m_parama(int index, const char* value, size_t size) {
-  m_parama_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_FacadeSoulactive::add_m_parama() {
-  return m_parama_.Add();
-}
-inline void E_FacadeSoulactive::add_m_parama(const ::std::string& value) {
-  m_parama_.Add()->assign(value);
-}
-inline void E_FacadeSoulactive::add_m_parama(const char* value) {
-  m_parama_.Add()->assign(value);
-}
-inline void E_FacadeSoulactive::add_m_parama(const char* value, size_t size) {
-  m_parama_.Add()->assign(reinterpret_cast<const char*>(value), size);
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-E_FacadeSoulactive::m_parama() const {
-  return m_parama_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-E_FacadeSoulactive::mutable_m_parama() {
-  return &m_parama_;
-}
-
-// repeated int32 m_condition = 3;
-inline int E_FacadeSoulactive::m_condition_size() const {
-  return m_condition_.size();
-}
-inline void E_FacadeSoulactive::clear_m_condition() {
-  m_condition_.Clear();
-}
-inline ::google::protobuf::int32 E_FacadeSoulactive::m_condition(int index) const {
-  return m_condition_.Get(index);
-}
-inline void E_FacadeSoulactive::set_m_condition(int index, ::google::protobuf::int32 value) {
-  m_condition_.Set(index, value);
-}
-inline void E_FacadeSoulactive::add_m_condition(::google::protobuf::int32 value) {
-  m_condition_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-E_FacadeSoulactive::m_condition() const {
-  return m_condition_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-E_FacadeSoulactive::mutable_m_condition() {
-  return &m_condition_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeSoulactiveUnlockDesc >*
+E_FacadeSoulactive::mutable_m_unlock() {
+  return &m_unlock_;
 }
 
 // -------------------------------------------------------------------
@@ -6052,15 +6280,37 @@ inline void E_FacadeSoullv::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_soulid = 2;
-inline bool E_FacadeSoullv::has_m_soulid() const {
+// optional int32 m_soulllv = 2;
+inline bool E_FacadeSoullv::has_m_soulllv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_FacadeSoullv::set_has_m_soulid() {
+inline void E_FacadeSoullv::set_has_m_soulllv() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_FacadeSoullv::clear_has_m_soulid() {
+inline void E_FacadeSoullv::clear_has_m_soulllv() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FacadeSoullv::clear_m_soulllv() {
+  m_soulllv_ = 0;
+  clear_has_m_soulllv();
+}
+inline ::google::protobuf::int32 E_FacadeSoullv::m_soulllv() const {
+  return m_soulllv_;
+}
+inline void E_FacadeSoullv::set_m_soulllv(::google::protobuf::int32 value) {
+  set_has_m_soulllv();
+  m_soulllv_ = value;
+}
+
+// optional int32 m_soulid = 3;
+inline bool E_FacadeSoullv::has_m_soulid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_FacadeSoullv::set_has_m_soulid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_FacadeSoullv::clear_has_m_soulid() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_FacadeSoullv::clear_m_soulid() {
   m_soulid_ = 0;
@@ -6074,15 +6324,15 @@ inline void E_FacadeSoullv::set_m_soulid(::google::protobuf::int32 value) {
   m_soulid_ = value;
 }
 
-// optional int32 m_itemid = 3;
+// optional int32 m_itemid = 4;
 inline bool E_FacadeSoullv::has_m_itemid() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void E_FacadeSoullv::set_has_m_itemid() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void E_FacadeSoullv::clear_has_m_itemid() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_FacadeSoullv::clear_m_itemid() {
   m_itemid_ = 0;
@@ -6096,15 +6346,15 @@ inline void E_FacadeSoullv::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_num = 4;
+// optional int32 m_num = 5;
 inline bool E_FacadeSoullv::has_m_num() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_FacadeSoullv::set_has_m_num() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_FacadeSoullv::clear_has_m_num() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_FacadeSoullv::clear_m_num() {
   m_num_ = 0;
@@ -6118,15 +6368,15 @@ inline void E_FacadeSoullv::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_successrate = 5;
+// optional int32 m_successrate = 6;
 inline bool E_FacadeSoullv::has_m_successrate() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void E_FacadeSoullv::set_has_m_successrate() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void E_FacadeSoullv::clear_has_m_successrate() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_FacadeSoullv::clear_m_successrate() {
   m_successrate_ = 0;
@@ -6140,15 +6390,15 @@ inline void E_FacadeSoullv::set_m_successrate(::google::protobuf::int32 value) {
   m_successrate_ = value;
 }
 
-// optional int32 m_downlv = 6;
+// optional int32 m_downlv = 7;
 inline bool E_FacadeSoullv::has_m_downlv() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_FacadeSoullv::set_has_m_downlv() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_FacadeSoullv::clear_has_m_downlv() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_FacadeSoullv::clear_m_downlv() {
   m_downlv_ = 0;
@@ -6162,7 +6412,7 @@ inline void E_FacadeSoullv::set_m_downlv(::google::protobuf::int32 value) {
   m_downlv_ = value;
 }
 
-// repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+// repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 8;
 inline int E_FacadeSoullv::m_attribute_size() const {
   return m_attribute_.size();
 }

@@ -1379,6 +1379,13 @@ class E_MonsterValue : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_shield() const;
   inline void set_m_shield(::google::protobuf::int64 value);
 
+  // optional int64 m_exp = 75;
+  inline bool has_m_exp() const;
+  inline void clear_m_exp();
+  static const int kMExpFieldNumber = 75;
+  inline ::google::protobuf::int64 m_exp() const;
+  inline void set_m_exp(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_MonsterValue)
  private:
   inline void set_has_m_id();
@@ -1529,6 +1536,8 @@ class E_MonsterValue : public ::google::protobuf::Message {
   inline void clear_has_m_week_add();
   inline void set_has_m_shield();
   inline void clear_has_m_shield();
+  inline void set_has_m_exp();
+  inline void clear_has_m_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1606,9 +1615,10 @@ class E_MonsterValue : public ::google::protobuf::Message {
   ::google::protobuf::int64 m_recover_hp_add_;
   ::google::protobuf::int64 m_week_add_;
   ::google::protobuf::int64 m_shield_;
+  ::google::protobuf::int64 m_exp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(74 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(75 + 31) / 32];
 
   friend void  protobuf_AddDesc_monster_2eproto();
   friend void protobuf_AssignDesc_monster_2eproto();
@@ -5383,6 +5393,28 @@ inline ::google::protobuf::int64 E_MonsterValue::m_shield() const {
 inline void E_MonsterValue::set_m_shield(::google::protobuf::int64 value) {
   set_has_m_shield();
   m_shield_ = value;
+}
+
+// optional int64 m_exp = 75;
+inline bool E_MonsterValue::has_m_exp() const {
+  return (_has_bits_[2] & 0x00000400u) != 0;
+}
+inline void E_MonsterValue::set_has_m_exp() {
+  _has_bits_[2] |= 0x00000400u;
+}
+inline void E_MonsterValue::clear_has_m_exp() {
+  _has_bits_[2] &= ~0x00000400u;
+}
+inline void E_MonsterValue::clear_m_exp() {
+  m_exp_ = GOOGLE_LONGLONG(0);
+  clear_has_m_exp();
+}
+inline ::google::protobuf::int64 E_MonsterValue::m_exp() const {
+  return m_exp_;
+}
+inline void E_MonsterValue::set_m_exp(::google::protobuf::int64 value) {
+  set_has_m_exp();
+  m_exp_ = value;
 }
 
 // -------------------------------------------------------------------

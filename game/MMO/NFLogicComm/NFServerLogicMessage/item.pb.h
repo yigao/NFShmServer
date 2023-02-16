@@ -157,31 +157,38 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::std::string* release_m_usecondition();
   inline void set_allocated_m_usecondition(::std::string* m_usecondition);
 
-  // optional int32 m_level = 8;
+  // optional int64 m_waiguanlink = 8;
+  inline bool has_m_waiguanlink() const;
+  inline void clear_m_waiguanlink();
+  static const int kMWaiguanlinkFieldNumber = 8;
+  inline ::google::protobuf::int64 m_waiguanlink() const;
+  inline void set_m_waiguanlink(::google::protobuf::int64 value);
+
+  // optional int32 m_level = 9;
   inline bool has_m_level() const;
   inline void clear_m_level();
-  static const int kMLevelFieldNumber = 8;
+  static const int kMLevelFieldNumber = 9;
   inline ::google::protobuf::int32 m_level() const;
   inline void set_m_level(::google::protobuf::int32 value);
 
-  // optional int32 m_quality = 9;
+  // optional int32 m_quality = 10;
   inline bool has_m_quality() const;
   inline void clear_m_quality();
-  static const int kMQualityFieldNumber = 9;
+  static const int kMQualityFieldNumber = 10;
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_levelrequest = 10;
+  // optional int32 m_levelrequest = 11;
   inline bool has_m_levelrequest() const;
   inline void clear_m_levelrequest();
-  static const int kMLevelrequestFieldNumber = 10;
+  static const int kMLevelrequestFieldNumber = 11;
   inline ::google::protobuf::int32 m_levelrequest() const;
   inline void set_m_levelrequest(::google::protobuf::int32 value);
 
-  // optional string m_profession = 11;
+  // optional string m_profession = 12;
   inline bool has_m_profession() const;
   inline void clear_m_profession();
-  static const int kMProfessionFieldNumber = 11;
+  static const int kMProfessionFieldNumber = 12;
   inline const ::std::string& m_profession() const;
   inline void set_m_profession(const ::std::string& value);
   inline void set_m_profession(const char* value);
@@ -190,80 +197,80 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::std::string* release_m_profession();
   inline void set_allocated_m_profession(::std::string* m_profession);
 
-  // optional int32 m_bindtype = 12;
+  // optional int32 m_bindtype = 13;
   inline bool has_m_bindtype() const;
   inline void clear_m_bindtype();
-  static const int kMBindtypeFieldNumber = 12;
+  static const int kMBindtypeFieldNumber = 13;
   inline ::google::protobuf::int32 m_bindtype() const;
   inline void set_m_bindtype(::google::protobuf::int32 value);
 
-  // optional int32 m_istradebind = 13;
+  // optional int32 m_istradebind = 14;
   inline bool has_m_istradebind() const;
   inline void clear_m_istradebind();
-  static const int kMIstradebindFieldNumber = 13;
+  static const int kMIstradebindFieldNumber = 14;
   inline ::google::protobuf::int32 m_istradebind() const;
   inline void set_m_istradebind(::google::protobuf::int32 value);
 
-  // optional int32 m_dropnum = 14;
+  // optional int32 m_dropnum = 15;
   inline bool has_m_dropnum() const;
   inline void clear_m_dropnum();
-  static const int kMDropnumFieldNumber = 14;
+  static const int kMDropnumFieldNumber = 15;
   inline ::google::protobuf::int32 m_dropnum() const;
   inline void set_m_dropnum(::google::protobuf::int32 value);
 
-  // optional int32 m_stacklimit = 15;
+  // optional int32 m_stacklimit = 16;
   inline bool has_m_stacklimit() const;
   inline void clear_m_stacklimit();
-  static const int kMStacklimitFieldNumber = 15;
+  static const int kMStacklimitFieldNumber = 16;
   inline ::google::protobuf::int32 m_stacklimit() const;
   inline void set_m_stacklimit(::google::protobuf::int32 value);
 
-  // optional int32 m_sellprice = 16;
+  // optional int32 m_sellprice = 17;
   inline bool has_m_sellprice() const;
   inline void clear_m_sellprice();
-  static const int kMSellpriceFieldNumber = 16;
+  static const int kMSellpriceFieldNumber = 17;
   inline ::google::protobuf::int32 m_sellprice() const;
   inline void set_m_sellprice(::google::protobuf::int32 value);
 
-  // optional int64 m_sellbox = 17;
+  // optional int64 m_sellbox = 18;
   inline bool has_m_sellbox() const;
   inline void clear_m_sellbox();
-  static const int kMSellboxFieldNumber = 17;
+  static const int kMSellboxFieldNumber = 18;
   inline ::google::protobuf::int64 m_sellbox() const;
   inline void set_m_sellbox(::google::protobuf::int64 value);
 
-  // optional int32 m_broadcast = 18;
+  // optional int32 m_broadcast = 19;
   inline bool has_m_broadcast() const;
   inline void clear_m_broadcast();
-  static const int kMBroadcastFieldNumber = 18;
+  static const int kMBroadcastFieldNumber = 19;
   inline ::google::protobuf::int32 m_broadcast() const;
   inline void set_m_broadcast(::google::protobuf::int32 value);
 
-  // optional int32 m_iscanbatchuse = 19;
+  // optional int32 m_iscanbatchuse = 20;
   inline bool has_m_iscanbatchuse() const;
   inline void clear_m_iscanbatchuse();
-  static const int kMIscanbatchuseFieldNumber = 19;
+  static const int kMIscanbatchuseFieldNumber = 20;
   inline ::google::protobuf::int32 m_iscanbatchuse() const;
   inline void set_m_iscanbatchuse(::google::protobuf::int32 value);
 
-  // optional int32 m_dayuse = 20;
+  // optional int32 m_dayuse = 21;
   inline bool has_m_dayuse() const;
   inline void clear_m_dayuse();
-  static const int kMDayuseFieldNumber = 20;
+  static const int kMDayuseFieldNumber = 21;
   inline ::google::protobuf::int32 m_dayuse() const;
   inline void set_m_dayuse(::google::protobuf::int32 value);
 
-  // optional int32 m_time = 21;
+  // optional int32 m_time = 22;
   inline bool has_m_time() const;
   inline void clear_m_time();
-  static const int kMTimeFieldNumber = 21;
+  static const int kMTimeFieldNumber = 22;
   inline ::google::protobuf::int32 m_time() const;
   inline void set_m_time(::google::protobuf::int32 value);
 
-  // optional string m_uselimit = 22;
+  // optional string m_uselimit = 23;
   inline bool has_m_uselimit() const;
   inline void clear_m_uselimit();
-  static const int kMUselimitFieldNumber = 22;
+  static const int kMUselimitFieldNumber = 23;
   inline const ::std::string& m_uselimit() const;
   inline void set_m_uselimit(const ::std::string& value);
   inline void set_m_uselimit(const char* value);
@@ -272,24 +279,24 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::std::string* release_m_uselimit();
   inline void set_allocated_m_uselimit(::std::string* m_uselimit);
 
-  // optional int32 m_blessing = 23;
+  // optional int32 m_blessing = 24;
   inline bool has_m_blessing() const;
   inline void clear_m_blessing();
-  static const int kMBlessingFieldNumber = 23;
+  static const int kMBlessingFieldNumber = 24;
   inline ::google::protobuf::int32 m_blessing() const;
   inline void set_m_blessing(::google::protobuf::int32 value);
 
-  // optional int32 m_invest = 24;
+  // optional int32 m_invest = 25;
   inline bool has_m_invest() const;
   inline void clear_m_invest();
-  static const int kMInvestFieldNumber = 24;
+  static const int kMInvestFieldNumber = 25;
   inline ::google::protobuf::int32 m_invest() const;
   inline void set_m_invest(::google::protobuf::int32 value);
 
-  // optional int32 m_exchange = 25;
+  // optional int32 m_exchange = 26;
   inline bool has_m_exchange() const;
   inline void clear_m_exchange();
-  static const int kMExchangeFieldNumber = 25;
+  static const int kMExchangeFieldNumber = 26;
   inline ::google::protobuf::int32 m_exchange() const;
   inline void set_m_exchange(::google::protobuf::int32 value);
 
@@ -309,6 +316,8 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline void clear_has_m_functionvalue();
   inline void set_has_m_usecondition();
   inline void clear_has_m_usecondition();
+  inline void set_has_m_waiguanlink();
+  inline void clear_has_m_waiguanlink();
   inline void set_has_m_level();
   inline void clear_has_m_level();
   inline void set_has_m_quality();
@@ -353,9 +362,10 @@ class E_ItemItem : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_itemtype_;
   ::google::protobuf::int32 m_subtype_;
   ::std::string* m_functionvalue_;
+  ::std::string* m_usecondition_;
   ::google::protobuf::int32 m_functiontype_;
   ::google::protobuf::int32 m_level_;
-  ::std::string* m_usecondition_;
+  ::google::protobuf::int64 m_waiguanlink_;
   ::google::protobuf::int32 m_quality_;
   ::google::protobuf::int32 m_levelrequest_;
   ::std::string* m_profession_;
@@ -375,7 +385,7 @@ class E_ItemItem : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_exchange_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(26 + 31) / 32];
 
   friend void  protobuf_AddDesc_item_2eproto();
   friend void protobuf_AssignDesc_item_2eproto();
@@ -774,15 +784,37 @@ inline void E_ItemItem::set_allocated_m_usecondition(::std::string* m_useconditi
   }
 }
 
-// optional int32 m_level = 8;
-inline bool E_ItemItem::has_m_level() const {
+// optional int64 m_waiguanlink = 8;
+inline bool E_ItemItem::has_m_waiguanlink() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void E_ItemItem::set_has_m_level() {
+inline void E_ItemItem::set_has_m_waiguanlink() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void E_ItemItem::clear_has_m_level() {
+inline void E_ItemItem::clear_has_m_waiguanlink() {
   _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_ItemItem::clear_m_waiguanlink() {
+  m_waiguanlink_ = GOOGLE_LONGLONG(0);
+  clear_has_m_waiguanlink();
+}
+inline ::google::protobuf::int64 E_ItemItem::m_waiguanlink() const {
+  return m_waiguanlink_;
+}
+inline void E_ItemItem::set_m_waiguanlink(::google::protobuf::int64 value) {
+  set_has_m_waiguanlink();
+  m_waiguanlink_ = value;
+}
+
+// optional int32 m_level = 9;
+inline bool E_ItemItem::has_m_level() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_ItemItem::set_has_m_level() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_ItemItem::clear_has_m_level() {
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_ItemItem::clear_m_level() {
   m_level_ = 0;
@@ -796,15 +828,15 @@ inline void E_ItemItem::set_m_level(::google::protobuf::int32 value) {
   m_level_ = value;
 }
 
-// optional int32 m_quality = 9;
+// optional int32 m_quality = 10;
 inline bool E_ItemItem::has_m_quality() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_ItemItem::set_has_m_quality() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_ItemItem::clear_has_m_quality() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_ItemItem::clear_m_quality() {
   m_quality_ = 0;
@@ -818,15 +850,15 @@ inline void E_ItemItem::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_levelrequest = 10;
+// optional int32 m_levelrequest = 11;
 inline bool E_ItemItem::has_m_levelrequest() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_ItemItem::set_has_m_levelrequest() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_ItemItem::clear_has_m_levelrequest() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_ItemItem::clear_m_levelrequest() {
   m_levelrequest_ = 0;
@@ -840,15 +872,15 @@ inline void E_ItemItem::set_m_levelrequest(::google::protobuf::int32 value) {
   m_levelrequest_ = value;
 }
 
-// optional string m_profession = 11;
+// optional string m_profession = 12;
 inline bool E_ItemItem::has_m_profession() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_ItemItem::set_has_m_profession() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_ItemItem::clear_has_m_profession() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_ItemItem::clear_m_profession() {
   if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
@@ -910,15 +942,15 @@ inline void E_ItemItem::set_allocated_m_profession(::std::string* m_profession) 
   }
 }
 
-// optional int32 m_bindtype = 12;
+// optional int32 m_bindtype = 13;
 inline bool E_ItemItem::has_m_bindtype() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void E_ItemItem::set_has_m_bindtype() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void E_ItemItem::clear_has_m_bindtype() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void E_ItemItem::clear_m_bindtype() {
   m_bindtype_ = 0;
@@ -932,15 +964,15 @@ inline void E_ItemItem::set_m_bindtype(::google::protobuf::int32 value) {
   m_bindtype_ = value;
 }
 
-// optional int32 m_istradebind = 13;
+// optional int32 m_istradebind = 14;
 inline bool E_ItemItem::has_m_istradebind() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_ItemItem::set_has_m_istradebind() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_ItemItem::clear_has_m_istradebind() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_ItemItem::clear_m_istradebind() {
   m_istradebind_ = 0;
@@ -954,15 +986,15 @@ inline void E_ItemItem::set_m_istradebind(::google::protobuf::int32 value) {
   m_istradebind_ = value;
 }
 
-// optional int32 m_dropnum = 14;
+// optional int32 m_dropnum = 15;
 inline bool E_ItemItem::has_m_dropnum() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void E_ItemItem::set_has_m_dropnum() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void E_ItemItem::clear_has_m_dropnum() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void E_ItemItem::clear_m_dropnum() {
   m_dropnum_ = 0;
@@ -976,15 +1008,15 @@ inline void E_ItemItem::set_m_dropnum(::google::protobuf::int32 value) {
   m_dropnum_ = value;
 }
 
-// optional int32 m_stacklimit = 15;
+// optional int32 m_stacklimit = 16;
 inline bool E_ItemItem::has_m_stacklimit() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void E_ItemItem::set_has_m_stacklimit() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void E_ItemItem::clear_has_m_stacklimit() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void E_ItemItem::clear_m_stacklimit() {
   m_stacklimit_ = 0;
@@ -998,15 +1030,15 @@ inline void E_ItemItem::set_m_stacklimit(::google::protobuf::int32 value) {
   m_stacklimit_ = value;
 }
 
-// optional int32 m_sellprice = 16;
+// optional int32 m_sellprice = 17;
 inline bool E_ItemItem::has_m_sellprice() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void E_ItemItem::set_has_m_sellprice() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void E_ItemItem::clear_has_m_sellprice() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void E_ItemItem::clear_m_sellprice() {
   m_sellprice_ = 0;
@@ -1020,15 +1052,15 @@ inline void E_ItemItem::set_m_sellprice(::google::protobuf::int32 value) {
   m_sellprice_ = value;
 }
 
-// optional int64 m_sellbox = 17;
+// optional int64 m_sellbox = 18;
 inline bool E_ItemItem::has_m_sellbox() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void E_ItemItem::set_has_m_sellbox() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void E_ItemItem::clear_has_m_sellbox() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void E_ItemItem::clear_m_sellbox() {
   m_sellbox_ = GOOGLE_LONGLONG(0);
@@ -1042,15 +1074,15 @@ inline void E_ItemItem::set_m_sellbox(::google::protobuf::int64 value) {
   m_sellbox_ = value;
 }
 
-// optional int32 m_broadcast = 18;
+// optional int32 m_broadcast = 19;
 inline bool E_ItemItem::has_m_broadcast() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void E_ItemItem::set_has_m_broadcast() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void E_ItemItem::clear_has_m_broadcast() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void E_ItemItem::clear_m_broadcast() {
   m_broadcast_ = 0;
@@ -1064,15 +1096,15 @@ inline void E_ItemItem::set_m_broadcast(::google::protobuf::int32 value) {
   m_broadcast_ = value;
 }
 
-// optional int32 m_iscanbatchuse = 19;
+// optional int32 m_iscanbatchuse = 20;
 inline bool E_ItemItem::has_m_iscanbatchuse() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void E_ItemItem::set_has_m_iscanbatchuse() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void E_ItemItem::clear_has_m_iscanbatchuse() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void E_ItemItem::clear_m_iscanbatchuse() {
   m_iscanbatchuse_ = 0;
@@ -1086,15 +1118,15 @@ inline void E_ItemItem::set_m_iscanbatchuse(::google::protobuf::int32 value) {
   m_iscanbatchuse_ = value;
 }
 
-// optional int32 m_dayuse = 20;
+// optional int32 m_dayuse = 21;
 inline bool E_ItemItem::has_m_dayuse() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void E_ItemItem::set_has_m_dayuse() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void E_ItemItem::clear_has_m_dayuse() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void E_ItemItem::clear_m_dayuse() {
   m_dayuse_ = 0;
@@ -1108,15 +1140,15 @@ inline void E_ItemItem::set_m_dayuse(::google::protobuf::int32 value) {
   m_dayuse_ = value;
 }
 
-// optional int32 m_time = 21;
+// optional int32 m_time = 22;
 inline bool E_ItemItem::has_m_time() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
 inline void E_ItemItem::set_has_m_time() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
 }
 inline void E_ItemItem::clear_has_m_time() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void E_ItemItem::clear_m_time() {
   m_time_ = 0;
@@ -1130,15 +1162,15 @@ inline void E_ItemItem::set_m_time(::google::protobuf::int32 value) {
   m_time_ = value;
 }
 
-// optional string m_uselimit = 22;
+// optional string m_uselimit = 23;
 inline bool E_ItemItem::has_m_uselimit() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void E_ItemItem::set_has_m_uselimit() {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void E_ItemItem::clear_has_m_uselimit() {
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void E_ItemItem::clear_m_uselimit() {
   if (m_uselimit_ != &::google::protobuf::internal::kEmptyString) {
@@ -1200,15 +1232,15 @@ inline void E_ItemItem::set_allocated_m_uselimit(::std::string* m_uselimit) {
   }
 }
 
-// optional int32 m_blessing = 23;
+// optional int32 m_blessing = 24;
 inline bool E_ItemItem::has_m_blessing() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void E_ItemItem::set_has_m_blessing() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void E_ItemItem::clear_has_m_blessing() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void E_ItemItem::clear_m_blessing() {
   m_blessing_ = 0;
@@ -1222,15 +1254,15 @@ inline void E_ItemItem::set_m_blessing(::google::protobuf::int32 value) {
   m_blessing_ = value;
 }
 
-// optional int32 m_invest = 24;
+// optional int32 m_invest = 25;
 inline bool E_ItemItem::has_m_invest() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void E_ItemItem::set_has_m_invest() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void E_ItemItem::clear_has_m_invest() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void E_ItemItem::clear_m_invest() {
   m_invest_ = 0;
@@ -1244,15 +1276,15 @@ inline void E_ItemItem::set_m_invest(::google::protobuf::int32 value) {
   m_invest_ = value;
 }
 
-// optional int32 m_exchange = 25;
+// optional int32 m_exchange = 26;
 inline bool E_ItemItem::has_m_exchange() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void E_ItemItem::set_has_m_exchange() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void E_ItemItem::clear_has_m_exchange() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void E_ItemItem::clear_m_exchange() {
   m_exchange_ = 0;

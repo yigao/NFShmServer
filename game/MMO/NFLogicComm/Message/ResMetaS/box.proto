@@ -25,7 +25,7 @@ message E_BoxBox
 
 message Sheet_BoxBox
 {
-	repeated E_BoxBox E_BoxBox_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_BoxBox E_BoxBox_List = 1[(yd_fieldoptions.field_arysize)=40];
 }
 
 message E_BoxBoxdataEquipDesc
@@ -68,5 +68,5 @@ message E_BoxBoxdata
 
 message Sheet_BoxBoxdata
 {
-	repeated E_BoxBoxdata E_BoxBoxdata_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_BoxBoxdata E_BoxBoxdata_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

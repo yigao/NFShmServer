@@ -89,7 +89,7 @@ void protobuf_AssignDesc_boss_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_BossRareitem));
   E_BossBoss_descriptor_ = file->message_type(2);
-  static const int E_BossBoss_offsets_[12] = {
+  static const int E_BossBoss_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_bosstype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_monsterid_),
@@ -102,6 +102,7 @@ void protobuf_AssignDesc_boss_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_flashtime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_retrievegiftid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_notimes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossBoss, m_assistprestige_),
   };
   E_BossBoss_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -294,7 +295,7 @@ void protobuf_AddDesc_boss_2eproto() {
     "\003B\014\302\377\024\010\347\211\251\345\223\201ID\022\037\n\005m_top\030\002 \001(\005B\020\302\377\024\014\346\230\257\345"
     "\220\246\347\275\256\351\241\266\"R\n\022Sheet_BossRareitem\022<\n\023E_Boss"
     "Rareitem_List\030\001 \003(\0132\030.proto_ff.E_BossRar"
-    "eitemB\005\210\301\024\330\004\"\315\003\n\nE_BossBoss\022\030\n\004m_id\030\001 \001("
+    "eitemB\005\210\301\024\330\004\"\210\004\n\nE_BossBoss\022\030\n\004m_id\030\001 \001("
     "\005B\n\302\377\024\006bossID\022\"\n\nm_bosstype\030\002 \001(\005B\016\302\377\024\nB"
     "OSS\347\261\273\345\236\213\022!\n\013m_monsterid\030\003 \001(\005B\014\302\377\024\010\346\200\252\347"
     "\211\251ID\022 \n\014m_classorder\030\004 \001(\005B\n\302\377\024\006\351\230\266\346\254\241\022&"
@@ -305,40 +306,41 @@ void protobuf_AddDesc_boss_2eproto() {
     "type\030\t \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236\213\022%\n\013m_flashtime"
     "\030\n \001(\005B\020\302\377\024\014\345\210\267\346\226\260\351\227\264\351\232\224\022,\n\020m_retrievegi"
     "ftid\030\013 \001(\005B\022\302\377\024\016\346\211\276\345\233\236\347\244\274\345\214\205id\022,\n\tm_noti"
-    "mes\030\014 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\344\270\215\346\266\210\350\200\227\346\254\241\346\225\260\"E\n\016"
-    "Sheet_BossBoss\0223\n\017E_BossBoss_List\030\001 \003(\0132"
-    "\024.proto_ff.E_BossBossB\004\210\301\024P\"R\n\027E_BossBos"
-    "stypeGroupDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345"
-    "\236\213\022\033\n\007m_times\030\002 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\"\324\005\n\016E_Bo"
-    "ssBosstype\022!\n\nm_bosstype\030\001 \001(\005B\r\302\377\024\t\346\200\273\347"
-    "\261\273\345\236\213\022#\n\tm_maptype\030\002 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345"
-    "\236\213\022(\n\014m_functionid\030\003 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\350\247\243\351"
-    "\224\201ID\022+\n\022m_duplicategroupid\030\004 \001(\005B\017\302\377\024\013\345\211"
-    "\257\346\234\254\347\273\204ID\022)\n\017m_privilegetype\030\005 \001(\005B\020\302\377\024\014"
-    "\347\211\271\346\235\203\347\261\273\345\236\213\022(\n\017m_callingcardid\030\006 \001(\003B\017\302"
-    "\377\024\013\345\217\254\345\224\244\345\215\241id\022&\n\014m_entertimes\030\007 \001(\005B\020\302\377"
-    "\024\014\350\277\233\345\205\245\346\254\241\346\225\260\022*\n\nm_costitem\030\010 \001(\005B\026\302\377\024\022"
-    "\350\277\233\345\205\245\346\266\210\350\200\227\347\211\251\345\223\201\0223\n\tm_costnum\030\t \001(\tB \302"
-    "\377\024\030\350\277\233\345\205\245\346\266\210\350\200\227\347\211\251\345\223\201\346\225\260\351\207\217\220\301\024<\022#\n\013m_bos"
-    "stimes\030\n \001(\005B\016\302\377\024\nboss\346\254\241\346\225\260\022-\n\013m_addite"
-    "mid\030\013 \001(\005B\030\302\377\024\024\345\242\236\345\212\240\346\254\241\346\225\260\347\211\251\345\223\201ID\022)\n\tm"
-    "_canhelp\030\014 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\217\257\344\273\245\346\217\264\345\212\251\022-"
-    "\n\007m_qkill\030\r \001(\005B\034\302\377\024\030\346\230\257\345\220\246\346\224\257\346\214\201\345\277\253\351\200\237\345"
-    "\207\273\346\235\200\022)\n\017m_retrieveddays\030\016 \001(\005B\020\302\377\024\014\346\211\276\345"
-    "\233\236\345\244\251\346\225\260\022\'\n\007m_skill\030\017 \001(\005B\026\302\377\024\022\347\272\263\345\205\245\345\205\250"
-    "\346\234\215\351\246\226\346\235\200\022C\n\007m_group\030\020 \003(\0132!.proto_ff.E_"
-    "BossBosstypeGroupDescB\017\302\377\024\007Boss\347\273\204\210\301\024\003\"Q"
-    "\n\022Sheet_BossBosstype\022;\n\023E_BossBosstype_L"
-    "ist\030\001 \003(\0132\030.proto_ff.E_BossBosstypeB\004\210\301\024"
-    "\024\"\200\002\n\013E_BossLayer\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022"
-    "\036\n\nm_bosstype\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_ord"
-    "er\030\003 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\036\n\006m_name\030\004 \001(\tB\016\302\377"
-    "\024\006\345\221\275\345\220\215\220\301\024<\022.\n\020m_entercondition\030\005 \001(\tB\024"
-    "\302\377\024\014\350\277\233\345\205\245\346\235\241\344\273\266\220\301\024<\022/\n\021m_unlockconditio"
-    "n\030\006 \001(\tB\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024<\022\035\n\007m_mapid"
-    "\030\007 \001(\005B\014\302\377\024\010\345\234\260\345\233\276ID\"H\n\017Sheet_BossLayer\022"
-    "5\n\020E_BossLayer_List\030\001 \003(\0132\025.proto_ff.E_B"
-    "ossLayerB\004\210\301\024\024", 1974);
+    "mes\030\014 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\344\270\215\346\266\210\350\200\227\346\254\241\346\225\260\0229\n\020"
+    "m_assistprestige\030\r \001(\005B\037\302\377\024\033\345\215\217\345\212\251\345\207\273\346\235\200"
+    "\345\245\226\345\212\261\347\232\204\345\243\260\346\234\233\"F\n\016Sheet_BossBoss\0224\n\017E_B"
+    "ossBoss_List\030\001 \003(\0132\024.proto_ff.E_BossBoss"
+    "B\005\210\301\024\310\001\"R\n\027E_BossBosstypeGroupDesc\022\032\n\006m_"
+    "type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_times\030\002 \001(\005B"
+    "\n\302\377\024\006\346\254\241\346\225\260\"\324\005\n\016E_BossBosstype\022!\n\nm_boss"
+    "type\030\001 \001(\005B\r\302\377\024\t\346\200\273\347\261\273\345\236\213\022#\n\tm_maptype\030\002"
+    " \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345\236\213\022(\n\014m_functionid\030\003"
+    " \001(\005B\022\302\377\024\016\345\212\237\350\203\275\350\247\243\351\224\201ID\022+\n\022m_duplicateg"
+    "roupid\030\004 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204ID\022)\n\017m_privi"
+    "legetype\030\005 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261\273\345\236\213\022(\n\017m_ca"
+    "llingcardid\030\006 \001(\003B\017\302\377\024\013\345\217\254\345\224\244\345\215\241id\022&\n\014m_"
+    "entertimes\030\007 \001(\005B\020\302\377\024\014\350\277\233\345\205\245\346\254\241\346\225\260\022*\n\nm_"
+    "costitem\030\010 \001(\005B\026\302\377\024\022\350\277\233\345\205\245\346\266\210\350\200\227\347\211\251\345\223\201\0223"
+    "\n\tm_costnum\030\t \001(\tB \302\377\024\030\350\277\233\345\205\245\346\266\210\350\200\227\347\211\251\345\223"
+    "\201\346\225\260\351\207\217\220\301\024<\022#\n\013m_bosstimes\030\n \001(\005B\016\302\377\024\nbo"
+    "ss\346\254\241\346\225\260\022-\n\013m_additemid\030\013 \001(\005B\030\302\377\024\024\345\242\236\345\212"
+    "\240\346\254\241\346\225\260\347\211\251\345\223\201ID\022)\n\tm_canhelp\030\014 \001(\005B\026\302\377\024\022"
+    "\346\230\257\345\220\246\345\217\257\344\273\245\346\217\264\345\212\251\022-\n\007m_qkill\030\r \001(\005B\034\302\377\024"
+    "\030\346\230\257\345\220\246\346\224\257\346\214\201\345\277\253\351\200\237\345\207\273\346\235\200\022)\n\017m_retrieved"
+    "days\030\016 \001(\005B\020\302\377\024\014\346\211\276\345\233\236\345\244\251\346\225\260\022\'\n\007m_skill\030"
+    "\017 \001(\005B\026\302\377\024\022\347\272\263\345\205\245\345\205\250\346\234\215\351\246\226\346\235\200\022C\n\007m_group"
+    "\030\020 \003(\0132!.proto_ff.E_BossBosstypeGroupDes"
+    "cB\017\302\377\024\007Boss\347\273\204\210\301\024\003\"Q\n\022Sheet_BossBosstype"
+    "\022;\n\023E_BossBosstype_List\030\001 \003(\0132\030.proto_ff"
+    ".E_BossBosstypeB\004\210\301\024\024\"\200\002\n\013E_BossLayer\022\024\n"
+    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\nm_bosstype\030\002 \001(\005B"
+    "\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_order\030\003 \001(\005B\n\302\377\024\006\346\216\222\345\272\217"
+    "\022\036\n\006m_name\030\004 \001(\tB\016\302\377\024\006\345\221\275\345\220\215\220\301\024<\022.\n\020m_en"
+    "tercondition\030\005 \001(\tB\024\302\377\024\014\350\277\233\345\205\245\346\235\241\344\273\266\220\301\024<"
+    "\022/\n\021m_unlockcondition\030\006 \001(\tB\024\302\377\024\014\350\247\243\351\224\201\346"
+    "\235\241\344\273\266\220\301\024<\022\035\n\007m_mapid\030\007 \001(\005B\014\302\377\024\010\345\234\260\345\233\276ID"
+    "\"H\n\017Sheet_BossLayer\0225\n\020E_BossLayer_List\030"
+    "\001 \003(\0132\025.proto_ff.E_BossLayerB\004\210\301\024\024", 2034);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "boss.proto", &protobuf_RegisterTypes);
   E_BossRareitem::default_instance_ = new E_BossRareitem();
@@ -835,6 +837,7 @@ const int E_BossBoss::kMGroupTypeFieldNumber;
 const int E_BossBoss::kMFlashtimeFieldNumber;
 const int E_BossBoss::kMRetrievegiftidFieldNumber;
 const int E_BossBoss::kMNotimesFieldNumber;
+const int E_BossBoss::kMAssistprestigeFieldNumber;
 #endif  // !_MSC_VER
 
 E_BossBoss::E_BossBoss()
@@ -865,6 +868,7 @@ void E_BossBoss::SharedCtor() {
   m_flashtime_ = 0;
   m_retrievegiftid_ = 0;
   m_notimes_ = 0;
+  m_assistprestige_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -914,6 +918,7 @@ void E_BossBoss::Clear() {
     m_flashtime_ = 0;
     m_retrievegiftid_ = 0;
     m_notimes_ = 0;
+    m_assistprestige_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1112,6 +1117,22 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(104)) goto parse_m_assistprestige;
+        break;
+      }
+
+      // optional int32 m_assistprestige = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_assistprestige:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_assistprestige_)));
+          set_has_m_assistprestige();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1194,6 +1215,11 @@ void E_BossBoss::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_notimes(), output);
   }
 
+  // optional int32 m_assistprestige = 13;
+  if (has_m_assistprestige()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_assistprestige(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1260,6 +1286,11 @@ void E_BossBoss::SerializeWithCachedSizes(
   // optional int32 m_notimes = 12;
   if (has_m_notimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_notimes(), target);
+  }
+
+  // optional int32 m_assistprestige = 13;
+  if (has_m_assistprestige()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_assistprestige(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1359,6 +1390,13 @@ int E_BossBoss::ByteSize() const {
           this->m_notimes());
     }
 
+    // optional int32 m_assistprestige = 13;
+    if (has_m_assistprestige()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_assistprestige());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -1424,6 +1462,9 @@ void E_BossBoss::MergeFrom(const E_BossBoss& from) {
     if (from.has_m_notimes()) {
       set_m_notimes(from.m_notimes());
     }
+    if (from.has_m_assistprestige()) {
+      set_m_assistprestige(from.m_assistprestige());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1459,6 +1500,7 @@ void E_BossBoss::Swap(E_BossBoss* other) {
     std::swap(m_flashtime_, other->m_flashtime_);
     std::swap(m_retrievegiftid_, other->m_retrievegiftid_);
     std::swap(m_notimes_, other->m_notimes_);
+    std::swap(m_assistprestige_, other->m_assistprestige_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

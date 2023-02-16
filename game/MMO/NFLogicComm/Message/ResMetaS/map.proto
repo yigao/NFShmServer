@@ -37,12 +37,13 @@ message E_MapMap
 	optional int32 m_diedp = 30[(yd_fieldoptions.field_cname) = "死亡增加驱赶值"];
 	optional int32 m_timedp = 31[(yd_fieldoptions.field_cname) = "每分钟增加驱赶值"];
 	optional int32 m_meditation = 32[(yd_fieldoptions.field_cname) = "是否允许打坐"];
+	optional string m_mapbutton = 33[(yd_fieldoptions.field_cname) = "地图按钮", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_MapMap
 {
-	repeated E_MapMap E_MapMap_List = 1[(yd_fieldoptions.field_arysize)=40];
+	repeated E_MapMap E_MapMap_List = 1[(yd_fieldoptions.field_arysize)=60];
 }
 
 message E_MapItemdrop

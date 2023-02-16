@@ -1,0 +1,184 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_PetDisplayMaterialDesc
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "经验值"];
+}
+
+message E_PetDisplay
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "外观ID"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "宠物品质"];
+	optional int32 m_isstar = 3[(yd_fieldoptions.field_cname) = "是否可升星"];
+	optional string m_grade = 4[(yd_fieldoptions.field_cname) = "评级", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 m_monsterid = 5[(yd_fieldoptions.field_cname) = "怪物表ID"];
+	optional string m_name = 6[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_activeskillid = 7[(yd_fieldoptions.field_cname) = "主动技能"];
+	optional string m_exclusiveskillid = 8[(yd_fieldoptions.field_cname) = "专属技能", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_passiveskillid = 9[(yd_fieldoptions.field_cname) = "被动技能", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_activeattribute = 10[(yd_fieldoptions.field_cname) = "初始获得属性模板"];
+	optional int32 m_growatt = 11[(yd_fieldoptions.field_cname) = "升级属性模板"];
+	optional float m_activeparama = 12[(yd_fieldoptions.field_cname) = "初值值系数"];
+	optional float m_growattparama = 13[(yd_fieldoptions.field_cname) = "升级属性系数"];
+	optional float m_growstandarda = 14[(yd_fieldoptions.field_cname) = "标准值系数A"];
+	optional float m_growstandardb = 15[(yd_fieldoptions.field_cname) = "标准值系数B"];
+	optional float m_growstandard = 16[(yd_fieldoptions.field_cname) = "资质标准值"];
+	optional float m_growmin = 17[(yd_fieldoptions.field_cname) = "初始资质下限"];
+	optional float m_growmax = 18[(yd_fieldoptions.field_cname) = "初始资质下限"];
+	optional float m_growstar = 19[(yd_fieldoptions.field_cname) = "升星资质提升系数"];
+	optional int32 m_advanceattribute = 20[(yd_fieldoptions.field_cname) = "进阶值模板"];
+	optional int32 m_advancetype = 21[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional string m_pettagskill = 22[(yd_fieldoptions.field_cname) = "神宠技能", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_starattribute = 23[(yd_fieldoptions.field_cname) = "升星属性模板"];
+	optional int32 m_starpercent = 24[(yd_fieldoptions.field_cname) = "升星属性加成"];
+	optional int32 m_starllimit = 25[(yd_fieldoptions.field_cname) = "升星上限"];
+	optional int64 m_staritem = 26[(yd_fieldoptions.field_cname) = "升星道具"];
+	optional string m_starnum = 27[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 300];
+	optional int64 m_starpetid = 28[(yd_fieldoptions.field_cname) = "升星宠物ID"];
+	optional string m_starpetnum = 29[(yd_fieldoptions.field_cname) = "升星宠物数量", (yd_fieldoptions.field_bufsize) = 300];
+	optional int32 m_weapon = 30[(yd_fieldoptions.field_cname) = "专属武器"];
+	optional int64 m_upattributeid = 31[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	repeated E_PetDisplayMaterialDesc m_material = 32[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_PetDisplay
+{
+	repeated E_PetDisplay E_PetDisplay_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_PetAttributetpyeAttributeDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_PetAttributetpye
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_tpye = 2[(yd_fieldoptions.field_cname) = "属性类型"];
+	repeated E_PetAttributetpyeAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_PetAttributetpye
+{
+	repeated E_PetAttributetpye E_PetAttributetpye_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message E_PetLvexp
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_exp = 2[(yd_fieldoptions.field_cname) = "升级经验"];
+}
+
+
+message Sheet_PetLvexp
+{
+	repeated E_PetLvexp E_PetLvexp_List = 1[(yd_fieldoptions.field_arysize)=500];
+}
+
+message E_PetAdvancelvAdvanceDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional float m_param = 2[(yd_fieldoptions.field_cname) = "系数"];
+}
+
+message E_PetAdvancelv
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_advanceitem = 2[(yd_fieldoptions.field_cname) = "进阶消耗道具"];
+	optional int32 m_advancenum = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+	repeated E_PetAdvancelvAdvanceDesc m_advance = 4[(yd_fieldoptions.field_cname) = "进阶", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_PetAdvancelv
+{
+	repeated E_PetAdvancelv E_PetAdvancelv_List = 1[(yd_fieldoptions.field_arysize)=200];
+}
+
+message E_PetStarupUpattributeDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_PetStarup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 m_upattributeid = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 m_starid = 3[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_activeskillidlv = 5[(yd_fieldoptions.field_cname) = "主动技能等级"];
+	repeated E_PetStarupUpattributeDesc m_upattribute = 6[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_PetStarup
+{
+	repeated E_PetStarup E_PetStarup_List = 1[(yd_fieldoptions.field_arysize)=40];
+}
+
+message E_PetEggPetDesc
+{
+	optional int32 m_rand = 1[(yd_fieldoptions.field_cname) = "概率"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_PetEgg
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "宠物蛋道具ID"];
+	optional int32 m_time = 2[(yd_fieldoptions.field_cname) = "孵化时间"];
+	repeated E_PetEggPetDesc m_pet = 3[(yd_fieldoptions.field_cname) = "宠物", (yd_fieldoptions.field_arysize) = 10];
+}
+
+
+message Sheet_PetEgg
+{
+	repeated E_PetEgg E_PetEgg_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_PetDecomposeDecomposeDesc
+{
+	optional int32 m_boxid = 1[(yd_fieldoptions.field_cname) = "boxID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "type"];
+}
+
+message E_PetDecompose
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "宠物品质"];
+	repeated E_PetDecomposeDecomposeDesc m_decompose = 3[(yd_fieldoptions.field_cname) = "分解类型", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_PetDecompose
+{
+	repeated E_PetDecompose E_PetDecompose_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_PetFettersAttributeDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+}
+
+message E_PetFetters
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "羁绊品质"];
+	repeated int32 m_petid = 3[(yd_fieldoptions.field_cname) = "羁绊宠物ID", (yd_fieldoptions.field_arysize) = 3];
+	repeated int32 m_atctive_skillid = 4[(yd_fieldoptions.field_cname) = "激活技能", (yd_fieldoptions.field_arysize) = 4];
+	repeated E_PetFettersAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_PetFetters
+{
+	repeated E_PetFetters E_PetFetters_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

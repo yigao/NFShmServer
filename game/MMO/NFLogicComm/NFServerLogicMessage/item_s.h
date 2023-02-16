@@ -22,6 +22,7 @@ namespace proto_ff_s {
 		int32_t m_functiontype;
 		NFShmString<60> m_functionvalue;
 		NFShmString<60> m_usecondition;
+		int64_t m_waiguanlink;
 		int32_t m_level;
 		int32_t m_quality;
 		int32_t m_levelrequest;
@@ -53,7 +54,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ItemItem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ItemItem_s, 1000> E_ItemItem_List;
+		NFShmVector<struct E_ItemItem_s, 2000> E_ItemItem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ItemItem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ItemItem & msg);

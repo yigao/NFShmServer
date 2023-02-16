@@ -44,7 +44,7 @@ namespace proto_ff_s {
 		int32_t m_wakeupradius;
 		int32_t m_isaiworkwhennobody;
 		int32_t m_borneffectaidelay;
-		NFShmString<100> m_initskills;
+		NFShmString<60> m_initskills;
 		NFShmVector<struct E_AiAiHpDesc_s, 2> m_hp;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AiAi & msg) const;

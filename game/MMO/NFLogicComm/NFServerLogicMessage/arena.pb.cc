@@ -29,6 +29,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_ArenaRobot_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_ArenaRobot_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaRobotfacadeFacadeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_ArenaRobotfacadeFacadeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ArenaRobotfacade_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_ArenaRobotfacade_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_ArenaRobotfacade_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_ArenaRobotfacade_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_ArenaArenawardRewardDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_ArenaArenawardRewardDesc_reflection_ = NULL;
@@ -89,7 +98,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaRobotAttrDesc));
   E_ArenaRobot_descriptor_ = file->message_type(1);
-  static const int E_ArenaRobot_offsets_[9] = {
+  static const int E_ArenaRobot_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_arenaid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_robotname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_aiid_),
@@ -97,6 +106,7 @@ void protobuf_AssignDesc_arena_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_robotprofession_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_robotlv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_sword_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_facadeid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_occupationid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobot, m_attr_),
   };
@@ -126,7 +136,55 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_ArenaRobot));
-  E_ArenaArenawardRewardDesc_descriptor_ = file->message_type(3);
+  E_ArenaRobotfacadeFacadeDesc_descriptor_ = file->message_type(3);
+  static const int E_ArenaRobotfacadeFacadeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacadeFacadeDesc, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacadeFacadeDesc, m_value_),
+  };
+  E_ArenaRobotfacadeFacadeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_ArenaRobotfacadeFacadeDesc_descriptor_,
+      E_ArenaRobotfacadeFacadeDesc::default_instance_,
+      E_ArenaRobotfacadeFacadeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacadeFacadeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacadeFacadeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_ArenaRobotfacadeFacadeDesc));
+  E_ArenaRobotfacade_descriptor_ = file->message_type(4);
+  static const int E_ArenaRobotfacade_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacade, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacade, m_color_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacade, m_facade_),
+  };
+  E_ArenaRobotfacade_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_ArenaRobotfacade_descriptor_,
+      E_ArenaRobotfacade::default_instance_,
+      E_ArenaRobotfacade_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacade, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRobotfacade, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_ArenaRobotfacade));
+  Sheet_ArenaRobotfacade_descriptor_ = file->message_type(5);
+  static const int Sheet_ArenaRobotfacade_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRobotfacade, e_arenarobotfacade_list_),
+  };
+  Sheet_ArenaRobotfacade_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_ArenaRobotfacade_descriptor_,
+      Sheet_ArenaRobotfacade::default_instance_,
+      Sheet_ArenaRobotfacade_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRobotfacade, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRobotfacade, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_ArenaRobotfacade));
+  E_ArenaArenawardRewardDesc_descriptor_ = file->message_type(6);
   static const int E_ArenaArenawardRewardDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenawardRewardDesc, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenawardRewardDesc, m_value_),
@@ -142,7 +200,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaArenawardRewardDesc));
-  E_ArenaArenaward_descriptor_ = file->message_type(4);
+  E_ArenaArenaward_descriptor_ = file->message_type(7);
   static const int E_ArenaArenaward_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaArenaward, m_lvdown_),
@@ -160,7 +218,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaArenaward));
-  Sheet_ArenaArenaward_descriptor_ = file->message_type(5);
+  Sheet_ArenaArenaward_descriptor_ = file->message_type(8);
   static const int Sheet_ArenaArenaward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaArenaward, e_arenaarenaward_list_),
   };
@@ -175,7 +233,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_ArenaArenaward));
-  E_ArenaRankawardRewardDesc_descriptor_ = file->message_type(6);
+  E_ArenaRankawardRewardDesc_descriptor_ = file->message_type(9);
   static const int E_ArenaRankawardRewardDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankawardRewardDesc, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankawardRewardDesc, m_value_),
@@ -191,7 +249,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaRankawardRewardDesc));
-  E_ArenaRankaward_descriptor_ = file->message_type(7);
+  E_ArenaRankaward_descriptor_ = file->message_type(10);
   static const int E_ArenaRankaward_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, m_prizeid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaRankaward, m_arenadown_),
@@ -209,7 +267,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaRankaward));
-  Sheet_ArenaRankaward_descriptor_ = file->message_type(8);
+  Sheet_ArenaRankaward_descriptor_ = file->message_type(11);
   static const int Sheet_ArenaRankaward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaRankaward, e_arenarankaward_list_),
   };
@@ -224,7 +282,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_ArenaRankaward));
-  E_ArenaFirstrankRewardDesc_descriptor_ = file->message_type(9);
+  E_ArenaFirstrankRewardDesc_descriptor_ = file->message_type(12);
   static const int E_ArenaFirstrankRewardDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrankRewardDesc, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrankRewardDesc, m_value_),
@@ -240,7 +298,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaFirstrankRewardDesc));
-  E_ArenaFirstrank_descriptor_ = file->message_type(10);
+  E_ArenaFirstrank_descriptor_ = file->message_type(13);
   static const int E_ArenaFirstrank_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaFirstrank, m_rankdown_),
@@ -258,7 +316,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaFirstrank));
-  Sheet_ArenaFirstrank_descriptor_ = file->message_type(11);
+  Sheet_ArenaFirstrank_descriptor_ = file->message_type(14);
   static const int Sheet_ArenaFirstrank_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaFirstrank, e_arenafirstrank_list_),
   };
@@ -273,7 +331,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_ArenaFirstrank));
-  E_ArenaBuychallenge_descriptor_ = file->message_type(12);
+  E_ArenaBuychallenge_descriptor_ = file->message_type(15);
   static const int E_ArenaBuychallenge_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, m_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ArenaBuychallenge, m_costtype_),
@@ -290,7 +348,7 @@ void protobuf_AssignDesc_arena_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ArenaBuychallenge));
-  Sheet_ArenaBuychallenge_descriptor_ = file->message_type(13);
+  Sheet_ArenaBuychallenge_descriptor_ = file->message_type(16);
   static const int Sheet_ArenaBuychallenge_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ArenaBuychallenge, e_arenabuychallenge_list_),
   };
@@ -324,6 +382,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_ArenaRobot_descriptor_, &Sheet_ArenaRobot::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_ArenaRobotfacadeFacadeDesc_descriptor_, &E_ArenaRobotfacadeFacadeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_ArenaRobotfacade_descriptor_, &E_ArenaRobotfacade::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_ArenaRobotfacade_descriptor_, &Sheet_ArenaRobotfacade::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_ArenaArenawardRewardDesc_descriptor_, &E_ArenaArenawardRewardDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_ArenaArenaward_descriptor_, &E_ArenaArenaward::default_instance());
@@ -356,6 +420,12 @@ void protobuf_ShutdownFile_arena_2eproto() {
   delete E_ArenaRobot_reflection_;
   delete Sheet_ArenaRobot::default_instance_;
   delete Sheet_ArenaRobot_reflection_;
+  delete E_ArenaRobotfacadeFacadeDesc::default_instance_;
+  delete E_ArenaRobotfacadeFacadeDesc_reflection_;
+  delete E_ArenaRobotfacade::default_instance_;
+  delete E_ArenaRobotfacade_reflection_;
+  delete Sheet_ArenaRobotfacade::default_instance_;
+  delete Sheet_ArenaRobotfacade_reflection_;
   delete E_ArenaArenawardRewardDesc::default_instance_;
   delete E_ArenaArenawardRewardDesc_reflection_;
   delete E_ArenaArenaward::default_instance_;
@@ -391,56 +461,68 @@ void protobuf_AddDesc_arena_2eproto() {
     "\n\013arena.proto\022\010proto_ff\032\025yd_fieldoptions"
     ".proto\"J\n\024E_ArenaRobotAttrDesc\022\032\n\006m_type"
     "\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\026\n\005m_val\030\002 \001(\005B\007\302\377\024\003\345"
-    "\200\274\"\373\002\n\014E_ArenaRobot\022(\n\tm_arenaid\030\001 \001(\005B\025"
+    "\200\274\"\235\003\n\014E_ArenaRobot\022(\n\tm_arenaid\030\001 \001(\005B\025"
     "\302\377\024\021\347\253\236\346\212\200\345\234\272\346\216\222\345\220\215ID\022,\n\013m_robotname\030\002 \001"
     "(\tB\027\302\377\024\017\346\234\272\345\231\250\344\272\272\345\220\215\347\247\260\220\301\024<\022\030\n\006m_aiid\030\003 "
     "\001(\005B\010\302\377\024\004aiID\022\036\n\010m_rankid\030\004 \001(\005B\014\302\377\024\010\346\216\222"
     "\345\220\215id\022.\n\021m_robotprofession\030\005 \001(\005B\023\302\377\024\017\346\234"
     "\272\345\231\250\344\272\272\350\201\214\344\270\232\022&\n\tm_robotlv\030\006 \001(\005B\023\302\377\024\017\346\234"
     "\272\345\231\250\344\272\272\347\255\211\347\272\247\022\033\n\007m_sword\030\007 \001(\005B\n\302\377\024\006\346\210\230\345"
-    "\212\233\022$\n\016m_occupationid\030\010 \001(\005B\014\302\377\024\010\350\275\254\350\201\214ID"
-    "\022>\n\006m_attr\030\t \003(\0132\036.proto_ff.E_ArenaRobot"
-    "AttrDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"L\n\020Sheet_ArenaR"
-    "obot\0228\n\021E_ArenaRobot_List\030\001 \003(\0132\026.proto_"
-    "ff.E_ArenaRobotB\005\210\301\024\360.\"O\n\032E_ArenaArenawa"
-    "rdRewardDesc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_"
-    "value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\274\001\n\020E_ArenaArena"
-    "ward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010m_lvdown\030\002"
-    " \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_lvup\030\003 \001(\005B\020"
-    "\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022L\n\010m_reward\030\004 \003(\0132$.pro"
-    "to_ff.E_ArenaArenawardRewardDescB\024\302\377\024\014\345\245"
-    "\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"X\n\024Sheet_ArenaArenaward\022@"
-    "\n\025E_ArenaArenaward_List\030\001 \003(\0132\032.proto_ff"
-    ".E_ArenaArenawardB\005\210\301\024\320\017\"O\n\032E_ArenaRanka"
-    "wardRewardDesc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007"
-    "m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\315\001\n\020E_ArenaRan"
-    "kaward\022\037\n\tm_prizeid\030\001 \001(\005B\014\302\377\024\010\345\245\226\345\212\261ID\022"
-    "%\n\013m_arenadown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\346\216\222\345\220\215\022#"
-    "\n\tm_arenaup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215\022L\n\010m"
-    "_reward\030\004 \003(\0132$.proto_ff.E_ArenaRankawar"
-    "dRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"W\n\024She"
-    "et_ArenaRankaward\022\?\n\025E_ArenaRankaward_Li"
-    "st\030\001 \003(\0132\032.proto_ff.E_ArenaRankawardB\004\210\301"
-    "\024\024\"O\n\032E_ArenaFirstrankRewardDesc\022\024\n\004m_id"
-    "\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260"
-    "\351\207\217\"\300\001\n\020E_ArenaFirstrank\022\024\n\004m_id\030\001 \001(\005B\006"
-    "\302\377\024\002id\022$\n\nm_rankdown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\346\216"
-    "\222\345\220\215\022\"\n\010m_rankup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216\222\345\220\215"
-    "\022L\n\010m_reward\030\004 \003(\0132$.proto_ff.E_ArenaFir"
-    "strankRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"W"
-    "\n\024Sheet_ArenaFirstrank\022\?\n\025E_ArenaFirstra"
-    "nk_List\030\001 \003(\0132\032.proto_ff.E_ArenaFirstran"
-    "kB\004\210\301\024\024\"z\n\023E_ArenaBuychallenge\022!\n\007m_coun"
-    "t\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241\346\254\241\022$\n\nm_costtype\030"
-    "\002 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\347\261\273\345\236\213\022\032\n\006m_cost\030\003 \001(\005B"
-    "\n\302\377\024\006\350\212\261\350\264\271\"`\n\027Sheet_ArenaBuychallenge\022E"
-    "\n\030E_ArenaBuychallenge_List\030\001 \003(\0132\035.proto"
-    "_ff.E_ArenaBuychallengeB\004\210\301\024\024", 1909);
+    "\212\233\022 \n\nm_facadeid\030\010 \001(\005B\014\302\377\024\010\345\244\226\350\247\202ID\022$\n\016"
+    "m_occupationid\030\t \001(\005B\014\302\377\024\010\350\275\254\350\201\214ID\022>\n\006m_"
+    "attr\030\n \003(\0132\036.proto_ff.E_ArenaRobotAttrDe"
+    "scB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"L\n\020Sheet_ArenaRobot\0228"
+    "\n\021E_ArenaRobot_List\030\001 \003(\0132\026.proto_ff.E_A"
+    "renaRobotB\005\210\301\024\360.\"T\n\034E_ArenaRobotfacadeFa"
+    "cadeDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\030\n\007"
+    "m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\227\001\n\022E_ArenaRobotf"
+    "acade\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022!\n\007m_color\030\002"
+    " \001(\005B\020\302\377\024\014\345\210\233\345\273\272\351\242\234\350\211\262\022H\n\010m_facade\030\003 \003(\013"
+    "2&.proto_ff.E_ArenaRobotfacadeFacadeDesc"
+    "B\016\302\377\024\006\345\244\226\350\247\202\210\301\024\021\"]\n\026Sheet_ArenaRobotfaca"
+    "de\022C\n\027E_ArenaRobotfacade_List\030\001 \003(\0132\034.pr"
+    "oto_ff.E_ArenaRobotfacadeB\004\210\301\024\024\"O\n\032E_Are"
+    "naArenawardRewardDesc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
+    "\002ID\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\274\001\n\020E_A"
+    "renaArenaward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010m"
+    "_lvdown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_lvu"
+    "p\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022L\n\010m_reward\030\004 "
+    "\003(\0132$.proto_ff.E_ArenaArenawardRewardDes"
+    "cB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"X\n\024Sheet_ArenaAr"
+    "enaward\022@\n\025E_ArenaArenaward_List\030\001 \003(\0132\032"
+    ".proto_ff.E_ArenaArenawardB\005\210\301\024\320\017\"O\n\032E_A"
+    "renaRankawardRewardDesc\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"\315\001\n\020E"
+    "_ArenaRankaward\022\037\n\tm_prizeid\030\001 \001(\005B\014\302\377\024\010"
+    "\345\245\226\345\212\261ID\022%\n\013m_arenadown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231"
+    "\220\346\216\222\345\220\215\022#\n\tm_arenaup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\346\216"
+    "\222\345\220\215\022L\n\010m_reward\030\004 \003(\0132$.proto_ff.E_Aren"
+    "aRankawardRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301"
+    "\024\005\"W\n\024Sheet_ArenaRankaward\022\?\n\025E_ArenaRan"
+    "kaward_List\030\001 \003(\0132\032.proto_ff.E_ArenaRank"
+    "awardB\004\210\301\024\024\"O\n\032E_ArenaFirstrankRewardDes"
+    "c\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_value\030\002 \001(\005"
+    "B\n\302\377\024\006\346\225\260\351\207\217\"\300\001\n\020E_ArenaFirstrank\022\024\n\004m_i"
+    "d\030\001 \001(\005B\006\302\377\024\002id\022$\n\nm_rankdown\030\002 \001(\005B\020\302\377\024"
+    "\014\344\270\213\351\231\220\346\216\222\345\220\215\022\"\n\010m_rankup\030\003 \001(\005B\020\302\377\024\014\344\270\212"
+    "\351\231\220\346\216\222\345\220\215\022L\n\010m_reward\030\004 \003(\0132$.proto_ff.E"
+    "_ArenaFirstrankRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251"
+    "\345\223\201\210\301\024\005\"W\n\024Sheet_ArenaFirstrank\022\?\n\025E_Are"
+    "naFirstrank_List\030\001 \003(\0132\032.proto_ff.E_Aren"
+    "aFirstrankB\004\210\301\024\024\"z\n\023E_ArenaBuychallenge\022"
+    "!\n\007m_count\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241\346\254\241\022$\n\nm_"
+    "costtype\030\002 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\347\261\273\345\236\213\022\032\n\006m_co"
+    "st\030\003 \001(\005B\n\302\377\024\006\350\212\261\350\264\271\"`\n\027Sheet_ArenaBuych"
+    "allenge\022E\n\030E_ArenaBuychallenge_List\030\001 \003("
+    "\0132\035.proto_ff.E_ArenaBuychallengeB\004\210\301\024\024", 2278);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "arena.proto", &protobuf_RegisterTypes);
   E_ArenaRobotAttrDesc::default_instance_ = new E_ArenaRobotAttrDesc();
   E_ArenaRobot::default_instance_ = new E_ArenaRobot();
   Sheet_ArenaRobot::default_instance_ = new Sheet_ArenaRobot();
+  E_ArenaRobotfacadeFacadeDesc::default_instance_ = new E_ArenaRobotfacadeFacadeDesc();
+  E_ArenaRobotfacade::default_instance_ = new E_ArenaRobotfacade();
+  Sheet_ArenaRobotfacade::default_instance_ = new Sheet_ArenaRobotfacade();
   E_ArenaArenawardRewardDesc::default_instance_ = new E_ArenaArenawardRewardDesc();
   E_ArenaArenaward::default_instance_ = new E_ArenaArenaward();
   Sheet_ArenaArenaward::default_instance_ = new Sheet_ArenaArenaward();
@@ -455,6 +537,9 @@ void protobuf_AddDesc_arena_2eproto() {
   E_ArenaRobotAttrDesc::default_instance_->InitAsDefaultInstance();
   E_ArenaRobot::default_instance_->InitAsDefaultInstance();
   Sheet_ArenaRobot::default_instance_->InitAsDefaultInstance();
+  E_ArenaRobotfacadeFacadeDesc::default_instance_->InitAsDefaultInstance();
+  E_ArenaRobotfacade::default_instance_->InitAsDefaultInstance();
+  Sheet_ArenaRobotfacade::default_instance_->InitAsDefaultInstance();
   E_ArenaArenawardRewardDesc::default_instance_->InitAsDefaultInstance();
   E_ArenaArenaward::default_instance_->InitAsDefaultInstance();
   Sheet_ArenaArenaward::default_instance_->InitAsDefaultInstance();
@@ -734,6 +819,7 @@ const int E_ArenaRobot::kMRankidFieldNumber;
 const int E_ArenaRobot::kMRobotprofessionFieldNumber;
 const int E_ArenaRobot::kMRobotlvFieldNumber;
 const int E_ArenaRobot::kMSwordFieldNumber;
+const int E_ArenaRobot::kMFacadeidFieldNumber;
 const int E_ArenaRobot::kMOccupationidFieldNumber;
 const int E_ArenaRobot::kMAttrFieldNumber;
 #endif  // !_MSC_VER
@@ -761,6 +847,7 @@ void E_ArenaRobot::SharedCtor() {
   m_robotprofession_ = 0;
   m_robotlv_ = 0;
   m_sword_ = 0;
+  m_facadeid_ = 0;
   m_occupationid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -811,6 +898,9 @@ void E_ArenaRobot::Clear() {
     m_robotprofession_ = 0;
     m_robotlv_ = 0;
     m_sword_ = 0;
+    m_facadeid_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_occupationid_ = 0;
   }
   m_attr_.Clear();
@@ -932,12 +1022,28 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_occupationid;
+        if (input->ExpectTag(64)) goto parse_m_facadeid;
         break;
       }
 
-      // optional int32 m_occupationid = 8;
+      // optional int32 m_facadeid = 8;
       case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_facadeid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_facadeid_)));
+          set_has_m_facadeid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_occupationid;
+        break;
+      }
+
+      // optional int32 m_occupationid = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_occupationid:
@@ -948,12 +1054,12 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_attr;
+        if (input->ExpectTag(82)) goto parse_m_attr;
         break;
       }
 
-      // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
-      case 9: {
+      // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_attr:
@@ -962,7 +1068,7 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_attr;
+        if (input->ExpectTag(82)) goto parse_m_attr;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1024,15 +1130,20 @@ void E_ArenaRobot::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_sword(), output);
   }
 
-  // optional int32 m_occupationid = 8;
-  if (has_m_occupationid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_occupationid(), output);
+  // optional int32 m_facadeid = 8;
+  if (has_m_facadeid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_facadeid(), output);
   }
 
-  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  // optional int32 m_occupationid = 9;
+  if (has_m_occupationid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_occupationid(), output);
+  }
+
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 10;
   for (int i = 0; i < this->m_attr_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->m_attr(i), output);
+      10, this->m_attr(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1083,16 +1194,21 @@ void E_ArenaRobot::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_sword(), target);
   }
 
-  // optional int32 m_occupationid = 8;
-  if (has_m_occupationid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_occupationid(), target);
+  // optional int32 m_facadeid = 8;
+  if (has_m_facadeid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_facadeid(), target);
   }
 
-  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  // optional int32 m_occupationid = 9;
+  if (has_m_occupationid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_occupationid(), target);
+  }
+
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 10;
   for (int i = 0; i < this->m_attr_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        9, this->m_attr(i), target);
+        10, this->m_attr(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1155,7 +1271,16 @@ int E_ArenaRobot::ByteSize() const {
           this->m_sword());
     }
 
-    // optional int32 m_occupationid = 8;
+    // optional int32 m_facadeid = 8;
+    if (has_m_facadeid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_facadeid());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_occupationid = 9;
     if (has_m_occupationid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1163,7 +1288,7 @@ int E_ArenaRobot::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 9;
+  // repeated .proto_ff.E_ArenaRobotAttrDesc m_attr = 10;
   total_size += 1 * this->m_attr_size();
   for (int i = 0; i < this->m_attr_size(); i++) {
     total_size +=
@@ -1219,6 +1344,11 @@ void E_ArenaRobot::MergeFrom(const E_ArenaRobot& from) {
     if (from.has_m_sword()) {
       set_m_sword(from.m_sword());
     }
+    if (from.has_m_facadeid()) {
+      set_m_facadeid(from.m_facadeid());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_occupationid()) {
       set_m_occupationid(from.m_occupationid());
     }
@@ -1252,6 +1382,7 @@ void E_ArenaRobot::Swap(E_ArenaRobot* other) {
     std::swap(m_robotprofession_, other->m_robotprofession_);
     std::swap(m_robotlv_, other->m_robotlv_);
     std::swap(m_sword_, other->m_sword_);
+    std::swap(m_facadeid_, other->m_facadeid_);
     std::swap(m_occupationid_, other->m_occupationid_);
     m_attr_.Swap(&other->m_attr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1468,6 +1599,745 @@ void Sheet_ArenaRobot::Swap(Sheet_ArenaRobot* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_ArenaRobot_descriptor_;
   metadata.reflection = Sheet_ArenaRobot_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_ArenaRobotfacadeFacadeDesc::kMTypeFieldNumber;
+const int E_ArenaRobotfacadeFacadeDesc::kMValueFieldNumber;
+#endif  // !_MSC_VER
+
+E_ArenaRobotfacadeFacadeDesc::E_ArenaRobotfacadeFacadeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_ArenaRobotfacadeFacadeDesc::InitAsDefaultInstance() {
+}
+
+E_ArenaRobotfacadeFacadeDesc::E_ArenaRobotfacadeFacadeDesc(const E_ArenaRobotfacadeFacadeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_ArenaRobotfacadeFacadeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_type_ = 0;
+  m_value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_ArenaRobotfacadeFacadeDesc::~E_ArenaRobotfacadeFacadeDesc() {
+  SharedDtor();
+}
+
+void E_ArenaRobotfacadeFacadeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_ArenaRobotfacadeFacadeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_ArenaRobotfacadeFacadeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_ArenaRobotfacadeFacadeDesc_descriptor_;
+}
+
+const E_ArenaRobotfacadeFacadeDesc& E_ArenaRobotfacadeFacadeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
+  return *default_instance_;
+}
+
+E_ArenaRobotfacadeFacadeDesc* E_ArenaRobotfacadeFacadeDesc::default_instance_ = NULL;
+
+E_ArenaRobotfacadeFacadeDesc* E_ArenaRobotfacadeFacadeDesc::New() const {
+  return new E_ArenaRobotfacadeFacadeDesc;
+}
+
+void E_ArenaRobotfacadeFacadeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_type_ = 0;
+    m_value_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_ArenaRobotfacadeFacadeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_value;
+        break;
+      }
+
+      // optional int32 m_value = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_ArenaRobotfacadeFacadeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_type(), output);
+  }
+
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_ArenaRobotfacadeFacadeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_type = 1;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_type(), target);
+  }
+
+  // optional int32 m_value = 2;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_ArenaRobotfacadeFacadeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_type = 1;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+    // optional int32 m_value = 2;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_ArenaRobotfacadeFacadeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_ArenaRobotfacadeFacadeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaRobotfacadeFacadeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_ArenaRobotfacadeFacadeDesc::MergeFrom(const E_ArenaRobotfacadeFacadeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_ArenaRobotfacadeFacadeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_ArenaRobotfacadeFacadeDesc::CopyFrom(const E_ArenaRobotfacadeFacadeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_ArenaRobotfacadeFacadeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_ArenaRobotfacadeFacadeDesc::Swap(E_ArenaRobotfacadeFacadeDesc* other) {
+  if (other != this) {
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_value_, other->m_value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_ArenaRobotfacadeFacadeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_ArenaRobotfacadeFacadeDesc_descriptor_;
+  metadata.reflection = E_ArenaRobotfacadeFacadeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_ArenaRobotfacade::kMIdFieldNumber;
+const int E_ArenaRobotfacade::kMColorFieldNumber;
+const int E_ArenaRobotfacade::kMFacadeFieldNumber;
+#endif  // !_MSC_VER
+
+E_ArenaRobotfacade::E_ArenaRobotfacade()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_ArenaRobotfacade::InitAsDefaultInstance() {
+}
+
+E_ArenaRobotfacade::E_ArenaRobotfacade(const E_ArenaRobotfacade& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_ArenaRobotfacade::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_color_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_ArenaRobotfacade::~E_ArenaRobotfacade() {
+  SharedDtor();
+}
+
+void E_ArenaRobotfacade::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_ArenaRobotfacade::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_ArenaRobotfacade::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_ArenaRobotfacade_descriptor_;
+}
+
+const E_ArenaRobotfacade& E_ArenaRobotfacade::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
+  return *default_instance_;
+}
+
+E_ArenaRobotfacade* E_ArenaRobotfacade::default_instance_ = NULL;
+
+E_ArenaRobotfacade* E_ArenaRobotfacade::New() const {
+  return new E_ArenaRobotfacade;
+}
+
+void E_ArenaRobotfacade::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_color_ = 0;
+  }
+  m_facade_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_ArenaRobotfacade::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_color;
+        break;
+      }
+
+      // optional int32 m_color = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_color:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_color_)));
+          set_has_m_color();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_facade;
+        break;
+      }
+
+      // repeated .proto_ff.E_ArenaRobotfacadeFacadeDesc m_facade = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_facade:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_facade()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_facade;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_ArenaRobotfacade::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_color = 2;
+  if (has_m_color()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_color(), output);
+  }
+
+  // repeated .proto_ff.E_ArenaRobotfacadeFacadeDesc m_facade = 3;
+  for (int i = 0; i < this->m_facade_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->m_facade(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_ArenaRobotfacade::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_color = 2;
+  if (has_m_color()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_color(), target);
+  }
+
+  // repeated .proto_ff.E_ArenaRobotfacadeFacadeDesc m_facade = 3;
+  for (int i = 0; i < this->m_facade_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->m_facade(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_ArenaRobotfacade::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_color = 2;
+    if (has_m_color()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_color());
+    }
+
+  }
+  // repeated .proto_ff.E_ArenaRobotfacadeFacadeDesc m_facade = 3;
+  total_size += 1 * this->m_facade_size();
+  for (int i = 0; i < this->m_facade_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_facade(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_ArenaRobotfacade::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_ArenaRobotfacade* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ArenaRobotfacade*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_ArenaRobotfacade::MergeFrom(const E_ArenaRobotfacade& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_facade_.MergeFrom(from.m_facade_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_color()) {
+      set_m_color(from.m_color());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_ArenaRobotfacade::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_ArenaRobotfacade::CopyFrom(const E_ArenaRobotfacade& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_ArenaRobotfacade::IsInitialized() const {
+
+  return true;
+}
+
+void E_ArenaRobotfacade::Swap(E_ArenaRobotfacade* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_color_, other->m_color_);
+    m_facade_.Swap(&other->m_facade_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_ArenaRobotfacade::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_ArenaRobotfacade_descriptor_;
+  metadata.reflection = E_ArenaRobotfacade_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_ArenaRobotfacade::kEArenaRobotfacadeListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_ArenaRobotfacade::Sheet_ArenaRobotfacade()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_ArenaRobotfacade::InitAsDefaultInstance() {
+}
+
+Sheet_ArenaRobotfacade::Sheet_ArenaRobotfacade(const Sheet_ArenaRobotfacade& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_ArenaRobotfacade::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_ArenaRobotfacade::~Sheet_ArenaRobotfacade() {
+  SharedDtor();
+}
+
+void Sheet_ArenaRobotfacade::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_ArenaRobotfacade::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_ArenaRobotfacade::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_ArenaRobotfacade_descriptor_;
+}
+
+const Sheet_ArenaRobotfacade& Sheet_ArenaRobotfacade::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_arena_2eproto();
+  return *default_instance_;
+}
+
+Sheet_ArenaRobotfacade* Sheet_ArenaRobotfacade::default_instance_ = NULL;
+
+Sheet_ArenaRobotfacade* Sheet_ArenaRobotfacade::New() const {
+  return new Sheet_ArenaRobotfacade;
+}
+
+void Sheet_ArenaRobotfacade::Clear() {
+  e_arenarobotfacade_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_ArenaRobotfacade::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_ArenaRobotfacade E_ArenaRobotfacade_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_ArenaRobotfacade_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_arenarobotfacade_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_ArenaRobotfacade_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_ArenaRobotfacade::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_ArenaRobotfacade E_ArenaRobotfacade_List = 1;
+  for (int i = 0; i < this->e_arenarobotfacade_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_arenarobotfacade_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_ArenaRobotfacade::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_ArenaRobotfacade E_ArenaRobotfacade_List = 1;
+  for (int i = 0; i < this->e_arenarobotfacade_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_arenarobotfacade_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_ArenaRobotfacade::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_ArenaRobotfacade E_ArenaRobotfacade_List = 1;
+  total_size += 1 * this->e_arenarobotfacade_list_size();
+  for (int i = 0; i < this->e_arenarobotfacade_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_arenarobotfacade_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_ArenaRobotfacade::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_ArenaRobotfacade* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_ArenaRobotfacade*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_ArenaRobotfacade::MergeFrom(const Sheet_ArenaRobotfacade& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_arenarobotfacade_list_.MergeFrom(from.e_arenarobotfacade_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_ArenaRobotfacade::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_ArenaRobotfacade::CopyFrom(const Sheet_ArenaRobotfacade& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_ArenaRobotfacade::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_ArenaRobotfacade::Swap(Sheet_ArenaRobotfacade* other) {
+  if (other != this) {
+    e_arenarobotfacade_list_.Swap(&other->e_arenarobotfacade_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_ArenaRobotfacade::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_ArenaRobotfacade_descriptor_;
+  metadata.reflection = Sheet_ArenaRobotfacade_reflection_;
   return metadata;
 }
 

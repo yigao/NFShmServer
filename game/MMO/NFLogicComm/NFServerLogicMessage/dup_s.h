@@ -16,6 +16,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;
+		NFShmVector<int64_t, 5> m_bgdupsweep;
 		NFShmVector<int64_t, 5> m_bgdup;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupBplevel & msg) const;
@@ -48,11 +49,15 @@ namespace proto_ff_s {
 		int32_t m_scripid;
 		int32_t m_scriptype;
 		int32_t m_duplevel;
+		int32_t m_scripmontype;
+		NFShmString<60> m_scripmonid;
 		int32_t m_groupid;
+		int32_t m_subtype;
 		int32_t m_layer;
 		int32_t m_duplicatetype;
 		int64_t m_mapid;
 		int32_t m_levellimit;
+		int32_t m_functionid;
 		int32_t m_pre;
 		int32_t m_isautofight;
 		NFShmString<60> m_condition;
@@ -61,10 +66,10 @@ namespace proto_ff_s {
 		NFShmString<60> m_gradecondition;
 		int64_t m_sweeprewardboxid;
 		int32_t m_sweeprewardexp;
+		int32_t m_sweepexptype;
 		NFShmString<60> m_trackpoint;
 		NFShmString<60> m_pathofmonster;
 		int32_t m_ispatrol;
-		int32_t m_sweeptype;
 		NFShmVector<int32_t, 3> m_box;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupDup & msg) const;
@@ -79,7 +84,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DupDup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DupDup_s, 80> E_DupDup_List;
+		NFShmVector<struct E_DupDup_s, 200> E_DupDup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DupDup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupDup & msg);
@@ -131,6 +136,7 @@ namespace proto_ff_s {
 		int32_t m_grouptimestype;
 		int32_t m_grouptimes;
 		int32_t m_enteritemid;
+		int32_t m_sweeptype;
 		int32_t m_sweepcondition;
 		int32_t m_mergecondition;
 		int32_t m_additemid;
@@ -141,6 +147,9 @@ namespace proto_ff_s {
 		int32_t m_enddown;
 		int32_t m_accountdown;
 		int32_t m_funcionid;
+		int32_t m_closefuncionid;
+		int64_t m_link;
+		int32_t m_festvialtype;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupGroup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupGroup & msg);
@@ -162,6 +171,39 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_DupGroup make_pbmsg(){ return ::proto_ff::Sheet_DupGroup(); }
 	};
 	typedef struct Sheet_DupGroup_s Sheet_DupGroup_t;
+
+	struct E_DupSweepmonsternum_s : public NFDescStoreSeqOP {
+		E_DupSweepmonsternum_s();
+		virtual ~E_DupSweepmonsternum_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		int32_t m_sweepexptype;
+		int32_t m_minlevel;
+		int32_t m_maxlevel;
+		int32_t m_killnumber;
+		int32_t m_monstervaluetype;
+
+		virtual void write_to_pbmsg(::proto_ff::E_DupSweepmonsternum & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DupSweepmonsternum & msg);
+		static ::proto_ff::E_DupSweepmonsternum* new_pbmsg(){ return new ::proto_ff::E_DupSweepmonsternum(); }
+		static ::proto_ff::E_DupSweepmonsternum make_pbmsg(){ return ::proto_ff::E_DupSweepmonsternum(); }
+	};
+	typedef struct E_DupSweepmonsternum_s E_DupSweepmonsternum_t;
+
+	struct Sheet_DupSweepmonsternum_s : public NFDescStoreSeqOP {
+		Sheet_DupSweepmonsternum_s();
+		virtual ~Sheet_DupSweepmonsternum_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_DupSweepmonsternum_s, 60> E_DupSweepmonsternum_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_DupSweepmonsternum & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupSweepmonsternum & msg);
+		static ::proto_ff::Sheet_DupSweepmonsternum* new_pbmsg(){ return new ::proto_ff::Sheet_DupSweepmonsternum(); }
+		static ::proto_ff::Sheet_DupSweepmonsternum make_pbmsg(){ return ::proto_ff::Sheet_DupSweepmonsternum(); }
+	};
+	typedef struct Sheet_DupSweepmonsternum_s Sheet_DupSweepmonsternum_t;
 
 }
 

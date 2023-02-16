@@ -176,7 +176,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleMasterfemaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleMasterfemaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMasterfemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMasterfemale & msg);
@@ -221,7 +221,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSicklemaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleSicklemaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklemale & msg);
@@ -266,7 +266,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSicklefemaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleSicklefemaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklefemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklefemale & msg);
@@ -311,7 +311,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSwordmaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleSwordmaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordmale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordmale & msg);
@@ -356,7 +356,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSwordfemaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleSwordfemaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordfemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordfemale & msg);
@@ -401,7 +401,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleTaidaomaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleTaidaomaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaomale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaomale & msg);
@@ -446,7 +446,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleTaidaofemaleAttributeDesc_s, 22> m_attribute;
+		NFShmVector<struct E_RoleTaidaofemaleAttributeDesc_s, 70> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaofemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemale & msg);

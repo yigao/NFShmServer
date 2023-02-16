@@ -92,6 +92,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_FacadeSoul_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_FacadeSoul_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FacadeSoulactiveUnlockDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FacadeSoulactiveUnlockDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_FacadeSoulactive_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_FacadeSoulactive_reflection_ = NULL;
@@ -148,7 +151,7 @@ void protobuf_AssignDesc_facade_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_activedesc_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_professionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_skillid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_soulitemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_souliid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_material_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeDisplay, m_fragmentid_),
   };
@@ -505,10 +508,11 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FacadeSoulAttributeDesc));
   E_FacadeSoul_descriptor_ = file->message_type(22);
-  static const int E_FacadeSoul_offsets_[5] = {
+  static const int E_FacadeSoul_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoul, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoul, m_rechargeid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoul, m_mainskill_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoul, m_attributetype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoul, m_attribute_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoul, m_minorskill_),
   };
@@ -538,11 +542,26 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FacadeSoul));
-  E_FacadeSoulactive_descriptor_ = file->message_type(24);
-  static const int E_FacadeSoulactive_offsets_[3] = {
+  E_FacadeSoulactiveUnlockDesc_descriptor_ = file->message_type(24);
+  static const int E_FacadeSoulactiveUnlockDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactiveUnlockDesc, m_parama_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactiveUnlockDesc, m_condition_),
+  };
+  E_FacadeSoulactiveUnlockDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FacadeSoulactiveUnlockDesc_descriptor_,
+      E_FacadeSoulactiveUnlockDesc::default_instance_,
+      E_FacadeSoulactiveUnlockDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactiveUnlockDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactiveUnlockDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FacadeSoulactiveUnlockDesc));
+  E_FacadeSoulactive_descriptor_ = file->message_type(25);
+  static const int E_FacadeSoulactive_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactive, m_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactive, m_parama_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactive, m_condition_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulactive, m_unlock_),
   };
   E_FacadeSoulactive_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -555,7 +574,7 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FacadeSoulactive));
-  Sheet_FacadeSoulactive_descriptor_ = file->message_type(25);
+  Sheet_FacadeSoulactive_descriptor_ = file->message_type(26);
   static const int Sheet_FacadeSoulactive_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FacadeSoulactive, e_facadesoulactive_list_),
   };
@@ -570,7 +589,7 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FacadeSoulactive));
-  E_FacadeSoullvAttributeDesc_descriptor_ = file->message_type(26);
+  E_FacadeSoullvAttributeDesc_descriptor_ = file->message_type(27);
   static const int E_FacadeSoullvAttributeDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullvAttributeDesc, m_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullvAttributeDesc, m_value_),
@@ -586,9 +605,10 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FacadeSoullvAttributeDesc));
-  E_FacadeSoullv_descriptor_ = file->message_type(27);
-  static const int E_FacadeSoullv_offsets_[7] = {
+  E_FacadeSoullv_descriptor_ = file->message_type(28);
+  static const int E_FacadeSoullv_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullv, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullv, m_soulllv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullv, m_soulid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullv, m_itemid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoullv, m_num_),
@@ -607,7 +627,7 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FacadeSoullv));
-  Sheet_FacadeSoullv_descriptor_ = file->message_type(28);
+  Sheet_FacadeSoullv_descriptor_ = file->message_type(29);
   static const int Sheet_FacadeSoullv_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FacadeSoullv, e_facadesoullv_list_),
   };
@@ -622,7 +642,7 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FacadeSoullv));
-  E_FacadeSoulachievement_descriptor_ = file->message_type(29);
+  E_FacadeSoulachievement_descriptor_ = file->message_type(30);
   static const int E_FacadeSoulachievement_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulachievement, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FacadeSoulachievement, m_soulid_),
@@ -642,7 +662,7 @@ void protobuf_AssignDesc_facade_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FacadeSoulachievement));
-  Sheet_FacadeSoulachievement_descriptor_ = file->message_type(30);
+  Sheet_FacadeSoulachievement_descriptor_ = file->message_type(31);
   static const int Sheet_FacadeSoulachievement_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FacadeSoulachievement, e_facadesoulachievement_list_),
   };
@@ -718,6 +738,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FacadeSoul_descriptor_, &Sheet_FacadeSoul::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FacadeSoulactiveUnlockDesc_descriptor_, &E_FacadeSoulactiveUnlockDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_FacadeSoulactive_descriptor_, &E_FacadeSoulactive::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FacadeSoulactive_descriptor_, &Sheet_FacadeSoulactive::default_instance());
@@ -784,6 +806,8 @@ void protobuf_ShutdownFile_facade_2eproto() {
   delete E_FacadeSoul_reflection_;
   delete Sheet_FacadeSoul::default_instance_;
   delete Sheet_FacadeSoul_reflection_;
+  delete E_FacadeSoulactiveUnlockDesc::default_instance_;
+  delete E_FacadeSoulactiveUnlockDesc_reflection_;
   delete E_FacadeSoulactive::default_instance_;
   delete E_FacadeSoulactive_reflection_;
   delete Sheet_FacadeSoulactive::default_instance_;
@@ -811,133 +835,137 @@ void protobuf_AddDesc_facade_2eproto() {
     "\n\014facade.proto\022\010proto_ff\032\025yd_fieldoption"
     "s.proto\"Q\n\033E_FacadeDisplayMaterialDesc\022\024"
     "\n\004m_id\030\001 \001(\003B\006\302\377\024\002ID\022\034\n\005m_exp\030\002 \001(\005B\r\302\377\024"
-    "\t\347\273\217\351\252\214\345\200\274\"\275\003\n\017E_FacadeDisplay\022\032\n\004m_id\030\001"
+    "\t\347\273\217\351\252\214\345\200\274\"\264\003\n\017E_FacadeDisplay\022\032\n\004m_id\030\001"
     " \001(\003B\014\302\377\024\010\345\244\226\350\247\202ID\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006"
     "\345\244\247\347\261\273\022(\n\nm_resource\030\003 \001(\tB\024\302\377\024\014\350\265\204\346\272\220\345\275"
     "\242\350\261\241\220\301\024<\022\036\n\006m_name\030\004 \001(\tB\016\302\377\024\006\345\220\215\345\255\227\220\301\024<"
     "\022*\n\014m_activedesc\030\005 \001(\tB\024\302\377\024\014\346\277\200\346\264\273\346\217\217\350\277\260"
     "\220\301\024d\022(\n\016m_professionid\030\006 \001(\tB\020\302\377\024\010\350\201\214\344\270\232"
     "ID\220\301\024<\022)\n\tm_skillid\030\007 \001(\tB\026\302\377\024\016\350\247\243\351\224\201\346\212\200"
-    "\350\203\275ID\220\301\024P\022(\n\014m_soulitemid\030\010 \001(\005B\022\302\377\024\016\345\231\250"
-    "\351\255\202\351\201\223\345\205\267ID\022O\n\nm_material\030\t \003(\0132%.proto_"
-    "ff.E_FacadeDisplayMaterialDescB\024\302\377\024\014\350\277\233\351"
-    "\230\266\346\235\220\346\226\231\210\301\024\003\022,\n\014m_fragmentid\030\n \003(\003B\026\302\377\024\016"
-    "\345\205\263\350\201\224\347\242\216\347\211\207ID\210\301\024\003\"T\n\023Sheet_FacadeDispla"
-    "y\022=\n\024E_FacadeDisplay_List\030\001 \003(\0132\031.proto_"
-    "ff.E_FacadeDisplayB\004\210\301\024\024\"V\n\"E_FacadeValu"
-    "eTreasureattributeDesc\022\026\n\006m_type\030\001 \001(\005B\006"
-    "\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"V\n\"E_Fa"
-    "cadeValueArtifactattributeDesc\022\026\n\006m_type"
+    "\350\203\275ID\220\301\024P\022\037\n\tm_souliid\030\010 \001(\005B\014\302\377\024\010\345\231\250\351\255\202"
+    "ID\022O\n\nm_material\030\t \003(\0132%.proto_ff.E_Faca"
+    "deDisplayMaterialDescB\024\302\377\024\014\350\277\233\351\230\266\346\235\220\346\226\231\210"
+    "\301\024\003\022,\n\014m_fragmentid\030\n \003(\003B\026\302\377\024\016\345\205\263\350\201\224\347\242\216"
+    "\347\211\207ID\210\301\024\003\"T\n\023Sheet_FacadeDisplay\022=\n\024E_Fa"
+    "cadeDisplay_List\030\001 \003(\0132\031.proto_ff.E_Faca"
+    "deDisplayB\004\210\301\024\024\"V\n\"E_FacadeValueTreasure"
+    "attributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n"
+    "\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"V\n\"E_FacadeValue"
+    "ArtifactattributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"S\n\037E_Fac"
+    "adeValueBladeattributeDesc\022\026\n\006m_type\030\001 \001"
+    "(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"R\n\036"
+    "E_FacadeValueWingattributeDesc\022\026\n\006m_type"
     "\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274"
-    "\"S\n\037E_FacadeValueBladeattributeDesc\022\026\n\006m"
-    "_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377"
-    "\024\003\345\200\274\"R\n\036E_FacadeValueWingattributeDesc\022"
-    "\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005"
-    "B\007\302\377\024\003\345\200\274\"\354\004\n\rE_FacadeValue\022\030\n\004m_lv\030\001 \001("
-    "\005B\n\302\377\024\006\347\255\211\347\272\247\022)\n\tm_wingexp\030\002 \001(\003B\026\302\377\024\022\347\277"
-    "\205\350\206\200\345\215\207\347\272\247\347\273\217\351\252\214\022-\n\rm_treasureexp\030\003 \001(\003B"
-    "\026\302\377\024\022\345\256\235\347\211\251\345\215\207\347\272\247\347\273\217\351\252\214\022-\n\rm_artifactexp"
-    "\030\004 \001(\003B\026\302\377\024\022\347\245\236\345\231\250\345\215\207\347\272\247\347\273\217\351\252\214\022*\n\nm_blad"
-    "eexp\030\005 \001(\003B\026\302\377\024\022\345\211\221\347\201\265\345\215\207\347\272\247\347\273\217\351\252\214\022e\n\023m_"
-    "treasureattribute\030\006 \003(\0132,.proto_ff.E_Fac"
-    "adeValueTreasureattributeDescB\032\302\377\024\022\345\256\235\345\205"
-    "\267\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\005\022e\n\023m_artifactattribute"
-    "\030\007 \003(\0132,.proto_ff.E_FacadeValueArtifacta"
-    "ttributeDescB\032\302\377\024\022\347\245\236\345\231\250\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006"
-    "\022_\n\020m_bladeattribute\030\010 \003(\0132).proto_ff.E_"
-    "FacadeValueBladeattributeDescB\032\302\377\024\022\347\245\236\345\231"
-    "\250\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\022]\n\017m_wingattribute\030\t \003"
-    "(\0132(.proto_ff.E_FacadeValueWingattribute"
-    "DescB\032\302\377\024\022\347\277\205\350\206\200\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\004\"O\n\021Shee"
-    "t_FacadeValue\022:\n\022E_FacadeValue_List\030\001 \003("
-    "\0132\027.proto_ff.E_FacadeValueB\005\210\301\024\364\003\"U\n\014E_F"
-    "acadeType\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\347\261\273\345\236\213id\022)\n"
-    "\013m_soucename\030\002 \001(\tB\024\302\377\024\014\350\265\204\346\272\220\345\220\215\347\247\260\220\301\024<"
-    "\"K\n\020Sheet_FacadeType\0227\n\021E_FacadeType_Lis"
-    "t\030\001 \003(\0132\026.proto_ff.E_FacadeTypeB\004\210\301\024\024\"Q\n"
-    "\035E_FacadeFragmentAttributeDesc\022\026\n\006m_type"
-    "\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274"
-    "\"\323\001\n\020E_FacadeFragment\022\"\n\014m_fragmentid\030\001 "
-    "\001(\003B\014\302\377\024\010\347\242\216\347\211\207ID\022\034\n\006m_item\030\002 \001(\003B\014\302\377\024\010\347"
-    "\211\251\345\223\201ID\022)\n\tm_itemnum\030\003 \001(\005B\026\302\377\024\022\347\242\216\347\211\207\344\275"
-    "\277\347\224\250\344\270\212\351\231\220\022R\n\013m_attribute\030\004 \003(\0132\'.proto_"
-    "ff.E_FacadeFragmentAttributeDescB\024\302\377\024\014\345\237"
-    "\272\347\241\200\345\261\236\346\200\247\210\301\024\003\"W\n\024Sheet_FacadeFragment\022\?"
-    "\n\025E_FacadeFragment_List\030\001 \003(\0132\032.proto_ff"
-    ".E_FacadeFragmentB\004\210\301\024\024\"O\n\033E_FacadeChang"
-    "eAttributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030"
-    "\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"Y\n!E_FacadeChan"
-    "geActiveattributeDesc\022\032\n\006m_type\030\001 \001(\005B\n\302"
-    "\377\024\006\347\261\273\345\236\213\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\260\006\n\016"
-    "E_FacadeChange\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\345\244\226\350\247\202"
-    "ID\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\345\244\247\347\261\273\022(\n\nm_reso"
-    "urce\030\003 \001(\tB\024\302\377\024\014\350\265\204\346\272\220\345\275\242\350\261\241\220\301\024<\022(\n\016m_pr"
-    "ofessionid\030\004 \001(\tB\020\302\377\024\010\350\201\214\344\270\232ID\220\301\024<\022\036\n\006m_"
-    "name\030\005 \001(\tB\016\302\377\024\006\345\220\215\345\255\227\220\301\024<\022+\n\014m_activede"
-    "sc\030\006 \001(\tB\025\302\377\024\014\346\277\200\346\264\273\346\217\217\350\277\260\220\301\024\240\001\022\035\n\tm_qua"
-    "lity\030\007 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022,\n\020m_activationit"
-    "em\030\010 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022/\n\017m_activa"
-    "tionnum\030\t \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022$\n"
-    "\010m_starid\030\n \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022.\n\tm"
-    "_starnum\030\013 \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301"
-    "\024\254\002\022(\n\010m_starup\030\014 \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344"
-    "\270\212\351\231\220\022>\n\tm_starber\030\r \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346"
-    "\230\237\345\261\236\346\200\247\345\242\236\345\212\240\347\232\204\344\270\207\345\210\206\346\257\224\345\200\274\022.\n\017m_upatt"
-    "ributeid\030\016 \001(\003B\025\302\377\024\021\345\215\207\346\230\237\345\261\236\346\200\247\347\273\204ID\022-\n"
-    "\rm_activeskill\030\017 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\350\216\267\345\276\227\346\212"
-    "\200\350\203\275\022P\n\013m_attribute\030\020 \003(\0132%.proto_ff.E_F"
-    "acadeChangeAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346"
-    "\200\247\210\301\024\005\022V\n\021m_activeattribute\030\021 \003(\0132+.prot"
-    "o_ff.E_FacadeChangeActiveattributeDescB\016"
-    "\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"Q\n\022Sheet_FacadeChange\022;\n\023"
-    "E_FacadeChange_List\030\001 \003(\0132\030.proto_ff.E_F"
-    "acadeChangeB\004\210\301\024<\"Q\n\035E_FacadeStarupUpatt"
-    "ributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_"
-    "value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\361\001\n\016E_FacadeStarup\022"
-    "\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022.\n\017m_upattri"
-    "buteid\030\002 \001(\003B\025\302\377\024\021\345\215\207\346\230\237\345\261\236\346\200\247\347\273\204ID\022\034\n\010m"
-    "_starid\030\003 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022\037\n\tm_skillid\030\004"
-    " \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\022T\n\rm_upattribute\030\005 \003("
-    "\0132\'.proto_ff.E_FacadeStarupUpattributeDe"
-    "scB\024\302\377\024\014\346\277\200\346\264\273\345\261\236\346\200\247\210\301\024\003\"Q\n\022Sheet_Facade"
-    "Starup\022;\n\023E_FacadeStarup_List\030\001 \003(\0132\030.pr"
-    "oto_ff.E_FacadeStarupB\004\210\301\024(\"M\n\031E_FacadeS"
-    "oulAttributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID"
-    "\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\374\001\n\014E_FacadeS"
-    "oul\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\345\231\250\351\255\202ID\022)\n\014m_rec"
-    "hargeid\030\002 \001(\005B\023\302\377\024\017\344\273\267\346\240\274\350\256\241\350\264\271\347\202\271\022$\n\013m_"
-    "mainskill\030\003 \001(\005B\017\302\377\024\013\344\270\273\346\212\200\350\203\275ID\022T\n\013m_at"
-    "tribute\030\004 \003(\0132#.proto_ff.E_FacadeSoulAtt"
-    "ributeDescB\032\302\377\024\022\346\277\200\346\264\273\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\004\022)"
-    "\n\014m_minorskill\030\005 \003(\005B\023\302\377\024\013\345\211\257\346\212\200\350\203\275ID\210\301\024"
-    "\010\"K\n\020Sheet_FacadeSoul\0227\n\021E_FacadeSoul_Li"
-    "st\030\001 \003(\0132\026.proto_ff.E_FacadeSoulB\004\210\301\024\024\"\201"
-    "\001\n\022E_FacadeSoulactive\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024"
-    "\010\346\212\200\350\203\275ID\022$\n\010m_parama\030\002 \003(\tB\022\302\377\024\006\345\217\202\346\225\260\210"
-    "\301\024\002\220\301\024<\022)\n\013m_condition\030\003 \003(\005B\024\302\377\024\014\350\247\243\351\224\201"
-    "\346\235\241\344\273\266\210\301\024\002\"]\n\026Sheet_FacadeSoulactive\022C\n\027"
-    "E_FacadeSoulactive_List\030\001 \003(\0132\034.proto_ff"
-    ".E_FacadeSoulactiveB\004\210\301\024(\"O\n\033E_FacadeSou"
-    "llvAttributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID"
-    "\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\261\002\n\016E_FacadeS"
-    "oullv\022\030\n\004m_id\030\001 \001(\003B\n\302\377\024\006\347\255\211\347\272\247\022\036\n\010m_sou"
-    "lid\030\002 \001(\005B\014\302\377\024\010\345\231\250\351\255\202ID\022\"\n\010m_itemid\030\003 \001("
-    "\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022\037\n\005m_num\030\004 \001(\005B\020\302\377\024\014"
-    "\346\266\210\350\200\227\346\225\260\351\207\217\022*\n\rm_successrate\030\005 \001(\005B\023\302\377\024"
-    "\017\345\215\207\347\272\247\346\210\220\345\212\237\347\216\207\022\"\n\010m_downlv\030\006 \001(\005B\020\302\377\024\014"
-    "\346\230\257\345\220\246\346\216\211\347\272\247\022P\n\013m_attribute\030\007 \003(\0132%.prot"
-    "o_ff.E_FacadeSoullvAttributeDescB\024\302\377\024\014\345\237"
-    "\272\347\241\200\345\261\236\346\200\247\210\301\024\007\"R\n\022Sheet_FacadeSoullv\022<\n\023"
-    "E_FacadeSoullv_List\030\001 \003(\0132\030.proto_ff.E_F"
-    "acadeSoullvB\005\210\301\024\214\001\"\327\001\n\027E_FacadeSoulachie"
-    "vement\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\210\220\345\260\261id\022\036\n\010m_"
-    "soulid\030\002 \001(\005B\014\302\377\024\010\345\231\250\351\255\202ID\022\032\n\006m_type\030\003 \001"
-    "(\005B\n\302\377\024\006\347\261\273\345\236\213\022\037\n\010m_parama\030\004 \001(\005B\r\302\377\024\t\345\275"
-    "\261\345\223\215\345\200\274\022\"\n\010m_itemid\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223"
-    "\345\205\267\022\037\n\005m_num\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\346\225\260\351\207\217\"m\n\033"
-    "Sheet_FacadeSoulachievement\022N\n\034E_FacadeS"
-    "oulachievement_List\030\001 \003(\0132!.proto_ff.E_F"
-    "acadeSoulachievementB\005\210\301\024\240\001", 5187);
+    "\"\354\004\n\rE_FacadeValue\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255"
+    "\211\347\272\247\022)\n\tm_wingexp\030\002 \001(\003B\026\302\377\024\022\347\277\205\350\206\200\345\215\207\347\272"
+    "\247\347\273\217\351\252\214\022-\n\rm_treasureexp\030\003 \001(\003B\026\302\377\024\022\345\256\235\347"
+    "\211\251\345\215\207\347\272\247\347\273\217\351\252\214\022-\n\rm_artifactexp\030\004 \001(\003B\026\302"
+    "\377\024\022\347\245\236\345\231\250\345\215\207\347\272\247\347\273\217\351\252\214\022*\n\nm_bladeexp\030\005 \001("
+    "\003B\026\302\377\024\022\345\211\221\347\201\265\345\215\207\347\272\247\347\273\217\351\252\214\022e\n\023m_treasurea"
+    "ttribute\030\006 \003(\0132,.proto_ff.E_FacadeValueT"
+    "reasureattributeDescB\032\302\377\024\022\345\256\235\345\205\267\345\237\272\347\241\200\345\261"
+    "\236\346\200\247\210\301\024\005\022e\n\023m_artifactattribute\030\007 \003(\0132,."
+    "proto_ff.E_FacadeValueArtifactattributeD"
+    "escB\032\302\377\024\022\347\245\236\345\231\250\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\022_\n\020m_bla"
+    "deattribute\030\010 \003(\0132).proto_ff.E_FacadeVal"
+    "ueBladeattributeDescB\032\302\377\024\022\347\245\236\345\231\250\345\237\272\347\241\200\345\261"
+    "\236\346\200\247\210\301\024\006\022]\n\017m_wingattribute\030\t \003(\0132(.prot"
+    "o_ff.E_FacadeValueWingattributeDescB\032\302\377\024"
+    "\022\347\277\205\350\206\200\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\004\"O\n\021Sheet_FacadeV"
+    "alue\022:\n\022E_FacadeValue_List\030\001 \003(\0132\027.proto"
+    "_ff.E_FacadeValueB\005\210\301\024\364\003\"U\n\014E_FacadeType"
+    "\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\347\261\273\345\236\213id\022)\n\013m_soucen"
+    "ame\030\002 \001(\tB\024\302\377\024\014\350\265\204\346\272\220\345\220\215\347\247\260\220\301\024<\"K\n\020Sheet"
+    "_FacadeType\0227\n\021E_FacadeType_List\030\001 \003(\0132\026"
+    ".proto_ff.E_FacadeTypeB\004\210\301\024\024\"Q\n\035E_Facade"
+    "FragmentAttributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\323\001\n\020E_Fa"
+    "cadeFragment\022\"\n\014m_fragmentid\030\001 \001(\003B\014\302\377\024\010"
+    "\347\242\216\347\211\207ID\022\034\n\006m_item\030\002 \001(\003B\014\302\377\024\010\347\211\251\345\223\201ID\022)"
+    "\n\tm_itemnum\030\003 \001(\005B\026\302\377\024\022\347\242\216\347\211\207\344\275\277\347\224\250\344\270\212\351\231"
+    "\220\022R\n\013m_attribute\030\004 \003(\0132\'.proto_ff.E_Faca"
+    "deFragmentAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200"
+    "\247\210\301\024\003\"W\n\024Sheet_FacadeFragment\022\?\n\025E_Facad"
+    "eFragment_List\030\001 \003(\0132\032.proto_ff.E_Facade"
+    "FragmentB\004\210\301\024\024\"O\n\033E_FacadeChangeAttribut"
+    "eDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value"
+    "\030\002 \001(\005B\007\302\377\024\003\345\200\274\"Y\n!E_FacadeChangeActivea"
+    "ttributeDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213"
+    "\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\260\006\n\016E_FacadeC"
+    "hange\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\345\244\226\350\247\202ID\022\032\n\006m_t"
+    "ype\030\002 \001(\005B\n\302\377\024\006\345\244\247\347\261\273\022(\n\nm_resource\030\003 \001("
+    "\tB\024\302\377\024\014\350\265\204\346\272\220\345\275\242\350\261\241\220\301\024<\022(\n\016m_professioni"
+    "d\030\004 \001(\tB\020\302\377\024\010\350\201\214\344\270\232ID\220\301\024<\022\036\n\006m_name\030\005 \001("
+    "\tB\016\302\377\024\006\345\220\215\345\255\227\220\301\024<\022+\n\014m_activedesc\030\006 \001(\tB"
+    "\025\302\377\024\014\346\277\200\346\264\273\346\217\217\350\277\260\220\301\024\240\001\022\035\n\tm_quality\030\007 \001("
+    "\005B\n\302\377\024\006\345\223\201\350\264\250\022,\n\020m_activationitem\030\010 \001(\003B"
+    "\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267ID\022/\n\017m_activationnum\030\t"
+    " \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starid"
+    "\030\n \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022.\n\tm_starnum\030"
+    "\013 \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\254\002\022(\n\010m_"
+    "starup\030\014 \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022>\n\t"
+    "m_starber\030\r \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345"
+    "\242\236\345\212\240\347\232\204\344\270\207\345\210\206\346\257\224\345\200\274\022.\n\017m_upattributeid\030"
+    "\016 \001(\003B\025\302\377\024\021\345\215\207\346\230\237\345\261\236\346\200\247\347\273\204ID\022-\n\rm_active"
+    "skill\030\017 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\350\216\267\345\276\227\346\212\200\350\203\275\022P\n\013m"
+    "_attribute\030\020 \003(\0132%.proto_ff.E_FacadeChan"
+    "geAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\005\022V\n"
+    "\021m_activeattribute\030\021 \003(\0132+.proto_ff.E_Fa"
+    "cadeChangeActiveattributeDescB\016\302\377\024\006\345\261\236\346\200"
+    "\247\210\301\024\006\"Q\n\022Sheet_FacadeChange\022;\n\023E_FacadeC"
+    "hange_List\030\001 \003(\0132\030.proto_ff.E_FacadeChan"
+    "geB\004\210\301\024<\"Q\n\035E_FacadeStarupUpattributeDes"
+    "c\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001"
+    "(\005B\007\302\377\024\003\345\200\274\"\361\001\n\016E_FacadeStarup\022\032\n\004m_id\030\001"
+    " \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022.\n\017m_upattributeid\030\002 "
+    "\001(\003B\025\302\377\024\021\345\215\207\346\230\237\345\261\236\346\200\247\347\273\204ID\022\034\n\010m_starid\030\003"
+    " \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022\037\n\tm_skillid\030\004 \001(\005B\014\302\377\024"
+    "\010\346\212\200\350\203\275id\022T\n\rm_upattribute\030\005 \003(\0132\'.proto"
+    "_ff.E_FacadeStarupUpattributeDescB\024\302\377\024\014\346"
+    "\277\200\346\264\273\345\261\236\346\200\247\210\301\024\003\"Q\n\022Sheet_FacadeStarup\022;\n"
+    "\023E_FacadeStarup_List\030\001 \003(\0132\030.proto_ff.E_"
+    "FacadeStarupB\004\210\301\024(\"M\n\031E_FacadeSoulAttrib"
+    "uteDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_val"
+    "ue\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\261\002\n\014E_FacadeSoul\022\032\n\004m_"
+    "id\030\001 \001(\003B\014\302\377\024\010\345\231\250\351\255\202ID\022)\n\014m_rechargeid\030\002"
+    " \001(\005B\023\302\377\024\017\344\273\267\346\240\274\350\256\241\350\264\271\347\202\271\022$\n\013m_mainskill"
+    "\030\003 \001(\005B\017\302\377\024\013\344\270\273\346\212\200\350\203\275ID\0223\n\017m_attributety"
+    "pe\030\004 \001(\tB\032\302\377\024\022\345\215\207\347\272\247\345\261\236\346\200\247\347\261\273\345\236\213\220\301\024<\022T\n\013"
+    "m_attribute\030\005 \003(\0132#.proto_ff.E_FacadeSou"
+    "lAttributeDescB\032\302\377\024\022\346\277\200\346\264\273\345\237\272\347\241\200\345\261\236\346\200\247\210\301"
+    "\024\004\022)\n\014m_minorskill\030\006 \003(\005B\023\302\377\024\013\345\211\257\346\212\200\350\203\275I"
+    "D\210\301\024\010\"K\n\020Sheet_FacadeSoul\0227\n\021E_FacadeSou"
+    "l_List\030\001 \003(\0132\026.proto_ff.E_FacadeSoulB\004\210\301"
+    "\024\024\"a\n\034E_FacadeSoulactiveUnlockDesc\022 \n\010m_"
+    "parama\030\001 \001(\tB\016\302\377\024\006\345\217\202\346\225\260\220\301\024<\022\037\n\013m_condit"
+    "ion\030\002 \001(\005B\n\302\377\024\006\346\235\241\344\273\266\"z\n\022E_FacadeSoulact"
+    "ive\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\212\200\350\203\275ID\022H\n\010m_unl"
+    "ock\030\002 \003(\0132&.proto_ff.E_FacadeSoulactiveU"
+    "nlockDescB\016\302\377\024\006\350\247\243\351\224\201\210\301\024\002\"]\n\026Sheet_Facad"
+    "eSoulactive\022C\n\027E_FacadeSoulactive_List\030\001"
+    " \003(\0132\034.proto_ff.E_FacadeSoulactiveB\004\210\301\024("
+    "\"O\n\033E_FacadeSoullvAttributeDesc\022\026\n\006m_typ"
+    "e\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200"
+    "\274\"\314\002\n\016E_FacadeSoullv\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002"
+    "id\022\035\n\tm_soulllv\030\002 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\036\n\010m_s"
+    "oulid\030\003 \001(\005B\014\302\377\024\010\345\231\250\351\255\202ID\022\"\n\010m_itemid\030\004 "
+    "\001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022\037\n\005m_num\030\005 \001(\005B\020\302\377"
+    "\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022*\n\rm_successrate\030\006 \001(\005B\023\302"
+    "\377\024\017\345\215\207\347\272\247\346\210\220\345\212\237\347\216\207\022\"\n\010m_downlv\030\007 \001(\005B\020\302\377"
+    "\024\014\346\230\257\345\220\246\346\216\211\347\272\247\022P\n\013m_attribute\030\010 \003(\0132%.pr"
+    "oto_ff.E_FacadeSoullvAttributeDescB\024\302\377\024\014"
+    "\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\007\"R\n\022Sheet_FacadeSoullv\022<"
+    "\n\023E_FacadeSoullv_List\030\001 \003(\0132\030.proto_ff.E"
+    "_FacadeSoullvB\005\210\301\024\214\001\"\327\001\n\027E_FacadeSoulach"
+    "ievement\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\210\220\345\260\261id\022\036\n\010"
+    "m_soulid\030\002 \001(\005B\014\302\377\024\010\345\231\250\351\255\202ID\022\032\n\006m_type\030\003"
+    " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\037\n\010m_parama\030\004 \001(\005B\r\302\377\024\t"
+    "\345\275\261\345\223\215\345\200\274\022\"\n\010m_itemid\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351"
+    "\201\223\345\205\267\022\037\n\005m_num\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\346\225\260\351\207\217\"m"
+    "\n\033Sheet_FacadeSoulachievement\022N\n\034E_Facad"
+    "eSoulachievement_List\030\001 \003(\0132!.proto_ff.E"
+    "_FacadeSoulachievementB\005\210\301\024\240\001", 5349);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "facade.proto", &protobuf_RegisterTypes);
   E_FacadeDisplayMaterialDesc::default_instance_ = new E_FacadeDisplayMaterialDesc();
@@ -964,6 +992,7 @@ void protobuf_AddDesc_facade_2eproto() {
   E_FacadeSoulAttributeDesc::default_instance_ = new E_FacadeSoulAttributeDesc();
   E_FacadeSoul::default_instance_ = new E_FacadeSoul();
   Sheet_FacadeSoul::default_instance_ = new Sheet_FacadeSoul();
+  E_FacadeSoulactiveUnlockDesc::default_instance_ = new E_FacadeSoulactiveUnlockDesc();
   E_FacadeSoulactive::default_instance_ = new E_FacadeSoulactive();
   Sheet_FacadeSoulactive::default_instance_ = new Sheet_FacadeSoulactive();
   E_FacadeSoullvAttributeDesc::default_instance_ = new E_FacadeSoullvAttributeDesc();
@@ -995,6 +1024,7 @@ void protobuf_AddDesc_facade_2eproto() {
   E_FacadeSoulAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_FacadeSoul::default_instance_->InitAsDefaultInstance();
   Sheet_FacadeSoul::default_instance_->InitAsDefaultInstance();
+  E_FacadeSoulactiveUnlockDesc::default_instance_->InitAsDefaultInstance();
   E_FacadeSoulactive::default_instance_->InitAsDefaultInstance();
   Sheet_FacadeSoulactive::default_instance_->InitAsDefaultInstance();
   E_FacadeSoullvAttributeDesc::default_instance_->InitAsDefaultInstance();
@@ -1270,7 +1300,7 @@ const int E_FacadeDisplay::kMNameFieldNumber;
 const int E_FacadeDisplay::kMActivedescFieldNumber;
 const int E_FacadeDisplay::kMProfessionidFieldNumber;
 const int E_FacadeDisplay::kMSkillidFieldNumber;
-const int E_FacadeDisplay::kMSoulitemidFieldNumber;
+const int E_FacadeDisplay::kMSouliidFieldNumber;
 const int E_FacadeDisplay::kMMaterialFieldNumber;
 const int E_FacadeDisplay::kMFragmentidFieldNumber;
 #endif  // !_MSC_VER
@@ -1298,7 +1328,7 @@ void E_FacadeDisplay::SharedCtor() {
   m_activedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_professionid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_skillid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  m_soulitemid_ = 0;
+  m_souliid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1376,7 +1406,7 @@ void E_FacadeDisplay::Clear() {
         m_skillid_->clear();
       }
     }
-    m_soulitemid_ = 0;
+    m_souliid_ = 0;
   }
   m_material_.Clear();
   m_fragmentid_.Clear();
@@ -1502,19 +1532,19 @@ bool E_FacadeDisplay::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_soulitemid;
+        if (input->ExpectTag(64)) goto parse_m_souliid;
         break;
       }
 
-      // optional int32 m_soulitemid = 8;
+      // optional int32 m_souliid = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_soulitemid:
+         parse_m_souliid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_soulitemid_)));
-          set_has_m_soulitemid();
+                 input, &m_souliid_)));
+          set_has_m_souliid();
         } else {
           goto handle_uninterpreted;
         }
@@ -1632,9 +1662,9 @@ void E_FacadeDisplay::SerializeWithCachedSizes(
       7, this->m_skillid(), output);
   }
 
-  // optional int32 m_soulitemid = 8;
-  if (has_m_soulitemid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_soulitemid(), output);
+  // optional int32 m_souliid = 8;
+  if (has_m_souliid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_souliid(), output);
   }
 
   // repeated .proto_ff.E_FacadeDisplayMaterialDesc m_material = 9;
@@ -1717,9 +1747,9 @@ void E_FacadeDisplay::SerializeWithCachedSizes(
         7, this->m_skillid(), target);
   }
 
-  // optional int32 m_soulitemid = 8;
-  if (has_m_soulitemid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_soulitemid(), target);
+  // optional int32 m_souliid = 8;
+  if (has_m_souliid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_souliid(), target);
   }
 
   // repeated .proto_ff.E_FacadeDisplayMaterialDesc m_material = 9;
@@ -1795,11 +1825,11 @@ int E_FacadeDisplay::ByteSize() const {
           this->m_skillid());
     }
 
-    // optional int32 m_soulitemid = 8;
-    if (has_m_soulitemid()) {
+    // optional int32 m_souliid = 8;
+    if (has_m_souliid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_soulitemid());
+          this->m_souliid());
     }
 
   }
@@ -1870,8 +1900,8 @@ void E_FacadeDisplay::MergeFrom(const E_FacadeDisplay& from) {
     if (from.has_m_skillid()) {
       set_m_skillid(from.m_skillid());
     }
-    if (from.has_m_soulitemid()) {
-      set_m_soulitemid(from.m_soulitemid());
+    if (from.has_m_souliid()) {
+      set_m_souliid(from.m_souliid());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1903,7 +1933,7 @@ void E_FacadeDisplay::Swap(E_FacadeDisplay* other) {
     std::swap(m_activedesc_, other->m_activedesc_);
     std::swap(m_professionid_, other->m_professionid_);
     std::swap(m_skillid_, other->m_skillid_);
-    std::swap(m_soulitemid_, other->m_soulitemid_);
+    std::swap(m_souliid_, other->m_souliid_);
     m_material_.Swap(&other->m_material_);
     m_fragmentid_.Swap(&other->m_fragmentid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -7805,6 +7835,7 @@ void E_FacadeSoulAttributeDesc::Swap(E_FacadeSoulAttributeDesc* other) {
 const int E_FacadeSoul::kMIdFieldNumber;
 const int E_FacadeSoul::kMRechargeidFieldNumber;
 const int E_FacadeSoul::kMMainskillFieldNumber;
+const int E_FacadeSoul::kMAttributetypeFieldNumber;
 const int E_FacadeSoul::kMAttributeFieldNumber;
 const int E_FacadeSoul::kMMinorskillFieldNumber;
 #endif  // !_MSC_VER
@@ -7828,6 +7859,7 @@ void E_FacadeSoul::SharedCtor() {
   m_id_ = GOOGLE_LONGLONG(0);
   m_rechargeid_ = 0;
   m_mainskill_ = 0;
+  m_attributetype_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7836,6 +7868,9 @@ E_FacadeSoul::~E_FacadeSoul() {
 }
 
 void E_FacadeSoul::SharedDtor() {
+  if (m_attributetype_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_attributetype_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -7866,6 +7901,11 @@ void E_FacadeSoul::Clear() {
     m_id_ = GOOGLE_LONGLONG(0);
     m_rechargeid_ = 0;
     m_mainskill_ = 0;
+    if (has_m_attributetype()) {
+      if (m_attributetype_ != &::google::protobuf::internal::kEmptyString) {
+        m_attributetype_->clear();
+      }
+    }
   }
   m_attribute_.Clear();
   m_minorskill_.Clear();
@@ -7922,12 +7962,29 @@ bool E_FacadeSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_attribute;
+        if (input->ExpectTag(34)) goto parse_m_attributetype;
         break;
       }
 
-      // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+      // optional string m_attributetype = 4;
       case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_attributetype:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_attributetype()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_attributetype().data(), this->m_attributetype().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_m_attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_attribute:
@@ -7936,19 +7993,19 @@ bool E_FacadeSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_attribute;
-        if (input->ExpectTag(40)) goto parse_m_minorskill;
+        if (input->ExpectTag(42)) goto parse_m_attribute;
+        if (input->ExpectTag(48)) goto parse_m_minorskill;
         break;
       }
 
-      // repeated int32 m_minorskill = 5;
-      case 5: {
+      // repeated int32 m_minorskill = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_minorskill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 40, input, this->mutable_m_minorskill())));
+                 1, 48, input, this->mutable_m_minorskill())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -7958,7 +8015,7 @@ bool E_FacadeSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_minorskill;
+        if (input->ExpectTag(48)) goto parse_m_minorskill;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7996,16 +8053,25 @@ void E_FacadeSoul::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_mainskill(), output);
   }
 
-  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
-  for (int i = 0; i < this->m_attribute_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->m_attribute(i), output);
+  // optional string m_attributetype = 4;
+  if (has_m_attributetype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_attributetype().data(), this->m_attributetype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->m_attributetype(), output);
   }
 
-  // repeated int32 m_minorskill = 5;
+  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 5;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->m_attribute(i), output);
+  }
+
+  // repeated int32 m_minorskill = 6;
   for (int i = 0; i < this->m_minorskill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      5, this->m_minorskill(i), output);
+      6, this->m_minorskill(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8031,17 +8097,27 @@ void E_FacadeSoul::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_mainskill(), target);
   }
 
-  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+  // optional string m_attributetype = 4;
+  if (has_m_attributetype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_attributetype().data(), this->m_attributetype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->m_attributetype(), target);
+  }
+
+  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 5;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->m_attribute(i), target);
+        5, this->m_attribute(i), target);
   }
 
-  // repeated int32 m_minorskill = 5;
+  // repeated int32 m_minorskill = 6;
   for (int i = 0; i < this->m_minorskill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(5, this->m_minorskill(i), target);
+      WriteInt32ToArray(6, this->m_minorskill(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8076,8 +8152,15 @@ int E_FacadeSoul::ByteSize() const {
           this->m_mainskill());
     }
 
+    // optional string m_attributetype = 4;
+    if (has_m_attributetype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_attributetype());
+    }
+
   }
-  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_FacadeSoulAttributeDesc m_attribute = 5;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -8085,7 +8168,7 @@ int E_FacadeSoul::ByteSize() const {
         this->m_attribute(i));
   }
 
-  // repeated int32 m_minorskill = 5;
+  // repeated int32 m_minorskill = 6;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_minorskill_size(); i++) {
@@ -8132,6 +8215,9 @@ void E_FacadeSoul::MergeFrom(const E_FacadeSoul& from) {
     if (from.has_m_mainskill()) {
       set_m_mainskill(from.m_mainskill());
     }
+    if (from.has_m_attributetype()) {
+      set_m_attributetype(from.m_attributetype());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -8158,6 +8244,7 @@ void E_FacadeSoul::Swap(E_FacadeSoul* other) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_rechargeid_, other->m_rechargeid_);
     std::swap(m_mainskill_, other->m_mainskill_);
+    std::swap(m_attributetype_, other->m_attributetype_);
     m_attribute_.Swap(&other->m_attribute_);
     m_minorskill_.Swap(&other->m_minorskill_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -8381,9 +8468,273 @@ void Sheet_FacadeSoul::Swap(Sheet_FacadeSoul* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int E_FacadeSoulactiveUnlockDesc::kMParamaFieldNumber;
+const int E_FacadeSoulactiveUnlockDesc::kMConditionFieldNumber;
+#endif  // !_MSC_VER
+
+E_FacadeSoulactiveUnlockDesc::E_FacadeSoulactiveUnlockDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FacadeSoulactiveUnlockDesc::InitAsDefaultInstance() {
+}
+
+E_FacadeSoulactiveUnlockDesc::E_FacadeSoulactiveUnlockDesc(const E_FacadeSoulactiveUnlockDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FacadeSoulactiveUnlockDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_parama_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_condition_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FacadeSoulactiveUnlockDesc::~E_FacadeSoulactiveUnlockDesc() {
+  SharedDtor();
+}
+
+void E_FacadeSoulactiveUnlockDesc::SharedDtor() {
+  if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_parama_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_FacadeSoulactiveUnlockDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FacadeSoulactiveUnlockDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FacadeSoulactiveUnlockDesc_descriptor_;
+}
+
+const E_FacadeSoulactiveUnlockDesc& E_FacadeSoulactiveUnlockDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_facade_2eproto();
+  return *default_instance_;
+}
+
+E_FacadeSoulactiveUnlockDesc* E_FacadeSoulactiveUnlockDesc::default_instance_ = NULL;
+
+E_FacadeSoulactiveUnlockDesc* E_FacadeSoulactiveUnlockDesc::New() const {
+  return new E_FacadeSoulactiveUnlockDesc;
+}
+
+void E_FacadeSoulactiveUnlockDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_m_parama()) {
+      if (m_parama_ != &::google::protobuf::internal::kEmptyString) {
+        m_parama_->clear();
+      }
+    }
+    m_condition_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FacadeSoulactiveUnlockDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string m_parama = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_parama()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_parama().data(), this->m_parama().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_condition;
+        break;
+      }
+
+      // optional int32 m_condition = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_condition:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_condition_)));
+          set_has_m_condition();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FacadeSoulactiveUnlockDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string m_parama = 1;
+  if (has_m_parama()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_parama().data(), this->m_parama().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->m_parama(), output);
+  }
+
+  // optional int32 m_condition = 2;
+  if (has_m_condition()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_condition(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FacadeSoulactiveUnlockDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string m_parama = 1;
+  if (has_m_parama()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_parama().data(), this->m_parama().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->m_parama(), target);
+  }
+
+  // optional int32 m_condition = 2;
+  if (has_m_condition()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_condition(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FacadeSoulactiveUnlockDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string m_parama = 1;
+    if (has_m_parama()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_parama());
+    }
+
+    // optional int32 m_condition = 2;
+    if (has_m_condition()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_condition());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FacadeSoulactiveUnlockDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FacadeSoulactiveUnlockDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FacadeSoulactiveUnlockDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FacadeSoulactiveUnlockDesc::MergeFrom(const E_FacadeSoulactiveUnlockDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_parama()) {
+      set_m_parama(from.m_parama());
+    }
+    if (from.has_m_condition()) {
+      set_m_condition(from.m_condition());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FacadeSoulactiveUnlockDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FacadeSoulactiveUnlockDesc::CopyFrom(const E_FacadeSoulactiveUnlockDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FacadeSoulactiveUnlockDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_FacadeSoulactiveUnlockDesc::Swap(E_FacadeSoulactiveUnlockDesc* other) {
+  if (other != this) {
+    std::swap(m_parama_, other->m_parama_);
+    std::swap(m_condition_, other->m_condition_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FacadeSoulactiveUnlockDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FacadeSoulactiveUnlockDesc_descriptor_;
+  metadata.reflection = E_FacadeSoulactiveUnlockDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int E_FacadeSoulactive::kMIdFieldNumber;
-const int E_FacadeSoulactive::kMParamaFieldNumber;
-const int E_FacadeSoulactive::kMConditionFieldNumber;
+const int E_FacadeSoulactive::kMUnlockFieldNumber;
 #endif  // !_MSC_VER
 
 E_FacadeSoulactive::E_FacadeSoulactive()
@@ -8440,8 +8791,7 @@ void E_FacadeSoulactive::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = GOOGLE_LONGLONG(0);
   }
-  m_parama_.Clear();
-  m_condition_.Clear();
+  m_unlock_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -8463,47 +8813,21 @@ bool E_FacadeSoulactive::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_parama;
+        if (input->ExpectTag(18)) goto parse_m_unlock;
         break;
       }
 
-      // repeated string m_parama = 2;
+      // repeated .proto_ff.E_FacadeSoulactiveUnlockDesc m_unlock = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_parama:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_m_parama()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->m_parama(this->m_parama_size() - 1).data(),
-            this->m_parama(this->m_parama_size() - 1).length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+         parse_m_unlock:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_unlock()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_parama;
-        if (input->ExpectTag(24)) goto parse_m_condition;
-        break;
-      }
-
-      // repeated int32 m_condition = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_condition:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 24, input, this->mutable_m_condition())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_m_condition())));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_m_condition;
+        if (input->ExpectTag(18)) goto parse_m_unlock;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -8531,19 +8855,10 @@ void E_FacadeSoulactive::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // repeated string m_parama = 2;
-  for (int i = 0; i < this->m_parama_size(); i++) {
-  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-    this->m_parama(i).data(), this->m_parama(i).length(),
-    ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->m_parama(i), output);
-  }
-
-  // repeated int32 m_condition = 3;
-  for (int i = 0; i < this->m_condition_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      3, this->m_condition(i), output);
+  // repeated .proto_ff.E_FacadeSoulactiveUnlockDesc m_unlock = 2;
+  for (int i = 0; i < this->m_unlock_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->m_unlock(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8559,19 +8874,11 @@ void E_FacadeSoulactive::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // repeated string m_parama = 2;
-  for (int i = 0; i < this->m_parama_size(); i++) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_parama(i).data(), this->m_parama(i).length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+  // repeated .proto_ff.E_FacadeSoulactiveUnlockDesc m_unlock = 2;
+  for (int i = 0; i < this->m_unlock_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(2, this->m_parama(i), target);
-  }
-
-  // repeated int32 m_condition = 3;
-  for (int i = 0; i < this->m_condition_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(3, this->m_condition(i), target);
+      WriteMessageNoVirtualToArray(
+        2, this->m_unlock(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8593,21 +8900,12 @@ int E_FacadeSoulactive::ByteSize() const {
     }
 
   }
-  // repeated string m_parama = 2;
-  total_size += 1 * this->m_parama_size();
-  for (int i = 0; i < this->m_parama_size(); i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->m_parama(i));
-  }
-
-  // repeated int32 m_condition = 3;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->m_condition_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->m_condition(i));
-    }
-    total_size += 1 * this->m_condition_size() + data_size;
+  // repeated .proto_ff.E_FacadeSoulactiveUnlockDesc m_unlock = 2;
+  total_size += 1 * this->m_unlock_size();
+  for (int i = 0; i < this->m_unlock_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_unlock(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -8635,8 +8933,7 @@ void E_FacadeSoulactive::MergeFrom(const ::google::protobuf::Message& from) {
 
 void E_FacadeSoulactive::MergeFrom(const E_FacadeSoulactive& from) {
   GOOGLE_CHECK_NE(&from, this);
-  m_parama_.MergeFrom(from.m_parama_);
-  m_condition_.MergeFrom(from.m_condition_);
+  m_unlock_.MergeFrom(from.m_unlock_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
@@ -8665,8 +8962,7 @@ bool E_FacadeSoulactive::IsInitialized() const {
 void E_FacadeSoulactive::Swap(E_FacadeSoulactive* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
-    m_parama_.Swap(&other->m_parama_);
-    m_condition_.Swap(&other->m_condition_);
+    m_unlock_.Swap(&other->m_unlock_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9137,6 +9433,7 @@ void E_FacadeSoullvAttributeDesc::Swap(E_FacadeSoullvAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_FacadeSoullv::kMIdFieldNumber;
+const int E_FacadeSoullv::kMSoulllvFieldNumber;
 const int E_FacadeSoullv::kMSoulidFieldNumber;
 const int E_FacadeSoullv::kMItemidFieldNumber;
 const int E_FacadeSoullv::kMNumFieldNumber;
@@ -9162,6 +9459,7 @@ E_FacadeSoullv::E_FacadeSoullv(const E_FacadeSoullv& from)
 void E_FacadeSoullv::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = GOOGLE_LONGLONG(0);
+  m_soulllv_ = 0;
   m_soulid_ = 0;
   m_itemid_ = 0;
   m_num_ = 0;
@@ -9203,6 +9501,7 @@ E_FacadeSoullv* E_FacadeSoullv::New() const {
 void E_FacadeSoullv::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = GOOGLE_LONGLONG(0);
+    m_soulllv_ = 0;
     m_soulid_ = 0;
     m_itemid_ = 0;
     m_num_ = 0;
@@ -9231,12 +9530,28 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_soulid;
+        if (input->ExpectTag(16)) goto parse_m_soulllv;
         break;
       }
 
-      // optional int32 m_soulid = 2;
+      // optional int32 m_soulllv = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_soulllv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_soulllv_)));
+          set_has_m_soulllv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_soulid;
+        break;
+      }
+
+      // optional int32 m_soulid = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_soulid:
@@ -9247,12 +9562,12 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itemid;
+        if (input->ExpectTag(32)) goto parse_m_itemid;
         break;
       }
 
-      // optional int32 m_itemid = 3;
-      case 3: {
+      // optional int32 m_itemid = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_itemid:
@@ -9263,12 +9578,12 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_num;
+        if (input->ExpectTag(40)) goto parse_m_num;
         break;
       }
 
-      // optional int32 m_num = 4;
-      case 4: {
+      // optional int32 m_num = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_num:
@@ -9279,12 +9594,12 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_successrate;
+        if (input->ExpectTag(48)) goto parse_m_successrate;
         break;
       }
 
-      // optional int32 m_successrate = 5;
-      case 5: {
+      // optional int32 m_successrate = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_successrate:
@@ -9295,12 +9610,12 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_downlv;
+        if (input->ExpectTag(56)) goto parse_m_downlv;
         break;
       }
 
-      // optional int32 m_downlv = 6;
-      case 6: {
+      // optional int32 m_downlv = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_downlv:
@@ -9311,12 +9626,12 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_attribute;
+        if (input->ExpectTag(66)) goto parse_m_attribute;
         break;
       }
 
-      // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
-      case 7: {
+      // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_attribute:
@@ -9325,7 +9640,7 @@ bool E_FacadeSoullv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_attribute;
+        if (input->ExpectTag(66)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9353,35 +9668,40 @@ void E_FacadeSoullv::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulllv = 2;
+  if (has_m_soulllv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_soulllv(), output);
+  }
+
+  // optional int32 m_soulid = 3;
   if (has_m_soulid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_soulid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_soulid(), output);
   }
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemid = 4;
   if (has_m_itemid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_itemid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
 
-  // optional int32 m_num = 4;
+  // optional int32 m_num = 5;
   if (has_m_num()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_num(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_num(), output);
   }
 
-  // optional int32 m_successrate = 5;
+  // optional int32 m_successrate = 6;
   if (has_m_successrate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_successrate(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_successrate(), output);
   }
 
-  // optional int32 m_downlv = 6;
+  // optional int32 m_downlv = 7;
   if (has_m_downlv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_downlv(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_downlv(), output);
   }
 
-  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 8;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->m_attribute(i), output);
+      8, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9397,36 +9717,41 @@ void E_FacadeSoullv::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulllv = 2;
+  if (has_m_soulllv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_soulllv(), target);
+  }
+
+  // optional int32 m_soulid = 3;
   if (has_m_soulid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_soulid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_soulid(), target);
   }
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemid = 4;
   if (has_m_itemid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_itemid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
 
-  // optional int32 m_num = 4;
+  // optional int32 m_num = 5;
   if (has_m_num()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_num(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_num(), target);
   }
 
-  // optional int32 m_successrate = 5;
+  // optional int32 m_successrate = 6;
   if (has_m_successrate()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_successrate(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_successrate(), target);
   }
 
-  // optional int32 m_downlv = 6;
+  // optional int32 m_downlv = 7;
   if (has_m_downlv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_downlv(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_downlv(), target);
   }
 
-  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 8;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        7, this->m_attribute(i), target);
+        8, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9447,35 +9772,42 @@ int E_FacadeSoullv::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_soulid = 2;
+    // optional int32 m_soulllv = 2;
+    if (has_m_soulllv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_soulllv());
+    }
+
+    // optional int32 m_soulid = 3;
     if (has_m_soulid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_soulid());
     }
 
-    // optional int32 m_itemid = 3;
+    // optional int32 m_itemid = 4;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_num = 4;
+    // optional int32 m_num = 5;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_num());
     }
 
-    // optional int32 m_successrate = 5;
+    // optional int32 m_successrate = 6;
     if (has_m_successrate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_successrate());
     }
 
-    // optional int32 m_downlv = 6;
+    // optional int32 m_downlv = 7;
     if (has_m_downlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9483,7 +9815,7 @@ int E_FacadeSoullv::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 7;
+  // repeated .proto_ff.E_FacadeSoullvAttributeDesc m_attribute = 8;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -9520,6 +9852,9 @@ void E_FacadeSoullv::MergeFrom(const E_FacadeSoullv& from) {
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
+    }
+    if (from.has_m_soulllv()) {
+      set_m_soulllv(from.m_soulllv());
     }
     if (from.has_m_soulid()) {
       set_m_soulid(from.m_soulid());
@@ -9560,6 +9895,7 @@ bool E_FacadeSoullv::IsInitialized() const {
 void E_FacadeSoullv::Swap(E_FacadeSoullv* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
+    std::swap(m_soulllv_, other->m_soulllv_);
     std::swap(m_soulid_, other->m_soulid_);
     std::swap(m_itemid_, other->m_itemid_);
     std::swap(m_num_, other->m_num_);

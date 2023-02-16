@@ -37,6 +37,7 @@ namespace proto_ff_s {
 		int32_t m_robotprofession;
 		int32_t m_robotlv;
 		int32_t m_sword;
+		int32_t m_facadeid;
 		int32_t m_occupationid;
 		NFShmVector<struct E_ArenaRobotAttrDesc_s, 70> m_attr;
 
@@ -60,6 +61,51 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_ArenaRobot make_pbmsg(){ return ::proto_ff::Sheet_ArenaRobot(); }
 	};
 	typedef struct Sheet_ArenaRobot_s Sheet_ArenaRobot_t;
+
+	struct E_ArenaRobotfacadeFacadeDesc_s : public NFDescStoreSeqOP {
+		E_ArenaRobotfacadeFacadeDesc_s();
+		virtual ~E_ArenaRobotfacadeFacadeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_type;
+		int32_t m_value;
+
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobotfacadeFacadeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRobotfacadeFacadeDesc & msg);
+		static ::proto_ff::E_ArenaRobotfacadeFacadeDesc* new_pbmsg(){ return new ::proto_ff::E_ArenaRobotfacadeFacadeDesc(); }
+		static ::proto_ff::E_ArenaRobotfacadeFacadeDesc make_pbmsg(){ return ::proto_ff::E_ArenaRobotfacadeFacadeDesc(); }
+	};
+	typedef struct E_ArenaRobotfacadeFacadeDesc_s E_ArenaRobotfacadeFacadeDesc_t;
+
+	struct E_ArenaRobotfacade_s : public NFDescStoreSeqOP {
+		E_ArenaRobotfacade_s();
+		virtual ~E_ArenaRobotfacade_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		int32_t m_color;
+		NFShmVector<struct E_ArenaRobotfacadeFacadeDesc_s, 17> m_facade;
+
+		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobotfacade & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRobotfacade & msg);
+		static ::proto_ff::E_ArenaRobotfacade* new_pbmsg(){ return new ::proto_ff::E_ArenaRobotfacade(); }
+		static ::proto_ff::E_ArenaRobotfacade make_pbmsg(){ return ::proto_ff::E_ArenaRobotfacade(); }
+	};
+	typedef struct E_ArenaRobotfacade_s E_ArenaRobotfacade_t;
+
+	struct Sheet_ArenaRobotfacade_s : public NFDescStoreSeqOP {
+		Sheet_ArenaRobotfacade_s();
+		virtual ~Sheet_ArenaRobotfacade_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_ArenaRobotfacade_s, 20> E_ArenaRobotfacade_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaRobotfacade & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaRobotfacade & msg);
+		static ::proto_ff::Sheet_ArenaRobotfacade* new_pbmsg(){ return new ::proto_ff::Sheet_ArenaRobotfacade(); }
+		static ::proto_ff::Sheet_ArenaRobotfacade make_pbmsg(){ return ::proto_ff::Sheet_ArenaRobotfacade(); }
+	};
+	typedef struct Sheet_ArenaRobotfacade_s Sheet_ArenaRobotfacade_t;
 
 	struct E_ArenaArenawardRewardDesc_s : public NFDescStoreSeqOP {
 		E_ArenaArenawardRewardDesc_s();
