@@ -43,21 +43,36 @@
 #include "DescStore/MonsterValueDesc.h"
 #include "DescStore/MonsterValueparamDesc.h"
 #include "DescStore/MonsterDropDesc.h"
+#include "DescStore/MountFragmentDesc.h"
+#include "DescStore/MountValueDesc.h"
+#include "DescStore/MountDisplayDesc.h"
+#include "DescStore/MountUnlockDesc.h"
+#include "DescStore/MountChangeDesc.h"
+#include "DescStore/MountAdvanceDesc.h"
+#include "DescStore/MountHuakunDesc.h"
+#include "DescStore/MountHuakun_advancevalueDesc.h"
+#include "DescStore/MountBloodDesc.h"
+#include "DescStore/MountBaby_eggDesc.h"
 #include "DescStore/AreaAreaDesc.h"
 #include "DescStore/SkillBuffDesc.h"
 #include "DescStore/SkillSkillDesc.h"
 #include "DescStore/SkillBuffupDesc.h"
 #include "DescStore/SkillSkillupDesc.h"
 #include "DescStore/SkillSkillawakeDesc.h"
+#include "DescStore/SkillSkilladvanceDesc.h"
 #include "DescStore/ItemItemDesc.h"
 #include "DescStore/EquipEquipDesc.h"
 #include "DescStore/EquipStrongDesc.h"
 #include "DescStore/EquipStrongexpDesc.h"
 #include "DescStore/EquipStrongtotalDesc.h"
 #include "DescStore/EquipGemDesc.h"
+#include "DescStore/EquipGemlvDesc.h"
 #include "DescStore/EquipStoveattDesc.h"
 #include "DescStore/EquipStoveexpDesc.h"
 #include "DescStore/EquipGradeDesc.h"
+#include "DescStore/EquipClearDesc.h"
+#include "DescStore/EquipSuitDesc.h"
+#include "DescStore/EquipBreakDesc.h"
 #include "DescStore/ConstantConstantDesc.h"
 #include "DescStore/AttributeAttributeDesc.h"
 #include "DescStore/AttributeSuppressDesc.h"
@@ -72,6 +87,9 @@
 #include "DescStore/FunctionunlockPreviewDesc.h"
 #include "DescStore/GmcommandGmcommandDesc.h"
 #include "DescStore/LinkLinkDesc.h"
+#include "DescStore/MallMallDesc.h"
+#include "DescStore/MallMalltypeDesc.h"
+#include "DescStore/MallMalltype_tabDesc.h"
 #include "DescStore/ChatChatDesc.h"
 #include "DescStore/ChatSpecialchatDesc.h"
 #include "DescStore/PathPathDesc.h"
@@ -97,6 +115,7 @@
 #include "DescStore/DupDupDesc.h"
 #include "DescStore/DupTowerrewardDesc.h"
 #include "DescStore/DupGroupDesc.h"
+#include "DescStore/DupSweepmonsternumDesc.h"
 #include "DescStore/OfflineOfflineDesc.h"
 #include "DescStore/OfflineItemlistDesc.h"
 #include "DescStore/GodrelicsGodrelicsDesc.h"
@@ -124,10 +143,41 @@
 #include "DescStore/VipVipDesc.h"
 #include "DescStore/VipPrivilegeDesc.h"
 #include "DescStore/ArenaRobotDesc.h"
+#include "DescStore/ArenaRobotfacadeDesc.h"
 #include "DescStore/ArenaArenawardDesc.h"
 #include "DescStore/ArenaRankawardDesc.h"
 #include "DescStore/ArenaFirstrankDesc.h"
 #include "DescStore/ArenaBuychallengeDesc.h"
+#include "DescStore/PetDisplayDesc.h"
+#include "DescStore/PetAttributetpyeDesc.h"
+#include "DescStore/PetLvexpDesc.h"
+#include "DescStore/PetAdvancelvDesc.h"
+#include "DescStore/PetStarupDesc.h"
+#include "DescStore/PetEggDesc.h"
+#include "DescStore/PetDecomposeDesc.h"
+#include "DescStore/PetFettersDesc.h"
+#include "DescStore/AvatarFragmentDesc.h"
+#include "DescStore/AvatarValueDesc.h"
+#include "DescStore/AvatarDisplayDesc.h"
+#include "DescStore/AvatarChangeDesc.h"
+#include "DescStore/AvatarChangetabDesc.h"
+#include "DescStore/AvatarBattleslotDesc.h"
+#include "DescStore/AvatarAdvanceDesc.h"
+#include "DescStore/AvatarSkillDesc.h"
+#include "DescStore/AvatarEquipsuitDesc.h"
+#include "DescStore/AssistAssistboxDesc.h"
+#include "DescStore/AssistAssistthankDesc.h"
+#include "DescStore/MoneyrewardMoneyrewardDesc.h"
+#include "DescStore/EscortEscortDesc.h"
+#include "DescStore/EscortChanceDesc.h"
+#include "DescStore/EscortRewardDesc.h"
+#include "DescStore/EscortConstDesc.h"
+#include "DescStore/GuildConstantDesc.h"
+#include "DescStore/GuildLevelDesc.h"
+#include "DescStore/GuildPositionDesc.h"
+#include "DescStore/CollectCollectDesc.h"
+#include "DescStore/CollectAttributetpyeDesc.h"
+
 
 
 
@@ -136,6 +186,7 @@
 #include "DescStoreEx/NFRoleDescStoreEx.h"
 #include "DescStoreEx/NFFuncUnLockDescStoreEx.h"
 #include "DescStoreEx/NFItemDescStoreEx.h"
+#include "DescStoreEx/NFMissionDescStoreEx.h"
 
 
 #ifdef NF_DYNAMIC_PLUGIN
@@ -213,21 +264,36 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(MonsterValueDesc);
     REGISTER_DESCSTORE(MonsterValueparamDesc);
     REGISTER_DESCSTORE(MonsterDropDesc);
+    REGISTER_DESCSTORE(MountFragmentDesc);
+    REGISTER_DESCSTORE(MountValueDesc);
+    REGISTER_DESCSTORE(MountDisplayDesc);
+    REGISTER_DESCSTORE(MountUnlockDesc);
+    REGISTER_DESCSTORE(MountChangeDesc);
+    REGISTER_DESCSTORE(MountAdvanceDesc);
+    REGISTER_DESCSTORE(MountHuakunDesc);
+    REGISTER_DESCSTORE(MountHuakun_advancevalueDesc);
+    REGISTER_DESCSTORE(MountBloodDesc);
+    REGISTER_DESCSTORE(MountBaby_eggDesc);
     REGISTER_DESCSTORE(AreaAreaDesc);
     REGISTER_DESCSTORE(SkillBuffDesc);
     REGISTER_DESCSTORE(SkillSkillDesc);
     REGISTER_DESCSTORE(SkillBuffupDesc);
     REGISTER_DESCSTORE(SkillSkillupDesc);
     REGISTER_DESCSTORE(SkillSkillawakeDesc);
+    REGISTER_DESCSTORE(SkillSkilladvanceDesc);
     REGISTER_DESCSTORE(ItemItemDesc);
     REGISTER_DESCSTORE(EquipEquipDesc);
     REGISTER_DESCSTORE(EquipStrongDesc);
     REGISTER_DESCSTORE(EquipStrongexpDesc);
     REGISTER_DESCSTORE(EquipStrongtotalDesc);
     REGISTER_DESCSTORE(EquipGemDesc);
+    REGISTER_DESCSTORE(EquipGemlvDesc);
     REGISTER_DESCSTORE(EquipStoveattDesc);
     REGISTER_DESCSTORE(EquipStoveexpDesc);
     REGISTER_DESCSTORE(EquipGradeDesc);
+    REGISTER_DESCSTORE(EquipClearDesc);
+    REGISTER_DESCSTORE(EquipSuitDesc);
+    REGISTER_DESCSTORE(EquipBreakDesc);
     REGISTER_DESCSTORE(ConstantConstantDesc);
     REGISTER_DESCSTORE(AttributeAttributeDesc);
     REGISTER_DESCSTORE(AttributeSuppressDesc);
@@ -242,6 +308,9 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(FunctionunlockPreviewDesc);
     REGISTER_DESCSTORE(GmcommandGmcommandDesc);
     REGISTER_DESCSTORE(LinkLinkDesc);
+    REGISTER_DESCSTORE(MallMallDesc);
+    REGISTER_DESCSTORE(MallMalltypeDesc);
+    REGISTER_DESCSTORE(MallMalltype_tabDesc);
     REGISTER_DESCSTORE(ChatChatDesc);
     REGISTER_DESCSTORE(ChatSpecialchatDesc);
     REGISTER_DESCSTORE(PathPathDesc);
@@ -267,6 +336,7 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(DupDupDesc);
     REGISTER_DESCSTORE(DupTowerrewardDesc);
     REGISTER_DESCSTORE(DupGroupDesc);
+    REGISTER_DESCSTORE(DupSweepmonsternumDesc);
     REGISTER_DESCSTORE(OfflineOfflineDesc);
     REGISTER_DESCSTORE(OfflineItemlistDesc);
     REGISTER_DESCSTORE(GodrelicsGodrelicsDesc);
@@ -294,10 +364,41 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(VipVipDesc);
     REGISTER_DESCSTORE(VipPrivilegeDesc);
     REGISTER_DESCSTORE(ArenaRobotDesc);
+    REGISTER_DESCSTORE(ArenaRobotfacadeDesc);
     REGISTER_DESCSTORE(ArenaArenawardDesc);
     REGISTER_DESCSTORE(ArenaRankawardDesc);
     REGISTER_DESCSTORE(ArenaFirstrankDesc);
     REGISTER_DESCSTORE(ArenaBuychallengeDesc);
+    REGISTER_DESCSTORE(PetDisplayDesc);
+    REGISTER_DESCSTORE(PetAttributetpyeDesc);
+    REGISTER_DESCSTORE(PetLvexpDesc);
+    REGISTER_DESCSTORE(PetAdvancelvDesc);
+    REGISTER_DESCSTORE(PetStarupDesc);
+    REGISTER_DESCSTORE(PetEggDesc);
+    REGISTER_DESCSTORE(PetDecomposeDesc);
+    REGISTER_DESCSTORE(PetFettersDesc);
+    REGISTER_DESCSTORE(AvatarFragmentDesc);
+    REGISTER_DESCSTORE(AvatarValueDesc);
+    REGISTER_DESCSTORE(AvatarDisplayDesc);
+    REGISTER_DESCSTORE(AvatarChangeDesc);
+    REGISTER_DESCSTORE(AvatarChangetabDesc);
+    REGISTER_DESCSTORE(AvatarBattleslotDesc);
+    REGISTER_DESCSTORE(AvatarAdvanceDesc);
+    REGISTER_DESCSTORE(AvatarSkillDesc);
+    REGISTER_DESCSTORE(AvatarEquipsuitDesc);
+    REGISTER_DESCSTORE(AssistAssistboxDesc);
+    REGISTER_DESCSTORE(AssistAssistthankDesc);
+    REGISTER_DESCSTORE(MoneyrewardMoneyrewardDesc);
+    REGISTER_DESCSTORE(EscortEscortDesc);
+    REGISTER_DESCSTORE(EscortChanceDesc);
+    REGISTER_DESCSTORE(EscortRewardDesc);
+    REGISTER_DESCSTORE(EscortConstDesc);
+    REGISTER_DESCSTORE(GuildConstantDesc);
+    REGISTER_DESCSTORE(GuildLevelDesc);
+    REGISTER_DESCSTORE(GuildPositionDesc);
+    REGISTER_DESCSTORE(CollectCollectDesc);
+    REGISTER_DESCSTORE(CollectAttributetpyeDesc);
+
 
 
     /////////////////////////////////////////Register DescStroeEx//////////////////////////////////
@@ -305,6 +406,7 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(NFRoleDescStoreEx);
     REGISTER_DESCSTORE(NFFuncUnLockDescStoreEx);
     REGISTER_DESCSTORE(NFItemDescStoreEx);
+    REGISTER_DESCSTORE(NFMissionDescStoreEx);
 
     /////////////////////////////////////Server Common////////////////////////////////////////////
     REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);

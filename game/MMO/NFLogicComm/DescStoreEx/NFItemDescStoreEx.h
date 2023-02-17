@@ -20,7 +20,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 
-typedef NFShmOldHashMap<uint64_t, NFArray<int64_t, 10>, 1000>  ITEM_FUNC_MAP;
+typedef NFShmOldHashMap<uint64_t, NFArray<int64_t, 10>, 2000>  ITEM_FUNC_MAP;
 typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, 1000>  ITEM_PROF_LIMIT_MAP;
 typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  ITEM_MAP_LIMIT_MAP;
 typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, 1000>  ITEM_CD_GROUP_MAP;

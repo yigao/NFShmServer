@@ -268,6 +268,12 @@ public:
 	template<typename T>
 	static std::string tostr(const std::vector<T> &t);
 
+    template<typename T>
+    static std::string tostr(const std::set<T> &t);
+
+    template<typename T>
+    static std::string tostr(const std::multiset<T> &t);
+
 	/**
 	* @brief  把map输出为字符串.
 	*
@@ -724,6 +730,30 @@ std::string NFCommon::tostr(const std::vector<T> &t)
 		s += " ";
 	}
 	return s;
+}
+
+template<typename T>
+std::string NFCommon::tostr(const std::set<T> &t)
+{
+    string s;
+    for (auto iter = t.begin(); iter != t.end(); iter++)
+    {
+        s += tostr(*iter);
+        s += " ";
+    }
+    return s;
+}
+
+template<typename T>
+std::string NFCommon::tostr(const std::multiset<T> &t)
+{
+    string s;
+    for (auto iter = t.begin(); iter != t.end(); iter++)
+    {
+        s += tostr(*iter);
+        s += " ";
+    }
+    return s;
 }
 
 template<typename K, typename V, typename D, typename A>

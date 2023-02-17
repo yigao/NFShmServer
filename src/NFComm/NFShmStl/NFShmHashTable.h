@@ -963,7 +963,7 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(const value_
 
     __tmp->m_next = m_bucketsFirstIdx[__n];
     m_bucketsFirstIdx[__n] = __tmp->m_self;
-    return __tmp->value;
+    return __tmp->m_value;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>

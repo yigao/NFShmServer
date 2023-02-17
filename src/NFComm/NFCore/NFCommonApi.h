@@ -188,6 +188,66 @@ public:
         return static_cast<int>(result->size());
     }
 
+    template<class NFSet>
+    static int SplitStrToSetInt64(const std::string& str,
+                                const std::string& delimiter,
+                                NFSet* result)
+    {
+        result->clear();
+        if (str.empty()) return 0;
+
+        size_t iIndex = 0, iOldIndex;
+        while (iIndex != std::string::npos && iIndex != (size_t)-1)
+        {
+            iOldIndex = iIndex;
+            iIndex = str.find(delimiter, iOldIndex + 1);
+            if (iOldIndex == 0)
+            {
+                result->insert(StrToInt64(str.substr(0, iIndex)));
+                continue;
+            }
+
+            iOldIndex += delimiter.length();
+            if (iIndex == std::string::npos || iIndex == (size_t)-1)
+            {
+                result->insert(StrToInt64(str.substr(iOldIndex)));
+                continue;
+            }
+            result->insert(StrToInt64(str.substr(iOldIndex, iIndex - iOldIndex)));
+        }
+        return static_cast<int>(result->size());
+    }
+
+    template<class NFSet>
+    static int SplitStrToSetInt32(const std::string& str,
+                                  const std::string& delimiter,
+                                  NFSet* result)
+    {
+        result->clear();
+        if (str.empty()) return 0;
+
+        size_t iIndex = 0, iOldIndex;
+        while (iIndex != std::string::npos && iIndex != (size_t)-1)
+        {
+            iOldIndex = iIndex;
+            iIndex = str.find(delimiter, iOldIndex + 1);
+            if (iOldIndex == 0)
+            {
+                result->insert(StrToInt(str.substr(0, iIndex)));
+                continue;
+            }
+
+            iOldIndex += delimiter.length();
+            if (iIndex == std::string::npos || iIndex == (size_t)-1)
+            {
+                result->insert(StrToInt(str.substr(iOldIndex)));
+                continue;
+            }
+            result->insert(StrToInt(str.substr(iOldIndex, iIndex - iOldIndex)));
+        }
+        return static_cast<int>(result->size());
+    }
+
     static int SplitStrToVecInt(const std::string& str,
                                 const std::string& delimiter,
                                 std::vector<int64_t>* result)
