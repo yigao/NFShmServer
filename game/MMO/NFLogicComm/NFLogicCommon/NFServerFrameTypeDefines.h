@@ -48,6 +48,7 @@ typedef enum
     EOT_LOGIC_MINI_PART_ID,
     EOT_LOGIC_CHAT_PART_ID,
     EOT_LOGIC_EQUIP_PART_ID,
+    EOT_LOGIC_MISSION_PART_ID,
     //////////////////////////logic trans////////////////////////
     EOT_TRANS_LOGIC_PLAYER_BASE,
     EOT_TRANS_LOGIC_GET_ROLE_LIST,

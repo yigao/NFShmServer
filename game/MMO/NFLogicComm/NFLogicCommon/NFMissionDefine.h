@@ -10,6 +10,9 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashSet.h"
 
 #define INVALID_MISSION_ID          (0)    //非法任务id
 #define MISSION_COND_TYPE_TO_EVENT(type)    (type / 100) //任务完成条件类型转换到事件类型
@@ -629,3 +632,190 @@ struct SCanAcceptParam
     }
 };
 
+/**
+* 任务物品信息
+*/
+struct ItemInfo
+{
+    uint32_t type;				//物品类型(条件类型,条件中第1个参数)
+    uint64_t itemId;			//当前值(条件中第2个参数))
+    int32_t currentValue;		//完成值
+    int32_t finalValue;			//完成值(条件中第3个参数)
+    bool completedFlag;			//是否完成标记
+    uint64_t parma1;				//保留参数1(条件中第4个参数)
+    uint64_t parma2;				//保留参数2(条件中第5个参数)
+    uint64_t parma3;				//保留参数3(条件中第6个参数)
+
+    ItemInfo()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    ItemInfo(uint64_t parItemId, int32_t parCurrentValue = 0, int32_t parFinalValue = 0, bool parCompletedFlag = false, uint32_t parType = 0, uint64_t parParma1 = 0, uint64_t parParma2 = 0, uint64_t parParma3 = 0)
+    {
+        itemId = parItemId;
+        currentValue = parCurrentValue;
+        finalValue = parFinalValue;
+        completedFlag = parCompletedFlag;
+        type = parType;
+        parma1 = parParma1;
+        parma2 = parParma2;
+        parma3 = parParma3;
+    }
+
+    int CreateInit()
+    {
+        itemId = 0;
+        currentValue = 0;
+        finalValue = 0;
+        completedFlag = 0;
+        type = 0;
+        parma1 = 0;
+        parma2 = 0;
+        parma3 = 0;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+
+    inline ItemInfo& operator = (const ItemInfo& Value)
+    {
+        itemId = Value.itemId;
+        currentValue = Value.currentValue;
+        finalValue = Value.finalValue;
+        completedFlag = Value.completedFlag;
+        type = Value.type;
+        parma1 = Value.parma1;
+        parma2 = Value.parma2;
+        parma3 = Value.parma3;
+        return (*this);
+    }
+};
+
+/**
+* 玩家单个任务数据
+*/
+struct MissionTrack
+{
+    uint64_t missionId;					//任务ID（配置ID）
+    uint64_t dynamicId;					//动态任务ID（针对动态任务来说的,主支线和配置ID相同）
+    uint32_t status; 					//任务当前状态
+    uint64_t acceptMissionTime;			//接取任务时间
+    NFShmVector<ItemInfo, 10> items;		//<ItemInfo>，这个任务的物品数据
+    uint64_t textId;					//前端显示用的id(对应taskcontent中text表)
+
+    MissionTrack()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    ~MissionTrack()
+    {
+        status = 0;
+        acceptMissionTime = 0;
+        items.clear();
+        missionId = 0;
+        dynamicId = 0;
+        textId = 0;
+    }
+
+    int CreateInit()
+    {
+        status = 0;
+        acceptMissionTime = 0;
+        items.clear();
+        missionId = 0;
+        dynamicId = 0;
+        textId = 0;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+};
+
+/*
+	动态任务数据
+*/
+struct DyMissionTrack
+{
+    int32_t kind;		//任务类型
+    uint32_t acceptNum; //周期内已接取次数
+    uint64_t lastFresh;	//上次刷新时间
+
+    struct BountyParam
+    {
+        BountyParam()
+        {
+            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+            {
+                CreateInit();
+            }
+            else
+            {
+                ResumeInit();
+            }
+        }
+
+        int CreateInit()
+        {
+            ten_status = 0;
+            twenty_status = 0;
+            return 0;
+        }
+
+        int ResumeInit()
+        {
+            return 0;
+        }
+
+        uint8_t ten_status; //对赏金任务来说, 0:表示 10 次 未达到 1表示10次未领取 2表示已经领取
+        uint8_t twenty_status; //对赏金任务来说, 0:表示 20 次 未达到 1表示20次未领取 2表示已经领取
+    };
+
+    BountyParam bountyParam; //赏金任务
+
+    DyMissionTrack()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    int CreateInit()
+    {
+        kind = 0;
+        acceptNum = 0;
+        lastFresh = 0;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+};
