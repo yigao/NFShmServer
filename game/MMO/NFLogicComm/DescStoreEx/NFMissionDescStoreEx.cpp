@@ -30,6 +30,7 @@
 #include "ComDefine.pb.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "DescStore/TaskdynamicTasktextDesc.h"
+#include "DescStore/TaskrewardTasktypeDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMissionDescStoreEx, EOT_MISSION_CONFIG_DESCEX_ID, NFShmObj)
 
@@ -64,8 +65,11 @@ int NFMissionDescStoreEx::Load(NFResDB *pDB)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
     CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
+    CHECK_EXPR(ProcessTask(), -1, "ProcessTask Failed");
     CHECK_EXPR(ProcessDyCondition(), -1, "ProcessDyCondition Failed");
     CHECK_EXPR(ProcessDyMission(), -1, "ProcessDyMission Failed");
+    CHECK_EXPR(ProcessDyText(), -1, "ProcessDyText Failed");
+    CHECK_EXPR(ProcessReward(), -1, "ProcessReward Failed");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
     return 0;
@@ -73,6 +77,55 @@ int NFMissionDescStoreEx::Load(NFResDB *pDB)
 
 int NFMissionDescStoreEx::CheckWhenAllDataLoaded()
 {
+    //校验前置接取或条件中的任务ID
+    for (auto iterOr = m_mapPreOrAcceptMap.begin(); iterOr != m_mapPreOrAcceptMap.end(); ++iterOr)
+    {
+        auto &setMission = iterOr->second;
+        for (auto iterCheck = setMission.begin(); iterCheck != setMission.end(); ++iterCheck)
+        {
+            if (nullptr == GetMissionCfgInfo((*iterCheck)))
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0,
+                           "InitConfig...missionid in preor accept condition not exists...missionid:{} premissionid:{} ",
+                           iterOr->first, (*iterCheck));
+                return -1;
+            }
+        }
+    }
+
+    //校验前置接取与条件中的任务ID
+    for (auto iterAnd = m_mapPreAndAcceptMap.begin(); iterAnd != m_mapPreAndAcceptMap.end(); ++iterAnd)
+    {
+        auto &setMission = iterAnd->second;
+        for (auto iterCheck = setMission.begin(); iterCheck != setMission.end(); ++iterCheck)
+        {
+            if (nullptr == GetMissionCfgInfo((*iterCheck)))
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0,
+                           "InitConfig...missionid in preand accept condition not exists...missionid:{} premissionid:{} ",
+                           iterAnd->first, (*iterCheck));
+                return -1;
+            }
+        }
+    }
+
+    //校验 使用物品获得任务 中的任务ID
+/*    const MAP_UINT64_INT64 *pChkMission = g_GetItemCfgMgr()->GetChkItemAddMission();
+    if (nullptr != pChkMission)
+    {
+        auto iterChk = pChkMission->begin();
+        for (; iterChk != pChkMission->end(); ++iterChk)
+        {
+            uint64_t itemid = iterChk->first;
+            int64_t missionid = iterChk->second;
+            if (nullptr == GetMissionCfgInfo(missionid))
+            {
+                LogErrFmtPrint("[logic] MissionManager::InitConfig...missionid in item function value not exists...missionid:%ld itemid:%lu ",
+                               missionid, itemid);
+                return false;
+            }
+        }
+    }*/
     return 0;
 }
 
@@ -433,7 +486,114 @@ bool NFMissionDescStoreEx::ProcessDyCondition()
 
 bool NFMissionDescStoreEx::ProcessReward()
 {
-    return false;
+    auto pMapCfg = TaskrewardTaskrewardDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
+    if (nullptr != pMapCfg)
+    {
+        for (auto iter = pMapCfg->begin(); iter != pMapCfg->end(); ++iter)
+        {
+            auto &info = *iter;
+
+            std::vector<TaskComplex> reward;
+            //
+            for (auto iterAttr = info.m_attr.begin(); iterAttr != info.m_attr.end(); ++iterAttr)
+            {
+                auto &attr = (*iterAttr);
+                if (attr.m_id <= 0 || attr.m_val <= 0)
+                {
+                    continue;
+                }
+                TaskComplex complex;
+                complex.type = MISSION_AWARD_ATTR;
+                complex.id = attr.m_id;
+                complex.value = attr.m_val;
+                //
+                if (!CheckRewardParam(info.m_id, complex.type, complex.id))
+                {
+                    return false;
+                }
+                reward.push_back(complex);
+            }
+            //
+            for (auto iterItem = info.m_item.begin(); iterItem != info.m_item.end(); ++iterItem)
+            {
+                auto &item = (*iterItem);
+                if (item.m_id <= 0 || item.m_val <= 0)
+                {
+                    continue;
+                }
+
+                TaskComplex complex;
+                complex.type = MISSION_AWARD_GOODS;
+                complex.id = item.m_id;
+                complex.value = item.m_val;
+                complex.bind = item.m_bind;
+                complex.profession = item.m_prof;
+                //
+                auto pItemCfg = ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(item.m_id);
+                if (nullptr == pItemCfg)
+                {
+                    auto pEquipCfg = EquipEquipDesc::Instance(m_pObjPluginManager)->GetDesc(item.m_id);
+                    if (nullptr == pEquipCfg)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "ProcessReward()....nullptr == pEquipCfg...id:{}, taskType:{}, lv:{}, itemid:{} ",
+                                   info.m_id, info.m_tasktype, info.m_lv, item.m_id);
+                        return false;
+                    }
+                    else
+                    {
+                        complex.type = MISSION_AWARD_EQUIP;
+                    }
+                }
+                reward.push_back(complex);
+            }
+
+            if (info.m_guildexp > 0)
+            {
+                TaskComplex complex;
+                complex.type = MISSION_AWARD_UNION_EXP;
+                complex.id = info.m_guildexp;
+                reward.push_back(complex);
+            }
+
+            if (info.m_guildpoint > 0)
+            {
+                TaskComplex complex;
+                complex.type = MISSION_AWARD_USE_CONTRI;
+                complex.id = info.m_guildpoint;
+                reward.push_back(complex);
+            }
+
+            if (reward.size() > 0)
+            {
+                if (TaskrewardTasktypeDesc::Instance(m_pObjPluginManager)->GetDesc(info.m_tasktype))
+                {
+                    uint32_t key = ComposeDyRewardKey(info.m_tasktype, info.m_lv);
+                    DyTaskRewardMap::iterator iterReward = m_mapDyReward.find(key);
+                    if (iterReward != m_mapDyReward.end())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0,
+                                   "ProcessReward()...iterReward != m_mapDyReward.end()...info.m_tasktype:{}  info.m_lv:{}",
+                                   info.m_tasktype, info.m_lv);
+                        return false;
+                    }
+
+                    if (m_mapDyReward.size() >= m_mapDyReward.max_size())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "m_mapDyReward Space Not Enough");
+                        return false;
+                    }
+
+                    if (m_mapDyReward[key].max_size() < reward.size())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "m_mapDyReward vector Space Not Enough");
+                        return false;
+                    }
+                    m_mapDyReward[key].assign(reward.begin(), reward.end());
+                }
+            }
+        }
+    }
+    return true;
 }
 
 bool NFMissionDescStoreEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)

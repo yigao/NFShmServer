@@ -36,6 +36,8 @@ class NFMissionDescStoreEx : public NFIDescStore
     typedef NFShmHashMap<uint64_t, DyMissionInfo, 100> DyMissionInfoMap;
     typedef NFShmHashMap<uint64_t, DyConditionInfo, 100> DyCondtionInfoMap;
     typedef NFShmHashMap<uint64_t, MissionInfo, 500> MissionInfoMap;
+    //动态任务奖励 key是玩家等级(32 - 9)+任务类型(8 - 1) 组合
+    typedef NFShmHashMap<uint32_t, NFShmVector<TaskComplex, 10>, 1000> DyTaskRewardMap;
 public:
     NFMissionDescStoreEx();
 
@@ -84,6 +86,7 @@ private:
     DyMissionInfoMap _dymissionInfoMap;                    //动态任务配置
     DyCondtionInfoMap _dycondtionInfoMap;                    //动态条件配置
     MissionInfoMap _missionInfoMap;                    //任务配置列表
+    DyTaskRewardMap m_mapDyReward;                        //动态任务奖励
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 30> _missionFirstMap;                    //任务类型对应的第一个任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 1000> m_mapLevMission;                    //等级任务
 
