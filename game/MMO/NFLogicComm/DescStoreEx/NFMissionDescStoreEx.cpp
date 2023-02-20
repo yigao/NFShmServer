@@ -877,7 +877,7 @@ const DyMissionInfo *NFMissionDescStoreEx::GetDyMissionCfgInfo(uint64_t missionI
 
 const DyConditionInfo *NFMissionDescStoreEx::GetDyConditionCfgInfo(uint64_t condId)
 {
-    DyCondtionInfoMap::iterator iter = m_dycondtionInfoMap.find(condId);
+    auto iter = m_dycondtionInfoMap.find(condId);
     return (iter != m_dycondtionInfoMap.end()) ? &iter->second : nullptr;
 }
 

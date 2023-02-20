@@ -39,6 +39,7 @@ void protobuf_ShutdownFile_Event_2eproto();
 class FunctionUnlockEvent;
 class PlayerLeveUpEvent;
 class ItemUseEvent;
+class AcceptTaskEvent;
 
 // ===================================================================
 
@@ -306,6 +307,108 @@ class ItemUseEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ItemUseEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class AcceptTaskEvent : public ::google::protobuf::Message {
+ public:
+  AcceptTaskEvent();
+  virtual ~AcceptTaskEvent();
+
+  AcceptTaskEvent(const AcceptTaskEvent& from);
+
+  inline AcceptTaskEvent& operator=(const AcceptTaskEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AcceptTaskEvent& default_instance();
+
+  void Swap(AcceptTaskEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  AcceptTaskEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AcceptTaskEvent& from);
+  void MergeFrom(const AcceptTaskEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 taskId = 1;
+  inline bool has_taskid() const;
+  inline void clear_taskid();
+  static const int kTaskIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 taskid() const;
+  inline void set_taskid(::google::protobuf::uint64 value);
+
+  // optional uint64 cid = 2;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 2;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 taskType = 3;
+  inline bool has_tasktype() const;
+  inline void clear_tasktype();
+  static const int kTaskTypeFieldNumber = 3;
+  inline ::google::protobuf::uint32 tasktype() const;
+  inline void set_tasktype(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.AcceptTaskEvent)
+ private:
+  inline void set_has_taskid();
+  inline void clear_has_taskid();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_tasktype();
+  inline void clear_has_tasktype();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 taskid_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 tasktype_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static AcceptTaskEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -429,6 +532,76 @@ inline ::google::protobuf::int32 ItemUseEvent::num() const {
 inline void ItemUseEvent::set_num(::google::protobuf::int32 value) {
   set_has_num();
   num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AcceptTaskEvent
+
+// optional uint64 taskId = 1;
+inline bool AcceptTaskEvent::has_taskid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AcceptTaskEvent::set_has_taskid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AcceptTaskEvent::clear_has_taskid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AcceptTaskEvent::clear_taskid() {
+  taskid_ = GOOGLE_ULONGLONG(0);
+  clear_has_taskid();
+}
+inline ::google::protobuf::uint64 AcceptTaskEvent::taskid() const {
+  return taskid_;
+}
+inline void AcceptTaskEvent::set_taskid(::google::protobuf::uint64 value) {
+  set_has_taskid();
+  taskid_ = value;
+}
+
+// optional uint64 cid = 2;
+inline bool AcceptTaskEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AcceptTaskEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AcceptTaskEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AcceptTaskEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 AcceptTaskEvent::cid() const {
+  return cid_;
+}
+inline void AcceptTaskEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 taskType = 3;
+inline bool AcceptTaskEvent::has_tasktype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void AcceptTaskEvent::set_has_tasktype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void AcceptTaskEvent::clear_has_tasktype() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void AcceptTaskEvent::clear_tasktype() {
+  tasktype_ = 0u;
+  clear_has_tasktype();
+}
+inline ::google::protobuf::uint32 AcceptTaskEvent::tasktype() const {
+  return tasktype_;
+}
+inline void AcceptTaskEvent::set_tasktype(::google::protobuf::uint32 value) {
+  set_has_tasktype();
+  tasktype_ = value;
 }
 
 

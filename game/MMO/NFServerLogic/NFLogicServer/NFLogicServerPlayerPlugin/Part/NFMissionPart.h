@@ -28,7 +28,7 @@ class NFMissionPart : public NFPart
 {
 public:
     // eventtype - level - dynamicid
-    typedef NFShmHashMap<uint32_t, NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 10>, 10>, 10> EventTabal;
+    typedef NFShmHashMap<uint32_t, NFShmHashMap<int32_t, NFShmHashSet<uint64_t, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT>, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT>, 10> EventTabal;
 
 
     typedef NFShmHashMap<uint64_t, MissionTrack, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT> PlayerTrackMissionMap;
@@ -198,13 +198,70 @@ public:
      */
     void UpdateMissionProgress(uint64_t missionId);
 
+public:
+    /**
+     * @brief 添加任务掉落
+     * @param pMissionTrack
+     * @param progressLev
+     * @return
+     */
+    int32_t OnAddMissionDrop(MissionTrack *pMissionTrack, int32_t progressLev);
+
+    /**
+     * @brief 添加任务掉落
+     * @param dymissionId
+     * @param monsId
+     * @param dropId
+     * @param boxId
+     * @param progressLev
+     * @return
+     */
+    bool AddMissionDrop(uint64_t dymissionId, uint64_t monsId, uint64_t dropId, uint64_t boxId, int32_t progressLev);
+
+    /**
+     * @brief 删除任务掉落
+     * @param dymissionId
+     * @param monsId
+     * @return
+     */
+    bool DelMissionDrop(uint64_t dymissionId, uint64_t monsId);
+
+    /**
+     * @brief 获取任务掉落
+     * @param monsterId
+     * @return
+     */
+    MissionDropMap *GetMissionDrop(uint64_t monsterId);
+
+public://任务事件处理接口
+    /**
+     * @brief 注册监听事件，接任务成功后注册
+     * @param eventType
+     * @param missionId
+     * @param progressLev
+     */
+    void RegisterEvent(uint32_t eventType, uint64_t missionId, int32_t progressLev);
+
+    /**
+     * @brief 移除这个任务注册的所有事件
+     * @param missionId
+     */
+    void RemoveEvent(uint64_t missionId);
+
+    /**
+     * @brief 发送任务事件，阻塞
+     * @param eventType
+     * @param data
+     * @param dynamicId
+     */
+    void OnEvent(uint32_t eventType, const ExecuteData &data, uint64_t dynamicId = 0);
 private:
     PlayerTrackMissionMap _playerTrackMissionMap;    //当前任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //最近提交的任务
     NFShmHashSet<uint64_t, NF_MISSION_TYPE_MAX_MISSION_COUNT> _setAlreadySubmit;        //已经提交的任务
     //动态任务
     PlayerDyMissionTrackMap _mapDyMissionTrack;        //动态任务数据
-    //MissionAllDropMap					_mapMissionAllDrop;		//任务掉落
+    MissionAllDropMap _mapMissionAllDrop;        //任务掉落
     //
     EventTabal _eventTabal;            //任务事件表
 private:

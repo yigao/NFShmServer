@@ -67,13 +67,13 @@ int NFPart::RetisterServerPartMsg(NFIPluginManager* pPluginManager, uint32_t nMs
 
 int NFPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "client part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "client part package not handle:{}", packet.ToString());
     return 0;
 }
 
 int NFPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "server part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "server part package not handle:{}", packet.ToString());
     return 0;
 }
 

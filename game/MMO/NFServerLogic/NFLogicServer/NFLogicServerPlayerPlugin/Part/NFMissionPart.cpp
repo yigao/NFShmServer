@@ -12,6 +12,10 @@
 #include "Player/NFPlayer.h"
 #include "NFPackagePart.h"
 #include "DescStore/EquipEquipDesc.h"
+#include "Mission.pb.h"
+#include "ClientServerCmd.pb.h"
+#include "Event.pb.h"
+#include "NFLogicCommon/NFEventDefine.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMissionPart, EOT_LOGIC_MISSION_PART_ID, NFShmObj)
 
@@ -161,8 +165,8 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                 MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionid);
                 if (nullptr == pMissionInfo)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "CheckTrunkMission 11 nullptr == pMissionInfo cid:{}, missionid:{} ",
-                               m_pMaster->GetRoleId(),
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "CheckTrunkMission 11 nullptr == pMissionInfo cid:{}, missionid:{} ",
+                               m_pMaster->GetCid(),
                                missionid);
                     continue;
                 }
@@ -258,7 +262,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "OnAccept Have Not MissionID={} Config, Please Check Mission Config", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "OnAccept Have Not MissionID={} Config, Please Check Mission Config", missionId);
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
 
@@ -270,7 +274,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
 
     if (_playerTrackMissionMap.size() >= _playerTrackMissionMap.max_size())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_playerTrackMissionMap Space Noet Enough.......");
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_playerTrackMissionMap Space Noet Enough.......");
         return proto_ff::RET_FAIL;
     }
 
@@ -278,7 +282,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     MissionTrack *pMissionTrack = &_playerTrackMissionMap[missionId];
     if (nullptr == pMissionTrack)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "[logic] OnAccept MissionID={}, Allcol MissionTrackObj is nullptr", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAccept MissionID={}, Allcol MissionTrackObj is nullptr", missionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -293,7 +297,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     pMissionTrack->status = MISSION_E_ACCEPTED;
     if (proto_ff::RET_SUCCESS != OnExtractCond(pMissionInfo, pMissionTrack))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "[logic] OnAccept MissionID={}, OnExtractCond failed...", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAccept MissionID={}, OnExtractCond failed...", missionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -305,14 +309,12 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
         UpdateMissionProgress(missionId);
     }
 
-
     //接取任务事件
-    AcceptTaskEvent acceptEvent;
-    acceptEvent.cid = pPlayer->Cid();
-    acceptEvent.taskId = missionId;
-    acceptEvent.taskType = pMissionInfo->kind;
-    g_GetEvent()->FireExecute(EVENT_ACCEPT_TASK, pPlayer->Cid(), CREATURE_PLAYER, &acceptEvent, sizeof(acceptEvent));
-
+    proto_ff::AcceptTaskEvent acceptEvent;
+    acceptEvent.set_cid(m_pMaster->Cid());
+    acceptEvent.set_taskid(missionId);
+    acceptEvent.set_tasktype(pMissionInfo->kind);
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, m_pMaster->Cid(), CREATURE_PLAYER, acceptEvent);
 
     //判断任务是否完成
     bool isCompletedFlag = true;
@@ -324,6 +326,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
             break;
         }
     }
+
     //如果已经完成
     if (isCompletedFlag)
     {
@@ -333,17 +336,18 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     else //没有完成的条件才会注册事件
     {
         //添加任务掉落处理
-        OnAddMissionDrop(pPlayer->Cid(), pMissionPart, pMissionTrack, pMissionInfo->progressLev);
+        OnAddMissionDrop(pMissionTrack, pMissionInfo->progressLev);
         //注册事件
         for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
         {
             if (!pMissionTrack->items[i].completedFlag)
             {
                 int32_t relEvent = MISSION_COND_TYPE_TO_EVENT(pMissionTrack->items[i].type);
-                pMissionPart->RegisterEvent(relEvent, pMissionTrack->dynamicId, pMissionInfo->progressLev);
+                RegisterEvent(relEvent, pMissionTrack->dynamicId, pMissionInfo->progressLev);
             }
         }
     }
+
     //如果任务已接取就完成需要 再次通知客户端
     if (isCompletedFlag && notify)
     {
@@ -354,7 +358,218 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
 
     //日志
 
-    return RET_SUCCESS;
+    return proto_ff::RET_SUCCESS;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+void NFMissionPart::RegisterEvent(uint32_t eventType, uint64_t missionId, int32_t progressLev)
+{
+    auto iter = _eventTabal.find(eventType);
+    if (iter != _eventTabal.end())
+    {
+        auto &mapLevMission = iter->second;
+        auto iterLv = mapLevMission.find(progressLev);
+        if (iterLv != mapLevMission.end())
+        {
+            if (iterLv->second.size() >= iterLv->second.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_eventTabal iterLv->second Space Not Enough");
+            }
+            iterLv->second.insert(missionId);
+        }
+        else
+        {
+            if (iterLv->second.size() >= iterLv->second.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_eventTabal mapLevMission Space Not Enough");
+            }
+            mapLevMission[progressLev].insert(missionId);
+        }
+    }
+    else
+    {
+        if (_eventTabal.size() >= _eventTabal.max_size())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_eventTabal Space Not Enough");
+        }
+        _eventTabal[eventType][progressLev].insert(missionId);
+    }
+}
+
+void NFMissionPart::RemoveEvent(uint64_t missionId)
+{
+    auto iter = _eventTabal.begin();
+    while (iter != _eventTabal.end())
+    {
+        auto &mapLevMission = iter->second;
+        auto iterLv = mapLevMission.begin();
+        while (iterLv != mapLevMission.end())
+        {
+            auto &setMission = iterLv->second;
+            auto iterMission = setMission.find(missionId);
+            if (iterMission != setMission.end())
+            {
+                setMission.erase(iterMission);
+                if (setMission.size() <= 0)
+                {
+                    iterLv = mapLevMission.erase(iterLv);
+                    continue;
+                }
+            }
+            ++iterLv;
+        }
+        if (mapLevMission.size() <= 0)
+        {
+            iter = _eventTabal.erase(iter);
+            continue;
+        }
+        ++iter;
+    }
+}
+
+void NFMissionPart::OnEvent(uint32_t eventType, const ExecuteData &data, uint64_t dynamicId /*= 0*/)
+{
+    Player *pPlayer = dynamic_cast<Player *>(m_pMaster);
+    if (nullptr == pPlayer)
+    {
+        LogErrFmtPrint("MissionPart::OnEvent...nullptr == pPlayer...eventType:%u ", eventType);
+        return;
+    }
+    int32_t level = pPlayer->GetAttr(A_LEVEL);
+    EventTabal::iterator iter = _eventTabal.find(eventType);
+    if (_eventTabal.end() != iter)
+    {
+        MAP_INT32_SET_UINT64 &mapLvMission = iter->second;
+        MAP_INT32_SET_UINT64::iterator iterLv = mapLvMission.begin();
+        for (; iterLv != mapLvMission.end(); ++iterLv)
+        {
+            SET_UINT64 &setMission = iterLv->second;
+            if (iterLv->first <= level)
+            {
+                if (dynamicId > 0)
+                {
+                    SET_UINT64::iterator iterMission = setMission.find(dynamicId);
+                    if (iterMission != setMission.end())
+                    {
+                        OnUpdateProgress(pPlayer, (*iterMission), data);
+                        break;
+                    }
+                }
+                else
+                {
+                    SET_UINT64::iterator iterMission = setMission.begin();
+                    for (; iterMission != setMission.end(); ++iterMission)
+                    {
+                        OnUpdateProgress(pPlayer, (*iterMission), data);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//添加任务掉落
+int32_t NFMissionPart::OnAddMissionDrop(MissionTrack *pMissionTrack, int32_t progressLev)
+{
+    CHECK_EXPR(pMissionTrack, proto_ff::RET_FAIL, "pMissionTrack == NULL");
+
+    uint64_t missionId = pMissionTrack->missionId;
+    uint64_t dymissionId = pMissionTrack->dynamicId;
+
+    for (auto iter = pMissionTrack->items.begin(); iter != pMissionTrack->items.end(); ++iter)
+    {
+        ItemInfo &cond = (*iter);
+        if (MISSION_FINISH_TYPE_COLLECT_KILL_MONS == cond.type
+            || MISSION_FINISH_TYPE_COLLECT_ITEM == cond.type
+                )
+        {
+            //收集物品		格式 301=物品id=物品数量=生物ID=宝箱id=追踪区域ID（背包中有足够数量，即完成任务）
+            //打怪收集		格式 302=物品id=物品数量=生物ID=宝箱id=追踪路径id
+            if (!AddMissionDrop(dymissionId, cond.parma1, 0, cond.parma2, progressLev))
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                           "OnAddMissionDrop...pMissionPart->AddMissionDrop failed....cid:{}, missionid:{}, dymissionid:{}, condtype:{},itemid:{},finalvalue:{},param1:{},param2:{},param3:{} ",
+                           m_pMaster->Cid(), missionId, dymissionId, cond.type, cond.itemId, cond.finalValue, cond.parma1, cond.parma2, cond.parma3);
+            }
+        }
+    }
+    return proto_ff::RET_SUCCESS;
+}
+
+bool NFMissionPart::AddMissionDrop(uint64_t dymissionId, uint64_t monsId, uint64_t dropId, uint64_t boxId, int32_t progressLev)
+{
+    auto iterMons = _mapMissionAllDrop.find(monsId);
+    if (iterMons != _mapMissionAllDrop.end())
+    {
+        MissionDropMap &mapDrop = iterMons->second;
+        auto iterMission = mapDrop.find(dymissionId);
+        if (iterMission != mapDrop.end())
+        {
+            return false;
+        }
+        else
+        {
+            MissionDrop stDrop;
+            stDrop.dropId = dropId;
+            stDrop.boxId = boxId;
+            stDrop.progressLv = progressLev;
+            if (mapDrop.size() >= mapDrop.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapMissionAllDrop mapDrop Space Not Enough");
+                return false;
+            }
+            mapDrop[dymissionId] = stDrop;
+        }
+    }
+    else
+    {
+        MissionDrop stDrop;
+        stDrop.dropId = dropId;
+        stDrop.boxId = boxId;
+        stDrop.progressLv = progressLev;
+        if (_mapMissionAllDrop.size() >= _mapMissionAllDrop.max_size())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapMissionAllDrop Space Not Enough");
+            return false;
+        }
+        _mapMissionAllDrop[monsId][dymissionId] = stDrop;
+    }
+    return true;
+}
+
+//删除任务掉落
+bool NFMissionPart::DelMissionDrop(uint64_t dymissionId, uint64_t monsId)
+{
+    MissionAllDropMap::iterator iterMons = _mapMissionAllDrop.find(monsId);
+    if (iterMons != _mapMissionAllDrop.end())
+    {
+        MissionDropMap &mapDrop = iterMons->second;
+        MissionDropMap::iterator iterMission = mapDrop.find(dymissionId);
+        if (iterMission != mapDrop.end())
+        {
+            mapDrop.erase(iterMission);
+            if (mapDrop.size() <= 0)
+            {
+                _mapMissionAllDrop.erase(iterMons);
+            }
+            //
+            return true;
+        }
+    }
+    return false;
+}
+
+//获取任务掉落
+MissionDropMap* NFMissionPart::GetMissionDrop(uint64_t monsterId)
+{
+    MissionAllDropMap::iterator iterMons = _mapMissionAllDrop.find(monsterId);
+    if (iterMons != _mapMissionAllDrop.end())
+    {
+        return &iterMons->second;
+    }
+
+    return NULL;
 }
 
 int32_t NFMissionPart::CanAccept(uint64_t missionId)
@@ -824,7 +1039,7 @@ bool NFMissionPart::CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
 
         if (!pPackage->CanAddItem(addItems))
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "missionId:{} add items failed.......", missionId);
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "missionId:{} add items failed.......", missionId);
             return false;
         }
 
@@ -836,20 +1051,15 @@ bool NFMissionPart::CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
 //更新任务进度
 void NFMissionPart::UpdateMissionProgress(uint64_t missionId)
 {
-    PlayerTrackMissionMap::const_iterator missionIte = _playerTrackMissionMap.find(missionId);
+    auto missionIte = _playerTrackMissionMap.find(missionId);
     if (missionIte != _playerTrackMissionMap.end())
     {
         proto_ff::GCUpdateMissionStatusNotify notify;
         proto_ff::CMissionTrack *pMissionTrack = notify.add_updatelist();
         if (nullptr != pMissionTrack)
         {
-            g_GetMissionManager()->SetMissionTrackProto(missionIte->second, *pMissionTrack);
-            for (uint32_t i = 0; i < missionIte->second->items.size(); i++)
-            {
-                MMOLOG_FMT_DEBUG("[logic] Update DyId=%lu,MID=%lu,Status:%d, CondType=%u,textid:%lu,id=%lu, CurValue=%u, FinValue=%u, param1:%lu,param2:%lu,param3:%lu cid:%lu ", missionId, missionIte->second->missionId, missionIte->second->status, missionIte->second->items[i].type, missionIte->second->textId, missionIte->second->items[i].itemId,
-                                 missionIte->second->items[i].currentValue, missionIte->second->items[i].finalValue, missionIte->second->items[i].parma1, missionIte->second->items[i].parma2, missionIte->second->items[i].parma3, cid);
-            }
-            m_pMaster->SendClient(LOGIC_TO_CLIENT_UPDATEMISSIONSTATUSNOTIFY, &notify);
+            missionIte->second.SetMissionTrackProto(*pMissionTrack);
+            m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_UPDATEMISSIONSTATUSNOTIFY, notify);
         }
     }
 }

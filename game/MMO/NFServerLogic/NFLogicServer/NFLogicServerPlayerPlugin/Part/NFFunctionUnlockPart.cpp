@@ -62,17 +62,17 @@ int NFFunctionUnlockPart::Init(NFPlayer *pMaster, uint32_t partType, const proto
             auto iter = m_mapUnLock.emplace_hint(data.unlockid(), data.get_reward());
             if (iter == m_mapUnLock.end())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, pMaster->GetRoleId(), "m_mapUnLock space not enouth, Insert Failed! unlockId:{} get_reward:{}", data.unlockid(), data.get_reward());
+                NFLogError(NF_LOG_SYSTEMLOG, pMaster->GetCid(), "m_mapUnLock space not enouth, Insert Failed! unlockId:{} get_reward:{}", data.unlockid(), data.get_reward());
             }
         }
     }
 
     //订阅升级,完成任务
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, m_pMaster->GetRoleId(), CREATURE_PLAYER, "NFFunctionUnlockPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, m_pMaster->GetRoleId(), CREATURE_PLAYER, "NFFunctionUnlockPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_FACADE_CHANGE, m_pMaster->GetRoleId(), CREATURE_PLAYER, "NFFunctionUnlockPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PAY, m_pMaster->GetRoleId(), CREATURE_PLAYER, "NFFunctionUnlockPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_VIP_UP, m_pMaster->GetRoleId(), CREATURE_PLAYER, "NFFunctionUnlockPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, m_pMaster->GetCid(), CREATURE_PLAYER, "NFFunctionUnlockPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, m_pMaster->GetCid(), CREATURE_PLAYER, "NFFunctionUnlockPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_FACADE_CHANGE, m_pMaster->GetCid(), CREATURE_PLAYER, "NFFunctionUnlockPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PAY, m_pMaster->GetCid(), CREATURE_PLAYER, "NFFunctionUnlockPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_VIP_UP, m_pMaster->GetCid(), CREATURE_PLAYER, "NFFunctionUnlockPart");
     return 0;
 }
 
@@ -120,7 +120,7 @@ int NFFunctionUnlockPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &p
         }
         default:
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "packet:{} not handle", packet.ToString());
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "packet:{} not handle", packet.ToString());
             break;
         }
     }
@@ -217,7 +217,7 @@ int NFFunctionUnlockPart::UnlockAllFunc()
             //解锁事件
             proto_ff::FunctionUnlockEvent unlockEvent;
             unlockEvent.set_functionid(iteradd);
-            FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetRoleId(), CREATURE_PLAYER, unlockEvent);
+            FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetCid(), CREATURE_PLAYER, unlockEvent);
         }
     }
     return true;
@@ -326,7 +326,7 @@ void NFFunctionUnlockPart::checkUnlock(uint32_t nType, int64_t nValue)
             //解锁事件
             proto_ff::FunctionUnlockEvent unlockEvent;
             unlockEvent.set_functionid(iteradd);
-            FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetRoleId(), CREATURE_PLAYER, unlockEvent);
+            FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetCid(), CREATURE_PLAYER, unlockEvent);
         }
     }
 }
@@ -374,7 +374,7 @@ void NFFunctionUnlockPart::AddUnlock(uint64_t unlockid)
     auto iter = m_mapUnLock.emplace_hint(unlockid, false);
     if (iter == m_mapUnLock.end())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "AddUnlock Failed, unlockid:{}, not enough space!!", unlockid);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "AddUnlock Failed, unlockid:{}, not enough space!!", unlockid);
     }
 }
 
@@ -441,7 +441,7 @@ int NFFunctionUnlockPart::CheckALLFunctions(bool sync)
                 //解锁事件
                 proto_ff::FunctionUnlockEvent unlockEvent;
                 unlockEvent.set_functionid(iteradd);
-                FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetRoleId(), CREATURE_PLAYER, unlockEvent);
+                FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetCid(), CREATURE_PLAYER, unlockEvent);
             }
         }
     }
@@ -453,7 +453,7 @@ int NFFunctionUnlockPart::CheckALLFunctions(bool sync)
                 //解锁事件
                 proto_ff::FunctionUnlockEvent unlockEvent;
                 unlockEvent.set_functionid(iteradd);
-                FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetRoleId(), CREATURE_PLAYER, unlockEvent);
+                FireExecute(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, m_pMaster->GetCid(), CREATURE_PLAYER, unlockEvent);
             }
         }
     }

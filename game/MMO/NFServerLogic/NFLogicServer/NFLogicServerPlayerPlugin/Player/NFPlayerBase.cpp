@@ -32,7 +32,7 @@ int NFPlayerBase::CreateInit()
     m_isInited = false;
     m_transNum = 0;
     m_uid = 0;
-    m_roleId = 0;
+    m_cid = 0;
     m_proxyId = 0;
 
     m_status = PLAYER_STATUS_NONE;
@@ -91,14 +91,19 @@ void NFPlayerBase::DecreaseTransNum()
     }
 }
 
-uint64_t NFPlayerBase::GetRoleId() const
+uint64_t NFPlayerBase::GetCid() const
 {
-    return m_roleId;
+    return m_cid;
 }
 
-void NFPlayerBase::SetRoleId(uint64_t roleId)
+uint64_t NFPlayerBase::Cid() const
 {
-    m_roleId = roleId;
+    return m_cid;
+}
+
+void NFPlayerBase::SetCid(uint64_t roleId)
+{
+    m_cid = roleId;
 }
 
 uint64_t NFPlayerBase::GetUid() const
@@ -220,7 +225,7 @@ int NFPlayerBase::Init(NFIPluginManager* pPluginManager, const ::proto_ff::RoleD
 
 int NFPlayerBase::ReadBaseData(const ::proto_ff::RoleDBData &dbData)
 {
-    m_roleId = dbData.cid();
+    m_cid = dbData.cid();
     m_zid = dbData.zid();
     //
     m_createTime = dbData.base().createtime();
@@ -317,7 +322,7 @@ int NFPlayerBase::UnInit(NFIPluginManager* pPluginManager)
 int NFPlayerBase::SaveDB(proto_ff::RoleDBData &dbData)
 {
     dbData.set_uid(m_uid);
-    dbData.set_cid(m_roleId);
+    dbData.set_cid(m_cid);
     dbData.set_zid(m_zid);
 
     SetBaseData(dbData);
@@ -446,7 +451,7 @@ bool NFPlayerBase::EnterState(proto_ff::ECState state)
     if (BState(state)) return false;
     m_laststate = m_curstate;
     m_curstate = state;
-    NFLogInfo(NF_LOG_SYSTEMLOG, m_roleId, "Player EnterState...m_curstate:{}, m_laststate:{} ", m_curstate,m_laststate);
+    NFLogInfo(NF_LOG_SYSTEMLOG, m_cid, "Player EnterState...m_curstate:{}, m_laststate:{} ", m_curstate, m_laststate);
     OnChangeState(m_curstate, m_laststate);
     return true;
 }
@@ -456,7 +461,7 @@ void NFPlayerBase::OnChangeState(uint8_t curstate, uint8_t laststate)
 {
     //通知客户端状态改变
     proto_ff::CreatureStateBroadRsp rsp;
-    rsp.set_cid(GetRoleId());
+    rsp.set_cid(GetCid());
     rsp.set_curstate(curstate);
     rsp.set_beforestate(laststate);
     //BroadCast(CREATURE_STATE_BROAD, &rsp, true);

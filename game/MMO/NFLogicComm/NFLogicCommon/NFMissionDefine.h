@@ -13,6 +13,7 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
+#include "Mission.pb.h"
 
 #define INVALID_MISSION_ID          (0)    //非法任务id
 #define MISSION_COND_TYPE_TO_EVENT(type)    (type / 100) //任务完成条件类型转换到事件类型
@@ -771,6 +772,81 @@ struct MissionTrack
     {
         return 0;
     }
+
+    //设置任务proto信息
+    bool SetMissionTrackProto(proto_ff::CharacterDBMissionTrack &missionProto)
+    {
+        missionProto.set_missionid(missionId);
+        missionProto.set_dynamicid(dynamicId);
+        missionProto.set_textid(textId);
+        missionProto.set_status(status);
+        missionProto.set_acceptmissiontime(acceptMissionTime);
+        for (uint32_t i = 0; i < items.size(); i++)
+        {
+            proto_ff::CharacterDBMissionItemInfo *pItemInfo = missionProto.add_iteminfo();
+            pItemInfo->set_type(items[i].type);
+            pItemInfo->set_id(items[i].itemId);
+            pItemInfo->set_currentvalue(items[i].currentValue);
+            pItemInfo->set_finalvalue(items[i].finalValue);
+            pItemInfo->set_completedflag(items[i].completedFlag);
+            pItemInfo->set_parma1(items[i].parma1);
+            pItemInfo->set_parma2(items[i].parma2);
+            pItemInfo->set_parma3(items[i].parma3);
+        }
+
+        return true;
+    }
+
+    bool SetMissionTrackProto(proto_ff::CMissionTrack &missionProto)
+    {
+        missionProto.set_missionid(missionId);
+        missionProto.set_dynamicid(dynamicId);
+        missionProto.set_textid(textId);
+        missionProto.set_status(status);
+        missionProto.set_accepttime(acceptMissionTime);
+        for (uint32_t i = 0; i < items.size(); i++)
+        {
+            proto_ff::CItemInfo *pItemInfo = missionProto.add_iteminfo();
+            pItemInfo->set_type(items[i].type);
+            pItemInfo->set_id(items[i].itemId);
+            pItemInfo->set_curvalue(items[i].currentValue);
+            pItemInfo->set_finvalue(items[i].finalValue);
+            pItemInfo->set_parma1(items[i].parma1);
+            pItemInfo->set_parma2(items[i].parma2);
+            pItemInfo->set_parma3(items[i].parma3);
+        }
+        return true;
+    }
+
+    //从任务proto拷贝信息
+    bool CopyFromMissionProto(const proto_ff::CharacterDBMissionTrack &missionProto)
+    {
+        missionId = missionProto.missionid();
+        dynamicId = missionProto.dynamicid();
+        textId = missionProto.textid();
+        status = missionProto.status();
+        acceptMissionTime = missionProto.acceptmissiontime();
+        for (int32_t j = 0; j < missionProto.iteminfo_size(); j++)
+        {
+            const proto_ff::CharacterDBMissionItemInfo &pItemInfo = missionProto.iteminfo(j);
+            ItemInfo itemInfo;
+            itemInfo.type = pItemInfo.type();
+            itemInfo.itemId = pItemInfo.id();
+            itemInfo.currentValue = pItemInfo.currentvalue();
+            itemInfo.finalValue = pItemInfo.finalvalue();
+            itemInfo.completedFlag = pItemInfo.completedflag();
+            itemInfo.parma1 = pItemInfo.parma1();
+            itemInfo.parma2 = pItemInfo.parma2();
+            itemInfo.parma3 = pItemInfo.parma3();
+            if (items.size() >= items.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "items Space Not Enough............");
+            }
+            items.push_back(itemInfo);
+        }
+
+        return true;
+    }
 };
 
 /*
@@ -839,3 +915,41 @@ struct DyMissionTrack
         return 0;
     }
 };
+
+//任务额外掉落
+struct MissionDrop
+{
+    uint64_t dropId;        //掉落ID
+    uint64_t boxId;            //box id
+    int32_t progressLv;        //进度等级
+
+    MissionDrop()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    int CreateInit()
+    {
+        dropId = 0;
+        boxId = 0;
+        progressLv = 0;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+};
+
+//任务掉落 dymissionid - MissionDrop
+typedef NFShmHashMap<uint64_t, MissionDrop, 10> MissionDropMap;
+//任务所有掉落 monsterid - MissionDropMap
+typedef NFShmHashMap<uint64_t, MissionDropMap, 100> MissionAllDropMap;

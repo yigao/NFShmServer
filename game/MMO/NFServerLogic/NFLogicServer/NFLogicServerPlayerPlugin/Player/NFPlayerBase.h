@@ -115,13 +115,14 @@ public:
      * @brief 角色ID
      * @return
      */
-    virtual uint64_t GetRoleId() const;
+    virtual uint64_t GetCid() const;
+    virtual uint64_t Cid() const;
 
     /**
      * @brief
      * @param roleId
      */
-    virtual void SetRoleId(uint64_t roleId);
+    virtual void SetCid(uint64_t roleId);
 
     /**
      * @brief 玩家ID
@@ -270,7 +271,7 @@ protected:
     /**
      * @brief 角色ID
      */
-    uint64_t m_roleId;
+    uint64_t m_cid;
 
     /**
      * @brief 玩家ID

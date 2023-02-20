@@ -31,7 +31,6 @@ enum EventId
     EVENT_UNDER_ATTACK,					//被人攻击
     EVENT_ATTACK_SOMEBODY,				//攻击别人
     EVENT_USE_SKILL,					//使用技能事件
-    EVENT_SELECT_UNDER_ATTACK,			//选中目标被攻击
 
 
     ///////////////////////技能事件//////////////////////////
@@ -43,9 +42,6 @@ enum EventId
     EVENT_BUFF_CRIT,					//技能暴击事件
 
     ///////////////////////角色相关事件//////////////////////
-    EVENT_ATTR_CHANGE,					//属性改变
-    EVENT_HP_CHANGE,					//血量变化
-    EVENT_CREATURE_WILLING_DIED,	    //即将死亡事迹
     EVENT_CREATURE_DEAD,				//生物死亡
     EVENT_CREATURE_REVIVE,				//生物复活
     EVENT_LOGIN_GAME,					//登入游戏
@@ -66,6 +62,7 @@ enum EventId
     EVENT_DISMISS_TEAM,					//解散队伍
     EVENT_RECONNECT_SUCCEED,			//重连成功
     EVENT_PAY,                          //玩家充值
+    EVENT_INVISIBLE_STATE,				//玩家隐身
     ////////////////////////场景相关事件//////////////////////////
     EVENT_CREATE_SCENE,					//创建场景
     EVENT_LEAVE_SCENE,					//离开场景
@@ -126,6 +123,7 @@ enum EventId
 
     EVENT_FUNCTIONUNLOCK,				//功能解锁
 
+    EVENT_ACTIVITY_READY,				// 活动开放事件
     EVENT_ACTIVITY_START,				// 活动开放事件
     EVENT_ACTIVITY_END,					// 活动结束事件
     EVENT_ACTIVITY_ENTER,				// 进入活动事件
@@ -154,8 +152,20 @@ enum EventId
     EVENT_WING_ADVANCE,                 //翅膀升级事件
     EVENT_TREASURE_ADVANCE,             //宝具升级事件
     EVENT_ARTIFACT_ADVANCE,             //神器升级事件
-    EVENT_PARTNER_ADVANCE,             //幻伙升级事件
-
+    EVENT_PARTNER_ADVANCE,              //幻伙升级事件
+    EVENT_KILL_BOSS,					//击杀BOSS事件
+    EVENT_DAILY_BACK,				    //每日找回事件
+    EVENT_CONVOY_ESCORT,				//护送镖车事件
+    EVENT_CONVOY_ESCORT_CMPT,			//护送镖车事件
+    EVENT_CONVOY_ACCEPT,
+    EVENT_MOUNT_FIGHT_CHANGE,          //坐骑战力改变事件
+    //坐骑事件
+    EVENT_HORSE_ACTIVE,					//激活坐骑
+    EVENT_HORSE_LEVELUP,				//坐骑升级
+    EVENT_GET_PET,                      //获得一个宠物
+    EVENT_PET_STEPLV,                   //宠物进阶升级
+    EVENT_PET_LV,                       //宠物升级
+    EVENT_PET_STARLV,                   //宠物升星
     EVENT_ID_LIMIT = 255,				//事件ID最大值
 
 

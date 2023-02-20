@@ -355,7 +355,7 @@ public:
     size_type elems_in_bucket(size_type __bucket) const
     {
         size_type __result = 0;
-        for (size_type __curIndex = __bucket; __curIndex != -1; __curIndex = m_buckets[__curIndex].m_next)
+        for (int __curIndex = __bucket; __curIndex != -1; __curIndex = m_buckets[__curIndex].m_next)
             __result += 1;
         return __result;
     }
@@ -541,11 +541,11 @@ public:
 
     size_type erase(const key_type &__key);
 
-    void erase(const iterator &__it);
+    iterator erase(const iterator &__it);
 
     void erase(iterator __first, iterator __last);
 
-    void erase(const const_iterator &__it);
+    const_iterator erase(const const_iterator &__it);
 
     void erase(const_iterator __first, const_iterator __last);
 
@@ -1075,7 +1075,7 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const key_type &__key
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &__it)
+typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &__it)
 {
     _Node *__p = __it.m_curNode;
     if (__p)
@@ -1087,8 +1087,10 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &
 
         if (__cur == __p)
         {
+            _Node *__next = get_node(__cur->m_next);
             m_bucketsFirstIdx[__n] = __cur->m_next;
             _M_delete_node(__cur);
+            return iterator(__next, this);
         }
         else
         {
@@ -1098,7 +1100,9 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &
                 if (__next == __p)
                 {
                     __cur->m_next = __next->m_next;
-                    _M_delete_node(__next);
+                    __cur = __next;
+                    __next = get_node(__cur->m_next);
+                    _M_delete_node(__cur);
                     break;
                 }
                 else
@@ -1107,8 +1111,10 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &
                     __next = get_node(__cur->m_next);
                 }
             }
+            return iterator(__next, this);
         }
     }
+    return iterator(nullptr, this);
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
@@ -1146,10 +1152,10 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const_iterator __firs
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-inline void
+inline typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator
 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const const_iterator &__it)
 {
-    erase(iterator(const_cast<_Node *>(__it.m_curNode),
+    return erase(iterator(const_cast<_Node *>(__it.m_curNode),
                    const_cast<NFShmHashTable *>(__it.m_hashTable)));
 }
 

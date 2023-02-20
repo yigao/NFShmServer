@@ -77,7 +77,7 @@ int NFPlayerMgr::SavePlayerRoleDetail(NFPlayer *pPlayer, TRANS_SAVE_ROLE_DETAIL_
     pTrans->Init(pPlayer);
 
     iRetCode = pTrans->SaveRoleDetail(iReason);
-    CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "uid:{} roleId:{} SaveRoleDetail Failed", pPlayer->GetUid(), pPlayer->GetRoleId());
+    CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "uid:{} roleId:{} SaveRoleDetail Failed", pPlayer->GetUid(), pPlayer->GetCid());
 
     pPlayer->SetRoleDetailSavingDBTime(NFTime::Now().UnixSec());
     return 0;
@@ -101,7 +101,7 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t roleId, uint64_t uid, const ::proto
     pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(roleId, EOT_LOGIC_PLAYER_ID));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, roleId:{}", roleId);
 
-    pPlayer->SetRoleId(roleId);
+    pPlayer->SetCid(roleId);
     pPlayer->SetUid(uid);
 
     NFPlayer *pUidPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateIndexToHashKey(PLAYER_UID_INDEX, uid, roleId,
@@ -138,7 +138,7 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 {
     CHECK_NULL(pPlayer);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, roleId:{}, uid:{}, gloablId:{}", pPlayer->GetRoleId(), pPlayer->GetUid(),
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, roleId:{}, uid:{}, gloablId:{}", pPlayer->GetCid(), pPlayer->GetUid(),
               pPlayer->GetGlobalID());
 
     FindModule<NFISharedMemModule>()->DelIndexKey(PLAYER_UID_INDEX, pPlayer->GetUid(), EOT_LOGIC_PLAYER_ID);
@@ -162,8 +162,8 @@ int NFPlayerMgr::OnEventLogLogin(NFPlayer *pPlayer, bool isLoadDB)
 
 int NFPlayerMgr::OnLogout(NFPlayer *pPlayer)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "player:{}, cid:{} status change to PLAYER_STATUS_LOGOUT, will be erase from memory", pPlayer->GetUid(),
-              pPlayer->GetRoleId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "player:{}, cid:{} status change to PLAYER_STATUS_LOGOUT, will be erase from memory", pPlayer->GetUid(),
+              pPlayer->GetCid());
 
     DeletePlayer(pPlayer);
 
@@ -216,7 +216,7 @@ int NFPlayerMgr::OnHandleLoginRoleRsp(NFPlayer *pPlayer, uint32_t ret_code)
     xMsg.set_ret_code(ret_code);
     auto pData = xMsg.mutable_simple_data();
     pData->set_uid(pPlayer->GetUid());
-    pData->set_cid(pPlayer->GetRoleId());
+    pData->set_cid(pPlayer->GetCid());
     pData->set_zid(pPlayer->GetZid());
     auto pBase = pData->mutable_base();
     pPlayer->SetBaseData(pBase);
