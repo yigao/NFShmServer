@@ -141,19 +141,19 @@ bool NFMissionDescStoreEx::ProcessTask()
             return false;
         }
 
-        if (_missionInfoMap.size() >= _missionInfoMap.max_size())
+        if (m_missionInfoMap.size() >= m_missionInfoMap.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "_missionInfoMap Note Enough Space.........");
             return false;
         }
 
-        if (_missionInfoMap.find(pTaskInfo->m_id) != _missionInfoMap.end())
+        if (m_missionInfoMap.find(pTaskInfo->m_id) != m_missionInfoMap.end())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "mission id:{} exist............", pTaskInfo->m_id);
             return false;
         }
 
-        MissionInfo *pMissionInfo = &_missionInfoMap[pTaskInfo->m_id];
+        MissionInfo *pMissionInfo = &m_missionInfoMap[pTaskInfo->m_id];
         pMissionInfo->missionId = pTaskInfo->m_id;
 
         pMissionInfo->accept.minLevel = pTaskInfo->m_minlv;
@@ -195,7 +195,7 @@ bool NFMissionDescStoreEx::ProcessTask()
     MAP_UINT64_SET_UINT64 mapPost;
     mapPost.clear();
     //构造主线/支线任务关系表
-    for (MissionInfoMap::iterator ite = _missionInfoMap.begin(); ite != _missionInfoMap.end(); ++ite)
+    for (MissionInfoMap::iterator ite = m_missionInfoMap.begin(); ite != m_missionInfoMap.end(); ++ite)
     {
         if (ite->second.kind != MISSION_TYPE_ID_TRUNK
             && ite->second.kind != MISSION_TYPE_ID_BRANCH
@@ -256,7 +256,7 @@ bool NFMissionDescStoreEx::ProcessTask()
     }
 
     //找出每种类型任务的第一个任务
-    for (MissionInfoMap::iterator iterMission = _missionInfoMap.begin(); iterMission != _missionInfoMap.end(); ++iterMission)
+    for (MissionInfoMap::iterator iterMission = m_missionInfoMap.begin(); iterMission != m_missionInfoMap.end(); ++iterMission)
     {
         MissionInfo *pMissionInfo = &iterMission->second;
         if (MISSION_TYPE_ID_OCCUPATION == pMissionInfo->kind)
@@ -473,13 +473,13 @@ bool NFMissionDescStoreEx::ProcessDyCondition()
             return false;
         }
 
-        if (_dycondtionInfoMap.size() >= _dycondtionInfoMap.max_size())
+        if (m_dycondtionInfoMap.size() >= m_dycondtionInfoMap.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "_dycondtionInfoMap Not Enough Space.........");
             return false;
         }
 
-        _dycondtionInfoMap[dyInfo.condId] = dyInfo;
+        m_dycondtionInfoMap[dyInfo.condId] = dyInfo;
     }
     return true;
 }
@@ -871,14 +871,14 @@ bool NFMissionDescStoreEx::CheckFinishCond(InterItemPair &item, SParseFinishPara
 
 const DyMissionInfo *NFMissionDescStoreEx::GetDyMissionCfgInfo(uint64_t missionId)
 {
-    DyMissionInfoMap::iterator iter = _dymissionInfoMap.find(missionId);
-    return (iter != _dymissionInfoMap.end()) ? &iter->second : nullptr;
+    DyMissionInfoMap::iterator iter = m_dymissionInfoMap.find(missionId);
+    return (iter != m_dymissionInfoMap.end()) ? &iter->second : nullptr;
 }
 
 const DyConditionInfo *NFMissionDescStoreEx::GetDyConditionCfgInfo(uint64_t condId)
 {
-    DyCondtionInfoMap::iterator iter = _dycondtionInfoMap.find(condId);
-    return (iter != _dycondtionInfoMap.end()) ? &iter->second : nullptr;
+    DyCondtionInfoMap::iterator iter = m_dycondtionInfoMap.find(condId);
+    return (iter != m_dycondtionInfoMap.end()) ? &iter->second : nullptr;
 }
 
 bool NFMissionDescStoreEx::ParseMissionCond(MissionInfo *pMissionInfo, const std::string &strParam)              //解析任务接取条件
@@ -1304,8 +1304,8 @@ bool NFMissionDescStoreEx::ParseTaskSubAward(MissionInfo *pMissionInfo, int64_t 
 
 MissionInfo *NFMissionDescStoreEx::GetMissionCfgInfo(uint64_t missionId)
 {
-    auto iter = _missionInfoMap.find(missionId);
-    return (iter != _missionInfoMap.end()) ? &iter->second : nullptr;
+    auto iter = m_missionInfoMap.find(missionId);
+    return (iter != m_missionInfoMap.end()) ? &iter->second : nullptr;
 }
 
 bool NFMissionDescStoreEx::ProcessDyText()    //处理动态任务前端显示

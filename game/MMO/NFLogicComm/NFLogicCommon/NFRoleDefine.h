@@ -46,6 +46,7 @@ enum PartType
     PART_MINI,				//杂项模块
     PART_CHAT,				//聊天
     PART_EQUIP,				//装备模块
+    PART_MISSION,
     PART_MAX,
 };
 

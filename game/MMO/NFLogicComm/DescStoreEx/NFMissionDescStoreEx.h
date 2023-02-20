@@ -22,6 +22,9 @@
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 
 #include "NFLogicCommon/NFMissionDefine.h"
+#include "DescStore/TaskdynamicTaskdynamicDesc.h"
+#include "DescStore/TaskrewardTaskrewardDesc.h"
+#include "DescStore/TaskTaskDesc.h"
 
 //通过移位组合动态任务text表条件 text 表中 目标场景(最多11位十进制数字，对应的二进制位是 37bit)+任务类型(6bit)+完成条件(20bit)
 #define DY_MISSION_TEXT_KEY(type, cond) ((type << 20) | cond )
@@ -31,15 +34,19 @@
 //动态任务奖励组合key
 #define DY_MISSION_REWARD_KEY(type, lv) ((lv << 8) | type)
 
+#define NF_MISSION_TYPE_MAX_COUNT 20
+#define NF_MISSION_TYPE_MAX_MISSION_COUNT (MAX_TASK_TASK_NUM+MAX_TASKDYNAMIC_TASKDYNAMIC_NUM)
+
 class NFMissionDescStoreEx : public NFIDescStore
 {
 public:
-    typedef NFShmHashMap<uint64_t, DyMissionInfo, 100> DyMissionInfoMap;
-    typedef NFShmHashMap<uint64_t, DyConditionInfo, 100> DyCondtionInfoMap;
-    typedef NFShmHashMap<uint64_t, MissionInfo, 500> MissionInfoMap;
+    typedef NFShmHashMap<uint64_t, DyMissionInfo, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM> DyMissionInfoMap;
+    typedef NFShmHashMap<uint64_t, DyConditionInfo, MAX_TASKDYNAMIC_TASKCOMCOND_NUM> DyCondtionInfoMap;
+    typedef NFShmHashMap<uint64_t, MissionInfo, MAX_TASK_TASK_NUM> MissionInfoMap;
     //动态任务奖励 key是玩家等级(32 - 9)+任务类型(8 - 1) 组合
-    typedef NFShmHashMap<uint32_t, NFShmVector<TaskComplex, 10>, 1000> DyTaskRewardMap;
-    typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 30> FirstMissionMap;
+    typedef NFShmHashMap<uint32_t, TASK_REWARD, MAX_TASKREWARD_TASKREWARD_NUM> DyTaskRewardMap;
+    typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, NF_MISSION_TYPE_MAX_COUNT> FirstMissionMap;
+    typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>, NF_MISSION_TYPE_MAX_COUNT> DyMissionTypeMap;
 public:
     NFMissionDescStoreEx();
 
@@ -87,17 +94,17 @@ public:
     //获取每条线的第一个任务
     const FirstMissionMap &GetFirstMission() { return _missionFirstMap; }
 private:
-    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 30> _dymissionTypeMap;                    //动态任务类型map
-    DyMissionInfoMap _dymissionInfoMap;                    //动态任务配置
-    DyCondtionInfoMap _dycondtionInfoMap;                    //动态条件配置
-    MissionInfoMap _missionInfoMap;                    //任务配置列表
+    DyMissionTypeMap m_dymissionTypeMap;                    //动态任务类型map
+    DyMissionInfoMap m_dymissionInfoMap;                    //动态任务配置
+    DyCondtionInfoMap m_dycondtionInfoMap;                    //动态条件配置
+    MissionInfoMap m_missionInfoMap;                    //任务配置列表
     DyTaskRewardMap m_mapDyReward;                        //动态任务奖励
     FirstMissionMap _missionFirstMap;                    //任务类型对应的第一个任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 1000> m_mapLevMission;                    //等级任务
 
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, 100> m_mapPreOrAcceptMap;                //任务配置中的前置任务或条件
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, 100> m_mapPreAndAcceptMap;                //任务配置中的前置任务与条件
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, 100> m_mapPreAcceptMap;                    //接取条件中前置任务完成可接取的任务
+    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreOrAcceptMap;                //任务配置中的前置任务或条件
+    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAndAcceptMap;                //任务配置中的前置任务与条件
+    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAcceptMap;                    //接取条件中前置任务完成可接取的任务
 
     NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, 5> _dymissionTextMap;                    //动态任务前端显示配置
 private:

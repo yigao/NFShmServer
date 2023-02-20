@@ -172,6 +172,7 @@ public:
     }
 
     NFShmVector<Tp, MAX_SIZE> &operator=(const NFShmVector<Tp, MAX_SIZE> &__x);
+    NFShmVector<Tp, MAX_SIZE> &operator=(const std::vector<Tp> &__x);
 
 public:
     iterator begin() { return m_data; }
@@ -743,6 +744,14 @@ NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE> &__x)
 }
 
 template<class _Tp, size_t MAX_SIZE>
+NFShmVector<_Tp, MAX_SIZE> &
+NFShmVector<_Tp, MAX_SIZE>::operator=(const std::vector<_Tp> &__x)
+{
+    assign(__x.begin(), __x.end());
+    return *this;
+}
+
+template<class _Tp, size_t MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::_M_fill_assign(size_t __n, const value_type &__val)
 {
     if (__n > capacity())
@@ -885,6 +894,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIte
 
     if (__len > capacity())
     {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "__len > capacity(), some copy not success");
         std::_Destroy(m_data, m_data + m_size);
         auto finish = std::uninitialized_copy_n(__first, MAX_SIZE, m_data);
         m_size = finish - begin();

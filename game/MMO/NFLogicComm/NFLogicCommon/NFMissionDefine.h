@@ -109,8 +109,8 @@ enum MISSION_TYPE_FLAG
     MISSION_TYPE_ID_OCCUPATION = 3,            //转职任务
     MISSION_TYPE_ID_STAGE_GUIDE = 4,        //阶段引导任务
     MISSION_TYPE_ID_BOUNTY = 5,            //赏金任务
-    MISSION_TYPE_ID_ESCORT = 6,			//护送任务
-    MISSION_TYPE_ID_BOUNTY_INSTANCE = 7,			//赏金引导
+    MISSION_TYPE_ID_ESCORT = 6,            //护送任务
+    MISSION_TYPE_ID_BOUNTY_INSTANCE = 7,            //赏金引导
 
     MISSION_TYPE_ID_LOOP = 11,                //环任务
     MISSION_TYPE_ID_GUILD = 12,                //工会任务
@@ -530,6 +530,8 @@ struct TaskComplex
     }
 };
 
+typedef std::vector<TaskComplex> TASK_REWARD;
+
 /**
 * 单个任务信息结构体
 */
@@ -541,10 +543,10 @@ struct MissionInfo
     AcceptInfo accept;                        //接取条件
     NFShmHashSet<uint64_t, 10> setPreTask;                    //前置任务
     uint64_t backTaskId;                    //后置任务
-    NFShmVector<TaskComplex, 10> receAdd;        //接取任务时发放任务物品
+    TASK_REWARD receAdd;        //接取任务时发放任务物品
     InterExecute execute;                    //完成条件
-    NFShmVector<TaskComplex, 10> subAward;        //固定奖励
-    NFShmVector<TaskComplex, 10> subAwardRand;    //可选奖励
+    TASK_REWARD subAward;        //固定奖励
+    TASK_REWARD subAwardRand;    //可选奖励
 
     MissionInfo()
     {
@@ -576,8 +578,8 @@ struct MissionInfo
 //解析接取条件时外部参数
 struct SParaseAcceptParam
 {
-    uint32_t kind;			//任务类型
-    uint64_t missionId;		//任务ID
+    uint32_t kind;            //任务类型
+    uint64_t missionId;        //任务ID
     SParaseAcceptParam()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
@@ -607,6 +609,7 @@ struct SParaseAcceptParam
 struct SCanAcceptParam
 {
     uint64_t missionId;
+
     SCanAcceptParam()
     {
         missionId = 0;
@@ -637,14 +640,14 @@ struct SCanAcceptParam
 */
 struct ItemInfo
 {
-    uint32_t type;				//物品类型(条件类型,条件中第1个参数)
-    uint64_t itemId;			//当前值(条件中第2个参数))
-    int32_t currentValue;		//完成值
-    int32_t finalValue;			//完成值(条件中第3个参数)
-    bool completedFlag;			//是否完成标记
-    uint64_t parma1;				//保留参数1(条件中第4个参数)
-    uint64_t parma2;				//保留参数2(条件中第5个参数)
-    uint64_t parma3;				//保留参数3(条件中第6个参数)
+    uint32_t type;                //物品类型(条件类型,条件中第1个参数)
+    uint64_t itemId;            //当前值(条件中第2个参数))
+    int32_t currentValue;        //完成值
+    int32_t finalValue;            //完成值(条件中第3个参数)
+    bool completedFlag;            //是否完成标记
+    uint64_t parma1;                //保留参数1(条件中第4个参数)
+    uint64_t parma2;                //保留参数2(条件中第5个参数)
+    uint64_t parma3;                //保留参数3(条件中第6个参数)
 
     ItemInfo()
     {
@@ -658,7 +661,8 @@ struct ItemInfo
         }
     }
 
-    ItemInfo(uint64_t parItemId, int32_t parCurrentValue = 0, int32_t parFinalValue = 0, bool parCompletedFlag = false, uint32_t parType = 0, uint64_t parParma1 = 0, uint64_t parParma2 = 0, uint64_t parParma3 = 0)
+    ItemInfo(uint64_t parItemId, int32_t parCurrentValue = 0, int32_t parFinalValue = 0, bool parCompletedFlag = false, uint32_t parType = 0,
+             uint64_t parParma1 = 0, uint64_t parParma2 = 0, uint64_t parParma3 = 0)
     {
         itemId = parItemId;
         currentValue = parCurrentValue;
@@ -688,7 +692,7 @@ struct ItemInfo
         return 0;
     }
 
-    ItemInfo(const ItemInfo& Value)
+    ItemInfo(const ItemInfo &Value)
     {
         if (this != &Value)
         {
@@ -703,7 +707,7 @@ struct ItemInfo
         }
     }
 
-    inline ItemInfo& operator = (const ItemInfo& Value)
+    inline ItemInfo &operator=(const ItemInfo &Value)
     {
         itemId = Value.itemId;
         currentValue = Value.currentValue;
@@ -717,17 +721,18 @@ struct ItemInfo
     }
 };
 
+
 /**
 * 玩家单个任务数据
 */
 struct MissionTrack
 {
-    uint64_t missionId;					//任务ID（配置ID）
-    uint64_t dynamicId;					//动态任务ID（针对动态任务来说的,主支线和配置ID相同）
-    uint32_t status; 					//任务当前状态
-    uint64_t acceptMissionTime;			//接取任务时间
-    NFShmVector<ItemInfo, 10> items;		//<ItemInfo>，这个任务的物品数据
-    uint64_t textId;					//前端显示用的id(对应taskcontent中text表)
+    uint64_t missionId;                    //任务ID（配置ID）
+    uint64_t dynamicId;                    //动态任务ID（针对动态任务来说的,主支线和配置ID相同）
+    uint32_t status;                    //任务当前状态
+    uint64_t acceptMissionTime;            //接取任务时间
+    TASK_REWARD items;        //<ItemInfo>，这个任务的物品数据
+    uint64_t textId;                    //前端显示用的id(对应taskcontent中text表)
 
     MissionTrack()
     {
@@ -773,9 +778,9 @@ struct MissionTrack
 */
 struct DyMissionTrack
 {
-    int32_t kind;		//任务类型
+    int32_t kind;        //任务类型
     uint32_t acceptNum; //周期内已接取次数
-    uint64_t lastFresh;	//上次刷新时间
+    uint64_t lastFresh;    //上次刷新时间
 
     struct BountyParam
     {

@@ -19,6 +19,10 @@
 #include "NFLogicCommon/NFMissionDefine.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
+#include "DescStoreEx/NFMissionDescStoreEx.h"
+#include "NFLogicCommon/NFItemDefine.h"
+
+#define PLAYER_TRACK_MISSION_MAX_MISSION_COUNT 100
 
 class NFMissionPart : public NFPart
 {
@@ -27,8 +31,8 @@ public:
     typedef NFShmHashMap<uint32_t, NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 10>, 10>, 10> EventTabal;
 
 
-    typedef NFShmHashMap<uint64_t, MissionTrack, 100> PlayerTrackMissionMap;
-    typedef NFShmHashMap<int32_t, DyMissionTrack, 100> PlayerDyMissionTrackMap;
+    typedef NFShmHashMap<uint64_t, MissionTrack, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT> PlayerTrackMissionMap;
+    typedef NFShmHashMap<int32_t, DyMissionTrack, NF_MISSION_TYPE_MAX_COUNT> PlayerDyMissionTrackMap;
 public:
     NFMissionPart();
 
@@ -63,7 +67,7 @@ public:
      * @brief 登陆入口
      * @return
      */
-    virtual int OnLogin() { return 0; }
+    virtual int OnLogin();
 
     /**
      * @brief  登陆入口
@@ -89,11 +93,108 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
-private:
 public:
+    /**
+     * @brief 接取任务 reacceptFlag:是否是重新接取标志,triggerFlag:是否执行触发器的标志
+     * @param missionId
+     * @param notify
+     * @return
+     */
+    int32_t OnAccept(uint64_t missionId, bool notify);
+
+    /**
+     * @brief 获取可接任务列表(主支线)
+     * @param missionId
+     * @return
+     */
+    int32_t CanAccept(uint64_t missionId);
+
+    /**
+     * @brief
+     * @param cond
+     * @param param
+     * @return
+     */
+    int32_t CanAccept(const AcceptInfo &cond, SCanAcceptParam &param);
+
+public:
+    /**
+     * @brief 检查主线任务
+     * @param notify
+     */
+    void CheckTrunkMission(bool notify = true);
+
+public:
+    /** 最近提交列表里面是否有指定类型的任务
+     * @brief
+     * @param missionType
+     * @return
+     */
+    bool HaveRecentSubmit(int32_t missionType);
+
+    /**
+     * @brief  根据任务类型获取当前任务列表中存在的数量
+     * @param missionType
+     * @return
+     */
+    int32_t MissionNumByType(int32_t missionType);
+
+    /**
+     * @brief 该任务是否已经接收过了
+     * @param missionId
+     * @return
+     */
+    bool HaveAccpet(const uint64_t &missionId);
+
+    /**
+     * @brief 是否已经提交过的任务
+     * @param missionId
+     * @return
+     */
+    bool HaveSubmited(uint64_t missionId);
+
+public:
+    int32_t OnExtractCond(MissionInfo *pMissionInfo, MissionTrack *pMissionTrack);
+
+    /**
+     * @brief 条件预判断(有些条件接取任务时就已经完成了)
+     * @param cond
+     */
+    void OnPreUpdateProgress(ItemInfo &cond);
+
+    /**
+     * @brief 更新条件进度
+     * @param data
+     * @param cond
+     * @param notify
+     */
+    void OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond, bool &notify);
+
+public:
+    /**
+     * @brief 增加发任务时的物品奖励
+     * @param pMissionTrack
+     * @return
+     */
+    int32_t AddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, float ration = 1);
+
+    /**
+     * @brief 是否能增加任务奖励
+     * @param pPlayer
+     * @param reward
+     * @param param
+     * @param lstOutItem
+     * @return
+     */
+    bool CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, LIST_ITEM &lstOutItem);
+public:
+    //更新进度
+    int32_t OnUpdateProgress(uint64_t missionId, const ExecuteData &data);
+
+private:
     PlayerTrackMissionMap _playerTrackMissionMap;    //当前任务列表
-    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 100> _mapRecentSubmit;        //最近提交的任务
-    NFShmHashSet<uint64_t, 100> _setAlreadySubmit;        //已经提交的任务
+    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //最近提交的任务
+    NFShmHashSet<uint64_t, NF_MISSION_TYPE_MAX_MISSION_COUNT> _setAlreadySubmit;        //已经提交的任务
     //动态任务
     PlayerDyMissionTrackMap _mapDyMissionTrack;        //动态任务数据
     //MissionAllDropMap					_mapMissionAllDrop;		//任务掉落
