@@ -310,7 +310,7 @@ def write_cppfile():
 								cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
 							else:
 								cpp_file.write("\t\tmsg.add_%s((%s)%s[i].data());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
-						elif 'bytes' == msg_field.pb_type and  int(msg_field.buffer_size) > 0:
+						elif 'bytes' == msg_field.pb_type:
 							if message_desc.use_stl == True:
 								cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
 							else:
@@ -323,14 +323,18 @@ def write_cppfile():
 						cpp_file.write("\t}\n")
 				else:
 					#如果是数组成员
-					if message_desc.use_stl == True:
-						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % (msg_field.name))
+					cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % (msg_field.name))
+
 					if True == msg_field.is_string:
 						if message_desc.use_stl == True:
 							cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
-					elif 'bytes' == msg_field.pb_type and  int(msg_field.buffer_size) > 0:
+						else:
+							cpp_file.write("\t\tmsg.add_%s((%s)%s[i].data());\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
+					elif 'bytes' == msg_field.pb_type:
 						if message_desc.use_stl == True:
 							cpp_file.write("\t\tmsg.add_%s(%s[i]);\n" % (msg_field.name.lower(), msg_field.name))
+						else:
+							cpp_file.write("\t\tmsg.add_%s(%s[i].data());\n" % (msg_field.name.lower(), msg_field.name))
 					elif False == msg_field.is_message:
 						cpp_file.write("\t\tmsg.add_%s((%s)%s[i]);\n" % (msg_field.name.lower(), msg_field.convert_type, msg_field.name))
 					else:
@@ -381,7 +385,7 @@ def write_cppfile():
 						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % msg_field.name)
 					if True == msg_field.is_string:
 						cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
-					elif True == msg_field.is_buffer and int(msg_field.buffer_size) > 0:
+					elif True == msg_field.is_buffer:
 						cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 					elif True == msg_field.is_message:
 						cpp_file.write("\t\tconst %s & temp_%s = msg.%s(i);\n" % (msg_field.pb_type, msg_field.name.lower(), msg_field.name.lower()))
@@ -390,13 +394,12 @@ def write_cppfile():
 						cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
 					cpp_file.write("\t}\n")
 				else:
-					if message_desc.use_stl == True:
-						cpp_file.write("\t%s.resize(msg.%s_size());\n" % (msg_field.name, msg_field.name.lower()))
-						cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % msg_field.name)
+					cpp_file.write("\t%s.resize(msg.%s_size());\n" % (msg_field.name, msg_field.name.lower()))
+					cpp_file.write("\tfor(int32_t i = 0; i < (int32_t)%s.size(); ++i) {\n" % msg_field.name)
 					if True == msg_field.is_string:
 						if message_desc.use_stl == True:
 							cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))
-					elif True == msg_field.is_buffer and int(msg_field.buffer_size) > 0:
+					elif True == msg_field.is_buffer:
 						if 'bytes' != msg_field.pb_type:
 							if message_desc.use_stl == True:
 								cpp_file.write("\t\t%s[i] = msg.%s(i);\n" % (msg_field.name, msg_field.name.lower()))

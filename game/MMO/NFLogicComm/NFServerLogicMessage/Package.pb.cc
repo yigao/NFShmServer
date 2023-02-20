@@ -1374,6 +1374,9 @@ void PackageInfoRsp::CopyFrom(const PackageInfoRsp& from) {
 bool PackageInfoRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
 
+  for (int i = 0; i < item_list_size(); i++) {
+    if (!this->item_list(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1874,6 +1877,9 @@ void PackageSortRsp::CopyFrom(const PackageSortRsp& from) {
 bool PackageSortRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
+  for (int i = 0; i < item_list_size(); i++) {
+    if (!this->item_list(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2666,6 +2672,9 @@ void NotifyPackageUpdate::CopyFrom(const NotifyPackageUpdate& from) {
 bool NotifyPackageUpdate::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  for (int i = 0; i < item_list_size(); i++) {
+    if (!this->item_list(i).IsInitialized()) return false;
+  }
   return true;
 }
 

@@ -72,6 +72,37 @@ namespace proto_ff_s {
 	};
 	typedef struct ComPairBool_s ComPairBool_t;
 
+	struct ComItem_s : public NFDescStoreSeqOP {
+		ComItem_s();
+		virtual ~ComItem_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t item_id;
+		uint64_t item_num;
+
+		virtual void write_to_pbmsg(::proto_ff::ComItem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ComItem & msg);
+		static ::proto_ff::ComItem* new_pbmsg(){ return new ::proto_ff::ComItem(); }
+		static ::proto_ff::ComItem make_pbmsg(){ return ::proto_ff::ComItem(); }
+	};
+	typedef struct ComItem_s ComItem_t;
+
+	struct ComItemWithType_s : public NFDescStoreSeqOP {
+		ComItemWithType_s();
+		virtual ~ComItemWithType_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t item_id;
+		uint64_t item_num;
+		uint32_t type;
+
+		virtual void write_to_pbmsg(::proto_ff::ComItemWithType & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ComItemWithType & msg);
+		static ::proto_ff::ComItemWithType* new_pbmsg(){ return new ::proto_ff::ComItemWithType(); }
+		static ::proto_ff::ComItemWithType make_pbmsg(){ return ::proto_ff::ComItemWithType(); }
+	};
+	typedef struct ComItemWithType_s ComItemWithType_t;
+
 	struct Vector3PB_s : public NFDescStoreSeqOP {
 		Vector3PB_s();
 		virtual ~Vector3PB_s(){}
@@ -123,8 +154,9 @@ namespace proto_ff_s {
 		virtual ~RoleFacadeProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct Attr64_s, 200> growFacade;
+		NFShmVector<struct Attr64_s, 1> growFacade;
 		int32_t color;
+		int32_t prof;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleFacadeProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleFacadeProto & msg);
@@ -184,10 +216,11 @@ namespace proto_ff_s {
 		virtual ~LoginSyncProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint32_t guild_id;
-		NFShmString<32> guild_name;
-		int32_t guild_duty;
-		uint64_t guild_leader;
+		uint32_t faction_id;
+		NFShmString<32> faction_name;
+		int32_t duty;
+		uint64_t faction_leader;
+		int32_t faction_level;
 		uint32_t team_id;
 		uint64_t leader;
 		int32_t mem_count;
@@ -208,7 +241,6 @@ namespace proto_ff_s {
 		uint64_t cid;
 		uint32_t uid;
 		NFShmString<32> name;
-		uint32_t prof;
 		uint32_t level;
 		uint64_t fight;
 		uint64_t lastlogout;
@@ -242,6 +274,8 @@ namespace proto_ff_s {
 		bool isonline;
 		int64_t hp;
 		int64_t max_hp;
+		uint64_t sceneid;
+		uint64_t mapid;
 
 		virtual void write_to_pbmsg(::proto_ff::SocialRoleProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SocialRoleProto & msg);
@@ -281,6 +315,47 @@ namespace proto_ff_s {
 	};
 	typedef struct BlueStarAttr_s BlueStarAttr_t;
 
+	struct PetInfo_s : public NFDescStoreSeqOP {
+		PetInfo_s();
+		virtual ~PetInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t instId;
+		int64_t cfgid;
+		int32_t lv;
+		int32_t steplv;
+		int32_t starlv;
+		int32_t activeSkillLv;
+		NFShmVector<int32_t, 1> exclusiveSkillLvVec;
+		NFShmVector<int32_t, 1> passiveSkillLvVec;
+		float initgrow;
+		int32_t slot;
+		int32_t lvexp;
+
+		virtual void write_to_pbmsg(::proto_ff::PetInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetInfo & msg);
+		static ::proto_ff::PetInfo* new_pbmsg(){ return new ::proto_ff::PetInfo(); }
+		static ::proto_ff::PetInfo make_pbmsg(){ return ::proto_ff::PetInfo(); }
+	};
+	typedef struct PetInfo_s PetInfo_t;
+
+	struct PetHatchInfo_s : public NFDescStoreSeqOP {
+		PetHatchInfo_s();
+		virtual ~PetHatchInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot;
+		int32_t unlock;
+		int64_t eggid;
+		int64_t time;
+
+		virtual void write_to_pbmsg(::proto_ff::PetHatchInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetHatchInfo & msg);
+		static ::proto_ff::PetHatchInfo* new_pbmsg(){ return new ::proto_ff::PetHatchInfo(); }
+		static ::proto_ff::PetHatchInfo make_pbmsg(){ return ::proto_ff::PetHatchInfo(); }
+	};
+	typedef struct PetHatchInfo_s PetHatchInfo_t;
+
 	struct ItemProtoInfo_s : public NFDescStoreSeqOP {
 		ItemProtoInfo_s();
 		virtual ~ItemProtoInfo_s(){}
@@ -291,12 +366,14 @@ namespace proto_ff_s {
 		int64_t item_num;
 		int32_t bind;
 		int32_t level;
-		NFShmVector<struct Attr_s, 200> base;
-		NFShmVector<struct Attr_s, 200> refine;
-		NFShmVector<struct BlueStarAttr_s, 200> blue;
-		NFShmVector<struct Attr_s, 200> god;
-		NFShmVector<struct Attr_s, 200> special;
+		NFShmVector<struct Attr_s, 1> base;
+		NFShmVector<struct Attr_s, 1> refine;
+		NFShmVector<struct BlueStarAttr_s, 1> blue;
+		NFShmVector<struct Attr_s, 1> god;
+		NFShmVector<struct Attr_s, 1> special;
 		uint64_t expireTime;
+		int32_t strong_lv;
+		int32_t strong_wear_quality;
 
 		virtual void write_to_pbmsg(::proto_ff::ItemProtoInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ItemProtoInfo & msg);
@@ -305,6 +382,21 @@ namespace proto_ff_s {
 	};
 	typedef struct ItemProtoInfo_s ItemProtoInfo_t;
 
+	struct StoneSlotInfo_s : public NFDescStoreSeqOP {
+		StoneSlotInfo_s();
+		virtual ~StoneSlotInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t stone_pos;
+		int64_t stoneid;
+
+		virtual void write_to_pbmsg(::proto_ff::StoneSlotInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::StoneSlotInfo & msg);
+		static ::proto_ff::StoneSlotInfo* new_pbmsg(){ return new ::proto_ff::StoneSlotInfo(); }
+		static ::proto_ff::StoneSlotInfo make_pbmsg(){ return ::proto_ff::StoneSlotInfo(); }
+	};
+	typedef struct StoneSlotInfo_s StoneSlotInfo_t;
+
 	struct EquipSlotInfo_s : public NFDescStoreSeqOP {
 		EquipSlotInfo_s();
 		virtual ~EquipSlotInfo_s(){}
@@ -312,6 +404,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t slot_pos;
 		int64_t total_score;
+		int32_t stronglv;
+		NFShmVector<struct StoneSlotInfo_s, 1> stones;
+		int32_t stone_pay_slot_open;
 
 		virtual void write_to_pbmsg(::proto_ff::EquipSlotInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::EquipSlotInfo & msg);
@@ -336,6 +431,21 @@ namespace proto_ff_s {
 	};
 	typedef struct EquipInfo_s EquipInfo_t;
 
+	struct EquipLvAttrInfo_s : public NFDescStoreSeqOP {
+		EquipLvAttrInfo_s();
+		virtual ~EquipLvAttrInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t type;
+		int32_t id;
+
+		virtual void write_to_pbmsg(::proto_ff::EquipLvAttrInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::EquipLvAttrInfo & msg);
+		static ::proto_ff::EquipLvAttrInfo* new_pbmsg(){ return new ::proto_ff::EquipLvAttrInfo(); }
+		static ::proto_ff::EquipLvAttrInfo make_pbmsg(){ return ::proto_ff::EquipLvAttrInfo(); }
+	};
+	typedef struct EquipLvAttrInfo_s EquipLvAttrInfo_t;
+
 	struct ItemSimpleProto_s : public NFDescStoreSeqOP {
 		ItemSimpleProto_s();
 		virtual ~ItemSimpleProto_s(){}
@@ -357,7 +467,7 @@ namespace proto_ff_s {
 		virtual ~MultItemSimpleProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ItemSimpleProto_s, 10> info;
+		NFShmVector<struct ItemSimpleProto_s, 1> info;
 
 		virtual void write_to_pbmsg(::proto_ff::MultItemSimpleProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MultItemSimpleProto & msg);
@@ -372,8 +482,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cfgid;
-		NFShmVector<NFSizeBuffer<32>, 10> str_param;
-		NFShmVector<uint64_t, 10> int_param;
+		NFShmVector<NFShmString<32>, 1> str_param;
+		NFShmVector<uint64_t, 1> int_param;
 
 		virtual void write_to_pbmsg(::proto_ff::MailParamProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MailParamProto & msg);
@@ -402,7 +512,7 @@ namespace proto_ff_s {
 		virtual ~MailAttachmentList_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ItemProtoInfo_s, 10> itemInfo;
+		NFShmVector<struct ItemProtoInfo_s, 1> itemInfo;
 
 		virtual void write_to_pbmsg(::proto_ff::MailAttachmentList & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MailAttachmentList & msg);
@@ -490,7 +600,7 @@ namespace proto_ff_s {
 		uint64_t arenaScore;
 		uint64_t magiccrystal;
 		uint64_t prestige;
-		NFShmVector<struct WebMailItemProto_s, 10> itemList;
+		NFShmVector<struct WebMailItemProto_s, 1> itemList;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDataProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::WebMailDataProto & msg);
@@ -506,7 +616,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t int_param;
 		NFShmString<32> str_param;
-		NFShmVector<uint64_t, 10> item_lst;
+		NFShmVector<uint64_t, 1> item_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::UseItemArgProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::UseItemArgProto & msg);
@@ -550,7 +660,7 @@ namespace proto_ff_s {
 		virtual ~FunctionUnlockInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FunctionUnlockInfoData_s, 100> data;
+		NFShmVector<struct FunctionUnlockInfoData_s, 1> data;
 
 		virtual void write_to_pbmsg(::proto_ff::FunctionUnlockInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FunctionUnlockInfo & msg);
@@ -658,12 +768,12 @@ namespace proto_ff_s {
 		virtual ~RelationDBInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FriendInfo_s, 10> friendList;
-		NFShmVector<uint64_t, 10> blackList;
-		NFShmVector<struct RelationHateInfo_s, 10> hateList;
-		NFShmVector<struct FriendApplyInfo_s, 10> applyList;
+		NFShmVector<struct FriendInfo_s, 1> friendList;
+		NFShmVector<uint64_t, 1> blackList;
+		NFShmVector<struct RelationHateInfo_s, 1> hateList;
+		NFShmVector<struct FriendApplyInfo_s, 1> applyList;
 		uint32_t friends_add;
-		NFShmVector<struct RelationGiftRecord_s, 10> giftRecords;
+		NFShmVector<struct RelationGiftRecord_s, 1> giftRecords;
 
 		virtual void write_to_pbmsg(::proto_ff::RelationDBInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RelationDBInfo & msg);
@@ -713,7 +823,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;
-		NFShmVector<struct BuffProto_s, 10> info;
+		NFShmVector<struct BuffProto_s, 1> info;
 
 		virtual void write_to_pbmsg(::proto_ff::BuffListProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BuffListProto & msg);
@@ -730,6 +840,7 @@ namespace proto_ff_s {
 		uint64_t skill_id;
 		uint32_t pos;
 		int32_t cd;
+		int32_t use;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillPosProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillPosProto & msg);
@@ -744,8 +855,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint32_t group;
-		int32_t cd;
-		NFShmVector<struct SkillPosProto_s, 10> lst;
+		NFShmVector<struct SkillPosProto_s, 1> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillGroupProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillGroupProto & msg);
@@ -759,7 +869,8 @@ namespace proto_ff_s {
 		virtual ~SkillGroupListProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct SkillGroupProto_s, 10> info;
+		NFShmVector<struct SkillGroupProto_s, 1> info;
+		uint32_t cur_skill_group;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillGroupListProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillGroupListProto & msg);
@@ -813,6 +924,102 @@ namespace proto_ff_s {
 	};
 	typedef struct FacadeSkillData_s FacadeSkillData_t;
 
+	struct MountFantasyData_s : public NFDescStoreSeqOP {
+		MountFantasyData_s();
+		virtual ~MountFantasyData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t fantasy_id;
+		uint32_t fantasy_lev;
+		uint64_t fantasy_lev_exp;
+		uint32_t fantasy_star;
+
+		virtual void write_to_pbmsg(::proto_ff::MountFantasyData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountFantasyData & msg);
+		static ::proto_ff::MountFantasyData* new_pbmsg(){ return new ::proto_ff::MountFantasyData(); }
+		static ::proto_ff::MountFantasyData make_pbmsg(){ return ::proto_ff::MountFantasyData(); }
+	};
+	typedef struct MountFantasyData_s MountFantasyData_t;
+
+	struct MountFragmentData_s : public NFDescStoreSeqOP {
+		MountFragmentData_s();
+		virtual ~MountFragmentData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t fragment_id;
+		uint32_t use_times;
+
+		virtual void write_to_pbmsg(::proto_ff::MountFragmentData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountFragmentData & msg);
+		static ::proto_ff::MountFragmentData* new_pbmsg(){ return new ::proto_ff::MountFragmentData(); }
+		static ::proto_ff::MountFragmentData make_pbmsg(){ return ::proto_ff::MountFragmentData(); }
+	};
+	typedef struct MountFragmentData_s MountFragmentData_t;
+
+	struct MountSkillData_s : public NFDescStoreSeqOP {
+		MountSkillData_s();
+		virtual ~MountSkillData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t skill_id;
+		uint32_t skill_lev;
+
+		virtual void write_to_pbmsg(::proto_ff::MountSkillData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountSkillData & msg);
+		static ::proto_ff::MountSkillData* new_pbmsg(){ return new ::proto_ff::MountSkillData(); }
+		static ::proto_ff::MountSkillData make_pbmsg(){ return ::proto_ff::MountSkillData(); }
+	};
+	typedef struct MountSkillData_s MountSkillData_t;
+
+	struct MountKunData_s : public NFDescStoreSeqOP {
+		MountKunData_s();
+		virtual ~MountKunData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t kun_id;
+		uint32_t kun_lev;
+		uint64_t kun_lev_exp;
+		uint32_t kun_star;
+
+		virtual void write_to_pbmsg(::proto_ff::MountKunData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountKunData & msg);
+		static ::proto_ff::MountKunData* new_pbmsg(){ return new ::proto_ff::MountKunData(); }
+		static ::proto_ff::MountKunData make_pbmsg(){ return ::proto_ff::MountKunData(); }
+	};
+	typedef struct MountKunData_s MountKunData_t;
+
+	struct MountBloodData_s : public NFDescStoreSeqOP {
+		MountBloodData_s();
+		virtual ~MountBloodData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t blood_id;
+		uint32_t blood_state;
+
+		virtual void write_to_pbmsg(::proto_ff::MountBloodData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountBloodData & msg);
+		static ::proto_ff::MountBloodData* new_pbmsg(){ return new ::proto_ff::MountBloodData(); }
+		static ::proto_ff::MountBloodData make_pbmsg(){ return ::proto_ff::MountBloodData(); }
+	};
+	typedef struct MountBloodData_s MountBloodData_t;
+
+	struct MountBabySlotData_s : public NFDescStoreSeqOP {
+		MountBabySlotData_s();
+		virtual ~MountBabySlotData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t slot;
+		uint32_t cur_state;
+		int64_t cur_baby_eggid;
+		int64_t cur_baby_create_time;
+
+		virtual void write_to_pbmsg(::proto_ff::MountBabySlotData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountBabySlotData & msg);
+		static ::proto_ff::MountBabySlotData* new_pbmsg(){ return new ::proto_ff::MountBabySlotData(); }
+		static ::proto_ff::MountBabySlotData make_pbmsg(){ return ::proto_ff::MountBabySlotData(); }
+	};
+	typedef struct MountBabySlotData_s MountBabySlotData_t;
+
 	struct StatisticDataProto_s : public NFDescStoreSeqOP {
 		StatisticDataProto_s();
 		virtual ~StatisticDataProto_s(){}
@@ -853,7 +1060,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t group_cfg_id;
-		NFShmVector<struct GodRelicsTaskEntry_s, 10> entrys;
+		NFShmVector<struct GodRelicsTaskEntry_s, 1> entrys;
 		int32_t normal_reward_state;
 		uint64_t create_time;
 
@@ -925,7 +1132,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t task_cfg_id;
 		int32_t task_state;
-		NFShmVector<struct DailyTaskBackDayEntry_s, 10> day_data;
+		NFShmVector<struct DailyTaskBackDayEntry_s, 1> day_data;
 		int32_t left_num;
 		int32_t external_left_num;
 
@@ -956,10 +1163,10 @@ namespace proto_ff_s {
 		virtual ~DailyTaskAllData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct DailyTaskEntry_s, 10> task_data;
-		NFShmVector<struct DailyTaskLimitEntry_s, 10> task_limit_data;
-		NFShmVector<struct DailyTaskBackEntry_s, 10> back_data;
-		NFShmVector<struct DailyTaskRewardEntry_s, 10> reward_data;
+		NFShmVector<struct DailyTaskEntry_s, 1> task_data;
+		NFShmVector<struct DailyTaskLimitEntry_s, 1> task_limit_data;
+		NFShmVector<struct DailyTaskBackEntry_s, 1> back_data;
+		NFShmVector<struct DailyTaskRewardEntry_s, 1> reward_data;
 		uint32_t daily_score;
 		uint32_t daily_level;
 		uint64_t create_time;
@@ -1017,7 +1224,7 @@ namespace proto_ff_s {
 		uint64_t dynamicid;
 		uint32_t status;
 		uint64_t acceptMissionTime;
-		NFShmVector<struct CharacterDBMissionItemInfo_s, 10> itemInfo;
+		NFShmVector<struct CharacterDBMissionItemInfo_s, 1> itemInfo;
 		uint64_t textid;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBMissionTrack & msg) const;
@@ -1027,6 +1234,21 @@ namespace proto_ff_s {
 	};
 	typedef struct CharacterDBMissionTrack_s CharacterDBMissionTrack_t;
 
+	struct CharacterDBDyMissionBountyParam_s : public NFDescStoreSeqOP {
+		CharacterDBDyMissionBountyParam_s();
+		virtual ~CharacterDBDyMissionBountyParam_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t ten_state;
+		uint32_t twenty_state;
+
+		virtual void write_to_pbmsg(::proto_ff::CharacterDBDyMissionBountyParam & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBDyMissionBountyParam & msg);
+		static ::proto_ff::CharacterDBDyMissionBountyParam* new_pbmsg(){ return new ::proto_ff::CharacterDBDyMissionBountyParam(); }
+		static ::proto_ff::CharacterDBDyMissionBountyParam make_pbmsg(){ return ::proto_ff::CharacterDBDyMissionBountyParam(); }
+	};
+	typedef struct CharacterDBDyMissionBountyParam_s CharacterDBDyMissionBountyParam_t;
+
 	struct CharacterDBDyMissionInfo_s : public NFDescStoreSeqOP {
 		CharacterDBDyMissionInfo_s();
 		virtual ~CharacterDBDyMissionInfo_s(){}
@@ -1035,6 +1257,7 @@ namespace proto_ff_s {
 		int32_t mission_type;
 		uint64_t lastfresh;
 		int32_t accept_num;
+		struct CharacterDBDyMissionBountyParam_s bounty_param;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBDyMissionInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBDyMissionInfo & msg);
@@ -1048,10 +1271,10 @@ namespace proto_ff_s {
 		virtual ~CharacterDBTaskData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct CharacterDBMissionTrack_s, 10> missionTrack;
-		NFShmVector<struct CharacterDBDyMissionInfo_s, 10> dyinfo;
-		NFShmVector<uint64_t, 10> already_submit;
-		NFShmVector<struct CharacterDBRecentSubmitMission_s, 10> recent_submit;
+		NFShmVector<struct CharacterDBMissionTrack_s, 1> missionTrack;
+		NFShmVector<struct CharacterDBDyMissionInfo_s, 1> dyinfo;
+		NFShmVector<uint64_t, 1> already_submit;
+		NFShmVector<struct CharacterDBRecentSubmitMission_s, 1> recent_submit;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBTaskData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBTaskData & msg);
@@ -1066,7 +1289,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t exp;
-		NFShmVector<int32_t, 10> ids;
+		NFShmVector<int32_t, 1> ids;
 
 		virtual void write_to_pbmsg(::proto_ff::NotifyVipDataRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::NotifyVipDataRsp & msg);
@@ -1074,6 +1297,277 @@ namespace proto_ff_s {
 		static ::proto_ff::NotifyVipDataRsp make_pbmsg(){ return ::proto_ff::NotifyVipDataRsp(); }
 	};
 	typedef struct NotifyVipDataRsp_s NotifyVipDataRsp_t;
+
+	struct ArenaChallResult_s : public NFDescStoreSeqOP {
+		ArenaChallResult_s();
+		virtual ~ArenaChallResult_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t result;
+		bool chall;
+		int64_t time;
+		NFShmString<32> dst_name;
+		int32_t src_rank_id;
+		int32_t dst_rank_id;
+		NFShmVector<struct ComItem_s, 1> items;
+		int64_t dup_id;
+
+		virtual void write_to_pbmsg(::proto_ff::ArenaChallResult & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ArenaChallResult & msg);
+		static ::proto_ff::ArenaChallResult* new_pbmsg(){ return new ::proto_ff::ArenaChallResult(); }
+		static ::proto_ff::ArenaChallResult make_pbmsg(){ return ::proto_ff::ArenaChallResult(); }
+	};
+	typedef struct ArenaChallResult_s ArenaChallResult_t;
+
+	struct DailyArenaReward_s : public NFDescStoreSeqOP {
+		DailyArenaReward_s();
+		virtual ~DailyArenaReward_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t cfg_id;
+		int32_t state;
+
+		virtual void write_to_pbmsg(::proto_ff::DailyArenaReward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DailyArenaReward & msg);
+		static ::proto_ff::DailyArenaReward* new_pbmsg(){ return new ::proto_ff::DailyArenaReward(); }
+		static ::proto_ff::DailyArenaReward make_pbmsg(){ return ::proto_ff::DailyArenaReward(); }
+	};
+	typedef struct DailyArenaReward_s DailyArenaReward_t;
+
+	struct ChallArenaReward_s : public NFDescStoreSeqOP {
+		ChallArenaReward_s();
+		virtual ~ChallArenaReward_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t cfg_id;
+		int32_t state;
+
+		virtual void write_to_pbmsg(::proto_ff::ChallArenaReward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ChallArenaReward & msg);
+		static ::proto_ff::ChallArenaReward* new_pbmsg(){ return new ::proto_ff::ChallArenaReward(); }
+		static ::proto_ff::ChallArenaReward make_pbmsg(){ return ::proto_ff::ChallArenaReward(); }
+	};
+	typedef struct ChallArenaReward_s ChallArenaReward_t;
+
+	struct NotifyServerFlag_s : public NFDescStoreSeqOP {
+		NotifyServerFlag_s();
+		virtual ~NotifyServerFlag_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t bt_dup;
+
+		virtual void write_to_pbmsg(::proto_ff::NotifyServerFlag & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::NotifyServerFlag & msg);
+		static ::proto_ff::NotifyServerFlag* new_pbmsg(){ return new ::proto_ff::NotifyServerFlag(); }
+		static ::proto_ff::NotifyServerFlag make_pbmsg(){ return ::proto_ff::NotifyServerFlag(); }
+	};
+	typedef struct NotifyServerFlag_s NotifyServerFlag_t;
+
+	struct FacadeSoulSkillData_s : public NFDescStoreSeqOP {
+		FacadeSoulSkillData_s();
+		virtual ~FacadeSoulSkillData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t skill_id;
+		uint32_t status;
+
+		virtual void write_to_pbmsg(::proto_ff::FacadeSoulSkillData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FacadeSoulSkillData & msg);
+		static ::proto_ff::FacadeSoulSkillData* new_pbmsg(){ return new ::proto_ff::FacadeSoulSkillData(); }
+		static ::proto_ff::FacadeSoulSkillData make_pbmsg(){ return ::proto_ff::FacadeSoulSkillData(); }
+	};
+	typedef struct FacadeSoulSkillData_s FacadeSoulSkillData_t;
+
+	struct FacadeSoulActivityData_s : public NFDescStoreSeqOP {
+		FacadeSoulActivityData_s();
+		virtual ~FacadeSoulActivityData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t activity_id;
+		uint32_t status;
+
+		virtual void write_to_pbmsg(::proto_ff::FacadeSoulActivityData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FacadeSoulActivityData & msg);
+		static ::proto_ff::FacadeSoulActivityData* new_pbmsg(){ return new ::proto_ff::FacadeSoulActivityData(); }
+		static ::proto_ff::FacadeSoulActivityData make_pbmsg(){ return ::proto_ff::FacadeSoulActivityData(); }
+	};
+	typedef struct FacadeSoulActivityData_s FacadeSoulActivityData_t;
+
+	struct FacadeSoulData_s : public NFDescStoreSeqOP {
+		FacadeSoulData_s();
+		virtual ~FacadeSoulData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t soul_id;
+		bool soul_active;
+		uint32_t soul_level;
+		NFShmVector<struct FacadeSoulSkillData_s, 1> skill_data;
+		NFShmVector<struct FacadeSoulActivityData_s, 1> acviity_data;
+
+		virtual void write_to_pbmsg(::proto_ff::FacadeSoulData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FacadeSoulData & msg);
+		static ::proto_ff::FacadeSoulData* new_pbmsg(){ return new ::proto_ff::FacadeSoulData(); }
+		static ::proto_ff::FacadeSoulData make_pbmsg(){ return ::proto_ff::FacadeSoulData(); }
+	};
+	typedef struct FacadeSoulData_s FacadeSoulData_t;
+
+	struct ItemSellProto_s : public NFDescStoreSeqOP {
+		ItemSellProto_s();
+		virtual ~ItemSellProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t index;
+		int32_t num;
+
+		virtual void write_to_pbmsg(::proto_ff::ItemSellProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ItemSellProto & msg);
+		static ::proto_ff::ItemSellProto* new_pbmsg(){ return new ::proto_ff::ItemSellProto(); }
+		static ::proto_ff::ItemSellProto make_pbmsg(){ return ::proto_ff::ItemSellProto(); }
+	};
+	typedef struct ItemSellProto_s ItemSellProto_t;
+
+	struct DeityFantasySkillData_s : public NFDescStoreSeqOP {
+		DeityFantasySkillData_s();
+		virtual ~DeityFantasySkillData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t skill_id;
+		uint32_t skill_state;
+
+		virtual void write_to_pbmsg(::proto_ff::DeityFantasySkillData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityFantasySkillData & msg);
+		static ::proto_ff::DeityFantasySkillData* new_pbmsg(){ return new ::proto_ff::DeityFantasySkillData(); }
+		static ::proto_ff::DeityFantasySkillData make_pbmsg(){ return ::proto_ff::DeityFantasySkillData(); }
+	};
+	typedef struct DeityFantasySkillData_s DeityFantasySkillData_t;
+
+	struct DeityEquipData_s : public NFDescStoreSeqOP {
+		DeityEquipData_s();
+		virtual ~DeityEquipData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct EquipInfo_s, 1> infos;
+		NFShmVector<struct EquipLvAttrInfo_s, 1> lv_attr;
+
+		virtual void write_to_pbmsg(::proto_ff::DeityEquipData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityEquipData & msg);
+		static ::proto_ff::DeityEquipData* new_pbmsg(){ return new ::proto_ff::DeityEquipData(); }
+		static ::proto_ff::DeityEquipData make_pbmsg(){ return ::proto_ff::DeityEquipData(); }
+	};
+	typedef struct DeityEquipData_s DeityEquipData_t;
+
+	struct DeityEquipSuitData_s : public NFDescStoreSeqOP {
+		DeityEquipSuitData_s();
+		virtual ~DeityEquipSuitData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t id;
+		uint32_t state;
+
+		virtual void write_to_pbmsg(::proto_ff::DeityEquipSuitData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityEquipSuitData & msg);
+		static ::proto_ff::DeityEquipSuitData* new_pbmsg(){ return new ::proto_ff::DeityEquipSuitData(); }
+		static ::proto_ff::DeityEquipSuitData make_pbmsg(){ return ::proto_ff::DeityEquipSuitData(); }
+	};
+	typedef struct DeityEquipSuitData_s DeityEquipSuitData_t;
+
+	struct DeityFantasyData_s : public NFDescStoreSeqOP {
+		DeityFantasyData_s();
+		virtual ~DeityFantasyData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t fantasy_id;
+		uint32_t fantasy_lev;
+		uint64_t fantasy_lev_exp;
+		uint32_t fantasy_star;
+		NFShmVector<struct DeityFantasySkillData_s, 1> skill_data;
+		uint64_t fantasy_fight;
+		struct DeityEquipData_s equip_data;
+		NFShmVector<struct DeityEquipSuitData_s, 1> equip_suit_data;
+
+		virtual void write_to_pbmsg(::proto_ff::DeityFantasyData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityFantasyData & msg);
+		static ::proto_ff::DeityFantasyData* new_pbmsg(){ return new ::proto_ff::DeityFantasyData(); }
+		static ::proto_ff::DeityFantasyData make_pbmsg(){ return ::proto_ff::DeityFantasyData(); }
+	};
+	typedef struct DeityFantasyData_s DeityFantasyData_t;
+
+	struct DeityFragmentData_s : public NFDescStoreSeqOP {
+		DeityFragmentData_s();
+		virtual ~DeityFragmentData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t fragment_id;
+		uint32_t use_times;
+
+		virtual void write_to_pbmsg(::proto_ff::DeityFragmentData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityFragmentData & msg);
+		static ::proto_ff::DeityFragmentData* new_pbmsg(){ return new ::proto_ff::DeityFragmentData(); }
+		static ::proto_ff::DeityFragmentData make_pbmsg(){ return ::proto_ff::DeityFragmentData(); }
+	};
+	typedef struct DeityFragmentData_s DeityFragmentData_t;
+
+	struct DeitySkillData_s : public NFDescStoreSeqOP {
+		DeitySkillData_s();
+		virtual ~DeitySkillData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t skill_id;
+		uint32_t skill_lev;
+
+		virtual void write_to_pbmsg(::proto_ff::DeitySkillData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeitySkillData & msg);
+		static ::proto_ff::DeitySkillData* new_pbmsg(){ return new ::proto_ff::DeitySkillData(); }
+		static ::proto_ff::DeitySkillData make_pbmsg(){ return ::proto_ff::DeitySkillData(); }
+	};
+	typedef struct DeitySkillData_s DeitySkillData_t;
+
+	struct DeityBattleSlotData_s : public NFDescStoreSeqOP {
+		DeityBattleSlotData_s();
+		virtual ~DeityBattleSlotData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t id;
+		uint32_t cur_state;
+		int64_t deity_id;
+		int64_t enter_war_time;
+
+		virtual void write_to_pbmsg(::proto_ff::DeityBattleSlotData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityBattleSlotData & msg);
+		static ::proto_ff::DeityBattleSlotData* new_pbmsg(){ return new ::proto_ff::DeityBattleSlotData(); }
+		static ::proto_ff::DeityBattleSlotData make_pbmsg(){ return ::proto_ff::DeityBattleSlotData(); }
+	};
+	typedef struct DeityBattleSlotData_s DeityBattleSlotData_t;
+
+	struct ArmorSuitState_s : public NFDescStoreSeqOP {
+		ArmorSuitState_s();
+		virtual ~ArmorSuitState_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t index;
+		int32_t state;
+
+		virtual void write_to_pbmsg(::proto_ff::ArmorSuitState & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ArmorSuitState & msg);
+		static ::proto_ff::ArmorSuitState* new_pbmsg(){ return new ::proto_ff::ArmorSuitState(); }
+		static ::proto_ff::ArmorSuitState make_pbmsg(){ return ::proto_ff::ArmorSuitState(); }
+	};
+	typedef struct ArmorSuitState_s ArmorSuitState_t;
+
+	struct ArmorInfo_s : public NFDescStoreSeqOP {
+		ArmorInfo_s();
+		virtual ~ArmorInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;
+		NFShmVector<struct ArmorSuitState_s, 1> suits;
+
+		virtual void write_to_pbmsg(::proto_ff::ArmorInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ArmorInfo & msg);
+		static ::proto_ff::ArmorInfo* new_pbmsg(){ return new ::proto_ff::ArmorInfo(); }
+		static ::proto_ff::ArmorInfo make_pbmsg(){ return ::proto_ff::ArmorInfo(); }
+	};
+	typedef struct ArmorInfo_s ArmorInfo_t;
 
 }
 

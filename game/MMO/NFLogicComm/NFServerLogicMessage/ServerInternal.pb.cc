@@ -5795,6 +5795,9 @@ void NotifyLogicEnterGameReq::CopyFrom(const NotifyLogicEnterGameReq& from) {
 bool NotifyLogicEnterGameReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x000001ff) != 0x000001ff) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -6174,6 +6177,9 @@ void NotifyLogicEnterGameRsp::CopyFrom(const NotifyLogicEnterGameRsp& from) {
 bool NotifyLogicEnterGameRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001f) != 0x0000001f) return false;
 
+  if (has_proto()) {
+    if (!this->proto().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -6883,6 +6889,9 @@ void NotifyLogicLeaveGameRsp::CopyFrom(const NotifyLogicLeaveGameRsp& from) {
 bool NotifyLogicLeaveGameRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -9578,6 +9587,9 @@ void SocialRoleInfoRsp::CopyFrom(const SocialRoleInfoRsp& from) {
 
 bool SocialRoleInfoRsp::IsInitialized() const {
 
+  for (int i = 0; i < info_list_size(); i++) {
+    if (!this->info_list(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -10088,6 +10100,9 @@ void SynAttrToCenterRsp::CopyFrom(const SynAttrToCenterRsp& from) {
 bool SynAttrToCenterRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 

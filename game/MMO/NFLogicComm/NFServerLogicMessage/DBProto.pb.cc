@@ -4106,6 +4106,9 @@ void RoleDBBaseData::CopyFrom(const RoleDBBaseData& from) {
 
 bool RoleDBBaseData::IsInitialized() const {
 
+  if (has_facade()) {
+    if (!this->facade().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4383,6 +4386,9 @@ void BagItemsDBData::CopyFrom(const BagItemsDBData& from) {
 
 bool BagItemsDBData::IsInitialized() const {
 
+  for (int i = 0; i < data_size(); i++) {
+    if (!this->data(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4940,6 +4946,9 @@ void RoleDBUnitBagData::CopyFrom(const RoleDBUnitBagData& from) {
 
 bool RoleDBUnitBagData::IsInitialized() const {
 
+  for (int i = 0; i < parts_size(); i++) {
+    if (!this->parts(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -5145,6 +5154,9 @@ void RoleDBBagData::CopyFrom(const RoleDBBagData& from) {
 
 bool RoleDBBagData::IsInitialized() const {
 
+  for (int i = 0; i < bags_size(); i++) {
+    if (!this->bags(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -5348,6 +5360,9 @@ void RoleDBEquipData::CopyFrom(const RoleDBEquipData& from) {
 
 bool RoleDBEquipData::IsInitialized() const {
 
+  for (int i = 0; i < infos_size(); i++) {
+    if (!this->infos(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -14146,6 +14161,15 @@ void RoleDBData::CopyFrom(const RoleDBData& from) {
 
 bool RoleDBData::IsInitialized() const {
 
+  if (has_base()) {
+    if (!this->base().IsInitialized()) return false;
+  }
+  if (has_bag()) {
+    if (!this->bag().IsInitialized()) return false;
+  }
+  if (has_equip()) {
+    if (!this->equip().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -15049,6 +15073,9 @@ void RoleListDBRsp::CopyFrom(const RoleListDBRsp& from) {
 
 bool RoleListDBRsp::IsInitialized() const {
 
+  for (int i = 0; i < role_lst_size(); i++) {
+    if (!this->role_lst(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -15540,6 +15567,9 @@ void CreateRoleDBReq::CopyFrom(const CreateRoleDBReq& from) {
 
 bool CreateRoleDBReq::IsInitialized() const {
 
+  if (has_data()) {
+    if (!this->data().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -15999,6 +16029,12 @@ void CreateRoleDBRsp::CopyFrom(const CreateRoleDBRsp& from) {
 
 bool CreateRoleDBRsp::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
+  if (has_simple()) {
+    if (!this->simple().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -16662,6 +16698,9 @@ void RoleInfoDBRsp::CopyFrom(const RoleInfoDBRsp& from) {
 
 bool RoleInfoDBRsp::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -16957,6 +16996,9 @@ void RoleInfoUpdateDBReq::CopyFrom(const RoleInfoUpdateDBReq& from) {
 
 bool RoleInfoUpdateDBReq::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -17971,6 +18013,9 @@ void RoleSimpleListDBRsp::CopyFrom(const RoleSimpleListDBRsp& from) {
 
 bool RoleSimpleListDBRsp::IsInitialized() const {
 
+  for (int i = 0; i < info_size(); i++) {
+    if (!this->info(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -18694,6 +18739,9 @@ void NewMailDBInfo::CopyFrom(const NewMailDBInfo& from) {
 
 bool NewMailDBInfo::IsInitialized() const {
 
+  for (int i = 0; i < data_size(); i++) {
+    if (!this->data(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -19375,6 +19423,9 @@ void SaveMailDBReq::CopyFrom(const SaveMailDBReq& from) {
 
 bool SaveMailDBReq::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -19803,6 +19854,9 @@ void SaveMailDBRsp::CopyFrom(const SaveMailDBRsp& from) {
 
 bool SaveMailDBRsp::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -20500,6 +20554,9 @@ void CharacterMailDBResponse::CopyFrom(const CharacterMailDBResponse& from) {
 
 bool CharacterMailDBResponse::IsInitialized() const {
 
+  for (int i = 0; i < info_size(); i++) {
+    if (!this->info(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -21819,6 +21876,9 @@ void ZoneMailTransCharacterMailRsp::CopyFrom(const ZoneMailTransCharacterMailRsp
 
 bool ZoneMailTransCharacterMailRsp::IsInitialized() const {
 
+  for (int i = 0; i < data_size(); i++) {
+    if (!this->data(i).IsInitialized()) return false;
+  }
   return true;
 }
 

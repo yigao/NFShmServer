@@ -2460,6 +2460,9 @@ void TeamMemProto::CopyFrom(const TeamMemProto& from) {
 
 bool TeamMemProto::IsInitialized() const {
 
+  if (has_facade()) {
+    if (!this->facade().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2678,6 +2681,9 @@ void TeamMultMemProto::CopyFrom(const TeamMultMemProto& from) {
 
 bool TeamMultMemProto::IsInitialized() const {
 
+  for (int i = 0; i < mem_lst_size(); i++) {
+    if (!this->mem_lst(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3616,6 +3622,9 @@ void TeamProto::CopyFrom(const TeamProto& from) {
 
 bool TeamProto::IsInitialized() const {
 
+  if (has_mems()) {
+    if (!this->mems().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -6564,6 +6573,9 @@ void TeamUpdateMemNotify::CopyFrom(const TeamUpdateMemNotify& from) {
 
 bool TeamUpdateMemNotify::IsInitialized() const {
 
+  if (has_mems()) {
+    if (!this->mems().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -6992,6 +7004,9 @@ void TeamUpdateInfoNotify::CopyFrom(const TeamUpdateInfoNotify& from) {
 
 bool TeamUpdateInfoNotify::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -16952,6 +16967,9 @@ void DupTeamRobotProto::CopyFrom(const DupTeamRobotProto& from) {
 
 bool DupTeamRobotProto::IsInitialized() const {
 
+  if (has_facade()) {
+    if (!this->facade().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -17164,6 +17182,9 @@ void DupMultTeamRobotProto::CopyFrom(const DupMultTeamRobotProto& from) {
 
 bool DupMultTeamRobotProto::IsInitialized() const {
 
+  for (int i = 0; i < info_size(); i++) {
+    if (!this->info(i).IsInitialized()) return false;
+  }
   return true;
 }
 

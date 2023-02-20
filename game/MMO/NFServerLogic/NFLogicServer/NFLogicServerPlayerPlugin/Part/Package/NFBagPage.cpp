@@ -2112,7 +2112,7 @@ bool NFBagPage::BagItemSort()
                     vecEquipProtoEx.push_back(proto);
                 }
             }
-            else if (nullptr != pItemCfg && proto_ff::EItemType_Star == pItemCfg->m_itemtype)
+/*            else if (nullptr != pItemCfg && proto_ff::EItemType_Star == pItemCfg->m_itemtype)
             {
                 //命星
                 proto_ff::ItemProtoInfo proto;
@@ -2129,7 +2129,7 @@ bool NFBagPage::BagItemSort()
                 {
                     vecGodhoodProtoEx.push_back(proto);
                 }
-            }
+            }*/
             else
             {
                 //杂物

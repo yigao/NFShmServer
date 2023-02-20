@@ -2877,6 +2877,9 @@ void WCAskMailRsp::CopyFrom(const WCAskMailRsp& from) {
 
 bool WCAskMailRsp::IsInitialized() const {
 
+  if (has_attachmentlist()) {
+    if (!this->attachmentlist().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -6825,6 +6828,9 @@ void GWSendMailReq::CopyFrom(const GWSendMailReq& from) {
 
 bool GWSendMailReq::IsInitialized() const {
 
+  if (has_attachment()) {
+    if (!this->attachment().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -7530,6 +7536,9 @@ void WGGetMailAttachmentReq::CopyFrom(const WGGetMailAttachmentReq& from) {
 
 bool WGGetMailAttachmentReq::IsInitialized() const {
 
+  if (has_attachment()) {
+    if (!this->attachment().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -8457,6 +8466,9 @@ void OneMailAttachmentData::CopyFrom(const OneMailAttachmentData& from) {
 
 bool OneMailAttachmentData::IsInitialized() const {
 
+  if (has_attachment()) {
+    if (!this->attachment().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -8714,6 +8726,9 @@ void WGGetAllMailAttachmentReq::CopyFrom(const WGGetAllMailAttachmentReq& from) 
 
 bool WGGetAllMailAttachmentReq::IsInitialized() const {
 
+  for (int i = 0; i < attachmentdatalist_size(); i++) {
+    if (!this->attachmentdatalist(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -9490,6 +9505,9 @@ void GWSendSystemMailReq::CopyFrom(const GWSendSystemMailReq& from) {
 
 bool GWSendSystemMailReq::IsInitialized() const {
 
+  if (has_attachment()) {
+    if (!this->attachment().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -10164,6 +10182,9 @@ void SysMailInfo::CopyFrom(const SysMailInfo& from) {
 
 bool SysMailInfo::IsInitialized() const {
 
+  if (has_attachment()) {
+    if (!this->attachment().IsInitialized()) return false;
+  }
   return true;
 }
 

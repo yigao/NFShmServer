@@ -1,0 +1,130 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//援助信息 一个玩家只能有一个援助信息
+message AssistInfo
+{
+	optional RolePlayerMiniInfo role = 1;
+	optional int64 bossId = 2;
+	optional int32 time = 3;
+}
+//伤害信息
+message HurtRankInfo
+{
+	optional int32 rank = 1;
+	optional int64 cid = 2;
+	optional string name = 3;
+	optional int64 val = 4;
+	optional int32 teamid = 5;
+}
+
+
+//1：援助池更新 NOTIFY_ASSIST_POOL_LIST
+message NotifyAssistPoolList
+{
+	optional int32 type = 1; // 0：没有新的援助，1有新援助
+	repeated AssistInfo infos = 2; //求助列表
+}
+
+//2-1:玩家援助数据更新 NOTIFY_ROLE_ASSIST
+message NotifyRoleAssist
+{
+	optional int32 prestige = 1;   //当前声望
+	optional int32 helpNum = 2;	//今日协助的次数
+	optional int32 sendNum = 3; //今日发起协助完成的次数
+	repeated int32 rewardIds = 4;	//已经领取过的id
+}
+
+//3-1: 援助请求 ASSIST_HELP_REQ
+message AssistHelpReq
+{
+	optional int64 senderCid = 1; 	//发起求助的CID
+}
+//3-2: 援助返回 ASSIST_HELP_RSP
+message AssistHelpRsp
+{
+	optional int32 ret=1;
+	optional int64 senderCid = 2; 	//发起求助的CID
+}
+
+//4-1: 援助目标更新(针对应援者) NOTIFY_HELP_DST
+message NotifyHelpDst
+{
+	optional RolePlayerMiniInfo role = 1;
+	optional int64 bossId = 2;			//bossId >0 有援助，=0 取消援助
+}
+
+
+//5-1: 援助者主动退出援助请求(援助着一次只能援助一个人)  ASSIST_EXIT_HELP_REQ
+message AssistExitHelpReq
+{
+	
+}
+//5-2: 援助者主动退出援助返回  ASSIST_EXIT_HELP_RSP
+message AssistExitHelpRsp
+{
+	optional int32 ret = 1;
+}
+
+
+//6-1: 援助结束完成 通知发起者 NOTIFY_ASSIST_CMPT
+message NotifyAssistCmpt
+{
+	repeated RolePlayerMiniInfo role = 1;
+}
+
+//7-1: 感谢客户端发送感谢就关界面 ASSIST_THANK_REQ
+message AssistThankReq
+{
+	optional int32 id = 1;
+}
+//7-2:感谢返回 ASSIST_THANK_RSP
+message AssistThankRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;
+}
+
+//8: 感谢通知其他协助者  NOTIFY_ASSIST_THANK
+message NotifyAssistThank
+{
+	optional int32 id = 1;
+	optional int32 giftid = 2;
+}
+
+//9-1: 援助者伤害排行数据通知 NOTIFY_HELP_HURT_RANK
+message NotifyHelpHurtRank
+{
+	optional HurtRankInfo infos = 1;
+}
+
+//10-1:boss伤害排行 NOTIFY_BOSS_HURT_RANK
+message NotifyBossHurtRank
+{
+	optional HurtRankInfo infos = 1;
+}
+
+//11-1:发起帮派求助 SEND_BOSS_HELP_REQ
+message SendBossHelpReq
+{
+	optional int64 bossId = 1;
+}
+//11-2:发起帮派求助返回 SEND_BOSS_HELP_RSP
+message SendBossHelpRsp
+{
+	optional int32 ret = 1;
+	optional int64 bossId = 2;
+}
+
+
+
+
+
+
+
+

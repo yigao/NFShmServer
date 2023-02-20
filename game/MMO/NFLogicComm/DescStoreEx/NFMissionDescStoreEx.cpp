@@ -420,7 +420,7 @@ bool NFMissionDescStoreEx::ProcessDyMission()
         dyInfo.canAccept = cfg.m_rececount;
         //随机条件ID列表
         string strCondtion = cfg.m_idlist.ToString();
-        NFCommonApi::SplitStrToSetInt64(strCondtion, ",", &dyInfo.setComplete);
+        NFCommonApi::SplitStrToSetInt64(strCondtion, ";", &dyInfo.setComplete);
         //校验所有的条件必须在条件表存在
         for (auto iterCond = dyInfo.setComplete.begin(); iterCond != dyInfo.setComplete.end(); ++iterCond)
         {

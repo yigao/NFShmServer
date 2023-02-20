@@ -1216,6 +1216,12 @@ void DupDropProto::CopyFrom(const DupDropProto& from) {
 
 bool DupDropProto::IsInitialized() const {
 
+  for (int i = 0; i < pick_item_size(); i++) {
+    if (!this->pick_item(i).IsInitialized()) return false;
+  }
+  for (int i = 0; i < star3_size(); i++) {
+    if (!this->star3(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3498,6 +3504,9 @@ void DupResultRsp::CopyFrom(const DupResultRsp& from) {
 
 bool DupResultRsp::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 

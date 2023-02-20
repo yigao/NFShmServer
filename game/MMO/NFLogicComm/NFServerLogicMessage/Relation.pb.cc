@@ -1082,6 +1082,9 @@ void WCRelationSyncNotifyRsp::CopyFrom(const WCRelationSyncNotifyRsp& from) {
 bool WCRelationSyncNotifyRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
+  if (has_friendinfo()) {
+    if (!this->friendinfo().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1797,6 +1800,9 @@ void WCRelationDataRsp::CopyFrom(const WCRelationDataRsp& from) {
 bool WCRelationDataRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  for (int i = 0; i < friendinfo_size(); i++) {
+    if (!this->friendinfo(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4793,6 +4799,9 @@ void WCRecommendFriendRsp::CopyFrom(const WCRecommendFriendRsp& from) {
 bool WCRecommendFriendRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  for (int i = 0; i < recommend_size(); i++) {
+    if (!this->recommend(i).IsInitialized()) return false;
+  }
   return true;
 }
 

@@ -31,43 +31,57 @@ message ComPairBool
   optional bool value = 2;
 }
 
+message ComItem
+{
+  optional uint64 item_id = 1;
+  optional uint64 item_num = 2;
+}
+
+message ComItemWithType
+{
+  optional uint64 item_id = 1;
+  optional uint64 item_num = 2;
+  optional uint32 type = 3;
+}
+
 
 //位置
 message Vector3PB{
-  optional float x	=1;		//x坐标
-  optional float y	=2;		//y坐标
-  optional float z	=3;		//z坐标
+  required float x	=1;		//x坐标
+  required float y	=2;		//y坐标
+  required float z	=3;		//z坐标
 }
 
 //方向(只有 x, z 坐标)
 message Vector2PB{
-  optional float x	=1;
-  optional float y	=2;
+  required float x	=1;
+  required float y	=2;
 }
 
 //64位属性通信结构
 message Attr64
 {
-  optional uint32 id = 1;    //属性索引id
-  optional int64 value = 2;   //属性值
+  required uint32 id = 1;    //属性索引id
+  required int64 value = 2;   //属性值
 }
 
 //角色外观信息
 message RoleFacadeProto
 {
-  repeated Attr64 growFacade = 1[(yd_fieldoptions.field_arysize)=200];		//养成部件对外观的影响
+  repeated Attr64 growFacade = 1;		//养成部件对外观的影响
   optional int32 color = 2;			//模型颜色，头发，衣服，皮肤的颜色
+  optional int32 prof = 3;			//职业
   //repeated Attr64 facade = 3;		//外观部件对外观的影响, 根据FacadeType(定义在ComDefine里), 0：翅膀 1：宝具 2:神器系统 3:剑灵(伙伴)系统，
 }
 
 //角色列表中 角色的DB信息
 message RoleListDBProto
 {
-  optional uint64 cid 			= 1;
-  optional string name            = 2[(yd_fieldoptions.field_bufsize)=32];   		// 名字
-  optional uint32 prof            = 3;   		// 职业
-  optional uint32 level           = 4;   		// 等级
-  optional uint64 fight			= 5;		// 战力
+  required uint64 cid 			= 1;
+  required string name            = 2;   		// 名字
+  required uint32 prof            = 3;   		// 职业
+  required uint32 level           = 4;   		// 等级
+  required uint64 fight			= 5;		// 战力
   optional uint64 createtime		= 6;		// 角色创建时间
   optional RoleFacadeProto facade = 7;		// 外观
   optional uint64 sceneid			= 8;
@@ -78,16 +92,13 @@ message RoleListDBProto
   optional Vector3PB lastpos		= 13;
 }
 
-
-
-
 //登录角色信息
 message LoginRoleProto
 {
-  optional uint64 cid 			= 1;
-  optional string name            = 2[(yd_fieldoptions.field_bufsize)=32];   		// 名字
-  optional uint32 prof            = 3;   		// 职业
-  optional uint32 level           = 4;   		// 等级
+  required uint64 cid 			= 1;
+  required string name            = 2;   		// 名字
+  required uint32 prof            = 3;   		// 职业
+  required uint32 level           = 4;   		// 等级
   optional uint64 fight			= 5;   		// 战斗力
   optional uint64 createtime		= 6;		// 角色创建时间
   optional RoleFacadeProto facade = 7;		// 角色外观
@@ -98,14 +109,15 @@ message LoginRoleProto
 //玩家登录时需要从中心服同步到逻辑服的数据
 message LoginSyncProto
 {
-  optional uint32 guild_id = 1;				//工会ID
-  optional string guild_name = 2[(yd_fieldoptions.field_bufsize)=32];				//工会名字
-  optional int32  guild_duty = 3;				//工会中的职务
-  optional uint64 guild_leader = 4;			//工会会长
-  optional uint32 team_id = 5;				//队伍ID
-  optional uint64 leader = 6;					//队长cid
-  optional int32  mem_count = 7;				//队伍人数
-  optional int32  cloness_lev = 8;			//队伍请密度等级
+  optional uint32 faction_id = 1;				//帮派ID
+  optional string faction_name = 2;			//帮派名字
+  optional int32  duty = 3;					//帮派中的职务
+  optional uint64 faction_leader = 4;			//帮主
+  optional int32 faction_level = 5;			//帮派等级
+  optional uint32 team_id = 6;				//队伍ID
+  optional uint64 leader = 7;					//队长cid
+  optional int32  mem_count = 8;				//队伍人数
+  optional int32  cloness_lev = 9;			//队伍请密度等级
 }
 
 
@@ -114,15 +126,14 @@ message CenterRoleProto
 {
   optional uint64 cid = 1;
   optional uint32 uid = 2;
-  optional bytes name = 3[(yd_fieldoptions.field_arysize)=10];
-  optional uint32 prof = 4;
-  optional uint32 level = 5;
-  optional uint64 fight = 6;
-  optional uint64 lastlogout = 7;
-  optional RoleFacadeProto facade = 8;
-  optional uint32 vip_level = 9;
-  optional int64 hp = 10;					//组队情况下才会同步血量hp
-  optional int64 max_hp = 11;				//组队情况下才会同步最大血量max_hp
+  optional bytes name = 3;
+  optional uint32 level = 4;
+  optional uint64 fight = 5;
+  optional uint64 lastlogout = 6;
+  optional RoleFacadeProto facade = 7;
+  optional uint32 vip_level = 8;
+  optional int64 hp = 9;					//组队情况下才会同步血量hp
+  optional int64 max_hp = 10;				//组队情况下才会同步最大血量max_hp
 }
 
 //中心服同步社交服的角色数据
@@ -130,7 +141,7 @@ message SocialRoleProto
 {
   optional uint64 cid = 1;
   optional uint32 uid = 2;
-  optional bytes name = 3[(yd_fieldoptions.field_arysize)=10];
+  optional bytes name = 3;
   optional uint32 prof = 4;
   optional uint32 level = 5;
   optional uint64 fight = 6;
@@ -141,6 +152,8 @@ message SocialRoleProto
   optional bool isonline = 11;
   optional int64 hp = 12;					//组队情况下才会同步血量hp
   optional int64 max_hp = 13;				//组队情况下才会同步最大血量max_hp
+  optional uint64 sceneid = 14;			//场景ID
+  optional uint64 mapid = 15;				//地图ID
 }
 
 //生物状态
@@ -156,13 +169,17 @@ enum ECState
 //生物属性组，用于计算生物战斗属性
 enum EAttrGroup
 {
-  EAttrGroup_Level	=1;		//等级属性组
-  EAttrGroup_Skill	=2;		//技能属性组
-  EAttrGroup_Buff		=3;		//buff属性组
-  EAttrGroup_Equip    =4;		//装备属性组
-  EAttrGroup_Grow		=5;		//养成属性组
-  EAttrGroup_Facade = 6;		//外观属性组
-  EAttrGroup_Gm		=7;		//GM属性组方便测试
+  EAttrGroup_Level	= 1;		//等级属性组
+  EAttrGroup_Skill	= 2;		//技能属性组
+  EAttrGroup_Buff		= 3;		//buff属性组
+  EAttrGroup_Equip    = 4;		//装备属性组
+  EAttrGroup_Grow		= 5;		//养成属性组
+  EAttrGroup_Facade 	= 6;		//外观属性组
+  EAttrGroup_Gm		= 7;		//GM属性组方便测试
+  EAttrGroup_MOUNT 	= 8;		//坐骑属性组
+  EAttrGroup_Pet	 	= 9;		//宠物属性组
+  EAttrGroup_DEITY 	= 10; 		//天神属性组
+  EAttrGroup_Armor	= 11;		//玄功真甲
 }
 
 enum GrowType
@@ -180,10 +197,12 @@ enum GrowType
   GrowType_proto_frame = 11;		//11相框
   GrowType_bubble = 12;			//12气泡
   GrowType_head = 13;				//13头像
-  GrowType_WING_TYPE = 14; //翅膀
-  GrowType_TREASURE_TYPE = 15; //宝具
-  GrowType_ARTIFACT_TYPE = 16; //神器系统
-  GrowType_PARTNER_TYPE = 17; //剑灵(伙伴)系统，
+  GrowType_WING_TYPE = 14;		//翅膀
+  GrowType_TREASURE_TYPE = 15;	//宝具
+  GrowType_ARTIFACT_TYPE = 16;	//神器系统
+  GrowType_PARTNER_TYPE = 17;		//剑灵(伙伴)系统，
+  GrowType_MOUNT_TYPE = 18;		//坐骑系统
+  GrowType_DEITY_TYPE = 19;		//天神变身
 };
 
 
@@ -371,16 +390,22 @@ enum ECreatureAttr
   A_LEVEL = 210;				//等级
   A_VIP_LEVEL = 211;			//vip等级
   A_TEAM_ID = 212;			//队伍ID
-  A_TEAM_LEADER = 213;		//队长CID
+  A_TEAM_LEADER = 213;		//队长CID(服务器用,不同步客户端)
+  A_ARENA_COIN	= 214;		//竞技币
 
-
-  A_FRIEND_COUNT = 220;	//好友数量
-  A_HANGUP_TIME = 221;	// 挂机时长
-  A_WORLD_EXP_ADD = 222;  //世界等级经验
-  A_FUSHI_TIME = 223;		//符石剩余时间秒数
-  A_DUP_ID = 224;			//副本ID
-  A_CAMP_ID = 226;		//阵营ID
-  A_DAILY_EXP = 227; //每日活跃经验
+  A_FRIEND_COUNT = 220;		//好友数量
+  A_HANGUP_TIME = 221;		//挂机时长
+  A_WORLD_EXP_ADD = 222;		//世界等级经验
+  A_FUSHI_TIME = 223;			//符石剩余时间秒数
+  A_DUP_ID = 224;				//副本ID
+  A_CAMP_ID = 226;			//阵营ID
+  A_DAILY_EXP = 227;			//每日活跃经验
+  A_FACTION_ID = 228;			//帮派ID
+  A_FACTION_LEADER = 229;		//帮主
+  A_FACTION_LEVEL = 230;		//帮派等级
+  A_FACTION_DUTY = 231;		//职位
+  A_CONTRI = 232;				//贡献
+  A_ESCORT_ID	= 233;			//镖车ID
   //常规属性结束ID
   A_COMMON_END = 400;			//常规属性结束ID
 }
@@ -389,8 +414,8 @@ enum ECreatureAttr
 //属性通用结构体
 message Attr
 {
-  optional uint32 id = 1;    //属性索引id
-  optional uint32 value = 2;   //属性值
+  required uint32 id = 1;    //属性索引id
+  required uint32 value = 2;   //属性值
 }
 
 //装备蓝星属性
@@ -401,6 +426,30 @@ message BlueStarAttr
   optional int32  lv_part = 3;	//每个间隔所加属性值
 }
 
+//宠物信息
+message PetInfo
+{
+  optional int32 instId = 1;			 //实体id
+  optional int64 cfgid = 2;			 //配置ID
+  optional int32 lv = 3;				 //宠物等级
+  optional int32 steplv = 4;			 //阶级
+  optional int32 starlv = 5;			 //星级
+  optional int32 activeSkillLv = 6;	 //主动技能等级
+  repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
+  repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
+  optional float initgrow = 9;		 //初始资质
+  optional int32 slot = 10;			 //上阵的槽位 1-5
+  optional int32 lvexp = 11;			 //宠物升级经验
+}
+//宠物槽位信息
+message PetHatchInfo
+{
+  optional int32 slot = 1; 	//0-4
+  optional int32 unlock = 2;  //0:未解锁，1已解锁
+  optional int64 eggid = 3;	//蛋的物品id
+  optional int64 time = 4;	//孵化时间
+}
+
 //物品结构
 message ItemProtoInfo
 {
@@ -409,20 +458,31 @@ message ItemProtoInfo
   optional int64			item_num		= 3;		//物品数量
   optional int32			bind			= 4;		//绑定状态 0 非绑定，1 绑定
   optional int32			level			= 5;		//等级
-  repeated Attr			base			= 6[(yd_fieldoptions.field_arysize)=200];		//基础属性
-  repeated Attr			refine			= 7[(yd_fieldoptions.field_arysize)=200];		//星级属性(仙品属性 带★)
-  repeated BlueStarAttr	blue			= 8[(yd_fieldoptions.field_arysize)=200];		//蓝星属性((仙品属性 不带★)
-  repeated Attr 			god				= 9[(yd_fieldoptions.field_arysize)=200];		//仙尊属性
-  repeated Attr	  		special			= 10[(yd_fieldoptions.field_arysize)=200];		//特殊属性
+  repeated Attr			base			= 6;		//基础属性
+  repeated Attr			refine			= 7;		//星级属性(仙品属性 带★)
+  repeated BlueStarAttr	blue			= 8;		//蓝星属性((仙品属性 不带★)
+  repeated Attr 			god				= 9;		//仙尊属性
+  repeated Attr	  		special			= 10;		//特殊属性
   optional uint64			expireTime		= 11;		//过期时间
-
+  optional int32 strong_lv = 12;			//强化等级(给天神神饰装备用)
+  optional int32 strong_wear_quality = 13; //强化阶级(给天神神饰装备用)
 }
+
+message StoneSlotInfo
+{
+  optional int32 stone_pos = 1; //1-5 个槽位
+  optional int64 stoneid = 2;	//镶嵌的宝石ID
+}
+
 //槽位信息
 message EquipSlotInfo
 {
   optional int32 slot_pos = 1;
   //槽位养成属性
   optional int64 total_score 	= 2;		//总平分(附带装备养成槽位)
+  optional int32 stronglv = 3;			//槽位强化等级
+  repeated StoneSlotInfo stones = 4;		//宝石槽位信息
+  optional int32 stone_pay_slot_open = 5;  //付费宝石槽位是否开放 0：为开放，1开放
 }
 
 //穿戴的装备信息 (本身的装备+槽位信息)
@@ -431,6 +491,12 @@ message EquipInfo
   optional int32		   pos = 1;
   optional ItemProtoInfo equip = 2;
   optional EquipSlotInfo slot = 3;
+}
+//装备等级加成
+message EquipLvAttrInfo
+{
+  optional int32 type = 1;  //装备等级加成类型（对应strongtotal表idType索引)
+  optional int32 id = 2;		//已经加成的id
 }
 
 //物品简要信息
@@ -443,7 +509,7 @@ message ItemSimpleProto
 //通用的 物品简要信息列表
 message MultItemSimpleProto
 {
-  repeated ItemSimpleProto info = 1[(yd_fieldoptions.field_arysize)=10]; //奖励物品
+  repeated ItemSimpleProto info = 1; //奖励物品
 }
 
 
@@ -453,20 +519,20 @@ message MultItemSimpleProto
 message MailParamProto
 {
   optional uint64 cfgid = 1;		//邮件字符串格式配置表中的配置ID
-  repeated bytes str_param = 2[(yd_fieldoptions.field_arysize)=10, (yd_fieldoptions.field_bufsize)=32];	//配置ID对应的字符串参数
-  repeated uint64 int_param = 3[(yd_fieldoptions.field_arysize)=10]; //配置ID对应的int型参数
+  repeated bytes str_param = 2;	//配置ID对应的字符串参数
+  repeated uint64 int_param = 3; //配置ID对应的int型参数
 }
 //邮件字符串信息
 message MailStrProto
 {
-  optional bytes str = 1[(yd_fieldoptions.field_bufsize)=32];					//字符串（字符串和参数只会有一个赋值）
+  optional bytes str = 1;					//字符串（字符串和参数只会有一个赋值）
   optional MailParamProto param = 2;		//参数
 }
 
 //附件结构体
 message MailAttachmentList
 {
-  repeated ItemProtoInfo itemInfo = 1[(yd_fieldoptions.field_arysize)=10]; //物品
+  repeated ItemProtoInfo itemInfo = 1; //物品
 }
 
 //邮件头结构
@@ -475,7 +541,7 @@ message MailHead
   optional uint64 mailId							= 1;			//邮件ID
   optional uint32 type							= 2;			//邮件类型
   optional uint64 sendPlayerId					= 3;			//发件人ID
-  optional bytes sendPlayerName					= 4[(yd_fieldoptions.field_bufsize)=32];			//发送人的名称
+  optional bytes sendPlayerName					= 4;			//发送人的名称
   optional uint64 destPlayerId					= 5;			//收件人ID
   optional MailStrProto topic						= 6;			//邮件主题
   optional uint64 createTime						= 7;			//邮件创建时间
@@ -522,21 +588,21 @@ message WebMailDataProto
   optional uint64 arenaScore	= 9;			//竞技场积分
   optional uint64 magiccrystal	= 10;			//魔晶
   optional uint64 prestige	= 11;			//声望
-  repeated WebMailItemProto itemList = 12[(yd_fieldoptions.field_arysize)=10];	//邮件物品附件
+  repeated WebMailItemProto itemList = 12;	//邮件物品附件
 }
 /////////////////////////////Mail///////////////////////////////////////////////////使用物品的需要的参数
 message UseItemArgProto
 {
   optional int64 int_param = 1;		//整数参数(预留)
-  optional bytes str_param = 2[(yd_fieldoptions.field_bufsize)=32];		//字符串参数(预留)
-  repeated uint64 item_lst = 3[(yd_fieldoptions.field_arysize)=10];		//物品ID列表,对应可选物品box的物品ID列表，每个BOX只能选一个物品
+  optional bytes str_param = 2;		//字符串参数(预留)
+  repeated uint64 item_lst = 3;		//物品ID列表,对应可选物品box的物品ID列表，每个BOX只能选一个物品
 }
 
 
 //广播外观 NOTIFY_FACADE_CAST_RSP
 message NotifyRoleFacadeCastRsp
 {
-  optional uint64 roleid = 1;
+  required uint64 roleid = 1;
   optional RoleFacadeProto facade = 2;
 }
 
@@ -549,14 +615,14 @@ message FunctionUnlockInfoData
 //功能解锁信息
 message FunctionUnlockInfo
 {
-  repeated FunctionUnlockInfoData data	= 1[(yd_fieldoptions.field_arysize)=100]; //所有已解锁的 功能id
+  repeated FunctionUnlockInfoData data	= 1; //所有已解锁的 功能id
 }
 
 //角色摘要数据信息
 message RolePlayerMiniInfo
 {
   optional uint64 playerId				= 1;					//角色ID
-  optional string playerName				= 2[(yd_fieldoptions.field_bufsize)=32];					//角色名字
+  optional string playerName				= 2;					//角色名字
   optional uint32 zid						= 3;					//角色ZID
   optional uint32 level					= 5;					//角色等级
   optional uint32 closeness				= 6;					//亲密度
@@ -568,7 +634,7 @@ message RolePlayerMiniInfo
   optional uint64 fightPower				= 12;					//战斗力
   optional uint32 killMeTimes				= 13;					//击杀我的次数
   optional uint64 offlineTime				= 14;					//离线时间戳
-  optional string connect					= 15[(yd_fieldoptions.field_bufsize)=32];					//介绍
+  optional string connect					= 15;					//介绍
   optional bool online					= 16;					//在线状态
   optional uint32 vipLevel				= 17;					//vip等级
   optional RoleFacadeProto	facade		= 18;					//外观数据
@@ -589,7 +655,7 @@ message FriendInfo
 message FriendApplyInfo
 {
   optional uint64 id		= 1;	//玩家id
-  optional string connect	= 2[(yd_fieldoptions.field_bufsize)=32];	//介绍
+  optional string connect	= 2;	//介绍
 }
 
 //仇人数据
@@ -610,12 +676,13 @@ message RelationGiftRecord
 //好友关系信息
 message RelationDBInfo
 {
-  repeated FriendInfo friendList		= 1[(yd_fieldoptions.field_arysize)=10];	//好友列表
-  repeated uint64 blackList			= 2[(yd_fieldoptions.field_arysize)=10];    //黑名单列表
-  repeated RelationHateInfo hateList  = 3[(yd_fieldoptions.field_arysize)=10];    //仇人列表
-  repeated FriendApplyInfo applyList  = 4[(yd_fieldoptions.field_arysize)=10];    //好友申请列表
+  repeated FriendInfo friendList		= 1;	//好友列表
+  repeated uint64 blackList			= 2;    //黑名单列表
+  repeated RelationHateInfo hateList  = 3;    //仇人列表
+  repeated FriendApplyInfo applyList  = 4;    //好友申请列表
   optional uint32 friends_add			= 5;	//离线时好友增加数量
-  repeated RelationGiftRecord giftRecords = 6[(yd_fieldoptions.field_arysize)=10]; //收到的礼物记录
+  repeated RelationGiftRecord giftRecords = 6; //收到的礼物记录
+  //repeated ArenaChallResult arena_result = 7; ////竞技场挑战记录 功能小，暂时存分在这里，重新见表不划算
 }
 
 
@@ -648,7 +715,7 @@ enum DigPerforType
 //数字表现
 message DigPerfor
 {
-  optional uint32 type = 1;     //战斗/buff/加血数字表现类型,详见枚举  DigPerforType
+  required uint32 type = 1;     //战斗/buff/加血数字表现类型,详见枚举  DigPerforType
   optional  int64 value = 2;    //具体数值
 }
 
@@ -656,8 +723,8 @@ message DigPerfor
 //Buff 信息
 message BuffProto
 {
-  optional uint64 buff_index = 1;			//buff索引
-  optional uint64 buff_id = 2;			//buff配置表的ID
+  required uint64 buff_index = 1;			//buff索引
+  required uint64 buff_id = 2;			//buff配置表的ID
   optional uint64 recver_cid = 3;			//
   optional int32 left_msec = 4;			//剩余时间,单位：毫秒
   optional uint64 skill_id = 5;			//技能ID(哪个技能产生的该BUFF)
@@ -670,7 +737,7 @@ message BuffProto
 message BuffListProto
 {
   optional uint64 cid = 1;
-  repeated BuffProto info = 2[(yd_fieldoptions.field_arysize)=10];
+  repeated BuffProto info = 2;
 }
 
 
@@ -680,18 +747,19 @@ message SkillPosProto
   optional uint64 skill_id = 1;
   optional uint32 pos = 2;
   optional int32 cd = 3;			//技能剩余cd,单位：毫秒
+  optional int32 use = 4;			//是否自动释放，1-是，0-否
 }
 //技能组信息
 message SkillGroupProto
 {
   optional uint32 group = 1;
-  optional int32  cd = 2;				//技能组切换 剩余CD时间，单位：秒
-  repeated SkillPosProto lst = 3[(yd_fieldoptions.field_arysize)=10];
+  repeated SkillPosProto lst = 2;
 }
 //技能组列表
 message SkillGroupListProto
 {
-  repeated SkillGroupProto info = 1[(yd_fieldoptions.field_arysize)=10];
+  repeated SkillGroupProto info = 1;
+  optional uint32 cur_skill_group = 2;
 }
 
 
@@ -712,6 +780,64 @@ message FacadeSkillData
 {
   optional uint64 skill_id = 1;
   optional uint32 skill_lev = 2;
+}
+
+/////////////////////////////////坐骑系统//////////////////////////////////////////////
+message MountFantasyData
+{
+  optional uint64 fantasy_id = 1;
+  optional uint32 fantasy_lev = 2;
+  optional uint64 fantasy_lev_exp = 3;
+  optional uint32 fantasy_star = 4;
+}
+
+message MountFragmentData
+{
+  optional uint64 fragment_id = 1;
+  optional uint32 use_times = 2;
+}
+
+message MountSkillData
+{
+  optional uint64 skill_id = 1;
+  optional uint32 skill_lev = 2;
+}
+
+message MountKunData
+{
+  optional uint64 kun_id = 1;
+  optional uint32 kun_lev = 2;
+  optional uint64 kun_lev_exp = 3;
+  optional uint32 kun_star = 4;
+}
+
+enum MountBloodState
+{
+  MOUNT_BLOOD_STATE_NOT_ACTIVE = 0; //未激活
+  MOUNT_BLOOD_STATE_CAN_ACTIVE = 1; //可激活
+  MOUNT_BLOOD_STATE_ACTIVED = 2;    //已激活
+}
+
+message MountBloodData
+{
+  optional uint64 blood_id = 1;
+  optional uint32 blood_state = 2;
+}
+
+enum MountBabySlotState
+{
+  MOUNT_BABY_SLOT_STATE_LOCK = 0; //未解锁
+  MOUNT_BABY_SLOT_STATE_EMPTY = 1; //空闲状态
+  MOUNT_BABY_SLOT_STATE_USING = 2; //正在使用状态
+  MOUNT_BABY_SLOT_STATE_DUING_SUCCESS = 3; //度化成功，可以领取
+}
+
+message MountBabySlotData
+{
+  optional uint32 slot = 1;
+  optional uint32 cur_state = 2;
+  optional int64 cur_baby_eggid = 3;
+  optional int64 cur_baby_create_time = 4;
 }
 
 // ----------------------------- 通用的条件统计结构 ------------------------
@@ -753,7 +879,7 @@ message GodRelicsTaskEntry
 message GodRelicsTaskGroupEntry
 {
   optional uint64 group_cfg_id 						= 1;	//任务组ID
-  repeated GodRelicsTaskEntry entrys 						= 2[(yd_fieldoptions.field_arysize)=10];	//任务列表
+  repeated GodRelicsTaskEntry entrys 						= 2;	//任务列表
   optional int32 	normal_reward_state					= 3;	//EN_GODRELICS_GROUP_TASK_STATUS 0 未解锁 1 未完成 2 完成 3 领取奖励
   optional uint64 create_time = 5;
 }
@@ -807,7 +933,7 @@ message DailyTaskBackEntry
 {
   optional uint64 task_cfg_id 					= 1;	//任务配置ID
   optional int32 	task_state						= 3;	//任务状态 EN_DAILY_TASK_STATUS  0 未解锁  1 未完成 2 完成
-  repeated DailyTaskBackDayEntry day_data = 4[(yd_fieldoptions.field_arysize)=10];
+  repeated DailyTaskBackDayEntry day_data = 4;
   optional int32 left_num	= 5;	//当前任务找回剩余次数
   optional int32 external_left_num = 6;
 }
@@ -821,10 +947,10 @@ message DailyTaskRewardEntry
 //Daily任务
 message DailyTaskAllData
 {
-  repeated DailyTaskEntry task_data = 1[(yd_fieldoptions.field_arysize)=10];	//任务列表
-  repeated DailyTaskLimitEntry task_limit_data = 2[(yd_fieldoptions.field_arysize)=10];	//每日限时任务
-  repeated DailyTaskBackEntry back_data = 3[(yd_fieldoptions.field_arysize)=10]; //找回数据
-  repeated DailyTaskRewardEntry reward_data = 4[(yd_fieldoptions.field_arysize)=10]; //奖励列表
+  repeated DailyTaskEntry task_data = 1;	//任务列表
+  repeated DailyTaskLimitEntry task_limit_data = 2;	//每日限时任务
+  repeated DailyTaskBackEntry back_data = 3; //找回数据
+  repeated DailyTaskRewardEntry reward_data = 4; //奖励列表
   optional uint32 daily_score = 5; //当前活跃值
   optional uint32 daily_level = 6; //当前等级
   optional uint64 create_time = 7; //服务器用来清理活跃度的
@@ -861,8 +987,14 @@ message CharacterDBMissionTrack
   optional uint64 dynamicid					 = 2; //动态任务ID
   optional uint32 status						 = 3; //任务当前状态
   optional uint64 acceptMissionTime			 = 4; //接收任务时间
-  repeated CharacterDBMissionItemInfo itemInfo = 5[(yd_fieldoptions.field_arysize)=10]; //任务的步骤信息数据
+  repeated CharacterDBMissionItemInfo itemInfo = 5; //任务的步骤信息数据
   optional uint64 textid						 = 6; //前端显示用的id(对应taskcontent中text表)
+}
+
+message CharacterDBDyMissionBountyParam
+{
+  optional uint32 ten_state = 1; //对赏金任务来说, 0:表示 10 次 未达到 1表示10次未领取 2表示已经领取
+  optional uint32 twenty_state = 2; //对赏金任务来说, 0:表示 20 次 未达到 1表示20次未领取 2表示已经领取
 }
 
 //动态任务次数
@@ -871,15 +1003,16 @@ message CharacterDBDyMissionInfo
   optional int32 mission_type = 1; //任务类型
   optional uint64 lastfresh = 2;	 //最近刷新时间
   optional int32 accept_num = 3;	 //已经接取次数
+  optional CharacterDBDyMissionBountyParam bounty_param = 4;
 }
 
 //任务数据总和
 message CharacterDBTaskData
 {
-  repeated CharacterDBMissionTrack missionTrack	= 1[(yd_fieldoptions.field_arysize)=10]; //当前任务列表
-  repeated CharacterDBDyMissionInfo dyinfo = 2[(yd_fieldoptions.field_arysize)=10];	//动态任务次数信息
-  repeated uint64 already_submit = 3[(yd_fieldoptions.field_arysize)=10];			//已经提交的任务列表
-  repeated CharacterDBRecentSubmitMission recent_submit = 4[(yd_fieldoptions.field_arysize)=10]; //最近提交的任务列表
+  repeated CharacterDBMissionTrack missionTrack	= 1; //当前任务列表
+  repeated CharacterDBDyMissionInfo dyinfo = 2;	//动态任务次数信息
+  repeated uint64 already_submit = 3;			//已经提交的任务列表
+  repeated CharacterDBRecentSubmitMission recent_submit = 4; //最近提交的任务列表
 }
 
 //===================================================================================
@@ -887,5 +1020,160 @@ message CharacterDBTaskData
 message NotifyVipDataRsp
 {
   optional int32 exp = 1;
-  repeated int32 ids = 2[(yd_fieldoptions.field_arysize)=10]; //开放的权限列表
+  repeated int32 ids = 2; //开放的权限列表
+}
+
+//===================================================================================
+//竞技场副本结算数据
+message ArenaChallResult
+{
+  optional int32 result = 1;//竞技场结果，1-胜利， 2-失败
+  optional bool chall = 2; //true:玩家挑战别人，false:别人调整玩家
+  optional int64 time = 3; //发生的时间
+  optional string dst_name = 4; //	对方的名字
+  optional int32 src_rank_id = 5; //挑战前的排名
+  optional int32 dst_rank_id = 6; //挑战后的排名
+  repeated ComItem items = 7; //奖励数量
+  optional int64 dup_id = 8;
+}
+
+//竞技场每日奖励
+message DailyArenaReward
+{
+  optional int32 cfg_id = 1;
+  optional int32 state = 2; //0:未达成，1:已达成，2:已领取
+}
+
+// 竞技场冲榜奖励
+message ChallArenaReward
+{
+  optional int32 cfg_id = 1;
+  optional int32 state = 2; //0:未达成，1:已达成，2:已领取
+}
+
+//测试用。设置服务器标记 NOTIFY_SERVER_FLAG_RSP
+message NotifyServerFlag
+{
+  optional int32 bt_dup = 1; //0:未开放，1已开放变态养龙寺
+}
+
+enum FacadeSoulSkillStatus
+{
+  FACADE_SOUL_SKILL_STATUS_NONE = 0; //没有激活
+  FACADE_SOUL_SKILL_STATUS_ACTIVED = 1; //激活
+}
+
+enum FacadeSoulActivitytatus
+{
+  FACADE_SOUL_ACTIVITY_STATUS_NONE = 0; //不可以领取
+  FACADE_SOUL_ACTIVITY_STATUS_CAN_RECV = 1; //可以领取
+  FACADE_SOUL_ACTIVITY_STATUS_RECVed = 2; //已经领取
+}
+
+message FacadeSoulSkillData
+{
+  optional int64 skill_id = 1;
+  optional uint32 status = 2; //0：没有激活 1：激活
+}
+
+message FacadeSoulActivityData
+{
+  optional int64 activity_id = 1;
+  optional uint32 status = 2; //0：不能领取 1：可以领取 2：已经领取
+}
+
+message FacadeSoulData
+{
+  optional uint32 soul_id = 1;
+  optional bool soul_active = 2;
+  optional uint32 soul_level = 3;
+  repeated FacadeSoulSkillData skill_data = 5;
+  repeated FacadeSoulActivityData acviity_data = 6;
+}
+
+//卖出物品结构
+message ItemSellProto
+{
+  required uint32 index = 1;	//物品所在背包格子索引
+  optional int32 num = 2;		//卖出物品的数量
+}
+
+/////////////////////////////////天神系统//////////////////////////////////////////////
+
+message DeityFantasySkillData
+{
+  optional uint64 skill_id = 1;
+  optional uint32 skill_state = 2;
+}
+
+//角色DB 装备数据
+message DeityEquipData
+{
+  repeated EquipInfo infos = 1;
+  repeated EquipLvAttrInfo lv_attr = 2;
+}
+
+enum EDeityEquipSuitStatus
+{
+  EDeityEquipSuitStatus_NONE			= 0;	//未达成
+  EDeityEquipSuitStatus_NOT_ACTIVE			= 1;	//未激活
+  EDeityEquipSuitStatus_ACTIVE			= 2;	//激活
+}
+
+message DeityEquipSuitData
+{
+  optional int64 id = 1;
+  optional uint32 state = 2; //0:未达成，1:未激活，2：激活
+}
+
+message DeityFantasyData
+{
+  optional uint64 fantasy_id = 1;
+  optional uint32 fantasy_lev = 2;
+  optional uint64 fantasy_lev_exp = 3;
+  optional uint32 fantasy_star = 4;
+  repeated DeityFantasySkillData skill_data = 5;
+  optional uint64 fantasy_fight = 6;
+  optional DeityEquipData equip_data = 7;
+  repeated DeityEquipSuitData equip_suit_data = 8;
+}
+
+message DeityFragmentData
+{
+  optional uint64 fragment_id = 1;
+  optional uint32 use_times = 2;
+}
+
+message DeitySkillData
+{
+  optional uint64 skill_id = 1;
+  optional uint32 skill_lev = 2;
+}
+
+
+enum DeityBattleSlotState
+{
+  DEITY_BATTLE_SLOT_STATE_LOCK = 0; //未解锁
+  DEITY_BATTLE_SLOT_STATE_EMPTY = 1; //空闲状态
+  DEITY_BATTLE_SLOT_STATE_USING = 2; //正在使用状态
+}
+
+message DeityBattleSlotData
+{
+  optional uint32 id = 1;
+  optional uint32 cur_state = 2;
+  optional int64 deity_id = 3;
+  optional int64 enter_war_time = 4;
+}
+//玄功真甲公用数据
+message ArmorSuitState
+{
+  optional int32 index = 1; //套装件数索引。服务器从0开始的
+  optional int32 state = 2; //0未激活，1可激活，2已激活
+}
+
+message ArmorInfo
+{
+  optional int32 id = 1;
+  repeated ArmorSuitState suits = 2;
 }

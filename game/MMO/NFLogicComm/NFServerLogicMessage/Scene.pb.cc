@@ -2975,6 +2975,9 @@ void NotifyLoadMap::CopyFrom(const NotifyLoadMap& from) {
 bool NotifyLoadMap::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4000,6 +4003,9 @@ void CorpseInfo::CopyFrom(const CorpseInfo& from) {
 
 bool CorpseInfo::IsInitialized() const {
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4250,6 +4256,9 @@ void NotifySceneCorpseInfoRsp::CopyFrom(const NotifySceneCorpseInfoRsp& from) {
 
 bool NotifySceneCorpseInfoRsp::IsInitialized() const {
 
+  for (int i = 0; i < infos_size(); i++) {
+    if (!this->infos(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -7166,6 +7175,9 @@ void NotifyRoleEnterScene::CopyFrom(const NotifyRoleEnterScene& from) {
 bool NotifyRoleEnterScene::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 

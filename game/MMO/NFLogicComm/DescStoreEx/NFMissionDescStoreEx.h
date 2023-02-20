@@ -33,11 +33,13 @@
 
 class NFMissionDescStoreEx : public NFIDescStore
 {
+public:
     typedef NFShmHashMap<uint64_t, DyMissionInfo, 100> DyMissionInfoMap;
     typedef NFShmHashMap<uint64_t, DyConditionInfo, 100> DyCondtionInfoMap;
     typedef NFShmHashMap<uint64_t, MissionInfo, 500> MissionInfoMap;
     //动态任务奖励 key是玩家等级(32 - 9)+任务类型(8 - 1) 组合
     typedef NFShmHashMap<uint32_t, NFShmVector<TaskComplex, 10>, 1000> DyTaskRewardMap;
+    typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 30> FirstMissionMap;
 public:
     NFMissionDescStoreEx();
 
@@ -81,13 +83,16 @@ public:
 public:
     uint64_t ComposeTextKey(int32_t missionType, int32_t condType); //组装text表的key
     uint32_t ComposeDyRewardKey(int32_t taskType, int32_t level);//组装动态任务奖励key
+public:
+    //获取每条线的第一个任务
+    const FirstMissionMap &GetFirstMission() { return _missionFirstMap; }
 private:
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 30> _dymissionTypeMap;                    //动态任务类型map
     DyMissionInfoMap _dymissionInfoMap;                    //动态任务配置
     DyCondtionInfoMap _dycondtionInfoMap;                    //动态条件配置
     MissionInfoMap _missionInfoMap;                    //任务配置列表
     DyTaskRewardMap m_mapDyReward;                        //动态任务奖励
-    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 30> _missionFirstMap;                    //任务类型对应的第一个任务列表
+    FirstMissionMap _missionFirstMap;                    //任务类型对应的第一个任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 1000> m_mapLevMission;                    //等级任务
 
     NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, 100> m_mapPreOrAcceptMap;                //任务配置中的前置任务或条件

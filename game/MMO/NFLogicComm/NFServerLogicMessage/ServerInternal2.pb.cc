@@ -1362,6 +1362,9 @@ void LogicToWorldGetRoleListRsp::CopyFrom(const LogicToWorldGetRoleListRsp& from
 
 bool LogicToWorldGetRoleListRsp::IsInitialized() const {
 
+  for (int i = 0; i < role_info_list_size(); i++) {
+    if (!this->role_info_list(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2937,6 +2940,9 @@ void LogicToWorldCreateRoleRsp::CopyFrom(const LogicToWorldCreateRoleRsp& from) 
 
 bool LogicToWorldCreateRoleRsp::IsInitialized() const {
 
+  if (has_role_info()) {
+    if (!this->role_info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4467,6 +4473,9 @@ void LogicToWorldLoginRsp::CopyFrom(const LogicToWorldLoginRsp& from) {
 
 bool LogicToWorldLoginRsp::IsInitialized() const {
 
+  if (has_simple_data()) {
+    if (!this->simple_data().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4759,6 +4768,9 @@ void WorldToSnsLoginReq::CopyFrom(const WorldToSnsLoginReq& from) {
 
 bool WorldToSnsLoginReq::IsInitialized() const {
 
+  if (has_simple_data()) {
+    if (!this->simple_data().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -5921,6 +5933,9 @@ void WorldToLogicLoginFinishNotify::CopyFrom(const WorldToLogicLoginFinishNotify
 
 bool WorldToLogicLoginFinishNotify::IsInitialized() const {
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 

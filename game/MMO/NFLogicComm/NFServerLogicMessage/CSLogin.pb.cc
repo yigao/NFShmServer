@@ -1279,6 +1279,9 @@ void ClientLoginRsp::CopyFrom(const ClientLoginRsp& from) {
 bool ClientLoginRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001d) != 0x0000001d) return false;
 
+  for (int i = 0; i < role_lst_size(); i++) {
+    if (!this->role_lst(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1841,6 +1844,9 @@ void ClientCreateRoleRsp::CopyFrom(const ClientCreateRoleRsp& from) {
 bool ClientCreateRoleRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3949,6 +3955,9 @@ void ReturnRoleListRsp::CopyFrom(const ReturnRoleListRsp& from) {
 bool ReturnRoleListRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  for (int i = 0; i < role_lst_size(); i++) {
+    if (!this->role_lst(i).IsInitialized()) return false;
+  }
   return true;
 }
 

@@ -228,14 +228,10 @@ enum EItemType {
   EItemType_Material = 2,
   EItemType_Other = 3,
   EItemType_Task = 4,
-  EItemType_Star = 5,
-  EItemType_Soul = 6,
-  EItemType_FaiMateri = 7,
-  EItemType_FaiCrystal = 8,
-  EItemType_Symbol = 9,
-  EItemType_BossIdentify = 10,
-  EItemType_FaiIdentify = 11,
-  EItemType_Limit = 12
+  EItemType_PetEgg = 5,
+  EItemType_Pet = 6,
+  EItemType_MountEgg = 12,
+  EItemType_Limit = 13
 };
 bool EItemType_IsValid(int value);
 const EItemType EItemType_MIN = EItemType_None;
@@ -256,7 +252,10 @@ enum EPackageType {
   EPackageType_None = 0,
   EPackageType_Common = 1,
   EPackageType_Storage = 2,
-  EPackageType_Limit = 3
+  EPackageType_MountEgg = 3,
+  EPackageType_PetEgg = 4,
+  EPackageType_DeityEquip = 5,
+  EPackageType_Limit = 6
 };
 bool EPackageType_IsValid(int value);
 const EPackageType EPackageType_MIN = EPackageType_None;
@@ -357,11 +356,25 @@ enum EConst {
   EConstTiredReliveSec = 202,
   EConst_ImmediateReliveCostItem = 203,
   EConst_ImmediateReliveCost = 206,
-  EConst_AutoPickDropSec = 231
+  EConst_PackageMountEggSlotNum = 214,
+  EConst_MountDuHua_ActiveSlot = 215,
+  EConst_MountDuHua_TimeGoldCost = 216,
+  EConst_MountDuHua_TimeItemCost = 217,
+  EConst_AutoPickDropSec = 231,
+  EConst_PartnerFllowDistance = 232,
+  EConst_PartnerTeleportDistance = 233,
+  EConst_ArenaResultTime = 234,
+  EConst_ArenaChallengTimes = 235,
+  EConst_ArenaVipChallengTimes = 236,
+  EConst_SkillAdvanceUnlockCost = 240,
+  EConst_SkillAdvanceResetCost = 241,
+  EConst_TeamMemCountExpAdd = 242,
+  EConst_OneKeyFinishGuildMissionCost = 1000,
+  EConst_OnceFinishTaskCost = 1001
 };
 bool EConst_IsValid(int value);
 const EConst EConst_MIN = EConst_RelationRecentSize;
-const EConst EConst_MAX = EConst_AutoPickDropSec;
+const EConst EConst_MAX = EConst_OnceFinishTaskCost;
 const int EConst_ARRAYSIZE = EConst_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EConst_descriptor();
@@ -412,6 +425,8 @@ enum ERetCode {
   RET_CAN_NOT_RECONNECT = 35,
   RET_DISALLOW_ENTER_GAME = 36,
   RET_MATERIAL_LACK = 37,
+  RET_MAGIC_LACK = 38,
+  RET_PRESTIGE_LACK = 39,
   RET_LOGIN_BAD_USER_NAME_LEN = 100,
   RET_LOGIN_CHARACTER_NOT_EXITS = 101,
   RET_LOGIN_ACCOUNT_OTHER_LOGIN = 102,
@@ -478,16 +493,36 @@ enum ERetCode {
   RET_PACKAGE_ITEM_USE_LIMIT = 449,
   RET_PACKAGE_ITEM_LOGIN_GIFT_FETCHED = 450,
   RET_PACKAGE_USE_ITEM_MAP_LIMIT = 451,
+  RET_PACKAGE_PET_SPACE_NOT_ENOUGH = 452,
   RET_GROW_PART_ENTRY_LEVEL_FULL = 500,
   RET_GROW_PART_NOT_ACTIVE = 501,
   RET_PLAYER_SEAT_STATE_ERROR = 510,
   RET_PLAYER_SEAT_MAP_NOT_SEAT = 511,
   RET_PLAYER_SEAT_NO_TIME = 512,
+  RET_FACADE_UNACTIVE = 550,
+  RET_FACADE_MAX_LEVEL = 551,
+  RET_FACADE_HAVE_DRESS = 552,
+  RET_FACADE_HAVE_NOT_DRESS = 553,
+  RET_FACADE_FRAGMENT_USE_LIMIT = 554,
+  RET_FACADE_NOT_BREAK = 555,
+  RET_FACADE_ALREADY_BREAK = 556,
+  RET_FACADE_SOUL_NO_SKILL_RESET = 557,
+  RET_FACADE_SOUL_LEVELUP_FAIL_LEVEL_RAIL = 558,
+  RET_FACADE_SOUL_LEVELUP_FAIL = 559,
   RET_GM_NOT_KEY = 601,
   RET_GM_PRAMA_COUNT_ERROR = 602,
   RET_GM_NOT_FIND = 603,
   RET_EQUIP_NOT_EXIST = 620,
   RET_EQUIP_POS_NOT_EXIT_EQUIP = 621,
+  RET_EQUIP_STRONG_MAX = 622,
+  RET_EQUIP_TOTAL_LV_MAX = 623,
+  RET_EQUIP_ISNOT_STONE = 624,
+  RET_EQUIP_GEM_INLAY_TYPE_ERR = 625,
+  RET_EQUIP_GEM_POS_ERR = 626,
+  RET_EQUIP_STONE_SLOT_UNLOCK = 627,
+  RET_EQUIP_STONE_LV_MAX = 628,
+  RET_EQUIP_TOTAL_LACK = 629,
+  RET_STONE_TYPE_ERR = 630,
   RET_MISSION_HAVE_ACCEPT = 700,
   RET_MISSION_CAN_NOT_ACCEPT = 701,
   RET_MISSION_LEVEL_ERROR = 702,
@@ -559,13 +594,6 @@ enum ERetCode {
   RET_CHAT_CD_NoSpeakIng = 908,
   RET_CHAT_PAY_RMB_LIMIT = 909,
   RET_CHAT_COND_LIMIT = 910,
-  RET_FACADE_UNACTIVE = 100,
-  RET_FACADE_MAX_LEVEL = 4341,
-  RET_FACADE_HAVE_DRESS = 4342,
-  RET_FACADE_HAVE_NOT_DRESS = 4343,
-  RET_FACADE_FRAGMENT_USE_LIMIT = 4344,
-  RET_FACADE_NOT_BREAK = 4339,
-  RET_FACADE_ALREADY_BREAK = 4338,
   RET_DUPLICATE_CAN_NOT_ENTER = 920,
   RET_DUPLICATE_ALREAY_IN = 921,
   RET_DUPLICATE_RELIVE_NO_DEAD = 922,
@@ -615,6 +643,15 @@ enum ERetCode {
   RET_DUPLICATE_MAX_PALACE_LAYER_LIMIT = 966,
   RET_DUPLICATE_TEAM_MEM_NOT_IN_DUP = 967,
   RET_DUPLICATE_PALACE_LAYER_UNUSUAL = 968,
+  RET_DUPLICATE_IS_OVER = 969,
+  RET_DUPLICATE_BT_DRAGON_NOT_ENTER = 970,
+  RET_DUPLICATE_NO_ENTER_BT_DRAGON = 971,
+  RET_DUPLICATE_NO_TEAM_NOT_ENTER = 972,
+  RET_DUPLICATE_IN_DUP_NOT_INVITE = 973,
+  RET_DUP_SWEEP_NO3_STAR = 974,
+  RET_DUP_SWEEP_NO_PASS = 975,
+  RET_DUP_SWEEP_FIGHT_LACK = 976,
+  RET_DUPLICATE_NO_BUY_BT_DRAGON = 977,
   RET_SKILL_IN_CD = 1000,
   RET_SKILL_CAN_NOT_USE = 1001,
   RET_SKILL_TARGET_NOT_EXIST = 1002,
@@ -626,6 +663,10 @@ enum ERetCode {
   RET_SKILL_INVALID_POS = 1008,
   RET_SKILL_CAN_NOT_CHG_POS = 1009,
   RET_SKILL_ALREADY_IN_POS = 1010,
+  RET_SKILL_ADVANCE_LEV_LIMIT = 1011,
+  RET_SKILL_ADVANCE_NOT = 1012,
+  RET_SKILL_ADVANCE_NOT_RESET = 1013,
+  RET_SKILL_IN_GOD_STATE = 1014,
   RET_PLAYER_TIRED_STATE = 1101,
   RET_PLAYER_NOT_DEAD = 1102,
   RET_PLAYER_CAN_NOT_RELIVE = 1103,
@@ -651,11 +692,97 @@ enum ERetCode {
   RET_TEAM_MAP_OTHER_IN_SPECIAL = 1717,
   RET_TEAM_MAP_TARGET_IN_MATCH = 1718,
   RET_TEAM_OBJECT_CAN_NOT_OPERATE = 1719,
-  RET_USE_ITEM_DAY_LIMIT = 1800
+  RET_TEAM_NOT_FULL = 1720,
+  RET_TEAM_NOT_PROMOTE_LEADER = 1721,
+  RET_TEAM_IN_MATCH_NOT_OPERATE = 1722,
+  RET_USE_ITEM_DAY_LIMIT = 1800,
+  RET_FACTION_ALREADY_JOIN = 1900,
+  RET_FACTION_NAME_ALREAY_EXISTS = 1901,
+  RET_FACTION_NAME_LEN_LIMIT = 1902,
+  RET_FACTION_NOTICE_LEN_LIMIT = 1903,
+  RET_FACTION_NOT_EXISTS = 1904,
+  RET_FACTION_NOT_JOIN = 1905,
+  RET_FACTION_NOT_LEADER = 1906,
+  RET_FACTION_SET_PARAM_ERROR = 1907,
+  RET_FACTION_MEMBER_COUNT_LIMIT = 1908,
+  RET_FACTION_HAS_NO_PERMISSION = 1909,
+  RET_FACTION_APPLY_NOT_EXISTS = 1910,
+  RET_FACTION_OTHER_ALREDY_JOIN = 1911,
+  RET_FACTION_OTHER_NOT_JOIN = 1912,
+  RET_FACTION_OTHER_ALREDY_JOIN_OTHER = 1913,
+  RET_FACTION_CAN_NOT_TRANS_SELF = 1914,
+  RET_FACTION_CAN_NOT_TRANS_NO_VICE = 1915,
+  RET_FACTION_LEADER_CAN_NOT_EXIT = 1916,
+  RET_FACTION_ALREDAY_SAME_DUTY = 1917,
+  RET_FACTION_ALREADY_COMMOM_MEMBER = 1918,
+  RET_FACTION_INVALID_DUTY = 1919,
+  RET_FACTION_NOTICE_INTER_SEC_LIMIT = 1920,
+  RET_FACTION_DUTY_COUNT_LIMIT = 1921,
+  RET_FACTION_CHG_NAME_SAME_NAME = 1922,
+  RET_FACTION_CHG_NAME_LACK_ITEM = 1923,
+  RET_FACTION_FORBID_JOIN = 1924,
+  RET_FACTION_NAME_NO_CHG = 1925,
+  RET_ARENA_CAN_NOT_CHALL_MYSELF = 2000,
+  RET_ARENA_CAN_NOT_CHALL_TYPE_ERROR = 2001,
+  RET_ARENA_CAN_NOT_CHALL_DST = 2002,
+  RET_ARENA_CAN_NOT_CHALL_RANK_CHANGE = 2003,
+  RET_ARENA_CAN_NOT_CHALL_DST_IN_BECHALL = 2004,
+  RET_ARENA_CHALL_TIMES_LIMIT = 2005,
+  RET_ARENA_SCORE_LACK = 2006,
+  RET_ARENA_IN_CHALLING = 2007,
+  RET_ARENA_DEAD_LIMIT = 2008,
+  RET_MOUNT_BABY_EGG_SLOT_ERROR = 2050,
+  RET_MOUNT_BABY_EGG_SLOT_STATE_ERROR = 2051,
+  RET_MOUNT_BABY_EGG_ITEM_EROR = 2052,
+  RET_MOUNT_BABY_EGG_TIMEOUT_ERROR = 2053,
+  RET_MOUNT_UNACTIVE = 2054,
+  RET_MOUNT_UNUSE_STATE = 2055,
+  RET_MOUNT_LEVEL_MAX = 2056,
+  RET_MOUNT_UNSELECT = 2057,
+  RET_MOUNT_HAVE_SELECT_THIS = 2058,
+  RET_MOUNT_HAVE_RIDEON = 2059,
+  RET_MOUNT_HAVE_RIDEOFF = 2060,
+  RET_MALL_CAN_NOT_BUY = 2100,
+  RET_MALL_LEV_LIMIT = 2101,
+  RET_MALL_VIP_LIMIT = 2102,
+  RET_MALL_NUM_LIMIT = 2103,
+  RET_MALL_NO_ITEM = 2104,
+  RET_BATTLE_SLOT_CD_ERROR = 2201,
+  RET_BATTLE_SLOT_NOT_EXIST = 2202,
+  RET_BATTLE_SLOT_NO_DEITY = 2203,
+  RET_BATTLE_SLOT_NOT_UNLOCK = 2204,
+  RET_BATTLE_SLOT_HAS_DEITY = 2205,
+  RET_DEITY_NOT_EXITST = 2206,
+  RET_DEITY_MAX_LEVEL = 2207,
+  RET_DEITY_MAX_STAR = 2208,
+  RET_BOSS_DRIVE_FULL = 2550,
+  RET_HATCH_SLOT_UNLOCK = 2570,
+  RET_HATCH_HAS_EGG = 2571,
+  RET_HATCH_SLOT_IS_LOCK = 2572,
+  RET_HATCH_NO_TO_TIME = 2573,
+  RET_HATCH_NOT_ALL_OPEN = 2574,
+  RET_PET_FETTER_IS_ACTIVE = 2575,
+  RET_PET_NOT_HAS_PET = 2576,
+  RET_PET_IS_MAX = 2577,
+  RET_PET_LV_MAX = 2578,
+  RET_PET_STEPLV_MAX = 2579,
+  RET_PET_STARLV_MAX = 2580,
+  RET_PET_STAR_COST_PET_NO_ENGOUTH = 2581,
+  RET_PET_FIGHT_NOT_REST = 2582,
+  RET_PET_IS_NO_GROW_NOT_REST = 2583,
+  RET_PET_RES_PETMAX = 2584,
+  RET_PET_NOT_DECOMPOSE = 2585,
+  RET_PET_NOT_CAN_STAR = 2586,
+  RET_PET_REPEATED_FIGHT = 2587,
+  RET_ESCORT_TASK_NOT_EXIST = 2700,
+  RET_ESCORT_TASK_EXIST = 2701,
+  RET_ESCORT_TASK_TIMES_LIMIT = 2702,
+  RET_ESCORT_UP_QUALITY_FAILED = 2703,
+  RET_ESCORT_MAX = 2704
 };
 bool ERetCode_IsValid(int value);
 const ERetCode ERetCode_MIN = RET_SUCCESS;
-const ERetCode ERetCode_MAX = RET_FACADE_FRAGMENT_USE_LIMIT;
+const ERetCode ERetCode_MAX = RET_ESCORT_MAX;
 const int ERetCode_ARRAYSIZE = ERetCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ERetCode_descriptor();
@@ -792,14 +919,16 @@ inline bool EFacadeType_Parse(
 enum FunctionUnlock_ID_TYPE {
   FunctionUnlock_ID_TYPE_ROLE = 1001,
   FunctionUnlock_ID_TYPE_SKILL = 1002,
+  FunctionUnlock_ID_TYPE_MOUNTS = 2014,
   FunctionUnlock_ID_TYPE_WING = 2022,
   FunctionUnlock_ID_TYPE_TREASURE = 2026,
   FunctionUnlock_ID_TYPE_ARTIFACT = 2030,
-  FunctionUnlock_ID_TYPE_PARTNER = 2036
+  FunctionUnlock_ID_TYPE_PARTNER = 2036,
+  FunctionUnlock_ID_TYPE_ARENA_MIAOSHANG = 3053
 };
 bool FunctionUnlock_ID_TYPE_IsValid(int value);
 const FunctionUnlock_ID_TYPE FunctionUnlock_ID_TYPE_MIN = FunctionUnlock_ID_TYPE_ROLE;
-const FunctionUnlock_ID_TYPE FunctionUnlock_ID_TYPE_MAX = FunctionUnlock_ID_TYPE_PARTNER;
+const FunctionUnlock_ID_TYPE FunctionUnlock_ID_TYPE_MAX = FunctionUnlock_ID_TYPE_ARENA_MIAOSHANG;
 const int FunctionUnlock_ID_TYPE_ARRAYSIZE = FunctionUnlock_ID_TYPE_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* FunctionUnlock_ID_TYPE_descriptor();
@@ -816,11 +945,12 @@ enum EFacadeAttrType {
   EAttrType_Advance = 1,
   EAttrType_Fantasy = 2,
   EAttrType_Fragment = 3,
-  EAttrType_Skill = 4
+  EAttrType_Skill = 4,
+  EAttrType_SOUL = 5
 };
 bool EFacadeAttrType_IsValid(int value);
 const EFacadeAttrType EFacadeAttrType_MIN = EAttrType_Advance;
-const EFacadeAttrType EFacadeAttrType_MAX = EAttrType_Skill;
+const EFacadeAttrType EFacadeAttrType_MAX = EAttrType_SOUL;
 const int EFacadeAttrType_ARRAYSIZE = EFacadeAttrType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EFacadeAttrType_descriptor();
@@ -895,6 +1025,143 @@ inline bool PGType_Parse(
     const ::std::string& name, PGType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<PGType>(
     PGType_descriptor(), name, value);
+}
+enum ARENA_CHALLENGE_TYPE {
+  ARENA_CHALLENGE_TYPE_NONE = 0,
+  ARENA_CHALLENGE_TYPE_CHARACTER = 1,
+  ARENA_CHALLENGE_TYPE_ROBOT = 2
+};
+bool ARENA_CHALLENGE_TYPE_IsValid(int value);
+const ARENA_CHALLENGE_TYPE ARENA_CHALLENGE_TYPE_MIN = ARENA_CHALLENGE_TYPE_NONE;
+const ARENA_CHALLENGE_TYPE ARENA_CHALLENGE_TYPE_MAX = ARENA_CHALLENGE_TYPE_ROBOT;
+const int ARENA_CHALLENGE_TYPE_ARRAYSIZE = ARENA_CHALLENGE_TYPE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ARENA_CHALLENGE_TYPE_descriptor();
+inline const ::std::string& ARENA_CHALLENGE_TYPE_Name(ARENA_CHALLENGE_TYPE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ARENA_CHALLENGE_TYPE_descriptor(), value);
+}
+inline bool ARENA_CHALLENGE_TYPE_Parse(
+    const ::std::string& name, ARENA_CHALLENGE_TYPE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ARENA_CHALLENGE_TYPE>(
+    ARENA_CHALLENGE_TYPE_descriptor(), name, value);
+}
+enum ArenaRewardState {
+  ARENA_REWARD_STATE_NONE = 0,
+  ARENA_REWARD_STATE_FINISH = 1,
+  ARENA_REWARD_STATE_GET_REWARD = 2
+};
+bool ArenaRewardState_IsValid(int value);
+const ArenaRewardState ArenaRewardState_MIN = ARENA_REWARD_STATE_NONE;
+const ArenaRewardState ArenaRewardState_MAX = ARENA_REWARD_STATE_GET_REWARD;
+const int ArenaRewardState_ARRAYSIZE = ArenaRewardState_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ArenaRewardState_descriptor();
+inline const ::std::string& ArenaRewardState_Name(ArenaRewardState value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ArenaRewardState_descriptor(), value);
+}
+inline bool ArenaRewardState_Parse(
+    const ::std::string& name, ArenaRewardState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ArenaRewardState>(
+    ArenaRewardState_descriptor(), name, value);
+}
+enum ArenaChallType {
+  ARENA_CHALL_TYPE_CHALL = 0,
+  ARENA_CHALL_TYPE_MIAO_SHA = 1
+};
+bool ArenaChallType_IsValid(int value);
+const ArenaChallType ArenaChallType_MIN = ARENA_CHALL_TYPE_CHALL;
+const ArenaChallType ArenaChallType_MAX = ARENA_CHALL_TYPE_MIAO_SHA;
+const int ArenaChallType_ARRAYSIZE = ArenaChallType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ArenaChallType_descriptor();
+inline const ::std::string& ArenaChallType_Name(ArenaChallType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ArenaChallType_descriptor(), value);
+}
+inline bool ArenaChallType_Parse(
+    const ::std::string& name, ArenaChallType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ArenaChallType>(
+    ArenaChallType_descriptor(), name, value);
+}
+enum VIP_PRIVILEGE_TYPE {
+  VIP_PRIVILEGE_EQUIP_STOVE = 12
+};
+bool VIP_PRIVILEGE_TYPE_IsValid(int value);
+const VIP_PRIVILEGE_TYPE VIP_PRIVILEGE_TYPE_MIN = VIP_PRIVILEGE_EQUIP_STOVE;
+const VIP_PRIVILEGE_TYPE VIP_PRIVILEGE_TYPE_MAX = VIP_PRIVILEGE_EQUIP_STOVE;
+const int VIP_PRIVILEGE_TYPE_ARRAYSIZE = VIP_PRIVILEGE_TYPE_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* VIP_PRIVILEGE_TYPE_descriptor();
+inline const ::std::string& VIP_PRIVILEGE_TYPE_Name(VIP_PRIVILEGE_TYPE value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    VIP_PRIVILEGE_TYPE_descriptor(), value);
+}
+inline bool VIP_PRIVILEGE_TYPE_Parse(
+    const ::std::string& name, VIP_PRIVILEGE_TYPE* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<VIP_PRIVILEGE_TYPE>(
+    VIP_PRIVILEGE_TYPE_descriptor(), name, value);
+}
+enum EMountRideState {
+  EMountRideState_RideOff = 0,
+  EMountRideState_RideOn = 1
+};
+bool EMountRideState_IsValid(int value);
+const EMountRideState EMountRideState_MIN = EMountRideState_RideOff;
+const EMountRideState EMountRideState_MAX = EMountRideState_RideOn;
+const int EMountRideState_ARRAYSIZE = EMountRideState_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* EMountRideState_descriptor();
+inline const ::std::string& EMountRideState_Name(EMountRideState value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EMountRideState_descriptor(), value);
+}
+inline bool EMountRideState_Parse(
+    const ::std::string& name, EMountRideState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EMountRideState>(
+    EMountRideState_descriptor(), name, value);
+}
+enum EDeityEquipPos {
+  EDeityEquipPos_start = 20,
+  EDeityEquipPos_ring = 0,
+  EDeityEquipPos_bracelet = 1,
+  EDeityEquipPos_jade = 2,
+  EDeityEquipPos_necklace = 3,
+  EDeityEquipPos_limit = 4
+};
+bool EDeityEquipPos_IsValid(int value);
+const EDeityEquipPos EDeityEquipPos_MIN = EDeityEquipPos_ring;
+const EDeityEquipPos EDeityEquipPos_MAX = EDeityEquipPos_start;
+const int EDeityEquipPos_ARRAYSIZE = EDeityEquipPos_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* EDeityEquipPos_descriptor();
+inline const ::std::string& EDeityEquipPos_Name(EDeityEquipPos value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EDeityEquipPos_descriptor(), value);
+}
+inline bool EDeityEquipPos_Parse(
+    const ::std::string& name, EDeityEquipPos* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EDeityEquipPos>(
+    EDeityEquipPos_descriptor(), name, value);
+}
+enum EMoneyRewardTaskReward {
+  EMoneyRewardTask_BOUNTY = 3
+};
+bool EMoneyRewardTaskReward_IsValid(int value);
+const EMoneyRewardTaskReward EMoneyRewardTaskReward_MIN = EMoneyRewardTask_BOUNTY;
+const EMoneyRewardTaskReward EMoneyRewardTaskReward_MAX = EMoneyRewardTask_BOUNTY;
+const int EMoneyRewardTaskReward_ARRAYSIZE = EMoneyRewardTaskReward_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* EMoneyRewardTaskReward_descriptor();
+inline const ::std::string& EMoneyRewardTaskReward_Name(EMoneyRewardTaskReward value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EMoneyRewardTaskReward_descriptor(), value);
+}
+inline bool EMoneyRewardTaskReward_Parse(
+    const ::std::string& name, EMoneyRewardTaskReward* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EMoneyRewardTaskReward>(
+    EMoneyRewardTaskReward_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1012,6 +1279,34 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EDailyTaskBackType>(
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::PGType>() {
   return ::proto_ff::PGType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ARENA_CHALLENGE_TYPE>() {
+  return ::proto_ff::ARENA_CHALLENGE_TYPE_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ArenaRewardState>() {
+  return ::proto_ff::ArenaRewardState_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ArenaChallType>() {
+  return ::proto_ff::ArenaChallType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::VIP_PRIVILEGE_TYPE>() {
+  return ::proto_ff::VIP_PRIVILEGE_TYPE_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMountRideState>() {
+  return ::proto_ff::EMountRideState_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EDeityEquipPos>() {
+  return ::proto_ff::EDeityEquipPos_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMoneyRewardTaskReward>() {
+  return ::proto_ff::EMoneyRewardTaskReward_descriptor();
 }
 
 }  // namespace google

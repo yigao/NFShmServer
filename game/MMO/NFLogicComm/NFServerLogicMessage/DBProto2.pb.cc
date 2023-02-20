@@ -697,6 +697,9 @@ void RoleDBSimpleData::CopyFrom(const RoleDBSimpleData& from) {
 
 bool RoleDBSimpleData::IsInitialized() const {
 
+  if (has_base()) {
+    if (!this->base().IsInitialized()) return false;
+  }
   return true;
 }
 

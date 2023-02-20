@@ -1540,6 +1540,15 @@ void SkillUseReq::CopyFrom(const SkillUseReq& from) {
 bool SkillUseReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
+  if (has_dir()) {
+    if (!this->dir().IsInitialized()) return false;
+  }
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  if (has_target_pos()) {
+    if (!this->target_pos().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2454,6 +2463,15 @@ void SkillUseResultBroadRsp_Target::CopyFrom(const SkillUseResultBroadRsp_Target
 bool SkillUseResultBroadRsp_Target::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  for (int i = 0; i < attr_size(); i++) {
+    if (!this->attr(i).IsInitialized()) return false;
+  }
+  for (int i = 0; i < digital_size(); i++) {
+    if (!this->digital(i).IsInitialized()) return false;
+  }
+  if (has_bebackdir()) {
+    if (!this->bebackdir().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3174,6 +3192,15 @@ void SkillUseBroadRsp::CopyFrom(const SkillUseBroadRsp& from) {
 bool SkillUseBroadRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
+  if (has_dir()) {
+    if (!this->dir().IsInitialized()) return false;
+  }
+  if (has_target_pos()) {
+    if (!this->target_pos().IsInitialized()) return false;
+  }
+  for (int i = 0; i < pos_lst_size(); i++) {
+    if (!this->pos_lst(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3510,6 +3537,12 @@ void SkillWarnBroadRsp::CopyFrom(const SkillWarnBroadRsp& from) {
 bool SkillWarnBroadRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
+  if (has_target_pos()) {
+    if (!this->target_pos().IsInitialized()) return false;
+  }
+  for (int i = 0; i < pos_lst_size(); i++) {
+    if (!this->pos_lst(i).IsInitialized()) return false;
+  }
   return true;
 }
 

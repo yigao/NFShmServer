@@ -485,6 +485,15 @@ void MoveReq::CopyFrom(const MoveReq& from) {
 bool MoveReq::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  if (has_speed()) {
+    if (!this->speed().IsInitialized()) return false;
+  }
+  if (has_dir()) {
+    if (!this->dir().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -829,6 +838,15 @@ void MoveBroadRsp::CopyFrom(const MoveBroadRsp& from) {
 bool MoveBroadRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  if (has_speed()) {
+    if (!this->speed().IsInitialized()) return false;
+  }
+  if (has_dir()) {
+    if (!this->dir().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1149,6 +1167,9 @@ void MoveTeleportRsp::CopyFrom(const MoveTeleportRsp& from) {
 bool MoveTeleportRsp::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 

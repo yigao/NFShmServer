@@ -1,0 +1,24 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//---------------------------------通用数据---------------------------------
+//基础活动数据
+message ActBaseDataProto
+{
+  optional uint32 activity_inst_id				= 1;			//实例唯一ID
+  optional uint64 activity_id 					= 2;			//活动ID
+  optional int32  state 							= 3;			//活动状态，0 关闭，1 开启
+  optional uint64 begin_time 						= 4;		 	//活动开始时间(针对开启的活动来说)
+  optional uint64 end_time 						= 5;		 	//活动结束时间(针对开启的活动来说)
+  optional uint64 forward_finish_time				= 6;			//活动提前结束的时间
+  optional int32	zid								= 7;			//该活动属于哪个zid，0表示跨服活动，公共的活动
+  repeated int32  see_zid_list					= 8;			//哪些zid可以访问该活动
+  repeated int32  forward_finish_zid				= 9;			//state为1时有效，提前完成的zid,对于跨服活动，无法用forward_finish_time表示活动提前完成状态则用该字段
+  optional int64	ext_data						= 10;			//扩展数据(方便主界面显示：目前只有武道会用)
+  optional int64 	ext_data2						= 11;			//扩展数据(方便主界面显示：目前只有武道会用)
+}

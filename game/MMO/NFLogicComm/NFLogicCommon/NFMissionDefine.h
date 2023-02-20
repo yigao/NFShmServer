@@ -688,6 +688,21 @@ struct ItemInfo
         return 0;
     }
 
+    ItemInfo(const ItemInfo& Value)
+    {
+        if (this != &Value)
+        {
+            itemId = Value.itemId;
+            currentValue = Value.currentValue;
+            finalValue = Value.finalValue;
+            completedFlag = Value.completedFlag;
+            type = Value.type;
+            parma1 = Value.parma1;
+            parma2 = Value.parma2;
+            parma3 = Value.parma3;
+        }
+    }
+
     inline ItemInfo& operator = (const ItemInfo& Value)
     {
         itemId = Value.itemId;

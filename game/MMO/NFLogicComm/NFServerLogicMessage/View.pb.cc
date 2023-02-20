@@ -904,6 +904,18 @@ void CreatureCreateData_Player::CopyFrom(const CreatureCreateData_Player& from) 
 bool CreatureCreateData_Player::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000001b) != 0x0000001b) return false;
 
+  for (int i = 0; i < attr_size(); i++) {
+    if (!this->attr(i).IsInitialized()) return false;
+  }
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  if (has_facade()) {
+    if (!this->facade().IsInitialized()) return false;
+  }
+  if (has_bufflst()) {
+    if (!this->bufflst().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1704,6 +1716,18 @@ void CreatureCreateData_Monster::CopyFrom(const CreatureCreateData_Monster& from
 bool CreatureCreateData_Monster::IsInitialized() const {
   if ((_has_bits_[0] & 0x0000009b) != 0x0000009b) return false;
 
+  for (int i = 0; i < attr_size(); i++) {
+    if (!this->attr(i).IsInitialized()) return false;
+  }
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  if (has_dir()) {
+    if (!this->dir().IsInitialized()) return false;
+  }
+  if (has_bufflst()) {
+    if (!this->bufflst().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2302,6 +2326,12 @@ void CreatureCreateData_Drop::CopyFrom(const CreatureCreateData_Drop& from) {
 bool CreatureCreateData_Drop::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000017) != 0x00000017) return false;
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  if (has_item()) {
+    if (!this->item().IsInitialized()) return false;
+  }
   return true;
 }
 

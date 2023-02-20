@@ -410,6 +410,9 @@ void EquipInfoList::CopyFrom(const EquipInfoList& from) {
 
 bool EquipInfoList::IsInitialized() const {
 
+  for (int i = 0; i < infos_size(); i++) {
+    if (!this->infos(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1569,6 +1572,9 @@ void NotifyEquipInfoRsp::CopyFrom(const NotifyEquipInfoRsp& from) {
 
 bool NotifyEquipInfoRsp::IsInitialized() const {
 
+  for (int i = 0; i < infos_size(); i++) {
+    if (!this->infos(i).IsInitialized()) return false;
+  }
   return true;
 }
 

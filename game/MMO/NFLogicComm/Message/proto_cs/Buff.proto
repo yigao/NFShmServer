@@ -1,0 +1,50 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+
+
+//请求 buff列表 BUFF_LIST_REQ
+message BuffListReq
+{
+	//空
+}
+//返回 buff列表 BUFF_LIST_RSP			
+message BuffListRsp
+{
+	optional BuffListProto lst = 1;
+}
+
+//更新 buff信息 BUFF_UPDATE_RSP
+message BuffUpdateRsp
+{
+	optional BuffListProto lst = 1;
+}
+//移除 buff BUFF_DEL_RSP
+message BuffDelRsp
+{
+	optional uint64 cid = 1;		//生物cid
+	repeated uint64 index_lst = 2;  //buff索引列表
+}
+
+//Buff 效果 通知  BUFF_EFFECT_BROAD_RSP
+message BuffEffectRsp
+{
+	//Buff 受击者
+	message Target
+	{
+		required  uint64    cid		= 1;		  //受击者cid
+		repeated  Attr64    attr	= 2;		  //造成生物的属性同步(都是广播属性)
+		repeated  DigPerfor digital   = 3;		  //数字表现列表
+		optional  bool      beDead       = 4;	  //目标死亡
+		optional  int32     type = 5;			  //类型,攻击者处于神魔变身状态时，飘字表现，1-光，2-暗
+	}
+	required uint64 skill_id = 1;		//技能ID
+	repeated Target target_lst = 2;		//受击者
+	required uint64 buff_id = 3;		//buff id
+}

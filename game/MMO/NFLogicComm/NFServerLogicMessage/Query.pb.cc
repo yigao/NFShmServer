@@ -1194,6 +1194,12 @@ void QueryCharacterDetailInfo::CopyFrom(const QueryCharacterDetailInfo& from) {
 
 bool QueryCharacterDetailInfo::IsInitialized() const {
 
+  if (has_facade()) {
+    if (!this->facade().IsInitialized()) return false;
+  }
+  for (int i = 0; i < equips_size(); i++) {
+    if (!this->equips(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1492,6 +1498,9 @@ void FuncFightProto::CopyFrom(const FuncFightProto& from) {
 
 bool FuncFightProto::IsInitialized() const {
 
+  for (int i = 0; i < func_fight_size(); i++) {
+    if (!this->func_fight(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1954,6 +1963,9 @@ void WCCharacterDetailRsp::CopyFrom(const WCCharacterDetailRsp& from) {
 
 bool WCCharacterDetailRsp::IsInitialized() const {
 
+  if (has_detail()) {
+    if (!this->detail().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2472,6 +2484,9 @@ void WCCharacterMiniRsp::CopyFrom(const WCCharacterMiniRsp& from) {
 
 bool WCCharacterMiniRsp::IsInitialized() const {
 
+  if (has_characterinfo()) {
+    if (!this->characterinfo().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2933,6 +2948,9 @@ void QueryCharFuncFightRsp::CopyFrom(const QueryCharFuncFightRsp& from) {
 
 bool QueryCharFuncFightRsp::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -3722,6 +3740,9 @@ void GWCharacterDetailRsp::CopyFrom(const GWCharacterDetailRsp& from) {
 
 bool GWCharacterDetailRsp::IsInitialized() const {
 
+  if (has_detail()) {
+    if (!this->detail().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4264,6 +4285,9 @@ void QueryCharacterDetailCrossServerRsp::CopyFrom(const QueryCharacterDetailCros
 
 bool QueryCharacterDetailCrossServerRsp::IsInitialized() const {
 
+  if (has_detail()) {
+    if (!this->detail().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4806,6 +4830,9 @@ void QueryCharacterMiniCrossServerRsp::CopyFrom(const QueryCharacterMiniCrossSer
 
 bool QueryCharacterMiniCrossServerRsp::IsInitialized() const {
 
+  if (has_miniinfo()) {
+    if (!this->miniinfo().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -5387,6 +5414,9 @@ void QueryCharFuncFightCrossRsp::CopyFrom(const QueryCharFuncFightCrossRsp& from
 
 bool QueryCharFuncFightCrossRsp::IsInitialized() const {
 
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
   return true;
 }
 

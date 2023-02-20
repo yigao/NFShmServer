@@ -1049,6 +1049,15 @@ void PlayerInfoRsp::CopyFrom(const PlayerInfoRsp& from) {
 
 bool PlayerInfoRsp::IsInitialized() const {
 
+  if (has_facade()) {
+    if (!this->facade().IsInitialized()) return false;
+  }
+  for (int i = 0; i < attr_size(); i++) {
+    if (!this->attr(i).IsInitialized()) return false;
+  }
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1308,6 +1317,9 @@ void CreatureAttrSyn::CopyFrom(const CreatureAttrSyn& from) {
 
 bool CreatureAttrSyn::IsInitialized() const {
 
+  for (int i = 0; i < attr_size(); i++) {
+    if (!this->attr(i).IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1556,6 +1568,9 @@ void CreatureAttrBroadRsp::CopyFrom(const CreatureAttrBroadRsp& from) {
 
 bool CreatureAttrBroadRsp::IsInitialized() const {
 
+  for (int i = 0; i < attr_size(); i++) {
+    if (!this->attr(i).IsInitialized()) return false;
+  }
   return true;
 }
 

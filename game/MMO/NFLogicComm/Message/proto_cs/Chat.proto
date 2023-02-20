@@ -1,0 +1,141 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+import "ComDefine.proto";
+
+//聊天消息类型
+enum CHAT_MSG_TYPE
+{
+	CHAT_MSG_TYPE_NONE		= 0;
+	CHAT_MSG_TYPE_FIREWORK  = 1;	//烟花(后端主动推送的，前端请求不要用这个类型)
+}
+
+//客户端发送的文本信息
+message ChatContentInfo
+{
+	required string describes = 1;			//文本内容
+	repeated ItemProtoInfo itemInfo = 2;	//物品信息
+	optional int64 hornid = 3;				//喇叭ID，跨服喇叭功能
+
+	//CTODO后续可以继续往这个结构体扩展装备宠物等等信息
+}
+
+//客户端请求发送聊天
+message CGChatMsgReq
+{
+	optional uint32 channel				= 1;					//聊天频道类型
+	optional ChatContentInfo chatContent		= 2;					//聊天内容
+	optional uint64 targetId					= 3;					//私聊ID
+	optional uint64 msgType						= 4;					//区分消息类型 详细查看 CHAT_MSG_TYPE 枚举
+}
+
+//聊天信息返回
+message GCChatMsgRsp
+{
+	optional uint32 channel						= 1;					//聊天频道类型
+	optional RolePlayerMiniInfo fromPlayerInfo	= 2;					//发送玩家信息
+	optional uint64 msgType							= 3;					//区分消息类型 详细查看 CHAT_MSG_TYPE 枚举
+	required ChatContentInfo chatContent			= 4;					//聊天内容
+	optional uint64 time_tick						= 5;					//服务器时间戳
+	optional uint32 ret								= 6;					//错误码
+	optional uint64 msgVal							= 7;					//消息类型 msgType 对应的值
+}
+
+//系统广播消息,传闻等等
+message GCSystemChatMsgNotify
+{
+	optional uint32 channel						= 1;					//聊天频道类型
+	optional uint64 msgType							= 2;					//区分消息类型
+	repeated RolePlayerMiniInfo players		= 3;					//玩家数据
+	repeated string text							= 4;					//突出显示的文本数据，例如：XXX副本 XXX怪物 XX工会 XX杀等等
+	repeated uint64 parmas							= 5;					//数字参数：颜色等级，工会id 副本id 等数据都按顺序填充到这个字段
+	optional string content                         = 6;                    //运营后台自定义内容
+	optional uint32 rumorCount                      = 7;                    //运营后台跑马灯显示次数
+	repeated ItemProtoInfo items					= 8;					//装备详细信息
+	//CTODO后续继续扩展
+}
+
+//请求离线消息
+message CWAskOfflineMsgReq
+{
+	optional uint64 charID							= 1;					//角色ID
+}
+
+//返回离线消息
+message WCAskOfflineMsgRsp
+{
+	optional uint32 msgSize							= 1;					//数据长度
+}
+
+//分段请求离线消息
+message CWIntrvalAskOfflineMsgReq
+{
+	optional uint64 charID							= 1;					//角色ID
+	optional uint32 size							= 2;					//每次请求的条数 可以按100条请求或者200条
+}
+
+//离线消息结构体
+message OfflineMsg
+{
+	optional RolePlayerMiniInfo playerInfo		= 1;					//发送方角色数据
+	required ChatContentInfo chatContent			= 2;					//聊天内容
+	optional uint64 sendTime						= 3;					//发送时间
+}
+
+message WCIntrvalAskOfflineMsgRsp
+{
+	repeated OfflineMsg offlineMsgList				= 1;					//离线数据
+}
+
+//请求查看玩家详细数据
+//message CWCharacterDetailReq
+//{
+//	required uint32 charID = 1;	//需要查看的玩家ID
+//	optional string name = 2;	//需要查看的玩家名字( charID 为0的时按 name 查找)
+//}
+
+//message WCCharacterDetailRsp
+//{
+//	required int32 retcode					= 1;	//返回码
+//	optional CharacterDetailProtoInfo info  = 2;	//详细信息
+//}
+
+
+
+
+//-----------------------------------以下是服务器内部通信协议客户端无需关心--------------------------------------------
+message GWChatMsgReq
+{
+	optional CHAT_CHANNEL channel				= 1;					//聊天频道类型
+	required ChatContentInfo chatContent		= 2;					//聊天内容
+	optional uint64	fromId						= 3;					//发送方ID
+	optional uint64 targetId					= 4;					//私聊ID
+	optional uint64 msgType						= 5;					//区分消息类型  详细查看 CHAT_MSG_TYPE 枚举
+	optional uint64 msgVal						= 6;					//消息类型 msgType 对应的值
+	repeated uint64 cid_lst						= 7;					//发送的玩家cid列表
+}
+
+//逻辑服通知世界服转发传闻或广播
+message GWSysChatMsgNotify
+{
+	optional CHAT_CHANNEL channel					= 1;					//聊天频道类型
+	optional uint64 msgType							= 2;					//区分消息类型
+	repeated RolePlayerMiniInfo players		= 3;					//玩家数据
+	repeated string text							= 4;					//突出显示的文本数据，例如：XXX副本 XXX怪物 XX工会 XX杀等等
+	repeated uint64 parmas							= 5;					//数字参数：颜色等级，工会id 副本id 等数据都按顺序填充到这个字段
+	optional uint64 extraid							= 6;
+	repeated ItemProtoInfo items					= 7;					//装备详细信息
+}
+
+message TransChatCrossServerProto
+{
+	optional CHAT_CHANNEL channel					= 1;					//聊天频道类型
+	required RolePlayerMiniInfo fromPlayerInfo	= 2;					//发送玩家信息
+	required ChatContentInfo chatContent			= 3;					//聊天内容
+	repeated uint64 toPlayers						= 4;					//发给谁,未设置该值则发给所有人
+}
+
