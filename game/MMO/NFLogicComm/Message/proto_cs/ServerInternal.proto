@@ -7,6 +7,12 @@ import "Com.proto";
 import "ComDefine.proto";
 
 
+//关闭服务器 SYS_CLOSE_SERVER
+message NotifyCloseServer
+{
+  optional string who = 1;
+  optional string reason = 2;
+}
 
 //web返回合服标记 WEB_TO_CENTER_MERGE_FLAG_RSP
 message WebToCenterMergeFlagRsp
@@ -276,4 +282,11 @@ message CenterToLogicVirForbidRsp
 {
   optional uint32 zid = 1;		//区服ID
   repeated uint64 vir_lst = 2;	//虚拟禁言cid列表
+}
+
+//中心服通知网关返回角色列表界面 NOTIFY_GATE_RETURN_ROLE_LIST
+message NotifyGateRetRoleList
+{
+  required uint32 clientid = 1;
+  required uint32 uid = 2;
 }

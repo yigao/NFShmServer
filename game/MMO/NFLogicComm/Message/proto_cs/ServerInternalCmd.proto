@@ -77,6 +77,8 @@ enum ServerInternalCmd
   DB_ROLE_CHG_NAME_REQ			 = 326;			//请求 角色改名
   DB_ROLE_CHG_NAME_RSP			 = 327;			//返回 角色改名
 
+  NOTIFY_GATE_RETURN_ROLE_LIST	 = 328;			//中心服通知网关返回角色列表界面
+
 
   //场景 400 - 450
   CENTER_CREATE_SCENE_REQ_LOGIC								= 401;  //中心服通知逻辑服服创建场景
@@ -161,6 +163,16 @@ enum ServerInternalCmd
   S2C_ENTER_DUP_REQ						= 605;			//社交服请求进入副本
   C2S_ENTER_DUP_RSP						= 606;			//中心服返回进入副本结果
   L2C_TOWER_RECV_RECORD_REQ				= 607;			//逻辑服玩家领取爬塔奖励通知中心服
+  L2S_ENTER_DUP_REQ						= 608;			//逻辑服请求进入社交服副本
+  L2S_DUP_TEAM_INVITE_REQ					= 609;			//逻辑服邀请玩家进副本
+  C2S_CREATE_DUP_RESULT_RSP				= 610;			//中心服返回创建副本结果给社交服
+  S2C_NOTIFY_CHAR_ENTER_DUP				= 611;			//社交服通知中心服让玩家进副本
+  NOTIFY_REBOT_ENTER_DUP					= 612;			//社交服通知逻辑服让竞技场机器人进副本
+  L2S_DUP_TEAM_OPT_REQ					= 613;			//逻辑服队伍同意或拒绝给社交服
+  S2C_NOFITY_ROLE_REBOT_ENTER_DUP			= 614;			//社交服通知中心服拉取玩家机器人进入副本
+  C2L_ROLE_ROBOT_ENTER_DUP_REQ			= 615;			//中心服玩家机器人进入副本
+  L2C_DUP_RESULT_RSP						= 616;			//逻辑服通知中心服副本结果
+  C2S_NOTIFY_DUP_FINISH_RSP				= 617;			//中心服通知社交服副本产生结果
 
 
   //全局数据
@@ -172,6 +184,7 @@ enum ServerInternalCmd
   L2C_UPDATE_BOSS_REQ						= 660;			//更新BOSS数据
   L2C_SYN_ATTENT_REQ						= 661;			//同步关注信息
   L2C_KILL_BOSS_REQ						= 662;			//击杀boss信息
+  L2C_BOSS_DROP_REQ						= 663;			//boss掉落数据
 
   //活动 700 - 800
   DB_ACT_GET_DATA_REQ						= 700;			//获取活动数据
@@ -185,16 +198,53 @@ enum ServerInternalCmd
   ACT_LS_PRE_FINISH_REQ					= 707;			//场景服通知跨服活动提前完成
   ACT_CL_INIT_DATA_REQ					= 708;			//中心服通知逻辑服 重新去社交服拉取活动数据
 
+  //竞技场
+  SERVER_INTERAL_ARENA_BEIN								= 750;
+  CENTER_TO_LOGIC_ARENA_RANK_INFO							= 751;    //中心服返回竞技结果给逻辑服
+  LOGIC_TO_CENTER_ARENA_CHALL_RESULT						= 752;	  //逻辑服通知中心服竞技场结果
+  CENTER_TO_LOGIC_ARENA_RANK_CHANGE						= 753;	  //中心副通知逻辑服玩家竞技场排名改变
+  LOGIC_TO_CENTER_ARENA_CAMP_CHALL_RESULT					= 754;	  //逻辑服通知中心服阵营首领挑战结果
+  LOGIC_TO_CENTER_ARENA_CHALL_REQ							= 755;	  //逻辑服请求中心服开始挑战
+  CENTER_TO_LOGIC_ADD_REWARD								= 756;
+  //
+  CENTER_TO_LOGIC_ARENA_DUP_BATTLE_RESULT						= 757; //
+
+  SERVER_INTERAL_ARENA_END								= 800;
+
+  //玩家镜像 810 - 820
+  DB_ROLE_MIRROR_REQ						= 810;			//请求玩家镜像数据
+  DB_ROLE_MIRROR_RSP						= 811;			//返回玩家镜像数据
 
 
+  //队伍 850 - 900
+  SOCIAL_TO_CENTER_CREATE_TEAM			= 850;		//社交服通知中心服创建队伍
+  SOCIAL_TO_CENTER_CHAR_JOIN_TEAM			= 851;		//社交服通知中心服玩家加入队伍
+  SOCIAL_TO_CENTER_CHAR_QUIT_TEAM			= 852;		//社交服通知中心服玩家加入队伍
+  SOCIAL_TO_CENTER_TEAM_LEADER			= 853;		//社交服通知中心服队长改变
+  SOCIAL_TO_CENTER_TEAM_DISMISS			= 854;		//社交服通知中心服队伍解散
+  SOCIAL_TO_CENTER_TEAM_MEM_UPDATE		= 855;		//社交服通知中心服队伍成员信息更新
+
+  CENTER_TO_LOGIC_UPDATE_TEAM_NOTIFY		= 856;		//中心服通知逻辑服 组队信息更新
+  CENTER_TO_LOGIC_DISMISS_TEAM_NOTIFY		= 857;		//中心服通知逻辑服 队伍解散
+
+  CENTER_TO_LOGIC_UPDATE_TEAM_CLONESS_NOTIFY = 858;	//中心服通知逻辑服 玩家队伍亲密度等级
+  CENTER_TO_LOGIC_TEAM_INFO_NOTIFY		= 859;	    //中心服通知逻辑服 队伍信息
+
+  LOGIC_TO_SOCIAL_TEAM_ROBOT_HP_SYNC		= 860;		//逻辑服组队机器人同步血量到社交服
 
 
-
+  //帮派 900 - 1000
+  DB_FACTION_GET_ALL_DATA_REQ				= 901;		//获取所有帮派数据
+  DB_FACTION_GET_ALL_DATA_RSP				= 902;		//DB返回所有帮派数据
+  DB_FACTION_SAVE_DATA_REQ				= 903;		//保存帮派数据
+  DB_FACTION_DEL_REQ						= 904;		//删除帮派数据
+  FACTION_CL_ROLE_UPDATE					= 905;		//中心服返回逻辑服更新角色帮派信息
+  FACTION_LC_CREATE						= 906;		//逻辑服请求中心服创建帮派
+  FACTION_CL_CREATE_RESULT				= 907;		//中心服返回逻辑服创建帮派成功
+  FACTION_LC_CHG_NAME						= 908;		//逻辑服请求中心服帮派改名
+  FACTION_CL_CHG_NAME_RESULT				= 909;		//中心服返回逻辑服帮派改名结果
 
 
 
   SERVER_INTER_MAX_CMD					= 5000;	  //最大协议ID
-
-
-
 };

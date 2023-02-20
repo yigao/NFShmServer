@@ -1,0 +1,194 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//任务完成条件数据
+message CItemInfo
+{
+	optional uint32 type = 1;           //完成类型(第一个参数)
+	optional uint64	id	= 2;			//任务完成目标ID(第二个参数)
+	optional uint32 curValue = 3;		//任务当前值
+	optional uint32 finValue = 4;		//任务完成值(第三个参数)
+	optional uint64 parma1	= 5;        //可选参数1(第四个参数)
+	optional uint64 parma2	= 6;		//可选参数2(第五个参数)
+	optional uint64 parma3	= 7;		//可选参数3(第六个参数)
+}
+
+//任务属性
+message MissionAttrProto
+{
+	optional int32 attrid = 1; //属性ID,策划配置表中的属性ID
+	optional int32 attrval = 2;//属性值
+	optional int32 ration = 3; //属性系数(注：实际系数需要除以10)
+}
+//所有的任务属性
+message MissionAllAttrProto
+{
+	repeated MissionAttrProto attr = 1;
+}
+
+message DyMissionBountyParam
+{
+	optional uint32 ten_state = 1; //对赏金任务来说, 0:表示 10 次 未达到 1表示10次未领取 2表示已经领取
+	optional uint32 twenty_state = 2; //对赏金任务来说, 0:表示 20 次 未达到 1表示20次未领取 2表示已经领取
+}
+
+//动态任务周期内已完成次数
+message DyMissionCntProto
+{
+	optional uint32 missiontype = 1; //动态任务类型
+	optional int32 accept_num = 2;	//周期内已经接取次数
+	optional DyMissionBountyParam bounty_param = 3; //赏金任务参数
+}
+//所有的动态任务周期内已完成次数
+message DyMissionCntAllProto
+{
+	repeated DyMissionCntProto count = 1;
+}
+
+message CMissionTrack
+{
+	repeated CItemInfo itemInfo				 = 1; //完成条件
+	optional uint64 missionId				 = 2; //任务id(配置ID)
+	optional uint64 dynamicid				 = 3; //动态任务ID(动态任务用到)
+	optional uint32 status					 = 4; //任务状态 1可接 2已接 3已完成 4已提交 5失败
+	optional uint64 accepttime				 = 5; //接取时间
+	optional uint64	textid					 = 6; //前端显示用的id(对应taskcontent中text表,针对动态任务的)
+	// 如果用到其他字段，在这里添加
+}
+
+//提交物品信息
+message SubmitMissionInfo
+{
+	optional uint32 index = 1;
+	optional uint32 goodsNum = 2;
+}
+
+// -------------------------------------------------------------------------------- 
+
+
+
+//玩家上线拉取任务列表
+message CGQueryMissionListReq
+{
+	//空
+}
+
+//任务列表返回
+message GCQueryMissionListRsp
+{
+	repeated CMissionTrack acceptedList = 1;		//已接的任务列表
+	optional DyMissionCntAllProto dy_count = 2;		//动态任务周期内的次数数据
+}
+
+//npc接取任务  工会，环任务
+message CGNpcAcceptMissionReq
+{
+	optional int32 missiontype = 1; //任务类型 （工会，环任务）
+}
+
+//接取任务返回
+message CGNpcAcceptMissionRsp
+{
+	optional uint32 retcode = 1;		//返回码
+	optional int32 missiontype = 3;		//任务类型 （工会，环任务）
+}
+
+//提交任务
+message CGSubmitMissionReq
+{
+	optional uint64 dynamicid = 1;	//提交的任务的动态ID
+	optional uint32 index = 2;		//领取奖励对应的索引 1表示第一个奖励 2表示第二个奖励
+}
+
+//提交任务返回
+message GCSubmitMissionRsp
+{
+	optional uint32 ret = 1;		//状态码  ERetCode
+	optional uint64 dynamicid = 2;  //提交任务的动态ID
+}
+
+//任务进度更新
+message GCUpdateMissionStatusNotify
+{
+	repeated CMissionTrack updateList = 1; //更新任务列表
+}
+
+//删除已接任务列表
+message GCDeleteMissionNotify
+{
+	repeated uint64 dynamicid = 1;
+}
+
+// 更新动态任务已经接取次数
+message GCUpdateDyAcceptCount
+{
+	optional DyMissionCntAllProto dy_count = 1;		//动态任务周期内的次数数据
+}
+
+//和npc交谈,到达区域,完成行为，区域刷怪，新手引导步骤
+message CGTalkWithNpcReq
+{
+	optional uint64 npcId = 1;		//npc对话-npcid,到达区域-区域ID，完成行为-行为ID，区域刷怪-不用赋值，新手引导步骤-引导步骤id
+	optional uint64 dynamicid = 2;	//任务的动态ID
+	optional Vector3PB pos = 3;		//玩家当前位置(预留，以后后端做玩家位置校验用)
+	optional uint32 type = 4;		//完成条件类型,策划文档中定义的类型
+}
+
+//提交物品请求
+message CGSubmitMissionGoodsReq
+{
+	repeated SubmitMissionInfo infoList = 1;
+	optional uint64  dynamicid = 2; //任务动态ID
+}
+//提交物品返回
+message GCSubmitMissionGoodsRsp
+{
+	optional int32 ret = 1;
+}
+
+
+//一键完成任务
+message CGOnekeyMissionReq
+{
+	optional int32 type = 1;   //类型，1-诺林冒险，2-工会任务,3-赏金任务
+	optional int32 num = 2;
+}
+
+//返回一键完任务
+message CGOnekeyMissionRsp
+{
+	required int32 retcode = 1;					//返回码
+	optional int32 accept_num = 2;				//已经接取了的次数
+	repeated int64 gold_lst = 3;				//金币列表
+	repeated int64 exp_lst = 4;					//经验列表
+	optional int32 type = 5;   					//类型，1-诺林冒险，2-工会任务
+}
+
+//立即完成任务
+message CGOnceMissionReq
+{
+}
+
+//返回 立即完成任务
+message CGOnceMissionRsp
+{
+	required int32 retcode = 1;					//返回码
+}
+
+//CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD = 374; //领取特殊奖励
+message CGMissionRecvSpecialReward
+{
+	optional int32 type = 1; //1:赏金任务10次奖励 2:赏金任务20次奖励
+}
+
+//LOGIC_TO_CLIENT_MISSION_RECV_SPICIAL_REWARD = 375; //领取特殊奖励
+message GCMissionRecvSpecialReward
+{
+	required int32 retcode = 1;					//返回码
+	optional int32 type = 2;
+}

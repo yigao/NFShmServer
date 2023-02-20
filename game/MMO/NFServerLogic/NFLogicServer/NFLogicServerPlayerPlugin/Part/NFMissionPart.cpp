@@ -285,14 +285,11 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     //填充完成条件信息 多任务条件
 
     //接取任务获取中间道具
-    SMissionParam param;
-    param.missionId = pMissionInfo->missionId;
-    param.strPre = "OnAccept";
-    AddReward(pPlayer, pMissionInfo->kind, pMissionInfo->receAdd, param);
+    AddReward(pMissionInfo->missionId, pMissionInfo->kind, pMissionInfo->receAdd);
     //填充任务数据信息
     pMissionTrack->missionId = missionId;
     pMissionTrack->dynamicId = missionId; //主支线任务动态任务ID和配置ID一样
-    pMissionTrack->acceptMissionTime = Time::Now().sec();
+    pMissionTrack->acceptMissionTime = NFTime::Now().UnixSec();
     pMissionTrack->status = MISSION_E_ACCEPTED;
     if (proto_ff::RET_SUCCESS != OnExtractCond(pMissionInfo, pMissionTrack))
     {
@@ -305,7 +302,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     //通知接取状态
     if (notify)
     {
-        pMissionPart->UpdateMissionProgress(missionId);
+        UpdateMissionProgress(missionId);
     }
 
 
@@ -350,10 +347,10 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     //如果任务已接取就完成需要 再次通知客户端
     if (isCompletedFlag && notify)
     {
-        pMissionPart->UpdateMissionProgress(missionId);
+        UpdateMissionProgress(missionId);
     }
 
-    pMissionPart->OnAccept(missionId, pMissionInfo->kind);
+    OnAccept(missionId, pMissionInfo->kind);
 
     //日志
 
@@ -834,4 +831,25 @@ bool NFMissionPart::CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
         lstOutItem.insert(lstOutItem.end(), addItems.begin(), addItems.end());
     }
     return true;
+}
+
+//更新任务进度
+void NFMissionPart::UpdateMissionProgress(uint64_t missionId)
+{
+    PlayerTrackMissionMap::const_iterator missionIte = _playerTrackMissionMap.find(missionId);
+    if (missionIte != _playerTrackMissionMap.end())
+    {
+        proto_ff::GCUpdateMissionStatusNotify notify;
+        proto_ff::CMissionTrack *pMissionTrack = notify.add_updatelist();
+        if (nullptr != pMissionTrack)
+        {
+            g_GetMissionManager()->SetMissionTrackProto(missionIte->second, *pMissionTrack);
+            for (uint32_t i = 0; i < missionIte->second->items.size(); i++)
+            {
+                MMOLOG_FMT_DEBUG("[logic] Update DyId=%lu,MID=%lu,Status:%d, CondType=%u,textid:%lu,id=%lu, CurValue=%u, FinValue=%u, param1:%lu,param2:%lu,param3:%lu cid:%lu ", missionId, missionIte->second->missionId, missionIte->second->status, missionIte->second->items[i].type, missionIte->second->textId, missionIte->second->items[i].itemId,
+                                 missionIte->second->items[i].currentValue, missionIte->second->items[i].finalValue, missionIte->second->items[i].parma1, missionIte->second->items[i].parma2, missionIte->second->items[i].parma3, cid);
+            }
+            m_pMaster->SendClient(LOGIC_TO_CLIENT_UPDATEMISSIONSTATUSNOTIFY, &notify);
+        }
+    }
 }

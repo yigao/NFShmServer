@@ -20,6 +20,15 @@ namespace proto_ff {
 
 namespace {
 
+const ::google::protobuf::Descriptor* SkillAdvanceProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvancePosProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvancePosProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceListProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceListProto_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SkillInfoProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SkillInfoProto_reflection_ = NULL;
@@ -83,6 +92,45 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SkillChgPosRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SkillChgPosRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillUpgradeReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillUpgradeReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillUpgradeRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillUpgradeRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillSetAutoUseReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillSetAutoUseReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillSetAutoUseRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillSetAutoUseRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceChgPosReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceChgPosReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceChgPosRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceChgPosRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceResetReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceResetReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceResetRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceResetRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceUpdateRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceUpdateRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceUnlockPosReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceUnlockPosReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SkillAdvanceUnlockPosRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SkillAdvanceUnlockPosRsp_reflection_ = NULL;
 
 }  // namespace
 
@@ -93,12 +141,61 @@ void protobuf_AssignDesc_Skill_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "Skill.proto");
   GOOGLE_CHECK(file != NULL);
-  SkillInfoProto_descriptor_ = file->message_type(0);
-  static const int SkillInfoProto_offsets_[4] = {
+  SkillAdvanceProto_descriptor_ = file->message_type(0);
+  static const int SkillAdvanceProto_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceProto, advance_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceProto, level_),
+  };
+  SkillAdvanceProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceProto_descriptor_,
+      SkillAdvanceProto::default_instance_,
+      SkillAdvanceProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceProto));
+  SkillAdvancePosProto_descriptor_ = file->message_type(1);
+  static const int SkillAdvancePosProto_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvancePosProto, pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvancePosProto, advance_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvancePosProto, unlock_),
+  };
+  SkillAdvancePosProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvancePosProto_descriptor_,
+      SkillAdvancePosProto::default_instance_,
+      SkillAdvancePosProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvancePosProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvancePosProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvancePosProto));
+  SkillAdvanceListProto_descriptor_ = file->message_type(2);
+  static const int SkillAdvanceListProto_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceListProto, pos_lst_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceListProto, lst_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceListProto, curpos_),
+  };
+  SkillAdvanceListProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceListProto_descriptor_,
+      SkillAdvanceListProto::default_instance_,
+      SkillAdvanceListProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceListProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceListProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceListProto));
+  SkillInfoProto_descriptor_ = file->message_type(3);
+  static const int SkillInfoProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoProto, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoProto, level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoProto, wakeup_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoProto, advance_),
   };
   SkillInfoProto_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -111,7 +208,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillInfoProto));
-  SkillInfoListProto_descriptor_ = file->message_type(1);
+  SkillInfoListProto_descriptor_ = file->message_type(4);
   static const int SkillInfoListProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoListProto, lst_),
   };
@@ -126,7 +223,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillInfoListProto));
-  SkillUseReq_descriptor_ = file->message_type(2);
+  SkillUseReq_descriptor_ = file->message_type(5);
   static const int SkillUseReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUseReq, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUseReq, dir_),
@@ -145,10 +242,11 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillUseReq));
-  SkillSyncTargetReq_descriptor_ = file->message_type(3);
-  static const int SkillSyncTargetReq_offsets_[2] = {
+  SkillSyncTargetReq_descriptor_ = file->message_type(6);
+  static const int SkillSyncTargetReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSyncTargetReq, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSyncTargetReq, cid_lst_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSyncTargetReq, is_extend_),
   };
   SkillSyncTargetReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -161,7 +259,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillSyncTargetReq));
-  SkillCancalUseReq_descriptor_ = file->message_type(4);
+  SkillCancalUseReq_descriptor_ = file->message_type(7);
   static const int SkillCancalUseReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCancalUseReq, skill_id_),
   };
@@ -176,7 +274,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillCancalUseReq));
-  SkillUseResultBroadRsp_descriptor_ = file->message_type(5);
+  SkillUseResultBroadRsp_descriptor_ = file->message_type(8);
   static const int SkillUseResultBroadRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUseResultBroadRsp, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUseResultBroadRsp, cid_),
@@ -214,7 +312,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillUseResultBroadRsp_Target));
-  SkillUseBroadRsp_descriptor_ = file->message_type(6);
+  SkillUseBroadRsp_descriptor_ = file->message_type(9);
   static const int SkillUseBroadRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUseBroadRsp, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUseBroadRsp, dir_),
@@ -234,7 +332,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillUseBroadRsp));
-  SkillWarnBroadRsp_descriptor_ = file->message_type(7);
+  SkillWarnBroadRsp_descriptor_ = file->message_type(10);
   static const int SkillWarnBroadRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillWarnBroadRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillWarnBroadRsp, skill_id_),
@@ -252,7 +350,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillWarnBroadRsp));
-  SkillCancelUseBroadRsp_descriptor_ = file->message_type(8);
+  SkillCancelUseBroadRsp_descriptor_ = file->message_type(11);
   static const int SkillCancelUseBroadRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCancelUseBroadRsp, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillCancelUseBroadRsp, cid_),
@@ -268,7 +366,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillCancelUseBroadRsp));
-  SkillGroupUpdateRsp_descriptor_ = file->message_type(9);
+  SkillGroupUpdateRsp_descriptor_ = file->message_type(12);
   static const int SkillGroupUpdateRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillGroupUpdateRsp, skill_group_),
   };
@@ -283,7 +381,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillGroupUpdateRsp));
-  SkillInfoReq_descriptor_ = file->message_type(10);
+  SkillInfoReq_descriptor_ = file->message_type(13);
   static const int SkillInfoReq_offsets_[1] = {
   };
   SkillInfoReq_reflection_ =
@@ -297,9 +395,10 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillInfoReq));
-  SkillInfoRsp_descriptor_ = file->message_type(11);
-  static const int SkillInfoRsp_offsets_[1] = {
+  SkillInfoRsp_descriptor_ = file->message_type(14);
+  static const int SkillInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoRsp, info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoRsp, advance_info_),
   };
   SkillInfoRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -312,7 +411,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillInfoRsp));
-  SkillInfoUpdateRsp_descriptor_ = file->message_type(12);
+  SkillInfoUpdateRsp_descriptor_ = file->message_type(15);
   static const int SkillInfoUpdateRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoUpdateRsp, info_),
   };
@@ -327,7 +426,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillInfoUpdateRsp));
-  SkillGroupChgReq_descriptor_ = file->message_type(13);
+  SkillGroupChgReq_descriptor_ = file->message_type(16);
   static const int SkillGroupChgReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillGroupChgReq, group_),
   };
@@ -342,7 +441,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillGroupChgReq));
-  SkillGroupChgRsp_descriptor_ = file->message_type(14);
+  SkillGroupChgRsp_descriptor_ = file->message_type(17);
   static const int SkillGroupChgRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillGroupChgRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillGroupChgRsp, group_),
@@ -358,7 +457,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillGroupChgRsp));
-  SkillInfoDelRsp_descriptor_ = file->message_type(15);
+  SkillInfoDelRsp_descriptor_ = file->message_type(18);
   static const int SkillInfoDelRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillInfoDelRsp, skill_lst_),
   };
@@ -373,7 +472,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillInfoDelRsp));
-  SkillWakeupReq_descriptor_ = file->message_type(16);
+  SkillWakeupReq_descriptor_ = file->message_type(19);
   static const int SkillWakeupReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillWakeupReq, skill_id_),
   };
@@ -388,7 +487,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillWakeupReq));
-  SkillWakeupRsp_descriptor_ = file->message_type(17);
+  SkillWakeupRsp_descriptor_ = file->message_type(20);
   static const int SkillWakeupRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillWakeupRsp, ret_),
   };
@@ -403,7 +502,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillWakeupRsp));
-  SkillChgPosReq_descriptor_ = file->message_type(18);
+  SkillChgPosReq_descriptor_ = file->message_type(21);
   static const int SkillChgPosReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillChgPosReq, skill_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillChgPosReq, pos_),
@@ -419,7 +518,7 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillChgPosReq));
-  SkillChgPosRsp_descriptor_ = file->message_type(19);
+  SkillChgPosRsp_descriptor_ = file->message_type(22);
   static const int SkillChgPosRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillChgPosRsp, ret_),
   };
@@ -434,6 +533,201 @@ void protobuf_AssignDesc_Skill_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SkillChgPosRsp));
+  SkillUpgradeReq_descriptor_ = file->message_type(23);
+  static const int SkillUpgradeReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeReq, skill_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeReq, type_),
+  };
+  SkillUpgradeReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillUpgradeReq_descriptor_,
+      SkillUpgradeReq::default_instance_,
+      SkillUpgradeReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillUpgradeReq));
+  SkillUpgradeRsp_descriptor_ = file->message_type(24);
+  static const int SkillUpgradeRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeRsp, ret_),
+  };
+  SkillUpgradeRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillUpgradeRsp_descriptor_,
+      SkillUpgradeRsp::default_instance_,
+      SkillUpgradeRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillUpgradeRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillUpgradeRsp));
+  SkillSetAutoUseReq_descriptor_ = file->message_type(25);
+  static const int SkillSetAutoUseReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseReq, skill_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseReq, is_auto_),
+  };
+  SkillSetAutoUseReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillSetAutoUseReq_descriptor_,
+      SkillSetAutoUseReq::default_instance_,
+      SkillSetAutoUseReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillSetAutoUseReq));
+  SkillSetAutoUseRsp_descriptor_ = file->message_type(26);
+  static const int SkillSetAutoUseRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseRsp, ret_),
+  };
+  SkillSetAutoUseRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillSetAutoUseRsp_descriptor_,
+      SkillSetAutoUseRsp::default_instance_,
+      SkillSetAutoUseRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillSetAutoUseRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillSetAutoUseRsp));
+  SkillAdvanceReq_descriptor_ = file->message_type(27);
+  static const int SkillAdvanceReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceReq, advance_),
+  };
+  SkillAdvanceReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceReq_descriptor_,
+      SkillAdvanceReq::default_instance_,
+      SkillAdvanceReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceReq));
+  SkillAdvanceRsp_descriptor_ = file->message_type(28);
+  static const int SkillAdvanceRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceRsp, ret_),
+  };
+  SkillAdvanceRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceRsp_descriptor_,
+      SkillAdvanceRsp::default_instance_,
+      SkillAdvanceRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceRsp));
+  SkillAdvanceChgPosReq_descriptor_ = file->message_type(29);
+  static const int SkillAdvanceChgPosReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceChgPosReq, pos_),
+  };
+  SkillAdvanceChgPosReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceChgPosReq_descriptor_,
+      SkillAdvanceChgPosReq::default_instance_,
+      SkillAdvanceChgPosReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceChgPosReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceChgPosReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceChgPosReq));
+  SkillAdvanceChgPosRsp_descriptor_ = file->message_type(30);
+  static const int SkillAdvanceChgPosRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceChgPosRsp, ret_),
+  };
+  SkillAdvanceChgPosRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceChgPosRsp_descriptor_,
+      SkillAdvanceChgPosRsp::default_instance_,
+      SkillAdvanceChgPosRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceChgPosRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceChgPosRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceChgPosRsp));
+  SkillAdvanceResetReq_descriptor_ = file->message_type(31);
+  static const int SkillAdvanceResetReq_offsets_[1] = {
+  };
+  SkillAdvanceResetReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceResetReq_descriptor_,
+      SkillAdvanceResetReq::default_instance_,
+      SkillAdvanceResetReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceResetReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceResetReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceResetReq));
+  SkillAdvanceResetRsp_descriptor_ = file->message_type(32);
+  static const int SkillAdvanceResetRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceResetRsp, ret_),
+  };
+  SkillAdvanceResetRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceResetRsp_descriptor_,
+      SkillAdvanceResetRsp::default_instance_,
+      SkillAdvanceResetRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceResetRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceResetRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceResetRsp));
+  SkillAdvanceUpdateRsp_descriptor_ = file->message_type(33);
+  static const int SkillAdvanceUpdateRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUpdateRsp, advance_info_),
+  };
+  SkillAdvanceUpdateRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceUpdateRsp_descriptor_,
+      SkillAdvanceUpdateRsp::default_instance_,
+      SkillAdvanceUpdateRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUpdateRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUpdateRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceUpdateRsp));
+  SkillAdvanceUnlockPosReq_descriptor_ = file->message_type(34);
+  static const int SkillAdvanceUnlockPosReq_offsets_[1] = {
+  };
+  SkillAdvanceUnlockPosReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceUnlockPosReq_descriptor_,
+      SkillAdvanceUnlockPosReq::default_instance_,
+      SkillAdvanceUnlockPosReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUnlockPosReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUnlockPosReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceUnlockPosReq));
+  SkillAdvanceUnlockPosRsp_descriptor_ = file->message_type(35);
+  static const int SkillAdvanceUnlockPosRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUnlockPosRsp, ret_),
+  };
+  SkillAdvanceUnlockPosRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SkillAdvanceUnlockPosRsp_descriptor_,
+      SkillAdvanceUnlockPosRsp::default_instance_,
+      SkillAdvanceUnlockPosRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUnlockPosRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SkillAdvanceUnlockPosRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SkillAdvanceUnlockPosRsp));
 }
 
 namespace {
@@ -446,6 +740,12 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceProto_descriptor_, &SkillAdvanceProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvancePosProto_descriptor_, &SkillAdvancePosProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceListProto_descriptor_, &SkillAdvanceListProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SkillInfoProto_descriptor_, &SkillInfoProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -488,11 +788,43 @@ void protobuf_RegisterTypes(const ::std::string&) {
     SkillChgPosReq_descriptor_, &SkillChgPosReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SkillChgPosRsp_descriptor_, &SkillChgPosRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillUpgradeReq_descriptor_, &SkillUpgradeReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillUpgradeRsp_descriptor_, &SkillUpgradeRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillSetAutoUseReq_descriptor_, &SkillSetAutoUseReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillSetAutoUseRsp_descriptor_, &SkillSetAutoUseRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceReq_descriptor_, &SkillAdvanceReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceRsp_descriptor_, &SkillAdvanceRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceChgPosReq_descriptor_, &SkillAdvanceChgPosReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceChgPosRsp_descriptor_, &SkillAdvanceChgPosRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceResetReq_descriptor_, &SkillAdvanceResetReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceResetRsp_descriptor_, &SkillAdvanceResetRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceUpdateRsp_descriptor_, &SkillAdvanceUpdateRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceUnlockPosReq_descriptor_, &SkillAdvanceUnlockPosReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SkillAdvanceUnlockPosRsp_descriptor_, &SkillAdvanceUnlockPosRsp::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_Skill_2eproto() {
+  delete SkillAdvanceProto::default_instance_;
+  delete SkillAdvanceProto_reflection_;
+  delete SkillAdvancePosProto::default_instance_;
+  delete SkillAdvancePosProto_reflection_;
+  delete SkillAdvanceListProto::default_instance_;
+  delete SkillAdvanceListProto_reflection_;
   delete SkillInfoProto::default_instance_;
   delete SkillInfoProto_reflection_;
   delete SkillInfoListProto::default_instance_;
@@ -535,6 +867,32 @@ void protobuf_ShutdownFile_Skill_2eproto() {
   delete SkillChgPosReq_reflection_;
   delete SkillChgPosRsp::default_instance_;
   delete SkillChgPosRsp_reflection_;
+  delete SkillUpgradeReq::default_instance_;
+  delete SkillUpgradeReq_reflection_;
+  delete SkillUpgradeRsp::default_instance_;
+  delete SkillUpgradeRsp_reflection_;
+  delete SkillSetAutoUseReq::default_instance_;
+  delete SkillSetAutoUseReq_reflection_;
+  delete SkillSetAutoUseRsp::default_instance_;
+  delete SkillSetAutoUseRsp_reflection_;
+  delete SkillAdvanceReq::default_instance_;
+  delete SkillAdvanceReq_reflection_;
+  delete SkillAdvanceRsp::default_instance_;
+  delete SkillAdvanceRsp_reflection_;
+  delete SkillAdvanceChgPosReq::default_instance_;
+  delete SkillAdvanceChgPosReq_reflection_;
+  delete SkillAdvanceChgPosRsp::default_instance_;
+  delete SkillAdvanceChgPosRsp_reflection_;
+  delete SkillAdvanceResetReq::default_instance_;
+  delete SkillAdvanceResetReq_reflection_;
+  delete SkillAdvanceResetRsp::default_instance_;
+  delete SkillAdvanceResetRsp_reflection_;
+  delete SkillAdvanceUpdateRsp::default_instance_;
+  delete SkillAdvanceUpdateRsp_reflection_;
+  delete SkillAdvanceUnlockPosReq::default_instance_;
+  delete SkillAdvanceUnlockPosReq_reflection_;
+  delete SkillAdvanceUnlockPosRsp::default_instance_;
+  delete SkillAdvanceUnlockPosRsp_reflection_;
 }
 
 void protobuf_AddDesc_Skill_2eproto() {
@@ -548,48 +906,73 @@ void protobuf_AddDesc_Skill_2eproto() {
   ::proto_ff::protobuf_AddDesc_Com_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013Skill.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\032\022common_logic.proto\032\tCom.proto\"R\n"
-    "\016SkillInfoProto\022\020\n\010skill_id\030\001 \001(\004\022\r\n\005lev"
-    "el\030\002 \001(\005\022\016\n\006wakeup\030\003 \001(\005\022\017\n\007advance\030\004 \001("
-    "\005\";\n\022SkillInfoListProto\022%\n\003lst\030\001 \003(\0132\030.p"
-    "roto_ff.SkillInfoProto\"\235\001\n\013SkillUseReq\022\020"
-    "\n\010skill_id\030\001 \002(\004\022 \n\003dir\030\002 \002(\0132\023.proto_ff"
-    ".Vector3PB\022 \n\003pos\030\003 \002(\0132\023.proto_ff.Vecto"
-    "r3PB\022\017\n\007cid_lst\030\004 \003(\004\022\'\n\ntarget_pos\030\005 \001("
-    "\0132\023.proto_ff.Vector3PB\"7\n\022SkillSyncTarge"
-    "tReq\022\020\n\010skill_id\030\001 \002(\004\022\017\n\007cid_lst\030\002 \003(\004\""
-    "%\n\021SkillCancalUseReq\022\020\n\010skill_id\030\001 \002(\004\"\256"
-    "\002\n\026SkillUseResultBroadRsp\022\020\n\010skill_id\030\001 "
-    "\002(\004\022\013\n\003cid\030\002 \002(\004\022;\n\ntarget_lst\030\003 \003(\0132\'.p"
-    "roto_ff.SkillUseResultBroadRsp.Target\032\267\001"
-    "\n\006Target\022\013\n\003cid\030\001 \002(\004\022\036\n\004attr\030\002 \003(\0132\020.pr"
-    "oto_ff.Attr64\022$\n\007digital\030\003 \003(\0132\023.proto_f"
-    "f.DigPerfor\022\016\n\006beDead\030\004 \001(\010\022\024\n\014isDeadBeb"
-    "ack\030\005 \001(\010\022&\n\tbebackDir\030\006 \001(\0132\023.proto_ff."
-    "Vector3PB\022\014\n\004type\030\007 \001(\005\"\263\001\n\020SkillUseBroa"
-    "dRsp\022\020\n\010skill_id\030\001 \002(\004\022 \n\003dir\030\002 \002(\0132\023.pr"
-    "oto_ff.Vector3PB\022\013\n\003cid\030\003 \002(\004\022\017\n\007cid_lst"
-    "\030\004 \003(\004\022\'\n\ntarget_pos\030\005 \001(\0132\023.proto_ff.Ve"
-    "ctor3PB\022$\n\007pos_lst\030\006 \003(\0132\023.proto_ff.Vect"
-    "or3PB\"\201\001\n\021SkillWarnBroadRsp\022\013\n\003cid\030\001 \002(\004"
-    "\022\020\n\010skill_id\030\002 \002(\004\022\'\n\ntarget_pos\030\003 \001(\0132\023"
-    ".proto_ff.Vector3PB\022$\n\007pos_lst\030\004 \003(\0132\023.p"
-    "roto_ff.Vector3PB\"7\n\026SkillCancelUseBroad"
-    "Rsp\022\020\n\010skill_id\030\001 \002(\004\022\013\n\003cid\030\002 \002(\004\"I\n\023Sk"
-    "illGroupUpdateRsp\0222\n\013skill_group\030\001 \001(\0132\035"
-    ".proto_ff.SkillGroupListProto\"\016\n\014SkillIn"
-    "foReq\":\n\014SkillInfoRsp\022*\n\004info\030\001 \001(\0132\034.pr"
-    "oto_ff.SkillInfoListProto\"@\n\022SkillInfoUp"
-    "dateRsp\022*\n\004info\030\001 \001(\0132\034.proto_ff.SkillIn"
-    "foListProto\"!\n\020SkillGroupChgReq\022\r\n\005group"
-    "\030\001 \001(\r\".\n\020SkillGroupChgRsp\022\013\n\003ret\030\001 \002(\005\022"
-    "\r\n\005group\030\002 \001(\r\"$\n\017SkillInfoDelRsp\022\021\n\tski"
-    "ll_lst\030\001 \003(\004\"\"\n\016SkillWakeupReq\022\020\n\010skill_"
-    "id\030\001 \001(\004\"\035\n\016SkillWakeupRsp\022\013\n\003ret\030\001 \002(\005\""
-    "/\n\016SkillChgPosReq\022\020\n\010skill_id\030\001 \001(\004\022\013\n\003p"
-    "os\030\002 \001(\r\"\035\n\016SkillChgPosRsp\022\013\n\003ret\030\001 \002(\005", 1639);
+    ".proto\032\022common_logic.proto\032\tCom.proto\"3\n"
+    "\021SkillAdvanceProto\022\017\n\007advance\030\001 \001(\005\022\r\n\005l"
+    "evel\030\002 \001(\005\"D\n\024SkillAdvancePosProto\022\013\n\003po"
+    "s\030\001 \001(\005\022\017\n\007advance\030\002 \001(\005\022\016\n\006unlock\030\003 \001(\005"
+    "\"\202\001\n\025SkillAdvanceListProto\022/\n\007pos_lst\030\001 "
+    "\003(\0132\036.proto_ff.SkillAdvancePosProto\022(\n\003l"
+    "st\030\002 \003(\0132\033.proto_ff.SkillAdvanceProto\022\016\n"
+    "\006curpos\030\003 \001(\005\"A\n\016SkillInfoProto\022\020\n\010skill"
+    "_id\030\001 \001(\004\022\r\n\005level\030\002 \001(\005\022\016\n\006wakeup\030\003 \001(\005"
+    "\";\n\022SkillInfoListProto\022%\n\003lst\030\001 \003(\0132\030.pr"
+    "oto_ff.SkillInfoProto\"\235\001\n\013SkillUseReq\022\020\n"
+    "\010skill_id\030\001 \002(\004\022 \n\003dir\030\002 \002(\0132\023.proto_ff."
+    "Vector3PB\022 \n\003pos\030\003 \002(\0132\023.proto_ff.Vector"
+    "3PB\022\017\n\007cid_lst\030\004 \003(\004\022\'\n\ntarget_pos\030\005 \001(\013"
+    "2\023.proto_ff.Vector3PB\"J\n\022SkillSyncTarget"
+    "Req\022\020\n\010skill_id\030\001 \002(\004\022\017\n\007cid_lst\030\002 \003(\004\022\021"
+    "\n\tis_extend\030\003 \001(\005\"%\n\021SkillCancalUseReq\022\020"
+    "\n\010skill_id\030\001 \002(\004\"\256\002\n\026SkillUseResultBroad"
+    "Rsp\022\020\n\010skill_id\030\001 \002(\004\022\013\n\003cid\030\002 \002(\004\022;\n\nta"
+    "rget_lst\030\003 \003(\0132\'.proto_ff.SkillUseResult"
+    "BroadRsp.Target\032\267\001\n\006Target\022\013\n\003cid\030\001 \002(\004\022"
+    "\036\n\004attr\030\002 \003(\0132\020.proto_ff.Attr64\022$\n\007digit"
+    "al\030\003 \003(\0132\023.proto_ff.DigPerfor\022\016\n\006beDead\030"
+    "\004 \001(\010\022\024\n\014isDeadBeback\030\005 \001(\010\022&\n\tbebackDir"
+    "\030\006 \001(\0132\023.proto_ff.Vector3PB\022\014\n\004type\030\007 \001("
+    "\005\"\263\001\n\020SkillUseBroadRsp\022\020\n\010skill_id\030\001 \002(\004"
+    "\022 \n\003dir\030\002 \002(\0132\023.proto_ff.Vector3PB\022\013\n\003ci"
+    "d\030\003 \002(\004\022\017\n\007cid_lst\030\004 \003(\004\022\'\n\ntarget_pos\030\005"
+    " \001(\0132\023.proto_ff.Vector3PB\022$\n\007pos_lst\030\006 \003"
+    "(\0132\023.proto_ff.Vector3PB\"\201\001\n\021SkillWarnBro"
+    "adRsp\022\013\n\003cid\030\001 \002(\004\022\020\n\010skill_id\030\002 \002(\004\022\'\n\n"
+    "target_pos\030\003 \001(\0132\023.proto_ff.Vector3PB\022$\n"
+    "\007pos_lst\030\004 \003(\0132\023.proto_ff.Vector3PB\"7\n\026S"
+    "killCancelUseBroadRsp\022\020\n\010skill_id\030\001 \002(\004\022"
+    "\013\n\003cid\030\002 \002(\004\"I\n\023SkillGroupUpdateRsp\0222\n\013s"
+    "kill_group\030\001 \001(\0132\035.proto_ff.SkillGroupLi"
+    "stProto\"\016\n\014SkillInfoReq\"q\n\014SkillInfoRsp\022"
+    "*\n\004info\030\001 \001(\0132\034.proto_ff.SkillInfoListPr"
+    "oto\0225\n\014advance_info\030\002 \001(\0132\037.proto_ff.Ski"
+    "llAdvanceListProto\"@\n\022SkillInfoUpdateRsp"
+    "\022*\n\004info\030\001 \001(\0132\034.proto_ff.SkillInfoListP"
+    "roto\"!\n\020SkillGroupChgReq\022\r\n\005group\030\001 \001(\r\""
+    ".\n\020SkillGroupChgRsp\022\013\n\003ret\030\001 \002(\005\022\r\n\005grou"
+    "p\030\002 \001(\r\"$\n\017SkillInfoDelRsp\022\021\n\tskill_lst\030"
+    "\001 \003(\004\"\"\n\016SkillWakeupReq\022\020\n\010skill_id\030\001 \001("
+    "\004\"\035\n\016SkillWakeupRsp\022\013\n\003ret\030\001 \002(\005\"/\n\016Skil"
+    "lChgPosReq\022\020\n\010skill_id\030\001 \001(\004\022\013\n\003pos\030\002 \001("
+    "\r\"\035\n\016SkillChgPosRsp\022\013\n\003ret\030\001 \002(\005\"1\n\017Skil"
+    "lUpgradeReq\022\020\n\010skill_id\030\001 \001(\004\022\014\n\004type\030\002 "
+    "\001(\005\"\036\n\017SkillUpgradeRsp\022\013\n\003ret\030\001 \002(\005\"7\n\022S"
+    "killSetAutoUseReq\022\020\n\010skill_id\030\001 \001(\004\022\017\n\007i"
+    "s_auto\030\002 \001(\005\"!\n\022SkillSetAutoUseRsp\022\013\n\003re"
+    "t\030\001 \002(\005\"\"\n\017SkillAdvanceReq\022\017\n\007advance\030\001 "
+    "\002(\r\"\036\n\017SkillAdvanceRsp\022\013\n\003ret\030\001 \002(\005\"$\n\025S"
+    "killAdvanceChgPosReq\022\013\n\003pos\030\001 \002(\r\"$\n\025Ski"
+    "llAdvanceChgPosRsp\022\013\n\003ret\030\001 \002(\005\"\026\n\024Skill"
+    "AdvanceResetReq\"#\n\024SkillAdvanceResetRsp\022"
+    "\013\n\003ret\030\001 \002(\005\"N\n\025SkillAdvanceUpdateRsp\0225\n"
+    "\014advance_info\030\001 \001(\0132\037.proto_ff.SkillAdva"
+    "nceListProto\"\032\n\030SkillAdvanceUnlockPosReq"
+    "\"\'\n\030SkillAdvanceUnlockPosRsp\022\013\n\003ret\030\001 \002("
+    "\005", 2481);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Skill.proto", &protobuf_RegisterTypes);
+  SkillAdvanceProto::default_instance_ = new SkillAdvanceProto();
+  SkillAdvancePosProto::default_instance_ = new SkillAdvancePosProto();
+  SkillAdvanceListProto::default_instance_ = new SkillAdvanceListProto();
   SkillInfoProto::default_instance_ = new SkillInfoProto();
   SkillInfoListProto::default_instance_ = new SkillInfoListProto();
   SkillUseReq::default_instance_ = new SkillUseReq();
@@ -611,6 +994,22 @@ void protobuf_AddDesc_Skill_2eproto() {
   SkillWakeupRsp::default_instance_ = new SkillWakeupRsp();
   SkillChgPosReq::default_instance_ = new SkillChgPosReq();
   SkillChgPosRsp::default_instance_ = new SkillChgPosRsp();
+  SkillUpgradeReq::default_instance_ = new SkillUpgradeReq();
+  SkillUpgradeRsp::default_instance_ = new SkillUpgradeRsp();
+  SkillSetAutoUseReq::default_instance_ = new SkillSetAutoUseReq();
+  SkillSetAutoUseRsp::default_instance_ = new SkillSetAutoUseRsp();
+  SkillAdvanceReq::default_instance_ = new SkillAdvanceReq();
+  SkillAdvanceRsp::default_instance_ = new SkillAdvanceRsp();
+  SkillAdvanceChgPosReq::default_instance_ = new SkillAdvanceChgPosReq();
+  SkillAdvanceChgPosRsp::default_instance_ = new SkillAdvanceChgPosRsp();
+  SkillAdvanceResetReq::default_instance_ = new SkillAdvanceResetReq();
+  SkillAdvanceResetRsp::default_instance_ = new SkillAdvanceResetRsp();
+  SkillAdvanceUpdateRsp::default_instance_ = new SkillAdvanceUpdateRsp();
+  SkillAdvanceUnlockPosReq::default_instance_ = new SkillAdvanceUnlockPosReq();
+  SkillAdvanceUnlockPosRsp::default_instance_ = new SkillAdvanceUnlockPosRsp();
+  SkillAdvanceProto::default_instance_->InitAsDefaultInstance();
+  SkillAdvancePosProto::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceListProto::default_instance_->InitAsDefaultInstance();
   SkillInfoProto::default_instance_->InitAsDefaultInstance();
   SkillInfoListProto::default_instance_->InitAsDefaultInstance();
   SkillUseReq::default_instance_->InitAsDefaultInstance();
@@ -632,6 +1031,19 @@ void protobuf_AddDesc_Skill_2eproto() {
   SkillWakeupRsp::default_instance_->InitAsDefaultInstance();
   SkillChgPosReq::default_instance_->InitAsDefaultInstance();
   SkillChgPosRsp::default_instance_->InitAsDefaultInstance();
+  SkillUpgradeReq::default_instance_->InitAsDefaultInstance();
+  SkillUpgradeRsp::default_instance_->InitAsDefaultInstance();
+  SkillSetAutoUseReq::default_instance_->InitAsDefaultInstance();
+  SkillSetAutoUseRsp::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceReq::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceRsp::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceChgPosReq::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceChgPosRsp::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceResetReq::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceResetRsp::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceUpdateRsp::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceUnlockPosReq::default_instance_->InitAsDefaultInstance();
+  SkillAdvanceUnlockPosRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Skill_2eproto);
 }
 
@@ -645,10 +1057,834 @@ struct StaticDescriptorInitializer_Skill_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int SkillAdvanceProto::kAdvanceFieldNumber;
+const int SkillAdvanceProto::kLevelFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceProto::SkillAdvanceProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceProto::InitAsDefaultInstance() {
+}
+
+SkillAdvanceProto::SkillAdvanceProto(const SkillAdvanceProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceProto::SharedCtor() {
+  _cached_size_ = 0;
+  advance_ = 0;
+  level_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceProto::~SkillAdvanceProto() {
+  SharedDtor();
+}
+
+void SkillAdvanceProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceProto_descriptor_;
+}
+
+const SkillAdvanceProto& SkillAdvanceProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceProto* SkillAdvanceProto::default_instance_ = NULL;
+
+SkillAdvanceProto* SkillAdvanceProto::New() const {
+  return new SkillAdvanceProto;
+}
+
+void SkillAdvanceProto::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    advance_ = 0;
+    level_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 advance = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &advance_)));
+          set_has_advance();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_level;
+        break;
+      }
+
+      // optional int32 level = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_level:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &level_)));
+          set_has_level();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 advance = 1;
+  if (has_advance()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->advance(), output);
+  }
+
+  // optional int32 level = 2;
+  if (has_level()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->level(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 advance = 1;
+  if (has_advance()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->advance(), target);
+  }
+
+  // optional int32 level = 2;
+  if (has_level()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->level(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 advance = 1;
+    if (has_advance()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->advance());
+    }
+
+    // optional int32 level = 2;
+    if (has_level()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->level());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceProto::MergeFrom(const SkillAdvanceProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_advance()) {
+      set_advance(from.advance());
+    }
+    if (from.has_level()) {
+      set_level(from.level());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceProto::CopyFrom(const SkillAdvanceProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceProto::IsInitialized() const {
+
+  return true;
+}
+
+void SkillAdvanceProto::Swap(SkillAdvanceProto* other) {
+  if (other != this) {
+    std::swap(advance_, other->advance_);
+    std::swap(level_, other->level_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceProto_descriptor_;
+  metadata.reflection = SkillAdvanceProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvancePosProto::kPosFieldNumber;
+const int SkillAdvancePosProto::kAdvanceFieldNumber;
+const int SkillAdvancePosProto::kUnlockFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvancePosProto::SkillAdvancePosProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvancePosProto::InitAsDefaultInstance() {
+}
+
+SkillAdvancePosProto::SkillAdvancePosProto(const SkillAdvancePosProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvancePosProto::SharedCtor() {
+  _cached_size_ = 0;
+  pos_ = 0;
+  advance_ = 0;
+  unlock_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvancePosProto::~SkillAdvancePosProto() {
+  SharedDtor();
+}
+
+void SkillAdvancePosProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvancePosProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvancePosProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvancePosProto_descriptor_;
+}
+
+const SkillAdvancePosProto& SkillAdvancePosProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvancePosProto* SkillAdvancePosProto::default_instance_ = NULL;
+
+SkillAdvancePosProto* SkillAdvancePosProto::New() const {
+  return new SkillAdvancePosProto;
+}
+
+void SkillAdvancePosProto::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    pos_ = 0;
+    advance_ = 0;
+    unlock_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvancePosProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &pos_)));
+          set_has_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_advance;
+        break;
+      }
+
+      // optional int32 advance = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_advance:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &advance_)));
+          set_has_advance();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_unlock;
+        break;
+      }
+
+      // optional int32 unlock = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_unlock:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &unlock_)));
+          set_has_unlock();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvancePosProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 pos = 1;
+  if (has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->pos(), output);
+  }
+
+  // optional int32 advance = 2;
+  if (has_advance()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->advance(), output);
+  }
+
+  // optional int32 unlock = 3;
+  if (has_unlock()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->unlock(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvancePosProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 pos = 1;
+  if (has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->pos(), target);
+  }
+
+  // optional int32 advance = 2;
+  if (has_advance()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->advance(), target);
+  }
+
+  // optional int32 unlock = 3;
+  if (has_unlock()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->unlock(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvancePosProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 pos = 1;
+    if (has_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->pos());
+    }
+
+    // optional int32 advance = 2;
+    if (has_advance()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->advance());
+    }
+
+    // optional int32 unlock = 3;
+    if (has_unlock()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->unlock());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvancePosProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvancePosProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvancePosProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvancePosProto::MergeFrom(const SkillAdvancePosProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_pos()) {
+      set_pos(from.pos());
+    }
+    if (from.has_advance()) {
+      set_advance(from.advance());
+    }
+    if (from.has_unlock()) {
+      set_unlock(from.unlock());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvancePosProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvancePosProto::CopyFrom(const SkillAdvancePosProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvancePosProto::IsInitialized() const {
+
+  return true;
+}
+
+void SkillAdvancePosProto::Swap(SkillAdvancePosProto* other) {
+  if (other != this) {
+    std::swap(pos_, other->pos_);
+    std::swap(advance_, other->advance_);
+    std::swap(unlock_, other->unlock_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvancePosProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvancePosProto_descriptor_;
+  metadata.reflection = SkillAdvancePosProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceListProto::kPosLstFieldNumber;
+const int SkillAdvanceListProto::kLstFieldNumber;
+const int SkillAdvanceListProto::kCurposFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceListProto::SkillAdvanceListProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceListProto::InitAsDefaultInstance() {
+}
+
+SkillAdvanceListProto::SkillAdvanceListProto(const SkillAdvanceListProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceListProto::SharedCtor() {
+  _cached_size_ = 0;
+  curpos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceListProto::~SkillAdvanceListProto() {
+  SharedDtor();
+}
+
+void SkillAdvanceListProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceListProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceListProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceListProto_descriptor_;
+}
+
+const SkillAdvanceListProto& SkillAdvanceListProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceListProto* SkillAdvanceListProto::default_instance_ = NULL;
+
+SkillAdvanceListProto* SkillAdvanceListProto::New() const {
+  return new SkillAdvanceListProto;
+}
+
+void SkillAdvanceListProto::Clear() {
+  if (_has_bits_[2 / 32] & (0xffu << (2 % 32))) {
+    curpos_ = 0;
+  }
+  pos_lst_.Clear();
+  lst_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceListProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.SkillAdvancePosProto pos_lst = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_pos_lst:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_pos_lst()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_pos_lst;
+        if (input->ExpectTag(18)) goto parse_lst;
+        break;
+      }
+
+      // repeated .proto_ff.SkillAdvanceProto lst = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_lst:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_lst()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_lst;
+        if (input->ExpectTag(24)) goto parse_curpos;
+        break;
+      }
+
+      // optional int32 curpos = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_curpos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &curpos_)));
+          set_has_curpos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceListProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.SkillAdvancePosProto pos_lst = 1;
+  for (int i = 0; i < this->pos_lst_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->pos_lst(i), output);
+  }
+
+  // repeated .proto_ff.SkillAdvanceProto lst = 2;
+  for (int i = 0; i < this->lst_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->lst(i), output);
+  }
+
+  // optional int32 curpos = 3;
+  if (has_curpos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->curpos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceListProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.SkillAdvancePosProto pos_lst = 1;
+  for (int i = 0; i < this->pos_lst_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->pos_lst(i), target);
+  }
+
+  // repeated .proto_ff.SkillAdvanceProto lst = 2;
+  for (int i = 0; i < this->lst_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->lst(i), target);
+  }
+
+  // optional int32 curpos = 3;
+  if (has_curpos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->curpos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceListProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[2 / 32] & (0xffu << (2 % 32))) {
+    // optional int32 curpos = 3;
+    if (has_curpos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->curpos());
+    }
+
+  }
+  // repeated .proto_ff.SkillAdvancePosProto pos_lst = 1;
+  total_size += 1 * this->pos_lst_size();
+  for (int i = 0; i < this->pos_lst_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->pos_lst(i));
+  }
+
+  // repeated .proto_ff.SkillAdvanceProto lst = 2;
+  total_size += 1 * this->lst_size();
+  for (int i = 0; i < this->lst_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->lst(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceListProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceListProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceListProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceListProto::MergeFrom(const SkillAdvanceListProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  pos_lst_.MergeFrom(from.pos_lst_);
+  lst_.MergeFrom(from.lst_);
+  if (from._has_bits_[2 / 32] & (0xffu << (2 % 32))) {
+    if (from.has_curpos()) {
+      set_curpos(from.curpos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceListProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceListProto::CopyFrom(const SkillAdvanceListProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceListProto::IsInitialized() const {
+
+  return true;
+}
+
+void SkillAdvanceListProto::Swap(SkillAdvanceListProto* other) {
+  if (other != this) {
+    pos_lst_.Swap(&other->pos_lst_);
+    lst_.Swap(&other->lst_);
+    std::swap(curpos_, other->curpos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceListProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceListProto_descriptor_;
+  metadata.reflection = SkillAdvanceListProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int SkillInfoProto::kSkillIdFieldNumber;
 const int SkillInfoProto::kLevelFieldNumber;
 const int SkillInfoProto::kWakeupFieldNumber;
-const int SkillInfoProto::kAdvanceFieldNumber;
 #endif  // !_MSC_VER
 
 SkillInfoProto::SkillInfoProto()
@@ -670,7 +1906,6 @@ void SkillInfoProto::SharedCtor() {
   skill_id_ = GOOGLE_ULONGLONG(0);
   level_ = 0;
   wakeup_ = 0;
-  advance_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -709,7 +1944,6 @@ void SkillInfoProto::Clear() {
     skill_id_ = GOOGLE_ULONGLONG(0);
     level_ = 0;
     wakeup_ = 0;
-    advance_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -764,22 +1998,6 @@ bool SkillInfoProto::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_advance;
-        break;
-      }
-
-      // optional int32 advance = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_advance:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &advance_)));
-          set_has_advance();
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -817,11 +2035,6 @@ void SkillInfoProto::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->wakeup(), output);
   }
 
-  // optional int32 advance = 4;
-  if (has_advance()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->advance(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -843,11 +2056,6 @@ void SkillInfoProto::SerializeWithCachedSizes(
   // optional int32 wakeup = 3;
   if (has_wakeup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->wakeup(), target);
-  }
-
-  // optional int32 advance = 4;
-  if (has_advance()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->advance(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -880,13 +2088,6 @@ int SkillInfoProto::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->wakeup());
-    }
-
-    // optional int32 advance = 4;
-    if (has_advance()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->advance());
     }
 
   }
@@ -925,9 +2126,6 @@ void SkillInfoProto::MergeFrom(const SkillInfoProto& from) {
     if (from.has_wakeup()) {
       set_wakeup(from.wakeup());
     }
-    if (from.has_advance()) {
-      set_advance(from.advance());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -954,7 +2152,6 @@ void SkillInfoProto::Swap(SkillInfoProto* other) {
     std::swap(skill_id_, other->skill_id_);
     std::swap(level_, other->level_);
     std::swap(wakeup_, other->wakeup_);
-    std::swap(advance_, other->advance_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1579,6 +2776,7 @@ void SkillUseReq::Swap(SkillUseReq* other) {
 #ifndef _MSC_VER
 const int SkillSyncTargetReq::kSkillIdFieldNumber;
 const int SkillSyncTargetReq::kCidLstFieldNumber;
+const int SkillSyncTargetReq::kIsExtendFieldNumber;
 #endif  // !_MSC_VER
 
 SkillSyncTargetReq::SkillSyncTargetReq()
@@ -1598,6 +2796,7 @@ SkillSyncTargetReq::SkillSyncTargetReq(const SkillSyncTargetReq& from)
 void SkillSyncTargetReq::SharedCtor() {
   _cached_size_ = 0;
   skill_id_ = GOOGLE_ULONGLONG(0);
+  is_extend_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1634,6 +2833,7 @@ SkillSyncTargetReq* SkillSyncTargetReq::New() const {
 void SkillSyncTargetReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     skill_id_ = GOOGLE_ULONGLONG(0);
+    is_extend_ = 0;
   }
   cid_lst_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1679,6 +2879,22 @@ bool SkillSyncTargetReq::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(16)) goto parse_cid_lst;
+        if (input->ExpectTag(24)) goto parse_is_extend;
+        break;
+      }
+
+      // optional int32 is_extend = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_is_extend:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &is_extend_)));
+          set_has_is_extend();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1712,6 +2928,11 @@ void SkillSyncTargetReq::SerializeWithCachedSizes(
       2, this->cid_lst(i), output);
   }
 
+  // optional int32 is_extend = 3;
+  if (has_is_extend()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->is_extend(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1731,6 +2952,11 @@ void SkillSyncTargetReq::SerializeWithCachedSizes(
       WriteUInt64ToArray(2, this->cid_lst(i), target);
   }
 
+  // optional int32 is_extend = 3;
+  if (has_is_extend()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->is_extend(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1747,6 +2973,13 @@ int SkillSyncTargetReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->skill_id());
+    }
+
+    // optional int32 is_extend = 3;
+    if (has_is_extend()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->is_extend());
     }
 
   }
@@ -1790,6 +3023,9 @@ void SkillSyncTargetReq::MergeFrom(const SkillSyncTargetReq& from) {
     if (from.has_skill_id()) {
       set_skill_id(from.skill_id());
     }
+    if (from.has_is_extend()) {
+      set_is_extend(from.is_extend());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1816,6 +3052,7 @@ void SkillSyncTargetReq::Swap(SkillSyncTargetReq* other) {
   if (other != this) {
     std::swap(skill_id_, other->skill_id_);
     cid_lst_.Swap(&other->cid_lst_);
+    std::swap(is_extend_, other->is_extend_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4189,6 +5426,7 @@ void SkillInfoReq::Swap(SkillInfoReq* other) {
 
 #ifndef _MSC_VER
 const int SkillInfoRsp::kInfoFieldNumber;
+const int SkillInfoRsp::kAdvanceInfoFieldNumber;
 #endif  // !_MSC_VER
 
 SkillInfoRsp::SkillInfoRsp()
@@ -4198,6 +5436,7 @@ SkillInfoRsp::SkillInfoRsp()
 
 void SkillInfoRsp::InitAsDefaultInstance() {
   info_ = const_cast< ::proto_ff::SkillInfoListProto*>(&::proto_ff::SkillInfoListProto::default_instance());
+  advance_info_ = const_cast< ::proto_ff::SkillAdvanceListProto*>(&::proto_ff::SkillAdvanceListProto::default_instance());
 }
 
 SkillInfoRsp::SkillInfoRsp(const SkillInfoRsp& from)
@@ -4209,6 +5448,7 @@ SkillInfoRsp::SkillInfoRsp(const SkillInfoRsp& from)
 void SkillInfoRsp::SharedCtor() {
   _cached_size_ = 0;
   info_ = NULL;
+  advance_info_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4219,6 +5459,7 @@ SkillInfoRsp::~SkillInfoRsp() {
 void SkillInfoRsp::SharedDtor() {
   if (this != default_instance_) {
     delete info_;
+    delete advance_info_;
   }
 }
 
@@ -4248,6 +5489,9 @@ void SkillInfoRsp::Clear() {
     if (has_info()) {
       if (info_ != NULL) info_->::proto_ff::SkillInfoListProto::Clear();
     }
+    if (has_advance_info()) {
+      if (advance_info_ != NULL) advance_info_->::proto_ff::SkillAdvanceListProto::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4265,6 +5509,20 @@ bool SkillInfoRsp::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_advance_info;
+        break;
+      }
+
+      // optional .proto_ff.SkillAdvanceListProto advance_info = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_advance_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_advance_info()));
         } else {
           goto handle_uninterpreted;
         }
@@ -4296,6 +5554,12 @@ void SkillInfoRsp::SerializeWithCachedSizes(
       1, this->info(), output);
   }
 
+  // optional .proto_ff.SkillAdvanceListProto advance_info = 2;
+  if (has_advance_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->advance_info(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4309,6 +5573,13 @@ void SkillInfoRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->info(), target);
+  }
+
+  // optional .proto_ff.SkillAdvanceListProto advance_info = 2;
+  if (has_advance_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->advance_info(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4327,6 +5598,13 @@ int SkillInfoRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->info());
+    }
+
+    // optional .proto_ff.SkillAdvanceListProto advance_info = 2;
+    if (has_advance_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->advance_info());
     }
 
   }
@@ -4359,6 +5637,9 @@ void SkillInfoRsp::MergeFrom(const SkillInfoRsp& from) {
     if (from.has_info()) {
       mutable_info()->::proto_ff::SkillInfoListProto::MergeFrom(from.info());
     }
+    if (from.has_advance_info()) {
+      mutable_advance_info()->::proto_ff::SkillAdvanceListProto::MergeFrom(from.advance_info());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4383,6 +5664,7 @@ bool SkillInfoRsp::IsInitialized() const {
 void SkillInfoRsp::Swap(SkillInfoRsp* other) {
   if (other != this) {
     std::swap(info_, other->info_);
+    std::swap(advance_info_, other->advance_info_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -6149,6 +7431,2699 @@ void SkillChgPosRsp::Swap(SkillChgPosRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SkillChgPosRsp_descriptor_;
   metadata.reflection = SkillChgPosRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillUpgradeReq::kSkillIdFieldNumber;
+const int SkillUpgradeReq::kTypeFieldNumber;
+#endif  // !_MSC_VER
+
+SkillUpgradeReq::SkillUpgradeReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillUpgradeReq::InitAsDefaultInstance() {
+}
+
+SkillUpgradeReq::SkillUpgradeReq(const SkillUpgradeReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillUpgradeReq::SharedCtor() {
+  _cached_size_ = 0;
+  skill_id_ = GOOGLE_ULONGLONG(0);
+  type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillUpgradeReq::~SkillUpgradeReq() {
+  SharedDtor();
+}
+
+void SkillUpgradeReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillUpgradeReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillUpgradeReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillUpgradeReq_descriptor_;
+}
+
+const SkillUpgradeReq& SkillUpgradeReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillUpgradeReq* SkillUpgradeReq::default_instance_ = NULL;
+
+SkillUpgradeReq* SkillUpgradeReq::New() const {
+  return new SkillUpgradeReq;
+}
+
+void SkillUpgradeReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    skill_id_ = GOOGLE_ULONGLONG(0);
+    type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillUpgradeReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 skill_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &skill_id_)));
+          set_has_skill_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_type;
+        break;
+      }
+
+      // optional int32 type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillUpgradeReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 skill_id = 1;
+  if (has_skill_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->skill_id(), output);
+  }
+
+  // optional int32 type = 2;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillUpgradeReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 skill_id = 1;
+  if (has_skill_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->skill_id(), target);
+  }
+
+  // optional int32 type = 2;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillUpgradeReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 skill_id = 1;
+    if (has_skill_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->skill_id());
+    }
+
+    // optional int32 type = 2;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillUpgradeReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillUpgradeReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillUpgradeReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillUpgradeReq::MergeFrom(const SkillUpgradeReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_skill_id()) {
+      set_skill_id(from.skill_id());
+    }
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillUpgradeReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillUpgradeReq::CopyFrom(const SkillUpgradeReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillUpgradeReq::IsInitialized() const {
+
+  return true;
+}
+
+void SkillUpgradeReq::Swap(SkillUpgradeReq* other) {
+  if (other != this) {
+    std::swap(skill_id_, other->skill_id_);
+    std::swap(type_, other->type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillUpgradeReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillUpgradeReq_descriptor_;
+  metadata.reflection = SkillUpgradeReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillUpgradeRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+SkillUpgradeRsp::SkillUpgradeRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillUpgradeRsp::InitAsDefaultInstance() {
+}
+
+SkillUpgradeRsp::SkillUpgradeRsp(const SkillUpgradeRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillUpgradeRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillUpgradeRsp::~SkillUpgradeRsp() {
+  SharedDtor();
+}
+
+void SkillUpgradeRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillUpgradeRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillUpgradeRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillUpgradeRsp_descriptor_;
+}
+
+const SkillUpgradeRsp& SkillUpgradeRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillUpgradeRsp* SkillUpgradeRsp::default_instance_ = NULL;
+
+SkillUpgradeRsp* SkillUpgradeRsp::New() const {
+  return new SkillUpgradeRsp;
+}
+
+void SkillUpgradeRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillUpgradeRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillUpgradeRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillUpgradeRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillUpgradeRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillUpgradeRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillUpgradeRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillUpgradeRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillUpgradeRsp::MergeFrom(const SkillUpgradeRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillUpgradeRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillUpgradeRsp::CopyFrom(const SkillUpgradeRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillUpgradeRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillUpgradeRsp::Swap(SkillUpgradeRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillUpgradeRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillUpgradeRsp_descriptor_;
+  metadata.reflection = SkillUpgradeRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillSetAutoUseReq::kSkillIdFieldNumber;
+const int SkillSetAutoUseReq::kIsAutoFieldNumber;
+#endif  // !_MSC_VER
+
+SkillSetAutoUseReq::SkillSetAutoUseReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillSetAutoUseReq::InitAsDefaultInstance() {
+}
+
+SkillSetAutoUseReq::SkillSetAutoUseReq(const SkillSetAutoUseReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillSetAutoUseReq::SharedCtor() {
+  _cached_size_ = 0;
+  skill_id_ = GOOGLE_ULONGLONG(0);
+  is_auto_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillSetAutoUseReq::~SkillSetAutoUseReq() {
+  SharedDtor();
+}
+
+void SkillSetAutoUseReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillSetAutoUseReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillSetAutoUseReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillSetAutoUseReq_descriptor_;
+}
+
+const SkillSetAutoUseReq& SkillSetAutoUseReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillSetAutoUseReq* SkillSetAutoUseReq::default_instance_ = NULL;
+
+SkillSetAutoUseReq* SkillSetAutoUseReq::New() const {
+  return new SkillSetAutoUseReq;
+}
+
+void SkillSetAutoUseReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    skill_id_ = GOOGLE_ULONGLONG(0);
+    is_auto_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillSetAutoUseReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 skill_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &skill_id_)));
+          set_has_skill_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_is_auto;
+        break;
+      }
+
+      // optional int32 is_auto = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_is_auto:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &is_auto_)));
+          set_has_is_auto();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillSetAutoUseReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 skill_id = 1;
+  if (has_skill_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->skill_id(), output);
+  }
+
+  // optional int32 is_auto = 2;
+  if (has_is_auto()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->is_auto(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillSetAutoUseReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 skill_id = 1;
+  if (has_skill_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->skill_id(), target);
+  }
+
+  // optional int32 is_auto = 2;
+  if (has_is_auto()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->is_auto(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillSetAutoUseReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 skill_id = 1;
+    if (has_skill_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->skill_id());
+    }
+
+    // optional int32 is_auto = 2;
+    if (has_is_auto()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->is_auto());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillSetAutoUseReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillSetAutoUseReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillSetAutoUseReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillSetAutoUseReq::MergeFrom(const SkillSetAutoUseReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_skill_id()) {
+      set_skill_id(from.skill_id());
+    }
+    if (from.has_is_auto()) {
+      set_is_auto(from.is_auto());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillSetAutoUseReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillSetAutoUseReq::CopyFrom(const SkillSetAutoUseReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillSetAutoUseReq::IsInitialized() const {
+
+  return true;
+}
+
+void SkillSetAutoUseReq::Swap(SkillSetAutoUseReq* other) {
+  if (other != this) {
+    std::swap(skill_id_, other->skill_id_);
+    std::swap(is_auto_, other->is_auto_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillSetAutoUseReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillSetAutoUseReq_descriptor_;
+  metadata.reflection = SkillSetAutoUseReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillSetAutoUseRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+SkillSetAutoUseRsp::SkillSetAutoUseRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillSetAutoUseRsp::InitAsDefaultInstance() {
+}
+
+SkillSetAutoUseRsp::SkillSetAutoUseRsp(const SkillSetAutoUseRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillSetAutoUseRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillSetAutoUseRsp::~SkillSetAutoUseRsp() {
+  SharedDtor();
+}
+
+void SkillSetAutoUseRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillSetAutoUseRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillSetAutoUseRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillSetAutoUseRsp_descriptor_;
+}
+
+const SkillSetAutoUseRsp& SkillSetAutoUseRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillSetAutoUseRsp* SkillSetAutoUseRsp::default_instance_ = NULL;
+
+SkillSetAutoUseRsp* SkillSetAutoUseRsp::New() const {
+  return new SkillSetAutoUseRsp;
+}
+
+void SkillSetAutoUseRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillSetAutoUseRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillSetAutoUseRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillSetAutoUseRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillSetAutoUseRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillSetAutoUseRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillSetAutoUseRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillSetAutoUseRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillSetAutoUseRsp::MergeFrom(const SkillSetAutoUseRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillSetAutoUseRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillSetAutoUseRsp::CopyFrom(const SkillSetAutoUseRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillSetAutoUseRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillSetAutoUseRsp::Swap(SkillSetAutoUseRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillSetAutoUseRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillSetAutoUseRsp_descriptor_;
+  metadata.reflection = SkillSetAutoUseRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceReq::kAdvanceFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceReq::SkillAdvanceReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceReq::InitAsDefaultInstance() {
+}
+
+SkillAdvanceReq::SkillAdvanceReq(const SkillAdvanceReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceReq::SharedCtor() {
+  _cached_size_ = 0;
+  advance_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceReq::~SkillAdvanceReq() {
+  SharedDtor();
+}
+
+void SkillAdvanceReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceReq_descriptor_;
+}
+
+const SkillAdvanceReq& SkillAdvanceReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceReq* SkillAdvanceReq::default_instance_ = NULL;
+
+SkillAdvanceReq* SkillAdvanceReq::New() const {
+  return new SkillAdvanceReq;
+}
+
+void SkillAdvanceReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    advance_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 advance = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &advance_)));
+          set_has_advance();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 advance = 1;
+  if (has_advance()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->advance(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 advance = 1;
+  if (has_advance()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->advance(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 advance = 1;
+    if (has_advance()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->advance());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceReq::MergeFrom(const SkillAdvanceReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_advance()) {
+      set_advance(from.advance());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceReq::CopyFrom(const SkillAdvanceReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillAdvanceReq::Swap(SkillAdvanceReq* other) {
+  if (other != this) {
+    std::swap(advance_, other->advance_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceReq_descriptor_;
+  metadata.reflection = SkillAdvanceReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceRsp::SkillAdvanceRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceRsp::InitAsDefaultInstance() {
+}
+
+SkillAdvanceRsp::SkillAdvanceRsp(const SkillAdvanceRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceRsp::~SkillAdvanceRsp() {
+  SharedDtor();
+}
+
+void SkillAdvanceRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceRsp_descriptor_;
+}
+
+const SkillAdvanceRsp& SkillAdvanceRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceRsp* SkillAdvanceRsp::default_instance_ = NULL;
+
+SkillAdvanceRsp* SkillAdvanceRsp::New() const {
+  return new SkillAdvanceRsp;
+}
+
+void SkillAdvanceRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceRsp::MergeFrom(const SkillAdvanceRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceRsp::CopyFrom(const SkillAdvanceRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillAdvanceRsp::Swap(SkillAdvanceRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceRsp_descriptor_;
+  metadata.reflection = SkillAdvanceRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceChgPosReq::kPosFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceChgPosReq::SkillAdvanceChgPosReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceChgPosReq::InitAsDefaultInstance() {
+}
+
+SkillAdvanceChgPosReq::SkillAdvanceChgPosReq(const SkillAdvanceChgPosReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceChgPosReq::SharedCtor() {
+  _cached_size_ = 0;
+  pos_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceChgPosReq::~SkillAdvanceChgPosReq() {
+  SharedDtor();
+}
+
+void SkillAdvanceChgPosReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceChgPosReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceChgPosReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceChgPosReq_descriptor_;
+}
+
+const SkillAdvanceChgPosReq& SkillAdvanceChgPosReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceChgPosReq* SkillAdvanceChgPosReq::default_instance_ = NULL;
+
+SkillAdvanceChgPosReq* SkillAdvanceChgPosReq::New() const {
+  return new SkillAdvanceChgPosReq;
+}
+
+void SkillAdvanceChgPosReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    pos_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceChgPosReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &pos_)));
+          set_has_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceChgPosReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 pos = 1;
+  if (has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceChgPosReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 pos = 1;
+  if (has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceChgPosReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 pos = 1;
+    if (has_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceChgPosReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceChgPosReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceChgPosReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceChgPosReq::MergeFrom(const SkillAdvanceChgPosReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_pos()) {
+      set_pos(from.pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceChgPosReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceChgPosReq::CopyFrom(const SkillAdvanceChgPosReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceChgPosReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillAdvanceChgPosReq::Swap(SkillAdvanceChgPosReq* other) {
+  if (other != this) {
+    std::swap(pos_, other->pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceChgPosReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceChgPosReq_descriptor_;
+  metadata.reflection = SkillAdvanceChgPosReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceChgPosRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceChgPosRsp::SkillAdvanceChgPosRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceChgPosRsp::InitAsDefaultInstance() {
+}
+
+SkillAdvanceChgPosRsp::SkillAdvanceChgPosRsp(const SkillAdvanceChgPosRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceChgPosRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceChgPosRsp::~SkillAdvanceChgPosRsp() {
+  SharedDtor();
+}
+
+void SkillAdvanceChgPosRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceChgPosRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceChgPosRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceChgPosRsp_descriptor_;
+}
+
+const SkillAdvanceChgPosRsp& SkillAdvanceChgPosRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceChgPosRsp* SkillAdvanceChgPosRsp::default_instance_ = NULL;
+
+SkillAdvanceChgPosRsp* SkillAdvanceChgPosRsp::New() const {
+  return new SkillAdvanceChgPosRsp;
+}
+
+void SkillAdvanceChgPosRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceChgPosRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceChgPosRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceChgPosRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceChgPosRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceChgPosRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceChgPosRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceChgPosRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceChgPosRsp::MergeFrom(const SkillAdvanceChgPosRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceChgPosRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceChgPosRsp::CopyFrom(const SkillAdvanceChgPosRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceChgPosRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillAdvanceChgPosRsp::Swap(SkillAdvanceChgPosRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceChgPosRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceChgPosRsp_descriptor_;
+  metadata.reflection = SkillAdvanceChgPosRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+SkillAdvanceResetReq::SkillAdvanceResetReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceResetReq::InitAsDefaultInstance() {
+}
+
+SkillAdvanceResetReq::SkillAdvanceResetReq(const SkillAdvanceResetReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceResetReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceResetReq::~SkillAdvanceResetReq() {
+  SharedDtor();
+}
+
+void SkillAdvanceResetReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceResetReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceResetReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceResetReq_descriptor_;
+}
+
+const SkillAdvanceResetReq& SkillAdvanceResetReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceResetReq* SkillAdvanceResetReq::default_instance_ = NULL;
+
+SkillAdvanceResetReq* SkillAdvanceResetReq::New() const {
+  return new SkillAdvanceResetReq;
+}
+
+void SkillAdvanceResetReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceResetReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceResetReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceResetReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceResetReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceResetReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceResetReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceResetReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceResetReq::MergeFrom(const SkillAdvanceResetReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceResetReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceResetReq::CopyFrom(const SkillAdvanceResetReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceResetReq::IsInitialized() const {
+
+  return true;
+}
+
+void SkillAdvanceResetReq::Swap(SkillAdvanceResetReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceResetReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceResetReq_descriptor_;
+  metadata.reflection = SkillAdvanceResetReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceResetRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceResetRsp::SkillAdvanceResetRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceResetRsp::InitAsDefaultInstance() {
+}
+
+SkillAdvanceResetRsp::SkillAdvanceResetRsp(const SkillAdvanceResetRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceResetRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceResetRsp::~SkillAdvanceResetRsp() {
+  SharedDtor();
+}
+
+void SkillAdvanceResetRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceResetRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceResetRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceResetRsp_descriptor_;
+}
+
+const SkillAdvanceResetRsp& SkillAdvanceResetRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceResetRsp* SkillAdvanceResetRsp::default_instance_ = NULL;
+
+SkillAdvanceResetRsp* SkillAdvanceResetRsp::New() const {
+  return new SkillAdvanceResetRsp;
+}
+
+void SkillAdvanceResetRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceResetRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceResetRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceResetRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceResetRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceResetRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceResetRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceResetRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceResetRsp::MergeFrom(const SkillAdvanceResetRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceResetRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceResetRsp::CopyFrom(const SkillAdvanceResetRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceResetRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillAdvanceResetRsp::Swap(SkillAdvanceResetRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceResetRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceResetRsp_descriptor_;
+  metadata.reflection = SkillAdvanceResetRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceUpdateRsp::kAdvanceInfoFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceUpdateRsp::SkillAdvanceUpdateRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceUpdateRsp::InitAsDefaultInstance() {
+  advance_info_ = const_cast< ::proto_ff::SkillAdvanceListProto*>(&::proto_ff::SkillAdvanceListProto::default_instance());
+}
+
+SkillAdvanceUpdateRsp::SkillAdvanceUpdateRsp(const SkillAdvanceUpdateRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceUpdateRsp::SharedCtor() {
+  _cached_size_ = 0;
+  advance_info_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceUpdateRsp::~SkillAdvanceUpdateRsp() {
+  SharedDtor();
+}
+
+void SkillAdvanceUpdateRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete advance_info_;
+  }
+}
+
+void SkillAdvanceUpdateRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceUpdateRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceUpdateRsp_descriptor_;
+}
+
+const SkillAdvanceUpdateRsp& SkillAdvanceUpdateRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceUpdateRsp* SkillAdvanceUpdateRsp::default_instance_ = NULL;
+
+SkillAdvanceUpdateRsp* SkillAdvanceUpdateRsp::New() const {
+  return new SkillAdvanceUpdateRsp;
+}
+
+void SkillAdvanceUpdateRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_advance_info()) {
+      if (advance_info_ != NULL) advance_info_->::proto_ff::SkillAdvanceListProto::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceUpdateRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .proto_ff.SkillAdvanceListProto advance_info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_advance_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceUpdateRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .proto_ff.SkillAdvanceListProto advance_info = 1;
+  if (has_advance_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->advance_info(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceUpdateRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .proto_ff.SkillAdvanceListProto advance_info = 1;
+  if (has_advance_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->advance_info(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceUpdateRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .proto_ff.SkillAdvanceListProto advance_info = 1;
+    if (has_advance_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->advance_info());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceUpdateRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceUpdateRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceUpdateRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceUpdateRsp::MergeFrom(const SkillAdvanceUpdateRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_advance_info()) {
+      mutable_advance_info()->::proto_ff::SkillAdvanceListProto::MergeFrom(from.advance_info());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceUpdateRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceUpdateRsp::CopyFrom(const SkillAdvanceUpdateRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceUpdateRsp::IsInitialized() const {
+
+  return true;
+}
+
+void SkillAdvanceUpdateRsp::Swap(SkillAdvanceUpdateRsp* other) {
+  if (other != this) {
+    std::swap(advance_info_, other->advance_info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceUpdateRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceUpdateRsp_descriptor_;
+  metadata.reflection = SkillAdvanceUpdateRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+SkillAdvanceUnlockPosReq::SkillAdvanceUnlockPosReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceUnlockPosReq::InitAsDefaultInstance() {
+}
+
+SkillAdvanceUnlockPosReq::SkillAdvanceUnlockPosReq(const SkillAdvanceUnlockPosReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceUnlockPosReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceUnlockPosReq::~SkillAdvanceUnlockPosReq() {
+  SharedDtor();
+}
+
+void SkillAdvanceUnlockPosReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceUnlockPosReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceUnlockPosReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceUnlockPosReq_descriptor_;
+}
+
+const SkillAdvanceUnlockPosReq& SkillAdvanceUnlockPosReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceUnlockPosReq* SkillAdvanceUnlockPosReq::default_instance_ = NULL;
+
+SkillAdvanceUnlockPosReq* SkillAdvanceUnlockPosReq::New() const {
+  return new SkillAdvanceUnlockPosReq;
+}
+
+void SkillAdvanceUnlockPosReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceUnlockPosReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceUnlockPosReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceUnlockPosReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceUnlockPosReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceUnlockPosReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceUnlockPosReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceUnlockPosReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceUnlockPosReq::MergeFrom(const SkillAdvanceUnlockPosReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceUnlockPosReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceUnlockPosReq::CopyFrom(const SkillAdvanceUnlockPosReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceUnlockPosReq::IsInitialized() const {
+
+  return true;
+}
+
+void SkillAdvanceUnlockPosReq::Swap(SkillAdvanceUnlockPosReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceUnlockPosReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceUnlockPosReq_descriptor_;
+  metadata.reflection = SkillAdvanceUnlockPosReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SkillAdvanceUnlockPosRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+SkillAdvanceUnlockPosRsp::SkillAdvanceUnlockPosRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SkillAdvanceUnlockPosRsp::InitAsDefaultInstance() {
+}
+
+SkillAdvanceUnlockPosRsp::SkillAdvanceUnlockPosRsp(const SkillAdvanceUnlockPosRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SkillAdvanceUnlockPosRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SkillAdvanceUnlockPosRsp::~SkillAdvanceUnlockPosRsp() {
+  SharedDtor();
+}
+
+void SkillAdvanceUnlockPosRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SkillAdvanceUnlockPosRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SkillAdvanceUnlockPosRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SkillAdvanceUnlockPosRsp_descriptor_;
+}
+
+const SkillAdvanceUnlockPosRsp& SkillAdvanceUnlockPosRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Skill_2eproto();
+  return *default_instance_;
+}
+
+SkillAdvanceUnlockPosRsp* SkillAdvanceUnlockPosRsp::default_instance_ = NULL;
+
+SkillAdvanceUnlockPosRsp* SkillAdvanceUnlockPosRsp::New() const {
+  return new SkillAdvanceUnlockPosRsp;
+}
+
+void SkillAdvanceUnlockPosRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SkillAdvanceUnlockPosRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SkillAdvanceUnlockPosRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SkillAdvanceUnlockPosRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SkillAdvanceUnlockPosRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SkillAdvanceUnlockPosRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SkillAdvanceUnlockPosRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SkillAdvanceUnlockPosRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SkillAdvanceUnlockPosRsp::MergeFrom(const SkillAdvanceUnlockPosRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SkillAdvanceUnlockPosRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SkillAdvanceUnlockPosRsp::CopyFrom(const SkillAdvanceUnlockPosRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SkillAdvanceUnlockPosRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SkillAdvanceUnlockPosRsp::Swap(SkillAdvanceUnlockPosRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SkillAdvanceUnlockPosRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SkillAdvanceUnlockPosRsp_descriptor_;
+  metadata.reflection = SkillAdvanceUnlockPosRsp_reflection_;
   return metadata;
 }
 

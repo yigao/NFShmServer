@@ -18,22 +18,22 @@ message RoleReliveProto
 //角色DB 基础数据
 message RoleDBBaseData
 {
-  optional string name = 1[(yd_fieldoptions.field_bufsize) = 32];  // 名字
-  optional uint32 prof = 2;  // 职业
-  optional uint32 level = 3;    // 等级
-  optional int64  exp = 4;   // 经验
-  optional int64 hp = 5;   // 生命
-  optional int64 fight = 6;   // 战斗力
+  required string name = 1;				// 名字
+  required uint32 prof = 2;				// 职业
+  required uint32 level = 3;			// 等级
+  required int64  exp = 4;				// 经验
+  required int64 hp = 5;				// 生命
+  required int64 fight = 6;				// 战斗力
 
-  optional uint64 createTime = 7;		// 创建时间（UTC时间）
-  optional uint64 loginTime = 8;		// 上一次登陆的时间（UTC时间）
-  optional uint64 logoutTime = 9;		// 上一次下线时间（UTC时间）
+  required uint64 createTime = 7;		// 创建时间（UTC时间）
+  required uint64 loginTime = 8;		// 上一次登陆的时间（UTC时间）
+  required uint64 logoutTime = 9;		// 上一次下线时间（UTC时间）
 
-  optional uint64 enter_scene_id = 10;  // 当前进入的场景Id
-  optional uint64 enter_map_id = 11;	// 当前进入的地图ID
-  optional float enterposx = 12;		// 当前进入的地图的X坐标
-  optional float enterposy = 13;		// 当前进入的地图的Y坐标
-  optional float enterposz = 14;		// 当前进入的地图的Z坐标
+  required uint64 enter_scene_id = 10;  // 当前进入的场景Id
+  required uint64 enter_map_id = 11;	// 当前进入的地图ID
+  required float enterposx = 12;		// 当前进入的地图的X坐标
+  required float enterposy = 13;		// 当前进入的地图的Y坐标
+  required float enterposz = 14;		// 当前进入的地图的Z坐标
 
   optional uint64 lastsceneid = 15;		//玩家进入上个地图的场景Id
   optional uint64 lastmapid = 16;		//玩家进入上个地图Id
@@ -56,12 +56,15 @@ message RoleDBBaseData
   optional int64 magic = 28;			//魔晶
   optional int64 prestige = 29;			//声望
   optional int32 vipLv = 30;			//vip等级
+  optional int64 arenacoin		= 31;	//竞技币
 }
+
+
 
 //背包DB数据存储结构
 message BagItemsDBData
 {
-  repeated ItemProtoInfo data = 1[(yd_fieldoptions.field_arysize) = 100];
+  repeated ItemProtoInfo data = 1;
   optional int32      offset = 2;
 }
 
@@ -73,22 +76,25 @@ message BagDBSimpleData
 
 message RoleDBUnitBagData
 {
-  optional string table_name = 1[(yd_fieldoptions.field_bufsize) = 32];
+  optional string table_name = 1;
   optional BagDBSimpleData simple = 2;
-  repeated BagItemsDBData parts = 3[(yd_fieldoptions.field_arysize) = 100];
+  repeated BagItemsDBData parts = 3;
 }
 
 //角色DB 背包数据
 message RoleDBBagData
 {
-  repeated RoleDBUnitBagData bags = 1[(yd_fieldoptions.field_arysize) = 100];
+  repeated RoleDBUnitBagData bags = 1;
 }
 
 
 //角色DB 装备数据
 message RoleDBEquipData
 {
-  repeated EquipInfo infos = 1[(yd_fieldoptions.field_arysize) = 100];
+  repeated EquipInfo infos = 1;
+  repeated EquipLvAttrInfo lv_attr = 2;
+  optional uint32 stove_level = 3;
+  optional uint64 stove_exp = 4;
 }
 
 //角色DB 任务数据
@@ -106,25 +112,39 @@ message GrowPartEntryDBInfo
 message GrowPartDBData
 {
   optional int32 type = 1;
-  repeated GrowPartEntryDBInfo  entrys = 2[(yd_fieldoptions.field_arysize) = 12];
+  repeated GrowPartEntryDBInfo  entrys = 2;
   optional int64 curId = 3;
 }
 
 message GrowDBData
 {
-  repeated GrowPartDBData parts = 1[(yd_fieldoptions.field_arysize) = 12];
+  repeated GrowPartDBData parts = 1;
 }
 
 // 游戏迷你部件 存储杂项数据
 message DayUseItemData
 {
-  repeated ComPair64 info = 1[(yd_fieldoptions.field_arysize) = 10];
+  repeated ComPair64 info = 1;
+}
+
+//竞技场数据
+message CharacterArenaData
+{
+  optional uint32 challengeTimes = 1;			//剩余挑战次数
+  optional uint64 updateTime = 2;				//刷新的时间
+  optional uint32 historyRankId = 3[default=20001];	//历史最高排名
+  optional uint32 buyChallengeTimes	= 4;	//今天已购买挑战次数
+  repeated ArenaChallResult result = 5; //挑战记录
+  repeated ChallArenaReward chall_reward = 7; //竞技场冲榜奖励
+  optional int32 allChallengeTimes = 8;
+  optional int32 rank_id = 9;
 }
 
 message MiniDBData
 {
   optional uint64 lastTime = 1;
   optional DayUseItemData useItem = 2;
+  optional CharacterArenaData arena_data = 3;
 }
 
 message FacadeDataInfo
@@ -136,14 +156,45 @@ message FacadeDataInfo
   optional bool use_soul_item = 5;
   optional bool use_facade = 6;
   optional uint64 equip_fantasy_id = 7;
-  repeated FacadeFantasyData fantasy_map = 8[(yd_fieldoptions.field_arysize) = 12];
-  repeated FacadeFragmentData fragment_map = 9[(yd_fieldoptions.field_arysize) = 12];
-  repeated FacadeSkillData skill_data = 10[(yd_fieldoptions.field_arysize) = 12]; //技能数据
+  repeated FacadeFantasyData fantasy_map = 8;
+  repeated FacadeFragmentData fragment_map = 9;
+  repeated FacadeSkillData skill_data = 10; //技能数据
+  optional FacadeSoulData soul_data = 11;
+}
+
+message MountDataInfo
+{
+  optional uint64 mount_id = 1;
+  optional uint32 mount_lev = 2;
+  optional uint64 mount_exp = 3;
+  optional bool use_facade = 4;
+  optional uint64 equip_fantasy_id = 5;
+  repeated MountFantasyData fantasy_map = 6;
+  repeated MountFragmentData fragment_map = 7;
+  repeated MountSkillData skill_data = 8;
+  repeated MountKunData kun_data = 9;
+  repeated MountBloodData blood_data = 10;
+  repeated MountBabySlotData baby_slot_data = 11;
+  optional uint32 ride_state = 12;
+  optional uint64 mount_model_id = 13;
+  optional uint64 last_mount_model_id = 14;
+}
+
+
+message DeityDataInfo
+{
+  optional uint64 deity_id = 1;
+  optional uint32 deity_lev = 2;
+  optional uint64 deity_exp = 3;
+  repeated DeityFantasyData fantasy_map = 4;
+  repeated DeityFragmentData fragment_map = 5;
+  repeated DeitySkillData skill_data = 6;
+  repeated DeityBattleSlotData battle_data = 7;
 }
 
 message FacadeDBData
 {
-  repeated FacadeDataInfo data = 1[(yd_fieldoptions.field_arysize) = 4];
+  repeated FacadeDataInfo data = 1;
 }
 
 //技能详细信息
@@ -152,14 +203,28 @@ message SkillDBInfo
   optional uint64 skill_id = 1;
   optional int32 level = 2;    //等级
   optional int32 wakeup = 3;    //是否觉醒，1-已觉醒，0-未觉醒
-  optional int32 advance = 4;    //进阶类型 0-未进阶， 1-火，2-雷，3-风
-  optional int64 use_msc = 5;    //最近使用时间
+  optional int64 use_msc = 4;    //最近使用时间
 }
 //技能位置信息
 message SkillDBPos
 {
   optional uint64 skill_id = 1;
   optional uint32 pos = 2;
+  optional int32 use = 3;		//是否自动释放，1-是，0-否
+}
+
+//技能进阶位置信息
+message SkillDBAdvPos
+{
+  optional uint32 pos = 1;
+  optional uint32 advance = 2;
+  optional uint32 unlock = 3;
+}
+//技能进阶信息
+message SkillDBAdvInfo
+{
+  optional int32 advance = 1;    //进阶类型 1-火，2-雷，3-风
+  optional int32 level = 2;      //等级
 }
 
 //技能位置列表信息
@@ -167,21 +232,32 @@ message SkillDBGroup
 {
   optional uint32 group = 1;
   optional int32  chg = 2;        //技能组最近切换时间
-  repeated SkillDBPos pos_lst = 3[(yd_fieldoptions.field_arysize) = 12];
+  repeated SkillDBPos pos_lst = 3;
+}
+//宠物技能CD
+message PetSkillCdDB
+{
+  optional uint64 skill_id = 1;
+  optional uint64 use_msec = 2;
+  optional int64 pet_instid = 3;
 }
 
 //技能数据
 message SkillDBData
 {
-  repeated SkillDBInfo info_lst = 1[(yd_fieldoptions.field_arysize) = 12];
-  repeated SkillDBGroup group_lst = 2[(yd_fieldoptions.field_arysize) = 12];
-  optional uint32 group = 3;          //当前使用的技能组
-  optional uint64 last_group = 4;     //最近一次切换技能组的时间
+  repeated SkillDBInfo info_lst = 1;
+  repeated SkillDBGroup group_lst = 2;
+  optional uint32 group = 3;					//当前使用的技能组
+  optional uint64 last_group = 4;				//最近一次切换技能组的时间
+  repeated SkillDBAdvPos adv_pos = 5;			//
+  repeated SkillDBAdvInfo adv_info = 6;
+  optional uint32 cur_advpos = 7;
+  repeated PetSkillCdDB pet_cd = 8;
 }
 
 message GodRelicsActivityData
 {
-  repeated GodRelicsTaskGroupEntry group_data = 1[(yd_fieldoptions.field_arysize) = 12];
+  repeated GodRelicsTaskGroupEntry group_data = 1;
   optional int64 cur_group_id = 2;
 }
 
@@ -208,7 +284,7 @@ message DupGroupData
 }
 message DupTowerDBRecordEntry
 {
-  optional string name = 1[(yd_fieldoptions.field_bufsize) = 32];
+  optional string name = 1;
   optional uint64 time = 2;
   optional uint64 cid = 3;
 }
@@ -216,26 +292,20 @@ message DupTowerDBRecordEntry
 message DupTowerDBRecord
 {
   optional uint64  id = 1;
-  repeated DupTowerDBRecordEntry entrys = 2[(yd_fieldoptions.field_arysize) = 10];
+  repeated DupTowerDBRecordEntry entrys = 2;
 }
 
 message DupTowerDBData
 {
-  optional uint64 pass_dupId = 1;			//当前通关的副本ID
-  repeated uint64 ids = 2[(yd_fieldoptions.field_arysize) = 10];				//已领取的ids
+  repeated uint64 ids = 1;				//已领取的ids
 }
-message ComDupDBData
-{
-  optional uint64 pass_dupId = 1;			//当前通关的副本ID
-  optional int32 star = 2;				//星级
-}
+
 
 message DupDBData
 {
-  repeated DupRecord		record = 1[(yd_fieldoptions.field_arysize) = 10];			//副本历史记录
-  repeated DupGroupData 	groups = 2[(yd_fieldoptions.field_arysize) = 10];			//副本组数据
-  optional DupTowerDBData	 tower = 3;			//爬塔
-  optional ComDupDBData 	 level = 4;			//等级本
+  repeated DupRecord		record = 1;			//副本历史记录
+  repeated DupGroupData 	groups = 2;			//副本组数据
+  optional DupTowerDBData	 tower = 3;			//爬塔数据
 }
 
 
@@ -253,6 +323,7 @@ message BuffDBInfo
   optional int64 param1 = 8;          //效果参数1
   optional int64 param2 = 9;          //效果参数2
   optional int64 extramsec = 10;      //额外时间，单位：毫秒
+  optional int32 is_end = 11;			//是否结束了
 }
 //buff 冷却时间信息
 message BuffDBCdInfo
@@ -263,8 +334,8 @@ message BuffDBCdInfo
 //buff数据
 message BuffDBData
 {
-  repeated BuffDBInfo info_lst = 1[(yd_fieldoptions.field_arysize) = 10];
-  repeated BuffDBCdInfo cd_lst = 2[(yd_fieldoptions.field_arysize) = 10];
+  repeated BuffDBInfo info_lst = 1;
+  repeated BuffDBCdInfo cd_lst = 2;
 }
 
 //打boss
@@ -281,9 +352,9 @@ message BossSimpleInfoDB
 
 message BossDBData
 {
-  repeated BossSimpleInfoDB infos = 1[(yd_fieldoptions.field_arysize) = 10];
+  repeated BossSimpleInfoDB infos = 1;
   optional uint64 	lastTime 	= 2;
-  repeated int64 		attents 	= 3[(yd_fieldoptions.field_arysize) = 10];
+  repeated int64 		attents 	= 3;
 }
 
 message VipDBData
@@ -292,16 +363,84 @@ message VipDBData
   optional int32 	expDiamond = 2;	//剩余加经验的砖石
 }
 
+
+//角色总属性 DB数据
+message AttrDBData
+{
+  repeated Attr64 attr_lst = 1;
+}
+
+message PetDBRecord
+{
+  optional int32 instId = 1;
+  repeated ComPair64 costItem = 2;
+  repeated ComPair64 costPet = 3; //消耗的宠物
+}
+
+message PetDBData
+{
+  repeated int32 	fetter = 1;	 //已领取的羁绊
+  repeated PetInfo pets = 2;	 //所有宠物
+  repeated PetHatchInfo hatchs = 3;	//孵化的槽位信息
+  repeated PetDBRecord records = 4;   //培养记录
+  repeated int64 	cfgids = 5;			//获得过的宠物
+}
+
+//商城DB信息
+message MallDBInfo
+{
+  optional int64 id = 1;		//商品ID
+  optional uint32 num = 2;		//已购买数量
+  optional uint64 time = 3;	//最近购买时间
+}
+
+//角色商城 DB数据
+message MallDBData
+{
+  repeated MallDBInfo day = 1;
+  repeated MallDBInfo week = 2;
+  repeated MallDBInfo forever = 3;
+}
+
+
+//护送数据
+message ConvoyData
+{
+  optional int32 daynum 		= 1; 	//已护送次数
+  optional int32 escortid  	= 2;	//当前镖车ID
+  optional uint64 endTime 	= 3; 	//当前任务结束时间
+  optional int32 freeNum 		= 4;	//已使用免费次数
+  optional int32 genEscortId  = 5;	//随机到的镖车ID
+  optional uint64 resetTime 	= 6; 	//上次重置次数时间
+}
+
+//玄功真甲
+message ArmorDBData
+{
+  repeated ArmorInfo infos = 1;
+}
+
+//boss助战
+message AssistDBData
+{
+  optional uint64 resetTime 	= 1; 	//上次重置次数时间
+  optional int32 dayPrestige = 2;		//今日获得声望
+  optional int32 sendNum = 3;			//当日发起
+  optional int32 helpNum = 4;			//当日帮助者领取的礼包数
+  optional int32 allSendNum = 5;		//完成求助总次数
+  optional int32 allHelpNum = 6;		//完成援助总次数
+}
+
 // 角色DB数据
 message RoleDBData
 {
-  optional uint64                 cid = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];  // role cid
-  optional uint32                 zid = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // 区服ID
-  optional uint32          uid = 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // UID
+  required uint64                 cid					= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];	// role cid
+  required uint32                 zid					= 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // 区服ID
+  optional uint32					uid					= 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // UID
   optional RoleDBBaseData         base				= 4;    // 基础数据
   optional RoleDBBagData          bag				    = 5;    // 背包数据
   optional RoleDBEquipData	    equip				= 6;	// 装备数据
-  optional CharacterDBTaskData	        task				= 7;    // 任务数据
+  optional CharacterDBTaskData	task				= 7;    // 任务数据
   optional FunctionUnlockInfo unlockinfo				= 8;	// 功能解锁
   optional GrowDBData				grow				= 9;	// 养成数据
   optional MiniDBData				mini				= 10;	// 迷你部件数据
@@ -312,13 +451,114 @@ message RoleDBData
   optional BuffDBData             buff                = 15;   // buff数据
   optional BossDBData				boss				= 16;	// boss
   optional VipDBData				vip					= 17;	// vip
+  optional AttrDBData				attr				= 18;	// 属性数据
+  optional MountDataInfo    		mount 				= 19;	//坐骑
+  optional DeityDataInfo			deity				= 20;	//天神
+  optional PetDBData				pet					= 21;	//宠物
+  optional MallDBData				mall				= 22;   // 商城
+  optional ConvoyData				convoy				= 23;	//护送
+  optional ArmorDBData			armor				= 24;	//玄功真甲
+  optional AssistDBData			assist				= 25;	//boss助战
 }
 
-//角色列表中角色数据
-message LoginRoleDBProto
+//--------------------------- 角色镜像数据  ------------------------------
+//角色镜像数据
+message RoleMirrorData
+{
+  enum Type
+  {
+    Role = 1;		//竞技场玩家镜像
+    Rebot = 2;		//竞技场机器人
+    TeamRole = 3;   //组队玩家镜像
+    TeamRebot = 4;	//组队机器人
+  }
+
+  optional uint64 cid					= 1;//角色ID, 当是玩家时是玩家cid, 当是机器人时表示机器人表配置ID
+  optional int32 type					= 2;//类型，用于区分玩家和机器人  1-竞技场玩家镜像，2-竞技场机器人, 3-组队玩家镜像, 4-组队机器人
+  optional uint32 teamid				= 3;//队伍ID,组队机器人才需要赋值
+  optional uint32 zid					= 4;//区服ID，玩家镜像需要赋值
+  optional AttrDBData attr			= 5;//总属性
+  optional SkillDBData skill          = 6;//技能数据
+  optional RoleDBBaseData base		= 7;//基础数据（包含外观数据）
+}
+
+
+//-------------------------------- 帮派 ----------------------------------------
+
+//帮派单个成员信息
+message FactionMemDBProto
+{
+  optional uint64 cid = 1;						//玩家ID
+  optional int32   duty = 2;						//职位
+  optional uint64 join_time = 3;					//加入时间
+  optional uint32 total_contri = 4;				//总贡献
+}
+
+//帮派成员信息
+message FactionMultMemDBProto
+{
+  repeated FactionMemDBProto mem_lst = 1;
+}
+
+//帮派单个申请信息
+message FactionApplyDBProto
+{
+  optional uint64 cid = 1;
+  optional uint64 time = 2;
+}
+//帮派申请信息
+message FactionMultApplyDBProto
+{
+  repeated FactionApplyDBProto apply_lst = 1;
+}
+//帮派单个记录
+message FactionRecordDBProto
+{
+  optional uint64 cid = 1;
+  optional uint64 time = 2;
+  optional int32 op = 3;
+  optional int64 param1 = 4;
+}
+//帮派记录
+message FactionMutRecordDBProto
+{
+  repeated FactionRecordDBProto record_lst = 1;
+}
+
+//帮派DB基础数据
+message FactionDBBase
+{
+  optional uint32 faction_id					= 1;	//帮派ID
+  optional bytes name							= 2;	//帮派名字
+  optional uint64 leader_id					= 3;	//会长
+  optional uint64 fight						= 4;	//战力
+  optional bytes notice						= 5;	//公告
+  optional uint64 last_notice_time			= 6;	//最近修改公告的时间
+  optional uint32 level						= 7;	//帮派等级
+  optional uint64 exp							= 8;	//帮派经验
+  optional uint64 create_time					= 9;	//创建时间
+  optional uint64 proxy_id					= 10;	//代理帮主
+  optional uint64 proxy_time					= 11;	//代理时间
+  optional int32 grade						= 12;	//帮派评级
+  optional FactionMultMemDBProto member		= 13;	//帮派成员
+  optional FactionMultApplyDBProto apply      = 14;   //帮派申请
+  optional FactionMutRecordDBProto record		= 15;   //帮派记录
+}
+
+//帮派其他数据
+message FactionDBData
 {
 
 }
+
+//帮派所有的DB数据
+message FactionAllDBData
+{
+  optional uint32 faction_id	= 1;	//帮派ID
+  optional FactionDBBase base = 2;	//基础数据
+  optional FactionDBData data = 3;	//其他数据
+}
+
 
 
 
@@ -328,28 +568,28 @@ message LoginRoleDBProto
 // 角色列表请求 DB_ROLE_LIST_REQ
 message RoleListDBReq
 {
-  optional uint64 reqid = 1;
-  optional uint32 uid = 2;
-  optional uint32 gateid = 3;
-  optional uint32 born_zid = 4;
+  required uint64 reqid = 1;
+  required uint32 uid = 2;
+  required uint32 gateid = 3;
+  required uint32 born_zid = 4;
 }
 //返回角色列表 DB_ROLE_LIST_RSP
 message RoleListDBRsp
 {
-  optional int32        ret = 1;
-  optional uint64        reqid = 2;
-  optional uint32             uid = 3;
-  optional uint32             gateid = 4;
-  repeated RoleListDBProto    role_lst = 5[(yd_fieldoptions.field_arysize) = 20];
+  required int32        ret = 1;
+  required uint64        reqid = 2;
+  required uint32             uid = 3;
+  required uint32             gateid = 4;
+  repeated RoleListDBProto    role_lst = 5;
   optional uint32        regnum = 6;  //注册人数
 }
 //创角请求 DB_CREATE_ROLE_REQ
 message CreateRoleDBReq
 {
-  optional uint64 reqid = 1;
-  optional uint32 zid = 2;
-  optional uint32 gateid = 3;
-  optional RoleDBData data = 4;
+  required uint64 reqid = 1;
+  required uint32 zid = 2;
+  required uint32 gateid = 3;
+  required RoleDBData data = 4;
   optional uint32 uid = 5;      //uid
   optional uint32 channel_id = 6;      //渠道id
   optional uint32 zone_mid = 7;      //全服邮件最新id
@@ -359,10 +599,10 @@ message CreateRoleDBReq
 //返回创角结果  DB_CREATE_ROLE_RSP
 message CreateRoleDBRsp
 {
-  optional int32    ret = 1;
-  optional uint64     reqid = 2;
-  optional uint32     uid = 3;
-  optional uint32 gateid = 4;
+  required int32    ret = 1;
+  required uint64     reqid = 2;
+  required uint32     uid = 3;
+  required uint32 gateid = 4;
   optional RoleListDBProto info = 5;
   optional uint32     born_zid = 6;
   optional CenterRoleProto simple = 7;
@@ -370,16 +610,16 @@ message CreateRoleDBRsp
 //角色信息请求 DB_ROLE_INFO_REQ
 message RoleInfoDBReq
 {
-  optional uint64 reqid = 1;
-  optional uint64 cid = 2;
+  required uint64 reqid = 1;
+  required uint64 cid = 2;
   optional int32  change = 3;
 }
 //返回角色信息  DB_ROLE_INFO_RSP
 message RoleInfoDBRsp
 {
-  optional int32 ret = 1;
-  optional uint64 reqid = 2;
-  optional uint64 cid = 3;
+  required int32 ret = 1;
+  required uint64 reqid = 2;
+  required uint64 cid = 3;
   optional int32  change = 4;
   optional RoleDBData info = 5;
 }
@@ -387,23 +627,23 @@ message RoleInfoDBRsp
 //更新角色信息  DB_ROLE_INFO_UPDATE_REQ
 message RoleInfoUpdateDBReq
 {
-  optional uint64 cid = 1;
-  optional uint32 uid = 2;
+  required uint64 cid = 1;
+  required uint32 uid = 2;
   optional RoleDBData info = 3;
 }
 
 //请求 角色改名 DB_ROLE_CHG_NAME_REQ
 message RoleChgNameDBReq
 {
-  optional uint64 cid = 1;
-  optional string name = 2[(yd_fieldoptions.field_bufsize) = 32];
+  required uint64 cid = 1;
+  required string name = 2;
 }
 //返回 角色改名 DB_ROLE_CHG_NAME_RSP
 message RoleChgNameDBRsp
 {
-  optional int32 ret = 1;
-  optional uint64 cid = 2;
-  optional string name = 3[(yd_fieldoptions.field_bufsize) = 32];
+  required int32 ret = 1;
+  required uint64 cid = 2;
+  required string name = 3;
 }
 
 //---------------------------------- 中心服角色简要数据缓存 ------------------------
@@ -413,8 +653,8 @@ message RoleSimpleListDBReq{
 
 //DB返回 角色简要数据列表请求   DB_ROLE_SIMPLE_LIST_RSP
 message RoleSimpleListDBRsp{
-  optional int32 ret = 1;              //返回码，详见 ComProtocol.proto ERetCode枚举
-  repeated CenterRoleProto info = 2[(yd_fieldoptions.field_arysize) = 20];          //角色离线数据
+  required int32 ret = 1;              //返回码，详见 ComProtocol.proto ERetCode枚举
+  repeated CenterRoleProto info = 2;          //角色离线数据
   optional int32 finish_flag = 3;        //所有数据加载是否是完成的标志
 }
 
@@ -424,12 +664,12 @@ message RoleSimpleListDBRsp{
 //玩家切逻辑节点请求
 message CreatureTransLogicDBReq
 {
-  optional string trans_data = 1[(yd_fieldoptions.field_bufsize) = 32]; //切换逻辑节点数据 LogicCreatureTransSceneReq 序列化之后的数据
+  optional string trans_data = 1; //切换逻辑节点数据 LogicCreatureTransSceneReq 序列化之后的数据
 }
 //DB返回逻辑服 生物切场景(主要用于玩家) 结果   DB_CREATURE_TRANS_SCENE_RSP
 message CreatureTransLogicDBRsp
 {
-  optional int32 retcode = 1; //返回码
+  required int32 retcode = 1; //返回码
   optional uint64 cid = 2;  //玩家CID
 }
 
@@ -437,20 +677,20 @@ message CreatureTransLogicDBRsp
 //新邮件信息
 message NewMailDBInfo
 {
-  repeated MailInfo data = 1[(yd_fieldoptions.field_arysize) = 1000];  //更新的邮件数据
+  repeated MailInfo data = 1;  //更新的邮件数据
   optional int32 result = 2;  //操作结果(DB返回的时候用到)
 }
 //邮件操作信息
 message MailDBOperateInfo
 {
-  repeated uint32 mid_lst = 1[(yd_fieldoptions.field_arysize) = 1000]; //邮件ID列表
+  repeated uint32 mid_lst = 1; //邮件ID列表
   optional int32 result = 2;  //操作结果(DB返回的时候用到)
 }
 
 //保存邮件
 message SaveMailDBReq
 {
-  optional uint64 charid = 1;          //角色ID
+  required uint64 charid = 1;          //角色ID
   optional NewMailDBInfo info = 2;      //新邮件信息
   optional MailDBOperateInfo del = 3;      //删除的邮件操作
   optional MailDBOperateInfo fetch = 4;    //领取附件的操作
@@ -460,7 +700,7 @@ message SaveMailDBReq
 
 message SaveMailDBRsp
 {
-  optional uint64 charid = 1;          //角色ID
+  required uint64 charid = 1;          //角色ID
   optional NewMailDBInfo info = 2;      //发送陈功的 新邮件信息
   optional MailDBOperateInfo del = 3;      //操作成功的 删除的邮件
   optional MailDBOperateInfo fetch = 4;    //操作成功的 领取附件
@@ -481,7 +721,7 @@ message CharacterMailDBRequest
 message CharacterMailDBResponse
 {
   optional uint64 charID = 1;      //角色ID
-  repeated MailInfo info = 2[(yd_fieldoptions.field_arysize) = 1000];      //邮件详细数据
+  repeated MailInfo info = 2;      //邮件详细数据
   optional uint32 zoneMailId = 3;     //角色最新全服id
   optional int32 offset = 4;      //加载偏移
   optional uint32 reqid = 5;      //请求ID
@@ -495,34 +735,34 @@ message MaxMailIDRequest
 
 message MaxMailIDResponse
 {
-  optional uint32 maxZoneMailId = 1; //全服邮件最大id
+  required uint32 maxZoneMailId = 1; //全服邮件最大id
   optional uint32 maxMailId = 2;
 }
 
 //删除角色邮件数据
 message DeleteCharacterMail
 {
-  optional uint64 charID = 1;          //角色ID
+  required uint64 charID = 1;          //角色ID
 }
 
 //DBPROXY_PROTOCOL_ALL_ZONE_MAIL_SAVE_RSP
 message ZoneMailSaveRsp
 {
-  optional uint32  mailId = 1;              //全服邮件最新ID返回
+  required uint32  mailId = 1;              //全服邮件最新ID返回
 }
 
 //DBPROXY_PROTOCOL_ZONE_MAIL_TRANS_REQ
 message ZoneMailTransCharacterMailReq
 {
-  optional uint32 mailId = 1;
-  optional uint64 cid = 2;
+  required uint32 mailId = 1;
+  required uint64 cid = 2;
 }
 
 //DBPROXY_PROTOCOL_ZONE_MAIL_TRANS_RSP
 message ZoneMailTransCharacterMailRsp
 {
-  optional uint64   cid = 1;
-  repeated MailInfo data = 2[(yd_fieldoptions.field_arysize) = 1000];          //需要更新到角色邮件的全服邮件数据
+  required uint64   cid = 1;
+  repeated MailInfo data = 2;          //需要更新到角色邮件的全服邮件数据
 }
 
 //中心服向DB请求角色web邮件相关的数据 DBPROXY_PROTOCOL_WEB_MAIL_DATA_REQ
@@ -532,8 +772,8 @@ message WebMailDBDataReq
   optional uint64 cid = 2;
   optional uint32 pernum = 3;    //每页邮件数量
   optional uint32 curpage = 4;  //当前页
-  repeated uint32 id_lst = 5[(yd_fieldoptions.field_arysize) = 1000];    //需要撤回附件的邮件ID 列表
-  optional string webId = 6[(yd_fieldoptions.field_bufsize) = 32];    //web唯一ID的字符串
+  repeated uint32 id_lst = 5;    //需要撤回附件的邮件ID 列表
+  required string webId = 6;    //web唯一ID的字符串
 }
 //DB返回中心服角色web邮件相关的数据 DBPROXY_PROTOCOL_WEB_MAIL_DATA_RSP
 message WebMailDBDataRsp
@@ -542,9 +782,9 @@ message WebMailDBDataRsp
   optional uint64 cid = 2;        //玩家cid
   optional uint32 curpage = 3;      //当前页
   optional uint32 totalcount = 4;      //总数量
-  repeated uint32 id_lst = 5[(yd_fieldoptions.field_arysize) = 1000];        //成功撤回附件的邮件ID 列表
-  repeated WebMailDataProto info_lst = 6[(yd_fieldoptions.field_arysize) = 1000];  //邮件数据列表
-  optional string webId = 7[(yd_fieldoptions.field_bufsize) = 32];        //web唯一ID的字符串
+  repeated uint32 id_lst = 5;        //成功撤回附件的邮件ID 列表
+  repeated WebMailDataProto info_lst = 6;  //邮件数据列表
+  required string webId = 7;        //web唯一ID的字符串
 }
 //------------------------------------ Mail -------------------------------------
 
@@ -560,9 +800,9 @@ message FriendDBInfo
 message FriendDBRequest
 {
   optional uint64 charid = 1;        //操作人
-  repeated uint64 dstid_lst = 2[(yd_fieldoptions.field_arysize) = 10];      //请求角色列表
+  repeated uint64 dstid_lst = 2;      //请求角色列表
   optional uint32 operate_type = 3;    //操作类型
-  optional bytes data = 4[(yd_fieldoptions.field_bufsize) = 32];        //参数数据
+  optional bytes data = 4;        //参数数据
   optional uint32 query_times = 5;    //query次数
 }
 //好友数据返回
@@ -571,26 +811,27 @@ message FriendDBResponse
   optional int32 retcode = 1;        //返回码，详见 ComProtocol.proto ERetCode枚举
   optional uint64 charid = 2;        //操作人
   optional uint32 operate_type = 3;    //操作类型
-  repeated FriendDBInfo info_lst = 4[(yd_fieldoptions.field_arysize) = 10];    //好友数据
-  repeated uint64 last_lst = 5[(yd_fieldoptions.field_arysize) = 10];      //上一次剩余未加载角色列表
-  optional bytes data = 6[(yd_fieldoptions.field_bufsize) = 32];        //参数数据
+  repeated FriendDBInfo info_lst = 4;    //好友数据
+  repeated uint64 last_lst = 5;      //上一次剩余未加载角色列表
+  optional bytes data = 6;        //参数数据
   optional uint32 query_times = 7;    //query次数
 }
 
 //所有的好友数据请求
 message AllFriendDBRequest{
-  optional int32 offset = 1;    //数据库记录的偏移
+  required int32 offset = 1;    //数据库记录的偏移
 }
 
+
 message AllFriendDBResponse{
-  optional int32 retcode = 1;          //返回码，详见 ComProtocol.proto ERetCode枚举
-  optional int32 offset = 2;          //数据库记录的偏移
-  repeated FriendDBInfo info = 3[(yd_fieldoptions.field_arysize) = 10];        //好友数据
+  required int32 retcode = 1;          //返回码，详见 ComProtocol.proto ERetCode枚举
+  required int32 offset = 2;          //数据库记录的偏移
+  repeated FriendDBInfo info = 3;        //好友数据
 }
 
 //保存好友数据
 message SaveFriendDBRequest{
-  repeated FriendDBInfo info = 1[(yd_fieldoptions.field_arysize) = 10];    //好友数据
+  repeated FriendDBInfo info = 1;    //好友数据
 }
 
 //删除好友数据
@@ -612,23 +853,23 @@ message GlobalDBEntry
 }
 //请求global表db返回的数据
 message GlobalDBResponse{
-  repeated GlobalDBEntry entry = 1[(yd_fieldoptions.field_arysize) = 10]; //全局数据部分
+  repeated GlobalDBEntry entry = 1; //全局数据部分
   optional int32 isfinish = 2;	//是否结束
 }
 //保存global表数据
 message GlobalDBSetRequest{
-  optional int32 type_id = 1;		//类型ID
+  required int32 type_id = 1;		//类型ID
   optional bytes data = 2;		//数据
 }
 
 //保存global表数据db返回
 message GlobalDBSetResponse{
-  optional int32 retcode = 1;		//返回码
-  optional int32 type_id = 2;		//类型ID
+  required int32 retcode = 1;		//返回码
+  required int32 type_id = 2;		//类型ID
 }
 message GlobalComData
 {
-  repeated DupTowerDBRecord towerDupReward =1[(yd_fieldoptions.field_arysize) = 10];	 //爬塔副本领奖记录
+  repeated DupTowerDBRecord towerDupReward =1;	 //爬塔副本领奖记录
 }
 
 
@@ -649,10 +890,94 @@ message ActDBReq
 //返回活动数据 DB_ACT_GET_DATA_RSP
 message ActDBRsp
 {
-  repeated ActDBProto lst = 1[(yd_fieldoptions.field_arysize) = 10];
+  repeated ActDBProto lst = 1;
 }
 //保存活动数据 DB_ACT_SAVE_DATA_REQ
 message ActSaveDBReq
 {
-  repeated ActDBProto lst = 1[(yd_fieldoptions.field_arysize) = 10];
+  repeated ActDBProto lst = 1;
+}
+
+//竞技场
+message AllArenaDBRequest
+{
+  required int32 offset = 1;		//数据库记录的偏移
+  required int32 retnum = 2;		//数据库返回的数量
+}
+//竞技场DB信息
+message ArenaDBInfo
+{
+  optional uint64 charID = 1;					//角色ID
+  optional uint32 rankId = 2;					//排名
+}
+//竞技场多个DB信息
+message ArenaMoreDBInfo
+{
+  repeated ArenaDBInfo info = 1;	//竞技场数据
+  optional uint32  day = 2;		//哪天的数据
+  optional uint32	 giveReward = 3;//是否发过奖励
+  optional uint32 max_rank = 4;//最大排名
+}
+
+message AllArenaDBResponse
+{
+  required int32 retcode = 1;					//返回码，详见 ComProtocol.proto ERetCode枚举
+  required int32 offset = 2;					//数据库记录的偏移
+  repeated ArenaDBInfo info = 3;				//竞技场数据
+}
+
+//保存竞技数据
+message SaveArenaDBRequest{
+  repeated ArenaDBInfo info = 1;
+}
+
+//删除玩家竞技场数据
+message DeleteArenaDBRequest
+{
+  optional uint64 charId = 1;
+}
+
+///////////////////////////////// 玩家镜像  //////////////////////////////////
+
+//请求玩家镜像数据 DB_ROLE_MIRROR_REQ
+message RoleMirrorDBReq
+{
+  required uint64 cid = 1;		//角色cid
+  required int64 int_param = 2;   //参数,原样返回
+  required string str_param = 3;  //参数,原样返回
+  required uint32 reqtype = 4;	//请求类型,原样返回
+
+}
+
+//返回玩家镜像数据 DB_ROLE_MIRROR_RSP
+message RoleMirrorDBRsp
+{
+  required int32 ret = 1;
+  required uint64 cid = 2;			//角色cid
+  required int64 int_param = 3;		//参数
+  required string str_param = 4;		//参数
+  required uint32 reqtype = 5;		//请求类型
+  optional RoleMirrorData data = 6;	//数据
+}
+
+// ---------------------------------------  帮派  --------------------------------
+//获取帮派数据 DB_FACTION_GET_DATA_REQ
+message FactionDataDBReq
+{
+}
+//DB返回帮派数据 DB_FACTION_GET_DATA_RSP
+message FactionDataDBRsp
+{
+  repeated FactionAllDBData data_lst = 1;
+  optional int32 finish = 2;
+}
+//保存帮派数据 DB_FACTION_SAVE_DATA_REQ
+message FactionSaveDBReq
+{
+  optional FactionAllDBData data = 1;
+}
+//删除帮派数据 DB_FACTION_DEL_REQ
+message FactionDelDBReq
+{
+  optional uint32 faction_id = 1;
 }

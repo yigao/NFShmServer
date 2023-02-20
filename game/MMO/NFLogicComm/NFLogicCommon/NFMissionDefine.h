@@ -731,7 +731,7 @@ struct MissionTrack
     uint64_t dynamicId;                    //动态任务ID（针对动态任务来说的,主支线和配置ID相同）
     uint32_t status;                    //任务当前状态
     uint64_t acceptMissionTime;            //接取任务时间
-    TASK_REWARD items;        //<ItemInfo>，这个任务的物品数据
+    NFShmVector<ItemInfo, 10> items;        //<ItemInfo>，这个任务的物品数据
     uint64_t textId;                    //前端显示用的id(对应taskcontent中text表)
 
     MissionTrack()

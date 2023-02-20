@@ -94,7 +94,7 @@ void protobuf_AssignDesc_Scene_2eproto() {
       "Scene.proto");
   GOOGLE_CHECK(file != NULL);
   CreateSceneParamProto_descriptor_ = file->message_type(0);
-  static const int CreateSceneParamProto_offsets_[8] = {
+  static const int CreateSceneParamProto_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, param_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, zid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, cid_),
@@ -103,6 +103,7 @@ void protobuf_AssignDesc_Scene_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, key_value_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, alive_time_sec_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, mergenum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSceneParamProto, teamid_),
   };
   CreateSceneParamProto_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -582,60 +583,61 @@ void protobuf_AddDesc_Scene_2eproto() {
   ::proto_ff::protobuf_AddDesc_Com_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013Scene.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\032\022common_logic.proto\032\tCom.proto\"\244\001"
+    ".proto\032\022common_logic.proto\032\tCom.proto\"\264\001"
     "\n\025CreateSceneParamProto\022\022\n\nparam_type\030\001 "
     "\002(\005\022\013\n\003zid\030\002 \002(\r\022\013\n\003cid\030\003 \001(\004\022\016\n\006dup_id\030"
     "\004 \001(\004\022\020\n\010key_type\030\005 \001(\005\022\021\n\tkey_value\030\006 \001"
     "(\004\022\026\n\016alive_time_sec\030\007 \001(\005\022\020\n\010mergenum\030\010"
-    " \001(\005\"I\n\017SceneTransParam\022\017\n\007src_map\030\001 \001(\004"
-    "\022\022\n\ntrans_type\030\002 \001(\005\022\021\n\ttrans_val\030\003 \001(\004\""
-    "\206\003\n\020PlayerTransParam\022\021\n\tclient_id\030\001 \002(\r\022"
-    "\026\n\016enter_scene_id\030\002 \002(\004\022\024\n\014enter_map_id\030"
-    "\003 \002(\004\022\021\n\tenterposx\030\004 \002(\002\022\021\n\tenterposy\030\005 "
-    "\002(\002\022\021\n\tenterposz\030\006 \002(\002\022\025\n\rlast_scene_id\030"
-    "\007 \002(\004\022\023\n\013last_map_id\030\010 \002(\004\022\020\n\010lastposx\030\t"
-    " \002(\002\022\020\n\010lastposy\030\n \002(\002\022\020\n\010lastposz\030\013 \002(\002"
-    "\022\016\n\006gateId\030\014 \001(\r\022\017\n\007channId\030\r \001(\r\022\013\n\003uid"
-    "\030\016 \001(\r\022\013\n\003zid\030\017 \001(\r\022&\n\004sync\030\020 \001(\0132\030.prot"
-    "o_ff.LoginSyncProto\022\014\n\004prof\030\021 \001(\005\022\022\n\nlas"
-    "t_state\030\022 \001(\005\022\021\n\thead_flag\030\023 \001(\005\"\221\001\n\022Cre"
-    "atureTransParam\022\014\n\004kind\030\001 \002(\005\022\013\n\003cid\030\002 \002"
-    "(\004\0220\n\014player_param\030\003 \001(\0132\032.proto_ff.Play"
-    "erTransParam\022.\n\013trans_param\030\004 \001(\0132\031.prot"
-    "o_ff.SceneTransParam\"@\n\rNotifyLoadMap\022\r\n"
-    "\005mapid\030\001 \002(\004\022 \n\003pos\030\002 \002(\0132\023.proto_ff.Vec"
-    "tor3PB\"<\n\rTransSceneReq\022\021\n\tdst_mapid\030\001 \002"
-    "(\004\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\004\"/\n\rTransSce"
-    "neRsp\022\017\n\007retcode\030\001 \002(\005\022\r\n\005mapid\030\002 \001(\004\"\022\n"
-    "\020LoadMapFinishReq\"]\n\nCorpseInfo\022\r\n\005cfgId"
-    "\030\001 \001(\004\022\021\n\taliveTime\030\002 \001(\004\022 \n\003pos\030\003 \001(\0132\023"
-    ".proto_ff.Vector3PB\022\013\n\003cid\030\004 \001(\004\"M\n\030Noti"
-    "fySceneCorpseInfoRsp\022\014\n\004type\030\001 \001(\005\022#\n\005in"
-    "fos\030\002 \003(\0132\024.proto_ff.CorpseInfo\"L\n\023Notif"
-    "ySceneDriveRsp\022\020\n\010curDrive\030\001 \001(\005\022\020\n\010maxD"
-    "rive\030\002 \001(\005\022\021\n\tdriveTime\030\003 \001(\004\"f\n\024CenterC"
-    "reateSceneReq\022\017\n\007sceneId\030\001 \002(\004\022\r\n\005mapId\030"
-    "\002 \002(\004\022.\n\005param\030\003 \001(\0132\037.proto_ff.CreateSc"
-    "eneParamProto\"6\n\024CenterCreateSceneRsp\022\017\n"
-    "\007sceneId\030\001 \002(\004\022\r\n\005mapId\030\002 \002(\004\"@\n\rSCAddNe"
-    "wScene\022\r\n\005mapid\030\001 \002(\004\022\017\n\007sceneid\030\002 \002(\004\022\017"
-    "\n\007logicid\030\003 \002(\r\"\035\n\nSCDelScene\022\017\n\007sceneid"
-    "\030\001 \002(\004\"7\n\025NotifyLogicSceneClose\022\017\n\007scene"
-    "Id\030\001 \002(\004\022\r\n\005mapId\030\002 \002(\004\"\205\001\n\032LogicCreatur"
-    "eTransSceneReq\022\022\n\ncurSceneId\030\001 \002(\004\022\022\n\nds"
-    "tSceneId\030\002 \002(\004\022+\n\005param\030\003 \002(\0132\034.proto_ff"
-    ".CreatureTransParam\022\022\n\nsrcLogicId\030\004 \002(\r\""
-    "x\n!CenterCreatureTransSceneResultRsp\022\016\n\006"
-    "result\030\001 \002(\005\022\023\n\013cur_sceneid\030\002 \002(\004\022\023\n\013dst"
-    "_sceneid\030\003 \002(\004\022\014\n\004kind\030\004 \002(\005\022\013\n\003cid\030\005 \002("
-    "\004\"y\n\"CenterCreatureTransSceneSuccessRsp\022"
-    "\023\n\013dst_sceneid\030\001 \002(\004\022\021\n\tdst_mapid\030\002 \002(\004\022"
-    "+\n\005param\030\003 \002(\0132\034.proto_ff.CreatureTransP"
-    "aram\"g\n\024NotifyRoleEnterScene\022\013\n\003cid\030\001 \002("
-    "\004\022\020\n\010scene_id\030\002 \002(\004\022\016\n\006map_id\030\003 \002(\004\022 \n\003p"
-    "os\030\004 \001(\0132\023.proto_ff.Vector3PB\"Q\n\022NotifyR"
-    "oleChgLogic\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\r\022\020\n"
-    "\010clientid\030\003 \002(\r\022\017\n\007logicid\030\004 \002(\r", 2192);
+    " \001(\005\022\016\n\006teamid\030\t \001(\005\"I\n\017SceneTransParam\022"
+    "\017\n\007src_map\030\001 \001(\004\022\022\n\ntrans_type\030\002 \001(\005\022\021\n\t"
+    "trans_val\030\003 \001(\004\"\206\003\n\020PlayerTransParam\022\021\n\t"
+    "client_id\030\001 \002(\r\022\026\n\016enter_scene_id\030\002 \002(\004\022"
+    "\024\n\014enter_map_id\030\003 \002(\004\022\021\n\tenterposx\030\004 \002(\002"
+    "\022\021\n\tenterposy\030\005 \002(\002\022\021\n\tenterposz\030\006 \002(\002\022\025"
+    "\n\rlast_scene_id\030\007 \002(\004\022\023\n\013last_map_id\030\010 \002"
+    "(\004\022\020\n\010lastposx\030\t \002(\002\022\020\n\010lastposy\030\n \002(\002\022\020"
+    "\n\010lastposz\030\013 \002(\002\022\016\n\006gateId\030\014 \001(\r\022\017\n\007chan"
+    "nId\030\r \001(\r\022\013\n\003uid\030\016 \001(\r\022\013\n\003zid\030\017 \001(\r\022&\n\004s"
+    "ync\030\020 \001(\0132\030.proto_ff.LoginSyncProto\022\014\n\004p"
+    "rof\030\021 \001(\005\022\022\n\nlast_state\030\022 \001(\005\022\021\n\thead_fl"
+    "ag\030\023 \001(\005\"\221\001\n\022CreatureTransParam\022\014\n\004kind\030"
+    "\001 \002(\005\022\013\n\003cid\030\002 \002(\004\0220\n\014player_param\030\003 \001(\013"
+    "2\032.proto_ff.PlayerTransParam\022.\n\013trans_pa"
+    "ram\030\004 \001(\0132\031.proto_ff.SceneTransParam\"@\n\r"
+    "NotifyLoadMap\022\r\n\005mapid\030\001 \002(\004\022 \n\003pos\030\002 \002("
+    "\0132\023.proto_ff.Vector3PB\"<\n\rTransSceneReq\022"
+    "\021\n\tdst_mapid\030\001 \002(\004\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003"
+    " \001(\004\"/\n\rTransSceneRsp\022\017\n\007retcode\030\001 \002(\005\022\r"
+    "\n\005mapid\030\002 \001(\004\"\022\n\020LoadMapFinishReq\"]\n\nCor"
+    "pseInfo\022\r\n\005cfgId\030\001 \001(\004\022\021\n\taliveTime\030\002 \001("
+    "\004\022 \n\003pos\030\003 \001(\0132\023.proto_ff.Vector3PB\022\013\n\003c"
+    "id\030\004 \001(\004\"M\n\030NotifySceneCorpseInfoRsp\022\014\n\004"
+    "type\030\001 \001(\005\022#\n\005infos\030\002 \003(\0132\024.proto_ff.Cor"
+    "pseInfo\"L\n\023NotifySceneDriveRsp\022\020\n\010curDri"
+    "ve\030\001 \001(\005\022\020\n\010maxDrive\030\002 \001(\005\022\021\n\tdriveTime\030"
+    "\003 \001(\004\"f\n\024CenterCreateSceneReq\022\017\n\007sceneId"
+    "\030\001 \002(\004\022\r\n\005mapId\030\002 \002(\004\022.\n\005param\030\003 \001(\0132\037.p"
+    "roto_ff.CreateSceneParamProto\"6\n\024CenterC"
+    "reateSceneRsp\022\017\n\007sceneId\030\001 \002(\004\022\r\n\005mapId\030"
+    "\002 \002(\004\"@\n\rSCAddNewScene\022\r\n\005mapid\030\001 \002(\004\022\017\n"
+    "\007sceneid\030\002 \002(\004\022\017\n\007logicid\030\003 \002(\r\"\035\n\nSCDel"
+    "Scene\022\017\n\007sceneid\030\001 \002(\004\"7\n\025NotifyLogicSce"
+    "neClose\022\017\n\007sceneId\030\001 \002(\004\022\r\n\005mapId\030\002 \002(\004\""
+    "\205\001\n\032LogicCreatureTransSceneReq\022\022\n\ncurSce"
+    "neId\030\001 \002(\004\022\022\n\ndstSceneId\030\002 \002(\004\022+\n\005param\030"
+    "\003 \002(\0132\034.proto_ff.CreatureTransParam\022\022\n\ns"
+    "rcLogicId\030\004 \002(\r\"x\n!CenterCreatureTransSc"
+    "eneResultRsp\022\016\n\006result\030\001 \002(\005\022\023\n\013cur_scen"
+    "eid\030\002 \002(\004\022\023\n\013dst_sceneid\030\003 \002(\004\022\014\n\004kind\030\004"
+    " \002(\005\022\013\n\003cid\030\005 \002(\004\"y\n\"CenterCreatureTrans"
+    "SceneSuccessRsp\022\023\n\013dst_sceneid\030\001 \002(\004\022\021\n\t"
+    "dst_mapid\030\002 \002(\004\022+\n\005param\030\003 \002(\0132\034.proto_f"
+    "f.CreatureTransParam\"g\n\024NotifyRoleEnterS"
+    "cene\022\013\n\003cid\030\001 \002(\004\022\020\n\010scene_id\030\002 \002(\004\022\016\n\006m"
+    "ap_id\030\003 \002(\004\022 \n\003pos\030\004 \001(\0132\023.proto_ff.Vect"
+    "or3PB\"Q\n\022NotifyRoleChgLogic\022\013\n\003cid\030\001 \002(\004"
+    "\022\013\n\003uid\030\002 \002(\r\022\020\n\010clientid\030\003 \002(\r\022\017\n\007logic"
+    "id\030\004 \002(\r", 2208);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Scene.proto", &protobuf_RegisterTypes);
   CreateSceneParamProto::default_instance_ = new CreateSceneParamProto();
@@ -701,6 +703,7 @@ const int CreateSceneParamProto::kKeyTypeFieldNumber;
 const int CreateSceneParamProto::kKeyValueFieldNumber;
 const int CreateSceneParamProto::kAliveTimeSecFieldNumber;
 const int CreateSceneParamProto::kMergenumFieldNumber;
+const int CreateSceneParamProto::kTeamidFieldNumber;
 #endif  // !_MSC_VER
 
 CreateSceneParamProto::CreateSceneParamProto()
@@ -727,6 +730,7 @@ void CreateSceneParamProto::SharedCtor() {
   key_value_ = GOOGLE_ULONGLONG(0);
   alive_time_sec_ = 0;
   mergenum_ = 0;
+  teamid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -770,6 +774,9 @@ void CreateSceneParamProto::Clear() {
     key_value_ = GOOGLE_ULONGLONG(0);
     alive_time_sec_ = 0;
     mergenum_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    teamid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -904,6 +911,22 @@ bool CreateSceneParamProto::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(72)) goto parse_teamid;
+        break;
+      }
+
+      // optional int32 teamid = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_teamid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &teamid_)));
+          set_has_teamid();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -966,6 +989,11 @@ void CreateSceneParamProto::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->mergenum(), output);
   }
 
+  // optional int32 teamid = 9;
+  if (has_teamid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->teamid(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1012,6 +1040,11 @@ void CreateSceneParamProto::SerializeWithCachedSizes(
   // optional int32 mergenum = 8;
   if (has_mergenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->mergenum(), target);
+  }
+
+  // optional int32 teamid = 9;
+  if (has_teamid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->teamid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1082,6 +1115,15 @@ int CreateSceneParamProto::ByteSize() const {
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 teamid = 9;
+    if (has_teamid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->teamid());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1133,6 +1175,11 @@ void CreateSceneParamProto::MergeFrom(const CreateSceneParamProto& from) {
       set_mergenum(from.mergenum());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_teamid()) {
+      set_teamid(from.teamid());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1164,6 +1211,7 @@ void CreateSceneParamProto::Swap(CreateSceneParamProto* other) {
     std::swap(key_value_, other->key_value_);
     std::swap(alive_time_sec_, other->alive_time_sec_);
     std::swap(mergenum_, other->mergenum_);
+    std::swap(teamid_, other->teamid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

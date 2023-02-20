@@ -36,6 +36,9 @@ void  protobuf_AddDesc_Skill_2eproto();
 void protobuf_AssignDesc_Skill_2eproto();
 void protobuf_ShutdownFile_Skill_2eproto();
 
+class SkillAdvanceProto;
+class SkillAdvancePosProto;
+class SkillAdvanceListProto;
 class SkillInfoProto;
 class SkillInfoListProto;
 class SkillUseReq;
@@ -57,8 +60,323 @@ class SkillWakeupReq;
 class SkillWakeupRsp;
 class SkillChgPosReq;
 class SkillChgPosRsp;
+class SkillUpgradeReq;
+class SkillUpgradeRsp;
+class SkillSetAutoUseReq;
+class SkillSetAutoUseRsp;
+class SkillAdvanceReq;
+class SkillAdvanceRsp;
+class SkillAdvanceChgPosReq;
+class SkillAdvanceChgPosRsp;
+class SkillAdvanceResetReq;
+class SkillAdvanceResetRsp;
+class SkillAdvanceUpdateRsp;
+class SkillAdvanceUnlockPosReq;
+class SkillAdvanceUnlockPosRsp;
 
 // ===================================================================
+
+class SkillAdvanceProto : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceProto();
+  virtual ~SkillAdvanceProto();
+
+  SkillAdvanceProto(const SkillAdvanceProto& from);
+
+  inline SkillAdvanceProto& operator=(const SkillAdvanceProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceProto& default_instance();
+
+  void Swap(SkillAdvanceProto* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceProto& from);
+  void MergeFrom(const SkillAdvanceProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 advance = 1;
+  inline bool has_advance() const;
+  inline void clear_advance();
+  static const int kAdvanceFieldNumber = 1;
+  inline ::google::protobuf::int32 advance() const;
+  inline void set_advance(::google::protobuf::int32 value);
+
+  // optional int32 level = 2;
+  inline bool has_level() const;
+  inline void clear_level();
+  static const int kLevelFieldNumber = 2;
+  inline ::google::protobuf::int32 level() const;
+  inline void set_level(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceProto)
+ private:
+  inline void set_has_advance();
+  inline void clear_has_advance();
+  inline void set_has_level();
+  inline void clear_has_level();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 advance_;
+  ::google::protobuf::int32 level_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvancePosProto : public ::google::protobuf::Message {
+ public:
+  SkillAdvancePosProto();
+  virtual ~SkillAdvancePosProto();
+
+  SkillAdvancePosProto(const SkillAdvancePosProto& from);
+
+  inline SkillAdvancePosProto& operator=(const SkillAdvancePosProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvancePosProto& default_instance();
+
+  void Swap(SkillAdvancePosProto* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvancePosProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvancePosProto& from);
+  void MergeFrom(const SkillAdvancePosProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 pos = 1;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 1;
+  inline ::google::protobuf::int32 pos() const;
+  inline void set_pos(::google::protobuf::int32 value);
+
+  // optional int32 advance = 2;
+  inline bool has_advance() const;
+  inline void clear_advance();
+  static const int kAdvanceFieldNumber = 2;
+  inline ::google::protobuf::int32 advance() const;
+  inline void set_advance(::google::protobuf::int32 value);
+
+  // optional int32 unlock = 3;
+  inline bool has_unlock() const;
+  inline void clear_unlock();
+  static const int kUnlockFieldNumber = 3;
+  inline ::google::protobuf::int32 unlock() const;
+  inline void set_unlock(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvancePosProto)
+ private:
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_advance();
+  inline void clear_has_advance();
+  inline void set_has_unlock();
+  inline void clear_has_unlock();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 pos_;
+  ::google::protobuf::int32 advance_;
+  ::google::protobuf::int32 unlock_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvancePosProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceListProto : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceListProto();
+  virtual ~SkillAdvanceListProto();
+
+  SkillAdvanceListProto(const SkillAdvanceListProto& from);
+
+  inline SkillAdvanceListProto& operator=(const SkillAdvanceListProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceListProto& default_instance();
+
+  void Swap(SkillAdvanceListProto* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceListProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceListProto& from);
+  void MergeFrom(const SkillAdvanceListProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.SkillAdvancePosProto pos_lst = 1;
+  inline int pos_lst_size() const;
+  inline void clear_pos_lst();
+  static const int kPosLstFieldNumber = 1;
+  inline const ::proto_ff::SkillAdvancePosProto& pos_lst(int index) const;
+  inline ::proto_ff::SkillAdvancePosProto* mutable_pos_lst(int index);
+  inline ::proto_ff::SkillAdvancePosProto* add_pos_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvancePosProto >&
+      pos_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvancePosProto >*
+      mutable_pos_lst();
+
+  // repeated .proto_ff.SkillAdvanceProto lst = 2;
+  inline int lst_size() const;
+  inline void clear_lst();
+  static const int kLstFieldNumber = 2;
+  inline const ::proto_ff::SkillAdvanceProto& lst(int index) const;
+  inline ::proto_ff::SkillAdvanceProto* mutable_lst(int index);
+  inline ::proto_ff::SkillAdvanceProto* add_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvanceProto >&
+      lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvanceProto >*
+      mutable_lst();
+
+  // optional int32 curpos = 3;
+  inline bool has_curpos() const;
+  inline void clear_curpos();
+  static const int kCurposFieldNumber = 3;
+  inline ::google::protobuf::int32 curpos() const;
+  inline void set_curpos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceListProto)
+ private:
+  inline void set_has_curpos();
+  inline void clear_has_curpos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvancePosProto > pos_lst_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvanceProto > lst_;
+  ::google::protobuf::int32 curpos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceListProto* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class SkillInfoProto : public ::google::protobuf::Message {
  public:
@@ -135,13 +453,6 @@ class SkillInfoProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 wakeup() const;
   inline void set_wakeup(::google::protobuf::int32 value);
 
-  // optional int32 advance = 4;
-  inline bool has_advance() const;
-  inline void clear_advance();
-  static const int kAdvanceFieldNumber = 4;
-  inline ::google::protobuf::int32 advance() const;
-  inline void set_advance(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.SkillInfoProto)
  private:
   inline void set_has_skill_id();
@@ -150,18 +461,15 @@ class SkillInfoProto : public ::google::protobuf::Message {
   inline void clear_has_level();
   inline void set_has_wakeup();
   inline void clear_has_wakeup();
-  inline void set_has_advance();
-  inline void clear_has_advance();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 skill_id_;
   ::google::protobuf::int32 level_;
   ::google::protobuf::int32 wakeup_;
-  ::google::protobuf::int32 advance_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Skill_2eproto();
   friend void protobuf_AssignDesc_Skill_2eproto();
@@ -461,18 +769,28 @@ class SkillSyncTargetReq : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
       mutable_cid_lst();
 
+  // optional int32 is_extend = 3;
+  inline bool has_is_extend() const;
+  inline void clear_is_extend();
+  static const int kIsExtendFieldNumber = 3;
+  inline ::google::protobuf::int32 is_extend() const;
+  inline void set_is_extend(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.SkillSyncTargetReq)
  private:
   inline void set_has_skill_id();
   inline void clear_has_skill_id();
+  inline void set_has_is_extend();
+  inline void clear_has_is_extend();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 skill_id_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > cid_lst_;
+  ::google::protobuf::int32 is_extend_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Skill_2eproto();
   friend void protobuf_AssignDesc_Skill_2eproto();
@@ -1392,17 +1710,29 @@ class SkillInfoRsp : public ::google::protobuf::Message {
   inline ::proto_ff::SkillInfoListProto* release_info();
   inline void set_allocated_info(::proto_ff::SkillInfoListProto* info);
 
+  // optional .proto_ff.SkillAdvanceListProto advance_info = 2;
+  inline bool has_advance_info() const;
+  inline void clear_advance_info();
+  static const int kAdvanceInfoFieldNumber = 2;
+  inline const ::proto_ff::SkillAdvanceListProto& advance_info() const;
+  inline ::proto_ff::SkillAdvanceListProto* mutable_advance_info();
+  inline ::proto_ff::SkillAdvanceListProto* release_advance_info();
+  inline void set_allocated_advance_info(::proto_ff::SkillAdvanceListProto* advance_info);
+
   // @@protoc_insertion_point(class_scope:proto_ff.SkillInfoRsp)
  private:
   inline void set_has_info();
   inline void clear_has_info();
+  inline void set_has_advance_info();
+  inline void clear_has_advance_info();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::proto_ff::SkillInfoListProto* info_;
+  ::proto_ff::SkillAdvanceListProto* advance_info_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Skill_2eproto();
   friend void protobuf_AssignDesc_Skill_2eproto();
@@ -2092,10 +2422,1272 @@ class SkillChgPosRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SkillChgPosRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class SkillUpgradeReq : public ::google::protobuf::Message {
+ public:
+  SkillUpgradeReq();
+  virtual ~SkillUpgradeReq();
+
+  SkillUpgradeReq(const SkillUpgradeReq& from);
+
+  inline SkillUpgradeReq& operator=(const SkillUpgradeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillUpgradeReq& default_instance();
+
+  void Swap(SkillUpgradeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillUpgradeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillUpgradeReq& from);
+  void MergeFrom(const SkillUpgradeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 skill_id = 1;
+  inline bool has_skill_id() const;
+  inline void clear_skill_id();
+  static const int kSkillIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 skill_id() const;
+  inline void set_skill_id(::google::protobuf::uint64 value);
+
+  // optional int32 type = 2;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillUpgradeReq)
+ private:
+  inline void set_has_skill_id();
+  inline void clear_has_skill_id();
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 skill_id_;
+  ::google::protobuf::int32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillUpgradeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillUpgradeRsp : public ::google::protobuf::Message {
+ public:
+  SkillUpgradeRsp();
+  virtual ~SkillUpgradeRsp();
+
+  SkillUpgradeRsp(const SkillUpgradeRsp& from);
+
+  inline SkillUpgradeRsp& operator=(const SkillUpgradeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillUpgradeRsp& default_instance();
+
+  void Swap(SkillUpgradeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillUpgradeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillUpgradeRsp& from);
+  void MergeFrom(const SkillUpgradeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillUpgradeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillUpgradeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillSetAutoUseReq : public ::google::protobuf::Message {
+ public:
+  SkillSetAutoUseReq();
+  virtual ~SkillSetAutoUseReq();
+
+  SkillSetAutoUseReq(const SkillSetAutoUseReq& from);
+
+  inline SkillSetAutoUseReq& operator=(const SkillSetAutoUseReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillSetAutoUseReq& default_instance();
+
+  void Swap(SkillSetAutoUseReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillSetAutoUseReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillSetAutoUseReq& from);
+  void MergeFrom(const SkillSetAutoUseReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 skill_id = 1;
+  inline bool has_skill_id() const;
+  inline void clear_skill_id();
+  static const int kSkillIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 skill_id() const;
+  inline void set_skill_id(::google::protobuf::uint64 value);
+
+  // optional int32 is_auto = 2;
+  inline bool has_is_auto() const;
+  inline void clear_is_auto();
+  static const int kIsAutoFieldNumber = 2;
+  inline ::google::protobuf::int32 is_auto() const;
+  inline void set_is_auto(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillSetAutoUseReq)
+ private:
+  inline void set_has_skill_id();
+  inline void clear_has_skill_id();
+  inline void set_has_is_auto();
+  inline void clear_has_is_auto();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 skill_id_;
+  ::google::protobuf::int32 is_auto_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillSetAutoUseReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillSetAutoUseRsp : public ::google::protobuf::Message {
+ public:
+  SkillSetAutoUseRsp();
+  virtual ~SkillSetAutoUseRsp();
+
+  SkillSetAutoUseRsp(const SkillSetAutoUseRsp& from);
+
+  inline SkillSetAutoUseRsp& operator=(const SkillSetAutoUseRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillSetAutoUseRsp& default_instance();
+
+  void Swap(SkillSetAutoUseRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillSetAutoUseRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillSetAutoUseRsp& from);
+  void MergeFrom(const SkillSetAutoUseRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillSetAutoUseRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillSetAutoUseRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceReq : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceReq();
+  virtual ~SkillAdvanceReq();
+
+  SkillAdvanceReq(const SkillAdvanceReq& from);
+
+  inline SkillAdvanceReq& operator=(const SkillAdvanceReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceReq& default_instance();
+
+  void Swap(SkillAdvanceReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceReq& from);
+  void MergeFrom(const SkillAdvanceReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 advance = 1;
+  inline bool has_advance() const;
+  inline void clear_advance();
+  static const int kAdvanceFieldNumber = 1;
+  inline ::google::protobuf::uint32 advance() const;
+  inline void set_advance(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceReq)
+ private:
+  inline void set_has_advance();
+  inline void clear_has_advance();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 advance_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceRsp : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceRsp();
+  virtual ~SkillAdvanceRsp();
+
+  SkillAdvanceRsp(const SkillAdvanceRsp& from);
+
+  inline SkillAdvanceRsp& operator=(const SkillAdvanceRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceRsp& default_instance();
+
+  void Swap(SkillAdvanceRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceRsp& from);
+  void MergeFrom(const SkillAdvanceRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceChgPosReq : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceChgPosReq();
+  virtual ~SkillAdvanceChgPosReq();
+
+  SkillAdvanceChgPosReq(const SkillAdvanceChgPosReq& from);
+
+  inline SkillAdvanceChgPosReq& operator=(const SkillAdvanceChgPosReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceChgPosReq& default_instance();
+
+  void Swap(SkillAdvanceChgPosReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceChgPosReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceChgPosReq& from);
+  void MergeFrom(const SkillAdvanceChgPosReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 pos = 1;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 1;
+  inline ::google::protobuf::uint32 pos() const;
+  inline void set_pos(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceChgPosReq)
+ private:
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceChgPosReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceChgPosRsp : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceChgPosRsp();
+  virtual ~SkillAdvanceChgPosRsp();
+
+  SkillAdvanceChgPosRsp(const SkillAdvanceChgPosRsp& from);
+
+  inline SkillAdvanceChgPosRsp& operator=(const SkillAdvanceChgPosRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceChgPosRsp& default_instance();
+
+  void Swap(SkillAdvanceChgPosRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceChgPosRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceChgPosRsp& from);
+  void MergeFrom(const SkillAdvanceChgPosRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceChgPosRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceChgPosRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceResetReq : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceResetReq();
+  virtual ~SkillAdvanceResetReq();
+
+  SkillAdvanceResetReq(const SkillAdvanceResetReq& from);
+
+  inline SkillAdvanceResetReq& operator=(const SkillAdvanceResetReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceResetReq& default_instance();
+
+  void Swap(SkillAdvanceResetReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceResetReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceResetReq& from);
+  void MergeFrom(const SkillAdvanceResetReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceResetReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceResetReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceResetRsp : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceResetRsp();
+  virtual ~SkillAdvanceResetRsp();
+
+  SkillAdvanceResetRsp(const SkillAdvanceResetRsp& from);
+
+  inline SkillAdvanceResetRsp& operator=(const SkillAdvanceResetRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceResetRsp& default_instance();
+
+  void Swap(SkillAdvanceResetRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceResetRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceResetRsp& from);
+  void MergeFrom(const SkillAdvanceResetRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceResetRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceResetRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceUpdateRsp : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceUpdateRsp();
+  virtual ~SkillAdvanceUpdateRsp();
+
+  SkillAdvanceUpdateRsp(const SkillAdvanceUpdateRsp& from);
+
+  inline SkillAdvanceUpdateRsp& operator=(const SkillAdvanceUpdateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceUpdateRsp& default_instance();
+
+  void Swap(SkillAdvanceUpdateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceUpdateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceUpdateRsp& from);
+  void MergeFrom(const SkillAdvanceUpdateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.SkillAdvanceListProto advance_info = 1;
+  inline bool has_advance_info() const;
+  inline void clear_advance_info();
+  static const int kAdvanceInfoFieldNumber = 1;
+  inline const ::proto_ff::SkillAdvanceListProto& advance_info() const;
+  inline ::proto_ff::SkillAdvanceListProto* mutable_advance_info();
+  inline ::proto_ff::SkillAdvanceListProto* release_advance_info();
+  inline void set_allocated_advance_info(::proto_ff::SkillAdvanceListProto* advance_info);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceUpdateRsp)
+ private:
+  inline void set_has_advance_info();
+  inline void clear_has_advance_info();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::SkillAdvanceListProto* advance_info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceUpdateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceUnlockPosReq : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceUnlockPosReq();
+  virtual ~SkillAdvanceUnlockPosReq();
+
+  SkillAdvanceUnlockPosReq(const SkillAdvanceUnlockPosReq& from);
+
+  inline SkillAdvanceUnlockPosReq& operator=(const SkillAdvanceUnlockPosReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceUnlockPosReq& default_instance();
+
+  void Swap(SkillAdvanceUnlockPosReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceUnlockPosReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceUnlockPosReq& from);
+  void MergeFrom(const SkillAdvanceUnlockPosReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceUnlockPosReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceUnlockPosReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SkillAdvanceUnlockPosRsp : public ::google::protobuf::Message {
+ public:
+  SkillAdvanceUnlockPosRsp();
+  virtual ~SkillAdvanceUnlockPosRsp();
+
+  SkillAdvanceUnlockPosRsp(const SkillAdvanceUnlockPosRsp& from);
+
+  inline SkillAdvanceUnlockPosRsp& operator=(const SkillAdvanceUnlockPosRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SkillAdvanceUnlockPosRsp& default_instance();
+
+  void Swap(SkillAdvanceUnlockPosRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SkillAdvanceUnlockPosRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SkillAdvanceUnlockPosRsp& from);
+  void MergeFrom(const SkillAdvanceUnlockPosRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SkillAdvanceUnlockPosRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Skill_2eproto();
+  friend void protobuf_AssignDesc_Skill_2eproto();
+  friend void protobuf_ShutdownFile_Skill_2eproto();
+
+  void InitAsDefaultInstance();
+  static SkillAdvanceUnlockPosRsp* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
+
+// SkillAdvanceProto
+
+// optional int32 advance = 1;
+inline bool SkillAdvanceProto::has_advance() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceProto::set_has_advance() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceProto::clear_has_advance() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceProto::clear_advance() {
+  advance_ = 0;
+  clear_has_advance();
+}
+inline ::google::protobuf::int32 SkillAdvanceProto::advance() const {
+  return advance_;
+}
+inline void SkillAdvanceProto::set_advance(::google::protobuf::int32 value) {
+  set_has_advance();
+  advance_ = value;
+}
+
+// optional int32 level = 2;
+inline bool SkillAdvanceProto::has_level() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillAdvanceProto::set_has_level() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillAdvanceProto::clear_has_level() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillAdvanceProto::clear_level() {
+  level_ = 0;
+  clear_has_level();
+}
+inline ::google::protobuf::int32 SkillAdvanceProto::level() const {
+  return level_;
+}
+inline void SkillAdvanceProto::set_level(::google::protobuf::int32 value) {
+  set_has_level();
+  level_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvancePosProto
+
+// optional int32 pos = 1;
+inline bool SkillAdvancePosProto::has_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvancePosProto::set_has_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvancePosProto::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvancePosProto::clear_pos() {
+  pos_ = 0;
+  clear_has_pos();
+}
+inline ::google::protobuf::int32 SkillAdvancePosProto::pos() const {
+  return pos_;
+}
+inline void SkillAdvancePosProto::set_pos(::google::protobuf::int32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// optional int32 advance = 2;
+inline bool SkillAdvancePosProto::has_advance() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillAdvancePosProto::set_has_advance() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillAdvancePosProto::clear_has_advance() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillAdvancePosProto::clear_advance() {
+  advance_ = 0;
+  clear_has_advance();
+}
+inline ::google::protobuf::int32 SkillAdvancePosProto::advance() const {
+  return advance_;
+}
+inline void SkillAdvancePosProto::set_advance(::google::protobuf::int32 value) {
+  set_has_advance();
+  advance_ = value;
+}
+
+// optional int32 unlock = 3;
+inline bool SkillAdvancePosProto::has_unlock() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SkillAdvancePosProto::set_has_unlock() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SkillAdvancePosProto::clear_has_unlock() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SkillAdvancePosProto::clear_unlock() {
+  unlock_ = 0;
+  clear_has_unlock();
+}
+inline ::google::protobuf::int32 SkillAdvancePosProto::unlock() const {
+  return unlock_;
+}
+inline void SkillAdvancePosProto::set_unlock(::google::protobuf::int32 value) {
+  set_has_unlock();
+  unlock_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceListProto
+
+// repeated .proto_ff.SkillAdvancePosProto pos_lst = 1;
+inline int SkillAdvanceListProto::pos_lst_size() const {
+  return pos_lst_.size();
+}
+inline void SkillAdvanceListProto::clear_pos_lst() {
+  pos_lst_.Clear();
+}
+inline const ::proto_ff::SkillAdvancePosProto& SkillAdvanceListProto::pos_lst(int index) const {
+  return pos_lst_.Get(index);
+}
+inline ::proto_ff::SkillAdvancePosProto* SkillAdvanceListProto::mutable_pos_lst(int index) {
+  return pos_lst_.Mutable(index);
+}
+inline ::proto_ff::SkillAdvancePosProto* SkillAdvanceListProto::add_pos_lst() {
+  return pos_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvancePosProto >&
+SkillAdvanceListProto::pos_lst() const {
+  return pos_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvancePosProto >*
+SkillAdvanceListProto::mutable_pos_lst() {
+  return &pos_lst_;
+}
+
+// repeated .proto_ff.SkillAdvanceProto lst = 2;
+inline int SkillAdvanceListProto::lst_size() const {
+  return lst_.size();
+}
+inline void SkillAdvanceListProto::clear_lst() {
+  lst_.Clear();
+}
+inline const ::proto_ff::SkillAdvanceProto& SkillAdvanceListProto::lst(int index) const {
+  return lst_.Get(index);
+}
+inline ::proto_ff::SkillAdvanceProto* SkillAdvanceListProto::mutable_lst(int index) {
+  return lst_.Mutable(index);
+}
+inline ::proto_ff::SkillAdvanceProto* SkillAdvanceListProto::add_lst() {
+  return lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvanceProto >&
+SkillAdvanceListProto::lst() const {
+  return lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SkillAdvanceProto >*
+SkillAdvanceListProto::mutable_lst() {
+  return &lst_;
+}
+
+// optional int32 curpos = 3;
+inline bool SkillAdvanceListProto::has_curpos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SkillAdvanceListProto::set_has_curpos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SkillAdvanceListProto::clear_has_curpos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SkillAdvanceListProto::clear_curpos() {
+  curpos_ = 0;
+  clear_has_curpos();
+}
+inline ::google::protobuf::int32 SkillAdvanceListProto::curpos() const {
+  return curpos_;
+}
+inline void SkillAdvanceListProto::set_curpos(::google::protobuf::int32 value) {
+  set_has_curpos();
+  curpos_ = value;
+}
+
+// -------------------------------------------------------------------
 
 // SkillInfoProto
 
@@ -2163,28 +3755,6 @@ inline ::google::protobuf::int32 SkillInfoProto::wakeup() const {
 inline void SkillInfoProto::set_wakeup(::google::protobuf::int32 value) {
   set_has_wakeup();
   wakeup_ = value;
-}
-
-// optional int32 advance = 4;
-inline bool SkillInfoProto::has_advance() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void SkillInfoProto::set_has_advance() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void SkillInfoProto::clear_has_advance() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void SkillInfoProto::clear_advance() {
-  advance_ = 0;
-  clear_has_advance();
-}
-inline ::google::protobuf::int32 SkillInfoProto::advance() const {
-  return advance_;
-}
-inline void SkillInfoProto::set_advance(::google::protobuf::int32 value) {
-  set_has_advance();
-  advance_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -2430,6 +4000,28 @@ SkillSyncTargetReq::cid_lst() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
 SkillSyncTargetReq::mutable_cid_lst() {
   return &cid_lst_;
+}
+
+// optional int32 is_extend = 3;
+inline bool SkillSyncTargetReq::has_is_extend() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SkillSyncTargetReq::set_has_is_extend() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SkillSyncTargetReq::clear_has_is_extend() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SkillSyncTargetReq::clear_is_extend() {
+  is_extend_ = 0;
+  clear_has_is_extend();
+}
+inline ::google::protobuf::int32 SkillSyncTargetReq::is_extend() const {
+  return is_extend_;
+}
+inline void SkillSyncTargetReq::set_is_extend(::google::protobuf::int32 value) {
+  set_has_is_extend();
+  is_extend_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -3132,6 +4724,44 @@ inline void SkillInfoRsp::set_allocated_info(::proto_ff::SkillInfoListProto* inf
   }
 }
 
+// optional .proto_ff.SkillAdvanceListProto advance_info = 2;
+inline bool SkillInfoRsp::has_advance_info() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillInfoRsp::set_has_advance_info() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillInfoRsp::clear_has_advance_info() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillInfoRsp::clear_advance_info() {
+  if (advance_info_ != NULL) advance_info_->::proto_ff::SkillAdvanceListProto::Clear();
+  clear_has_advance_info();
+}
+inline const ::proto_ff::SkillAdvanceListProto& SkillInfoRsp::advance_info() const {
+  return advance_info_ != NULL ? *advance_info_ : *default_instance_->advance_info_;
+}
+inline ::proto_ff::SkillAdvanceListProto* SkillInfoRsp::mutable_advance_info() {
+  set_has_advance_info();
+  if (advance_info_ == NULL) advance_info_ = new ::proto_ff::SkillAdvanceListProto;
+  return advance_info_;
+}
+inline ::proto_ff::SkillAdvanceListProto* SkillInfoRsp::release_advance_info() {
+  clear_has_advance_info();
+  ::proto_ff::SkillAdvanceListProto* temp = advance_info_;
+  advance_info_ = NULL;
+  return temp;
+}
+inline void SkillInfoRsp::set_allocated_advance_info(::proto_ff::SkillAdvanceListProto* advance_info) {
+  delete advance_info_;
+  advance_info_ = advance_info;
+  if (advance_info) {
+    set_has_advance_info();
+  } else {
+    clear_has_advance_info();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // SkillInfoUpdateRsp
@@ -3399,6 +5029,360 @@ inline ::google::protobuf::int32 SkillChgPosRsp::ret() const {
   return ret_;
 }
 inline void SkillChgPosRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillUpgradeReq
+
+// optional uint64 skill_id = 1;
+inline bool SkillUpgradeReq::has_skill_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillUpgradeReq::set_has_skill_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillUpgradeReq::clear_has_skill_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillUpgradeReq::clear_skill_id() {
+  skill_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_skill_id();
+}
+inline ::google::protobuf::uint64 SkillUpgradeReq::skill_id() const {
+  return skill_id_;
+}
+inline void SkillUpgradeReq::set_skill_id(::google::protobuf::uint64 value) {
+  set_has_skill_id();
+  skill_id_ = value;
+}
+
+// optional int32 type = 2;
+inline bool SkillUpgradeReq::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillUpgradeReq::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillUpgradeReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillUpgradeReq::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 SkillUpgradeReq::type() const {
+  return type_;
+}
+inline void SkillUpgradeReq::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillUpgradeRsp
+
+// required int32 ret = 1;
+inline bool SkillUpgradeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillUpgradeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillUpgradeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillUpgradeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SkillUpgradeRsp::ret() const {
+  return ret_;
+}
+inline void SkillUpgradeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillSetAutoUseReq
+
+// optional uint64 skill_id = 1;
+inline bool SkillSetAutoUseReq::has_skill_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillSetAutoUseReq::set_has_skill_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillSetAutoUseReq::clear_has_skill_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillSetAutoUseReq::clear_skill_id() {
+  skill_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_skill_id();
+}
+inline ::google::protobuf::uint64 SkillSetAutoUseReq::skill_id() const {
+  return skill_id_;
+}
+inline void SkillSetAutoUseReq::set_skill_id(::google::protobuf::uint64 value) {
+  set_has_skill_id();
+  skill_id_ = value;
+}
+
+// optional int32 is_auto = 2;
+inline bool SkillSetAutoUseReq::has_is_auto() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SkillSetAutoUseReq::set_has_is_auto() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SkillSetAutoUseReq::clear_has_is_auto() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SkillSetAutoUseReq::clear_is_auto() {
+  is_auto_ = 0;
+  clear_has_is_auto();
+}
+inline ::google::protobuf::int32 SkillSetAutoUseReq::is_auto() const {
+  return is_auto_;
+}
+inline void SkillSetAutoUseReq::set_is_auto(::google::protobuf::int32 value) {
+  set_has_is_auto();
+  is_auto_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillSetAutoUseRsp
+
+// required int32 ret = 1;
+inline bool SkillSetAutoUseRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillSetAutoUseRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillSetAutoUseRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillSetAutoUseRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SkillSetAutoUseRsp::ret() const {
+  return ret_;
+}
+inline void SkillSetAutoUseRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceReq
+
+// required uint32 advance = 1;
+inline bool SkillAdvanceReq::has_advance() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceReq::set_has_advance() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceReq::clear_has_advance() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceReq::clear_advance() {
+  advance_ = 0u;
+  clear_has_advance();
+}
+inline ::google::protobuf::uint32 SkillAdvanceReq::advance() const {
+  return advance_;
+}
+inline void SkillAdvanceReq::set_advance(::google::protobuf::uint32 value) {
+  set_has_advance();
+  advance_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceRsp
+
+// required int32 ret = 1;
+inline bool SkillAdvanceRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SkillAdvanceRsp::ret() const {
+  return ret_;
+}
+inline void SkillAdvanceRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceChgPosReq
+
+// required uint32 pos = 1;
+inline bool SkillAdvanceChgPosReq::has_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceChgPosReq::set_has_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceChgPosReq::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceChgPosReq::clear_pos() {
+  pos_ = 0u;
+  clear_has_pos();
+}
+inline ::google::protobuf::uint32 SkillAdvanceChgPosReq::pos() const {
+  return pos_;
+}
+inline void SkillAdvanceChgPosReq::set_pos(::google::protobuf::uint32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceChgPosRsp
+
+// required int32 ret = 1;
+inline bool SkillAdvanceChgPosRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceChgPosRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceChgPosRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceChgPosRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SkillAdvanceChgPosRsp::ret() const {
+  return ret_;
+}
+inline void SkillAdvanceChgPosRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceResetReq
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceResetRsp
+
+// required int32 ret = 1;
+inline bool SkillAdvanceResetRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceResetRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceResetRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceResetRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SkillAdvanceResetRsp::ret() const {
+  return ret_;
+}
+inline void SkillAdvanceResetRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceUpdateRsp
+
+// optional .proto_ff.SkillAdvanceListProto advance_info = 1;
+inline bool SkillAdvanceUpdateRsp::has_advance_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceUpdateRsp::set_has_advance_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceUpdateRsp::clear_has_advance_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceUpdateRsp::clear_advance_info() {
+  if (advance_info_ != NULL) advance_info_->::proto_ff::SkillAdvanceListProto::Clear();
+  clear_has_advance_info();
+}
+inline const ::proto_ff::SkillAdvanceListProto& SkillAdvanceUpdateRsp::advance_info() const {
+  return advance_info_ != NULL ? *advance_info_ : *default_instance_->advance_info_;
+}
+inline ::proto_ff::SkillAdvanceListProto* SkillAdvanceUpdateRsp::mutable_advance_info() {
+  set_has_advance_info();
+  if (advance_info_ == NULL) advance_info_ = new ::proto_ff::SkillAdvanceListProto;
+  return advance_info_;
+}
+inline ::proto_ff::SkillAdvanceListProto* SkillAdvanceUpdateRsp::release_advance_info() {
+  clear_has_advance_info();
+  ::proto_ff::SkillAdvanceListProto* temp = advance_info_;
+  advance_info_ = NULL;
+  return temp;
+}
+inline void SkillAdvanceUpdateRsp::set_allocated_advance_info(::proto_ff::SkillAdvanceListProto* advance_info) {
+  delete advance_info_;
+  advance_info_ = advance_info;
+  if (advance_info) {
+    set_has_advance_info();
+  } else {
+    clear_has_advance_info();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceUnlockPosReq
+
+// -------------------------------------------------------------------
+
+// SkillAdvanceUnlockPosRsp
+
+// required int32 ret = 1;
+inline bool SkillAdvanceUnlockPosRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SkillAdvanceUnlockPosRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SkillAdvanceUnlockPosRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SkillAdvanceUnlockPosRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SkillAdvanceUnlockPosRsp::ret() const {
+  return ret_;
+}
+inline void SkillAdvanceUnlockPosRsp::set_ret(::google::protobuf::int32 value) {
   set_has_ret();
   ret_ = value;
 }

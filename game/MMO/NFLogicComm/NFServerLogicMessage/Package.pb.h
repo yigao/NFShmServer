@@ -47,6 +47,8 @@ class StorageOperateRsp;
 class NotifyPackageUpdate;
 class PackageUseReq;
 class PackageUseRet;
+class PackageSellReq;
+class PackageSellRet;
 
 // ===================================================================
 
@@ -1097,6 +1099,173 @@ class PackageUseRet : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static PackageUseRet* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class PackageSellReq : public ::google::protobuf::Message {
+ public:
+  PackageSellReq();
+  virtual ~PackageSellReq();
+
+  PackageSellReq(const PackageSellReq& from);
+
+  inline PackageSellReq& operator=(const PackageSellReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PackageSellReq& default_instance();
+
+  void Swap(PackageSellReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PackageSellReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PackageSellReq& from);
+  void MergeFrom(const PackageSellReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.ItemSellProto sell = 1;
+  inline int sell_size() const;
+  inline void clear_sell();
+  static const int kSellFieldNumber = 1;
+  inline const ::proto_ff::ItemSellProto& sell(int index) const;
+  inline ::proto_ff::ItemSellProto* mutable_sell(int index);
+  inline ::proto_ff::ItemSellProto* add_sell();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemSellProto >&
+      sell() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemSellProto >*
+      mutable_sell();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PackageSellReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemSellProto > sell_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Package_2eproto();
+  friend void protobuf_AssignDesc_Package_2eproto();
+  friend void protobuf_ShutdownFile_Package_2eproto();
+
+  void InitAsDefaultInstance();
+  static PackageSellReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PackageSellRet : public ::google::protobuf::Message {
+ public:
+  PackageSellRet();
+  virtual ~PackageSellRet();
+
+  PackageSellRet(const PackageSellRet& from);
+
+  inline PackageSellRet& operator=(const PackageSellRet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PackageSellRet& default_instance();
+
+  void Swap(PackageSellRet* other);
+
+  // implements Message ----------------------------------------------
+
+  PackageSellRet* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PackageSellRet& from);
+  void MergeFrom(const PackageSellRet& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::int32 retcode() const;
+  inline void set_retcode(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PackageSellRet)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 retcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Package_2eproto();
+  friend void protobuf_AssignDesc_Package_2eproto();
+  friend void protobuf_ShutdownFile_Package_2eproto();
+
+  void InitAsDefaultInstance();
+  static PackageSellRet* default_instance_;
+};
 // ===================================================================
 
 
@@ -1699,6 +1868,61 @@ inline ::google::protobuf::int32 PackageUseRet::retcode() const {
   return retcode_;
 }
 inline void PackageUseRet::set_retcode(::google::protobuf::int32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PackageSellReq
+
+// repeated .proto_ff.ItemSellProto sell = 1;
+inline int PackageSellReq::sell_size() const {
+  return sell_.size();
+}
+inline void PackageSellReq::clear_sell() {
+  sell_.Clear();
+}
+inline const ::proto_ff::ItemSellProto& PackageSellReq::sell(int index) const {
+  return sell_.Get(index);
+}
+inline ::proto_ff::ItemSellProto* PackageSellReq::mutable_sell(int index) {
+  return sell_.Mutable(index);
+}
+inline ::proto_ff::ItemSellProto* PackageSellReq::add_sell() {
+  return sell_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemSellProto >&
+PackageSellReq::sell() const {
+  return sell_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemSellProto >*
+PackageSellReq::mutable_sell() {
+  return &sell_;
+}
+
+// -------------------------------------------------------------------
+
+// PackageSellRet
+
+// required int32 retcode = 1;
+inline bool PackageSellRet::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PackageSellRet::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PackageSellRet::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PackageSellRet::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::google::protobuf::int32 PackageSellRet::retcode() const {
+  return retcode_;
+}
+inline void PackageSellRet::set_retcode(::google::protobuf::int32 value) {
   set_has_retcode();
   retcode_ = value;
 }

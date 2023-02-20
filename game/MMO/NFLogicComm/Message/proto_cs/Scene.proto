@@ -20,6 +20,8 @@ message CreateSceneParamProto
 	optional uint64 key_value = 6;			//副本key值
 	optional int32  alive_time_sec = 7;		//副本预估存活时间(如果玩家一直没有进入存活多久消亡,可选不填，字段无效)
 	optional int32  mergenum = 8;			//副本合并次数
+	optional int32 	teamid = 9;				//队伍id
+	//repeated RoleMirrorData mirrors = 10;	//机器人
 }
 
 //切逻辑服时携带的参数

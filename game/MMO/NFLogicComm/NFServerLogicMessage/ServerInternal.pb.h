@@ -38,6 +38,7 @@ void  protobuf_AddDesc_ServerInternal_2eproto();
 void protobuf_AssignDesc_ServerInternal_2eproto();
 void protobuf_ShutdownFile_ServerInternal_2eproto();
 
+class NotifyCloseServer;
 class WebToCenterMergeFlagRsp;
 class SocialRegisterCenterReq;
 class SocialRegisterCenterRsp;
@@ -71,6 +72,7 @@ class SocialRoleInfoRsp;
 class SocialRoleEventRsp;
 class SynAttrToCenterRsp;
 class CenterToLogicVirForbidRsp;
+class NotifyGateRetRoleList;
 
 enum NotifyLogicDataUpdate_Type {
   NotifyLogicDataUpdate_Type_daily = 1,
@@ -113,6 +115,108 @@ inline bool NotifyLogicState_Type_Parse(
     NotifyLogicState_Type_descriptor(), name, value);
 }
 // ===================================================================
+
+class NotifyCloseServer : public ::google::protobuf::Message {
+ public:
+  NotifyCloseServer();
+  virtual ~NotifyCloseServer();
+
+  NotifyCloseServer(const NotifyCloseServer& from);
+
+  inline NotifyCloseServer& operator=(const NotifyCloseServer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyCloseServer& default_instance();
+
+  void Swap(NotifyCloseServer* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyCloseServer* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyCloseServer& from);
+  void MergeFrom(const NotifyCloseServer& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string who = 1;
+  inline bool has_who() const;
+  inline void clear_who();
+  static const int kWhoFieldNumber = 1;
+  inline const ::std::string& who() const;
+  inline void set_who(const ::std::string& value);
+  inline void set_who(const char* value);
+  inline void set_who(const char* value, size_t size);
+  inline ::std::string* mutable_who();
+  inline ::std::string* release_who();
+  inline void set_allocated_who(::std::string* who);
+
+  // optional string reason = 2;
+  inline bool has_reason() const;
+  inline void clear_reason();
+  static const int kReasonFieldNumber = 2;
+  inline const ::std::string& reason() const;
+  inline void set_reason(const ::std::string& value);
+  inline void set_reason(const char* value);
+  inline void set_reason(const char* value, size_t size);
+  inline ::std::string* mutable_reason();
+  inline ::std::string* release_reason();
+  inline void set_allocated_reason(::std::string* reason);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyCloseServer)
+ private:
+  inline void set_has_who();
+  inline void clear_has_who();
+  inline void set_has_reason();
+  inline void clear_has_reason();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* who_;
+  ::std::string* reason_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyCloseServer* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class WebToCenterMergeFlagRsp : public ::google::protobuf::Message {
  public:
@@ -3490,10 +3594,246 @@ class CenterToLogicVirForbidRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static CenterToLogicVirForbidRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class NotifyGateRetRoleList : public ::google::protobuf::Message {
+ public:
+  NotifyGateRetRoleList();
+  virtual ~NotifyGateRetRoleList();
+
+  NotifyGateRetRoleList(const NotifyGateRetRoleList& from);
+
+  inline NotifyGateRetRoleList& operator=(const NotifyGateRetRoleList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyGateRetRoleList& default_instance();
+
+  void Swap(NotifyGateRetRoleList* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyGateRetRoleList* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyGateRetRoleList& from);
+  void MergeFrom(const NotifyGateRetRoleList& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 clientid = 1;
+  inline bool has_clientid() const;
+  inline void clear_clientid();
+  static const int kClientidFieldNumber = 1;
+  inline ::google::protobuf::uint32 clientid() const;
+  inline void set_clientid(::google::protobuf::uint32 value);
+
+  // required uint32 uid = 2;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 2;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyGateRetRoleList)
+ private:
+  inline void set_has_clientid();
+  inline void clear_has_clientid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 clientid_;
+  ::google::protobuf::uint32 uid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyGateRetRoleList* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
+
+// NotifyCloseServer
+
+// optional string who = 1;
+inline bool NotifyCloseServer::has_who() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyCloseServer::set_has_who() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyCloseServer::clear_has_who() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyCloseServer::clear_who() {
+  if (who_ != &::google::protobuf::internal::kEmptyString) {
+    who_->clear();
+  }
+  clear_has_who();
+}
+inline const ::std::string& NotifyCloseServer::who() const {
+  return *who_;
+}
+inline void NotifyCloseServer::set_who(const ::std::string& value) {
+  set_has_who();
+  if (who_ == &::google::protobuf::internal::kEmptyString) {
+    who_ = new ::std::string;
+  }
+  who_->assign(value);
+}
+inline void NotifyCloseServer::set_who(const char* value) {
+  set_has_who();
+  if (who_ == &::google::protobuf::internal::kEmptyString) {
+    who_ = new ::std::string;
+  }
+  who_->assign(value);
+}
+inline void NotifyCloseServer::set_who(const char* value, size_t size) {
+  set_has_who();
+  if (who_ == &::google::protobuf::internal::kEmptyString) {
+    who_ = new ::std::string;
+  }
+  who_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* NotifyCloseServer::mutable_who() {
+  set_has_who();
+  if (who_ == &::google::protobuf::internal::kEmptyString) {
+    who_ = new ::std::string;
+  }
+  return who_;
+}
+inline ::std::string* NotifyCloseServer::release_who() {
+  clear_has_who();
+  if (who_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = who_;
+    who_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void NotifyCloseServer::set_allocated_who(::std::string* who) {
+  if (who_ != &::google::protobuf::internal::kEmptyString) {
+    delete who_;
+  }
+  if (who) {
+    set_has_who();
+    who_ = who;
+  } else {
+    clear_has_who();
+    who_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string reason = 2;
+inline bool NotifyCloseServer::has_reason() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyCloseServer::set_has_reason() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyCloseServer::clear_has_reason() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyCloseServer::clear_reason() {
+  if (reason_ != &::google::protobuf::internal::kEmptyString) {
+    reason_->clear();
+  }
+  clear_has_reason();
+}
+inline const ::std::string& NotifyCloseServer::reason() const {
+  return *reason_;
+}
+inline void NotifyCloseServer::set_reason(const ::std::string& value) {
+  set_has_reason();
+  if (reason_ == &::google::protobuf::internal::kEmptyString) {
+    reason_ = new ::std::string;
+  }
+  reason_->assign(value);
+}
+inline void NotifyCloseServer::set_reason(const char* value) {
+  set_has_reason();
+  if (reason_ == &::google::protobuf::internal::kEmptyString) {
+    reason_ = new ::std::string;
+  }
+  reason_->assign(value);
+}
+inline void NotifyCloseServer::set_reason(const char* value, size_t size) {
+  set_has_reason();
+  if (reason_ == &::google::protobuf::internal::kEmptyString) {
+    reason_ = new ::std::string;
+  }
+  reason_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* NotifyCloseServer::mutable_reason() {
+  set_has_reason();
+  if (reason_ == &::google::protobuf::internal::kEmptyString) {
+    reason_ = new ::std::string;
+  }
+  return reason_;
+}
+inline ::std::string* NotifyCloseServer::release_reason() {
+  clear_has_reason();
+  if (reason_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = reason_;
+    reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void NotifyCloseServer::set_allocated_reason(::std::string* reason) {
+  if (reason_ != &::google::protobuf::internal::kEmptyString) {
+    delete reason_;
+  }
+  if (reason) {
+    set_has_reason();
+    reason_ = reason;
+  } else {
+    clear_has_reason();
+    reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
 
 // WebToCenterMergeFlagRsp
 
@@ -5784,6 +6124,54 @@ CenterToLogicVirForbidRsp::vir_lst() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
 CenterToLogicVirForbidRsp::mutable_vir_lst() {
   return &vir_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyGateRetRoleList
+
+// required uint32 clientid = 1;
+inline bool NotifyGateRetRoleList::has_clientid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyGateRetRoleList::set_has_clientid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyGateRetRoleList::clear_has_clientid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyGateRetRoleList::clear_clientid() {
+  clientid_ = 0u;
+  clear_has_clientid();
+}
+inline ::google::protobuf::uint32 NotifyGateRetRoleList::clientid() const {
+  return clientid_;
+}
+inline void NotifyGateRetRoleList::set_clientid(::google::protobuf::uint32 value) {
+  set_has_clientid();
+  clientid_ = value;
+}
+
+// required uint32 uid = 2;
+inline bool NotifyGateRetRoleList::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyGateRetRoleList::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyGateRetRoleList::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyGateRetRoleList::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 NotifyGateRetRoleList::uid() const {
+  return uid_;
+}
+inline void NotifyGateRetRoleList::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
 }
 
 

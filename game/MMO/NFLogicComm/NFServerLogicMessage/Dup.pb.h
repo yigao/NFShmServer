@@ -28,6 +28,7 @@
 #include "common_logic.pb.h"
 #include "Com.pb.h"
 #include "Scene.pb.h"
+#include "DBProto.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace proto_ff {
@@ -39,6 +40,7 @@ void protobuf_ShutdownFile_Dup_2eproto();
 
 class DupDropProto;
 class DupTowerRecordEntry;
+class DupTeamInviteState;
 class TowerDupData;
 class PassDupData;
 class ComDupGroupData;
@@ -58,6 +60,13 @@ class BuyDupNumReq;
 class BuyDupNumRsp;
 class DupTowerRecordReq;
 class DupTowerRecordRsp;
+class DupTeamInviteReq;
+class DupTeamInviteRsp;
+class NotifyDupTeamInviteStateRsp;
+class DupTeamOptReq;
+class DupTeamOptRsp;
+class DupSweepReq;
+class DupSweepRsp;
 class L2CEnterDupReq;
 class L2CCreateDupRsp;
 class L2CDupStateChgNotify;
@@ -66,6 +75,17 @@ class L2CDupRoleActionNotify;
 class S2CEnterDupReq;
 class C2SEnterDupRsp;
 class L2CTowerRecvRecordReq;
+class L2SEnterDupReq;
+class L2SDupTeamInviteReq;
+class C2SCreateDupResultRsp;
+class S2CNotifyCharEnterDup;
+class NotifyRebotEnterDup;
+class L2SDupTeamOptReq;
+class S2CNofityRoleRebotEnterDup;
+class C2LRoleRobotEnterDupReq;
+class L2CDupResultRsp;
+class C2LEnterRebotReq;
+class C2SNotifyDupFinishRsp;
 
 // ===================================================================
 
@@ -291,6 +311,98 @@ class DupTowerRecordEntry : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static DupTowerRecordEntry* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupTeamInviteState : public ::google::protobuf::Message {
+ public:
+  DupTeamInviteState();
+  virtual ~DupTeamInviteState();
+
+  DupTeamInviteState(const DupTeamInviteState& from);
+
+  inline DupTeamInviteState& operator=(const DupTeamInviteState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupTeamInviteState& default_instance();
+
+  void Swap(DupTeamInviteState* other);
+
+  // implements Message ----------------------------------------------
+
+  DupTeamInviteState* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupTeamInviteState& from);
+  void MergeFrom(const DupTeamInviteState& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional int32 state = 2;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 2;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupTeamInviteState)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_state();
+  inline void clear_has_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::int32 state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupTeamInviteState* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1392,6 +1504,27 @@ class NotifyDupRunRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
       mutable_items();
 
+  // optional int32 kill_boss_num = 9;
+  inline bool has_kill_boss_num() const;
+  inline void clear_kill_boss_num();
+  static const int kKillBossNumFieldNumber = 9;
+  inline ::google::protobuf::int32 kill_boss_num() const;
+  inline void set_kill_boss_num(::google::protobuf::int32 value);
+
+  // optional int32 boss_num = 10;
+  inline bool has_boss_num() const;
+  inline void clear_boss_num();
+  static const int kBossNumFieldNumber = 10;
+  inline ::google::protobuf::int32 boss_num() const;
+  inline void set_boss_num(::google::protobuf::int32 value);
+
+  // optional int64 add_exp = 11;
+  inline bool has_add_exp() const;
+  inline void clear_add_exp();
+  static const int kAddExpFieldNumber = 11;
+  inline ::google::protobuf::int64 add_exp() const;
+  inline void set_add_exp(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyDupRunRsp)
  private:
   inline void set_has_dupid();
@@ -1408,6 +1541,12 @@ class NotifyDupRunRsp : public ::google::protobuf::Message {
   inline void clear_has_cur_hp();
   inline void set_has_max_hp();
   inline void clear_has_max_hp();
+  inline void set_has_kill_boss_num();
+  inline void clear_has_kill_boss_num();
+  inline void set_has_boss_num();
+  inline void clear_has_boss_num();
+  inline void set_has_add_exp();
+  inline void clear_has_add_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1419,9 +1558,12 @@ class NotifyDupRunRsp : public ::google::protobuf::Message {
   ::google::protobuf::int64 cur_hp_;
   ::google::protobuf::int64 max_hp_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 > items_;
+  ::google::protobuf::int32 kill_boss_num_;
+  ::google::protobuf::int32 boss_num_;
+  ::google::protobuf::int64 add_exp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
 
   friend void  protobuf_AddDesc_Dup_2eproto();
   friend void protobuf_AssignDesc_Dup_2eproto();
@@ -2158,6 +2300,695 @@ class DupTowerRecordRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static DupTowerRecordRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupTeamInviteReq : public ::google::protobuf::Message {
+ public:
+  DupTeamInviteReq();
+  virtual ~DupTeamInviteReq();
+
+  DupTeamInviteReq(const DupTeamInviteReq& from);
+
+  inline DupTeamInviteReq& operator=(const DupTeamInviteReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupTeamInviteReq& default_instance();
+
+  void Swap(DupTeamInviteReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DupTeamInviteReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupTeamInviteReq& from);
+  void MergeFrom(const DupTeamInviteReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 dupid = 1;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 1;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint32 mergeNum = 2;
+  inline bool has_mergenum() const;
+  inline void clear_mergenum();
+  static const int kMergeNumFieldNumber = 2;
+  inline ::google::protobuf::uint32 mergenum() const;
+  inline void set_mergenum(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupTeamInviteReq)
+ private:
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_mergenum();
+  inline void clear_has_mergenum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint32 mergenum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupTeamInviteReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupTeamInviteRsp : public ::google::protobuf::Message {
+ public:
+  DupTeamInviteRsp();
+  virtual ~DupTeamInviteRsp();
+
+  DupTeamInviteRsp(const DupTeamInviteRsp& from);
+
+  inline DupTeamInviteRsp& operator=(const DupTeamInviteRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupTeamInviteRsp& default_instance();
+
+  void Swap(DupTeamInviteRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DupTeamInviteRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupTeamInviteRsp& from);
+  void MergeFrom(const DupTeamInviteRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // required uint64 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupTeamInviteRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupTeamInviteRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyDupTeamInviteStateRsp : public ::google::protobuf::Message {
+ public:
+  NotifyDupTeamInviteStateRsp();
+  virtual ~NotifyDupTeamInviteStateRsp();
+
+  NotifyDupTeamInviteStateRsp(const NotifyDupTeamInviteStateRsp& from);
+
+  inline NotifyDupTeamInviteStateRsp& operator=(const NotifyDupTeamInviteStateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyDupTeamInviteStateRsp& default_instance();
+
+  void Swap(NotifyDupTeamInviteStateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyDupTeamInviteStateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyDupTeamInviteStateRsp& from);
+  void MergeFrom(const NotifyDupTeamInviteStateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 type = 2;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int64 dupid = 3;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 3;
+  inline ::google::protobuf::int64 dupid() const;
+  inline void set_dupid(::google::protobuf::int64 value);
+
+  // repeated .proto_ff.DupTeamInviteState infos = 4;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 4;
+  inline const ::proto_ff::DupTeamInviteState& infos(int index) const;
+  inline ::proto_ff::DupTeamInviteState* mutable_infos(int index);
+  inline ::proto_ff::DupTeamInviteState* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::DupTeamInviteState >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DupTeamInviteState >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyDupTeamInviteStateRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int64 dupid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::DupTeamInviteState > infos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyDupTeamInviteStateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupTeamOptReq : public ::google::protobuf::Message {
+ public:
+  DupTeamOptReq();
+  virtual ~DupTeamOptReq();
+
+  DupTeamOptReq(const DupTeamOptReq& from);
+
+  inline DupTeamOptReq& operator=(const DupTeamOptReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupTeamOptReq& default_instance();
+
+  void Swap(DupTeamOptReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DupTeamOptReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupTeamOptReq& from);
+  void MergeFrom(const DupTeamOptReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 opt = 1;
+  inline bool has_opt() const;
+  inline void clear_opt();
+  static const int kOptFieldNumber = 1;
+  inline ::google::protobuf::int32 opt() const;
+  inline void set_opt(::google::protobuf::int32 value);
+
+  // optional uint32 mergeNum = 2;
+  inline bool has_mergenum() const;
+  inline void clear_mergenum();
+  static const int kMergeNumFieldNumber = 2;
+  inline ::google::protobuf::uint32 mergenum() const;
+  inline void set_mergenum(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupTeamOptReq)
+ private:
+  inline void set_has_opt();
+  inline void clear_has_opt();
+  inline void set_has_mergenum();
+  inline void clear_has_mergenum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 opt_;
+  ::google::protobuf::uint32 mergenum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupTeamOptReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupTeamOptRsp : public ::google::protobuf::Message {
+ public:
+  DupTeamOptRsp();
+  virtual ~DupTeamOptRsp();
+
+  DupTeamOptRsp(const DupTeamOptRsp& from);
+
+  inline DupTeamOptRsp& operator=(const DupTeamOptRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupTeamOptRsp& default_instance();
+
+  void Swap(DupTeamOptRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DupTeamOptRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupTeamOptRsp& from);
+  void MergeFrom(const DupTeamOptRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 opt = 2;
+  inline bool has_opt() const;
+  inline void clear_opt();
+  static const int kOptFieldNumber = 2;
+  inline ::google::protobuf::int32 opt() const;
+  inline void set_opt(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupTeamOptRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_opt();
+  inline void clear_has_opt();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 opt_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupTeamOptRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupSweepReq : public ::google::protobuf::Message {
+ public:
+  DupSweepReq();
+  virtual ~DupSweepReq();
+
+  DupSweepReq(const DupSweepReq& from);
+
+  inline DupSweepReq& operator=(const DupSweepReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupSweepReq& default_instance();
+
+  void Swap(DupSweepReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DupSweepReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupSweepReq& from);
+  void MergeFrom(const DupSweepReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 dupid = 1;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 1;
+  inline ::google::protobuf::int32 dupid() const;
+  inline void set_dupid(::google::protobuf::int32 value);
+
+  // optional int32 num = 2;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 2;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupSweepReq)
+ private:
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_num();
+  inline void clear_has_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 dupid_;
+  ::google::protobuf::int32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupSweepReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DupSweepRsp : public ::google::protobuf::Message {
+ public:
+  DupSweepRsp();
+  virtual ~DupSweepRsp();
+
+  DupSweepRsp(const DupSweepRsp& from);
+
+  inline DupSweepRsp& operator=(const DupSweepRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DupSweepRsp& default_instance();
+
+  void Swap(DupSweepRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DupSweepRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DupSweepRsp& from);
+  void MergeFrom(const DupSweepRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::int32 dupid() const;
+  inline void set_dupid(::google::protobuf::int32 value);
+
+  // optional int32 num = 3;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 3;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
+  // optional .proto_ff.DupDropProto info = 4;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 4;
+  inline const ::proto_ff::DupDropProto& info() const;
+  inline ::proto_ff::DupDropProto* mutable_info();
+  inline ::proto_ff::DupDropProto* release_info();
+  inline void set_allocated_info(::proto_ff::DupDropProto* info);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DupSweepRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_num();
+  inline void clear_has_num();
+  inline void set_has_info();
+  inline void clear_has_info();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 dupid_;
+  ::proto_ff::DupDropProto* info_;
+  ::google::protobuf::int32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static DupSweepRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2986,6 +3817,1335 @@ class L2CTowerRecvRecordReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static L2CTowerRecvRecordReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class L2SEnterDupReq : public ::google::protobuf::Message {
+ public:
+  L2SEnterDupReq();
+  virtual ~L2SEnterDupReq();
+
+  L2SEnterDupReq(const L2SEnterDupReq& from);
+
+  inline L2SEnterDupReq& operator=(const L2SEnterDupReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2SEnterDupReq& default_instance();
+
+  void Swap(L2SEnterDupReq* other);
+
+  // implements Message ----------------------------------------------
+
+  L2SEnterDupReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2SEnterDupReq& from);
+  void MergeFrom(const L2SEnterDupReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.CreateSceneParamProto params = 1;
+  inline bool has_params() const;
+  inline void clear_params();
+  static const int kParamsFieldNumber = 1;
+  inline const ::proto_ff::CreateSceneParamProto& params() const;
+  inline ::proto_ff::CreateSceneParamProto* mutable_params();
+  inline ::proto_ff::CreateSceneParamProto* release_params();
+  inline void set_allocated_params(::proto_ff::CreateSceneParamProto* params);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2SEnterDupReq)
+ private:
+  inline void set_has_params();
+  inline void clear_has_params();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::CreateSceneParamProto* params_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2SEnterDupReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class L2SDupTeamInviteReq : public ::google::protobuf::Message {
+ public:
+  L2SDupTeamInviteReq();
+  virtual ~L2SDupTeamInviteReq();
+
+  L2SDupTeamInviteReq(const L2SDupTeamInviteReq& from);
+
+  inline L2SDupTeamInviteReq& operator=(const L2SDupTeamInviteReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2SDupTeamInviteReq& default_instance();
+
+  void Swap(L2SDupTeamInviteReq* other);
+
+  // implements Message ----------------------------------------------
+
+  L2SDupTeamInviteReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2SDupTeamInviteReq& from);
+  void MergeFrom(const L2SDupTeamInviteReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 dupid = 1;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 1;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional int64 teamid = 2;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamidFieldNumber = 2;
+  inline ::google::protobuf::int64 teamid() const;
+  inline void set_teamid(::google::protobuf::int64 value);
+
+  // optional int64 cid = 3;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 3;
+  inline ::google::protobuf::int64 cid() const;
+  inline void set_cid(::google::protobuf::int64 value);
+
+  // optional .proto_ff.CreateSceneParamProto params = 4;
+  inline bool has_params() const;
+  inline void clear_params();
+  static const int kParamsFieldNumber = 4;
+  inline const ::proto_ff::CreateSceneParamProto& params() const;
+  inline ::proto_ff::CreateSceneParamProto* mutable_params();
+  inline ::proto_ff::CreateSceneParamProto* release_params();
+  inline void set_allocated_params(::proto_ff::CreateSceneParamProto* params);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2SDupTeamInviteReq)
+ private:
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_params();
+  inline void clear_has_params();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::int64 teamid_;
+  ::google::protobuf::int64 cid_;
+  ::proto_ff::CreateSceneParamProto* params_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2SDupTeamInviteReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2SCreateDupResultRsp : public ::google::protobuf::Message {
+ public:
+  C2SCreateDupResultRsp();
+  virtual ~C2SCreateDupResultRsp();
+
+  C2SCreateDupResultRsp(const C2SCreateDupResultRsp& from);
+
+  inline C2SCreateDupResultRsp& operator=(const C2SCreateDupResultRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2SCreateDupResultRsp& default_instance();
+
+  void Swap(C2SCreateDupResultRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  C2SCreateDupResultRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2SCreateDupResultRsp& from);
+  void MergeFrom(const C2SCreateDupResultRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional uint64 sceneid = 2;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 2;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional uint64 mapid = 3;
+  inline bool has_mapid() const;
+  inline void clear_mapid();
+  static const int kMapidFieldNumber = 3;
+  inline ::google::protobuf::uint64 mapid() const;
+  inline void set_mapid(::google::protobuf::uint64 value);
+
+  // optional uint32 logicid = 4;
+  inline bool has_logicid() const;
+  inline void clear_logicid();
+  static const int kLogicidFieldNumber = 4;
+  inline ::google::protobuf::uint32 logicid() const;
+  inline void set_logicid(::google::protobuf::uint32 value);
+
+  // optional uint32 zoneid = 5;
+  inline bool has_zoneid() const;
+  inline void clear_zoneid();
+  static const int kZoneidFieldNumber = 5;
+  inline ::google::protobuf::uint32 zoneid() const;
+  inline void set_zoneid(::google::protobuf::uint32 value);
+
+  // optional int32 keytype = 6;
+  inline bool has_keytype() const;
+  inline void clear_keytype();
+  static const int kKeytypeFieldNumber = 6;
+  inline ::google::protobuf::int32 keytype() const;
+  inline void set_keytype(::google::protobuf::int32 value);
+
+  // optional uint64 keyval = 7;
+  inline bool has_keyval() const;
+  inline void clear_keyval();
+  static const int kKeyvalFieldNumber = 7;
+  inline ::google::protobuf::uint64 keyval() const;
+  inline void set_keyval(::google::protobuf::uint64 value);
+
+  // optional int32 teamid = 8;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamidFieldNumber = 8;
+  inline ::google::protobuf::int32 teamid() const;
+  inline void set_teamid(::google::protobuf::int32 value);
+
+  // optional int32 dupid = 9;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 9;
+  inline ::google::protobuf::int32 dupid() const;
+  inline void set_dupid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2SCreateDupResultRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_mapid();
+  inline void clear_has_mapid();
+  inline void set_has_logicid();
+  inline void clear_has_logicid();
+  inline void set_has_zoneid();
+  inline void clear_has_zoneid();
+  inline void set_has_keytype();
+  inline void clear_has_keytype();
+  inline void set_has_keyval();
+  inline void clear_has_keyval();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::uint32 logicid_;
+  ::google::protobuf::uint64 mapid_;
+  ::google::protobuf::uint32 zoneid_;
+  ::google::protobuf::int32 keytype_;
+  ::google::protobuf::uint64 keyval_;
+  ::google::protobuf::int32 teamid_;
+  ::google::protobuf::int32 dupid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2SCreateDupResultRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class S2CNotifyCharEnterDup : public ::google::protobuf::Message {
+ public:
+  S2CNotifyCharEnterDup();
+  virtual ~S2CNotifyCharEnterDup();
+
+  S2CNotifyCharEnterDup(const S2CNotifyCharEnterDup& from);
+
+  inline S2CNotifyCharEnterDup& operator=(const S2CNotifyCharEnterDup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2CNotifyCharEnterDup& default_instance();
+
+  void Swap(S2CNotifyCharEnterDup* other);
+
+  // implements Message ----------------------------------------------
+
+  S2CNotifyCharEnterDup* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const S2CNotifyCharEnterDup& from);
+  void MergeFrom(const S2CNotifyCharEnterDup& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint64 sceneid = 3;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 3;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional uint64 bornid = 4;
+  inline bool has_bornid() const;
+  inline void clear_bornid();
+  static const int kBornidFieldNumber = 4;
+  inline ::google::protobuf::uint64 bornid() const;
+  inline void set_bornid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.S2CNotifyCharEnterDup)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_bornid();
+  inline void clear_has_bornid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::uint64 bornid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static S2CNotifyCharEnterDup* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyRebotEnterDup : public ::google::protobuf::Message {
+ public:
+  NotifyRebotEnterDup();
+  virtual ~NotifyRebotEnterDup();
+
+  NotifyRebotEnterDup(const NotifyRebotEnterDup& from);
+
+  inline NotifyRebotEnterDup& operator=(const NotifyRebotEnterDup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyRebotEnterDup& default_instance();
+
+  void Swap(NotifyRebotEnterDup* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyRebotEnterDup* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyRebotEnterDup& from);
+  void MergeFrom(const NotifyRebotEnterDup& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint64 sceneid = 3;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 3;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional int32 bornid = 4;
+  inline bool has_bornid() const;
+  inline void clear_bornid();
+  static const int kBornidFieldNumber = 4;
+  inline ::google::protobuf::int32 bornid() const;
+  inline void set_bornid(::google::protobuf::int32 value);
+
+  // optional int32 teamid = 5;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamidFieldNumber = 5;
+  inline ::google::protobuf::int32 teamid() const;
+  inline void set_teamid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyRebotEnterDup)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_bornid();
+  inline void clear_has_bornid();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::int32 bornid_;
+  ::google::protobuf::int32 teamid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyRebotEnterDup* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class L2SDupTeamOptReq : public ::google::protobuf::Message {
+ public:
+  L2SDupTeamOptReq();
+  virtual ~L2SDupTeamOptReq();
+
+  L2SDupTeamOptReq(const L2SDupTeamOptReq& from);
+
+  inline L2SDupTeamOptReq& operator=(const L2SDupTeamOptReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2SDupTeamOptReq& default_instance();
+
+  void Swap(L2SDupTeamOptReq* other);
+
+  // implements Message ----------------------------------------------
+
+  L2SDupTeamOptReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2SDupTeamOptReq& from);
+  void MergeFrom(const L2SDupTeamOptReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 opt = 1;
+  inline bool has_opt() const;
+  inline void clear_opt();
+  static const int kOptFieldNumber = 1;
+  inline ::google::protobuf::int32 opt() const;
+  inline void set_opt(::google::protobuf::int32 value);
+
+  // optional uint32 mergeNum = 2;
+  inline bool has_mergenum() const;
+  inline void clear_mergenum();
+  static const int kMergeNumFieldNumber = 2;
+  inline ::google::protobuf::uint32 mergenum() const;
+  inline void set_mergenum(::google::protobuf::uint32 value);
+
+  // optional int32 teamId = 3;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamIdFieldNumber = 3;
+  inline ::google::protobuf::int32 teamid() const;
+  inline void set_teamid(::google::protobuf::int32 value);
+
+  // optional uint64 cid = 4;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 4;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2SDupTeamOptReq)
+ private:
+  inline void set_has_opt();
+  inline void clear_has_opt();
+  inline void set_has_mergenum();
+  inline void clear_has_mergenum();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 opt_;
+  ::google::protobuf::uint32 mergenum_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::int32 teamid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2SDupTeamOptReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class S2CNofityRoleRebotEnterDup : public ::google::protobuf::Message {
+ public:
+  S2CNofityRoleRebotEnterDup();
+  virtual ~S2CNofityRoleRebotEnterDup();
+
+  S2CNofityRoleRebotEnterDup(const S2CNofityRoleRebotEnterDup& from);
+
+  inline S2CNofityRoleRebotEnterDup& operator=(const S2CNofityRoleRebotEnterDup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2CNofityRoleRebotEnterDup& default_instance();
+
+  void Swap(S2CNofityRoleRebotEnterDup* other);
+
+  // implements Message ----------------------------------------------
+
+  S2CNofityRoleRebotEnterDup* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const S2CNofityRoleRebotEnterDup& from);
+  void MergeFrom(const S2CNofityRoleRebotEnterDup& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint64 sceneid = 3;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 3;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional int32 bornid = 4;
+  inline bool has_bornid() const;
+  inline void clear_bornid();
+  static const int kBornidFieldNumber = 4;
+  inline ::google::protobuf::int32 bornid() const;
+  inline void set_bornid(::google::protobuf::int32 value);
+
+  // optional int32 teamid = 5;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamidFieldNumber = 5;
+  inline ::google::protobuf::int32 teamid() const;
+  inline void set_teamid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.S2CNofityRoleRebotEnterDup)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_bornid();
+  inline void clear_has_bornid();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::int32 bornid_;
+  ::google::protobuf::int32 teamid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static S2CNofityRoleRebotEnterDup* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2LRoleRobotEnterDupReq : public ::google::protobuf::Message {
+ public:
+  C2LRoleRobotEnterDupReq();
+  virtual ~C2LRoleRobotEnterDupReq();
+
+  C2LRoleRobotEnterDupReq(const C2LRoleRobotEnterDupReq& from);
+
+  inline C2LRoleRobotEnterDupReq& operator=(const C2LRoleRobotEnterDupReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2LRoleRobotEnterDupReq& default_instance();
+
+  void Swap(C2LRoleRobotEnterDupReq* other);
+
+  // implements Message ----------------------------------------------
+
+  C2LRoleRobotEnterDupReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2LRoleRobotEnterDupReq& from);
+  void MergeFrom(const C2LRoleRobotEnterDupReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint64 sceneid = 3;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 3;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional int32 bornid = 4;
+  inline bool has_bornid() const;
+  inline void clear_bornid();
+  static const int kBornidFieldNumber = 4;
+  inline ::google::protobuf::int32 bornid() const;
+  inline void set_bornid(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.RoleMirrorData mirrors = 5;
+  inline int mirrors_size() const;
+  inline void clear_mirrors();
+  static const int kMirrorsFieldNumber = 5;
+  inline const ::proto_ff::RoleMirrorData& mirrors(int index) const;
+  inline ::proto_ff::RoleMirrorData* mutable_mirrors(int index);
+  inline ::proto_ff::RoleMirrorData* add_mirrors();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleMirrorData >&
+      mirrors() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleMirrorData >*
+      mutable_mirrors();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2LRoleRobotEnterDupReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_bornid();
+  inline void clear_has_bornid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleMirrorData > mirrors_;
+  ::google::protobuf::int32 bornid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2LRoleRobotEnterDupReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class L2CDupResultRsp : public ::google::protobuf::Message {
+ public:
+  L2CDupResultRsp();
+  virtual ~L2CDupResultRsp();
+
+  L2CDupResultRsp(const L2CDupResultRsp& from);
+
+  inline L2CDupResultRsp& operator=(const L2CDupResultRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2CDupResultRsp& default_instance();
+
+  void Swap(L2CDupResultRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  L2CDupResultRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2CDupResultRsp& from);
+  void MergeFrom(const L2CDupResultRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 sceneId = 1;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional uint64 dupId = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional int32 result = 3;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 3;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2CDupResultRsp)
+ private:
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_result();
+  inline void clear_has_result();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2CDupResultRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2LEnterRebotReq : public ::google::protobuf::Message {
+ public:
+  C2LEnterRebotReq();
+  virtual ~C2LEnterRebotReq();
+
+  C2LEnterRebotReq(const C2LEnterRebotReq& from);
+
+  inline C2LEnterRebotReq& operator=(const C2LEnterRebotReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2LEnterRebotReq& default_instance();
+
+  void Swap(C2LEnterRebotReq* other);
+
+  // implements Message ----------------------------------------------
+
+  C2LEnterRebotReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2LEnterRebotReq& from);
+  void MergeFrom(const C2LEnterRebotReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 dupid = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint64 sceneid = 3;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 3;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional int32 bornid = 4;
+  inline bool has_bornid() const;
+  inline void clear_bornid();
+  static const int kBornidFieldNumber = 4;
+  inline ::google::protobuf::int32 bornid() const;
+  inline void set_bornid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2LEnterRebotReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_bornid();
+  inline void clear_has_bornid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::int32 bornid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2LEnterRebotReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2SNotifyDupFinishRsp : public ::google::protobuf::Message {
+ public:
+  C2SNotifyDupFinishRsp();
+  virtual ~C2SNotifyDupFinishRsp();
+
+  C2SNotifyDupFinishRsp(const C2SNotifyDupFinishRsp& from);
+
+  inline C2SNotifyDupFinishRsp& operator=(const C2SNotifyDupFinishRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2SNotifyDupFinishRsp& default_instance();
+
+  void Swap(C2SNotifyDupFinishRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  C2SNotifyDupFinishRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2SNotifyDupFinishRsp& from);
+  void MergeFrom(const C2SNotifyDupFinishRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional uint64 sceneid = 2;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 2;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional uint64 mapid = 3;
+  inline bool has_mapid() const;
+  inline void clear_mapid();
+  static const int kMapidFieldNumber = 3;
+  inline ::google::protobuf::uint64 mapid() const;
+  inline void set_mapid(::google::protobuf::uint64 value);
+
+  // optional uint32 logicid = 4;
+  inline bool has_logicid() const;
+  inline void clear_logicid();
+  static const int kLogicidFieldNumber = 4;
+  inline ::google::protobuf::uint32 logicid() const;
+  inline void set_logicid(::google::protobuf::uint32 value);
+
+  // optional uint32 zoneid = 5;
+  inline bool has_zoneid() const;
+  inline void clear_zoneid();
+  static const int kZoneidFieldNumber = 5;
+  inline ::google::protobuf::uint32 zoneid() const;
+  inline void set_zoneid(::google::protobuf::uint32 value);
+
+  // optional int32 keytype = 6;
+  inline bool has_keytype() const;
+  inline void clear_keytype();
+  static const int kKeytypeFieldNumber = 6;
+  inline ::google::protobuf::int32 keytype() const;
+  inline void set_keytype(::google::protobuf::int32 value);
+
+  // optional uint64 keyval = 7;
+  inline bool has_keyval() const;
+  inline void clear_keyval();
+  static const int kKeyvalFieldNumber = 7;
+  inline ::google::protobuf::uint64 keyval() const;
+  inline void set_keyval(::google::protobuf::uint64 value);
+
+  // optional int32 teamid = 8;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamidFieldNumber = 8;
+  inline ::google::protobuf::int32 teamid() const;
+  inline void set_teamid(::google::protobuf::int32 value);
+
+  // optional int64 dupid = 9;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupidFieldNumber = 9;
+  inline ::google::protobuf::int64 dupid() const;
+  inline void set_dupid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2SNotifyDupFinishRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_mapid();
+  inline void clear_has_mapid();
+  inline void set_has_logicid();
+  inline void clear_has_logicid();
+  inline void set_has_zoneid();
+  inline void clear_has_zoneid();
+  inline void set_has_keytype();
+  inline void clear_has_keytype();
+  inline void set_has_keyval();
+  inline void clear_has_keyval();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::int32 result_;
+  ::google::protobuf::uint32 logicid_;
+  ::google::protobuf::uint64 mapid_;
+  ::google::protobuf::uint32 zoneid_;
+  ::google::protobuf::int32 keytype_;
+  ::google::protobuf::uint64 keyval_;
+  ::google::protobuf::int64 dupid_;
+  ::google::protobuf::int32 teamid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2SNotifyDupFinishRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -3203,6 +5363,54 @@ inline ::google::protobuf::uint64 DupTowerRecordEntry::time() const {
 inline void DupTowerRecordEntry::set_time(::google::protobuf::uint64 value) {
   set_has_time();
   time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupTeamInviteState
+
+// optional uint64 cid = 1;
+inline bool DupTeamInviteState::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupTeamInviteState::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupTeamInviteState::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupTeamInviteState::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 DupTeamInviteState::cid() const {
+  return cid_;
+}
+inline void DupTeamInviteState::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional int32 state = 2;
+inline bool DupTeamInviteState::has_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupTeamInviteState::set_has_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupTeamInviteState::clear_has_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupTeamInviteState::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 DupTeamInviteState::state() const {
+  return state_;
+}
+inline void DupTeamInviteState::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -4019,6 +6227,72 @@ NotifyDupRunRsp::mutable_items() {
   return &items_;
 }
 
+// optional int32 kill_boss_num = 9;
+inline bool NotifyDupRunRsp::has_kill_boss_num() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void NotifyDupRunRsp::set_has_kill_boss_num() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void NotifyDupRunRsp::clear_has_kill_boss_num() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void NotifyDupRunRsp::clear_kill_boss_num() {
+  kill_boss_num_ = 0;
+  clear_has_kill_boss_num();
+}
+inline ::google::protobuf::int32 NotifyDupRunRsp::kill_boss_num() const {
+  return kill_boss_num_;
+}
+inline void NotifyDupRunRsp::set_kill_boss_num(::google::protobuf::int32 value) {
+  set_has_kill_boss_num();
+  kill_boss_num_ = value;
+}
+
+// optional int32 boss_num = 10;
+inline bool NotifyDupRunRsp::has_boss_num() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void NotifyDupRunRsp::set_has_boss_num() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void NotifyDupRunRsp::clear_has_boss_num() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void NotifyDupRunRsp::clear_boss_num() {
+  boss_num_ = 0;
+  clear_has_boss_num();
+}
+inline ::google::protobuf::int32 NotifyDupRunRsp::boss_num() const {
+  return boss_num_;
+}
+inline void NotifyDupRunRsp::set_boss_num(::google::protobuf::int32 value) {
+  set_has_boss_num();
+  boss_num_ = value;
+}
+
+// optional int64 add_exp = 11;
+inline bool NotifyDupRunRsp::has_add_exp() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void NotifyDupRunRsp::set_has_add_exp() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void NotifyDupRunRsp::clear_has_add_exp() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void NotifyDupRunRsp::clear_add_exp() {
+  add_exp_ = GOOGLE_LONGLONG(0);
+  clear_has_add_exp();
+}
+inline ::google::protobuf::int64 NotifyDupRunRsp::add_exp() const {
+  return add_exp_;
+}
+inline void NotifyDupRunRsp::set_add_exp(::google::protobuf::int64 value) {
+  set_has_add_exp();
+  add_exp_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // NotifyDupEndRsp
@@ -4382,6 +6656,449 @@ DupTowerRecordRsp::entrys() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DupTowerRecordEntry >*
 DupTowerRecordRsp::mutable_entrys() {
   return &entrys_;
+}
+
+// -------------------------------------------------------------------
+
+// DupTeamInviteReq
+
+// required uint64 dupid = 1;
+inline bool DupTeamInviteReq::has_dupid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupTeamInviteReq::set_has_dupid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupTeamInviteReq::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupTeamInviteReq::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 DupTeamInviteReq::dupid() const {
+  return dupid_;
+}
+inline void DupTeamInviteReq::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint32 mergeNum = 2;
+inline bool DupTeamInviteReq::has_mergenum() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupTeamInviteReq::set_has_mergenum() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupTeamInviteReq::clear_has_mergenum() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupTeamInviteReq::clear_mergenum() {
+  mergenum_ = 0u;
+  clear_has_mergenum();
+}
+inline ::google::protobuf::uint32 DupTeamInviteReq::mergenum() const {
+  return mergenum_;
+}
+inline void DupTeamInviteReq::set_mergenum(::google::protobuf::uint32 value) {
+  set_has_mergenum();
+  mergenum_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupTeamInviteRsp
+
+// optional int32 ret = 1;
+inline bool DupTeamInviteRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupTeamInviteRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupTeamInviteRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupTeamInviteRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 DupTeamInviteRsp::ret() const {
+  return ret_;
+}
+inline void DupTeamInviteRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// required uint64 dupid = 2;
+inline bool DupTeamInviteRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupTeamInviteRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupTeamInviteRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupTeamInviteRsp::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 DupTeamInviteRsp::dupid() const {
+  return dupid_;
+}
+inline void DupTeamInviteRsp::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyDupTeamInviteStateRsp
+
+// optional int32 ret = 1;
+inline bool NotifyDupTeamInviteStateRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyDupTeamInviteStateRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyDupTeamInviteStateRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyDupTeamInviteStateRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 NotifyDupTeamInviteStateRsp::ret() const {
+  return ret_;
+}
+inline void NotifyDupTeamInviteStateRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 type = 2;
+inline bool NotifyDupTeamInviteStateRsp::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyDupTeamInviteStateRsp::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyDupTeamInviteStateRsp::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyDupTeamInviteStateRsp::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 NotifyDupTeamInviteStateRsp::type() const {
+  return type_;
+}
+inline void NotifyDupTeamInviteStateRsp::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int64 dupid = 3;
+inline bool NotifyDupTeamInviteStateRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyDupTeamInviteStateRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyDupTeamInviteStateRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyDupTeamInviteStateRsp::clear_dupid() {
+  dupid_ = GOOGLE_LONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::int64 NotifyDupTeamInviteStateRsp::dupid() const {
+  return dupid_;
+}
+inline void NotifyDupTeamInviteStateRsp::set_dupid(::google::protobuf::int64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// repeated .proto_ff.DupTeamInviteState infos = 4;
+inline int NotifyDupTeamInviteStateRsp::infos_size() const {
+  return infos_.size();
+}
+inline void NotifyDupTeamInviteStateRsp::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::DupTeamInviteState& NotifyDupTeamInviteStateRsp::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::DupTeamInviteState* NotifyDupTeamInviteStateRsp::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::DupTeamInviteState* NotifyDupTeamInviteStateRsp::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::DupTeamInviteState >&
+NotifyDupTeamInviteStateRsp::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DupTeamInviteState >*
+NotifyDupTeamInviteStateRsp::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// DupTeamOptReq
+
+// optional int32 opt = 1;
+inline bool DupTeamOptReq::has_opt() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupTeamOptReq::set_has_opt() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupTeamOptReq::clear_has_opt() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupTeamOptReq::clear_opt() {
+  opt_ = 0;
+  clear_has_opt();
+}
+inline ::google::protobuf::int32 DupTeamOptReq::opt() const {
+  return opt_;
+}
+inline void DupTeamOptReq::set_opt(::google::protobuf::int32 value) {
+  set_has_opt();
+  opt_ = value;
+}
+
+// optional uint32 mergeNum = 2;
+inline bool DupTeamOptReq::has_mergenum() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupTeamOptReq::set_has_mergenum() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupTeamOptReq::clear_has_mergenum() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupTeamOptReq::clear_mergenum() {
+  mergenum_ = 0u;
+  clear_has_mergenum();
+}
+inline ::google::protobuf::uint32 DupTeamOptReq::mergenum() const {
+  return mergenum_;
+}
+inline void DupTeamOptReq::set_mergenum(::google::protobuf::uint32 value) {
+  set_has_mergenum();
+  mergenum_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupTeamOptRsp
+
+// optional int32 ret = 1;
+inline bool DupTeamOptRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupTeamOptRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupTeamOptRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupTeamOptRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 DupTeamOptRsp::ret() const {
+  return ret_;
+}
+inline void DupTeamOptRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 opt = 2;
+inline bool DupTeamOptRsp::has_opt() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupTeamOptRsp::set_has_opt() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupTeamOptRsp::clear_has_opt() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupTeamOptRsp::clear_opt() {
+  opt_ = 0;
+  clear_has_opt();
+}
+inline ::google::protobuf::int32 DupTeamOptRsp::opt() const {
+  return opt_;
+}
+inline void DupTeamOptRsp::set_opt(::google::protobuf::int32 value) {
+  set_has_opt();
+  opt_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupSweepReq
+
+// optional int32 dupid = 1;
+inline bool DupSweepReq::has_dupid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupSweepReq::set_has_dupid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupSweepReq::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupSweepReq::clear_dupid() {
+  dupid_ = 0;
+  clear_has_dupid();
+}
+inline ::google::protobuf::int32 DupSweepReq::dupid() const {
+  return dupid_;
+}
+inline void DupSweepReq::set_dupid(::google::protobuf::int32 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional int32 num = 2;
+inline bool DupSweepReq::has_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupSweepReq::set_has_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupSweepReq::clear_has_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupSweepReq::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 DupSweepReq::num() const {
+  return num_;
+}
+inline void DupSweepReq::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DupSweepRsp
+
+// optional int32 ret = 1;
+inline bool DupSweepRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DupSweepRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DupSweepRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DupSweepRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 DupSweepRsp::ret() const {
+  return ret_;
+}
+inline void DupSweepRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 dupid = 2;
+inline bool DupSweepRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DupSweepRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DupSweepRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DupSweepRsp::clear_dupid() {
+  dupid_ = 0;
+  clear_has_dupid();
+}
+inline ::google::protobuf::int32 DupSweepRsp::dupid() const {
+  return dupid_;
+}
+inline void DupSweepRsp::set_dupid(::google::protobuf::int32 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional int32 num = 3;
+inline bool DupSweepRsp::has_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DupSweepRsp::set_has_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DupSweepRsp::clear_has_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DupSweepRsp::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 DupSweepRsp::num() const {
+  return num_;
+}
+inline void DupSweepRsp::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// optional .proto_ff.DupDropProto info = 4;
+inline bool DupSweepRsp::has_info() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DupSweepRsp::set_has_info() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DupSweepRsp::clear_has_info() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DupSweepRsp::clear_info() {
+  if (info_ != NULL) info_->::proto_ff::DupDropProto::Clear();
+  clear_has_info();
+}
+inline const ::proto_ff::DupDropProto& DupSweepRsp::info() const {
+  return info_ != NULL ? *info_ : *default_instance_->info_;
+}
+inline ::proto_ff::DupDropProto* DupSweepRsp::mutable_info() {
+  set_has_info();
+  if (info_ == NULL) info_ = new ::proto_ff::DupDropProto;
+  return info_;
+}
+inline ::proto_ff::DupDropProto* DupSweepRsp::release_info() {
+  clear_has_info();
+  ::proto_ff::DupDropProto* temp = info_;
+  info_ = NULL;
+  return temp;
+}
+inline void DupSweepRsp::set_allocated_info(::proto_ff::DupDropProto* info) {
+  delete info_;
+  info_ = info;
+  if (info) {
+    set_has_info();
+  } else {
+    clear_has_info();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -5038,6 +7755,1251 @@ inline ::google::protobuf::int64 L2CTowerRecvRecordReq::time() const {
 inline void L2CTowerRecvRecordReq::set_time(::google::protobuf::int64 value) {
   set_has_time();
   time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// L2SEnterDupReq
+
+// optional .proto_ff.CreateSceneParamProto params = 1;
+inline bool L2SEnterDupReq::has_params() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2SEnterDupReq::set_has_params() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2SEnterDupReq::clear_has_params() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2SEnterDupReq::clear_params() {
+  if (params_ != NULL) params_->::proto_ff::CreateSceneParamProto::Clear();
+  clear_has_params();
+}
+inline const ::proto_ff::CreateSceneParamProto& L2SEnterDupReq::params() const {
+  return params_ != NULL ? *params_ : *default_instance_->params_;
+}
+inline ::proto_ff::CreateSceneParamProto* L2SEnterDupReq::mutable_params() {
+  set_has_params();
+  if (params_ == NULL) params_ = new ::proto_ff::CreateSceneParamProto;
+  return params_;
+}
+inline ::proto_ff::CreateSceneParamProto* L2SEnterDupReq::release_params() {
+  clear_has_params();
+  ::proto_ff::CreateSceneParamProto* temp = params_;
+  params_ = NULL;
+  return temp;
+}
+inline void L2SEnterDupReq::set_allocated_params(::proto_ff::CreateSceneParamProto* params) {
+  delete params_;
+  params_ = params;
+  if (params) {
+    set_has_params();
+  } else {
+    clear_has_params();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// L2SDupTeamInviteReq
+
+// required uint64 dupid = 1;
+inline bool L2SDupTeamInviteReq::has_dupid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2SDupTeamInviteReq::set_has_dupid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2SDupTeamInviteReq::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2SDupTeamInviteReq::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 L2SDupTeamInviteReq::dupid() const {
+  return dupid_;
+}
+inline void L2SDupTeamInviteReq::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional int64 teamid = 2;
+inline bool L2SDupTeamInviteReq::has_teamid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void L2SDupTeamInviteReq::set_has_teamid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void L2SDupTeamInviteReq::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void L2SDupTeamInviteReq::clear_teamid() {
+  teamid_ = GOOGLE_LONGLONG(0);
+  clear_has_teamid();
+}
+inline ::google::protobuf::int64 L2SDupTeamInviteReq::teamid() const {
+  return teamid_;
+}
+inline void L2SDupTeamInviteReq::set_teamid(::google::protobuf::int64 value) {
+  set_has_teamid();
+  teamid_ = value;
+}
+
+// optional int64 cid = 3;
+inline bool L2SDupTeamInviteReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void L2SDupTeamInviteReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void L2SDupTeamInviteReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void L2SDupTeamInviteReq::clear_cid() {
+  cid_ = GOOGLE_LONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::int64 L2SDupTeamInviteReq::cid() const {
+  return cid_;
+}
+inline void L2SDupTeamInviteReq::set_cid(::google::protobuf::int64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional .proto_ff.CreateSceneParamProto params = 4;
+inline bool L2SDupTeamInviteReq::has_params() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void L2SDupTeamInviteReq::set_has_params() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void L2SDupTeamInviteReq::clear_has_params() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void L2SDupTeamInviteReq::clear_params() {
+  if (params_ != NULL) params_->::proto_ff::CreateSceneParamProto::Clear();
+  clear_has_params();
+}
+inline const ::proto_ff::CreateSceneParamProto& L2SDupTeamInviteReq::params() const {
+  return params_ != NULL ? *params_ : *default_instance_->params_;
+}
+inline ::proto_ff::CreateSceneParamProto* L2SDupTeamInviteReq::mutable_params() {
+  set_has_params();
+  if (params_ == NULL) params_ = new ::proto_ff::CreateSceneParamProto;
+  return params_;
+}
+inline ::proto_ff::CreateSceneParamProto* L2SDupTeamInviteReq::release_params() {
+  clear_has_params();
+  ::proto_ff::CreateSceneParamProto* temp = params_;
+  params_ = NULL;
+  return temp;
+}
+inline void L2SDupTeamInviteReq::set_allocated_params(::proto_ff::CreateSceneParamProto* params) {
+  delete params_;
+  params_ = params;
+  if (params) {
+    set_has_params();
+  } else {
+    clear_has_params();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// C2SCreateDupResultRsp
+
+// optional int32 ret = 1;
+inline bool C2SCreateDupResultRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2SCreateDupResultRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2SCreateDupResultRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 C2SCreateDupResultRsp::ret() const {
+  return ret_;
+}
+inline void C2SCreateDupResultRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional uint64 sceneid = 2;
+inline bool C2SCreateDupResultRsp::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2SCreateDupResultRsp::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2SCreateDupResultRsp::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 C2SCreateDupResultRsp::sceneid() const {
+  return sceneid_;
+}
+inline void C2SCreateDupResultRsp::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional uint64 mapid = 3;
+inline bool C2SCreateDupResultRsp::has_mapid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_mapid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void C2SCreateDupResultRsp::clear_has_mapid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void C2SCreateDupResultRsp::clear_mapid() {
+  mapid_ = GOOGLE_ULONGLONG(0);
+  clear_has_mapid();
+}
+inline ::google::protobuf::uint64 C2SCreateDupResultRsp::mapid() const {
+  return mapid_;
+}
+inline void C2SCreateDupResultRsp::set_mapid(::google::protobuf::uint64 value) {
+  set_has_mapid();
+  mapid_ = value;
+}
+
+// optional uint32 logicid = 4;
+inline bool C2SCreateDupResultRsp::has_logicid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_logicid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void C2SCreateDupResultRsp::clear_has_logicid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void C2SCreateDupResultRsp::clear_logicid() {
+  logicid_ = 0u;
+  clear_has_logicid();
+}
+inline ::google::protobuf::uint32 C2SCreateDupResultRsp::logicid() const {
+  return logicid_;
+}
+inline void C2SCreateDupResultRsp::set_logicid(::google::protobuf::uint32 value) {
+  set_has_logicid();
+  logicid_ = value;
+}
+
+// optional uint32 zoneid = 5;
+inline bool C2SCreateDupResultRsp::has_zoneid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_zoneid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void C2SCreateDupResultRsp::clear_has_zoneid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void C2SCreateDupResultRsp::clear_zoneid() {
+  zoneid_ = 0u;
+  clear_has_zoneid();
+}
+inline ::google::protobuf::uint32 C2SCreateDupResultRsp::zoneid() const {
+  return zoneid_;
+}
+inline void C2SCreateDupResultRsp::set_zoneid(::google::protobuf::uint32 value) {
+  set_has_zoneid();
+  zoneid_ = value;
+}
+
+// optional int32 keytype = 6;
+inline bool C2SCreateDupResultRsp::has_keytype() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_keytype() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void C2SCreateDupResultRsp::clear_has_keytype() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void C2SCreateDupResultRsp::clear_keytype() {
+  keytype_ = 0;
+  clear_has_keytype();
+}
+inline ::google::protobuf::int32 C2SCreateDupResultRsp::keytype() const {
+  return keytype_;
+}
+inline void C2SCreateDupResultRsp::set_keytype(::google::protobuf::int32 value) {
+  set_has_keytype();
+  keytype_ = value;
+}
+
+// optional uint64 keyval = 7;
+inline bool C2SCreateDupResultRsp::has_keyval() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_keyval() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void C2SCreateDupResultRsp::clear_has_keyval() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void C2SCreateDupResultRsp::clear_keyval() {
+  keyval_ = GOOGLE_ULONGLONG(0);
+  clear_has_keyval();
+}
+inline ::google::protobuf::uint64 C2SCreateDupResultRsp::keyval() const {
+  return keyval_;
+}
+inline void C2SCreateDupResultRsp::set_keyval(::google::protobuf::uint64 value) {
+  set_has_keyval();
+  keyval_ = value;
+}
+
+// optional int32 teamid = 8;
+inline bool C2SCreateDupResultRsp::has_teamid() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_teamid() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void C2SCreateDupResultRsp::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void C2SCreateDupResultRsp::clear_teamid() {
+  teamid_ = 0;
+  clear_has_teamid();
+}
+inline ::google::protobuf::int32 C2SCreateDupResultRsp::teamid() const {
+  return teamid_;
+}
+inline void C2SCreateDupResultRsp::set_teamid(::google::protobuf::int32 value) {
+  set_has_teamid();
+  teamid_ = value;
+}
+
+// optional int32 dupid = 9;
+inline bool C2SCreateDupResultRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void C2SCreateDupResultRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void C2SCreateDupResultRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void C2SCreateDupResultRsp::clear_dupid() {
+  dupid_ = 0;
+  clear_has_dupid();
+}
+inline ::google::protobuf::int32 C2SCreateDupResultRsp::dupid() const {
+  return dupid_;
+}
+inline void C2SCreateDupResultRsp::set_dupid(::google::protobuf::int32 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// S2CNotifyCharEnterDup
+
+// optional uint64 cid = 1;
+inline bool S2CNotifyCharEnterDup::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2CNotifyCharEnterDup::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2CNotifyCharEnterDup::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2CNotifyCharEnterDup::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 S2CNotifyCharEnterDup::cid() const {
+  return cid_;
+}
+inline void S2CNotifyCharEnterDup::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 dupid = 2;
+inline bool S2CNotifyCharEnterDup::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2CNotifyCharEnterDup::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2CNotifyCharEnterDup::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2CNotifyCharEnterDup::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 S2CNotifyCharEnterDup::dupid() const {
+  return dupid_;
+}
+inline void S2CNotifyCharEnterDup::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint64 sceneid = 3;
+inline bool S2CNotifyCharEnterDup::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2CNotifyCharEnterDup::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2CNotifyCharEnterDup::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2CNotifyCharEnterDup::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 S2CNotifyCharEnterDup::sceneid() const {
+  return sceneid_;
+}
+inline void S2CNotifyCharEnterDup::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional uint64 bornid = 4;
+inline bool S2CNotifyCharEnterDup::has_bornid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void S2CNotifyCharEnterDup::set_has_bornid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void S2CNotifyCharEnterDup::clear_has_bornid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void S2CNotifyCharEnterDup::clear_bornid() {
+  bornid_ = GOOGLE_ULONGLONG(0);
+  clear_has_bornid();
+}
+inline ::google::protobuf::uint64 S2CNotifyCharEnterDup::bornid() const {
+  return bornid_;
+}
+inline void S2CNotifyCharEnterDup::set_bornid(::google::protobuf::uint64 value) {
+  set_has_bornid();
+  bornid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyRebotEnterDup
+
+// optional uint64 cid = 1;
+inline bool NotifyRebotEnterDup::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyRebotEnterDup::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyRebotEnterDup::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyRebotEnterDup::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NotifyRebotEnterDup::cid() const {
+  return cid_;
+}
+inline void NotifyRebotEnterDup::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 dupid = 2;
+inline bool NotifyRebotEnterDup::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyRebotEnterDup::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyRebotEnterDup::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyRebotEnterDup::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 NotifyRebotEnterDup::dupid() const {
+  return dupid_;
+}
+inline void NotifyRebotEnterDup::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint64 sceneid = 3;
+inline bool NotifyRebotEnterDup::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyRebotEnterDup::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyRebotEnterDup::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyRebotEnterDup::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 NotifyRebotEnterDup::sceneid() const {
+  return sceneid_;
+}
+inline void NotifyRebotEnterDup::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional int32 bornid = 4;
+inline bool NotifyRebotEnterDup::has_bornid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NotifyRebotEnterDup::set_has_bornid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NotifyRebotEnterDup::clear_has_bornid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NotifyRebotEnterDup::clear_bornid() {
+  bornid_ = 0;
+  clear_has_bornid();
+}
+inline ::google::protobuf::int32 NotifyRebotEnterDup::bornid() const {
+  return bornid_;
+}
+inline void NotifyRebotEnterDup::set_bornid(::google::protobuf::int32 value) {
+  set_has_bornid();
+  bornid_ = value;
+}
+
+// optional int32 teamid = 5;
+inline bool NotifyRebotEnterDup::has_teamid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NotifyRebotEnterDup::set_has_teamid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NotifyRebotEnterDup::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NotifyRebotEnterDup::clear_teamid() {
+  teamid_ = 0;
+  clear_has_teamid();
+}
+inline ::google::protobuf::int32 NotifyRebotEnterDup::teamid() const {
+  return teamid_;
+}
+inline void NotifyRebotEnterDup::set_teamid(::google::protobuf::int32 value) {
+  set_has_teamid();
+  teamid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// L2SDupTeamOptReq
+
+// optional int32 opt = 1;
+inline bool L2SDupTeamOptReq::has_opt() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2SDupTeamOptReq::set_has_opt() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2SDupTeamOptReq::clear_has_opt() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2SDupTeamOptReq::clear_opt() {
+  opt_ = 0;
+  clear_has_opt();
+}
+inline ::google::protobuf::int32 L2SDupTeamOptReq::opt() const {
+  return opt_;
+}
+inline void L2SDupTeamOptReq::set_opt(::google::protobuf::int32 value) {
+  set_has_opt();
+  opt_ = value;
+}
+
+// optional uint32 mergeNum = 2;
+inline bool L2SDupTeamOptReq::has_mergenum() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void L2SDupTeamOptReq::set_has_mergenum() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void L2SDupTeamOptReq::clear_has_mergenum() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void L2SDupTeamOptReq::clear_mergenum() {
+  mergenum_ = 0u;
+  clear_has_mergenum();
+}
+inline ::google::protobuf::uint32 L2SDupTeamOptReq::mergenum() const {
+  return mergenum_;
+}
+inline void L2SDupTeamOptReq::set_mergenum(::google::protobuf::uint32 value) {
+  set_has_mergenum();
+  mergenum_ = value;
+}
+
+// optional int32 teamId = 3;
+inline bool L2SDupTeamOptReq::has_teamid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void L2SDupTeamOptReq::set_has_teamid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void L2SDupTeamOptReq::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void L2SDupTeamOptReq::clear_teamid() {
+  teamid_ = 0;
+  clear_has_teamid();
+}
+inline ::google::protobuf::int32 L2SDupTeamOptReq::teamid() const {
+  return teamid_;
+}
+inline void L2SDupTeamOptReq::set_teamid(::google::protobuf::int32 value) {
+  set_has_teamid();
+  teamid_ = value;
+}
+
+// optional uint64 cid = 4;
+inline bool L2SDupTeamOptReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void L2SDupTeamOptReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void L2SDupTeamOptReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void L2SDupTeamOptReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 L2SDupTeamOptReq::cid() const {
+  return cid_;
+}
+inline void L2SDupTeamOptReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// S2CNofityRoleRebotEnterDup
+
+// optional uint64 cid = 1;
+inline bool S2CNofityRoleRebotEnterDup::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void S2CNofityRoleRebotEnterDup::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 S2CNofityRoleRebotEnterDup::cid() const {
+  return cid_;
+}
+inline void S2CNofityRoleRebotEnterDup::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 dupid = 2;
+inline bool S2CNofityRoleRebotEnterDup::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void S2CNofityRoleRebotEnterDup::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 S2CNofityRoleRebotEnterDup::dupid() const {
+  return dupid_;
+}
+inline void S2CNofityRoleRebotEnterDup::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint64 sceneid = 3;
+inline bool S2CNofityRoleRebotEnterDup::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void S2CNofityRoleRebotEnterDup::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 S2CNofityRoleRebotEnterDup::sceneid() const {
+  return sceneid_;
+}
+inline void S2CNofityRoleRebotEnterDup::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional int32 bornid = 4;
+inline bool S2CNofityRoleRebotEnterDup::has_bornid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void S2CNofityRoleRebotEnterDup::set_has_bornid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_has_bornid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_bornid() {
+  bornid_ = 0;
+  clear_has_bornid();
+}
+inline ::google::protobuf::int32 S2CNofityRoleRebotEnterDup::bornid() const {
+  return bornid_;
+}
+inline void S2CNofityRoleRebotEnterDup::set_bornid(::google::protobuf::int32 value) {
+  set_has_bornid();
+  bornid_ = value;
+}
+
+// optional int32 teamid = 5;
+inline bool S2CNofityRoleRebotEnterDup::has_teamid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void S2CNofityRoleRebotEnterDup::set_has_teamid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void S2CNofityRoleRebotEnterDup::clear_teamid() {
+  teamid_ = 0;
+  clear_has_teamid();
+}
+inline ::google::protobuf::int32 S2CNofityRoleRebotEnterDup::teamid() const {
+  return teamid_;
+}
+inline void S2CNofityRoleRebotEnterDup::set_teamid(::google::protobuf::int32 value) {
+  set_has_teamid();
+  teamid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// C2LRoleRobotEnterDupReq
+
+// optional uint64 cid = 1;
+inline bool C2LRoleRobotEnterDupReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2LRoleRobotEnterDupReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 C2LRoleRobotEnterDupReq::cid() const {
+  return cid_;
+}
+inline void C2LRoleRobotEnterDupReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 dupid = 2;
+inline bool C2LRoleRobotEnterDupReq::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2LRoleRobotEnterDupReq::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 C2LRoleRobotEnterDupReq::dupid() const {
+  return dupid_;
+}
+inline void C2LRoleRobotEnterDupReq::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint64 sceneid = 3;
+inline bool C2LRoleRobotEnterDupReq::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void C2LRoleRobotEnterDupReq::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 C2LRoleRobotEnterDupReq::sceneid() const {
+  return sceneid_;
+}
+inline void C2LRoleRobotEnterDupReq::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional int32 bornid = 4;
+inline bool C2LRoleRobotEnterDupReq::has_bornid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void C2LRoleRobotEnterDupReq::set_has_bornid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_has_bornid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void C2LRoleRobotEnterDupReq::clear_bornid() {
+  bornid_ = 0;
+  clear_has_bornid();
+}
+inline ::google::protobuf::int32 C2LRoleRobotEnterDupReq::bornid() const {
+  return bornid_;
+}
+inline void C2LRoleRobotEnterDupReq::set_bornid(::google::protobuf::int32 value) {
+  set_has_bornid();
+  bornid_ = value;
+}
+
+// repeated .proto_ff.RoleMirrorData mirrors = 5;
+inline int C2LRoleRobotEnterDupReq::mirrors_size() const {
+  return mirrors_.size();
+}
+inline void C2LRoleRobotEnterDupReq::clear_mirrors() {
+  mirrors_.Clear();
+}
+inline const ::proto_ff::RoleMirrorData& C2LRoleRobotEnterDupReq::mirrors(int index) const {
+  return mirrors_.Get(index);
+}
+inline ::proto_ff::RoleMirrorData* C2LRoleRobotEnterDupReq::mutable_mirrors(int index) {
+  return mirrors_.Mutable(index);
+}
+inline ::proto_ff::RoleMirrorData* C2LRoleRobotEnterDupReq::add_mirrors() {
+  return mirrors_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleMirrorData >&
+C2LRoleRobotEnterDupReq::mirrors() const {
+  return mirrors_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleMirrorData >*
+C2LRoleRobotEnterDupReq::mutable_mirrors() {
+  return &mirrors_;
+}
+
+// -------------------------------------------------------------------
+
+// L2CDupResultRsp
+
+// optional uint64 sceneId = 1;
+inline bool L2CDupResultRsp::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2CDupResultRsp::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2CDupResultRsp::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2CDupResultRsp::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 L2CDupResultRsp::sceneid() const {
+  return sceneid_;
+}
+inline void L2CDupResultRsp::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional uint64 dupId = 2;
+inline bool L2CDupResultRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void L2CDupResultRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void L2CDupResultRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void L2CDupResultRsp::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 L2CDupResultRsp::dupid() const {
+  return dupid_;
+}
+inline void L2CDupResultRsp::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional int32 result = 3;
+inline bool L2CDupResultRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void L2CDupResultRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void L2CDupResultRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void L2CDupResultRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 L2CDupResultRsp::result() const {
+  return result_;
+}
+inline void L2CDupResultRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// C2LEnterRebotReq
+
+// optional uint64 cid = 1;
+inline bool C2LEnterRebotReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2LEnterRebotReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2LEnterRebotReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2LEnterRebotReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 C2LEnterRebotReq::cid() const {
+  return cid_;
+}
+inline void C2LEnterRebotReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 dupid = 2;
+inline bool C2LEnterRebotReq::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2LEnterRebotReq::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2LEnterRebotReq::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2LEnterRebotReq::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 C2LEnterRebotReq::dupid() const {
+  return dupid_;
+}
+inline void C2LEnterRebotReq::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint64 sceneid = 3;
+inline bool C2LEnterRebotReq::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void C2LEnterRebotReq::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void C2LEnterRebotReq::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void C2LEnterRebotReq::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 C2LEnterRebotReq::sceneid() const {
+  return sceneid_;
+}
+inline void C2LEnterRebotReq::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional int32 bornid = 4;
+inline bool C2LEnterRebotReq::has_bornid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void C2LEnterRebotReq::set_has_bornid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void C2LEnterRebotReq::clear_has_bornid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void C2LEnterRebotReq::clear_bornid() {
+  bornid_ = 0;
+  clear_has_bornid();
+}
+inline ::google::protobuf::int32 C2LEnterRebotReq::bornid() const {
+  return bornid_;
+}
+inline void C2LEnterRebotReq::set_bornid(::google::protobuf::int32 value) {
+  set_has_bornid();
+  bornid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// C2SNotifyDupFinishRsp
+
+// optional int32 result = 1;
+inline bool C2SNotifyDupFinishRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2SNotifyDupFinishRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 C2SNotifyDupFinishRsp::result() const {
+  return result_;
+}
+inline void C2SNotifyDupFinishRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 sceneid = 2;
+inline bool C2SNotifyDupFinishRsp::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2SNotifyDupFinishRsp::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 C2SNotifyDupFinishRsp::sceneid() const {
+  return sceneid_;
+}
+inline void C2SNotifyDupFinishRsp::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional uint64 mapid = 3;
+inline bool C2SNotifyDupFinishRsp::has_mapid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_mapid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_mapid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void C2SNotifyDupFinishRsp::clear_mapid() {
+  mapid_ = GOOGLE_ULONGLONG(0);
+  clear_has_mapid();
+}
+inline ::google::protobuf::uint64 C2SNotifyDupFinishRsp::mapid() const {
+  return mapid_;
+}
+inline void C2SNotifyDupFinishRsp::set_mapid(::google::protobuf::uint64 value) {
+  set_has_mapid();
+  mapid_ = value;
+}
+
+// optional uint32 logicid = 4;
+inline bool C2SNotifyDupFinishRsp::has_logicid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_logicid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_logicid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void C2SNotifyDupFinishRsp::clear_logicid() {
+  logicid_ = 0u;
+  clear_has_logicid();
+}
+inline ::google::protobuf::uint32 C2SNotifyDupFinishRsp::logicid() const {
+  return logicid_;
+}
+inline void C2SNotifyDupFinishRsp::set_logicid(::google::protobuf::uint32 value) {
+  set_has_logicid();
+  logicid_ = value;
+}
+
+// optional uint32 zoneid = 5;
+inline bool C2SNotifyDupFinishRsp::has_zoneid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_zoneid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_zoneid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void C2SNotifyDupFinishRsp::clear_zoneid() {
+  zoneid_ = 0u;
+  clear_has_zoneid();
+}
+inline ::google::protobuf::uint32 C2SNotifyDupFinishRsp::zoneid() const {
+  return zoneid_;
+}
+inline void C2SNotifyDupFinishRsp::set_zoneid(::google::protobuf::uint32 value) {
+  set_has_zoneid();
+  zoneid_ = value;
+}
+
+// optional int32 keytype = 6;
+inline bool C2SNotifyDupFinishRsp::has_keytype() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_keytype() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_keytype() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void C2SNotifyDupFinishRsp::clear_keytype() {
+  keytype_ = 0;
+  clear_has_keytype();
+}
+inline ::google::protobuf::int32 C2SNotifyDupFinishRsp::keytype() const {
+  return keytype_;
+}
+inline void C2SNotifyDupFinishRsp::set_keytype(::google::protobuf::int32 value) {
+  set_has_keytype();
+  keytype_ = value;
+}
+
+// optional uint64 keyval = 7;
+inline bool C2SNotifyDupFinishRsp::has_keyval() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_keyval() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_keyval() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void C2SNotifyDupFinishRsp::clear_keyval() {
+  keyval_ = GOOGLE_ULONGLONG(0);
+  clear_has_keyval();
+}
+inline ::google::protobuf::uint64 C2SNotifyDupFinishRsp::keyval() const {
+  return keyval_;
+}
+inline void C2SNotifyDupFinishRsp::set_keyval(::google::protobuf::uint64 value) {
+  set_has_keyval();
+  keyval_ = value;
+}
+
+// optional int32 teamid = 8;
+inline bool C2SNotifyDupFinishRsp::has_teamid() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_teamid() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void C2SNotifyDupFinishRsp::clear_teamid() {
+  teamid_ = 0;
+  clear_has_teamid();
+}
+inline ::google::protobuf::int32 C2SNotifyDupFinishRsp::teamid() const {
+  return teamid_;
+}
+inline void C2SNotifyDupFinishRsp::set_teamid(::google::protobuf::int32 value) {
+  set_has_teamid();
+  teamid_ = value;
+}
+
+// optional int64 dupid = 9;
+inline bool C2SNotifyDupFinishRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void C2SNotifyDupFinishRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void C2SNotifyDupFinishRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void C2SNotifyDupFinishRsp::clear_dupid() {
+  dupid_ = GOOGLE_LONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::int64 C2SNotifyDupFinishRsp::dupid() const {
+  return dupid_;
+}
+inline void C2SNotifyDupFinishRsp::set_dupid(::google::protobuf::int64 value) {
+  set_has_dupid();
+  dupid_ = value;
 }
 
 

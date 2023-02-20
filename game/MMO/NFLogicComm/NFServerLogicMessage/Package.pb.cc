@@ -53,6 +53,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* PackageUseRet_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PackageUseRet_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PackageSellReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PackageSellReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PackageSellRet_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PackageSellRet_reflection_ = NULL;
 
 }  // namespace
 
@@ -241,6 +247,36 @@ void protobuf_AssignDesc_Package_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PackageUseRet));
+  PackageSellReq_descriptor_ = file->message_type(11);
+  static const int PackageSellReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellReq, sell_),
+  };
+  PackageSellReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PackageSellReq_descriptor_,
+      PackageSellReq::default_instance_,
+      PackageSellReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PackageSellReq));
+  PackageSellRet_descriptor_ = file->message_type(12);
+  static const int PackageSellRet_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellRet, retcode_),
+  };
+  PackageSellRet_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PackageSellRet_descriptor_,
+      PackageSellRet::default_instance_,
+      PackageSellRet_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellRet, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellRet, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PackageSellRet));
 }
 
 namespace {
@@ -275,6 +311,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     PackageUseReq_descriptor_, &PackageUseReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PackageUseRet_descriptor_, &PackageUseRet::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PackageSellReq_descriptor_, &PackageSellReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PackageSellRet_descriptor_, &PackageSellRet::default_instance());
 }
 
 }  // namespace
@@ -302,6 +342,10 @@ void protobuf_ShutdownFile_Package_2eproto() {
   delete PackageUseReq_reflection_;
   delete PackageUseRet::default_instance_;
   delete PackageUseRet_reflection_;
+  delete PackageSellReq::default_instance_;
+  delete PackageSellReq_reflection_;
+  delete PackageSellRet::default_instance_;
+  delete PackageSellRet_reflection_;
 }
 
 void protobuf_AddDesc_Package_2eproto() {
@@ -335,7 +379,10 @@ void protobuf_AddDesc_Package_2eproto() {
     "ItemProtoInfo\022+\n\010item_tip\030\003 \001(\0132\031.proto_"
     "ff.MutItemTipProto\"=\n\rPackageUseReq\022\r\n\005i"
     "ndex\030\001 \002(\005\022\013\n\003num\030\002 \001(\005\022\020\n\010item_lst\030\003 \003("
-    "\004\" \n\rPackageUseRet\022\017\n\007retcode\030\001 \002(\005", 875);
+    "\004\" \n\rPackageUseRet\022\017\n\007retcode\030\001 \002(\005\"7\n\016P"
+    "ackageSellReq\022%\n\004sell\030\001 \003(\0132\027.proto_ff.I"
+    "temSellProto\"!\n\016PackageSellRet\022\017\n\007retcod"
+    "e\030\001 \002(\005", 967);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Package.proto", &protobuf_RegisterTypes);
   ItemTipProto::default_instance_ = new ItemTipProto();
@@ -349,6 +396,8 @@ void protobuf_AddDesc_Package_2eproto() {
   NotifyPackageUpdate::default_instance_ = new NotifyPackageUpdate();
   PackageUseReq::default_instance_ = new PackageUseReq();
   PackageUseRet::default_instance_ = new PackageUseRet();
+  PackageSellReq::default_instance_ = new PackageSellReq();
+  PackageSellRet::default_instance_ = new PackageSellRet();
   ItemTipProto::default_instance_->InitAsDefaultInstance();
   MutItemTipProto::default_instance_->InitAsDefaultInstance();
   PackageInfoReq::default_instance_->InitAsDefaultInstance();
@@ -360,6 +409,8 @@ void protobuf_AddDesc_Package_2eproto() {
   NotifyPackageUpdate::default_instance_->InitAsDefaultInstance();
   PackageUseReq::default_instance_->InitAsDefaultInstance();
   PackageUseRet::default_instance_->InitAsDefaultInstance();
+  PackageSellReq::default_instance_->InitAsDefaultInstance();
+  PackageSellRet::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Package_2eproto);
 }
 
@@ -3200,6 +3251,421 @@ void PackageUseRet::Swap(PackageUseRet* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = PackageUseRet_descriptor_;
   metadata.reflection = PackageUseRet_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PackageSellReq::kSellFieldNumber;
+#endif  // !_MSC_VER
+
+PackageSellReq::PackageSellReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PackageSellReq::InitAsDefaultInstance() {
+}
+
+PackageSellReq::PackageSellReq(const PackageSellReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PackageSellReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PackageSellReq::~PackageSellReq() {
+  SharedDtor();
+}
+
+void PackageSellReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PackageSellReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PackageSellReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PackageSellReq_descriptor_;
+}
+
+const PackageSellReq& PackageSellReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Package_2eproto();
+  return *default_instance_;
+}
+
+PackageSellReq* PackageSellReq::default_instance_ = NULL;
+
+PackageSellReq* PackageSellReq::New() const {
+  return new PackageSellReq;
+}
+
+void PackageSellReq::Clear() {
+  sell_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PackageSellReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.ItemSellProto sell = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sell:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_sell()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_sell;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PackageSellReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.ItemSellProto sell = 1;
+  for (int i = 0; i < this->sell_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->sell(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PackageSellReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.ItemSellProto sell = 1;
+  for (int i = 0; i < this->sell_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->sell(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PackageSellReq::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.ItemSellProto sell = 1;
+  total_size += 1 * this->sell_size();
+  for (int i = 0; i < this->sell_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->sell(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PackageSellReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PackageSellReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PackageSellReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PackageSellReq::MergeFrom(const PackageSellReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  sell_.MergeFrom(from.sell_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PackageSellReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PackageSellReq::CopyFrom(const PackageSellReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PackageSellReq::IsInitialized() const {
+
+  for (int i = 0; i < sell_size(); i++) {
+    if (!this->sell(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void PackageSellReq::Swap(PackageSellReq* other) {
+  if (other != this) {
+    sell_.Swap(&other->sell_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PackageSellReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PackageSellReq_descriptor_;
+  metadata.reflection = PackageSellReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PackageSellRet::kRetcodeFieldNumber;
+#endif  // !_MSC_VER
+
+PackageSellRet::PackageSellRet()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PackageSellRet::InitAsDefaultInstance() {
+}
+
+PackageSellRet::PackageSellRet(const PackageSellRet& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PackageSellRet::SharedCtor() {
+  _cached_size_ = 0;
+  retcode_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PackageSellRet::~PackageSellRet() {
+  SharedDtor();
+}
+
+void PackageSellRet::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PackageSellRet::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PackageSellRet::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PackageSellRet_descriptor_;
+}
+
+const PackageSellRet& PackageSellRet::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Package_2eproto();
+  return *default_instance_;
+}
+
+PackageSellRet* PackageSellRet::default_instance_ = NULL;
+
+PackageSellRet* PackageSellRet::New() const {
+  return new PackageSellRet;
+}
+
+void PackageSellRet::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    retcode_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PackageSellRet::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 retcode = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &retcode_)));
+          set_has_retcode();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PackageSellRet::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 retcode = 1;
+  if (has_retcode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->retcode(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PackageSellRet::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 retcode = 1;
+  if (has_retcode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->retcode(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PackageSellRet::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 retcode = 1;
+    if (has_retcode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->retcode());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PackageSellRet::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PackageSellRet* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PackageSellRet*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PackageSellRet::MergeFrom(const PackageSellRet& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_retcode()) {
+      set_retcode(from.retcode());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PackageSellRet::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PackageSellRet::CopyFrom(const PackageSellRet& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PackageSellRet::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void PackageSellRet::Swap(PackageSellRet* other) {
+  if (other != this) {
+    std::swap(retcode_, other->retcode_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PackageSellRet::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PackageSellRet_descriptor_;
+  metadata.reflection = PackageSellRet_reflection_;
   return metadata;
 }
 

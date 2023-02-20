@@ -11,7 +11,7 @@ message DropPickReq
 }
 
 
- //返回 拾取掉落结果 DROP_PICK_RSP
+//返回 拾取掉落结果 DROP_PICK_RSP
 message DropPickRsp
 {
 	required int32 ret = 1;				//返回码

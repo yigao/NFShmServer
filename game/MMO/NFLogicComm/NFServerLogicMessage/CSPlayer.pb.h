@@ -205,13 +205,6 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   inline ::proto_ff::SkillGroupListProto* release_skill_group();
   inline void set_allocated_skill_group(::proto_ff::SkillGroupListProto* skill_group);
 
-  // optional uint32 cur_skill_group = 13;
-  inline bool has_cur_skill_group() const;
-  inline void clear_cur_skill_group();
-  static const int kCurSkillGroupFieldNumber = 13;
-  inline ::google::protobuf::uint32 cur_skill_group() const;
-  inline void set_cur_skill_group(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.PlayerInfoRsp)
  private:
   inline void set_has_cid();
@@ -236,8 +229,6 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   inline void clear_has_state();
   inline void set_has_skill_group();
   inline void clear_has_skill_group();
-  inline void set_has_cur_skill_group();
-  inline void clear_has_cur_skill_group();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -253,10 +244,9 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   ::proto_ff::Vector3PB* pos_;
   ::proto_ff::FunctionUnlockInfo* unlockinfo_;
   ::proto_ff::SkillGroupListProto* skill_group_;
-  ::google::protobuf::uint32 cur_skill_group_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSPlayer_2eproto();
   friend void protobuf_AssignDesc_CSPlayer_2eproto();
@@ -1520,28 +1510,6 @@ inline void PlayerInfoRsp::set_allocated_skill_group(::proto_ff::SkillGroupListP
   } else {
     clear_has_skill_group();
   }
-}
-
-// optional uint32 cur_skill_group = 13;
-inline bool PlayerInfoRsp::has_cur_skill_group() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
-}
-inline void PlayerInfoRsp::set_has_cur_skill_group() {
-  _has_bits_[0] |= 0x00001000u;
-}
-inline void PlayerInfoRsp::clear_has_cur_skill_group() {
-  _has_bits_[0] &= ~0x00001000u;
-}
-inline void PlayerInfoRsp::clear_cur_skill_group() {
-  cur_skill_group_ = 0u;
-  clear_has_cur_skill_group();
-}
-inline ::google::protobuf::uint32 PlayerInfoRsp::cur_skill_group() const {
-  return cur_skill_group_;
-}
-inline void PlayerInfoRsp::set_cur_skill_group(::google::protobuf::uint32 value) {
-  set_has_cur_skill_group();
-  cur_skill_group_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -140,6 +140,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* TeamRefuseNotify_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   TeamRefuseNotify_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TeamMatchAtonceReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TeamMatchAtonceReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TeamMatchAtonceRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TeamMatchAtonceRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SCCreteTeam_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SCCreteTeam_reflection_ = NULL;
@@ -155,12 +161,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SCTeamLeader_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SCTeamLeader_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SCTeamDupBegin_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  SCTeamDupBegin_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SCTeamDupEnd_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  SCTeamDupEnd_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SCTeamDismiss_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SCTeamDismiss_reflection_ = NULL;
@@ -179,9 +179,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* LSTeamRobotHpSync_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LSTeamRobotHpSync_reflection_ = NULL;
-const ::google::protobuf::Descriptor* LSTeamEnterNextPalaceLayerReq_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  LSTeamEnterNextPalaceLayerReq_reflection_ = NULL;
 const ::google::protobuf::Descriptor* DupInviteStateProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DupInviteStateProto_reflection_ = NULL;
@@ -858,7 +855,36 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TeamRefuseNotify));
-  SCCreteTeam_descriptor_ = file->message_type(40);
+  TeamMatchAtonceReq_descriptor_ = file->message_type(40);
+  static const int TeamMatchAtonceReq_offsets_[1] = {
+  };
+  TeamMatchAtonceReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TeamMatchAtonceReq_descriptor_,
+      TeamMatchAtonceReq::default_instance_,
+      TeamMatchAtonceReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TeamMatchAtonceReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TeamMatchAtonceReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TeamMatchAtonceReq));
+  TeamMatchAtonceRsp_descriptor_ = file->message_type(41);
+  static const int TeamMatchAtonceRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TeamMatchAtonceRsp, retcode_),
+  };
+  TeamMatchAtonceRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TeamMatchAtonceRsp_descriptor_,
+      TeamMatchAtonceRsp::default_instance_,
+      TeamMatchAtonceRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TeamMatchAtonceRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TeamMatchAtonceRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TeamMatchAtonceRsp));
+  SCCreteTeam_descriptor_ = file->message_type(42);
   static const int SCCreteTeam_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCCreteTeam, teamid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCCreteTeam, info_),
@@ -874,7 +900,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SCCreteTeam));
-  SCJoinTeam_descriptor_ = file->message_type(41);
+  SCJoinTeam_descriptor_ = file->message_type(43);
   static const int SCJoinTeam_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCJoinTeam, teamid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCJoinTeam, info_),
@@ -890,7 +916,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SCJoinTeam));
-  SCQuitTeam_descriptor_ = file->message_type(42);
+  SCQuitTeam_descriptor_ = file->message_type(44);
   static const int SCQuitTeam_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCQuitTeam, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCQuitTeam, teamid_),
@@ -906,7 +932,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SCQuitTeam));
-  SCUpdateTeam_descriptor_ = file->message_type(43);
+  SCUpdateTeam_descriptor_ = file->message_type(45);
   static const int SCUpdateTeam_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCUpdateTeam, teamid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCUpdateTeam, info_),
@@ -922,7 +948,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SCUpdateTeam));
-  SCTeamLeader_descriptor_ = file->message_type(44);
+  SCTeamLeader_descriptor_ = file->message_type(46);
   static const int SCTeamLeader_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamLeader, teamid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamLeader, leader_),
@@ -938,38 +964,6 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SCTeamLeader));
-  SCTeamDupBegin_descriptor_ = file->message_type(45);
-  static const int SCTeamDupBegin_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupBegin, teamid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupBegin, mapid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupBegin, sceneid_),
-  };
-  SCTeamDupBegin_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      SCTeamDupBegin_descriptor_,
-      SCTeamDupBegin::default_instance_,
-      SCTeamDupBegin_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupBegin, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupBegin, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(SCTeamDupBegin));
-  SCTeamDupEnd_descriptor_ = file->message_type(46);
-  static const int SCTeamDupEnd_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupEnd, teamid_),
-  };
-  SCTeamDupEnd_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      SCTeamDupEnd_descriptor_,
-      SCTeamDupEnd::default_instance_,
-      SCTeamDupEnd_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupEnd, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDupEnd, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(SCTeamDupEnd));
   SCTeamDismiss_descriptor_ = file->message_type(47);
   static const int SCTeamDismiss_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SCTeamDismiss, teamid_),
@@ -1069,24 +1063,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LSTeamRobotHpSync));
-  LSTeamEnterNextPalaceLayerReq_descriptor_ = file->message_type(53);
-  static const int LSTeamEnterNextPalaceLayerReq_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LSTeamEnterNextPalaceLayerReq, cid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LSTeamEnterNextPalaceLayerReq, dupid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LSTeamEnterNextPalaceLayerReq, layer_),
-  };
-  LSTeamEnterNextPalaceLayerReq_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      LSTeamEnterNextPalaceLayerReq_descriptor_,
-      LSTeamEnterNextPalaceLayerReq::default_instance_,
-      LSTeamEnterNextPalaceLayerReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LSTeamEnterNextPalaceLayerReq, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LSTeamEnterNextPalaceLayerReq, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LSTeamEnterNextPalaceLayerReq));
-  DupInviteStateProto_descriptor_ = file->message_type(54);
+  DupInviteStateProto_descriptor_ = file->message_type(53);
   static const int DupInviteStateProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DupInviteStateProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DupInviteStateProto, state_),
@@ -1102,7 +1079,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DupInviteStateProto));
-  DupAllInviteStateProto_descriptor_ = file->message_type(55);
+  DupAllInviteStateProto_descriptor_ = file->message_type(54);
   static const int DupAllInviteStateProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DupAllInviteStateProto, all_state_),
   };
@@ -1117,7 +1094,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DupAllInviteStateProto));
-  Duplicate_CancelStateNotify_descriptor_ = file->message_type(56);
+  Duplicate_CancelStateNotify_descriptor_ = file->message_type(55);
   static const int Duplicate_CancelStateNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Duplicate_CancelStateNotify, retcode_),
   };
@@ -1132,7 +1109,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Duplicate_CancelStateNotify));
-  DupTeamRobotProto_descriptor_ = file->message_type(57);
+  DupTeamRobotProto_descriptor_ = file->message_type(56);
   static const int DupTeamRobotProto_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DupTeamRobotProto, charcid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DupTeamRobotProto, coef_),
@@ -1156,7 +1133,7 @@ void protobuf_AssignDesc_Team_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DupTeamRobotProto));
-  DupMultTeamRobotProto_descriptor_ = file->message_type(58);
+  DupMultTeamRobotProto_descriptor_ = file->message_type(57);
   static const int DupMultTeamRobotProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DupMultTeamRobotProto, info_),
   };
@@ -1264,6 +1241,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     TeamRefuseNotify_descriptor_, &TeamRefuseNotify::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TeamMatchAtonceReq_descriptor_, &TeamMatchAtonceReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TeamMatchAtonceRsp_descriptor_, &TeamMatchAtonceRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SCCreteTeam_descriptor_, &SCCreteTeam::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SCJoinTeam_descriptor_, &SCJoinTeam::default_instance());
@@ -1273,10 +1254,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
     SCUpdateTeam_descriptor_, &SCUpdateTeam::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SCTeamLeader_descriptor_, &SCTeamLeader::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    SCTeamDupBegin_descriptor_, &SCTeamDupBegin::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    SCTeamDupEnd_descriptor_, &SCTeamDupEnd::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SCTeamDismiss_descriptor_, &SCTeamDismiss::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1289,8 +1266,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
     CLCharTeamClonessUpdate_descriptor_, &CLCharTeamClonessUpdate::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     LSTeamRobotHpSync_descriptor_, &LSTeamRobotHpSync::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LSTeamEnterNextPalaceLayerReq_descriptor_, &LSTeamEnterNextPalaceLayerReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DupInviteStateProto_descriptor_, &DupInviteStateProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1386,6 +1361,10 @@ void protobuf_ShutdownFile_Team_2eproto() {
   delete TeamQuitRsp_reflection_;
   delete TeamRefuseNotify::default_instance_;
   delete TeamRefuseNotify_reflection_;
+  delete TeamMatchAtonceReq::default_instance_;
+  delete TeamMatchAtonceReq_reflection_;
+  delete TeamMatchAtonceRsp::default_instance_;
+  delete TeamMatchAtonceRsp_reflection_;
   delete SCCreteTeam::default_instance_;
   delete SCCreteTeam_reflection_;
   delete SCJoinTeam::default_instance_;
@@ -1396,10 +1375,6 @@ void protobuf_ShutdownFile_Team_2eproto() {
   delete SCUpdateTeam_reflection_;
   delete SCTeamLeader::default_instance_;
   delete SCTeamLeader_reflection_;
-  delete SCTeamDupBegin::default_instance_;
-  delete SCTeamDupBegin_reflection_;
-  delete SCTeamDupEnd::default_instance_;
-  delete SCTeamDupEnd_reflection_;
   delete SCTeamDismiss::default_instance_;
   delete SCTeamDismiss_reflection_;
   delete CLCharTeamUpdate::default_instance_;
@@ -1412,8 +1387,6 @@ void protobuf_ShutdownFile_Team_2eproto() {
   delete CLCharTeamClonessUpdate_reflection_;
   delete LSTeamRobotHpSync::default_instance_;
   delete LSTeamRobotHpSync_reflection_;
-  delete LSTeamEnterNextPalaceLayerReq::default_instance_;
-  delete LSTeamEnterNextPalaceLayerReq_reflection_;
   delete DupInviteStateProto::default_instance_;
   delete DupInviteStateProto_reflection_;
   delete DupAllInviteStateProto::default_instance_;
@@ -1435,9 +1408,12 @@ void protobuf_AddDesc_Team_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::proto_ff::protobuf_AddDesc_common_5flogic_2eproto();
   ::proto_ff::protobuf_AddDesc_Com_2eproto();
+  ::proto_ff::protobuf_AddDesc_ClientServerCmd_2eproto();
+  ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nTeam.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\032\022common_logic.proto\032\tCom.proto\"\256\002\n"
+    "proto\032\022common_logic.proto\032\tCom.proto\032\025Cl"
+    "ientServerCmd.proto\032\017ComDefine.proto\"\256\002\n"
     "\014TeamMemProto\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030\002 \001(\014"
     "\022\r\n\005level\030\003 \001(\r\022\014\n\004prof\030\004 \001(\005\022)\n\006facade\030"
     "\005 \001(\0132\031.proto_ff.RoleFacadeProto\022\021\n\tvip_"
@@ -1505,40 +1481,37 @@ void protobuf_AddDesc_Team_2eproto() {
     "\n\016TeamKickMemRsp\022\017\n\007retcode\030\001 \001(\005\"\r\n\013Tea"
     "mQuitReq\"\036\n\013TeamQuitRsp\022\017\n\007retcode\030\001 \001(\005"
     "\".\n\020TeamRefuseNotify\022\014\n\004type\030\001 \001(\005\022\014\n\004na"
-    "me\030\002 \001(\014\"I\n\013SCCreteTeam\022\016\n\006teamid\030\001 \001(\r\022"
-    "*\n\004info\030\002 \001(\0132\034.proto_ff.CenterTeamMemPr"
-    "oto\"H\n\nSCJoinTeam\022\016\n\006teamid\030\001 \001(\r\022*\n\004inf"
-    "o\030\002 \001(\0132\034.proto_ff.CenterTeamMemProto\")\n"
-    "\nSCQuitTeam\022\013\n\003cid\030\001 \001(\004\022\016\n\006teamid\030\002 \001(\r"
-    "\"O\n\014SCUpdateTeam\022\016\n\006teamid\030\001 \001(\r\022/\n\004info"
-    "\030\002 \001(\0132!.proto_ff.CenterMultiTeamMemProt"
-    "o\".\n\014SCTeamLeader\022\016\n\006teamid\030\001 \001(\r\022\016\n\006lea"
-    "der\030\002 \001(\004\"@\n\016SCTeamDupBegin\022\016\n\006teamid\030\001 "
-    "\001(\r\022\r\n\005mapid\030\002 \001(\004\022\017\n\007sceneid\030\003 \001(\004\"\036\n\014S"
-    "CTeamDupEnd\022\016\n\006teamid\030\001 \001(\r\"\037\n\rSCTeamDis"
-    "miss\022\016\n\006teamid\030\001 \001(\r\"P\n\020CLCharTeamUpdate"
-    "\022\013\n\003cid\030\001 \001(\004\022\016\n\006teamid\030\002 \001(\r\022\016\n\006leader\030"
-    "\003 \001(\004\022\017\n\007mem_cnt\030\004 \001(\005\"h\n\022CLUpdateSimple"
-    "Team\022\016\n\006teamid\030\001 \001(\r\022\021\n\tleadercid\030\002 \001(\004\022"
-    "/\n\004info\030\003 \001(\0132!.proto_ff.CenterMultiTeam"
-    "MemProto\"\037\n\rCLDismissTeam\022\016\n\006teamid\030\001 \001("
-    "\r\";\n\027CLCharTeamClonessUpdate\022\013\n\003cid\030\001 \001("
-    "\004\022\023\n\013cloness_lev\030\002 \001(\005\"S\n\021LSTeamRobotHpS"
-    "ync\022\016\n\006teamid\030\001 \001(\r\022\020\n\010robotcid\030\002 \001(\004\022\r\n"
-    "\005curhp\030\003 \001(\004\022\r\n\005maxhp\030\004 \001(\004\"J\n\035LSTeamEnt"
-    "erNextPalaceLayerReq\022\013\n\003cid\030\001 \001(\004\022\r\n\005dup"
-    "id\030\002 \001(\004\022\r\n\005layer\030\003 \001(\r\"1\n\023DupInviteStat"
-    "eProto\022\013\n\003cid\030\001 \001(\004\022\r\n\005state\030\002 \001(\005\"J\n\026Du"
-    "pAllInviteStateProto\0220\n\tall_state\030\001 \003(\0132"
-    "\035.proto_ff.DupInviteStateProto\".\n\033Duplic"
-    "ate_CancelStateNotify\022\017\n\007retcode\030\001 \002(\005\"\311"
-    "\001\n\021DupTeamRobotProto\022\017\n\007charcid\030\001 \001(\004\022\014\n"
-    "\004coef\030\002 \001(\r\022\013\n\003zid\030\003 \001(\r\022\020\n\010robotcid\030\004 \001"
-    "(\004\022\014\n\004name\030\005 \001(\014\022\r\n\005level\030\006 \001(\r\022\014\n\004prof\030"
-    "\007 \001(\005\022)\n\006facade\030\010 \001(\0132\031.proto_ff.RoleFac"
-    "adeProto\022\021\n\tvip_level\030\t \001(\005\022\r\n\005fight\030\n \001"
-    "(\004\"B\n\025DupMultTeamRobotProto\022)\n\004info\030\001 \003("
-    "\0132\033.proto_ff.DupTeamRobotProto", 4110);
+    "me\030\002 \001(\014\"\024\n\022TeamMatchAtonceReq\"%\n\022TeamMa"
+    "tchAtonceRsp\022\017\n\007retcode\030\001 \001(\005\"I\n\013SCCrete"
+    "Team\022\016\n\006teamid\030\001 \001(\r\022*\n\004info\030\002 \001(\0132\034.pro"
+    "to_ff.CenterTeamMemProto\"H\n\nSCJoinTeam\022\016"
+    "\n\006teamid\030\001 \001(\r\022*\n\004info\030\002 \001(\0132\034.proto_ff."
+    "CenterTeamMemProto\")\n\nSCQuitTeam\022\013\n\003cid\030"
+    "\001 \001(\004\022\016\n\006teamid\030\002 \001(\r\"O\n\014SCUpdateTeam\022\016\n"
+    "\006teamid\030\001 \001(\r\022/\n\004info\030\002 \001(\0132!.proto_ff.C"
+    "enterMultiTeamMemProto\".\n\014SCTeamLeader\022\016"
+    "\n\006teamid\030\001 \001(\r\022\016\n\006leader\030\002 \001(\004\"\037\n\rSCTeam"
+    "Dismiss\022\016\n\006teamid\030\001 \001(\r\"P\n\020CLCharTeamUpd"
+    "ate\022\013\n\003cid\030\001 \001(\004\022\016\n\006teamid\030\002 \001(\r\022\016\n\006lead"
+    "er\030\003 \001(\004\022\017\n\007mem_cnt\030\004 \001(\005\"h\n\022CLUpdateSim"
+    "pleTeam\022\016\n\006teamid\030\001 \001(\r\022\021\n\tleadercid\030\002 \001"
+    "(\004\022/\n\004info\030\003 \001(\0132!.proto_ff.CenterMultiT"
+    "eamMemProto\"\037\n\rCLDismissTeam\022\016\n\006teamid\030\001"
+    " \001(\r\";\n\027CLCharTeamClonessUpdate\022\013\n\003cid\030\001"
+    " \001(\004\022\023\n\013cloness_lev\030\002 \001(\005\"S\n\021LSTeamRobot"
+    "HpSync\022\016\n\006teamid\030\001 \001(\r\022\020\n\010robotcid\030\002 \001(\004"
+    "\022\r\n\005curhp\030\003 \001(\004\022\r\n\005maxhp\030\004 \001(\004\"1\n\023DupInv"
+    "iteStateProto\022\013\n\003cid\030\001 \001(\004\022\r\n\005state\030\002 \001("
+    "\005\"J\n\026DupAllInviteStateProto\0220\n\tall_state"
+    "\030\001 \003(\0132\035.proto_ff.DupInviteStateProto\".\n"
+    "\033Duplicate_CancelStateNotify\022\017\n\007retcode\030"
+    "\001 \002(\005\"\311\001\n\021DupTeamRobotProto\022\017\n\007charcid\030\001"
+    " \001(\004\022\014\n\004coef\030\002 \001(\r\022\013\n\003zid\030\003 \001(\r\022\020\n\010robot"
+    "cid\030\004 \001(\004\022\014\n\004name\030\005 \001(\014\022\r\n\005level\030\006 \001(\r\022\014"
+    "\n\004prof\030\007 \001(\005\022)\n\006facade\030\010 \001(\0132\031.proto_ff."
+    "RoleFacadeProto\022\021\n\tvip_level\030\t \001(\005\022\r\n\005fi"
+    "ght\030\n \001(\004\"B\n\025DupMultTeamRobotProto\022)\n\004in"
+    "fo\030\001 \003(\0132\033.proto_ff.DupTeamRobotProto", 4037);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Team.proto", &protobuf_RegisterTypes);
   TeamMemProto::default_instance_ = new TeamMemProto();
@@ -1581,20 +1554,19 @@ void protobuf_AddDesc_Team_2eproto() {
   TeamQuitReq::default_instance_ = new TeamQuitReq();
   TeamQuitRsp::default_instance_ = new TeamQuitRsp();
   TeamRefuseNotify::default_instance_ = new TeamRefuseNotify();
+  TeamMatchAtonceReq::default_instance_ = new TeamMatchAtonceReq();
+  TeamMatchAtonceRsp::default_instance_ = new TeamMatchAtonceRsp();
   SCCreteTeam::default_instance_ = new SCCreteTeam();
   SCJoinTeam::default_instance_ = new SCJoinTeam();
   SCQuitTeam::default_instance_ = new SCQuitTeam();
   SCUpdateTeam::default_instance_ = new SCUpdateTeam();
   SCTeamLeader::default_instance_ = new SCTeamLeader();
-  SCTeamDupBegin::default_instance_ = new SCTeamDupBegin();
-  SCTeamDupEnd::default_instance_ = new SCTeamDupEnd();
   SCTeamDismiss::default_instance_ = new SCTeamDismiss();
   CLCharTeamUpdate::default_instance_ = new CLCharTeamUpdate();
   CLUpdateSimpleTeam::default_instance_ = new CLUpdateSimpleTeam();
   CLDismissTeam::default_instance_ = new CLDismissTeam();
   CLCharTeamClonessUpdate::default_instance_ = new CLCharTeamClonessUpdate();
   LSTeamRobotHpSync::default_instance_ = new LSTeamRobotHpSync();
-  LSTeamEnterNextPalaceLayerReq::default_instance_ = new LSTeamEnterNextPalaceLayerReq();
   DupInviteStateProto::default_instance_ = new DupInviteStateProto();
   DupAllInviteStateProto::default_instance_ = new DupAllInviteStateProto();
   Duplicate_CancelStateNotify::default_instance_ = new Duplicate_CancelStateNotify();
@@ -1640,20 +1612,19 @@ void protobuf_AddDesc_Team_2eproto() {
   TeamQuitReq::default_instance_->InitAsDefaultInstance();
   TeamQuitRsp::default_instance_->InitAsDefaultInstance();
   TeamRefuseNotify::default_instance_->InitAsDefaultInstance();
+  TeamMatchAtonceReq::default_instance_->InitAsDefaultInstance();
+  TeamMatchAtonceRsp::default_instance_->InitAsDefaultInstance();
   SCCreteTeam::default_instance_->InitAsDefaultInstance();
   SCJoinTeam::default_instance_->InitAsDefaultInstance();
   SCQuitTeam::default_instance_->InitAsDefaultInstance();
   SCUpdateTeam::default_instance_->InitAsDefaultInstance();
   SCTeamLeader::default_instance_->InitAsDefaultInstance();
-  SCTeamDupBegin::default_instance_->InitAsDefaultInstance();
-  SCTeamDupEnd::default_instance_->InitAsDefaultInstance();
   SCTeamDismiss::default_instance_->InitAsDefaultInstance();
   CLCharTeamUpdate::default_instance_->InitAsDefaultInstance();
   CLUpdateSimpleTeam::default_instance_->InitAsDefaultInstance();
   CLDismissTeam::default_instance_->InitAsDefaultInstance();
   CLCharTeamClonessUpdate::default_instance_->InitAsDefaultInstance();
   LSTeamRobotHpSync::default_instance_->InitAsDefaultInstance();
-  LSTeamEnterNextPalaceLayerReq::default_instance_->InitAsDefaultInstance();
   DupInviteStateProto::default_instance_->InitAsDefaultInstance();
   DupAllInviteStateProto::default_instance_->InitAsDefaultInstance();
   Duplicate_CancelStateNotify::default_instance_->InitAsDefaultInstance();
@@ -12101,6 +12072,370 @@ void TeamRefuseNotify::Swap(TeamRefuseNotify* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+TeamMatchAtonceReq::TeamMatchAtonceReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void TeamMatchAtonceReq::InitAsDefaultInstance() {
+}
+
+TeamMatchAtonceReq::TeamMatchAtonceReq(const TeamMatchAtonceReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void TeamMatchAtonceReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+TeamMatchAtonceReq::~TeamMatchAtonceReq() {
+  SharedDtor();
+}
+
+void TeamMatchAtonceReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void TeamMatchAtonceReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TeamMatchAtonceReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TeamMatchAtonceReq_descriptor_;
+}
+
+const TeamMatchAtonceReq& TeamMatchAtonceReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Team_2eproto();
+  return *default_instance_;
+}
+
+TeamMatchAtonceReq* TeamMatchAtonceReq::default_instance_ = NULL;
+
+TeamMatchAtonceReq* TeamMatchAtonceReq::New() const {
+  return new TeamMatchAtonceReq;
+}
+
+void TeamMatchAtonceReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool TeamMatchAtonceReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void TeamMatchAtonceReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* TeamMatchAtonceReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int TeamMatchAtonceReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TeamMatchAtonceReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TeamMatchAtonceReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TeamMatchAtonceReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void TeamMatchAtonceReq::MergeFrom(const TeamMatchAtonceReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TeamMatchAtonceReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TeamMatchAtonceReq::CopyFrom(const TeamMatchAtonceReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TeamMatchAtonceReq::IsInitialized() const {
+
+  return true;
+}
+
+void TeamMatchAtonceReq::Swap(TeamMatchAtonceReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata TeamMatchAtonceReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TeamMatchAtonceReq_descriptor_;
+  metadata.reflection = TeamMatchAtonceReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int TeamMatchAtonceRsp::kRetcodeFieldNumber;
+#endif  // !_MSC_VER
+
+TeamMatchAtonceRsp::TeamMatchAtonceRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void TeamMatchAtonceRsp::InitAsDefaultInstance() {
+}
+
+TeamMatchAtonceRsp::TeamMatchAtonceRsp(const TeamMatchAtonceRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void TeamMatchAtonceRsp::SharedCtor() {
+  _cached_size_ = 0;
+  retcode_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+TeamMatchAtonceRsp::~TeamMatchAtonceRsp() {
+  SharedDtor();
+}
+
+void TeamMatchAtonceRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void TeamMatchAtonceRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TeamMatchAtonceRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TeamMatchAtonceRsp_descriptor_;
+}
+
+const TeamMatchAtonceRsp& TeamMatchAtonceRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Team_2eproto();
+  return *default_instance_;
+}
+
+TeamMatchAtonceRsp* TeamMatchAtonceRsp::default_instance_ = NULL;
+
+TeamMatchAtonceRsp* TeamMatchAtonceRsp::New() const {
+  return new TeamMatchAtonceRsp;
+}
+
+void TeamMatchAtonceRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    retcode_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool TeamMatchAtonceRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 retcode = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &retcode_)));
+          set_has_retcode();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void TeamMatchAtonceRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 retcode = 1;
+  if (has_retcode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->retcode(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* TeamMatchAtonceRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 retcode = 1;
+  if (has_retcode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->retcode(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int TeamMatchAtonceRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 retcode = 1;
+    if (has_retcode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->retcode());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TeamMatchAtonceRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TeamMatchAtonceRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TeamMatchAtonceRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void TeamMatchAtonceRsp::MergeFrom(const TeamMatchAtonceRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_retcode()) {
+      set_retcode(from.retcode());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TeamMatchAtonceRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TeamMatchAtonceRsp::CopyFrom(const TeamMatchAtonceRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TeamMatchAtonceRsp::IsInitialized() const {
+
+  return true;
+}
+
+void TeamMatchAtonceRsp::Swap(TeamMatchAtonceRsp* other) {
+  if (other != this) {
+    std::swap(retcode_, other->retcode_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata TeamMatchAtonceRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TeamMatchAtonceRsp_descriptor_;
+  metadata.reflection = TeamMatchAtonceRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int SCCreteTeam::kTeamidFieldNumber;
 const int SCCreteTeam::kInfoFieldNumber;
 #endif  // !_MSC_VER
@@ -13349,502 +13684,6 @@ void SCTeamLeader::Swap(SCTeamLeader* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SCTeamLeader_descriptor_;
   metadata.reflection = SCTeamLeader_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int SCTeamDupBegin::kTeamidFieldNumber;
-const int SCTeamDupBegin::kMapidFieldNumber;
-const int SCTeamDupBegin::kSceneidFieldNumber;
-#endif  // !_MSC_VER
-
-SCTeamDupBegin::SCTeamDupBegin()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void SCTeamDupBegin::InitAsDefaultInstance() {
-}
-
-SCTeamDupBegin::SCTeamDupBegin(const SCTeamDupBegin& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void SCTeamDupBegin::SharedCtor() {
-  _cached_size_ = 0;
-  teamid_ = 0u;
-  mapid_ = GOOGLE_ULONGLONG(0);
-  sceneid_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-SCTeamDupBegin::~SCTeamDupBegin() {
-  SharedDtor();
-}
-
-void SCTeamDupBegin::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void SCTeamDupBegin::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* SCTeamDupBegin::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SCTeamDupBegin_descriptor_;
-}
-
-const SCTeamDupBegin& SCTeamDupBegin::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Team_2eproto();
-  return *default_instance_;
-}
-
-SCTeamDupBegin* SCTeamDupBegin::default_instance_ = NULL;
-
-SCTeamDupBegin* SCTeamDupBegin::New() const {
-  return new SCTeamDupBegin;
-}
-
-void SCTeamDupBegin::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    teamid_ = 0u;
-    mapid_ = GOOGLE_ULONGLONG(0);
-    sceneid_ = GOOGLE_ULONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool SCTeamDupBegin::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 teamid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &teamid_)));
-          set_has_teamid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_mapid;
-        break;
-      }
-
-      // optional uint64 mapid = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mapid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &mapid_)));
-          set_has_mapid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_sceneid;
-        break;
-      }
-
-      // optional uint64 sceneid = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_sceneid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &sceneid_)));
-          set_has_sceneid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void SCTeamDupBegin::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint32 teamid = 1;
-  if (has_teamid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->teamid(), output);
-  }
-
-  // optional uint64 mapid = 2;
-  if (has_mapid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mapid(), output);
-  }
-
-  // optional uint64 sceneid = 3;
-  if (has_sceneid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->sceneid(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* SCTeamDupBegin::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint32 teamid = 1;
-  if (has_teamid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->teamid(), target);
-  }
-
-  // optional uint64 mapid = 2;
-  if (has_mapid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mapid(), target);
-  }
-
-  // optional uint64 sceneid = 3;
-  if (has_sceneid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->sceneid(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int SCTeamDupBegin::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint32 teamid = 1;
-    if (has_teamid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->teamid());
-    }
-
-    // optional uint64 mapid = 2;
-    if (has_mapid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->mapid());
-    }
-
-    // optional uint64 sceneid = 3;
-    if (has_sceneid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->sceneid());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void SCTeamDupBegin::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const SCTeamDupBegin* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const SCTeamDupBegin*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void SCTeamDupBegin::MergeFrom(const SCTeamDupBegin& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_teamid()) {
-      set_teamid(from.teamid());
-    }
-    if (from.has_mapid()) {
-      set_mapid(from.mapid());
-    }
-    if (from.has_sceneid()) {
-      set_sceneid(from.sceneid());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void SCTeamDupBegin::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void SCTeamDupBegin::CopyFrom(const SCTeamDupBegin& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SCTeamDupBegin::IsInitialized() const {
-
-  return true;
-}
-
-void SCTeamDupBegin::Swap(SCTeamDupBegin* other) {
-  if (other != this) {
-    std::swap(teamid_, other->teamid_);
-    std::swap(mapid_, other->mapid_);
-    std::swap(sceneid_, other->sceneid_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata SCTeamDupBegin::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SCTeamDupBegin_descriptor_;
-  metadata.reflection = SCTeamDupBegin_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int SCTeamDupEnd::kTeamidFieldNumber;
-#endif  // !_MSC_VER
-
-SCTeamDupEnd::SCTeamDupEnd()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void SCTeamDupEnd::InitAsDefaultInstance() {
-}
-
-SCTeamDupEnd::SCTeamDupEnd(const SCTeamDupEnd& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void SCTeamDupEnd::SharedCtor() {
-  _cached_size_ = 0;
-  teamid_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-SCTeamDupEnd::~SCTeamDupEnd() {
-  SharedDtor();
-}
-
-void SCTeamDupEnd::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void SCTeamDupEnd::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* SCTeamDupEnd::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SCTeamDupEnd_descriptor_;
-}
-
-const SCTeamDupEnd& SCTeamDupEnd::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Team_2eproto();
-  return *default_instance_;
-}
-
-SCTeamDupEnd* SCTeamDupEnd::default_instance_ = NULL;
-
-SCTeamDupEnd* SCTeamDupEnd::New() const {
-  return new SCTeamDupEnd;
-}
-
-void SCTeamDupEnd::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    teamid_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool SCTeamDupEnd::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 teamid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &teamid_)));
-          set_has_teamid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void SCTeamDupEnd::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint32 teamid = 1;
-  if (has_teamid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->teamid(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* SCTeamDupEnd::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint32 teamid = 1;
-  if (has_teamid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->teamid(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int SCTeamDupEnd::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint32 teamid = 1;
-    if (has_teamid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->teamid());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void SCTeamDupEnd::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const SCTeamDupEnd* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const SCTeamDupEnd*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void SCTeamDupEnd::MergeFrom(const SCTeamDupEnd& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_teamid()) {
-      set_teamid(from.teamid());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void SCTeamDupEnd::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void SCTeamDupEnd::CopyFrom(const SCTeamDupEnd& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SCTeamDupEnd::IsInitialized() const {
-
-  return true;
-}
-
-void SCTeamDupEnd::Swap(SCTeamDupEnd* other) {
-  if (other != this) {
-    std::swap(teamid_, other->teamid_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata SCTeamDupEnd::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SCTeamDupEnd_descriptor_;
-  metadata.reflection = SCTeamDupEnd_reflection_;
   return metadata;
 }
 
@@ -15458,294 +15297,6 @@ void LSTeamRobotHpSync::Swap(LSTeamRobotHpSync* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = LSTeamRobotHpSync_descriptor_;
   metadata.reflection = LSTeamRobotHpSync_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int LSTeamEnterNextPalaceLayerReq::kCidFieldNumber;
-const int LSTeamEnterNextPalaceLayerReq::kDupidFieldNumber;
-const int LSTeamEnterNextPalaceLayerReq::kLayerFieldNumber;
-#endif  // !_MSC_VER
-
-LSTeamEnterNextPalaceLayerReq::LSTeamEnterNextPalaceLayerReq()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void LSTeamEnterNextPalaceLayerReq::InitAsDefaultInstance() {
-}
-
-LSTeamEnterNextPalaceLayerReq::LSTeamEnterNextPalaceLayerReq(const LSTeamEnterNextPalaceLayerReq& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void LSTeamEnterNextPalaceLayerReq::SharedCtor() {
-  _cached_size_ = 0;
-  cid_ = GOOGLE_ULONGLONG(0);
-  dupid_ = GOOGLE_ULONGLONG(0);
-  layer_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-LSTeamEnterNextPalaceLayerReq::~LSTeamEnterNextPalaceLayerReq() {
-  SharedDtor();
-}
-
-void LSTeamEnterNextPalaceLayerReq::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void LSTeamEnterNextPalaceLayerReq::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* LSTeamEnterNextPalaceLayerReq::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return LSTeamEnterNextPalaceLayerReq_descriptor_;
-}
-
-const LSTeamEnterNextPalaceLayerReq& LSTeamEnterNextPalaceLayerReq::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Team_2eproto();
-  return *default_instance_;
-}
-
-LSTeamEnterNextPalaceLayerReq* LSTeamEnterNextPalaceLayerReq::default_instance_ = NULL;
-
-LSTeamEnterNextPalaceLayerReq* LSTeamEnterNextPalaceLayerReq::New() const {
-  return new LSTeamEnterNextPalaceLayerReq;
-}
-
-void LSTeamEnterNextPalaceLayerReq::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    cid_ = GOOGLE_ULONGLONG(0);
-    dupid_ = GOOGLE_ULONGLONG(0);
-    layer_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool LSTeamEnterNextPalaceLayerReq::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint64 cid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &cid_)));
-          set_has_cid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_dupid;
-        break;
-      }
-
-      // optional uint64 dupid = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_dupid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &dupid_)));
-          set_has_dupid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_layer;
-        break;
-      }
-
-      // optional uint32 layer = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_layer:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &layer_)));
-          set_has_layer();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void LSTeamEnterNextPalaceLayerReq::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint64 cid = 1;
-  if (has_cid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
-  }
-
-  // optional uint64 dupid = 2;
-  if (has_dupid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->dupid(), output);
-  }
-
-  // optional uint32 layer = 3;
-  if (has_layer()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->layer(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* LSTeamEnterNextPalaceLayerReq::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint64 cid = 1;
-  if (has_cid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
-  }
-
-  // optional uint64 dupid = 2;
-  if (has_dupid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->dupid(), target);
-  }
-
-  // optional uint32 layer = 3;
-  if (has_layer()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->layer(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int LSTeamEnterNextPalaceLayerReq::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint64 cid = 1;
-    if (has_cid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->cid());
-    }
-
-    // optional uint64 dupid = 2;
-    if (has_dupid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->dupid());
-    }
-
-    // optional uint32 layer = 3;
-    if (has_layer()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->layer());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void LSTeamEnterNextPalaceLayerReq::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const LSTeamEnterNextPalaceLayerReq* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LSTeamEnterNextPalaceLayerReq*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void LSTeamEnterNextPalaceLayerReq::MergeFrom(const LSTeamEnterNextPalaceLayerReq& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_cid()) {
-      set_cid(from.cid());
-    }
-    if (from.has_dupid()) {
-      set_dupid(from.dupid());
-    }
-    if (from.has_layer()) {
-      set_layer(from.layer());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void LSTeamEnterNextPalaceLayerReq::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void LSTeamEnterNextPalaceLayerReq::CopyFrom(const LSTeamEnterNextPalaceLayerReq& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool LSTeamEnterNextPalaceLayerReq::IsInitialized() const {
-
-  return true;
-}
-
-void LSTeamEnterNextPalaceLayerReq::Swap(LSTeamEnterNextPalaceLayerReq* other) {
-  if (other != this) {
-    std::swap(cid_, other->cid_);
-    std::swap(dupid_, other->dupid_);
-    std::swap(layer_, other->layer_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata LSTeamEnterNextPalaceLayerReq::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LSTeamEnterNextPalaceLayerReq_descriptor_;
-  metadata.reflection = LSTeamEnterNextPalaceLayerReq_reflection_;
   return metadata;
 }
 

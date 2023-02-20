@@ -170,6 +170,13 @@ class CreateSceneParamProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 mergenum() const;
   inline void set_mergenum(::google::protobuf::int32 value);
 
+  // optional int32 teamid = 9;
+  inline bool has_teamid() const;
+  inline void clear_teamid();
+  static const int kTeamidFieldNumber = 9;
+  inline ::google::protobuf::int32 teamid() const;
+  inline void set_teamid(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.CreateSceneParamProto)
  private:
   inline void set_has_param_type();
@@ -188,6 +195,8 @@ class CreateSceneParamProto : public ::google::protobuf::Message {
   inline void clear_has_alive_time_sec();
   inline void set_has_mergenum();
   inline void clear_has_mergenum();
+  inline void set_has_teamid();
+  inline void clear_has_teamid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -199,9 +208,10 @@ class CreateSceneParamProto : public ::google::protobuf::Message {
   ::google::protobuf::int32 key_type_;
   ::google::protobuf::int32 alive_time_sec_;
   ::google::protobuf::int32 mergenum_;
+  ::google::protobuf::int32 teamid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_Scene_2eproto();
   friend void protobuf_AssignDesc_Scene_2eproto();
@@ -2582,6 +2592,28 @@ inline ::google::protobuf::int32 CreateSceneParamProto::mergenum() const {
 inline void CreateSceneParamProto::set_mergenum(::google::protobuf::int32 value) {
   set_has_mergenum();
   mergenum_ = value;
+}
+
+// optional int32 teamid = 9;
+inline bool CreateSceneParamProto::has_teamid() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void CreateSceneParamProto::set_has_teamid() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void CreateSceneParamProto::clear_has_teamid() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void CreateSceneParamProto::clear_teamid() {
+  teamid_ = 0;
+  clear_has_teamid();
+}
+inline ::google::protobuf::int32 CreateSceneParamProto::teamid() const {
+  return teamid_;
+}
+inline void CreateSceneParamProto::set_teamid(::google::protobuf::int32 value) {
+  set_has_teamid();
+  teamid_ = value;
 }
 
 // -------------------------------------------------------------------

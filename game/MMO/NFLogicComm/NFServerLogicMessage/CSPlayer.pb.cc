@@ -61,7 +61,7 @@ void protobuf_AssignDesc_CSPlayer_2eproto() {
       "CSPlayer.proto");
   GOOGLE_CHECK(file != NULL);
   PlayerInfoRsp_descriptor_ = file->message_type(0);
-  static const int PlayerInfoRsp_offsets_[13] = {
+  static const int PlayerInfoRsp_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, zid_),
@@ -74,7 +74,6 @@ void protobuf_AssignDesc_CSPlayer_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, unlockinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, state_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, skill_group_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, cur_skill_group_),
   };
   PlayerInfoRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -304,7 +303,7 @@ void protobuf_AddDesc_CSPlayer_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016CSPlayer.proto\022\010proto_ff\032\025yd_fieldopti"
     "ons.proto\032\022common_logic.proto\032\tCom.proto"
-    "\"\347\002\n\rPlayerInfoRsp\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030"
+    "\"\316\002\n\rPlayerInfoRsp\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030"
     "\002 \001(\014\022\013\n\003zid\030\003 \001(\r\022\020\n\010opentime\030\004 \001(\004\022\022\n\n"
     "createtime\030\005 \001(\004\022)\n\006facade\030\006 \001(\0132\031.proto"
     "_ff.RoleFacadeProto\022\036\n\004attr\030\007 \003(\0132\020.prot"
@@ -312,22 +311,21 @@ void protobuf_AddDesc_CSPlayer_2eproto() {
     "\023.proto_ff.Vector3PB\0220\n\nunlockInfo\030\n \001(\013"
     "2\034.proto_ff.FunctionUnlockInfo\022\r\n\005state\030"
     "\013 \001(\005\0222\n\013skill_group\030\014 \001(\0132\035.proto_ff.Sk"
-    "illGroupListProto\022\027\n\017cur_skill_group\030\r \001"
-    "(\r\">\n\017CreatureAttrSyn\022\013\n\003cid\030\001 \001(\004\022\036\n\004at"
-    "tr\030\002 \003(\0132\020.proto_ff.Attr64\"C\n\024CreatureAt"
-    "trBroadRsp\022\013\n\003cid\030\001 \001(\004\022\036\n\004attr\030\002 \003(\0132\020."
-    "proto_ff.Attr64\"K\n\025CreatureStateBroadRsp"
-    "\022\013\n\003cid\030\001 \001(\004\022\020\n\010curstate\030\002 \001(\r\022\023\n\013befor"
-    "estate\030\003 \001(\r\"h\n\021NoticeShowInfoRsp\022\021\n\tsho"
-    "w_type\030\001 \001(\005\022\017\n\007add_val\030\002 \001(\004\022/\n\010item_ls"
-    "t\030\003 \001(\0132\035.proto_ff.MultItemSimpleProto\"\032"
-    "\n\nChgNameReq\022\014\n\004name\030\001 \001(\t\"+\n\nChgNameRsp"
-    "\022\017\n\007retcode\030\001 \002(\005\022\014\n\004name\030\002 \001(\014\"h\n\022Playe"
-    "rReliveNotify\022\014\n\004name\030\001 \001(\014\022\020\n\010left_num\030"
-    "\002 \001(\005\022\013\n\003sec\030\003 \001(\005\022\020\n\010is_tired\030\004 \001(\010\022\023\n\013"
-    "already_num\030\005 \001(\005\"\037\n\017PlayerReliveReq\022\014\n\004"
-    "type\030\001 \001(\005\"\036\n\017PlayerReliveRsp\022\013\n\003ret\030\001 \002"
-    "(\005", 1002);
+    "illGroupListProto\">\n\017CreatureAttrSyn\022\013\n\003"
+    "cid\030\001 \001(\004\022\036\n\004attr\030\002 \003(\0132\020.proto_ff.Attr6"
+    "4\"C\n\024CreatureAttrBroadRsp\022\013\n\003cid\030\001 \001(\004\022\036"
+    "\n\004attr\030\002 \003(\0132\020.proto_ff.Attr64\"K\n\025Creatu"
+    "reStateBroadRsp\022\013\n\003cid\030\001 \001(\004\022\020\n\010curstate"
+    "\030\002 \001(\r\022\023\n\013beforestate\030\003 \001(\r\"h\n\021NoticeSho"
+    "wInfoRsp\022\021\n\tshow_type\030\001 \001(\005\022\017\n\007add_val\030\002"
+    " \001(\004\022/\n\010item_lst\030\003 \001(\0132\035.proto_ff.MultIt"
+    "emSimpleProto\"\032\n\nChgNameReq\022\014\n\004name\030\001 \001("
+    "\t\"+\n\nChgNameRsp\022\017\n\007retcode\030\001 \002(\005\022\014\n\004name"
+    "\030\002 \001(\014\"h\n\022PlayerReliveNotify\022\014\n\004name\030\001 \001"
+    "(\014\022\020\n\010left_num\030\002 \001(\005\022\013\n\003sec\030\003 \001(\005\022\020\n\010is_"
+    "tired\030\004 \001(\010\022\023\n\013already_num\030\005 \001(\005\"\037\n\017Play"
+    "erReliveReq\022\014\n\004type\030\001 \001(\005\"\036\n\017PlayerReliv"
+    "eRsp\022\013\n\003ret\030\001 \002(\005", 977);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSPlayer.proto", &protobuf_RegisterTypes);
   PlayerInfoRsp::default_instance_ = new PlayerInfoRsp();
@@ -375,7 +373,6 @@ const int PlayerInfoRsp::kPosFieldNumber;
 const int PlayerInfoRsp::kUnlockInfoFieldNumber;
 const int PlayerInfoRsp::kStateFieldNumber;
 const int PlayerInfoRsp::kSkillGroupFieldNumber;
-const int PlayerInfoRsp::kCurSkillGroupFieldNumber;
 #endif  // !_MSC_VER
 
 PlayerInfoRsp::PlayerInfoRsp()
@@ -409,7 +406,6 @@ void PlayerInfoRsp::SharedCtor() {
   unlockinfo_ = NULL;
   state_ = 0;
   skill_group_ = NULL;
-  cur_skill_group_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -477,7 +473,6 @@ void PlayerInfoRsp::Clear() {
     if (has_skill_group()) {
       if (skill_group_ != NULL) skill_group_->::proto_ff::SkillGroupListProto::Clear();
     }
-    cur_skill_group_ = 0u;
   }
   attr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -666,22 +661,6 @@ bool PlayerInfoRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_cur_skill_group;
-        break;
-      }
-
-      // optional uint32 cur_skill_group = 13;
-      case 13: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_cur_skill_group:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &cur_skill_group_)));
-          set_has_cur_skill_group();
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -770,11 +749,6 @@ void PlayerInfoRsp::SerializeWithCachedSizes(
       12, this->skill_group(), output);
   }
 
-  // optional uint32 cur_skill_group = 13;
-  if (has_cur_skill_group()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->cur_skill_group(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -853,11 +827,6 @@ void PlayerInfoRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         12, this->skill_group(), target);
-  }
-
-  // optional uint32 cur_skill_group = 13;
-  if (has_cur_skill_group()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->cur_skill_group(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -950,13 +919,6 @@ int PlayerInfoRsp::ByteSize() const {
           this->skill_group());
     }
 
-    // optional uint32 cur_skill_group = 13;
-    if (has_cur_skill_group()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->cur_skill_group());
-    }
-
   }
   // repeated .proto_ff.Attr64 attr = 7;
   total_size += 1 * this->attr_size();
@@ -1028,9 +990,6 @@ void PlayerInfoRsp::MergeFrom(const PlayerInfoRsp& from) {
     if (from.has_skill_group()) {
       mutable_skill_group()->::proto_ff::SkillGroupListProto::MergeFrom(from.skill_group());
     }
-    if (from.has_cur_skill_group()) {
-      set_cur_skill_group(from.cur_skill_group());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1075,7 +1034,6 @@ void PlayerInfoRsp::Swap(PlayerInfoRsp* other) {
     std::swap(unlockinfo_, other->unlockinfo_);
     std::swap(state_, other->state_);
     std::swap(skill_group_, other->skill_group_);
-    std::swap(cur_skill_group_, other->cur_skill_group_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

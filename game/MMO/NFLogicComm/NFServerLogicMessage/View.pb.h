@@ -42,6 +42,7 @@ class CreatureCreateData_Monster;
 class CreatureCreateData_Drop;
 class CreatureDestoryData;
 class BroadChgName;
+class BroadFactionInfo;
 
 // ===================================================================
 
@@ -155,17 +156,17 @@ class CreatureCreateData_Player : public ::google::protobuf::Message {
   inline ::proto_ff::RoleFacadeProto* release_facade();
   inline void set_allocated_facade(::proto_ff::RoleFacadeProto* facade);
 
-  // optional bytes guild_name = 7;
-  inline bool has_guild_name() const;
-  inline void clear_guild_name();
-  static const int kGuildNameFieldNumber = 7;
-  inline const ::std::string& guild_name() const;
-  inline void set_guild_name(const ::std::string& value);
-  inline void set_guild_name(const char* value);
-  inline void set_guild_name(const void* value, size_t size);
-  inline ::std::string* mutable_guild_name();
-  inline ::std::string* release_guild_name();
-  inline void set_allocated_guild_name(::std::string* guild_name);
+  // optional bytes faction_name = 7;
+  inline bool has_faction_name() const;
+  inline void clear_faction_name();
+  static const int kFactionNameFieldNumber = 7;
+  inline const ::std::string& faction_name() const;
+  inline void set_faction_name(const ::std::string& value);
+  inline void set_faction_name(const char* value);
+  inline void set_faction_name(const void* value, size_t size);
+  inline ::std::string* mutable_faction_name();
+  inline ::std::string* release_faction_name();
+  inline void set_allocated_faction_name(::std::string* faction_name);
 
   // optional uint32 zid = 8;
   inline bool has_zid() const;
@@ -214,8 +215,8 @@ class CreatureCreateData_Player : public ::google::protobuf::Message {
   inline void clear_has_curstate();
   inline void set_has_facade();
   inline void clear_has_facade();
-  inline void set_has_guild_name();
-  inline void clear_has_guild_name();
+  inline void set_has_faction_name();
+  inline void clear_has_faction_name();
   inline void set_has_zid();
   inline void clear_has_zid();
   inline void set_has_titlename();
@@ -234,7 +235,7 @@ class CreatureCreateData_Player : public ::google::protobuf::Message {
   ::proto_ff::RoleFacadeProto* facade_;
   ::google::protobuf::uint32 curstate_;
   ::google::protobuf::uint32 zid_;
-  ::std::string* guild_name_;
+  ::std::string* faction_name_;
   ::std::string* titlename_;
   ::proto_ff::BuffListProto* bufflst_;
   ::google::protobuf::int32 head_;
@@ -431,6 +432,13 @@ class CreatureCreateData_Monster : public ::google::protobuf::Message {
   inline ::proto_ff::BuffListProto* release_bufflst();
   inline void set_allocated_bufflst(::proto_ff::BuffListProto* bufflst);
 
+  // optional int32 instid = 16;
+  inline bool has_instid() const;
+  inline void clear_instid();
+  static const int kInstidFieldNumber = 16;
+  inline ::google::protobuf::int32 instid() const;
+  inline void set_instid(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.CreatureCreateData.Monster)
  private:
   inline void set_has_cid();
@@ -461,6 +469,8 @@ class CreatureCreateData_Monster : public ::google::protobuf::Message {
   inline void clear_has_ownername();
   inline void set_has_bufflst();
   inline void clear_has_bufflst();
+  inline void set_has_instid();
+  inline void clear_has_instid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -477,11 +487,12 @@ class CreatureCreateData_Monster : public ::google::protobuf::Message {
   ::std::string* guild_name_;
   ::google::protobuf::uint64 ownercid_;
   ::std::string* ownername_;
-  ::proto_ff::BuffListProto* bufflst_;
   ::google::protobuf::uint32 zid_;
+  ::google::protobuf::int32 instid_;
+  ::proto_ff::BuffListProto* bufflst_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
 
   friend void  protobuf_AddDesc_View_2eproto();
   friend void protobuf_AssignDesc_View_2eproto();
@@ -966,6 +977,113 @@ class BroadChgName : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static BroadChgName* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class BroadFactionInfo : public ::google::protobuf::Message {
+ public:
+  BroadFactionInfo();
+  virtual ~BroadFactionInfo();
+
+  BroadFactionInfo(const BroadFactionInfo& from);
+
+  inline BroadFactionInfo& operator=(const BroadFactionInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BroadFactionInfo& default_instance();
+
+  void Swap(BroadFactionInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  BroadFactionInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BroadFactionInfo& from);
+  void MergeFrom(const BroadFactionInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required uint32 faction_id = 2;
+  inline bool has_faction_id() const;
+  inline void clear_faction_id();
+  static const int kFactionIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 faction_id() const;
+  inline void set_faction_id(::google::protobuf::uint32 value);
+
+  // required bytes name = 3;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 3;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const void* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BroadFactionInfo)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_faction_id();
+  inline void clear_has_faction_id();
+  inline void set_has_name();
+  inline void clear_has_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::std::string* name_;
+  ::google::protobuf::uint32 faction_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_View_2eproto();
+  friend void protobuf_AssignDesc_View_2eproto();
+  friend void protobuf_ShutdownFile_View_2eproto();
+
+  void InitAsDefaultInstance();
+  static BroadFactionInfo* default_instance_;
+};
 // ===================================================================
 
 
@@ -1188,73 +1306,73 @@ inline void CreatureCreateData_Player::set_allocated_facade(::proto_ff::RoleFaca
   }
 }
 
-// optional bytes guild_name = 7;
-inline bool CreatureCreateData_Player::has_guild_name() const {
+// optional bytes faction_name = 7;
+inline bool CreatureCreateData_Player::has_faction_name() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void CreatureCreateData_Player::set_has_guild_name() {
+inline void CreatureCreateData_Player::set_has_faction_name() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void CreatureCreateData_Player::clear_has_guild_name() {
+inline void CreatureCreateData_Player::clear_has_faction_name() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void CreatureCreateData_Player::clear_guild_name() {
-  if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-    guild_name_->clear();
+inline void CreatureCreateData_Player::clear_faction_name() {
+  if (faction_name_ != &::google::protobuf::internal::kEmptyString) {
+    faction_name_->clear();
   }
-  clear_has_guild_name();
+  clear_has_faction_name();
 }
-inline const ::std::string& CreatureCreateData_Player::guild_name() const {
-  return *guild_name_;
+inline const ::std::string& CreatureCreateData_Player::faction_name() const {
+  return *faction_name_;
 }
-inline void CreatureCreateData_Player::set_guild_name(const ::std::string& value) {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
+inline void CreatureCreateData_Player::set_faction_name(const ::std::string& value) {
+  set_has_faction_name();
+  if (faction_name_ == &::google::protobuf::internal::kEmptyString) {
+    faction_name_ = new ::std::string;
   }
-  guild_name_->assign(value);
+  faction_name_->assign(value);
 }
-inline void CreatureCreateData_Player::set_guild_name(const char* value) {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
+inline void CreatureCreateData_Player::set_faction_name(const char* value) {
+  set_has_faction_name();
+  if (faction_name_ == &::google::protobuf::internal::kEmptyString) {
+    faction_name_ = new ::std::string;
   }
-  guild_name_->assign(value);
+  faction_name_->assign(value);
 }
-inline void CreatureCreateData_Player::set_guild_name(const void* value, size_t size) {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
+inline void CreatureCreateData_Player::set_faction_name(const void* value, size_t size) {
+  set_has_faction_name();
+  if (faction_name_ == &::google::protobuf::internal::kEmptyString) {
+    faction_name_ = new ::std::string;
   }
-  guild_name_->assign(reinterpret_cast<const char*>(value), size);
+  faction_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* CreatureCreateData_Player::mutable_guild_name() {
-  set_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
-    guild_name_ = new ::std::string;
+inline ::std::string* CreatureCreateData_Player::mutable_faction_name() {
+  set_has_faction_name();
+  if (faction_name_ == &::google::protobuf::internal::kEmptyString) {
+    faction_name_ = new ::std::string;
   }
-  return guild_name_;
+  return faction_name_;
 }
-inline ::std::string* CreatureCreateData_Player::release_guild_name() {
-  clear_has_guild_name();
-  if (guild_name_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* CreatureCreateData_Player::release_faction_name() {
+  clear_has_faction_name();
+  if (faction_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = guild_name_;
-    guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = faction_name_;
+    faction_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void CreatureCreateData_Player::set_allocated_guild_name(::std::string* guild_name) {
-  if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete guild_name_;
+inline void CreatureCreateData_Player::set_allocated_faction_name(::std::string* faction_name) {
+  if (faction_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete faction_name_;
   }
-  if (guild_name) {
-    set_has_guild_name();
-    guild_name_ = guild_name;
+  if (faction_name) {
+    set_has_faction_name();
+    faction_name_ = faction_name;
   } else {
-    clear_has_guild_name();
-    guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_faction_name();
+    faction_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
@@ -1891,6 +2009,28 @@ inline void CreatureCreateData_Monster::set_allocated_bufflst(::proto_ff::BuffLi
   }
 }
 
+// optional int32 instid = 16;
+inline bool CreatureCreateData_Monster::has_instid() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void CreatureCreateData_Monster::set_has_instid() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void CreatureCreateData_Monster::clear_has_instid() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void CreatureCreateData_Monster::clear_instid() {
+  instid_ = 0;
+  clear_has_instid();
+}
+inline ::google::protobuf::int32 CreatureCreateData_Monster::instid() const {
+  return instid_;
+}
+inline void CreatureCreateData_Monster::set_instid(::google::protobuf::int32 value) {
+  set_has_instid();
+  instid_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // CreatureCreateData_Drop
@@ -2342,6 +2482,124 @@ inline ::std::string* BroadChgName::release_name() {
   }
 }
 inline void BroadChgName::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BroadFactionInfo
+
+// required uint64 cid = 1;
+inline bool BroadFactionInfo::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BroadFactionInfo::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BroadFactionInfo::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BroadFactionInfo::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 BroadFactionInfo::cid() const {
+  return cid_;
+}
+inline void BroadFactionInfo::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint32 faction_id = 2;
+inline bool BroadFactionInfo::has_faction_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BroadFactionInfo::set_has_faction_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BroadFactionInfo::clear_has_faction_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BroadFactionInfo::clear_faction_id() {
+  faction_id_ = 0u;
+  clear_has_faction_id();
+}
+inline ::google::protobuf::uint32 BroadFactionInfo::faction_id() const {
+  return faction_id_;
+}
+inline void BroadFactionInfo::set_faction_id(::google::protobuf::uint32 value) {
+  set_has_faction_id();
+  faction_id_ = value;
+}
+
+// required bytes name = 3;
+inline bool BroadFactionInfo::has_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BroadFactionInfo::set_has_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BroadFactionInfo::clear_has_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BroadFactionInfo::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& BroadFactionInfo::name() const {
+  return *name_;
+}
+inline void BroadFactionInfo::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void BroadFactionInfo::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void BroadFactionInfo::set_name(const void* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BroadFactionInfo::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* BroadFactionInfo::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void BroadFactionInfo::set_allocated_name(::std::string* name) {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     delete name_;
   }

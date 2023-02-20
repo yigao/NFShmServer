@@ -5,7 +5,10 @@ import "yd_fieldoptions.proto";
 import "common_logic.proto";
 
 import "Com.proto";
-	
+import "ClientServerCmd.proto";
+import "ComDefine.proto";
+
+
 /////////////////////////////////////////////////////////////////////////////
 
 //队伍成员信息
@@ -23,7 +26,7 @@ message TeamMemProto
 	optional uint64 mapid = 10;				//所在场景id
 	optional uint64 hp = 11;				//当前血量
 	optional uint64 maxhp = 12;				//最大血量
-	optional int32 robotflag=13;			//是否是机器人的标记，1：是，0：不是 
+	optional int32 robotflag=13;			//是否是机器人的标记，1：是，0：不是
 	optional uint32 unionid = 14;			//工会ID
 	optional int32 palace_layer=15;			//工会地宫层数
 	optional int32 break_count = 16;		//工会地宫突破次数
@@ -86,11 +89,11 @@ message CenterTeamMemProto
 	optional bytes name = 2;		//名字
 	optional int32 prof = 3;		//职业
 	optional uint32 level = 4;		//角色等级
-	optional int32 robotflag=5;		//是否是机器人的标记，1：是，0：不是 
+	optional int32 robotflag=5;		//是否是机器人的标记，1：是，0：不是
 	optional uint32 unionid = 6;	//工会ID
 	optional int32 palace_layer=7;	//工会地宫层数
 	optional int32 palace_breakcount = 8;	//工会地宫突破次数
-	
+
 }
 //中心服多个队伍成员信息
 message CenterMultiTeamMemProto
@@ -144,7 +147,7 @@ message TeamUpdateMemNotify
 {
 	repeated uint64 del_mem = 1;		//需要移除队伍成员的 cid 列表
 	optional int32 reason = 2;			//移除原因 1 主动退出，2 被踢出
-	optional TeamMultMemProto mems = 3;	//更新的队伍成员 
+	optional TeamMultMemProto mems = 3;	//更新的队伍成员
 }
 
 //更新队伍成员简要信息( 队员 血量、 都是通过这条消息更新)
@@ -187,7 +190,7 @@ message TeamUpdateApplyNotify
 	optional TeamMultApplyProto apply = 2;	//新的申请信息
 }
 
-//申请加入队伍 
+//申请加入队伍
 message ApplyJoinTeamReq
 {
 	required uint32 teamid = 1; //队伍ID
@@ -270,12 +273,12 @@ message TeamAutoMatchRsp
 	optional int32 retcode = 1;  //返回码
 }
 
-//请离队员   
+//请离队员
 message TeamKickMemReq
 {
 	required uint64 kick_cid = 1; //被请离队员的cid
 }
-//返回请离队员   
+//返回请离队员
 message TeamKickMemRsp
 {
 	optional int32 retcode = 1;  //返回码
@@ -298,7 +301,16 @@ message TeamRefuseNotify
 	optional int32 type = 1;	// 1 拒绝邀请(发给队长)，2 拒绝申请加入队伍(发给队员)
 	optional bytes name = 2;	//拒绝者名字
 }
-
+//请求立即匹配 CLIENT_TO_CENTER_TEAM_MATCH_ATONCE
+message TeamMatchAtonceReq
+{
+	//空
+}
+//返回 立即匹配结果 CENTER_TO_CLIENT_TEAM_MATCH_ATONCE
+message TeamMatchAtonceRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
 
 
 ///////////////////////////////////// center and social  //////////////////////////////////////
@@ -334,20 +346,6 @@ message SCTeamLeader
 {
 	optional uint32 teamid = 1;	//队伍ID
 	optional uint64 leader = 2;	//队长cid
-}
-
-//社交服通知中心服 队伍副本开始
-message SCTeamDupBegin
-{
-	optional uint32 teamid = 1;
-	optional uint64 mapid = 2;
-	optional uint64 sceneid = 3;
-}
-
-//社交服通知中心服 队伍副本结束
-message SCTeamDupEnd
-{
-	optional uint32 teamid = 1;
 }
 
 //社交服通知中心服队伍解散
@@ -398,15 +396,6 @@ message LSTeamRobotHpSync
 	optional uint64 curhp = 3;
 	optional uint64 maxhp = 4;
 }
-
-//逻辑服请求社交服队伍进入下一层工会地宫副本
-message LSTeamEnterNextPalaceLayerReq
-{
-	optional uint64 cid = 1;	//角色cid
-	optional uint64 dupid = 2;	//需要进入的副本ID
-	optional uint32 layer = 3;  //层数
-}
-
 
 //--------------------------- 副本相关协议，先写在这里，后续副本通了，在移到副本处 ---------------------------
 //邀请状态

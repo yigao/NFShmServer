@@ -16,6 +16,14 @@ CREATE TABLE IF NOT EXISTS RoleDBData (
  buff BLOB /*!99104 COMPRESSED */ ,
  boss BLOB /*!99104 COMPRESSED */ ,
  vip BLOB /*!99104 COMPRESSED */ ,
+ attr BLOB /*!99104 COMPRESSED */ ,
+ mount BLOB /*!99104 COMPRESSED */ ,
+ deity BLOB /*!99104 COMPRESSED */ ,
+ pet BLOB /*!99104 COMPRESSED */ ,
+ mall BLOB /*!99104 COMPRESSED */ ,
+ convoy BLOB /*!99104 COMPRESSED */ ,
+ armor BLOB /*!99104 COMPRESSED */ ,
+ assist BLOB /*!99104 COMPRESSED */ ,
  INDEX(zid),
  INDEX(uid),
  PRIMARY KEY(cid))  ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -37,4 +45,12 @@ alter table RoleDBData add column dup BLOB ;
 alter table RoleDBData add column buff BLOB ;
 alter table RoleDBData add column boss BLOB ;
 alter table RoleDBData add column vip BLOB ;
+alter table RoleDBData add column attr BLOB ;
+alter table RoleDBData add column mount BLOB ;
+alter table RoleDBData add column deity BLOB ;
+alter table RoleDBData add column pet BLOB ;
+alter table RoleDBData add column mall BLOB ;
+alter table RoleDBData add column convoy BLOB ;
+alter table RoleDBData add column armor BLOB ;
+alter table RoleDBData add column assist BLOB ;
 */

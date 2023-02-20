@@ -6,6 +6,7 @@ import "common_logic.proto";
 
 import "Com.proto";
 
+
 //GM命令请求 	CLIENT_GM_REQ
 message GmReq
 {

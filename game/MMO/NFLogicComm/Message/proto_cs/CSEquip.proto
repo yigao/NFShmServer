@@ -48,4 +48,111 @@ message NotifyEquipInfoRsp
 	repeated EquipInfo infos = 2;
 }
 
+//4-1:装备强化  CLIENT_EQUIP_STRONG_REQ
+message EquipStrongReq
+{
+	optional int32 slot_pos = 1;
+}
+//4-2:装备强化返回  CLIENT_EQUIP_STRONG_RSP
+message EquipStrongRsp
+{
+	optional int32 ret = 1; //错误码
+	optional int32  slot_pos = 2;
+}
+
+//5-1:装备总等级加成激活 ClIENT_EQUIP_LV_ATTR_ACTIVE_REQ
+message EquipLvAttrActiveReq
+{
+	optional int32 type =1;
+}
+
+//5-2:装备总等级加成激活返回 CLIENT_EQUIP_LV_ATTR_ACTIVE_RSP
+message EquipLvAttrActiveRsp
+{
+	optional int32 ret = 1; //错误码
+	optional int32 type = 2;
+}
+
+//6: 更新槽位等级加成属性  NOTIFY_EQUIP_LV_ATTR_RSP
+message NotifyEquipLvAttrRsp
+{
+	repeated EquipLvAttrInfo lv_attr = 3;  //装备槽位等级加成属性
+}
+
+//7: 宝石镶嵌 CLIENT_STONE_INLAY_REQ
+message StoneInlayReq
+{
+	optional int32 slot_pos = 1;	//装备槽位
+	optional int32 stone_pos = 2;	//宝石槽位
+	optional int32 bag_pos =3;		//宝石在背包的位置
+}
+
+//7-1: 宝石镶嵌返回 CLIENT_STONE_INLAY_RSP
+message StoneInlayRsp
+{
+	optional int32 ret = 1;			//错误码
+	optional int32 slot_pos = 2;	//装备槽位
+	optional int32 stone_pos = 3;	//宝石槽位
+	optional int32 bag_pos =4;		//宝石在背包的位置
+}
+
+//8-1: 宝石升级 CLIENT_STONE_LV_REQ
+message StoneLvReq
+{
+	optional int32 slot_pos = 1;	//装备槽位
+	optional int32 stone_pos = 2;	//宝石槽位
+}
+
+//8-2: 宝石升级返回 CLIENT_STONE_LV_RSP
+message StoneLvRsp
+{
+	optional int32 ret = 1;			//错误码
+	optional int32 slot_pos = 2;	//装备槽位
+	optional int32 stone_pos = 3;	//宝石槽位
+}
+
+//9-1: 解锁付费宝石槽位 CLIENT_STONE_OPEN_SLOT_REQ
+message StoneOpenSlotReq
+{
+	optional int32 slot_pos = 1;	//装备槽位
+	optional int32 stone_pos = 2;	//宝石槽位
+}
+
+//9-2: 解锁付费宝石槽位返回 CLIENT_STONE_OPEN_SLOT_RSP
+message StoneOpenSlotRsp
+{
+	optional int32 ret = 1;			//错误码
+	optional int32 slot_pos = 2;	//装备槽位
+	optional int32 stone_pos = 3;	//宝石槽位
+}
+
+//CLIENT_EQUIP_STOVE_INFO_REQ = 320; //获取当前熔炉熔炼信息
+message EquipStoveInfoReq
+{
+
+}
+//CLIENT_EQUIP_STOVE_INFO_RSP = 321; //获取当前熔炉熔炼信息
+message EquipStoveInfoRsp
+{
+	optional uint32 stove_level = 1;
+	optional uint64 stove_exp = 2;
+	repeated Attr64 attrs = 3;
+}
+
+//CLIENT_EQUIP_STOVE_SMELT_REQ = 322; //熔炉熔炼装备
+message EquipStoveSmeltReq
+{
+	repeated uint32 gridlist=1;//物品背包格子
+}
+//CLIENT_EQUIP_STOVE_SMELT_RSP = 323; //熔炉熔炼装备
+message EquipStoveSmeltRsp
+{
+	optional uint32 retcode = 1;
+	optional uint32 stove_level = 2;
+	optional uint64 stove_exp = 3;
+	repeated Attr64 attrs = 4;
+	optional uint32 all_num = 5;
+}
+
+
 //================================================================================//

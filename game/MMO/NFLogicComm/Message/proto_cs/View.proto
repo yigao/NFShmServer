@@ -6,7 +6,6 @@ import "common_logic.proto";
 
 import "Com.proto";
 
-
 //通知客户端创建生物  NOTIFY_CLIENT_CREATURE_CREATE
 message CreatureCreateData
 {
@@ -18,7 +17,7 @@ message CreatureCreateData
 		required Vector3PB pos				= 4;	//坐标
 		required uint32 curstate			= 5;	//状态
 		optional RoleFacadeProto facade		= 6;	//角色外观
-		optional bytes guild_name			= 7;	//工会名字
+		optional bytes faction_name			= 7;	//帮派名字
 		optional uint32 zid					= 8;	//玩家所属区服ID
 		optional bytes titleName			= 9;	//称号名称
 		optional BuffListProto bufflst		= 10;	//buff列表
@@ -42,6 +41,7 @@ message CreatureCreateData
 		optional uint64 ownercid				= 13;	//所属主人cid
 		optional bytes ownername				= 14;	//所属主人名字
 		optional BuffListProto bufflst			= 15;	//buff列表
+		optional int32 instid					= 16;	//模块内部实力ID(目前宠物有用)
 	}
 	message Drop
 	{
@@ -56,9 +56,10 @@ message CreatureCreateData
 		optional int32 pick_level	= 9;//拾取等级限制 0 表示无限制，大于0 表示 小于等于 拾取等级的玩家才能拾取
 		optional int32 currency_type= 10;//货币类型 1-金币，2-钻石，3-绑钻
 	}
-	repeated Player players = 1;  //玩家可见数据
-	repeated Monster monsters = 2; //怪物可见数据
+	repeated Player players = 1;    //玩家可见数据
+	repeated Monster monsters = 2;  //怪物可见数据
 	repeated Drop drops = 3;		//掉落可见数据
+
 }
 
 //通知客户端销毁生物  NOTIFY_CLIENT_CREATURE_DESTORY
@@ -72,4 +73,12 @@ message BroadChgName
 {
 	required uint64 cid = 1;	//
 	required bytes name = 2;
+}
+
+//广播帮派信息 BROAD_FACTION_INFO
+message BroadFactionInfo
+{
+	required uint64 cid = 1;		//角色cid
+	required uint32 faction_id = 2; //帮派ID
+	required bytes name = 3;		//帮派名字
 }

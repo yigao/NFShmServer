@@ -5,8 +5,8 @@ import "yd_fieldoptions.proto";
 import "common_logic.proto";
 
 import "Com.proto";
-
 import "Scene.proto";
+import "DBProto.proto";
 
 
 //=================================结构=============================================
@@ -25,7 +25,12 @@ message DupTowerRecordEntry
 	optional string name = 1;
 	optional uint64 time = 2;
 }
-
+//副本队伍邀请信息
+message DupTeamInviteState
+{
+	optional uint64 	cid = 1;
+	optional int32 		state = 2;	//0：等待，1同意，2拒绝
+}
 
 //=================================类型副本数据==========================================
 //1:爬塔副本具体数据更新
@@ -114,8 +119,12 @@ message NotifyDupRunRsp
 	optional int64 cur_hp = 6;				//当前目标血量
 	optional int64 max_hp = 7;				//最大目标血量
 	repeated ComPair64 items = 8;			//掉落物品
+	optional int32 kill_boss_num = 9;
+	optional int32 boss_num = 10;
+	optional int64 add_exp = 11;
 
 }
+
 
 //6: 副本结束状态 NOTIFY_DUP_END_RSP
 message NotifyDupEndRsp
@@ -169,6 +178,57 @@ message DupTowerRecordRsp
 	repeated DupTowerRecordEntry entrys = 2;
 }
 
+//11-1: 组队副本邀请玩家进副本 DUP_TEAM_INVITE_REQ
+message DupTeamInviteReq
+{
+	required uint64 dupid = 1;		//副本ID
+	optional uint32 mergeNum = 2;
+}
+
+//11-2: 组队副本邀请返回 DUP_TEAM_INVITE_RSP
+message DupTeamInviteRsp
+{
+	optional int32 	ret = 1;
+	required uint64 dupid = 2;		//副本ID
+}
+
+//12-2 :组队副本邀请状态更新 NOTIFY_DUP_TEAM_INVITE_STATE_RSP
+message NotifyDupTeamInviteStateRsp
+{
+	optional int32 ret = 1;
+	optional int32 type =2;//1初始进入。2 其他更新
+	optional int64 dupid = 3;
+	repeated DupTeamInviteState infos= 4;
+}
+
+//13-1: 组队副本同意拒绝操作 DUP_TEAM_OPT_REQ
+message DupTeamOptReq
+{
+	optional int32 opt = 1;	//1同意。2 拒绝
+	optional uint32 mergeNum = 2;
+}
+
+//13-2：组队副本同意拒绝操作返回 DUP_TEAM_OPT_RSP
+message DupTeamOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 opt = 2;	//1同意。2 拒绝
+}
+
+//14-1: 副本扫荡 DUP_SWEEP_REQ
+message DupSweepReq
+{
+	optional int32 dupid = 1;
+	optional int32 num = 2;
+}
+//14-2: 副本扫荡 DUP_SWEEP_RSP
+message DupSweepRsp
+{
+	optional int32 ret = 1;
+	optional int32 dupid = 2;
+	optional int32 num = 3;
+	optional DupDropProto info = 4;		//副本掉落物品
+}
 
 
 
@@ -233,4 +293,108 @@ message L2CTowerRecvRecordReq
 	optional int64 	 cid = 2;
 	optional string  name = 3;
 	optional int64 	 time = 4;
+}
+
+//10：逻辑服请求进入或者创建副本到社交服  L2S_ENTER_DUP_REQ
+message L2SEnterDupReq
+{
+	optional CreateSceneParamProto params = 1;
+}
+
+//11-1: 组队副本邀请玩家进副本 L2S_DUP_TEAM_INVITE_REQ
+message L2SDupTeamInviteReq
+{
+	required uint64 dupid = 1;		//副本ID
+	optional int64 teamid = 2;		//组队ID
+	optional int64 cid = 3;			//队长ID
+	optional CreateSceneParamProto params = 4; //创建场景参数
+}
+
+//12-1：中心服返回创建副本结果给社交服 C2S_CREATE_DUP_RESULT_RSP
+message C2SCreateDupResultRsp
+{
+	optional int32 ret = 1;	//返回码
+	optional uint64 sceneid = 2; //副本场景ID
+	optional uint64 mapid = 3;	 //场景ID
+	optional uint32 logicid = 4; //场景所在逻辑服ID
+	optional uint32 zoneid = 5;	 //场景所在的区域ID
+	optional int32 keytype = 6;	 //副本keytype
+	optional uint64 keyval = 7;	 //副本keyvalue
+	optional int32  teamid = 8;	 //队伍id
+	optional int32 	dupid = 9;	 //副本ID
+}
+
+//13-1:社交服通知中心服让玩家进副本 S2C_NOTIFY_CHAR_ENTER_DUP
+message S2CNotifyCharEnterDup
+{
+	optional uint64 cid = 1;
+	optional uint64 dupid = 2;   //副本ID
+	optional uint64 sceneid = 3; //副本场景ID
+	optional uint64 bornid = 4;	 //出生点ID
+}
+
+//13-1:社交服通知逻辑服让竞技场机器人进副本 NOTIFY_REBOT_ENTER_DUP
+message NotifyRebotEnterDup
+{
+	optional uint64 cid = 1;
+	optional uint64 dupid = 2;   //副本ID
+	optional uint64 sceneid = 3; //副本场景ID
+	optional int32 bornid = 4;	 //出生点索引
+	optional int32 teamid = 5;	 //机器人队伍ID
+
+}
+//14-1: 逻辑服队伍同意或拒绝给社交服 L2S_DUP_TEAM_OPT_REQ
+message L2SDupTeamOptReq
+{
+	optional int32 opt = 1;	//1同意。2 拒绝
+	optional uint32 mergeNum = 2;
+	optional int32 teamId = 3;
+	optional uint64 cid = 4;
+}
+//15-1: 社交服通知中心服玩家机器人进入副本 S2C_NOFITY_ROLE_REBOT_ENTER_DUP
+message S2CNofityRoleRebotEnterDup
+{
+	optional uint64 cid = 1;
+	optional uint64 dupid = 2;   //副本ID
+	optional uint64 sceneid = 3; //副本场景ID
+	optional int32  bornid = 4;	 //出生点ID
+	optional int32  teamid = 5;  //机器人队伍ID
+}
+//16-1: 中心服玩家机器人进入副本  C2L_ROLE_ROBOT_ENTER_DUP_REQ
+message C2LRoleRobotEnterDupReq
+{
+	optional uint64 cid = 1;
+	optional uint64 dupid = 2;   //副本ID
+	optional uint64 sceneid = 3; //副本场景ID
+	optional int32  bornid = 4;	 //出生点ID
+	repeated RoleMirrorData mirrors = 5;	//中心服玩家机器人进入副本
+}
+
+//17-1:逻辑服通知中心服副本结果 L2C_DUP_RESULT_RSP
+message L2CDupResultRsp
+{
+	optional uint64 sceneId = 1;
+	optional uint64 dupId = 2;
+	optional int32 result = 3;
+}
+//18-1:中心服通知配置机器人进入副本  C2L_ENTER_REBOT_REQ
+message C2LEnterRebotReq
+{
+	optional uint64 cid = 1;
+	optional uint64 dupid = 2;   //副本ID
+	optional uint64 sceneid = 3; //副本场景ID
+	optional int32 bornid = 4;	 //出生点索引
+}
+//19-1:中心服通知社交服副本完成  C2S_NOTIFY_DUP_FINISH_RSP
+message C2SNotifyDupFinishRsp
+{
+	optional int32 result = 1;	//返回码
+	optional uint64 sceneid = 2; //副本场景ID
+	optional uint64 mapid = 3;	 //场景ID
+	optional uint32 logicid = 4; //场景所在逻辑服ID
+	optional uint32 zoneid = 5;	 //场景所在的区域ID
+	optional int32 keytype = 6;	 //副本keytype
+	optional uint64 keyval = 7;	 //副本keyvalue
+	optional int32  teamid = 8;	 //队伍id
+	optional int64 	dupid = 9;	 //副本ID
 }

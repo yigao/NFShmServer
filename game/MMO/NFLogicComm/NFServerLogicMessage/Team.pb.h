@@ -27,6 +27,8 @@
 #include "yd_fieldoptions.pb.h"
 #include "common_logic.pb.h"
 #include "Com.pb.h"
+#include "ClientServerCmd.pb.h"
+#include "ComDefine.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace proto_ff {
@@ -76,20 +78,19 @@ class TeamKickMemRsp;
 class TeamQuitReq;
 class TeamQuitRsp;
 class TeamRefuseNotify;
+class TeamMatchAtonceReq;
+class TeamMatchAtonceRsp;
 class SCCreteTeam;
 class SCJoinTeam;
 class SCQuitTeam;
 class SCUpdateTeam;
 class SCTeamLeader;
-class SCTeamDupBegin;
-class SCTeamDupEnd;
 class SCTeamDismiss;
 class CLCharTeamUpdate;
 class CLUpdateSimpleTeam;
 class CLDismissTeam;
 class CLCharTeamClonessUpdate;
 class LSTeamRobotHpSync;
-class LSTeamEnterNextPalaceLayerReq;
 class DupInviteStateProto;
 class DupAllInviteStateProto;
 class Duplicate_CancelStateNotify;
@@ -3945,6 +3946,160 @@ class TeamRefuseNotify : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class TeamMatchAtonceReq : public ::google::protobuf::Message {
+ public:
+  TeamMatchAtonceReq();
+  virtual ~TeamMatchAtonceReq();
+
+  TeamMatchAtonceReq(const TeamMatchAtonceReq& from);
+
+  inline TeamMatchAtonceReq& operator=(const TeamMatchAtonceReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TeamMatchAtonceReq& default_instance();
+
+  void Swap(TeamMatchAtonceReq* other);
+
+  // implements Message ----------------------------------------------
+
+  TeamMatchAtonceReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TeamMatchAtonceReq& from);
+  void MergeFrom(const TeamMatchAtonceReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TeamMatchAtonceReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Team_2eproto();
+  friend void protobuf_AssignDesc_Team_2eproto();
+  friend void protobuf_ShutdownFile_Team_2eproto();
+
+  void InitAsDefaultInstance();
+  static TeamMatchAtonceReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TeamMatchAtonceRsp : public ::google::protobuf::Message {
+ public:
+  TeamMatchAtonceRsp();
+  virtual ~TeamMatchAtonceRsp();
+
+  TeamMatchAtonceRsp(const TeamMatchAtonceRsp& from);
+
+  inline TeamMatchAtonceRsp& operator=(const TeamMatchAtonceRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TeamMatchAtonceRsp& default_instance();
+
+  void Swap(TeamMatchAtonceRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  TeamMatchAtonceRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TeamMatchAtonceRsp& from);
+  void MergeFrom(const TeamMatchAtonceRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::int32 retcode() const;
+  inline void set_retcode(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TeamMatchAtonceRsp)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 retcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Team_2eproto();
+  friend void protobuf_AssignDesc_Team_2eproto();
+  friend void protobuf_ShutdownFile_Team_2eproto();
+
+  void InitAsDefaultInstance();
+  static TeamMatchAtonceRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class SCCreteTeam : public ::google::protobuf::Message {
  public:
   SCCreteTeam();
@@ -4408,190 +4563,6 @@ class SCTeamLeader : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static SCTeamLeader* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SCTeamDupBegin : public ::google::protobuf::Message {
- public:
-  SCTeamDupBegin();
-  virtual ~SCTeamDupBegin();
-
-  SCTeamDupBegin(const SCTeamDupBegin& from);
-
-  inline SCTeamDupBegin& operator=(const SCTeamDupBegin& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SCTeamDupBegin& default_instance();
-
-  void Swap(SCTeamDupBegin* other);
-
-  // implements Message ----------------------------------------------
-
-  SCTeamDupBegin* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SCTeamDupBegin& from);
-  void MergeFrom(const SCTeamDupBegin& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint32 teamid = 1;
-  inline bool has_teamid() const;
-  inline void clear_teamid();
-  static const int kTeamidFieldNumber = 1;
-  inline ::google::protobuf::uint32 teamid() const;
-  inline void set_teamid(::google::protobuf::uint32 value);
-
-  // optional uint64 mapid = 2;
-  inline bool has_mapid() const;
-  inline void clear_mapid();
-  static const int kMapidFieldNumber = 2;
-  inline ::google::protobuf::uint64 mapid() const;
-  inline void set_mapid(::google::protobuf::uint64 value);
-
-  // optional uint64 sceneid = 3;
-  inline bool has_sceneid() const;
-  inline void clear_sceneid();
-  static const int kSceneidFieldNumber = 3;
-  inline ::google::protobuf::uint64 sceneid() const;
-  inline void set_sceneid(::google::protobuf::uint64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.SCTeamDupBegin)
- private:
-  inline void set_has_teamid();
-  inline void clear_has_teamid();
-  inline void set_has_mapid();
-  inline void clear_has_mapid();
-  inline void set_has_sceneid();
-  inline void clear_has_sceneid();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint64 mapid_;
-  ::google::protobuf::uint64 sceneid_;
-  ::google::protobuf::uint32 teamid_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_Team_2eproto();
-  friend void protobuf_AssignDesc_Team_2eproto();
-  friend void protobuf_ShutdownFile_Team_2eproto();
-
-  void InitAsDefaultInstance();
-  static SCTeamDupBegin* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class SCTeamDupEnd : public ::google::protobuf::Message {
- public:
-  SCTeamDupEnd();
-  virtual ~SCTeamDupEnd();
-
-  SCTeamDupEnd(const SCTeamDupEnd& from);
-
-  inline SCTeamDupEnd& operator=(const SCTeamDupEnd& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const SCTeamDupEnd& default_instance();
-
-  void Swap(SCTeamDupEnd* other);
-
-  // implements Message ----------------------------------------------
-
-  SCTeamDupEnd* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const SCTeamDupEnd& from);
-  void MergeFrom(const SCTeamDupEnd& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint32 teamid = 1;
-  inline bool has_teamid() const;
-  inline void clear_teamid();
-  static const int kTeamidFieldNumber = 1;
-  inline ::google::protobuf::uint32 teamid() const;
-  inline void set_teamid(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.SCTeamDupEnd)
- private:
-  inline void set_has_teamid();
-  inline void clear_has_teamid();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint32 teamid_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_Team_2eproto();
-  friend void protobuf_AssignDesc_Team_2eproto();
-  friend void protobuf_ShutdownFile_Team_2eproto();
-
-  void InitAsDefaultInstance();
-  static SCTeamDupEnd* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -5176,108 +5147,6 @@ class LSTeamRobotHpSync : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static LSTeamRobotHpSync* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class LSTeamEnterNextPalaceLayerReq : public ::google::protobuf::Message {
- public:
-  LSTeamEnterNextPalaceLayerReq();
-  virtual ~LSTeamEnterNextPalaceLayerReq();
-
-  LSTeamEnterNextPalaceLayerReq(const LSTeamEnterNextPalaceLayerReq& from);
-
-  inline LSTeamEnterNextPalaceLayerReq& operator=(const LSTeamEnterNextPalaceLayerReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const LSTeamEnterNextPalaceLayerReq& default_instance();
-
-  void Swap(LSTeamEnterNextPalaceLayerReq* other);
-
-  // implements Message ----------------------------------------------
-
-  LSTeamEnterNextPalaceLayerReq* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LSTeamEnterNextPalaceLayerReq& from);
-  void MergeFrom(const LSTeamEnterNextPalaceLayerReq& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 cid = 1;
-  inline bool has_cid() const;
-  inline void clear_cid();
-  static const int kCidFieldNumber = 1;
-  inline ::google::protobuf::uint64 cid() const;
-  inline void set_cid(::google::protobuf::uint64 value);
-
-  // optional uint64 dupid = 2;
-  inline bool has_dupid() const;
-  inline void clear_dupid();
-  static const int kDupidFieldNumber = 2;
-  inline ::google::protobuf::uint64 dupid() const;
-  inline void set_dupid(::google::protobuf::uint64 value);
-
-  // optional uint32 layer = 3;
-  inline bool has_layer() const;
-  inline void clear_layer();
-  static const int kLayerFieldNumber = 3;
-  inline ::google::protobuf::uint32 layer() const;
-  inline void set_layer(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.LSTeamEnterNextPalaceLayerReq)
- private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
-  inline void set_has_dupid();
-  inline void clear_has_dupid();
-  inline void set_has_layer();
-  inline void clear_has_layer();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint64 cid_;
-  ::google::protobuf::uint64 dupid_;
-  ::google::protobuf::uint32 layer_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_Team_2eproto();
-  friend void protobuf_AssignDesc_Team_2eproto();
-  friend void protobuf_ShutdownFile_Team_2eproto();
-
-  void InitAsDefaultInstance();
-  static LSTeamEnterNextPalaceLayerReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -8339,6 +8208,36 @@ inline void TeamRefuseNotify::set_allocated_name(::std::string* name) {
 
 // -------------------------------------------------------------------
 
+// TeamMatchAtonceReq
+
+// -------------------------------------------------------------------
+
+// TeamMatchAtonceRsp
+
+// optional int32 retcode = 1;
+inline bool TeamMatchAtonceRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TeamMatchAtonceRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TeamMatchAtonceRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TeamMatchAtonceRsp::clear_retcode() {
+  retcode_ = 0;
+  clear_has_retcode();
+}
+inline ::google::protobuf::int32 TeamMatchAtonceRsp::retcode() const {
+  return retcode_;
+}
+inline void TeamMatchAtonceRsp::set_retcode(::google::protobuf::int32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // SCCreteTeam
 
 // optional uint32 teamid = 1;
@@ -8623,102 +8522,6 @@ inline ::google::protobuf::uint64 SCTeamLeader::leader() const {
 inline void SCTeamLeader::set_leader(::google::protobuf::uint64 value) {
   set_has_leader();
   leader_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// SCTeamDupBegin
-
-// optional uint32 teamid = 1;
-inline bool SCTeamDupBegin::has_teamid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void SCTeamDupBegin::set_has_teamid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void SCTeamDupBegin::clear_has_teamid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void SCTeamDupBegin::clear_teamid() {
-  teamid_ = 0u;
-  clear_has_teamid();
-}
-inline ::google::protobuf::uint32 SCTeamDupBegin::teamid() const {
-  return teamid_;
-}
-inline void SCTeamDupBegin::set_teamid(::google::protobuf::uint32 value) {
-  set_has_teamid();
-  teamid_ = value;
-}
-
-// optional uint64 mapid = 2;
-inline bool SCTeamDupBegin::has_mapid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void SCTeamDupBegin::set_has_mapid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void SCTeamDupBegin::clear_has_mapid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void SCTeamDupBegin::clear_mapid() {
-  mapid_ = GOOGLE_ULONGLONG(0);
-  clear_has_mapid();
-}
-inline ::google::protobuf::uint64 SCTeamDupBegin::mapid() const {
-  return mapid_;
-}
-inline void SCTeamDupBegin::set_mapid(::google::protobuf::uint64 value) {
-  set_has_mapid();
-  mapid_ = value;
-}
-
-// optional uint64 sceneid = 3;
-inline bool SCTeamDupBegin::has_sceneid() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void SCTeamDupBegin::set_has_sceneid() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void SCTeamDupBegin::clear_has_sceneid() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void SCTeamDupBegin::clear_sceneid() {
-  sceneid_ = GOOGLE_ULONGLONG(0);
-  clear_has_sceneid();
-}
-inline ::google::protobuf::uint64 SCTeamDupBegin::sceneid() const {
-  return sceneid_;
-}
-inline void SCTeamDupBegin::set_sceneid(::google::protobuf::uint64 value) {
-  set_has_sceneid();
-  sceneid_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// SCTeamDupEnd
-
-// optional uint32 teamid = 1;
-inline bool SCTeamDupEnd::has_teamid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void SCTeamDupEnd::set_has_teamid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void SCTeamDupEnd::clear_has_teamid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void SCTeamDupEnd::clear_teamid() {
-  teamid_ = 0u;
-  clear_has_teamid();
-}
-inline ::google::protobuf::uint32 SCTeamDupEnd::teamid() const {
-  return teamid_;
-}
-inline void SCTeamDupEnd::set_teamid(::google::protobuf::uint32 value) {
-  set_has_teamid();
-  teamid_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -9089,76 +8892,6 @@ inline ::google::protobuf::uint64 LSTeamRobotHpSync::maxhp() const {
 inline void LSTeamRobotHpSync::set_maxhp(::google::protobuf::uint64 value) {
   set_has_maxhp();
   maxhp_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// LSTeamEnterNextPalaceLayerReq
-
-// optional uint64 cid = 1;
-inline bool LSTeamEnterNextPalaceLayerReq::has_cid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void LSTeamEnterNextPalaceLayerReq::set_has_cid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void LSTeamEnterNextPalaceLayerReq::clear_has_cid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void LSTeamEnterNextPalaceLayerReq::clear_cid() {
-  cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
-}
-inline ::google::protobuf::uint64 LSTeamEnterNextPalaceLayerReq::cid() const {
-  return cid_;
-}
-inline void LSTeamEnterNextPalaceLayerReq::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
-  cid_ = value;
-}
-
-// optional uint64 dupid = 2;
-inline bool LSTeamEnterNextPalaceLayerReq::has_dupid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void LSTeamEnterNextPalaceLayerReq::set_has_dupid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void LSTeamEnterNextPalaceLayerReq::clear_has_dupid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void LSTeamEnterNextPalaceLayerReq::clear_dupid() {
-  dupid_ = GOOGLE_ULONGLONG(0);
-  clear_has_dupid();
-}
-inline ::google::protobuf::uint64 LSTeamEnterNextPalaceLayerReq::dupid() const {
-  return dupid_;
-}
-inline void LSTeamEnterNextPalaceLayerReq::set_dupid(::google::protobuf::uint64 value) {
-  set_has_dupid();
-  dupid_ = value;
-}
-
-// optional uint32 layer = 3;
-inline bool LSTeamEnterNextPalaceLayerReq::has_layer() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void LSTeamEnterNextPalaceLayerReq::set_has_layer() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void LSTeamEnterNextPalaceLayerReq::clear_has_layer() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void LSTeamEnterNextPalaceLayerReq::clear_layer() {
-  layer_ = 0u;
-  clear_has_layer();
-}
-inline ::google::protobuf::uint32 LSTeamEnterNextPalaceLayerReq::layer() const {
-  return layer_;
-}
-inline void LSTeamEnterNextPalaceLayerReq::set_layer(::google::protobuf::uint32 value) {
-  set_has_layer();
-  layer_ = value;
 }
 
 // -------------------------------------------------------------------

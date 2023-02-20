@@ -76,6 +76,7 @@ int RoleDBBaseData_s::CreateInit() {
 	magic = (int64_t)0;
 	prestige = (int64_t)0;
 	vipLv = (int32_t)0;
+	arenacoin = (int64_t)0;
 	return 0;
 }
 
@@ -116,6 +117,7 @@ void RoleDBBaseData_s::write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const {
 	msg.set_magic((int64_t)magic);
 	msg.set_prestige((int64_t)prestige);
 	msg.set_viplv((int32_t)vipLv);
+	msg.set_arenacoin((int64_t)arenacoin);
 }
 
 void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
@@ -152,6 +154,7 @@ void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
 	magic = msg.magic();
 	prestige = msg.prestige();
 	vipLv = msg.viplv();
+	arenacoin = msg.arenacoin();
 }
 
 BagItemsDBData_s::BagItemsDBData_s() {
@@ -181,7 +184,7 @@ void BagItemsDBData_s::write_to_pbmsg(::proto_ff::BagItemsDBData & msg) const {
 
 void BagItemsDBData_s::read_from_pbmsg(const ::proto_ff::BagItemsDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BagItemsDBData_s));
-	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	data.resize(msg.data_size());
 	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::ItemProtoInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
@@ -249,7 +252,7 @@ void RoleDBUnitBagData_s::read_from_pbmsg(const ::proto_ff::RoleDBUnitBagData & 
 	table_name = msg.table_name();
 	const ::proto_ff::BagDBSimpleData & temp_simple = msg.simple();
 	simple.read_from_pbmsg(temp_simple);
-	parts.resize((int)msg.parts_size() > (int)parts.max_size() ? parts.max_size() : msg.parts_size());
+	parts.resize(msg.parts_size());
 	for(int32_t i = 0; i < (int32_t)parts.size(); ++i) {
 		const ::proto_ff::BagItemsDBData & temp_parts = msg.parts(i);
 		parts[i].read_from_pbmsg(temp_parts);
@@ -281,7 +284,7 @@ void RoleDBBagData_s::write_to_pbmsg(::proto_ff::RoleDBBagData & msg) const {
 
 void RoleDBBagData_s::read_from_pbmsg(const ::proto_ff::RoleDBBagData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleDBBagData_s));
-	bags.resize((int)msg.bags_size() > (int)bags.max_size() ? bags.max_size() : msg.bags_size());
+	bags.resize(msg.bags_size());
 	for(int32_t i = 0; i < (int32_t)bags.size(); ++i) {
 		const ::proto_ff::RoleDBUnitBagData & temp_bags = msg.bags(i);
 		bags[i].read_from_pbmsg(temp_bags);
@@ -297,6 +300,8 @@ RoleDBEquipData_s::RoleDBEquipData_s() {
 }
 
 int RoleDBEquipData_s::CreateInit() {
+	stove_level = (uint32_t)0;
+	stove_exp = (uint64_t)0;
 	return 0;
 }
 
@@ -309,15 +314,28 @@ void RoleDBEquipData_s::write_to_pbmsg(::proto_ff::RoleDBEquipData & msg) const 
 		::proto_ff::EquipInfo* temp_infos = msg.add_infos();
 		infos[i].write_to_pbmsg(*temp_infos);
 	}
+	for(int32_t i = 0; i < (int32_t)lv_attr.size(); ++i) {
+		::proto_ff::EquipLvAttrInfo* temp_lv_attr = msg.add_lv_attr();
+		lv_attr[i].write_to_pbmsg(*temp_lv_attr);
+	}
+	msg.set_stove_level((uint32_t)stove_level);
+	msg.set_stove_exp((uint64_t)stove_exp);
 }
 
 void RoleDBEquipData_s::read_from_pbmsg(const ::proto_ff::RoleDBEquipData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleDBEquipData_s));
-	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	infos.resize(msg.infos_size());
 	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
 		const ::proto_ff::EquipInfo & temp_infos = msg.infos(i);
 		infos[i].read_from_pbmsg(temp_infos);
 	}
+	lv_attr.resize(msg.lv_attr_size());
+	for(int32_t i = 0; i < (int32_t)lv_attr.size(); ++i) {
+		const ::proto_ff::EquipLvAttrInfo & temp_lv_attr = msg.lv_attr(i);
+		lv_attr[i].read_from_pbmsg(temp_lv_attr);
+	}
+	stove_level = msg.stove_level();
+	stove_exp = msg.stove_exp();
 }
 
 RoleDBTaskData_s::RoleDBTaskData_s() {
@@ -402,7 +420,7 @@ void GrowPartDBData_s::write_to_pbmsg(::proto_ff::GrowPartDBData & msg) const {
 void GrowPartDBData_s::read_from_pbmsg(const ::proto_ff::GrowPartDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GrowPartDBData_s));
 	type = msg.type();
-	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	entrys.resize(msg.entrys_size());
 	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
 		const ::proto_ff::GrowPartEntryDBInfo & temp_entrys = msg.entrys(i);
 		entrys[i].read_from_pbmsg(temp_entrys);
@@ -435,7 +453,7 @@ void GrowDBData_s::write_to_pbmsg(::proto_ff::GrowDBData & msg) const {
 
 void GrowDBData_s::read_from_pbmsg(const ::proto_ff::GrowDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GrowDBData_s));
-	parts.resize((int)msg.parts_size() > (int)parts.max_size() ? parts.max_size() : msg.parts_size());
+	parts.resize(msg.parts_size());
 	for(int32_t i = 0; i < (int32_t)parts.size(); ++i) {
 		const ::proto_ff::GrowPartDBData & temp_parts = msg.parts(i);
 		parts[i].read_from_pbmsg(temp_parts);
@@ -467,11 +485,70 @@ void DayUseItemData_s::write_to_pbmsg(::proto_ff::DayUseItemData & msg) const {
 
 void DayUseItemData_s::read_from_pbmsg(const ::proto_ff::DayUseItemData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DayUseItemData_s));
-	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	info.resize(msg.info_size());
 	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::ComPair64 & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
+}
+
+CharacterArenaData_s::CharacterArenaData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int CharacterArenaData_s::CreateInit() {
+	challengeTimes = (uint32_t)0;
+	updateTime = (uint64_t)0;
+	historyRankId = (uint32_t)0;
+	buyChallengeTimes = (uint32_t)0;
+	allChallengeTimes = (int32_t)0;
+	rank_id = (int32_t)0;
+	return 0;
+}
+
+int CharacterArenaData_s::ResumeInit() {
+	return 0;
+}
+
+void CharacterArenaData_s::write_to_pbmsg(::proto_ff::CharacterArenaData & msg) const {
+	msg.set_challengetimes((uint32_t)challengeTimes);
+	msg.set_updatetime((uint64_t)updateTime);
+	msg.set_historyrankid((uint32_t)historyRankId);
+	msg.set_buychallengetimes((uint32_t)buyChallengeTimes);
+	for(int32_t i = 0; i < (int32_t)result.size(); ++i) {
+		::proto_ff::ArenaChallResult* temp_result = msg.add_result();
+		result[i].write_to_pbmsg(*temp_result);
+	}
+	for(int32_t i = 0; i < (int32_t)chall_reward.size(); ++i) {
+		::proto_ff::ChallArenaReward* temp_chall_reward = msg.add_chall_reward();
+		chall_reward[i].write_to_pbmsg(*temp_chall_reward);
+	}
+	msg.set_allchallengetimes((int32_t)allChallengeTimes);
+	msg.set_rank_id((int32_t)rank_id);
+}
+
+void CharacterArenaData_s::read_from_pbmsg(const ::proto_ff::CharacterArenaData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CharacterArenaData_s));
+	challengeTimes = msg.challengetimes();
+	updateTime = msg.updatetime();
+	historyRankId = msg.historyrankid();
+	buyChallengeTimes = msg.buychallengetimes();
+	result.resize(msg.result_size());
+	for(int32_t i = 0; i < (int32_t)result.size(); ++i) {
+		const ::proto_ff::ArenaChallResult & temp_result = msg.result(i);
+		result[i].read_from_pbmsg(temp_result);
+	}
+	chall_reward.resize(msg.chall_reward_size());
+	for(int32_t i = 0; i < (int32_t)chall_reward.size(); ++i) {
+		const ::proto_ff::ChallArenaReward & temp_chall_reward = msg.chall_reward(i);
+		chall_reward[i].read_from_pbmsg(temp_chall_reward);
+	}
+	allChallengeTimes = msg.allchallengetimes();
+	rank_id = msg.rank_id();
 }
 
 MiniDBData_s::MiniDBData_s() {
@@ -495,6 +572,8 @@ void MiniDBData_s::write_to_pbmsg(::proto_ff::MiniDBData & msg) const {
 	msg.set_lasttime((uint64_t)lastTime);
 	::proto_ff::DayUseItemData* temp_useitem = msg.mutable_useitem();
 	useItem.write_to_pbmsg(*temp_useitem);
+	::proto_ff::CharacterArenaData* temp_arena_data = msg.mutable_arena_data();
+	arena_data.write_to_pbmsg(*temp_arena_data);
 }
 
 void MiniDBData_s::read_from_pbmsg(const ::proto_ff::MiniDBData & msg) {
@@ -502,6 +581,8 @@ void MiniDBData_s::read_from_pbmsg(const ::proto_ff::MiniDBData & msg) {
 	lastTime = msg.lasttime();
 	const ::proto_ff::DayUseItemData & temp_useitem = msg.useitem();
 	useItem.read_from_pbmsg(temp_useitem);
+	const ::proto_ff::CharacterArenaData & temp_arena_data = msg.arena_data();
+	arena_data.read_from_pbmsg(temp_arena_data);
 }
 
 FacadeDataInfo_s::FacadeDataInfo_s() {
@@ -547,6 +628,8 @@ void FacadeDataInfo_s::write_to_pbmsg(::proto_ff::FacadeDataInfo & msg) const {
 		::proto_ff::FacadeSkillData* temp_skill_data = msg.add_skill_data();
 		skill_data[i].write_to_pbmsg(*temp_skill_data);
 	}
+	::proto_ff::FacadeSoulData* temp_soul_data = msg.mutable_soul_data();
+	soul_data.write_to_pbmsg(*temp_soul_data);
 }
 
 void FacadeDataInfo_s::read_from_pbmsg(const ::proto_ff::FacadeDataInfo & msg) {
@@ -558,20 +641,191 @@ void FacadeDataInfo_s::read_from_pbmsg(const ::proto_ff::FacadeDataInfo & msg) {
 	use_soul_item = msg.use_soul_item();
 	use_facade = msg.use_facade();
 	equip_fantasy_id = msg.equip_fantasy_id();
-	fantasy_map.resize((int)msg.fantasy_map_size() > (int)fantasy_map.max_size() ? fantasy_map.max_size() : msg.fantasy_map_size());
+	fantasy_map.resize(msg.fantasy_map_size());
 	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
 		const ::proto_ff::FacadeFantasyData & temp_fantasy_map = msg.fantasy_map(i);
 		fantasy_map[i].read_from_pbmsg(temp_fantasy_map);
 	}
-	fragment_map.resize((int)msg.fragment_map_size() > (int)fragment_map.max_size() ? fragment_map.max_size() : msg.fragment_map_size());
+	fragment_map.resize(msg.fragment_map_size());
 	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
 		const ::proto_ff::FacadeFragmentData & temp_fragment_map = msg.fragment_map(i);
 		fragment_map[i].read_from_pbmsg(temp_fragment_map);
 	}
-	skill_data.resize((int)msg.skill_data_size() > (int)skill_data.max_size() ? skill_data.max_size() : msg.skill_data_size());
+	skill_data.resize(msg.skill_data_size());
 	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
 		const ::proto_ff::FacadeSkillData & temp_skill_data = msg.skill_data(i);
 		skill_data[i].read_from_pbmsg(temp_skill_data);
+	}
+	const ::proto_ff::FacadeSoulData & temp_soul_data = msg.soul_data();
+	soul_data.read_from_pbmsg(temp_soul_data);
+}
+
+MountDataInfo_s::MountDataInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MountDataInfo_s::CreateInit() {
+	mount_id = (uint64_t)0;
+	mount_lev = (uint32_t)0;
+	mount_exp = (uint64_t)0;
+	use_facade = (bool)0;
+	equip_fantasy_id = (uint64_t)0;
+	ride_state = (uint32_t)0;
+	mount_model_id = (uint64_t)0;
+	last_mount_model_id = (uint64_t)0;
+	return 0;
+}
+
+int MountDataInfo_s::ResumeInit() {
+	return 0;
+}
+
+void MountDataInfo_s::write_to_pbmsg(::proto_ff::MountDataInfo & msg) const {
+	msg.set_mount_id((uint64_t)mount_id);
+	msg.set_mount_lev((uint32_t)mount_lev);
+	msg.set_mount_exp((uint64_t)mount_exp);
+	msg.set_use_facade((bool)use_facade);
+	msg.set_equip_fantasy_id((uint64_t)equip_fantasy_id);
+	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
+		::proto_ff::MountFantasyData* temp_fantasy_map = msg.add_fantasy_map();
+		fantasy_map[i].write_to_pbmsg(*temp_fantasy_map);
+	}
+	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
+		::proto_ff::MountFragmentData* temp_fragment_map = msg.add_fragment_map();
+		fragment_map[i].write_to_pbmsg(*temp_fragment_map);
+	}
+	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
+		::proto_ff::MountSkillData* temp_skill_data = msg.add_skill_data();
+		skill_data[i].write_to_pbmsg(*temp_skill_data);
+	}
+	for(int32_t i = 0; i < (int32_t)kun_data.size(); ++i) {
+		::proto_ff::MountKunData* temp_kun_data = msg.add_kun_data();
+		kun_data[i].write_to_pbmsg(*temp_kun_data);
+	}
+	for(int32_t i = 0; i < (int32_t)blood_data.size(); ++i) {
+		::proto_ff::MountBloodData* temp_blood_data = msg.add_blood_data();
+		blood_data[i].write_to_pbmsg(*temp_blood_data);
+	}
+	for(int32_t i = 0; i < (int32_t)baby_slot_data.size(); ++i) {
+		::proto_ff::MountBabySlotData* temp_baby_slot_data = msg.add_baby_slot_data();
+		baby_slot_data[i].write_to_pbmsg(*temp_baby_slot_data);
+	}
+	msg.set_ride_state((uint32_t)ride_state);
+	msg.set_mount_model_id((uint64_t)mount_model_id);
+	msg.set_last_mount_model_id((uint64_t)last_mount_model_id);
+}
+
+void MountDataInfo_s::read_from_pbmsg(const ::proto_ff::MountDataInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct MountDataInfo_s));
+	mount_id = msg.mount_id();
+	mount_lev = msg.mount_lev();
+	mount_exp = msg.mount_exp();
+	use_facade = msg.use_facade();
+	equip_fantasy_id = msg.equip_fantasy_id();
+	fantasy_map.resize(msg.fantasy_map_size());
+	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
+		const ::proto_ff::MountFantasyData & temp_fantasy_map = msg.fantasy_map(i);
+		fantasy_map[i].read_from_pbmsg(temp_fantasy_map);
+	}
+	fragment_map.resize(msg.fragment_map_size());
+	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
+		const ::proto_ff::MountFragmentData & temp_fragment_map = msg.fragment_map(i);
+		fragment_map[i].read_from_pbmsg(temp_fragment_map);
+	}
+	skill_data.resize(msg.skill_data_size());
+	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
+		const ::proto_ff::MountSkillData & temp_skill_data = msg.skill_data(i);
+		skill_data[i].read_from_pbmsg(temp_skill_data);
+	}
+	kun_data.resize(msg.kun_data_size());
+	for(int32_t i = 0; i < (int32_t)kun_data.size(); ++i) {
+		const ::proto_ff::MountKunData & temp_kun_data = msg.kun_data(i);
+		kun_data[i].read_from_pbmsg(temp_kun_data);
+	}
+	blood_data.resize(msg.blood_data_size());
+	for(int32_t i = 0; i < (int32_t)blood_data.size(); ++i) {
+		const ::proto_ff::MountBloodData & temp_blood_data = msg.blood_data(i);
+		blood_data[i].read_from_pbmsg(temp_blood_data);
+	}
+	baby_slot_data.resize(msg.baby_slot_data_size());
+	for(int32_t i = 0; i < (int32_t)baby_slot_data.size(); ++i) {
+		const ::proto_ff::MountBabySlotData & temp_baby_slot_data = msg.baby_slot_data(i);
+		baby_slot_data[i].read_from_pbmsg(temp_baby_slot_data);
+	}
+	ride_state = msg.ride_state();
+	mount_model_id = msg.mount_model_id();
+	last_mount_model_id = msg.last_mount_model_id();
+}
+
+DeityDataInfo_s::DeityDataInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DeityDataInfo_s::CreateInit() {
+	deity_id = (uint64_t)0;
+	deity_lev = (uint32_t)0;
+	deity_exp = (uint64_t)0;
+	return 0;
+}
+
+int DeityDataInfo_s::ResumeInit() {
+	return 0;
+}
+
+void DeityDataInfo_s::write_to_pbmsg(::proto_ff::DeityDataInfo & msg) const {
+	msg.set_deity_id((uint64_t)deity_id);
+	msg.set_deity_lev((uint32_t)deity_lev);
+	msg.set_deity_exp((uint64_t)deity_exp);
+	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
+		::proto_ff::DeityFantasyData* temp_fantasy_map = msg.add_fantasy_map();
+		fantasy_map[i].write_to_pbmsg(*temp_fantasy_map);
+	}
+	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
+		::proto_ff::DeityFragmentData* temp_fragment_map = msg.add_fragment_map();
+		fragment_map[i].write_to_pbmsg(*temp_fragment_map);
+	}
+	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
+		::proto_ff::DeitySkillData* temp_skill_data = msg.add_skill_data();
+		skill_data[i].write_to_pbmsg(*temp_skill_data);
+	}
+	for(int32_t i = 0; i < (int32_t)battle_data.size(); ++i) {
+		::proto_ff::DeityBattleSlotData* temp_battle_data = msg.add_battle_data();
+		battle_data[i].write_to_pbmsg(*temp_battle_data);
+	}
+}
+
+void DeityDataInfo_s::read_from_pbmsg(const ::proto_ff::DeityDataInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DeityDataInfo_s));
+	deity_id = msg.deity_id();
+	deity_lev = msg.deity_lev();
+	deity_exp = msg.deity_exp();
+	fantasy_map.resize(msg.fantasy_map_size());
+	for(int32_t i = 0; i < (int32_t)fantasy_map.size(); ++i) {
+		const ::proto_ff::DeityFantasyData & temp_fantasy_map = msg.fantasy_map(i);
+		fantasy_map[i].read_from_pbmsg(temp_fantasy_map);
+	}
+	fragment_map.resize(msg.fragment_map_size());
+	for(int32_t i = 0; i < (int32_t)fragment_map.size(); ++i) {
+		const ::proto_ff::DeityFragmentData & temp_fragment_map = msg.fragment_map(i);
+		fragment_map[i].read_from_pbmsg(temp_fragment_map);
+	}
+	skill_data.resize(msg.skill_data_size());
+	for(int32_t i = 0; i < (int32_t)skill_data.size(); ++i) {
+		const ::proto_ff::DeitySkillData & temp_skill_data = msg.skill_data(i);
+		skill_data[i].read_from_pbmsg(temp_skill_data);
+	}
+	battle_data.resize(msg.battle_data_size());
+	for(int32_t i = 0; i < (int32_t)battle_data.size(); ++i) {
+		const ::proto_ff::DeityBattleSlotData & temp_battle_data = msg.battle_data(i);
+		battle_data[i].read_from_pbmsg(temp_battle_data);
 	}
 }
 
@@ -600,7 +854,7 @@ void FacadeDBData_s::write_to_pbmsg(::proto_ff::FacadeDBData & msg) const {
 
 void FacadeDBData_s::read_from_pbmsg(const ::proto_ff::FacadeDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FacadeDBData_s));
-	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	data.resize(msg.data_size());
 	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::FacadeDataInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
@@ -619,7 +873,6 @@ int SkillDBInfo_s::CreateInit() {
 	skill_id = (uint64_t)0;
 	level = (int32_t)0;
 	wakeup = (int32_t)0;
-	advance = (int32_t)0;
 	use_msc = (int64_t)0;
 	return 0;
 }
@@ -632,7 +885,6 @@ void SkillDBInfo_s::write_to_pbmsg(::proto_ff::SkillDBInfo & msg) const {
 	msg.set_skill_id((uint64_t)skill_id);
 	msg.set_level((int32_t)level);
 	msg.set_wakeup((int32_t)wakeup);
-	msg.set_advance((int32_t)advance);
 	msg.set_use_msc((int64_t)use_msc);
 }
 
@@ -641,7 +893,6 @@ void SkillDBInfo_s::read_from_pbmsg(const ::proto_ff::SkillDBInfo & msg) {
 	skill_id = msg.skill_id();
 	level = msg.level();
 	wakeup = msg.wakeup();
-	advance = msg.advance();
 	use_msc = msg.use_msc();
 }
 
@@ -656,6 +907,7 @@ SkillDBPos_s::SkillDBPos_s() {
 int SkillDBPos_s::CreateInit() {
 	skill_id = (uint64_t)0;
 	pos = (uint32_t)0;
+	use = (int32_t)0;
 	return 0;
 }
 
@@ -666,12 +918,75 @@ int SkillDBPos_s::ResumeInit() {
 void SkillDBPos_s::write_to_pbmsg(::proto_ff::SkillDBPos & msg) const {
 	msg.set_skill_id((uint64_t)skill_id);
 	msg.set_pos((uint32_t)pos);
+	msg.set_use((int32_t)use);
 }
 
 void SkillDBPos_s::read_from_pbmsg(const ::proto_ff::SkillDBPos & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBPos_s));
 	skill_id = msg.skill_id();
 	pos = msg.pos();
+	use = msg.use();
+}
+
+SkillDBAdvPos_s::SkillDBAdvPos_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SkillDBAdvPos_s::CreateInit() {
+	pos = (uint32_t)0;
+	advance = (uint32_t)0;
+	unlock = (uint32_t)0;
+	return 0;
+}
+
+int SkillDBAdvPos_s::ResumeInit() {
+	return 0;
+}
+
+void SkillDBAdvPos_s::write_to_pbmsg(::proto_ff::SkillDBAdvPos & msg) const {
+	msg.set_pos((uint32_t)pos);
+	msg.set_advance((uint32_t)advance);
+	msg.set_unlock((uint32_t)unlock);
+}
+
+void SkillDBAdvPos_s::read_from_pbmsg(const ::proto_ff::SkillDBAdvPos & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBAdvPos_s));
+	pos = msg.pos();
+	advance = msg.advance();
+	unlock = msg.unlock();
+}
+
+SkillDBAdvInfo_s::SkillDBAdvInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SkillDBAdvInfo_s::CreateInit() {
+	advance = (int32_t)0;
+	level = (int32_t)0;
+	return 0;
+}
+
+int SkillDBAdvInfo_s::ResumeInit() {
+	return 0;
+}
+
+void SkillDBAdvInfo_s::write_to_pbmsg(::proto_ff::SkillDBAdvInfo & msg) const {
+	msg.set_advance((int32_t)advance);
+	msg.set_level((int32_t)level);
+}
+
+void SkillDBAdvInfo_s::read_from_pbmsg(const ::proto_ff::SkillDBAdvInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBAdvInfo_s));
+	advance = msg.advance();
+	level = msg.level();
 }
 
 SkillDBGroup_s::SkillDBGroup_s() {
@@ -705,11 +1020,43 @@ void SkillDBGroup_s::read_from_pbmsg(const ::proto_ff::SkillDBGroup & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBGroup_s));
 	group = msg.group();
 	chg = msg.chg();
-	pos_lst.resize((int)msg.pos_lst_size() > (int)pos_lst.max_size() ? pos_lst.max_size() : msg.pos_lst_size());
+	pos_lst.resize(msg.pos_lst_size());
 	for(int32_t i = 0; i < (int32_t)pos_lst.size(); ++i) {
 		const ::proto_ff::SkillDBPos & temp_pos_lst = msg.pos_lst(i);
 		pos_lst[i].read_from_pbmsg(temp_pos_lst);
 	}
+}
+
+PetSkillCdDB_s::PetSkillCdDB_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetSkillCdDB_s::CreateInit() {
+	skill_id = (uint64_t)0;
+	use_msec = (uint64_t)0;
+	pet_instid = (int64_t)0;
+	return 0;
+}
+
+int PetSkillCdDB_s::ResumeInit() {
+	return 0;
+}
+
+void PetSkillCdDB_s::write_to_pbmsg(::proto_ff::PetSkillCdDB & msg) const {
+	msg.set_skill_id((uint64_t)skill_id);
+	msg.set_use_msec((uint64_t)use_msec);
+	msg.set_pet_instid((int64_t)pet_instid);
+}
+
+void PetSkillCdDB_s::read_from_pbmsg(const ::proto_ff::PetSkillCdDB & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct PetSkillCdDB_s));
+	skill_id = msg.skill_id();
+	use_msec = msg.use_msec();
+	pet_instid = msg.pet_instid();
 }
 
 SkillDBData_s::SkillDBData_s() {
@@ -723,6 +1070,7 @@ SkillDBData_s::SkillDBData_s() {
 int SkillDBData_s::CreateInit() {
 	group = (uint32_t)0;
 	last_group = (uint64_t)0;
+	cur_advpos = (uint32_t)0;
 	return 0;
 }
 
@@ -741,22 +1089,51 @@ void SkillDBData_s::write_to_pbmsg(::proto_ff::SkillDBData & msg) const {
 	}
 	msg.set_group((uint32_t)group);
 	msg.set_last_group((uint64_t)last_group);
+	for(int32_t i = 0; i < (int32_t)adv_pos.size(); ++i) {
+		::proto_ff::SkillDBAdvPos* temp_adv_pos = msg.add_adv_pos();
+		adv_pos[i].write_to_pbmsg(*temp_adv_pos);
+	}
+	for(int32_t i = 0; i < (int32_t)adv_info.size(); ++i) {
+		::proto_ff::SkillDBAdvInfo* temp_adv_info = msg.add_adv_info();
+		adv_info[i].write_to_pbmsg(*temp_adv_info);
+	}
+	msg.set_cur_advpos((uint32_t)cur_advpos);
+	for(int32_t i = 0; i < (int32_t)pet_cd.size(); ++i) {
+		::proto_ff::PetSkillCdDB* temp_pet_cd = msg.add_pet_cd();
+		pet_cd[i].write_to_pbmsg(*temp_pet_cd);
+	}
 }
 
 void SkillDBData_s::read_from_pbmsg(const ::proto_ff::SkillDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SkillDBData_s));
-	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	info_lst.resize(msg.info_lst_size());
 	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::SkillDBInfo & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	group_lst.resize((int)msg.group_lst_size() > (int)group_lst.max_size() ? group_lst.max_size() : msg.group_lst_size());
+	group_lst.resize(msg.group_lst_size());
 	for(int32_t i = 0; i < (int32_t)group_lst.size(); ++i) {
 		const ::proto_ff::SkillDBGroup & temp_group_lst = msg.group_lst(i);
 		group_lst[i].read_from_pbmsg(temp_group_lst);
 	}
 	group = msg.group();
 	last_group = msg.last_group();
+	adv_pos.resize(msg.adv_pos_size());
+	for(int32_t i = 0; i < (int32_t)adv_pos.size(); ++i) {
+		const ::proto_ff::SkillDBAdvPos & temp_adv_pos = msg.adv_pos(i);
+		adv_pos[i].read_from_pbmsg(temp_adv_pos);
+	}
+	adv_info.resize(msg.adv_info_size());
+	for(int32_t i = 0; i < (int32_t)adv_info.size(); ++i) {
+		const ::proto_ff::SkillDBAdvInfo & temp_adv_info = msg.adv_info(i);
+		adv_info[i].read_from_pbmsg(temp_adv_info);
+	}
+	cur_advpos = msg.cur_advpos();
+	pet_cd.resize(msg.pet_cd_size());
+	for(int32_t i = 0; i < (int32_t)pet_cd.size(); ++i) {
+		const ::proto_ff::PetSkillCdDB & temp_pet_cd = msg.pet_cd(i);
+		pet_cd[i].read_from_pbmsg(temp_pet_cd);
+	}
 }
 
 GodRelicsActivityData_s::GodRelicsActivityData_s() {
@@ -786,7 +1163,7 @@ void GodRelicsActivityData_s::write_to_pbmsg(::proto_ff::GodRelicsActivityData &
 
 void GodRelicsActivityData_s::read_from_pbmsg(const ::proto_ff::GodRelicsActivityData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GodRelicsActivityData_s));
-	group_data.resize((int)msg.group_data_size() > (int)group_data.max_size() ? group_data.max_size() : msg.group_data_size());
+	group_data.resize(msg.group_data_size());
 	for(int32_t i = 0; i < (int32_t)group_data.size(); ++i) {
 		const ::proto_ff::GodRelicsTaskGroupEntry & temp_group_data = msg.group_data(i);
 		group_data[i].read_from_pbmsg(temp_group_data);
@@ -951,7 +1328,7 @@ void DupTowerDBRecord_s::write_to_pbmsg(::proto_ff::DupTowerDBRecord & msg) cons
 void DupTowerDBRecord_s::read_from_pbmsg(const ::proto_ff::DupTowerDBRecord & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupTowerDBRecord_s));
 	id = msg.id();
-	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	entrys.resize(msg.entrys_size());
 	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
 		const ::proto_ff::DupTowerDBRecordEntry & temp_entrys = msg.entrys(i);
 		entrys[i].read_from_pbmsg(temp_entrys);
@@ -967,7 +1344,6 @@ DupTowerDBData_s::DupTowerDBData_s() {
 }
 
 int DupTowerDBData_s::CreateInit() {
-	pass_dupId = (uint64_t)0;
 	return 0;
 }
 
@@ -976,7 +1352,6 @@ int DupTowerDBData_s::ResumeInit() {
 }
 
 void DupTowerDBData_s::write_to_pbmsg(::proto_ff::DupTowerDBData & msg) const {
-	msg.set_pass_dupid((uint64_t)pass_dupId);
 	for(int32_t i = 0; i < (int32_t)ids.size(); ++i) {
 		msg.add_ids((uint64_t)ids[i]);
 	}
@@ -984,40 +1359,10 @@ void DupTowerDBData_s::write_to_pbmsg(::proto_ff::DupTowerDBData & msg) const {
 
 void DupTowerDBData_s::read_from_pbmsg(const ::proto_ff::DupTowerDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupTowerDBData_s));
-	pass_dupId = msg.pass_dupid();
-	ids.resize((int)msg.ids_size() > (int)ids.max_size() ? ids.max_size() : msg.ids_size());
+	ids.resize(msg.ids_size());
 	for(int32_t i = 0; i < (int32_t)ids.size(); ++i) {
 		ids[i] = msg.ids(i);
 	}
-}
-
-ComDupDBData_s::ComDupDBData_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int ComDupDBData_s::CreateInit() {
-	pass_dupId = (uint64_t)0;
-	star = (int32_t)0;
-	return 0;
-}
-
-int ComDupDBData_s::ResumeInit() {
-	return 0;
-}
-
-void ComDupDBData_s::write_to_pbmsg(::proto_ff::ComDupDBData & msg) const {
-	msg.set_pass_dupid((uint64_t)pass_dupId);
-	msg.set_star((int32_t)star);
-}
-
-void ComDupDBData_s::read_from_pbmsg(const ::proto_ff::ComDupDBData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComDupDBData_s));
-	pass_dupId = msg.pass_dupid();
-	star = msg.star();
 }
 
 DupDBData_s::DupDBData_s() {
@@ -1047,26 +1392,22 @@ void DupDBData_s::write_to_pbmsg(::proto_ff::DupDBData & msg) const {
 	}
 	::proto_ff::DupTowerDBData* temp_tower = msg.mutable_tower();
 	tower.write_to_pbmsg(*temp_tower);
-	::proto_ff::ComDupDBData* temp_level = msg.mutable_level();
-	level.write_to_pbmsg(*temp_level);
 }
 
 void DupDBData_s::read_from_pbmsg(const ::proto_ff::DupDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DupDBData_s));
-	record.resize((int)msg.record_size() > (int)record.max_size() ? record.max_size() : msg.record_size());
+	record.resize(msg.record_size());
 	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
 		const ::proto_ff::DupRecord & temp_record = msg.record(i);
 		record[i].read_from_pbmsg(temp_record);
 	}
-	groups.resize((int)msg.groups_size() > (int)groups.max_size() ? groups.max_size() : msg.groups_size());
+	groups.resize(msg.groups_size());
 	for(int32_t i = 0; i < (int32_t)groups.size(); ++i) {
 		const ::proto_ff::DupGroupData & temp_groups = msg.groups(i);
 		groups[i].read_from_pbmsg(temp_groups);
 	}
 	const ::proto_ff::DupTowerDBData & temp_tower = msg.tower();
 	tower.read_from_pbmsg(temp_tower);
-	const ::proto_ff::ComDupDBData & temp_level = msg.level();
-	level.read_from_pbmsg(temp_level);
 }
 
 BuffDBInfo_s::BuffDBInfo_s() {
@@ -1088,6 +1429,7 @@ int BuffDBInfo_s::CreateInit() {
 	param1 = (int64_t)0;
 	param2 = (int64_t)0;
 	extramsec = (int64_t)0;
+	is_end = (int32_t)0;
 	return 0;
 }
 
@@ -1106,6 +1448,7 @@ void BuffDBInfo_s::write_to_pbmsg(::proto_ff::BuffDBInfo & msg) const {
 	msg.set_param1((int64_t)param1);
 	msg.set_param2((int64_t)param2);
 	msg.set_extramsec((int64_t)extramsec);
+	msg.set_is_end((int32_t)is_end);
 }
 
 void BuffDBInfo_s::read_from_pbmsg(const ::proto_ff::BuffDBInfo & msg) {
@@ -1120,6 +1463,7 @@ void BuffDBInfo_s::read_from_pbmsg(const ::proto_ff::BuffDBInfo & msg) {
 	param1 = msg.param1();
 	param2 = msg.param2();
 	extramsec = msg.extramsec();
+	is_end = msg.is_end();
 }
 
 BuffDBCdInfo_s::BuffDBCdInfo_s() {
@@ -1180,12 +1524,12 @@ void BuffDBData_s::write_to_pbmsg(::proto_ff::BuffDBData & msg) const {
 
 void BuffDBData_s::read_from_pbmsg(const ::proto_ff::BuffDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BuffDBData_s));
-	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	info_lst.resize(msg.info_lst_size());
 	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::BuffDBInfo & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	cd_lst.resize((int)msg.cd_lst_size() > (int)cd_lst.max_size() ? cd_lst.max_size() : msg.cd_lst_size());
+	cd_lst.resize(msg.cd_lst_size());
 	for(int32_t i = 0; i < (int32_t)cd_lst.size(); ++i) {
 		const ::proto_ff::BuffDBCdInfo & temp_cd_lst = msg.cd_lst(i);
 		cd_lst[i].read_from_pbmsg(temp_cd_lst);
@@ -1263,13 +1607,13 @@ void BossDBData_s::write_to_pbmsg(::proto_ff::BossDBData & msg) const {
 
 void BossDBData_s::read_from_pbmsg(const ::proto_ff::BossDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BossDBData_s));
-	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	infos.resize(msg.infos_size());
 	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
 		const ::proto_ff::BossSimpleInfoDB & temp_infos = msg.infos(i);
 		infos[i].read_from_pbmsg(temp_infos);
 	}
 	lastTime = msg.lasttime();
-	attents.resize((int)msg.attents_size() > (int)attents.max_size() ? attents.max_size() : msg.attents_size());
+	attents.resize(msg.attents_size());
 	for(int32_t i = 0; i < (int32_t)attents.size(); ++i) {
 		attents[i] = msg.attents(i);
 	}
@@ -1302,6 +1646,342 @@ void VipDBData_s::read_from_pbmsg(const ::proto_ff::VipDBData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct VipDBData_s));
 	vipExp = msg.vipexp();
 	expDiamond = msg.expdiamond();
+}
+
+AttrDBData_s::AttrDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int AttrDBData_s::CreateInit() {
+	return 0;
+}
+
+int AttrDBData_s::ResumeInit() {
+	return 0;
+}
+
+void AttrDBData_s::write_to_pbmsg(::proto_ff::AttrDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)attr_lst.size(); ++i) {
+		::proto_ff::Attr64* temp_attr_lst = msg.add_attr_lst();
+		attr_lst[i].write_to_pbmsg(*temp_attr_lst);
+	}
+}
+
+void AttrDBData_s::read_from_pbmsg(const ::proto_ff::AttrDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct AttrDBData_s));
+	attr_lst.resize(msg.attr_lst_size());
+	for(int32_t i = 0; i < (int32_t)attr_lst.size(); ++i) {
+		const ::proto_ff::Attr64 & temp_attr_lst = msg.attr_lst(i);
+		attr_lst[i].read_from_pbmsg(temp_attr_lst);
+	}
+}
+
+PetDBRecord_s::PetDBRecord_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetDBRecord_s::CreateInit() {
+	instId = (int32_t)0;
+	return 0;
+}
+
+int PetDBRecord_s::ResumeInit() {
+	return 0;
+}
+
+void PetDBRecord_s::write_to_pbmsg(::proto_ff::PetDBRecord & msg) const {
+	msg.set_instid((int32_t)instId);
+	for(int32_t i = 0; i < (int32_t)costItem.size(); ++i) {
+		::proto_ff::ComPair64* temp_costitem = msg.add_costitem();
+		costItem[i].write_to_pbmsg(*temp_costitem);
+	}
+	for(int32_t i = 0; i < (int32_t)costPet.size(); ++i) {
+		::proto_ff::ComPair64* temp_costpet = msg.add_costpet();
+		costPet[i].write_to_pbmsg(*temp_costpet);
+	}
+}
+
+void PetDBRecord_s::read_from_pbmsg(const ::proto_ff::PetDBRecord & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct PetDBRecord_s));
+	instId = msg.instid();
+	costItem.resize(msg.costitem_size());
+	for(int32_t i = 0; i < (int32_t)costItem.size(); ++i) {
+		const ::proto_ff::ComPair64 & temp_costitem = msg.costitem(i);
+		costItem[i].read_from_pbmsg(temp_costitem);
+	}
+	costPet.resize(msg.costpet_size());
+	for(int32_t i = 0; i < (int32_t)costPet.size(); ++i) {
+		const ::proto_ff::ComPair64 & temp_costpet = msg.costpet(i);
+		costPet[i].read_from_pbmsg(temp_costpet);
+	}
+}
+
+PetDBData_s::PetDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetDBData_s::CreateInit() {
+	return 0;
+}
+
+int PetDBData_s::ResumeInit() {
+	return 0;
+}
+
+void PetDBData_s::write_to_pbmsg(::proto_ff::PetDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)fetter.size(); ++i) {
+		msg.add_fetter((int32_t)fetter[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)pets.size(); ++i) {
+		::proto_ff::PetInfo* temp_pets = msg.add_pets();
+		pets[i].write_to_pbmsg(*temp_pets);
+	}
+	for(int32_t i = 0; i < (int32_t)hatchs.size(); ++i) {
+		::proto_ff::PetHatchInfo* temp_hatchs = msg.add_hatchs();
+		hatchs[i].write_to_pbmsg(*temp_hatchs);
+	}
+	for(int32_t i = 0; i < (int32_t)records.size(); ++i) {
+		::proto_ff::PetDBRecord* temp_records = msg.add_records();
+		records[i].write_to_pbmsg(*temp_records);
+	}
+	for(int32_t i = 0; i < (int32_t)cfgids.size(); ++i) {
+		msg.add_cfgids((int64_t)cfgids[i]);
+	}
+}
+
+void PetDBData_s::read_from_pbmsg(const ::proto_ff::PetDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct PetDBData_s));
+	fetter.resize(msg.fetter_size());
+	for(int32_t i = 0; i < (int32_t)fetter.size(); ++i) {
+		fetter[i] = msg.fetter(i);
+	}
+	pets.resize(msg.pets_size());
+	for(int32_t i = 0; i < (int32_t)pets.size(); ++i) {
+		const ::proto_ff::PetInfo & temp_pets = msg.pets(i);
+		pets[i].read_from_pbmsg(temp_pets);
+	}
+	hatchs.resize(msg.hatchs_size());
+	for(int32_t i = 0; i < (int32_t)hatchs.size(); ++i) {
+		const ::proto_ff::PetHatchInfo & temp_hatchs = msg.hatchs(i);
+		hatchs[i].read_from_pbmsg(temp_hatchs);
+	}
+	records.resize(msg.records_size());
+	for(int32_t i = 0; i < (int32_t)records.size(); ++i) {
+		const ::proto_ff::PetDBRecord & temp_records = msg.records(i);
+		records[i].read_from_pbmsg(temp_records);
+	}
+	cfgids.resize(msg.cfgids_size());
+	for(int32_t i = 0; i < (int32_t)cfgids.size(); ++i) {
+		cfgids[i] = msg.cfgids(i);
+	}
+}
+
+MallDBInfo_s::MallDBInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MallDBInfo_s::CreateInit() {
+	id = (int64_t)0;
+	num = (uint32_t)0;
+	time = (uint64_t)0;
+	return 0;
+}
+
+int MallDBInfo_s::ResumeInit() {
+	return 0;
+}
+
+void MallDBInfo_s::write_to_pbmsg(::proto_ff::MallDBInfo & msg) const {
+	msg.set_id((int64_t)id);
+	msg.set_num((uint32_t)num);
+	msg.set_time((uint64_t)time);
+}
+
+void MallDBInfo_s::read_from_pbmsg(const ::proto_ff::MallDBInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct MallDBInfo_s));
+	id = msg.id();
+	num = msg.num();
+	time = msg.time();
+}
+
+MallDBData_s::MallDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MallDBData_s::CreateInit() {
+	return 0;
+}
+
+int MallDBData_s::ResumeInit() {
+	return 0;
+}
+
+void MallDBData_s::write_to_pbmsg(::proto_ff::MallDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)day.size(); ++i) {
+		::proto_ff::MallDBInfo* temp_day = msg.add_day();
+		day[i].write_to_pbmsg(*temp_day);
+	}
+	for(int32_t i = 0; i < (int32_t)week.size(); ++i) {
+		::proto_ff::MallDBInfo* temp_week = msg.add_week();
+		week[i].write_to_pbmsg(*temp_week);
+	}
+	for(int32_t i = 0; i < (int32_t)forever.size(); ++i) {
+		::proto_ff::MallDBInfo* temp_forever = msg.add_forever();
+		forever[i].write_to_pbmsg(*temp_forever);
+	}
+}
+
+void MallDBData_s::read_from_pbmsg(const ::proto_ff::MallDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct MallDBData_s));
+	day.resize(msg.day_size());
+	for(int32_t i = 0; i < (int32_t)day.size(); ++i) {
+		const ::proto_ff::MallDBInfo & temp_day = msg.day(i);
+		day[i].read_from_pbmsg(temp_day);
+	}
+	week.resize(msg.week_size());
+	for(int32_t i = 0; i < (int32_t)week.size(); ++i) {
+		const ::proto_ff::MallDBInfo & temp_week = msg.week(i);
+		week[i].read_from_pbmsg(temp_week);
+	}
+	forever.resize(msg.forever_size());
+	for(int32_t i = 0; i < (int32_t)forever.size(); ++i) {
+		const ::proto_ff::MallDBInfo & temp_forever = msg.forever(i);
+		forever[i].read_from_pbmsg(temp_forever);
+	}
+}
+
+ConvoyData_s::ConvoyData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ConvoyData_s::CreateInit() {
+	daynum = (int32_t)0;
+	escortid = (int32_t)0;
+	endTime = (uint64_t)0;
+	freeNum = (int32_t)0;
+	genEscortId = (int32_t)0;
+	resetTime = (uint64_t)0;
+	return 0;
+}
+
+int ConvoyData_s::ResumeInit() {
+	return 0;
+}
+
+void ConvoyData_s::write_to_pbmsg(::proto_ff::ConvoyData & msg) const {
+	msg.set_daynum((int32_t)daynum);
+	msg.set_escortid((int32_t)escortid);
+	msg.set_endtime((uint64_t)endTime);
+	msg.set_freenum((int32_t)freeNum);
+	msg.set_genescortid((int32_t)genEscortId);
+	msg.set_resettime((uint64_t)resetTime);
+}
+
+void ConvoyData_s::read_from_pbmsg(const ::proto_ff::ConvoyData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ConvoyData_s));
+	daynum = msg.daynum();
+	escortid = msg.escortid();
+	endTime = msg.endtime();
+	freeNum = msg.freenum();
+	genEscortId = msg.genescortid();
+	resetTime = msg.resettime();
+}
+
+ArmorDBData_s::ArmorDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ArmorDBData_s::CreateInit() {
+	return 0;
+}
+
+int ArmorDBData_s::ResumeInit() {
+	return 0;
+}
+
+void ArmorDBData_s::write_to_pbmsg(::proto_ff::ArmorDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		::proto_ff::ArmorInfo* temp_infos = msg.add_infos();
+		infos[i].write_to_pbmsg(*temp_infos);
+	}
+}
+
+void ArmorDBData_s::read_from_pbmsg(const ::proto_ff::ArmorDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ArmorDBData_s));
+	infos.resize(msg.infos_size());
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		const ::proto_ff::ArmorInfo & temp_infos = msg.infos(i);
+		infos[i].read_from_pbmsg(temp_infos);
+	}
+}
+
+AssistDBData_s::AssistDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int AssistDBData_s::CreateInit() {
+	resetTime = (uint64_t)0;
+	dayPrestige = (int32_t)0;
+	sendNum = (int32_t)0;
+	helpNum = (int32_t)0;
+	allSendNum = (int32_t)0;
+	allHelpNum = (int32_t)0;
+	return 0;
+}
+
+int AssistDBData_s::ResumeInit() {
+	return 0;
+}
+
+void AssistDBData_s::write_to_pbmsg(::proto_ff::AssistDBData & msg) const {
+	msg.set_resettime((uint64_t)resetTime);
+	msg.set_dayprestige((int32_t)dayPrestige);
+	msg.set_sendnum((int32_t)sendNum);
+	msg.set_helpnum((int32_t)helpNum);
+	msg.set_allsendnum((int32_t)allSendNum);
+	msg.set_allhelpnum((int32_t)allHelpNum);
+}
+
+void AssistDBData_s::read_from_pbmsg(const ::proto_ff::AssistDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct AssistDBData_s));
+	resetTime = msg.resettime();
+	dayPrestige = msg.dayprestige();
+	sendNum = msg.sendnum();
+	helpNum = msg.helpnum();
+	allSendNum = msg.allsendnum();
+	allHelpNum = msg.allhelpnum();
 }
 
 RoleDBData_s::RoleDBData_s() {
@@ -1355,6 +2035,22 @@ void RoleDBData_s::write_to_pbmsg(::proto_ff::RoleDBData & msg) const {
 	boss.write_to_pbmsg(*temp_boss);
 	::proto_ff::VipDBData* temp_vip = msg.mutable_vip();
 	vip.write_to_pbmsg(*temp_vip);
+	::proto_ff::AttrDBData* temp_attr = msg.mutable_attr();
+	attr.write_to_pbmsg(*temp_attr);
+	::proto_ff::MountDataInfo* temp_mount = msg.mutable_mount();
+	mount.write_to_pbmsg(*temp_mount);
+	::proto_ff::DeityDataInfo* temp_deity = msg.mutable_deity();
+	deity.write_to_pbmsg(*temp_deity);
+	::proto_ff::PetDBData* temp_pet = msg.mutable_pet();
+	pet.write_to_pbmsg(*temp_pet);
+	::proto_ff::MallDBData* temp_mall = msg.mutable_mall();
+	mall.write_to_pbmsg(*temp_mall);
+	::proto_ff::ConvoyData* temp_convoy = msg.mutable_convoy();
+	convoy.write_to_pbmsg(*temp_convoy);
+	::proto_ff::ArmorDBData* temp_armor = msg.mutable_armor();
+	armor.write_to_pbmsg(*temp_armor);
+	::proto_ff::AssistDBData* temp_assist = msg.mutable_assist();
+	assist.write_to_pbmsg(*temp_assist);
 }
 
 void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
@@ -1390,9 +2086,25 @@ void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
 	boss.read_from_pbmsg(temp_boss);
 	const ::proto_ff::VipDBData & temp_vip = msg.vip();
 	vip.read_from_pbmsg(temp_vip);
+	const ::proto_ff::AttrDBData & temp_attr = msg.attr();
+	attr.read_from_pbmsg(temp_attr);
+	const ::proto_ff::MountDataInfo & temp_mount = msg.mount();
+	mount.read_from_pbmsg(temp_mount);
+	const ::proto_ff::DeityDataInfo & temp_deity = msg.deity();
+	deity.read_from_pbmsg(temp_deity);
+	const ::proto_ff::PetDBData & temp_pet = msg.pet();
+	pet.read_from_pbmsg(temp_pet);
+	const ::proto_ff::MallDBData & temp_mall = msg.mall();
+	mall.read_from_pbmsg(temp_mall);
+	const ::proto_ff::ConvoyData & temp_convoy = msg.convoy();
+	convoy.read_from_pbmsg(temp_convoy);
+	const ::proto_ff::ArmorDBData & temp_armor = msg.armor();
+	armor.read_from_pbmsg(temp_armor);
+	const ::proto_ff::AssistDBData & temp_assist = msg.assist();
+	assist.read_from_pbmsg(temp_assist);
 }
 
-LoginRoleDBProto_s::LoginRoleDBProto_s() {
+RoleMirrorData_s::RoleMirrorData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1400,19 +2112,362 @@ LoginRoleDBProto_s::LoginRoleDBProto_s() {
 	}
 }
 
-int LoginRoleDBProto_s::CreateInit() {
+int RoleMirrorData_s::CreateInit() {
+	cid = (uint64_t)0;
+	type = (int32_t)0;
+	teamid = (uint32_t)0;
+	zid = (uint32_t)0;
 	return 0;
 }
 
-int LoginRoleDBProto_s::ResumeInit() {
+int RoleMirrorData_s::ResumeInit() {
 	return 0;
 }
 
-void LoginRoleDBProto_s::write_to_pbmsg(::proto_ff::LoginRoleDBProto & msg) const {
+void RoleMirrorData_s::write_to_pbmsg(::proto_ff::RoleMirrorData & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_type((int32_t)type);
+	msg.set_teamid((uint32_t)teamid);
+	msg.set_zid((uint32_t)zid);
+	::proto_ff::AttrDBData* temp_attr = msg.mutable_attr();
+	attr.write_to_pbmsg(*temp_attr);
+	::proto_ff::SkillDBData* temp_skill = msg.mutable_skill();
+	skill.write_to_pbmsg(*temp_skill);
+	::proto_ff::RoleDBBaseData* temp_base = msg.mutable_base();
+	base.write_to_pbmsg(*temp_base);
 }
 
-void LoginRoleDBProto_s::read_from_pbmsg(const ::proto_ff::LoginRoleDBProto & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct LoginRoleDBProto_s));
+void RoleMirrorData_s::read_from_pbmsg(const ::proto_ff::RoleMirrorData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleMirrorData_s));
+	cid = msg.cid();
+	type = msg.type();
+	teamid = msg.teamid();
+	zid = msg.zid();
+	const ::proto_ff::AttrDBData & temp_attr = msg.attr();
+	attr.read_from_pbmsg(temp_attr);
+	const ::proto_ff::SkillDBData & temp_skill = msg.skill();
+	skill.read_from_pbmsg(temp_skill);
+	const ::proto_ff::RoleDBBaseData & temp_base = msg.base();
+	base.read_from_pbmsg(temp_base);
+}
+
+FactionMemDBProto_s::FactionMemDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionMemDBProto_s::CreateInit() {
+	cid = (uint64_t)0;
+	duty = (int32_t)0;
+	join_time = (uint64_t)0;
+	total_contri = (uint32_t)0;
+	return 0;
+}
+
+int FactionMemDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionMemDBProto_s::write_to_pbmsg(::proto_ff::FactionMemDBProto & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_duty((int32_t)duty);
+	msg.set_join_time((uint64_t)join_time);
+	msg.set_total_contri((uint32_t)total_contri);
+}
+
+void FactionMemDBProto_s::read_from_pbmsg(const ::proto_ff::FactionMemDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionMemDBProto_s));
+	cid = msg.cid();
+	duty = msg.duty();
+	join_time = msg.join_time();
+	total_contri = msg.total_contri();
+}
+
+FactionMultMemDBProto_s::FactionMultMemDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionMultMemDBProto_s::CreateInit() {
+	return 0;
+}
+
+int FactionMultMemDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionMultMemDBProto_s::write_to_pbmsg(::proto_ff::FactionMultMemDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)mem_lst.size(); ++i) {
+		::proto_ff::FactionMemDBProto* temp_mem_lst = msg.add_mem_lst();
+		mem_lst[i].write_to_pbmsg(*temp_mem_lst);
+	}
+}
+
+void FactionMultMemDBProto_s::read_from_pbmsg(const ::proto_ff::FactionMultMemDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionMultMemDBProto_s));
+	mem_lst.resize(msg.mem_lst_size());
+	for(int32_t i = 0; i < (int32_t)mem_lst.size(); ++i) {
+		const ::proto_ff::FactionMemDBProto & temp_mem_lst = msg.mem_lst(i);
+		mem_lst[i].read_from_pbmsg(temp_mem_lst);
+	}
+}
+
+FactionApplyDBProto_s::FactionApplyDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionApplyDBProto_s::CreateInit() {
+	cid = (uint64_t)0;
+	time = (uint64_t)0;
+	return 0;
+}
+
+int FactionApplyDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionApplyDBProto_s::write_to_pbmsg(::proto_ff::FactionApplyDBProto & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_time((uint64_t)time);
+}
+
+void FactionApplyDBProto_s::read_from_pbmsg(const ::proto_ff::FactionApplyDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionApplyDBProto_s));
+	cid = msg.cid();
+	time = msg.time();
+}
+
+FactionMultApplyDBProto_s::FactionMultApplyDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionMultApplyDBProto_s::CreateInit() {
+	return 0;
+}
+
+int FactionMultApplyDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionMultApplyDBProto_s::write_to_pbmsg(::proto_ff::FactionMultApplyDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)apply_lst.size(); ++i) {
+		::proto_ff::FactionApplyDBProto* temp_apply_lst = msg.add_apply_lst();
+		apply_lst[i].write_to_pbmsg(*temp_apply_lst);
+	}
+}
+
+void FactionMultApplyDBProto_s::read_from_pbmsg(const ::proto_ff::FactionMultApplyDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionMultApplyDBProto_s));
+	apply_lst.resize(msg.apply_lst_size());
+	for(int32_t i = 0; i < (int32_t)apply_lst.size(); ++i) {
+		const ::proto_ff::FactionApplyDBProto & temp_apply_lst = msg.apply_lst(i);
+		apply_lst[i].read_from_pbmsg(temp_apply_lst);
+	}
+}
+
+FactionRecordDBProto_s::FactionRecordDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionRecordDBProto_s::CreateInit() {
+	cid = (uint64_t)0;
+	time = (uint64_t)0;
+	op = (int32_t)0;
+	param1 = (int64_t)0;
+	return 0;
+}
+
+int FactionRecordDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionRecordDBProto_s::write_to_pbmsg(::proto_ff::FactionRecordDBProto & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_time((uint64_t)time);
+	msg.set_op((int32_t)op);
+	msg.set_param1((int64_t)param1);
+}
+
+void FactionRecordDBProto_s::read_from_pbmsg(const ::proto_ff::FactionRecordDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionRecordDBProto_s));
+	cid = msg.cid();
+	time = msg.time();
+	op = msg.op();
+	param1 = msg.param1();
+}
+
+FactionMutRecordDBProto_s::FactionMutRecordDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionMutRecordDBProto_s::CreateInit() {
+	return 0;
+}
+
+int FactionMutRecordDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionMutRecordDBProto_s::write_to_pbmsg(::proto_ff::FactionMutRecordDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)record_lst.size(); ++i) {
+		::proto_ff::FactionRecordDBProto* temp_record_lst = msg.add_record_lst();
+		record_lst[i].write_to_pbmsg(*temp_record_lst);
+	}
+}
+
+void FactionMutRecordDBProto_s::read_from_pbmsg(const ::proto_ff::FactionMutRecordDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionMutRecordDBProto_s));
+	record_lst.resize(msg.record_lst_size());
+	for(int32_t i = 0; i < (int32_t)record_lst.size(); ++i) {
+		const ::proto_ff::FactionRecordDBProto & temp_record_lst = msg.record_lst(i);
+		record_lst[i].read_from_pbmsg(temp_record_lst);
+	}
+}
+
+FactionDBBase_s::FactionDBBase_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionDBBase_s::CreateInit() {
+	faction_id = (uint32_t)0;
+	leader_id = (uint64_t)0;
+	fight = (uint64_t)0;
+	last_notice_time = (uint64_t)0;
+	level = (uint32_t)0;
+	exp = (uint64_t)0;
+	create_time = (uint64_t)0;
+	proxy_id = (uint64_t)0;
+	proxy_time = (uint64_t)0;
+	grade = (int32_t)0;
+	return 0;
+}
+
+int FactionDBBase_s::ResumeInit() {
+	return 0;
+}
+
+void FactionDBBase_s::write_to_pbmsg(::proto_ff::FactionDBBase & msg) const {
+	msg.set_faction_id((uint32_t)faction_id);
+	msg.set_leader_id((uint64_t)leader_id);
+	msg.set_fight((uint64_t)fight);
+	msg.set_last_notice_time((uint64_t)last_notice_time);
+	msg.set_level((uint32_t)level);
+	msg.set_exp((uint64_t)exp);
+	msg.set_create_time((uint64_t)create_time);
+	msg.set_proxy_id((uint64_t)proxy_id);
+	msg.set_proxy_time((uint64_t)proxy_time);
+	msg.set_grade((int32_t)grade);
+	::proto_ff::FactionMultMemDBProto* temp_member = msg.mutable_member();
+	member.write_to_pbmsg(*temp_member);
+	::proto_ff::FactionMultApplyDBProto* temp_apply = msg.mutable_apply();
+	apply.write_to_pbmsg(*temp_apply);
+	::proto_ff::FactionMutRecordDBProto* temp_record = msg.mutable_record();
+	record.write_to_pbmsg(*temp_record);
+}
+
+void FactionDBBase_s::read_from_pbmsg(const ::proto_ff::FactionDBBase & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDBBase_s));
+	faction_id = msg.faction_id();
+	name = msg.name();
+	leader_id = msg.leader_id();
+	fight = msg.fight();
+	notice = msg.notice();
+	last_notice_time = msg.last_notice_time();
+	level = msg.level();
+	exp = msg.exp();
+	create_time = msg.create_time();
+	proxy_id = msg.proxy_id();
+	proxy_time = msg.proxy_time();
+	grade = msg.grade();
+	const ::proto_ff::FactionMultMemDBProto & temp_member = msg.member();
+	member.read_from_pbmsg(temp_member);
+	const ::proto_ff::FactionMultApplyDBProto & temp_apply = msg.apply();
+	apply.read_from_pbmsg(temp_apply);
+	const ::proto_ff::FactionMutRecordDBProto & temp_record = msg.record();
+	record.read_from_pbmsg(temp_record);
+}
+
+FactionDBData_s::FactionDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionDBData_s::CreateInit() {
+	return 0;
+}
+
+int FactionDBData_s::ResumeInit() {
+	return 0;
+}
+
+void FactionDBData_s::write_to_pbmsg(::proto_ff::FactionDBData & msg) const {
+}
+
+void FactionDBData_s::read_from_pbmsg(const ::proto_ff::FactionDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDBData_s));
+}
+
+FactionAllDBData_s::FactionAllDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionAllDBData_s::CreateInit() {
+	faction_id = (uint32_t)0;
+	return 0;
+}
+
+int FactionAllDBData_s::ResumeInit() {
+	return 0;
+}
+
+void FactionAllDBData_s::write_to_pbmsg(::proto_ff::FactionAllDBData & msg) const {
+	msg.set_faction_id((uint32_t)faction_id);
+	::proto_ff::FactionDBBase* temp_base = msg.mutable_base();
+	base.write_to_pbmsg(*temp_base);
+	::proto_ff::FactionDBData* temp_data = msg.mutable_data();
+	data.write_to_pbmsg(*temp_data);
+}
+
+void FactionAllDBData_s::read_from_pbmsg(const ::proto_ff::FactionAllDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionAllDBData_s));
+	faction_id = msg.faction_id();
+	const ::proto_ff::FactionDBBase & temp_base = msg.base();
+	base.read_from_pbmsg(temp_base);
+	const ::proto_ff::FactionDBData & temp_data = msg.data();
+	data.read_from_pbmsg(temp_data);
 }
 
 RoleListDBReq_s::RoleListDBReq_s() {
@@ -1489,7 +2544,7 @@ void RoleListDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleListDBRsp & msg) {
 	reqid = msg.reqid();
 	uid = msg.uid();
 	gateid = msg.gateid();
-	role_lst.resize((int)msg.role_lst_size() > (int)role_lst.max_size() ? role_lst.max_size() : msg.role_lst_size());
+	role_lst.resize(msg.role_lst_size());
 	for(int32_t i = 0; i < (int32_t)role_lst.size(); ++i) {
 		const ::proto_ff::RoleListDBProto & temp_role_lst = msg.role_lst(i);
 		role_lst[i].read_from_pbmsg(temp_role_lst);
@@ -1807,7 +2862,7 @@ void RoleSimpleListDBRsp_s::write_to_pbmsg(::proto_ff::RoleSimpleListDBRsp & msg
 void RoleSimpleListDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleSimpleListDBRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleSimpleListDBRsp_s));
 	ret = msg.ret();
-	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	info.resize(msg.info_size());
 	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::CenterRoleProto & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
@@ -1896,7 +2951,7 @@ void NewMailDBInfo_s::write_to_pbmsg(::proto_ff::NewMailDBInfo & msg) const {
 
 void NewMailDBInfo_s::read_from_pbmsg(const ::proto_ff::NewMailDBInfo & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct NewMailDBInfo_s));
-	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	data.resize(msg.data_size());
 	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::MailInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
@@ -1930,7 +2985,7 @@ void MailDBOperateInfo_s::write_to_pbmsg(::proto_ff::MailDBOperateInfo & msg) co
 
 void MailDBOperateInfo_s::read_from_pbmsg(const ::proto_ff::MailDBOperateInfo & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct MailDBOperateInfo_s));
-	mid_lst.resize((int)msg.mid_lst_size() > (int)mid_lst.max_size() ? mid_lst.max_size() : msg.mid_lst_size());
+	mid_lst.resize(msg.mid_lst_size());
 	for(int32_t i = 0; i < (int32_t)mid_lst.size(); ++i) {
 		mid_lst[i] = msg.mid_lst(i);
 	}
@@ -2096,7 +3151,7 @@ void CharacterMailDBResponse_s::write_to_pbmsg(::proto_ff::CharacterMailDBRespon
 void CharacterMailDBResponse_s::read_from_pbmsg(const ::proto_ff::CharacterMailDBResponse & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CharacterMailDBResponse_s));
 	charID = msg.charid();
-	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	info.resize(msg.info_size());
 	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::MailInfo & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
@@ -2267,7 +3322,7 @@ void ZoneMailTransCharacterMailRsp_s::write_to_pbmsg(::proto_ff::ZoneMailTransCh
 void ZoneMailTransCharacterMailRsp_s::read_from_pbmsg(const ::proto_ff::ZoneMailTransCharacterMailRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ZoneMailTransCharacterMailRsp_s));
 	cid = msg.cid();
-	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	data.resize(msg.data_size());
 	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
 		const ::proto_ff::MailInfo & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
@@ -2311,7 +3366,7 @@ void WebMailDBDataReq_s::read_from_pbmsg(const ::proto_ff::WebMailDBDataReq & ms
 	cid = msg.cid();
 	pernum = msg.pernum();
 	curpage = msg.curpage();
-	id_lst.resize((int)msg.id_lst_size() > (int)id_lst.max_size() ? id_lst.max_size() : msg.id_lst_size());
+	id_lst.resize(msg.id_lst_size());
 	for(int32_t i = 0; i < (int32_t)id_lst.size(); ++i) {
 		id_lst[i] = msg.id_lst(i);
 	}
@@ -2359,11 +3414,11 @@ void WebMailDBDataRsp_s::read_from_pbmsg(const ::proto_ff::WebMailDBDataRsp & ms
 	cid = msg.cid();
 	curpage = msg.curpage();
 	totalcount = msg.totalcount();
-	id_lst.resize((int)msg.id_lst_size() > (int)id_lst.max_size() ? id_lst.max_size() : msg.id_lst_size());
+	id_lst.resize(msg.id_lst_size());
 	for(int32_t i = 0; i < (int32_t)id_lst.size(); ++i) {
 		id_lst[i] = msg.id_lst(i);
 	}
-	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	info_lst.resize(msg.info_lst_size());
 	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::WebMailDataProto & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
@@ -2426,14 +3481,13 @@ void FriendDBRequest_s::write_to_pbmsg(::proto_ff::FriendDBRequest & msg) const 
 		msg.add_dstid_lst((uint64_t)dstid_lst[i]);
 	}
 	msg.set_operate_type((uint32_t)operate_type);
-	msg.set_data(data.data());
 	msg.set_query_times((uint32_t)query_times);
 }
 
 void FriendDBRequest_s::read_from_pbmsg(const ::proto_ff::FriendDBRequest & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FriendDBRequest_s));
 	charid = msg.charid();
-	dstid_lst.resize((int)msg.dstid_lst_size() > (int)dstid_lst.max_size() ? dstid_lst.max_size() : msg.dstid_lst_size());
+	dstid_lst.resize(msg.dstid_lst_size());
 	for(int32_t i = 0; i < (int32_t)dstid_lst.size(); ++i) {
 		dstid_lst[i] = msg.dstid_lst(i);
 	}
@@ -2473,7 +3527,6 @@ void FriendDBResponse_s::write_to_pbmsg(::proto_ff::FriendDBResponse & msg) cons
 	for(int32_t i = 0; i < (int32_t)last_lst.size(); ++i) {
 		msg.add_last_lst((uint64_t)last_lst[i]);
 	}
-	msg.set_data(data.data());
 	msg.set_query_times((uint32_t)query_times);
 }
 
@@ -2482,12 +3535,12 @@ void FriendDBResponse_s::read_from_pbmsg(const ::proto_ff::FriendDBResponse & ms
 	retcode = msg.retcode();
 	charid = msg.charid();
 	operate_type = msg.operate_type();
-	info_lst.resize((int)msg.info_lst_size() > (int)info_lst.max_size() ? info_lst.max_size() : msg.info_lst_size());
+	info_lst.resize(msg.info_lst_size());
 	for(int32_t i = 0; i < (int32_t)info_lst.size(); ++i) {
 		const ::proto_ff::FriendDBInfo & temp_info_lst = msg.info_lst(i);
 		info_lst[i].read_from_pbmsg(temp_info_lst);
 	}
-	last_lst.resize((int)msg.last_lst_size() > (int)last_lst.max_size() ? last_lst.max_size() : msg.last_lst_size());
+	last_lst.resize(msg.last_lst_size());
 	for(int32_t i = 0; i < (int32_t)last_lst.size(); ++i) {
 		last_lst[i] = msg.last_lst(i);
 	}
@@ -2552,7 +3605,7 @@ void AllFriendDBResponse_s::read_from_pbmsg(const ::proto_ff::AllFriendDBRespons
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct AllFriendDBResponse_s));
 	retcode = msg.retcode();
 	offset = msg.offset();
-	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	info.resize(msg.info_size());
 	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::FriendDBInfo & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
@@ -2584,7 +3637,7 @@ void SaveFriendDBRequest_s::write_to_pbmsg(::proto_ff::SaveFriendDBRequest & msg
 
 void SaveFriendDBRequest_s::read_from_pbmsg(const ::proto_ff::SaveFriendDBRequest & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SaveFriendDBRequest_s));
-	info.resize((int)msg.info_size() > (int)info.max_size() ? info.max_size() : msg.info_size());
+	info.resize(msg.info_size());
 	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
 		const ::proto_ff::FriendDBInfo & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
@@ -2694,7 +3747,7 @@ void GlobalDBResponse_s::write_to_pbmsg(::proto_ff::GlobalDBResponse & msg) cons
 
 void GlobalDBResponse_s::read_from_pbmsg(const ::proto_ff::GlobalDBResponse & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GlobalDBResponse_s));
-	entry.resize((int)msg.entry_size() > (int)entry.max_size() ? entry.max_size() : msg.entry_size());
+	entry.resize(msg.entry_size());
 	for(int32_t i = 0; i < (int32_t)entry.size(); ++i) {
 		const ::proto_ff::GlobalDBEntry & temp_entry = msg.entry(i);
 		entry[i].read_from_pbmsg(temp_entry);
@@ -2783,7 +3836,7 @@ void GlobalComData_s::write_to_pbmsg(::proto_ff::GlobalComData & msg) const {
 
 void GlobalComData_s::read_from_pbmsg(const ::proto_ff::GlobalComData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GlobalComData_s));
-	towerDupReward.resize((int)msg.towerdupreward_size() > (int)towerDupReward.max_size() ? towerDupReward.max_size() : msg.towerdupreward_size());
+	towerDupReward.resize(msg.towerdupreward_size());
 	for(int32_t i = 0; i < (int32_t)towerDupReward.size(); ++i) {
 		const ::proto_ff::DupTowerDBRecord & temp_towerdupreward = msg.towerdupreward(i);
 		towerDupReward[i].read_from_pbmsg(temp_towerdupreward);
@@ -2870,7 +3923,7 @@ void ActDBRsp_s::write_to_pbmsg(::proto_ff::ActDBRsp & msg) const {
 
 void ActDBRsp_s::read_from_pbmsg(const ::proto_ff::ActDBRsp & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ActDBRsp_s));
-	lst.resize((int)msg.lst_size() > (int)lst.max_size() ? lst.max_size() : msg.lst_size());
+	lst.resize(msg.lst_size());
 	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
 		const ::proto_ff::ActDBProto & temp_lst = msg.lst(i);
 		lst[i].read_from_pbmsg(temp_lst);
@@ -2902,11 +3955,392 @@ void ActSaveDBReq_s::write_to_pbmsg(::proto_ff::ActSaveDBReq & msg) const {
 
 void ActSaveDBReq_s::read_from_pbmsg(const ::proto_ff::ActSaveDBReq & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ActSaveDBReq_s));
-	lst.resize((int)msg.lst_size() > (int)lst.max_size() ? lst.max_size() : msg.lst_size());
+	lst.resize(msg.lst_size());
 	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
 		const ::proto_ff::ActDBProto & temp_lst = msg.lst(i);
 		lst[i].read_from_pbmsg(temp_lst);
 	}
+}
+
+AllArenaDBRequest_s::AllArenaDBRequest_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int AllArenaDBRequest_s::CreateInit() {
+	offset = (int32_t)0;
+	retnum = (int32_t)0;
+	return 0;
+}
+
+int AllArenaDBRequest_s::ResumeInit() {
+	return 0;
+}
+
+void AllArenaDBRequest_s::write_to_pbmsg(::proto_ff::AllArenaDBRequest & msg) const {
+	msg.set_offset((int32_t)offset);
+	msg.set_retnum((int32_t)retnum);
+}
+
+void AllArenaDBRequest_s::read_from_pbmsg(const ::proto_ff::AllArenaDBRequest & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct AllArenaDBRequest_s));
+	offset = msg.offset();
+	retnum = msg.retnum();
+}
+
+ArenaDBInfo_s::ArenaDBInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ArenaDBInfo_s::CreateInit() {
+	charID = (uint64_t)0;
+	rankId = (uint32_t)0;
+	return 0;
+}
+
+int ArenaDBInfo_s::ResumeInit() {
+	return 0;
+}
+
+void ArenaDBInfo_s::write_to_pbmsg(::proto_ff::ArenaDBInfo & msg) const {
+	msg.set_charid((uint64_t)charID);
+	msg.set_rankid((uint32_t)rankId);
+}
+
+void ArenaDBInfo_s::read_from_pbmsg(const ::proto_ff::ArenaDBInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ArenaDBInfo_s));
+	charID = msg.charid();
+	rankId = msg.rankid();
+}
+
+ArenaMoreDBInfo_s::ArenaMoreDBInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ArenaMoreDBInfo_s::CreateInit() {
+	day = (uint32_t)0;
+	giveReward = (uint32_t)0;
+	max_rank = (uint32_t)0;
+	return 0;
+}
+
+int ArenaMoreDBInfo_s::ResumeInit() {
+	return 0;
+}
+
+void ArenaMoreDBInfo_s::write_to_pbmsg(::proto_ff::ArenaMoreDBInfo & msg) const {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		::proto_ff::ArenaDBInfo* temp_info = msg.add_info();
+		info[i].write_to_pbmsg(*temp_info);
+	}
+	msg.set_day((uint32_t)day);
+	msg.set_givereward((uint32_t)giveReward);
+	msg.set_max_rank((uint32_t)max_rank);
+}
+
+void ArenaMoreDBInfo_s::read_from_pbmsg(const ::proto_ff::ArenaMoreDBInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ArenaMoreDBInfo_s));
+	info.resize(msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		const ::proto_ff::ArenaDBInfo & temp_info = msg.info(i);
+		info[i].read_from_pbmsg(temp_info);
+	}
+	day = msg.day();
+	giveReward = msg.givereward();
+	max_rank = msg.max_rank();
+}
+
+AllArenaDBResponse_s::AllArenaDBResponse_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int AllArenaDBResponse_s::CreateInit() {
+	retcode = (int32_t)0;
+	offset = (int32_t)0;
+	return 0;
+}
+
+int AllArenaDBResponse_s::ResumeInit() {
+	return 0;
+}
+
+void AllArenaDBResponse_s::write_to_pbmsg(::proto_ff::AllArenaDBResponse & msg) const {
+	msg.set_retcode((int32_t)retcode);
+	msg.set_offset((int32_t)offset);
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		::proto_ff::ArenaDBInfo* temp_info = msg.add_info();
+		info[i].write_to_pbmsg(*temp_info);
+	}
+}
+
+void AllArenaDBResponse_s::read_from_pbmsg(const ::proto_ff::AllArenaDBResponse & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct AllArenaDBResponse_s));
+	retcode = msg.retcode();
+	offset = msg.offset();
+	info.resize(msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		const ::proto_ff::ArenaDBInfo & temp_info = msg.info(i);
+		info[i].read_from_pbmsg(temp_info);
+	}
+}
+
+SaveArenaDBRequest_s::SaveArenaDBRequest_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SaveArenaDBRequest_s::CreateInit() {
+	return 0;
+}
+
+int SaveArenaDBRequest_s::ResumeInit() {
+	return 0;
+}
+
+void SaveArenaDBRequest_s::write_to_pbmsg(::proto_ff::SaveArenaDBRequest & msg) const {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		::proto_ff::ArenaDBInfo* temp_info = msg.add_info();
+		info[i].write_to_pbmsg(*temp_info);
+	}
+}
+
+void SaveArenaDBRequest_s::read_from_pbmsg(const ::proto_ff::SaveArenaDBRequest & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct SaveArenaDBRequest_s));
+	info.resize(msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		const ::proto_ff::ArenaDBInfo & temp_info = msg.info(i);
+		info[i].read_from_pbmsg(temp_info);
+	}
+}
+
+DeleteArenaDBRequest_s::DeleteArenaDBRequest_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DeleteArenaDBRequest_s::CreateInit() {
+	charId = (uint64_t)0;
+	return 0;
+}
+
+int DeleteArenaDBRequest_s::ResumeInit() {
+	return 0;
+}
+
+void DeleteArenaDBRequest_s::write_to_pbmsg(::proto_ff::DeleteArenaDBRequest & msg) const {
+	msg.set_charid((uint64_t)charId);
+}
+
+void DeleteArenaDBRequest_s::read_from_pbmsg(const ::proto_ff::DeleteArenaDBRequest & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct DeleteArenaDBRequest_s));
+	charId = msg.charid();
+}
+
+RoleMirrorDBReq_s::RoleMirrorDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleMirrorDBReq_s::CreateInit() {
+	cid = (uint64_t)0;
+	int_param = (int64_t)0;
+	reqtype = (uint32_t)0;
+	return 0;
+}
+
+int RoleMirrorDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void RoleMirrorDBReq_s::write_to_pbmsg(::proto_ff::RoleMirrorDBReq & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_int_param((int64_t)int_param);
+	msg.set_str_param((const char*)str_param.data());
+	msg.set_reqtype((uint32_t)reqtype);
+}
+
+void RoleMirrorDBReq_s::read_from_pbmsg(const ::proto_ff::RoleMirrorDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleMirrorDBReq_s));
+	cid = msg.cid();
+	int_param = msg.int_param();
+	str_param = msg.str_param();
+	reqtype = msg.reqtype();
+}
+
+RoleMirrorDBRsp_s::RoleMirrorDBRsp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleMirrorDBRsp_s::CreateInit() {
+	ret = (int32_t)0;
+	cid = (uint64_t)0;
+	int_param = (int64_t)0;
+	reqtype = (uint32_t)0;
+	return 0;
+}
+
+int RoleMirrorDBRsp_s::ResumeInit() {
+	return 0;
+}
+
+void RoleMirrorDBRsp_s::write_to_pbmsg(::proto_ff::RoleMirrorDBRsp & msg) const {
+	msg.set_ret((int32_t)ret);
+	msg.set_cid((uint64_t)cid);
+	msg.set_int_param((int64_t)int_param);
+	msg.set_str_param((const char*)str_param.data());
+	msg.set_reqtype((uint32_t)reqtype);
+	::proto_ff::RoleMirrorData* temp_data = msg.mutable_data();
+	data.write_to_pbmsg(*temp_data);
+}
+
+void RoleMirrorDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleMirrorDBRsp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleMirrorDBRsp_s));
+	ret = msg.ret();
+	cid = msg.cid();
+	int_param = msg.int_param();
+	str_param = msg.str_param();
+	reqtype = msg.reqtype();
+	const ::proto_ff::RoleMirrorData & temp_data = msg.data();
+	data.read_from_pbmsg(temp_data);
+}
+
+FactionDataDBReq_s::FactionDataDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionDataDBReq_s::CreateInit() {
+	return 0;
+}
+
+int FactionDataDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void FactionDataDBReq_s::write_to_pbmsg(::proto_ff::FactionDataDBReq & msg) const {
+}
+
+void FactionDataDBReq_s::read_from_pbmsg(const ::proto_ff::FactionDataDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDataDBReq_s));
+}
+
+FactionDataDBRsp_s::FactionDataDBRsp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionDataDBRsp_s::CreateInit() {
+	finish = (int32_t)0;
+	return 0;
+}
+
+int FactionDataDBRsp_s::ResumeInit() {
+	return 0;
+}
+
+void FactionDataDBRsp_s::write_to_pbmsg(::proto_ff::FactionDataDBRsp & msg) const {
+	for(int32_t i = 0; i < (int32_t)data_lst.size(); ++i) {
+		::proto_ff::FactionAllDBData* temp_data_lst = msg.add_data_lst();
+		data_lst[i].write_to_pbmsg(*temp_data_lst);
+	}
+	msg.set_finish((int32_t)finish);
+}
+
+void FactionDataDBRsp_s::read_from_pbmsg(const ::proto_ff::FactionDataDBRsp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDataDBRsp_s));
+	data_lst.resize(msg.data_lst_size());
+	for(int32_t i = 0; i < (int32_t)data_lst.size(); ++i) {
+		const ::proto_ff::FactionAllDBData & temp_data_lst = msg.data_lst(i);
+		data_lst[i].read_from_pbmsg(temp_data_lst);
+	}
+	finish = msg.finish();
+}
+
+FactionSaveDBReq_s::FactionSaveDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionSaveDBReq_s::CreateInit() {
+	return 0;
+}
+
+int FactionSaveDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void FactionSaveDBReq_s::write_to_pbmsg(::proto_ff::FactionSaveDBReq & msg) const {
+	::proto_ff::FactionAllDBData* temp_data = msg.mutable_data();
+	data.write_to_pbmsg(*temp_data);
+}
+
+void FactionSaveDBReq_s::read_from_pbmsg(const ::proto_ff::FactionSaveDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionSaveDBReq_s));
+	const ::proto_ff::FactionAllDBData & temp_data = msg.data();
+	data.read_from_pbmsg(temp_data);
+}
+
+FactionDelDBReq_s::FactionDelDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionDelDBReq_s::CreateInit() {
+	faction_id = (uint32_t)0;
+	return 0;
+}
+
+int FactionDelDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void FactionDelDBReq_s::write_to_pbmsg(::proto_ff::FactionDelDBReq & msg) const {
+	msg.set_faction_id((uint32_t)faction_id);
+}
+
+void FactionDelDBReq_s::read_from_pbmsg(const ::proto_ff::FactionDelDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDelDBReq_s));
+	faction_id = msg.faction_id();
 }
 
 }

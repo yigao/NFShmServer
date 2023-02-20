@@ -38,6 +38,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* BroadChgName_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BroadChgName_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BroadFactionInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BroadFactionInfo_reflection_ = NULL;
 
 }  // namespace
 
@@ -73,7 +76,7 @@ void protobuf_AssignDesc_View_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, curstate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, facade_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, guild_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, faction_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, zid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, titlename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Player, bufflst_),
@@ -91,7 +94,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreatureCreateData_Player));
   CreatureCreateData_Monster_descriptor_ = CreatureCreateData_descriptor_->nested_type(1);
-  static const int CreatureCreateData_Monster_offsets_[15] = {
+  static const int CreatureCreateData_Monster_offsets_[16] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, cfgid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, attr_),
@@ -107,6 +110,7 @@ void protobuf_AssignDesc_View_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, ownercid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, ownername_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, bufflst_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, instid_),
   };
   CreatureCreateData_Monster_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -174,6 +178,23 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadChgName));
+  BroadFactionInfo_descriptor_ = file->message_type(3);
+  static const int BroadFactionInfo_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, faction_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, name_),
+  };
+  BroadFactionInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BroadFactionInfo_descriptor_,
+      BroadFactionInfo::default_instance_,
+      BroadFactionInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BroadFactionInfo));
 }
 
 namespace {
@@ -198,6 +219,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     CreatureDestoryData_descriptor_, &CreatureDestoryData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BroadChgName_descriptor_, &BroadChgName::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BroadFactionInfo_descriptor_, &BroadFactionInfo::default_instance());
 }
 
 }  // namespace
@@ -215,6 +238,8 @@ void protobuf_ShutdownFile_View_2eproto() {
   delete CreatureDestoryData_reflection_;
   delete BroadChgName::default_instance_;
   delete BroadChgName_reflection_;
+  delete BroadFactionInfo::default_instance_;
+  delete BroadFactionInfo_reflection_;
 }
 
 void protobuf_AddDesc_View_2eproto() {
@@ -228,35 +253,37 @@ void protobuf_AddDesc_View_2eproto() {
   ::proto_ff::protobuf_AddDesc_Com_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nView.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\032\022common_logic.proto\032\tCom.proto\"\205\010\n"
+    "proto\032\022common_logic.proto\032\tCom.proto\"\227\010\n"
     "\022CreatureCreateData\0224\n\007players\030\001 \003(\0132#.p"
     "roto_ff.CreatureCreateData.Player\0226\n\010mon"
     "sters\030\002 \003(\0132$.proto_ff.CreatureCreateDat"
     "a.Monster\0220\n\005drops\030\003 \003(\0132!.proto_ff.Crea"
-    "tureCreateData.Drop\032\216\002\n\006Player\022\013\n\003cid\030\001 "
+    "tureCreateData.Drop\032\220\002\n\006Player\022\013\n\003cid\030\001 "
     "\002(\004\022\014\n\004name\030\002 \002(\014\022\036\n\004attr\030\003 \003(\0132\020.proto_"
     "ff.Attr64\022 \n\003pos\030\004 \002(\0132\023.proto_ff.Vector"
     "3PB\022\020\n\010curstate\030\005 \002(\r\022)\n\006facade\030\006 \001(\0132\031."
-    "proto_ff.RoleFacadeProto\022\022\n\nguild_name\030\007"
-    " \001(\014\022\013\n\003zid\030\010 \001(\r\022\021\n\ttitleName\030\t \001(\014\022(\n\007"
-    "bufflst\030\n \001(\0132\027.proto_ff.BuffListProto\022\014"
-    "\n\004head\030\013 \001(\005\032\334\002\n\007Monster\022\013\n\003cid\030\001 \002(\004\022\r\n"
-    "\005cfgid\030\002 \002(\004\022\036\n\004attr\030\003 \003(\0132\020.proto_ff.At"
-    "tr64\022 \n\003pos\030\004 \002(\0132\023.proto_ff.Vector3PB\022\020"
-    "\n\010curstate\030\005 \002(\r\022\023\n\013isNewCreate\030\006 \001(\010\022\021\n"
-    "\tfunc_type\030\007 \001(\r\022 \n\003dir\030\010 \002(\0132\023.proto_ff"
-    ".Vector2PB\022\025\n\rleft_live_sec\030\t \001(\005\022\020\n\010gui"
-    "ld_id\030\n \001(\003\022\022\n\nguild_name\030\013 \001(\014\022\013\n\003zid\030\014"
-    " \001(\r\022\020\n\010ownercid\030\r \001(\004\022\021\n\townername\030\016 \001("
-    "\014\022(\n\007bufflst\030\017 \001(\0132\027.proto_ff.BuffListPr"
-    "oto\032\336\001\n\004Drop\022\013\n\003cid\030\001 \002(\004\022 \n\003pos\030\002 \002(\0132\023"
-    ".proto_ff.Vector3PB\022\014\n\004type\030\003 \002(\005\022\r\n\005val"
-    "ue\030\004 \003(\004\022\020\n\010dropTime\030\005 \002(\004\022%\n\004item\030\006 \001(\013"
-    "2\027.proto_ff.ItemProtoInfo\022\020\n\010currency\030\007 "
-    "\001(\r\022\024\n\014init_protect\030\010 \001(\r\022\022\n\npick_level\030"
-    "\t \001(\005\022\025\n\rcurrency_type\030\n \001(\005\"#\n\023Creature"
-    "DestoryData\022\014\n\004cids\030\001 \003(\004\")\n\014BroadChgNam"
-    "e\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\014", 1188);
+    "proto_ff.RoleFacadeProto\022\024\n\014faction_name"
+    "\030\007 \001(\014\022\013\n\003zid\030\010 \001(\r\022\021\n\ttitleName\030\t \001(\014\022("
+    "\n\007bufflst\030\n \001(\0132\027.proto_ff.BuffListProto"
+    "\022\014\n\004head\030\013 \001(\005\032\354\002\n\007Monster\022\013\n\003cid\030\001 \002(\004\022"
+    "\r\n\005cfgid\030\002 \002(\004\022\036\n\004attr\030\003 \003(\0132\020.proto_ff."
+    "Attr64\022 \n\003pos\030\004 \002(\0132\023.proto_ff.Vector3PB"
+    "\022\020\n\010curstate\030\005 \002(\r\022\023\n\013isNewCreate\030\006 \001(\010\022"
+    "\021\n\tfunc_type\030\007 \001(\r\022 \n\003dir\030\010 \002(\0132\023.proto_"
+    "ff.Vector2PB\022\025\n\rleft_live_sec\030\t \001(\005\022\020\n\010g"
+    "uild_id\030\n \001(\003\022\022\n\nguild_name\030\013 \001(\014\022\013\n\003zid"
+    "\030\014 \001(\r\022\020\n\010ownercid\030\r \001(\004\022\021\n\townername\030\016 "
+    "\001(\014\022(\n\007bufflst\030\017 \001(\0132\027.proto_ff.BuffList"
+    "Proto\022\016\n\006instid\030\020 \001(\005\032\336\001\n\004Drop\022\013\n\003cid\030\001 "
+    "\002(\004\022 \n\003pos\030\002 \002(\0132\023.proto_ff.Vector3PB\022\014\n"
+    "\004type\030\003 \002(\005\022\r\n\005value\030\004 \003(\004\022\020\n\010dropTime\030\005"
+    " \002(\004\022%\n\004item\030\006 \001(\0132\027.proto_ff.ItemProtoI"
+    "nfo\022\020\n\010currency\030\007 \001(\r\022\024\n\014init_protect\030\010 "
+    "\001(\r\022\022\n\npick_level\030\t \001(\005\022\025\n\rcurrency_type"
+    "\030\n \001(\005\"#\n\023CreatureDestoryData\022\014\n\004cids\030\001 "
+    "\003(\004\")\n\014BroadChgName\022\013\n\003cid\030\001 \002(\004\022\014\n\004name"
+    "\030\002 \002(\014\"A\n\020BroadFactionInfo\022\013\n\003cid\030\001 \002(\004\022"
+    "\022\n\nfaction_id\030\002 \002(\r\022\014\n\004name\030\003 \002(\014", 1273);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "View.proto", &protobuf_RegisterTypes);
   CreatureCreateData::default_instance_ = new CreatureCreateData();
@@ -265,12 +292,14 @@ void protobuf_AddDesc_View_2eproto() {
   CreatureCreateData_Drop::default_instance_ = new CreatureCreateData_Drop();
   CreatureDestoryData::default_instance_ = new CreatureDestoryData();
   BroadChgName::default_instance_ = new BroadChgName();
+  BroadFactionInfo::default_instance_ = new BroadFactionInfo();
   CreatureCreateData::default_instance_->InitAsDefaultInstance();
   CreatureCreateData_Player::default_instance_->InitAsDefaultInstance();
   CreatureCreateData_Monster::default_instance_->InitAsDefaultInstance();
   CreatureCreateData_Drop::default_instance_->InitAsDefaultInstance();
   CreatureDestoryData::default_instance_->InitAsDefaultInstance();
   BroadChgName::default_instance_->InitAsDefaultInstance();
+  BroadFactionInfo::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_View_2eproto);
 }
 
@@ -290,7 +319,7 @@ const int CreatureCreateData_Player::kAttrFieldNumber;
 const int CreatureCreateData_Player::kPosFieldNumber;
 const int CreatureCreateData_Player::kCurstateFieldNumber;
 const int CreatureCreateData_Player::kFacadeFieldNumber;
-const int CreatureCreateData_Player::kGuildNameFieldNumber;
+const int CreatureCreateData_Player::kFactionNameFieldNumber;
 const int CreatureCreateData_Player::kZidFieldNumber;
 const int CreatureCreateData_Player::kTitleNameFieldNumber;
 const int CreatureCreateData_Player::kBufflstFieldNumber;
@@ -321,7 +350,7 @@ void CreatureCreateData_Player::SharedCtor() {
   pos_ = NULL;
   curstate_ = 0u;
   facade_ = NULL;
-  guild_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  faction_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   zid_ = 0u;
   titlename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   bufflst_ = NULL;
@@ -337,8 +366,8 @@ void CreatureCreateData_Player::SharedDtor() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
     delete name_;
   }
-  if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete guild_name_;
+  if (faction_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete faction_name_;
   }
   if (titlename_ != &::google::protobuf::internal::kEmptyString) {
     delete titlename_;
@@ -386,9 +415,9 @@ void CreatureCreateData_Player::Clear() {
     if (has_facade()) {
       if (facade_ != NULL) facade_->::proto_ff::RoleFacadeProto::Clear();
     }
-    if (has_guild_name()) {
-      if (guild_name_ != &::google::protobuf::internal::kEmptyString) {
-        guild_name_->clear();
+    if (has_faction_name()) {
+      if (faction_name_ != &::google::protobuf::internal::kEmptyString) {
+        faction_name_->clear();
       }
     }
     zid_ = 0u;
@@ -499,17 +528,17 @@ bool CreatureCreateData_Player::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_guild_name;
+        if (input->ExpectTag(58)) goto parse_faction_name;
         break;
       }
 
-      // optional bytes guild_name = 7;
+      // optional bytes faction_name = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_guild_name:
+         parse_faction_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_guild_name()));
+                input, this->mutable_faction_name()));
         } else {
           goto handle_uninterpreted;
         }
@@ -629,10 +658,10 @@ void CreatureCreateData_Player::SerializeWithCachedSizes(
       6, this->facade(), output);
   }
 
-  // optional bytes guild_name = 7;
-  if (has_guild_name()) {
+  // optional bytes faction_name = 7;
+  if (has_faction_name()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      7, this->guild_name(), output);
+      7, this->faction_name(), output);
   }
 
   // optional uint32 zid = 8;
@@ -703,11 +732,11 @@ void CreatureCreateData_Player::SerializeWithCachedSizes(
         6, this->facade(), target);
   }
 
-  // optional bytes guild_name = 7;
-  if (has_guild_name()) {
+  // optional bytes faction_name = 7;
+  if (has_faction_name()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        7, this->guild_name(), target);
+        7, this->faction_name(), target);
   }
 
   // optional uint32 zid = 8;
@@ -780,11 +809,11 @@ int CreatureCreateData_Player::ByteSize() const {
           this->facade());
     }
 
-    // optional bytes guild_name = 7;
-    if (has_guild_name()) {
+    // optional bytes faction_name = 7;
+    if (has_faction_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->guild_name());
+          this->faction_name());
     }
 
     // optional uint32 zid = 8;
@@ -868,8 +897,8 @@ void CreatureCreateData_Player::MergeFrom(const CreatureCreateData_Player& from)
     if (from.has_facade()) {
       mutable_facade()->::proto_ff::RoleFacadeProto::MergeFrom(from.facade());
     }
-    if (from.has_guild_name()) {
-      set_guild_name(from.guild_name());
+    if (from.has_faction_name()) {
+      set_faction_name(from.faction_name());
     }
     if (from.has_zid()) {
       set_zid(from.zid());
@@ -927,7 +956,7 @@ void CreatureCreateData_Player::Swap(CreatureCreateData_Player* other) {
     std::swap(pos_, other->pos_);
     std::swap(curstate_, other->curstate_);
     std::swap(facade_, other->facade_);
-    std::swap(guild_name_, other->guild_name_);
+    std::swap(faction_name_, other->faction_name_);
     std::swap(zid_, other->zid_);
     std::swap(titlename_, other->titlename_);
     std::swap(bufflst_, other->bufflst_);
@@ -965,6 +994,7 @@ const int CreatureCreateData_Monster::kZidFieldNumber;
 const int CreatureCreateData_Monster::kOwnercidFieldNumber;
 const int CreatureCreateData_Monster::kOwnernameFieldNumber;
 const int CreatureCreateData_Monster::kBufflstFieldNumber;
+const int CreatureCreateData_Monster::kInstidFieldNumber;
 #endif  // !_MSC_VER
 
 CreatureCreateData_Monster::CreatureCreateData_Monster()
@@ -1000,6 +1030,7 @@ void CreatureCreateData_Monster::SharedCtor() {
   ownercid_ = GOOGLE_ULONGLONG(0);
   ownername_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   bufflst_ = NULL;
+  instid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1074,6 +1105,7 @@ void CreatureCreateData_Monster::Clear() {
     if (has_bufflst()) {
       if (bufflst_ != NULL) bufflst_->::proto_ff::BuffListProto::Clear();
     }
+    instid_ = 0;
   }
   attr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1310,6 +1342,22 @@ bool CreatureCreateData_Monster::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(128)) goto parse_instid;
+        break;
+      }
+
+      // optional int32 instid = 16;
+      case 16: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_instid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &instid_)));
+          set_has_instid();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1413,6 +1461,11 @@ void CreatureCreateData_Monster::SerializeWithCachedSizes(
       15, this->bufflst(), output);
   }
 
+  // optional int32 instid = 16;
+  if (has_instid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->instid(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1506,6 +1559,11 @@ void CreatureCreateData_Monster::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         15, this->bufflst(), target);
+  }
+
+  // optional int32 instid = 16;
+  if (has_instid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->instid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1617,6 +1675,13 @@ int CreatureCreateData_Monster::ByteSize() const {
           this->bufflst());
     }
 
+    // optional int32 instid = 16;
+    if (has_instid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->instid());
+    }
+
   }
   // repeated .proto_ff.Attr64 attr = 3;
   total_size += 1 * this->attr_size();
@@ -1697,6 +1762,9 @@ void CreatureCreateData_Monster::MergeFrom(const CreatureCreateData_Monster& fro
     if (from.has_bufflst()) {
       mutable_bufflst()->::proto_ff::BuffListProto::MergeFrom(from.bufflst());
     }
+    if (from.has_instid()) {
+      set_instid(from.instid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1748,6 +1816,7 @@ void CreatureCreateData_Monster::Swap(CreatureCreateData_Monster* other) {
     std::swap(ownercid_, other->ownercid_);
     std::swap(ownername_, other->ownername_);
     std::swap(bufflst_, other->bufflst_);
+    std::swap(instid_, other->instid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3118,6 +3187,303 @@ void BroadChgName::Swap(BroadChgName* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = BroadChgName_descriptor_;
   metadata.reflection = BroadChgName_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BroadFactionInfo::kCidFieldNumber;
+const int BroadFactionInfo::kFactionIdFieldNumber;
+const int BroadFactionInfo::kNameFieldNumber;
+#endif  // !_MSC_VER
+
+BroadFactionInfo::BroadFactionInfo()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BroadFactionInfo::InitAsDefaultInstance() {
+}
+
+BroadFactionInfo::BroadFactionInfo(const BroadFactionInfo& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BroadFactionInfo::SharedCtor() {
+  _cached_size_ = 0;
+  cid_ = GOOGLE_ULONGLONG(0);
+  faction_id_ = 0u;
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BroadFactionInfo::~BroadFactionInfo() {
+  SharedDtor();
+}
+
+void BroadFactionInfo::SharedDtor() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void BroadFactionInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BroadFactionInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BroadFactionInfo_descriptor_;
+}
+
+const BroadFactionInfo& BroadFactionInfo::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_View_2eproto();
+  return *default_instance_;
+}
+
+BroadFactionInfo* BroadFactionInfo::default_instance_ = NULL;
+
+BroadFactionInfo* BroadFactionInfo::New() const {
+  return new BroadFactionInfo;
+}
+
+void BroadFactionInfo::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cid_ = GOOGLE_ULONGLONG(0);
+    faction_id_ = 0u;
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::kEmptyString) {
+        name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BroadFactionInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 cid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_faction_id;
+        break;
+      }
+
+      // required uint32 faction_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_faction_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &faction_id_)));
+          set_has_faction_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_name;
+        break;
+      }
+
+      // required bytes name = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_name()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BroadFactionInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 cid = 1;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  }
+
+  // required uint32 faction_id = 2;
+  if (has_faction_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->faction_id(), output);
+  }
+
+  // required bytes name = 3;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      3, this->name(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BroadFactionInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 cid = 1;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  }
+
+  // required uint32 faction_id = 2;
+  if (has_faction_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->faction_id(), target);
+  }
+
+  // required bytes name = 3;
+  if (has_name()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BroadFactionInfo::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 cid = 1;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+    // required uint32 faction_id = 2;
+    if (has_faction_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->faction_id());
+    }
+
+    // required bytes name = 3;
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->name());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BroadFactionInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BroadFactionInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BroadFactionInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BroadFactionInfo::MergeFrom(const BroadFactionInfo& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+    if (from.has_faction_id()) {
+      set_faction_id(from.faction_id());
+    }
+    if (from.has_name()) {
+      set_name(from.name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BroadFactionInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BroadFactionInfo::CopyFrom(const BroadFactionInfo& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BroadFactionInfo::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  return true;
+}
+
+void BroadFactionInfo::Swap(BroadFactionInfo* other) {
+  if (other != this) {
+    std::swap(cid_, other->cid_);
+    std::swap(faction_id_, other->faction_id_);
+    std::swap(name_, other->name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BroadFactionInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BroadFactionInfo_descriptor_;
+  metadata.reflection = BroadFactionInfo_reflection_;
   return metadata;
 }
 

@@ -42,6 +42,21 @@ class EquipDressRsp;
 class EquipUnDressReq;
 class EquipUnDressRsp;
 class NotifyEquipInfoRsp;
+class EquipStrongReq;
+class EquipStrongRsp;
+class EquipLvAttrActiveReq;
+class EquipLvAttrActiveRsp;
+class NotifyEquipLvAttrRsp;
+class StoneInlayReq;
+class StoneInlayRsp;
+class StoneLvReq;
+class StoneLvRsp;
+class StoneOpenSlotReq;
+class StoneOpenSlotRsp;
+class EquipStoveInfoReq;
+class EquipStoveInfoRsp;
+class EquipStoveSmeltReq;
+class EquipStoveSmeltRsp;
 
 // ===================================================================
 
@@ -571,6 +586,1428 @@ class NotifyEquipInfoRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static NotifyEquipInfoRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class EquipStrongReq : public ::google::protobuf::Message {
+ public:
+  EquipStrongReq();
+  virtual ~EquipStrongReq();
+
+  EquipStrongReq(const EquipStrongReq& from);
+
+  inline EquipStrongReq& operator=(const EquipStrongReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipStrongReq& default_instance();
+
+  void Swap(EquipStrongReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipStrongReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipStrongReq& from);
+  void MergeFrom(const EquipStrongReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipStrongReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipStrongReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipStrongRsp : public ::google::protobuf::Message {
+ public:
+  EquipStrongRsp();
+  virtual ~EquipStrongRsp();
+
+  EquipStrongRsp(const EquipStrongRsp& from);
+
+  inline EquipStrongRsp& operator=(const EquipStrongRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipStrongRsp& default_instance();
+
+  void Swap(EquipStrongRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipStrongRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipStrongRsp& from);
+  void MergeFrom(const EquipStrongRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipStrongRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipStrongRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipLvAttrActiveReq : public ::google::protobuf::Message {
+ public:
+  EquipLvAttrActiveReq();
+  virtual ~EquipLvAttrActiveReq();
+
+  EquipLvAttrActiveReq(const EquipLvAttrActiveReq& from);
+
+  inline EquipLvAttrActiveReq& operator=(const EquipLvAttrActiveReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipLvAttrActiveReq& default_instance();
+
+  void Swap(EquipLvAttrActiveReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipLvAttrActiveReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipLvAttrActiveReq& from);
+  void MergeFrom(const EquipLvAttrActiveReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipLvAttrActiveReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipLvAttrActiveReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipLvAttrActiveRsp : public ::google::protobuf::Message {
+ public:
+  EquipLvAttrActiveRsp();
+  virtual ~EquipLvAttrActiveRsp();
+
+  EquipLvAttrActiveRsp(const EquipLvAttrActiveRsp& from);
+
+  inline EquipLvAttrActiveRsp& operator=(const EquipLvAttrActiveRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipLvAttrActiveRsp& default_instance();
+
+  void Swap(EquipLvAttrActiveRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipLvAttrActiveRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipLvAttrActiveRsp& from);
+  void MergeFrom(const EquipLvAttrActiveRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 type = 2;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipLvAttrActiveRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipLvAttrActiveRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyEquipLvAttrRsp : public ::google::protobuf::Message {
+ public:
+  NotifyEquipLvAttrRsp();
+  virtual ~NotifyEquipLvAttrRsp();
+
+  NotifyEquipLvAttrRsp(const NotifyEquipLvAttrRsp& from);
+
+  inline NotifyEquipLvAttrRsp& operator=(const NotifyEquipLvAttrRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyEquipLvAttrRsp& default_instance();
+
+  void Swap(NotifyEquipLvAttrRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyEquipLvAttrRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyEquipLvAttrRsp& from);
+  void MergeFrom(const NotifyEquipLvAttrRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.EquipLvAttrInfo lv_attr = 3;
+  inline int lv_attr_size() const;
+  inline void clear_lv_attr();
+  static const int kLvAttrFieldNumber = 3;
+  inline const ::proto_ff::EquipLvAttrInfo& lv_attr(int index) const;
+  inline ::proto_ff::EquipLvAttrInfo* mutable_lv_attr(int index);
+  inline ::proto_ff::EquipLvAttrInfo* add_lv_attr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >&
+      lv_attr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >*
+      mutable_lv_attr();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyEquipLvAttrRsp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo > lv_attr_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyEquipLvAttrRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneInlayReq : public ::google::protobuf::Message {
+ public:
+  StoneInlayReq();
+  virtual ~StoneInlayReq();
+
+  StoneInlayReq(const StoneInlayReq& from);
+
+  inline StoneInlayReq& operator=(const StoneInlayReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneInlayReq& default_instance();
+
+  void Swap(StoneInlayReq* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneInlayReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneInlayReq& from);
+  void MergeFrom(const StoneInlayReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 stone_pos = 2;
+  inline bool has_stone_pos() const;
+  inline void clear_stone_pos();
+  static const int kStonePosFieldNumber = 2;
+  inline ::google::protobuf::int32 stone_pos() const;
+  inline void set_stone_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 3;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 3;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneInlayReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_stone_pos();
+  inline void clear_has_stone_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 stone_pos_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneInlayReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneInlayRsp : public ::google::protobuf::Message {
+ public:
+  StoneInlayRsp();
+  virtual ~StoneInlayRsp();
+
+  StoneInlayRsp(const StoneInlayRsp& from);
+
+  inline StoneInlayRsp& operator=(const StoneInlayRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneInlayRsp& default_instance();
+
+  void Swap(StoneInlayRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneInlayRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneInlayRsp& from);
+  void MergeFrom(const StoneInlayRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 stone_pos = 3;
+  inline bool has_stone_pos() const;
+  inline void clear_stone_pos();
+  static const int kStonePosFieldNumber = 3;
+  inline ::google::protobuf::int32 stone_pos() const;
+  inline void set_stone_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 4;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 4;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneInlayRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_stone_pos();
+  inline void clear_has_stone_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 stone_pos_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneInlayRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneLvReq : public ::google::protobuf::Message {
+ public:
+  StoneLvReq();
+  virtual ~StoneLvReq();
+
+  StoneLvReq(const StoneLvReq& from);
+
+  inline StoneLvReq& operator=(const StoneLvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneLvReq& default_instance();
+
+  void Swap(StoneLvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneLvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneLvReq& from);
+  void MergeFrom(const StoneLvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 stone_pos = 2;
+  inline bool has_stone_pos() const;
+  inline void clear_stone_pos();
+  static const int kStonePosFieldNumber = 2;
+  inline ::google::protobuf::int32 stone_pos() const;
+  inline void set_stone_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneLvReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_stone_pos();
+  inline void clear_has_stone_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 stone_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneLvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneLvRsp : public ::google::protobuf::Message {
+ public:
+  StoneLvRsp();
+  virtual ~StoneLvRsp();
+
+  StoneLvRsp(const StoneLvRsp& from);
+
+  inline StoneLvRsp& operator=(const StoneLvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneLvRsp& default_instance();
+
+  void Swap(StoneLvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneLvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneLvRsp& from);
+  void MergeFrom(const StoneLvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 stone_pos = 3;
+  inline bool has_stone_pos() const;
+  inline void clear_stone_pos();
+  static const int kStonePosFieldNumber = 3;
+  inline ::google::protobuf::int32 stone_pos() const;
+  inline void set_stone_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneLvRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_stone_pos();
+  inline void clear_has_stone_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 stone_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneLvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneOpenSlotReq : public ::google::protobuf::Message {
+ public:
+  StoneOpenSlotReq();
+  virtual ~StoneOpenSlotReq();
+
+  StoneOpenSlotReq(const StoneOpenSlotReq& from);
+
+  inline StoneOpenSlotReq& operator=(const StoneOpenSlotReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneOpenSlotReq& default_instance();
+
+  void Swap(StoneOpenSlotReq* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneOpenSlotReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneOpenSlotReq& from);
+  void MergeFrom(const StoneOpenSlotReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 stone_pos = 2;
+  inline bool has_stone_pos() const;
+  inline void clear_stone_pos();
+  static const int kStonePosFieldNumber = 2;
+  inline ::google::protobuf::int32 stone_pos() const;
+  inline void set_stone_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneOpenSlotReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_stone_pos();
+  inline void clear_has_stone_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 stone_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneOpenSlotReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneOpenSlotRsp : public ::google::protobuf::Message {
+ public:
+  StoneOpenSlotRsp();
+  virtual ~StoneOpenSlotRsp();
+
+  StoneOpenSlotRsp(const StoneOpenSlotRsp& from);
+
+  inline StoneOpenSlotRsp& operator=(const StoneOpenSlotRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneOpenSlotRsp& default_instance();
+
+  void Swap(StoneOpenSlotRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneOpenSlotRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneOpenSlotRsp& from);
+  void MergeFrom(const StoneOpenSlotRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 stone_pos = 3;
+  inline bool has_stone_pos() const;
+  inline void clear_stone_pos();
+  static const int kStonePosFieldNumber = 3;
+  inline ::google::protobuf::int32 stone_pos() const;
+  inline void set_stone_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneOpenSlotRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_stone_pos();
+  inline void clear_has_stone_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 stone_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneOpenSlotRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipStoveInfoReq : public ::google::protobuf::Message {
+ public:
+  EquipStoveInfoReq();
+  virtual ~EquipStoveInfoReq();
+
+  EquipStoveInfoReq(const EquipStoveInfoReq& from);
+
+  inline EquipStoveInfoReq& operator=(const EquipStoveInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipStoveInfoReq& default_instance();
+
+  void Swap(EquipStoveInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipStoveInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipStoveInfoReq& from);
+  void MergeFrom(const EquipStoveInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipStoveInfoReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipStoveInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipStoveInfoRsp : public ::google::protobuf::Message {
+ public:
+  EquipStoveInfoRsp();
+  virtual ~EquipStoveInfoRsp();
+
+  EquipStoveInfoRsp(const EquipStoveInfoRsp& from);
+
+  inline EquipStoveInfoRsp& operator=(const EquipStoveInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipStoveInfoRsp& default_instance();
+
+  void Swap(EquipStoveInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipStoveInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipStoveInfoRsp& from);
+  void MergeFrom(const EquipStoveInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 stove_level = 1;
+  inline bool has_stove_level() const;
+  inline void clear_stove_level();
+  static const int kStoveLevelFieldNumber = 1;
+  inline ::google::protobuf::uint32 stove_level() const;
+  inline void set_stove_level(::google::protobuf::uint32 value);
+
+  // optional uint64 stove_exp = 2;
+  inline bool has_stove_exp() const;
+  inline void clear_stove_exp();
+  static const int kStoveExpFieldNumber = 2;
+  inline ::google::protobuf::uint64 stove_exp() const;
+  inline void set_stove_exp(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.Attr64 attrs = 3;
+  inline int attrs_size() const;
+  inline void clear_attrs();
+  static const int kAttrsFieldNumber = 3;
+  inline const ::proto_ff::Attr64& attrs(int index) const;
+  inline ::proto_ff::Attr64* mutable_attrs(int index);
+  inline ::proto_ff::Attr64* add_attrs();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >&
+      attrs() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >*
+      mutable_attrs();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipStoveInfoRsp)
+ private:
+  inline void set_has_stove_level();
+  inline void clear_has_stove_level();
+  inline void set_has_stove_exp();
+  inline void clear_has_stove_exp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 stove_exp_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 > attrs_;
+  ::google::protobuf::uint32 stove_level_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipStoveInfoRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipStoveSmeltReq : public ::google::protobuf::Message {
+ public:
+  EquipStoveSmeltReq();
+  virtual ~EquipStoveSmeltReq();
+
+  EquipStoveSmeltReq(const EquipStoveSmeltReq& from);
+
+  inline EquipStoveSmeltReq& operator=(const EquipStoveSmeltReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipStoveSmeltReq& default_instance();
+
+  void Swap(EquipStoveSmeltReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipStoveSmeltReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipStoveSmeltReq& from);
+  void MergeFrom(const EquipStoveSmeltReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 gridlist = 1;
+  inline int gridlist_size() const;
+  inline void clear_gridlist();
+  static const int kGridlistFieldNumber = 1;
+  inline ::google::protobuf::uint32 gridlist(int index) const;
+  inline void set_gridlist(int index, ::google::protobuf::uint32 value);
+  inline void add_gridlist(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      gridlist() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_gridlist();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipStoveSmeltReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > gridlist_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipStoveSmeltReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipStoveSmeltRsp : public ::google::protobuf::Message {
+ public:
+  EquipStoveSmeltRsp();
+  virtual ~EquipStoveSmeltRsp();
+
+  EquipStoveSmeltRsp(const EquipStoveSmeltRsp& from);
+
+  inline EquipStoveSmeltRsp& operator=(const EquipStoveSmeltRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipStoveSmeltRsp& default_instance();
+
+  void Swap(EquipStoveSmeltRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipStoveSmeltRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipStoveSmeltRsp& from);
+  void MergeFrom(const EquipStoveSmeltRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 retcode = 1;
+  inline bool has_retcode() const;
+  inline void clear_retcode();
+  static const int kRetcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 retcode() const;
+  inline void set_retcode(::google::protobuf::uint32 value);
+
+  // optional uint32 stove_level = 2;
+  inline bool has_stove_level() const;
+  inline void clear_stove_level();
+  static const int kStoveLevelFieldNumber = 2;
+  inline ::google::protobuf::uint32 stove_level() const;
+  inline void set_stove_level(::google::protobuf::uint32 value);
+
+  // optional uint64 stove_exp = 3;
+  inline bool has_stove_exp() const;
+  inline void clear_stove_exp();
+  static const int kStoveExpFieldNumber = 3;
+  inline ::google::protobuf::uint64 stove_exp() const;
+  inline void set_stove_exp(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.Attr64 attrs = 4;
+  inline int attrs_size() const;
+  inline void clear_attrs();
+  static const int kAttrsFieldNumber = 4;
+  inline const ::proto_ff::Attr64& attrs(int index) const;
+  inline ::proto_ff::Attr64* mutable_attrs(int index);
+  inline ::proto_ff::Attr64* add_attrs();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >&
+      attrs() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >*
+      mutable_attrs();
+
+  // optional uint32 all_num = 5;
+  inline bool has_all_num() const;
+  inline void clear_all_num();
+  static const int kAllNumFieldNumber = 5;
+  inline ::google::protobuf::uint32 all_num() const;
+  inline void set_all_num(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipStoveSmeltRsp)
+ private:
+  inline void set_has_retcode();
+  inline void clear_has_retcode();
+  inline void set_has_stove_level();
+  inline void clear_has_stove_level();
+  inline void set_has_stove_exp();
+  inline void clear_has_stove_exp();
+  inline void set_has_all_num();
+  inline void clear_has_all_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 retcode_;
+  ::google::protobuf::uint32 stove_level_;
+  ::google::protobuf::uint64 stove_exp_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 > attrs_;
+  ::google::protobuf::uint32 all_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipStoveSmeltRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -800,6 +2237,804 @@ NotifyEquipInfoRsp::infos() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipInfo >*
 NotifyEquipInfoRsp::mutable_infos() {
   return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// EquipStrongReq
+
+// optional int32 slot_pos = 1;
+inline bool EquipStrongReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipStrongReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipStrongReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipStrongReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 EquipStrongReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void EquipStrongReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipStrongRsp
+
+// optional int32 ret = 1;
+inline bool EquipStrongRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipStrongRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipStrongRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipStrongRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 EquipStrongRsp::ret() const {
+  return ret_;
+}
+inline void EquipStrongRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool EquipStrongRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipStrongRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipStrongRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipStrongRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 EquipStrongRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void EquipStrongRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipLvAttrActiveReq
+
+// optional int32 type = 1;
+inline bool EquipLvAttrActiveReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipLvAttrActiveReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipLvAttrActiveReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipLvAttrActiveReq::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 EquipLvAttrActiveReq::type() const {
+  return type_;
+}
+inline void EquipLvAttrActiveReq::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipLvAttrActiveRsp
+
+// optional int32 ret = 1;
+inline bool EquipLvAttrActiveRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipLvAttrActiveRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipLvAttrActiveRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipLvAttrActiveRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 EquipLvAttrActiveRsp::ret() const {
+  return ret_;
+}
+inline void EquipLvAttrActiveRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 type = 2;
+inline bool EquipLvAttrActiveRsp::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipLvAttrActiveRsp::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipLvAttrActiveRsp::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipLvAttrActiveRsp::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 EquipLvAttrActiveRsp::type() const {
+  return type_;
+}
+inline void EquipLvAttrActiveRsp::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyEquipLvAttrRsp
+
+// repeated .proto_ff.EquipLvAttrInfo lv_attr = 3;
+inline int NotifyEquipLvAttrRsp::lv_attr_size() const {
+  return lv_attr_.size();
+}
+inline void NotifyEquipLvAttrRsp::clear_lv_attr() {
+  lv_attr_.Clear();
+}
+inline const ::proto_ff::EquipLvAttrInfo& NotifyEquipLvAttrRsp::lv_attr(int index) const {
+  return lv_attr_.Get(index);
+}
+inline ::proto_ff::EquipLvAttrInfo* NotifyEquipLvAttrRsp::mutable_lv_attr(int index) {
+  return lv_attr_.Mutable(index);
+}
+inline ::proto_ff::EquipLvAttrInfo* NotifyEquipLvAttrRsp::add_lv_attr() {
+  return lv_attr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >&
+NotifyEquipLvAttrRsp::lv_attr() const {
+  return lv_attr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >*
+NotifyEquipLvAttrRsp::mutable_lv_attr() {
+  return &lv_attr_;
+}
+
+// -------------------------------------------------------------------
+
+// StoneInlayReq
+
+// optional int32 slot_pos = 1;
+inline bool StoneInlayReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneInlayReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneInlayReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneInlayReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 StoneInlayReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void StoneInlayReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 stone_pos = 2;
+inline bool StoneInlayReq::has_stone_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneInlayReq::set_has_stone_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneInlayReq::clear_has_stone_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneInlayReq::clear_stone_pos() {
+  stone_pos_ = 0;
+  clear_has_stone_pos();
+}
+inline ::google::protobuf::int32 StoneInlayReq::stone_pos() const {
+  return stone_pos_;
+}
+inline void StoneInlayReq::set_stone_pos(::google::protobuf::int32 value) {
+  set_has_stone_pos();
+  stone_pos_ = value;
+}
+
+// optional int32 bag_pos = 3;
+inline bool StoneInlayReq::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StoneInlayReq::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StoneInlayReq::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StoneInlayReq::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 StoneInlayReq::bag_pos() const {
+  return bag_pos_;
+}
+inline void StoneInlayReq::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoneInlayRsp
+
+// optional int32 ret = 1;
+inline bool StoneInlayRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneInlayRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneInlayRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneInlayRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 StoneInlayRsp::ret() const {
+  return ret_;
+}
+inline void StoneInlayRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool StoneInlayRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneInlayRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneInlayRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneInlayRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 StoneInlayRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void StoneInlayRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 stone_pos = 3;
+inline bool StoneInlayRsp::has_stone_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StoneInlayRsp::set_has_stone_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StoneInlayRsp::clear_has_stone_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StoneInlayRsp::clear_stone_pos() {
+  stone_pos_ = 0;
+  clear_has_stone_pos();
+}
+inline ::google::protobuf::int32 StoneInlayRsp::stone_pos() const {
+  return stone_pos_;
+}
+inline void StoneInlayRsp::set_stone_pos(::google::protobuf::int32 value) {
+  set_has_stone_pos();
+  stone_pos_ = value;
+}
+
+// optional int32 bag_pos = 4;
+inline bool StoneInlayRsp::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void StoneInlayRsp::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void StoneInlayRsp::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void StoneInlayRsp::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 StoneInlayRsp::bag_pos() const {
+  return bag_pos_;
+}
+inline void StoneInlayRsp::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoneLvReq
+
+// optional int32 slot_pos = 1;
+inline bool StoneLvReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneLvReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneLvReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneLvReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 StoneLvReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void StoneLvReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 stone_pos = 2;
+inline bool StoneLvReq::has_stone_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneLvReq::set_has_stone_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneLvReq::clear_has_stone_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneLvReq::clear_stone_pos() {
+  stone_pos_ = 0;
+  clear_has_stone_pos();
+}
+inline ::google::protobuf::int32 StoneLvReq::stone_pos() const {
+  return stone_pos_;
+}
+inline void StoneLvReq::set_stone_pos(::google::protobuf::int32 value) {
+  set_has_stone_pos();
+  stone_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoneLvRsp
+
+// optional int32 ret = 1;
+inline bool StoneLvRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneLvRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneLvRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneLvRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 StoneLvRsp::ret() const {
+  return ret_;
+}
+inline void StoneLvRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool StoneLvRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneLvRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneLvRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneLvRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 StoneLvRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void StoneLvRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 stone_pos = 3;
+inline bool StoneLvRsp::has_stone_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StoneLvRsp::set_has_stone_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StoneLvRsp::clear_has_stone_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StoneLvRsp::clear_stone_pos() {
+  stone_pos_ = 0;
+  clear_has_stone_pos();
+}
+inline ::google::protobuf::int32 StoneLvRsp::stone_pos() const {
+  return stone_pos_;
+}
+inline void StoneLvRsp::set_stone_pos(::google::protobuf::int32 value) {
+  set_has_stone_pos();
+  stone_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoneOpenSlotReq
+
+// optional int32 slot_pos = 1;
+inline bool StoneOpenSlotReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneOpenSlotReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneOpenSlotReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneOpenSlotReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 StoneOpenSlotReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void StoneOpenSlotReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 stone_pos = 2;
+inline bool StoneOpenSlotReq::has_stone_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneOpenSlotReq::set_has_stone_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneOpenSlotReq::clear_has_stone_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneOpenSlotReq::clear_stone_pos() {
+  stone_pos_ = 0;
+  clear_has_stone_pos();
+}
+inline ::google::protobuf::int32 StoneOpenSlotReq::stone_pos() const {
+  return stone_pos_;
+}
+inline void StoneOpenSlotReq::set_stone_pos(::google::protobuf::int32 value) {
+  set_has_stone_pos();
+  stone_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoneOpenSlotRsp
+
+// optional int32 ret = 1;
+inline bool StoneOpenSlotRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneOpenSlotRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneOpenSlotRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneOpenSlotRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 StoneOpenSlotRsp::ret() const {
+  return ret_;
+}
+inline void StoneOpenSlotRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool StoneOpenSlotRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneOpenSlotRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneOpenSlotRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneOpenSlotRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 StoneOpenSlotRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void StoneOpenSlotRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 stone_pos = 3;
+inline bool StoneOpenSlotRsp::has_stone_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StoneOpenSlotRsp::set_has_stone_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StoneOpenSlotRsp::clear_has_stone_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StoneOpenSlotRsp::clear_stone_pos() {
+  stone_pos_ = 0;
+  clear_has_stone_pos();
+}
+inline ::google::protobuf::int32 StoneOpenSlotRsp::stone_pos() const {
+  return stone_pos_;
+}
+inline void StoneOpenSlotRsp::set_stone_pos(::google::protobuf::int32 value) {
+  set_has_stone_pos();
+  stone_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipStoveInfoReq
+
+// -------------------------------------------------------------------
+
+// EquipStoveInfoRsp
+
+// optional uint32 stove_level = 1;
+inline bool EquipStoveInfoRsp::has_stove_level() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipStoveInfoRsp::set_has_stove_level() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipStoveInfoRsp::clear_has_stove_level() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipStoveInfoRsp::clear_stove_level() {
+  stove_level_ = 0u;
+  clear_has_stove_level();
+}
+inline ::google::protobuf::uint32 EquipStoveInfoRsp::stove_level() const {
+  return stove_level_;
+}
+inline void EquipStoveInfoRsp::set_stove_level(::google::protobuf::uint32 value) {
+  set_has_stove_level();
+  stove_level_ = value;
+}
+
+// optional uint64 stove_exp = 2;
+inline bool EquipStoveInfoRsp::has_stove_exp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipStoveInfoRsp::set_has_stove_exp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipStoveInfoRsp::clear_has_stove_exp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipStoveInfoRsp::clear_stove_exp() {
+  stove_exp_ = GOOGLE_ULONGLONG(0);
+  clear_has_stove_exp();
+}
+inline ::google::protobuf::uint64 EquipStoveInfoRsp::stove_exp() const {
+  return stove_exp_;
+}
+inline void EquipStoveInfoRsp::set_stove_exp(::google::protobuf::uint64 value) {
+  set_has_stove_exp();
+  stove_exp_ = value;
+}
+
+// repeated .proto_ff.Attr64 attrs = 3;
+inline int EquipStoveInfoRsp::attrs_size() const {
+  return attrs_.size();
+}
+inline void EquipStoveInfoRsp::clear_attrs() {
+  attrs_.Clear();
+}
+inline const ::proto_ff::Attr64& EquipStoveInfoRsp::attrs(int index) const {
+  return attrs_.Get(index);
+}
+inline ::proto_ff::Attr64* EquipStoveInfoRsp::mutable_attrs(int index) {
+  return attrs_.Mutable(index);
+}
+inline ::proto_ff::Attr64* EquipStoveInfoRsp::add_attrs() {
+  return attrs_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >&
+EquipStoveInfoRsp::attrs() const {
+  return attrs_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >*
+EquipStoveInfoRsp::mutable_attrs() {
+  return &attrs_;
+}
+
+// -------------------------------------------------------------------
+
+// EquipStoveSmeltReq
+
+// repeated uint32 gridlist = 1;
+inline int EquipStoveSmeltReq::gridlist_size() const {
+  return gridlist_.size();
+}
+inline void EquipStoveSmeltReq::clear_gridlist() {
+  gridlist_.Clear();
+}
+inline ::google::protobuf::uint32 EquipStoveSmeltReq::gridlist(int index) const {
+  return gridlist_.Get(index);
+}
+inline void EquipStoveSmeltReq::set_gridlist(int index, ::google::protobuf::uint32 value) {
+  gridlist_.Set(index, value);
+}
+inline void EquipStoveSmeltReq::add_gridlist(::google::protobuf::uint32 value) {
+  gridlist_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+EquipStoveSmeltReq::gridlist() const {
+  return gridlist_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+EquipStoveSmeltReq::mutable_gridlist() {
+  return &gridlist_;
+}
+
+// -------------------------------------------------------------------
+
+// EquipStoveSmeltRsp
+
+// optional uint32 retcode = 1;
+inline bool EquipStoveSmeltRsp::has_retcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipStoveSmeltRsp::set_has_retcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipStoveSmeltRsp::clear_has_retcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipStoveSmeltRsp::clear_retcode() {
+  retcode_ = 0u;
+  clear_has_retcode();
+}
+inline ::google::protobuf::uint32 EquipStoveSmeltRsp::retcode() const {
+  return retcode_;
+}
+inline void EquipStoveSmeltRsp::set_retcode(::google::protobuf::uint32 value) {
+  set_has_retcode();
+  retcode_ = value;
+}
+
+// optional uint32 stove_level = 2;
+inline bool EquipStoveSmeltRsp::has_stove_level() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipStoveSmeltRsp::set_has_stove_level() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipStoveSmeltRsp::clear_has_stove_level() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipStoveSmeltRsp::clear_stove_level() {
+  stove_level_ = 0u;
+  clear_has_stove_level();
+}
+inline ::google::protobuf::uint32 EquipStoveSmeltRsp::stove_level() const {
+  return stove_level_;
+}
+inline void EquipStoveSmeltRsp::set_stove_level(::google::protobuf::uint32 value) {
+  set_has_stove_level();
+  stove_level_ = value;
+}
+
+// optional uint64 stove_exp = 3;
+inline bool EquipStoveSmeltRsp::has_stove_exp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EquipStoveSmeltRsp::set_has_stove_exp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EquipStoveSmeltRsp::clear_has_stove_exp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EquipStoveSmeltRsp::clear_stove_exp() {
+  stove_exp_ = GOOGLE_ULONGLONG(0);
+  clear_has_stove_exp();
+}
+inline ::google::protobuf::uint64 EquipStoveSmeltRsp::stove_exp() const {
+  return stove_exp_;
+}
+inline void EquipStoveSmeltRsp::set_stove_exp(::google::protobuf::uint64 value) {
+  set_has_stove_exp();
+  stove_exp_ = value;
+}
+
+// repeated .proto_ff.Attr64 attrs = 4;
+inline int EquipStoveSmeltRsp::attrs_size() const {
+  return attrs_.size();
+}
+inline void EquipStoveSmeltRsp::clear_attrs() {
+  attrs_.Clear();
+}
+inline const ::proto_ff::Attr64& EquipStoveSmeltRsp::attrs(int index) const {
+  return attrs_.Get(index);
+}
+inline ::proto_ff::Attr64* EquipStoveSmeltRsp::mutable_attrs(int index) {
+  return attrs_.Mutable(index);
+}
+inline ::proto_ff::Attr64* EquipStoveSmeltRsp::add_attrs() {
+  return attrs_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >&
+EquipStoveSmeltRsp::attrs() const {
+  return attrs_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr64 >*
+EquipStoveSmeltRsp::mutable_attrs() {
+  return &attrs_;
+}
+
+// optional uint32 all_num = 5;
+inline bool EquipStoveSmeltRsp::has_all_num() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void EquipStoveSmeltRsp::set_has_all_num() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void EquipStoveSmeltRsp::clear_has_all_num() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void EquipStoveSmeltRsp::clear_all_num() {
+  all_num_ = 0u;
+  clear_has_all_num();
+}
+inline ::google::protobuf::uint32 EquipStoveSmeltRsp::all_num() const {
+  return all_num_;
+}
+inline void EquipStoveSmeltRsp::set_all_num(::google::protobuf::uint32 value) {
+  set_has_all_num();
+  all_num_ = value;
 }
 
 

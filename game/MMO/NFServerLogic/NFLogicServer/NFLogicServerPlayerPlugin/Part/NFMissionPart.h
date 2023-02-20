@@ -187,9 +187,16 @@ public:
      * @return
      */
     bool CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, LIST_ITEM &lstOutItem);
+
 public:
     //更新进度
     int32_t OnUpdateProgress(uint64_t missionId, const ExecuteData &data);
+
+    /**
+     * @brief 更新任务进度
+     * @param missionId
+     */
+    void UpdateMissionProgress(uint64_t missionId);
 
 private:
     PlayerTrackMissionMap _playerTrackMissionMap;    //当前任务列表

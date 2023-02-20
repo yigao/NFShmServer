@@ -21,7 +21,6 @@ message	PlayerInfoRsp
   optional FunctionUnlockInfo unlockInfo	= 10;	//功能解锁信息
   optional int32 state = 11;						//状态，详见 Com.proto中的枚举 ECState
   optional SkillGroupListProto skill_group = 12;	//技能组信息
-  optional uint32 cur_skill_group = 13;			//当前使用的技能组
 }
 
 
