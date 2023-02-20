@@ -24,6 +24,7 @@
 #include "NFLogicCommon/NFMissionDefine.h"
 #include "DescStore/TaskdynamicTaskdynamicDesc.h"
 #include "DescStore/TaskrewardTaskrewardDesc.h"
+#include "DescStore/TaskdynamicTaskcomcondDesc.h"
 #include "DescStore/TaskTaskDesc.h"
 
 //通过移位组合动态任务text表条件 text 表中 目标场景(最多11位十进制数字，对应的二进制位是 37bit)+任务类型(6bit)+完成条件(20bit)

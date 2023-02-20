@@ -21,6 +21,7 @@
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "DescStoreEx/NFMissionDescStoreEx.h"
 #include "NFLogicCommon/NFItemDefine.h"
+#include "NFLogicCommon/NFComTypeDefine.h"
 
 #define PLAYER_TRACK_MISSION_MAX_MISSION_COUNT 100
 
@@ -95,12 +96,19 @@ public:
 
 public:
     /**
-     * @brief 接取任务 reacceptFlag:是否是重新接取标志,triggerFlag:是否执行触发器的标志
+     * @brief 接取任务
      * @param missionId
      * @param notify
      * @return
      */
     int32_t OnAccept(uint64_t missionId, bool notify);
+
+    /** 接取任务
+     * @brief
+     * @param missionId
+     * @param kind
+     */
+    void OnAccept(uint64_t missionId, uint32_t kind);
 
     /**
      * @brief 获取可接任务列表(主支线)
@@ -117,6 +125,35 @@ public:
      */
     int32_t CanAccept(const AcceptInfo &cond, SCanAcceptParam &param);
 
+public:
+    /**
+     * @brief 完成任务(动态任务)
+     * @param dymissionId
+     * @param dymissionType
+     */
+    void OnFinishDy(uint64_t dymissionId, uint32_t dymissionType);
+
+    /**
+     * @brief 根据任务类型获取动态任务记录信息
+     * @param missionType
+     * @return
+     */
+    DyMissionTrack *GetDyMissionTrack(int32_t missionType);
+
+    /**
+     * @brief 动态任务奖励
+     * @param missionType
+     * @param missionId
+     * @param missionReward
+     * @return
+     */
+    int32_t OnAddDyMissionReward(int32_t missionType, uint64_t missionId, SMissionReward &missionReward);
+
+    /**
+     * @brief 更新动态任务接取次数
+     * @param setMissionType
+     */
+    void NotifyDyAcceptCount(SET_UINT32 &setMissionType);
 public:
     /**
      * @brief 检查主线任务
@@ -255,6 +292,7 @@ public://任务事件处理接口
      * @param dynamicId
      */
     void OnEvent(uint32_t eventType, const ExecuteData &data, uint64_t dynamicId = 0);
+
 private:
     PlayerTrackMissionMap _playerTrackMissionMap;    //当前任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //最近提交的任务

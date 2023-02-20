@@ -139,7 +139,7 @@ public:
 
     size_type erase(const key_type &__key) { return m_hashTable.erase(__key); }
 
-    void erase(iterator __it) { m_hashTable.erase(__it); }
+    iterator erase(iterator __it) { return m_hashTable.erase(__it); }
 
     void erase(iterator __f, iterator __l) { m_hashTable.erase(__f, __l); }
 

@@ -183,55 +183,62 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                 {
                     if (MISSION_TYPE_ID_TRUNK == pMissionInfo->kind)
                     {
-                        MMOLOG_FMT_ERROR("MissionPart::CheckTrunkMission11...OnAccept failed...cid:%lu,kind:%d,mission:%lu,ret:%d ", m_pMaster->Cid(),
-                                         pMissionInfo->kind, missionid, ret);
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "CheckTrunkMission...OnAccept failed...cid:{} ,kind:{},mission:{},ret:{} ",
+                                   m_pMaster->Cid(),
+                                   pMissionInfo->kind, missionid, ret);
                     }
                 }
                 else
                 {
-                    LogDebugFmtPrint("MissionPart::CheckTrunkMission11...accept mission...cid:%lu,kind:%d, mission:%lu,ret:%d ", m_pMaster->Cid(),
-                                     pMissionInfo->kind, missionid, ret);
+                    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(),
+                               "MissionPart::CheckTrunkMission...accept mission...cid:{},kind:{}, mission:{},ret:{} ", m_pMaster->Cid(),
+                               pMissionInfo->kind, missionid, ret);
                 }
             }
         }
     }
     else
     {
-        MAP_INT32_SET_UINT64::iterator iterRecent = _mapRecentSubmit.begin();
-        for (; iterRecent != _mapRecentSubmit.end(); ++iterRecent)
+        for (auto iterRecent = _mapRecentSubmit.begin(); iterRecent != _mapRecentSubmit.end(); ++iterRecent)
         {
-            SET_UINT64 &setMission = iterRecent->second;
-            SET_UINT64::iterator iterMission = setMission.begin();
+            auto &setMission = iterRecent->second;
+            auto iterMission = setMission.begin();
             for (; iterMission != setMission.end(); ++iterMission)
             {
                 uint64_t missionid = (*iterMission);
-                MissionInfo *pMissionInfo = g_GetMissionManager()->GetMissionCfgInfo(missionid);
+                MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionid);
                 if (nullptr == pMissionInfo)
                 {
-                    LogErrFmtPrint("[logic] MissionPart::CheckTrunkMission nullptr == pMissionInfo cid:%lu, missionid:%lu ", m_pMaster->Cid(),
-                                   missionid);
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "CheckTrunkMission nullptr == pMissionInfo cid:{}, missionid:{} ",
+                               m_pMaster->Cid(),
+                               missionid);
                     continue;
                 }
+
                 uint64_t backMissionid = pMissionInfo->backTaskId;
                 if (backMissionid > 0)
                 {
-                    MissionInfo *pBackMissionInfo = g_GetMissionManager()->GetMissionCfgInfo(backMissionid);
+                    MissionInfo *pBackMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(backMissionid);
                     if (nullptr == pBackMissionInfo)
                     {
-                        LogErrFmtPrint("[logic] MissionPart::CheckTrunkMission nullptr == pBackMissionInfo cid:%lu, missionid:%lu,backMissionid:%lu ",
-                                       m_pMaster->Cid(), missionid, backMissionid);
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                                   "CheckTrunkMission nullptr == pBackMissionInfo cid:{}, missionid:{},backMissionid:{} ",
+                                   m_pMaster->Cid(), missionid, backMissionid);
                         continue;
                     }
+
                     //
                     if (HaveAccpet(backMissionid))
                     {
                         //LogErrFmtPrint("[logic] MissionPart::CheckTrunkMission backMissionid have accept cid:%lu, missionid:%lu,backMissionid:%lu ", m_pMaster->GetCid(), missionid, backMissionid);
                         continue;
                     }
+
                     if (HaveSubmited(backMissionid))
                     {
                         continue;
                     }
+
                     if (MISSION_TYPE_ID_TRUNK == pBackMissionInfo->kind)
                     {
                         if (MissionNumByType(MISSION_TYPE_ID_TRUNK) > 0)
@@ -239,16 +246,19 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                             continue;
                         }
                     }
-                    int32_t ret = g_GetMissionManager()->OnAccept(dynamic_cast<Player *>(m_pMaster), backMissionid, notify);
-                    if (RET_SUCCESS != ret)
+
+                    int32_t ret = OnAccept(backMissionid, notify);
+                    if (proto_ff::RET_SUCCESS != ret)
                     {
-                        MMOLOG_FMT_ERROR("MissionPart::CheckTrunkMission...OnAccept failed...cid:%lu,mission:%lu,backMissionid:%lu,ret:%d ",
-                                         m_pMaster->Cid(), missionid, backMissionid, ret);
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                                   "CheckTrunkMission...OnAccept failed...cid:{},mission:{},backMissionid:{},ret:{} ",
+                                   m_pMaster->Cid(), missionid, backMissionid, ret);
                     }
                     else
                     {
-                        LogDebugFmtPrint("MissionPart::CheckTrunkMission...accept mission...cid:%lu,kind:%d, mission:%lu,backMissionid:%lu,ret:%d ",
-                                         m_pMaster->Cid(), pBackMissionInfo->kind, missionid, backMissionid, ret);
+                        NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                                   "MissionPart::CheckTrunkMission...accept mission...cid:{},kind:{}, mission:{},backMissionid:{},ret:{} ",
+                                   m_pMaster->Cid(), pBackMissionInfo->kind, missionid, backMissionid, ret);
                     }
                 }
             }
@@ -361,6 +371,12 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     return proto_ff::RET_SUCCESS;
 }
 
+//接取任务
+void NFMissionPart::OnAccept(uint64_t missionId, uint32_t kind)
+{
+    //
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 void NFMissionPart::RegisterEvent(uint32_t eventType, uint64_t missionId, int32_t progressLev)
@@ -430,38 +446,32 @@ void NFMissionPart::RemoveEvent(uint64_t missionId)
 
 void NFMissionPart::OnEvent(uint32_t eventType, const ExecuteData &data, uint64_t dynamicId /*= 0*/)
 {
-    Player *pPlayer = dynamic_cast<Player *>(m_pMaster);
-    if (nullptr == pPlayer)
-    {
-        LogErrFmtPrint("MissionPart::OnEvent...nullptr == pPlayer...eventType:%u ", eventType);
-        return;
-    }
-    int32_t level = pPlayer->GetAttr(A_LEVEL);
+    int32_t level = m_pMaster->GetAttr(proto_ff::A_LEVEL);
     EventTabal::iterator iter = _eventTabal.find(eventType);
     if (_eventTabal.end() != iter)
     {
-        MAP_INT32_SET_UINT64 &mapLvMission = iter->second;
-        MAP_INT32_SET_UINT64::iterator iterLv = mapLvMission.begin();
+        auto &mapLvMission = iter->second;
+        auto iterLv = mapLvMission.begin();
         for (; iterLv != mapLvMission.end(); ++iterLv)
         {
-            SET_UINT64 &setMission = iterLv->second;
+            auto &setMission = iterLv->second;
             if (iterLv->first <= level)
             {
                 if (dynamicId > 0)
                 {
-                    SET_UINT64::iterator iterMission = setMission.find(dynamicId);
+                    auto iterMission = setMission.find(dynamicId);
                     if (iterMission != setMission.end())
                     {
-                        OnUpdateProgress(pPlayer, (*iterMission), data);
+                        OnUpdateProgress((*iterMission), data);
                         break;
                     }
                 }
                 else
                 {
-                    SET_UINT64::iterator iterMission = setMission.begin();
+                    auto iterMission = setMission.begin();
                     for (; iterMission != setMission.end(); ++iterMission)
                     {
-                        OnUpdateProgress(pPlayer, (*iterMission), data);
+                        OnUpdateProgress((*iterMission), data);
                     }
                 }
             }
@@ -561,7 +571,7 @@ bool NFMissionPart::DelMissionDrop(uint64_t dymissionId, uint64_t monsId)
 }
 
 //获取任务掉落
-MissionDropMap* NFMissionPart::GetMissionDrop(uint64_t monsterId)
+MissionDropMap *NFMissionPart::GetMissionDrop(uint64_t monsterId)
 {
     MissionAllDropMap::iterator iterMons = _mapMissionAllDrop.find(monsterId);
     if (iterMons != _mapMissionAllDrop.end())
@@ -926,7 +936,80 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
 
 int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData &data)
 {
-    return 0;
+    //先查找已接列表中是否有该任务
+    auto iter = _playerTrackMissionMap.find(missionId);
+    if (iter == _playerTrackMissionMap.end())
+    {
+        return proto_ff::RET_MISSION_NOT_EXIST;
+    }
+
+    if (MISSION_E_ACCEPTED != iter->second.status)
+    {
+        return proto_ff::RET_MISSION_STATE_NOT_MATCH;
+    }
+
+    SET_UINT64 setAreaMonsDy;
+    setAreaMonsDy.clear();
+    bool notify = false;
+    //任务执行单元开始执行 多完成条件
+    for (uint32_t i = 0; i < iter->second.items.size(); i++)
+    {
+        ItemInfo &cond = iter->second.items[i];
+        OnUpdateCondProcess(data, cond, notify);
+        if (notify)
+        {
+            MarkDirty();
+            //
+            if (MISSION_FINISH_TYPE_KILL_MONS_AREA == cond.type && cond.currentValue < cond.finalValue)
+            {
+                setAreaMonsDy.insert(missionId);
+            }
+        }
+    }
+
+    //判断任务是否完成
+    bool isCompletedFlag = true;
+    for (uint32_t i = 0; i < iter->second.items.size(); i++)
+    {
+        if (!iter->second.items[i].completedFlag)
+        {
+            isCompletedFlag = false;
+            break;
+        }
+    }
+
+    //如果完成了
+    if (isCompletedFlag)
+    {
+        //任务已经完成
+        iter->second.status = MISSION_E_COMPLETION;
+        //
+        MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(iter->second.missionId);
+        if (nullptr != pMissionInfo)
+        {
+        }
+        else
+        {
+            auto pDyMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(iter->second.missionId);
+            if (pDyMissionInfo)
+            {
+                //完成任务(动态任务)
+                OnFinishDy(iter->second.dynamicId, pDyMissionInfo->kind);
+            }
+        }
+    }
+
+    if (notify)
+    {
+        UpdateMissionProgress(missionId);
+    }
+
+    if (setAreaMonsDy.size() > 0)
+    {
+        //OnCheckAreaFreshMonster(setAreaMonsDy);
+    }
+
+    return proto_ff::RET_SUCCESS;
 }
 
 int32_t NFMissionPart::AddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, float ration/* = 1*/)
@@ -1061,5 +1144,169 @@ void NFMissionPart::UpdateMissionProgress(uint64_t missionId)
             missionIte->second.SetMissionTrackProto(*pMissionTrack);
             m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_UPDATEMISSIONSTATUSNOTIFY, notify);
         }
+    }
+}
+
+//根据任务类型获取动态任务记录信息
+DyMissionTrack *NFMissionPart::GetDyMissionTrack(int32_t missionType)
+{
+    PlayerDyMissionTrackMap::iterator iter = _mapDyMissionTrack.find(missionType);
+    return (iter != _mapDyMissionTrack.end()) ? &iter->second : nullptr;
+}
+
+//完成任务(动态任务)
+void NFMissionPart::OnFinishDy(uint64_t dymissionId, uint32_t dymissionType)
+{
+    if (dymissionType == MISSION_TYPE_ID_BOUNTY)
+    {
+        DyMissionTrack *pDyTrack = GetDyMissionTrack(MISSION_TYPE_ID_BOUNTY);
+        if (pDyTrack)
+        {
+            SMissionReward missionReward;
+            OnAddDyMissionReward(dymissionType, dymissionId, missionReward);
+
+            if (pDyTrack->acceptNum >= 10 && pDyTrack->bountyParam.ten_status == 0)
+            {
+                pDyTrack->bountyParam.ten_status = 1;
+            }
+            else if (pDyTrack->acceptNum >= 20 && pDyTrack->bountyParam.twenty_status == 0)
+            {
+                pDyTrack->bountyParam.twenty_status = 1;
+            }
+
+            MarkDirty();
+
+            SET_UINT32 setMissionType;
+            setMissionType.insert(dymissionType);
+            NotifyDyAcceptCount(setMissionType);
+        }
+    }
+}
+
+int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missionId, SMissionReward &missionReward)
+{
+/*    if (nullptr == pPlayer)
+    {
+        return RET_FAIL;
+    }
+    int32_t level = pPlayer->GetAttr(A_LEVEL);
+    const TASK_REWARD *pReward = GetDyMissionReward(missionType, level);
+    if (nullptr == pReward)
+    {
+        return RET_FAIL;
+    }
+    PackagePart *pPackage = dynamic_cast<PackagePart *>(pPlayer->GetPart(PART_PACKAGE));
+    if (nullptr == pPackage)
+    {
+        return RET_FAIL;
+    }
+
+    SCommonSource sourceParam;
+    sourceParam.src = S_MISSION;
+    sourceParam.param1 = missionId;
+
+    SCenterReward sreward;
+    sreward.charId = pPlayer->Cid();
+    sreward.zid = pPlayer->GetZid();
+    sreward.source = sourceParam;
+
+    uint32_t profression = pPlayer->GetAttr(A_PROF);
+    const TASK_REWARD &reward = *pReward;
+
+    LIST_ITEM lstItemA;
+    lstItemA.clear();
+    //
+    uint32_t isize = (uint32_t) reward.size();
+    for (uint32_t i = 0; i < isize; ++i)
+    {
+        uint32_t rewardType = reward[i].type;
+
+        if (reward[i].profession != 0 && profression != reward[i].profession)
+        {
+            continue;
+        }
+        if (MISSION_AWARD_GOODS == rewardType || MISSION_AWARD_EQUIP == rewardType)
+        {
+            pPackage->AddItem(reward[i].id, reward[i].value, sourceParam, reward[i].bind);
+
+            //
+            SItem item;
+            item.nItemID = reward[i].id;
+            item.nNum = reward[i].value;
+            item.byBind = reward[i].bind;
+            lstItemA.push_back(item);
+        }
+        else if (MISSION_AWARD_SKILL == rewardType)
+        {
+            SkillPart *pSkillPart = dynamic_cast<SkillPart *>(pPlayer->GetPart(PART_SKILL));
+            if (nullptr != pSkillPart)
+            {
+                SCommonSource source;
+                if (!pSkillPart->AddSkill(reward[i].id, 1, source, true))
+                {
+                    LogErrFmtPrint("[logic] MissionManager::OnAddDyMissionReward...AddSkill failed...cid:%lu,missionType:%d, level:%d,missionId:%lu ",
+                                   pPlayer->Cid(), missionType, level, missionId);
+                }
+                else
+                {
+                    missionReward.setSkill.insert(reward[i].id);
+                }
+            }
+        }
+        else if (MISSION_AWARD_ATTR == rewardType) //属性奖励
+        {
+            pPlayer->AddAttr(reward[i].id, reward[i].value, &sourceParam, true);
+            missionReward.mapAttr[reward[i].id] += reward[i].value;
+        }
+        else if (MISSION_AWARD_USE_CONTRI == rewardType)
+        {
+            sreward.useContri += reward[i].id;
+            missionReward.useContri += reward[i].id;
+        }
+        else if (MISSION_AWARD_UNION_EXP == rewardType)
+        {
+            sreward.unionExp += reward[i].id;
+            missionReward.unionExp += reward[i].id;
+        }
+    }
+    //
+    g_GetItemMgr()->MergeItem(lstItemA, missionReward.lstItem);*/
+
+    return proto_ff::RET_SUCCESS;
+}
+
+//更新动态任务接取次数
+void NFMissionPart::NotifyDyAcceptCount(SET_UINT32 &setMissionType)
+{
+    proto_ff::GCUpdateDyAcceptCount notify;
+    proto_ff::DyMissionCntAllProto *proto = notify.mutable_dy_count();
+    if (nullptr != proto)
+    {
+        SET_UINT32::iterator iter = setMissionType.begin();
+        for (; iter != setMissionType.end(); ++iter)
+        {
+            uint32_t missionType = (*iter);
+            uint32_t acceptNum = 0;
+            DyMissionTrack *pDyTrack = GetDyMissionTrack(missionType);
+            if (nullptr != pDyTrack)
+            {
+                acceptNum = pDyTrack->acceptNum;
+            }
+
+            proto_ff::DyMissionCntProto *protoA = proto->add_count();
+            if (nullptr != protoA)
+            {
+                protoA->set_missiontype(missionType);
+                protoA->set_accept_num(acceptNum);
+                if (missionType == MISSION_TYPE_ID_BOUNTY)
+                {
+                    auto pBounty = protoA->mutable_bounty_param();
+                    pBounty->set_ten_state(pDyTrack->bountyParam.ten_status);
+                    pBounty->set_twenty_state(pDyTrack->bountyParam.twenty_status);
+                }
+            }
+        }
+
+        m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_UPDDATE_DY_ACCEPT_NUM, notify);
     }
 }

@@ -13,7 +13,9 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
+#include "NFLogicCommon/NFComTypeDefine.h"
 #include "Mission.pb.h"
+#include "NFItemDefine.h"
 
 #define INVALID_MISSION_ID          (0)    //非法任务id
 #define MISSION_COND_TYPE_TO_EVENT(type)    (type / 100) //任务完成条件类型转换到事件类型
@@ -953,3 +955,22 @@ struct MissionDrop
 typedef NFShmHashMap<uint64_t, MissionDrop, 10> MissionDropMap;
 //任务所有掉落 monsterid - MissionDropMap
 typedef NFShmHashMap<uint64_t, MissionDropMap, 100> MissionAllDropMap;
+
+//任务奖励参数
+struct SMissionReward
+{
+    MAP_UINT32_INT64 mapAttr;
+    LIST_ITEM lstItem;
+    SET_UINT64 setSkill;
+    int32_t useContri;
+    int32_t unionExp;
+
+    SMissionReward()
+    {
+        mapAttr.clear();
+        lstItem.clear();
+        setSkill.clear();
+        useContri = 0;
+        unionExp = 0;
+    }
+};
