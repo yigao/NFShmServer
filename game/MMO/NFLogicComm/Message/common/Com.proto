@@ -180,6 +180,7 @@ enum EAttrGroup
   EAttrGroup_Pet	 	= 9;		//宠物属性组
   EAttrGroup_DEITY 	= 10; 		//天神属性组
   EAttrGroup_Armor	= 11;		//玄功真甲
+  EAttrGroup_Title  = 12;  //title标题
 }
 
 enum GrowType

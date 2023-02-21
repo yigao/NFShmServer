@@ -26,22 +26,6 @@ namespace proto_ff_s {
 	};
 	typedef struct E_EquipEquipAttributeDesc_s E_EquipEquipAttributeDesc_t;
 
-	struct E_EquipEquipGodattributeDesc_s : public NFDescStoreSeqOP {
-		E_EquipEquipGodattributeDesc_s();
-		virtual ~E_EquipEquipGodattributeDesc_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_valuemin;
-		int32_t m_type;
-		int32_t m_valuemax;
-
-		virtual void write_to_pbmsg(::proto_ff::E_EquipEquipGodattributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquipGodattributeDesc & msg);
-		static ::proto_ff::E_EquipEquipGodattributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipEquipGodattributeDesc(); }
-		static ::proto_ff::E_EquipEquipGodattributeDesc make_pbmsg(){ return ::proto_ff::E_EquipEquipGodattributeDesc(); }
-	};
-	typedef struct E_EquipEquipGodattributeDesc_s E_EquipEquipGodattributeDesc_t;
-
 	struct E_EquipEquip_s : public NFDescStoreSeqOP {
 		E_EquipEquip_s();
 		virtual ~E_EquipEquip_s(){}
@@ -49,12 +33,16 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;
 		NFShmString<60> m_name;
+		int32_t m_type;
 		int32_t m_wearquality;
 		int32_t m_position;
 		NFShmString<60> m_profession;
 		int32_t m_professionlv;
 		int32_t m_level;
 		int32_t m_quality;
+		NFShmString<60> m_godattribute_type;
+		NFShmString<60> m_godattribute_valuemin;
+		NFShmString<60> m_godattribute_valuemax;
 		int32_t m_star;
 		int32_t m_refineattributedown;
 		int32_t m_refineattributeup;
@@ -79,7 +67,6 @@ namespace proto_ff_s {
 		NFShmString<60> m_specialattribute_valuemax;
 		NFShmString<60> m_skillid;
 		NFShmVector<struct E_EquipEquipAttributeDesc_s, 3> m_attribute;
-		NFShmVector<struct E_EquipEquipGodattributeDesc_s, 2> m_godattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg);
@@ -93,7 +80,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipEquip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipEquip_s, 160> E_EquipEquip_List;
+		NFShmVector<struct E_EquipEquip_s, 11000> E_EquipEquip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipEquip & msg);
@@ -451,6 +438,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		NFShmString<60> m_value;
+		int32_t m_unlockitem;
+		NFShmString<60> m_unlocknum;
 		int64_t m_consumeid;
 		NFShmString<60> m_consumenum;
 		NFShmString<60> m_lockingid;
@@ -485,6 +474,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_sctivation;
+		NFShmString<60> m_value;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipSuitAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipSuitAttributeDesc & msg);

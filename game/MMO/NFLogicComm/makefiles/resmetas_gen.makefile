@@ -299,3 +299,13 @@ ${PROTOCGEN_FILE_PATH}/collect.pb.h ${PROTOCGEN_FILE_PATH}/collect.pb.cc ${PROTO
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/collect.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/collect.proto.ds  --proto_fname=collect.proto --out_path=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/collect.pb.h ${PROTOCGEN_FILE_PATH}/collect.pb.cc ${PROTOCGEN_FILE_PATH}/collect_s.h ${PROTOCGEN_FILE_PATH}/collect_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/assist.pb.h ${PROTOCGEN_FILE_PATH}/assist.pb.cc ${PROTOCGEN_FILE_PATH}/assist_s.h ${PROTOCGEN_FILE_PATH}/assist_s.cpp ${PROTOCGEN_FILE_PATH}/assist.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/assist.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/assist.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/assist.proto.ds  --proto_fname=assist.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/assist.pb.h ${PROTOCGEN_FILE_PATH}/assist.pb.cc ${PROTOCGEN_FILE_PATH}/assist_s.h ${PROTOCGEN_FILE_PATH}/assist_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/title.pb.h ${PROTOCGEN_FILE_PATH}/title.pb.cc ${PROTOCGEN_FILE_PATH}/title_s.h ${PROTOCGEN_FILE_PATH}/title_s.cpp ${PROTOCGEN_FILE_PATH}/title.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/title.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/title.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/title.proto.ds  --proto_fname=title.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/title.pb.h ${PROTOCGEN_FILE_PATH}/title.pb.cc ${PROTOCGEN_FILE_PATH}/title_s.h ${PROTOCGEN_FILE_PATH}/title_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/

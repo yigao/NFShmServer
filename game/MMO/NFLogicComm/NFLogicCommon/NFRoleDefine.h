@@ -47,6 +47,7 @@ enum PartType
     PART_CHAT,				//聊天
     PART_EQUIP,				//装备模块
     PART_MISSION,
+    PART_TITLE,
     PART_MAX,
 };
 

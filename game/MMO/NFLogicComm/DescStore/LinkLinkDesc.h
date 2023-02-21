@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/link_s.h"
 
-#define MAX_LINK_LINK_NUM 120
+#define MAX_LINK_LINK_NUM 140
 
 class LinkLinkDesc : public NFIDescStore
 {

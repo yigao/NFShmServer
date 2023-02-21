@@ -34,38 +34,6 @@ void E_EquipEquipAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip
 	m_valuemax = msg.m_valuemax();
 }
 
-E_EquipEquipGodattributeDesc_s::E_EquipEquipGodattributeDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_EquipEquipGodattributeDesc_s::CreateInit() {
-	m_valuemin = (int32_t)0;
-	m_type = (int32_t)0;
-	m_valuemax = (int32_t)0;
-	return 0;
-}
-
-int E_EquipEquipGodattributeDesc_s::ResumeInit() {
-	return 0;
-}
-
-void E_EquipEquipGodattributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipEquipGodattributeDesc & msg) const {
-	msg.set_m_valuemin((int32_t)m_valuemin);
-	msg.set_m_type((int32_t)m_type);
-	msg.set_m_valuemax((int32_t)m_valuemax);
-}
-
-void E_EquipEquipGodattributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipEquipGodattributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipEquipGodattributeDesc_s));
-	m_valuemin = msg.m_valuemin();
-	m_type = msg.m_type();
-	m_valuemax = msg.m_valuemax();
-}
-
 E_EquipEquip_s::E_EquipEquip_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -76,6 +44,7 @@ E_EquipEquip_s::E_EquipEquip_s() {
 
 int E_EquipEquip_s::CreateInit() {
 	m_id = (int64_t)0;
+	m_type = (int32_t)0;
 	m_wearquality = (int32_t)0;
 	m_position = (int32_t)0;
 	m_professionlv = (int32_t)0;
@@ -102,12 +71,16 @@ int E_EquipEquip_s::ResumeInit() {
 void E_EquipEquip_s::write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_type((int32_t)m_type);
 	msg.set_m_wearquality((int32_t)m_wearquality);
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_profession((const char*)m_profession.data());
 	msg.set_m_professionlv((int32_t)m_professionlv);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_godattribute_type((const char*)m_godattribute_type.data());
+	msg.set_m_godattribute_valuemin((const char*)m_godattribute_valuemin.data());
+	msg.set_m_godattribute_valuemax((const char*)m_godattribute_valuemax.data());
 	msg.set_m_star((int32_t)m_star);
 	msg.set_m_refineattributedown((int32_t)m_refineattributedown);
 	msg.set_m_refineattributeup((int32_t)m_refineattributeup);
@@ -135,22 +108,22 @@ void E_EquipEquip_s::write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const {
 		::proto_ff::E_EquipEquipAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_godattribute.size(); ++i) {
-		::proto_ff::E_EquipEquipGodattributeDesc* temp_m_godattribute = msg.add_m_godattribute();
-		m_godattribute[i].write_to_pbmsg(*temp_m_godattribute);
-	}
 }
 
 void E_EquipEquip_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipEquip_s));
 	m_id = msg.m_id();
 	m_name = msg.m_name();
+	m_type = msg.m_type();
 	m_wearquality = msg.m_wearquality();
 	m_position = msg.m_position();
 	m_profession = msg.m_profession();
 	m_professionlv = msg.m_professionlv();
 	m_level = msg.m_level();
 	m_quality = msg.m_quality();
+	m_godattribute_type = msg.m_godattribute_type();
+	m_godattribute_valuemin = msg.m_godattribute_valuemin();
+	m_godattribute_valuemax = msg.m_godattribute_valuemax();
 	m_star = msg.m_star();
 	m_refineattributedown = msg.m_refineattributedown();
 	m_refineattributeup = msg.m_refineattributeup();
@@ -178,11 +151,6 @@ void E_EquipEquip_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg) {
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EquipEquipAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
-	}
-	m_godattribute.resize((int)msg.m_godattribute_size() > (int)m_godattribute.max_size() ? m_godattribute.max_size() : msg.m_godattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_godattribute.size(); ++i) {
-		const ::proto_ff::E_EquipEquipGodattributeDesc & temp_m_godattribute = msg.m_godattribute(i);
-		m_godattribute[i].read_from_pbmsg(temp_m_godattribute);
 	}
 }
 
@@ -972,6 +940,7 @@ E_EquipClear_s::E_EquipClear_s() {
 
 int E_EquipClear_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_unlockitem = (int32_t)0;
 	m_consumeid = (int64_t)0;
 	return 0;
 }
@@ -983,6 +952,8 @@ int E_EquipClear_s::ResumeInit() {
 void E_EquipClear_s::write_to_pbmsg(::proto_ff::E_EquipClear & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_value((const char*)m_value.data());
+	msg.set_m_unlockitem((int32_t)m_unlockitem);
+	msg.set_m_unlocknum((const char*)m_unlocknum.data());
 	msg.set_m_consumeid((int64_t)m_consumeid);
 	msg.set_m_consumenum((const char*)m_consumenum.data());
 	msg.set_m_lockingid((const char*)m_lockingid.data());
@@ -1001,6 +972,8 @@ void E_EquipClear_s::read_from_pbmsg(const ::proto_ff::E_EquipClear & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipClear_s));
 	m_id = msg.m_id();
 	m_value = msg.m_value();
+	m_unlockitem = msg.m_unlockitem();
+	m_unlocknum = msg.m_unlocknum();
 	m_consumeid = msg.m_consumeid();
 	m_consumenum = msg.m_consumenum();
 	m_lockingid = msg.m_lockingid();
@@ -1068,11 +1041,13 @@ int E_EquipSuitAttributeDesc_s::ResumeInit() {
 
 void E_EquipSuitAttributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipSuitAttributeDesc & msg) const {
 	msg.set_m_sctivation((int32_t)m_sctivation);
+	msg.set_m_value((const char*)m_value.data());
 }
 
 void E_EquipSuitAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipSuitAttributeDesc & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipSuitAttributeDesc_s));
 	m_sctivation = msg.m_sctivation();
+	m_value = msg.m_value();
 }
 
 E_EquipSuit_s::E_EquipSuit_s() {

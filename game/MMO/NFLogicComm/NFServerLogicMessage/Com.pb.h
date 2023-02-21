@@ -167,11 +167,12 @@ enum EAttrGroup {
   EAttrGroup_MOUNT = 8,
   EAttrGroup_Pet = 9,
   EAttrGroup_DEITY = 10,
-  EAttrGroup_Armor = 11
+  EAttrGroup_Armor = 11,
+  EAttrGroup_Title = 12
 };
 bool EAttrGroup_IsValid(int value);
 const EAttrGroup EAttrGroup_MIN = EAttrGroup_Level;
-const EAttrGroup EAttrGroup_MAX = EAttrGroup_Armor;
+const EAttrGroup EAttrGroup_MAX = EAttrGroup_Title;
 const int EAttrGroup_ARRAYSIZE = EAttrGroup_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EAttrGroup_descriptor();

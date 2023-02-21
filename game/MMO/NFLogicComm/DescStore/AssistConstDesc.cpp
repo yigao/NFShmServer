@@ -1,9 +1,9 @@
-#include "AssistAssistthankDesc.h"
+#include "AssistConstDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AssistAssistthankDesc, EOT_CONST_ASSIST_ASSISTTHANK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(AssistConstDesc, EOT_CONST_ASSIST_CONST_DESC_ID, NFShmObj)
 
-AssistAssistthankDesc::AssistAssistthankDesc():NFIDescStore()
+AssistConstDesc::AssistConstDesc():NFIDescStore()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -13,29 +13,29 @@ AssistAssistthankDesc::AssistAssistthankDesc():NFIDescStore()
 	}
 }
 
-AssistAssistthankDesc::~AssistAssistthankDesc()
+AssistConstDesc::~AssistConstDesc()
 {
 }
 
-int AssistAssistthankDesc::CreateInit()
+int AssistConstDesc::CreateInit()
 {
 	Initialize();
 	return 0;
 }
 
-int AssistAssistthankDesc::ResumeInit()
+int AssistConstDesc::ResumeInit()
 {
 	return 0;
 }
 
-int AssistAssistthankDesc::Load(NFResDB *pDB)
+int AssistConstDesc::Load(NFResDB *pDB)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "AssistAssistthankDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "AssistConstDesc::Load() strFileName = {}", GetFileName());
 
-	proto_ff::Sheet_AssistAssistthank table;
+	proto_ff::Sheet_AssistConst table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
 	CHECK_EXPR(pResTable != NULL, -1, "pTable == NULL, GetTable:{} Error", GetFileName());
 
@@ -46,21 +46,21 @@ int AssistAssistthankDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_assistassistthank_list_size() < 0) || (table.e_assistassistthank_list_size() > (int)(m_astDesc.max_size())))
+	if ((table.e_assistconst_list_size() < 0) || (table.e_assistconst_list_size() > (int)(m_astDesc.max_size())))
 	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_assistassistthank_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_assistconst_list_size());
 		return -2;
 	}
 
-	m_astDesc.resize(table.e_assistassistthank_list_size());
+	m_astDesc.resize(table.e_assistconst_list_size());
 	m_astDescIndex.resize(m_astDescIndex.max_size());
 	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
 	{
 		m_astDescIndex[i] = -1;
 	}
-	for (int i = 0; i < (int)table.e_assistassistthank_list_size(); i++)
+	for (int i = 0; i < (int)table.e_assistconst_list_size(); i++)
 	{
-		const proto_ff::E_AssistAssistthank& desc = table.e_assistassistthank_list(i);
+		const proto_ff::E_AssistConst& desc = table.e_assistconst_list(i);
 		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
@@ -91,17 +91,17 @@ int AssistAssistthankDesc::Load(NFResDB *pDB)
 		}
 	}
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_assistassistthank_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_assistconst_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
 
-int AssistAssistthankDesc::CheckWhenAllDataLoaded()
+int AssistConstDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
 }
 
-const proto_ff_s::E_AssistAssistthank_s * AssistAssistthankDesc::GetDesc(int id) const
+const proto_ff_s::E_AssistConst_s * AssistConstDesc::GetDesc(int id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -124,8 +124,8 @@ const proto_ff_s::E_AssistAssistthank_s * AssistAssistthankDesc::GetDesc(int id)
 	return NULL;
 }
 
-proto_ff_s::E_AssistAssistthank_s * AssistAssistthankDesc::GetDesc(int id)
+proto_ff_s::E_AssistConst_s * AssistConstDesc::GetDesc(int id)
 {
-	return const_cast<proto_ff_s::E_AssistAssistthank_s *>((static_cast<const AssistAssistthankDesc*>(this))->GetDesc(id));
+	return const_cast<proto_ff_s::E_AssistConst_s *>((static_cast<const AssistConstDesc*>(this))->GetDesc(id));
 }
 

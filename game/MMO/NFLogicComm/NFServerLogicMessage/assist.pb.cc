@@ -20,18 +20,24 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* E_AssistAssistbox_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* E_AssistBox_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  E_AssistAssistbox_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_AssistAssistbox_descriptor_ = NULL;
+  E_AssistBox_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AssistBox_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_AssistAssistbox_reflection_ = NULL;
-const ::google::protobuf::Descriptor* E_AssistAssistthank_descriptor_ = NULL;
+  Sheet_AssistBox_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AssistThank_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  E_AssistAssistthank_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_AssistAssistthank_descriptor_ = NULL;
+  E_AssistThank_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AssistThank_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_AssistAssistthank_reflection_ = NULL;
+  Sheet_AssistThank_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AssistConst_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AssistConst_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AssistConst_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_AssistConst_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,69 +48,105 @@ void protobuf_AssignDesc_assist_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "assist.proto");
   GOOGLE_CHECK(file != NULL);
-  E_AssistAssistbox_descriptor_ = file->message_type(0);
-  static const int E_AssistAssistbox_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistbox, m_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistbox, m_times_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistbox, m_itemid_),
+  E_AssistBox_descriptor_ = file->message_type(0);
+  static const int E_AssistBox_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistBox, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistBox, m_times_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistBox, m_itemid_),
   };
-  E_AssistAssistbox_reflection_ =
+  E_AssistBox_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      E_AssistAssistbox_descriptor_,
-      E_AssistAssistbox::default_instance_,
-      E_AssistAssistbox_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistbox, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistbox, _unknown_fields_),
+      E_AssistBox_descriptor_,
+      E_AssistBox::default_instance_,
+      E_AssistBox_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistBox, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistBox, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(E_AssistAssistbox));
-  Sheet_AssistAssistbox_descriptor_ = file->message_type(1);
-  static const int Sheet_AssistAssistbox_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistAssistbox, e_assistassistbox_list_),
+      sizeof(E_AssistBox));
+  Sheet_AssistBox_descriptor_ = file->message_type(1);
+  static const int Sheet_AssistBox_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistBox, e_assistbox_list_),
   };
-  Sheet_AssistAssistbox_reflection_ =
+  Sheet_AssistBox_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_AssistAssistbox_descriptor_,
-      Sheet_AssistAssistbox::default_instance_,
-      Sheet_AssistAssistbox_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistAssistbox, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistAssistbox, _unknown_fields_),
+      Sheet_AssistBox_descriptor_,
+      Sheet_AssistBox::default_instance_,
+      Sheet_AssistBox_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistBox, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistBox, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_AssistAssistbox));
-  E_AssistAssistthank_descriptor_ = file->message_type(2);
-  static const int E_AssistAssistthank_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistthank, m_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistthank, m_msg_),
+      sizeof(Sheet_AssistBox));
+  E_AssistThank_descriptor_ = file->message_type(2);
+  static const int E_AssistThank_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistThank, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistThank, m_msg_),
   };
-  E_AssistAssistthank_reflection_ =
+  E_AssistThank_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      E_AssistAssistthank_descriptor_,
-      E_AssistAssistthank::default_instance_,
-      E_AssistAssistthank_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistthank, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistAssistthank, _unknown_fields_),
+      E_AssistThank_descriptor_,
+      E_AssistThank::default_instance_,
+      E_AssistThank_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistThank, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistThank, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(E_AssistAssistthank));
-  Sheet_AssistAssistthank_descriptor_ = file->message_type(3);
-  static const int Sheet_AssistAssistthank_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistAssistthank, e_assistassistthank_list_),
+      sizeof(E_AssistThank));
+  Sheet_AssistThank_descriptor_ = file->message_type(3);
+  static const int Sheet_AssistThank_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistThank, e_assistthank_list_),
   };
-  Sheet_AssistAssistthank_reflection_ =
+  Sheet_AssistThank_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_AssistAssistthank_descriptor_,
-      Sheet_AssistAssistthank::default_instance_,
-      Sheet_AssistAssistthank_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistAssistthank, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistAssistthank, _unknown_fields_),
+      Sheet_AssistThank_descriptor_,
+      Sheet_AssistThank::default_instance_,
+      Sheet_AssistThank_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistThank, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistThank, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_AssistAssistthank));
+      sizeof(Sheet_AssistThank));
+  E_AssistConst_descriptor_ = file->message_type(4);
+  static const int E_AssistConst_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_sendergift_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_sendergiftnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_helpergift_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_helpergiftnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_prestigedaylimit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, m_prestigedaybosslimit_),
+  };
+  E_AssistConst_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AssistConst_descriptor_,
+      E_AssistConst::default_instance_,
+      E_AssistConst_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AssistConst, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AssistConst));
+  Sheet_AssistConst_descriptor_ = file->message_type(5);
+  static const int Sheet_AssistConst_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistConst, e_assistconst_list_),
+  };
+  Sheet_AssistConst_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_AssistConst_descriptor_,
+      Sheet_AssistConst::default_instance_,
+      Sheet_AssistConst_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistConst, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AssistConst, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_AssistConst));
 }
 
 namespace {
@@ -118,26 +160,34 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    E_AssistAssistbox_descriptor_, &E_AssistAssistbox::default_instance());
+    E_AssistBox_descriptor_, &E_AssistBox::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_AssistAssistbox_descriptor_, &Sheet_AssistAssistbox::default_instance());
+    Sheet_AssistBox_descriptor_, &Sheet_AssistBox::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    E_AssistAssistthank_descriptor_, &E_AssistAssistthank::default_instance());
+    E_AssistThank_descriptor_, &E_AssistThank::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_AssistAssistthank_descriptor_, &Sheet_AssistAssistthank::default_instance());
+    Sheet_AssistThank_descriptor_, &Sheet_AssistThank::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AssistConst_descriptor_, &E_AssistConst::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_AssistConst_descriptor_, &Sheet_AssistConst::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_assist_2eproto() {
-  delete E_AssistAssistbox::default_instance_;
-  delete E_AssistAssistbox_reflection_;
-  delete Sheet_AssistAssistbox::default_instance_;
-  delete Sheet_AssistAssistbox_reflection_;
-  delete E_AssistAssistthank::default_instance_;
-  delete E_AssistAssistthank_reflection_;
-  delete Sheet_AssistAssistthank::default_instance_;
-  delete Sheet_AssistAssistthank_reflection_;
+  delete E_AssistBox::default_instance_;
+  delete E_AssistBox_reflection_;
+  delete Sheet_AssistBox::default_instance_;
+  delete Sheet_AssistBox_reflection_;
+  delete E_AssistThank::default_instance_;
+  delete E_AssistThank_reflection_;
+  delete Sheet_AssistThank::default_instance_;
+  delete Sheet_AssistThank_reflection_;
+  delete E_AssistConst::default_instance_;
+  delete E_AssistConst_reflection_;
+  delete Sheet_AssistConst::default_instance_;
+  delete Sheet_AssistConst_reflection_;
 }
 
 void protobuf_AddDesc_assist_2eproto() {
@@ -149,26 +199,41 @@ void protobuf_AddDesc_assist_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014assist.proto\022\010proto_ff\032\025yd_fieldoption"
-    "s.proto\"x\n\021E_AssistAssistbox\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002id\022\'\n\007m_times\030\002 \001(\005B\026\302\377\024\022\351\234\200\350\246\201\345"
-    "\215\217\345\212\251\346\254\241\346\225\260\022$\n\010m_itemid\030\003 \001(\005B\022\302\377\024\016\347\244\274\345\214"
-    "\205\347\211\251\345\223\201id\"Z\n\025Sheet_AssistAssistbox\022A\n\026E_"
-    "AssistAssistbox_List\030\001 \003(\0132\033.proto_ff.E_"
-    "AssistAssistboxB\004\210\301\024\024\"J\n\023E_AssistAssistt"
-    "hank\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\035\n\005m_msg\030\002 \001("
-    "\tB\016\302\377\024\006\346\266\210\346\201\257\220\301\024<\"`\n\027Sheet_AssistAssistt"
-    "hank\022E\n\030E_AssistAssistthank_List\030\001 \003(\0132\035"
-    ".proto_ff.E_AssistAssistthankB\004\210\301\024\024", 435);
+    "s.proto\"r\n\013E_AssistBox\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
+    "\024\002id\022\'\n\007m_times\030\002 \001(\005B\026\302\377\024\022\351\234\200\350\246\201\345\215\217\345\212\251\346"
+    "\254\241\346\225\260\022$\n\010m_itemid\030\003 \001(\005B\022\302\377\024\016\347\244\274\345\214\205\347\211\251\345\223"
+    "\201id\"H\n\017Sheet_AssistBox\0225\n\020E_AssistBox_Li"
+    "st\030\001 \003(\0132\025.proto_ff.E_AssistBoxB\004\210\301\024\024\"D\n"
+    "\rE_AssistThank\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\035\n\005"
+    "m_msg\030\002 \001(\tB\016\302\377\024\006\346\266\210\346\201\257\220\301\024<\"N\n\021Sheet_Ass"
+    "istThank\0229\n\022E_AssistThank_List\030\001 \003(\0132\027.p"
+    "roto_ff.E_AssistThankB\004\210\301\024\024\"\373\002\n\rE_Assist"
+    "Const\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022+\n\014m_senderg"
+    "ift\030\002 \001(\005B\025\302\377\024\021\346\261\202\345\212\251\350\200\205\347\244\274\345\214\205id\0228\n\017m_se"
+    "ndergiftnum\030\003 \001(\005B\037\302\377\024\033\346\261\202\345\212\251\350\200\205\347\244\274\345\214\205\346\257"
+    "\217\346\227\245\346\225\260\351\207\217\022+\n\014m_helpergift\030\004 \001(\005B\025\302\377\024\021\345\215"
+    "\217\345\212\251\350\200\205\347\244\274\345\214\205id\0228\n\017m_helpergiftnum\030\005 \001(\005"
+    "B\037\302\377\024\033\345\215\217\345\212\251\350\200\205\347\244\274\345\214\205\346\257\217\346\227\245\346\225\260\351\207\217\022>\n\022m_p"
+    "restigedaylimit\030\006 \001(\005B\"\302\377\024\036\346\257\217\346\227\245\346\227\245\345\270\270\345"
+    "\243\260\346\234\233\350\216\267\345\217\226\344\270\212\351\231\220\022F\n\026m_prestigedaybossli"
+    "mit\030\007 \001(\005B&\302\377\024\"\346\257\217\346\227\245boss\345\215\217\345\212\251\345\243\260\346\234\233\350\216\267"
+    "\345\217\226\344\270\212\351\231\220\"N\n\021Sheet_AssistConst\0229\n\022E_Assi"
+    "stConst_List\030\001 \003(\0132\027.proto_ff.E_AssistCo"
+    "nstB\004\210\301\024\024", 849);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "assist.proto", &protobuf_RegisterTypes);
-  E_AssistAssistbox::default_instance_ = new E_AssistAssistbox();
-  Sheet_AssistAssistbox::default_instance_ = new Sheet_AssistAssistbox();
-  E_AssistAssistthank::default_instance_ = new E_AssistAssistthank();
-  Sheet_AssistAssistthank::default_instance_ = new Sheet_AssistAssistthank();
-  E_AssistAssistbox::default_instance_->InitAsDefaultInstance();
-  Sheet_AssistAssistbox::default_instance_->InitAsDefaultInstance();
-  E_AssistAssistthank::default_instance_->InitAsDefaultInstance();
-  Sheet_AssistAssistthank::default_instance_->InitAsDefaultInstance();
+  E_AssistBox::default_instance_ = new E_AssistBox();
+  Sheet_AssistBox::default_instance_ = new Sheet_AssistBox();
+  E_AssistThank::default_instance_ = new E_AssistThank();
+  Sheet_AssistThank::default_instance_ = new Sheet_AssistThank();
+  E_AssistConst::default_instance_ = new E_AssistConst();
+  Sheet_AssistConst::default_instance_ = new Sheet_AssistConst();
+  E_AssistBox::default_instance_->InitAsDefaultInstance();
+  Sheet_AssistBox::default_instance_->InitAsDefaultInstance();
+  E_AssistThank::default_instance_->InitAsDefaultInstance();
+  Sheet_AssistThank::default_instance_->InitAsDefaultInstance();
+  E_AssistConst::default_instance_->InitAsDefaultInstance();
+  Sheet_AssistConst::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_assist_2eproto);
 }
 
@@ -182,26 +247,26 @@ struct StaticDescriptorInitializer_assist_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AssistAssistbox::kMIdFieldNumber;
-const int E_AssistAssistbox::kMTimesFieldNumber;
-const int E_AssistAssistbox::kMItemidFieldNumber;
+const int E_AssistBox::kMIdFieldNumber;
+const int E_AssistBox::kMTimesFieldNumber;
+const int E_AssistBox::kMItemidFieldNumber;
 #endif  // !_MSC_VER
 
-E_AssistAssistbox::E_AssistAssistbox()
+E_AssistBox::E_AssistBox()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void E_AssistAssistbox::InitAsDefaultInstance() {
+void E_AssistBox::InitAsDefaultInstance() {
 }
 
-E_AssistAssistbox::E_AssistAssistbox(const E_AssistAssistbox& from)
+E_AssistBox::E_AssistBox(const E_AssistBox& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void E_AssistAssistbox::SharedCtor() {
+void E_AssistBox::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_times_ = 0;
@@ -209,37 +274,37 @@ void E_AssistAssistbox::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-E_AssistAssistbox::~E_AssistAssistbox() {
+E_AssistBox::~E_AssistBox() {
   SharedDtor();
 }
 
-void E_AssistAssistbox::SharedDtor() {
+void E_AssistBox::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void E_AssistAssistbox::SetCachedSize(int size) const {
+void E_AssistBox::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* E_AssistAssistbox::descriptor() {
+const ::google::protobuf::Descriptor* E_AssistBox::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return E_AssistAssistbox_descriptor_;
+  return E_AssistBox_descriptor_;
 }
 
-const E_AssistAssistbox& E_AssistAssistbox::default_instance() {
+const E_AssistBox& E_AssistBox::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_assist_2eproto();
   return *default_instance_;
 }
 
-E_AssistAssistbox* E_AssistAssistbox::default_instance_ = NULL;
+E_AssistBox* E_AssistBox::default_instance_ = NULL;
 
-E_AssistAssistbox* E_AssistAssistbox::New() const {
-  return new E_AssistAssistbox;
+E_AssistBox* E_AssistBox::New() const {
+  return new E_AssistBox;
 }
 
-void E_AssistAssistbox::Clear() {
+void E_AssistBox::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
     m_times_ = 0;
@@ -249,7 +314,7 @@ void E_AssistAssistbox::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool E_AssistAssistbox::MergePartialFromCodedStream(
+bool E_AssistBox::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -318,7 +383,7 @@ bool E_AssistAssistbox::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void E_AssistAssistbox::SerializeWithCachedSizes(
+void E_AssistBox::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 m_id = 1;
   if (has_m_id()) {
@@ -341,7 +406,7 @@ void E_AssistAssistbox::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* E_AssistAssistbox::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_AssistBox::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 m_id = 1;
   if (has_m_id()) {
@@ -365,7 +430,7 @@ void E_AssistAssistbox::SerializeWithCachedSizes(
   return target;
 }
 
-int E_AssistAssistbox::ByteSize() const {
+int E_AssistBox::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -402,10 +467,10 @@ int E_AssistAssistbox::ByteSize() const {
   return total_size;
 }
 
-void E_AssistAssistbox::MergeFrom(const ::google::protobuf::Message& from) {
+void E_AssistBox::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const E_AssistAssistbox* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const E_AssistAssistbox*>(
+  const E_AssistBox* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AssistBox*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -414,7 +479,7 @@ void E_AssistAssistbox::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void E_AssistAssistbox::MergeFrom(const E_AssistAssistbox& from) {
+void E_AssistBox::MergeFrom(const E_AssistBox& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
@@ -430,24 +495,24 @@ void E_AssistAssistbox::MergeFrom(const E_AssistAssistbox& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void E_AssistAssistbox::CopyFrom(const ::google::protobuf::Message& from) {
+void E_AssistBox::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void E_AssistAssistbox::CopyFrom(const E_AssistAssistbox& from) {
+void E_AssistBox::CopyFrom(const E_AssistBox& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool E_AssistAssistbox::IsInitialized() const {
+bool E_AssistBox::IsInitialized() const {
 
   return true;
 }
 
-void E_AssistAssistbox::Swap(E_AssistAssistbox* other) {
+void E_AssistBox::Swap(E_AssistBox* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_times_, other->m_times_);
@@ -458,11 +523,11 @@ void E_AssistAssistbox::Swap(E_AssistAssistbox* other) {
   }
 }
 
-::google::protobuf::Metadata E_AssistAssistbox::GetMetadata() const {
+::google::protobuf::Metadata E_AssistBox::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = E_AssistAssistbox_descriptor_;
-  metadata.reflection = E_AssistAssistbox_reflection_;
+  metadata.descriptor = E_AssistBox_descriptor_;
+  metadata.reflection = E_AssistBox_reflection_;
   return metadata;
 }
 
@@ -470,81 +535,81 @@ void E_AssistAssistbox::Swap(E_AssistAssistbox* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_AssistAssistbox::kEAssistAssistboxListFieldNumber;
+const int Sheet_AssistBox::kEAssistBoxListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_AssistAssistbox::Sheet_AssistAssistbox()
+Sheet_AssistBox::Sheet_AssistBox()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_AssistAssistbox::InitAsDefaultInstance() {
+void Sheet_AssistBox::InitAsDefaultInstance() {
 }
 
-Sheet_AssistAssistbox::Sheet_AssistAssistbox(const Sheet_AssistAssistbox& from)
+Sheet_AssistBox::Sheet_AssistBox(const Sheet_AssistBox& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_AssistAssistbox::SharedCtor() {
+void Sheet_AssistBox::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_AssistAssistbox::~Sheet_AssistAssistbox() {
+Sheet_AssistBox::~Sheet_AssistBox() {
   SharedDtor();
 }
 
-void Sheet_AssistAssistbox::SharedDtor() {
+void Sheet_AssistBox::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_AssistAssistbox::SetCachedSize(int size) const {
+void Sheet_AssistBox::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_AssistAssistbox::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_AssistBox::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_AssistAssistbox_descriptor_;
+  return Sheet_AssistBox_descriptor_;
 }
 
-const Sheet_AssistAssistbox& Sheet_AssistAssistbox::default_instance() {
+const Sheet_AssistBox& Sheet_AssistBox::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_assist_2eproto();
   return *default_instance_;
 }
 
-Sheet_AssistAssistbox* Sheet_AssistAssistbox::default_instance_ = NULL;
+Sheet_AssistBox* Sheet_AssistBox::default_instance_ = NULL;
 
-Sheet_AssistAssistbox* Sheet_AssistAssistbox::New() const {
-  return new Sheet_AssistAssistbox;
+Sheet_AssistBox* Sheet_AssistBox::New() const {
+  return new Sheet_AssistBox;
 }
 
-void Sheet_AssistAssistbox::Clear() {
-  e_assistassistbox_list_.Clear();
+void Sheet_AssistBox::Clear() {
+  e_assistbox_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_AssistAssistbox::MergePartialFromCodedStream(
+bool Sheet_AssistBox::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.E_AssistAssistbox E_AssistAssistbox_List = 1;
+      // repeated .proto_ff.E_AssistBox E_AssistBox_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_E_AssistAssistbox_List:
+         parse_E_AssistBox_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_e_assistassistbox_list()));
+                input, add_e_assistbox_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_E_AssistAssistbox_List;
+        if (input->ExpectTag(10)) goto parse_E_AssistBox_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -565,12 +630,12 @@ bool Sheet_AssistAssistbox::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_AssistAssistbox::SerializeWithCachedSizes(
+void Sheet_AssistBox::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.E_AssistAssistbox E_AssistAssistbox_List = 1;
-  for (int i = 0; i < this->e_assistassistbox_list_size(); i++) {
+  // repeated .proto_ff.E_AssistBox E_AssistBox_List = 1;
+  for (int i = 0; i < this->e_assistbox_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->e_assistassistbox_list(i), output);
+      1, this->e_assistbox_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -579,13 +644,13 @@ void Sheet_AssistAssistbox::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_AssistAssistbox::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_AssistBox::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.E_AssistAssistbox E_AssistAssistbox_List = 1;
-  for (int i = 0; i < this->e_assistassistbox_list_size(); i++) {
+  // repeated .proto_ff.E_AssistBox E_AssistBox_List = 1;
+  for (int i = 0; i < this->e_assistbox_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->e_assistassistbox_list(i), target);
+        1, this->e_assistbox_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -595,15 +660,15 @@ void Sheet_AssistAssistbox::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_AssistAssistbox::ByteSize() const {
+int Sheet_AssistBox::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.E_AssistAssistbox E_AssistAssistbox_List = 1;
-  total_size += 1 * this->e_assistassistbox_list_size();
-  for (int i = 0; i < this->e_assistassistbox_list_size(); i++) {
+  // repeated .proto_ff.E_AssistBox E_AssistBox_List = 1;
+  total_size += 1 * this->e_assistbox_list_size();
+  for (int i = 0; i < this->e_assistbox_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->e_assistassistbox_list(i));
+        this->e_assistbox_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -617,10 +682,10 @@ int Sheet_AssistAssistbox::ByteSize() const {
   return total_size;
 }
 
-void Sheet_AssistAssistbox::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_AssistBox::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_AssistAssistbox* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AssistAssistbox*>(
+  const Sheet_AssistBox* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AssistBox*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -629,43 +694,43 @@ void Sheet_AssistAssistbox::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Sheet_AssistAssistbox::MergeFrom(const Sheet_AssistAssistbox& from) {
+void Sheet_AssistBox::MergeFrom(const Sheet_AssistBox& from) {
   GOOGLE_CHECK_NE(&from, this);
-  e_assistassistbox_list_.MergeFrom(from.e_assistassistbox_list_);
+  e_assistbox_list_.MergeFrom(from.e_assistbox_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_AssistAssistbox::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_AssistBox::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_AssistAssistbox::CopyFrom(const Sheet_AssistAssistbox& from) {
+void Sheet_AssistBox::CopyFrom(const Sheet_AssistBox& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_AssistAssistbox::IsInitialized() const {
+bool Sheet_AssistBox::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_AssistAssistbox::Swap(Sheet_AssistAssistbox* other) {
+void Sheet_AssistBox::Swap(Sheet_AssistBox* other) {
   if (other != this) {
-    e_assistassistbox_list_.Swap(&other->e_assistassistbox_list_);
+    e_assistbox_list_.Swap(&other->e_assistbox_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_AssistAssistbox::GetMetadata() const {
+::google::protobuf::Metadata Sheet_AssistBox::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_AssistAssistbox_descriptor_;
-  metadata.reflection = Sheet_AssistAssistbox_reflection_;
+  metadata.descriptor = Sheet_AssistBox_descriptor_;
+  metadata.reflection = Sheet_AssistBox_reflection_;
   return metadata;
 }
 
@@ -673,36 +738,36 @@ void Sheet_AssistAssistbox::Swap(Sheet_AssistAssistbox* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AssistAssistthank::kMIdFieldNumber;
-const int E_AssistAssistthank::kMMsgFieldNumber;
+const int E_AssistThank::kMIdFieldNumber;
+const int E_AssistThank::kMMsgFieldNumber;
 #endif  // !_MSC_VER
 
-E_AssistAssistthank::E_AssistAssistthank()
+E_AssistThank::E_AssistThank()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void E_AssistAssistthank::InitAsDefaultInstance() {
+void E_AssistThank::InitAsDefaultInstance() {
 }
 
-E_AssistAssistthank::E_AssistAssistthank(const E_AssistAssistthank& from)
+E_AssistThank::E_AssistThank(const E_AssistThank& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void E_AssistAssistthank::SharedCtor() {
+void E_AssistThank::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_msg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-E_AssistAssistthank::~E_AssistAssistthank() {
+E_AssistThank::~E_AssistThank() {
   SharedDtor();
 }
 
-void E_AssistAssistthank::SharedDtor() {
+void E_AssistThank::SharedDtor() {
   if (m_msg_ != &::google::protobuf::internal::kEmptyString) {
     delete m_msg_;
   }
@@ -710,28 +775,28 @@ void E_AssistAssistthank::SharedDtor() {
   }
 }
 
-void E_AssistAssistthank::SetCachedSize(int size) const {
+void E_AssistThank::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* E_AssistAssistthank::descriptor() {
+const ::google::protobuf::Descriptor* E_AssistThank::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return E_AssistAssistthank_descriptor_;
+  return E_AssistThank_descriptor_;
 }
 
-const E_AssistAssistthank& E_AssistAssistthank::default_instance() {
+const E_AssistThank& E_AssistThank::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_assist_2eproto();
   return *default_instance_;
 }
 
-E_AssistAssistthank* E_AssistAssistthank::default_instance_ = NULL;
+E_AssistThank* E_AssistThank::default_instance_ = NULL;
 
-E_AssistAssistthank* E_AssistAssistthank::New() const {
-  return new E_AssistAssistthank;
+E_AssistThank* E_AssistThank::New() const {
+  return new E_AssistThank;
 }
 
-void E_AssistAssistthank::Clear() {
+void E_AssistThank::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
     if (has_m_msg()) {
@@ -744,7 +809,7 @@ void E_AssistAssistthank::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool E_AssistAssistthank::MergePartialFromCodedStream(
+bool E_AssistThank::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -798,7 +863,7 @@ bool E_AssistAssistthank::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void E_AssistAssistthank::SerializeWithCachedSizes(
+void E_AssistThank::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 m_id = 1;
   if (has_m_id()) {
@@ -820,7 +885,7 @@ void E_AssistAssistthank::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* E_AssistAssistthank::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* E_AssistThank::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 m_id = 1;
   if (has_m_id()) {
@@ -844,7 +909,7 @@ void E_AssistAssistthank::SerializeWithCachedSizes(
   return target;
 }
 
-int E_AssistAssistthank::ByteSize() const {
+int E_AssistThank::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -874,10 +939,10 @@ int E_AssistAssistthank::ByteSize() const {
   return total_size;
 }
 
-void E_AssistAssistthank::MergeFrom(const ::google::protobuf::Message& from) {
+void E_AssistThank::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const E_AssistAssistthank* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const E_AssistAssistthank*>(
+  const E_AssistThank* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AssistThank*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -886,7 +951,7 @@ void E_AssistAssistthank::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void E_AssistAssistthank::MergeFrom(const E_AssistAssistthank& from) {
+void E_AssistThank::MergeFrom(const E_AssistThank& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
@@ -899,24 +964,24 @@ void E_AssistAssistthank::MergeFrom(const E_AssistAssistthank& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void E_AssistAssistthank::CopyFrom(const ::google::protobuf::Message& from) {
+void E_AssistThank::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void E_AssistAssistthank::CopyFrom(const E_AssistAssistthank& from) {
+void E_AssistThank::CopyFrom(const E_AssistThank& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool E_AssistAssistthank::IsInitialized() const {
+bool E_AssistThank::IsInitialized() const {
 
   return true;
 }
 
-void E_AssistAssistthank::Swap(E_AssistAssistthank* other) {
+void E_AssistThank::Swap(E_AssistThank* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_msg_, other->m_msg_);
@@ -926,11 +991,11 @@ void E_AssistAssistthank::Swap(E_AssistAssistthank* other) {
   }
 }
 
-::google::protobuf::Metadata E_AssistAssistthank::GetMetadata() const {
+::google::protobuf::Metadata E_AssistThank::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = E_AssistAssistthank_descriptor_;
-  metadata.reflection = E_AssistAssistthank_reflection_;
+  metadata.descriptor = E_AssistThank_descriptor_;
+  metadata.reflection = E_AssistThank_reflection_;
   return metadata;
 }
 
@@ -938,81 +1003,81 @@ void E_AssistAssistthank::Swap(E_AssistAssistthank* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Sheet_AssistAssistthank::kEAssistAssistthankListFieldNumber;
+const int Sheet_AssistThank::kEAssistThankListFieldNumber;
 #endif  // !_MSC_VER
 
-Sheet_AssistAssistthank::Sheet_AssistAssistthank()
+Sheet_AssistThank::Sheet_AssistThank()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Sheet_AssistAssistthank::InitAsDefaultInstance() {
+void Sheet_AssistThank::InitAsDefaultInstance() {
 }
 
-Sheet_AssistAssistthank::Sheet_AssistAssistthank(const Sheet_AssistAssistthank& from)
+Sheet_AssistThank::Sheet_AssistThank(const Sheet_AssistThank& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Sheet_AssistAssistthank::SharedCtor() {
+void Sheet_AssistThank::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Sheet_AssistAssistthank::~Sheet_AssistAssistthank() {
+Sheet_AssistThank::~Sheet_AssistThank() {
   SharedDtor();
 }
 
-void Sheet_AssistAssistthank::SharedDtor() {
+void Sheet_AssistThank::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Sheet_AssistAssistthank::SetCachedSize(int size) const {
+void Sheet_AssistThank::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Sheet_AssistAssistthank::descriptor() {
+const ::google::protobuf::Descriptor* Sheet_AssistThank::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Sheet_AssistAssistthank_descriptor_;
+  return Sheet_AssistThank_descriptor_;
 }
 
-const Sheet_AssistAssistthank& Sheet_AssistAssistthank::default_instance() {
+const Sheet_AssistThank& Sheet_AssistThank::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_assist_2eproto();
   return *default_instance_;
 }
 
-Sheet_AssistAssistthank* Sheet_AssistAssistthank::default_instance_ = NULL;
+Sheet_AssistThank* Sheet_AssistThank::default_instance_ = NULL;
 
-Sheet_AssistAssistthank* Sheet_AssistAssistthank::New() const {
-  return new Sheet_AssistAssistthank;
+Sheet_AssistThank* Sheet_AssistThank::New() const {
+  return new Sheet_AssistThank;
 }
 
-void Sheet_AssistAssistthank::Clear() {
-  e_assistassistthank_list_.Clear();
+void Sheet_AssistThank::Clear() {
+  e_assistthank_list_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool Sheet_AssistAssistthank::MergePartialFromCodedStream(
+bool Sheet_AssistThank::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.E_AssistAssistthank E_AssistAssistthank_List = 1;
+      // repeated .proto_ff.E_AssistThank E_AssistThank_List = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_E_AssistAssistthank_List:
+         parse_E_AssistThank_List:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_e_assistassistthank_list()));
+                input, add_e_assistthank_list()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_E_AssistAssistthank_List;
+        if (input->ExpectTag(10)) goto parse_E_AssistThank_List;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1033,12 +1098,12 @@ bool Sheet_AssistAssistthank::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Sheet_AssistAssistthank::SerializeWithCachedSizes(
+void Sheet_AssistThank::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.E_AssistAssistthank E_AssistAssistthank_List = 1;
-  for (int i = 0; i < this->e_assistassistthank_list_size(); i++) {
+  // repeated .proto_ff.E_AssistThank E_AssistThank_List = 1;
+  for (int i = 0; i < this->e_assistthank_list_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->e_assistassistthank_list(i), output);
+      1, this->e_assistthank_list(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1047,13 +1112,13 @@ void Sheet_AssistAssistthank::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Sheet_AssistAssistthank::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Sheet_AssistThank::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.E_AssistAssistthank E_AssistAssistthank_List = 1;
-  for (int i = 0; i < this->e_assistassistthank_list_size(); i++) {
+  // repeated .proto_ff.E_AssistThank E_AssistThank_List = 1;
+  for (int i = 0; i < this->e_assistthank_list_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->e_assistassistthank_list(i), target);
+        1, this->e_assistthank_list(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1063,15 +1128,15 @@ void Sheet_AssistAssistthank::SerializeWithCachedSizes(
   return target;
 }
 
-int Sheet_AssistAssistthank::ByteSize() const {
+int Sheet_AssistThank::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.E_AssistAssistthank E_AssistAssistthank_List = 1;
-  total_size += 1 * this->e_assistassistthank_list_size();
-  for (int i = 0; i < this->e_assistassistthank_list_size(); i++) {
+  // repeated .proto_ff.E_AssistThank E_AssistThank_List = 1;
+  total_size += 1 * this->e_assistthank_list_size();
+  for (int i = 0; i < this->e_assistthank_list_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->e_assistassistthank_list(i));
+        this->e_assistthank_list(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -1085,10 +1150,10 @@ int Sheet_AssistAssistthank::ByteSize() const {
   return total_size;
 }
 
-void Sheet_AssistAssistthank::MergeFrom(const ::google::protobuf::Message& from) {
+void Sheet_AssistThank::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Sheet_AssistAssistthank* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AssistAssistthank*>(
+  const Sheet_AssistThank* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AssistThank*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1097,43 +1162,694 @@ void Sheet_AssistAssistthank::MergeFrom(const ::google::protobuf::Message& from)
   }
 }
 
-void Sheet_AssistAssistthank::MergeFrom(const Sheet_AssistAssistthank& from) {
+void Sheet_AssistThank::MergeFrom(const Sheet_AssistThank& from) {
   GOOGLE_CHECK_NE(&from, this);
-  e_assistassistthank_list_.MergeFrom(from.e_assistassistthank_list_);
+  e_assistthank_list_.MergeFrom(from.e_assistthank_list_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Sheet_AssistAssistthank::CopyFrom(const ::google::protobuf::Message& from) {
+void Sheet_AssistThank::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Sheet_AssistAssistthank::CopyFrom(const Sheet_AssistAssistthank& from) {
+void Sheet_AssistThank::CopyFrom(const Sheet_AssistThank& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Sheet_AssistAssistthank::IsInitialized() const {
+bool Sheet_AssistThank::IsInitialized() const {
 
   return true;
 }
 
-void Sheet_AssistAssistthank::Swap(Sheet_AssistAssistthank* other) {
+void Sheet_AssistThank::Swap(Sheet_AssistThank* other) {
   if (other != this) {
-    e_assistassistthank_list_.Swap(&other->e_assistassistthank_list_);
+    e_assistthank_list_.Swap(&other->e_assistthank_list_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Sheet_AssistAssistthank::GetMetadata() const {
+::google::protobuf::Metadata Sheet_AssistThank::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_AssistAssistthank_descriptor_;
-  metadata.reflection = Sheet_AssistAssistthank_reflection_;
+  metadata.descriptor = Sheet_AssistThank_descriptor_;
+  metadata.reflection = Sheet_AssistThank_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AssistConst::kMIdFieldNumber;
+const int E_AssistConst::kMSendergiftFieldNumber;
+const int E_AssistConst::kMSendergiftnumFieldNumber;
+const int E_AssistConst::kMHelpergiftFieldNumber;
+const int E_AssistConst::kMHelpergiftnumFieldNumber;
+const int E_AssistConst::kMPrestigedaylimitFieldNumber;
+const int E_AssistConst::kMPrestigedaybosslimitFieldNumber;
+#endif  // !_MSC_VER
+
+E_AssistConst::E_AssistConst()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AssistConst::InitAsDefaultInstance() {
+}
+
+E_AssistConst::E_AssistConst(const E_AssistConst& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AssistConst::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_sendergift_ = 0;
+  m_sendergiftnum_ = 0;
+  m_helpergift_ = 0;
+  m_helpergiftnum_ = 0;
+  m_prestigedaylimit_ = 0;
+  m_prestigedaybosslimit_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AssistConst::~E_AssistConst() {
+  SharedDtor();
+}
+
+void E_AssistConst::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AssistConst::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AssistConst::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AssistConst_descriptor_;
+}
+
+const E_AssistConst& E_AssistConst::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_assist_2eproto();
+  return *default_instance_;
+}
+
+E_AssistConst* E_AssistConst::default_instance_ = NULL;
+
+E_AssistConst* E_AssistConst::New() const {
+  return new E_AssistConst;
+}
+
+void E_AssistConst::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_sendergift_ = 0;
+    m_sendergiftnum_ = 0;
+    m_helpergift_ = 0;
+    m_helpergiftnum_ = 0;
+    m_prestigedaylimit_ = 0;
+    m_prestigedaybosslimit_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AssistConst::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_sendergift;
+        break;
+      }
+
+      // optional int32 m_sendergift = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_sendergift:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_sendergift_)));
+          set_has_m_sendergift();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_sendergiftnum;
+        break;
+      }
+
+      // optional int32 m_sendergiftnum = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_sendergiftnum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_sendergiftnum_)));
+          set_has_m_sendergiftnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_helpergift;
+        break;
+      }
+
+      // optional int32 m_helpergift = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_helpergift:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_helpergift_)));
+          set_has_m_helpergift();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_helpergiftnum;
+        break;
+      }
+
+      // optional int32 m_helpergiftnum = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_helpergiftnum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_helpergiftnum_)));
+          set_has_m_helpergiftnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_prestigedaylimit;
+        break;
+      }
+
+      // optional int32 m_prestigedaylimit = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prestigedaylimit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prestigedaylimit_)));
+          set_has_m_prestigedaylimit();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_prestigedaybosslimit;
+        break;
+      }
+
+      // optional int32 m_prestigedaybosslimit = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prestigedaybosslimit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prestigedaybosslimit_)));
+          set_has_m_prestigedaybosslimit();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AssistConst::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_sendergift = 2;
+  if (has_m_sendergift()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_sendergift(), output);
+  }
+
+  // optional int32 m_sendergiftnum = 3;
+  if (has_m_sendergiftnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_sendergiftnum(), output);
+  }
+
+  // optional int32 m_helpergift = 4;
+  if (has_m_helpergift()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_helpergift(), output);
+  }
+
+  // optional int32 m_helpergiftnum = 5;
+  if (has_m_helpergiftnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_helpergiftnum(), output);
+  }
+
+  // optional int32 m_prestigedaylimit = 6;
+  if (has_m_prestigedaylimit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_prestigedaylimit(), output);
+  }
+
+  // optional int32 m_prestigedaybosslimit = 7;
+  if (has_m_prestigedaybosslimit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_prestigedaybosslimit(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AssistConst::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_sendergift = 2;
+  if (has_m_sendergift()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_sendergift(), target);
+  }
+
+  // optional int32 m_sendergiftnum = 3;
+  if (has_m_sendergiftnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_sendergiftnum(), target);
+  }
+
+  // optional int32 m_helpergift = 4;
+  if (has_m_helpergift()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_helpergift(), target);
+  }
+
+  // optional int32 m_helpergiftnum = 5;
+  if (has_m_helpergiftnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_helpergiftnum(), target);
+  }
+
+  // optional int32 m_prestigedaylimit = 6;
+  if (has_m_prestigedaylimit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_prestigedaylimit(), target);
+  }
+
+  // optional int32 m_prestigedaybosslimit = 7;
+  if (has_m_prestigedaybosslimit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_prestigedaybosslimit(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AssistConst::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_sendergift = 2;
+    if (has_m_sendergift()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_sendergift());
+    }
+
+    // optional int32 m_sendergiftnum = 3;
+    if (has_m_sendergiftnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_sendergiftnum());
+    }
+
+    // optional int32 m_helpergift = 4;
+    if (has_m_helpergift()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_helpergift());
+    }
+
+    // optional int32 m_helpergiftnum = 5;
+    if (has_m_helpergiftnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_helpergiftnum());
+    }
+
+    // optional int32 m_prestigedaylimit = 6;
+    if (has_m_prestigedaylimit()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prestigedaylimit());
+    }
+
+    // optional int32 m_prestigedaybosslimit = 7;
+    if (has_m_prestigedaybosslimit()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prestigedaybosslimit());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AssistConst::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AssistConst* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AssistConst*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AssistConst::MergeFrom(const E_AssistConst& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_sendergift()) {
+      set_m_sendergift(from.m_sendergift());
+    }
+    if (from.has_m_sendergiftnum()) {
+      set_m_sendergiftnum(from.m_sendergiftnum());
+    }
+    if (from.has_m_helpergift()) {
+      set_m_helpergift(from.m_helpergift());
+    }
+    if (from.has_m_helpergiftnum()) {
+      set_m_helpergiftnum(from.m_helpergiftnum());
+    }
+    if (from.has_m_prestigedaylimit()) {
+      set_m_prestigedaylimit(from.m_prestigedaylimit());
+    }
+    if (from.has_m_prestigedaybosslimit()) {
+      set_m_prestigedaybosslimit(from.m_prestigedaybosslimit());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AssistConst::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AssistConst::CopyFrom(const E_AssistConst& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AssistConst::IsInitialized() const {
+
+  return true;
+}
+
+void E_AssistConst::Swap(E_AssistConst* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_sendergift_, other->m_sendergift_);
+    std::swap(m_sendergiftnum_, other->m_sendergiftnum_);
+    std::swap(m_helpergift_, other->m_helpergift_);
+    std::swap(m_helpergiftnum_, other->m_helpergiftnum_);
+    std::swap(m_prestigedaylimit_, other->m_prestigedaylimit_);
+    std::swap(m_prestigedaybosslimit_, other->m_prestigedaybosslimit_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AssistConst::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AssistConst_descriptor_;
+  metadata.reflection = E_AssistConst_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_AssistConst::kEAssistConstListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_AssistConst::Sheet_AssistConst()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_AssistConst::InitAsDefaultInstance() {
+}
+
+Sheet_AssistConst::Sheet_AssistConst(const Sheet_AssistConst& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_AssistConst::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_AssistConst::~Sheet_AssistConst() {
+  SharedDtor();
+}
+
+void Sheet_AssistConst::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_AssistConst::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_AssistConst::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_AssistConst_descriptor_;
+}
+
+const Sheet_AssistConst& Sheet_AssistConst::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_assist_2eproto();
+  return *default_instance_;
+}
+
+Sheet_AssistConst* Sheet_AssistConst::default_instance_ = NULL;
+
+Sheet_AssistConst* Sheet_AssistConst::New() const {
+  return new Sheet_AssistConst;
+}
+
+void Sheet_AssistConst::Clear() {
+  e_assistconst_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_AssistConst::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_AssistConst E_AssistConst_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_AssistConst_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_assistconst_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_AssistConst_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_AssistConst::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_AssistConst E_AssistConst_List = 1;
+  for (int i = 0; i < this->e_assistconst_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_assistconst_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_AssistConst::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_AssistConst E_AssistConst_List = 1;
+  for (int i = 0; i < this->e_assistconst_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_assistconst_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_AssistConst::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_AssistConst E_AssistConst_List = 1;
+  total_size += 1 * this->e_assistconst_list_size();
+  for (int i = 0; i < this->e_assistconst_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_assistconst_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_AssistConst::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_AssistConst* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AssistConst*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_AssistConst::MergeFrom(const Sheet_AssistConst& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_assistconst_list_.MergeFrom(from.e_assistconst_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_AssistConst::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_AssistConst::CopyFrom(const Sheet_AssistConst& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_AssistConst::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_AssistConst::Swap(Sheet_AssistConst* other) {
+  if (other != this) {
+    e_assistconst_list_.Swap(&other->e_assistconst_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_AssistConst::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_AssistConst_descriptor_;
+  metadata.reflection = Sheet_AssistConst_reflection_;
   return metadata;
 }
 
