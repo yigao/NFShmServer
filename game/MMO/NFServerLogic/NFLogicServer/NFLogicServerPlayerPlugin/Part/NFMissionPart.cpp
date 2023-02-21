@@ -37,6 +37,11 @@ NFMissionPart::~NFMissionPart()
 
 int NFMissionPart::CreateInit()
 {
+    _aryDyIdAlloc.resize(_aryDyIdAlloc.max_size());
+    for(int i = 0; i < (int)_aryDyIdAlloc.size(); i++)
+    {
+        _aryDyIdAlloc[i] = false;
+    }
     return 0;
 }
 
@@ -57,7 +62,159 @@ int NFMissionPart::RetisterServerMessage(NFIPluginManager *pPluginManager)
 
 int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData)
 {
-    return NFPart::Init(pMaster, partType, dbData);
+    NFPart::Init(pMaster, partType, dbData);
+
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ITEM_CHANGE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PASS_DUPLICATE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ARENA_JOIN, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ADD_FRIEND, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_STONE_INLAY, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_EQUP_STREN, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_GUILD_CHANGE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_WING_ADVANCE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_TREASURE_ADVANCE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PARTNER_ADVANCE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+
+    if (dbData.has_task())
+    {
+        const proto_ff::CharacterDBTaskData &missionDBData = dbData.task();
+
+        //已接任务列表
+        uint32_t nAccept = missionDBData.missiontrack_size();
+        for (uint32_t i = 0; i < nAccept; ++i)
+        {
+            const proto_ff::CharacterDBMissionTrack &missionDBTrack = missionDBData.missiontrack(i);
+            if (_playerTrackMissionMap.size() >= _playerTrackMissionMap.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_playerTrackMissionMap Space Not Enough, need size:{}", nAccept);
+                continue;
+            }
+            MissionTrack *pMissionTrack = &_playerTrackMissionMap[missionDBTrack.dynamicid()];
+            if (nullptr != pMissionTrack)
+            {
+                if (!pMissionTrack->CopyFromMissionProto(missionDBTrack))
+                {
+                    continue;
+                }
+                uint64_t dynamicId = pMissionTrack->dynamicId;
+                //任务进度等级
+                int32_t progressLev = 1;
+                MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(pMissionTrack->missionId);
+                if (nullptr != pMissionInfo)
+                {
+                    progressLev = pMissionInfo->progressLev;
+                }
+                //检查下任务进度是否已经完成,外网出现过任务进度完成了但是状态没有置为完成状态
+                bool completeFlag = true;
+
+                for (auto iterChk = pMissionTrack->items.begin(); iterChk != pMissionTrack->items.end(); ++iterChk)
+                {
+                    ItemInfo &itemInfo = (*iterChk);
+                    if (itemInfo.currentValue >= itemInfo.finalValue)
+                    {
+                        if (!itemInfo.completedFlag)
+                        {
+                            itemInfo.currentValue = itemInfo.finalValue;
+                            itemInfo.completedFlag = true;
+                            MarkDirty();
+                        }
+                    }
+                    else
+                    {
+                        completeFlag = false;
+                    }
+                }
+                //没有完成的任务才需要注册事件以及添加任务掉落
+                if (!completeFlag)
+                {
+                    //注册事件
+                    for (auto iter = pMissionTrack->items.begin(); iter != pMissionTrack->items.end(); ++iter)
+                    {
+                        ItemInfo &itemInfo = (*iter);
+                        if (!itemInfo.completedFlag)
+                        {
+                            //对已接任务注册事件
+                            int32_t relevent = MISSION_COND_TYPE_TO_EVENT(itemInfo.type);
+                            RegisterEvent(relevent, dynamicId, progressLev);
+                        }
+                    }
+                    //任务掉落
+                    OnAddMissionDrop(pMissionTrack, progressLev);
+                }
+                else
+                {
+                    if (pMissionTrack->status != MISSION_E_COMPLETION)
+                    {
+                        pMissionTrack->status = MISSION_E_COMPLETION;
+                    }
+                }
+                //
+                if (ValidDyMissionId(dynamicId))
+                {
+                    _aryDyIdAlloc[dynamicId] = 1;
+                }
+            }
+        }
+
+        //已经提交的任务列表
+        for (uint32_t j = 0; j < (uint32_t)missionDBData.already_submit_size(); ++j)
+        {
+            if (_setAlreadySubmit.size() >= _setAlreadySubmit.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_setAlreadySubmit Space Not Enough, need size:{}", missionDBData.already_submit_size());
+                continue;
+            }
+
+            _setAlreadySubmit.insert(missionDBData.already_submit(j));
+        }
+
+        //动态任务次数信息
+        uint32_t nDyCnt = missionDBData.dyinfo_size();
+        for (uint32_t n = 0; n < nDyCnt; ++n)
+        {
+            const proto_ff::CharacterDBDyMissionInfo &dyInfo = missionDBData.dyinfo(n);
+            if (_mapDyMissionTrack.size() >= _mapDyMissionTrack.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapDyMissionTrack Space Not Enough, need size:{}", nDyCnt);
+                continue;
+            }
+            DyMissionTrack& track = _mapDyMissionTrack[dyInfo.mission_type()];
+            track.kind = dyInfo.mission_type();
+            track.lastFresh = dyInfo.lastfresh();
+            track.acceptNum = dyInfo.accept_num();
+            track.bountyParam.ten_status = dyInfo.bounty_param().ten_state();
+            track.bountyParam.twenty_status = dyInfo.bounty_param().twenty_state();
+        }
+
+        //最近提交的任务列表
+        uint32_t nRecentSubmit = missionDBData.recent_submit_size();
+        for (uint32_t m = 0; m < nRecentSubmit; ++m)
+        {
+            const proto_ff::CharacterDBRecentSubmitMission &recent = missionDBData.recent_submit(m);
+            auto iter = _mapRecentSubmit.find(recent.mission_type());
+            if (iter != _mapRecentSubmit.end())
+            {
+                if (iter->second.size() >= iter->second.max_size())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapRecentSubmit mission_type Space Not Enough....");
+                    continue;
+                }
+                iter->second.insert(recent.mission_id());
+            }
+            else
+            {
+                if (_mapRecentSubmit.size() >= _mapRecentSubmit.max_size())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapRecentSubmit Space Not Enough....");
+                    continue;
+                }
+                _mapRecentSubmit[recent.mission_type()].insert(recent.mission_id());
+            }
+        }
+    }
+
+    return 0;
 }
 
 int NFMissionPart::UnInit()
@@ -72,7 +229,7 @@ int NFMissionPart::SaveDB(proto_ff::RoleDBData &dbData)
 
 int NFMissionPart::OnLogin()
 {
-
+    CheckTrunkMission();
     return 0;
 }
 
@@ -83,7 +240,7 @@ int NFMissionPart::OnLogin(proto_ff::PlayerInfoRsp &playerInfo)
 
 int NFMissionPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    return NFPart::OnHandleClientMessage(msgId, packet);
+    return 0;
 }
 
 int NFMissionPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
@@ -1308,5 +1465,35 @@ void NFMissionPart::NotifyDyAcceptCount(SET_UINT32 &setMissionType)
         }
 
         m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_UPDDATE_DY_ACCEPT_NUM, notify);
+    }
+}
+
+bool NFMissionPart::ValidDyMissionId(uint64_t dyMissionId) //是否是有效的动态任务ID
+{
+    if (dyMissionId >= 1 && dyMissionId <= MISSION_MAX_DYNAMIC_ALLOC)
+    {
+        return true;
+    }
+    return false;
+}
+
+uint64_t NFMissionPart::AllocNewDyMisssionId() //分配一个动态任务ID
+{
+    for (uint32_t i = 1; i <= MISSION_MAX_DYNAMIC_ALLOC; ++i)
+    {
+        if (!_aryDyIdAlloc[i])
+        {
+            _aryDyIdAlloc[i] = true;
+            return i;
+        }
+    }
+    return 0;
+}
+
+void NFMissionPart::FreeDyMissionId(uint64_t dyMissionId) //回收一个动态任务ID
+{
+    if (dyMissionId >= 1 && dyMissionId <= MISSION_MAX_DYNAMIC_ALLOC)
+    {
+        _aryDyIdAlloc[dyMissionId] = false;
     }
 }

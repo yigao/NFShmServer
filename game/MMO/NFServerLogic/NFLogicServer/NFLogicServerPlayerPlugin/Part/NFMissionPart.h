@@ -23,13 +23,14 @@
 #include "NFLogicCommon/NFItemDefine.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 
-#define PLAYER_TRACK_MISSION_MAX_MISSION_COUNT 100
+#define PLAYER_TRACK_MISSION_MAX_MISSION_COUNT MISSION_MAX_ACCEPT_NUM*2
 
 class NFMissionPart : public NFPart
 {
 public:
     // eventtype - level - dynamicid
-    typedef NFShmHashMap<uint32_t, NFShmHashMap<int32_t, NFShmHashSet<uint64_t, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT>, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT>, 10> EventTabal;
+    typedef NFShmHashMap<uint32_t, NFShmHashMap<int32_t, NFShmHashSet<uint64_t, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT>,
+            PLAYER_TRACK_MISSION_MAX_MISSION_COUNT>, 10> EventTabal;
 
 
     typedef NFShmHashMap<uint64_t, MissionTrack, PLAYER_TRACK_MISSION_MAX_MISSION_COUNT> PlayerTrackMissionMap;
@@ -96,6 +97,13 @@ public:
 
 public:
     /**
+     * @brief 检查主线任务
+     * @param notify
+     */
+    void CheckTrunkMission(bool notify = true);
+
+public:
+    /**
      * @brief 接取任务
      * @param missionId
      * @param notify
@@ -154,13 +162,25 @@ public:
      * @param setMissionType
      */
     void NotifyDyAcceptCount(SET_UINT32 &setMissionType);
-public:
-    /**
-     * @brief 检查主线任务
-     * @param notify
-     */
-    void CheckTrunkMission(bool notify = true);
 
+    /**
+     * @brief 是否是有效的动态任务ID
+     * @param dyMissionId
+     * @return
+     */
+    bool ValidDyMissionId(uint64_t dyMissionId);
+
+    /**
+     * @brief 分配一个动态任务ID
+     * @return
+     */
+    uint64_t AllocNewDyMisssionId();
+
+    /**
+     * @brief 回收一个动态任务ID
+     * @param dyMissionId
+     */
+    void FreeDyMissionId(uint64_t dyMissionId);
 public:
     /** 最近提交列表里面是否有指定类型的任务
      * @brief
@@ -302,6 +322,7 @@ private:
     MissionAllDropMap _mapMissionAllDrop;        //任务掉落
     //
     EventTabal _eventTabal;            //任务事件表
+    NFShmVector<bool,MISSION_MAX_DYNAMIC_ALLOC + 1 > _aryDyIdAlloc; //动态任务ID分配
 private:
 DECLARE_IDCREATE(NFMissionPart)
 };
