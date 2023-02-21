@@ -879,6 +879,69 @@ namespace proto_ff_s {
 	};
 	typedef struct SkillGroupListProto_s SkillGroupListProto_t;
 
+	struct GodEvilTaskProto_s : public NFDescStoreSeqOP {
+		GodEvilTaskProto_s();
+		virtual ~GodEvilTaskProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;
+		int32_t cur;
+		int32_t state;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilTaskProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilTaskProto & msg);
+		static ::proto_ff::GodEvilTaskProto* new_pbmsg(){ return new ::proto_ff::GodEvilTaskProto(); }
+		static ::proto_ff::GodEvilTaskProto make_pbmsg(){ return ::proto_ff::GodEvilTaskProto(); }
+	};
+	typedef struct GodEvilTaskProto_s GodEvilTaskProto_t;
+
+	struct GodEvilTaskListProto_s : public NFDescStoreSeqOP {
+		GodEvilTaskListProto_s();
+		virtual ~GodEvilTaskListProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct GodEvilTaskProto_s, 1> lst;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilTaskListProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilTaskListProto & msg);
+		static ::proto_ff::GodEvilTaskListProto* new_pbmsg(){ return new ::proto_ff::GodEvilTaskListProto(); }
+		static ::proto_ff::GodEvilTaskListProto make_pbmsg(){ return ::proto_ff::GodEvilTaskListProto(); }
+	};
+	typedef struct GodEvilTaskListProto_s GodEvilTaskListProto_t;
+
+	struct GodEvilStageProto_s : public NFDescStoreSeqOP {
+		GodEvilStageProto_s();
+		virtual ~GodEvilStageProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t stage;
+		struct GodEvilTaskListProto_s task;
+		int32_t finish;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilStageProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilStageProto & msg);
+		static ::proto_ff::GodEvilStageProto* new_pbmsg(){ return new ::proto_ff::GodEvilStageProto(); }
+		static ::proto_ff::GodEvilStageProto make_pbmsg(){ return ::proto_ff::GodEvilStageProto(); }
+	};
+	typedef struct GodEvilStageProto_s GodEvilStageProto_t;
+
+	struct GodEvilProto_s : public NFDescStoreSeqOP {
+		GodEvilProto_s();
+		virtual ~GodEvilProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t fetch;
+		struct GodEvilStageProto_s stage;
+		int32_t type;
+		int32_t cd;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilProto & msg);
+		static ::proto_ff::GodEvilProto* new_pbmsg(){ return new ::proto_ff::GodEvilProto(); }
+		static ::proto_ff::GodEvilProto make_pbmsg(){ return ::proto_ff::GodEvilProto(); }
+	};
+	typedef struct GodEvilProto_s GodEvilProto_t;
+
 	struct FacadeFantasyData_s : public NFDescStoreSeqOP {
 		FacadeFantasyData_s();
 		virtual ~FacadeFantasyData_s(){}
@@ -1568,6 +1631,24 @@ namespace proto_ff_s {
 		static ::proto_ff::ArmorInfo make_pbmsg(){ return ::proto_ff::ArmorInfo(); }
 	};
 	typedef struct ArmorInfo_s ArmorInfo_t;
+
+	struct TitleInfo_s : public NFDescStoreSeqOP {
+		TitleInfo_s();
+		virtual ~TitleInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t title_id;
+		int32_t status;
+		int64_t start_time;
+		int64_t end_time;
+		int32_t star;
+
+		virtual void write_to_pbmsg(::proto_ff::TitleInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::TitleInfo & msg);
+		static ::proto_ff::TitleInfo* new_pbmsg(){ return new ::proto_ff::TitleInfo(); }
+		static ::proto_ff::TitleInfo make_pbmsg(){ return ::proto_ff::TitleInfo(); }
+	};
+	typedef struct TitleInfo_s TitleInfo_t;
 
 }
 

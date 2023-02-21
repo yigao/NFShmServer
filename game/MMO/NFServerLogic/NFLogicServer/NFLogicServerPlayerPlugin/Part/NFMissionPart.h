@@ -181,6 +181,7 @@ public:
      * @param dyMissionId
      */
     void FreeDyMissionId(uint64_t dyMissionId);
+
 public:
     /** 最近提交列表里面是否有指定类型的任务
      * @brief
@@ -322,7 +323,7 @@ private:
     MissionAllDropMap _mapMissionAllDrop;        //任务掉落
     //
     EventTabal _eventTabal;            //任务事件表
-    NFShmVector<bool,MISSION_MAX_DYNAMIC_ALLOC + 1 > _aryDyIdAlloc; //动态任务ID分配
+    NFShmVector<bool, MISSION_MAX_DYNAMIC_ALLOC + 1> _aryDyIdAlloc; //动态任务ID分配
 private:
 DECLARE_IDCREATE(NFMissionPart)
 };

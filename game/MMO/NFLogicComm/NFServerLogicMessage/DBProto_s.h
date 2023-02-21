@@ -68,6 +68,8 @@ namespace proto_ff_s {
 		int64_t prestige;
 		int32_t vipLv;
 		int64_t arenacoin;
+		int64_t godevil_exp;
+		int32_t godevil_level;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg);
@@ -824,6 +826,84 @@ namespace proto_ff_s {
 	};
 	typedef struct AssistDBData_s AssistDBData_t;
 
+	struct TitleDBData_s : public NFDescStoreSeqOP {
+		TitleDBData_s();
+		virtual ~TitleDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cur_wearing_title;
+		NFShmVector<struct TitleInfo_s, 1> data;
+
+		virtual void write_to_pbmsg(::proto_ff::TitleDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::TitleDBData & msg);
+		static ::proto_ff::TitleDBData* new_pbmsg(){ return new ::proto_ff::TitleDBData(); }
+		static ::proto_ff::TitleDBData make_pbmsg(){ return ::proto_ff::TitleDBData(); }
+	};
+	typedef struct TitleDBData_s TitleDBData_t;
+
+	struct GodEvilCondDBProto_s : public NFDescStoreSeqOP {
+		GodEvilCondDBProto_s();
+		virtual ~GodEvilCondDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;
+		int32_t state;
+		int32_t cur;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilCondDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilCondDBProto & msg);
+		static ::proto_ff::GodEvilCondDBProto* new_pbmsg(){ return new ::proto_ff::GodEvilCondDBProto(); }
+		static ::proto_ff::GodEvilCondDBProto make_pbmsg(){ return ::proto_ff::GodEvilCondDBProto(); }
+	};
+	typedef struct GodEvilCondDBProto_s GodEvilCondDBProto_t;
+
+	struct GodEvilMultCondDBProto_s : public NFDescStoreSeqOP {
+		GodEvilMultCondDBProto_s();
+		virtual ~GodEvilMultCondDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct GodEvilCondDBProto_s, 1> lst;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilMultCondDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilMultCondDBProto & msg);
+		static ::proto_ff::GodEvilMultCondDBProto* new_pbmsg(){ return new ::proto_ff::GodEvilMultCondDBProto(); }
+		static ::proto_ff::GodEvilMultCondDBProto make_pbmsg(){ return ::proto_ff::GodEvilMultCondDBProto(); }
+	};
+	typedef struct GodEvilMultCondDBProto_s GodEvilMultCondDBProto_t;
+
+	struct GodEvilTaskDBProto_s : public NFDescStoreSeqOP {
+		GodEvilTaskDBProto_s();
+		virtual ~GodEvilTaskDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t stage;
+		struct GodEvilMultCondDBProto_s cond;
+		int32_t finish;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilTaskDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilTaskDBProto & msg);
+		static ::proto_ff::GodEvilTaskDBProto* new_pbmsg(){ return new ::proto_ff::GodEvilTaskDBProto(); }
+		static ::proto_ff::GodEvilTaskDBProto make_pbmsg(){ return ::proto_ff::GodEvilTaskDBProto(); }
+	};
+	typedef struct GodEvilTaskDBProto_s GodEvilTaskDBProto_t;
+
+	struct GodEvilDBData_s : public NFDescStoreSeqOP {
+		GodEvilDBData_s();
+		virtual ~GodEvilDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t fetch;
+		struct GodEvilTaskDBProto_s task;
+		int32_t type;
+		uint64_t last_time;
+
+		virtual void write_to_pbmsg(::proto_ff::GodEvilDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GodEvilDBData & msg);
+		static ::proto_ff::GodEvilDBData* new_pbmsg(){ return new ::proto_ff::GodEvilDBData(); }
+		static ::proto_ff::GodEvilDBData make_pbmsg(){ return ::proto_ff::GodEvilDBData(); }
+	};
+	typedef struct GodEvilDBData_s GodEvilDBData_t;
+
 	struct RoleDBData_s : public NFDescStoreSeqOP {
 		RoleDBData_s();
 		virtual ~RoleDBData_s(){}
@@ -854,6 +934,7 @@ namespace proto_ff_s {
 		struct ConvoyData_s convoy;
 		struct ArmorDBData_s armor;
 		struct AssistDBData_s assist;
+		struct TitleDBData_s title;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBData & msg);

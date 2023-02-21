@@ -57,6 +57,8 @@ message RoleDBBaseData
   optional int64 prestige = 29;			//声望
   optional int32 vipLv = 30;			//vip等级
   optional int64 arenacoin		= 31;	//竞技币
+  optional int64 godevil_exp	= 32;	//神魔经验
+  optional int32 godevil_level  = 33;	//神魔等级
 }
 
 
@@ -431,6 +433,41 @@ message AssistDBData
   optional int32 allHelpNum = 6;		//完成援助总次数
 }
 
+message TitleDBData
+{
+  optional uint64 cur_wearing_title = 1;
+  repeated TitleInfo data = 2;
+}
+
+//神魔 条件数据
+message GodEvilCondDBProto
+{
+  optional int32 id = 1;			//条件id
+  optional int32 state = 2;		//状态，0-不可领取，1-可领取，2-已领取
+  optional int32 cur = 3;			//当前条件值
+}
+//神魔 多个条件数据
+message GodEvilMultCondDBProto
+{
+  repeated GodEvilCondDBProto lst = 1;
+}
+//神魔任务数据
+message GodEvilTaskDBProto
+{
+  optional int32 stage = 1;					//当前阶段
+  optional GodEvilMultCondDBProto cond = 2;	//条件
+  optional int32 finish = 3;					//是否完成所有的神魔任务
+}
+
+//神魔 DB数据
+message GodEvilDBData
+{
+  optional int32 fetch = 1;				//是否已领取预告奖励
+  optional GodEvilTaskDBProto task = 2;	//神魔任务
+  optional int32 type = 3;				//激活的神魔类型
+  optional uint64 last_time = 5;			//最近一次神魔变身的时间
+}
+
 // 角色DB数据
 message RoleDBData
 {
@@ -459,6 +496,7 @@ message RoleDBData
   optional ConvoyData				convoy				= 23;	//护送
   optional ArmorDBData			armor				= 24;	//玄功真甲
   optional AssistDBData			assist				= 25;	//boss助战
+  optional TitleDBData      title       = 26;
 }
 
 //--------------------------- 角色镜像数据  ------------------------------

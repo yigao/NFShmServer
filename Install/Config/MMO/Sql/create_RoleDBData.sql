@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS RoleDBData (
  convoy BLOB /*!99104 COMPRESSED */ ,
  armor BLOB /*!99104 COMPRESSED */ ,
  assist BLOB /*!99104 COMPRESSED */ ,
+ title BLOB /*!99104 COMPRESSED */ ,
  INDEX(zid),
  INDEX(uid),
  PRIMARY KEY(cid))  ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -53,4 +54,5 @@ alter table RoleDBData add column mall BLOB ;
 alter table RoleDBData add column convoy BLOB ;
 alter table RoleDBData add column armor BLOB ;
 alter table RoleDBData add column assist BLOB ;
+alter table RoleDBData add column title BLOB ;
 */

@@ -84,6 +84,11 @@ class MallDBData;
 class ConvoyData;
 class ArmorDBData;
 class AssistDBData;
+class TitleDBData;
+class GodEvilCondDBProto;
+class GodEvilMultCondDBProto;
+class GodEvilTaskDBProto;
+class GodEvilDBData;
 class RoleDBData;
 class RoleMirrorData;
 class FactionMemDBProto;
@@ -577,6 +582,20 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 arenacoin() const;
   inline void set_arenacoin(::google::protobuf::int64 value);
 
+  // optional int64 godevil_exp = 32;
+  inline bool has_godevil_exp() const;
+  inline void clear_godevil_exp();
+  static const int kGodevilExpFieldNumber = 32;
+  inline ::google::protobuf::int64 godevil_exp() const;
+  inline void set_godevil_exp(::google::protobuf::int64 value);
+
+  // optional int32 godevil_level = 33;
+  inline bool has_godevil_level() const;
+  inline void clear_godevil_level();
+  static const int kGodevilLevelFieldNumber = 33;
+  inline ::google::protobuf::int32 godevil_level() const;
+  inline void set_godevil_level(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBBaseData)
  private:
   inline void set_has_name();
@@ -641,6 +660,10 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   inline void clear_has_viplv();
   inline void set_has_arenacoin();
   inline void clear_has_arenacoin();
+  inline void set_has_godevil_exp();
+  inline void clear_has_godevil_exp();
+  inline void set_has_godevil_level();
+  inline void clear_has_godevil_level();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -675,9 +698,11 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   ::google::protobuf::int64 prestige_;
   ::google::protobuf::int64 arenacoin_;
   ::google::protobuf::int32 viplv_;
+  ::google::protobuf::int32 godevil_level_;
+  ::google::protobuf::int64 godevil_exp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(31 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -5735,6 +5760,506 @@ class AssistDBData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class TitleDBData : public ::google::protobuf::Message {
+ public:
+  TitleDBData();
+  virtual ~TitleDBData();
+
+  TitleDBData(const TitleDBData& from);
+
+  inline TitleDBData& operator=(const TitleDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TitleDBData& default_instance();
+
+  void Swap(TitleDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  TitleDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TitleDBData& from);
+  void MergeFrom(const TitleDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cur_wearing_title = 1;
+  inline bool has_cur_wearing_title() const;
+  inline void clear_cur_wearing_title();
+  static const int kCurWearingTitleFieldNumber = 1;
+  inline ::google::protobuf::uint64 cur_wearing_title() const;
+  inline void set_cur_wearing_title(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.TitleInfo data = 2;
+  inline int data_size() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::proto_ff::TitleInfo& data(int index) const;
+  inline ::proto_ff::TitleInfo* mutable_data(int index);
+  inline ::proto_ff::TitleInfo* add_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >&
+      data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >*
+      mutable_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TitleDBData)
+ private:
+  inline void set_has_cur_wearing_title();
+  inline void clear_has_cur_wearing_title();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_wearing_title_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo > data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static TitleDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilCondDBProto : public ::google::protobuf::Message {
+ public:
+  GodEvilCondDBProto();
+  virtual ~GodEvilCondDBProto();
+
+  GodEvilCondDBProto(const GodEvilCondDBProto& from);
+
+  inline GodEvilCondDBProto& operator=(const GodEvilCondDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilCondDBProto& default_instance();
+
+  void Swap(GodEvilCondDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilCondDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilCondDBProto& from);
+  void MergeFrom(const GodEvilCondDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 state = 2;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 2;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+
+  // optional int32 cur = 3;
+  inline bool has_cur() const;
+  inline void clear_cur();
+  static const int kCurFieldNumber = 3;
+  inline ::google::protobuf::int32 cur() const;
+  inline void set_cur(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilCondDBProto)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_state();
+  inline void clear_has_state();
+  inline void set_has_cur();
+  inline void clear_has_cur();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 state_;
+  ::google::protobuf::int32 cur_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilCondDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilMultCondDBProto : public ::google::protobuf::Message {
+ public:
+  GodEvilMultCondDBProto();
+  virtual ~GodEvilMultCondDBProto();
+
+  GodEvilMultCondDBProto(const GodEvilMultCondDBProto& from);
+
+  inline GodEvilMultCondDBProto& operator=(const GodEvilMultCondDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilMultCondDBProto& default_instance();
+
+  void Swap(GodEvilMultCondDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilMultCondDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilMultCondDBProto& from);
+  void MergeFrom(const GodEvilMultCondDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.GodEvilCondDBProto lst = 1;
+  inline int lst_size() const;
+  inline void clear_lst();
+  static const int kLstFieldNumber = 1;
+  inline const ::proto_ff::GodEvilCondDBProto& lst(int index) const;
+  inline ::proto_ff::GodEvilCondDBProto* mutable_lst(int index);
+  inline ::proto_ff::GodEvilCondDBProto* add_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilCondDBProto >&
+      lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilCondDBProto >*
+      mutable_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilMultCondDBProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilCondDBProto > lst_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilMultCondDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilTaskDBProto : public ::google::protobuf::Message {
+ public:
+  GodEvilTaskDBProto();
+  virtual ~GodEvilTaskDBProto();
+
+  GodEvilTaskDBProto(const GodEvilTaskDBProto& from);
+
+  inline GodEvilTaskDBProto& operator=(const GodEvilTaskDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilTaskDBProto& default_instance();
+
+  void Swap(GodEvilTaskDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilTaskDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilTaskDBProto& from);
+  void MergeFrom(const GodEvilTaskDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 stage = 1;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 1;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // optional .proto_ff.GodEvilMultCondDBProto cond = 2;
+  inline bool has_cond() const;
+  inline void clear_cond();
+  static const int kCondFieldNumber = 2;
+  inline const ::proto_ff::GodEvilMultCondDBProto& cond() const;
+  inline ::proto_ff::GodEvilMultCondDBProto* mutable_cond();
+  inline ::proto_ff::GodEvilMultCondDBProto* release_cond();
+  inline void set_allocated_cond(::proto_ff::GodEvilMultCondDBProto* cond);
+
+  // optional int32 finish = 3;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 3;
+  inline ::google::protobuf::int32 finish() const;
+  inline void set_finish(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilTaskDBProto)
+ private:
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_cond();
+  inline void clear_has_cond();
+  inline void set_has_finish();
+  inline void clear_has_finish();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::GodEvilMultCondDBProto* cond_;
+  ::google::protobuf::int32 stage_;
+  ::google::protobuf::int32 finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilTaskDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilDBData : public ::google::protobuf::Message {
+ public:
+  GodEvilDBData();
+  virtual ~GodEvilDBData();
+
+  GodEvilDBData(const GodEvilDBData& from);
+
+  inline GodEvilDBData& operator=(const GodEvilDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilDBData& default_instance();
+
+  void Swap(GodEvilDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilDBData& from);
+  void MergeFrom(const GodEvilDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fetch = 1;
+  inline bool has_fetch() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 1;
+  inline ::google::protobuf::int32 fetch() const;
+  inline void set_fetch(::google::protobuf::int32 value);
+
+  // optional .proto_ff.GodEvilTaskDBProto task = 2;
+  inline bool has_task() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 2;
+  inline const ::proto_ff::GodEvilTaskDBProto& task() const;
+  inline ::proto_ff::GodEvilTaskDBProto* mutable_task();
+  inline ::proto_ff::GodEvilTaskDBProto* release_task();
+  inline void set_allocated_task(::proto_ff::GodEvilTaskDBProto* task);
+
+  // optional int32 type = 3;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional uint64 last_time = 5;
+  inline bool has_last_time() const;
+  inline void clear_last_time();
+  static const int kLastTimeFieldNumber = 5;
+  inline ::google::protobuf::uint64 last_time() const;
+  inline void set_last_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilDBData)
+ private:
+  inline void set_has_fetch();
+  inline void clear_has_fetch();
+  inline void set_has_task();
+  inline void clear_has_task();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_last_time();
+  inline void clear_has_last_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::GodEvilTaskDBProto* task_;
+  ::google::protobuf::int32 fetch_;
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::uint64 last_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class RoleDBData : public ::google::protobuf::Message {
  public:
   RoleDBData();
@@ -6008,6 +6533,15 @@ class RoleDBData : public ::google::protobuf::Message {
   inline ::proto_ff::AssistDBData* release_assist();
   inline void set_allocated_assist(::proto_ff::AssistDBData* assist);
 
+  // optional .proto_ff.TitleDBData title = 26;
+  inline bool has_title() const;
+  inline void clear_title();
+  static const int kTitleFieldNumber = 26;
+  inline const ::proto_ff::TitleDBData& title() const;
+  inline ::proto_ff::TitleDBData* mutable_title();
+  inline ::proto_ff::TitleDBData* release_title();
+  inline void set_allocated_title(::proto_ff::TitleDBData* title);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBData)
  private:
   inline void set_has_cid();
@@ -6060,6 +6594,8 @@ class RoleDBData : public ::google::protobuf::Message {
   inline void clear_has_armor();
   inline void set_has_assist();
   inline void clear_has_assist();
+  inline void set_has_title();
+  inline void clear_has_title();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -6088,9 +6624,10 @@ class RoleDBData : public ::google::protobuf::Message {
   ::proto_ff::ConvoyData* convoy_;
   ::proto_ff::ArmorDBData* armor_;
   ::proto_ff::AssistDBData* assist_;
+  ::proto_ff::TitleDBData* title_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(26 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -13868,6 +14405,50 @@ inline void RoleDBBaseData::set_arenacoin(::google::protobuf::int64 value) {
   arenacoin_ = value;
 }
 
+// optional int64 godevil_exp = 32;
+inline bool RoleDBBaseData::has_godevil_exp() const {
+  return (_has_bits_[0] & 0x80000000u) != 0;
+}
+inline void RoleDBBaseData::set_has_godevil_exp() {
+  _has_bits_[0] |= 0x80000000u;
+}
+inline void RoleDBBaseData::clear_has_godevil_exp() {
+  _has_bits_[0] &= ~0x80000000u;
+}
+inline void RoleDBBaseData::clear_godevil_exp() {
+  godevil_exp_ = GOOGLE_LONGLONG(0);
+  clear_has_godevil_exp();
+}
+inline ::google::protobuf::int64 RoleDBBaseData::godevil_exp() const {
+  return godevil_exp_;
+}
+inline void RoleDBBaseData::set_godevil_exp(::google::protobuf::int64 value) {
+  set_has_godevil_exp();
+  godevil_exp_ = value;
+}
+
+// optional int32 godevil_level = 33;
+inline bool RoleDBBaseData::has_godevil_level() const {
+  return (_has_bits_[1] & 0x00000001u) != 0;
+}
+inline void RoleDBBaseData::set_has_godevil_level() {
+  _has_bits_[1] |= 0x00000001u;
+}
+inline void RoleDBBaseData::clear_has_godevil_level() {
+  _has_bits_[1] &= ~0x00000001u;
+}
+inline void RoleDBBaseData::clear_godevil_level() {
+  godevil_level_ = 0;
+  clear_has_godevil_level();
+}
+inline ::google::protobuf::int32 RoleDBBaseData::godevil_level() const {
+  return godevil_level_;
+}
+inline void RoleDBBaseData::set_godevil_level(::google::protobuf::int32 value) {
+  set_has_godevil_level();
+  godevil_level_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // BagItemsDBData
@@ -17997,6 +18578,350 @@ inline void AssistDBData::set_allhelpnum(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// TitleDBData
+
+// optional uint64 cur_wearing_title = 1;
+inline bool TitleDBData::has_cur_wearing_title() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TitleDBData::set_has_cur_wearing_title() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TitleDBData::clear_has_cur_wearing_title() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TitleDBData::clear_cur_wearing_title() {
+  cur_wearing_title_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_wearing_title();
+}
+inline ::google::protobuf::uint64 TitleDBData::cur_wearing_title() const {
+  return cur_wearing_title_;
+}
+inline void TitleDBData::set_cur_wearing_title(::google::protobuf::uint64 value) {
+  set_has_cur_wearing_title();
+  cur_wearing_title_ = value;
+}
+
+// repeated .proto_ff.TitleInfo data = 2;
+inline int TitleDBData::data_size() const {
+  return data_.size();
+}
+inline void TitleDBData::clear_data() {
+  data_.Clear();
+}
+inline const ::proto_ff::TitleInfo& TitleDBData::data(int index) const {
+  return data_.Get(index);
+}
+inline ::proto_ff::TitleInfo* TitleDBData::mutable_data(int index) {
+  return data_.Mutable(index);
+}
+inline ::proto_ff::TitleInfo* TitleDBData::add_data() {
+  return data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >&
+TitleDBData::data() const {
+  return data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >*
+TitleDBData::mutable_data() {
+  return &data_;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilCondDBProto
+
+// optional int32 id = 1;
+inline bool GodEvilCondDBProto::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GodEvilCondDBProto::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GodEvilCondDBProto::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GodEvilCondDBProto::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 GodEvilCondDBProto::id() const {
+  return id_;
+}
+inline void GodEvilCondDBProto::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 state = 2;
+inline bool GodEvilCondDBProto::has_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GodEvilCondDBProto::set_has_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GodEvilCondDBProto::clear_has_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GodEvilCondDBProto::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 GodEvilCondDBProto::state() const {
+  return state_;
+}
+inline void GodEvilCondDBProto::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
+}
+
+// optional int32 cur = 3;
+inline bool GodEvilCondDBProto::has_cur() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GodEvilCondDBProto::set_has_cur() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GodEvilCondDBProto::clear_has_cur() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GodEvilCondDBProto::clear_cur() {
+  cur_ = 0;
+  clear_has_cur();
+}
+inline ::google::protobuf::int32 GodEvilCondDBProto::cur() const {
+  return cur_;
+}
+inline void GodEvilCondDBProto::set_cur(::google::protobuf::int32 value) {
+  set_has_cur();
+  cur_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilMultCondDBProto
+
+// repeated .proto_ff.GodEvilCondDBProto lst = 1;
+inline int GodEvilMultCondDBProto::lst_size() const {
+  return lst_.size();
+}
+inline void GodEvilMultCondDBProto::clear_lst() {
+  lst_.Clear();
+}
+inline const ::proto_ff::GodEvilCondDBProto& GodEvilMultCondDBProto::lst(int index) const {
+  return lst_.Get(index);
+}
+inline ::proto_ff::GodEvilCondDBProto* GodEvilMultCondDBProto::mutable_lst(int index) {
+  return lst_.Mutable(index);
+}
+inline ::proto_ff::GodEvilCondDBProto* GodEvilMultCondDBProto::add_lst() {
+  return lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilCondDBProto >&
+GodEvilMultCondDBProto::lst() const {
+  return lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilCondDBProto >*
+GodEvilMultCondDBProto::mutable_lst() {
+  return &lst_;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilTaskDBProto
+
+// optional int32 stage = 1;
+inline bool GodEvilTaskDBProto::has_stage() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GodEvilTaskDBProto::set_has_stage() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GodEvilTaskDBProto::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GodEvilTaskDBProto::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 GodEvilTaskDBProto::stage() const {
+  return stage_;
+}
+inline void GodEvilTaskDBProto::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional .proto_ff.GodEvilMultCondDBProto cond = 2;
+inline bool GodEvilTaskDBProto::has_cond() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GodEvilTaskDBProto::set_has_cond() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GodEvilTaskDBProto::clear_has_cond() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GodEvilTaskDBProto::clear_cond() {
+  if (cond_ != NULL) cond_->::proto_ff::GodEvilMultCondDBProto::Clear();
+  clear_has_cond();
+}
+inline const ::proto_ff::GodEvilMultCondDBProto& GodEvilTaskDBProto::cond() const {
+  return cond_ != NULL ? *cond_ : *default_instance_->cond_;
+}
+inline ::proto_ff::GodEvilMultCondDBProto* GodEvilTaskDBProto::mutable_cond() {
+  set_has_cond();
+  if (cond_ == NULL) cond_ = new ::proto_ff::GodEvilMultCondDBProto;
+  return cond_;
+}
+inline ::proto_ff::GodEvilMultCondDBProto* GodEvilTaskDBProto::release_cond() {
+  clear_has_cond();
+  ::proto_ff::GodEvilMultCondDBProto* temp = cond_;
+  cond_ = NULL;
+  return temp;
+}
+inline void GodEvilTaskDBProto::set_allocated_cond(::proto_ff::GodEvilMultCondDBProto* cond) {
+  delete cond_;
+  cond_ = cond;
+  if (cond) {
+    set_has_cond();
+  } else {
+    clear_has_cond();
+  }
+}
+
+// optional int32 finish = 3;
+inline bool GodEvilTaskDBProto::has_finish() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GodEvilTaskDBProto::set_has_finish() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GodEvilTaskDBProto::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GodEvilTaskDBProto::clear_finish() {
+  finish_ = 0;
+  clear_has_finish();
+}
+inline ::google::protobuf::int32 GodEvilTaskDBProto::finish() const {
+  return finish_;
+}
+inline void GodEvilTaskDBProto::set_finish(::google::protobuf::int32 value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilDBData
+
+// optional int32 fetch = 1;
+inline bool GodEvilDBData::has_fetch() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GodEvilDBData::set_has_fetch() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GodEvilDBData::clear_has_fetch() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GodEvilDBData::clear_fetch() {
+  fetch_ = 0;
+  clear_has_fetch();
+}
+inline ::google::protobuf::int32 GodEvilDBData::fetch() const {
+  return fetch_;
+}
+inline void GodEvilDBData::set_fetch(::google::protobuf::int32 value) {
+  set_has_fetch();
+  fetch_ = value;
+}
+
+// optional .proto_ff.GodEvilTaskDBProto task = 2;
+inline bool GodEvilDBData::has_task() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GodEvilDBData::set_has_task() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GodEvilDBData::clear_has_task() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GodEvilDBData::clear_task() {
+  if (task_ != NULL) task_->::proto_ff::GodEvilTaskDBProto::Clear();
+  clear_has_task();
+}
+inline const ::proto_ff::GodEvilTaskDBProto& GodEvilDBData::task() const {
+  return task_ != NULL ? *task_ : *default_instance_->task_;
+}
+inline ::proto_ff::GodEvilTaskDBProto* GodEvilDBData::mutable_task() {
+  set_has_task();
+  if (task_ == NULL) task_ = new ::proto_ff::GodEvilTaskDBProto;
+  return task_;
+}
+inline ::proto_ff::GodEvilTaskDBProto* GodEvilDBData::release_task() {
+  clear_has_task();
+  ::proto_ff::GodEvilTaskDBProto* temp = task_;
+  task_ = NULL;
+  return temp;
+}
+inline void GodEvilDBData::set_allocated_task(::proto_ff::GodEvilTaskDBProto* task) {
+  delete task_;
+  task_ = task;
+  if (task) {
+    set_has_task();
+  } else {
+    clear_has_task();
+  }
+}
+
+// optional int32 type = 3;
+inline bool GodEvilDBData::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GodEvilDBData::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GodEvilDBData::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GodEvilDBData::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 GodEvilDBData::type() const {
+  return type_;
+}
+inline void GodEvilDBData::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint64 last_time = 5;
+inline bool GodEvilDBData::has_last_time() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GodEvilDBData::set_has_last_time() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GodEvilDBData::clear_has_last_time() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GodEvilDBData::clear_last_time() {
+  last_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_time();
+}
+inline ::google::protobuf::uint64 GodEvilDBData::last_time() const {
+  return last_time_;
+}
+inline void GodEvilDBData::set_last_time(::google::protobuf::uint64 value) {
+  set_has_last_time();
+  last_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // RoleDBData
 
 // required uint64 cid = 1;
@@ -18898,6 +19823,44 @@ inline void RoleDBData::set_allocated_assist(::proto_ff::AssistDBData* assist) {
     set_has_assist();
   } else {
     clear_has_assist();
+  }
+}
+
+// optional .proto_ff.TitleDBData title = 26;
+inline bool RoleDBData::has_title() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+inline void RoleDBData::set_has_title() {
+  _has_bits_[0] |= 0x02000000u;
+}
+inline void RoleDBData::clear_has_title() {
+  _has_bits_[0] &= ~0x02000000u;
+}
+inline void RoleDBData::clear_title() {
+  if (title_ != NULL) title_->::proto_ff::TitleDBData::Clear();
+  clear_has_title();
+}
+inline const ::proto_ff::TitleDBData& RoleDBData::title() const {
+  return title_ != NULL ? *title_ : *default_instance_->title_;
+}
+inline ::proto_ff::TitleDBData* RoleDBData::mutable_title() {
+  set_has_title();
+  if (title_ == NULL) title_ = new ::proto_ff::TitleDBData;
+  return title_;
+}
+inline ::proto_ff::TitleDBData* RoleDBData::release_title() {
+  clear_has_title();
+  ::proto_ff::TitleDBData* temp = title_;
+  title_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_title(::proto_ff::TitleDBData* title) {
+  delete title_;
+  title_ = title;
+  if (title) {
+    set_has_title();
+  } else {
+    clear_has_title();
   }
 }
 

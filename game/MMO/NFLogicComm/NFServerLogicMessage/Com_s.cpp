@@ -1945,6 +1945,139 @@ void SkillGroupListProto_s::read_from_pbmsg(const ::proto_ff::SkillGroupListProt
 	cur_skill_group = msg.cur_skill_group();
 }
 
+GodEvilTaskProto_s::GodEvilTaskProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GodEvilTaskProto_s::CreateInit() {
+	id = (int32_t)0;
+	cur = (int32_t)0;
+	state = (int32_t)0;
+	return 0;
+}
+
+int GodEvilTaskProto_s::ResumeInit() {
+	return 0;
+}
+
+void GodEvilTaskProto_s::write_to_pbmsg(::proto_ff::GodEvilTaskProto & msg) const {
+	msg.set_id((int32_t)id);
+	msg.set_cur((int32_t)cur);
+	msg.set_state((int32_t)state);
+}
+
+void GodEvilTaskProto_s::read_from_pbmsg(const ::proto_ff::GodEvilTaskProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GodEvilTaskProto_s));
+	id = msg.id();
+	cur = msg.cur();
+	state = msg.state();
+}
+
+GodEvilTaskListProto_s::GodEvilTaskListProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GodEvilTaskListProto_s::CreateInit() {
+	return 0;
+}
+
+int GodEvilTaskListProto_s::ResumeInit() {
+	return 0;
+}
+
+void GodEvilTaskListProto_s::write_to_pbmsg(::proto_ff::GodEvilTaskListProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
+		::proto_ff::GodEvilTaskProto* temp_lst = msg.add_lst();
+		lst[i].write_to_pbmsg(*temp_lst);
+	}
+}
+
+void GodEvilTaskListProto_s::read_from_pbmsg(const ::proto_ff::GodEvilTaskListProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GodEvilTaskListProto_s));
+	lst.resize(msg.lst_size());
+	for(int32_t i = 0; i < (int32_t)lst.size(); ++i) {
+		const ::proto_ff::GodEvilTaskProto & temp_lst = msg.lst(i);
+		lst[i].read_from_pbmsg(temp_lst);
+	}
+}
+
+GodEvilStageProto_s::GodEvilStageProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GodEvilStageProto_s::CreateInit() {
+	stage = (int32_t)0;
+	finish = (int32_t)0;
+	return 0;
+}
+
+int GodEvilStageProto_s::ResumeInit() {
+	return 0;
+}
+
+void GodEvilStageProto_s::write_to_pbmsg(::proto_ff::GodEvilStageProto & msg) const {
+	msg.set_stage((int32_t)stage);
+	::proto_ff::GodEvilTaskListProto* temp_task = msg.mutable_task();
+	task.write_to_pbmsg(*temp_task);
+	msg.set_finish((int32_t)finish);
+}
+
+void GodEvilStageProto_s::read_from_pbmsg(const ::proto_ff::GodEvilStageProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GodEvilStageProto_s));
+	stage = msg.stage();
+	const ::proto_ff::GodEvilTaskListProto & temp_task = msg.task();
+	task.read_from_pbmsg(temp_task);
+	finish = msg.finish();
+}
+
+GodEvilProto_s::GodEvilProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GodEvilProto_s::CreateInit() {
+	fetch = (int32_t)0;
+	type = (int32_t)0;
+	cd = (int32_t)0;
+	return 0;
+}
+
+int GodEvilProto_s::ResumeInit() {
+	return 0;
+}
+
+void GodEvilProto_s::write_to_pbmsg(::proto_ff::GodEvilProto & msg) const {
+	msg.set_fetch((int32_t)fetch);
+	::proto_ff::GodEvilStageProto* temp_stage = msg.mutable_stage();
+	stage.write_to_pbmsg(*temp_stage);
+	msg.set_type((int32_t)type);
+	msg.set_cd((int32_t)cd);
+}
+
+void GodEvilProto_s::read_from_pbmsg(const ::proto_ff::GodEvilProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GodEvilProto_s));
+	fetch = msg.fetch();
+	const ::proto_ff::GodEvilStageProto & temp_stage = msg.stage();
+	stage.read_from_pbmsg(temp_stage);
+	type = msg.type();
+	cd = msg.cd();
+}
+
 FacadeFantasyData_s::FacadeFantasyData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -3458,6 +3591,44 @@ void ArmorInfo_s::read_from_pbmsg(const ::proto_ff::ArmorInfo & msg) {
 		const ::proto_ff::ArmorSuitState & temp_suits = msg.suits(i);
 		suits[i].read_from_pbmsg(temp_suits);
 	}
+}
+
+TitleInfo_s::TitleInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int TitleInfo_s::CreateInit() {
+	title_id = (int64_t)0;
+	status = (int32_t)0;
+	start_time = (int64_t)0;
+	end_time = (int64_t)0;
+	star = (int32_t)0;
+	return 0;
+}
+
+int TitleInfo_s::ResumeInit() {
+	return 0;
+}
+
+void TitleInfo_s::write_to_pbmsg(::proto_ff::TitleInfo & msg) const {
+	msg.set_title_id((int64_t)title_id);
+	msg.set_status((int32_t)status);
+	msg.set_start_time((int64_t)start_time);
+	msg.set_end_time((int64_t)end_time);
+	msg.set_star((int32_t)star);
+}
+
+void TitleInfo_s::read_from_pbmsg(const ::proto_ff::TitleInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct TitleInfo_s));
+	title_id = msg.title_id();
+	status = msg.status();
+	start_time = msg.start_time();
+	end_time = msg.end_time();
+	star = msg.star();
 }
 
 }

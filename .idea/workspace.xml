@@ -56,6 +56,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="mission">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFMissionPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFMissionPart.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFCommLogicPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFLogicServerPlayerPlugin" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -624,14 +625,7 @@
       <workItem from="1676633339232" duration="1694000" />
       <workItem from="1676680625632" duration="8890000" />
       <workItem from="1676854993686" duration="30435000" />
-      <workItem from="1676940906606" duration="5000" />
-    </task>
-    <task id="LOCAL-00384" summary="add MMO">
-      <created>1670463675201</created>
-      <option name="number" value="00384" />
-      <option name="presentableId" value="LOCAL-00384" />
-      <option name="project" value="LOCAL" />
-      <updated>1670463675201</updated>
+      <workItem from="1676940906606" duration="9703000" />
     </task>
     <task id="LOCAL-00385" summary="add MMO">
       <created>1670492483731</created>
@@ -969,7 +963,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676894023943</updated>
     </task>
-    <option name="localTasksCounter" value="433" />
+    <task id="LOCAL-00433" summary="mission">
+      <created>1676944287423</created>
+      <option name="number" value="00433" />
+      <option name="presentableId" value="LOCAL-00433" />
+      <option name="project" value="LOCAL" />
+      <updated>1676944287424</updated>
+    </task>
+    <option name="localTasksCounter" value="434" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

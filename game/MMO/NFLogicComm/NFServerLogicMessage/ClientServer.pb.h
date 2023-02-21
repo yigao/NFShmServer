@@ -191,6 +191,16 @@ class DeityEquipDecomposeReq;
 class DeityEquipDecomposeRsp;
 class DeityEquipDisassembleReq;
 class DeityEquipDisassembleRsp;
+class CGTitleInfoReq;
+class GCTitleInfoRsp;
+class CGTitleInfoActiveReq;
+class GCTitleInfoActiveRsp;
+class CGTitleStarLvReq;
+class GCTitleStarLvRsp;
+class CGTitleDressReq;
+class GCTitleDressRsp;
+class CGTitleUnDressReq;
+class GCTitleUnDressRsp;
 
 // ===================================================================
 
@@ -14650,6 +14660,897 @@ class DeityEquipDisassembleRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static DeityEquipDisassembleRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class CGTitleInfoReq : public ::google::protobuf::Message {
+ public:
+  CGTitleInfoReq();
+  virtual ~CGTitleInfoReq();
+
+  CGTitleInfoReq(const CGTitleInfoReq& from);
+
+  inline CGTitleInfoReq& operator=(const CGTitleInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGTitleInfoReq& default_instance();
+
+  void Swap(CGTitleInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGTitleInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGTitleInfoReq& from);
+  void MergeFrom(const CGTitleInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGTitleInfoReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGTitleInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCTitleInfoRsp : public ::google::protobuf::Message {
+ public:
+  GCTitleInfoRsp();
+  virtual ~GCTitleInfoRsp();
+
+  GCTitleInfoRsp(const GCTitleInfoRsp& from);
+
+  inline GCTitleInfoRsp& operator=(const GCTitleInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCTitleInfoRsp& default_instance();
+
+  void Swap(GCTitleInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCTitleInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCTitleInfoRsp& from);
+  void MergeFrom(const GCTitleInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cur_wearing_title = 1;
+  inline bool has_cur_wearing_title() const;
+  inline void clear_cur_wearing_title();
+  static const int kCurWearingTitleFieldNumber = 1;
+  inline ::google::protobuf::uint64 cur_wearing_title() const;
+  inline void set_cur_wearing_title(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.TitleInfo data = 2;
+  inline int data_size() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::proto_ff::TitleInfo& data(int index) const;
+  inline ::proto_ff::TitleInfo* mutable_data(int index);
+  inline ::proto_ff::TitleInfo* add_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >&
+      data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >*
+      mutable_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCTitleInfoRsp)
+ private:
+  inline void set_has_cur_wearing_title();
+  inline void clear_has_cur_wearing_title();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_wearing_title_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo > data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCTitleInfoRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CGTitleInfoActiveReq : public ::google::protobuf::Message {
+ public:
+  CGTitleInfoActiveReq();
+  virtual ~CGTitleInfoActiveReq();
+
+  CGTitleInfoActiveReq(const CGTitleInfoActiveReq& from);
+
+  inline CGTitleInfoActiveReq& operator=(const CGTitleInfoActiveReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGTitleInfoActiveReq& default_instance();
+
+  void Swap(CGTitleInfoActiveReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGTitleInfoActiveReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGTitleInfoActiveReq& from);
+  void MergeFrom(const CGTitleInfoActiveReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 title_id = 1;
+  inline bool has_title_id() const;
+  inline void clear_title_id();
+  static const int kTitleIdFieldNumber = 1;
+  inline ::google::protobuf::int64 title_id() const;
+  inline void set_title_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGTitleInfoActiveReq)
+ private:
+  inline void set_has_title_id();
+  inline void clear_has_title_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 title_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGTitleInfoActiveReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCTitleInfoActiveRsp : public ::google::protobuf::Message {
+ public:
+  GCTitleInfoActiveRsp();
+  virtual ~GCTitleInfoActiveRsp();
+
+  GCTitleInfoActiveRsp(const GCTitleInfoActiveRsp& from);
+
+  inline GCTitleInfoActiveRsp& operator=(const GCTitleInfoActiveRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCTitleInfoActiveRsp& default_instance();
+
+  void Swap(GCTitleInfoActiveRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCTitleInfoActiveRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCTitleInfoActiveRsp& from);
+  void MergeFrom(const GCTitleInfoActiveRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional .proto_ff.TitleInfo data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::proto_ff::TitleInfo& data() const;
+  inline ::proto_ff::TitleInfo* mutable_data();
+  inline ::proto_ff::TitleInfo* release_data();
+  inline void set_allocated_data(::proto_ff::TitleInfo* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCTitleInfoActiveRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::TitleInfo* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCTitleInfoActiveRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CGTitleStarLvReq : public ::google::protobuf::Message {
+ public:
+  CGTitleStarLvReq();
+  virtual ~CGTitleStarLvReq();
+
+  CGTitleStarLvReq(const CGTitleStarLvReq& from);
+
+  inline CGTitleStarLvReq& operator=(const CGTitleStarLvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGTitleStarLvReq& default_instance();
+
+  void Swap(CGTitleStarLvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGTitleStarLvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGTitleStarLvReq& from);
+  void MergeFrom(const CGTitleStarLvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 title_id = 1;
+  inline bool has_title_id() const;
+  inline void clear_title_id();
+  static const int kTitleIdFieldNumber = 1;
+  inline ::google::protobuf::int64 title_id() const;
+  inline void set_title_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGTitleStarLvReq)
+ private:
+  inline void set_has_title_id();
+  inline void clear_has_title_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 title_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGTitleStarLvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCTitleStarLvRsp : public ::google::protobuf::Message {
+ public:
+  GCTitleStarLvRsp();
+  virtual ~GCTitleStarLvRsp();
+
+  GCTitleStarLvRsp(const GCTitleStarLvRsp& from);
+
+  inline GCTitleStarLvRsp& operator=(const GCTitleStarLvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCTitleStarLvRsp& default_instance();
+
+  void Swap(GCTitleStarLvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCTitleStarLvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCTitleStarLvRsp& from);
+  void MergeFrom(const GCTitleStarLvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional .proto_ff.TitleInfo data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::proto_ff::TitleInfo& data() const;
+  inline ::proto_ff::TitleInfo* mutable_data();
+  inline ::proto_ff::TitleInfo* release_data();
+  inline void set_allocated_data(::proto_ff::TitleInfo* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCTitleStarLvRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::TitleInfo* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCTitleStarLvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CGTitleDressReq : public ::google::protobuf::Message {
+ public:
+  CGTitleDressReq();
+  virtual ~CGTitleDressReq();
+
+  CGTitleDressReq(const CGTitleDressReq& from);
+
+  inline CGTitleDressReq& operator=(const CGTitleDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGTitleDressReq& default_instance();
+
+  void Swap(CGTitleDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGTitleDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGTitleDressReq& from);
+  void MergeFrom(const CGTitleDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 title_id = 1;
+  inline bool has_title_id() const;
+  inline void clear_title_id();
+  static const int kTitleIdFieldNumber = 1;
+  inline ::google::protobuf::int64 title_id() const;
+  inline void set_title_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGTitleDressReq)
+ private:
+  inline void set_has_title_id();
+  inline void clear_has_title_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 title_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGTitleDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCTitleDressRsp : public ::google::protobuf::Message {
+ public:
+  GCTitleDressRsp();
+  virtual ~GCTitleDressRsp();
+
+  GCTitleDressRsp(const GCTitleDressRsp& from);
+
+  inline GCTitleDressRsp& operator=(const GCTitleDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCTitleDressRsp& default_instance();
+
+  void Swap(GCTitleDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCTitleDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCTitleDressRsp& from);
+  void MergeFrom(const GCTitleDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 cur_wearing_title = 2;
+  inline bool has_cur_wearing_title() const;
+  inline void clear_cur_wearing_title();
+  static const int kCurWearingTitleFieldNumber = 2;
+  inline ::google::protobuf::uint64 cur_wearing_title() const;
+  inline void set_cur_wearing_title(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.TitleInfo data = 3;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 3;
+  inline const ::proto_ff::TitleInfo& data() const;
+  inline ::proto_ff::TitleInfo* mutable_data();
+  inline ::proto_ff::TitleInfo* release_data();
+  inline void set_allocated_data(::proto_ff::TitleInfo* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCTitleDressRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_cur_wearing_title();
+  inline void clear_has_cur_wearing_title();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_wearing_title_;
+  ::proto_ff::TitleInfo* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCTitleDressRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CGTitleUnDressReq : public ::google::protobuf::Message {
+ public:
+  CGTitleUnDressReq();
+  virtual ~CGTitleUnDressReq();
+
+  CGTitleUnDressReq(const CGTitleUnDressReq& from);
+
+  inline CGTitleUnDressReq& operator=(const CGTitleUnDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGTitleUnDressReq& default_instance();
+
+  void Swap(CGTitleUnDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGTitleUnDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGTitleUnDressReq& from);
+  void MergeFrom(const CGTitleUnDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 title_id = 1;
+  inline bool has_title_id() const;
+  inline void clear_title_id();
+  static const int kTitleIdFieldNumber = 1;
+  inline ::google::protobuf::int64 title_id() const;
+  inline void set_title_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGTitleUnDressReq)
+ private:
+  inline void set_has_title_id();
+  inline void clear_has_title_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 title_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGTitleUnDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCTitleUnDressRsp : public ::google::protobuf::Message {
+ public:
+  GCTitleUnDressRsp();
+  virtual ~GCTitleUnDressRsp();
+
+  GCTitleUnDressRsp(const GCTitleUnDressRsp& from);
+
+  inline GCTitleUnDressRsp& operator=(const GCTitleUnDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCTitleUnDressRsp& default_instance();
+
+  void Swap(GCTitleUnDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCTitleUnDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCTitleUnDressRsp& from);
+  void MergeFrom(const GCTitleUnDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 cur_wearing_title = 2;
+  inline bool has_cur_wearing_title() const;
+  inline void clear_cur_wearing_title();
+  static const int kCurWearingTitleFieldNumber = 2;
+  inline ::google::protobuf::uint64 cur_wearing_title() const;
+  inline void set_cur_wearing_title(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.TitleInfo data = 3;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 3;
+  inline const ::proto_ff::TitleInfo& data() const;
+  inline ::proto_ff::TitleInfo* mutable_data();
+  inline ::proto_ff::TitleInfo* release_data();
+  inline void set_allocated_data(::proto_ff::TitleInfo* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCTitleUnDressRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_cur_wearing_title();
+  inline void clear_has_cur_wearing_title();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_wearing_title_;
+  ::proto_ff::TitleInfo* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCTitleUnDressRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -22761,6 +23662,465 @@ inline ::google::protobuf::int32 DeityEquipDisassembleRsp::ret_code() const {
 inline void DeityEquipDisassembleRsp::set_ret_code(::google::protobuf::int32 value) {
   set_has_ret_code();
   ret_code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CGTitleInfoReq
+
+// -------------------------------------------------------------------
+
+// GCTitleInfoRsp
+
+// optional uint64 cur_wearing_title = 1;
+inline bool GCTitleInfoRsp::has_cur_wearing_title() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCTitleInfoRsp::set_has_cur_wearing_title() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCTitleInfoRsp::clear_has_cur_wearing_title() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCTitleInfoRsp::clear_cur_wearing_title() {
+  cur_wearing_title_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_wearing_title();
+}
+inline ::google::protobuf::uint64 GCTitleInfoRsp::cur_wearing_title() const {
+  return cur_wearing_title_;
+}
+inline void GCTitleInfoRsp::set_cur_wearing_title(::google::protobuf::uint64 value) {
+  set_has_cur_wearing_title();
+  cur_wearing_title_ = value;
+}
+
+// repeated .proto_ff.TitleInfo data = 2;
+inline int GCTitleInfoRsp::data_size() const {
+  return data_.size();
+}
+inline void GCTitleInfoRsp::clear_data() {
+  data_.Clear();
+}
+inline const ::proto_ff::TitleInfo& GCTitleInfoRsp::data(int index) const {
+  return data_.Get(index);
+}
+inline ::proto_ff::TitleInfo* GCTitleInfoRsp::mutable_data(int index) {
+  return data_.Mutable(index);
+}
+inline ::proto_ff::TitleInfo* GCTitleInfoRsp::add_data() {
+  return data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >&
+GCTitleInfoRsp::data() const {
+  return data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::TitleInfo >*
+GCTitleInfoRsp::mutable_data() {
+  return &data_;
+}
+
+// -------------------------------------------------------------------
+
+// CGTitleInfoActiveReq
+
+// optional int64 title_id = 1;
+inline bool CGTitleInfoActiveReq::has_title_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CGTitleInfoActiveReq::set_has_title_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CGTitleInfoActiveReq::clear_has_title_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CGTitleInfoActiveReq::clear_title_id() {
+  title_id_ = GOOGLE_LONGLONG(0);
+  clear_has_title_id();
+}
+inline ::google::protobuf::int64 CGTitleInfoActiveReq::title_id() const {
+  return title_id_;
+}
+inline void CGTitleInfoActiveReq::set_title_id(::google::protobuf::int64 value) {
+  set_has_title_id();
+  title_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GCTitleInfoActiveRsp
+
+// optional int32 ret_code = 1;
+inline bool GCTitleInfoActiveRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCTitleInfoActiveRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCTitleInfoActiveRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCTitleInfoActiveRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GCTitleInfoActiveRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GCTitleInfoActiveRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional .proto_ff.TitleInfo data = 2;
+inline bool GCTitleInfoActiveRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GCTitleInfoActiveRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GCTitleInfoActiveRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GCTitleInfoActiveRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::TitleInfo::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::TitleInfo& GCTitleInfoActiveRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleInfoActiveRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::TitleInfo;
+  return data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleInfoActiveRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::TitleInfo* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void GCTitleInfoActiveRsp::set_allocated_data(::proto_ff::TitleInfo* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CGTitleStarLvReq
+
+// optional int64 title_id = 1;
+inline bool CGTitleStarLvReq::has_title_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CGTitleStarLvReq::set_has_title_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CGTitleStarLvReq::clear_has_title_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CGTitleStarLvReq::clear_title_id() {
+  title_id_ = GOOGLE_LONGLONG(0);
+  clear_has_title_id();
+}
+inline ::google::protobuf::int64 CGTitleStarLvReq::title_id() const {
+  return title_id_;
+}
+inline void CGTitleStarLvReq::set_title_id(::google::protobuf::int64 value) {
+  set_has_title_id();
+  title_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GCTitleStarLvRsp
+
+// optional int32 ret_code = 1;
+inline bool GCTitleStarLvRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCTitleStarLvRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCTitleStarLvRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCTitleStarLvRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GCTitleStarLvRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GCTitleStarLvRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional .proto_ff.TitleInfo data = 2;
+inline bool GCTitleStarLvRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GCTitleStarLvRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GCTitleStarLvRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GCTitleStarLvRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::TitleInfo::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::TitleInfo& GCTitleStarLvRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleStarLvRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::TitleInfo;
+  return data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleStarLvRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::TitleInfo* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void GCTitleStarLvRsp::set_allocated_data(::proto_ff::TitleInfo* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CGTitleDressReq
+
+// optional int64 title_id = 1;
+inline bool CGTitleDressReq::has_title_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CGTitleDressReq::set_has_title_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CGTitleDressReq::clear_has_title_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CGTitleDressReq::clear_title_id() {
+  title_id_ = GOOGLE_LONGLONG(0);
+  clear_has_title_id();
+}
+inline ::google::protobuf::int64 CGTitleDressReq::title_id() const {
+  return title_id_;
+}
+inline void CGTitleDressReq::set_title_id(::google::protobuf::int64 value) {
+  set_has_title_id();
+  title_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GCTitleDressRsp
+
+// optional int32 ret_code = 1;
+inline bool GCTitleDressRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCTitleDressRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCTitleDressRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCTitleDressRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GCTitleDressRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GCTitleDressRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 cur_wearing_title = 2;
+inline bool GCTitleDressRsp::has_cur_wearing_title() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GCTitleDressRsp::set_has_cur_wearing_title() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GCTitleDressRsp::clear_has_cur_wearing_title() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GCTitleDressRsp::clear_cur_wearing_title() {
+  cur_wearing_title_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_wearing_title();
+}
+inline ::google::protobuf::uint64 GCTitleDressRsp::cur_wearing_title() const {
+  return cur_wearing_title_;
+}
+inline void GCTitleDressRsp::set_cur_wearing_title(::google::protobuf::uint64 value) {
+  set_has_cur_wearing_title();
+  cur_wearing_title_ = value;
+}
+
+// optional .proto_ff.TitleInfo data = 3;
+inline bool GCTitleDressRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GCTitleDressRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GCTitleDressRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GCTitleDressRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::TitleInfo::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::TitleInfo& GCTitleDressRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleDressRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::TitleInfo;
+  return data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleDressRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::TitleInfo* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void GCTitleDressRsp::set_allocated_data(::proto_ff::TitleInfo* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CGTitleUnDressReq
+
+// optional int64 title_id = 1;
+inline bool CGTitleUnDressReq::has_title_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CGTitleUnDressReq::set_has_title_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CGTitleUnDressReq::clear_has_title_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CGTitleUnDressReq::clear_title_id() {
+  title_id_ = GOOGLE_LONGLONG(0);
+  clear_has_title_id();
+}
+inline ::google::protobuf::int64 CGTitleUnDressReq::title_id() const {
+  return title_id_;
+}
+inline void CGTitleUnDressReq::set_title_id(::google::protobuf::int64 value) {
+  set_has_title_id();
+  title_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GCTitleUnDressRsp
+
+// optional int32 ret_code = 1;
+inline bool GCTitleUnDressRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCTitleUnDressRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCTitleUnDressRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCTitleUnDressRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GCTitleUnDressRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GCTitleUnDressRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 cur_wearing_title = 2;
+inline bool GCTitleUnDressRsp::has_cur_wearing_title() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GCTitleUnDressRsp::set_has_cur_wearing_title() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GCTitleUnDressRsp::clear_has_cur_wearing_title() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GCTitleUnDressRsp::clear_cur_wearing_title() {
+  cur_wearing_title_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_wearing_title();
+}
+inline ::google::protobuf::uint64 GCTitleUnDressRsp::cur_wearing_title() const {
+  return cur_wearing_title_;
+}
+inline void GCTitleUnDressRsp::set_cur_wearing_title(::google::protobuf::uint64 value) {
+  set_has_cur_wearing_title();
+  cur_wearing_title_ = value;
+}
+
+// optional .proto_ff.TitleInfo data = 3;
+inline bool GCTitleUnDressRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GCTitleUnDressRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GCTitleUnDressRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GCTitleUnDressRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::TitleInfo::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::TitleInfo& GCTitleUnDressRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleUnDressRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::TitleInfo;
+  return data_;
+}
+inline ::proto_ff::TitleInfo* GCTitleUnDressRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::TitleInfo* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void GCTitleUnDressRsp::set_allocated_data(::proto_ff::TitleInfo* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
 }
 
 

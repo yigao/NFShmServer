@@ -33,6 +33,8 @@ enum ClientServerCmd
   CLIENT_PING_REQ	= 15;			//客户端ping消息
   CLIENT_PING_RSP	= 16;			//服务器返回 ping 结果
 
+  CLIENT_LOGOUT_NOTIFY = 17;		//服务器通知客户端登出
+
 
 
   //视野 101 - 150
@@ -721,6 +723,36 @@ enum ClientServerCmd
   NOTIFY_BOSS_HURT_RANK		= 2232;	//boss伤害排行
   SEND_BOSS_HELP_REQ			= 2233;	//发起帮派求助
   SEND_BOSS_HELP_RSP			= 2234;	//发起帮派求助返回
+  ASSIST_RECV_GIFT_REQ		= 2235;	//领奖
+  ASSIST_RECV_GIFT_RSP		= 2236;	//领奖返回
+  ASSIST_RECV_THANK_REQ		= 2237;	//领取感谢奖励
+  ASSIST_RECV_THANK_RSP		= 2238;	//领取感谢奖励
+
+
+  //神魔 2300 - 2400
+  GOD_EVIL_FETCH_PRE_REQ		= 2300;	//请求领取预告奖励
+  GOD_EVIL_FETCH_PRE_RSP		= 2301;	//返回领取预告奖励结果
+  GOD_EVIL_FETCH_TASK_REQ		= 2302; //请求领取神魔阶段任务奖励
+  GOD_EVIL_FETCH_TASK_RSP		= 2303; //返回领取神魔阶段任务奖励结果
+  GOD_EVIL_UPDATE_TASK_RSP	= 2304; //更新神魔阶段任务信息
+  GOD_EVIL_ACTIVE_REQ			= 2305;	//请求激活神魔系统
+  GOD_EVIL_ACTIVE_RSP			= 2306;	//返回激活神魔系统结果
+  GOD_EVIL_UPGRADE_REQ		= 2307;	//请求神魔升级
+  GOD_EVIL_UPGRADE_RSP		= 2308;	//返回神魔升级结果
+  GOD_EVIL_CHG_FACADE_REQ		= 2309; //请求神魔变身
+  GOD_EVIL_CHG_FACADE_RSP		= 2310; //返回神魔变身结果
+
+  //title
+  CLIENT_TO_LOGIC_TITLE_INFO_REQ = 2400; //请求标题信息
+  LOGIC_TO_CLIENT_TITLE_INFO_RSP = 2401; //请求标题信息
+  CLIENT_TO_LOGIC_TITLE_ACTIVE_REQ = 2402; //激活标题
+  LOGIC_TO_CLIENT_TITLE_ACTIVE_RSP = 2403; //激活标题
+  CLIENT_TO_LOGIC_TITLE_STAR_LV_REQ = 2404; //标题升星
+  LOGIC_TO_CLIENT_TITLE_STAR_LV_RSP = 2405; //标题升星
+  CLIENT_TO_LOGIC_TITLE_DRESS_REQ = 2406; //标题穿戴
+  LOGIC_TO_CLIENT_TITLE_DRESS_RSP = 2407; //标题穿戴
+  CLIENT_TO_LOGIC_TITLE_UNDRESS_REQ = 2408; //标题卸下
+  LOGIC_TO_CLIENT_TITLE_UNDRESS_RSP = 2409; //标题卸下
 
   CLIENT_SERVER_MAX_CMD = 5000;	//最大协议ID
 };	

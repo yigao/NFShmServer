@@ -86,6 +86,10 @@ class BuffListProto;
 class SkillPosProto;
 class SkillGroupProto;
 class SkillGroupListProto;
+class GodEvilTaskProto;
+class GodEvilTaskListProto;
+class GodEvilStageProto;
+class GodEvilProto;
 class FacadeFantasyData;
 class FacadeFragmentData;
 class FacadeSkillData;
@@ -128,6 +132,7 @@ class DeitySkillData;
 class DeityBattleSlotData;
 class ArmorSuitState;
 class ArmorInfo;
+class TitleInfo;
 
 enum ECState {
   state_init = 0,
@@ -380,6 +385,8 @@ enum ECreatureAttr {
   A_FACTION_DUTY = 231,
   A_CONTRI = 232,
   A_ESCORT_ID = 233,
+  A_GODEVIL_EXP = 234,
+  A_GODEVIL_LEV = 235,
   A_COMMON_END = 400
 };
 bool ECreatureAttr_IsValid(int value);
@@ -634,6 +641,27 @@ inline bool DeityBattleSlotState_Parse(
     const ::std::string& name, DeityBattleSlotState* value) {
   return ::google::protobuf::internal::ParseNamedEnum<DeityBattleSlotState>(
     DeityBattleSlotState_descriptor(), name, value);
+}
+enum ETitleStatus {
+  E_TITLE_STATUS_NONE = 0,
+  E_TITLE_STATUS_CAN_ACTIVE = 1,
+  E_TITLE_STATUS_ACTIVED = 2,
+  E_TITLE_STATUS_WEARING = 3
+};
+bool ETitleStatus_IsValid(int value);
+const ETitleStatus ETitleStatus_MIN = E_TITLE_STATUS_NONE;
+const ETitleStatus ETitleStatus_MAX = E_TITLE_STATUS_WEARING;
+const int ETitleStatus_ARRAYSIZE = ETitleStatus_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ETitleStatus_descriptor();
+inline const ::std::string& ETitleStatus_Name(ETitleStatus value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ETitleStatus_descriptor(), value);
+}
+inline bool ETitleStatus_Parse(
+    const ::std::string& name, ETitleStatus* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ETitleStatus>(
+    ETitleStatus_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -6610,6 +6638,411 @@ class SkillGroupListProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class GodEvilTaskProto : public ::google::protobuf::Message {
+ public:
+  GodEvilTaskProto();
+  virtual ~GodEvilTaskProto();
+
+  GodEvilTaskProto(const GodEvilTaskProto& from);
+
+  inline GodEvilTaskProto& operator=(const GodEvilTaskProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilTaskProto& default_instance();
+
+  void Swap(GodEvilTaskProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilTaskProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilTaskProto& from);
+  void MergeFrom(const GodEvilTaskProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 cur = 2;
+  inline bool has_cur() const;
+  inline void clear_cur();
+  static const int kCurFieldNumber = 2;
+  inline ::google::protobuf::int32 cur() const;
+  inline void set_cur(::google::protobuf::int32 value);
+
+  // optional int32 state = 3;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 3;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilTaskProto)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_cur();
+  inline void clear_has_cur();
+  inline void set_has_state();
+  inline void clear_has_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 cur_;
+  ::google::protobuf::int32 state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilTaskProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilTaskListProto : public ::google::protobuf::Message {
+ public:
+  GodEvilTaskListProto();
+  virtual ~GodEvilTaskListProto();
+
+  GodEvilTaskListProto(const GodEvilTaskListProto& from);
+
+  inline GodEvilTaskListProto& operator=(const GodEvilTaskListProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilTaskListProto& default_instance();
+
+  void Swap(GodEvilTaskListProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilTaskListProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilTaskListProto& from);
+  void MergeFrom(const GodEvilTaskListProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.GodEvilTaskProto lst = 1;
+  inline int lst_size() const;
+  inline void clear_lst();
+  static const int kLstFieldNumber = 1;
+  inline const ::proto_ff::GodEvilTaskProto& lst(int index) const;
+  inline ::proto_ff::GodEvilTaskProto* mutable_lst(int index);
+  inline ::proto_ff::GodEvilTaskProto* add_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilTaskProto >&
+      lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilTaskProto >*
+      mutable_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilTaskListProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilTaskProto > lst_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilTaskListProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilStageProto : public ::google::protobuf::Message {
+ public:
+  GodEvilStageProto();
+  virtual ~GodEvilStageProto();
+
+  GodEvilStageProto(const GodEvilStageProto& from);
+
+  inline GodEvilStageProto& operator=(const GodEvilStageProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilStageProto& default_instance();
+
+  void Swap(GodEvilStageProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilStageProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilStageProto& from);
+  void MergeFrom(const GodEvilStageProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 stage = 1;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 1;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // optional .proto_ff.GodEvilTaskListProto task = 2;
+  inline bool has_task() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 2;
+  inline const ::proto_ff::GodEvilTaskListProto& task() const;
+  inline ::proto_ff::GodEvilTaskListProto* mutable_task();
+  inline ::proto_ff::GodEvilTaskListProto* release_task();
+  inline void set_allocated_task(::proto_ff::GodEvilTaskListProto* task);
+
+  // optional int32 finish = 3;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 3;
+  inline ::google::protobuf::int32 finish() const;
+  inline void set_finish(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilStageProto)
+ private:
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_task();
+  inline void clear_has_task();
+  inline void set_has_finish();
+  inline void clear_has_finish();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::GodEvilTaskListProto* task_;
+  ::google::protobuf::int32 stage_;
+  ::google::protobuf::int32 finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilStageProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GodEvilProto : public ::google::protobuf::Message {
+ public:
+  GodEvilProto();
+  virtual ~GodEvilProto();
+
+  GodEvilProto(const GodEvilProto& from);
+
+  inline GodEvilProto& operator=(const GodEvilProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GodEvilProto& default_instance();
+
+  void Swap(GodEvilProto* other);
+
+  // implements Message ----------------------------------------------
+
+  GodEvilProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GodEvilProto& from);
+  void MergeFrom(const GodEvilProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fetch = 1;
+  inline bool has_fetch() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 1;
+  inline ::google::protobuf::int32 fetch() const;
+  inline void set_fetch(::google::protobuf::int32 value);
+
+  // optional .proto_ff.GodEvilStageProto stage = 2;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 2;
+  inline const ::proto_ff::GodEvilStageProto& stage() const;
+  inline ::proto_ff::GodEvilStageProto* mutable_stage();
+  inline ::proto_ff::GodEvilStageProto* release_stage();
+  inline void set_allocated_stage(::proto_ff::GodEvilStageProto* stage);
+
+  // optional int32 type = 3;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 cd = 4;
+  inline bool has_cd() const;
+  inline void clear_cd();
+  static const int kCdFieldNumber = 4;
+  inline ::google::protobuf::int32 cd() const;
+  inline void set_cd(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GodEvilProto)
+ private:
+  inline void set_has_fetch();
+  inline void clear_has_fetch();
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_cd();
+  inline void clear_has_cd();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::GodEvilStageProto* stage_;
+  ::google::protobuf::int32 fetch_;
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 cd_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class FacadeFantasyData : public ::google::protobuf::Message {
  public:
   FacadeFantasyData();
@@ -11140,6 +11573,128 @@ class ArmorInfo : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static ArmorInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TitleInfo : public ::google::protobuf::Message {
+ public:
+  TitleInfo();
+  virtual ~TitleInfo();
+
+  TitleInfo(const TitleInfo& from);
+
+  inline TitleInfo& operator=(const TitleInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TitleInfo& default_instance();
+
+  void Swap(TitleInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  TitleInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TitleInfo& from);
+  void MergeFrom(const TitleInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 title_id = 1;
+  inline bool has_title_id() const;
+  inline void clear_title_id();
+  static const int kTitleIdFieldNumber = 1;
+  inline ::google::protobuf::int64 title_id() const;
+  inline void set_title_id(::google::protobuf::int64 value);
+
+  // optional int32 status = 2;
+  inline bool has_status() const;
+  inline void clear_status();
+  static const int kStatusFieldNumber = 2;
+  inline ::google::protobuf::int32 status() const;
+  inline void set_status(::google::protobuf::int32 value);
+
+  // optional int64 start_time = 3;
+  inline bool has_start_time() const;
+  inline void clear_start_time();
+  static const int kStartTimeFieldNumber = 3;
+  inline ::google::protobuf::int64 start_time() const;
+  inline void set_start_time(::google::protobuf::int64 value);
+
+  // optional int64 end_time = 4;
+  inline bool has_end_time() const;
+  inline void clear_end_time();
+  static const int kEndTimeFieldNumber = 4;
+  inline ::google::protobuf::int64 end_time() const;
+  inline void set_end_time(::google::protobuf::int64 value);
+
+  // optional int32 star = 5;
+  inline bool has_star() const;
+  inline void clear_star();
+  static const int kStarFieldNumber = 5;
+  inline ::google::protobuf::int32 star() const;
+  inline void set_star(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TitleInfo)
+ private:
+  inline void set_has_title_id();
+  inline void clear_has_title_id();
+  inline void set_has_status();
+  inline void clear_has_status();
+  inline void set_has_start_time();
+  inline void clear_has_start_time();
+  inline void set_has_end_time();
+  inline void clear_has_end_time();
+  inline void set_has_star();
+  inline void clear_has_star();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 title_id_;
+  ::google::protobuf::int64 start_time_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::int32 star_;
+  ::google::protobuf::int64 end_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static TitleInfo* default_instance_;
 };
 // ===================================================================
 
@@ -17249,6 +17804,299 @@ inline void SkillGroupListProto::set_cur_skill_group(::google::protobuf::uint32 
 
 // -------------------------------------------------------------------
 
+// GodEvilTaskProto
+
+// optional int32 id = 1;
+inline bool GodEvilTaskProto::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GodEvilTaskProto::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GodEvilTaskProto::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GodEvilTaskProto::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 GodEvilTaskProto::id() const {
+  return id_;
+}
+inline void GodEvilTaskProto::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 cur = 2;
+inline bool GodEvilTaskProto::has_cur() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GodEvilTaskProto::set_has_cur() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GodEvilTaskProto::clear_has_cur() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GodEvilTaskProto::clear_cur() {
+  cur_ = 0;
+  clear_has_cur();
+}
+inline ::google::protobuf::int32 GodEvilTaskProto::cur() const {
+  return cur_;
+}
+inline void GodEvilTaskProto::set_cur(::google::protobuf::int32 value) {
+  set_has_cur();
+  cur_ = value;
+}
+
+// optional int32 state = 3;
+inline bool GodEvilTaskProto::has_state() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GodEvilTaskProto::set_has_state() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GodEvilTaskProto::clear_has_state() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GodEvilTaskProto::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 GodEvilTaskProto::state() const {
+  return state_;
+}
+inline void GodEvilTaskProto::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilTaskListProto
+
+// repeated .proto_ff.GodEvilTaskProto lst = 1;
+inline int GodEvilTaskListProto::lst_size() const {
+  return lst_.size();
+}
+inline void GodEvilTaskListProto::clear_lst() {
+  lst_.Clear();
+}
+inline const ::proto_ff::GodEvilTaskProto& GodEvilTaskListProto::lst(int index) const {
+  return lst_.Get(index);
+}
+inline ::proto_ff::GodEvilTaskProto* GodEvilTaskListProto::mutable_lst(int index) {
+  return lst_.Mutable(index);
+}
+inline ::proto_ff::GodEvilTaskProto* GodEvilTaskListProto::add_lst() {
+  return lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilTaskProto >&
+GodEvilTaskListProto::lst() const {
+  return lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GodEvilTaskProto >*
+GodEvilTaskListProto::mutable_lst() {
+  return &lst_;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilStageProto
+
+// optional int32 stage = 1;
+inline bool GodEvilStageProto::has_stage() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GodEvilStageProto::set_has_stage() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GodEvilStageProto::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GodEvilStageProto::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 GodEvilStageProto::stage() const {
+  return stage_;
+}
+inline void GodEvilStageProto::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional .proto_ff.GodEvilTaskListProto task = 2;
+inline bool GodEvilStageProto::has_task() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GodEvilStageProto::set_has_task() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GodEvilStageProto::clear_has_task() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GodEvilStageProto::clear_task() {
+  if (task_ != NULL) task_->::proto_ff::GodEvilTaskListProto::Clear();
+  clear_has_task();
+}
+inline const ::proto_ff::GodEvilTaskListProto& GodEvilStageProto::task() const {
+  return task_ != NULL ? *task_ : *default_instance_->task_;
+}
+inline ::proto_ff::GodEvilTaskListProto* GodEvilStageProto::mutable_task() {
+  set_has_task();
+  if (task_ == NULL) task_ = new ::proto_ff::GodEvilTaskListProto;
+  return task_;
+}
+inline ::proto_ff::GodEvilTaskListProto* GodEvilStageProto::release_task() {
+  clear_has_task();
+  ::proto_ff::GodEvilTaskListProto* temp = task_;
+  task_ = NULL;
+  return temp;
+}
+inline void GodEvilStageProto::set_allocated_task(::proto_ff::GodEvilTaskListProto* task) {
+  delete task_;
+  task_ = task;
+  if (task) {
+    set_has_task();
+  } else {
+    clear_has_task();
+  }
+}
+
+// optional int32 finish = 3;
+inline bool GodEvilStageProto::has_finish() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GodEvilStageProto::set_has_finish() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GodEvilStageProto::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GodEvilStageProto::clear_finish() {
+  finish_ = 0;
+  clear_has_finish();
+}
+inline ::google::protobuf::int32 GodEvilStageProto::finish() const {
+  return finish_;
+}
+inline void GodEvilStageProto::set_finish(::google::protobuf::int32 value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GodEvilProto
+
+// optional int32 fetch = 1;
+inline bool GodEvilProto::has_fetch() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GodEvilProto::set_has_fetch() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GodEvilProto::clear_has_fetch() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GodEvilProto::clear_fetch() {
+  fetch_ = 0;
+  clear_has_fetch();
+}
+inline ::google::protobuf::int32 GodEvilProto::fetch() const {
+  return fetch_;
+}
+inline void GodEvilProto::set_fetch(::google::protobuf::int32 value) {
+  set_has_fetch();
+  fetch_ = value;
+}
+
+// optional .proto_ff.GodEvilStageProto stage = 2;
+inline bool GodEvilProto::has_stage() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GodEvilProto::set_has_stage() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GodEvilProto::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GodEvilProto::clear_stage() {
+  if (stage_ != NULL) stage_->::proto_ff::GodEvilStageProto::Clear();
+  clear_has_stage();
+}
+inline const ::proto_ff::GodEvilStageProto& GodEvilProto::stage() const {
+  return stage_ != NULL ? *stage_ : *default_instance_->stage_;
+}
+inline ::proto_ff::GodEvilStageProto* GodEvilProto::mutable_stage() {
+  set_has_stage();
+  if (stage_ == NULL) stage_ = new ::proto_ff::GodEvilStageProto;
+  return stage_;
+}
+inline ::proto_ff::GodEvilStageProto* GodEvilProto::release_stage() {
+  clear_has_stage();
+  ::proto_ff::GodEvilStageProto* temp = stage_;
+  stage_ = NULL;
+  return temp;
+}
+inline void GodEvilProto::set_allocated_stage(::proto_ff::GodEvilStageProto* stage) {
+  delete stage_;
+  stage_ = stage;
+  if (stage) {
+    set_has_stage();
+  } else {
+    clear_has_stage();
+  }
+}
+
+// optional int32 type = 3;
+inline bool GodEvilProto::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GodEvilProto::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GodEvilProto::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GodEvilProto::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 GodEvilProto::type() const {
+  return type_;
+}
+inline void GodEvilProto::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 cd = 4;
+inline bool GodEvilProto::has_cd() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GodEvilProto::set_has_cd() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GodEvilProto::clear_has_cd() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GodEvilProto::clear_cd() {
+  cd_ = 0;
+  clear_has_cd();
+}
+inline ::google::protobuf::int32 GodEvilProto::cd() const {
+  return cd_;
+}
+inline void GodEvilProto::set_cd(::google::protobuf::int32 value) {
+  set_has_cd();
+  cd_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // FacadeFantasyData
 
 // optional uint64 fantasy_id = 1;
@@ -20723,6 +21571,120 @@ ArmorInfo::mutable_suits() {
   return &suits_;
 }
 
+// -------------------------------------------------------------------
+
+// TitleInfo
+
+// optional int64 title_id = 1;
+inline bool TitleInfo::has_title_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TitleInfo::set_has_title_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TitleInfo::clear_has_title_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TitleInfo::clear_title_id() {
+  title_id_ = GOOGLE_LONGLONG(0);
+  clear_has_title_id();
+}
+inline ::google::protobuf::int64 TitleInfo::title_id() const {
+  return title_id_;
+}
+inline void TitleInfo::set_title_id(::google::protobuf::int64 value) {
+  set_has_title_id();
+  title_id_ = value;
+}
+
+// optional int32 status = 2;
+inline bool TitleInfo::has_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TitleInfo::set_has_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TitleInfo::clear_has_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TitleInfo::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 TitleInfo::status() const {
+  return status_;
+}
+inline void TitleInfo::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+}
+
+// optional int64 start_time = 3;
+inline bool TitleInfo::has_start_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void TitleInfo::set_has_start_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void TitleInfo::clear_has_start_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void TitleInfo::clear_start_time() {
+  start_time_ = GOOGLE_LONGLONG(0);
+  clear_has_start_time();
+}
+inline ::google::protobuf::int64 TitleInfo::start_time() const {
+  return start_time_;
+}
+inline void TitleInfo::set_start_time(::google::protobuf::int64 value) {
+  set_has_start_time();
+  start_time_ = value;
+}
+
+// optional int64 end_time = 4;
+inline bool TitleInfo::has_end_time() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void TitleInfo::set_has_end_time() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void TitleInfo::clear_has_end_time() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void TitleInfo::clear_end_time() {
+  end_time_ = GOOGLE_LONGLONG(0);
+  clear_has_end_time();
+}
+inline ::google::protobuf::int64 TitleInfo::end_time() const {
+  return end_time_;
+}
+inline void TitleInfo::set_end_time(::google::protobuf::int64 value) {
+  set_has_end_time();
+  end_time_ = value;
+}
+
+// optional int32 star = 5;
+inline bool TitleInfo::has_star() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void TitleInfo::set_has_star() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void TitleInfo::clear_has_star() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void TitleInfo::clear_star() {
+  star_ = 0;
+  clear_has_star();
+}
+inline ::google::protobuf::int32 TitleInfo::star() const {
+  return star_;
+}
+inline void TitleInfo::set_star(::google::protobuf::int32 value) {
+  set_has_star();
+  star_ = value;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -20791,6 +21753,10 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EDeityEquipSuitStatu
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::DeityBattleSlotState>() {
   return ::proto_ff::DeityBattleSlotState_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ETitleStatus>() {
+  return ::proto_ff::ETitleStatus_descriptor();
 }
 
 }  // namespace google

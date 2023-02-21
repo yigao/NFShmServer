@@ -1113,3 +1113,70 @@ message DeityEquipDisassembleRsp
 {
   optional int32 ret_code = 1; //错误码
 }
+
+//CLIENT_TO_LOGIC_TITLE_INFO_REQ = 2300; //请求标题信息
+message CGTitleInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_TITLE_INFO_RSP = 2301; //请求标题信息
+message GCTitleInfoRsp
+{
+  optional uint64 cur_wearing_title = 1;
+  repeated TitleInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_TITLE_ACTIVE_REQ = 2302; //激活标题
+message CGTitleInfoActiveReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_ACTIVE_RSP = 2303; //激活标题
+message GCTitleInfoActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional TitleInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_TITLE_STAR_LV_REQ = 2304; //标题升星
+message CGTitleStarLvReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_STAR_LV_RSP = 2305; //标题升星
+message GCTitleStarLvRsp
+{
+  optional int32 ret_code = 1;
+  optional TitleInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_TITLE_DRESS_REQ = 2306; //标题穿戴
+message CGTitleDressReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_DRESS_RSP = 2307; //标题穿戴
+message GCTitleDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 cur_wearing_title = 2;
+  optional TitleInfo data = 3;
+}
+
+//CLIENT_TO_LOGIC_TITLE_UNDRESS_REQ = 2308; //标题卸下
+message CGTitleUnDressReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_UNDRESS_RSP = 2309; //标题卸下
+message GCTitleUnDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 cur_wearing_title = 2;
+  optional TitleInfo data = 3;
+}

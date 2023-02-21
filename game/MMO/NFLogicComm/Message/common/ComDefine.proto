@@ -668,17 +668,15 @@ enum LOGOUT_TYPE
 {
   LOGOUT_NONE				= 0;					//无
   LOGOUT_LOGOUT			= 1;					//正常下线
-  LOGOUT_KICK_OUT			= 2;					//被踢下线
-  LOGOUT_REPLACE			= 3;					//别处登陆,被挤下线
-  LOGOUT_DIS_TIME_OUT		= 4;					//断开超时下线
+  LOGOUT_REPLACE        	= 2;					//别处登陆，被踢下线
+  LOGOUT_DIS_TIME_OUT		= 3;					//断开超时下线
+  LOGOUT_KICK_OUT			= 4;					//其他原因被踢下线
   LOGOUT_CHANGE_LOGIC		= 5;					//切换逻辑节点
   LOGOUT_RETURN_ROLE_LIST	= 6;					//返回角色列表界面
   LOGOUT_LOGIN_TIME_OUT	= 7;					//登录超时
 
-  LOGOUT_WEB_KICK		= 8;					// 管理后台T人
-  LOGOUT_CHEAR_KICK	= 9;					// 作弊被T
-  LOGOUT_CRASH		= 10;					// 逻辑服挂了
-  LOGOUT_OTHER		= 11;					// 其它原因被T
+  LOGOUT_WEB_KICK		= 8;						// 管理后台T人
+  LOGOUT_CHEAR_KICK	= 9;						// 作弊被T
 }
 
 //邮件类型

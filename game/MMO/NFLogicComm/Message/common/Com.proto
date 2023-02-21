@@ -406,6 +406,9 @@ enum ECreatureAttr
   A_FACTION_DUTY = 231;		//职位
   A_CONTRI = 232;				//贡献
   A_ESCORT_ID	= 233;			//镖车ID
+  A_GODEVIL_EXP = 234;		//神魔经验
+  A_GODEVIL_LEV = 235;		//神魔等级
+
   //常规属性结束ID
   A_COMMON_END = 400;			//常规属性结束ID
 }
@@ -762,6 +765,34 @@ message SkillGroupListProto
   optional uint32 cur_skill_group = 2;
 }
 
+
+//神魔阶段任务信息
+message GodEvilTaskProto
+{
+  optional int32 id = 1;	  //
+  optional int32 cur = 2;   //当前进度
+  optional int32 state = 3; //状态，0-不可领取，1-可领取，2-已领取
+}
+//神魔阶段任务列表信息
+message GodEvilTaskListProto
+{
+  repeated GodEvilTaskProto lst = 1;
+}
+//神魔阶段信息
+message GodEvilStageProto
+{
+  optional int32 stage = 1;				//第几阶段
+  optional GodEvilTaskListProto task = 2; //阶段任务
+  optional int32 finish = 3;				//任务是否全部完成(主界面的神魔任务)
+}
+//神魔信息
+message GodEvilProto
+{
+  optional int32 fetch = 1;				//是否已领取预告奖励，0-否，1-是
+  optional GodEvilStageProto stage = 2;	//神魔阶段信息
+  optional int32 type = 3;				//激活类型，1-化神，2-入魔
+  optional int32 cd = 4;					//神魔变身cd
+}
 
 /////////////////////////////////外观系统(包过 翅膀，宝具， 剑灵， 神器系统)//////////////////////////////////////////////
 message FacadeFantasyData
@@ -1176,4 +1207,21 @@ message ArmorInfo
 {
   optional int32 id = 1;
   repeated ArmorSuitState suits = 2;
+}
+
+enum ETitleStatus
+{
+  E_TITLE_STATUS_NONE = 0; //未激活
+  E_TITLE_STATUS_CAN_ACTIVE = 1; //可以激活
+  E_TITLE_STATUS_ACTIVED = 2; //激活
+  E_TITLE_STATUS_WEARING = 3; //佩戴中
+}
+
+message TitleInfo
+{
+  optional int64 title_id = 1;
+  optional int32 status = 2;  //0:未激活 1:可以激活 2:激活 3:佩戴中
+  optional int64 start_time = 3;
+  optional int64 end_time = 4;
+  optional int32 star = 5;
 }
