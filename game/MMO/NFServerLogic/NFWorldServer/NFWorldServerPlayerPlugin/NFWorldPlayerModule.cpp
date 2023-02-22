@@ -389,7 +389,7 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
             {
                 pPlayer->SetProxyId(0);
                 pPlayer->SetClientId(0);
-                NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_CRASH);
+                NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_KICK_OUT);
                 NFWorldSessionMgr::Instance(m_pObjPluginManager)->DeleteSession(pSession);
                 return 0;
             }
@@ -413,7 +413,7 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
             {
                 pPlayer->SetProxyId(0);
                 pPlayer->SetClientId(0);
-                NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_CRASH);
+                NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_KICK_OUT);
                 NFWorldSessionMgr::Instance(m_pObjPluginManager)->DeleteSession(pSession);
                 return 0;
             }

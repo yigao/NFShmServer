@@ -14,11 +14,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "DescStore/NFDescStoreHead.h"
 #include "DescStore/NFDescStoreRegister.h"
-
-EOT_DESC_STORE_ALL_FILE_HEAD_DEFINE
-
-
-
+#include "DescStore/NFDescStoreDefine.h"
 
 #include "DescStoreEx/NFMapDescStoreEx.h"
 #include "NFLogicCommon/NFAttrMgr.h"

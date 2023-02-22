@@ -254,6 +254,7 @@ int NFTitlePart::OnHandleTitleStarLvReq(uint32_t msgId, NFDataPackage &packet)
 
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_TITLE_STAR_LV_RSP, rsp);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
 }
 
 int NFTitlePart::OnHandleTitleDressReq(uint32_t msgId, NFDataPackage &packet)

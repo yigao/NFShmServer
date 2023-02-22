@@ -658,7 +658,7 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			desc_store_head_file.write("#include \"DescStore/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h\"\\\n")
+			desc_store_head_file.write("#include \"DescStore/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h\"\n")
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
@@ -727,7 +727,7 @@ if __name__ == "__main__":
 	desc_store_register_file = open(desc_store_register_file_name, 'a')
 
 	if not desc_store_head_file_has:
-		desc_store_head_file.write("#define EOT_DESC_STORE_ALL_FILE_HEAD_DEFINE \\\n");
+		desc_store_head_file.write("#pragma once\n\n");
 	if not desc_store_define_file_has:
 		desc_store_define_file.write("#define EOT_DESC_STORE_ALL_ID_DEFINE \\\n");
 	if not desc_store_register_file_has:
