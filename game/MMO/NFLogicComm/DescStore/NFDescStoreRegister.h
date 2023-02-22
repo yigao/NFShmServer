@@ -167,3 +167,4 @@ REGISTER_DESCSTORE(CollectCollectDesc);\
 REGISTER_DESCSTORE(CollectAttributetpyeDesc);\
 REGISTER_DESCSTORE(TitleTypeDesc);\
 REGISTER_DESCSTORE(TitleTitleDesc);\
+

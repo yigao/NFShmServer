@@ -240,8 +240,8 @@ int NFItemDescStoreEx::ProcessItem()
                     int32_t isize = vecParam.size();
                     for (int32_t i = 0; i < isize; ++i)
                     {
-                        uint64_t boxId = vecParam.at(i);
-/*						const BoxBoxCfgInfo *pBoxCfg = g_GetBoxBoxCfgTable()->GetBoxBoxCfgInfo(boxId);
+/*                        uint64_t boxId = vecParam.at(i);
+						const BoxBoxCfgInfo *pBoxCfg = g_GetBoxBoxCfgTable()->GetBoxBoxCfgInfo(boxId);
 						if (nullptr == pBoxCfg)
 						{
 							LogErrFmtPrint("[common] ItemCfg::Process33....nullptr == pBoxCfg....itemid:%lu, functype:%d,boxid:%lu ", itemCfg.m_id, itemCfg.m_functiontype,boxId);
@@ -431,8 +431,8 @@ int NFItemDescStoreEx::ProcessItem()
                                itemCfg.m_id, itemCfg.m_functiontype, strParam.c_str());
                     return -1;
                 }
-                int64_t flashid = vecParam.at(0);
-/*				const FlashItemFlashCfgInfo *pFlashItemCfg = g_GetFlashItemFlashCfgTable()->GetFlashItemFlashCfgInfo(flashid);
+/*                int64_t flashid = vecParam.at(0);
+				const FlashItemFlashCfgInfo *pFlashItemCfg = g_GetFlashItemFlashCfgTable()->GetFlashItemFlashCfgInfo(flashid);
 				if (nullptr == pFlashItemCfg)
 				{
 					LogErrFmtPrint("[common] ItemCfg::Process117...nullptr == pFlashItemCfg...itemid:%lu,flashid:%ld", itemCfg.m_id,flashid);
