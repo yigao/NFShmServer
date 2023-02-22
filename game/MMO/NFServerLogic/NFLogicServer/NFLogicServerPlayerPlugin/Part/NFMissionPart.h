@@ -102,6 +102,63 @@ public:
      */
     void CheckTrunkMission(bool notify = true);
 
+public: //消息回调接口
+    /**
+     * @brief NPC接取任务
+     * @param msgId
+     * @param packet
+     */
+    int HandleNpcAcceptMission(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 提交任务
+     * @param msgId
+     * @param packet
+     */
+    int HandleSubmitMission(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief NPC对话,寻人接口
+     * @param msgId
+     * @param packet
+     */
+    int HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 提交任务物品
+     * @param msgId
+     * @param packet
+     */
+    int HandleSubmitMissionGoods(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 一键完成任务
+     * @param msgId
+     * @param packet
+     */
+    int HandleOnekeyFinishMission(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 立即完成
+     * @param msgId
+     * @param packet
+     */
+    int HandleOnceFinishMission(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 领取特殊奖励
+     * @param msgId
+     * @param packet
+     */
+    int HandleMissionRecvSpecialReward(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 推送任务列表信息
+     * @param msgId
+     * @param packet
+     */
+    int SendMissionList(uint32_t msgId, NFDataPackage &packet);
+
 public:
     /**
      * @brief 接取任务
@@ -134,6 +191,46 @@ public:
     int32_t CanAccept(const AcceptInfo &cond, SCanAcceptParam &param);
 
 public:
+    /////////////////////////////////////////普通任务接口/////////////////////////////////////////////
+    /**
+     * @brief 通过任务类型接取任务
+     * @param missionType
+     * @param notify
+     * @return
+     */
+    int32_t AcceptMissionByType(int32_t missionType, bool notify);
+
+    /**
+     * @brief 能否通过任务类型接取任务
+     * @param missionType
+     * @return
+     */
+    int32_t CanAcceptMissionByType(int32_t missionType);
+
+    /**
+     * @brief 通过任务类型清除任务,返回清除的任务数量 notify：是否需要通知客户端删除任务
+     * @param missionType
+     * @param notify
+     * @return
+     */
+    int32_t ClearMissionByType(int32_t missionType, bool notify);
+
+public:
+    /**
+     * @brief 获取任务最大环数
+     * @param missionType
+     * @param level
+     * @return
+     */
+    int32_t DyMaxCount(int32_t missionType, int32_t level);
+
+    /**
+     * @brief 根据任务类型获取动态任务已经接取次数
+     * @param missionType
+     * @return
+     */
+    uint32_t GetDyMissionAceeptCnt(int32_t missionType);
+
     /**
      * @brief 完成任务(动态任务)
      * @param dymissionId
@@ -182,6 +279,12 @@ public:
      */
     void FreeDyMissionId(uint64_t dyMissionId);
 
+    /**
+     * @brief 根据任务类型随机一个任务ID
+     * @param missionType
+     * @return
+     */
+    uint64_t DyRandMissionId(int32_t missionType);
 public:
     /** 最近提交列表里面是否有指定类型的任务
      * @brief

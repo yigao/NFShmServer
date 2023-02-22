@@ -776,7 +776,7 @@ struct MissionTrack
     }
 
     //设置任务proto信息
-    bool SetMissionTrackProto(proto_ff::CharacterDBMissionTrack &missionProto)
+    bool SetMissionTrackProto(proto_ff::CharacterDBMissionTrack &missionProto) const
     {
         missionProto.set_missionid(missionId);
         missionProto.set_dynamicid(dynamicId);
@@ -799,7 +799,7 @@ struct MissionTrack
         return true;
     }
 
-    bool SetMissionTrackProto(proto_ff::CMissionTrack &missionProto)
+    bool SetMissionTrackProto(proto_ff::CMissionTrack &missionProto) const
     {
         missionProto.set_missionid(missionId);
         missionProto.set_dynamicid(dynamicId);

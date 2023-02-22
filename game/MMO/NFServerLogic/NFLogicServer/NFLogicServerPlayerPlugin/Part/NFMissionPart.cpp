@@ -38,7 +38,7 @@ NFMissionPart::~NFMissionPart()
 int NFMissionPart::CreateInit()
 {
     _aryDyIdAlloc.resize(_aryDyIdAlloc.max_size());
-    for(int i = 0; i < (int)_aryDyIdAlloc.size(); i++)
+    for (int i = 0; i < (int) _aryDyIdAlloc.size(); i++)
     {
         _aryDyIdAlloc[i] = false;
     }
@@ -52,6 +52,15 @@ int NFMissionPart::ResumeInit()
 
 int NFMissionPart::RetisterClientMessage(NFIPluginManager *pPluginManager)
 {
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_QUERY_MiSSIONLIST, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_NPC_ACCEPTMISSION, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_ABANDONMISSION, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_SUBMITMISSION, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TALKWITHNPC, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_SUBMITMISSIONGOODS, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_ONEKEY_FINISH, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_ONCE_FINISH, PART_MISSION);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD, PART_MISSION);
     return 0;
 }
 
@@ -158,11 +167,12 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
         }
 
         //已经提交的任务列表
-        for (uint32_t j = 0; j < (uint32_t)missionDBData.already_submit_size(); ++j)
+        for (uint32_t j = 0; j < (uint32_t) missionDBData.already_submit_size(); ++j)
         {
             if (_setAlreadySubmit.size() >= _setAlreadySubmit.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_setAlreadySubmit Space Not Enough, need size:{}", missionDBData.already_submit_size());
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_setAlreadySubmit Space Not Enough, need size:{}",
+                           missionDBData.already_submit_size());
                 continue;
             }
 
@@ -179,7 +189,7 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
                 NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapDyMissionTrack Space Not Enough, need size:{}", nDyCnt);
                 continue;
             }
-            DyMissionTrack& track = _mapDyMissionTrack[dyInfo.mission_type()];
+            DyMissionTrack &track = _mapDyMissionTrack[dyInfo.mission_type()];
             track.kind = dyInfo.mission_type();
             track.lastFresh = dyInfo.lastfresh();
             track.acceptNum = dyInfo.accept_num();
@@ -224,7 +234,55 @@ int NFMissionPart::UnInit()
 
 int NFMissionPart::SaveDB(proto_ff::RoleDBData &dbData)
 {
-    return NFPart::SaveDB(dbData);
+    proto_ff::CharacterDBTaskData *pTaskData = dbData.mutable_task();
+    pTaskData->Clear();
+
+    //动态任务数据
+    for (auto iterDy = _mapDyMissionTrack.begin(); iterDy != _mapDyMissionTrack.end(); ++iterDy)
+    {
+        DyMissionTrack &info = iterDy->second;
+        proto_ff::CharacterDBDyMissionInfo *proto = pTaskData->add_dyinfo();
+        if (nullptr != proto)
+        {
+            proto->set_mission_type(info.kind);
+            proto->set_accept_num(info.acceptNum);
+            proto->set_lastfresh(info.lastFresh);
+            auto pBounty = proto->mutable_bounty_param();
+            pBounty->set_ten_state(info.bountyParam.ten_status);
+            pBounty->set_twenty_state(info.bountyParam.twenty_status);
+        }
+    }
+    //已接任务列表
+    for (PlayerTrackMissionMap::iterator it = _playerTrackMissionMap.begin(); it != _playerTrackMissionMap.end(); ++it)
+    {
+        auto pSingleMissionTrack = pTaskData->mutable_missiontrack()->Add();
+        if (nullptr != pSingleMissionTrack)
+        {
+            it->second.SetMissionTrackProto(*pSingleMissionTrack);
+        }
+    }
+
+    //已经提交任务
+    for (auto iterAlready = _setAlreadySubmit.begin(); iterAlready != _setAlreadySubmit.end(); ++iterAlready)
+    {
+        pTaskData->add_already_submit((*iterAlready));
+    }
+
+    //最近提交的任务
+    for (auto iterRecent = _mapRecentSubmit.begin(); iterRecent != _mapRecentSubmit.end(); ++iterRecent)
+    {
+        auto &setMission = iterRecent->second;
+        for (auto iterMission = setMission.begin(); iterMission != setMission.end(); ++iterMission)
+        {
+            proto_ff::CharacterDBRecentSubmitMission *pRecentProto = pTaskData->add_recent_submit();
+            if (nullptr != pRecentProto)
+            {
+                pRecentProto->set_mission_type(iterRecent->first);
+                pRecentProto->set_mission_id((*iterMission));
+            }
+        }
+    }
+    return 0;
 }
 
 int NFMissionPart::OnLogin()
@@ -240,6 +298,55 @@ int NFMissionPart::OnLogin(proto_ff::PlayerInfoRsp &playerInfo)
 
 int NFMissionPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
+    switch (msgId)
+    {
+        case proto_ff::CLIENT_TO_LOGIC_QUERY_MiSSIONLIST: //任务列表
+        {
+            SendMissionList(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_NPC_ACCEPTMISSION: //NPC接取任务
+        {
+            HandleNpcAcceptMission(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_ABANDONMISSION: //放弃任务
+        {
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_SUBMITMISSION: //提交任务
+        {
+            HandleSubmitMission(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_TALKWITHNPC: //NPC对话
+        {
+            HandleTalkWithNpc(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_SUBMITMISSIONGOODS: //提交物品
+        {
+            HandleSubmitMissionGoods(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_MISSION_ONEKEY_FINISH: //一键完成诺林冒险
+        {
+            HandleOnekeyFinishMission(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_MISSION_ONCE_FINISH: //立即完成
+        {
+            HandleOnceFinishMission(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD://领取特殊奖励
+        {
+            HandleMissionRecvSpecialReward(msgId, packet);
+            break;
+        }
+        default:
+            break;
+    }
     return 0;
 }
 
@@ -1496,4 +1603,243 @@ void NFMissionPart::FreeDyMissionId(uint64_t dyMissionId) //回收一个动态�
     {
         _aryDyIdAlloc[dyMissionId] = false;
     }
+}
+
+int NFMissionPart::HandleNpcAcceptMission(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::CGNpcAcceptMissionReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+
+    uint64_t cid = m_pMaster->Cid();
+    int32_t missionType = req.missiontype();
+    //
+    int32_t ret = proto_ff::RET_MISSION_NOT_EXIST;
+    ret = AcceptMissionByType(missionType, true);
+    if (proto_ff::RET_SUCCESS != ret)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "HandleNpcAcceptMission....AcceptMissionByType failed...cid:{},missionType:{},ret:{} ", cid,
+                   missionType, ret);
+    }
+
+    proto_ff::CGNpcAcceptMissionRsp rsp;
+    rsp.set_missiontype(missionType);
+    rsp.set_retcode(ret);
+    m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_NPC_ACCEPTMISSION, rsp);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::HandleSubmitMission(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::HandleSubmitMissionGoods(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::HandleOnekeyFinishMission(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::HandleOnceFinishMission(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::HandleMissionRecvSpecialReward(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFMissionPart::SendMissionList(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::CGQueryMissionListReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+
+    proto_ff::GCQueryMissionListRsp rsp;
+
+    //已接任务列表
+    for (auto missionIte = _playerTrackMissionMap.begin(); missionIte != _playerTrackMissionMap.end(); ++missionIte)
+    {
+        proto_ff::CMissionTrack *missionTrack = rsp.add_acceptedlist();
+        if (nullptr != missionTrack)
+        {
+            missionIte->second.SetMissionTrackProto(*missionTrack);
+        }
+    }
+
+    //动态任务周期内已经接取的次数
+    proto_ff::DyMissionCntAllProto *pAllProto = rsp.mutable_dy_count();
+    if (nullptr != pAllProto)
+    {
+        for (auto iter = _mapDyMissionTrack.begin(); iter != _mapDyMissionTrack.end(); ++iter)
+        {
+            DyMissionTrack *pDyTrack = &iter->second;
+            if (nullptr != pDyTrack)
+            {
+                proto_ff::DyMissionCntProto *proto = pAllProto->add_count();
+                if (nullptr != proto)
+                {
+                    proto->set_missiontype(iter->first);
+                    proto->set_accept_num(pDyTrack->acceptNum);
+                    if (iter->first == MISSION_TYPE_ID_BOUNTY)
+                    {
+                        auto pBounty = proto->mutable_bounty_param();
+                        pBounty->set_ten_state(pDyTrack->bountyParam.ten_status);
+                        pBounty->set_twenty_state(pDyTrack->bountyParam.twenty_status);
+                    }
+                }
+            }
+        }
+    }
+
+    m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_QUERY_MiSSIONLIST, rsp);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int32_t NFMissionPart::AcceptMissionByType(int32_t missionType, bool notify)
+{
+    int32_t ret = CanAcceptMissionByType(missionType);
+    if (proto_ff::RET_SUCCESS == ret)
+    {
+        uint64_t missionId = DyRandMissionId(missionType);
+        const DyMissionInfo *pDyMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
+        if (nullptr == pDyMissionCfgInfo)
+        {
+            ret = proto_ff::RET_MISSION_NOT_EXIST;
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                       "AcceptMissionByType...can not find mission config....cid:{} ,missionType:{}, missionid:{}, notify:{}", m_pMaster->Cid(),
+                       missionType, missionId, (int32_t) notify);
+        }
+        else
+        {
+            ret = OnAcceptDy(missionId, notify);
+            if (proto_ff::RET_SUCCESS != ret)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                           "AcceptMissionByType...OnAcceptDy failed....cid:{} ,missionType:{}, missionid:{}, notify:{}, ret:{} ", m_pMaster->Cid(),
+                           missionType, missionId, (int32_t) notify, ret);
+            }
+        }
+    }
+
+    return ret;
+}
+
+//根据任务类型随机一个任务ID
+uint64_t NFMissionPart::DyRandMissionId(int32_t missionType)
+{
+    const SET_UINT64 *pMissionLst = GetDyMissionLstByType(missionType);
+    if (nullptr == pMissionLst)
+    {
+        MMOLOG_FMT_ERROR("DyRandMissionId...nullptr == pMissionLst...missionType:%d ,cid:%lu ", missionType, cid);
+        return RET_FAIL;
+    }
+    uint32_t level = pPlayer->GetAttr(A_LEVEL);
+    //获取满足条件的任务ID
+    VEC_UINT64 vecMission;
+    vecMission.clear();
+    SET_UINT64::const_iterator iterSet = pMissionLst->begin();
+    for (; iterSet != pMissionLst->end(); ++iterSet)
+    {
+        const uint64_t missionId = (*iterSet);
+        const DyMissionInfo *pDyMissionCfgInfo = GetDyMissionCfgInfo(missionId);
+        if (nullptr == pDyMissionCfgInfo || level < pDyMissionCfgInfo->minLev || level > pDyMissionCfgInfo->maxLev)
+        {
+            continue;
+        }
+        vecMission.push_back(missionId);
+    }
+    int32_t iszie = vecMission.size();
+    if (iszie <= 0)
+    {
+        MMOLOG_FMT_ERROR("DyRandMissionId....iszie <= 0....missionType:%d, cid:%lu ", missionType, cid);
+        return RET_FAIL;
+    }
+    int32_t rnd = Random(iszie);
+    uint64_t resmissionId = vecMission.at(rnd);
+    //
+    return resmissionId;
+}
+
+//获取任务最大环数
+int32_t NFMissionPart::DyMaxCount(int32_t missionType, int32_t level)
+{
+    int32_t count = 0;
+    auto pTaskDynamicCfg = TaskdynamicTaskdynamicDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
+    for (auto iter = pTaskDynamicCfg->begin(); iter != pTaskDynamicCfg->end(); ++iter)
+    {
+        auto &info = *iter;
+        if (missionType == info.m_tasktype && level >= info.m_minlv && level <= info.m_maxlv)
+        {
+            count = info.m_rececount;
+            break;
+        }
+    }
+    return count;
+}
+
+//根据任务类型获取动态任务已经接取次数
+uint32_t NFMissionPart::GetDyMissionAceeptCnt(int32_t missionType)
+{
+    DyMissionTrack *pDyTrack = GetDyMissionTrack(missionType);
+    if (nullptr != pDyTrack)
+    {
+        return pDyTrack->acceptNum;
+    }
+    return 0;
+}
+
+int32_t NFMissionPart::CanAcceptMissionByType(int32_t missionType)
+{
+    if (MISSION_TYPE_ID_GUILD == missionType)
+    {
+        if (m_pMaster->GetAttr(proto_ff::A_FACTION_ID) <= 0)
+        {
+            return proto_ff::RET_FACTION_NOT_JOIN;
+        }
+    }
+    int32_t level = m_pMaster->GetAttr(proto_ff::A_LEVEL);
+    int32_t maxCount = DyMaxCount(missionType, level);
+    int32_t acceptNum = GetDyMissionAceeptCnt(missionType);
+    if (maxCount == MISSION_INFINITE_COUNT || acceptNum < maxCount)
+    {
+        if (MissionNumByType(missionType) <= 0)
+        {
+            return proto_ff::RET_SUCCESS;
+        }
+        else
+        {
+            return proto_ff::RET_MISSION_HAVE_TYPE_ACCEPT;
+        }
+    }
+    return proto_ff::RET_MISSION_PERIOD_FINISH_NUM_LIMIT;
+}
+
+int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
+{
+    return 0;
 }
