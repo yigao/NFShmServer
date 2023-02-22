@@ -54,7 +54,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="title">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="mission">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFMissionDescStoreEx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFMissionDescStoreEx.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFMissionDescStoreEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFMissionDescStoreEx.h" afterDir="false" />
@@ -633,14 +633,7 @@
       <workItem from="1676633339232" duration="1694000" />
       <workItem from="1676680625632" duration="8890000" />
       <workItem from="1676854993686" duration="30435000" />
-      <workItem from="1676940906606" duration="41410000" />
-    </task>
-    <task id="LOCAL-00390" summary="nf_assert">
-      <created>1675241996293</created>
-      <option name="number" value="00390" />
-      <option name="presentableId" value="LOCAL-00390" />
-      <option name="project" value="LOCAL" />
-      <updated>1675241996293</updated>
+      <workItem from="1676940906606" duration="41739000" />
     </task>
     <task id="LOCAL-00391" summary="nf_assert">
       <created>1675243853588</created>
@@ -978,7 +971,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677036078354</updated>
     </task>
-    <option name="localTasksCounter" value="439" />
+    <task id="LOCAL-00439" summary="mission">
+      <created>1677065003630</created>
+      <option name="number" value="00439" />
+      <option name="presentableId" value="LOCAL-00439" />
+      <option name="project" value="LOCAL" />
+      <updated>1677065003631</updated>
+    </task>
+    <option name="localTasksCounter" value="440" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1224,9 +1224,9 @@
     <MESSAGE value="nf_assert" />
     <MESSAGE value="shm stl" />
     <MESSAGE value="excel" />
-    <MESSAGE value="mission" />
     <MESSAGE value="title" />
-    <option name="LAST_COMMIT_MESSAGE" value="title" />
+    <MESSAGE value="mission" />
+    <option name="LAST_COMMIT_MESSAGE" value="mission" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
