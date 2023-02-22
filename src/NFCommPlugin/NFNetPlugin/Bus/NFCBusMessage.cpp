@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
-#include "NFIPacketParse.h"
+#include "../NFIPacketParse.h"
 #include "NFCBusServer.h"
 #include "NFCBusClient.h"
 #include <string.h>

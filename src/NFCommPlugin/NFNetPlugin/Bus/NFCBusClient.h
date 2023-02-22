@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFCBusServer.h
+//    @FileName         :    NFCBusClient.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFCBusServer.h
+//    @Module           :    NFCBusClient.h
 //
 // -------------------------------------------------------------------------
 
@@ -14,18 +14,22 @@
 #include "NFBusHash.h"
 #include "NFBusDefine.h"
 #include "NFBusShm.h"
-#include "NFINetMessage.h"
-#include "NFNetDefine.h"
+#include "../NFINetMessage.h"
+#include "../NFNetDefine.h"
 #include "NFComm/NFCore/NFBuffer.h"
 #include "NFIBusConnection.h"
 #include <map>
 
-class NFCBusServer : public NFIBusConnection
+class NFCBusClient : public NFIBusConnection
 {
 public:
-    explicit NFCBusServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag);
+    explicit NFCBusClient(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag, const NFMessageFlag& bindFlag):NFIBusConnection(p, serverType, flag)
+    {
+        m_bindFlag = bindFlag;
+        mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
+    }
 
-    virtual ~NFCBusServer();
+    virtual ~NFCBusClient();
 
     virtual bool Execute() override;
 
@@ -40,18 +44,19 @@ public:
     *
     * @return 是否成功
     */
-    virtual uint64_t BindServer(const NFMessageFlag& flag);
+    virtual uint64_t ConnectServer(const NFMessageFlag& flag, const NFMessageFlag& bindFlag);
 
     /**
-     * @brief 主线程处理消息队列
+     * @brief	发送数据 不包含数据头
+     *
+     * @param pData		发送的数据,
+     * @param unSize	数据的大小
+     * @return
      */
-    virtual void ProcessMsgLogicThread();
-
     virtual bool Send(NFDataPackage& packet, const char* msg, uint32_t nLen) override;
     virtual bool Send(NFDataPackage& packet, const google::protobuf::Message& xData) override;
+
+    virtual bool Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage& packet, const char* msg, uint32_t nLen);
 private:
-    /**
-     * @brief 服务器每一帧处理的消息数
-     */
-    uint32_t mHandleMsgNumPerFrame;
+    NFBuffer mxSendBuffer;
 };

@@ -13,11 +13,11 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
-#include "NFIPacketParse.h"
+#include "../NFIPacketParse.h"
 #include <string.h>
 #include <sstream>
 #include <iomanip>
-#include <NFComm/NFPluginModule/NFIConfigModule.h>
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include <sys/mman.h>
 
 /**

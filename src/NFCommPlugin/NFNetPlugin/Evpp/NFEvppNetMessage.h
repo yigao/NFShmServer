@@ -29,19 +29,19 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
-#include "NFNetDefine.h"
+#include "../NFNetDefine.h"
 #include "NetEvppObject.h"
-#include "NFINetMessage.h"
+#include "../NFINetMessage.h"
 
-#include <evpp/tcp_server.h>
-#include <evpp/buffer.h>
-#include <evpp/tcp_conn.h>
-#include <NFComm/NFPluginModule/NFCodeQueue.h>
+#include "evpp/tcp_server.h"
+#include "evpp/buffer.h"
+#include "evpp/tcp_conn.h"
+#include "NFComm/NFPluginModule/NFCodeQueue.h"
 #include "NFComm/NFCore/NFQueue.hpp"
 #include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFComm/NFPluginModule/NFTimerObj.h"
 
-#include "NFIConnection.h"
+#include "../NFIConnection.h"
 #include "NFCHttpServer.h"
 #include "NFCHttpClient.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"

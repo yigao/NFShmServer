@@ -12,12 +12,12 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFIPacketParse.h"
+#include "../NFIPacketParse.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include <string.h>
 #include <sstream>
-#include <NFComm/NFPluginModule/NFCheck.h>
-#include <NFComm/NFPluginModule/NFIConfigModule.h>
+#include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 NFCBusServer::NFCBusServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag):NFIBusConnection(p, serverType, flag)
 {

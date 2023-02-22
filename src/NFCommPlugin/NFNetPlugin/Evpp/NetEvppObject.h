@@ -31,7 +31,7 @@
 #include <cstdint>
 
 #include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFNetDefine.h"
+#include "../NFNetDefine.h"
 #include "NFComm/NFCore/NFBuffer.h"
 #include "evpp/tcp_conn.h"
 #include "evpp/event_loop.h"
@@ -51,7 +51,7 @@ public:
     /**
      * @brief	构造函数
      */
-    NetEvppObject(const evpp::TCPConnPtr &conn);
+    explicit NetEvppObject(const evpp::TCPConnPtr &conn);
 
     /**
      * @brief	析构函数

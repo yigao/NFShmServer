@@ -13,18 +13,18 @@
 #include <list>
 #include <string>
 #include <vector>
-#include <NFComm/NFCore/NFCommon.h>
-#include <NFComm/NFPluginModule/NFCheck.h>
-#include <NFComm/NFPluginModule/NFIConfigModule.h>
+#include "NFComm/NFCore/NFCommon.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
 
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCodeQueue.h"
 #include "NFEvppClient.h"
 #include "NFEvppServer.h"
-#include "NFIPacketParse.h"
+#include "NFCommPlugin/NFNetPlugin/NFIPacketParse.h"
 #include "NFComm/NFCore/NFStringUtility.h"
-#include "Encrypt.h"
+#include "NFCommPlugin/NFNetPlugin/Encrypt.h"
 
 NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType), m_netObjectPool(1000, false)
 {

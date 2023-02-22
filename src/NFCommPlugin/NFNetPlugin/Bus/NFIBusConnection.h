@@ -14,10 +14,10 @@
 #include "NFBusHash.h"
 #include "NFBusDefine.h"
 #include "NFBusShm.h"
-#include "NFINetMessage.h"
-#include "NFNetDefine.h"
+#include "../NFINetMessage.h"
+#include "../NFNetDefine.h"
 #include "NFComm/NFCore/NFBuffer.h"
-#include "NFIConnection.h"
+#include "../NFIConnection.h"
 #include <map>
 
 class MsgFromBusInfo;

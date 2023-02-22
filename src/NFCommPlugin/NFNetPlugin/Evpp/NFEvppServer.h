@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFEvppClient.h
+//    @FileName         :    NFEvppServer.h
 //    @Author           :    Gao.Yi
 //    @Date             :   2022-09-18
 //    @Email			:    445267987@qq.com
@@ -26,27 +26,28 @@
 //                    '.:::::'                    ':'````..
 //
 // -------------------------------------------------------------------------
+
 #pragma once
 
-#include "NFIConnection.h"
+#include "../NFIConnection.h"
 
-class NFEvppObject;
 
-class NFEvppClient : public NFIConnection
+class NFEvppServer : public NFIConnection
 {
 public:
-	NFEvppClient(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag):NFIConnection(p, serverType, flag)
+	NFEvppServer(NFIPluginManager* p, NF_SERVER_TYPES serverType, const NFMessageFlag& flag):NFIConnection(p, serverType, flag)
 	{
 		m_eventLoop = NULL;
-		m_tcpClient = NULL;
+		m_tcpServer = NULL;
 	}
 
-	virtual bool Init(evpp::EventLoop* loop);
+	virtual bool Init() override;
 
 	virtual bool Shut() override;
 
 	virtual bool Finalize() override;
 private:
     std::unique_ptr<evpp::EventLoopThread> m_eventLoop;
-    std::shared_ptr<evpp::TCPClient> m_tcpClient;
+    std::unique_ptr<evpp::TCPServer> m_tcpServer;
 };
+
