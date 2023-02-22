@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFIPlugin.h"
 #include "NFIPacketParse.h"
 #include "Evpp/NFEvppNetMessage.h"
-#include "NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.h"
+#include "Bus/NFCBusMessage.h"
 #include "NFComm/NFCore/NFSocketLibFunction.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
