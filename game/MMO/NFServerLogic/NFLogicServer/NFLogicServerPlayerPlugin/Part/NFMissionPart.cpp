@@ -1966,7 +1966,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     }
 
     //
-    MissionTrack *pMissionTrack = &_playerTrackMissionMap[pMissionTrack->dynamicId];
+    MissionTrack *pMissionTrack = &_playerTrackMissionMap[dymissionId];
     if (nullptr == pMissionTrack)
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType Allcol MissionTrackObj is nullptr cid:{},missionid:{},dymissionId:{}",
@@ -2245,7 +2245,7 @@ int32_t NFMissionPart::RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pM
     CHECK_EXPR(pMissinTrack, proto_ff::RET_FAIL, "pMissinTrack == NULL");
     CHECK_EXPR(pMissionInfo, proto_ff::RET_FAIL, "pMissionInfo == NULL");
 
-    //移除任务掉落
+/*    //移除任务掉落
     OnDelMissionDrop(pMissinTrack);
     //移除任务数据
     _playerTrackMissionMap.erase(pMissinTrack->dynamicId);
@@ -2260,14 +2260,14 @@ int32_t NFMissionPart::RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pM
     //移除任务事件监听
     RemoveEvent(pMissionInfo->missionId);
     //通知删除任务
-    NotifyDelMission(pMissionInfo->missionId);
+    NotifyDelMission(pMissionInfo->missionId);*/
     //
     return proto_ff::RET_SUCCESS;
 }
 
 int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
 {
-    if (!ValidDyMissionId(dymissionId))
+/*    if (!ValidDyMissionId(dymissionId))
     {
         MMOLOG_FMT_ERROR("[logic] RemoveDyMission  dymissionId:%lu ValidDyMissionId failed, charId=%lu", dymissionId, pPlayer->Cid());
         return RET_FAIL;
@@ -2304,7 +2304,7 @@ int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
     if (notify)
     {
         pMissionPart->NotifyDelMission(dymissionId);
-    }
+    }*/
 
-    return RET_SUCCESS;
+    return proto_ff::RET_SUCCESS;
 }
