@@ -447,7 +447,8 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                 {
                     if (MISSION_TYPE_ID_TRUNK == pMissionInfo->kind)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "CheckTrunkMission...OnAccept failed...cid:{} ,kind:{},mission:{},ret:{} ",
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(),
+                                   "CheckTrunkMission...OnAcceptType failed...cid:{} ,kind:{},mission:{},ret:{} ",
                                    m_pMaster->Cid(),
                                    pMissionInfo->kind, missionid, ret);
                     }
@@ -515,7 +516,7 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                     if (proto_ff::RET_SUCCESS != ret)
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                                   "CheckTrunkMission...OnAccept failed...cid:{},mission:{},backMissionid:{},ret:{} ",
+                                   "CheckTrunkMission...OnAcceptType failed...cid:{},mission:{},backMissionid:{},ret:{} ",
                                    m_pMaster->Cid(), missionid, backMissionid, ret);
                     }
                     else
@@ -536,7 +537,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "OnAccept Have Not MissionID={} Config, Please Check Mission Config", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "OnAcceptType Have Not MissionID={} Config, Please Check Mission Config", missionId);
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
 
@@ -556,7 +557,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     MissionTrack *pMissionTrack = &_playerTrackMissionMap[missionId];
     if (nullptr == pMissionTrack)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAccept MissionID={}, Allcol MissionTrackObj is nullptr", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAcceptType MissionID={}, Allcol MissionTrackObj is nullptr", missionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -571,7 +572,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     pMissionTrack->status = MISSION_E_ACCEPTED;
     if (proto_ff::RET_SUCCESS != OnExtractCond(pMissionInfo, pMissionTrack))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAccept MissionID={}, OnExtractCond failed...", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAcceptType MissionID={}, OnExtractCond failed...", missionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -628,7 +629,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
         UpdateMissionProgress(missionId);
     }
 
-    OnAccept(missionId, pMissionInfo->kind);
+    OnAcceptType(missionId, pMissionInfo->kind);
 
     //日志
 
@@ -636,7 +637,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
 }
 
 //接取任务
-void NFMissionPart::OnAccept(uint64_t missionId, uint32_t kind)
+void NFMissionPart::OnAcceptType(uint64_t missionId, uint32_t kind)
 {
     //
 }
@@ -1740,7 +1741,8 @@ int32_t NFMissionPart::AcceptMissionByType(int32_t missionType, bool notify)
             if (proto_ff::RET_SUCCESS != ret)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                           "AcceptMissionByType...OnAcceptDy failed....cid:{} ,missionType:{}, missionid:{}, notify:{}, ret:{} ", m_pMaster->Cid(),
+                           "AcceptMissionByType...OnAcceptDyType failed....cid:{} ,missionType:{}, missionid:{}, notify:{}, ret:{} ",
+                           m_pMaster->Cid(),
                            missionType, missionId, (int32_t) notify, ret);
             }
         }
@@ -1752,21 +1754,22 @@ int32_t NFMissionPart::AcceptMissionByType(int32_t missionType, bool notify)
 //根据任务类型随机一个任务ID
 uint64_t NFMissionPart::DyRandMissionId(int32_t missionType)
 {
-    const SET_UINT64 *pMissionLst = GetDyMissionLstByType(missionType);
+    auto *pMissionLst = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionLstByType(missionType);
     if (nullptr == pMissionLst)
     {
-        MMOLOG_FMT_ERROR("DyRandMissionId...nullptr == pMissionLst...missionType:%d ,cid:%lu ", missionType, cid);
-        return RET_FAIL;
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "DyRandMissionId...nullptr == pMissionLst...missionType:{} ,cid:{} ", missionType,
+                   m_pMaster->Cid());
+        return proto_ff::RET_FAIL;
     }
-    uint32_t level = pPlayer->GetAttr(A_LEVEL);
+
+    uint32_t level = m_pMaster->GetAttr(proto_ff::A_LEVEL);
     //获取满足条件的任务ID
     VEC_UINT64 vecMission;
     vecMission.clear();
-    SET_UINT64::const_iterator iterSet = pMissionLst->begin();
-    for (; iterSet != pMissionLst->end(); ++iterSet)
+    for (auto iterSet = pMissionLst->begin(); iterSet != pMissionLst->end(); ++iterSet)
     {
         const uint64_t missionId = (*iterSet);
-        const DyMissionInfo *pDyMissionCfgInfo = GetDyMissionCfgInfo(missionId);
+        const DyMissionInfo *pDyMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
         if (nullptr == pDyMissionCfgInfo || level < pDyMissionCfgInfo->minLev || level > pDyMissionCfgInfo->maxLev)
         {
             continue;
@@ -1776,10 +1779,10 @@ uint64_t NFMissionPart::DyRandMissionId(int32_t missionType)
     int32_t iszie = vecMission.size();
     if (iszie <= 0)
     {
-        MMOLOG_FMT_ERROR("DyRandMissionId....iszie <= 0....missionType:%d, cid:%lu ", missionType, cid);
-        return RET_FAIL;
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "DyRandMissionId....iszie <= 0....missionType:{}, cid:{} ", missionType, m_pMaster->Cid());
+        return proto_ff::RET_FAIL;
     }
-    int32_t rnd = Random(iszie);
+    int32_t rnd = NFRandInt(0, iszie);
     uint64_t resmissionId = vecMission.at(rnd);
     //
     return resmissionId;
@@ -1841,5 +1844,467 @@ int32_t NFMissionPart::CanAcceptMissionByType(int32_t missionType)
 
 int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
 {
-    return 0;
+    MAP_UINT64_UINT64 mapDelMission;
+    mapDelMission.clear();
+    MAP_UINT64_UINT64 mapDelMissionEx;
+    mapDelMissionEx.clear();
+    int32_t delCount = 0;
+    PlayerTrackMissionMap::iterator iter = _playerTrackMissionMap.begin();
+    for (; iter != _playerTrackMissionMap.end(); ++iter)
+    {
+        uint64_t missionId = iter->second.missionId;
+        uint64_t dymissionId = iter->second.dynamicId;
+        const DyMissionInfo *pDyMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
+        if (nullptr != pDyMissionCfgInfo)
+        {
+            if ((uint32_t) missionType == pDyMissionCfgInfo->kind)
+            {
+                mapDelMission[dymissionId] = missionId;
+            }
+        }
+        else
+        {
+            MissionInfo *pMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionId);
+            if (nullptr != pMissionCfgInfo)
+            {
+                if ((uint32_t) missionType == pMissionCfgInfo->kind)
+                {
+                    mapDelMissionEx[dymissionId] = missionId;
+                    if (MISSION_TYPE_ID_TRUNK == pMissionCfgInfo->kind)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "ClearMissionByType..remove trunk mission..cid:{}, missionid:{} ",
+                                   m_pMaster->Cid(), missionId);
+                    }
+                }
+            }
+        }
+    }
+    //
+    for (auto iterDel = mapDelMission.begin(); iterDel != mapDelMission.end(); ++iterDel)
+    {
+        uint64_t dymissionId = iterDel->first;
+        uint64_t missionId = iterDel->second;
+        int32_t ret = RemoveDyMission(dymissionId, notify);
+        if (proto_ff::RET_SUCCESS != ret)
+        {
+            //这里必须打印日志，如果移除失败，很可能导致下面刷新阵营任务分配的动态ID有重复的
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                       "MissionPart::ClearMissionByType...RemoveDyMission failed....cid:%lu,missionType:{}, missionId:{}, dymissionid:{},ret:{} ",
+                       m_pMaster->Cid(),
+                       missionType, missionId, dymissionId, ret);
+        }
+        else
+        {
+            delCount += 1;
+        }
+    }
+
+    //
+    for (auto iterDelEx = mapDelMissionEx.begin(); iterDelEx != mapDelMissionEx.end(); ++iterDelEx)
+    {
+        uint64_t dymissionId = iterDelEx->first;
+        uint64_t missionId = iterDelEx->second;
+        MissionInfo *pMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionId);
+        if (nullptr != pMissionCfgInfo)
+        {
+            int32_t ret = RemoveMission(pMissionCfgInfo);
+            if (proto_ff::RET_SUCCESS != ret)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                           "MissionPart::ClearMissionByType...RemoveMission failed....cid:{}, missionId:{}, dymissionid:{},ret:{} ", m_pMaster->Cid(),
+                           missionId, dymissionId, ret);
+            }
+            else
+            {
+                delCount += 1;
+            }
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                       "MissionPart::ClearMissionByType...pMissionCfgInfo is nullptr....cid:{}, missionId:{}, dymissionid:{} ", m_pMaster->Cid(),
+                       missionId, dymissionId);
+        }
+    }
+
+    return delCount;
+}
+
+int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
+{
+    int32_t ret = CanAcceptDy(missionId);
+    if (proto_ff::RET_SUCCESS != ret)
+    {
+        return ret;
+    }
+
+    //接取任务
+    const DyMissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
+    if (nullptr == pMissionInfo)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType nullptr == pMissionInfo  cid:{}, missionid:{}", m_pMaster->Cid(),
+                   missionId);
+        return proto_ff::RET_MISSION_NOT_EXIST;
+    }
+
+    //生成动态任务ID
+    uint64_t dymissionId = AllocNewDyMisssionId();
+    if (!ValidDyMissionId(dymissionId))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType AllocNewDyMisssionId failed... cid:{},missionid:{},dymissionId:{}",
+                   m_pMaster->Cid(), missionId, dymissionId);
+        return proto_ff::RET_FAIL;
+    }
+
+    if (_playerTrackMissionMap.size() >= _playerTrackMissionMap.max_size())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                   "[logic] OnAcceptDyType _playerTrackMissionMap Space Not Enough.. cid:{},missionid:{},dymissionId:{}", m_pMaster->Cid(), missionId,
+                   dymissionId);
+        FreeDyMissionId(dymissionId);
+        return proto_ff::RET_FAIL;
+    }
+
+    //
+    MissionTrack *pMissionTrack = &_playerTrackMissionMap[pMissionTrack->dynamicId];
+    if (nullptr == pMissionTrack)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType Allcol MissionTrackObj is nullptr cid:{},missionid:{},dymissionId:{}",
+                   m_pMaster->Cid(), missionId, dymissionId);
+        FreeDyMissionId(dymissionId);
+        return proto_ff::RET_FAIL;
+    }
+
+    //填充任务数据信息
+    pMissionTrack->missionId = missionId;
+    pMissionTrack->dynamicId = dymissionId;
+    pMissionTrack->acceptMissionTime = NFTime::Now().UnixSec();
+    pMissionTrack->status = MISSION_E_ACCEPTED;
+    //填充完成条件信息 多任务条件
+    if (proto_ff::RET_SUCCESS != OnExtractDyCond(pMissionInfo, pMissionTrack))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType OnExtractCond failed...cid:{},missionid:{},dymissionId:{}",
+                   m_pMaster->Cid(), missionId, dymissionId);
+        return proto_ff::RET_FAIL;
+    }
+
+    MarkDirty();
+
+    //提取属性奖励
+    OnExtractDyAttrReward(pMissionTrack);
+    //
+    //接取任务,需要放到更新任务进度前面，跟前端处理相关
+    OnAcceptDyType(dymissionId, pMissionInfo->kind);
+    //如果要通知客户端
+    if (notify)
+    {
+        UpdateMissionProgress(dymissionId);
+    }
+
+    //接取任务事件
+/*    AcceptTaskEvent acceptEvent;
+    acceptEvent.cid = cid;
+    acceptEvent.taskId = missionId;
+    acceptEvent.taskType = pMissionInfo->kind;
+    g_GetEvent()->FireExecute(EVENT_ACCEPT_TASK, cid, CREATURE_PLAYER, &acceptEvent, sizeof(acceptEvent));*/
+
+    //判断任务是否完成
+    bool isCompletedFlag = true;
+    for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
+    {
+        if (!pMissionTrack->items[i].completedFlag)
+        {
+            isCompletedFlag = false;
+            break;
+        }
+    }
+
+    //如果已经完成
+    if (isCompletedFlag)
+    {
+        //如果可以完成
+        pMissionTrack->status = MISSION_E_COMPLETION;
+    }
+    else //没有完成的条件才会注册事件
+    {
+        //添加任务掉落处理
+        OnAddMissionDrop(pMissionTrack, 1);
+        //注册事件
+        for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
+        {
+            if (!pMissionTrack->items[i].completedFlag)
+            {
+                int32_t relEvent = MISSION_COND_TYPE_TO_EVENT(pMissionTrack->items[i].type);
+                RegisterEvent(relEvent, pMissionTrack->dynamicId, 1);
+            }
+        }
+    }
+    //如果接取就完成，需要再次通知客户端
+    if (isCompletedFlag && notify)
+    {
+        UpdateMissionProgress(dymissionId);
+    }
+    //
+    if (isCompletedFlag)
+    {
+        //完成任务
+        OnFinishDy(dymissionId, pMissionInfo->kind);
+    }
+
+    return proto_ff::RET_SUCCESS;
+}
+
+int32_t NFMissionPart::OnExtractDyCond(const DyMissionInfo *pDyMissionInfo, MissionTrack *pMissionTrack, bool preUpdate/* = true*/)
+{
+    CHECK_EXPR(pDyMissionInfo, proto_ff::RET_FAIL, "pDyMissionInfo == NULL");
+    CHECK_EXPR(pMissionTrack, proto_ff::RET_FAIL, "pMissionTrack == NULL");
+
+    //抽取一个动态条件ID
+    if (pDyMissionInfo->setComplete.size() < 1)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnExtractDyCond pDyMissionInfo->setComplete.size() < 1  missionid:{} ",
+                   pDyMissionInfo->missionId);
+        return proto_ff::RET_FAIL;
+    }
+
+    VEC_INT64 vecCond;
+    vecCond.clear();
+
+    for (auto iter = pDyMissionInfo->setComplete.begin(); iter != pDyMissionInfo->setComplete.end(); ++iter)
+    {
+        vecCond.push_back((*iter));
+    }
+
+    int32_t isize = vecCond.size();
+    int32_t rndidx = NFRandInt(0, isize);// 0 - (isize-1)
+    int64_t condId = vecCond.at(rndidx);
+
+    const DyConditionInfo *pDyConditionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyConditionCfgInfo(condId);
+    if (nullptr == pDyConditionInfo)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnExtractDyCond nullptr == pDyConditionInfo missionid:{}, condid:{} ",
+                   pDyMissionInfo->missionId, condId);
+        return proto_ff::RET_FAIL;
+    }
+
+    //动态生成任务条件
+    ItemInfo condItem;
+    uint64_t textId;
+    int32_t ret = OnGeneralCond(pDyMissionInfo, pDyConditionInfo, condItem, textId);
+    if (proto_ff::RET_SUCCESS != ret)
+    {
+        return ret;
+    }
+
+    if (preUpdate)
+    {
+        //条件预更新
+        OnPreUpdateProgress(condItem);
+    }
+
+    //添加到条件列表中
+    pMissionTrack->items.push_back(condItem);
+    pMissionTrack->textId = textId;
+
+    return proto_ff::RET_SUCCESS;
+}
+
+int32_t NFMissionPart::OnGeneralCond(const DyMissionInfo *pDyMissionInfo, const DyConditionInfo *pDyConditionInfo, ItemInfo &cond, uint64_t &textId)
+{
+    CHECK_EXPR(pDyMissionInfo, proto_ff::RET_FAIL, "pDyMissionInfo == NULL");
+    CHECK_EXPR(pDyConditionInfo, proto_ff::RET_FAIL, "pDyConditionInfo == NULL");
+
+    //条件赋值
+    cond.type = pDyConditionInfo->cond.itemType;
+    cond.itemId = pDyConditionInfo->cond.itemId;
+    cond.finalValue = pDyConditionInfo->cond.itemCount;
+    cond.parma1 = pDyConditionInfo->cond.parma1;
+    cond.parma2 = pDyConditionInfo->cond.parma2;
+    cond.parma3 = pDyConditionInfo->cond.parma3;
+
+    //随机textid
+    textId = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyTextId(pDyMissionInfo->kind, cond.type);
+    if (textId <= 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                   "[logic] MissionManager::OnGeneralCond...can not find textid..... missionid:{} ,condid:{}, kind:{}, condType:{}",
+                   pDyMissionInfo->missionId, pDyConditionInfo->condId, pDyMissionInfo->kind, cond.type);
+    }
+
+    return proto_ff::RET_SUCCESS;
+}
+
+/**
+ * @brief 是否能接取动态任务 dyCfgId:动态任务的配置ID
+ * @param dyCfgId
+ * @return
+ */
+int32_t NFMissionPart::CanAcceptDy(uint64_t dyCfgId)
+{
+    const DyMissionInfo *pDyMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(dyCfgId);
+    return CanAcceptDy(pDyMissionInfo);
+}
+
+/**
+ * @brief
+ * @param pDyMissionInfo
+ * @return
+ */
+int32_t NFMissionPart::CanAcceptDy(const DyMissionInfo *pDyMissionInfo)
+{
+    if (nullptr == pDyMissionInfo)
+    {
+        return proto_ff::RET_FAIL;
+    }
+
+    uint32_t level = m_pMaster->GetAttr(proto_ff::A_LEVEL);
+    if (MissionNumByType(pDyMissionInfo->kind) > 0)
+    {
+        return proto_ff::RET_MISSION_PERIOD_ONCE_EXIST_NUM_LIMIT;
+    }
+
+    if (level < pDyMissionInfo->minLev || level > pDyMissionInfo->maxLev)
+    {
+        return proto_ff::RET_MISSION_LEVEL_ERROR;
+    }
+
+    int32_t maxCount = DyMaxCount(pDyMissionInfo->kind, level);
+    if (maxCount != MISSION_INFINITE_COUNT)
+    {
+        if ((int32_t) GetDyMissionAceeptCnt(pDyMissionInfo->kind) >= maxCount)
+        {
+            return proto_ff::RET_MISSION_PERIOD_FINISH_NUM_LIMIT;
+        }
+    }
+
+    return proto_ff::RET_SUCCESS;
+}
+
+//提取动态任务属性奖励
+int32_t NFMissionPart::OnExtractDyAttrReward(MissionTrack *pNewMissinTrack)
+{
+    return proto_ff::RET_SUCCESS;
+}
+
+//接取任务(动态任务)
+void NFMissionPart::OnAcceptDyType(uint64_t dymissionId, int32_t missionType)
+{
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] MissionPart::OnAcceptDyType...cid:{}, missionType:{} ", m_pMaster->Cid(), missionType);
+    OnAddAcceptDyCount(missionType, 1);
+}
+
+void NFMissionPart::OnAddAcceptDyCount(int32_t missionType, uint32_t count)
+{
+    //更新动态任务计数
+    DyMissionTrack *pDyTrack = GetDyMissionTrack(missionType);
+    if (nullptr == pDyTrack)
+    {
+        if (_mapDyMissionTrack.size() >= _mapDyMissionTrack.max_size())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapDyMissionTrack Space Not Enough");
+            return;
+        }
+
+        DyMissionTrack &track = _mapDyMissionTrack[missionType];
+        track.kind = missionType;
+        track.acceptNum = 0;
+        track.lastFresh = NFTime::Now().UnixSec();
+
+        pDyTrack = GetDyMissionTrack(missionType);
+        if (nullptr == pDyTrack)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapDyMissionTrack can't find mission type:{}", missionType);
+            return;
+        }
+    }
+
+    pDyTrack->acceptNum += count;
+
+    SET_UINT32 setMissionType;
+    setMissionType.insert(missionType);
+    NotifyDyAcceptCount(setMissionType);
+    MarkDirty();
+}
+
+int32_t NFMissionPart::RemoveMission(MissionInfo *pMissionInfo)
+{
+    CHECK_EXPR(pMissionInfo, proto_ff::RET_FAIL, "pMissionInfo == NULL");
+
+    auto iter = _playerTrackMissionMap.find(pMissionInfo->missionId);
+    if (iter == _playerTrackMissionMap.end())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] RemoveMission missionId={} can not find mission data , charId={}", pMissionInfo->missionId, m_pMaster->Cid());
+        return proto_ff::RET_FAIL;
+    }
+
+    return RemoveMission(&iter->second, pMissionInfo);
+}
+
+int32_t NFMissionPart::RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pMissionInfo)
+{
+    CHECK_EXPR(pMissinTrack, proto_ff::RET_FAIL, "pMissinTrack == NULL");
+    CHECK_EXPR(pMissionInfo, proto_ff::RET_FAIL, "pMissionInfo == NULL");
+
+    //移除任务掉落
+    OnDelMissionDrop(pMissinTrack);
+    //移除任务数据
+    _playerTrackMissionMap.erase(pMissinTrack->dynamicId);
+    //
+    MarkDirty();
+    //移除中间物品
+    RemoveReward(pMissinTrack);
+    //回收任务数据
+    FreeMissionTrack(pMissinTrack);
+    //移除接取任务时发放的物品
+    RemoveReward(pMissionInfo->missionId, pMissionInfo->receAdd);
+    //移除任务事件监听
+    RemoveEvent(pMissionInfo->missionId);
+    //通知删除任务
+    NotifyDelMission(pMissionInfo->missionId);
+    //
+    return proto_ff::RET_SUCCESS;
+}
+
+int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
+{
+    if (!ValidDyMissionId(dymissionId))
+    {
+        MMOLOG_FMT_ERROR("[logic] RemoveDyMission  dymissionId:%lu ValidDyMissionId failed, charId=%lu", dymissionId, pPlayer->Cid());
+        return RET_FAIL;
+    }
+    MissionPart::PlayerTrackMissionMap::iterator iter = pMissionPart->_playerTrackMissionMap.find(dymissionId);
+    if (iter == pMissionPart->_playerTrackMissionMap.end())
+    {
+        MMOLOG_FMT_ERROR("[logic] RemoveDyMission dymissionId:%lu can not find mission data , charId=%lu", dymissionId, pPlayer->Cid());
+        return RET_FAIL;
+    }
+    uint64_t missionId = iter->second->missionId;
+    const DyMissionInfo *pDyMissionCfgInfo = GetDyMissionCfgInfo(missionId);
+    if (nullptr == pDyMissionCfgInfo)
+    {
+        MMOLOG_FMT_ERROR("[logic] RemoveDyMission dymissionId:%lu, missionid:%lu, can not find mission config , charId=%lu", dymissionId, missionId,
+                         pPlayer->Cid());
+        return RET_FAIL;
+    }
+    //移除任务掉落
+    OnDelMissionDrop(pPlayer, iter->second);
+    //移除任务物品
+    OnDelMissionItem(pPlayer, iter->second);
+    //回收任务数据
+    FreeMissionTrack(iter->second);
+    //移除任务数据
+    pMissionPart->_playerTrackMissionMap.erase(iter);
+    //
+    pMissionPart->SetNeedSave(true);
+    //回收动态任务ID,如果是阵营任务或者赏金任务，动态ID由阵营和赏金可接列表那里回收
+    pMissionPart->FreeDyMissionId(dymissionId);
+    //移除任务事件监听
+    pMissionPart->RemoveEvent(dymissionId);
+    //通知删除任务
+    if (notify)
+    {
+        pMissionPart->NotifyDelMission(dymissionId);
+    }
+
+    return RET_SUCCESS;
 }

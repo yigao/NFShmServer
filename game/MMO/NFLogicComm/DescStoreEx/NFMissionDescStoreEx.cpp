@@ -1381,3 +1381,34 @@ uint32_t NFMissionDescStoreEx::ComposeDyRewardKey(int32_t taskType, int32_t leve
 {
     return (uint32_t) (DY_MISSION_REWARD_KEY(taskType, level));
 }
+
+const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>* NFMissionDescStoreEx::GetDyMissionLstByType(int32_t missionType) const
+{
+    auto iter = m_dymissionTypeMap.find(missionType);
+    return (iter != m_dymissionTypeMap.end()) ? &iter->second : nullptr;
+}
+
+uint64_t NFMissionDescStoreEx::GetDyTextId(int32_t missionType, uint32_t condType)
+{
+    return GetDyTextId(ComposeTextKey(missionType, condType));
+}
+
+uint64_t NFMissionDescStoreEx::GetDyTextId(uint64_t key)
+{
+    auto iter = _dymissionTextMap.find(key);
+    if (iter == _dymissionTextMap.end())
+    {
+        return 0;
+    }
+
+    auto &setText = iter->second;
+    std::vector<uint32_t> vec(setText.begin(), setText.end());
+    int32_t isize = vec.size();
+    if (isize <= 0)
+    {
+        return 0;
+    }
+
+    int32_t rnd = NFRandInt(0, isize);
+    return vec[rnd];
+}

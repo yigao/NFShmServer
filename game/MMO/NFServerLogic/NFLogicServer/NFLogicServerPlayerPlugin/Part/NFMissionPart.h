@@ -173,7 +173,7 @@ public:
      * @param missionId
      * @param kind
      */
-    void OnAccept(uint64_t missionId, uint32_t kind);
+    void OnAcceptType(uint64_t missionId, uint32_t kind);
 
     /**
      * @brief 获取可接任务列表(主支线)
@@ -190,6 +190,42 @@ public:
      */
     int32_t CanAccept(const AcceptInfo &cond, SCanAcceptParam &param);
 
+public:
+    /**
+     * @brief 接取动态任务
+     * @param missionId
+     * @param notify
+     * @return
+     */
+    int32_t OnAcceptDy(uint64_t missionId, bool notify);
+
+    /**
+     * @brief 接取任务(动态任务)
+     * @param dymissionId
+     * @param missionType
+     */
+    void OnAcceptDyType(uint64_t dymissionId, int32_t missionType);
+
+    /**
+     * @brief 是否能接取动态任务 dyCfgId:动态任务的配置ID
+     * @param dyCfgId
+     * @return
+     */
+    int32_t CanAcceptDy(uint64_t dyCfgId);
+
+    /**
+     * @brief
+     * @param pDyMissionInfo
+     * @return
+     */
+    int32_t CanAcceptDy(const DyMissionInfo *pDyMissionInfo);
+
+    /**
+     * @brief 添加动态任务接取次数
+     * @param missionType
+     * @param count
+     */
+    void OnAddAcceptDyCount(int32_t missionType, uint32_t count);
 public:
     /////////////////////////////////////////普通任务接口/////////////////////////////////////////////
     /**
@@ -214,6 +250,7 @@ public:
      * @return
      */
     int32_t ClearMissionByType(int32_t missionType, bool notify);
+
 
 public:
     /**
@@ -285,6 +322,7 @@ public:
      * @return
      */
     uint64_t DyRandMissionId(int32_t missionType);
+
 public:
     /** 最近提交列表里面是否有指定类型的任务
      * @brief
@@ -331,6 +369,31 @@ public:
      */
     void OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond, bool &notify);
 
+    /**
+     * @brief 提取动态任务条件
+     * @param pMissionInfo
+     * @param pMissionTrack
+     * @param preUpdate
+     * @return
+     */
+    int32_t OnExtractDyCond(const DyMissionInfo *pMissionInfo, MissionTrack *pMissionTrack, bool preUpdate = true);
+
+    /**
+     * @brief 生成任务条件
+     * @param pDyMissionInfo
+     * @param pDyConditionInfo
+     * @param cond
+     * @param textId
+     * @return
+     */
+    int32_t OnGeneralCond(const DyMissionInfo *pDyMissionInfo, const DyConditionInfo *pDyConditionInfo, ItemInfo &cond, uint64_t &textId);
+
+    /**
+     * @brief 提取动态任务属性奖励
+     * @param pNewMissinTrack
+     * @return
+     */
+    int32_t OnExtractDyAttrReward(MissionTrack *pNewMissinTrack);
 public:
     /**
      * @brief 增加发任务时的物品奖励
@@ -348,7 +411,29 @@ public:
      * @return
      */
     bool CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, LIST_ITEM &lstOutItem);
+public:
+    /**
+     * @brief 移除任务
+     * @param pMissionInfo
+     * @return
+     */
+    int32_t RemoveMission(MissionInfo* pMissionInfo);
 
+    /**
+     * @brief 移除任务
+     * @param pMissinTrack
+     * @param pMissionInfo
+     * @return
+     */
+    int32_t RemoveMission(MissionTrack *pMissinTrack, MissionInfo* pMissionInfo);
+
+    /**
+     * @brief 移除动态任务
+     * @param dymissionId
+     * @param notify
+     * @return
+     */
+    int32_t RemoveDyMission(uint64_t dymissionId,bool notify);
 public:
     //更新进度
     int32_t OnUpdateProgress(uint64_t missionId, const ExecuteData &data);
