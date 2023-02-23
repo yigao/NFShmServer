@@ -9363,6 +9363,13 @@ class CharacterDBMissionTrack : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 textid() const;
   inline void set_textid(::google::protobuf::uint64 value);
 
+  // optional uint32 missionType = 7;
+  inline bool has_missiontype() const;
+  inline void clear_missiontype();
+  static const int kMissionTypeFieldNumber = 7;
+  inline ::google::protobuf::uint32 missiontype() const;
+  inline void set_missiontype(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.CharacterDBMissionTrack)
  private:
   inline void set_has_missionid();
@@ -9375,6 +9382,8 @@ class CharacterDBMissionTrack : public ::google::protobuf::Message {
   inline void clear_has_acceptmissiontime();
   inline void set_has_textid();
   inline void clear_has_textid();
+  inline void set_has_missiontype();
+  inline void clear_has_missiontype();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -9382,11 +9391,12 @@ class CharacterDBMissionTrack : public ::google::protobuf::Message {
   ::google::protobuf::uint64 dynamicid_;
   ::google::protobuf::uint64 acceptmissiontime_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBMissionItemInfo > iteminfo_;
-  ::google::protobuf::uint64 textid_;
   ::google::protobuf::uint32 status_;
+  ::google::protobuf::uint32 missiontype_;
+  ::google::protobuf::uint64 textid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -20003,6 +20013,28 @@ inline ::google::protobuf::uint64 CharacterDBMissionTrack::textid() const {
 inline void CharacterDBMissionTrack::set_textid(::google::protobuf::uint64 value) {
   set_has_textid();
   textid_ = value;
+}
+
+// optional uint32 missionType = 7;
+inline bool CharacterDBMissionTrack::has_missiontype() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CharacterDBMissionTrack::set_has_missiontype() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CharacterDBMissionTrack::clear_has_missiontype() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CharacterDBMissionTrack::clear_missiontype() {
+  missiontype_ = 0u;
+  clear_has_missiontype();
+}
+inline ::google::protobuf::uint32 CharacterDBMissionTrack::missiontype() const {
+  return missiontype_;
+}
+inline void CharacterDBMissionTrack::set_missiontype(::google::protobuf::uint32 value) {
+  set_has_missiontype();
+  missiontype_ = value;
 }
 
 // -------------------------------------------------------------------

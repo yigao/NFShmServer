@@ -1388,6 +1388,12 @@ const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>* NFMissionDescStor
     return (iter != m_dymissionTypeMap.end()) ? &iter->second : nullptr;
 }
 
+const NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM> *NFMissionDescStoreEx::GetPreAcceptMission(uint64_t missionId)
+{
+    auto iter = m_mapPreAcceptMap.find(missionId);
+    return (iter != m_mapPreAcceptMap.end()) ? &iter->second : nullptr;
+}
+
 uint64_t NFMissionDescStoreEx::GetDyTextId(int32_t missionType, uint32_t condType)
 {
     return GetDyTextId(ComposeTextKey(missionType, condType));

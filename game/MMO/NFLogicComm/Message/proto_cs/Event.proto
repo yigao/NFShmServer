@@ -13,8 +13,8 @@ message FunctionUnlockEvent
 
 message PlayerLeveUpEvent
 {
-  optional uint64 cid = 1;	//玩家cid
-  optional uint32 level = 2;	//升级到的等级
+  optional uint64 cid = 1;  //玩家cid
+  optional uint32 level = 2;  //升级到的等级
 }
 
 message ItemUseEvent
@@ -29,4 +29,13 @@ message AcceptTaskEvent
   optional uint64 taskId = 1;
   optional uint64 cid = 2;
   optional uint32 taskType = 3;
+}
+
+//完成任务
+message FinishTaskEvent
+{
+  optional uint64 taskId = 1;
+  optional uint64 cid = 2;
+  optional uint32 taskType = 3;
+  optional int32 mapGroup = 4;
 }

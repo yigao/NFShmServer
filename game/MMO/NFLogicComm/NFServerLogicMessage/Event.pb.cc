@@ -32,6 +32,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* AcceptTaskEvent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   AcceptTaskEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FinishTaskEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FinishTaskEvent_reflection_ = NULL;
 
 }  // namespace
 
@@ -106,6 +109,24 @@ void protobuf_AssignDesc_Event_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AcceptTaskEvent));
+  FinishTaskEvent_descriptor_ = file->message_type(4);
+  static const int FinishTaskEvent_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FinishTaskEvent, taskid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FinishTaskEvent, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FinishTaskEvent, tasktype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FinishTaskEvent, mapgroup_),
+  };
+  FinishTaskEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FinishTaskEvent_descriptor_,
+      FinishTaskEvent::default_instance_,
+      FinishTaskEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FinishTaskEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FinishTaskEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FinishTaskEvent));
 }
 
 namespace {
@@ -126,6 +147,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     ItemUseEvent_descriptor_, &ItemUseEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     AcceptTaskEvent_descriptor_, &AcceptTaskEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FinishTaskEvent_descriptor_, &FinishTaskEvent::default_instance());
 }
 
 }  // namespace
@@ -139,6 +162,8 @@ void protobuf_ShutdownFile_Event_2eproto() {
   delete ItemUseEvent_reflection_;
   delete AcceptTaskEvent::default_instance_;
   delete AcceptTaskEvent_reflection_;
+  delete FinishTaskEvent::default_instance_;
+  delete FinishTaskEvent_reflection_;
 }
 
 void protobuf_AddDesc_Event_2eproto() {
@@ -157,17 +182,22 @@ void protobuf_AddDesc_Event_2eproto() {
     "\"/\n\021PlayerLeveUpEvent\022\013\n\003cid\030\001 \001(\004\022\r\n\005le"
     "vel\030\002 \001(\r\"+\n\014ItemUseEvent\022\016\n\006itemId\030\001 \001("
     "\004\022\013\n\003num\030\002 \001(\005\"@\n\017AcceptTaskEvent\022\016\n\006tas"
-    "kId\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010taskType\030\003 \001(\r", 280);
+    "kId\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010taskType\030\003 \001(\r"
+    "\"R\n\017FinishTaskEvent\022\016\n\006taskId\030\001 \001(\004\022\013\n\003c"
+    "id\030\002 \001(\004\022\020\n\010taskType\030\003 \001(\r\022\020\n\010mapGroup\030\004"
+    " \001(\005", 364);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
   PlayerLeveUpEvent::default_instance_ = new PlayerLeveUpEvent();
   ItemUseEvent::default_instance_ = new ItemUseEvent();
   AcceptTaskEvent::default_instance_ = new AcceptTaskEvent();
+  FinishTaskEvent::default_instance_ = new FinishTaskEvent();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
   AcceptTaskEvent::default_instance_->InitAsDefaultInstance();
+  FinishTaskEvent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Event_2eproto);
 }
 
@@ -1166,6 +1196,334 @@ void AcceptTaskEvent::Swap(AcceptTaskEvent* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = AcceptTaskEvent_descriptor_;
   metadata.reflection = AcceptTaskEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int FinishTaskEvent::kTaskIdFieldNumber;
+const int FinishTaskEvent::kCidFieldNumber;
+const int FinishTaskEvent::kTaskTypeFieldNumber;
+const int FinishTaskEvent::kMapGroupFieldNumber;
+#endif  // !_MSC_VER
+
+FinishTaskEvent::FinishTaskEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FinishTaskEvent::InitAsDefaultInstance() {
+}
+
+FinishTaskEvent::FinishTaskEvent(const FinishTaskEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FinishTaskEvent::SharedCtor() {
+  _cached_size_ = 0;
+  taskid_ = GOOGLE_ULONGLONG(0);
+  cid_ = GOOGLE_ULONGLONG(0);
+  tasktype_ = 0u;
+  mapgroup_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FinishTaskEvent::~FinishTaskEvent() {
+  SharedDtor();
+}
+
+void FinishTaskEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FinishTaskEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FinishTaskEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FinishTaskEvent_descriptor_;
+}
+
+const FinishTaskEvent& FinishTaskEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Event_2eproto();
+  return *default_instance_;
+}
+
+FinishTaskEvent* FinishTaskEvent::default_instance_ = NULL;
+
+FinishTaskEvent* FinishTaskEvent::New() const {
+  return new FinishTaskEvent;
+}
+
+void FinishTaskEvent::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    taskid_ = GOOGLE_ULONGLONG(0);
+    cid_ = GOOGLE_ULONGLONG(0);
+    tasktype_ = 0u;
+    mapgroup_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FinishTaskEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 taskId = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &taskid_)));
+          set_has_taskid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cid;
+        break;
+      }
+
+      // optional uint64 cid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_taskType;
+        break;
+      }
+
+      // optional uint32 taskType = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_taskType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &tasktype_)));
+          set_has_tasktype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_mapGroup;
+        break;
+      }
+
+      // optional int32 mapGroup = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mapGroup:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mapgroup_)));
+          set_has_mapgroup();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FinishTaskEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 taskId = 1;
+  if (has_taskid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->taskid(), output);
+  }
+
+  // optional uint64 cid = 2;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->cid(), output);
+  }
+
+  // optional uint32 taskType = 3;
+  if (has_tasktype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->tasktype(), output);
+  }
+
+  // optional int32 mapGroup = 4;
+  if (has_mapgroup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->mapgroup(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FinishTaskEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 taskId = 1;
+  if (has_taskid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->taskid(), target);
+  }
+
+  // optional uint64 cid = 2;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->cid(), target);
+  }
+
+  // optional uint32 taskType = 3;
+  if (has_tasktype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->tasktype(), target);
+  }
+
+  // optional int32 mapGroup = 4;
+  if (has_mapgroup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->mapgroup(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FinishTaskEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 taskId = 1;
+    if (has_taskid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->taskid());
+    }
+
+    // optional uint64 cid = 2;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+    // optional uint32 taskType = 3;
+    if (has_tasktype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->tasktype());
+    }
+
+    // optional int32 mapGroup = 4;
+    if (has_mapgroup()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->mapgroup());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FinishTaskEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FinishTaskEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FinishTaskEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FinishTaskEvent::MergeFrom(const FinishTaskEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_taskid()) {
+      set_taskid(from.taskid());
+    }
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+    if (from.has_tasktype()) {
+      set_tasktype(from.tasktype());
+    }
+    if (from.has_mapgroup()) {
+      set_mapgroup(from.mapgroup());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FinishTaskEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FinishTaskEvent::CopyFrom(const FinishTaskEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FinishTaskEvent::IsInitialized() const {
+
+  return true;
+}
+
+void FinishTaskEvent::Swap(FinishTaskEvent* other) {
+  if (other != this) {
+    std::swap(taskid_, other->taskid_);
+    std::swap(cid_, other->cid_);
+    std::swap(tasktype_, other->tasktype_);
+    std::swap(mapgroup_, other->mapgroup_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FinishTaskEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FinishTaskEvent_descriptor_;
+  metadata.reflection = FinishTaskEvent_reflection_;
   return metadata;
 }
 

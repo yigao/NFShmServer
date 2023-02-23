@@ -40,6 +40,7 @@ class FunctionUnlockEvent;
 class PlayerLeveUpEvent;
 class ItemUseEvent;
 class AcceptTaskEvent;
+class FinishTaskEvent;
 
 // ===================================================================
 
@@ -409,6 +410,118 @@ class AcceptTaskEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static AcceptTaskEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class FinishTaskEvent : public ::google::protobuf::Message {
+ public:
+  FinishTaskEvent();
+  virtual ~FinishTaskEvent();
+
+  FinishTaskEvent(const FinishTaskEvent& from);
+
+  inline FinishTaskEvent& operator=(const FinishTaskEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FinishTaskEvent& default_instance();
+
+  void Swap(FinishTaskEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  FinishTaskEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FinishTaskEvent& from);
+  void MergeFrom(const FinishTaskEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 taskId = 1;
+  inline bool has_taskid() const;
+  inline void clear_taskid();
+  static const int kTaskIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 taskid() const;
+  inline void set_taskid(::google::protobuf::uint64 value);
+
+  // optional uint64 cid = 2;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 2;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 taskType = 3;
+  inline bool has_tasktype() const;
+  inline void clear_tasktype();
+  static const int kTaskTypeFieldNumber = 3;
+  inline ::google::protobuf::uint32 tasktype() const;
+  inline void set_tasktype(::google::protobuf::uint32 value);
+
+  // optional int32 mapGroup = 4;
+  inline bool has_mapgroup() const;
+  inline void clear_mapgroup();
+  static const int kMapGroupFieldNumber = 4;
+  inline ::google::protobuf::int32 mapgroup() const;
+  inline void set_mapgroup(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FinishTaskEvent)
+ private:
+  inline void set_has_taskid();
+  inline void clear_has_taskid();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_tasktype();
+  inline void clear_has_tasktype();
+  inline void set_has_mapgroup();
+  inline void clear_has_mapgroup();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 taskid_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 tasktype_;
+  ::google::protobuf::int32 mapgroup_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static FinishTaskEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -602,6 +715,98 @@ inline ::google::protobuf::uint32 AcceptTaskEvent::tasktype() const {
 inline void AcceptTaskEvent::set_tasktype(::google::protobuf::uint32 value) {
   set_has_tasktype();
   tasktype_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FinishTaskEvent
+
+// optional uint64 taskId = 1;
+inline bool FinishTaskEvent::has_taskid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FinishTaskEvent::set_has_taskid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FinishTaskEvent::clear_has_taskid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FinishTaskEvent::clear_taskid() {
+  taskid_ = GOOGLE_ULONGLONG(0);
+  clear_has_taskid();
+}
+inline ::google::protobuf::uint64 FinishTaskEvent::taskid() const {
+  return taskid_;
+}
+inline void FinishTaskEvent::set_taskid(::google::protobuf::uint64 value) {
+  set_has_taskid();
+  taskid_ = value;
+}
+
+// optional uint64 cid = 2;
+inline bool FinishTaskEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FinishTaskEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FinishTaskEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FinishTaskEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 FinishTaskEvent::cid() const {
+  return cid_;
+}
+inline void FinishTaskEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 taskType = 3;
+inline bool FinishTaskEvent::has_tasktype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FinishTaskEvent::set_has_tasktype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FinishTaskEvent::clear_has_tasktype() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FinishTaskEvent::clear_tasktype() {
+  tasktype_ = 0u;
+  clear_has_tasktype();
+}
+inline ::google::protobuf::uint32 FinishTaskEvent::tasktype() const {
+  return tasktype_;
+}
+inline void FinishTaskEvent::set_tasktype(::google::protobuf::uint32 value) {
+  set_has_tasktype();
+  tasktype_ = value;
+}
+
+// optional int32 mapGroup = 4;
+inline bool FinishTaskEvent::has_mapgroup() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void FinishTaskEvent::set_has_mapgroup() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void FinishTaskEvent::clear_has_mapgroup() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void FinishTaskEvent::clear_mapgroup() {
+  mapgroup_ = 0;
+  clear_has_mapgroup();
+}
+inline ::google::protobuf::int32 FinishTaskEvent::mapgroup() const {
+  return mapgroup_;
+}
+inline void FinishTaskEvent::set_mapgroup(::google::protobuf::int32 value) {
+  set_has_mapgroup();
+  mapgroup_ = value;
 }
 
 

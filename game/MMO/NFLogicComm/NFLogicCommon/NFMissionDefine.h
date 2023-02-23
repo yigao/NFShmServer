@@ -23,6 +23,7 @@
 #define MISSION_ALL_DY_MISSION_TYPE -1 //所有的动态任务类型
 #define MISSION_ALL_DY_ITEM_LEVEL -1 //所有的物品等级
 #define MISSION_INFINITE_COUNT -1 //无限次数
+#define MISSION_COMCOND_MAX_COUNT 2 //最大物品条件数
 
 #define MISSION_ARE_MONS_PER_NUM  5 //怪追踪区域每次刷新的怪物数量(到达区域直接杀怪)
 #define MISSION_RATION_BASE 10 //任务奖励倍率基数
@@ -112,8 +113,8 @@ enum MISSION_TYPE_FLAG
     MISSION_TYPE_ID_OCCUPATION = 3,            //转职任务
     MISSION_TYPE_ID_STAGE_GUIDE = 4,        //阶段引导任务
     MISSION_TYPE_ID_BOUNTY = 5,            //赏金任务
-    MISSION_TYPE_ID_ESCORT = 6,            //护送任务
     MISSION_TYPE_ID_BOUNTY_INSTANCE = 7,            //赏金引导
+    MISSION_TYPE_ID_ESCORT = 8,            //护送任务
 
     MISSION_TYPE_ID_LOOP = 11,                //环任务
     MISSION_TYPE_ID_GUILD = 12,                //工会任务
@@ -466,7 +467,7 @@ struct AcceptInfo
 */
 struct InterExecute
 {
-    NFShmVector<InterItemPair, 10> items;
+    NFShmVector<InterItemPair, MISSION_COMCOND_MAX_COUNT> items;
 
     InterExecute()
     {
@@ -533,7 +534,8 @@ struct TaskComplex
     }
 };
 
-typedef std::vector<TaskComplex> TASK_REWARD;
+//参考taskreward表，可能有13个，定15
+typedef NFShmVector<TaskComplex, 15> TASK_REWARD;
 
 /**
 * 单个任务信息结构体
@@ -732,9 +734,10 @@ struct MissionTrack
 {
     uint64_t missionId;                    //任务ID（配置ID）
     uint64_t dynamicId;                    //动态任务ID（针对动态任务来说的,主支线和配置ID相同）
+    uint32_t missionType;               //任务类型
     uint32_t status;                    //任务当前状态
     uint64_t acceptMissionTime;            //接取任务时间
-    NFShmVector<ItemInfo, 10> items;        //<ItemInfo>，这个任务的物品数据
+    NFShmVector<ItemInfo, MISSION_COMCOND_MAX_COUNT> items;        //<ItemInfo>，这个任务的物品数据
     uint64_t textId;                    //前端显示用的id(对应taskcontent中text表)
 
     MissionTrack()
@@ -756,6 +759,7 @@ struct MissionTrack
         items.clear();
         missionId = 0;
         dynamicId = 0;
+        missionType = 0;
         textId = 0;
     }
 
@@ -766,6 +770,7 @@ struct MissionTrack
         items.clear();
         missionId = 0;
         dynamicId = 0;
+        missionType = 0;
         textId = 0;
         return 0;
     }
@@ -780,6 +785,7 @@ struct MissionTrack
     {
         missionProto.set_missionid(missionId);
         missionProto.set_dynamicid(dynamicId);
+        missionProto.set_missiontype(missionType);
         missionProto.set_textid(textId);
         missionProto.set_status(status);
         missionProto.set_acceptmissiontime(acceptMissionTime);
@@ -825,6 +831,7 @@ struct MissionTrack
     {
         missionId = missionProto.missionid();
         dynamicId = missionProto.dynamicid();
+        missionType = missionProto.missiontype();
         textId = missionProto.textid();
         status = missionProto.status();
         acceptMissionTime = missionProto.acceptmissiontime();

@@ -1672,13 +1672,14 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CharacterDBMissionItemInfo));
   CharacterDBMissionTrack_descriptor_ = file->message_type(73);
-  static const int CharacterDBMissionTrack_offsets_[6] = {
+  static const int CharacterDBMissionTrack_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, missionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, dynamicid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, acceptmissiontime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, iteminfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, textid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterDBMissionTrack, missiontype_),
   };
   CharacterDBMissionTrack_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -2696,207 +2697,207 @@ void protobuf_AddDesc_Com_2eproto() {
     "type\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\022\024\n\014currentValue\030\003"
     " \001(\r\022\022\n\nfinalValue\030\004 \001(\r\022\025\n\rcompletedFla"
     "g\030\005 \001(\010\022\016\n\006parma1\030\006 \001(\004\022\016\n\006parma2\030\007 \001(\004\022"
-    "\016\n\006parma3\030\010 \001(\004\"\262\001\n\027CharacterDBMissionTr"
+    "\016\n\006parma3\030\010 \001(\004\"\307\001\n\027CharacterDBMissionTr"
     "ack\022\021\n\tmissionId\030\001 \001(\004\022\021\n\tdynamicid\030\002 \001("
     "\004\022\016\n\006status\030\003 \001(\r\022\031\n\021acceptMissionTime\030\004"
     " \001(\004\0226\n\010itemInfo\030\005 \003(\0132$.proto_ff.Charac"
-    "terDBMissionItemInfo\022\016\n\006textid\030\006 \001(\004\"J\n\037"
-    "CharacterDBDyMissionBountyParam\022\021\n\tten_s"
-    "tate\030\001 \001(\r\022\024\n\014twenty_state\030\002 \001(\r\"\230\001\n\030Cha"
-    "racterDBDyMissionInfo\022\024\n\014mission_type\030\001 "
-    "\001(\005\022\021\n\tlastfresh\030\002 \001(\004\022\022\n\naccept_num\030\003 \001"
-    "(\005\022\?\n\014bounty_param\030\004 \001(\0132).proto_ff.Char"
-    "acterDBDyMissionBountyParam\"\333\001\n\023Characte"
-    "rDBTaskData\0227\n\014missionTrack\030\001 \003(\0132!.prot"
-    "o_ff.CharacterDBMissionTrack\0222\n\006dyinfo\030\002"
-    " \003(\0132\".proto_ff.CharacterDBDyMissionInfo"
-    "\022\026\n\016already_submit\030\003 \003(\004\022\?\n\rrecent_submi"
-    "t\030\004 \003(\0132(.proto_ff.CharacterDBRecentSubm"
-    "itMission\",\n\020NotifyVipDataRsp\022\013\n\003exp\030\001 \001"
-    "(\005\022\013\n\003ids\030\002 \003(\005\"\255\001\n\020ArenaChallResult\022\016\n\006"
-    "result\030\001 \001(\005\022\r\n\005chall\030\002 \001(\010\022\014\n\004time\030\003 \001("
-    "\003\022\020\n\010dst_name\030\004 \001(\t\022\023\n\013src_rank_id\030\005 \001(\005"
-    "\022\023\n\013dst_rank_id\030\006 \001(\005\022 \n\005items\030\007 \003(\0132\021.p"
-    "roto_ff.ComItem\022\016\n\006dup_id\030\010 \001(\003\"1\n\020Daily"
-    "ArenaReward\022\016\n\006cfg_id\030\001 \001(\005\022\r\n\005state\030\002 \001"
-    "(\005\"1\n\020ChallArenaReward\022\016\n\006cfg_id\030\001 \001(\005\022\r"
-    "\n\005state\030\002 \001(\005\"\"\n\020NotifyServerFlag\022\016\n\006bt_"
-    "dup\030\001 \001(\005\"7\n\023FacadeSoulSkillData\022\020\n\010skil"
-    "l_id\030\001 \001(\003\022\016\n\006status\030\002 \001(\r\"=\n\026FacadeSoul"
-    "ActivityData\022\023\n\013activity_id\030\001 \001(\003\022\016\n\006sta"
-    "tus\030\002 \001(\r\"\265\001\n\016FacadeSoulData\022\017\n\007soul_id\030"
-    "\001 \001(\r\022\023\n\013soul_active\030\002 \001(\010\022\022\n\nsoul_level"
-    "\030\003 \001(\r\0221\n\nskill_data\030\005 \003(\0132\035.proto_ff.Fa"
-    "cadeSoulSkillData\0226\n\014acviity_data\030\006 \003(\0132"
-    " .proto_ff.FacadeSoulActivityData\"+\n\rIte"
-    "mSellProto\022\r\n\005index\030\001 \002(\r\022\013\n\003num\030\002 \001(\005\">"
-    "\n\025DeityFantasySkillData\022\020\n\010skill_id\030\001 \001("
-    "\004\022\023\n\013skill_state\030\002 \001(\r\"`\n\016DeityEquipData"
-    "\022\"\n\005infos\030\001 \003(\0132\023.proto_ff.EquipInfo\022*\n\007"
-    "lv_attr\030\002 \003(\0132\031.proto_ff.EquipLvAttrInfo"
-    "\"/\n\022DeityEquipSuitData\022\n\n\002id\030\001 \001(\003\022\r\n\005st"
-    "ate\030\002 \001(\r\"\233\002\n\020DeityFantasyData\022\022\n\nfantas"
-    "y_id\030\001 \001(\004\022\023\n\013fantasy_lev\030\002 \001(\r\022\027\n\017fanta"
-    "sy_lev_exp\030\003 \001(\004\022\024\n\014fantasy_star\030\004 \001(\r\0223"
-    "\n\nskill_data\030\005 \003(\0132\037.proto_ff.DeityFanta"
-    "sySkillData\022\025\n\rfantasy_fight\030\006 \001(\004\022,\n\neq"
-    "uip_data\030\007 \001(\0132\030.proto_ff.DeityEquipData"
-    "\0225\n\017equip_suit_data\030\010 \003(\0132\034.proto_ff.Dei"
-    "tyEquipSuitData\";\n\021DeityFragmentData\022\023\n\013"
-    "fragment_id\030\001 \001(\004\022\021\n\tuse_times\030\002 \001(\r\"5\n\016"
-    "DeitySkillData\022\020\n\010skill_id\030\001 \001(\004\022\021\n\tskil"
-    "l_lev\030\002 \001(\r\"^\n\023DeityBattleSlotData\022\n\n\002id"
-    "\030\001 \001(\r\022\021\n\tcur_state\030\002 \001(\r\022\020\n\010deity_id\030\003 "
-    "\001(\003\022\026\n\016enter_war_time\030\004 \001(\003\".\n\016ArmorSuit"
-    "State\022\r\n\005index\030\001 \001(\005\022\r\n\005state\030\002 \001(\005\"@\n\tA"
-    "rmorInfo\022\n\n\002id\030\001 \001(\005\022\'\n\005suits\030\002 \003(\0132\030.pr"
-    "oto_ff.ArmorSuitState\"a\n\tTitleInfo\022\020\n\010ti"
-    "tle_id\030\001 \001(\003\022\016\n\006status\030\002 \001(\005\022\022\n\nstart_ti"
-    "me\030\003 \001(\003\022\020\n\010end_time\030\004 \001(\003\022\014\n\004star\030\005 \001(\005"
-    "*\\\n\007ECState\022\016\n\nstate_init\020\000\022\020\n\014state_nor"
-    "mal\020\001\022\016\n\nstate_dead\020\002\022\016\n\nstate_seat\020\003\022\017\n"
-    "\013state_fight\020\004*\216\002\n\nEAttrGroup\022\024\n\020EAttrGr"
-    "oup_Level\020\001\022\024\n\020EAttrGroup_Skill\020\002\022\023\n\017EAt"
-    "trGroup_Buff\020\003\022\024\n\020EAttrGroup_Equip\020\004\022\023\n\017"
-    "EAttrGroup_Grow\020\005\022\025\n\021EAttrGroup_Facade\020\006"
-    "\022\021\n\rEAttrGroup_Gm\020\007\022\024\n\020EAttrGroup_MOUNT\020"
-    "\010\022\022\n\016EAttrGroup_Pet\020\t\022\024\n\020EAttrGroup_DEIT"
-    "Y\020\n\022\024\n\020EAttrGroup_Armor\020\013\022\024\n\020EAttrGroup_"
-    "Title\020\014*\300\003\n\010GrowType\022\024\n\020GrowType_clothes"
-    "\020\001\022\023\n\017GrowType_weapon\020\002\022\024\n\020GrowType_eye_"
-    "awn\020\003\022\025\n\021GrowType_face_des\020\004\022\026\n\022GrowType"
-    "_waist_des\020\005\022\021\n\rGrowType_tail\020\006\022\025\n\021GrowT"
-    "ype_bracelet\020\007\022\026\n\022GrowType_footprint\020\010\022\020"
-    "\n\014GrowType_med\020\t\022\021\n\rGrowType_halo\020\n\022\030\n\024G"
-    "rowType_proto_frame\020\013\022\023\n\017GrowType_bubble"
-    "\020\014\022\021\n\rGrowType_head\020\r\022\026\n\022GrowType_WING_T"
-    "YPE\020\016\022\032\n\026GrowType_TREASURE_TYPE\020\017\022\032\n\026Gro"
-    "wType_ARTIFACT_TYPE\020\020\022\031\n\025GrowType_PARTNE"
-    "R_TYPE\020\021\022\027\n\023GrowType_MOUNT_TYPE\020\022\022\027\n\023Gro"
-    "wType_DEITY_TYPE\020\023*\377\027\n\rECreatureAttr\022\n\n\006"
-    "A_NONE\020\000\022\014\n\010A_MAX_HP\020\001\022\t\n\005A_ATK\020\002\022\t\n\005A_D"
-    "EF\020\003\022\017\n\013A_BRK_ARMOR\020\004\022\016\n\nA_FIVE_DAM\020\005\022\020\n"
-    "\014A_FIVE_ARMOR\020\006\022\020\n\014A_THUMP_RATE\020\007\022\022\n\016A_T"
-    "HUMP_RESIST\020\010\022\t\n\005A_SKY\020\t\022\r\n\tA_SKY_DAM\020\n\022"
-    "\025\n\021A_SKY_REDU_RESIST\020\013\022\020\n\014A_SKY_RESIST\020\014"
-    "\022\016\n\nA_KILL_GOD\020\r\022\016\n\nA_GOD_BODY\020\016\022\021\n\rA_MO"
-    "RTAL_RATE\020\017\022\023\n\017A_MORTAL_RESIST\020\020\022\020\n\014A_FA"
-    "IRY_RATE\020\021\022\022\n\016A_FAIRY_RESIST\020\022\022\016\n\nA_GOD_"
-    "RATE\020\023\022\020\n\014A_GOD_RESIST\020\024\022\017\n\013A_CRIT_RATE\020"
-    "\025\022\025\n\021A_CRIT_RESIT_RATE\020\026\022\016\n\nA_CRIT_DAM\020\027"
-    "\022\017\n\013A_CRIT_REDU\020\030\022\021\n\rA_BATTER_RATE\020\031\022\023\n\017"
-    "A_BATTER_RESIST\020\032\022\020\n\014A_BATTER_DAM\020\033\022\021\n\rA"
-    "_BATTER_REDU\020\034\022\022\n\016A_BRKDOWN_RATE\020\035\022\024\n\020A_"
-    "BRKDOWN_RESIST\020\036\022\r\n\tA_DAM_ADD\020\037\022\016\n\nA_DAM"
-    "_REDU\020 \022\r\n\tA_ALL_ADD\020!\022\016\n\nA_ALL_REDU\020\"\022\017"
-    "\n\013A_SKILL_ADD\020#\022\020\n\014A_SKILL_REDU\020$\022\021\n\rA_R"
-    "EBOUND_DAM\020%\022\016\n\nA_HP_STEAL\020&\022\020\n\014A_DODGE_"
-    "RATE\020\'\022\016\n\nA_HIT_RATE\020(\022\016\n\nA_BLK_RATE\020)\022\022"
-    "\n\016A_BRK_BLK_RATE\020*\022\016\n\nA_BLK_FREE\020+\022\020\n\014A_"
-    "BLK_PIERCE\020,\022\017\n\013A_REL_ARMOR\020-\022\r\n\tA_REL_D"
-    "AM\020.\022\021\n\rA_FIVE_RESIST\020/\022\026\n\022A_FIVE_RESIST"
-    "_REDU\0200\022\016\n\nA_FIRE_ADD\0201\022\017\n\013A_FIRE_REDU\0202"
-    "\022\r\n\tA_ICE_ADD\0203\022\016\n\nA_ICE_REDU\0204\022\021\n\rA_THU"
-    "NDER_ADD\0205\022\021\n\rA_THUNDER_RDU\0206\022\021\n\rA_PLAYE"
-    "R_REDU\0207\022\020\n\014A_PLAYER_ADD\0208\022\021\n\rA_LEADER_R"
-    "EDU\0209\022\020\n\014A_LEADER_ADD\020:\022\016\n\nA_MON_REDU\020;\022"
-    "\r\n\tA_MON_ADD\020<\022\016\n\nA_VAR_REDU\020=\022\r\n\tA_VAR_"
-    "ADD\020>\022\024\n\020A_UNUSUAL_RESIST\020\?\022\021\n\rA_UNUSUAL"
-    "_HIT\020@\022\020\n\014A_HP_RECOVER\020A\022\021\n\rA_UNUSUAL_AD"
-    "D\020B\022\021\n\rA_FIX_RECOVER\020C\022\021\n\rA_HIGH_HP_ADD\020"
-    "D\022\024\n\020A_RECOVER_HP_ADD\020E\022\016\n\nA_WEEK_ADD\020F\022"
-    "\020\n\014A_MAG_SHIELD\020G\022\r\n\tA_MAG_ATK\020H\022\r\n\tA_MA"
-    "G_DEF\020I\022\r\n\tA_MAG_DAM\020J\022\024\n\020A_MAG_SHIELD_A"
-    "DD\020K\022\016\n\nA_MAG_REDU\020L\022\021\n\rA_MAG_ATK_ADD\020M\022"
-    "\021\n\rA_MAG_DEF_ADD\020N\022\022\n\016A_MAG_VAR_COOL\020O\022\020"
-    "\n\014A_GOD_SHIELD\020P\022\014\n\010A_SHIELD\020Q\022\016\n\nA_VAR_"
-    "TIME\020R\022\017\n\013A_COOL_TIME\020S\022\013\n\007A_SPEED\020T\022\014\n\010"
-    "A_HP_ADD\020U\022\r\n\tA_ATK_ADD\020V\022\r\n\tA_DEF_ADD\020W"
-    "\022\017\n\013A_ARMOR_ADD\020X\022\022\n\016A_FIVE_DAM_ADD\020Y\022\024\n"
-    "\020A_FIVE_ARMOR_ADD\020Z\022\n\n\006A_DROP\020[\022\r\n\tA_EXP"
-    "_ADD\020\\\022\017\n\013A_GOLD_DROP\020]\022\021\n\rA_LEV_ALL_ADD"
-    "\020^\022\r\n\tA_SKY_ADD\020_\022\022\n\016A_GONG_ABS_ADD\020`\022\022\n"
-    "\016A_MERI_ABS_ADD\020a\022\022\n\016A_WING_ALL_ADD\020b\022\030\n"
-    "\024A_MAG_WEAPON_ALL_ADD\020c\022\026\n\022A_ARTIFACT_AL"
-    "L_ADD\020d\022\023\n\017A_SWORD_ALL_ADD\020e\022\021\n\rA_GOD_AL"
-    "L_ADD\020f\022\023\n\017A_MOUNT_ALL_ADD\020g\022\023\n\017A_STONE_"
-    "ALL_ADD\020h\022\020\n\014A_GOD_EQU_BA\020i\022\017\n\013A_WEAPON_"
-    "BA\020j\022\024\n\020A_WEAPON_WAKE_BA\020k\022\021\n\rA_GODS_QI_"
-    "SHA\020l\022\021\n\rA_GODS_PO_JUN\020m\022\021\n\rA_GODS_ZI_WE"
-    "I\020n\022\020\n\014A_GODS_WU_QU\020o\022\023\n\017A_GODS_TAI_YANG"
-    "\020p\022\024\n\020A_GODS_LIAN_ZHEN\020q\022\023\n\017A_GODS_TAN_L"
-    "ANG\020r\022\022\n\016A_GODS_TIAN_FU\020s\022\025\n\021A_GODS_TIAN"
-    "_XIANG\020t\022\021\n\rA_GODS_JU_MEN\020u\022\030\n\024A_MAIN_WE"
-    "APON_BA_ADD\020v\022\032\n\026A_DEPUTY_WEAPON_BA_ADD\020"
-    "w\022\020\n\014A_CAP_BA_ADD\020x\022\022\n\016A_CLOTH_BA_ADD\020y\022"
-    "\021\n\rA_HAND_BA_ADD\020z\022\021\n\rA_BELT_BA_ADD\020{\022\021\n"
-    "\rA_SHOE_BA_ADD\020|\022\021\n\rA_NECK_BA_ADD\020}\022\025\n\021A"
-    "_BRACELET_BA_ADD\020~\022\021\n\rA_RING_BA_ADD\020\177\022\026\n"
-    "\021A_EQU_WAKE_BA_ADD\020\200\001\022\031\n\024A_SUIT_ZHU_MO_B"
-    "A_ADD\020\201\001\022\033\n\026A_SUIT_ZHU_XIAN_BA_ADD\020\202\001\022\033\n"
-    "\026A_SUIT_ZHU_SHEN_BA_ADD\020\203\001\022\025\n\020A_EQU_FLY_"
-    "BA_ADD\020\204\001\022\023\n\016A_EIGHT_BA_ADD\020\205\001\022\027\n\022A_EIGH"
-    "T_EYE_BA_ADD\020\206\001\022\021\n\014A_COM_SHIELD\020\207\001\022\020\n\013A_"
-    "FIGHT_END\020\310\001\022\013\n\006A_GOLD\020\311\001\022\014\n\007A_MAGIC\020\312\001\022"
-    "\n\n\005A_DIA\020\313\001\022\r\n\010A_BD_DIA\020\314\001\022\017\n\nA_PRESTIGE"
-    "\020\315\001\022\014\n\007A_FIGHT\020\316\001\022\n\n\005A_EXP\020\317\001\022\r\n\010A_CUR_H"
-    "P\020\320\001\022\013\n\006A_PROF\020\321\001\022\014\n\007A_LEVEL\020\322\001\022\020\n\013A_VIP"
-    "_LEVEL\020\323\001\022\016\n\tA_TEAM_ID\020\324\001\022\022\n\rA_TEAM_LEAD"
-    "ER\020\325\001\022\021\n\014A_ARENA_COIN\020\326\001\022\023\n\016A_FRIEND_COU"
-    "NT\020\334\001\022\022\n\rA_HANGUP_TIME\020\335\001\022\024\n\017A_WORLD_EXP"
-    "_ADD\020\336\001\022\021\n\014A_FUSHI_TIME\020\337\001\022\r\n\010A_DUP_ID\020\340"
-    "\001\022\016\n\tA_CAMP_ID\020\342\001\022\020\n\013A_DAILY_EXP\020\343\001\022\021\n\014A"
-    "_FACTION_ID\020\344\001\022\025\n\020A_FACTION_LEADER\020\345\001\022\024\n"
-    "\017A_FACTION_LEVEL\020\346\001\022\023\n\016A_FACTION_DUTY\020\347\001"
-    "\022\r\n\010A_CONTRI\020\350\001\022\020\n\013A_ESCORT_ID\020\351\001\022\022\n\rA_G"
-    "ODEVIL_EXP\020\352\001\022\022\n\rA_GODEVIL_LEV\020\353\001\022\021\n\014A_C"
-    "OMMON_END\020\220\003*\225\002\n\rDigPerforType\022\t\n\005addhp\020"
-    "\001\022\014\n\010reducehp\020\002\022\010\n\004crit\020\003\022\t\n\005dodge\020\004\022\n\n\006"
-    "absorb\020\005\022\020\n\014normalimmune\020\006\022\016\n\nfiveimmune"
-    "\020\007\022\r\n\tgodimmune\020\010\022\n\n\006injury\020\t\022\016\n\ninvinci"
-    "ble\020\n\022\021\n\reffectivearea\020\013\022\t\n\005steal\020\014\022\010\n\004k"
-    "ill\020\r\022\022\n\016bosscountlimit\020\016\022\r\n\tbreakdown\020\017"
-    "\022\t\n\005conti\020\020\022\010\n\004pet1\020\021\022\010\n\004pet2\020\022\022\010\n\004pet3\020"
-    "\023\022\t\n\005block\020\024*t\n\017MountBloodState\022 \n\034MOUNT"
-    "_BLOOD_STATE_NOT_ACTIVE\020\000\022 \n\034MOUNT_BLOOD"
-    "_STATE_CAN_ACTIVE\020\001\022\035\n\031MOUNT_BLOOD_STATE"
-    "_ACTIVED\020\002*\237\001\n\022MountBabySlotState\022\036\n\032MOU"
-    "NT_BABY_SLOT_STATE_LOCK\020\000\022\037\n\033MOUNT_BABY_"
-    "SLOT_STATE_EMPTY\020\001\022\037\n\033MOUNT_BABY_SLOT_ST"
-    "ATE_USING\020\002\022\'\n#MOUNT_BABY_SLOT_STATE_DUI"
-    "NG_SUCCESS\020\003*\221\001\n\030EN_GODRELICS_TASK_STATU"
-    "S\022\'\n#EN_GODRELICS_TASK_STATUS_NOT_FINISH"
-    "\020\000\022#\n\037EN_GODRELICS_TASK_STATUS_FINISH\020\001\022"
-    "\'\n#EN_GODRELICS_TASK_STATUS_GET_REWARD\020\002"
-    "*\330\001\n\036EN_GODRELICS_GROUP_TASK_STATUS\022-\n)E"
-    "N_GODRELICS_GROUP_TASK_STATUS_NOT_UNLOCK"
-    "\020\000\022-\n)EN_GODRELICS_GROUP_TASK_STATUS_NOT"
-    "_FINISH\020\001\022)\n%EN_GODRELICS_GROUP_TASK_STA"
-    "TUS_FINISH\020\002\022-\n)EN_GODRELICS_GROUP_TASK_"
-    "STATUS_GET_REWARD\020\003*\201\001\n\024EN_DAILY_TASK_ST"
-    "ATUS\022#\n\037EN_DAILY_TASK_STATUS_NOT_UNLOCK\020"
-    "\000\022#\n\037EN_DAILY_TASK_STATUS_NOT_FINISH\020\001\022\037"
-    "\n\033EN_DAILY_TASK_STATUS_FINISH\020\002*\224\001\n\033EN_D"
-    "AILY_TASK_REWARD_STATUS\022\'\n#EN_DAILY_TASK"
-    "_REWARD_STATUS_NOT_GET\020\000\022\'\n#EN_DAILY_TAS"
-    "K_REWARD_STATUS_CAN_GET\020\001\022#\n\037EN_DAILY_TA"
-    "SK_REWARD_STATUS_GET\020\002*`\n\025FacadeSoulSkil"
-    "lStatus\022!\n\035FACADE_SOUL_SKILL_STATUS_NONE"
-    "\020\000\022$\n FACADE_SOUL_SKILL_STATUS_ACTIVED\020\001"
-    "*\221\001\n\027FacadeSoulActivitytatus\022$\n FACADE_S"
-    "OUL_ACTIVITY_STATUS_NONE\020\000\022(\n$FACADE_SOU"
-    "L_ACTIVITY_STATUS_CAN_RECV\020\001\022&\n\"FACADE_S"
-    "OUL_ACTIVITY_STATUS_RECVed\020\002*\177\n\025EDeityEq"
-    "uipSuitStatus\022\036\n\032EDeityEquipSuitStatus_N"
-    "ONE\020\000\022$\n EDeityEquipSuitStatus_NOT_ACTIV"
-    "E\020\001\022 \n\034EDeityEquipSuitStatus_ACTIVE\020\002*~\n"
-    "\024DeityBattleSlotState\022 \n\034DEITY_BATTLE_SL"
-    "OT_STATE_LOCK\020\000\022!\n\035DEITY_BATTLE_SLOT_STA"
-    "TE_EMPTY\020\001\022!\n\035DEITY_BATTLE_SLOT_STATE_US"
-    "ING\020\002*~\n\014ETitleStatus\022\027\n\023E_TITLE_STATUS_"
-    "NONE\020\000\022\035\n\031E_TITLE_STATUS_CAN_ACTIVE\020\001\022\032\n"
-    "\026E_TITLE_STATUS_ACTIVED\020\002\022\032\n\026E_TITLE_STA"
-    "TUS_WEARING\020\003", 16053);
+    "terDBMissionItemInfo\022\016\n\006textid\030\006 \001(\004\022\023\n\013"
+    "missionType\030\007 \001(\r\"J\n\037CharacterDBDyMissio"
+    "nBountyParam\022\021\n\tten_state\030\001 \001(\r\022\024\n\014twent"
+    "y_state\030\002 \001(\r\"\230\001\n\030CharacterDBDyMissionIn"
+    "fo\022\024\n\014mission_type\030\001 \001(\005\022\021\n\tlastfresh\030\002 "
+    "\001(\004\022\022\n\naccept_num\030\003 \001(\005\022\?\n\014bounty_param\030"
+    "\004 \001(\0132).proto_ff.CharacterDBDyMissionBou"
+    "ntyParam\"\333\001\n\023CharacterDBTaskData\0227\n\014miss"
+    "ionTrack\030\001 \003(\0132!.proto_ff.CharacterDBMis"
+    "sionTrack\0222\n\006dyinfo\030\002 \003(\0132\".proto_ff.Cha"
+    "racterDBDyMissionInfo\022\026\n\016already_submit\030"
+    "\003 \003(\004\022\?\n\rrecent_submit\030\004 \003(\0132(.proto_ff."
+    "CharacterDBRecentSubmitMission\",\n\020Notify"
+    "VipDataRsp\022\013\n\003exp\030\001 \001(\005\022\013\n\003ids\030\002 \003(\005\"\255\001\n"
+    "\020ArenaChallResult\022\016\n\006result\030\001 \001(\005\022\r\n\005cha"
+    "ll\030\002 \001(\010\022\014\n\004time\030\003 \001(\003\022\020\n\010dst_name\030\004 \001(\t"
+    "\022\023\n\013src_rank_id\030\005 \001(\005\022\023\n\013dst_rank_id\030\006 \001"
+    "(\005\022 \n\005items\030\007 \003(\0132\021.proto_ff.ComItem\022\016\n\006"
+    "dup_id\030\010 \001(\003\"1\n\020DailyArenaReward\022\016\n\006cfg_"
+    "id\030\001 \001(\005\022\r\n\005state\030\002 \001(\005\"1\n\020ChallArenaRew"
+    "ard\022\016\n\006cfg_id\030\001 \001(\005\022\r\n\005state\030\002 \001(\005\"\"\n\020No"
+    "tifyServerFlag\022\016\n\006bt_dup\030\001 \001(\005\"7\n\023Facade"
+    "SoulSkillData\022\020\n\010skill_id\030\001 \001(\003\022\016\n\006statu"
+    "s\030\002 \001(\r\"=\n\026FacadeSoulActivityData\022\023\n\013act"
+    "ivity_id\030\001 \001(\003\022\016\n\006status\030\002 \001(\r\"\265\001\n\016Facad"
+    "eSoulData\022\017\n\007soul_id\030\001 \001(\r\022\023\n\013soul_activ"
+    "e\030\002 \001(\010\022\022\n\nsoul_level\030\003 \001(\r\0221\n\nskill_dat"
+    "a\030\005 \003(\0132\035.proto_ff.FacadeSoulSkillData\0226"
+    "\n\014acviity_data\030\006 \003(\0132 .proto_ff.FacadeSo"
+    "ulActivityData\"+\n\rItemSellProto\022\r\n\005index"
+    "\030\001 \002(\r\022\013\n\003num\030\002 \001(\005\">\n\025DeityFantasySkill"
+    "Data\022\020\n\010skill_id\030\001 \001(\004\022\023\n\013skill_state\030\002 "
+    "\001(\r\"`\n\016DeityEquipData\022\"\n\005infos\030\001 \003(\0132\023.p"
+    "roto_ff.EquipInfo\022*\n\007lv_attr\030\002 \003(\0132\031.pro"
+    "to_ff.EquipLvAttrInfo\"/\n\022DeityEquipSuitD"
+    "ata\022\n\n\002id\030\001 \001(\003\022\r\n\005state\030\002 \001(\r\"\233\002\n\020Deity"
+    "FantasyData\022\022\n\nfantasy_id\030\001 \001(\004\022\023\n\013fanta"
+    "sy_lev\030\002 \001(\r\022\027\n\017fantasy_lev_exp\030\003 \001(\004\022\024\n"
+    "\014fantasy_star\030\004 \001(\r\0223\n\nskill_data\030\005 \003(\0132"
+    "\037.proto_ff.DeityFantasySkillData\022\025\n\rfant"
+    "asy_fight\030\006 \001(\004\022,\n\nequip_data\030\007 \001(\0132\030.pr"
+    "oto_ff.DeityEquipData\0225\n\017equip_suit_data"
+    "\030\010 \003(\0132\034.proto_ff.DeityEquipSuitData\";\n\021"
+    "DeityFragmentData\022\023\n\013fragment_id\030\001 \001(\004\022\021"
+    "\n\tuse_times\030\002 \001(\r\"5\n\016DeitySkillData\022\020\n\010s"
+    "kill_id\030\001 \001(\004\022\021\n\tskill_lev\030\002 \001(\r\"^\n\023Deit"
+    "yBattleSlotData\022\n\n\002id\030\001 \001(\r\022\021\n\tcur_state"
+    "\030\002 \001(\r\022\020\n\010deity_id\030\003 \001(\003\022\026\n\016enter_war_ti"
+    "me\030\004 \001(\003\".\n\016ArmorSuitState\022\r\n\005index\030\001 \001("
+    "\005\022\r\n\005state\030\002 \001(\005\"@\n\tArmorInfo\022\n\n\002id\030\001 \001("
+    "\005\022\'\n\005suits\030\002 \003(\0132\030.proto_ff.ArmorSuitSta"
+    "te\"a\n\tTitleInfo\022\020\n\010title_id\030\001 \001(\003\022\016\n\006sta"
+    "tus\030\002 \001(\005\022\022\n\nstart_time\030\003 \001(\003\022\020\n\010end_tim"
+    "e\030\004 \001(\003\022\014\n\004star\030\005 \001(\005*\\\n\007ECState\022\016\n\nstat"
+    "e_init\020\000\022\020\n\014state_normal\020\001\022\016\n\nstate_dead"
+    "\020\002\022\016\n\nstate_seat\020\003\022\017\n\013state_fight\020\004*\216\002\n\n"
+    "EAttrGroup\022\024\n\020EAttrGroup_Level\020\001\022\024\n\020EAtt"
+    "rGroup_Skill\020\002\022\023\n\017EAttrGroup_Buff\020\003\022\024\n\020E"
+    "AttrGroup_Equip\020\004\022\023\n\017EAttrGroup_Grow\020\005\022\025"
+    "\n\021EAttrGroup_Facade\020\006\022\021\n\rEAttrGroup_Gm\020\007"
+    "\022\024\n\020EAttrGroup_MOUNT\020\010\022\022\n\016EAttrGroup_Pet"
+    "\020\t\022\024\n\020EAttrGroup_DEITY\020\n\022\024\n\020EAttrGroup_A"
+    "rmor\020\013\022\024\n\020EAttrGroup_Title\020\014*\300\003\n\010GrowTyp"
+    "e\022\024\n\020GrowType_clothes\020\001\022\023\n\017GrowType_weap"
+    "on\020\002\022\024\n\020GrowType_eye_awn\020\003\022\025\n\021GrowType_f"
+    "ace_des\020\004\022\026\n\022GrowType_waist_des\020\005\022\021\n\rGro"
+    "wType_tail\020\006\022\025\n\021GrowType_bracelet\020\007\022\026\n\022G"
+    "rowType_footprint\020\010\022\020\n\014GrowType_med\020\t\022\021\n"
+    "\rGrowType_halo\020\n\022\030\n\024GrowType_proto_frame"
+    "\020\013\022\023\n\017GrowType_bubble\020\014\022\021\n\rGrowType_head"
+    "\020\r\022\026\n\022GrowType_WING_TYPE\020\016\022\032\n\026GrowType_T"
+    "REASURE_TYPE\020\017\022\032\n\026GrowType_ARTIFACT_TYPE"
+    "\020\020\022\031\n\025GrowType_PARTNER_TYPE\020\021\022\027\n\023GrowTyp"
+    "e_MOUNT_TYPE\020\022\022\027\n\023GrowType_DEITY_TYPE\020\023*"
+    "\377\027\n\rECreatureAttr\022\n\n\006A_NONE\020\000\022\014\n\010A_MAX_H"
+    "P\020\001\022\t\n\005A_ATK\020\002\022\t\n\005A_DEF\020\003\022\017\n\013A_BRK_ARMOR"
+    "\020\004\022\016\n\nA_FIVE_DAM\020\005\022\020\n\014A_FIVE_ARMOR\020\006\022\020\n\014"
+    "A_THUMP_RATE\020\007\022\022\n\016A_THUMP_RESIST\020\010\022\t\n\005A_"
+    "SKY\020\t\022\r\n\tA_SKY_DAM\020\n\022\025\n\021A_SKY_REDU_RESIS"
+    "T\020\013\022\020\n\014A_SKY_RESIST\020\014\022\016\n\nA_KILL_GOD\020\r\022\016\n"
+    "\nA_GOD_BODY\020\016\022\021\n\rA_MORTAL_RATE\020\017\022\023\n\017A_MO"
+    "RTAL_RESIST\020\020\022\020\n\014A_FAIRY_RATE\020\021\022\022\n\016A_FAI"
+    "RY_RESIST\020\022\022\016\n\nA_GOD_RATE\020\023\022\020\n\014A_GOD_RES"
+    "IST\020\024\022\017\n\013A_CRIT_RATE\020\025\022\025\n\021A_CRIT_RESIT_R"
+    "ATE\020\026\022\016\n\nA_CRIT_DAM\020\027\022\017\n\013A_CRIT_REDU\020\030\022\021"
+    "\n\rA_BATTER_RATE\020\031\022\023\n\017A_BATTER_RESIST\020\032\022\020"
+    "\n\014A_BATTER_DAM\020\033\022\021\n\rA_BATTER_REDU\020\034\022\022\n\016A"
+    "_BRKDOWN_RATE\020\035\022\024\n\020A_BRKDOWN_RESIST\020\036\022\r\n"
+    "\tA_DAM_ADD\020\037\022\016\n\nA_DAM_REDU\020 \022\r\n\tA_ALL_AD"
+    "D\020!\022\016\n\nA_ALL_REDU\020\"\022\017\n\013A_SKILL_ADD\020#\022\020\n\014"
+    "A_SKILL_REDU\020$\022\021\n\rA_REBOUND_DAM\020%\022\016\n\nA_H"
+    "P_STEAL\020&\022\020\n\014A_DODGE_RATE\020\'\022\016\n\nA_HIT_RAT"
+    "E\020(\022\016\n\nA_BLK_RATE\020)\022\022\n\016A_BRK_BLK_RATE\020*\022"
+    "\016\n\nA_BLK_FREE\020+\022\020\n\014A_BLK_PIERCE\020,\022\017\n\013A_R"
+    "EL_ARMOR\020-\022\r\n\tA_REL_DAM\020.\022\021\n\rA_FIVE_RESI"
+    "ST\020/\022\026\n\022A_FIVE_RESIST_REDU\0200\022\016\n\nA_FIRE_A"
+    "DD\0201\022\017\n\013A_FIRE_REDU\0202\022\r\n\tA_ICE_ADD\0203\022\016\n\n"
+    "A_ICE_REDU\0204\022\021\n\rA_THUNDER_ADD\0205\022\021\n\rA_THU"
+    "NDER_RDU\0206\022\021\n\rA_PLAYER_REDU\0207\022\020\n\014A_PLAYE"
+    "R_ADD\0208\022\021\n\rA_LEADER_REDU\0209\022\020\n\014A_LEADER_A"
+    "DD\020:\022\016\n\nA_MON_REDU\020;\022\r\n\tA_MON_ADD\020<\022\016\n\nA"
+    "_VAR_REDU\020=\022\r\n\tA_VAR_ADD\020>\022\024\n\020A_UNUSUAL_"
+    "RESIST\020\?\022\021\n\rA_UNUSUAL_HIT\020@\022\020\n\014A_HP_RECO"
+    "VER\020A\022\021\n\rA_UNUSUAL_ADD\020B\022\021\n\rA_FIX_RECOVE"
+    "R\020C\022\021\n\rA_HIGH_HP_ADD\020D\022\024\n\020A_RECOVER_HP_A"
+    "DD\020E\022\016\n\nA_WEEK_ADD\020F\022\020\n\014A_MAG_SHIELD\020G\022\r"
+    "\n\tA_MAG_ATK\020H\022\r\n\tA_MAG_DEF\020I\022\r\n\tA_MAG_DA"
+    "M\020J\022\024\n\020A_MAG_SHIELD_ADD\020K\022\016\n\nA_MAG_REDU\020"
+    "L\022\021\n\rA_MAG_ATK_ADD\020M\022\021\n\rA_MAG_DEF_ADD\020N\022"
+    "\022\n\016A_MAG_VAR_COOL\020O\022\020\n\014A_GOD_SHIELD\020P\022\014\n"
+    "\010A_SHIELD\020Q\022\016\n\nA_VAR_TIME\020R\022\017\n\013A_COOL_TI"
+    "ME\020S\022\013\n\007A_SPEED\020T\022\014\n\010A_HP_ADD\020U\022\r\n\tA_ATK"
+    "_ADD\020V\022\r\n\tA_DEF_ADD\020W\022\017\n\013A_ARMOR_ADD\020X\022\022"
+    "\n\016A_FIVE_DAM_ADD\020Y\022\024\n\020A_FIVE_ARMOR_ADD\020Z"
+    "\022\n\n\006A_DROP\020[\022\r\n\tA_EXP_ADD\020\\\022\017\n\013A_GOLD_DR"
+    "OP\020]\022\021\n\rA_LEV_ALL_ADD\020^\022\r\n\tA_SKY_ADD\020_\022\022"
+    "\n\016A_GONG_ABS_ADD\020`\022\022\n\016A_MERI_ABS_ADD\020a\022\022"
+    "\n\016A_WING_ALL_ADD\020b\022\030\n\024A_MAG_WEAPON_ALL_A"
+    "DD\020c\022\026\n\022A_ARTIFACT_ALL_ADD\020d\022\023\n\017A_SWORD_"
+    "ALL_ADD\020e\022\021\n\rA_GOD_ALL_ADD\020f\022\023\n\017A_MOUNT_"
+    "ALL_ADD\020g\022\023\n\017A_STONE_ALL_ADD\020h\022\020\n\014A_GOD_"
+    "EQU_BA\020i\022\017\n\013A_WEAPON_BA\020j\022\024\n\020A_WEAPON_WA"
+    "KE_BA\020k\022\021\n\rA_GODS_QI_SHA\020l\022\021\n\rA_GODS_PO_"
+    "JUN\020m\022\021\n\rA_GODS_ZI_WEI\020n\022\020\n\014A_GODS_WU_QU"
+    "\020o\022\023\n\017A_GODS_TAI_YANG\020p\022\024\n\020A_GODS_LIAN_Z"
+    "HEN\020q\022\023\n\017A_GODS_TAN_LANG\020r\022\022\n\016A_GODS_TIA"
+    "N_FU\020s\022\025\n\021A_GODS_TIAN_XIANG\020t\022\021\n\rA_GODS_"
+    "JU_MEN\020u\022\030\n\024A_MAIN_WEAPON_BA_ADD\020v\022\032\n\026A_"
+    "DEPUTY_WEAPON_BA_ADD\020w\022\020\n\014A_CAP_BA_ADD\020x"
+    "\022\022\n\016A_CLOTH_BA_ADD\020y\022\021\n\rA_HAND_BA_ADD\020z\022"
+    "\021\n\rA_BELT_BA_ADD\020{\022\021\n\rA_SHOE_BA_ADD\020|\022\021\n"
+    "\rA_NECK_BA_ADD\020}\022\025\n\021A_BRACELET_BA_ADD\020~\022"
+    "\021\n\rA_RING_BA_ADD\020\177\022\026\n\021A_EQU_WAKE_BA_ADD\020"
+    "\200\001\022\031\n\024A_SUIT_ZHU_MO_BA_ADD\020\201\001\022\033\n\026A_SUIT_"
+    "ZHU_XIAN_BA_ADD\020\202\001\022\033\n\026A_SUIT_ZHU_SHEN_BA"
+    "_ADD\020\203\001\022\025\n\020A_EQU_FLY_BA_ADD\020\204\001\022\023\n\016A_EIGH"
+    "T_BA_ADD\020\205\001\022\027\n\022A_EIGHT_EYE_BA_ADD\020\206\001\022\021\n\014"
+    "A_COM_SHIELD\020\207\001\022\020\n\013A_FIGHT_END\020\310\001\022\013\n\006A_G"
+    "OLD\020\311\001\022\014\n\007A_MAGIC\020\312\001\022\n\n\005A_DIA\020\313\001\022\r\n\010A_BD"
+    "_DIA\020\314\001\022\017\n\nA_PRESTIGE\020\315\001\022\014\n\007A_FIGHT\020\316\001\022\n"
+    "\n\005A_EXP\020\317\001\022\r\n\010A_CUR_HP\020\320\001\022\013\n\006A_PROF\020\321\001\022\014"
+    "\n\007A_LEVEL\020\322\001\022\020\n\013A_VIP_LEVEL\020\323\001\022\016\n\tA_TEAM"
+    "_ID\020\324\001\022\022\n\rA_TEAM_LEADER\020\325\001\022\021\n\014A_ARENA_CO"
+    "IN\020\326\001\022\023\n\016A_FRIEND_COUNT\020\334\001\022\022\n\rA_HANGUP_T"
+    "IME\020\335\001\022\024\n\017A_WORLD_EXP_ADD\020\336\001\022\021\n\014A_FUSHI_"
+    "TIME\020\337\001\022\r\n\010A_DUP_ID\020\340\001\022\016\n\tA_CAMP_ID\020\342\001\022\020"
+    "\n\013A_DAILY_EXP\020\343\001\022\021\n\014A_FACTION_ID\020\344\001\022\025\n\020A"
+    "_FACTION_LEADER\020\345\001\022\024\n\017A_FACTION_LEVEL\020\346\001"
+    "\022\023\n\016A_FACTION_DUTY\020\347\001\022\r\n\010A_CONTRI\020\350\001\022\020\n\013"
+    "A_ESCORT_ID\020\351\001\022\022\n\rA_GODEVIL_EXP\020\352\001\022\022\n\rA_"
+    "GODEVIL_LEV\020\353\001\022\021\n\014A_COMMON_END\020\220\003*\225\002\n\rDi"
+    "gPerforType\022\t\n\005addhp\020\001\022\014\n\010reducehp\020\002\022\010\n\004"
+    "crit\020\003\022\t\n\005dodge\020\004\022\n\n\006absorb\020\005\022\020\n\014normali"
+    "mmune\020\006\022\016\n\nfiveimmune\020\007\022\r\n\tgodimmune\020\010\022\n"
+    "\n\006injury\020\t\022\016\n\ninvincible\020\n\022\021\n\reffectivea"
+    "rea\020\013\022\t\n\005steal\020\014\022\010\n\004kill\020\r\022\022\n\016bosscountl"
+    "imit\020\016\022\r\n\tbreakdown\020\017\022\t\n\005conti\020\020\022\010\n\004pet1"
+    "\020\021\022\010\n\004pet2\020\022\022\010\n\004pet3\020\023\022\t\n\005block\020\024*t\n\017Mou"
+    "ntBloodState\022 \n\034MOUNT_BLOOD_STATE_NOT_AC"
+    "TIVE\020\000\022 \n\034MOUNT_BLOOD_STATE_CAN_ACTIVE\020\001"
+    "\022\035\n\031MOUNT_BLOOD_STATE_ACTIVED\020\002*\237\001\n\022Moun"
+    "tBabySlotState\022\036\n\032MOUNT_BABY_SLOT_STATE_"
+    "LOCK\020\000\022\037\n\033MOUNT_BABY_SLOT_STATE_EMPTY\020\001\022"
+    "\037\n\033MOUNT_BABY_SLOT_STATE_USING\020\002\022\'\n#MOUN"
+    "T_BABY_SLOT_STATE_DUING_SUCCESS\020\003*\221\001\n\030EN"
+    "_GODRELICS_TASK_STATUS\022\'\n#EN_GODRELICS_T"
+    "ASK_STATUS_NOT_FINISH\020\000\022#\n\037EN_GODRELICS_"
+    "TASK_STATUS_FINISH\020\001\022\'\n#EN_GODRELICS_TAS"
+    "K_STATUS_GET_REWARD\020\002*\330\001\n\036EN_GODRELICS_G"
+    "ROUP_TASK_STATUS\022-\n)EN_GODRELICS_GROUP_T"
+    "ASK_STATUS_NOT_UNLOCK\020\000\022-\n)EN_GODRELICS_"
+    "GROUP_TASK_STATUS_NOT_FINISH\020\001\022)\n%EN_GOD"
+    "RELICS_GROUP_TASK_STATUS_FINISH\020\002\022-\n)EN_"
+    "GODRELICS_GROUP_TASK_STATUS_GET_REWARD\020\003"
+    "*\201\001\n\024EN_DAILY_TASK_STATUS\022#\n\037EN_DAILY_TA"
+    "SK_STATUS_NOT_UNLOCK\020\000\022#\n\037EN_DAILY_TASK_"
+    "STATUS_NOT_FINISH\020\001\022\037\n\033EN_DAILY_TASK_STA"
+    "TUS_FINISH\020\002*\224\001\n\033EN_DAILY_TASK_REWARD_ST"
+    "ATUS\022\'\n#EN_DAILY_TASK_REWARD_STATUS_NOT_"
+    "GET\020\000\022\'\n#EN_DAILY_TASK_REWARD_STATUS_CAN"
+    "_GET\020\001\022#\n\037EN_DAILY_TASK_REWARD_STATUS_GE"
+    "T\020\002*`\n\025FacadeSoulSkillStatus\022!\n\035FACADE_S"
+    "OUL_SKILL_STATUS_NONE\020\000\022$\n FACADE_SOUL_S"
+    "KILL_STATUS_ACTIVED\020\001*\221\001\n\027FacadeSoulActi"
+    "vitytatus\022$\n FACADE_SOUL_ACTIVITY_STATUS"
+    "_NONE\020\000\022(\n$FACADE_SOUL_ACTIVITY_STATUS_C"
+    "AN_RECV\020\001\022&\n\"FACADE_SOUL_ACTIVITY_STATUS"
+    "_RECVed\020\002*\177\n\025EDeityEquipSuitStatus\022\036\n\032ED"
+    "eityEquipSuitStatus_NONE\020\000\022$\n EDeityEqui"
+    "pSuitStatus_NOT_ACTIVE\020\001\022 \n\034EDeityEquipS"
+    "uitStatus_ACTIVE\020\002*~\n\024DeityBattleSlotSta"
+    "te\022 \n\034DEITY_BATTLE_SLOT_STATE_LOCK\020\000\022!\n\035"
+    "DEITY_BATTLE_SLOT_STATE_EMPTY\020\001\022!\n\035DEITY"
+    "_BATTLE_SLOT_STATE_USING\020\002*~\n\014ETitleStat"
+    "us\022\027\n\023E_TITLE_STATUS_NONE\020\000\022\035\n\031E_TITLE_S"
+    "TATUS_CAN_ACTIVE\020\001\022\032\n\026E_TITLE_STATUS_ACT"
+    "IVED\020\002\022\032\n\026E_TITLE_STATUS_WEARING\020\003", 16074);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
@@ -28771,6 +28772,7 @@ const int CharacterDBMissionTrack::kStatusFieldNumber;
 const int CharacterDBMissionTrack::kAcceptMissionTimeFieldNumber;
 const int CharacterDBMissionTrack::kItemInfoFieldNumber;
 const int CharacterDBMissionTrack::kTextidFieldNumber;
+const int CharacterDBMissionTrack::kMissionTypeFieldNumber;
 #endif  // !_MSC_VER
 
 CharacterDBMissionTrack::CharacterDBMissionTrack()
@@ -28794,6 +28796,7 @@ void CharacterDBMissionTrack::SharedCtor() {
   status_ = 0u;
   acceptmissiontime_ = GOOGLE_ULONGLONG(0);
   textid_ = GOOGLE_ULONGLONG(0);
+  missiontype_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -28834,6 +28837,7 @@ void CharacterDBMissionTrack::Clear() {
     status_ = 0u;
     acceptmissiontime_ = GOOGLE_ULONGLONG(0);
     textid_ = GOOGLE_ULONGLONG(0);
+    missiontype_ = 0u;
   }
   iteminfo_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -28936,6 +28940,22 @@ bool CharacterDBMissionTrack::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(56)) goto parse_missionType;
+        break;
+      }
+
+      // optional uint32 missionType = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_missionType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &missiontype_)));
+          set_has_missiontype();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -28989,6 +29009,11 @@ void CharacterDBMissionTrack::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->textid(), output);
   }
 
+  // optional uint32 missionType = 7;
+  if (has_missiontype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->missiontype(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -29027,6 +29052,11 @@ void CharacterDBMissionTrack::SerializeWithCachedSizes(
   // optional uint64 textid = 6;
   if (has_textid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->textid(), target);
+  }
+
+  // optional uint32 missionType = 7;
+  if (has_missiontype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->missiontype(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -29073,6 +29103,13 @@ int CharacterDBMissionTrack::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->textid());
+    }
+
+    // optional uint32 missionType = 7;
+    if (has_missiontype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->missiontype());
     }
 
   }
@@ -29126,6 +29163,9 @@ void CharacterDBMissionTrack::MergeFrom(const CharacterDBMissionTrack& from) {
     if (from.has_textid()) {
       set_textid(from.textid());
     }
+    if (from.has_missiontype()) {
+      set_missiontype(from.missiontype());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -29155,6 +29195,7 @@ void CharacterDBMissionTrack::Swap(CharacterDBMissionTrack* other) {
     std::swap(acceptmissiontime_, other->acceptmissiontime_);
     iteminfo_.Swap(&other->iteminfo_);
     std::swap(textid_, other->textid_);
+    std::swap(missiontype_, other->missiontype_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

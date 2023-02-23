@@ -94,9 +94,15 @@ public:
 public:
     //获取每条线的第一个任务
     const FirstMissionMap &GetFirstMission() { return _missionFirstMap; }
-    const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>* GetDyMissionLstByType(int32_t missionType) const;
+
+    const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM> *GetDyMissionLstByType(int32_t missionType) const;
+
+    const NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM> *GetPreAcceptMission(uint64_t missionId);
+
     uint64_t GetDyTextId(uint64_t key);
+
     uint64_t GetDyTextId(int32_t missionType, uint32_t condType);
+
 private:
     DyMissionTypeMap m_dymissionTypeMap;                    //动态任务类型map
     DyMissionInfoMap m_dymissionInfoMap;                    //动态任务配置

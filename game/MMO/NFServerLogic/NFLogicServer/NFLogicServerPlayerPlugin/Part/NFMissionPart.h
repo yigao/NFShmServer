@@ -183,12 +183,12 @@ public:
     int32_t CanAccept(uint64_t missionId);
 
     /**
-     * @brief
+     * @brief 是否匹配接取任务的条件
      * @param cond
      * @param param
      * @return
      */
-    int32_t CanAccept(const AcceptInfo &cond, SCanAcceptParam &param);
+    int32_t CanMatchAcceptCond(MissionInfo *pMissionInfo);
 
 public:
     /**
@@ -226,6 +226,7 @@ public:
      * @param count
      */
     void OnAddAcceptDyCount(int32_t missionType, uint32_t count);
+
 public:
     /////////////////////////////////////////普通任务接口/////////////////////////////////////////////
     /**
@@ -343,7 +344,7 @@ public:
      * @param missionId
      * @return
      */
-    bool HaveAccpet(const uint64_t &missionId);
+    bool HaveAccept(const uint64_t &missionId);
 
     /**
      * @brief 是否已经提交过的任务
@@ -394,6 +395,7 @@ public:
      * @return
      */
     int32_t OnExtractDyAttrReward(MissionTrack *pNewMissinTrack);
+
 public:
     /**
      * @brief 增加发任务时的物品奖励
@@ -411,13 +413,14 @@ public:
      * @return
      */
     bool CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, LIST_ITEM &lstOutItem);
+
 public:
     /**
      * @brief 移除任务
      * @param pMissionInfo
      * @return
      */
-    int32_t RemoveMission(MissionInfo* pMissionInfo);
+    int32_t RemoveMission(MissionInfo *pMissionInfo);
 
     /**
      * @brief 移除任务
@@ -425,7 +428,7 @@ public:
      * @param pMissionInfo
      * @return
      */
-    int32_t RemoveMission(MissionTrack *pMissinTrack, MissionInfo* pMissionInfo);
+    int32_t RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pMissionInfo);
 
     /**
      * @brief 移除动态任务
@@ -433,9 +436,15 @@ public:
      * @param notify
      * @return
      */
-    int32_t RemoveDyMission(uint64_t dymissionId,bool notify);
+    int32_t RemoveDyMission(uint64_t dymissionId, bool notify);
+
 public:
-    //更新进度
+    /**
+     * @brief 更新进度
+     * @param missionId
+     * @param data
+     * @return
+     */
     int32_t OnUpdateProgress(uint64_t missionId, const ExecuteData &data);
 
     /**
@@ -444,6 +453,18 @@ public:
      */
     void UpdateMissionProgress(uint64_t missionId);
 
+    /** 删除任务
+     * @brief
+     * @param dymissionId
+     */
+    void NotifyDelMission(uint64_t dymissionId);
+
+    /**
+     * @brief 移除任务物品
+     * @param pMissionTrack
+     * @return
+     */
+    int32_t OnDelMissionItem(MissionTrack *pMissionTrack);
 public:
     /**
      * @brief 添加任务掉落
@@ -479,6 +500,29 @@ public:
      */
     MissionDropMap *GetMissionDrop(uint64_t monsterId);
 
+    /**
+     * @brief 移除任务掉落
+     * @param pMissionTrack
+     * @return
+     */
+    int32_t OnDelMissionDrop(MissionTrack *pMissionTrack);
+
+public:
+    /**
+     * @brief 移除任务中间物品
+     * @param pMissionTrack
+     */
+    int RemoveReward(MissionTrack *pMissionTrack);
+
+    /**
+     * @brief 移除接取任务时发放的物品
+     * @param pPlayer
+     * @param missionId
+     * @param reward
+     * @return
+     */
+    int RemoveReward(uint64_t missionId, TASK_REWARD &reward);
+
 public://任务事件处理接口
     /**
      * @brief 注册监听事件，接任务成功后注册
@@ -501,7 +545,30 @@ public://任务事件处理接口
      * @param dynamicId
      */
     void OnEvent(uint32_t eventType, const ExecuteData &data, uint64_t dynamicId = 0);
+public:
+    /**
+     * @brief 提交任务
+     * @param pPlayer
+     * @param missionId
+     * @param selidx
+     * @return
+     */
+    int32_t OnSubmit(uint64_t missionId, uint32_t selidx);
 
+    /**
+     * @brief 提交任务
+     * @param missionId
+     * @param premissionId
+     * @param kind
+     */
+    void OnSubmit(uint64_t missionId, uint64_t premissionId, uint32_t kind);
+
+    /**
+     * @brief 检查接取条件中前置任务完成之后的可接任务
+     * @param missionId
+     * @param notify
+     */
+    void CheckPreAcceptMission(uint64_t missionId, bool notify = true);
 private:
     PlayerTrackMissionMap _playerTrackMissionMap;    //当前任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //最近提交的任务
