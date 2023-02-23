@@ -109,13 +109,13 @@ int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t 
 }
 
 int NFServerMessageModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1,
-                                                uint64_t nParam2)
+                                              uint64_t nParam2)
 {
     return SendMsgToSnsServer(eType, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData,
-                                                uint64_t nParam1, uint64_t nParam2)
+                                              uint64_t nParam1, uint64_t nParam2)
 {
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
@@ -383,7 +383,7 @@ std::string storesvr_execute(const std::string &dbname, const std::string &tbnam
 
 // 按对象修改
 std::string storesvr_execute_more(const std::string &dbname, const std::string &tbname,
-                             uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name)
+                                  uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name)
 {
     storesvr_sqldata::storesvr_execute_more select;
     select.mutable_baseinfo()->set_dbname(dbname);
@@ -447,7 +447,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 
 int
 NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
-                                              const std::string &table_name, const std::vector<std::string>& vecFields,
+                                              const std::string &table_name, const std::vector<std::string> &vecFields,
                                               std::vector<storesvr_sqldata::storesvr_vk> vk_list,
                                               const std::string &where_addtional_conds, int max_records, int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
@@ -639,3 +639,40 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                                            proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
+
+int NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t dstBusId, uint32_t nEventID,
+                                                  uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+{
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(0);
+    auto pEventInfo = svrPkg.mutable_event_info();
+    NF_ASSERT(pEventInfo);
+
+    pEventInfo->set_server_type(recvType);
+    pEventInfo->set_event_id(nEventID);
+    pEventInfo->set_src_type(bySrcType);
+    pEventInfo->set_src_id(nSrcID);
+    pEventInfo->set_full_message_name("proto_ff."+message.GetTypeName());
+
+    svrPkg.set_msg_data(message.SerializeAsString());
+
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, recvType, 0, dstBusId, NF_MODULE_SERVER,
+                                                           proto_ff::NF_SERVER_BROAD_EVENT_TO_SERVER_CMD, svrPkg);
+}
+
+int
+NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+                                              const google::protobuf::Message &message)
+{
+    return BroadcastEventToServer(eType, recvType, 0, nEventID, bySrcType, nSrcID, message);
+}
+
+int NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+                                                  const google::protobuf::Message &message)
+{
+    BroadcastEventToServer(eType, NF_ST_SNS_SERVER, nEventID, bySrcType, nSrcID, message);
+    BroadcastEventToServer(eType, NF_ST_WORLD_SERVER, nEventID, bySrcType, nSrcID, message);
+    BroadcastEventToServer(eType, NF_ST_LOGIC_SERVER, nEventID, bySrcType, nSrcID, message);
+    BroadcastEventToServer(eType, NF_ST_GAME_SERVER, nEventID, bySrcType, nSrcID, message);
+    return 0;
+}

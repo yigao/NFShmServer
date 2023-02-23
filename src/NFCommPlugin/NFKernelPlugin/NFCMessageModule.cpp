@@ -20,6 +20,7 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
+#include "NFComm/NFPluginModule/NFIEventModule.h"
 
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p) {
     m_pObjPluginManager = p;
@@ -710,7 +711,45 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
 
                 return 0;
             }
+            else if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_SERVER_BROAD_EVENT_TO_SERVER_CMD)
+            {
+                proto_ff::Proto_SvrPkg svrPkg;
+                CLIENT_MSG_PROCESS_WITH_PRINTF(packet, svrPkg);
+
+                auto pEventInfo = svrPkg.mutable_event_info();
+                NF_ASSERT(pEventInfo);
+
+                if (pEventInfo->server_type() > 0 && !pEventInfo->full_message_name().empty()) {
+
+                    ::google::protobuf::Message* pMessage = NFProtobufCommon::CreateMessageByName(pEventInfo->full_message_name());
+                    if (pMessage == NULL)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "NFProtobufCommon::CreateMessageByName Failed, full name:{}", pEventInfo->full_message_name());
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "Broadcst Event To Server Failed, message:{}", pEventInfo->Utf8DebugString());
+                        return 0;
+                    }
+
+                    if (m_pObjPluginManager->FindModule<NFISharedMemModule>())
+                    {
+                        m_pObjPluginManager->FindModule<NFISharedMemModule>()->FireExecute(pEventInfo->server_type(), pEventInfo->event_id(), pEventInfo->src_type(), pEventInfo->src_id(), *pMessage);
+                    }
+
+                    if (m_pObjPluginManager->FindModule<NFIEventModule>())
+                    {
+                        m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(pEventInfo->server_type(), pEventInfo->event_id(), pEventInfo->src_type(), pEventInfo->src_id(), *pMessage);
+                    }
+
+                    NF_SAFE_DELETE(pMessage);
+                    return 0;
+                }
+                else
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "Broadcst Event To Server Failed, param error, message:{}", pEventInfo->Utf8DebugString());
+                    return 0;
+                }
+            }
         }
+
 
 		OnHandleReceiveNetPack(connectionLink, objectLinkId, packet);
 	}

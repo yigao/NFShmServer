@@ -56,6 +56,7 @@ enum Proto_Kernel_CMD {
   NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC = 124; //logic send msg to sns, sns trans msg to suit logic
   NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125;
   NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126;
+  NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 127; //广播事件系统
 }
 
 enum NFROUTER_ERRCODE {
@@ -145,12 +146,22 @@ message Proto_StoreInfo
   optional Proto_StoreInfo_CB   cb_data = 3;
 }
 
+message Proto_EventInfo
+{
+  optional uint32 server_type = 1;
+  optional uint64 event_id = 2;
+  optional uint64 src_type = 3;
+  optional uint64 src_id = 4;
+  optional string full_message_name = 5;
+}
+
 message Proto_SvrPkg
 {
   optional int32          msg_id = 1;              //trans send msg id
   optional bytes          msg_data = 2;
   optional Proto_DispInfo disp_info = 3;              //trans send msg id
   optional Proto_StoreInfo store_info = 4;
+  optional Proto_EventInfo event_info = 5; //
 }
 
 enum EServerState

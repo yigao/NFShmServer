@@ -574,7 +574,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     acceptEvent.set_cid(m_pMaster->Cid());
     acceptEvent.set_taskid(missionId);
     acceptEvent.set_tasktype(pMissionInfo->kind);
-    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, m_pMaster->Cid(), CREATURE_PLAYER, acceptEvent);
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), acceptEvent);
 
     //判断任务是否完成
     bool isCompletedFlag = true;
@@ -2069,7 +2069,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     acceptEvent.set_cid(m_pMaster->Cid());
     acceptEvent.set_taskid(missionId);
     acceptEvent.set_tasktype(pMissionInfo->kind);
-    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, m_pMaster->Cid(), CREATURE_PLAYER, acceptEvent);
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), acceptEvent);
 
     //判断任务是否完成
     bool isCompletedFlag = true;

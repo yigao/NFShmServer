@@ -38,6 +38,7 @@ void protobuf_ShutdownFile_proto_5fkernel_2eproto();
 class Proto_DispInfo;
 class Proto_StoreInfo_CB;
 class Proto_StoreInfo;
+class Proto_EventInfo;
 class Proto_SvrPkg;
 class ServerInfoReport;
 class ServerInfoReportList;
@@ -95,11 +96,12 @@ enum Proto_Kernel_CMD {
   NF_WORLD_ROUTER_CMD_TO_SUIT_LOGIC = 123,
   NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC = 124,
   NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125,
-  NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126
+  NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126,
+  NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 127
 };
 bool Proto_Kernel_CMD_IsValid(int value);
 const Proto_Kernel_CMD Proto_Kernel_CMD_MIN = NF_GTM_KILL_ALL_SERVER_NTF;
-const Proto_Kernel_CMD Proto_Kernel_CMD_MAX = NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY;
+const Proto_Kernel_CMD Proto_Kernel_CMD_MAX = NF_SERVER_BROAD_EVENT_TO_SERVER_CMD;
 const int Proto_Kernel_CMD_ARRAYSIZE = Proto_Kernel_CMD_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_Kernel_CMD_descriptor();
@@ -705,6 +707,133 @@ class Proto_StoreInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Proto_EventInfo : public ::google::protobuf::Message {
+ public:
+  Proto_EventInfo();
+  virtual ~Proto_EventInfo();
+
+  Proto_EventInfo(const Proto_EventInfo& from);
+
+  inline Proto_EventInfo& operator=(const Proto_EventInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_EventInfo& default_instance();
+
+  void Swap(Proto_EventInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_EventInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_EventInfo& from);
+  void MergeFrom(const Proto_EventInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 server_type = 1;
+  inline bool has_server_type() const;
+  inline void clear_server_type();
+  static const int kServerTypeFieldNumber = 1;
+  inline ::google::protobuf::uint32 server_type() const;
+  inline void set_server_type(::google::protobuf::uint32 value);
+
+  // optional uint64 event_id = 2;
+  inline bool has_event_id() const;
+  inline void clear_event_id();
+  static const int kEventIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 event_id() const;
+  inline void set_event_id(::google::protobuf::uint64 value);
+
+  // optional uint64 src_type = 3;
+  inline bool has_src_type() const;
+  inline void clear_src_type();
+  static const int kSrcTypeFieldNumber = 3;
+  inline ::google::protobuf::uint64 src_type() const;
+  inline void set_src_type(::google::protobuf::uint64 value);
+
+  // optional uint64 src_id = 4;
+  inline bool has_src_id() const;
+  inline void clear_src_id();
+  static const int kSrcIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 src_id() const;
+  inline void set_src_id(::google::protobuf::uint64 value);
+
+  // optional string full_message_name = 5;
+  inline bool has_full_message_name() const;
+  inline void clear_full_message_name();
+  static const int kFullMessageNameFieldNumber = 5;
+  inline const ::std::string& full_message_name() const;
+  inline void set_full_message_name(const ::std::string& value);
+  inline void set_full_message_name(const char* value);
+  inline void set_full_message_name(const char* value, size_t size);
+  inline ::std::string* mutable_full_message_name();
+  inline ::std::string* release_full_message_name();
+  inline void set_allocated_full_message_name(::std::string* full_message_name);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_EventInfo)
+ private:
+  inline void set_has_server_type();
+  inline void clear_has_server_type();
+  inline void set_has_event_id();
+  inline void clear_has_event_id();
+  inline void set_has_src_type();
+  inline void clear_has_src_type();
+  inline void set_has_src_id();
+  inline void clear_has_src_id();
+  inline void set_has_full_message_name();
+  inline void clear_has_full_message_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 event_id_;
+  ::google::protobuf::uint64 src_type_;
+  ::google::protobuf::uint64 src_id_;
+  ::std::string* full_message_name_;
+  ::google::protobuf::uint32 server_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
+  friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fkernel_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_EventInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class Proto_SvrPkg : public ::google::protobuf::Message {
  public:
   Proto_SvrPkg();
@@ -796,6 +925,15 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   inline ::proto_ff::Proto_StoreInfo* release_store_info();
   inline void set_allocated_store_info(::proto_ff::Proto_StoreInfo* store_info);
 
+  // optional .proto_ff.Proto_EventInfo event_info = 5;
+  inline bool has_event_info() const;
+  inline void clear_event_info();
+  static const int kEventInfoFieldNumber = 5;
+  inline const ::proto_ff::Proto_EventInfo& event_info() const;
+  inline ::proto_ff::Proto_EventInfo* mutable_event_info();
+  inline ::proto_ff::Proto_EventInfo* release_event_info();
+  inline void set_allocated_event_info(::proto_ff::Proto_EventInfo* event_info);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_SvrPkg)
  private:
   inline void set_has_msg_id();
@@ -806,16 +944,19 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   inline void clear_has_disp_info();
   inline void set_has_store_info();
   inline void clear_has_store_info();
+  inline void set_has_event_info();
+  inline void clear_has_event_info();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* msg_data_;
   ::proto_ff::Proto_DispInfo* disp_info_;
   ::proto_ff::Proto_StoreInfo* store_info_;
+  ::proto_ff::Proto_EventInfo* event_info_;
   ::google::protobuf::int32 msg_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -2666,6 +2807,168 @@ inline void Proto_StoreInfo::set_allocated_cb_data(::proto_ff::Proto_StoreInfo_C
 
 // -------------------------------------------------------------------
 
+// Proto_EventInfo
+
+// optional uint32 server_type = 1;
+inline bool Proto_EventInfo::has_server_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_EventInfo::set_has_server_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_EventInfo::clear_has_server_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_EventInfo::clear_server_type() {
+  server_type_ = 0u;
+  clear_has_server_type();
+}
+inline ::google::protobuf::uint32 Proto_EventInfo::server_type() const {
+  return server_type_;
+}
+inline void Proto_EventInfo::set_server_type(::google::protobuf::uint32 value) {
+  set_has_server_type();
+  server_type_ = value;
+}
+
+// optional uint64 event_id = 2;
+inline bool Proto_EventInfo::has_event_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_EventInfo::set_has_event_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_EventInfo::clear_has_event_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_EventInfo::clear_event_id() {
+  event_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_event_id();
+}
+inline ::google::protobuf::uint64 Proto_EventInfo::event_id() const {
+  return event_id_;
+}
+inline void Proto_EventInfo::set_event_id(::google::protobuf::uint64 value) {
+  set_has_event_id();
+  event_id_ = value;
+}
+
+// optional uint64 src_type = 3;
+inline bool Proto_EventInfo::has_src_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_EventInfo::set_has_src_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_EventInfo::clear_has_src_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_EventInfo::clear_src_type() {
+  src_type_ = GOOGLE_ULONGLONG(0);
+  clear_has_src_type();
+}
+inline ::google::protobuf::uint64 Proto_EventInfo::src_type() const {
+  return src_type_;
+}
+inline void Proto_EventInfo::set_src_type(::google::protobuf::uint64 value) {
+  set_has_src_type();
+  src_type_ = value;
+}
+
+// optional uint64 src_id = 4;
+inline bool Proto_EventInfo::has_src_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_EventInfo::set_has_src_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_EventInfo::clear_has_src_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_EventInfo::clear_src_id() {
+  src_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_src_id();
+}
+inline ::google::protobuf::uint64 Proto_EventInfo::src_id() const {
+  return src_id_;
+}
+inline void Proto_EventInfo::set_src_id(::google::protobuf::uint64 value) {
+  set_has_src_id();
+  src_id_ = value;
+}
+
+// optional string full_message_name = 5;
+inline bool Proto_EventInfo::has_full_message_name() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_EventInfo::set_has_full_message_name() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_EventInfo::clear_has_full_message_name() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_EventInfo::clear_full_message_name() {
+  if (full_message_name_ != &::google::protobuf::internal::kEmptyString) {
+    full_message_name_->clear();
+  }
+  clear_has_full_message_name();
+}
+inline const ::std::string& Proto_EventInfo::full_message_name() const {
+  return *full_message_name_;
+}
+inline void Proto_EventInfo::set_full_message_name(const ::std::string& value) {
+  set_has_full_message_name();
+  if (full_message_name_ == &::google::protobuf::internal::kEmptyString) {
+    full_message_name_ = new ::std::string;
+  }
+  full_message_name_->assign(value);
+}
+inline void Proto_EventInfo::set_full_message_name(const char* value) {
+  set_has_full_message_name();
+  if (full_message_name_ == &::google::protobuf::internal::kEmptyString) {
+    full_message_name_ = new ::std::string;
+  }
+  full_message_name_->assign(value);
+}
+inline void Proto_EventInfo::set_full_message_name(const char* value, size_t size) {
+  set_has_full_message_name();
+  if (full_message_name_ == &::google::protobuf::internal::kEmptyString) {
+    full_message_name_ = new ::std::string;
+  }
+  full_message_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_EventInfo::mutable_full_message_name() {
+  set_has_full_message_name();
+  if (full_message_name_ == &::google::protobuf::internal::kEmptyString) {
+    full_message_name_ = new ::std::string;
+  }
+  return full_message_name_;
+}
+inline ::std::string* Proto_EventInfo::release_full_message_name() {
+  clear_has_full_message_name();
+  if (full_message_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = full_message_name_;
+    full_message_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_EventInfo::set_allocated_full_message_name(::std::string* full_message_name) {
+  if (full_message_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete full_message_name_;
+  }
+  if (full_message_name) {
+    set_has_full_message_name();
+    full_message_name_ = full_message_name;
+  } else {
+    clear_has_full_message_name();
+    full_message_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
 // Proto_SvrPkg
 
 // optional int32 msg_id = 1;
@@ -2833,6 +3136,44 @@ inline void Proto_SvrPkg::set_allocated_store_info(::proto_ff::Proto_StoreInfo* 
     set_has_store_info();
   } else {
     clear_has_store_info();
+  }
+}
+
+// optional .proto_ff.Proto_EventInfo event_info = 5;
+inline bool Proto_SvrPkg::has_event_info() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_SvrPkg::set_has_event_info() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_SvrPkg::clear_has_event_info() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_SvrPkg::clear_event_info() {
+  if (event_info_ != NULL) event_info_->::proto_ff::Proto_EventInfo::Clear();
+  clear_has_event_info();
+}
+inline const ::proto_ff::Proto_EventInfo& Proto_SvrPkg::event_info() const {
+  return event_info_ != NULL ? *event_info_ : *default_instance_->event_info_;
+}
+inline ::proto_ff::Proto_EventInfo* Proto_SvrPkg::mutable_event_info() {
+  set_has_event_info();
+  if (event_info_ == NULL) event_info_ = new ::proto_ff::Proto_EventInfo;
+  return event_info_;
+}
+inline ::proto_ff::Proto_EventInfo* Proto_SvrPkg::release_event_info() {
+  clear_has_event_info();
+  ::proto_ff::Proto_EventInfo* temp = event_info_;
+  event_info_ = NULL;
+  return temp;
+}
+inline void Proto_SvrPkg::set_allocated_event_info(::proto_ff::Proto_EventInfo* event_info) {
+  delete event_info_;
+  event_info_ = event_info;
+  if (event_info) {
+    set_has_event_info();
+  } else {
+    clear_has_event_info();
   }
 }
 
