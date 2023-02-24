@@ -107,6 +107,19 @@ int NFScene::UnInit()
     return 0;
 }
 
+NFGrid* NFScene::GetGrid(uint32_t w, uint32_t h)
+{
+    if (w < (uint32_t)m_gridList.size())
+    {
+        if (h < (uint32_t)m_gridList[h].size())
+        {
+            return &m_gridList[w][h];
+        }
+    }
+
+    return NULL;
+}
+
 int NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STransParam &transParam)
 {
     int retCode = 0;
@@ -118,7 +131,7 @@ int NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STran
     CHECK_EXPR(gridZ >= m_gridMaxHeight, -1, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
 
     m_gridList[gridX][gridZ].AddCreature(m_pObjPluginManager, pCreature);
-    if (pCreature->GetKind() == CREATURE_PLAYER)
+    if (pCreature->Kind() == CREATURE_PLAYER)
     {
         retCode = AddPlayer(pCreature);
     }

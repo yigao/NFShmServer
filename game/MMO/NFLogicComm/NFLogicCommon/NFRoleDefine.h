@@ -26,6 +26,7 @@
 #define ONE_HANDURD 100
 #define MAX_KILLING_VALUE 250  //杀戮值上限
 
+//生物类型
 enum CreatureType
 {
     CREATURE_NONE = 0,
@@ -33,7 +34,7 @@ enum CreatureType
     CREATURE_MONSTER,   //怪物
     CREATURE_DROP,		//掉落
     CREATURE_REBOT,     //机器人
-    CREATURE_PARTNER,	//伙伴
+    CREATURE_PET,		//宠物
     CREATURE_MAX
 };
 

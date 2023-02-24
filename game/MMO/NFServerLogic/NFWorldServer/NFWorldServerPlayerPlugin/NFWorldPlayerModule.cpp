@@ -211,25 +211,6 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
 
     uint32_t proxyId = (uint32_t) packet.nSrcId;
 
-    /* 校验token
-    登录 token 验证秘钥前缀： RISE_AF
-    登录 token 验证秘钥： D%3#K)3X7p9Yg!*2U@F(g=B?8jQ>60+
-    token规则： md5('RISE_AF'+登录时间戳【PHP回传给客户端】+'D%3#K)3X7p9Yg!*2U@F(g=B?8jQ>60+')  这里的+表示字符串连接符
-    */
-    //const string& strtoken = xMsg.token();
-    uint64_t logintimestamp = xMsg.logintimestamp();
-    string strserver = "RISE_AF" + std::to_string(logintimestamp) + "D%3#K)3X7p9Yg!*2U@F(g=B?8jQ>60+";
-    string strmd5 = NFMD5::md5str(strserver);
-    /*if (strtoken != strmd5)
-    {
-        loginrsp.set_ret(RET_LOGIN_TOKEN_ERROR);
-        g_GetCenterService()->SendClient(gateid, clientId, CLIENT_LOGIN_RSP, &loginrsp);
-        LogErrFmtPrint("[center] LoginMgr::LoginGateReq... token error....uid:%u, clientid:%u, gateid:%u, token:%s,server:%s,md5:%s",uid,clientId,gateid,strtoken.c_str(),strserver.c_str(),strmd5.c_str());
-        //
-        //NotifyGateLeave(clientId, gateid, LOGOUT_KICK_OUT);
-        return false;
-    }*/
-
 /*    if (!g_GetCenterService()->IsValidMergeZid(bornZid))
     {
         LogErrFmtPrint("[center] CenterAccountMgr::LoginGateReq...invalid mergezid...uid:%u,clientid:%u,param:%s", uid, clientId, strParam.c_str());
@@ -507,6 +488,18 @@ int NFCWorldPlayerModule::OnHandleLogicGetRoleListRsp(uint32_t msgId, NFDataPack
         {
             for (int i = 0; i < (int) xData.role_info_list_size(); i++)
             {
+                auto pDBProto = xData.mutable_role_info_list(i);
+                NF_ASSERT(pDBProto);
+                for(int j = 0; j < pDBProto->mutable_base()->mutable_facade()->growfacade_size(); j++)
+                {
+                    auto pAttr = pDBProto->mutable_base()->mutable_facade()->mutable_growfacade(j);
+                    NF_ASSERT(pAttr);
+                    if (pAttr->id() == proto_ff::GrowType_DEITY_TYPE)
+                    {
+                        pAttr->set_value(0);
+                    }
+                }
+
                 auto pCharSimpleDB = loginrsp.add_role_lst();
                 if (nullptr != pCharSimpleDB)
                 {

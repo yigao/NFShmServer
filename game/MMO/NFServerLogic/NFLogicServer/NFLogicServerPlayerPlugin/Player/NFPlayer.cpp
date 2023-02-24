@@ -130,6 +130,16 @@ NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::RoleDBData &dbDa
             pPart = dynamic_cast<NFPart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_EQUIP_PART_ID));
             break;
         }
+        case PART_TITLE:
+        {
+            pPart = dynamic_cast<NFPart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_TITLE_PART_ID));
+            break;
+        };
+        case PART_MISSION:
+        {
+            pPart = dynamic_cast<NFPart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_MISSION_PART_ID));
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Create Part Failed, partType Not Handle:{}", partType);
@@ -285,7 +295,6 @@ void NFPlayer::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
     }
 }
 
-
 int NFPlayer::OnLogin(bool isLoadDB)
 {
     for (size_t i = 0; i < PART_MAX; i++)
@@ -387,11 +396,6 @@ int NFPlayer::NotifyPlayerInfo()
     rsp.set_opentime(pConfig->ServerOpenTime);
     rsp.set_createtime(m_curObjCreateTime);
     rsp.set_state(0);
-    proto_ff::RoleFacadeProto *protofacade = rsp.mutable_facade();
-    if (nullptr != protofacade)
-    {
-        SetFacadeProto(*protofacade);
-    }
 
     for (uint32_t j = 1; j < proto_ff::A_COMMON_END; j++)
     {
@@ -420,6 +424,13 @@ int NFPlayer::NotifyPlayerInfo()
     {
         if (m_pPart[i])
             m_pPart[i]->OnLogin(rsp);
+    }
+
+    //外观的数据获取要放到 m_pPart[i]->OnLogin(rsp) 后面
+    proto_ff::RoleFacadeProto* protofacade = rsp.mutable_facade();
+    if (nullptr != protofacade)
+    {
+        SetFacadeProto(*protofacade);
     }
 
     SendMsgToClient(proto_ff::CLIENT_PLAYER_INFO_RSP, rsp);

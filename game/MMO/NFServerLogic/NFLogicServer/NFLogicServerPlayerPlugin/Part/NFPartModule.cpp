@@ -15,6 +15,8 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFPackagePart.h"
 #include "NFFunctionUnlockPart.h"
+#include "NFTitlePart.h"
+#include "NFMissionPart.h"
 
 NFPartModule::NFPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -33,9 +35,17 @@ bool NFPartModule::Awake()
     NFPackagePart::RetisterClientMessage(m_pObjPluginManager);
     NFPackagePart::RetisterServerMessage(m_pObjPluginManager);
 
-    //package msg
+    //function part msg
     NFFunctionUnlockPart::RetisterClientMessage(m_pObjPluginManager);
     NFFunctionUnlockPart::RetisterServerMessage(m_pObjPluginManager);
+
+    //title part msg
+    NFTitlePart::RetisterClientMessage(m_pObjPluginManager);
+    NFTitlePart::RetisterServerMessage(m_pObjPluginManager);
+
+    //mission part msg
+    NFMissionPart::RetisterClientMessage(m_pObjPluginManager);
+    NFMissionPart::RetisterServerMessage(m_pObjPluginManager);
     return true;
 }
 

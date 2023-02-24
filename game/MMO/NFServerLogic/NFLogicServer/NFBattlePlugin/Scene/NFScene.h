@@ -73,6 +73,8 @@ public:
      * @param pCreature
      */
     int RemovePlayer(NFCreature* pCreature);
+
+    NFGrid* GetGrid(uint32_t w, uint32_t h);
 private:
     uint64_t m_mapId;
     uint64_t m_sceneId;

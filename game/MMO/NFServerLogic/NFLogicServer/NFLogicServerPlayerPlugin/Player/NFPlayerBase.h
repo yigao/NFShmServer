@@ -25,6 +25,7 @@
 #include "NFPlayerBase.h"
 #include "DBProto_s.h"
 #include "NFLogicCommon/NFAttr.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 
 class NFPlayerBase : public NFSeqOP
 {
@@ -373,6 +374,6 @@ protected:
 protected:
     NFShmPtr<IFightAttr> m_pFightAttr;		//战斗属性
     NFShmPtr<IAttr> m_pAttr;				//普通属性
-    MAP_UINT32_INT64  m_attrCache;			//需要同步单个客户端属性缓存
-    MAP_UINT32_INT64  m_attrBroadCache;		//需要广播属性缓存
+    NFShmHashMap<uint32_t, int64_t, 10>  m_attrCache;			//需要同步单个客户端属性缓存
+    NFShmHashMap<uint32_t, int64_t, 10>  m_attrBroadCache;		//需要广播属性缓存
 };

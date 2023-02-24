@@ -26,6 +26,8 @@
 #include "Part/NFPackagePart.h"
 #include "Part/NFChatPart.h"
 #include "Trans/NFTransEnterScene.h"
+#include "Part/NFMissionPart.h"
+#include "Part/NFTitlePart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -91,6 +93,8 @@ bool NFLogicServerPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFGrowPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMiniPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFChatPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFTitlePart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFMissionPart, maxOnlinePlayerNum);
 
     REGISTER_SHM_OBJ(NFPackagePart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleFightAttr,maxOnlinePlayerNum);
