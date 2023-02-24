@@ -1095,7 +1095,7 @@ int NFCMessageModule::SendWxWork(NF_SERVER_TYPES serverType, const string &conte
     xHeaders.emplace("Content-Type", "application/json;charset=utf-8");
 
     HttpPost(NF_ST_MASTER_SERVER, url, json, [](int code, const std::string& resp){
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "send wxWork info, code:{} rsp:{}", code, resp);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "send wxWork info, code:{} rsp:{}", code, resp);
     }, xHeaders);
     return 0;
 }

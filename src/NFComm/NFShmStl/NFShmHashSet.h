@@ -95,6 +95,7 @@ public:
 
     iterator end() const { return m_hashTable.end(); }
 
+    void debug_string() { m_hashTable.debug_string(); }
 public:
     pair<iterator, bool> insert(const value_type &__obj)
     {

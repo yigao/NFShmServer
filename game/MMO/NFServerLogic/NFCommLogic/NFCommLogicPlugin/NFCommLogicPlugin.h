@@ -31,5 +31,6 @@ public:
 	virtual void Uninstall() override;
 
 	virtual bool InitShmObjectRegister() override;
+
 };
 

@@ -652,7 +652,7 @@ int NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERV
     pEventInfo->set_event_id(nEventID);
     pEventInfo->set_src_type(bySrcType);
     pEventInfo->set_src_id(nSrcID);
-    pEventInfo->set_full_message_name("proto_ff."+message.GetTypeName());
+    pEventInfo->set_full_message_name(message.GetTypeName());
 
     svrPkg.set_msg_data(message.SerializeAsString());
 

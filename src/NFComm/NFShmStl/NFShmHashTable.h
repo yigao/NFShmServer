@@ -43,9 +43,10 @@ struct NFShmHashTableNode
         m_valid = false;
         m_next = -1;
         m_self = 0;
-        if (std::is_pod<Val>::value)
+
+        if (std::numeric_limits<Val>::is_specialized)
         {
-            std::_Construct(&m_value, Val());
+            std::_Construct(&m_value);
         }
         return 0;
     }
@@ -577,16 +578,8 @@ public:
                 for (_Node *curNode = get_node(m_bucketsFirstIdx[i]); curNode; curNode = get_node(curNode->m_next))
                 {
                     nodes++;
-                    if (std::is_integral<value_type>::value || std::is_same<value_type, std::string>::value)
-                    {
-                        node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{} value:{}) ", nodes, curNode->m_self, curNode->m_valid,
-                                              curNode->m_next, curNode->m_value);
-                    }
-                    else
-                    {
-                        node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{}) ", nodes, curNode->m_self, curNode->m_valid,
-                                              curNode->m_next);
-                    }
+                    node_str += NF_FORMAT(" (node:{} bucket idx:{} valid:{} next:{}) ", nodes, curNode->m_self, curNode->m_valid,
+                                          curNode->m_next);
                 }
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "frist idx:{} value:{} = nodes:{})", i, m_bucketsFirstIdx[i], node_str);
             }
@@ -596,16 +589,8 @@ public:
         std::string str;
         for (auto iter = begin(); iter != end(); iter++)
         {
-            if (std::is_integral<value_type>::value || std::is_same<value_type, std::string>::value)
-            {
-                str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} value:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self,
-                                 count(m_get_key(*iter)), *iter, iter.m_curNode->m_next);
-            }
-            else
-            {
-                str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)),
-                                 iter.m_curNode->m_next);
-            }
+            str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)),
+                             iter.m_curNode->m_next);
         }
 
         std::string freeStr;

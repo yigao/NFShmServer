@@ -50,10 +50,14 @@ public:
     int ResumeInit()
     {
         m_data = (Tp*)m_mem;
-        for(size_t i = 0; i < m_size; i++)
+        if (!std::numeric_limits<Tp>::is_specialized)
         {
-            std::_Construct(m_data+i);
+            for(size_t i = 0; i < m_size; i++)
+            {
+                std::_Construct(m_data+i);
+            }
         }
+
         return 0;
     }
 

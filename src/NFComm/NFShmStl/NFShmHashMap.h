@@ -25,8 +25,8 @@ template<class Key, class Tp, int MAX_SIZE, class HashFcn, class EqualKey>
 class NFShmHashMap
 {
 private:
-    typedef NFShmHashTable<std::pair<Key, Tp>, Key, MAX_SIZE, HashFcn,
-            std::_Select1st<std::pair<Key, Tp> >, EqualKey> _Ht;
+    typedef NFShmHashTable<NFShmPair<Key, Tp>, Key, MAX_SIZE, HashFcn,
+            std::_Select1st<NFShmPair<Key, Tp> >, EqualKey> _Ht;
     _Ht m_hashTable;
 
 public:
@@ -104,10 +104,11 @@ public:
 
     const_iterator end() const { return m_hashTable.end(); }
 
+    void debug_string() { m_hashTable.debug_string(); }
 public:
     std::pair<iterator, bool> insert(const value_type &__obj) { return m_hashTable.insert_unique(__obj); }
-    std::pair<iterator, bool> emplace(const key_type&__key, const data_type& __data) { return m_hashTable.insert_unique(std::make_pair(__key, __data)); }
-    iterator emplace_hint(const key_type&__key, const data_type& __data) { auto pair = m_hashTable.insert_unique(std::make_pair(__key, __data)); return pair.first; }
+    std::pair<iterator, bool> emplace(const key_type&__key, const data_type& __data) { return m_hashTable.insert_unique(MakePair(__key, __data)); }
+    iterator emplace_hint(const key_type&__key, const data_type& __data) { auto pair = m_hashTable.insert_unique(MakePair(__key, __data)); return pair.first; }
 
     template<class _InputIterator>
     void insert(_InputIterator __f, _InputIterator __l) { m_hashTable.insert_unique(__f, __l); }
