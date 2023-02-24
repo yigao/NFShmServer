@@ -90,22 +90,6 @@ int NFShmObj::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-int NFShmObj::GetHashKey(void *pvKey, int &iKeyLength)
-{
-    return -1;
-}
-
-int NFShmObj::SetHashKey(const void *pvKey, int iKeyLength)
-{
-
-    return -1;
-}
-
-int NFShmObj::Show(FILE *fpOut)
-{
-    return -1;
-}
-
 int NFShmObj::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "event not handle, shmobjType:{} serverType:{} nEventID:{} bySrcType:{} nSrcID:{}, message:{}", GetClassType(),

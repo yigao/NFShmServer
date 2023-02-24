@@ -1418,3 +1418,11 @@ uint64_t NFMissionDescStoreEx::GetDyTextId(uint64_t key)
     int32_t rnd = NFRandInt(0, isize);
     return vec[rnd];
 }
+
+//获取动态任务奖励
+const TASK_REWARD *NFMissionDescStoreEx::GetDyMissionReward(int32_t missionType, int32_t level)
+{
+    uint32_t key = ComposeDyRewardKey(missionType, level);
+    DyTaskRewardMap::iterator iter = m_mapDyReward.find(key);
+    return (iter != m_mapDyReward.end()) ? &iter->second : nullptr;
+}

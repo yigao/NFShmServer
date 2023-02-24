@@ -465,6 +465,7 @@ public:
      * @return
      */
     int32_t OnDelMissionItem(MissionTrack *pMissionTrack);
+
 public:
     /**
      * @brief 添加任务掉落
@@ -545,6 +546,7 @@ public://任务事件处理接口
      * @param dynamicId
      */
     void OnEvent(uint32_t eventType, const ExecuteData &data, uint64_t dynamicId = 0);
+
 public:
     /**
      * @brief 提交任务
@@ -569,6 +571,28 @@ public:
      * @param notify
      */
     void CheckPreAcceptMission(uint64_t missionId, bool notify = true);
+
+public:
+    /**
+     * @brief 提交动态任务
+     * @param dymissionId
+     * @return
+     */
+    int32_t OnSubmitDy(uint64_t dymissionId);
+
+
+    /**
+     * @brief 提交任务(动态任务)
+     * @param dymissionId
+     * @param missionType
+     */
+    void OnSubmitDy(uint64_t dymissionId, int32_t missionType);
+public:
+    /**
+     * @brief 完成诺林冒险
+     * @param count
+     */
+    void OnFinishLoopMission(int32_t count);
 private:
     PlayerTrackMissionMap _playerTrackMissionMap;    //当前任务列表
     NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //最近提交的任务

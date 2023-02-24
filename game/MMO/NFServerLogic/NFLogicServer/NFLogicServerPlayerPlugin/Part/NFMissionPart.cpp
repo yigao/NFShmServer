@@ -1437,32 +1437,24 @@ void NFMissionPart::OnFinishDy(uint64_t dymissionId, uint32_t dymissionType)
 
 int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missionId, SMissionReward &missionReward)
 {
-/*    if (nullptr == pPlayer)
-    {
-        return RET_FAIL;
-    }
-    int32_t level = pPlayer->GetAttr(A_LEVEL);
-    const TASK_REWARD *pReward = GetDyMissionReward(missionType, level);
+    int32_t level = m_pMaster->GetAttr(proto_ff::A_LEVEL);
+    const TASK_REWARD *pReward = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionReward(missionType, level);
     if (nullptr == pReward)
     {
-        return RET_FAIL;
+        return proto_ff::RET_FAIL;
     }
-    PackagePart *pPackage = dynamic_cast<PackagePart *>(pPlayer->GetPart(PART_PACKAGE));
+
+    NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
     if (nullptr == pPackage)
     {
-        return RET_FAIL;
+        return proto_ff::RET_FAIL;
     }
 
     SCommonSource sourceParam;
     sourceParam.src = S_MISSION;
     sourceParam.param1 = missionId;
 
-    SCenterReward sreward;
-    sreward.charId = pPlayer->Cid();
-    sreward.zid = pPlayer->GetZid();
-    sreward.source = sourceParam;
-
-    uint32_t profression = pPlayer->GetAttr(A_PROF);
+    uint32_t profression = m_pMaster->GetAttr(proto_ff::A_PROF);
     const TASK_REWARD &reward = *pReward;
 
     LIST_ITEM lstItemA;
@@ -1490,7 +1482,7 @@ int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missio
         }
         else if (MISSION_AWARD_SKILL == rewardType)
         {
-            SkillPart *pSkillPart = dynamic_cast<SkillPart *>(pPlayer->GetPart(PART_SKILL));
+/*            SkillPart *pSkillPart = dynamic_cast<SkillPart *>(pPlayer->GetPart(PART_SKILL));
             if (nullptr != pSkillPart)
             {
                 SCommonSource source;
@@ -1503,26 +1495,24 @@ int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missio
                 {
                     missionReward.setSkill.insert(reward[i].id);
                 }
-            }
+            }*/
         }
         else if (MISSION_AWARD_ATTR == rewardType) //属性奖励
         {
-            pPlayer->AddAttr(reward[i].id, reward[i].value, &sourceParam, true);
+            m_pMaster->AddAttr(reward[i].id, reward[i].value, &sourceParam, true);
             missionReward.mapAttr[reward[i].id] += reward[i].value;
         }
         else if (MISSION_AWARD_USE_CONTRI == rewardType)
         {
-            sreward.useContri += reward[i].id;
             missionReward.useContri += reward[i].id;
         }
         else if (MISSION_AWARD_UNION_EXP == rewardType)
         {
-            sreward.unionExp += reward[i].id;
             missionReward.unionExp += reward[i].id;
         }
     }
     //
-    g_GetItemMgr()->MergeItem(lstItemA, missionReward.lstItem);*/
+    NFItemMgr::Instance(m_pObjPluginManager)->MergeItem(lstItemA, missionReward.lstItem);
 
     return proto_ff::RET_SUCCESS;
 }
@@ -1647,7 +1637,7 @@ int NFMissionPart::HandleSubmitMission(uint32_t msgId, NFDataPackage &packet)
             pDyMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
             if (nullptr != pDyMissionCfgInfo)
             {
-                //ret = OnSubmitDy(dymissionId);
+                ret = OnSubmitDy(dymissionId);
             }
         }
     }
@@ -2689,4 +2679,74 @@ void NFMissionPart::CheckPreAcceptMission(uint64_t missionId, bool notify/* = tr
                        missionId, acceptId, ret);
         }
     }
+}
+
+//提交动态任务
+int32_t NFMissionPart::OnSubmitDy(uint64_t dymissionId)
+{
+    NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
+    CHECK_EXPR(pPackage, proto_ff::RET_FAIL, "pPackage == NULL");
+
+    //查找提交的任务是否在已接列表中存在
+    auto iter = _playerTrackMissionMap.find(dymissionId);
+    if (_playerTrackMissionMap.end() == iter)
+    {
+        return proto_ff::RET_MISSION_NOT_EXIST;
+    }
+
+    //判断任务是否完成
+    if (MISSION_E_COMPLETION != iter->second.status)
+    {
+        return proto_ff::RET_MISSION_STATE_NOT_MATCH;
+    }
+
+    uint64_t missionId = iter->second.missionId;
+    uint32_t missionType = iter->second.missionType;
+
+    //移除任务
+    int32_t ret = RemoveDyMission(dymissionId, true);
+    if (proto_ff::RET_SUCCESS != ret)
+    {
+        return ret;
+    }
+
+    if (missionType != MISSION_TYPE_ID_BOUNTY)
+    {
+        //任务奖励
+        SMissionReward missionReward;
+        OnAddDyMissionReward(missionType, missionId, missionReward);
+    }
+
+    //完成任务触发事件
+    proto_ff::FinishTaskEvent taskEvent;
+    taskEvent.set_taskid(missionId);
+    taskEvent.set_tasktype(missionType);
+    taskEvent.set_cid(m_pMaster->Cid());
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, CREATURE_PLAYER, m_pMaster->Cid(), taskEvent);
+
+    //任务提交处理,要放到奖励后面，奖励中如果有经验会有升级的情况
+    OnSubmitDy(dymissionId, missionType);
+
+    return proto_ff::RET_SUCCESS;
+}
+
+//提交任务(动态任务)
+void NFMissionPart::OnSubmitDy(uint64_t dymissionId, int32_t missionType)
+{
+    if (MISSION_TYPE_ID_LOOP == missionType)
+    {
+        OnFinishLoopMission(1);
+    }
+
+    if (MISSION_TYPE_ID_GUILD == missionType || MISSION_TYPE_ID_LOOP == missionType || MISSION_TYPE_ID_BOUNTY == missionType)
+    {
+        AcceptMissionByType(missionType, true);
+    }
+}
+
+//完成诺林冒险
+void NFMissionPart::OnFinishLoopMission(int32_t count)
+{
+    ExecuteData allExecuteData(M_EVENT_LOOPMISSIONNUM, 0, count);
+    OnEvent(M_EVENT_LOOPMISSIONNUM, allExecuteData);
 }

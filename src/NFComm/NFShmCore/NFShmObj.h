@@ -46,12 +46,6 @@ public:
 
 #endif
 
-    virtual int GetHashKey(void *pvKey, int &iKeyLength);
-
-    virtual int SetHashKey(const void *pvKey, int iKeyLength);
-
-    virtual int Show(FILE *fpOut);
-
     void SetInRecycle(bool bRet)
     {
         m_bIsInRecycle = bRet;

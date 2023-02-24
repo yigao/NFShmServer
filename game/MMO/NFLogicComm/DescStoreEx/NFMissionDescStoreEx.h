@@ -103,6 +103,8 @@ public:
 
     uint64_t GetDyTextId(int32_t missionType, uint32_t condType);
 
+    //获取动态任务奖励
+    const TASK_REWARD *GetDyMissionReward(int32_t missionType, int32_t level);
 private:
     DyMissionTypeMap m_dymissionTypeMap;                    //动态任务类型map
     DyMissionInfoMap m_dymissionInfoMap;                    //动态任务配置
