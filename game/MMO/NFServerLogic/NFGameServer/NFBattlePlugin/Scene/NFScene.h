@@ -48,7 +48,7 @@ public:
      * @param transParam
      * @return
      */
-    virtual int EnterScene(NFCreature* pCreature, const NFPoint3<float>& pos, STransParam &transParam);
+    virtual NFGrid* EnterScene(NFCreature* pCreature, const NFPoint3<float>& pos, STransParam &transParam);
 public:
     /**
      * @brief

@@ -16,6 +16,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 
 #define GAME_SERVER_MAX_BATTLE_SCENE_SIZE 1000
 
@@ -62,6 +63,16 @@ public:
      * @return
      */
     int DeleteScene(NFScene* pScene);
+public:
+    /**
+     * @brief 是否关闭
+     * @param sceneId
+     * @return
+     */
+    bool IsClosed(uint64_t sceneId);
+private:
+    //场景销毁缓存表 sceneid - tick
+    NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;
 private:
 DECLARE_IDCREATE(NFSceneMgr)
 };

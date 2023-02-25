@@ -121,3 +121,9 @@ int NFSceneMgr::InitScene(const std::set<uint64_t> &mapIds)
     FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::GAME_TO_WORLD_REGISTER_MAP_REQ, xMsg);
     return 0;
 }
+
+bool NFSceneMgr::IsClosed(uint64_t sceneId)
+{
+    auto iter = m_delCacheMap.find(sceneId);
+    return (iter != m_delCacheMap.end()) ? true : false;
+}

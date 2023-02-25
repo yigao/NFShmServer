@@ -54,39 +54,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="mission">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="creature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Creature/NFCreature.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreature.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Creature/NFCreature.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreature.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Creature/NFCreatureMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreatureMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Creature/NFCreatureMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreatureMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Map/NFMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Map/NFMap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Map/NFMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Map/NFMap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Map/NFMapMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Map/NFMapMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Map/NFMapMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Map/NFMapMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Map/NFNavMeshInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Map/NFNavMeshInfo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Map/NFNavMeshInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Map/NFNavMeshInfo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/NFBattlePlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/NFBattlePlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/NFCSceneModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFCSceneModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/NFCSceneModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFCSceneModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/NFGameConfig.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFGameConfig.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/NFGameConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFGameConfig.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Scene/NFGrid.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFGrid.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Scene/NFGrid.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFGrid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Scene/NFScene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFScene.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Scene/NFScene.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFScene.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Scene/NFSceneMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFSceneMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFBattlePlugin/Scene/NFSceneMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFSceneMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFPlatform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFPlatform.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmList.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmList.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFScene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFScene.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFScene.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFScene.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFSceneMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFSceneMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFSceneMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Scene/NFSceneMgr.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -664,14 +637,7 @@
       <workItem from="1677114042431" duration="23804000" />
       <workItem from="1677200403379" duration="25249000" />
       <workItem from="1677239327163" duration="519000" />
-      <workItem from="1677285939602" duration="17836000" />
-    </task>
-    <task id="LOCAL-00400" summary="shm stl">
-      <created>1675762079173</created>
-      <option name="number" value="00400" />
-      <option name="presentableId" value="LOCAL-00400" />
-      <option name="project" value="LOCAL" />
-      <updated>1675762079173</updated>
+      <workItem from="1677285939602" duration="21385000" />
     </task>
     <task id="LOCAL-00401" summary="shm stl">
       <created>1675850681430</created>
@@ -1009,7 +975,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677239345198</updated>
     </task>
-    <option name="localTasksCounter" value="449" />
+    <task id="LOCAL-00449" summary="creature">
+      <created>1677312190586</created>
+      <option name="number" value="00449" />
+      <option name="presentableId" value="LOCAL-00449" />
+      <option name="project" value="LOCAL" />
+      <updated>1677312190587</updated>
+    </task>
+    <option name="localTasksCounter" value="450" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1232,7 +1205,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="battle plugin" />
     <MESSAGE value="load map" />
     <MESSAGE value="scene" />
     <MESSAGE value="event obj timer obj" />
@@ -1257,7 +1229,8 @@
     <MESSAGE value="title" />
     <MESSAGE value="net" />
     <MESSAGE value="mission" />
-    <option name="LAST_COMMIT_MESSAGE" value="mission" />
+    <MESSAGE value="creature" />
+    <option name="LAST_COMMIT_MESSAGE" value="creature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

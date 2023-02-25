@@ -120,26 +120,32 @@ NFGrid* NFScene::GetGrid(uint32_t w, uint32_t h)
     return NULL;
 }
 
-int NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STransParam &transParam)
+NFGrid* NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STransParam &transParam)
 {
-    int retCode = 0;
-    CHECK_NULL(pCreature);
+    CHECK_EXPR(pCreature, NULL, "pCreature == NULL");
     uint32_t gridX = uint32_t(pos.x / GRID_LENGTH);
     uint32_t gridZ = uint32_t(pos.z / GRID_LENGTH);
 
-    CHECK_EXPR(gridX >= m_gridMaxWidth, -1, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
-    CHECK_EXPR(gridZ >= m_gridMaxHeight, -1, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
+    CHECK_EXPR(gridX >= m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
+    CHECK_EXPR(gridZ >= m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
+
+    if (NFSceneMgr::Instance(m_pObjPluginManager)->IsClosed(m_sceneId))
+    {
+        NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(), "Scene::EnterScene, scene is destorying cannt enter, Cid:{}, dstpos({},{},{},), sceneId:{}, mapId:{},transType:{}",
+                         pCreature->Cid(), pos.x, pos.y, pos.z, m_sceneId, m_mapId, transParam.transType);
+        return NULL;
+    }
 
     m_gridList[gridX][gridZ].AddCreature(m_pObjPluginManager, pCreature);
-    if (pCreature->Kind() == CREATURE_PLAYER)
+    if (pCreature->Kind() != CREATURE_PLAYER)
     {
-        retCode = AddPlayer(pCreature);
+        AddCreature(pCreature);
     }
     else {
-        retCode = AddCreature(pCreature);
+        AddPlayer(pCreature);
     }
 
-    return retCode;
+    return &m_gridList[gridX][gridZ];
 }
 
 int NFScene::AddCreature(NFCreature *pCreature)
