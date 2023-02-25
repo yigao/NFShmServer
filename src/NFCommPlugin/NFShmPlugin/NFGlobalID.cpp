@@ -182,7 +182,7 @@ NFShmObj *NFGlobalID::GetObj(int iID)
         {
             NFShmObj *pObj = m_stIDTable[inID].pObjPtr;
 
-#if defined(_DEBUG) | defined(_DEBUG_)
+#ifdef NF_DEBUG_MODE
             NFShmObj *pObjGetObjFromTypeIndex = FindModule<NFISharedMemModule>()->GetObj(m_stIDTable[inID].iType, m_stIDTable[inID].iIndex);
             assert(pObjGetObjFromTypeIndex == pObj);
 #endif

@@ -469,7 +469,7 @@ public:
 
     size_type size() const
     {
-        NF_ASSERT(std::distance(begin(), end()) == m_size);
+        NF_ASSERT((size_type)std::distance(begin(), end()) == m_size);
         return m_size;
     }
 
@@ -489,8 +489,14 @@ public:
 
     _Node *GetNode(size_t index)
     {
-        NF_ASSERT(index <= MAX_SIZE);
+        CHECK_EXPR(index <= MAX_SIZE, NULL, "index out of range:{}", index);
         return &m_node[index];
+    }
+
+    iterator GetIterator(size_t index)
+    {
+        CHECK_EXPR(index <= MAX_SIZE, end(), "index out of range:{}", index);
+        return iterator(this, index);
     }
 
     /**

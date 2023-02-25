@@ -41,7 +41,7 @@ typedef enum
 
 inline void debug_assert()
 {
-#if defined(_DEBUG) | defined(_DEBUG_)
+#ifdef NF_DEBUG_MODE
 	assert(0);
 #endif
 }

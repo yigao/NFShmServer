@@ -25,11 +25,18 @@
 #include "NFLogicCommon/NFLogDefine.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFAccountDefine.h"
-#include "NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPart.h"
+#include "NFComm/NFShmStl/NFShmList.h"
+#include "NFCreatureVisionData.h"
+#include "Part/NFBattlePart.h"
+#include "View.pb.h"
 
 class NFScene;
 
 class NFGrid;
+
+class NFCreature;
+
+class NFBattlePart;
 
 enum
 {
@@ -37,8 +44,6 @@ enum
     NF_CREATURE_NODE_LIST_SCENE_INDEX = 1,
     NF_CREATURE_NODE_LIST_MAX_TYPE_INDEX = 2,
 };
-
-class NFCreature;
 
 //生物状态
 class CreatureState
@@ -95,7 +100,6 @@ protected:
     uint8_t m_laststate;
 };
 
-class NFGrid;
 
 class NFCreature : public NFShmObj, public NFMultiListNodeObjWithGlobalID<NFCreature, EOT_GAME_CREATURE_ID, NF_CREATURE_NODE_LIST_MAX_TYPE_INDEX>
 {
@@ -184,6 +188,84 @@ public:
     virtual void OnChangeState(uint8_t curstate, uint8_t laststate);
 
 public:
+    //是否有战力压制
+    virtual bool HasFightSuppress() { return true; }
+
+    //是否是组队机器人
+    virtual bool IsTeamRobot() { return false; }
+
+    virtual void OnDead(uint64_t killerCid, bool isSync = false, int64_t lastDamage = 0);
+
+    virtual void OnCorpse() {}; //尸体停留阶段
+
+    virtual void OnRevive(int64_t curhp = 0);
+
+    virtual NFCreature *GetOwner() { return nullptr; }
+
+    virtual void SetOwner(NFCreature *powner) {}
+
+public:
+    virtual void FindCreatureInScene(LIST_UINT64 &clist);
+
+    virtual void FindCreatureInScene(std::set<NFCreature *> &setcreature);
+
+    virtual void FindSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature *> *clist, NFPoint3<float> &sorPos);
+
+    virtual void FindDoubleSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature *> &clist, NFPoint3<float> &sorPos);
+
+    //将对方加入到自己的视野中
+    virtual void SimpleAddPVPSeeLst(int releation, NFCreature *pOther);
+
+    virtual void SimplePVMAddSeeLst(NFCreature *pOther);
+
+    virtual void ReplacePVPSeeList(int releation, NFCreature *pOther, std::vector<NFCreature *> &vecBeen);
+
+    virtual void AddPVPSeeLst(int releation, NFCreature *pOther, std::vector<NFCreature *> &vecBeen);
+
+    virtual void AddPVMSeeLst(NFCreature *pOther, std::vector<NFCreature *> &vecBeen);
+
+    virtual int DelPVMSeeLst(int delpos, NFCreature *pOther);
+
+    virtual int DelPVPSeeLst(int delpos, NFCreature *pOther);
+
+    //视野裁剪接口 后面需要做更复杂的视野裁剪那么子类继承去实现
+    virtual bool ViewFliter(NFCreature *pCreature, float dict);
+
+    virtual void OnDelPVPSeeLst(NFCreature *pOther) {}
+
+    virtual void GetSeeLst(std::vector<uint64_t> &);
+
+    virtual void GetCreatureList(std::vector<NFCreature *> &vec);
+
+    virtual NFCreatureVisionData &GetVisionData() { return m_visionData; }
+
+    virtual const NFCreatureVisionData &GetVisionData() const { return m_visionData; }
+
+    //视野类接口
+    virtual void UpdateSeeLst();
+
+    virtual void UpdateNineGridLst();
+
+    virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &cvData) { };  //获取客户端可见数据
+
+    //更新生物视野数据(生物视野数据变更，需要通知周围已经看到了他们的玩家)
+    virtual void UpdateViewData() {};
+
+    //用于重连上后，再重新发送一次全体视野信息。
+    void SendAllSeeCreatureListToClient();
+
+    void NoticeNineGridLeave();
+public:
+    //判断是否能发送消息
+    bool IsCanSendMessage();
+
+    //设置能否被看见
+    void SetCanBeSeenFlag(bool isCanBeSeen);
+
+    //获取能否被看见
+    bool GetCanBeSeenFlag();
+
+public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性
     virtual void AddVirAttr(MAP_UINT32_INT64 &mapAttr, bool costFlag = false, SCommonSource *pSource = nullptr, bool syn = false) {};
@@ -252,14 +334,18 @@ public:
 
     //同步属性
     virtual void SynAttrToClient();
+
 public:
 public:
     //获取对应部件指针
-    virtual NFPart* GetPart(uint32_t partType) { return nullptr; }
+    virtual NFBattlePart *GetPart(uint32_t partType) { return nullptr; }
+
 public:
     //****************消息发送接口*****************
     bool BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
+
     bool SendClient(uint32_t nMsgId, const google::protobuf::Message &xData);
+
 private:
     uint64_t m_cid;     //生物实例id
     uint32_t m_kind;     //实体类型
@@ -268,7 +354,7 @@ private:
     uint64_t m_sceneId;                //场景id
     uint64_t m_mapId;                  //地图模板id
 
-    CreatureVisionData m_visionData;    //视野数据
+    NFCreatureVisionData m_visionData;    //视野数据
     float m_sightRange;                //可见视野范围长度
     float m_fRadius;                    //人物半径
 
@@ -281,8 +367,8 @@ private:
     NFPoint2<uint32_t> m_littleGrid;
 
     NFPoint3<float> m_dir;                    //运动方向,单位向量
-    bool m_destory = false;            //是否要回收
-    bool m_bCanBeSeen = false;        //是否被见
+    bool m_destory;            //是否要回收
+    bool m_bCanBeSeen;        //是否被见
     CreatureState m_state;                    //状态
 
     NFShmPtr<IFightAttr> m_pFightAttr;        //战斗属性

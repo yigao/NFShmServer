@@ -44,7 +44,7 @@
 
 using namespace std;
 
-#ifndef NDEBUG
+#ifdef NF_DEBUG_MODE
 
 #include <assert.h>
 

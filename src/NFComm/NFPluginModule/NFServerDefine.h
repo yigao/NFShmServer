@@ -17,6 +17,13 @@
 #include "NFComm/NFCore/NFBuffer.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
+// (uint16) 如果修改增加此处大小，需要修改接受缓冲区大小，与客户端 NetDefine.cs 中的定义一直
+const uint16_t MAX_CLIENT_NET_PACK_LENGTH = 1024 * 48;
+const uint32_t MAX_SERVER_NET_PACK_LENGTH = 1024 * 512;
+const uint32_t INNER_SENDBUF_DEFAULT_SIZE = 1024 * 1024 * 2;
+const uint32_t INNER_RECVBUF_DEFAULT_SIZE = 1024 * 1024 * 2;
+const uint32_t MAX_WEB_NET_PACK_LENGTH	  = 1024 * 512;
+
 #define WG_INT_MAX32 0x7FFFFFFFL
 
 enum NF_SERVER_TYPES
