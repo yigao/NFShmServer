@@ -38,6 +38,48 @@ NFSceneMgr::~NFSceneMgr()
 
 int NFSceneMgr::CreateInit()
 {
+    //例如第一层m_mapLyaer[1]
+    //  00000
+    //	01110
+    //	01010
+    //	01110
+    //	00000
+    //******************计算每层所需定位的格子******************
+    m_mapLayer[0].push_back({ 0, 0 });
+    for (int a = 1; a <= MAX_LAYER; a++)
+    {
+        {
+            int y = -a;
+            for (int x = -a; x <= a; x++)
+            {
+                m_mapLayer[a].push_back({ x, y });
+            }
+        }
+
+        {
+            int y = a;
+            for (int x = -a; x <= a; x++)
+            {
+                m_mapLayer[a].push_back({ x, y });
+            }
+        }
+
+        {
+            int x = -a;
+            for (int y = -a + 1; y <= a - 1; y++)
+            {
+                m_mapLayer[a].push_back({ x, y });
+            }
+        }
+
+        {
+            int x = a;
+            for (int y = -a + 1; y <= a - 1; y++)
+            {
+                m_mapLayer[a].push_back({ x, y });
+            }
+        }
+    }
     return 0;
 }
 
@@ -126,4 +168,11 @@ bool NFSceneMgr::IsClosed(uint64_t sceneId)
 {
     auto iter = m_delCacheMap.find(sceneId);
     return (iter != m_delCacheMap.end()) ? true : false;
+}
+
+const NFShmVector<NFPoint2<int32_t>, MAX_LAYER>* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
+{
+    if (nlayer > MAX_LAYER)
+        nlayer = MAX_LAYER;
+    return &m_mapLayer[nlayer];
 }

@@ -17,12 +17,16 @@
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFLogicCommon/NFPoint2.h"
 
 #define GAME_SERVER_MAX_BATTLE_SCENE_SIZE 1000
+#define MAX_LAYER 5  //搜索最大层数
 
 class NFScene;
 class NFSceneMgr : public NFShmObj
 {
+public:
+    typedef NFShmHashMap<int32_t, NFShmVector<NFPoint2<int32_t>, MAX_LAYER>, MAX_LAYER> mapLayer;
 public:
     NFSceneMgr();
 
@@ -70,9 +74,14 @@ public:
      * @return
      */
     bool IsClosed(uint64_t sceneId);
+
+    //获取层数对应格子计算数组
+    const NFShmVector<NFPoint2<int32_t>, MAX_LAYER>* GetLayerPoint(uint32_t nlayer);
 private:
     //场景销毁缓存表 sceneid - tick
     NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;
+    //每层映射搜索位置信息(最大5层)
+    mapLayer m_mapLayer;
 private:
 DECLARE_IDCREATE(NFSceneMgr)
 };

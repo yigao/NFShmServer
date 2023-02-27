@@ -39,3 +39,18 @@ message FinishTaskEvent
   optional uint32 taskType = 3;
   optional int32 mapGroup = 4;
 }
+
+//离开场景
+message LeaveSceneEvent
+{
+  optional uint64 cid = 1;      //生物cid
+  optional uint64 sceneid = 2;
+  optional uint64 mapid = 3;
+};
+
+//改变场景事件
+message ChgSceneEvent
+{
+  optional uint64 cid = 1;			//玩家cid
+  optional bool enterflag = 2;		//是否是进入场景
+};

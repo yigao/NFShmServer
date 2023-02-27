@@ -41,6 +41,8 @@ class PlayerLeveUpEvent;
 class ItemUseEvent;
 class AcceptTaskEvent;
 class FinishTaskEvent;
+class LeaveSceneEvent;
+class ChgSceneEvent;
 
 // ===================================================================
 
@@ -522,6 +524,200 @@ class FinishTaskEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static FinishTaskEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class LeaveSceneEvent : public ::google::protobuf::Message {
+ public:
+  LeaveSceneEvent();
+  virtual ~LeaveSceneEvent();
+
+  LeaveSceneEvent(const LeaveSceneEvent& from);
+
+  inline LeaveSceneEvent& operator=(const LeaveSceneEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LeaveSceneEvent& default_instance();
+
+  void Swap(LeaveSceneEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  LeaveSceneEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LeaveSceneEvent& from);
+  void MergeFrom(const LeaveSceneEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 sceneid = 2;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 2;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // optional uint64 mapid = 3;
+  inline bool has_mapid() const;
+  inline void clear_mapid();
+  static const int kMapidFieldNumber = 3;
+  inline ::google::protobuf::uint64 mapid() const;
+  inline void set_mapid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LeaveSceneEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_mapid();
+  inline void clear_has_mapid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::uint64 mapid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static LeaveSceneEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ChgSceneEvent : public ::google::protobuf::Message {
+ public:
+  ChgSceneEvent();
+  virtual ~ChgSceneEvent();
+
+  ChgSceneEvent(const ChgSceneEvent& from);
+
+  inline ChgSceneEvent& operator=(const ChgSceneEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ChgSceneEvent& default_instance();
+
+  void Swap(ChgSceneEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  ChgSceneEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ChgSceneEvent& from);
+  void MergeFrom(const ChgSceneEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional bool enterflag = 2;
+  inline bool has_enterflag() const;
+  inline void clear_enterflag();
+  static const int kEnterflagFieldNumber = 2;
+  inline bool enterflag() const;
+  inline void set_enterflag(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ChgSceneEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_enterflag();
+  inline void clear_has_enterflag();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  bool enterflag_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static ChgSceneEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -807,6 +1003,124 @@ inline ::google::protobuf::int32 FinishTaskEvent::mapgroup() const {
 inline void FinishTaskEvent::set_mapgroup(::google::protobuf::int32 value) {
   set_has_mapgroup();
   mapgroup_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LeaveSceneEvent
+
+// optional uint64 cid = 1;
+inline bool LeaveSceneEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LeaveSceneEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LeaveSceneEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LeaveSceneEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 LeaveSceneEvent::cid() const {
+  return cid_;
+}
+inline void LeaveSceneEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 sceneid = 2;
+inline bool LeaveSceneEvent::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LeaveSceneEvent::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LeaveSceneEvent::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LeaveSceneEvent::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 LeaveSceneEvent::sceneid() const {
+  return sceneid_;
+}
+inline void LeaveSceneEvent::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// optional uint64 mapid = 3;
+inline bool LeaveSceneEvent::has_mapid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LeaveSceneEvent::set_has_mapid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LeaveSceneEvent::clear_has_mapid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LeaveSceneEvent::clear_mapid() {
+  mapid_ = GOOGLE_ULONGLONG(0);
+  clear_has_mapid();
+}
+inline ::google::protobuf::uint64 LeaveSceneEvent::mapid() const {
+  return mapid_;
+}
+inline void LeaveSceneEvent::set_mapid(::google::protobuf::uint64 value) {
+  set_has_mapid();
+  mapid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ChgSceneEvent
+
+// optional uint64 cid = 1;
+inline bool ChgSceneEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ChgSceneEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ChgSceneEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ChgSceneEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 ChgSceneEvent::cid() const {
+  return cid_;
+}
+inline void ChgSceneEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional bool enterflag = 2;
+inline bool ChgSceneEvent::has_enterflag() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ChgSceneEvent::set_has_enterflag() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ChgSceneEvent::clear_has_enterflag() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ChgSceneEvent::clear_enterflag() {
+  enterflag_ = false;
+  clear_has_enterflag();
+}
+inline bool ChgSceneEvent::enterflag() const {
+  return enterflag_;
+}
+inline void ChgSceneEvent::set_enterflag(bool value) {
+  set_has_enterflag();
+  enterflag_ = value;
 }
 
 
