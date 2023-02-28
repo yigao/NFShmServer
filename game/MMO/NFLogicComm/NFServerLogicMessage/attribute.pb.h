@@ -118,6 +118,13 @@ class E_AttributeAttribute : public ::google::protobuf::Message {
   inline float m_power() const;
   inline void set_m_power(float value);
 
+  // optional int32 m_systemtype = 4;
+  inline bool has_m_systemtype() const;
+  inline void clear_m_systemtype();
+  static const int kMSystemtypeFieldNumber = 4;
+  inline ::google::protobuf::int32 m_systemtype() const;
+  inline void set_m_systemtype(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_AttributeAttribute)
  private:
   inline void set_has_m_id();
@@ -126,15 +133,18 @@ class E_AttributeAttribute : public ::google::protobuf::Message {
   inline void clear_has_m_percent();
   inline void set_has_m_power();
   inline void clear_has_m_power();
+  inline void set_has_m_systemtype();
+  inline void clear_has_m_systemtype();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_percent_;
   float m_power_;
+  ::google::protobuf::int32 m_systemtype_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_attribute_2eproto();
   friend void protobuf_AssignDesc_attribute_2eproto();
@@ -753,6 +763,28 @@ inline float E_AttributeAttribute::m_power() const {
 inline void E_AttributeAttribute::set_m_power(float value) {
   set_has_m_power();
   m_power_ = value;
+}
+
+// optional int32 m_systemtype = 4;
+inline bool E_AttributeAttribute::has_m_systemtype() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_AttributeAttribute::set_has_m_systemtype() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_AttributeAttribute::clear_has_m_systemtype() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_AttributeAttribute::clear_m_systemtype() {
+  m_systemtype_ = 0;
+  clear_has_m_systemtype();
+}
+inline ::google::protobuf::int32 E_AttributeAttribute::m_systemtype() const {
+  return m_systemtype_;
+}
+inline void E_AttributeAttribute::set_m_systemtype(::google::protobuf::int32 value) {
+  set_has_m_systemtype();
+  m_systemtype_ = value;
 }
 
 // -------------------------------------------------------------------

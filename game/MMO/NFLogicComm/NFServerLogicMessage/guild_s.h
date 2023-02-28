@@ -23,6 +23,8 @@ namespace proto_ff_s {
 		int32_t m_dismiss;
 		int32_t m_transferguild;
 		int32_t m_territory;
+		int32_t m_autominlv;
+		int32_t m_autominbp;
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg);

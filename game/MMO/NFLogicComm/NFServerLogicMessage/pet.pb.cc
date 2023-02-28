@@ -116,7 +116,7 @@ void protobuf_AssignDesc_pet_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_PetDisplayMaterialDesc));
   E_PetDisplay_descriptor_ = file->message_type(1);
-  static const int E_PetDisplay_offsets_[32] = {
+  static const int E_PetDisplay_offsets_[33] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_quality_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_isstar_),
@@ -148,6 +148,7 @@ void protobuf_AssignDesc_pet_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_starpetnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_weapon_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_upattributeid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_fettersid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetDisplay, m_material_),
   };
   E_PetDisplay_reflection_ =
@@ -623,7 +624,7 @@ void protobuf_AddDesc_pet_2eproto() {
     "\n\tpet.proto\022\010proto_ff\032\025yd_fieldoptions.p"
     "roto\"N\n\030E_PetDisplayMaterialDesc\022\024\n\004m_id"
     "\030\001 \001(\003B\006\302\377\024\002ID\022\034\n\005m_exp\030\002 \001(\005B\r\302\377\024\t\347\273\217\351\252"
-    "\214\345\200\274\"\242\013\n\014E_PetDisplay\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024"
+    "\214\345\200\274\"\305\013\n\014E_PetDisplay\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024"
     "\010\345\244\226\350\247\202ID\022#\n\tm_quality\030\002 \001(\005B\020\302\377\024\014\345\256\240\347\211\251"
     "\345\223\201\350\264\250\022%\n\010m_isstar\030\003 \001(\005B\023\302\377\024\017\346\230\257\345\220\246\345\217\257\345"
     "\215\207\346\230\237\022\037\n\007m_grade\030\004 \001(\tB\016\302\377\024\006\350\257\204\347\272\247\220\301\024<\022$"
@@ -657,68 +658,69 @@ void protobuf_AddDesc_pet_2eproto() {
     "m_starpetnum\030\035 \001(\tB\033\302\377\024\022\345\215\207\346\230\237\345\256\240\347\211\251\346\225\260\351"
     "\207\217\220\301\024\254\002\022\"\n\010m_weapon\030\036 \001(\005B\020\302\377\024\014\344\270\223\345\261\236\346\255\246"
     "\345\231\250\022.\n\017m_upattributeid\030\037 \001(\003B\025\302\377\024\021\345\215\207\346\230\237"
-    "\345\261\236\346\200\247\347\273\204ID\022L\n\nm_material\030  \003(\0132\".proto_"
-    "ff.E_PetDisplayMaterialDescB\024\302\377\024\014\345\215\207\347\272\247\346"
-    "\235\220\346\226\231\210\301\024\003\"K\n\020Sheet_PetDisplay\0227\n\021E_PetDi"
-    "splay_List\030\001 \003(\0132\026.proto_ff.E_PetDisplay"
-    "B\004\210\301\024\024\"S\n\037E_PetAttributetpyeAttributeDes"
-    "c\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001"
-    "(\005B\007\302\377\024\003\345\200\274\"\242\001\n\022E_PetAttributetpye\022\024\n\004m_"
-    "id\030\001 \001(\003B\006\302\377\024\002id\022 \n\006m_tpye\030\002 \001(\005B\020\302\377\024\014\345\261"
-    "\236\346\200\247\347\261\273\345\236\213\022T\n\013m_attribute\030\003 \003(\0132).proto_"
-    "ff.E_PetAttributetpyeAttributeDescB\024\302\377\024\014"
-    "\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\"]\n\026Sheet_PetAttributetp"
-    "ye\022C\n\027E_PetAttributetpye_List\030\001 \003(\0132\034.pr"
-    "oto_ff.E_PetAttributetpyeB\004\210\301\024(\"G\n\nE_Pet"
-    "Lvexp\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\037\n\005m_exp"
-    "\030\002 \001(\003B\020\302\377\024\014\345\215\207\347\272\247\347\273\217\351\252\214\"F\n\016Sheet_PetLve"
-    "xp\0224\n\017E_PetLvexp_List\030\001 \003(\0132\024.proto_ff.E"
-    "_PetLvexpB\005\210\301\024\364\003\"T\n\031E_PetAdvancelvAdvanc"
-    "eDesc\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_p"
-    "aram\030\002 \001(\002B\n\302\377\024\006\347\263\273\346\225\260\"\311\001\n\016E_PetAdvancel"
-    "v\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022-\n\rm_advance"
-    "item\030\002 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\346\266\210\350\200\227\351\201\223\345\205\267\022&\n\014m_"
-    "advancenum\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022F\n\tm_"
-    "advance\030\004 \003(\0132#.proto_ff.E_PetAdvancelvA"
-    "dvanceDescB\016\302\377\024\006\350\277\233\351\230\266\210\301\024\002\"R\n\022Sheet_PetA"
-    "dvancelv\022<\n\023E_PetAdvancelv_List\030\001 \003(\0132\030."
-    "proto_ff.E_PetAdvancelvB\005\210\301\024\310\001\"N\n\032E_PetS"
-    "tarupUpattributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377"
-    "\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\236\002\n\013E_Pet"
-    "Starup\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022.\n\017m_"
-    "upattributeid\030\002 \001(\003B\025\302\377\024\021\345\215\207\346\230\237\345\261\236\346\200\247\347\273\204"
-    "ID\022\034\n\010m_starid\030\003 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022\037\n\tm_sk"
-    "illid\030\004 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\0221\n\021m_activeski"
-    "llidlv\030\005 \001(\005B\026\302\377\024\022\344\270\273\345\212\250\346\212\200\350\203\275\347\255\211\347\272\247\022Q\n\r"
-    "m_upattribute\030\006 \003(\0132$.proto_ff.E_PetStar"
-    "upUpattributeDescB\024\302\377\024\014\346\277\200\346\264\273\345\261\236\346\200\247\210\301\024\006\""
-    "H\n\017Sheet_PetStarup\0225\n\020E_PetStarup_List\030\001"
-    " \003(\0132\025.proto_ff.E_PetStarupB\004\210\301\024(\"C\n\017E_P"
-    "etEggPetDesc\022\032\n\006m_rand\030\001 \001(\005B\n\302\377\024\006\346\246\202\347\216\207"
-    "\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\213\001\n\010E_PetEgg\022#\n\004m"
-    "_id\030\001 \001(\005B\025\302\377\024\021\345\256\240\347\211\251\350\233\213\351\201\223\345\205\267ID\022 \n\006m_ti"
-    "me\030\002 \001(\005B\020\302\377\024\014\345\255\265\345\214\226\346\227\266\351\227\264\0228\n\005m_pet\030\003 \003("
-    "\0132\031.proto_ff.E_PetEggPetDescB\016\302\377\024\006\345\256\240\347\211\251"
-    "\210\301\024\n\"\?\n\014Sheet_PetEgg\022/\n\rE_PetEgg_List\030\001 "
-    "\003(\0132\022.proto_ff.E_PetEggB\004\210\301\024\024\"S\n\033E_PetDe"
-    "composeDecomposeDesc\022\032\n\007m_boxid\030\001 \001(\005B\t\302"
-    "\377\024\005boxID\022\030\n\006m_type\030\002 \001(\005B\010\302\377\024\004type\"\235\001\n\016E"
-    "_PetDecompose\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022#\n\tm"
-    "_quality\030\002 \001(\005B\020\302\377\024\014\345\256\240\347\211\251\345\223\201\350\264\250\022P\n\013m_de"
-    "compose\030\003 \003(\0132%.proto_ff.E_PetDecomposeD"
-    "ecomposeDescB\024\302\377\024\014\345\210\206\350\247\243\347\261\273\345\236\213\210\301\024\004\"Q\n\022Sh"
-    "eet_PetDecompose\022;\n\023E_PetDecompose_List\030"
-    "\001 \003(\0132\030.proto_ff.E_PetDecomposeB\004\210\301\024\024\"M\n"
-    "\031E_PetFettersAttributeDesc\022\026\n\006m_type\030\001 \001"
-    "(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\363\001\n"
-    "\014E_PetFetters\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022#\n\tm"
-    "_quality\030\002 \001(\005B\020\302\377\024\014\347\276\201\347\273\212\345\223\201\350\264\250\022\'\n\007m_pe"
-    "tid\030\003 \003(\005B\026\302\377\024\016\347\276\201\347\273\212\345\256\240\347\211\251ID\210\301\024\003\022/\n\021m_a"
-    "tctive_skillid\030\004 \003(\005B\024\302\377\024\014\346\277\200\346\264\273\346\212\200\350\203\275\210\301"
-    "\024\004\022N\n\013m_attribute\030\005 \003(\0132#.proto_ff.E_Pet"
-    "FettersAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301"
-    "\024\006\"K\n\020Sheet_PetFetters\0227\n\021E_PetFetters_L"
-    "ist\030\001 \003(\0132\026.proto_ff.E_PetFettersB\004\210\301\024\024", 3959);
+    "\345\261\236\346\200\247\347\273\204ID\022!\n\013m_fettersid\030  \001(\005B\014\302\377\024\010\347\276"
+    "\201\347\273\212ID\022L\n\nm_material\030! \003(\0132\".proto_ff.E_"
+    "PetDisplayMaterialDescB\024\302\377\024\014\345\215\207\347\272\247\346\235\220\346\226\231"
+    "\210\301\024\003\"K\n\020Sheet_PetDisplay\0227\n\021E_PetDisplay"
+    "_List\030\001 \003(\0132\026.proto_ff.E_PetDisplayB\004\210\301\024"
+    "\024\"S\n\037E_PetAttributetpyeAttributeDesc\022\026\n\006"
+    "m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302"
+    "\377\024\003\345\200\274\"\242\001\n\022E_PetAttributetpye\022\024\n\004m_id\030\001 "
+    "\001(\003B\006\302\377\024\002id\022 \n\006m_tpye\030\002 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\347"
+    "\261\273\345\236\213\022T\n\013m_attribute\030\003 \003(\0132).proto_ff.E_"
+    "PetAttributetpyeAttributeDescB\024\302\377\024\014\345\237\272\347\241"
+    "\200\345\261\236\346\200\247\210\301\024\006\"]\n\026Sheet_PetAttributetpye\022C\n"
+    "\027E_PetAttributetpye_List\030\001 \003(\0132\034.proto_f"
+    "f.E_PetAttributetpyeB\004\210\301\024(\"G\n\nE_PetLvexp"
+    "\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\037\n\005m_exp\030\002 \001("
+    "\003B\020\302\377\024\014\345\215\207\347\272\247\347\273\217\351\252\214\"F\n\016Sheet_PetLvexp\0224\n"
+    "\017E_PetLvexp_List\030\001 \003(\0132\024.proto_ff.E_PetL"
+    "vexpB\005\210\301\024\364\003\"T\n\031E_PetAdvancelvAdvanceDesc"
+    "\022\032\n\006m_type\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_param\030"
+    "\002 \001(\002B\n\302\377\024\006\347\263\273\346\225\260\"\311\001\n\016E_PetAdvancelv\022\030\n\004"
+    "m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022-\n\rm_advanceitem\030"
+    "\002 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\346\266\210\350\200\227\351\201\223\345\205\267\022&\n\014m_advan"
+    "cenum\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022F\n\tm_advan"
+    "ce\030\004 \003(\0132#.proto_ff.E_PetAdvancelvAdvanc"
+    "eDescB\016\302\377\024\006\350\277\233\351\230\266\210\301\024\002\"R\n\022Sheet_PetAdvanc"
+    "elv\022<\n\023E_PetAdvancelv_List\030\001 \003(\0132\030.proto"
+    "_ff.E_PetAdvancelvB\005\210\301\024\310\001\"N\n\032E_PetStarup"
+    "UpattributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022"
+    "\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\236\002\n\013E_PetStaru"
+    "p\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022.\n\017m_upatt"
+    "ributeid\030\002 \001(\003B\025\302\377\024\021\345\215\207\346\230\237\345\261\236\346\200\247\347\273\204ID\022\034\n"
+    "\010m_starid\030\003 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022\037\n\tm_skillid"
+    "\030\004 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\0221\n\021m_activeskillidl"
+    "v\030\005 \001(\005B\026\302\377\024\022\344\270\273\345\212\250\346\212\200\350\203\275\347\255\211\347\272\247\022Q\n\rm_upa"
+    "ttribute\030\006 \003(\0132$.proto_ff.E_PetStarupUpa"
+    "ttributeDescB\024\302\377\024\014\346\277\200\346\264\273\345\261\236\346\200\247\210\301\024\006\"H\n\017Sh"
+    "eet_PetStarup\0225\n\020E_PetStarup_List\030\001 \003(\0132"
+    "\025.proto_ff.E_PetStarupB\004\210\301\024(\"C\n\017E_PetEgg"
+    "PetDesc\022\032\n\006m_rand\030\001 \001(\005B\n\302\377\024\006\346\246\202\347\216\207\022\024\n\004m"
+    "_id\030\002 \001(\005B\006\302\377\024\002ID\"\213\001\n\010E_PetEgg\022#\n\004m_id\030\001"
+    " \001(\005B\025\302\377\024\021\345\256\240\347\211\251\350\233\213\351\201\223\345\205\267ID\022 \n\006m_time\030\002 "
+    "\001(\005B\020\302\377\024\014\345\255\265\345\214\226\346\227\266\351\227\264\0228\n\005m_pet\030\003 \003(\0132\031.p"
+    "roto_ff.E_PetEggPetDescB\016\302\377\024\006\345\256\240\347\211\251\210\301\024\n\""
+    "\?\n\014Sheet_PetEgg\022/\n\rE_PetEgg_List\030\001 \003(\0132\022"
+    ".proto_ff.E_PetEggB\004\210\301\024\024\"S\n\033E_PetDecompo"
+    "seDecomposeDesc\022\032\n\007m_boxid\030\001 \001(\005B\t\302\377\024\005bo"
+    "xID\022\030\n\006m_type\030\002 \001(\005B\010\302\377\024\004type\"\235\001\n\016E_PetD"
+    "ecompose\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022#\n\tm_qual"
+    "ity\030\002 \001(\005B\020\302\377\024\014\345\256\240\347\211\251\345\223\201\350\264\250\022P\n\013m_decompo"
+    "se\030\003 \003(\0132%.proto_ff.E_PetDecomposeDecomp"
+    "oseDescB\024\302\377\024\014\345\210\206\350\247\243\347\261\273\345\236\213\210\301\024\004\"Q\n\022Sheet_P"
+    "etDecompose\022;\n\023E_PetDecompose_List\030\001 \003(\013"
+    "2\030.proto_ff.E_PetDecomposeB\004\210\301\024\024\"M\n\031E_Pe"
+    "tFettersAttributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\363\001\n\014E_Pe"
+    "tFetters\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022#\n\tm_qual"
+    "ity\030\002 \001(\005B\020\302\377\024\014\347\276\201\347\273\212\345\223\201\350\264\250\022\'\n\007m_petid\030\003"
+    " \003(\005B\026\302\377\024\016\347\276\201\347\273\212\345\256\240\347\211\251ID\210\301\024\003\022/\n\021m_atctiv"
+    "e_skillid\030\004 \003(\005B\024\302\377\024\014\346\277\200\346\264\273\346\212\200\350\203\275\210\301\024\004\022N\n"
+    "\013m_attribute\030\005 \003(\0132#.proto_ff.E_PetFette"
+    "rsAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\"K\n"
+    "\020Sheet_PetFetters\0227\n\021E_PetFetters_List\030\001"
+    " \003(\0132\026.proto_ff.E_PetFettersB\004\210\301\024\024", 3994);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "pet.proto", &protobuf_RegisterTypes);
   E_PetDisplayMaterialDesc::default_instance_ = new E_PetDisplayMaterialDesc();
@@ -1059,6 +1061,7 @@ const int E_PetDisplay::kMStarpetidFieldNumber;
 const int E_PetDisplay::kMStarpetnumFieldNumber;
 const int E_PetDisplay::kMWeaponFieldNumber;
 const int E_PetDisplay::kMUpattributeidFieldNumber;
+const int E_PetDisplay::kMFettersidFieldNumber;
 const int E_PetDisplay::kMMaterialFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1109,6 +1112,7 @@ void E_PetDisplay::SharedCtor() {
   m_starpetnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_weapon_ = 0;
   m_upattributeid_ = GOOGLE_LONGLONG(0);
+  m_fettersid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1230,6 +1234,7 @@ void E_PetDisplay::Clear() {
     }
     m_weapon_ = 0;
     m_upattributeid_ = GOOGLE_LONGLONG(0);
+    m_fettersid_ = 0;
   }
   m_material_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1740,12 +1745,28 @@ bool E_PetDisplay::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(258)) goto parse_m_material;
+        if (input->ExpectTag(256)) goto parse_m_fettersid;
         break;
       }
 
-      // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 32;
+      // optional int32 m_fettersid = 32;
       case 32: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_fettersid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_fettersid_)));
+          set_has_m_fettersid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(266)) goto parse_m_material;
+        break;
+      }
+
+      // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 33;
+      case 33: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_material:
@@ -1754,7 +1775,7 @@ bool E_PetDisplay::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(258)) goto parse_m_material;
+        if (input->ExpectTag(266)) goto parse_m_material;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1960,10 +1981,15 @@ void E_PetDisplay::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(31, this->m_upattributeid(), output);
   }
 
-  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 32;
+  // optional int32 m_fettersid = 32;
+  if (has_m_fettersid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->m_fettersid(), output);
+  }
+
+  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 33;
   for (int i = 0; i < this->m_material_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      32, this->m_material(i), output);
+      33, this->m_material(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2164,11 +2190,16 @@ void E_PetDisplay::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(31, this->m_upattributeid(), target);
   }
 
-  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 32;
+  // optional int32 m_fettersid = 32;
+  if (has_m_fettersid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->m_fettersid(), target);
+  }
+
+  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 33;
   for (int i = 0; i < this->m_material_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        32, this->m_material(i), target);
+        33, this->m_material(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2389,8 +2420,15 @@ int E_PetDisplay::ByteSize() const {
           this->m_upattributeid());
     }
 
+    // optional int32 m_fettersid = 32;
+    if (has_m_fettersid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_fettersid());
+    }
+
   }
-  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 32;
+  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 33;
   total_size += 2 * this->m_material_size();
   for (int i = 0; i < this->m_material_size(); i++) {
     total_size +=
@@ -2524,6 +2562,9 @@ void E_PetDisplay::MergeFrom(const E_PetDisplay& from) {
     if (from.has_m_upattributeid()) {
       set_m_upattributeid(from.m_upattributeid());
     }
+    if (from.has_m_fettersid()) {
+      set_m_fettersid(from.m_fettersid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2578,8 +2619,10 @@ void E_PetDisplay::Swap(E_PetDisplay* other) {
     std::swap(m_starpetnum_, other->m_starpetnum_);
     std::swap(m_weapon_, other->m_weapon_);
     std::swap(m_upattributeid_, other->m_upattributeid_);
+    std::swap(m_fettersid_, other->m_fettersid_);
     m_material_.Swap(&other->m_material_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_has_bits_[1], other->_has_bits_[1]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }

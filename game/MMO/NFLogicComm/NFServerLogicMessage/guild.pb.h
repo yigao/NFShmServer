@@ -153,6 +153,20 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_territory() const;
   inline void set_m_territory(::google::protobuf::int32 value);
 
+  // optional int32 m_autominlv = 9;
+  inline bool has_m_autominlv() const;
+  inline void clear_m_autominlv();
+  static const int kMAutominlvFieldNumber = 9;
+  inline ::google::protobuf::int32 m_autominlv() const;
+  inline void set_m_autominlv(::google::protobuf::int32 value);
+
+  // optional int32 m_autominbp = 10;
+  inline bool has_m_autominbp() const;
+  inline void clear_m_autominbp();
+  static const int kMAutominbpFieldNumber = 10;
+  inline ::google::protobuf::int32 m_autominbp() const;
+  inline void set_m_autominbp(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_GuildConstant)
  private:
   inline void set_has_m_constantid();
@@ -171,6 +185,10 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline void clear_has_m_transferguild();
   inline void set_has_m_territory();
   inline void clear_has_m_territory();
+  inline void set_has_m_autominlv();
+  inline void clear_has_m_autominlv();
+  inline void set_has_m_autominbp();
+  inline void clear_has_m_autominbp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -182,9 +200,11 @@ class E_GuildConstant : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_dismiss_;
   ::google::protobuf::int32 m_transferguild_;
   ::google::protobuf::int32 m_territory_;
+  ::google::protobuf::int32 m_autominlv_;
+  ::google::protobuf::int32 m_autominbp_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_guild_2eproto();
   friend void protobuf_AssignDesc_guild_2eproto();
@@ -1003,6 +1023,50 @@ inline ::google::protobuf::int32 E_GuildConstant::m_territory() const {
 inline void E_GuildConstant::set_m_territory(::google::protobuf::int32 value) {
   set_has_m_territory();
   m_territory_ = value;
+}
+
+// optional int32 m_autominlv = 9;
+inline bool E_GuildConstant::has_m_autominlv() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_GuildConstant::set_has_m_autominlv() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_GuildConstant::clear_has_m_autominlv() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_GuildConstant::clear_m_autominlv() {
+  m_autominlv_ = 0;
+  clear_has_m_autominlv();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_autominlv() const {
+  return m_autominlv_;
+}
+inline void E_GuildConstant::set_m_autominlv(::google::protobuf::int32 value) {
+  set_has_m_autominlv();
+  m_autominlv_ = value;
+}
+
+// optional int32 m_autominbp = 10;
+inline bool E_GuildConstant::has_m_autominbp() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void E_GuildConstant::set_has_m_autominbp() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void E_GuildConstant::clear_has_m_autominbp() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void E_GuildConstant::clear_m_autominbp() {
+  m_autominbp_ = 0;
+  clear_has_m_autominbp();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_autominbp() const {
+  return m_autominbp_;
+}
+inline void E_GuildConstant::set_m_autominbp(::google::protobuf::int32 value) {
+  set_has_m_autominbp();
+  m_autominbp_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -61,6 +61,7 @@ namespace proto_ff_s {
 		NFShmString<300> m_starpetnum;
 		int32_t m_weapon;
 		int64_t m_upattributeid;
+		int32_t m_fettersid;
 		NFShmVector<struct E_PetDisplayMaterialDesc_s, 3> m_material;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetDisplay & msg) const;

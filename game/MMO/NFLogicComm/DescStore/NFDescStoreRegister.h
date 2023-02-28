@@ -49,6 +49,7 @@ REGISTER_DESCSTORE(SkillSkillawakeDesc);\
 REGISTER_DESCSTORE(SkillSkilladvanceDesc);\
 REGISTER_DESCSTORE(ItemItemDesc);\
 REGISTER_DESCSTORE(EquipEquipDesc);\
+REGISTER_DESCSTORE(EquipAttributeDesc);\
 REGISTER_DESCSTORE(EquipStrongDesc);\
 REGISTER_DESCSTORE(EquipStrongexpDesc);\
 REGISTER_DESCSTORE(EquipStrongtotalDesc);\
@@ -165,6 +166,16 @@ REGISTER_DESCSTORE(GuildLevelDesc);\
 REGISTER_DESCSTORE(GuildPositionDesc);\
 REGISTER_DESCSTORE(CollectCollectDesc);\
 REGISTER_DESCSTORE(CollectAttributetpyeDesc);\
+REGISTER_DESCSTORE(CollectConstDesc);\
 REGISTER_DESCSTORE(TitleTypeDesc);\
 REGISTER_DESCSTORE(TitleTitleDesc);\
+REGISTER_DESCSTORE(GodevilPreposetaskDesc);\
+REGISTER_DESCSTORE(GodevilGodevillvDesc);\
+REGISTER_DESCSTORE(GodevilGodevilprivilegeDesc);\
+REGISTER_DESCSTORE(OccupationOccupationDesc);\
+REGISTER_DESCSTORE(OccupationStageDesc);\
+REGISTER_DESCSTORE(OccupationAttributeDesc);\
+REGISTER_DESCSTORE(OccupationSoulDesc);\
+REGISTER_DESCSTORE(GodvalleyBattleDesc);\
+REGISTER_DESCSTORE(RechargeRechargeDesc);\
 

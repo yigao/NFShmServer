@@ -26,7 +26,8 @@ class NFScene;
 class NFSceneMgr : public NFShmObj
 {
 public:
-    typedef NFShmHashMap<int32_t, NFShmVector<NFPoint2<int32_t>, MAX_LAYER>, MAX_LAYER> mapLayer;
+    typedef NFShmVector<NFPoint2<int32_t>, MAX_LAYER*3> OneLayer;
+    typedef NFShmVector<OneLayer, MAX_LAYER+1> NineGridLayer;
 public:
     NFSceneMgr();
 
@@ -76,12 +77,14 @@ public:
     bool IsClosed(uint64_t sceneId);
 
     //获取层数对应格子计算数组
-    const NFShmVector<NFPoint2<int32_t>, MAX_LAYER>* GetLayerPoint(uint32_t nlayer);
+    const OneLayer* GetLayerPoint(uint32_t nlayer);
+public:
+    int EnterScene(uint64_t mapId, uint64_t sceneId, uint64_t roleId, uint64_t transId);
 private:
     //场景销毁缓存表 sceneid - tick
     NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;
     //每层映射搜索位置信息(最大5层)
-    mapLayer m_mapLayer;
+    NineGridLayer m_nineGridLayer;
 private:
 DECLARE_IDCREATE(NFSceneMgr)
 };

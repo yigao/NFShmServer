@@ -96,21 +96,21 @@ class E_TitleType : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_type = 1;
-  inline bool has_m_type() const;
-  inline void clear_m_type();
-  static const int kMTypeFieldNumber = 1;
-  inline ::google::protobuf::int32 m_type() const;
-  inline void set_m_type(::google::protobuf::int32 value);
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_TitleType)
  private:
-  inline void set_has_m_type();
-  inline void clear_has_m_type();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -646,26 +646,26 @@ class Sheet_TitleTitle : public ::google::protobuf::Message {
 
 // E_TitleType
 
-// optional int32 m_type = 1;
-inline bool E_TitleType::has_m_type() const {
+// optional int32 m_id = 1;
+inline bool E_TitleType::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_TitleType::set_has_m_type() {
+inline void E_TitleType::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_TitleType::clear_has_m_type() {
+inline void E_TitleType::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_TitleType::clear_m_type() {
-  m_type_ = 0;
-  clear_has_m_type();
+inline void E_TitleType::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_TitleType::m_type() const {
-  return m_type_;
+inline ::google::protobuf::int32 E_TitleType::m_id() const {
+  return m_id_;
 }
-inline void E_TitleType::set_m_type(::google::protobuf::int32 value) {
-  set_has_m_type();
-  m_type_ = value;
+inline void E_TitleType::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
 // -------------------------------------------------------------------

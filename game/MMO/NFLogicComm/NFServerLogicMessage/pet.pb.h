@@ -458,10 +458,17 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 32;
+  // optional int32 m_fettersid = 32;
+  inline bool has_m_fettersid() const;
+  inline void clear_m_fettersid();
+  static const int kMFettersidFieldNumber = 32;
+  inline ::google::protobuf::int32 m_fettersid() const;
+  inline void set_m_fettersid(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 33;
   inline int m_material_size() const;
   inline void clear_m_material();
-  static const int kMMaterialFieldNumber = 32;
+  static const int kMMaterialFieldNumber = 33;
   inline const ::proto_ff::E_PetDisplayMaterialDesc& m_material(int index) const;
   inline ::proto_ff::E_PetDisplayMaterialDesc* mutable_m_material(int index);
   inline ::proto_ff::E_PetDisplayMaterialDesc* add_m_material();
@@ -534,6 +541,8 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline void clear_has_m_weapon();
   inline void set_has_m_upattributeid();
   inline void clear_has_m_upattributeid();
+  inline void set_has_m_fettersid();
+  inline void clear_has_m_fettersid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -566,12 +575,13 @@ class E_PetDisplay : public ::google::protobuf::Message {
   ::std::string* m_starnum_;
   ::google::protobuf::int64 m_starpetid_;
   ::std::string* m_starpetnum_;
+  ::google::protobuf::int32 m_weapon_;
+  ::google::protobuf::int32 m_fettersid_;
   ::google::protobuf::int64 m_upattributeid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetDisplayMaterialDesc > m_material_;
-  ::google::protobuf::int32 m_weapon_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(32 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
 
   friend void  protobuf_AddDesc_pet_2eproto();
   friend void protobuf_AssignDesc_pet_2eproto();
@@ -3673,7 +3683,29 @@ inline void E_PetDisplay::set_m_upattributeid(::google::protobuf::int64 value) {
   m_upattributeid_ = value;
 }
 
-// repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 32;
+// optional int32 m_fettersid = 32;
+inline bool E_PetDisplay::has_m_fettersid() const {
+  return (_has_bits_[0] & 0x80000000u) != 0;
+}
+inline void E_PetDisplay::set_has_m_fettersid() {
+  _has_bits_[0] |= 0x80000000u;
+}
+inline void E_PetDisplay::clear_has_m_fettersid() {
+  _has_bits_[0] &= ~0x80000000u;
+}
+inline void E_PetDisplay::clear_m_fettersid() {
+  m_fettersid_ = 0;
+  clear_has_m_fettersid();
+}
+inline ::google::protobuf::int32 E_PetDisplay::m_fettersid() const {
+  return m_fettersid_;
+}
+inline void E_PetDisplay::set_m_fettersid(::google::protobuf::int32 value) {
+  set_has_m_fettersid();
+  m_fettersid_ = value;
+}
+
+// repeated .proto_ff.E_PetDisplayMaterialDesc m_material = 33;
 inline int E_PetDisplay::m_material_size() const {
   return m_material_.size();
 }

@@ -10,22 +10,6 @@
 
 namespace proto_ff_s {
 
-	struct E_EquipEquipAttributeDesc_s : public NFDescStoreSeqOP {
-		E_EquipEquipAttributeDesc_s();
-		virtual ~E_EquipEquipAttributeDesc_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_valuemin;
-		int32_t m_type;
-		int32_t m_valuemax;
-
-		virtual void write_to_pbmsg(::proto_ff::E_EquipEquipAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquipAttributeDesc & msg);
-		static ::proto_ff::E_EquipEquipAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipEquipAttributeDesc(); }
-		static ::proto_ff::E_EquipEquipAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipEquipAttributeDesc(); }
-	};
-	typedef struct E_EquipEquipAttributeDesc_s E_EquipEquipAttributeDesc_t;
-
 	struct E_EquipEquip_s : public NFDescStoreSeqOP {
 		E_EquipEquip_s();
 		virtual ~E_EquipEquip_s(){}
@@ -40,19 +24,8 @@ namespace proto_ff_s {
 		int32_t m_professionlv;
 		int32_t m_level;
 		int32_t m_quality;
-		NFShmString<60> m_godattribute_type;
-		NFShmString<60> m_godattribute_valuemin;
-		NFShmString<60> m_godattribute_valuemax;
+		int32_t m_attributeid;
 		int32_t m_star;
-		int32_t m_refineattributedown;
-		int32_t m_refineattributeup;
-		NFShmString<60> m_refineattribute_typelibrary;
-		NFShmString<60> m_refineattribute_valuemin;
-		NFShmString<60> m_refineattribute_valuemax;
-		int32_t m_bluestarnum;
-		NFShmString<60> m_bluestar_type;
-		NFShmString<60> m_bluestar_lv;
-		NFShmString<60> m_bluestar_number;
 		int32_t m_iscanbind;
 		int32_t m_istradebind;
 		int32_t m_sellprice;
@@ -60,13 +33,7 @@ namespace proto_ff_s {
 		int32_t m_time;
 		int32_t m_broadcast;
 		NFShmString<60> m_meltingresult;
-		int32_t m_specialattributedown;
-		int32_t m_specialattributeup;
-		NFShmString<60> m_specialattribute_typelibrary;
-		NFShmString<60> m_specialattribute_valuemin;
-		NFShmString<60> m_specialattribute_valuemax;
 		NFShmString<60> m_skillid;
-		NFShmVector<struct E_EquipEquipAttributeDesc_s, 3> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg);
@@ -88,6 +55,64 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_EquipEquip make_pbmsg(){ return ::proto_ff::Sheet_EquipEquip(); }
 	};
 	typedef struct Sheet_EquipEquip_s Sheet_EquipEquip_t;
+
+	struct E_EquipAttributeAttributeDesc_s : public NFDescStoreSeqOP {
+		E_EquipAttributeAttributeDesc_s();
+		virtual ~E_EquipAttributeAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_valuemin;
+		int32_t m_type;
+		int32_t m_valuemax;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipAttributeAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipAttributeAttributeDesc & msg);
+		static ::proto_ff::E_EquipAttributeAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_EquipAttributeAttributeDesc(); }
+		static ::proto_ff::E_EquipAttributeAttributeDesc make_pbmsg(){ return ::proto_ff::E_EquipAttributeAttributeDesc(); }
+	};
+	typedef struct E_EquipAttributeAttributeDesc_s E_EquipAttributeAttributeDesc_t;
+
+	struct E_EquipAttribute_s : public NFDescStoreSeqOP {
+		E_EquipAttribute_s();
+		virtual ~E_EquipAttribute_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		int32_t m_bluestarnum;
+		NFShmString<60> m_bluestar_type;
+		NFShmString<60> m_bluestar_lv;
+		NFShmString<60> m_bluestar_number;
+		int32_t m_specialattributedown;
+		int32_t m_specialattributeup;
+		NFShmString<60> m_specialattribute_typelibrary;
+		NFShmString<60> m_specialattribute_valuemin;
+		NFShmString<60> m_specialattribute_valuemax;
+		NFShmString<60> m_godattribute_type;
+		NFShmString<60> m_godattribute_valuemin;
+		NFShmString<60> m_godattribute_valuemax;
+		NFShmVector<struct E_EquipAttributeAttributeDesc_s, 3> m_attribute;
+		NFShmVector<NFShmString<60>, 7> m_star_library;
+
+		virtual void write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EquipAttribute & msg);
+		static ::proto_ff::E_EquipAttribute* new_pbmsg(){ return new ::proto_ff::E_EquipAttribute(); }
+		static ::proto_ff::E_EquipAttribute make_pbmsg(){ return ::proto_ff::E_EquipAttribute(); }
+	};
+	typedef struct E_EquipAttribute_s E_EquipAttribute_t;
+
+	struct Sheet_EquipAttribute_s : public NFDescStoreSeqOP {
+		Sheet_EquipAttribute_s();
+		virtual ~Sheet_EquipAttribute_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_EquipAttribute_s, 11000> E_EquipAttribute_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipAttribute & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipAttribute & msg);
+		static ::proto_ff::Sheet_EquipAttribute* new_pbmsg(){ return new ::proto_ff::Sheet_EquipAttribute(); }
+		static ::proto_ff::Sheet_EquipAttribute make_pbmsg(){ return ::proto_ff::Sheet_EquipAttribute(); }
+	};
+	typedef struct Sheet_EquipAttribute_s Sheet_EquipAttribute_t;
 
 	struct E_EquipStrongTypeDesc_s : public NFDescStoreSeqOP {
 		E_EquipStrongTypeDesc_s();

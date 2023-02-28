@@ -47,3 +47,14 @@ message Sheet_CollectAttributetpye
 {
 	repeated E_CollectAttributetpye E_CollectAttributetpye_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
+
+message E_CollectConst
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+
+message Sheet_CollectConst
+{
+	repeated E_CollectConst E_CollectConst_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

@@ -131,7 +131,7 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
     proto_ff::WorldToGameEnterSceneReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-
+    NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(xMsg.map_id(), xMsg.scene_id(), xMsg.cid(), xMsg.req_trans_id());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     return 0;

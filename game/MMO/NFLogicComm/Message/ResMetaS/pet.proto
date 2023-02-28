@@ -42,7 +42,8 @@ message E_PetDisplay
 	optional string m_starpetnum = 29[(yd_fieldoptions.field_cname) = "升星宠物数量", (yd_fieldoptions.field_bufsize) = 300];
 	optional int32 m_weapon = 30[(yd_fieldoptions.field_cname) = "专属武器"];
 	optional int64 m_upattributeid = 31[(yd_fieldoptions.field_cname) = "升星属性组ID"];
-	repeated E_PetDisplayMaterialDesc m_material = 32[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_fettersid = 32[(yd_fieldoptions.field_cname) = "羁绊ID"];
+	repeated E_PetDisplayMaterialDesc m_material = 33[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

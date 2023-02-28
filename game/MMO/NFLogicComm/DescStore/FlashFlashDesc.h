@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/flash_s.h"
 
-#define MAX_FLASH_FLASH_NUM 40
+#define MAX_FLASH_FLASH_NUM 60
 
 class FlashFlashDesc : public NFIDescStore
 {

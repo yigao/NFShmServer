@@ -51,7 +51,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FlashFlash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FlashFlash_s, 40> E_FlashFlash_List;
+		NFShmVector<struct E_FlashFlash_s, 60> E_FlashFlash_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FlashFlash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FlashFlash & msg);

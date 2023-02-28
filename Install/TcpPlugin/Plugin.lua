@@ -50,7 +50,7 @@ LoadPlugin =
 			--"NFLoginServerPlayerPlugin",
 
 			"NFGameServerPlugin",
-			--"NFBattlePlugin",
+			"NFBattlePlugin",
 
 			"NFWorldServerPlugin",
 			"NFWorldServerPlayerPlugin",

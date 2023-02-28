@@ -20,7 +20,7 @@ namespace proto_ff_s {
 		int32_t m_opentype;
 		int64_t m_openval;
 		int32_t m_iconopenval;
-		NFShmString<60> m_icondisapear;
+		int32_t m_icondisapearid;
 		int32_t m_belong;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FunctionunlockFunctionunlock & msg) const;

@@ -34,9 +34,11 @@ void  protobuf_AddDesc_equip_2eproto();
 void protobuf_AssignDesc_equip_2eproto();
 void protobuf_ShutdownFile_equip_2eproto();
 
-class E_EquipEquipAttributeDesc;
 class E_EquipEquip;
 class Sheet_EquipEquip;
+class E_EquipAttributeAttributeDesc;
+class E_EquipAttribute;
+class Sheet_EquipAttribute;
 class E_EquipStrongTypeDesc;
 class E_EquipStrong;
 class Sheet_EquipStrong;
@@ -69,108 +71,6 @@ class E_EquipBreak;
 class Sheet_EquipBreak;
 
 // ===================================================================
-
-class E_EquipEquipAttributeDesc : public ::google::protobuf::Message {
- public:
-  E_EquipEquipAttributeDesc();
-  virtual ~E_EquipEquipAttributeDesc();
-
-  E_EquipEquipAttributeDesc(const E_EquipEquipAttributeDesc& from);
-
-  inline E_EquipEquipAttributeDesc& operator=(const E_EquipEquipAttributeDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const E_EquipEquipAttributeDesc& default_instance();
-
-  void Swap(E_EquipEquipAttributeDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  E_EquipEquipAttributeDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_EquipEquipAttributeDesc& from);
-  void MergeFrom(const E_EquipEquipAttributeDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 m_valuemin = 1;
-  inline bool has_m_valuemin() const;
-  inline void clear_m_valuemin();
-  static const int kMValueminFieldNumber = 1;
-  inline ::google::protobuf::int32 m_valuemin() const;
-  inline void set_m_valuemin(::google::protobuf::int32 value);
-
-  // optional int32 m_type = 2;
-  inline bool has_m_type() const;
-  inline void clear_m_type();
-  static const int kMTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 m_type() const;
-  inline void set_m_type(::google::protobuf::int32 value);
-
-  // optional int32 m_valuemax = 3;
-  inline bool has_m_valuemax() const;
-  inline void clear_m_valuemax();
-  static const int kMValuemaxFieldNumber = 3;
-  inline ::google::protobuf::int32 m_valuemax() const;
-  inline void set_m_valuemax(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.E_EquipEquipAttributeDesc)
- private:
-  inline void set_has_m_valuemin();
-  inline void clear_has_m_valuemin();
-  inline void set_has_m_type();
-  inline void clear_has_m_type();
-  inline void set_has_m_valuemax();
-  inline void clear_has_m_valuemax();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 m_valuemin_;
-  ::google::protobuf::int32 m_type_;
-  ::google::protobuf::int32 m_valuemax_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
-
-  friend void  protobuf_AddDesc_equip_2eproto();
-  friend void protobuf_AssignDesc_equip_2eproto();
-  friend void protobuf_ShutdownFile_equip_2eproto();
-
-  void InitAsDefaultInstance();
-  static E_EquipEquipAttributeDesc* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class E_EquipEquip : public ::google::protobuf::Message {
  public:
@@ -299,167 +199,45 @@ class E_EquipEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional string m_godattribute_type = 10;
-  inline bool has_m_godattribute_type() const;
-  inline void clear_m_godattribute_type();
-  static const int kMGodattributeTypeFieldNumber = 10;
-  inline const ::std::string& m_godattribute_type() const;
-  inline void set_m_godattribute_type(const ::std::string& value);
-  inline void set_m_godattribute_type(const char* value);
-  inline void set_m_godattribute_type(const char* value, size_t size);
-  inline ::std::string* mutable_m_godattribute_type();
-  inline ::std::string* release_m_godattribute_type();
-  inline void set_allocated_m_godattribute_type(::std::string* m_godattribute_type);
+  // optional int32 m_attributeid = 10;
+  inline bool has_m_attributeid() const;
+  inline void clear_m_attributeid();
+  static const int kMAttributeidFieldNumber = 10;
+  inline ::google::protobuf::int32 m_attributeid() const;
+  inline void set_m_attributeid(::google::protobuf::int32 value);
 
-  // optional string m_godattribute_valuemin = 11;
-  inline bool has_m_godattribute_valuemin() const;
-  inline void clear_m_godattribute_valuemin();
-  static const int kMGodattributeValueminFieldNumber = 11;
-  inline const ::std::string& m_godattribute_valuemin() const;
-  inline void set_m_godattribute_valuemin(const ::std::string& value);
-  inline void set_m_godattribute_valuemin(const char* value);
-  inline void set_m_godattribute_valuemin(const char* value, size_t size);
-  inline ::std::string* mutable_m_godattribute_valuemin();
-  inline ::std::string* release_m_godattribute_valuemin();
-  inline void set_allocated_m_godattribute_valuemin(::std::string* m_godattribute_valuemin);
-
-  // optional string m_godattribute_valuemax = 12;
-  inline bool has_m_godattribute_valuemax() const;
-  inline void clear_m_godattribute_valuemax();
-  static const int kMGodattributeValuemaxFieldNumber = 12;
-  inline const ::std::string& m_godattribute_valuemax() const;
-  inline void set_m_godattribute_valuemax(const ::std::string& value);
-  inline void set_m_godattribute_valuemax(const char* value);
-  inline void set_m_godattribute_valuemax(const char* value, size_t size);
-  inline ::std::string* mutable_m_godattribute_valuemax();
-  inline ::std::string* release_m_godattribute_valuemax();
-  inline void set_allocated_m_godattribute_valuemax(::std::string* m_godattribute_valuemax);
-
-  // optional int32 m_star = 13;
+  // optional int32 m_star = 11;
   inline bool has_m_star() const;
   inline void clear_m_star();
-  static const int kMStarFieldNumber = 13;
+  static const int kMStarFieldNumber = 11;
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_refineattributedown = 14;
-  inline bool has_m_refineattributedown() const;
-  inline void clear_m_refineattributedown();
-  static const int kMRefineattributedownFieldNumber = 14;
-  inline ::google::protobuf::int32 m_refineattributedown() const;
-  inline void set_m_refineattributedown(::google::protobuf::int32 value);
-
-  // optional int32 m_refineattributeup = 15;
-  inline bool has_m_refineattributeup() const;
-  inline void clear_m_refineattributeup();
-  static const int kMRefineattributeupFieldNumber = 15;
-  inline ::google::protobuf::int32 m_refineattributeup() const;
-  inline void set_m_refineattributeup(::google::protobuf::int32 value);
-
-  // optional string m_refineattribute_typelibrary = 16;
-  inline bool has_m_refineattribute_typelibrary() const;
-  inline void clear_m_refineattribute_typelibrary();
-  static const int kMRefineattributeTypelibraryFieldNumber = 16;
-  inline const ::std::string& m_refineattribute_typelibrary() const;
-  inline void set_m_refineattribute_typelibrary(const ::std::string& value);
-  inline void set_m_refineattribute_typelibrary(const char* value);
-  inline void set_m_refineattribute_typelibrary(const char* value, size_t size);
-  inline ::std::string* mutable_m_refineattribute_typelibrary();
-  inline ::std::string* release_m_refineattribute_typelibrary();
-  inline void set_allocated_m_refineattribute_typelibrary(::std::string* m_refineattribute_typelibrary);
-
-  // optional string m_refineattribute_valuemin = 17;
-  inline bool has_m_refineattribute_valuemin() const;
-  inline void clear_m_refineattribute_valuemin();
-  static const int kMRefineattributeValueminFieldNumber = 17;
-  inline const ::std::string& m_refineattribute_valuemin() const;
-  inline void set_m_refineattribute_valuemin(const ::std::string& value);
-  inline void set_m_refineattribute_valuemin(const char* value);
-  inline void set_m_refineattribute_valuemin(const char* value, size_t size);
-  inline ::std::string* mutable_m_refineattribute_valuemin();
-  inline ::std::string* release_m_refineattribute_valuemin();
-  inline void set_allocated_m_refineattribute_valuemin(::std::string* m_refineattribute_valuemin);
-
-  // optional string m_refineattribute_valuemax = 18;
-  inline bool has_m_refineattribute_valuemax() const;
-  inline void clear_m_refineattribute_valuemax();
-  static const int kMRefineattributeValuemaxFieldNumber = 18;
-  inline const ::std::string& m_refineattribute_valuemax() const;
-  inline void set_m_refineattribute_valuemax(const ::std::string& value);
-  inline void set_m_refineattribute_valuemax(const char* value);
-  inline void set_m_refineattribute_valuemax(const char* value, size_t size);
-  inline ::std::string* mutable_m_refineattribute_valuemax();
-  inline ::std::string* release_m_refineattribute_valuemax();
-  inline void set_allocated_m_refineattribute_valuemax(::std::string* m_refineattribute_valuemax);
-
-  // optional int32 m_bluestarnum = 19;
-  inline bool has_m_bluestarnum() const;
-  inline void clear_m_bluestarnum();
-  static const int kMBluestarnumFieldNumber = 19;
-  inline ::google::protobuf::int32 m_bluestarnum() const;
-  inline void set_m_bluestarnum(::google::protobuf::int32 value);
-
-  // optional string m_bluestar_type = 20;
-  inline bool has_m_bluestar_type() const;
-  inline void clear_m_bluestar_type();
-  static const int kMBluestarTypeFieldNumber = 20;
-  inline const ::std::string& m_bluestar_type() const;
-  inline void set_m_bluestar_type(const ::std::string& value);
-  inline void set_m_bluestar_type(const char* value);
-  inline void set_m_bluestar_type(const char* value, size_t size);
-  inline ::std::string* mutable_m_bluestar_type();
-  inline ::std::string* release_m_bluestar_type();
-  inline void set_allocated_m_bluestar_type(::std::string* m_bluestar_type);
-
-  // optional string m_bluestar_lv = 21;
-  inline bool has_m_bluestar_lv() const;
-  inline void clear_m_bluestar_lv();
-  static const int kMBluestarLvFieldNumber = 21;
-  inline const ::std::string& m_bluestar_lv() const;
-  inline void set_m_bluestar_lv(const ::std::string& value);
-  inline void set_m_bluestar_lv(const char* value);
-  inline void set_m_bluestar_lv(const char* value, size_t size);
-  inline ::std::string* mutable_m_bluestar_lv();
-  inline ::std::string* release_m_bluestar_lv();
-  inline void set_allocated_m_bluestar_lv(::std::string* m_bluestar_lv);
-
-  // optional string m_bluestar_number = 22;
-  inline bool has_m_bluestar_number() const;
-  inline void clear_m_bluestar_number();
-  static const int kMBluestarNumberFieldNumber = 22;
-  inline const ::std::string& m_bluestar_number() const;
-  inline void set_m_bluestar_number(const ::std::string& value);
-  inline void set_m_bluestar_number(const char* value);
-  inline void set_m_bluestar_number(const char* value, size_t size);
-  inline ::std::string* mutable_m_bluestar_number();
-  inline ::std::string* release_m_bluestar_number();
-  inline void set_allocated_m_bluestar_number(::std::string* m_bluestar_number);
-
-  // optional int32 m_iscanbind = 23;
+  // optional int32 m_iscanbind = 12;
   inline bool has_m_iscanbind() const;
   inline void clear_m_iscanbind();
-  static const int kMIscanbindFieldNumber = 23;
+  static const int kMIscanbindFieldNumber = 12;
   inline ::google::protobuf::int32 m_iscanbind() const;
   inline void set_m_iscanbind(::google::protobuf::int32 value);
 
-  // optional int32 m_istradebind = 24;
+  // optional int32 m_istradebind = 13;
   inline bool has_m_istradebind() const;
   inline void clear_m_istradebind();
-  static const int kMIstradebindFieldNumber = 24;
+  static const int kMIstradebindFieldNumber = 13;
   inline ::google::protobuf::int32 m_istradebind() const;
   inline void set_m_istradebind(::google::protobuf::int32 value);
 
-  // optional int32 m_sellprice = 25;
+  // optional int32 m_sellprice = 14;
   inline bool has_m_sellprice() const;
   inline void clear_m_sellprice();
-  static const int kMSellpriceFieldNumber = 25;
+  static const int kMSellpriceFieldNumber = 14;
   inline ::google::protobuf::int32 m_sellprice() const;
   inline void set_m_sellprice(::google::protobuf::int32 value);
 
-  // optional string m_icon = 26;
+  // optional string m_icon = 15;
   inline bool has_m_icon() const;
   inline void clear_m_icon();
-  static const int kMIconFieldNumber = 26;
+  static const int kMIconFieldNumber = 15;
   inline const ::std::string& m_icon() const;
   inline void set_m_icon(const ::std::string& value);
   inline void set_m_icon(const char* value);
@@ -468,24 +246,24 @@ class E_EquipEquip : public ::google::protobuf::Message {
   inline ::std::string* release_m_icon();
   inline void set_allocated_m_icon(::std::string* m_icon);
 
-  // optional int32 m_time = 27;
+  // optional int32 m_time = 16;
   inline bool has_m_time() const;
   inline void clear_m_time();
-  static const int kMTimeFieldNumber = 27;
+  static const int kMTimeFieldNumber = 16;
   inline ::google::protobuf::int32 m_time() const;
   inline void set_m_time(::google::protobuf::int32 value);
 
-  // optional int32 m_broadcast = 28;
+  // optional int32 m_broadcast = 17;
   inline bool has_m_broadcast() const;
   inline void clear_m_broadcast();
-  static const int kMBroadcastFieldNumber = 28;
+  static const int kMBroadcastFieldNumber = 17;
   inline ::google::protobuf::int32 m_broadcast() const;
   inline void set_m_broadcast(::google::protobuf::int32 value);
 
-  // optional string m_meltingresult = 29;
+  // optional string m_meltingresult = 18;
   inline bool has_m_meltingresult() const;
   inline void clear_m_meltingresult();
-  static const int kMMeltingresultFieldNumber = 29;
+  static const int kMMeltingresultFieldNumber = 18;
   inline const ::std::string& m_meltingresult() const;
   inline void set_m_meltingresult(const ::std::string& value);
   inline void set_m_meltingresult(const char* value);
@@ -494,60 +272,10 @@ class E_EquipEquip : public ::google::protobuf::Message {
   inline ::std::string* release_m_meltingresult();
   inline void set_allocated_m_meltingresult(::std::string* m_meltingresult);
 
-  // optional int32 m_specialattributedown = 30;
-  inline bool has_m_specialattributedown() const;
-  inline void clear_m_specialattributedown();
-  static const int kMSpecialattributedownFieldNumber = 30;
-  inline ::google::protobuf::int32 m_specialattributedown() const;
-  inline void set_m_specialattributedown(::google::protobuf::int32 value);
-
-  // optional int32 m_specialattributeup = 31;
-  inline bool has_m_specialattributeup() const;
-  inline void clear_m_specialattributeup();
-  static const int kMSpecialattributeupFieldNumber = 31;
-  inline ::google::protobuf::int32 m_specialattributeup() const;
-  inline void set_m_specialattributeup(::google::protobuf::int32 value);
-
-  // optional string m_specialattribute_typelibrary = 32;
-  inline bool has_m_specialattribute_typelibrary() const;
-  inline void clear_m_specialattribute_typelibrary();
-  static const int kMSpecialattributeTypelibraryFieldNumber = 32;
-  inline const ::std::string& m_specialattribute_typelibrary() const;
-  inline void set_m_specialattribute_typelibrary(const ::std::string& value);
-  inline void set_m_specialattribute_typelibrary(const char* value);
-  inline void set_m_specialattribute_typelibrary(const char* value, size_t size);
-  inline ::std::string* mutable_m_specialattribute_typelibrary();
-  inline ::std::string* release_m_specialattribute_typelibrary();
-  inline void set_allocated_m_specialattribute_typelibrary(::std::string* m_specialattribute_typelibrary);
-
-  // optional string m_specialattribute_valuemin = 33;
-  inline bool has_m_specialattribute_valuemin() const;
-  inline void clear_m_specialattribute_valuemin();
-  static const int kMSpecialattributeValueminFieldNumber = 33;
-  inline const ::std::string& m_specialattribute_valuemin() const;
-  inline void set_m_specialattribute_valuemin(const ::std::string& value);
-  inline void set_m_specialattribute_valuemin(const char* value);
-  inline void set_m_specialattribute_valuemin(const char* value, size_t size);
-  inline ::std::string* mutable_m_specialattribute_valuemin();
-  inline ::std::string* release_m_specialattribute_valuemin();
-  inline void set_allocated_m_specialattribute_valuemin(::std::string* m_specialattribute_valuemin);
-
-  // optional string m_specialattribute_valuemax = 34;
-  inline bool has_m_specialattribute_valuemax() const;
-  inline void clear_m_specialattribute_valuemax();
-  static const int kMSpecialattributeValuemaxFieldNumber = 34;
-  inline const ::std::string& m_specialattribute_valuemax() const;
-  inline void set_m_specialattribute_valuemax(const ::std::string& value);
-  inline void set_m_specialattribute_valuemax(const char* value);
-  inline void set_m_specialattribute_valuemax(const char* value, size_t size);
-  inline ::std::string* mutable_m_specialattribute_valuemax();
-  inline ::std::string* release_m_specialattribute_valuemax();
-  inline void set_allocated_m_specialattribute_valuemax(::std::string* m_specialattribute_valuemax);
-
-  // optional string m_skillid = 35;
+  // optional string m_skillid = 19;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 35;
+  static const int kMSkillidFieldNumber = 19;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -555,18 +283,6 @@ class E_EquipEquip : public ::google::protobuf::Message {
   inline ::std::string* mutable_m_skillid();
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
-
-  // repeated .proto_ff.E_EquipEquipAttributeDesc m_attribute = 36;
-  inline int m_attribute_size() const;
-  inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 36;
-  inline const ::proto_ff::E_EquipEquipAttributeDesc& m_attribute(int index) const;
-  inline ::proto_ff::E_EquipEquipAttributeDesc* mutable_m_attribute(int index);
-  inline ::proto_ff::E_EquipEquipAttributeDesc* add_m_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipEquipAttributeDesc >&
-      m_attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipEquipAttributeDesc >*
-      mutable_m_attribute();
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_EquipEquip)
  private:
@@ -588,32 +304,10 @@ class E_EquipEquip : public ::google::protobuf::Message {
   inline void clear_has_m_level();
   inline void set_has_m_quality();
   inline void clear_has_m_quality();
-  inline void set_has_m_godattribute_type();
-  inline void clear_has_m_godattribute_type();
-  inline void set_has_m_godattribute_valuemin();
-  inline void clear_has_m_godattribute_valuemin();
-  inline void set_has_m_godattribute_valuemax();
-  inline void clear_has_m_godattribute_valuemax();
+  inline void set_has_m_attributeid();
+  inline void clear_has_m_attributeid();
   inline void set_has_m_star();
   inline void clear_has_m_star();
-  inline void set_has_m_refineattributedown();
-  inline void clear_has_m_refineattributedown();
-  inline void set_has_m_refineattributeup();
-  inline void clear_has_m_refineattributeup();
-  inline void set_has_m_refineattribute_typelibrary();
-  inline void clear_has_m_refineattribute_typelibrary();
-  inline void set_has_m_refineattribute_valuemin();
-  inline void clear_has_m_refineattribute_valuemin();
-  inline void set_has_m_refineattribute_valuemax();
-  inline void clear_has_m_refineattribute_valuemax();
-  inline void set_has_m_bluestarnum();
-  inline void clear_has_m_bluestarnum();
-  inline void set_has_m_bluestar_type();
-  inline void clear_has_m_bluestar_type();
-  inline void set_has_m_bluestar_lv();
-  inline void clear_has_m_bluestar_lv();
-  inline void set_has_m_bluestar_number();
-  inline void clear_has_m_bluestar_number();
   inline void set_has_m_iscanbind();
   inline void clear_has_m_iscanbind();
   inline void set_has_m_istradebind();
@@ -628,16 +322,6 @@ class E_EquipEquip : public ::google::protobuf::Message {
   inline void clear_has_m_broadcast();
   inline void set_has_m_meltingresult();
   inline void clear_has_m_meltingresult();
-  inline void set_has_m_specialattributedown();
-  inline void clear_has_m_specialattributedown();
-  inline void set_has_m_specialattributeup();
-  inline void clear_has_m_specialattributeup();
-  inline void set_has_m_specialattribute_typelibrary();
-  inline void clear_has_m_specialattribute_typelibrary();
-  inline void set_has_m_specialattribute_valuemin();
-  inline void clear_has_m_specialattribute_valuemin();
-  inline void set_has_m_specialattribute_valuemax();
-  inline void clear_has_m_specialattribute_valuemax();
   inline void set_has_m_skillid();
   inline void clear_has_m_skillid();
 
@@ -652,36 +336,19 @@ class E_EquipEquip : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_professionlv_;
   ::google::protobuf::int32 m_level_;
   ::google::protobuf::int32 m_quality_;
-  ::std::string* m_godattribute_type_;
-  ::std::string* m_godattribute_valuemin_;
-  ::std::string* m_godattribute_valuemax_;
+  ::google::protobuf::int32 m_attributeid_;
   ::google::protobuf::int32 m_star_;
-  ::google::protobuf::int32 m_refineattributedown_;
-  ::std::string* m_refineattribute_typelibrary_;
-  ::google::protobuf::int32 m_refineattributeup_;
-  ::google::protobuf::int32 m_bluestarnum_;
-  ::std::string* m_refineattribute_valuemin_;
-  ::std::string* m_refineattribute_valuemax_;
-  ::std::string* m_bluestar_type_;
-  ::std::string* m_bluestar_lv_;
-  ::std::string* m_bluestar_number_;
   ::google::protobuf::int32 m_iscanbind_;
   ::google::protobuf::int32 m_istradebind_;
   ::std::string* m_icon_;
   ::google::protobuf::int32 m_sellprice_;
   ::google::protobuf::int32 m_time_;
   ::std::string* m_meltingresult_;
-  ::google::protobuf::int32 m_broadcast_;
-  ::google::protobuf::int32 m_specialattributedown_;
-  ::std::string* m_specialattribute_typelibrary_;
-  ::std::string* m_specialattribute_valuemin_;
-  ::std::string* m_specialattribute_valuemax_;
   ::std::string* m_skillid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipEquipAttributeDesc > m_attribute_;
-  ::google::protobuf::int32 m_specialattributeup_;
+  ::google::protobuf::int32 m_broadcast_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(36 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(19 + 31) / 32];
 
   friend void  protobuf_AddDesc_equip_2eproto();
   friend void protobuf_AssignDesc_equip_2eproto();
@@ -774,6 +441,470 @@ class Sheet_EquipEquip : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_EquipEquip* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_EquipAttributeAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_EquipAttributeAttributeDesc();
+  virtual ~E_EquipAttributeAttributeDesc();
+
+  E_EquipAttributeAttributeDesc(const E_EquipAttributeAttributeDesc& from);
+
+  inline E_EquipAttributeAttributeDesc& operator=(const E_EquipAttributeAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_EquipAttributeAttributeDesc& default_instance();
+
+  void Swap(E_EquipAttributeAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_EquipAttributeAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_EquipAttributeAttributeDesc& from);
+  void MergeFrom(const E_EquipAttributeAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_valuemin = 1;
+  inline bool has_m_valuemin() const;
+  inline void clear_m_valuemin();
+  static const int kMValueminFieldNumber = 1;
+  inline ::google::protobuf::int32 m_valuemin() const;
+  inline void set_m_valuemin(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_valuemax = 3;
+  inline bool has_m_valuemax() const;
+  inline void clear_m_valuemax();
+  static const int kMValuemaxFieldNumber = 3;
+  inline ::google::protobuf::int32 m_valuemax() const;
+  inline void set_m_valuemax(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_EquipAttributeAttributeDesc)
+ private:
+  inline void set_has_m_valuemin();
+  inline void clear_has_m_valuemin();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_valuemax();
+  inline void clear_has_m_valuemax();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_valuemin_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_valuemax_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_equip_2eproto();
+  friend void protobuf_AssignDesc_equip_2eproto();
+  friend void protobuf_ShutdownFile_equip_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_EquipAttributeAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_EquipAttribute : public ::google::protobuf::Message {
+ public:
+  E_EquipAttribute();
+  virtual ~E_EquipAttribute();
+
+  E_EquipAttribute(const E_EquipAttribute& from);
+
+  inline E_EquipAttribute& operator=(const E_EquipAttribute& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_EquipAttribute& default_instance();
+
+  void Swap(E_EquipAttribute* other);
+
+  // implements Message ----------------------------------------------
+
+  E_EquipAttribute* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_EquipAttribute& from);
+  void MergeFrom(const E_EquipAttribute& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_bluestarnum = 2;
+  inline bool has_m_bluestarnum() const;
+  inline void clear_m_bluestarnum();
+  static const int kMBluestarnumFieldNumber = 2;
+  inline ::google::protobuf::int32 m_bluestarnum() const;
+  inline void set_m_bluestarnum(::google::protobuf::int32 value);
+
+  // optional string m_bluestar_type = 3;
+  inline bool has_m_bluestar_type() const;
+  inline void clear_m_bluestar_type();
+  static const int kMBluestarTypeFieldNumber = 3;
+  inline const ::std::string& m_bluestar_type() const;
+  inline void set_m_bluestar_type(const ::std::string& value);
+  inline void set_m_bluestar_type(const char* value);
+  inline void set_m_bluestar_type(const char* value, size_t size);
+  inline ::std::string* mutable_m_bluestar_type();
+  inline ::std::string* release_m_bluestar_type();
+  inline void set_allocated_m_bluestar_type(::std::string* m_bluestar_type);
+
+  // optional string m_bluestar_lv = 4;
+  inline bool has_m_bluestar_lv() const;
+  inline void clear_m_bluestar_lv();
+  static const int kMBluestarLvFieldNumber = 4;
+  inline const ::std::string& m_bluestar_lv() const;
+  inline void set_m_bluestar_lv(const ::std::string& value);
+  inline void set_m_bluestar_lv(const char* value);
+  inline void set_m_bluestar_lv(const char* value, size_t size);
+  inline ::std::string* mutable_m_bluestar_lv();
+  inline ::std::string* release_m_bluestar_lv();
+  inline void set_allocated_m_bluestar_lv(::std::string* m_bluestar_lv);
+
+  // optional string m_bluestar_number = 5;
+  inline bool has_m_bluestar_number() const;
+  inline void clear_m_bluestar_number();
+  static const int kMBluestarNumberFieldNumber = 5;
+  inline const ::std::string& m_bluestar_number() const;
+  inline void set_m_bluestar_number(const ::std::string& value);
+  inline void set_m_bluestar_number(const char* value);
+  inline void set_m_bluestar_number(const char* value, size_t size);
+  inline ::std::string* mutable_m_bluestar_number();
+  inline ::std::string* release_m_bluestar_number();
+  inline void set_allocated_m_bluestar_number(::std::string* m_bluestar_number);
+
+  // optional int32 m_specialattributedown = 6;
+  inline bool has_m_specialattributedown() const;
+  inline void clear_m_specialattributedown();
+  static const int kMSpecialattributedownFieldNumber = 6;
+  inline ::google::protobuf::int32 m_specialattributedown() const;
+  inline void set_m_specialattributedown(::google::protobuf::int32 value);
+
+  // optional int32 m_specialattributeup = 7;
+  inline bool has_m_specialattributeup() const;
+  inline void clear_m_specialattributeup();
+  static const int kMSpecialattributeupFieldNumber = 7;
+  inline ::google::protobuf::int32 m_specialattributeup() const;
+  inline void set_m_specialattributeup(::google::protobuf::int32 value);
+
+  // optional string m_specialattribute_typelibrary = 8;
+  inline bool has_m_specialattribute_typelibrary() const;
+  inline void clear_m_specialattribute_typelibrary();
+  static const int kMSpecialattributeTypelibraryFieldNumber = 8;
+  inline const ::std::string& m_specialattribute_typelibrary() const;
+  inline void set_m_specialattribute_typelibrary(const ::std::string& value);
+  inline void set_m_specialattribute_typelibrary(const char* value);
+  inline void set_m_specialattribute_typelibrary(const char* value, size_t size);
+  inline ::std::string* mutable_m_specialattribute_typelibrary();
+  inline ::std::string* release_m_specialattribute_typelibrary();
+  inline void set_allocated_m_specialattribute_typelibrary(::std::string* m_specialattribute_typelibrary);
+
+  // optional string m_specialattribute_valuemin = 9;
+  inline bool has_m_specialattribute_valuemin() const;
+  inline void clear_m_specialattribute_valuemin();
+  static const int kMSpecialattributeValueminFieldNumber = 9;
+  inline const ::std::string& m_specialattribute_valuemin() const;
+  inline void set_m_specialattribute_valuemin(const ::std::string& value);
+  inline void set_m_specialattribute_valuemin(const char* value);
+  inline void set_m_specialattribute_valuemin(const char* value, size_t size);
+  inline ::std::string* mutable_m_specialattribute_valuemin();
+  inline ::std::string* release_m_specialattribute_valuemin();
+  inline void set_allocated_m_specialattribute_valuemin(::std::string* m_specialattribute_valuemin);
+
+  // optional string m_specialattribute_valuemax = 10;
+  inline bool has_m_specialattribute_valuemax() const;
+  inline void clear_m_specialattribute_valuemax();
+  static const int kMSpecialattributeValuemaxFieldNumber = 10;
+  inline const ::std::string& m_specialattribute_valuemax() const;
+  inline void set_m_specialattribute_valuemax(const ::std::string& value);
+  inline void set_m_specialattribute_valuemax(const char* value);
+  inline void set_m_specialattribute_valuemax(const char* value, size_t size);
+  inline ::std::string* mutable_m_specialattribute_valuemax();
+  inline ::std::string* release_m_specialattribute_valuemax();
+  inline void set_allocated_m_specialattribute_valuemax(::std::string* m_specialattribute_valuemax);
+
+  // optional string m_godattribute_type = 11;
+  inline bool has_m_godattribute_type() const;
+  inline void clear_m_godattribute_type();
+  static const int kMGodattributeTypeFieldNumber = 11;
+  inline const ::std::string& m_godattribute_type() const;
+  inline void set_m_godattribute_type(const ::std::string& value);
+  inline void set_m_godattribute_type(const char* value);
+  inline void set_m_godattribute_type(const char* value, size_t size);
+  inline ::std::string* mutable_m_godattribute_type();
+  inline ::std::string* release_m_godattribute_type();
+  inline void set_allocated_m_godattribute_type(::std::string* m_godattribute_type);
+
+  // optional string m_godattribute_valuemin = 12;
+  inline bool has_m_godattribute_valuemin() const;
+  inline void clear_m_godattribute_valuemin();
+  static const int kMGodattributeValueminFieldNumber = 12;
+  inline const ::std::string& m_godattribute_valuemin() const;
+  inline void set_m_godattribute_valuemin(const ::std::string& value);
+  inline void set_m_godattribute_valuemin(const char* value);
+  inline void set_m_godattribute_valuemin(const char* value, size_t size);
+  inline ::std::string* mutable_m_godattribute_valuemin();
+  inline ::std::string* release_m_godattribute_valuemin();
+  inline void set_allocated_m_godattribute_valuemin(::std::string* m_godattribute_valuemin);
+
+  // optional string m_godattribute_valuemax = 13;
+  inline bool has_m_godattribute_valuemax() const;
+  inline void clear_m_godattribute_valuemax();
+  static const int kMGodattributeValuemaxFieldNumber = 13;
+  inline const ::std::string& m_godattribute_valuemax() const;
+  inline void set_m_godattribute_valuemax(const ::std::string& value);
+  inline void set_m_godattribute_valuemax(const char* value);
+  inline void set_m_godattribute_valuemax(const char* value, size_t size);
+  inline ::std::string* mutable_m_godattribute_valuemax();
+  inline ::std::string* release_m_godattribute_valuemax();
+  inline void set_allocated_m_godattribute_valuemax(::std::string* m_godattribute_valuemax);
+
+  // repeated .proto_ff.E_EquipAttributeAttributeDesc m_attribute = 14;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 14;
+  inline const ::proto_ff::E_EquipAttributeAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_EquipAttributeAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_EquipAttributeAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttributeAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttributeAttributeDesc >*
+      mutable_m_attribute();
+
+  // repeated string m_star_library = 15;
+  inline int m_star_library_size() const;
+  inline void clear_m_star_library();
+  static const int kMStarLibraryFieldNumber = 15;
+  inline const ::std::string& m_star_library(int index) const;
+  inline ::std::string* mutable_m_star_library(int index);
+  inline void set_m_star_library(int index, const ::std::string& value);
+  inline void set_m_star_library(int index, const char* value);
+  inline void set_m_star_library(int index, const char* value, size_t size);
+  inline ::std::string* add_m_star_library();
+  inline void add_m_star_library(const ::std::string& value);
+  inline void add_m_star_library(const char* value);
+  inline void add_m_star_library(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_star_library() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_star_library();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_EquipAttribute)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_bluestarnum();
+  inline void clear_has_m_bluestarnum();
+  inline void set_has_m_bluestar_type();
+  inline void clear_has_m_bluestar_type();
+  inline void set_has_m_bluestar_lv();
+  inline void clear_has_m_bluestar_lv();
+  inline void set_has_m_bluestar_number();
+  inline void clear_has_m_bluestar_number();
+  inline void set_has_m_specialattributedown();
+  inline void clear_has_m_specialattributedown();
+  inline void set_has_m_specialattributeup();
+  inline void clear_has_m_specialattributeup();
+  inline void set_has_m_specialattribute_typelibrary();
+  inline void clear_has_m_specialattribute_typelibrary();
+  inline void set_has_m_specialattribute_valuemin();
+  inline void clear_has_m_specialattribute_valuemin();
+  inline void set_has_m_specialattribute_valuemax();
+  inline void clear_has_m_specialattribute_valuemax();
+  inline void set_has_m_godattribute_type();
+  inline void clear_has_m_godattribute_type();
+  inline void set_has_m_godattribute_valuemin();
+  inline void clear_has_m_godattribute_valuemin();
+  inline void set_has_m_godattribute_valuemax();
+  inline void clear_has_m_godattribute_valuemax();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_bluestarnum_;
+  ::std::string* m_bluestar_type_;
+  ::std::string* m_bluestar_lv_;
+  ::std::string* m_bluestar_number_;
+  ::google::protobuf::int32 m_specialattributedown_;
+  ::google::protobuf::int32 m_specialattributeup_;
+  ::std::string* m_specialattribute_typelibrary_;
+  ::std::string* m_specialattribute_valuemin_;
+  ::std::string* m_specialattribute_valuemax_;
+  ::std::string* m_godattribute_type_;
+  ::std::string* m_godattribute_valuemin_;
+  ::std::string* m_godattribute_valuemax_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttributeAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> m_star_library_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
+
+  friend void  protobuf_AddDesc_equip_2eproto();
+  friend void protobuf_AssignDesc_equip_2eproto();
+  friend void protobuf_ShutdownFile_equip_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_EquipAttribute* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_EquipAttribute : public ::google::protobuf::Message {
+ public:
+  Sheet_EquipAttribute();
+  virtual ~Sheet_EquipAttribute();
+
+  Sheet_EquipAttribute(const Sheet_EquipAttribute& from);
+
+  inline Sheet_EquipAttribute& operator=(const Sheet_EquipAttribute& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_EquipAttribute& default_instance();
+
+  void Swap(Sheet_EquipAttribute* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_EquipAttribute* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_EquipAttribute& from);
+  void MergeFrom(const Sheet_EquipAttribute& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_EquipAttribute E_EquipAttribute_List = 1;
+  inline int e_equipattribute_list_size() const;
+  inline void clear_e_equipattribute_list();
+  static const int kEEquipAttributeListFieldNumber = 1;
+  inline const ::proto_ff::E_EquipAttribute& e_equipattribute_list(int index) const;
+  inline ::proto_ff::E_EquipAttribute* mutable_e_equipattribute_list(int index);
+  inline ::proto_ff::E_EquipAttribute* add_e_equipattribute_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttribute >&
+      e_equipattribute_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttribute >*
+      mutable_e_equipattribute_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_EquipAttribute)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttribute > e_equipattribute_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_equip_2eproto();
+  friend void protobuf_AssignDesc_equip_2eproto();
+  friend void protobuf_ShutdownFile_equip_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_EquipAttribute* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -3989,76 +4120,6 @@ class Sheet_EquipBreak : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// E_EquipEquipAttributeDesc
-
-// optional int32 m_valuemin = 1;
-inline bool E_EquipEquipAttributeDesc::has_m_valuemin() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void E_EquipEquipAttributeDesc::set_has_m_valuemin() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void E_EquipEquipAttributeDesc::clear_has_m_valuemin() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_EquipEquipAttributeDesc::clear_m_valuemin() {
-  m_valuemin_ = 0;
-  clear_has_m_valuemin();
-}
-inline ::google::protobuf::int32 E_EquipEquipAttributeDesc::m_valuemin() const {
-  return m_valuemin_;
-}
-inline void E_EquipEquipAttributeDesc::set_m_valuemin(::google::protobuf::int32 value) {
-  set_has_m_valuemin();
-  m_valuemin_ = value;
-}
-
-// optional int32 m_type = 2;
-inline bool E_EquipEquipAttributeDesc::has_m_type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_EquipEquipAttributeDesc::set_has_m_type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void E_EquipEquipAttributeDesc::clear_has_m_type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void E_EquipEquipAttributeDesc::clear_m_type() {
-  m_type_ = 0;
-  clear_has_m_type();
-}
-inline ::google::protobuf::int32 E_EquipEquipAttributeDesc::m_type() const {
-  return m_type_;
-}
-inline void E_EquipEquipAttributeDesc::set_m_type(::google::protobuf::int32 value) {
-  set_has_m_type();
-  m_type_ = value;
-}
-
-// optional int32 m_valuemax = 3;
-inline bool E_EquipEquipAttributeDesc::has_m_valuemax() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void E_EquipEquipAttributeDesc::set_has_m_valuemax() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void E_EquipEquipAttributeDesc::clear_has_m_valuemax() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void E_EquipEquipAttributeDesc::clear_m_valuemax() {
-  m_valuemax_ = 0;
-  clear_has_m_valuemax();
-}
-inline ::google::protobuf::int32 E_EquipEquipAttributeDesc::m_valuemax() const {
-  return m_valuemax_;
-}
-inline void E_EquipEquipAttributeDesc::set_m_valuemax(::google::protobuf::int32 value) {
-  set_has_m_valuemax();
-  m_valuemax_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // E_EquipEquip
 
 // optional int64 m_id = 1;
@@ -4355,225 +4416,37 @@ inline void E_EquipEquip::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional string m_godattribute_type = 10;
-inline bool E_EquipEquip::has_m_godattribute_type() const {
+// optional int32 m_attributeid = 10;
+inline bool E_EquipEquip::has_m_attributeid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void E_EquipEquip::set_has_m_godattribute_type() {
+inline void E_EquipEquip::set_has_m_attributeid() {
   _has_bits_[0] |= 0x00000200u;
 }
-inline void E_EquipEquip::clear_has_m_godattribute_type() {
+inline void E_EquipEquip::clear_has_m_attributeid() {
   _has_bits_[0] &= ~0x00000200u;
 }
-inline void E_EquipEquip::clear_m_godattribute_type() {
-  if (m_godattribute_type_ != &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_type_->clear();
-  }
-  clear_has_m_godattribute_type();
+inline void E_EquipEquip::clear_m_attributeid() {
+  m_attributeid_ = 0;
+  clear_has_m_attributeid();
 }
-inline const ::std::string& E_EquipEquip::m_godattribute_type() const {
-  return *m_godattribute_type_;
+inline ::google::protobuf::int32 E_EquipEquip::m_attributeid() const {
+  return m_attributeid_;
 }
-inline void E_EquipEquip::set_m_godattribute_type(const ::std::string& value) {
-  set_has_m_godattribute_type();
-  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_type_ = new ::std::string;
-  }
-  m_godattribute_type_->assign(value);
-}
-inline void E_EquipEquip::set_m_godattribute_type(const char* value) {
-  set_has_m_godattribute_type();
-  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_type_ = new ::std::string;
-  }
-  m_godattribute_type_->assign(value);
-}
-inline void E_EquipEquip::set_m_godattribute_type(const char* value, size_t size) {
-  set_has_m_godattribute_type();
-  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_type_ = new ::std::string;
-  }
-  m_godattribute_type_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_godattribute_type() {
-  set_has_m_godattribute_type();
-  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_type_ = new ::std::string;
-  }
-  return m_godattribute_type_;
-}
-inline ::std::string* E_EquipEquip::release_m_godattribute_type() {
-  clear_has_m_godattribute_type();
-  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_godattribute_type_;
-    m_godattribute_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_godattribute_type(::std::string* m_godattribute_type) {
-  if (m_godattribute_type_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_godattribute_type_;
-  }
-  if (m_godattribute_type) {
-    set_has_m_godattribute_type();
-    m_godattribute_type_ = m_godattribute_type;
-  } else {
-    clear_has_m_godattribute_type();
-    m_godattribute_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void E_EquipEquip::set_m_attributeid(::google::protobuf::int32 value) {
+  set_has_m_attributeid();
+  m_attributeid_ = value;
 }
 
-// optional string m_godattribute_valuemin = 11;
-inline bool E_EquipEquip::has_m_godattribute_valuemin() const {
+// optional int32 m_star = 11;
+inline bool E_EquipEquip::has_m_star() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void E_EquipEquip::set_has_m_godattribute_valuemin() {
+inline void E_EquipEquip::set_has_m_star() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void E_EquipEquip::clear_has_m_godattribute_valuemin() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void E_EquipEquip::clear_m_godattribute_valuemin() {
-  if (m_godattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemin_->clear();
-  }
-  clear_has_m_godattribute_valuemin();
-}
-inline const ::std::string& E_EquipEquip::m_godattribute_valuemin() const {
-  return *m_godattribute_valuemin_;
-}
-inline void E_EquipEquip::set_m_godattribute_valuemin(const ::std::string& value) {
-  set_has_m_godattribute_valuemin();
-  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemin_ = new ::std::string;
-  }
-  m_godattribute_valuemin_->assign(value);
-}
-inline void E_EquipEquip::set_m_godattribute_valuemin(const char* value) {
-  set_has_m_godattribute_valuemin();
-  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemin_ = new ::std::string;
-  }
-  m_godattribute_valuemin_->assign(value);
-}
-inline void E_EquipEquip::set_m_godattribute_valuemin(const char* value, size_t size) {
-  set_has_m_godattribute_valuemin();
-  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemin_ = new ::std::string;
-  }
-  m_godattribute_valuemin_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_godattribute_valuemin() {
-  set_has_m_godattribute_valuemin();
-  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemin_ = new ::std::string;
-  }
-  return m_godattribute_valuemin_;
-}
-inline ::std::string* E_EquipEquip::release_m_godattribute_valuemin() {
-  clear_has_m_godattribute_valuemin();
-  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_godattribute_valuemin_;
-    m_godattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_godattribute_valuemin(::std::string* m_godattribute_valuemin) {
-  if (m_godattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_godattribute_valuemin_;
-  }
-  if (m_godattribute_valuemin) {
-    set_has_m_godattribute_valuemin();
-    m_godattribute_valuemin_ = m_godattribute_valuemin;
-  } else {
-    clear_has_m_godattribute_valuemin();
-    m_godattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_godattribute_valuemax = 12;
-inline bool E_EquipEquip::has_m_godattribute_valuemax() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void E_EquipEquip::set_has_m_godattribute_valuemax() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void E_EquipEquip::clear_has_m_godattribute_valuemax() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline void E_EquipEquip::clear_m_godattribute_valuemax() {
-  if (m_godattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemax_->clear();
-  }
-  clear_has_m_godattribute_valuemax();
-}
-inline const ::std::string& E_EquipEquip::m_godattribute_valuemax() const {
-  return *m_godattribute_valuemax_;
-}
-inline void E_EquipEquip::set_m_godattribute_valuemax(const ::std::string& value) {
-  set_has_m_godattribute_valuemax();
-  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemax_ = new ::std::string;
-  }
-  m_godattribute_valuemax_->assign(value);
-}
-inline void E_EquipEquip::set_m_godattribute_valuemax(const char* value) {
-  set_has_m_godattribute_valuemax();
-  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemax_ = new ::std::string;
-  }
-  m_godattribute_valuemax_->assign(value);
-}
-inline void E_EquipEquip::set_m_godattribute_valuemax(const char* value, size_t size) {
-  set_has_m_godattribute_valuemax();
-  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemax_ = new ::std::string;
-  }
-  m_godattribute_valuemax_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_godattribute_valuemax() {
-  set_has_m_godattribute_valuemax();
-  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_godattribute_valuemax_ = new ::std::string;
-  }
-  return m_godattribute_valuemax_;
-}
-inline ::std::string* E_EquipEquip::release_m_godattribute_valuemax() {
-  clear_has_m_godattribute_valuemax();
-  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_godattribute_valuemax_;
-    m_godattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_godattribute_valuemax(::std::string* m_godattribute_valuemax) {
-  if (m_godattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_godattribute_valuemax_;
-  }
-  if (m_godattribute_valuemax) {
-    set_has_m_godattribute_valuemax();
-    m_godattribute_valuemax_ = m_godattribute_valuemax;
-  } else {
-    clear_has_m_godattribute_valuemax();
-    m_godattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 m_star = 13;
-inline bool E_EquipEquip::has_m_star() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_star() {
-  _has_bits_[0] |= 0x00001000u;
-}
 inline void E_EquipEquip::clear_has_m_star() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_EquipEquip::clear_m_star() {
   m_star_ = 0;
@@ -4587,501 +4460,15 @@ inline void E_EquipEquip::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_refineattributedown = 14;
-inline bool E_EquipEquip::has_m_refineattributedown() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_refineattributedown() {
-  _has_bits_[0] |= 0x00002000u;
-}
-inline void E_EquipEquip::clear_has_m_refineattributedown() {
-  _has_bits_[0] &= ~0x00002000u;
-}
-inline void E_EquipEquip::clear_m_refineattributedown() {
-  m_refineattributedown_ = 0;
-  clear_has_m_refineattributedown();
-}
-inline ::google::protobuf::int32 E_EquipEquip::m_refineattributedown() const {
-  return m_refineattributedown_;
-}
-inline void E_EquipEquip::set_m_refineattributedown(::google::protobuf::int32 value) {
-  set_has_m_refineattributedown();
-  m_refineattributedown_ = value;
-}
-
-// optional int32 m_refineattributeup = 15;
-inline bool E_EquipEquip::has_m_refineattributeup() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_refineattributeup() {
-  _has_bits_[0] |= 0x00004000u;
-}
-inline void E_EquipEquip::clear_has_m_refineattributeup() {
-  _has_bits_[0] &= ~0x00004000u;
-}
-inline void E_EquipEquip::clear_m_refineattributeup() {
-  m_refineattributeup_ = 0;
-  clear_has_m_refineattributeup();
-}
-inline ::google::protobuf::int32 E_EquipEquip::m_refineattributeup() const {
-  return m_refineattributeup_;
-}
-inline void E_EquipEquip::set_m_refineattributeup(::google::protobuf::int32 value) {
-  set_has_m_refineattributeup();
-  m_refineattributeup_ = value;
-}
-
-// optional string m_refineattribute_typelibrary = 16;
-inline bool E_EquipEquip::has_m_refineattribute_typelibrary() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_refineattribute_typelibrary() {
-  _has_bits_[0] |= 0x00008000u;
-}
-inline void E_EquipEquip::clear_has_m_refineattribute_typelibrary() {
-  _has_bits_[0] &= ~0x00008000u;
-}
-inline void E_EquipEquip::clear_m_refineattribute_typelibrary() {
-  if (m_refineattribute_typelibrary_ != &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_typelibrary_->clear();
-  }
-  clear_has_m_refineattribute_typelibrary();
-}
-inline const ::std::string& E_EquipEquip::m_refineattribute_typelibrary() const {
-  return *m_refineattribute_typelibrary_;
-}
-inline void E_EquipEquip::set_m_refineattribute_typelibrary(const ::std::string& value) {
-  set_has_m_refineattribute_typelibrary();
-  if (m_refineattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_typelibrary_ = new ::std::string;
-  }
-  m_refineattribute_typelibrary_->assign(value);
-}
-inline void E_EquipEquip::set_m_refineattribute_typelibrary(const char* value) {
-  set_has_m_refineattribute_typelibrary();
-  if (m_refineattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_typelibrary_ = new ::std::string;
-  }
-  m_refineattribute_typelibrary_->assign(value);
-}
-inline void E_EquipEquip::set_m_refineattribute_typelibrary(const char* value, size_t size) {
-  set_has_m_refineattribute_typelibrary();
-  if (m_refineattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_typelibrary_ = new ::std::string;
-  }
-  m_refineattribute_typelibrary_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_refineattribute_typelibrary() {
-  set_has_m_refineattribute_typelibrary();
-  if (m_refineattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_typelibrary_ = new ::std::string;
-  }
-  return m_refineattribute_typelibrary_;
-}
-inline ::std::string* E_EquipEquip::release_m_refineattribute_typelibrary() {
-  clear_has_m_refineattribute_typelibrary();
-  if (m_refineattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_refineattribute_typelibrary_;
-    m_refineattribute_typelibrary_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_refineattribute_typelibrary(::std::string* m_refineattribute_typelibrary) {
-  if (m_refineattribute_typelibrary_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_refineattribute_typelibrary_;
-  }
-  if (m_refineattribute_typelibrary) {
-    set_has_m_refineattribute_typelibrary();
-    m_refineattribute_typelibrary_ = m_refineattribute_typelibrary;
-  } else {
-    clear_has_m_refineattribute_typelibrary();
-    m_refineattribute_typelibrary_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_refineattribute_valuemin = 17;
-inline bool E_EquipEquip::has_m_refineattribute_valuemin() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_refineattribute_valuemin() {
-  _has_bits_[0] |= 0x00010000u;
-}
-inline void E_EquipEquip::clear_has_m_refineattribute_valuemin() {
-  _has_bits_[0] &= ~0x00010000u;
-}
-inline void E_EquipEquip::clear_m_refineattribute_valuemin() {
-  if (m_refineattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemin_->clear();
-  }
-  clear_has_m_refineattribute_valuemin();
-}
-inline const ::std::string& E_EquipEquip::m_refineattribute_valuemin() const {
-  return *m_refineattribute_valuemin_;
-}
-inline void E_EquipEquip::set_m_refineattribute_valuemin(const ::std::string& value) {
-  set_has_m_refineattribute_valuemin();
-  if (m_refineattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemin_ = new ::std::string;
-  }
-  m_refineattribute_valuemin_->assign(value);
-}
-inline void E_EquipEquip::set_m_refineattribute_valuemin(const char* value) {
-  set_has_m_refineattribute_valuemin();
-  if (m_refineattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemin_ = new ::std::string;
-  }
-  m_refineattribute_valuemin_->assign(value);
-}
-inline void E_EquipEquip::set_m_refineattribute_valuemin(const char* value, size_t size) {
-  set_has_m_refineattribute_valuemin();
-  if (m_refineattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemin_ = new ::std::string;
-  }
-  m_refineattribute_valuemin_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_refineattribute_valuemin() {
-  set_has_m_refineattribute_valuemin();
-  if (m_refineattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemin_ = new ::std::string;
-  }
-  return m_refineattribute_valuemin_;
-}
-inline ::std::string* E_EquipEquip::release_m_refineattribute_valuemin() {
-  clear_has_m_refineattribute_valuemin();
-  if (m_refineattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_refineattribute_valuemin_;
-    m_refineattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_refineattribute_valuemin(::std::string* m_refineattribute_valuemin) {
-  if (m_refineattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_refineattribute_valuemin_;
-  }
-  if (m_refineattribute_valuemin) {
-    set_has_m_refineattribute_valuemin();
-    m_refineattribute_valuemin_ = m_refineattribute_valuemin;
-  } else {
-    clear_has_m_refineattribute_valuemin();
-    m_refineattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_refineattribute_valuemax = 18;
-inline bool E_EquipEquip::has_m_refineattribute_valuemax() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_refineattribute_valuemax() {
-  _has_bits_[0] |= 0x00020000u;
-}
-inline void E_EquipEquip::clear_has_m_refineattribute_valuemax() {
-  _has_bits_[0] &= ~0x00020000u;
-}
-inline void E_EquipEquip::clear_m_refineattribute_valuemax() {
-  if (m_refineattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemax_->clear();
-  }
-  clear_has_m_refineattribute_valuemax();
-}
-inline const ::std::string& E_EquipEquip::m_refineattribute_valuemax() const {
-  return *m_refineattribute_valuemax_;
-}
-inline void E_EquipEquip::set_m_refineattribute_valuemax(const ::std::string& value) {
-  set_has_m_refineattribute_valuemax();
-  if (m_refineattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemax_ = new ::std::string;
-  }
-  m_refineattribute_valuemax_->assign(value);
-}
-inline void E_EquipEquip::set_m_refineattribute_valuemax(const char* value) {
-  set_has_m_refineattribute_valuemax();
-  if (m_refineattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemax_ = new ::std::string;
-  }
-  m_refineattribute_valuemax_->assign(value);
-}
-inline void E_EquipEquip::set_m_refineattribute_valuemax(const char* value, size_t size) {
-  set_has_m_refineattribute_valuemax();
-  if (m_refineattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemax_ = new ::std::string;
-  }
-  m_refineattribute_valuemax_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_refineattribute_valuemax() {
-  set_has_m_refineattribute_valuemax();
-  if (m_refineattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_refineattribute_valuemax_ = new ::std::string;
-  }
-  return m_refineattribute_valuemax_;
-}
-inline ::std::string* E_EquipEquip::release_m_refineattribute_valuemax() {
-  clear_has_m_refineattribute_valuemax();
-  if (m_refineattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_refineattribute_valuemax_;
-    m_refineattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_refineattribute_valuemax(::std::string* m_refineattribute_valuemax) {
-  if (m_refineattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_refineattribute_valuemax_;
-  }
-  if (m_refineattribute_valuemax) {
-    set_has_m_refineattribute_valuemax();
-    m_refineattribute_valuemax_ = m_refineattribute_valuemax;
-  } else {
-    clear_has_m_refineattribute_valuemax();
-    m_refineattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 m_bluestarnum = 19;
-inline bool E_EquipEquip::has_m_bluestarnum() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_bluestarnum() {
-  _has_bits_[0] |= 0x00040000u;
-}
-inline void E_EquipEquip::clear_has_m_bluestarnum() {
-  _has_bits_[0] &= ~0x00040000u;
-}
-inline void E_EquipEquip::clear_m_bluestarnum() {
-  m_bluestarnum_ = 0;
-  clear_has_m_bluestarnum();
-}
-inline ::google::protobuf::int32 E_EquipEquip::m_bluestarnum() const {
-  return m_bluestarnum_;
-}
-inline void E_EquipEquip::set_m_bluestarnum(::google::protobuf::int32 value) {
-  set_has_m_bluestarnum();
-  m_bluestarnum_ = value;
-}
-
-// optional string m_bluestar_type = 20;
-inline bool E_EquipEquip::has_m_bluestar_type() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_bluestar_type() {
-  _has_bits_[0] |= 0x00080000u;
-}
-inline void E_EquipEquip::clear_has_m_bluestar_type() {
-  _has_bits_[0] &= ~0x00080000u;
-}
-inline void E_EquipEquip::clear_m_bluestar_type() {
-  if (m_bluestar_type_ != &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_type_->clear();
-  }
-  clear_has_m_bluestar_type();
-}
-inline const ::std::string& E_EquipEquip::m_bluestar_type() const {
-  return *m_bluestar_type_;
-}
-inline void E_EquipEquip::set_m_bluestar_type(const ::std::string& value) {
-  set_has_m_bluestar_type();
-  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_type_ = new ::std::string;
-  }
-  m_bluestar_type_->assign(value);
-}
-inline void E_EquipEquip::set_m_bluestar_type(const char* value) {
-  set_has_m_bluestar_type();
-  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_type_ = new ::std::string;
-  }
-  m_bluestar_type_->assign(value);
-}
-inline void E_EquipEquip::set_m_bluestar_type(const char* value, size_t size) {
-  set_has_m_bluestar_type();
-  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_type_ = new ::std::string;
-  }
-  m_bluestar_type_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_bluestar_type() {
-  set_has_m_bluestar_type();
-  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_type_ = new ::std::string;
-  }
-  return m_bluestar_type_;
-}
-inline ::std::string* E_EquipEquip::release_m_bluestar_type() {
-  clear_has_m_bluestar_type();
-  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_bluestar_type_;
-    m_bluestar_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_bluestar_type(::std::string* m_bluestar_type) {
-  if (m_bluestar_type_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_bluestar_type_;
-  }
-  if (m_bluestar_type) {
-    set_has_m_bluestar_type();
-    m_bluestar_type_ = m_bluestar_type;
-  } else {
-    clear_has_m_bluestar_type();
-    m_bluestar_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_bluestar_lv = 21;
-inline bool E_EquipEquip::has_m_bluestar_lv() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_bluestar_lv() {
-  _has_bits_[0] |= 0x00100000u;
-}
-inline void E_EquipEquip::clear_has_m_bluestar_lv() {
-  _has_bits_[0] &= ~0x00100000u;
-}
-inline void E_EquipEquip::clear_m_bluestar_lv() {
-  if (m_bluestar_lv_ != &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_lv_->clear();
-  }
-  clear_has_m_bluestar_lv();
-}
-inline const ::std::string& E_EquipEquip::m_bluestar_lv() const {
-  return *m_bluestar_lv_;
-}
-inline void E_EquipEquip::set_m_bluestar_lv(const ::std::string& value) {
-  set_has_m_bluestar_lv();
-  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_lv_ = new ::std::string;
-  }
-  m_bluestar_lv_->assign(value);
-}
-inline void E_EquipEquip::set_m_bluestar_lv(const char* value) {
-  set_has_m_bluestar_lv();
-  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_lv_ = new ::std::string;
-  }
-  m_bluestar_lv_->assign(value);
-}
-inline void E_EquipEquip::set_m_bluestar_lv(const char* value, size_t size) {
-  set_has_m_bluestar_lv();
-  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_lv_ = new ::std::string;
-  }
-  m_bluestar_lv_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_bluestar_lv() {
-  set_has_m_bluestar_lv();
-  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_lv_ = new ::std::string;
-  }
-  return m_bluestar_lv_;
-}
-inline ::std::string* E_EquipEquip::release_m_bluestar_lv() {
-  clear_has_m_bluestar_lv();
-  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_bluestar_lv_;
-    m_bluestar_lv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_bluestar_lv(::std::string* m_bluestar_lv) {
-  if (m_bluestar_lv_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_bluestar_lv_;
-  }
-  if (m_bluestar_lv) {
-    set_has_m_bluestar_lv();
-    m_bluestar_lv_ = m_bluestar_lv;
-  } else {
-    clear_has_m_bluestar_lv();
-    m_bluestar_lv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_bluestar_number = 22;
-inline bool E_EquipEquip::has_m_bluestar_number() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_bluestar_number() {
-  _has_bits_[0] |= 0x00200000u;
-}
-inline void E_EquipEquip::clear_has_m_bluestar_number() {
-  _has_bits_[0] &= ~0x00200000u;
-}
-inline void E_EquipEquip::clear_m_bluestar_number() {
-  if (m_bluestar_number_ != &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_number_->clear();
-  }
-  clear_has_m_bluestar_number();
-}
-inline const ::std::string& E_EquipEquip::m_bluestar_number() const {
-  return *m_bluestar_number_;
-}
-inline void E_EquipEquip::set_m_bluestar_number(const ::std::string& value) {
-  set_has_m_bluestar_number();
-  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_number_ = new ::std::string;
-  }
-  m_bluestar_number_->assign(value);
-}
-inline void E_EquipEquip::set_m_bluestar_number(const char* value) {
-  set_has_m_bluestar_number();
-  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_number_ = new ::std::string;
-  }
-  m_bluestar_number_->assign(value);
-}
-inline void E_EquipEquip::set_m_bluestar_number(const char* value, size_t size) {
-  set_has_m_bluestar_number();
-  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_number_ = new ::std::string;
-  }
-  m_bluestar_number_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_bluestar_number() {
-  set_has_m_bluestar_number();
-  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
-    m_bluestar_number_ = new ::std::string;
-  }
-  return m_bluestar_number_;
-}
-inline ::std::string* E_EquipEquip::release_m_bluestar_number() {
-  clear_has_m_bluestar_number();
-  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_bluestar_number_;
-    m_bluestar_number_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_bluestar_number(::std::string* m_bluestar_number) {
-  if (m_bluestar_number_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_bluestar_number_;
-  }
-  if (m_bluestar_number) {
-    set_has_m_bluestar_number();
-    m_bluestar_number_ = m_bluestar_number;
-  } else {
-    clear_has_m_bluestar_number();
-    m_bluestar_number_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 m_iscanbind = 23;
+// optional int32 m_iscanbind = 12;
 inline bool E_EquipEquip::has_m_iscanbind() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_EquipEquip::set_has_m_iscanbind() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_EquipEquip::clear_has_m_iscanbind() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_EquipEquip::clear_m_iscanbind() {
   m_iscanbind_ = 0;
@@ -5095,15 +4482,15 @@ inline void E_EquipEquip::set_m_iscanbind(::google::protobuf::int32 value) {
   m_iscanbind_ = value;
 }
 
-// optional int32 m_istradebind = 24;
+// optional int32 m_istradebind = 13;
 inline bool E_EquipEquip::has_m_istradebind() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_istradebind() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void E_EquipEquip::clear_has_m_istradebind() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void E_EquipEquip::clear_m_istradebind() {
   m_istradebind_ = 0;
@@ -5117,15 +4504,15 @@ inline void E_EquipEquip::set_m_istradebind(::google::protobuf::int32 value) {
   m_istradebind_ = value;
 }
 
-// optional int32 m_sellprice = 25;
+// optional int32 m_sellprice = 14;
 inline bool E_EquipEquip::has_m_sellprice() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_sellprice() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_EquipEquip::clear_has_m_sellprice() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_EquipEquip::clear_m_sellprice() {
   m_sellprice_ = 0;
@@ -5139,15 +4526,15 @@ inline void E_EquipEquip::set_m_sellprice(::google::protobuf::int32 value) {
   m_sellprice_ = value;
 }
 
-// optional string m_icon = 26;
+// optional string m_icon = 15;
 inline bool E_EquipEquip::has_m_icon() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_icon() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void E_EquipEquip::clear_has_m_icon() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void E_EquipEquip::clear_m_icon() {
   if (m_icon_ != &::google::protobuf::internal::kEmptyString) {
@@ -5209,15 +4596,15 @@ inline void E_EquipEquip::set_allocated_m_icon(::std::string* m_icon) {
   }
 }
 
-// optional int32 m_time = 27;
+// optional int32 m_time = 16;
 inline bool E_EquipEquip::has_m_time() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_time() {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void E_EquipEquip::clear_has_m_time() {
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void E_EquipEquip::clear_m_time() {
   m_time_ = 0;
@@ -5231,15 +4618,15 @@ inline void E_EquipEquip::set_m_time(::google::protobuf::int32 value) {
   m_time_ = value;
 }
 
-// optional int32 m_broadcast = 28;
+// optional int32 m_broadcast = 17;
 inline bool E_EquipEquip::has_m_broadcast() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_broadcast() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void E_EquipEquip::clear_has_m_broadcast() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void E_EquipEquip::clear_m_broadcast() {
   m_broadcast_ = 0;
@@ -5253,15 +4640,15 @@ inline void E_EquipEquip::set_m_broadcast(::google::protobuf::int32 value) {
   m_broadcast_ = value;
 }
 
-// optional string m_meltingresult = 29;
+// optional string m_meltingresult = 18;
 inline bool E_EquipEquip::has_m_meltingresult() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_meltingresult() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void E_EquipEquip::clear_has_m_meltingresult() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void E_EquipEquip::clear_m_meltingresult() {
   if (m_meltingresult_ != &::google::protobuf::internal::kEmptyString) {
@@ -5323,269 +4710,15 @@ inline void E_EquipEquip::set_allocated_m_meltingresult(::std::string* m_melting
   }
 }
 
-// optional int32 m_specialattributedown = 30;
-inline bool E_EquipEquip::has_m_specialattributedown() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_specialattributedown() {
-  _has_bits_[0] |= 0x20000000u;
-}
-inline void E_EquipEquip::clear_has_m_specialattributedown() {
-  _has_bits_[0] &= ~0x20000000u;
-}
-inline void E_EquipEquip::clear_m_specialattributedown() {
-  m_specialattributedown_ = 0;
-  clear_has_m_specialattributedown();
-}
-inline ::google::protobuf::int32 E_EquipEquip::m_specialattributedown() const {
-  return m_specialattributedown_;
-}
-inline void E_EquipEquip::set_m_specialattributedown(::google::protobuf::int32 value) {
-  set_has_m_specialattributedown();
-  m_specialattributedown_ = value;
-}
-
-// optional int32 m_specialattributeup = 31;
-inline bool E_EquipEquip::has_m_specialattributeup() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_specialattributeup() {
-  _has_bits_[0] |= 0x40000000u;
-}
-inline void E_EquipEquip::clear_has_m_specialattributeup() {
-  _has_bits_[0] &= ~0x40000000u;
-}
-inline void E_EquipEquip::clear_m_specialattributeup() {
-  m_specialattributeup_ = 0;
-  clear_has_m_specialattributeup();
-}
-inline ::google::protobuf::int32 E_EquipEquip::m_specialattributeup() const {
-  return m_specialattributeup_;
-}
-inline void E_EquipEquip::set_m_specialattributeup(::google::protobuf::int32 value) {
-  set_has_m_specialattributeup();
-  m_specialattributeup_ = value;
-}
-
-// optional string m_specialattribute_typelibrary = 32;
-inline bool E_EquipEquip::has_m_specialattribute_typelibrary() const {
-  return (_has_bits_[0] & 0x80000000u) != 0;
-}
-inline void E_EquipEquip::set_has_m_specialattribute_typelibrary() {
-  _has_bits_[0] |= 0x80000000u;
-}
-inline void E_EquipEquip::clear_has_m_specialattribute_typelibrary() {
-  _has_bits_[0] &= ~0x80000000u;
-}
-inline void E_EquipEquip::clear_m_specialattribute_typelibrary() {
-  if (m_specialattribute_typelibrary_ != &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_typelibrary_->clear();
-  }
-  clear_has_m_specialattribute_typelibrary();
-}
-inline const ::std::string& E_EquipEquip::m_specialattribute_typelibrary() const {
-  return *m_specialattribute_typelibrary_;
-}
-inline void E_EquipEquip::set_m_specialattribute_typelibrary(const ::std::string& value) {
-  set_has_m_specialattribute_typelibrary();
-  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_typelibrary_ = new ::std::string;
-  }
-  m_specialattribute_typelibrary_->assign(value);
-}
-inline void E_EquipEquip::set_m_specialattribute_typelibrary(const char* value) {
-  set_has_m_specialattribute_typelibrary();
-  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_typelibrary_ = new ::std::string;
-  }
-  m_specialattribute_typelibrary_->assign(value);
-}
-inline void E_EquipEquip::set_m_specialattribute_typelibrary(const char* value, size_t size) {
-  set_has_m_specialattribute_typelibrary();
-  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_typelibrary_ = new ::std::string;
-  }
-  m_specialattribute_typelibrary_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_specialattribute_typelibrary() {
-  set_has_m_specialattribute_typelibrary();
-  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_typelibrary_ = new ::std::string;
-  }
-  return m_specialattribute_typelibrary_;
-}
-inline ::std::string* E_EquipEquip::release_m_specialattribute_typelibrary() {
-  clear_has_m_specialattribute_typelibrary();
-  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_specialattribute_typelibrary_;
-    m_specialattribute_typelibrary_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_specialattribute_typelibrary(::std::string* m_specialattribute_typelibrary) {
-  if (m_specialattribute_typelibrary_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_specialattribute_typelibrary_;
-  }
-  if (m_specialattribute_typelibrary) {
-    set_has_m_specialattribute_typelibrary();
-    m_specialattribute_typelibrary_ = m_specialattribute_typelibrary;
-  } else {
-    clear_has_m_specialattribute_typelibrary();
-    m_specialattribute_typelibrary_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_specialattribute_valuemin = 33;
-inline bool E_EquipEquip::has_m_specialattribute_valuemin() const {
-  return (_has_bits_[1] & 0x00000001u) != 0;
-}
-inline void E_EquipEquip::set_has_m_specialattribute_valuemin() {
-  _has_bits_[1] |= 0x00000001u;
-}
-inline void E_EquipEquip::clear_has_m_specialattribute_valuemin() {
-  _has_bits_[1] &= ~0x00000001u;
-}
-inline void E_EquipEquip::clear_m_specialattribute_valuemin() {
-  if (m_specialattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemin_->clear();
-  }
-  clear_has_m_specialattribute_valuemin();
-}
-inline const ::std::string& E_EquipEquip::m_specialattribute_valuemin() const {
-  return *m_specialattribute_valuemin_;
-}
-inline void E_EquipEquip::set_m_specialattribute_valuemin(const ::std::string& value) {
-  set_has_m_specialattribute_valuemin();
-  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemin_ = new ::std::string;
-  }
-  m_specialattribute_valuemin_->assign(value);
-}
-inline void E_EquipEquip::set_m_specialattribute_valuemin(const char* value) {
-  set_has_m_specialattribute_valuemin();
-  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemin_ = new ::std::string;
-  }
-  m_specialattribute_valuemin_->assign(value);
-}
-inline void E_EquipEquip::set_m_specialattribute_valuemin(const char* value, size_t size) {
-  set_has_m_specialattribute_valuemin();
-  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemin_ = new ::std::string;
-  }
-  m_specialattribute_valuemin_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_specialattribute_valuemin() {
-  set_has_m_specialattribute_valuemin();
-  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemin_ = new ::std::string;
-  }
-  return m_specialattribute_valuemin_;
-}
-inline ::std::string* E_EquipEquip::release_m_specialattribute_valuemin() {
-  clear_has_m_specialattribute_valuemin();
-  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_specialattribute_valuemin_;
-    m_specialattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_specialattribute_valuemin(::std::string* m_specialattribute_valuemin) {
-  if (m_specialattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_specialattribute_valuemin_;
-  }
-  if (m_specialattribute_valuemin) {
-    set_has_m_specialattribute_valuemin();
-    m_specialattribute_valuemin_ = m_specialattribute_valuemin;
-  } else {
-    clear_has_m_specialattribute_valuemin();
-    m_specialattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_specialattribute_valuemax = 34;
-inline bool E_EquipEquip::has_m_specialattribute_valuemax() const {
-  return (_has_bits_[1] & 0x00000002u) != 0;
-}
-inline void E_EquipEquip::set_has_m_specialattribute_valuemax() {
-  _has_bits_[1] |= 0x00000002u;
-}
-inline void E_EquipEquip::clear_has_m_specialattribute_valuemax() {
-  _has_bits_[1] &= ~0x00000002u;
-}
-inline void E_EquipEquip::clear_m_specialattribute_valuemax() {
-  if (m_specialattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemax_->clear();
-  }
-  clear_has_m_specialattribute_valuemax();
-}
-inline const ::std::string& E_EquipEquip::m_specialattribute_valuemax() const {
-  return *m_specialattribute_valuemax_;
-}
-inline void E_EquipEquip::set_m_specialattribute_valuemax(const ::std::string& value) {
-  set_has_m_specialattribute_valuemax();
-  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemax_ = new ::std::string;
-  }
-  m_specialattribute_valuemax_->assign(value);
-}
-inline void E_EquipEquip::set_m_specialattribute_valuemax(const char* value) {
-  set_has_m_specialattribute_valuemax();
-  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemax_ = new ::std::string;
-  }
-  m_specialattribute_valuemax_->assign(value);
-}
-inline void E_EquipEquip::set_m_specialattribute_valuemax(const char* value, size_t size) {
-  set_has_m_specialattribute_valuemax();
-  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemax_ = new ::std::string;
-  }
-  m_specialattribute_valuemax_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipEquip::mutable_m_specialattribute_valuemax() {
-  set_has_m_specialattribute_valuemax();
-  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    m_specialattribute_valuemax_ = new ::std::string;
-  }
-  return m_specialattribute_valuemax_;
-}
-inline ::std::string* E_EquipEquip::release_m_specialattribute_valuemax() {
-  clear_has_m_specialattribute_valuemax();
-  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_specialattribute_valuemax_;
-    m_specialattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipEquip::set_allocated_m_specialattribute_valuemax(::std::string* m_specialattribute_valuemax) {
-  if (m_specialattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_specialattribute_valuemax_;
-  }
-  if (m_specialattribute_valuemax) {
-    set_has_m_specialattribute_valuemax();
-    m_specialattribute_valuemax_ = m_specialattribute_valuemax;
-  } else {
-    clear_has_m_specialattribute_valuemax();
-    m_specialattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional string m_skillid = 35;
+// optional string m_skillid = 19;
 inline bool E_EquipEquip::has_m_skillid() const {
-  return (_has_bits_[1] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void E_EquipEquip::set_has_m_skillid() {
-  _has_bits_[1] |= 0x00000004u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void E_EquipEquip::clear_has_m_skillid() {
-  _has_bits_[1] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void E_EquipEquip::clear_m_skillid() {
   if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
@@ -5647,31 +4780,6 @@ inline void E_EquipEquip::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// repeated .proto_ff.E_EquipEquipAttributeDesc m_attribute = 36;
-inline int E_EquipEquip::m_attribute_size() const {
-  return m_attribute_.size();
-}
-inline void E_EquipEquip::clear_m_attribute() {
-  m_attribute_.Clear();
-}
-inline const ::proto_ff::E_EquipEquipAttributeDesc& E_EquipEquip::m_attribute(int index) const {
-  return m_attribute_.Get(index);
-}
-inline ::proto_ff::E_EquipEquipAttributeDesc* E_EquipEquip::mutable_m_attribute(int index) {
-  return m_attribute_.Mutable(index);
-}
-inline ::proto_ff::E_EquipEquipAttributeDesc* E_EquipEquip::add_m_attribute() {
-  return m_attribute_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipEquipAttributeDesc >&
-E_EquipEquip::m_attribute() const {
-  return m_attribute_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipEquipAttributeDesc >*
-E_EquipEquip::mutable_m_attribute() {
-  return &m_attribute_;
-}
-
 // -------------------------------------------------------------------
 
 // Sheet_EquipEquip
@@ -5699,6 +4807,896 @@ Sheet_EquipEquip::e_equipequip_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipEquip >*
 Sheet_EquipEquip::mutable_e_equipequip_list() {
   return &e_equipequip_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_EquipAttributeAttributeDesc
+
+// optional int32 m_valuemin = 1;
+inline bool E_EquipAttributeAttributeDesc::has_m_valuemin() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_EquipAttributeAttributeDesc::set_has_m_valuemin() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_EquipAttributeAttributeDesc::clear_has_m_valuemin() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_EquipAttributeAttributeDesc::clear_m_valuemin() {
+  m_valuemin_ = 0;
+  clear_has_m_valuemin();
+}
+inline ::google::protobuf::int32 E_EquipAttributeAttributeDesc::m_valuemin() const {
+  return m_valuemin_;
+}
+inline void E_EquipAttributeAttributeDesc::set_m_valuemin(::google::protobuf::int32 value) {
+  set_has_m_valuemin();
+  m_valuemin_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_EquipAttributeAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_EquipAttributeAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_EquipAttributeAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_EquipAttributeAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_EquipAttributeAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_EquipAttributeAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_valuemax = 3;
+inline bool E_EquipAttributeAttributeDesc::has_m_valuemax() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_EquipAttributeAttributeDesc::set_has_m_valuemax() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_EquipAttributeAttributeDesc::clear_has_m_valuemax() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_EquipAttributeAttributeDesc::clear_m_valuemax() {
+  m_valuemax_ = 0;
+  clear_has_m_valuemax();
+}
+inline ::google::protobuf::int32 E_EquipAttributeAttributeDesc::m_valuemax() const {
+  return m_valuemax_;
+}
+inline void E_EquipAttributeAttributeDesc::set_m_valuemax(::google::protobuf::int32 value) {
+  set_has_m_valuemax();
+  m_valuemax_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_EquipAttribute
+
+// optional int32 m_id = 1;
+inline bool E_EquipAttribute::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_EquipAttribute::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_EquipAttribute::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_EquipAttribute::m_id() const {
+  return m_id_;
+}
+inline void E_EquipAttribute::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_bluestarnum = 2;
+inline bool E_EquipAttribute::has_m_bluestarnum() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_bluestarnum() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_EquipAttribute::clear_has_m_bluestarnum() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_EquipAttribute::clear_m_bluestarnum() {
+  m_bluestarnum_ = 0;
+  clear_has_m_bluestarnum();
+}
+inline ::google::protobuf::int32 E_EquipAttribute::m_bluestarnum() const {
+  return m_bluestarnum_;
+}
+inline void E_EquipAttribute::set_m_bluestarnum(::google::protobuf::int32 value) {
+  set_has_m_bluestarnum();
+  m_bluestarnum_ = value;
+}
+
+// optional string m_bluestar_type = 3;
+inline bool E_EquipAttribute::has_m_bluestar_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_bluestar_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_EquipAttribute::clear_has_m_bluestar_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_EquipAttribute::clear_m_bluestar_type() {
+  if (m_bluestar_type_ != &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_type_->clear();
+  }
+  clear_has_m_bluestar_type();
+}
+inline const ::std::string& E_EquipAttribute::m_bluestar_type() const {
+  return *m_bluestar_type_;
+}
+inline void E_EquipAttribute::set_m_bluestar_type(const ::std::string& value) {
+  set_has_m_bluestar_type();
+  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_type_ = new ::std::string;
+  }
+  m_bluestar_type_->assign(value);
+}
+inline void E_EquipAttribute::set_m_bluestar_type(const char* value) {
+  set_has_m_bluestar_type();
+  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_type_ = new ::std::string;
+  }
+  m_bluestar_type_->assign(value);
+}
+inline void E_EquipAttribute::set_m_bluestar_type(const char* value, size_t size) {
+  set_has_m_bluestar_type();
+  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_type_ = new ::std::string;
+  }
+  m_bluestar_type_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_bluestar_type() {
+  set_has_m_bluestar_type();
+  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_type_ = new ::std::string;
+  }
+  return m_bluestar_type_;
+}
+inline ::std::string* E_EquipAttribute::release_m_bluestar_type() {
+  clear_has_m_bluestar_type();
+  if (m_bluestar_type_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_bluestar_type_;
+    m_bluestar_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_bluestar_type(::std::string* m_bluestar_type) {
+  if (m_bluestar_type_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_bluestar_type_;
+  }
+  if (m_bluestar_type) {
+    set_has_m_bluestar_type();
+    m_bluestar_type_ = m_bluestar_type;
+  } else {
+    clear_has_m_bluestar_type();
+    m_bluestar_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_bluestar_lv = 4;
+inline bool E_EquipAttribute::has_m_bluestar_lv() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_bluestar_lv() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_EquipAttribute::clear_has_m_bluestar_lv() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_EquipAttribute::clear_m_bluestar_lv() {
+  if (m_bluestar_lv_ != &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_lv_->clear();
+  }
+  clear_has_m_bluestar_lv();
+}
+inline const ::std::string& E_EquipAttribute::m_bluestar_lv() const {
+  return *m_bluestar_lv_;
+}
+inline void E_EquipAttribute::set_m_bluestar_lv(const ::std::string& value) {
+  set_has_m_bluestar_lv();
+  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_lv_ = new ::std::string;
+  }
+  m_bluestar_lv_->assign(value);
+}
+inline void E_EquipAttribute::set_m_bluestar_lv(const char* value) {
+  set_has_m_bluestar_lv();
+  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_lv_ = new ::std::string;
+  }
+  m_bluestar_lv_->assign(value);
+}
+inline void E_EquipAttribute::set_m_bluestar_lv(const char* value, size_t size) {
+  set_has_m_bluestar_lv();
+  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_lv_ = new ::std::string;
+  }
+  m_bluestar_lv_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_bluestar_lv() {
+  set_has_m_bluestar_lv();
+  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_lv_ = new ::std::string;
+  }
+  return m_bluestar_lv_;
+}
+inline ::std::string* E_EquipAttribute::release_m_bluestar_lv() {
+  clear_has_m_bluestar_lv();
+  if (m_bluestar_lv_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_bluestar_lv_;
+    m_bluestar_lv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_bluestar_lv(::std::string* m_bluestar_lv) {
+  if (m_bluestar_lv_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_bluestar_lv_;
+  }
+  if (m_bluestar_lv) {
+    set_has_m_bluestar_lv();
+    m_bluestar_lv_ = m_bluestar_lv;
+  } else {
+    clear_has_m_bluestar_lv();
+    m_bluestar_lv_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_bluestar_number = 5;
+inline bool E_EquipAttribute::has_m_bluestar_number() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_bluestar_number() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_EquipAttribute::clear_has_m_bluestar_number() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_EquipAttribute::clear_m_bluestar_number() {
+  if (m_bluestar_number_ != &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_number_->clear();
+  }
+  clear_has_m_bluestar_number();
+}
+inline const ::std::string& E_EquipAttribute::m_bluestar_number() const {
+  return *m_bluestar_number_;
+}
+inline void E_EquipAttribute::set_m_bluestar_number(const ::std::string& value) {
+  set_has_m_bluestar_number();
+  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_number_ = new ::std::string;
+  }
+  m_bluestar_number_->assign(value);
+}
+inline void E_EquipAttribute::set_m_bluestar_number(const char* value) {
+  set_has_m_bluestar_number();
+  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_number_ = new ::std::string;
+  }
+  m_bluestar_number_->assign(value);
+}
+inline void E_EquipAttribute::set_m_bluestar_number(const char* value, size_t size) {
+  set_has_m_bluestar_number();
+  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_number_ = new ::std::string;
+  }
+  m_bluestar_number_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_bluestar_number() {
+  set_has_m_bluestar_number();
+  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
+    m_bluestar_number_ = new ::std::string;
+  }
+  return m_bluestar_number_;
+}
+inline ::std::string* E_EquipAttribute::release_m_bluestar_number() {
+  clear_has_m_bluestar_number();
+  if (m_bluestar_number_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_bluestar_number_;
+    m_bluestar_number_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_bluestar_number(::std::string* m_bluestar_number) {
+  if (m_bluestar_number_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_bluestar_number_;
+  }
+  if (m_bluestar_number) {
+    set_has_m_bluestar_number();
+    m_bluestar_number_ = m_bluestar_number;
+  } else {
+    clear_has_m_bluestar_number();
+    m_bluestar_number_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_specialattributedown = 6;
+inline bool E_EquipAttribute::has_m_specialattributedown() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_specialattributedown() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_EquipAttribute::clear_has_m_specialattributedown() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_EquipAttribute::clear_m_specialattributedown() {
+  m_specialattributedown_ = 0;
+  clear_has_m_specialattributedown();
+}
+inline ::google::protobuf::int32 E_EquipAttribute::m_specialattributedown() const {
+  return m_specialattributedown_;
+}
+inline void E_EquipAttribute::set_m_specialattributedown(::google::protobuf::int32 value) {
+  set_has_m_specialattributedown();
+  m_specialattributedown_ = value;
+}
+
+// optional int32 m_specialattributeup = 7;
+inline bool E_EquipAttribute::has_m_specialattributeup() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_specialattributeup() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_EquipAttribute::clear_has_m_specialattributeup() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_EquipAttribute::clear_m_specialattributeup() {
+  m_specialattributeup_ = 0;
+  clear_has_m_specialattributeup();
+}
+inline ::google::protobuf::int32 E_EquipAttribute::m_specialattributeup() const {
+  return m_specialattributeup_;
+}
+inline void E_EquipAttribute::set_m_specialattributeup(::google::protobuf::int32 value) {
+  set_has_m_specialattributeup();
+  m_specialattributeup_ = value;
+}
+
+// optional string m_specialattribute_typelibrary = 8;
+inline bool E_EquipAttribute::has_m_specialattribute_typelibrary() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_specialattribute_typelibrary() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void E_EquipAttribute::clear_has_m_specialattribute_typelibrary() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_EquipAttribute::clear_m_specialattribute_typelibrary() {
+  if (m_specialattribute_typelibrary_ != &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_typelibrary_->clear();
+  }
+  clear_has_m_specialattribute_typelibrary();
+}
+inline const ::std::string& E_EquipAttribute::m_specialattribute_typelibrary() const {
+  return *m_specialattribute_typelibrary_;
+}
+inline void E_EquipAttribute::set_m_specialattribute_typelibrary(const ::std::string& value) {
+  set_has_m_specialattribute_typelibrary();
+  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_typelibrary_ = new ::std::string;
+  }
+  m_specialattribute_typelibrary_->assign(value);
+}
+inline void E_EquipAttribute::set_m_specialattribute_typelibrary(const char* value) {
+  set_has_m_specialattribute_typelibrary();
+  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_typelibrary_ = new ::std::string;
+  }
+  m_specialattribute_typelibrary_->assign(value);
+}
+inline void E_EquipAttribute::set_m_specialattribute_typelibrary(const char* value, size_t size) {
+  set_has_m_specialattribute_typelibrary();
+  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_typelibrary_ = new ::std::string;
+  }
+  m_specialattribute_typelibrary_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_specialattribute_typelibrary() {
+  set_has_m_specialattribute_typelibrary();
+  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_typelibrary_ = new ::std::string;
+  }
+  return m_specialattribute_typelibrary_;
+}
+inline ::std::string* E_EquipAttribute::release_m_specialattribute_typelibrary() {
+  clear_has_m_specialattribute_typelibrary();
+  if (m_specialattribute_typelibrary_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_specialattribute_typelibrary_;
+    m_specialattribute_typelibrary_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_specialattribute_typelibrary(::std::string* m_specialattribute_typelibrary) {
+  if (m_specialattribute_typelibrary_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_specialattribute_typelibrary_;
+  }
+  if (m_specialattribute_typelibrary) {
+    set_has_m_specialattribute_typelibrary();
+    m_specialattribute_typelibrary_ = m_specialattribute_typelibrary;
+  } else {
+    clear_has_m_specialattribute_typelibrary();
+    m_specialattribute_typelibrary_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_specialattribute_valuemin = 9;
+inline bool E_EquipAttribute::has_m_specialattribute_valuemin() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_specialattribute_valuemin() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_EquipAttribute::clear_has_m_specialattribute_valuemin() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_EquipAttribute::clear_m_specialattribute_valuemin() {
+  if (m_specialattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemin_->clear();
+  }
+  clear_has_m_specialattribute_valuemin();
+}
+inline const ::std::string& E_EquipAttribute::m_specialattribute_valuemin() const {
+  return *m_specialattribute_valuemin_;
+}
+inline void E_EquipAttribute::set_m_specialattribute_valuemin(const ::std::string& value) {
+  set_has_m_specialattribute_valuemin();
+  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemin_ = new ::std::string;
+  }
+  m_specialattribute_valuemin_->assign(value);
+}
+inline void E_EquipAttribute::set_m_specialattribute_valuemin(const char* value) {
+  set_has_m_specialattribute_valuemin();
+  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemin_ = new ::std::string;
+  }
+  m_specialattribute_valuemin_->assign(value);
+}
+inline void E_EquipAttribute::set_m_specialattribute_valuemin(const char* value, size_t size) {
+  set_has_m_specialattribute_valuemin();
+  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemin_ = new ::std::string;
+  }
+  m_specialattribute_valuemin_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_specialattribute_valuemin() {
+  set_has_m_specialattribute_valuemin();
+  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemin_ = new ::std::string;
+  }
+  return m_specialattribute_valuemin_;
+}
+inline ::std::string* E_EquipAttribute::release_m_specialattribute_valuemin() {
+  clear_has_m_specialattribute_valuemin();
+  if (m_specialattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_specialattribute_valuemin_;
+    m_specialattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_specialattribute_valuemin(::std::string* m_specialattribute_valuemin) {
+  if (m_specialattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_specialattribute_valuemin_;
+  }
+  if (m_specialattribute_valuemin) {
+    set_has_m_specialattribute_valuemin();
+    m_specialattribute_valuemin_ = m_specialattribute_valuemin;
+  } else {
+    clear_has_m_specialattribute_valuemin();
+    m_specialattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_specialattribute_valuemax = 10;
+inline bool E_EquipAttribute::has_m_specialattribute_valuemax() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_specialattribute_valuemax() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void E_EquipAttribute::clear_has_m_specialattribute_valuemax() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void E_EquipAttribute::clear_m_specialattribute_valuemax() {
+  if (m_specialattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemax_->clear();
+  }
+  clear_has_m_specialattribute_valuemax();
+}
+inline const ::std::string& E_EquipAttribute::m_specialattribute_valuemax() const {
+  return *m_specialattribute_valuemax_;
+}
+inline void E_EquipAttribute::set_m_specialattribute_valuemax(const ::std::string& value) {
+  set_has_m_specialattribute_valuemax();
+  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemax_ = new ::std::string;
+  }
+  m_specialattribute_valuemax_->assign(value);
+}
+inline void E_EquipAttribute::set_m_specialattribute_valuemax(const char* value) {
+  set_has_m_specialattribute_valuemax();
+  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemax_ = new ::std::string;
+  }
+  m_specialattribute_valuemax_->assign(value);
+}
+inline void E_EquipAttribute::set_m_specialattribute_valuemax(const char* value, size_t size) {
+  set_has_m_specialattribute_valuemax();
+  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemax_ = new ::std::string;
+  }
+  m_specialattribute_valuemax_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_specialattribute_valuemax() {
+  set_has_m_specialattribute_valuemax();
+  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_specialattribute_valuemax_ = new ::std::string;
+  }
+  return m_specialattribute_valuemax_;
+}
+inline ::std::string* E_EquipAttribute::release_m_specialattribute_valuemax() {
+  clear_has_m_specialattribute_valuemax();
+  if (m_specialattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_specialattribute_valuemax_;
+    m_specialattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_specialattribute_valuemax(::std::string* m_specialattribute_valuemax) {
+  if (m_specialattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_specialattribute_valuemax_;
+  }
+  if (m_specialattribute_valuemax) {
+    set_has_m_specialattribute_valuemax();
+    m_specialattribute_valuemax_ = m_specialattribute_valuemax;
+  } else {
+    clear_has_m_specialattribute_valuemax();
+    m_specialattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_godattribute_type = 11;
+inline bool E_EquipAttribute::has_m_godattribute_type() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_godattribute_type() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void E_EquipAttribute::clear_has_m_godattribute_type() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void E_EquipAttribute::clear_m_godattribute_type() {
+  if (m_godattribute_type_ != &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_type_->clear();
+  }
+  clear_has_m_godattribute_type();
+}
+inline const ::std::string& E_EquipAttribute::m_godattribute_type() const {
+  return *m_godattribute_type_;
+}
+inline void E_EquipAttribute::set_m_godattribute_type(const ::std::string& value) {
+  set_has_m_godattribute_type();
+  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_type_ = new ::std::string;
+  }
+  m_godattribute_type_->assign(value);
+}
+inline void E_EquipAttribute::set_m_godattribute_type(const char* value) {
+  set_has_m_godattribute_type();
+  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_type_ = new ::std::string;
+  }
+  m_godattribute_type_->assign(value);
+}
+inline void E_EquipAttribute::set_m_godattribute_type(const char* value, size_t size) {
+  set_has_m_godattribute_type();
+  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_type_ = new ::std::string;
+  }
+  m_godattribute_type_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_godattribute_type() {
+  set_has_m_godattribute_type();
+  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_type_ = new ::std::string;
+  }
+  return m_godattribute_type_;
+}
+inline ::std::string* E_EquipAttribute::release_m_godattribute_type() {
+  clear_has_m_godattribute_type();
+  if (m_godattribute_type_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_godattribute_type_;
+    m_godattribute_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_godattribute_type(::std::string* m_godattribute_type) {
+  if (m_godattribute_type_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_godattribute_type_;
+  }
+  if (m_godattribute_type) {
+    set_has_m_godattribute_type();
+    m_godattribute_type_ = m_godattribute_type;
+  } else {
+    clear_has_m_godattribute_type();
+    m_godattribute_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_godattribute_valuemin = 12;
+inline bool E_EquipAttribute::has_m_godattribute_valuemin() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_godattribute_valuemin() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void E_EquipAttribute::clear_has_m_godattribute_valuemin() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void E_EquipAttribute::clear_m_godattribute_valuemin() {
+  if (m_godattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemin_->clear();
+  }
+  clear_has_m_godattribute_valuemin();
+}
+inline const ::std::string& E_EquipAttribute::m_godattribute_valuemin() const {
+  return *m_godattribute_valuemin_;
+}
+inline void E_EquipAttribute::set_m_godattribute_valuemin(const ::std::string& value) {
+  set_has_m_godattribute_valuemin();
+  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemin_ = new ::std::string;
+  }
+  m_godattribute_valuemin_->assign(value);
+}
+inline void E_EquipAttribute::set_m_godattribute_valuemin(const char* value) {
+  set_has_m_godattribute_valuemin();
+  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemin_ = new ::std::string;
+  }
+  m_godattribute_valuemin_->assign(value);
+}
+inline void E_EquipAttribute::set_m_godattribute_valuemin(const char* value, size_t size) {
+  set_has_m_godattribute_valuemin();
+  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemin_ = new ::std::string;
+  }
+  m_godattribute_valuemin_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_godattribute_valuemin() {
+  set_has_m_godattribute_valuemin();
+  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemin_ = new ::std::string;
+  }
+  return m_godattribute_valuemin_;
+}
+inline ::std::string* E_EquipAttribute::release_m_godattribute_valuemin() {
+  clear_has_m_godattribute_valuemin();
+  if (m_godattribute_valuemin_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_godattribute_valuemin_;
+    m_godattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_godattribute_valuemin(::std::string* m_godattribute_valuemin) {
+  if (m_godattribute_valuemin_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_godattribute_valuemin_;
+  }
+  if (m_godattribute_valuemin) {
+    set_has_m_godattribute_valuemin();
+    m_godattribute_valuemin_ = m_godattribute_valuemin;
+  } else {
+    clear_has_m_godattribute_valuemin();
+    m_godattribute_valuemin_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_godattribute_valuemax = 13;
+inline bool E_EquipAttribute::has_m_godattribute_valuemax() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void E_EquipAttribute::set_has_m_godattribute_valuemax() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void E_EquipAttribute::clear_has_m_godattribute_valuemax() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void E_EquipAttribute::clear_m_godattribute_valuemax() {
+  if (m_godattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemax_->clear();
+  }
+  clear_has_m_godattribute_valuemax();
+}
+inline const ::std::string& E_EquipAttribute::m_godattribute_valuemax() const {
+  return *m_godattribute_valuemax_;
+}
+inline void E_EquipAttribute::set_m_godattribute_valuemax(const ::std::string& value) {
+  set_has_m_godattribute_valuemax();
+  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemax_ = new ::std::string;
+  }
+  m_godattribute_valuemax_->assign(value);
+}
+inline void E_EquipAttribute::set_m_godattribute_valuemax(const char* value) {
+  set_has_m_godattribute_valuemax();
+  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemax_ = new ::std::string;
+  }
+  m_godattribute_valuemax_->assign(value);
+}
+inline void E_EquipAttribute::set_m_godattribute_valuemax(const char* value, size_t size) {
+  set_has_m_godattribute_valuemax();
+  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemax_ = new ::std::string;
+  }
+  m_godattribute_valuemax_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_godattribute_valuemax() {
+  set_has_m_godattribute_valuemax();
+  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    m_godattribute_valuemax_ = new ::std::string;
+  }
+  return m_godattribute_valuemax_;
+}
+inline ::std::string* E_EquipAttribute::release_m_godattribute_valuemax() {
+  clear_has_m_godattribute_valuemax();
+  if (m_godattribute_valuemax_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_godattribute_valuemax_;
+    m_godattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_EquipAttribute::set_allocated_m_godattribute_valuemax(::std::string* m_godattribute_valuemax) {
+  if (m_godattribute_valuemax_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_godattribute_valuemax_;
+  }
+  if (m_godattribute_valuemax) {
+    set_has_m_godattribute_valuemax();
+    m_godattribute_valuemax_ = m_godattribute_valuemax;
+  } else {
+    clear_has_m_godattribute_valuemax();
+    m_godattribute_valuemax_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated .proto_ff.E_EquipAttributeAttributeDesc m_attribute = 14;
+inline int E_EquipAttribute::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_EquipAttribute::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_EquipAttributeAttributeDesc& E_EquipAttribute::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_EquipAttributeAttributeDesc* E_EquipAttribute::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_EquipAttributeAttributeDesc* E_EquipAttribute::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttributeAttributeDesc >&
+E_EquipAttribute::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttributeAttributeDesc >*
+E_EquipAttribute::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// repeated string m_star_library = 15;
+inline int E_EquipAttribute::m_star_library_size() const {
+  return m_star_library_.size();
+}
+inline void E_EquipAttribute::clear_m_star_library() {
+  m_star_library_.Clear();
+}
+inline const ::std::string& E_EquipAttribute::m_star_library(int index) const {
+  return m_star_library_.Get(index);
+}
+inline ::std::string* E_EquipAttribute::mutable_m_star_library(int index) {
+  return m_star_library_.Mutable(index);
+}
+inline void E_EquipAttribute::set_m_star_library(int index, const ::std::string& value) {
+  m_star_library_.Mutable(index)->assign(value);
+}
+inline void E_EquipAttribute::set_m_star_library(int index, const char* value) {
+  m_star_library_.Mutable(index)->assign(value);
+}
+inline void E_EquipAttribute::set_m_star_library(int index, const char* value, size_t size) {
+  m_star_library_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipAttribute::add_m_star_library() {
+  return m_star_library_.Add();
+}
+inline void E_EquipAttribute::add_m_star_library(const ::std::string& value) {
+  m_star_library_.Add()->assign(value);
+}
+inline void E_EquipAttribute::add_m_star_library(const char* value) {
+  m_star_library_.Add()->assign(value);
+}
+inline void E_EquipAttribute::add_m_star_library(const char* value, size_t size) {
+  m_star_library_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+E_EquipAttribute::m_star_library() const {
+  return m_star_library_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+E_EquipAttribute::mutable_m_star_library() {
+  return &m_star_library_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_EquipAttribute
+
+// repeated .proto_ff.E_EquipAttribute E_EquipAttribute_List = 1;
+inline int Sheet_EquipAttribute::e_equipattribute_list_size() const {
+  return e_equipattribute_list_.size();
+}
+inline void Sheet_EquipAttribute::clear_e_equipattribute_list() {
+  e_equipattribute_list_.Clear();
+}
+inline const ::proto_ff::E_EquipAttribute& Sheet_EquipAttribute::e_equipattribute_list(int index) const {
+  return e_equipattribute_list_.Get(index);
+}
+inline ::proto_ff::E_EquipAttribute* Sheet_EquipAttribute::mutable_e_equipattribute_list(int index) {
+  return e_equipattribute_list_.Mutable(index);
+}
+inline ::proto_ff::E_EquipAttribute* Sheet_EquipAttribute::add_e_equipattribute_list() {
+  return e_equipattribute_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttribute >&
+Sheet_EquipAttribute::e_equipattribute_list() const {
+  return e_equipattribute_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttribute >*
+Sheet_EquipAttribute::mutable_e_equipattribute_list() {
+  return &e_equipattribute_list_;
 }
 
 // -------------------------------------------------------------------

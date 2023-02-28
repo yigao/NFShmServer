@@ -52,7 +52,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BoxBox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BoxBox_s, 40> E_BoxBox_List;
+		NFShmVector<struct E_BoxBox_s, 60> E_BoxBox_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BoxBox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BoxBox & msg);
@@ -130,7 +130,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BoxBoxdata_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BoxBoxdata_s, 60> E_BoxBoxdata_List;
+		NFShmVector<struct E_BoxBoxdata_s, 80> E_BoxBoxdata_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BoxBoxdata & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BoxBoxdata & msg);

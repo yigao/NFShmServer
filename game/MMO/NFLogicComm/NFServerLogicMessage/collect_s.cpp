@@ -218,4 +218,62 @@ void Sheet_CollectAttributetpye_s::read_from_pbmsg(const ::proto_ff::Sheet_Colle
 	}
 }
 
+E_CollectConst_s::E_CollectConst_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_CollectConst_s::CreateInit() {
+	m_id = (int32_t)0;
+	return 0;
+}
+
+int E_CollectConst_s::ResumeInit() {
+	return 0;
+}
+
+void E_CollectConst_s::write_to_pbmsg(::proto_ff::E_CollectConst & msg) const {
+	msg.set_m_id((int32_t)m_id);
+}
+
+void E_CollectConst_s::read_from_pbmsg(const ::proto_ff::E_CollectConst & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_CollectConst_s));
+	m_id = msg.m_id();
+}
+
+Sheet_CollectConst_s::Sheet_CollectConst_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_CollectConst_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_CollectConst_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_CollectConst_s::write_to_pbmsg(::proto_ff::Sheet_CollectConst & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_CollectConst_List.size(); ++i) {
+		::proto_ff::E_CollectConst* temp_e_collectconst_list = msg.add_e_collectconst_list();
+		E_CollectConst_List[i].write_to_pbmsg(*temp_e_collectconst_list);
+	}
+}
+
+void Sheet_CollectConst_s::read_from_pbmsg(const ::proto_ff::Sheet_CollectConst & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_CollectConst_s));
+	E_CollectConst_List.resize((int)msg.e_collectconst_list_size() > (int)E_CollectConst_List.max_size() ? E_CollectConst_List.max_size() : msg.e_collectconst_list_size());
+	for(int32_t i = 0; i < (int32_t)E_CollectConst_List.size(); ++i) {
+		const ::proto_ff::E_CollectConst & temp_e_collectconst_list = msg.e_collectconst_list(i);
+		E_CollectConst_List[i].read_from_pbmsg(temp_e_collectconst_list);
+	}
+}
+
 }

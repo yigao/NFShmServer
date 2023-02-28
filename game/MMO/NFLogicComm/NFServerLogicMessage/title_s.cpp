@@ -11,7 +11,7 @@ E_TitleType_s::E_TitleType_s() {
 }
 
 int E_TitleType_s::CreateInit() {
-	m_type = (int32_t)0;
+	m_id = (int32_t)0;
 	return 0;
 }
 
@@ -20,12 +20,12 @@ int E_TitleType_s::ResumeInit() {
 }
 
 void E_TitleType_s::write_to_pbmsg(::proto_ff::E_TitleType & msg) const {
-	msg.set_m_type((int32_t)m_type);
+	msg.set_m_id((int32_t)m_id);
 }
 
 void E_TitleType_s::read_from_pbmsg(const ::proto_ff::E_TitleType & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_TitleType_s));
-	m_type = msg.m_type();
+	m_id = msg.m_id();
 }
 
 Sheet_TitleType_s::Sheet_TitleType_s() {

@@ -16,6 +16,7 @@ int E_FunctionunlockFunctionunlock_s::CreateInit() {
 	m_opentype = (int32_t)0;
 	m_openval = (int64_t)0;
 	m_iconopenval = (int32_t)0;
+	m_icondisapearid = (int32_t)0;
 	m_belong = (int32_t)0;
 	return 0;
 }
@@ -30,7 +31,7 @@ void E_FunctionunlockFunctionunlock_s::write_to_pbmsg(::proto_ff::E_Functionunlo
 	msg.set_m_opentype((int32_t)m_opentype);
 	msg.set_m_openval((int64_t)m_openval);
 	msg.set_m_iconopenval((int32_t)m_iconopenval);
-	msg.set_m_icondisapear((const char*)m_icondisapear.data());
+	msg.set_m_icondisapearid((int32_t)m_icondisapearid);
 	msg.set_m_belong((int32_t)m_belong);
 }
 
@@ -41,7 +42,7 @@ void E_FunctionunlockFunctionunlock_s::read_from_pbmsg(const ::proto_ff::E_Funct
 	m_opentype = msg.m_opentype();
 	m_openval = msg.m_openval();
 	m_iconopenval = msg.m_iconopenval();
-	m_icondisapear = msg.m_icondisapear();
+	m_icondisapearid = msg.m_icondisapearid();
 	m_belong = msg.m_belong();
 }
 

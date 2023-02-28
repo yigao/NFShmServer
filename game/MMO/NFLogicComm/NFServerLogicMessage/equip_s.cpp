@@ -2,38 +2,6 @@
 
 namespace proto_ff_s {
 
-E_EquipEquipAttributeDesc_s::E_EquipEquipAttributeDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_EquipEquipAttributeDesc_s::CreateInit() {
-	m_valuemin = (int32_t)0;
-	m_type = (int32_t)0;
-	m_valuemax = (int32_t)0;
-	return 0;
-}
-
-int E_EquipEquipAttributeDesc_s::ResumeInit() {
-	return 0;
-}
-
-void E_EquipEquipAttributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipEquipAttributeDesc & msg) const {
-	msg.set_m_valuemin((int32_t)m_valuemin);
-	msg.set_m_type((int32_t)m_type);
-	msg.set_m_valuemax((int32_t)m_valuemax);
-}
-
-void E_EquipEquipAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipEquipAttributeDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipEquipAttributeDesc_s));
-	m_valuemin = msg.m_valuemin();
-	m_type = msg.m_type();
-	m_valuemax = msg.m_valuemax();
-}
-
 E_EquipEquip_s::E_EquipEquip_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -50,17 +18,13 @@ int E_EquipEquip_s::CreateInit() {
 	m_professionlv = (int32_t)0;
 	m_level = (int32_t)0;
 	m_quality = (int32_t)0;
+	m_attributeid = (int32_t)0;
 	m_star = (int32_t)0;
-	m_refineattributedown = (int32_t)0;
-	m_refineattributeup = (int32_t)0;
-	m_bluestarnum = (int32_t)0;
 	m_iscanbind = (int32_t)0;
 	m_istradebind = (int32_t)0;
 	m_sellprice = (int32_t)0;
 	m_time = (int32_t)0;
 	m_broadcast = (int32_t)0;
-	m_specialattributedown = (int32_t)0;
-	m_specialattributeup = (int32_t)0;
 	return 0;
 }
 
@@ -78,19 +42,8 @@ void E_EquipEquip_s::write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const {
 	msg.set_m_professionlv((int32_t)m_professionlv);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_godattribute_type((const char*)m_godattribute_type.data());
-	msg.set_m_godattribute_valuemin((const char*)m_godattribute_valuemin.data());
-	msg.set_m_godattribute_valuemax((const char*)m_godattribute_valuemax.data());
+	msg.set_m_attributeid((int32_t)m_attributeid);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_refineattributedown((int32_t)m_refineattributedown);
-	msg.set_m_refineattributeup((int32_t)m_refineattributeup);
-	msg.set_m_refineattribute_typelibrary((const char*)m_refineattribute_typelibrary.data());
-	msg.set_m_refineattribute_valuemin((const char*)m_refineattribute_valuemin.data());
-	msg.set_m_refineattribute_valuemax((const char*)m_refineattribute_valuemax.data());
-	msg.set_m_bluestarnum((int32_t)m_bluestarnum);
-	msg.set_m_bluestar_type((const char*)m_bluestar_type.data());
-	msg.set_m_bluestar_lv((const char*)m_bluestar_lv.data());
-	msg.set_m_bluestar_number((const char*)m_bluestar_number.data());
 	msg.set_m_iscanbind((int32_t)m_iscanbind);
 	msg.set_m_istradebind((int32_t)m_istradebind);
 	msg.set_m_sellprice((int32_t)m_sellprice);
@@ -98,16 +51,7 @@ void E_EquipEquip_s::write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const {
 	msg.set_m_time((int32_t)m_time);
 	msg.set_m_broadcast((int32_t)m_broadcast);
 	msg.set_m_meltingresult((const char*)m_meltingresult.data());
-	msg.set_m_specialattributedown((int32_t)m_specialattributedown);
-	msg.set_m_specialattributeup((int32_t)m_specialattributeup);
-	msg.set_m_specialattribute_typelibrary((const char*)m_specialattribute_typelibrary.data());
-	msg.set_m_specialattribute_valuemin((const char*)m_specialattribute_valuemin.data());
-	msg.set_m_specialattribute_valuemax((const char*)m_specialattribute_valuemax.data());
 	msg.set_m_skillid((const char*)m_skillid.data());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
-		::proto_ff::E_EquipEquipAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
-	}
 }
 
 void E_EquipEquip_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg) {
@@ -121,19 +65,8 @@ void E_EquipEquip_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg) {
 	m_professionlv = msg.m_professionlv();
 	m_level = msg.m_level();
 	m_quality = msg.m_quality();
-	m_godattribute_type = msg.m_godattribute_type();
-	m_godattribute_valuemin = msg.m_godattribute_valuemin();
-	m_godattribute_valuemax = msg.m_godattribute_valuemax();
+	m_attributeid = msg.m_attributeid();
 	m_star = msg.m_star();
-	m_refineattributedown = msg.m_refineattributedown();
-	m_refineattributeup = msg.m_refineattributeup();
-	m_refineattribute_typelibrary = msg.m_refineattribute_typelibrary();
-	m_refineattribute_valuemin = msg.m_refineattribute_valuemin();
-	m_refineattribute_valuemax = msg.m_refineattribute_valuemax();
-	m_bluestarnum = msg.m_bluestarnum();
-	m_bluestar_type = msg.m_bluestar_type();
-	m_bluestar_lv = msg.m_bluestar_lv();
-	m_bluestar_number = msg.m_bluestar_number();
 	m_iscanbind = msg.m_iscanbind();
 	m_istradebind = msg.m_istradebind();
 	m_sellprice = msg.m_sellprice();
@@ -141,17 +74,7 @@ void E_EquipEquip_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg) {
 	m_time = msg.m_time();
 	m_broadcast = msg.m_broadcast();
 	m_meltingresult = msg.m_meltingresult();
-	m_specialattributedown = msg.m_specialattributedown();
-	m_specialattributeup = msg.m_specialattributeup();
-	m_specialattribute_typelibrary = msg.m_specialattribute_typelibrary();
-	m_specialattribute_valuemin = msg.m_specialattribute_valuemin();
-	m_specialattribute_valuemax = msg.m_specialattribute_valuemax();
 	m_skillid = msg.m_skillid();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
-		const ::proto_ff::E_EquipEquipAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
-	}
 }
 
 Sheet_EquipEquip_s::Sheet_EquipEquip_s() {
@@ -183,6 +106,139 @@ void Sheet_EquipEquip_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipEquip & ms
 	for(int32_t i = 0; i < (int32_t)E_EquipEquip_List.size(); ++i) {
 		const ::proto_ff::E_EquipEquip & temp_e_equipequip_list = msg.e_equipequip_list(i);
 		E_EquipEquip_List[i].read_from_pbmsg(temp_e_equipequip_list);
+	}
+}
+
+E_EquipAttributeAttributeDesc_s::E_EquipAttributeAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipAttributeAttributeDesc_s::CreateInit() {
+	m_valuemin = (int32_t)0;
+	m_type = (int32_t)0;
+	m_valuemax = (int32_t)0;
+	return 0;
+}
+
+int E_EquipAttributeAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipAttributeAttributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipAttributeAttributeDesc & msg) const {
+	msg.set_m_valuemin((int32_t)m_valuemin);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_valuemax((int32_t)m_valuemax);
+}
+
+void E_EquipAttributeAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipAttributeAttributeDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipAttributeAttributeDesc_s));
+	m_valuemin = msg.m_valuemin();
+	m_type = msg.m_type();
+	m_valuemax = msg.m_valuemax();
+}
+
+E_EquipAttribute_s::E_EquipAttribute_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EquipAttribute_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_bluestarnum = (int32_t)0;
+	m_specialattributedown = (int32_t)0;
+	m_specialattributeup = (int32_t)0;
+	return 0;
+}
+
+int E_EquipAttribute_s::ResumeInit() {
+	return 0;
+}
+
+void E_EquipAttribute_s::write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_bluestarnum((int32_t)m_bluestarnum);
+	msg.set_m_bluestar_type((const char*)m_bluestar_type.data());
+	msg.set_m_bluestar_lv((const char*)m_bluestar_lv.data());
+	msg.set_m_bluestar_number((const char*)m_bluestar_number.data());
+	msg.set_m_specialattributedown((int32_t)m_specialattributedown);
+	msg.set_m_specialattributeup((int32_t)m_specialattributeup);
+	msg.set_m_specialattribute_typelibrary((const char*)m_specialattribute_typelibrary.data());
+	msg.set_m_specialattribute_valuemin((const char*)m_specialattribute_valuemin.data());
+	msg.set_m_specialattribute_valuemax((const char*)m_specialattribute_valuemax.data());
+	msg.set_m_godattribute_type((const char*)m_godattribute_type.data());
+	msg.set_m_godattribute_valuemin((const char*)m_godattribute_valuemin.data());
+	msg.set_m_godattribute_valuemax((const char*)m_godattribute_valuemax.data());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_EquipAttributeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+	for(int32_t i = 0; i < (int32_t)m_star_library.size(); ++i) {
+		msg.add_m_star_library((const char*)m_star_library[i].data());
+	}
+}
+
+void E_EquipAttribute_s::read_from_pbmsg(const ::proto_ff::E_EquipAttribute & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipAttribute_s));
+	m_id = msg.m_id();
+	m_bluestarnum = msg.m_bluestarnum();
+	m_bluestar_type = msg.m_bluestar_type();
+	m_bluestar_lv = msg.m_bluestar_lv();
+	m_bluestar_number = msg.m_bluestar_number();
+	m_specialattributedown = msg.m_specialattributedown();
+	m_specialattributeup = msg.m_specialattributeup();
+	m_specialattribute_typelibrary = msg.m_specialattribute_typelibrary();
+	m_specialattribute_valuemin = msg.m_specialattribute_valuemin();
+	m_specialattribute_valuemax = msg.m_specialattribute_valuemax();
+	m_godattribute_type = msg.m_godattribute_type();
+	m_godattribute_valuemin = msg.m_godattribute_valuemin();
+	m_godattribute_valuemax = msg.m_godattribute_valuemax();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_EquipAttributeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_star_library.resize((int)msg.m_star_library_size() > (int)m_star_library.max_size() ? m_star_library.max_size() : msg.m_star_library_size());
+	for(int32_t i = 0; i < (int32_t)m_star_library.size(); ++i) {
+		m_star_library[i] = msg.m_star_library(i);
+	}
+}
+
+Sheet_EquipAttribute_s::Sheet_EquipAttribute_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_EquipAttribute_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_EquipAttribute_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_EquipAttribute_s::write_to_pbmsg(::proto_ff::Sheet_EquipAttribute & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_EquipAttribute_List.size(); ++i) {
+		::proto_ff::E_EquipAttribute* temp_e_equipattribute_list = msg.add_e_equipattribute_list();
+		E_EquipAttribute_List[i].write_to_pbmsg(*temp_e_equipattribute_list);
+	}
+}
+
+void Sheet_EquipAttribute_s::read_from_pbmsg(const ::proto_ff::Sheet_EquipAttribute & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_EquipAttribute_s));
+	E_EquipAttribute_List.resize((int)msg.e_equipattribute_list_size() > (int)E_EquipAttribute_List.max_size() ? E_EquipAttribute_List.max_size() : msg.e_equipattribute_list_size());
+	for(int32_t i = 0; i < (int32_t)E_EquipAttribute_List.size(); ++i) {
+		const ::proto_ff::E_EquipAttribute & temp_e_equipattribute_list = msg.e_equipattribute_list(i);
+		E_EquipAttribute_List[i].read_from_pbmsg(temp_e_equipattribute_list);
 	}
 }
 

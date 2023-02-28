@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillBuff_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillBuff_s, 160> E_SkillBuff_List;
+		NFShmVector<struct E_SkillBuff_s, 180> E_SkillBuff_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillBuff & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillBuff & msg);
@@ -187,7 +187,7 @@ namespace proto_ff_s {
 		NFShmVector<struct E_SkillSkillAdvancetype2buffDesc_s, 3> m_advancetype2buff;
 		NFShmVector<struct E_SkillSkillAwakebuffDesc_s, 5> m_awakebuff;
 		NFShmVector<struct E_SkillSkillAdvancetype3buffDesc_s, 3> m_advancetype3buff;
-		NFShmVector<struct E_SkillSkillBuffDesc_s, 5> m_buff;
+		NFShmVector<struct E_SkillSkillBuffDesc_s, 8> m_buff;
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg);

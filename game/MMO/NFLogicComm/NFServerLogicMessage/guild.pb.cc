@@ -49,7 +49,7 @@ void protobuf_AssignDesc_guild_2eproto() {
       "guild.proto");
   GOOGLE_CHECK(file != NULL);
   E_GuildConstant_descriptor_ = file->message_type(0);
-  static const int E_GuildConstant_offsets_[8] = {
+  static const int E_GuildConstant_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_constantid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_setitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_nameitem_),
@@ -58,6 +58,8 @@ void protobuf_AssignDesc_guild_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_dismiss_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_transferguild_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_territory_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_autominlv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_autominbp_),
   };
   E_GuildConstant_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -218,7 +220,7 @@ void protobuf_AddDesc_guild_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013guild.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\"\235\003\n\017E_GuildConstant\022\"\n\014m_constant"
+    ".proto\"\203\004\n\017E_GuildConstant\022\"\n\014m_constant"
     "id\030\001 \001(\005B\014\302\377\024\010\351\205\215\347\275\256id\0221\n\tm_setitem\030\002 \001("
     "\005B\036\302\377\024\032\345\210\233\345\273\272\345\205\254\344\274\232\351\234\200\350\246\201\351\201\223\345\205\267ID\0222\n\nm_n"
     "ameitem\030\003 \001(\005B\036\302\377\024\032\345\205\254\344\274\232\346\224\271\345\220\215\351\234\200\350\246\201\351\201\223"
@@ -228,41 +230,44 @@ void protobuf_AddDesc_guild_2eproto() {
     "dismiss\030\006 \001(\005B\026\302\377\024\022\350\247\243\346\225\243\345\205\254\344\274\232\346\227\266\351\227\264\0228\n"
     "\017m_transferguild\030\007 \001(\005B\037\302\377\024\033\344\273\243\347\220\206\344\274\232\351\225\277"
     "\345\217\257\347\224\263\350\257\267\346\227\266\351\227\264\022-\n\013m_territory\030\010 \001(\005B\030\302\377"
-    "\024\024\345\205\254\344\274\232\351\242\206\345\234\260\345\234\272\346\231\257id\"T\n\023Sheet_GuildCon"
-    "stant\022=\n\024E_GuildConstant_List\030\001 \003(\0132\031.pr"
-    "oto_ff.E_GuildConstantB\004\210\301\024\024\"\254\002\n\014E_Guild"
-    "Level\022&\n\014m_guildlevel\030\001 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\347"
-    "\255\211\347\272\247\0220\n\020m_guildlevel_exp\030\002 \001(\005B\026\302\377\024\022\345\205\254"
-    "\344\274\232\345\215\207\347\272\247\347\273\217\351\252\214\0226\n\023m_guildlevel_member\030\003"
-    " \001(\005B\031\302\377\024\025\345\205\254\344\274\232\346\210\220\345\221\230\346\200\273\344\272\272\346\225\260\0222\n\017m_gui"
-    "ldlevel_vp\030\004 \001(\005B\031\302\377\024\025\345\205\254\344\274\232\345\211\257\344\274\232\351\225\277\344\272\272"
-    "\346\225\260\022,\n\017m_guildlevel_np\030\005 \001(\005B\023\302\377\024\017\345\205\254\344\274\232"
-    "\351\225\277\350\200\201\346\225\260\022(\n\016m_guildlevel_g\030\006 \001(\005B\020\302\377\024\014\346"
-    "\212\244\346\263\225\344\272\272\346\225\260\"K\n\020Sheet_GuildLevel\0227\n\021E_Gui"
-    "ldLevel_List\030\001 \003(\0132\026.proto_ff.E_GuildLev"
-    "elB\004\210\301\024\024\"\255\006\n\017E_GuildPosition\022\"\n\014m_positi"
-    "onid\030\001 \001(\005B\014\302\377\024\010\350\201\214\344\275\215ID\022,\n\017m_admitnewco"
-    "mer\030\002 \001(\005B\023\302\377\024\017\346\216\245\346\224\266\346\226\260\346\210\220\345\221\230\0228\n\024m_appo"
-    "intandremovevp\030\003 \001(\005B\032\302\377\024\026\344\273\273\345\221\275/\350\247\243\351\231\244\345"
-    "\211\257\344\274\232\351\225\277\0228\n\027m_appointandremoveelder\030\004 \001("
-    "\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\351\225\277\350\200\201\0224\n\023m_appointa"
-    "ndremoveg\030\005 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\346\212\244\346\263\225"
-    "\0228\n\027m_appointandremoveelite\030\006 \001(\005B\027\302\377\024\023\344"
-    "\273\273\345\221\275/\350\247\243\351\231\244\347\262\276\350\213\261\022&\n\tm_expelvp\030\007 \001(\005B\023\302"
-    "\377\024\017\350\270\242\345\207\272\345\211\257\344\274\232\351\225\277\022&\n\014m_expelelder\030\010 \001(\005"
-    "B\020\302\377\024\014\350\270\242\345\207\272\351\225\277\350\200\201\022\"\n\010m_expelg\030\t \001(\005B\020\302\377"
-    "\024\014\350\270\242\345\207\272\346\212\244\346\263\225\022+\n\013m_expelmass\030\n \001(\005B\026\302\377\024"
-    "\022\350\270\242\345\207\272\346\231\256\351\200\232\346\210\220\345\221\230\022/\n\025m_announcementedi"
-    "ting\030\013 \001(\005B\020\302\377\024\014\347\274\226\350\276\221\345\205\254\345\221\212\022!\n\007m_rname\030"
-    "\014 \001(\005B\020\302\377\024\014\344\277\256\346\224\271\345\220\215\345\255\227\022/\n\017m_joinconditi"
-    "on\030\r \001(\005B\026\302\377\024\022\350\256\276\347\275\256\345\212\240\345\205\245\346\226\271\345\274\217\022/\n\017m_gu"
-    "ildactivity\030\016 \001(\005B\026\302\377\024\022\345\274\200\345\220\257\345\205\254\344\274\232\347\216\251\346\263"
-    "\225\0226\n\025m_dissolveassignguild\030\017 \001(\005B\027\302\377\024\023\350\247"
-    "\243\346\225\243/\350\275\254\350\256\251\345\205\254\344\274\232\022&\n\014m_changename\030\020 \001(\005B"
-    "\020\302\377\024\014\346\224\271\345\220\215\346\235\203\351\231\220\022-\n\rm_recruitchat\030\021 \001(\005"
-    "B\026\302\377\024\022\345\217\221\345\270\203\346\213\233\350\264\244\347\272\263\345\243\253\"T\n\023Sheet_GuildP"
-    "osition\022=\n\024E_GuildPosition_List\030\001 \003(\0132\031."
-    "proto_ff.E_GuildPositionB\004\210\301\024\024", 1830);
+    "\024\024\345\205\254\344\274\232\351\242\206\345\234\260\345\234\272\346\231\257id\0221\n\013m_autominlv\030\t "
+    "\001(\005B\034\302\377\024\030\350\207\252\345\212\250\345\256\241\346\211\271\346\234\200\344\275\216\347\255\211\347\272\247\0221\n\013m_a"
+    "utominbp\030\n \001(\005B\034\302\377\024\030\350\207\252\345\212\250\345\256\241\346\211\271\346\234\200\344\275\216\346\210"
+    "\230\345\212\233\"T\n\023Sheet_GuildConstant\022=\n\024E_GuildCo"
+    "nstant_List\030\001 \003(\0132\031.proto_ff.E_GuildCons"
+    "tantB\004\210\301\024\024\"\254\002\n\014E_GuildLevel\022&\n\014m_guildle"
+    "vel\030\001 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\347\255\211\347\272\247\0220\n\020m_guildle"
+    "vel_exp\030\002 \001(\005B\026\302\377\024\022\345\205\254\344\274\232\345\215\207\347\272\247\347\273\217\351\252\214\0226\n"
+    "\023m_guildlevel_member\030\003 \001(\005B\031\302\377\024\025\345\205\254\344\274\232\346\210"
+    "\220\345\221\230\346\200\273\344\272\272\346\225\260\0222\n\017m_guildlevel_vp\030\004 \001(\005B\031"
+    "\302\377\024\025\345\205\254\344\274\232\345\211\257\344\274\232\351\225\277\344\272\272\346\225\260\022,\n\017m_guildleve"
+    "l_np\030\005 \001(\005B\023\302\377\024\017\345\205\254\344\274\232\351\225\277\350\200\201\346\225\260\022(\n\016m_gui"
+    "ldlevel_g\030\006 \001(\005B\020\302\377\024\014\346\212\244\346\263\225\344\272\272\346\225\260\"K\n\020She"
+    "et_GuildLevel\0227\n\021E_GuildLevel_List\030\001 \003(\013"
+    "2\026.proto_ff.E_GuildLevelB\004\210\301\024\024\"\255\006\n\017E_Gui"
+    "ldPosition\022\"\n\014m_positionid\030\001 \001(\005B\014\302\377\024\010\350\201"
+    "\214\344\275\215ID\022,\n\017m_admitnewcomer\030\002 \001(\005B\023\302\377\024\017\346\216\245"
+    "\346\224\266\346\226\260\346\210\220\345\221\230\0228\n\024m_appointandremovevp\030\003 \001"
+    "(\005B\032\302\377\024\026\344\273\273\345\221\275/\350\247\243\351\231\244\345\211\257\344\274\232\351\225\277\0228\n\027m_appo"
+    "intandremoveelder\030\004 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351"
+    "\231\244\351\225\277\350\200\201\0224\n\023m_appointandremoveg\030\005 \001(\005B\027\302"
+    "\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\346\212\244\346\263\225\0228\n\027m_appointandre"
+    "moveelite\030\006 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\347\262\276\350\213\261"
+    "\022&\n\tm_expelvp\030\007 \001(\005B\023\302\377\024\017\350\270\242\345\207\272\345\211\257\344\274\232\351\225\277"
+    "\022&\n\014m_expelelder\030\010 \001(\005B\020\302\377\024\014\350\270\242\345\207\272\351\225\277\350\200\201"
+    "\022\"\n\010m_expelg\030\t \001(\005B\020\302\377\024\014\350\270\242\345\207\272\346\212\244\346\263\225\022+\n\013"
+    "m_expelmass\030\n \001(\005B\026\302\377\024\022\350\270\242\345\207\272\346\231\256\351\200\232\346\210\220\345\221"
+    "\230\022/\n\025m_announcementediting\030\013 \001(\005B\020\302\377\024\014\347\274"
+    "\226\350\276\221\345\205\254\345\221\212\022!\n\007m_rname\030\014 \001(\005B\020\302\377\024\014\344\277\256\346\224\271\345"
+    "\220\215\345\255\227\022/\n\017m_joincondition\030\r \001(\005B\026\302\377\024\022\350\256\276\347"
+    "\275\256\345\212\240\345\205\245\346\226\271\345\274\217\022/\n\017m_guildactivity\030\016 \001(\005B"
+    "\026\302\377\024\022\345\274\200\345\220\257\345\205\254\344\274\232\347\216\251\346\263\225\0226\n\025m_dissolveass"
+    "ignguild\030\017 \001(\005B\027\302\377\024\023\350\247\243\346\225\243/\350\275\254\350\256\251\345\205\254\344\274\232\022"
+    "&\n\014m_changename\030\020 \001(\005B\020\302\377\024\014\346\224\271\345\220\215\346\235\203\351\231\220\022"
+    "-\n\rm_recruitchat\030\021 \001(\005B\026\302\377\024\022\345\217\221\345\270\203\346\213\233\350\264\244"
+    "\347\272\263\345\243\253\"T\n\023Sheet_GuildPosition\022=\n\024E_Guild"
+    "Position_List\030\001 \003(\0132\031.proto_ff.E_GuildPo"
+    "sitionB\004\210\301\024\024", 1932);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "guild.proto", &protobuf_RegisterTypes);
   E_GuildConstant::default_instance_ = new E_GuildConstant();
@@ -298,6 +303,8 @@ const int E_GuildConstant::kMGiftcdFieldNumber;
 const int E_GuildConstant::kMDismissFieldNumber;
 const int E_GuildConstant::kMTransferguildFieldNumber;
 const int E_GuildConstant::kMTerritoryFieldNumber;
+const int E_GuildConstant::kMAutominlvFieldNumber;
+const int E_GuildConstant::kMAutominbpFieldNumber;
 #endif  // !_MSC_VER
 
 E_GuildConstant::E_GuildConstant()
@@ -324,6 +331,8 @@ void E_GuildConstant::SharedCtor() {
   m_dismiss_ = 0;
   m_transferguild_ = 0;
   m_territory_ = 0;
+  m_autominlv_ = 0;
+  m_autominbp_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -367,6 +376,10 @@ void E_GuildConstant::Clear() {
     m_dismiss_ = 0;
     m_transferguild_ = 0;
     m_territory_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_autominlv_ = 0;
+    m_autominbp_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -501,6 +514,38 @@ bool E_GuildConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(72)) goto parse_m_autominlv;
+        break;
+      }
+
+      // optional int32 m_autominlv = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_autominlv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_autominlv_)));
+          set_has_m_autominlv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(80)) goto parse_m_autominbp;
+        break;
+      }
+
+      // optional int32 m_autominbp = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_autominbp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_autominbp_)));
+          set_has_m_autominbp();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -563,6 +608,16 @@ void E_GuildConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_territory(), output);
   }
 
+  // optional int32 m_autominlv = 9;
+  if (has_m_autominlv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_autominlv(), output);
+  }
+
+  // optional int32 m_autominbp = 10;
+  if (has_m_autominbp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_autominbp(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -609,6 +664,16 @@ void E_GuildConstant::SerializeWithCachedSizes(
   // optional int32 m_territory = 8;
   if (has_m_territory()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_territory(), target);
+  }
+
+  // optional int32 m_autominlv = 9;
+  if (has_m_autominlv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_autominlv(), target);
+  }
+
+  // optional int32 m_autominbp = 10;
+  if (has_m_autominbp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_autominbp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -679,6 +744,22 @@ int E_GuildConstant::ByteSize() const {
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_autominlv = 9;
+    if (has_m_autominlv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_autominlv());
+    }
+
+    // optional int32 m_autominbp = 10;
+    if (has_m_autominbp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_autominbp());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -730,6 +811,14 @@ void E_GuildConstant::MergeFrom(const E_GuildConstant& from) {
       set_m_territory(from.m_territory());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_autominlv()) {
+      set_m_autominlv(from.m_autominlv());
+    }
+    if (from.has_m_autominbp()) {
+      set_m_autominbp(from.m_autominbp());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -760,6 +849,8 @@ void E_GuildConstant::Swap(E_GuildConstant* other) {
     std::swap(m_dismiss_, other->m_dismiss_);
     std::swap(m_transferguild_, other->m_transferguild_);
     std::swap(m_territory_, other->m_territory_);
+    std::swap(m_autominlv_, other->m_autominlv_);
+    std::swap(m_autominbp_, other->m_autominbp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

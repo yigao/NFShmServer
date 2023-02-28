@@ -18,6 +18,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_percent;
 		float m_power;
+		int32_t m_systemtype;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AttributeAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AttributeAttribute & msg);

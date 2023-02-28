@@ -15,7 +15,7 @@ namespace proto_ff_s {
 		virtual ~E_TitleType_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_type;
+		int32_t m_id;
 
 		virtual void write_to_pbmsg(::proto_ff::E_TitleType & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TitleType & msg);
@@ -70,7 +70,7 @@ namespace proto_ff_s {
 		int64_t m_activationitem;
 		int32_t m_activationnum;
 		int64_t m_starid;
-		NFShmString<60> m_starnum;
+		NFShmString<300> m_starnum;
 		int32_t m_starup;
 		int32_t m_starber;
 		NFShmVector<struct E_TitleTitleAttributeDesc_s, 6> m_attribute;

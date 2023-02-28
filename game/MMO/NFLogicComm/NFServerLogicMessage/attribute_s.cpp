@@ -14,6 +14,7 @@ int E_AttributeAttribute_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_percent = (int32_t)0;
 	m_power = (float)0;
+	m_systemtype = (int32_t)0;
 	return 0;
 }
 
@@ -25,6 +26,7 @@ void E_AttributeAttribute_s::write_to_pbmsg(::proto_ff::E_AttributeAttribute & m
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_percent((int32_t)m_percent);
 	msg.set_m_power((float)m_power);
+	msg.set_m_systemtype((int32_t)m_systemtype);
 }
 
 void E_AttributeAttribute_s::read_from_pbmsg(const ::proto_ff::E_AttributeAttribute & msg) {
@@ -32,6 +34,7 @@ void E_AttributeAttribute_s::read_from_pbmsg(const ::proto_ff::E_AttributeAttrib
 	m_id = msg.m_id();
 	m_percent = msg.m_percent();
 	m_power = msg.m_power();
+	m_systemtype = msg.m_systemtype();
 }
 
 Sheet_AttributeAttribute_s::Sheet_AttributeAttribute_s() {

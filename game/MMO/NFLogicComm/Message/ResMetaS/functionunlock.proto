@@ -10,7 +10,7 @@ message E_FunctionunlockFunctionunlock
 	optional int32 m_opentype = 3[(yd_fieldoptions.field_cname) = "开放方式"];
 	optional int64 m_openval = 4[(yd_fieldoptions.field_cname) = "开放数值"];
 	optional int32 m_iconopenval = 5[(yd_fieldoptions.field_cname) = "提前显示icon参数"];
-	optional string m_icondisapear = 6[(yd_fieldoptions.field_cname) = "icon消失条件", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_icondisapearid = 6[(yd_fieldoptions.field_cname) = "icon消失ID"];
 	optional int32 m_belong = 7[(yd_fieldoptions.field_cname) = "附属"];
 }
 

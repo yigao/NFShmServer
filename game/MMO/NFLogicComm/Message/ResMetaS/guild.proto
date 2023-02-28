@@ -13,6 +13,8 @@ message E_GuildConstant
 	optional int32 m_dismiss = 6[(yd_fieldoptions.field_cname) = "解散公会时间"];
 	optional int32 m_transferguild = 7[(yd_fieldoptions.field_cname) = "代理会长可申请时间"];
 	optional int32 m_territory = 8[(yd_fieldoptions.field_cname) = "公会领地场景id"];
+	optional int32 m_autominlv = 9[(yd_fieldoptions.field_cname) = "自动审批最低等级"];
+	optional int32 m_autominbp = 10[(yd_fieldoptions.field_cname) = "自动审批最低战力"];
 }
 
 

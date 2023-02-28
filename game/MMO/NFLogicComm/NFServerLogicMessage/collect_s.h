@@ -107,5 +107,33 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_CollectAttributetpye_s Sheet_CollectAttributetpye_t;
 
+	struct E_CollectConst_s : public NFDescStoreSeqOP {
+		E_CollectConst_s();
+		virtual ~E_CollectConst_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+
+		virtual void write_to_pbmsg(::proto_ff::E_CollectConst & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_CollectConst & msg);
+		static ::proto_ff::E_CollectConst* new_pbmsg(){ return new ::proto_ff::E_CollectConst(); }
+		static ::proto_ff::E_CollectConst make_pbmsg(){ return ::proto_ff::E_CollectConst(); }
+	};
+	typedef struct E_CollectConst_s E_CollectConst_t;
+
+	struct Sheet_CollectConst_s : public NFDescStoreSeqOP {
+		Sheet_CollectConst_s();
+		virtual ~Sheet_CollectConst_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_CollectConst_s, 20> E_CollectConst_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_CollectConst & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_CollectConst & msg);
+		static ::proto_ff::Sheet_CollectConst* new_pbmsg(){ return new ::proto_ff::Sheet_CollectConst(); }
+		static ::proto_ff::Sheet_CollectConst make_pbmsg(){ return ::proto_ff::Sheet_CollectConst(); }
+	};
+	typedef struct Sheet_CollectConst_s Sheet_CollectConst_t;
+
 }
 

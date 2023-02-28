@@ -61,18 +61,18 @@ int TitleTypeDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_titletype_list_size(); i++)
 	{
 		const proto_ff::E_TitleType& desc = table.e_titletype_list(i);
-		if (desc.has_m_type() == false && desc.ByteSize() == 0)
+		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_type());
+		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.m_type(), i);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_type());
-		uint64_t hashKey = desc.m_type();
+		auto iter = m_astDescMap.emplace_hint(desc.m_id(), i);
+		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
+		uint64_t hashKey = desc.m_id();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{
 			if (m_astDescIndex[hashKey] != -1)

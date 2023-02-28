@@ -3,13 +3,6 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message E_EquipEquipAttributeDesc
-{
-	optional int32 m_valuemin = 1[(yd_fieldoptions.field_cname) = "最小数值"];
-	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
-	optional int32 m_valuemax = 3[(yd_fieldoptions.field_cname) = "最大数值"];
-}
-
 message E_EquipEquip
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "装备ID"];
@@ -21,39 +14,54 @@ message E_EquipEquip
 	optional int32 m_professionlv = 7[(yd_fieldoptions.field_cname) = "转职等级"];
 	optional int32 m_level = 8[(yd_fieldoptions.field_cname) = "穿戴等级限制"];
 	optional int32 m_quality = 9[(yd_fieldoptions.field_cname) = "装备品质"];
-	optional string m_godattribute_type = 10[(yd_fieldoptions.field_cname) = "仙尊属性", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_godattribute_valuemin = 11[(yd_fieldoptions.field_cname) = "仙尊属性最小数值", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_godattribute_valuemax = 12[(yd_fieldoptions.field_cname) = "仙尊属性最大数值", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_star = 13[(yd_fieldoptions.field_cname) = "装备星级"];
-	optional int32 m_refineattributedown = 14[(yd_fieldoptions.field_cname) = "星级属性数量下限"];
-	optional int32 m_refineattributeup = 15[(yd_fieldoptions.field_cname) = "星级属性数量上限"];
-	optional string m_refineattribute_typelibrary = 16[(yd_fieldoptions.field_cname) = "随机星级属性库", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_refineattribute_valuemin = 17[(yd_fieldoptions.field_cname) = "星级属性最小值", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_refineattribute_valuemax = 18[(yd_fieldoptions.field_cname) = "星级属性最大值", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_bluestarnum = 19[(yd_fieldoptions.field_cname) = "蓝色星级属性条数"];
-	optional string m_bluestar_type = 20[(yd_fieldoptions.field_cname) = "蓝色星级属性类型库", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_bluestar_lv = 21[(yd_fieldoptions.field_cname) = "蓝色星级等级间隔差", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_bluestar_number = 22[(yd_fieldoptions.field_cname) = "蓝色星级每级增加值", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_iscanbind = 23[(yd_fieldoptions.field_cname) = "是否绑定"];
-	optional int32 m_istradebind = 24[(yd_fieldoptions.field_cname) = "是否交易绑定"];
-	optional int32 m_sellprice = 25[(yd_fieldoptions.field_cname) = "出售价格"];
-	optional string m_icon = 26[(yd_fieldoptions.field_cname) = "装备图标名", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_time = 27[(yd_fieldoptions.field_cname) = "限时装备"];
-	optional int32 m_broadcast = 28[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
-	optional string m_meltingresult = 29[(yd_fieldoptions.field_cname) = "熔炼产出", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_specialattributedown = 30[(yd_fieldoptions.field_cname) = "特殊属性数量下限"];
-	optional int32 m_specialattributeup = 31[(yd_fieldoptions.field_cname) = "特殊属性数量上限"];
-	optional string m_specialattribute_typelibrary = 32[(yd_fieldoptions.field_cname) = "特殊星级属性库", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_specialattribute_valuemin = 33[(yd_fieldoptions.field_cname) = "特殊属性最小值", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_specialattribute_valuemax = 34[(yd_fieldoptions.field_cname) = "特殊属性最大值", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_skillid = 35[(yd_fieldoptions.field_cname) = "附带技能", (yd_fieldoptions.field_bufsize) = 60];
-	repeated E_EquipEquipAttributeDesc m_attribute = 36[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_attributeid = 10[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_star = 11[(yd_fieldoptions.field_cname) = "装备星级"];
+	optional int32 m_iscanbind = 12[(yd_fieldoptions.field_cname) = "是否绑定"];
+	optional int32 m_istradebind = 13[(yd_fieldoptions.field_cname) = "是否交易绑定"];
+	optional int32 m_sellprice = 14[(yd_fieldoptions.field_cname) = "出售价格"];
+	optional string m_icon = 15[(yd_fieldoptions.field_cname) = "装备图标名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_time = 16[(yd_fieldoptions.field_cname) = "限时装备"];
+	optional int32 m_broadcast = 17[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
+	optional string m_meltingresult = 18[(yd_fieldoptions.field_cname) = "熔炼产出", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_skillid = 19[(yd_fieldoptions.field_cname) = "附带技能", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_EquipEquip
 {
 	repeated E_EquipEquip E_EquipEquip_List = 1[(yd_fieldoptions.field_arysize)=11000];
+}
+
+message E_EquipAttributeAttributeDesc
+{
+	optional int32 m_valuemin = 1[(yd_fieldoptions.field_cname) = "最小数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+	optional int32 m_valuemax = 3[(yd_fieldoptions.field_cname) = "最大数值"];
+}
+
+message E_EquipAttribute
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_bluestarnum = 2[(yd_fieldoptions.field_cname) = "蓝色星级属性条数"];
+	optional string m_bluestar_type = 3[(yd_fieldoptions.field_cname) = "蓝色星级属性类型库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_bluestar_lv = 4[(yd_fieldoptions.field_cname) = "蓝色星级等级间隔差", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_bluestar_number = 5[(yd_fieldoptions.field_cname) = "蓝色星级每级增加值", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_specialattributedown = 6[(yd_fieldoptions.field_cname) = "特殊属性数量下限"];
+	optional int32 m_specialattributeup = 7[(yd_fieldoptions.field_cname) = "特殊属性数量上限"];
+	optional string m_specialattribute_typelibrary = 8[(yd_fieldoptions.field_cname) = "特殊星级属性库", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_specialattribute_valuemin = 9[(yd_fieldoptions.field_cname) = "特殊属性最小值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_specialattribute_valuemax = 10[(yd_fieldoptions.field_cname) = "特殊属性最大值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_godattribute_type = 11[(yd_fieldoptions.field_cname) = "仙尊属性", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_godattribute_valuemin = 12[(yd_fieldoptions.field_cname) = "仙尊属性最小数值", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_godattribute_valuemax = 13[(yd_fieldoptions.field_cname) = "仙尊属性最大数值", (yd_fieldoptions.field_bufsize) = 60];
+	repeated E_EquipAttributeAttributeDesc m_attribute = 14[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+	repeated string m_star_library = 15[(yd_fieldoptions.field_cname) = "星级属性库", (yd_fieldoptions.field_arysize) = 7, (yd_fieldoptions.field_bufsize) = 60];
+}
+
+
+message Sheet_EquipAttribute
+{
+	repeated E_EquipAttribute E_EquipAttribute_List = 1[(yd_fieldoptions.field_arysize)=11000];
 }
 
 message E_EquipStrongTypeDesc
@@ -210,10 +218,10 @@ message E_EquipClearSectionDesc
 
 message E_EquipClear
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "洗练数据id"];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "部位id"];
 	optional string m_value = 2[(yd_fieldoptions.field_cname) = "开孔绑钻花费", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_unlockitem = 3[(yd_fieldoptions.field_cname) = "消耗洗炼道具"];
-	optional string m_unlocknum = 4[(yd_fieldoptions.field_cname) = "消耗洗炼道具数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_unlockitem = 3[(yd_fieldoptions.field_cname) = "开孔道具"];
+	optional string m_unlocknum = 4[(yd_fieldoptions.field_cname) = "开孔道具数量", (yd_fieldoptions.field_bufsize) = 60];
 	optional int64 m_consumeid = 5[(yd_fieldoptions.field_cname) = "消耗道具ID"];
 	optional string m_consumenum = 6[(yd_fieldoptions.field_cname) = "消耗道具数量", (yd_fieldoptions.field_bufsize) = 60];
 	optional string m_lockingid = 7[(yd_fieldoptions.field_cname) = "高级道具ID", (yd_fieldoptions.field_bufsize) = 60];

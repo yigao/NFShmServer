@@ -40,6 +40,8 @@ class Sheet_CollectCollect;
 class E_CollectAttributetpyeAttributeDesc;
 class E_CollectAttributetpye;
 class Sheet_CollectAttributetpye;
+class E_CollectConst;
+class Sheet_CollectConst;
 
 // ===================================================================
 
@@ -690,6 +692,173 @@ class Sheet_CollectAttributetpye : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Sheet_CollectAttributetpye* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class E_CollectConst : public ::google::protobuf::Message {
+ public:
+  E_CollectConst();
+  virtual ~E_CollectConst();
+
+  E_CollectConst(const E_CollectConst& from);
+
+  inline E_CollectConst& operator=(const E_CollectConst& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_CollectConst& default_instance();
+
+  void Swap(E_CollectConst* other);
+
+  // implements Message ----------------------------------------------
+
+  E_CollectConst* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_CollectConst& from);
+  void MergeFrom(const E_CollectConst& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_CollectConst)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_collect_2eproto();
+  friend void protobuf_AssignDesc_collect_2eproto();
+  friend void protobuf_ShutdownFile_collect_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_CollectConst* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_CollectConst : public ::google::protobuf::Message {
+ public:
+  Sheet_CollectConst();
+  virtual ~Sheet_CollectConst();
+
+  Sheet_CollectConst(const Sheet_CollectConst& from);
+
+  inline Sheet_CollectConst& operator=(const Sheet_CollectConst& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_CollectConst& default_instance();
+
+  void Swap(Sheet_CollectConst* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_CollectConst* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_CollectConst& from);
+  void MergeFrom(const Sheet_CollectConst& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_CollectConst E_CollectConst_List = 1;
+  inline int e_collectconst_list_size() const;
+  inline void clear_e_collectconst_list();
+  static const int kECollectConstListFieldNumber = 1;
+  inline const ::proto_ff::E_CollectConst& e_collectconst_list(int index) const;
+  inline ::proto_ff::E_CollectConst* mutable_e_collectconst_list(int index);
+  inline ::proto_ff::E_CollectConst* add_e_collectconst_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_CollectConst >&
+      e_collectconst_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_CollectConst >*
+      mutable_e_collectconst_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_CollectConst)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_CollectConst > e_collectconst_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_collect_2eproto();
+  friend void protobuf_AssignDesc_collect_2eproto();
+  friend void protobuf_ShutdownFile_collect_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_CollectConst* default_instance_;
+};
 // ===================================================================
 
 
@@ -1289,6 +1458,61 @@ Sheet_CollectAttributetpye::e_collectattributetpye_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_CollectAttributetpye >*
 Sheet_CollectAttributetpye::mutable_e_collectattributetpye_list() {
   return &e_collectattributetpye_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_CollectConst
+
+// optional int32 m_id = 1;
+inline bool E_CollectConst::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_CollectConst::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_CollectConst::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_CollectConst::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_CollectConst::m_id() const {
+  return m_id_;
+}
+inline void E_CollectConst::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_CollectConst
+
+// repeated .proto_ff.E_CollectConst E_CollectConst_List = 1;
+inline int Sheet_CollectConst::e_collectconst_list_size() const {
+  return e_collectconst_list_.size();
+}
+inline void Sheet_CollectConst::clear_e_collectconst_list() {
+  e_collectconst_list_.Clear();
+}
+inline const ::proto_ff::E_CollectConst& Sheet_CollectConst::e_collectconst_list(int index) const {
+  return e_collectconst_list_.Get(index);
+}
+inline ::proto_ff::E_CollectConst* Sheet_CollectConst::mutable_e_collectconst_list(int index) {
+  return e_collectconst_list_.Mutable(index);
+}
+inline ::proto_ff::E_CollectConst* Sheet_CollectConst::add_e_collectconst_list() {
+  return e_collectconst_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_CollectConst >&
+Sheet_CollectConst::e_collectconst_list() const {
+  return e_collectconst_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_CollectConst >*
+Sheet_CollectConst::mutable_e_collectconst_list() {
+  return &e_collectconst_list_;
 }
 
 

@@ -8,6 +8,7 @@ message E_AttributeAttribute
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "属性ID"];
 	optional int32 m_percent = 2[(yd_fieldoptions.field_cname) = "百分比"];
 	optional float m_power = 3[(yd_fieldoptions.field_cname) = "战斗力"];
+	optional int32 m_systemtype = 4[(yd_fieldoptions.field_cname) = "模块类型"];
 }
 
 

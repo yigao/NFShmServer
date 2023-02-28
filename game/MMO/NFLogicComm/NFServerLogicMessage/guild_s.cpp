@@ -19,6 +19,8 @@ int E_GuildConstant_s::CreateInit() {
 	m_dismiss = (int32_t)0;
 	m_transferguild = (int32_t)0;
 	m_territory = (int32_t)0;
+	m_autominlv = (int32_t)0;
+	m_autominbp = (int32_t)0;
 	return 0;
 }
 
@@ -35,6 +37,8 @@ void E_GuildConstant_s::write_to_pbmsg(::proto_ff::E_GuildConstant & msg) const 
 	msg.set_m_dismiss((int32_t)m_dismiss);
 	msg.set_m_transferguild((int32_t)m_transferguild);
 	msg.set_m_territory((int32_t)m_territory);
+	msg.set_m_autominlv((int32_t)m_autominlv);
+	msg.set_m_autominbp((int32_t)m_autominbp);
 }
 
 void E_GuildConstant_s::read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg) {
@@ -47,6 +51,8 @@ void E_GuildConstant_s::read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg)
 	m_dismiss = msg.m_dismiss();
 	m_transferguild = msg.m_transferguild();
 	m_territory = msg.m_territory();
+	m_autominlv = msg.m_autominlv();
+	m_autominbp = msg.m_autominbp();
 }
 
 Sheet_GuildConstant_s::Sheet_GuildConstant_s() {

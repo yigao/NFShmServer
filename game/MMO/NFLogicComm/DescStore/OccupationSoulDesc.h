@@ -1,0 +1,22 @@
+#pragma once
+
+#include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFLogicCommon/NFDescStoreTypeDefines.h"
+#include "NFServerLogicMessage/occupation_s.h"
+
+#define MAX_OCCUPATION_SOUL_NUM 60
+
+class OccupationSoulDesc : public NFIDescStore
+{
+public:
+	OccupationSoulDesc();
+	virtual ~OccupationSoulDesc();
+	int CreateInit();
+	int ResumeInit();
+	const proto_ff_s::E_OccupationSoul_s* GetDesc(int id) const;
+	proto_ff_s::E_OccupationSoul_s* GetDesc(int id);
+public:
+IMPL_RES_HASH_DESC(proto_ff_s::E_OccupationSoul_s, E_OccupationSoul, MAX_OCCUPATION_SOUL_NUM);
+DECLARE_IDCREATE(OccupationSoulDesc);
+};

@@ -30,7 +30,7 @@ message E_SkillBuff
 
 message Sheet_SkillBuff
 {
-	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=160];
+	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=180];
 }
 
 message E_SkillSkillAdvancetype1buffDesc
@@ -115,7 +115,7 @@ message E_SkillSkill
 	repeated E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 51[(yd_fieldoptions.field_cname) = "进阶雷buff等级", (yd_fieldoptions.field_arysize) = 3];
 	repeated E_SkillSkillAwakebuffDesc m_awakebuff = 52[(yd_fieldoptions.field_cname) = "觉醒buff包", (yd_fieldoptions.field_arysize) = 5];
 	repeated E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 53[(yd_fieldoptions.field_cname) = "进阶冰buff等级", (yd_fieldoptions.field_arysize) = 3];
-	repeated E_SkillSkillBuffDesc m_buff = 54[(yd_fieldoptions.field_cname) = "buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_SkillSkillBuffDesc m_buff = 54[(yd_fieldoptions.field_cname) = "buff包", (yd_fieldoptions.field_arysize) = 8];
 }
 
 

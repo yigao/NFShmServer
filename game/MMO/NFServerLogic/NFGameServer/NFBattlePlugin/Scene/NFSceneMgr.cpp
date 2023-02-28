@@ -45,14 +45,15 @@ int NFSceneMgr::CreateInit()
     //	01110
     //	00000
     //******************计算每层所需定位的格子******************
-    m_mapLayer[0].push_back({ 0, 0 });
+    m_nineGridLayer.resize(m_nineGridLayer.max_size());
+    m_nineGridLayer[0].push_back({0, 0 });
     for (int a = 1; a <= MAX_LAYER; a++)
     {
         {
             int y = -a;
             for (int x = -a; x <= a; x++)
             {
-                m_mapLayer[a].push_back({ x, y });
+                m_nineGridLayer[a].push_back({x, y });
             }
         }
 
@@ -60,7 +61,7 @@ int NFSceneMgr::CreateInit()
             int y = a;
             for (int x = -a; x <= a; x++)
             {
-                m_mapLayer[a].push_back({ x, y });
+                m_nineGridLayer[a].push_back({x, y });
             }
         }
 
@@ -68,7 +69,7 @@ int NFSceneMgr::CreateInit()
             int x = -a;
             for (int y = -a + 1; y <= a - 1; y++)
             {
-                m_mapLayer[a].push_back({ x, y });
+                m_nineGridLayer[a].push_back({x, y });
             }
         }
 
@@ -76,7 +77,7 @@ int NFSceneMgr::CreateInit()
             int x = a;
             for (int y = -a + 1; y <= a - 1; y++)
             {
-                m_mapLayer[a].push_back({ x, y });
+                m_nineGridLayer[a].push_back({x, y });
             }
         }
     }
@@ -170,9 +171,26 @@ bool NFSceneMgr::IsClosed(uint64_t sceneId)
     return (iter != m_delCacheMap.end()) ? true : false;
 }
 
-const NFShmVector<NFPoint2<int32_t>, MAX_LAYER>* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
+const NFSceneMgr::OneLayer* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
 {
     if (nlayer > MAX_LAYER)
         nlayer = MAX_LAYER;
-    return &m_mapLayer[nlayer];
+    return &m_nineGridLayer[nlayer];
+}
+
+int NFSceneMgr::EnterScene(uint64_t mapId, uint64_t sceneId, uint64_t roleId, uint64_t transId)
+{
+    NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+    if (pMap == NULL)
+    {
+        return -1;
+    }
+
+    NFScene* pScene = GetScene(sceneId);
+    if (pScene == NULL)
+    {
+        return -1;
+    }
+
+    return 0;
 }

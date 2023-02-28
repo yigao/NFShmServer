@@ -49,10 +49,11 @@ void protobuf_AssignDesc_attribute_2eproto() {
       "attribute.proto");
   GOOGLE_CHECK(file != NULL);
   E_AttributeAttribute_descriptor_ = file->message_type(0);
-  static const int E_AttributeAttribute_offsets_[3] = {
+  static const int E_AttributeAttribute_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AttributeAttribute, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AttributeAttribute, m_percent_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AttributeAttribute, m_power_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AttributeAttribute, m_systemtype_),
   };
   E_AttributeAttribute_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -204,32 +205,33 @@ void protobuf_AddDesc_attribute_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017attribute.proto\022\010proto_ff\032\025yd_fieldopt"
-    "ions.proto\"t\n\024E_AttributeAttribute\022\032\n\004m_"
-    "id\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\tm_percent\030\002 \001("
-    "\005B\r\302\377\024\t\347\231\276\345\210\206\346\257\224\022\036\n\007m_power\030\003 \001(\002B\r\302\377\024\t\346"
-    "\210\230\346\226\227\345\212\233\"d\n\030Sheet_AttributeAttribute\022H\n\031"
-    "E_AttributeAttribute_List\030\001 \003(\0132\036.proto_"
-    "ff.E_AttributeAttributeB\005\210\301\024\310\001\"\303\003\n\023E_Att"
-    "ributeSuppress\022 \n\tm_lvldiff\030\001 \001(\005B\r\302\377\024\t\347"
-    "\255\211\347\272\247\345\267\256\022%\n\013m_hitsuppve\030\002 \001(\005B\020\302\377\024\014\345\221\275\344\270"
-    "\255\345\216\213\345\210\266\022&\n\014m_critsuppve\030\003 \001(\005B\020\302\377\024\014\346\232\264\345\207"
-    "\273\345\216\213\345\210\266\022&\n\014m_killsuppve\030\004 \001(\005B\020\302\377\024\014\345\277\205\346\235"
-    "\200\345\216\213\345\210\266\022\'\n\rm_statesuppve\030\005 \001(\005B\020\302\377\024\014\347\212\266\346"
-    "\200\201\345\216\213\345\210\266\022$\n\nm_lvsuppve\030\006 \001(\005B\020\302\377\024\014\347\255\211\347\272\247"
-    "\345\216\213\345\210\266\022%\n\013m_hitsuppvp\030\007 \001(\005B\020\302\377\024\014\345\221\275\344\270\255\345"
-    "\216\213\345\210\266\022&\n\014m_critsuppvp\030\010 \001(\005B\020\302\377\024\014\346\232\264\345\207\273\345"
-    "\216\213\345\210\266\022&\n\014m_killsuppvp\030\t \001(\005B\020\302\377\024\014\345\277\205\346\235\200\345"
-    "\216\213\345\210\266\022\'\n\rm_statesuppvp\030\n \001(\005B\020\302\377\024\014\347\212\266\346\200\201"
-    "\345\216\213\345\210\266\022$\n\nm_lvsuppvp\030\013 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\345\216"
-    "\213\345\210\266\"a\n\027Sheet_AttributeSuppress\022F\n\030E_Att"
-    "ributeSuppress_List\030\001 \003(\0132\035.proto_ff.E_A"
-    "ttributeSuppressB\005\210\301\024\330\004\"\213\001\n\023E_AttributeP"
-    "owersup\022\"\n\013m_powerdiff\030\001 \001(\005B\r\302\377\024\t\346\210\230\345\212\233"
-    "\345\267\256\022\'\n\rm_powersuppve\030\002 \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345\216"
-    "\213\345\210\266\022\'\n\rm_powersuppvp\030\003 \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345"
-    "\216\213\345\210\266\"a\n\027Sheet_AttributePowersup\022F\n\030E_At"
-    "tributePowersup_List\030\001 \003(\0132\035.proto_ff.E_"
-    "AttributePowersupB\005\210\301\024\310\001", 1064);
+    "ions.proto\"\234\001\n\024E_AttributeAttribute\022\032\n\004m"
+    "_id\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\tm_percent\030\002 \001"
+    "(\005B\r\302\377\024\t\347\231\276\345\210\206\346\257\224\022\036\n\007m_power\030\003 \001(\002B\r\302\377\024\t"
+    "\346\210\230\346\226\227\345\212\233\022&\n\014m_systemtype\030\004 \001(\005B\020\302\377\024\014\346\250\241"
+    "\345\235\227\347\261\273\345\236\213\"d\n\030Sheet_AttributeAttribute\022H\n"
+    "\031E_AttributeAttribute_List\030\001 \003(\0132\036.proto"
+    "_ff.E_AttributeAttributeB\005\210\301\024\310\001\"\303\003\n\023E_At"
+    "tributeSuppress\022 \n\tm_lvldiff\030\001 \001(\005B\r\302\377\024\t"
+    "\347\255\211\347\272\247\345\267\256\022%\n\013m_hitsuppve\030\002 \001(\005B\020\302\377\024\014\345\221\275\344"
+    "\270\255\345\216\213\345\210\266\022&\n\014m_critsuppve\030\003 \001(\005B\020\302\377\024\014\346\232\264\345"
+    "\207\273\345\216\213\345\210\266\022&\n\014m_killsuppve\030\004 \001(\005B\020\302\377\024\014\345\277\205\346"
+    "\235\200\345\216\213\345\210\266\022\'\n\rm_statesuppve\030\005 \001(\005B\020\302\377\024\014\347\212\266"
+    "\346\200\201\345\216\213\345\210\266\022$\n\nm_lvsuppve\030\006 \001(\005B\020\302\377\024\014\347\255\211\347\272"
+    "\247\345\216\213\345\210\266\022%\n\013m_hitsuppvp\030\007 \001(\005B\020\302\377\024\014\345\221\275\344\270\255"
+    "\345\216\213\345\210\266\022&\n\014m_critsuppvp\030\010 \001(\005B\020\302\377\024\014\346\232\264\345\207\273"
+    "\345\216\213\345\210\266\022&\n\014m_killsuppvp\030\t \001(\005B\020\302\377\024\014\345\277\205\346\235\200"
+    "\345\216\213\345\210\266\022\'\n\rm_statesuppvp\030\n \001(\005B\020\302\377\024\014\347\212\266\346\200"
+    "\201\345\216\213\345\210\266\022$\n\nm_lvsuppvp\030\013 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\345"
+    "\216\213\345\210\266\"a\n\027Sheet_AttributeSuppress\022F\n\030E_At"
+    "tributeSuppress_List\030\001 \003(\0132\035.proto_ff.E_"
+    "AttributeSuppressB\005\210\301\024\330\004\"\213\001\n\023E_Attribute"
+    "Powersup\022\"\n\013m_powerdiff\030\001 \001(\005B\r\302\377\024\t\346\210\230\345\212"
+    "\233\345\267\256\022\'\n\rm_powersuppve\030\002 \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345"
+    "\216\213\345\210\266\022\'\n\rm_powersuppvp\030\003 \001(\005B\020\302\377\024\014\346\210\230\345\212\233"
+    "\345\216\213\345\210\266\"a\n\027Sheet_AttributePowersup\022F\n\030E_A"
+    "ttributePowersup_List\030\001 \003(\0132\035.proto_ff.E"
+    "_AttributePowersupB\005\210\301\024\310\001", 1105);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "attribute.proto", &protobuf_RegisterTypes);
   E_AttributeAttribute::default_instance_ = new E_AttributeAttribute();
@@ -260,6 +262,7 @@ struct StaticDescriptorInitializer_attribute_2eproto {
 const int E_AttributeAttribute::kMIdFieldNumber;
 const int E_AttributeAttribute::kMPercentFieldNumber;
 const int E_AttributeAttribute::kMPowerFieldNumber;
+const int E_AttributeAttribute::kMSystemtypeFieldNumber;
 #endif  // !_MSC_VER
 
 E_AttributeAttribute::E_AttributeAttribute()
@@ -281,6 +284,7 @@ void E_AttributeAttribute::SharedCtor() {
   m_id_ = 0;
   m_percent_ = 0;
   m_power_ = 0;
+  m_systemtype_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -319,6 +323,7 @@ void E_AttributeAttribute::Clear() {
     m_id_ = 0;
     m_percent_ = 0;
     m_power_ = 0;
+    m_systemtype_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -373,6 +378,22 @@ bool E_AttributeAttribute::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_m_systemtype;
+        break;
+      }
+
+      // optional int32 m_systemtype = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_systemtype:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_systemtype_)));
+          set_has_m_systemtype();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -410,6 +431,11 @@ void E_AttributeAttribute::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->m_power(), output);
   }
 
+  // optional int32 m_systemtype = 4;
+  if (has_m_systemtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_systemtype(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -431,6 +457,11 @@ void E_AttributeAttribute::SerializeWithCachedSizes(
   // optional float m_power = 3;
   if (has_m_power()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->m_power(), target);
+  }
+
+  // optional int32 m_systemtype = 4;
+  if (has_m_systemtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_systemtype(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -461,6 +492,13 @@ int E_AttributeAttribute::ByteSize() const {
     // optional float m_power = 3;
     if (has_m_power()) {
       total_size += 1 + 4;
+    }
+
+    // optional int32 m_systemtype = 4;
+    if (has_m_systemtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_systemtype());
     }
 
   }
@@ -499,6 +537,9 @@ void E_AttributeAttribute::MergeFrom(const E_AttributeAttribute& from) {
     if (from.has_m_power()) {
       set_m_power(from.m_power());
     }
+    if (from.has_m_systemtype()) {
+      set_m_systemtype(from.m_systemtype());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -525,6 +566,7 @@ void E_AttributeAttribute::Swap(E_AttributeAttribute* other) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_percent_, other->m_percent_);
     std::swap(m_power_, other->m_power_);
+    std::swap(m_systemtype_, other->m_systemtype_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -255,7 +255,7 @@ void protobuf_AddDesc_box_2eproto() {
     "\345\244\247\346\254\241\346\225\260\022@\n\tm_boxdata\030\007 \003(\0132\035.proto_ff."
     "E_BoxBoxBoxdataDescB\016\302\377\024\006\346\216\211\350\220\275\210\301\024\010\"\?\n\014S"
     "heet_BoxBox\022/\n\rE_BoxBox_List\030\001 \003(\0132\022.pro"
-    "to_ff.E_BoxBoxB\004\210\301\024(\"\274\001\n\025E_BoxBoxdataEqu"
+    "to_ff.E_BoxBoxB\004\210\301\024<\"\274\001\n\025E_BoxBoxdataEqu"
     "ipDesc\022#\n\006m_rand\030\001 \001(\005B\023\302\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206"
     "\346\257\224\022\"\n\010m_minnum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022"
     "\034\n\010m_isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022\"\n\010m_maxnu"
@@ -284,7 +284,7 @@ void protobuf_AddDesc_box_2eproto() {
     "item\030\016 \003(\0132\036.proto_ff.E_BoxBoxdataItemDe"
     "scB\024\302\377\024\014\347\250\200\346\234\211\347\211\251\345\223\201\210\301\0242\"K\n\020Sheet_BoxBox"
     "data\0227\n\021E_BoxBoxdata_List\030\001 \003(\0132\026.proto_"
-    "ff.E_BoxBoxdataB\004\210\301\024<", 1701);
+    "ff.E_BoxBoxdataB\004\210\301\024P", 1701);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "box.proto", &protobuf_RegisterTypes);
   E_BoxBoxBoxdataDesc::default_instance_ = new E_BoxBoxBoxdataDesc();

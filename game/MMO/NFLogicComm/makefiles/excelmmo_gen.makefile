@@ -358,15 +358,33 @@ ${PROTOCGEN_FILE_PATH}/collect.proto ${PROTOCGEN_FILE_PATH}/collect_gen.makefile
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/collect.proto ${PROTOCGEN_FILE_PATH}/collect_gen.makefile" --dst=${RESDB_META_PATH}/
 
 
-${PROTOCGEN_FILE_PATH}/assist.proto ${PROTOCGEN_FILE_PATH}/assist_gen.makefile:${RESDB_EXCELMMO_PATH}/assist.xlsx
-	mkdir -p ${PROTOCGEN_FILE_PATH}
-	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
-	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/assist.proto ${PROTOCGEN_FILE_PATH}/assist_gen.makefile" --dst=${RESDB_META_PATH}/
-
-
 ${PROTOCGEN_FILE_PATH}/title.proto ${PROTOCGEN_FILE_PATH}/title_gen.makefile:${RESDB_EXCELMMO_PATH}/title.xlsx
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/title.proto ${PROTOCGEN_FILE_PATH}/title_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/godevil.proto ${PROTOCGEN_FILE_PATH}/godevil_gen.makefile:${RESDB_EXCELMMO_PATH}/godevil.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/godevil.proto ${PROTOCGEN_FILE_PATH}/godevil_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/occupation.proto ${PROTOCGEN_FILE_PATH}/occupation_gen.makefile:${RESDB_EXCELMMO_PATH}/occupation.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/occupation.proto ${PROTOCGEN_FILE_PATH}/occupation_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/Godvalley.proto ${PROTOCGEN_FILE_PATH}/Godvalley_gen.makefile:${RESDB_EXCELMMO_PATH}/Godvalley.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/Godvalley.proto ${PROTOCGEN_FILE_PATH}/Godvalley_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/recharge.proto ${PROTOCGEN_FILE_PATH}/recharge_gen.makefile:${RESDB_EXCELMMO_PATH}/recharge.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/recharge.proto ${PROTOCGEN_FILE_PATH}/recharge_gen.makefile" --dst=${RESDB_META_PATH}/
 
 

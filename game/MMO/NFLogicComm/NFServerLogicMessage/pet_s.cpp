@@ -64,6 +64,7 @@ int E_PetDisplay_s::CreateInit() {
 	m_starpetid = (int64_t)0;
 	m_weapon = (int32_t)0;
 	m_upattributeid = (int64_t)0;
+	m_fettersid = (int32_t)0;
 	return 0;
 }
 
@@ -103,6 +104,7 @@ void E_PetDisplay_s::write_to_pbmsg(::proto_ff::E_PetDisplay & msg) const {
 	msg.set_m_starpetnum((const char*)m_starpetnum.data());
 	msg.set_m_weapon((int32_t)m_weapon);
 	msg.set_m_upattributeid((int64_t)m_upattributeid);
+	msg.set_m_fettersid((int32_t)m_fettersid);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_PetDisplayMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
@@ -142,6 +144,7 @@ void E_PetDisplay_s::read_from_pbmsg(const ::proto_ff::E_PetDisplay & msg) {
 	m_starpetnum = msg.m_starpetnum();
 	m_weapon = msg.m_weapon();
 	m_upattributeid = msg.m_upattributeid();
+	m_fettersid = msg.m_fettersid();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_PetDisplayMaterialDesc & temp_m_material = msg.m_material(i);
