@@ -216,6 +216,9 @@ typedef std::unordered_map<int32_t, double> MAP_INT32_DOUBLE;
 typedef vector<NFPoint3<float> > VecPoint3;
 typedef vector<NFPoint2<float> > VecPoint2;
 
+class NFCreature;
+typedef std::unordered_set<NFCreature*> SET_Creature;
+
 
 struct stAttr64
 {

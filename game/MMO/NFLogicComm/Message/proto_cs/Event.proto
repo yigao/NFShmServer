@@ -54,3 +54,16 @@ message ChgSceneEvent
   optional uint64 cid = 1;			//玩家cid
   optional bool enterflag = 2;		//是否是进入场景
 };
+
+//进入场景事件
+message EnterSceneEvent
+{
+  optional uint64 cid = 1;      //生物id
+  optional uint32 uid = 2;
+  optional uint64 clientid = 3;
+  optional uint64 mapid = 4;	   //地图ID
+  optional int32 x = 5;
+  optional int32 y = 6;
+  optional int32 z = 7;
+  //optional STransParam transParam;	//切换地图参数
+};

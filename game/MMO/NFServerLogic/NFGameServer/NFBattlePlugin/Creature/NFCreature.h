@@ -130,7 +130,7 @@ public:
 
     inline NFPoint3<float> &GetDir() { return m_dir; }
 
-    inline NFGrid *GetGrid();
+    NFGrid *GetGrid();
 
     inline void SetGrid(NFGrid *pGrid);
 
@@ -138,9 +138,11 @@ public:
 
     inline uint64_t GetSceneId() const { return m_sceneId; };
 
+    inline void SetSceneId(uint64_t sceneId) { m_sceneId = sceneId; }
+
     inline uint64_t GetMapId() const { return m_mapId; }
 
-    inline void SetMapId(uint32_t mapId) { m_mapId = mapId; }
+    inline void SetMapId(uint64_t mapId) { m_mapId = mapId; }
 
     virtual uint8_t Kind() const { return m_kind; };
 
@@ -150,15 +152,30 @@ public:
 
     inline float GetSightRange() const { return m_sightRange; }
 
-    virtual uint32_t GetUid() { return 0; }
+    virtual uint64_t GetUid() { return 0; }
+
+    virtual uint64_t GetRoleId() { return 0; }
 
     virtual uint32_t GetChannId() { return 0; }
 
-    virtual uint32_t GetClientId() { return 0; }
+    virtual uint64_t GetClientId() { return 0; }
 
     virtual uint32_t GetZid() { return 0; }
 
     virtual uint32_t GetGateId() { return 0; }
+
+    //获取怪物模型半径, 长度单位m
+    virtual float GetModelRadius() { return m_fRadius; };
+public:
+    //scenceId:目标场景ID（唯一ID，静态地图场景ID和地图ID相同），dstPos：目标场景坐标，mapId：地图ID,transParam:传送参数
+    //强制传送(场景内传送、切场景传送)
+    virtual bool TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam) { return true; }
+
+    //进入场景(这个接口只给移动部件和生物内部自身调用，其他请调用transScene)
+    virtual bool EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam);
+
+    //离开场景
+    virtual bool LeaveScene();
 
 public:
     //状态
@@ -207,7 +224,7 @@ public:
 public:
     virtual void FindCreatureInScene(LIST_UINT64 &clist);
 
-    virtual void FindCreatureInScene(std::set<NFCreature *> &setcreature);
+    virtual void FindCreatureInScene(SET_Creature &setcreature);
 
     virtual void FindSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature *> *clist, NFPoint3<float> &sorPos);
 
@@ -246,7 +263,7 @@ public:
 
     virtual void UpdateNineGridLst();
 
-    virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &cvData) { };  //获取客户端可见数据
+    virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &cvData) {};  //获取客户端可见数据
 
     //更新生物视野数据(生物视野数据变更，需要通知周围已经看到了他们的玩家)
     virtual void UpdateViewData() {};
@@ -255,6 +272,7 @@ public:
     void SendAllSeeCreatureListToClient();
 
     void NoticeNineGridLeave();
+
 public:
     //判断是否能发送消息
     bool IsCanSendMessage();
@@ -336,6 +354,9 @@ public:
     virtual void SynAttrToClient();
 
 public:
+    //是否可以添加新看到的生物
+    virtual bool CanAddSeeNewCreature(NFCreature *pCreature, int64_t hateValue);
+
 public:
     //获取对应部件指针
     virtual NFBattlePart *GetPart(uint32_t partType) { return nullptr; }

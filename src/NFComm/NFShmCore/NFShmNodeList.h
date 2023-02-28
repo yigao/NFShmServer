@@ -315,6 +315,10 @@ public:
         return 0;
     }
 
+    bool IsExistNode(NodeObjType *pNode)
+    {
+        return pNode->GetListCheckID() == m_iListCheckID;
+    }
 private:
     int m_iListCheckID;
     int m_iNodeCount;
@@ -593,6 +597,11 @@ public:
         pNode->SetListCheckID(typeIndex, INVALID_ID);
         m_iNodeCount--;
         return 0;
+    }
+
+    bool IsExistNode(NodeObjType *pNode, int typeIndex)
+    {
+        return pNode->GetListCheckID(typeIndex) == m_iListCheckID;
     }
 
 private:

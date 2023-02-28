@@ -41,6 +41,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ChgSceneEvent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ChgSceneEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EnterSceneEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EnterSceneEvent_reflection_ = NULL;
 
 }  // namespace
 
@@ -166,6 +169,27 @@ void protobuf_AssignDesc_Event_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ChgSceneEvent));
+  EnterSceneEvent_descriptor_ = file->message_type(7);
+  static const int EnterSceneEvent_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, clientid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, mapid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, z_),
+  };
+  EnterSceneEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      EnterSceneEvent_descriptor_,
+      EnterSceneEvent::default_instance_,
+      EnterSceneEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(EnterSceneEvent));
 }
 
 namespace {
@@ -192,6 +216,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     LeaveSceneEvent_descriptor_, &LeaveSceneEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ChgSceneEvent_descriptor_, &ChgSceneEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    EnterSceneEvent_descriptor_, &EnterSceneEvent::default_instance());
 }
 
 }  // namespace
@@ -211,6 +237,8 @@ void protobuf_ShutdownFile_Event_2eproto() {
   delete LeaveSceneEvent_reflection_;
   delete ChgSceneEvent::default_instance_;
   delete ChgSceneEvent_reflection_;
+  delete EnterSceneEvent::default_instance_;
+  delete EnterSceneEvent_reflection_;
 }
 
 void protobuf_AddDesc_Event_2eproto() {
@@ -234,7 +262,10 @@ void protobuf_AddDesc_Event_2eproto() {
     "id\030\002 \001(\004\022\020\n\010taskType\030\003 \001(\r\022\020\n\010mapGroup\030\004"
     " \001(\005\">\n\017LeaveSceneEvent\022\013\n\003cid\030\001 \001(\004\022\017\n\007"
     "sceneid\030\002 \001(\004\022\r\n\005mapid\030\003 \001(\004\"/\n\rChgScene"
-    "Event\022\013\n\003cid\030\001 \001(\004\022\021\n\tenterflag\030\002 \001(\010", 477);
+    "Event\022\013\n\003cid\030\001 \001(\004\022\021\n\tenterflag\030\002 \001(\010\"m\n"
+    "\017EnterSceneEvent\022\013\n\003cid\030\001 \001(\004\022\013\n\003uid\030\002 \001"
+    "(\r\022\020\n\010clientid\030\003 \001(\004\022\r\n\005mapid\030\004 \001(\004\022\t\n\001x"
+    "\030\005 \001(\005\022\t\n\001y\030\006 \001(\005\022\t\n\001z\030\007 \001(\005", 588);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -244,6 +275,7 @@ void protobuf_AddDesc_Event_2eproto() {
   FinishTaskEvent::default_instance_ = new FinishTaskEvent();
   LeaveSceneEvent::default_instance_ = new LeaveSceneEvent();
   ChgSceneEvent::default_instance_ = new ChgSceneEvent();
+  EnterSceneEvent::default_instance_ = new EnterSceneEvent();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -251,6 +283,7 @@ void protobuf_AddDesc_Event_2eproto() {
   FinishTaskEvent::default_instance_->InitAsDefaultInstance();
   LeaveSceneEvent::default_instance_->InitAsDefaultInstance();
   ChgSceneEvent::default_instance_->InitAsDefaultInstance();
+  EnterSceneEvent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Event_2eproto);
 }
 
@@ -2111,6 +2144,454 @@ void ChgSceneEvent::Swap(ChgSceneEvent* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = ChgSceneEvent_descriptor_;
   metadata.reflection = ChgSceneEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int EnterSceneEvent::kCidFieldNumber;
+const int EnterSceneEvent::kUidFieldNumber;
+const int EnterSceneEvent::kClientidFieldNumber;
+const int EnterSceneEvent::kMapidFieldNumber;
+const int EnterSceneEvent::kXFieldNumber;
+const int EnterSceneEvent::kYFieldNumber;
+const int EnterSceneEvent::kZFieldNumber;
+#endif  // !_MSC_VER
+
+EnterSceneEvent::EnterSceneEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void EnterSceneEvent::InitAsDefaultInstance() {
+}
+
+EnterSceneEvent::EnterSceneEvent(const EnterSceneEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void EnterSceneEvent::SharedCtor() {
+  _cached_size_ = 0;
+  cid_ = GOOGLE_ULONGLONG(0);
+  uid_ = 0u;
+  clientid_ = GOOGLE_ULONGLONG(0);
+  mapid_ = GOOGLE_ULONGLONG(0);
+  x_ = 0;
+  y_ = 0;
+  z_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+EnterSceneEvent::~EnterSceneEvent() {
+  SharedDtor();
+}
+
+void EnterSceneEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void EnterSceneEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EnterSceneEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnterSceneEvent_descriptor_;
+}
+
+const EnterSceneEvent& EnterSceneEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Event_2eproto();
+  return *default_instance_;
+}
+
+EnterSceneEvent* EnterSceneEvent::default_instance_ = NULL;
+
+EnterSceneEvent* EnterSceneEvent::New() const {
+  return new EnterSceneEvent;
+}
+
+void EnterSceneEvent::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cid_ = GOOGLE_ULONGLONG(0);
+    uid_ = 0u;
+    clientid_ = GOOGLE_ULONGLONG(0);
+    mapid_ = GOOGLE_ULONGLONG(0);
+    x_ = 0;
+    y_ = 0;
+    z_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool EnterSceneEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 cid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_uid;
+        break;
+      }
+
+      // optional uint32 uid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_uid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uid_)));
+          set_has_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_clientid;
+        break;
+      }
+
+      // optional uint64 clientid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_clientid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &clientid_)));
+          set_has_clientid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_mapid;
+        break;
+      }
+
+      // optional uint64 mapid = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mapid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &mapid_)));
+          set_has_mapid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_x;
+        break;
+      }
+
+      // optional int32 x = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_x:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &x_)));
+          set_has_x();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_y;
+        break;
+      }
+
+      // optional int32 y = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_y:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &y_)));
+          set_has_y();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_z;
+        break;
+      }
+
+      // optional int32 z = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_z:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &z_)));
+          set_has_z();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void EnterSceneEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 cid = 1;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  }
+
+  // optional uint32 uid = 2;
+  if (has_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->uid(), output);
+  }
+
+  // optional uint64 clientid = 3;
+  if (has_clientid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->clientid(), output);
+  }
+
+  // optional uint64 mapid = 4;
+  if (has_mapid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->mapid(), output);
+  }
+
+  // optional int32 x = 5;
+  if (has_x()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->x(), output);
+  }
+
+  // optional int32 y = 6;
+  if (has_y()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->y(), output);
+  }
+
+  // optional int32 z = 7;
+  if (has_z()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->z(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* EnterSceneEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 cid = 1;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  }
+
+  // optional uint32 uid = 2;
+  if (has_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->uid(), target);
+  }
+
+  // optional uint64 clientid = 3;
+  if (has_clientid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->clientid(), target);
+  }
+
+  // optional uint64 mapid = 4;
+  if (has_mapid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->mapid(), target);
+  }
+
+  // optional int32 x = 5;
+  if (has_x()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->x(), target);
+  }
+
+  // optional int32 y = 6;
+  if (has_y()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->y(), target);
+  }
+
+  // optional int32 z = 7;
+  if (has_z()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->z(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int EnterSceneEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 cid = 1;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+    // optional uint32 uid = 2;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->uid());
+    }
+
+    // optional uint64 clientid = 3;
+    if (has_clientid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->clientid());
+    }
+
+    // optional uint64 mapid = 4;
+    if (has_mapid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->mapid());
+    }
+
+    // optional int32 x = 5;
+    if (has_x()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->x());
+    }
+
+    // optional int32 y = 6;
+    if (has_y()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->y());
+    }
+
+    // optional int32 z = 7;
+    if (has_z()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->z());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EnterSceneEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const EnterSceneEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const EnterSceneEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void EnterSceneEvent::MergeFrom(const EnterSceneEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+    if (from.has_uid()) {
+      set_uid(from.uid());
+    }
+    if (from.has_clientid()) {
+      set_clientid(from.clientid());
+    }
+    if (from.has_mapid()) {
+      set_mapid(from.mapid());
+    }
+    if (from.has_x()) {
+      set_x(from.x());
+    }
+    if (from.has_y()) {
+      set_y(from.y());
+    }
+    if (from.has_z()) {
+      set_z(from.z());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void EnterSceneEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EnterSceneEvent::CopyFrom(const EnterSceneEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EnterSceneEvent::IsInitialized() const {
+
+  return true;
+}
+
+void EnterSceneEvent::Swap(EnterSceneEvent* other) {
+  if (other != this) {
+    std::swap(cid_, other->cid_);
+    std::swap(uid_, other->uid_);
+    std::swap(clientid_, other->clientid_);
+    std::swap(mapid_, other->mapid_);
+    std::swap(x_, other->x_);
+    std::swap(y_, other->y_);
+    std::swap(z_, other->z_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata EnterSceneEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EnterSceneEvent_descriptor_;
+  metadata.reflection = EnterSceneEvent_reflection_;
   return metadata;
 }
 

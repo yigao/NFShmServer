@@ -16,6 +16,9 @@
 #include "NFLogicCommon/NFAttrMgr.h"
 #include "NFLogicCommon/NFEventDefine.h"
 #include "NFLogicCommon/NFGameMath.h"
+#include "Scene/NFSceneMgr.h"
+#include "Event.pb.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFCreature, EOT_GAME_CREATURE_ID, NFShmObj)
 
@@ -60,7 +63,7 @@ NFCreature::~NFCreature()
 
 int NFCreature::CreateInit()
 {
-    m_cid = 0;     //生物实例id
+    m_cid = GetGlobalID();     //生物实例id
     m_kind = 0;     //实体类型
     m_sceneId = 0;                //场景id
     m_mapId = 0;                  //地图模板id
@@ -96,7 +99,7 @@ void NFCreature::SetPos(const NFPoint3<float> &pos)
     newLittleGrid.x = pos.x / 3;
     newLittleGrid.y = pos.z / 3;
     //
-    //pGrid = pScene->MoveInScene(m_Cid, m_pMyGrid, pos, isSameGrid);
+    pGrid = pScene->MoveInScene(this, pos, isSameGrid);
     if (pGrid)
     {
         SetGrid(pGrid);
@@ -105,14 +108,14 @@ void NFCreature::SetPos(const NFPoint3<float> &pos)
         m_lastUpdateNineTime = NFTime::Now().UnixSec();
         if (!isSameGrid)
         {
-            //UpdateNineGridLst();
+            UpdateNineGridLst();
         }
         else
         {
             if (m_littleGrid != newLittleGrid)
             {
                 m_littleGrid = newLittleGrid;
-                //UpdateSeeLst();
+                UpdateSeeLst();
             }
         }
     }
@@ -571,11 +574,170 @@ void NFCreature::SynAttrToClient()
 
 bool NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself /*= false*/)
 {
+/*    if (CREATURE_PLAYER == m_kind && !IsCanSendMessage())
+    {
+        return false;
+    }
+
+    MAP_UINT32_MAP_UINT32_SET_UINT32 mapzid_gateclient;
+    uint32_t clientId = 0;
+    uint32_t gateId = 0;
+    uint32_t zid = 0;
+
+    MAP_UINT32_LST_UINT32 gateClientsMap;
+    if (IncludeMyself && m_kind == CREATURE_PLAYER)
+    {
+        zid = GetZid();
+        gateId = GetGateId();
+        clientId = GetClientId();
+        //
+        auto iter = mapzid_gateclient.find(zid);
+        if (iter != mapzid_gateclient.end())
+        {
+            MAP_UINT32_SET_UINT32 &mapgateclient = iter->second;
+            auto itergate = mapgateclient.find(gateId);
+            if (itergate != mapgateclient.end())
+            {
+                itergate->second.insert(clientId);
+            }
+            else
+            {
+                SET_UINT32 setclient;
+                setclient.insert(clientId);
+                mapgateclient[gateId] = setclient;
+            }
+        }
+        else
+        {
+            SET_UINT32 setclient;
+            setclient.insert(clientId);
+            MAP_UINT32_SET_UINT32 mapgateclient;
+            mapgateclient[gateId] = setclient;
+            mapzid_gateclient[zid] = mapgateclient;
+        }
+    }
+
+    if (Kind() == CREATURE_PLAYER)
+    {
+        for (DoubleNode *pNode = m_visionData.m_doublePVPSeeLst.Head(); pNode != nullptr; pNode = m_visionData.m_doublePVPSeeLst.Next(pNode))
+        {
+            DoubleListViewData *pData = (DoubleListViewData *) pNode->GetHost();
+            if (pData)
+            {
+                if (nullptr != m_pScene)
+                {
+                    if (nullptr != pData->pCreature && pData->pCreature->Kind() == CREATURE_PLAYER)
+                    {
+                        Player *pPlayer = dynamic_cast<Player *>(pData->pCreature);
+                        if (pPlayer && pPlayer->IsCanSendMessage())
+                        {
+                            zid = pPlayer->GetZid();
+                            gateId = pPlayer->GetGateId();
+                            clientId = pPlayer->GetClientId();
+                            //
+                            auto iter = mapzid_gateclient.find(zid);
+                            if (iter != mapzid_gateclient.end())
+                            {
+                                MAP_UINT32_SET_UINT32 &mapgateclient = iter->second;
+                                auto itergate = mapgateclient.find(gateId);
+                                if (itergate != mapgateclient.end())
+                                {
+                                    itergate->second.insert(clientId);
+                                }
+                                else
+                                {
+                                    SET_UINT32 setclient;
+                                    setclient.insert(clientId);
+                                    mapgateclient[gateId] = setclient;
+                                }
+                            }
+                            else
+                            {
+                                SET_UINT32 setclient;
+                                setclient.insert(clientId);
+                                MAP_UINT32_SET_UINT32 mapgateclient;
+                                mapgateclient[gateId] = setclient;
+                                mapzid_gateclient[zid] = mapgateclient;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+
+        for (DoubleNode *pNode = m_visionData.m_doublePVMSeeLst.Head(); pNode != nullptr; pNode = m_visionData.m_doublePVMSeeLst.Next(pNode))
+        {
+            DoubleListViewData *pData = (DoubleListViewData *) pNode->GetHost();
+            if (pData)
+            {
+                if (nullptr != m_pScene)
+                {
+                    if (nullptr != pData->pCreature)
+                    {
+                        Player *pPlayer = dynamic_cast<Player *>(pData->pCreature);
+                        if (pPlayer && pPlayer->IsCanSendMessage())
+                        {
+                            zid = pPlayer->GetZid();
+                            gateId = pPlayer->GetGateId();
+                            clientId = pPlayer->GetClientId();
+                            //
+                            auto iter = mapzid_gateclient.find(zid);
+                            if (iter != mapzid_gateclient.end())
+                            {
+                                MAP_UINT32_SET_UINT32 &mapgateclient = iter->second;
+                                auto itergate = mapgateclient.find(gateId);
+                                if (itergate != mapgateclient.end())
+                                {
+                                    itergate->second.insert(clientId);
+                                }
+                                else
+                                {
+                                    SET_UINT32 setclient;
+                                    setclient.insert(clientId);
+                                    mapgateclient[gateId] = setclient;
+                                }
+                            }
+                            else
+                            {
+                                SET_UINT32 setclient;
+                                setclient.insert(clientId);
+                                MAP_UINT32_SET_UINT32 mapgateclient;
+                                mapgateclient[gateId] = setclient;
+                                mapzid_gateclient[zid] = mapgateclient;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if (mapzid_gateclient.empty())
+    {
+        return false;
+    }
+    for (auto &iter: mapzid_gateclient)
+    {
+        for (auto &itergate: iter.second)
+        {
+            g_GetLogicService()->SendClientByClientId(iter.first, itergate.first, itergate.second, cmd, buf);
+        }
+    }*/
+
     return true;
 }
 
 bool NFCreature::SendClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
+    if (!IsCanSendMessage())
+    {
+        return false;
+    }
+
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetGateId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(), GetRoleId());
     return true;
 }
 
@@ -619,17 +781,17 @@ void NFCreature::FindCreatureInScene(LIST_UINT64 &clist)
 
     if (m_sightRange <= 0) return;
 
-    //pScene->FindCreatureInScene(clist, m_pos, m_sightRange);
+    pScene->FindCreatureInScene(clist, m_pos, m_sightRange);
 }
 
-void NFCreature::FindCreatureInScene(set<NFCreature *> &setcreature)
+void NFCreature::FindCreatureInScene(SET_Creature &setcreature)
 {
     NFScene *pScene = GetScene();
     if (pScene == NULL) return;
 
     if (m_sightRange <= 0) return;
 
-    //pScene->FindCreatureInScene(setcreature, m_pos, m_sightRange);
+    pScene->FindCreatureInScene(setcreature, m_pos, m_sightRange);
 }
 
 void NFCreature::FindSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature *> *clist, NFPoint3<float> &sorPos)
@@ -638,7 +800,7 @@ void NFCreature::FindSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature
     if (pScene == NULL) return;
 
     //找出格子周围的玩家列表
-    //pScene->FindSeeLstInNineGrid(pSrc, clist, m_pos);
+    pScene->FindSeeLstInNineGrid(pSrc, clist, m_pos);
 }
 
 void NFCreature::FindDoubleSeeListInNineGride(NFCreature *pSrc, vector<NFCreature *> &clist, NFPoint3<float> &sorPos)
@@ -647,7 +809,7 @@ void NFCreature::FindDoubleSeeListInNineGride(NFCreature *pSrc, vector<NFCreatur
     if (pScene == NULL) return;
 
     //找出格子周围玩家与非玩家生物列表
-    //pScene->FindDoubleSeeLstInNineGrid(pSrc, clist, m_pos);
+    pScene->FindDoubleSeeLstInNineGrid(pSrc, clist, m_pos);
 }
 
 void NFCreature::SimpleAddPVPSeeLst(int releation, NFCreature *pCreature)
@@ -1318,4 +1480,87 @@ void NFCreature::NoticeNineGridLeave()
             continue;
         }
     }
+}
+
+//是否可以添加新看到的生物
+bool NFCreature::CanAddSeeNewCreature(NFCreature *pCreature, int64_t hateValue)
+{
+    if (hateValue <= 0) //仇恨值为0
+    {
+        return false;
+    }
+    if (nullptr == pCreature)
+    {
+        return false;
+    }
+
+    if (ViewFliter(pCreature, 0)) //视野过滤掉了
+    {
+        return false;
+    }
+
+    return true;
+}
+
+bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam)
+{
+    NFScene* pScene = GetScene();
+    if (pScene)
+    {
+        if (pScene->GetSceneId() == sceneId)
+            return false;
+        if (!pScene->LeaveScene(this))
+            return false;
+    }
+
+    NFScene* pEnterScene = NFSceneMgr::Instance(m_pObjPluginManager)->GetScene(sceneId);
+    if (!pEnterScene)
+        return false;
+
+    NFGrid* pGrid = pEnterScene->EnterScene(this, enterPos, transParam);
+    if (!pGrid)
+        return false;
+
+    m_pos = enterPos;
+    SetSceneId(sceneId);
+    SetMapId(pEnterScene->GetMapId());
+    SetGrid(pGrid);
+
+    UpdateNineGridLst();
+
+    proto_ff::EnterSceneEvent enterEvent;
+    enterEvent.set_cid(m_cid);
+    enterEvent.set_uid(GetUid());
+    enterEvent.set_clientid(GetClientId());
+    enterEvent.set_mapid(m_mapId);
+    enterEvent.set_x(enterPos.x * 1000);
+    enterEvent.set_y(enterPos.y * 1000);
+    enterEvent.set_z(enterPos.z * 1000);
+    //enterEvent.transParam = transParam;
+    FireExecute(NF_ST_GAME_SERVER, EVENT_ENTER_SCENE, Kind(), m_sceneId, enterEvent);
+    //
+
+    proto_ff::ChgSceneEvent chgEvent;
+    chgEvent.set_cid(Cid());
+    chgEvent.set_enterflag(true);
+    FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, m_cid, chgEvent);
+
+    return true;
+}
+
+bool NFCreature::LeaveScene()
+{
+    NFScene* pScene = GetScene();
+
+    //场景为空直接返回
+    if (!pScene)
+        return false;
+    if (!pScene->LeaveScene(this))
+        return false;
+
+    SetSceneId(0);
+    SetMapId(0);
+    SetGrid(NULL);
+
+    return true;
 }

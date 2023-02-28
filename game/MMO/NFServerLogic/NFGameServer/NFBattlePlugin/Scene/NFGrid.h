@@ -52,6 +52,7 @@ public:
     void SetGridPos(NFPoint2<uint32_t> gridPos) { m_gridPos = gridPos; }
     bool IsSame(NFPoint2<uint32_t> pos) { return pos == m_gridPos; }
     const NFPoint2<uint32_t>& GetGridPos() const { return m_gridPos; }
+    NFShmNodeObjMultiList<NFCreature>& GetCidList() { return m_cidList; }
 private:
     NFShmNodeObjMultiList<NFCreature> m_cidList;
     NFPoint2<uint32_t> m_gridPos;

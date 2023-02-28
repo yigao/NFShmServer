@@ -43,6 +43,7 @@ class AcceptTaskEvent;
 class FinishTaskEvent;
 class LeaveSceneEvent;
 class ChgSceneEvent;
+class EnterSceneEvent;
 
 // ===================================================================
 
@@ -718,6 +719,148 @@ class ChgSceneEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ChgSceneEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class EnterSceneEvent : public ::google::protobuf::Message {
+ public:
+  EnterSceneEvent();
+  virtual ~EnterSceneEvent();
+
+  EnterSceneEvent(const EnterSceneEvent& from);
+
+  inline EnterSceneEvent& operator=(const EnterSceneEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EnterSceneEvent& default_instance();
+
+  void Swap(EnterSceneEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  EnterSceneEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EnterSceneEvent& from);
+  void MergeFrom(const EnterSceneEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 uid = 2;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 2;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // optional uint64 clientid = 3;
+  inline bool has_clientid() const;
+  inline void clear_clientid();
+  static const int kClientidFieldNumber = 3;
+  inline ::google::protobuf::uint64 clientid() const;
+  inline void set_clientid(::google::protobuf::uint64 value);
+
+  // optional uint64 mapid = 4;
+  inline bool has_mapid() const;
+  inline void clear_mapid();
+  static const int kMapidFieldNumber = 4;
+  inline ::google::protobuf::uint64 mapid() const;
+  inline void set_mapid(::google::protobuf::uint64 value);
+
+  // optional int32 x = 5;
+  inline bool has_x() const;
+  inline void clear_x();
+  static const int kXFieldNumber = 5;
+  inline ::google::protobuf::int32 x() const;
+  inline void set_x(::google::protobuf::int32 value);
+
+  // optional int32 y = 6;
+  inline bool has_y() const;
+  inline void clear_y();
+  static const int kYFieldNumber = 6;
+  inline ::google::protobuf::int32 y() const;
+  inline void set_y(::google::protobuf::int32 value);
+
+  // optional int32 z = 7;
+  inline bool has_z() const;
+  inline void clear_z();
+  static const int kZFieldNumber = 7;
+  inline ::google::protobuf::int32 z() const;
+  inline void set_z(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EnterSceneEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_clientid();
+  inline void clear_has_clientid();
+  inline void set_has_mapid();
+  inline void clear_has_mapid();
+  inline void set_has_x();
+  inline void clear_has_x();
+  inline void set_has_y();
+  inline void clear_has_y();
+  inline void set_has_z();
+  inline void clear_has_z();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 clientid_;
+  ::google::protobuf::uint32 uid_;
+  ::google::protobuf::int32 x_;
+  ::google::protobuf::uint64 mapid_;
+  ::google::protobuf::int32 y_;
+  ::google::protobuf::int32 z_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static EnterSceneEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -1121,6 +1264,164 @@ inline bool ChgSceneEvent::enterflag() const {
 inline void ChgSceneEvent::set_enterflag(bool value) {
   set_has_enterflag();
   enterflag_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EnterSceneEvent
+
+// optional uint64 cid = 1;
+inline bool EnterSceneEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EnterSceneEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EnterSceneEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EnterSceneEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 EnterSceneEvent::cid() const {
+  return cid_;
+}
+inline void EnterSceneEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 uid = 2;
+inline bool EnterSceneEvent::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EnterSceneEvent::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EnterSceneEvent::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EnterSceneEvent::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 EnterSceneEvent::uid() const {
+  return uid_;
+}
+inline void EnterSceneEvent::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint64 clientid = 3;
+inline bool EnterSceneEvent::has_clientid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EnterSceneEvent::set_has_clientid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EnterSceneEvent::clear_has_clientid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EnterSceneEvent::clear_clientid() {
+  clientid_ = GOOGLE_ULONGLONG(0);
+  clear_has_clientid();
+}
+inline ::google::protobuf::uint64 EnterSceneEvent::clientid() const {
+  return clientid_;
+}
+inline void EnterSceneEvent::set_clientid(::google::protobuf::uint64 value) {
+  set_has_clientid();
+  clientid_ = value;
+}
+
+// optional uint64 mapid = 4;
+inline bool EnterSceneEvent::has_mapid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void EnterSceneEvent::set_has_mapid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void EnterSceneEvent::clear_has_mapid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void EnterSceneEvent::clear_mapid() {
+  mapid_ = GOOGLE_ULONGLONG(0);
+  clear_has_mapid();
+}
+inline ::google::protobuf::uint64 EnterSceneEvent::mapid() const {
+  return mapid_;
+}
+inline void EnterSceneEvent::set_mapid(::google::protobuf::uint64 value) {
+  set_has_mapid();
+  mapid_ = value;
+}
+
+// optional int32 x = 5;
+inline bool EnterSceneEvent::has_x() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void EnterSceneEvent::set_has_x() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void EnterSceneEvent::clear_has_x() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void EnterSceneEvent::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline ::google::protobuf::int32 EnterSceneEvent::x() const {
+  return x_;
+}
+inline void EnterSceneEvent::set_x(::google::protobuf::int32 value) {
+  set_has_x();
+  x_ = value;
+}
+
+// optional int32 y = 6;
+inline bool EnterSceneEvent::has_y() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void EnterSceneEvent::set_has_y() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void EnterSceneEvent::clear_has_y() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void EnterSceneEvent::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline ::google::protobuf::int32 EnterSceneEvent::y() const {
+  return y_;
+}
+inline void EnterSceneEvent::set_y(::google::protobuf::int32 value) {
+  set_has_y();
+  y_ = value;
+}
+
+// optional int32 z = 7;
+inline bool EnterSceneEvent::has_z() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void EnterSceneEvent::set_has_z() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void EnterSceneEvent::clear_has_z() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void EnterSceneEvent::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline ::google::protobuf::int32 EnterSceneEvent::z() const {
+  return z_;
+}
+inline void EnterSceneEvent::set_z(::google::protobuf::int32 value) {
+  set_has_z();
+  z_ = value;
 }
 
 

@@ -22,9 +22,12 @@
 #include "NFComm/NFShmCore/NFArray.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
+#include "NFLogicCommon/NFSkillDefine.h"
 
 #define NF_SCENE_MAX_GRID_NUM 100
 #define NF_SCENE_MAX_CREATURE_NUM 1000
+
+class NFMap;
 
 class NFScene : public NFShmObj
 {
@@ -36,11 +39,25 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
 public:
     virtual int Init(uint64_t mapId, uint64_t sceneId);
+
     virtual int UnInit();
-    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
+
+    virtual int
+    OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage) override;
+
     virtual int OnTimer(int timeId, int callcount) override;
+
+public:
+    uint64_t GetMapId() const { return m_mapId; }
+
+    uint64_t GetSceneId() const { return m_sceneId; }
+
+    bool IsDynamic() const;
+
+    NFMap *GetMap() const;
 public:
     /**
      * @brief
@@ -49,7 +66,7 @@ public:
      * @param transParam
      * @return
      */
-    virtual NFGrid* EnterScene(NFCreature* pCreature, const NFPoint3<float>& pos, STransParam &transParam);
+    virtual NFGrid *EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STransParam &transParam);
 
     /**
      * @brief
@@ -59,91 +76,146 @@ public:
      * @param isSameGrid
      * @return
      */
-    virtual NFGrid* MoveInScene(NFCreature* pCreature, const NFPoint3<float>& pos, bool &isSameGrid);
+    virtual NFGrid *MoveInScene(NFCreature *pCreature, const NFPoint3<float> &pos, bool &isSameGrid);
 
     /**
      * @brief
      * @param pCreature
      * @return
      */
-    virtual bool LeaveScene(NFCreature* pCreature);
+    virtual bool LeaveScene(NFCreature *pCreature);
 
-    virtual void GetNineGrid(const NFPoint3<float>& pos, std::vector<NFGrid*>& vecGrid);
 public:
-    void FindCreatureInScene(LIST_UINT64& clist, const NFPoint3<float>& srcPos, float flength, uint32_t creatureCount = 0);
-    void FindCreatureInScene(SET_Creature& setcreature, const NFPoint3<float>& srcPos, float flength, uint32_t creatureCount = 0);
+    bool BroadCast(uint32_t cmd, const google::protobuf::Message &msg);
 
-    void FindCreatureInCircle(LIST_UINT64& clist, const NFPoint3<float>& srcPos, float flength, uint32_t creatureCount = 0);
-    void FindCreatureInCircle(SET_Creature &setcreature, const  NFPoint3<float>& srcPos, float flength, uint32_t creatureCount = 0);
-    void FindCreatureInSector(LIST_UINT64& clist, const NFPoint3<float>& center, Point3<float>& dir, float angle, float sectorR, uint32_t creatureCount = 0);
+    bool BroadCast(const SET_UINT64 &setcid, uint16_t cmd, const google::protobuf::Message &msg);
+
+public:
+    int FindCreatureInScene(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount = 0);
+
+    int FindCreatureInScene(SET_Creature &setcreature, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount = 0);
+
+    int FindCreatureInCircle(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount = 0);
+
+    int FindCreatureInCircle(SET_Creature &setcreature, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount = 0);
+
+    int FindCreatureInSector(LIST_UINT64 &clist, const NFPoint3<float> &center, NFPoint3<float> &dir, float angle, float sectorR,
+                             uint32_t creatureCount = 0);
 
     //srcPos是玩家位置，srcDir是玩家移动方向
-    void FindCreatureInRect(LIST_UINT64& clist, const NFPoint3<float>& srcPos, NFPoint3<float>& srcDir, float flength, float fwidth, uint32_t creatureCount = 0);
-    void FindCreatureInRect(LIST_UINT64& clist, const NFPoint3<float>& center, const NFPoint3<float>& dir, const Point3<float>& searchpos, float flength, float fwidth, uint32_t creatureCount = 0);
-    void FindCreatureInRect(SET_Creature& setcreature, const NFPoint3<float>& srcPos, NFPoint3<float>& srcDir, float flength, float fwidth, uint32_t creatureCount = 0);
+    int FindCreatureInRect(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, NFPoint3<float> &srcDir, float flength, float fwidth,
+                           uint32_t creatureCount = 0);
+
+    int FindCreatureInRect(LIST_UINT64 &clist, const NFPoint3<float> &center, const NFPoint3<float> &dir, const NFPoint3<float> &searchpos,
+                           float flength, float fwidth, uint32_t creatureCount = 0);
+
+    int FindCreatureInRect(SET_Creature &setcreature, const NFPoint3<float> &srcPos, NFPoint3<float> &srcDir, float flength, float fwidth,
+                           uint32_t creatureCount = 0);
 
     //圆形范围内 查找敌人
-    void FindEnemyInCircle(Creature* psrc, SET_Creature& setcreature, float fradius, uint32_t creatureCount = 0);
+    int FindEnemyInCircle(NFCreature *psrc, SET_Creature &setcreature, float fradius, uint32_t creatureCount = 0);
 
     //矩形范围内 查找技能目标
-    void FindSkillTargetInRect(Creature* psrc, SET_Creature& setpriority, SET_Creature& setother, const Point3<float>& srcPos, const Point3<float>& srcDir, float flength, float fwidth, const SearchSkillTargetParam &param);
+    void FindSkillTargetInRect(NFCreature *psrc, SET_Creature &setpriority, SET_Creature &setother, const NFPoint3<float> &srcPos,
+                               const NFPoint3<float> &srcDir, float flength, float fwidth, const SearchSkillTargetParam &param);
+
     //圆形范围内 查找技能目标
-    void FindSkillTargetInCircle(Creature* psrc, SET_Creature& setpriority, SET_Creature& setother, const Point3<float>& srcPos, float fradius, const SearchSkillTargetParam& param);
+    void FindSkillTargetInCircle(NFCreature *psrc, SET_Creature &setpriority, SET_Creature &setother, const NFPoint3<float> &srcPos, float fradius,
+                                 const SearchSkillTargetParam &param);
+
     //扇形范围内 查找技能目标
-    void FindSkillTargetInSector(Creature* psrc, SET_Creature& setpriority, SET_Creature& setother, const Point3<float>& srcPos, const Point3<float>& srcDir, float fradius,float fangle, const SearchSkillTargetParam& param);
+    void FindSkillTargetInSector(NFCreature *psrc, SET_Creature &setpriority, SET_Creature &setother, const NFPoint3<float> &srcPos,
+                                 const NFPoint3<float> &srcDir, float fradius, float fangle, const SearchSkillTargetParam &param);
+
     //获取中点周围矩形范围内的坐标点
-    void FindPointLstInRect(const NFPoint3<float>& center, VecPoint3& vecPos, float fwidth, float fhigh, int32_t pointCnt, uint32_t beginidx = 0);
+    void FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPos, float fwidth, float fhigh, int32_t pointCnt, uint32_t beginidx = 0);
 
 
-    void FindSeeLstInNineGrid(Creature* pSrc, std::vector<Creature*>* clist, const Point3<float>& srcPos);
-    void FindDoubleSeeLstInNineGrid(Creature* pSrc, std::vector<Creature*>& clist, const Point3<float>& srcPos);
+    int FindSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature *> *clist, const NFPoint3<float> &srcPos);
 
-    void GridCreaturesWithCircle(LIST_UINT64& clist, NFPoint2<uint32_t>& gridpos, const NFPoint3<float>& srcPos, float flength, uint32_t creatureCount = 0);
-    void GridCreaturesWithCircle(SET_Creature &setcreature, NFPoint2<uint32_t>& gridpos, const NFPoint3<float>& srcPos, float flength, uint32_t creatureCount = 0);
-    void GridCreaturesWithSector(LIST_UINT64& clist, const  NFPoint3<float>& center, NFPoint3<float>& vdir, NFPoint2<uint32_t>& gridpos, float cosAngle, float sectorR, uint32_t creatureCount = 0);
-    void GridCreaturesWithRect(LIST_UINT64& clist, NFPoint2<uint32_t>& gridpos, const NFPoint3<float>& center, const NFPoint3<float>& dir, float flength, float fwidth, uint32_t creatureCount = 0);
-    void GridCreaturesWithRect(SET_Creature& setcreature, NFPoint2<uint32_t>& gridpos, const NFPoint3<float>& center, const NFPoint3<float>& dir, float flength, float fwidth, uint32_t creatureCount = 0);
+    int FindDoubleSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature *> &clist, const NFPoint3<float> &srcPos);
+
+    int GridCreaturesWithCircle(LIST_UINT64 &clist, NFGrid *pGrid, const NFPoint3<float> &srcPos, float flength,
+                                uint32_t creatureCount = 0);
+
+    int GridCreaturesWithCircle(SET_Creature &setcreature, NFGrid *pGrid, const NFPoint3<float> &srcPos, float flength,
+                                uint32_t creatureCount = 0);
+
+    int GridCreaturesWithSector(LIST_UINT64 &clist, const NFPoint3<float> &center, NFPoint3<float> &vdir, NFGrid *pGrid, float cosAngle,
+                                float sectorR, uint32_t creatureCount = 0);
+
+    int GridCreaturesWithRect(LIST_UINT64 &clist, NFGrid *pGrid, const NFPoint3<float> &center, const NFPoint3<float> &dir, float flength,
+                              float fwidth, uint32_t creatureCount = 0);
+
+    int GridCreaturesWithRect(SET_Creature &setcreature, NFGrid *pGrid, const NFPoint3<float> &center, const NFPoint3<float> &dir,
+                              float flength, float fwidth, uint32_t creatureCount = 0);
+
+public:
+    int AddRangeLstCids(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, NFCreature *pTarget, uint32_t creatureCount);
+
+    int AddRangeLstCids(SET_Creature &setcreature, const NFPoint3<float> &srcPos, NFCreature *pTarget, uint32_t creatureCount);
 
 public:
     /**
      * @brief
      * @param pCreature
      */
-    int AddMonster(NFCreature* pCreature);
+    int AddMonster(NFCreature *pCreature);
 
     /**
      * @brief
      * @param pCreature
      */
-    int RemoveMonster(NFCreature* pCreature);
+    int RemoveMonster(NFCreature *pCreature);
 
     /**
      * @brief
      * @param pCreature
      */
-    int AddPlayer(NFCreature* pCreature);
+    int AddPlayer(NFCreature *pCreature);
 
     /**
      * @brief
      * @param pCreature
      */
-    int RemovePlayer(NFCreature* pCreature);
+    int RemovePlayer(NFCreature *pCreature);
 
     /**
      * @brief
      * @param pCreature
      */
-    int AddCreature(NFCreature* pCreature);
+    int AddCreature(NFCreature *pCreature);
 
     /**
      * @brief
      * @param pCreature
      */
-    int RemoveCreature(NFCreature* pCreature);
+    int RemoveCreature(NFCreature *pCreature);
+
+    /**
+     * @brief
+     * @param cid
+     * @return
+     */
+    NFCreature *GetCreature(uint64_t cid);
+
 public:
-    NFGrid* GetGrid(uint32_t w, uint32_t h);
+    NFGrid *GetGrid(uint32_t w, uint32_t h);
+
+    virtual void GetNineGrid(const NFPoint3<float> &pos, std::vector<NFGrid *> &vecGrid);
+
+    virtual void GetLayerGrid(uint32_t layer, const NFPoint3<float> &pos, std::vector<NFGrid *> &vecGrid);
+
+    virtual uint32_t GetGridLayer(uint32_t gridX, uint32_t gridZ, const NFPoint3<float> &srcPos, float flength);
+
+    virtual void GetLayerGrid(const NFPoint3<float> &srcPos, float flength, std::vector<NFGrid *> &vecGrid);
+
+public:
+
+
 private:
     uint64_t m_mapId;
+    int m_mapGlobalId;
     uint64_t m_sceneId;
     uint32_t m_gridMaxWidth;
     uint32_t m_gridMaxHeight;
