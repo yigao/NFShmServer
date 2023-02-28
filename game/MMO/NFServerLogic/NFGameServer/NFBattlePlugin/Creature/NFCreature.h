@@ -367,7 +367,7 @@ public:
 
     bool SendClient(uint32_t nMsgId, const google::protobuf::Message &xData);
 
-private:
+protected:
     uint64_t m_cid;     //生物实例id
     uint32_t m_kind;     //实体类型
 

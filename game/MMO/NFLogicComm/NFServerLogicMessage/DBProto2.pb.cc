@@ -32,6 +32,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* RoleDBSnsDetail_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RoleDBSnsDetail_reflection_ = NULL;
+const ::google::protobuf::Descriptor* RoleEnterSceneData_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  RoleEnterSceneData_reflection_ = NULL;
 
 }  // namespace
 
@@ -105,6 +108,25 @@ void protobuf_AssignDesc_DBProto2_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleDBSnsDetail));
+  RoleEnterSceneData_descriptor_ = file->message_type(4);
+  static const int RoleEnterSceneData_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, zid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, base_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, attributes_),
+  };
+  RoleEnterSceneData_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      RoleEnterSceneData_descriptor_,
+      RoleEnterSceneData::default_instance_,
+      RoleEnterSceneData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(RoleEnterSceneData));
 }
 
 namespace {
@@ -125,6 +147,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MyFriendInfo_descriptor_, &MyFriendInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     RoleDBSnsDetail_descriptor_, &RoleDBSnsDetail::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    RoleEnterSceneData_descriptor_, &RoleEnterSceneData::default_instance());
 }
 
 }  // namespace
@@ -138,6 +162,8 @@ void protobuf_ShutdownFile_DBProto2_2eproto() {
   delete MyFriendInfo_reflection_;
   delete RoleDBSnsDetail::default_instance_;
   delete RoleDBSnsDetail_reflection_;
+  delete RoleEnterSceneData::default_instance_;
+  delete RoleEnterSceneData_reflection_;
 }
 
 void protobuf_AddDesc_DBProto2_2eproto() {
@@ -159,17 +185,22 @@ void protobuf_AddDesc_DBProto2_2eproto() {
     "e\030\004 \001(\0132\030.proto_ff.RoleDBBaseData\"\016\n\014MyF"
     "riendInfo\"Q\n\017RoleDBSnsDetail\022\021\n\003cid\030\001 \001("
     "\004B\004\300\202\024\002\022+\n\013friend_info\030\002 \001(\0132\026.proto_ff."
-    "MyFriendInfo", 332);
+    "MyFriendInfo\"\215\001\n\022RoleEnterSceneData\022\013\n\003c"
+    "id\030\001 \001(\004\022\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004ba"
+    "se\030\004 \001(\0132\030.proto_ff.RoleDBBaseData\022(\n\nat"
+    "tributes\030\005 \001(\0132\024.proto_ff.AttrDBData", 476);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProto2.proto", &protobuf_RegisterTypes);
   GetRegisterNum_RoleDBData::default_instance_ = new GetRegisterNum_RoleDBData();
   RoleDBSimpleData::default_instance_ = new RoleDBSimpleData();
   MyFriendInfo::default_instance_ = new MyFriendInfo();
   RoleDBSnsDetail::default_instance_ = new RoleDBSnsDetail();
+  RoleEnterSceneData::default_instance_ = new RoleEnterSceneData();
   GetRegisterNum_RoleDBData::default_instance_->InitAsDefaultInstance();
   RoleDBSimpleData::default_instance_->InitAsDefaultInstance();
   MyFriendInfo::default_instance_->InitAsDefaultInstance();
   RoleDBSnsDetail::default_instance_->InitAsDefaultInstance();
+  RoleEnterSceneData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_DBProto2_2eproto);
 }
 
@@ -1129,6 +1160,390 @@ void RoleDBSnsDetail::Swap(RoleDBSnsDetail* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = RoleDBSnsDetail_descriptor_;
   metadata.reflection = RoleDBSnsDetail_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int RoleEnterSceneData::kCidFieldNumber;
+const int RoleEnterSceneData::kZidFieldNumber;
+const int RoleEnterSceneData::kUidFieldNumber;
+const int RoleEnterSceneData::kBaseFieldNumber;
+const int RoleEnterSceneData::kAttributesFieldNumber;
+#endif  // !_MSC_VER
+
+RoleEnterSceneData::RoleEnterSceneData()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void RoleEnterSceneData::InitAsDefaultInstance() {
+  base_ = const_cast< ::proto_ff::RoleDBBaseData*>(&::proto_ff::RoleDBBaseData::default_instance());
+  attributes_ = const_cast< ::proto_ff::AttrDBData*>(&::proto_ff::AttrDBData::default_instance());
+}
+
+RoleEnterSceneData::RoleEnterSceneData(const RoleEnterSceneData& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void RoleEnterSceneData::SharedCtor() {
+  _cached_size_ = 0;
+  cid_ = GOOGLE_ULONGLONG(0);
+  zid_ = 0u;
+  uid_ = 0u;
+  base_ = NULL;
+  attributes_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+RoleEnterSceneData::~RoleEnterSceneData() {
+  SharedDtor();
+}
+
+void RoleEnterSceneData::SharedDtor() {
+  if (this != default_instance_) {
+    delete base_;
+    delete attributes_;
+  }
+}
+
+void RoleEnterSceneData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* RoleEnterSceneData::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RoleEnterSceneData_descriptor_;
+}
+
+const RoleEnterSceneData& RoleEnterSceneData::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBProto2_2eproto();
+  return *default_instance_;
+}
+
+RoleEnterSceneData* RoleEnterSceneData::default_instance_ = NULL;
+
+RoleEnterSceneData* RoleEnterSceneData::New() const {
+  return new RoleEnterSceneData;
+}
+
+void RoleEnterSceneData::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cid_ = GOOGLE_ULONGLONG(0);
+    zid_ = 0u;
+    uid_ = 0u;
+    if (has_base()) {
+      if (base_ != NULL) base_->::proto_ff::RoleDBBaseData::Clear();
+    }
+    if (has_attributes()) {
+      if (attributes_ != NULL) attributes_->::proto_ff::AttrDBData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool RoleEnterSceneData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 cid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_zid;
+        break;
+      }
+
+      // optional uint32 zid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_zid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &zid_)));
+          set_has_zid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_uid;
+        break;
+      }
+
+      // optional uint32 uid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_uid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uid_)));
+          set_has_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_base;
+        break;
+      }
+
+      // optional .proto_ff.RoleDBBaseData base = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_base:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_base()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_attributes;
+        break;
+      }
+
+      // optional .proto_ff.AttrDBData attributes = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_attributes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_attributes()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void RoleEnterSceneData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 cid = 1;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  }
+
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->zid(), output);
+  }
+
+  // optional uint32 uid = 3;
+  if (has_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->uid(), output);
+  }
+
+  // optional .proto_ff.RoleDBBaseData base = 4;
+  if (has_base()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->base(), output);
+  }
+
+  // optional .proto_ff.AttrDBData attributes = 5;
+  if (has_attributes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->attributes(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* RoleEnterSceneData::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 cid = 1;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  }
+
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->zid(), target);
+  }
+
+  // optional uint32 uid = 3;
+  if (has_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->uid(), target);
+  }
+
+  // optional .proto_ff.RoleDBBaseData base = 4;
+  if (has_base()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->base(), target);
+  }
+
+  // optional .proto_ff.AttrDBData attributes = 5;
+  if (has_attributes()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->attributes(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int RoleEnterSceneData::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 cid = 1;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+    // optional uint32 zid = 2;
+    if (has_zid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->zid());
+    }
+
+    // optional uint32 uid = 3;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->uid());
+    }
+
+    // optional .proto_ff.RoleDBBaseData base = 4;
+    if (has_base()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->base());
+    }
+
+    // optional .proto_ff.AttrDBData attributes = 5;
+    if (has_attributes()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->attributes());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void RoleEnterSceneData::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const RoleEnterSceneData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const RoleEnterSceneData*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void RoleEnterSceneData::MergeFrom(const RoleEnterSceneData& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+    if (from.has_zid()) {
+      set_zid(from.zid());
+    }
+    if (from.has_uid()) {
+      set_uid(from.uid());
+    }
+    if (from.has_base()) {
+      mutable_base()->::proto_ff::RoleDBBaseData::MergeFrom(from.base());
+    }
+    if (from.has_attributes()) {
+      mutable_attributes()->::proto_ff::AttrDBData::MergeFrom(from.attributes());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void RoleEnterSceneData::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RoleEnterSceneData::CopyFrom(const RoleEnterSceneData& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RoleEnterSceneData::IsInitialized() const {
+
+  if (has_base()) {
+    if (!this->base().IsInitialized()) return false;
+  }
+  if (has_attributes()) {
+    if (!this->attributes().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void RoleEnterSceneData::Swap(RoleEnterSceneData* other) {
+  if (other != this) {
+    std::swap(cid_, other->cid_);
+    std::swap(zid_, other->zid_);
+    std::swap(uid_, other->uid_);
+    std::swap(base_, other->base_);
+    std::swap(attributes_, other->attributes_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata RoleEnterSceneData::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = RoleEnterSceneData_descriptor_;
+  metadata.reflection = RoleEnterSceneData_reflection_;
   return metadata;
 }
 

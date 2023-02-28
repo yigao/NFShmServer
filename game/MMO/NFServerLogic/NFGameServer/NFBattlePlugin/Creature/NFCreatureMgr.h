@@ -17,6 +17,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
 class NFCreature;
+class NFBattlePlayer;
 class NFCreatureMgr : public NFShmObj
 {
 public:
@@ -34,6 +35,28 @@ public:
      * @return
      */
     NFCreature* GetCreature(uint64_t cid);
+
+
+    /**
+     * @brief
+     * @param kindType
+     * @param id
+     * @return
+     */
+    NFCreature* CreateCreature(uint32_t kindType, uint64_t id = 0);
+
+    /**
+     * @brief
+     * @param pCreature
+     */
+    int  DestroyCreature(NFCreature* pCreature);
+public:
+    /**
+     * @brief
+     * @param roleId
+     * @return
+     */
+    NFBattlePlayer* GetBattlePlayer(uint64_t roleId);
 private:
 DECLARE_IDCREATE(NFCreatureMgr)
 };

@@ -74,12 +74,14 @@ typedef enum
 	////////////////////////////game server/////////////////////////////
     EOT_GAME_MAP_ID,
     EOT_GAME_MAP_MGR_ID,
-    EOT_GAME_CREATURE_ID,
     EOT_GAME_CREATURE_MGR_ID,
     EOT_GAME_GRID_ID,
     EOT_GAME_SCENE_ID,
     EOT_GAME_SCENE_MGR_ID,
     EOT_GAME_CONFIG_ID,
+    /////////////////////////game creature server/////////////////////
+    EOT_GAME_CREATURE_ID,
+    EOT_GAME_NFBattlePlayer_ID,
     ////////////////////////////game server/////////////////////////////
     ////////////////////////////game battle part /////////////////////////////
     EOT_NFBattlePart_ID,

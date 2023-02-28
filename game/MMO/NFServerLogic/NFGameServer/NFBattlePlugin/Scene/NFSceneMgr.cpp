@@ -17,6 +17,8 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "ServerInternalCmd2.pb.h"
 #include "NFLogicCommon/NFEventDefine.h"
+#include "Creature/NFCreatureMgr.h"
+#include "Creature/NFBattlePlayer.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFSceneMgr, EOT_GAME_SCENE_MGR_ID, NFShmObj)
 
@@ -178,8 +180,11 @@ const NFSceneMgr::OneLayer* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
     return &m_nineGridLayer[nlayer];
 }
 
-int NFSceneMgr::EnterScene(uint64_t mapId, uint64_t sceneId, uint64_t roleId, uint64_t transId)
+int NFSceneMgr::EnterScene(const proto_ff::WorldToGameEnterSceneReq& xMsg)
 {
+    uint64_t mapId = xMsg.map_id();
+    uint64_t sceneId = xMsg.scene_id();
+    uint64_t roleId = xMsg.cid();
     NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     if (pMap == NULL)
     {
@@ -192,5 +197,20 @@ int NFSceneMgr::EnterScene(uint64_t mapId, uint64_t sceneId, uint64_t roleId, ui
         return -1;
     }
 
+    NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
+    if (pPlayer == NULL)
+    {
+        pPlayer = dynamic_cast<NFBattlePlayer*>(NFCreatureMgr::Instance(m_pObjPluginManager)->CreateCreature(CREATURE_PLAYER, roleId));
+        if (pPlayer == NULL)
+        {
+            return -1;
+        }
+    }
+
+    pPlayer->Init(xMsg.data());
+
+    NFPoint3<float> pos(xMsg.data().base().enterposx(), xMsg.data().base().enterposy(), xMsg.data().base().enterposz());
+    STransParam param;
+    pScene->EnterScene(pPlayer, pos, param);
     return 0;
 }

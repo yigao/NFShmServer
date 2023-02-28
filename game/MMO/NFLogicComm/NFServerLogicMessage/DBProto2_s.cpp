@@ -117,4 +117,44 @@ void RoleDBSnsDetail_s::read_from_pbmsg(const ::proto_ff::RoleDBSnsDetail & msg)
 	friend_info.read_from_pbmsg(temp_friend_info);
 }
 
+RoleEnterSceneData_s::RoleEnterSceneData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleEnterSceneData_s::CreateInit() {
+	cid = (uint64_t)0;
+	zid = (uint32_t)0;
+	uid = (uint32_t)0;
+	return 0;
+}
+
+int RoleEnterSceneData_s::ResumeInit() {
+	return 0;
+}
+
+void RoleEnterSceneData_s::write_to_pbmsg(::proto_ff::RoleEnterSceneData & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_zid((uint32_t)zid);
+	msg.set_uid((uint32_t)uid);
+	::proto_ff::RoleDBBaseData* temp_base = msg.mutable_base();
+	base.write_to_pbmsg(*temp_base);
+	::proto_ff::AttrDBData* temp_attributes = msg.mutable_attributes();
+	attributes.write_to_pbmsg(*temp_attributes);
+}
+
+void RoleEnterSceneData_s::read_from_pbmsg(const ::proto_ff::RoleEnterSceneData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleEnterSceneData_s));
+	cid = msg.cid();
+	zid = msg.zid();
+	uid = msg.uid();
+	const ::proto_ff::RoleDBBaseData & temp_base = msg.base();
+	base.read_from_pbmsg(temp_base);
+	const ::proto_ff::AttrDBData & temp_attributes = msg.attributes();
+	attributes.read_from_pbmsg(temp_attributes);
+}
+
 }

@@ -68,6 +68,7 @@ int NFTransEnterScene::SendEnterScene()
     xMsg.set_map_id(m_mapId);
     xMsg.set_scene_id(m_sceneId);
     xMsg.set_req_trans_id(GetGlobalID());
+    pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
     pPlayer->SendMsgToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg);
     return 0;

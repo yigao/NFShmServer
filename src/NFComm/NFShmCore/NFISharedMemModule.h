@@ -121,9 +121,21 @@ public:
     virtual NFShmObj *CreateObj(int iType) = 0;
 
     template<typename ShmObjType>
-    NFShmObj *CreateObj()
+    ShmObjType *CreateObj()
     {
-        return CreateObj(ShmObjType::GetClassType(m_pObjPluginManager));
+        return dynamic_cast<ShmObjType*>(CreateObj(ShmObjType::GetClassType(m_pObjPluginManager)));
+    }
+
+    template<typename ShmObjType>
+    ShmObjType *CreateObjByHashKey(uint64_t hashKey)
+    {
+        return dynamic_cast<ShmObjType*>(CreateObjByHashKey(hashKey, ShmObjType::GetClassType(m_pObjPluginManager)));
+    }
+
+    template<typename ShmObjType>
+    ShmObjType *GetObjByHashKey(uint64_t hashKey)
+    {
+        return dynamic_cast<ShmObjType*>(GetObjByHashKey(hashKey, ShmObjType::GetClassType(m_pObjPluginManager)));
     }
 
     virtual NFShmObj *GetHeadObj(int iType) = 0;

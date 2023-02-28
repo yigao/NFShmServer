@@ -41,6 +41,7 @@ class GetRegisterNum_RoleDBData;
 class RoleDBSimpleData;
 class MyFriendInfo;
 class RoleDBSnsDetail;
+class RoleEnterSceneData;
 
 // ===================================================================
 
@@ -404,6 +405,132 @@ class RoleDBSnsDetail : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static RoleDBSnsDetail* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class RoleEnterSceneData : public ::google::protobuf::Message {
+ public:
+  RoleEnterSceneData();
+  virtual ~RoleEnterSceneData();
+
+  RoleEnterSceneData(const RoleEnterSceneData& from);
+
+  inline RoleEnterSceneData& operator=(const RoleEnterSceneData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoleEnterSceneData& default_instance();
+
+  void Swap(RoleEnterSceneData* other);
+
+  // implements Message ----------------------------------------------
+
+  RoleEnterSceneData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RoleEnterSceneData& from);
+  void MergeFrom(const RoleEnterSceneData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 zid = 2;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 2;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // optional uint32 uid = 3;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 3;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // optional .proto_ff.RoleDBBaseData base = 4;
+  inline bool has_base() const;
+  inline void clear_base();
+  static const int kBaseFieldNumber = 4;
+  inline const ::proto_ff::RoleDBBaseData& base() const;
+  inline ::proto_ff::RoleDBBaseData* mutable_base();
+  inline ::proto_ff::RoleDBBaseData* release_base();
+  inline void set_allocated_base(::proto_ff::RoleDBBaseData* base);
+
+  // optional .proto_ff.AttrDBData attributes = 5;
+  inline bool has_attributes() const;
+  inline void clear_attributes();
+  static const int kAttributesFieldNumber = 5;
+  inline const ::proto_ff::AttrDBData& attributes() const;
+  inline ::proto_ff::AttrDBData* mutable_attributes();
+  inline ::proto_ff::AttrDBData* release_attributes();
+  inline void set_allocated_attributes(::proto_ff::AttrDBData* attributes);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleEnterSceneData)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_base();
+  inline void clear_has_base();
+  inline void set_has_attributes();
+  inline void clear_has_attributes();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 zid_;
+  ::google::protobuf::uint32 uid_;
+  ::proto_ff::RoleDBBaseData* base_;
+  ::proto_ff::AttrDBData* attributes_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto2_2eproto();
+  friend void protobuf_AssignDesc_DBProto2_2eproto();
+  friend void protobuf_ShutdownFile_DBProto2_2eproto();
+
+  void InitAsDefaultInstance();
+  static RoleEnterSceneData* default_instance_;
+};
 // ===================================================================
 
 
@@ -606,6 +733,152 @@ inline void RoleDBSnsDetail::set_allocated_friend_info(::proto_ff::MyFriendInfo*
     set_has_friend_info();
   } else {
     clear_has_friend_info();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// RoleEnterSceneData
+
+// optional uint64 cid = 1;
+inline bool RoleEnterSceneData::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RoleEnterSceneData::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RoleEnterSceneData::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RoleEnterSceneData::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 RoleEnterSceneData::cid() const {
+  return cid_;
+}
+inline void RoleEnterSceneData::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 zid = 2;
+inline bool RoleEnterSceneData::has_zid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RoleEnterSceneData::set_has_zid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RoleEnterSceneData::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RoleEnterSceneData::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 RoleEnterSceneData::zid() const {
+  return zid_;
+}
+inline void RoleEnterSceneData::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// optional uint32 uid = 3;
+inline bool RoleEnterSceneData::has_uid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RoleEnterSceneData::set_has_uid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RoleEnterSceneData::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RoleEnterSceneData::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 RoleEnterSceneData::uid() const {
+  return uid_;
+}
+inline void RoleEnterSceneData::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional .proto_ff.RoleDBBaseData base = 4;
+inline bool RoleEnterSceneData::has_base() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RoleEnterSceneData::set_has_base() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RoleEnterSceneData::clear_has_base() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void RoleEnterSceneData::clear_base() {
+  if (base_ != NULL) base_->::proto_ff::RoleDBBaseData::Clear();
+  clear_has_base();
+}
+inline const ::proto_ff::RoleDBBaseData& RoleEnterSceneData::base() const {
+  return base_ != NULL ? *base_ : *default_instance_->base_;
+}
+inline ::proto_ff::RoleDBBaseData* RoleEnterSceneData::mutable_base() {
+  set_has_base();
+  if (base_ == NULL) base_ = new ::proto_ff::RoleDBBaseData;
+  return base_;
+}
+inline ::proto_ff::RoleDBBaseData* RoleEnterSceneData::release_base() {
+  clear_has_base();
+  ::proto_ff::RoleDBBaseData* temp = base_;
+  base_ = NULL;
+  return temp;
+}
+inline void RoleEnterSceneData::set_allocated_base(::proto_ff::RoleDBBaseData* base) {
+  delete base_;
+  base_ = base;
+  if (base) {
+    set_has_base();
+  } else {
+    clear_has_base();
+  }
+}
+
+// optional .proto_ff.AttrDBData attributes = 5;
+inline bool RoleEnterSceneData::has_attributes() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void RoleEnterSceneData::set_has_attributes() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void RoleEnterSceneData::clear_has_attributes() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void RoleEnterSceneData::clear_attributes() {
+  if (attributes_ != NULL) attributes_->::proto_ff::AttrDBData::Clear();
+  clear_has_attributes();
+}
+inline const ::proto_ff::AttrDBData& RoleEnterSceneData::attributes() const {
+  return attributes_ != NULL ? *attributes_ : *default_instance_->attributes_;
+}
+inline ::proto_ff::AttrDBData* RoleEnterSceneData::mutable_attributes() {
+  set_has_attributes();
+  if (attributes_ == NULL) attributes_ = new ::proto_ff::AttrDBData;
+  return attributes_;
+}
+inline ::proto_ff::AttrDBData* RoleEnterSceneData::release_attributes() {
+  clear_has_attributes();
+  ::proto_ff::AttrDBData* temp = attributes_;
+  attributes_ = NULL;
+  return temp;
+}
+inline void RoleEnterSceneData::set_allocated_attributes(::proto_ff::AttrDBData* attributes) {
+  delete attributes_;
+  attributes_ = attributes;
+  if (attributes) {
+    set_has_attributes();
+  } else {
+    clear_has_attributes();
   }
 }
 

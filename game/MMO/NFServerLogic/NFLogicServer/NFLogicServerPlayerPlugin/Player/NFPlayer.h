@@ -23,6 +23,7 @@
 #include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "NFPlayerBase.h"
 #include "NFLogicCommon/NFAttr.h"
+#include "DBProto2.pb.h"
 
 enum
 {
@@ -53,6 +54,7 @@ public:
     //存储DB部件入口
     virtual int SaveDB(proto_ff::RoleDBData &dbData) override;
     virtual void SetFacadeProto(proto_ff::RoleFacadeProto& outproto) override;
+    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto) override;
 
     //////////////////////////////每日每周刷新接口///////////////////////////////
     /**
@@ -167,6 +169,7 @@ public:
     virtual void OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource* pSource = nullptr);
     void CheckExp(int64_t oldexp, SCommonSource *pSource);
     void CalcLevelAttr(bool sync);
+
 public:
     void SynAttrToClient();
 public:

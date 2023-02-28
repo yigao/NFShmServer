@@ -31,3 +31,12 @@ message RoleDBSnsDetail
   optional uint64               cid	= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];	// role cid
   optional MyFriendInfo         friend_info = 2;
 }
+
+message RoleEnterSceneData
+{
+  optional uint64                 cid					= 1;	// role cid
+  optional uint32                 zid					= 2;    // 区服ID
+  optional uint32					        uid					= 3;    // UID
+  optional RoleDBBaseData         base				= 4;    // 基础数据
+  optional AttrDBData             attributes  = 5;
+}

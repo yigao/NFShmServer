@@ -26,6 +26,7 @@
 #include "DBProto_s.h"
 #include "NFLogicCommon/NFAttr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "DBProto2.pb.h"
 
 class NFPlayerBase : public NFSeqOP
 {
@@ -50,6 +51,8 @@ public:
     virtual void SetBaseData(proto_ff::RoleDBData& proto);
     virtual void SetBaseData(proto_ff::RoleDBBaseData* proto);
     virtual void SetFacadeProto(proto_ff::RoleFacadeProto& outproto);
+    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto);
+    virtual void SetAttrData(proto_ff::RoleDBData& proto);
 public:
     /**
      * @brief 保存DB相关

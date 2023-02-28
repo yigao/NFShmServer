@@ -75,5 +75,23 @@ namespace proto_ff_s {
 	};
 	typedef struct RoleDBSnsDetail_s RoleDBSnsDetail_t;
 
+	struct RoleEnterSceneData_s : public NFDescStoreSeqOP {
+		RoleEnterSceneData_s();
+		virtual ~RoleEnterSceneData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cid;
+		uint32_t zid;
+		uint32_t uid;
+		struct RoleDBBaseData_s base;
+		struct AttrDBData_s attributes;
+
+		virtual void write_to_pbmsg(::proto_ff::RoleEnterSceneData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleEnterSceneData & msg);
+		static ::proto_ff::RoleEnterSceneData* new_pbmsg(){ return new ::proto_ff::RoleEnterSceneData(); }
+		static ::proto_ff::RoleEnterSceneData make_pbmsg(){ return ::proto_ff::RoleEnterSceneData(); }
+	};
+	typedef struct RoleEnterSceneData_s RoleEnterSceneData_t;
+
 }
 

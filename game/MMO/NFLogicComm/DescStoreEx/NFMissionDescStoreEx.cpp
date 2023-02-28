@@ -1164,8 +1164,7 @@ bool NFMissionDescStoreEx::ParseTaskSubAward(MissionInfo *pMissionInfo, int64_t 
     auto pCfgInfo = TaskrewardTaskrewardDesc::Instance(m_pObjPluginManager)->GetDesc(sSubAward);
     if (pCfgInfo == NULL)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "MissionManager::ParseTaskSubAward.nullptr == pMissionInfo");
-        return false;
+        return true;
     }
 
     if (pCfgInfo->m_guildexp > 0)

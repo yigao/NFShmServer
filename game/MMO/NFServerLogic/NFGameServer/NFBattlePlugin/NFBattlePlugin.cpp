@@ -19,6 +19,9 @@
 #include "Scene/NFScene.h"
 #include "NFGameConfig.h"
 #include "NFLogicCommon/NFAttr.h"
+#include "Creature/NFCreature.h"
+#include "Creature/NFBattlePlayer.h"
+#include "Creature/NFCreatureMgr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -72,5 +75,9 @@ bool NFBattlePlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ(RoleFightAttr, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleAttr, maxOnlinePlayerNum);
+    REGISTER_SINGLETON_SHM_OBJ(NFCreatureMgr);
+    REGISTER_SHM_OBJ(NFCreature, 1);
+    REGISTER_SHM_OBJ(NFBattlePlayer, maxOnlinePlayerNum);
+
 	return true;
 }

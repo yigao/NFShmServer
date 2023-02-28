@@ -938,6 +938,8 @@ int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &p
         reqMsg.set_map_id(mapId);
         reqMsg.set_scene_id(sceneId);
         reqMsg.set_req_trans_id(xData.req_trans_id());
+        reqMsg.set_logic_id(pPlayer->GetLogicId());
+        reqMsg.mutable_data()->CopyFrom(xData.data());
 
         pPlayer->SendMsgToGameServer(proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ, reqMsg);
     }

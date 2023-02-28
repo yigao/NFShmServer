@@ -21,6 +21,7 @@
 #include "DBProto.pb.h"
 #include "CSPlayer.pb.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
+#include "DBProto2.pb.h"
 
 class NFPlayer;
 
@@ -87,6 +88,12 @@ public:
      * @param outproto
      */
     virtual void SetFacadeProto(proto_ff::RoleFacadeProto &outproto) {}
+
+    /**
+     * @brief 进入场景携带的数据
+     * @param outproto
+     */
+    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto) { }
 
     ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
     /**

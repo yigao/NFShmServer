@@ -295,6 +295,18 @@ void NFPlayer::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
     }
 }
 
+void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
+{
+    NFPlayerBase::SetEnterSceneProto(outproto);
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->SetEnterSceneProto(outproto);
+        }
+    }
+}
+
 int NFPlayer::OnLogin(bool isLoadDB)
 {
     for (size_t i = 0; i < PART_MAX; i++)
@@ -1344,4 +1356,6 @@ void NFPlayer::CalcLevelAttr(bool sync)
         SynAttrToClient();
     }
 }
+
+
 

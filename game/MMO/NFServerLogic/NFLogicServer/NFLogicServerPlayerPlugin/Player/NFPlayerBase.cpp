@@ -312,6 +312,14 @@ void NFPlayerBase::SetFacadeProto(proto_ff::RoleFacadeProto& outproto)
     return;
 }
 
+void NFPlayerBase::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
+{
+    outproto.set_cid(Cid());
+    outproto.set_uid(GetUid());
+    outproto.set_zid(GetZid());
+    SetBaseData(outproto.mutable_base());
+}
+
 int NFPlayerBase::UnInit(NFIPluginManager* pPluginManager)
 {
     NFAttrMgr::Instance(pPluginManager)->FreeFightAttrObj(m_pFightAttr);
@@ -326,6 +334,7 @@ int NFPlayerBase::SaveDB(proto_ff::RoleDBData &dbData)
     dbData.set_zid(m_zid);
 
     SetBaseData(dbData);
+    SetAttrData(dbData);
 
     return 0;
 }
@@ -464,5 +473,24 @@ void NFPlayerBase::OnChangeState(uint8_t curstate, uint8_t laststate)
     rsp.set_cid(GetCid());
     rsp.set_curstate(curstate);
     rsp.set_beforestate(laststate);
-    //BroadCast(CREATURE_STATE_BROAD, &rsp, true);
+    //BroadCast(proto_ff::CREATURE_STATE_BROAD, &rsp, true);
+}
+
+void NFPlayerBase::SetAttrData(proto_ff::RoleDBData& proto)
+{
+    proto_ff::AttrDBData* protoattr = proto.mutable_attr();
+    if (nullptr != protoattr)
+    {
+        for (uint32_t i = proto_ff::A_NONE + 1; i < proto_ff::A_FIGHT_END; ++i)
+        {
+            int64_t val = m_pFightAttr->GetAttr(i);
+            if (0 == val) continue;
+            proto_ff::Attr64* protoinfo = protoattr->add_attr_lst();
+            if (nullptr != protoinfo)
+            {
+                protoinfo->set_id(i);
+                protoinfo->set_value(val);
+            }
+        }
+    }
 }
