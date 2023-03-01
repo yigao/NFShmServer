@@ -215,6 +215,6 @@ int NFSceneMgr::EnterScene(const proto_ff::WorldToGameEnterSceneReq& xMsg)
     pPlayer->Init(xMsg.gate_id(), xMsg.logic_id(), xMsg.data());
 
     STransParam param;
-    pScene->EnterScene(pPlayer, pos, param);
+    pPlayer->EnterScene(sceneId, pos, param);
     return 0;
 }

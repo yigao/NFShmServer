@@ -229,12 +229,9 @@ int NFPlayerMgr::EnterGame(uint64_t roleId, const CharLoginInfo &loginInfo)
     NFPlayer *pPlayer = GetPlayer(roleId);
     CHECK_NULL(pPlayer);
 
-    pPlayer->SetMapId(loginInfo.mapid);
-    pPlayer->SetSceneId(loginInfo.sceneid);
-    pPlayer->SetPos(loginInfo.pos);
-    pPlayer->MarkDirty();
+    return pPlayer->EnterGame(loginInfo, true);
 
-    pPlayer->NotifyPlayerInfo();
+
 
     //这里先通知客户端加载，再发送场景其它数据
     proto_ff::NotifyLoadMap notifyLoad;
@@ -264,11 +261,7 @@ int NFPlayerMgr::EnterGame(uint64_t roleId, const CharLoginInfo &loginInfo)
     transRsp.set_mapid(pPlayer->GetMapId());
     pPlayer->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
 
-    NFTransEnterScene* pTrans = dynamic_cast<NFTransEnterScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_ENTER_SCENE));
-    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-    pTrans->Init(pPlayer, 0);
-    pTrans->InitStaticMapInfo();
-    pTrans->SendEnterScene();
+
     return 0;
 }
 

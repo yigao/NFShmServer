@@ -111,7 +111,10 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    virtual int Init();
+    virtual int UnInit();
+    virtual int Update(uint64_t tick);
 public:
     virtual bool IsDestory() { return m_destory; }
 
@@ -167,8 +170,14 @@ public:
     //获取怪物模型半径, 长度单位m
     virtual float GetModelRadius() { return m_fRadius; };
 public:
-    //scenceId:目标场景ID（唯一ID，静态地图场景ID和地图ID相同），dstPos：目标场景坐标，mapId：地图ID,transParam:传送参数
-    //强制传送(场景内传送、切场景传送)
+    /**
+     * @brief 强制传送(场景内传送、切场景传送)
+     * @param scenceId 目标场景ID（唯一ID，静态地图场景ID和地图ID相同）
+     * @param dstPos 目标场景坐标
+     * @param mapId 地图ID
+     * @param transParam 传送参数
+     * @return
+     */
     virtual bool TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam) { return true; }
 
     //进入场景(这个接口只给移动部件和生物内部自身调用，其他请调用transScene)

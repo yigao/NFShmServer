@@ -147,6 +147,7 @@ bool NFAttrMgr::ValidFightAttrId(uint32_t ANum)
 {
     return (ANum > 0 && ANum < proto_ff::A_FIGHT_END);
 }
+
 //是否是普通属性ID
 bool NFAttrMgr::ValidCommonAttrId(uint32_t ANum)
 {
@@ -159,17 +160,20 @@ bool NFAttrMgr::IsComFightAttr(uint32_t ANum)
 {
     return (GetComFightIndex(ANum) > 0);
 }
+
 //是否是通用的战斗属性组ID
 bool NFAttrMgr::IsComFightAttrGroup(uint32_t groupid)
 {
     return (groupid > 0 && groupid < COMMON_FIGHT_ATTR_GROUP_END);
 }
+
 //根据 战斗属性ID获取 通用战斗属性数组的索引
 uint8_t NFAttrMgr::GetComFightIndex(uint32_t ANum)
 {
     if (ANum > 0 && ANum < proto_ff::A_FIGHT_END) return m_comIdToIndex[ANum];
     return 0;
 }
+
 //根据 通用战斗属性数组的索引 获取 战斗属性ID
 uint32_t NFAttrMgr::GetComFightAttr(uint8_t index)
 {
@@ -178,23 +182,25 @@ uint32_t NFAttrMgr::GetComFightAttr(uint8_t index)
 }
 
 
-
 //是否是 角色战斗属性ID
 bool NFAttrMgr::IsRoleFightAttr(uint32_t ANum)
 {
     return (GetRoleFightIndex(ANum) > 0);
 }
+
 //是否是 角色战斗属性组ID
 bool NFAttrMgr::IsRoleFightAttrGroup(uint32_t groupid)
 {
     return (groupid > 0 && groupid < ROLE_FIGHT_ATTR_GROUP_END);
 }
+
 //根据 战斗属性ID获取 角色战斗属性数组的索引
 uint8_t NFAttrMgr::GetRoleFightIndex(uint32_t ANum)
 {
     if (ANum > 0 && ANum < proto_ff::A_FIGHT_END) return m_roleIdToIndex[ANum];
     return 0;
 }
+
 //根据 角色战斗属性数组的索引 获取 战斗属性ID
 uint32_t NFAttrMgr::GetRoleFightAttr(uint8_t index)
 {
@@ -208,12 +214,14 @@ bool NFAttrMgr::IsComAttr(uint32_t ANum)
 {
     return (GetComIndex(ANum) > 0);
 }
+
 //根据属性ID 获取普通属性数组的索引
 uint16_t NFAttrMgr::GetComIndex(uint32_t ANum)
 {
     if (ANum > 0 && ANum < proto_ff::A_COMMON_END) return m_comNormal_IdToIndex[ANum];
     return 0;
 }
+
 //根据 普通属性数组的索引 获取属性ID
 uint32_t NFAttrMgr::GetComAttr(uint16_t index)
 {
@@ -227,12 +235,14 @@ bool NFAttrMgr::IsRoleAttr(uint32_t ANum)
 {
     return (GetRoleIndex(ANum) > 0);
 }
+
 //根据属性ID 获取角色 普通属性数组的索引
 uint16_t NFAttrMgr::GetRoleIndex(uint32_t ANum)
 {
     if (ANum > 0 && ANum < proto_ff::A_COMMON_END) return m_roleNormal_IdToIndex[ANum];
     return 0;
 }
+
 //根据 角色普通属性数组的索引 获取属性ID
 uint32_t NFAttrMgr::GetRoleAttr(uint16_t index)
 {
@@ -240,16 +250,16 @@ uint32_t NFAttrMgr::GetRoleAttr(uint16_t index)
     return 0;
 }
 
-IFightAttr* NFAttrMgr::MakeFightAttrObj(EAttrType type)
+IFightAttr *NFAttrMgr::MakeFightAttrObj(EAttrType type)
 {
-    IFightAttr* pattr = nullptr;
+    IFightAttr *pattr = nullptr;
     switch (type)
     {
         case EAttrType::common:
-            pattr = dynamic_cast<IFightAttr*>(FindModule<NFISharedMemModule>()->CreateObj<ComFightAttr>());
+            pattr = dynamic_cast<IFightAttr *>(FindModule<NFISharedMemModule>()->CreateObj<ComFightAttr>());
             break;
         case EAttrType::role:
-            pattr = dynamic_cast<IFightAttr*>(FindModule<NFISharedMemModule>()->CreateObj<RoleFightAttr>());
+            pattr = dynamic_cast<IFightAttr *>(FindModule<NFISharedMemModule>()->CreateObj<RoleFightAttr>());
             break;
         default:
             break;
@@ -257,20 +267,21 @@ IFightAttr* NFAttrMgr::MakeFightAttrObj(EAttrType type)
     return pattr;
 }
 
-void NFAttrMgr::FreeFightAttrObj(IFightAttr* obj)
+void NFAttrMgr::FreeFightAttrObj(IFightAttr *obj)
 {
     FindModule<NFISharedMemModule>()->DestroyObj(obj);
 }
-IAttr* NFAttrMgr::MakeAttrObj(EAttrType type)
+
+IAttr *NFAttrMgr::MakeAttrObj(EAttrType type)
 {
-    IAttr* pattr = nullptr;
+    IAttr *pattr = nullptr;
     switch (type)
     {
         case EAttrType::common:
-            pattr = dynamic_cast<IAttr*>(FindModule<NFISharedMemModule>()->CreateObj<ComAttr>());
+            pattr = dynamic_cast<IAttr *>(FindModule<NFISharedMemModule>()->CreateObj<ComAttr>());
             break;
         case EAttrType::role:
-            pattr = dynamic_cast<IAttr*>(FindModule<NFISharedMemModule>()->CreateObj<RoleAttr>());
+            pattr = dynamic_cast<IAttr *>(FindModule<NFISharedMemModule>()->CreateObj<RoleAttr>());
             break;
         default:
             break;
@@ -278,11 +289,10 @@ IAttr* NFAttrMgr::MakeAttrObj(EAttrType type)
     return pattr;
 }
 
-void NFAttrMgr::FreeAttrObj(IAttr* obj)
+void NFAttrMgr::FreeAttrObj(IAttr *obj)
 {
     FindModule<NFISharedMemModule>()->DestroyObj(obj);
 }
-
 
 
 //是否需要同步到客户端的属性
@@ -310,6 +320,7 @@ const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PlayerViewAttr()
 {
     return m_setPlayerViewAttr;
 }
+
 //获取怪物视野数据中用到的属性ID
 const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::MonViewAttr()
 {
@@ -339,7 +350,8 @@ bool NFAttrMgr::InitFightAttrToIndex()
     {
         if (comfightindex >= COMMON_FIGHT_ATTR_END)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] AttrMgr::InitFightAttrToIndex.... comfightindex error... comindex:{}, attrid:{} ", comfightindex,i);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] AttrMgr::InitFightAttrToIndex.... comfightindex error... comindex:{}, attrid:{} ",
+                       comfightindex, i);
             return false;
         }
         m_comIdToIndex[i] = comfightindex;
@@ -358,7 +370,8 @@ bool NFAttrMgr::InitFightAttrToIndex()
     {
         if (rolefightindex >= ROLE_FIGHT_ATTR_END)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] AttrMgr::InitFightAttrToIndex.... roleindex error... roleindex:{}, attrid:{} ", rolefightindex, j);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] AttrMgr::InitFightAttrToIndex.... roleindex error... roleindex:{}, attrid:{} ", rolefightindex,
+                       j);
             return false;
         }
 
@@ -394,7 +407,8 @@ bool NFAttrMgr::InitFightAttrToIndex()
     {
         if (rolenormal_index >= ROLE_ATTR_END)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] AttrMgr::InitFightAttrToIndex.... rolenormal_index error... rolenormal_index:{}, n:{}  ", comnormal_index,n);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "[common] AttrMgr::InitFightAttrToIndex.... rolenormal_index error... rolenormal_index:{}, n:{}  ",
+                       comnormal_index, n);
             return false;
         }
         m_roleNormal_IdToIndex[n] = rolenormal_index;

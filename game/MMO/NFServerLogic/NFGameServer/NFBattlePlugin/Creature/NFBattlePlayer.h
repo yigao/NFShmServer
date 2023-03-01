@@ -32,7 +32,7 @@ public:
     int ResumeInit();
 
 public:
-    int Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data);
+    virtual int Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data);
 
     virtual int ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData);
 
@@ -51,7 +51,16 @@ public:
     virtual uint32_t GetZid() { return 0; }
 
     virtual uint32_t GetGateId() { return 0; }
-
+public:
+    /**
+     * @brief 强制传送(场景内传送、切场景传送)
+     * @param scenceId 目标场景ID（唯一ID，静态地图场景ID和地图ID相同）
+     * @param dstPos 目标场景坐标
+     * @param mapId 地图ID
+     * @param transParam 传送参数
+     * @return
+     */
+    virtual bool TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam);
 private:
     /**
      * @brief 玩家数据是否初始化

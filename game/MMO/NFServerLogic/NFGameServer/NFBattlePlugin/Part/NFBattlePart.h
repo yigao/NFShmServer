@@ -16,8 +16,9 @@
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
+#include "DBProto2.pb.h"
 
-class NFCureature;
+class NFCreature;
 
 class NFBattlePart : public NFShmObj
 {
@@ -29,7 +30,10 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    virtual bool Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data);
 
+    virtual void UnInit();
 public:
     /**
      * @brief 登陆入口

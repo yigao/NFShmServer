@@ -33,6 +33,7 @@
 #include "DescStore/RoleTaidaomaleDesc.h"
 #include "DescStore/RoleTaidaofemaleDesc.h"
 #include "DescStoreEx/NFMapDescStoreEx.h"
+#include "Trans/NFTransEnterScene.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -1355,6 +1356,39 @@ void NFPlayer::CalcLevelAttr(bool sync)
     {
         SynAttrToClient();
     }
+}
+
+int NFPlayer::EnterGame(const CharLoginInfo& loginInfo, bool change)
+{
+    NFPoint3<float> enterpos = loginInfo.pos;
+    //先设置坐标和场景
+    m_sceneId = loginInfo.sceneid;
+    m_mapId = loginInfo.mapid;
+    m_pos = enterpos;
+
+    //如果是切换逻辑节点，设置下上一个地图和坐标
+    if (change)
+    {
+        m_lastMapId = loginInfo.lastMapId;
+        m_lastSceneId = loginInfo.lastSceneId;
+        m_lastPos = loginInfo.lastpos;
+    }
+
+    m_proxyId = loginInfo.gateId;
+    m_channelId = loginInfo.channelId;
+    m_uid = loginInfo.uid;
+    m_zid = loginInfo.zid;
+
+    MarkDirty();
+
+    NotifyPlayerInfo();
+
+    NFTransEnterScene* pTrans = dynamic_cast<NFTransEnterScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_ENTER_SCENE));
+    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
+    pTrans->Init(this, 0);
+    pTrans->InitStaticMapInfo();
+    pTrans->SendEnterScene();
+    return 0;
 }
 
 

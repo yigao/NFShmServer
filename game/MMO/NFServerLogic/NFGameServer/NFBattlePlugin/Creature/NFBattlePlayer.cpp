@@ -104,8 +104,8 @@ void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData& cvData
     pPlayerVinfo->set_curstate(GetState());
     pPlayerVinfo->set_zid(GetZid());
     pPlayerVinfo->set_titlename("");
-    pPlayerVinfo->set_head(HeadFlag());
-    pPlayerVinfo->set_faction_name(FactionName());
+    //pPlayerVinfo->set_head(HeadFlag());
+    //pPlayerVinfo->set_faction_name(FactionName());
     auto &setAttr = NFAttrMgr::Instance(m_pObjPluginManager)->PlayerViewAttr();
     for (auto iter = setAttr.begin(); iter != setAttr.end(); ++iter)
     {
@@ -134,4 +134,10 @@ void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData& cvData
             pBuffPart->SetViewBuffListProto(*protolst);
         }
     }*/
+}
+
+bool NFBattlePlayer::TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
+{
+
+    return true;
 }

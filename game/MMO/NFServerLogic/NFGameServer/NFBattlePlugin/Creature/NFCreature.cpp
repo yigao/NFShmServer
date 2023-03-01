@@ -84,6 +84,35 @@ int NFCreature::ResumeInit()
     return 0;
 }
 
+int NFCreature::Init()
+{
+    return 0;
+}
+
+int NFCreature::UnInit()
+{
+    if (nullptr != m_pFightAttr)
+    {
+        NFAttrMgr::Instance(m_pObjPluginManager)->FreeFightAttrObj(m_pFightAttr);
+        m_pFightAttr = nullptr;
+    }
+    if (nullptr != m_pAttr)
+    {
+        NFAttrMgr::Instance(m_pObjPluginManager)->FreeAttrObj(m_pAttr);
+        m_pAttr = nullptr;
+    }
+
+    m_attrCache.clear();
+    m_attrBroadCache.clear();
+
+    return true;
+}
+
+int NFCreature::Update(uint64_t tick)
+{
+    return 0;
+}
+
 void NFCreature::SetPos(const NFPoint3<float> &pos)
 {
     NFScene *pScene = GetScene();
@@ -737,7 +766,8 @@ bool NFCreature::SendClient(uint32_t nMsgId, const google::protobuf::Message &xD
         return false;
     }
 
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetGateId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(), GetRoleId());
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetGateId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
+                                                               GetRoleId());
     return true;
 }
 
@@ -1423,7 +1453,8 @@ void NFCreature::NoticeNineGridLeave()
             NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(pData->creatureGlobalId));
+                NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(
+                        pData->creatureGlobalId));
                 if (pCreature)
                 {
                     pCreature->GetVisionData().DelPVPSeeList(pData->nMeInHisVisionPos);
@@ -1449,7 +1480,8 @@ void NFCreature::NoticeNineGridLeave()
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(pData->creatureGlobalId));
+            NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(
+                    pData->creatureGlobalId));
             if (pCreature)
             {
                 pCreature->GetVisionData().DelPVMSeeList(pData->nMeInHisVisionPos);
@@ -1504,7 +1536,7 @@ bool NFCreature::CanAddSeeNewCreature(NFCreature *pCreature, int64_t hateValue)
 
 bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam)
 {
-    NFScene* pScene = GetScene();
+    NFScene *pScene = GetScene();
     if (pScene)
     {
         if (pScene->GetSceneId() == sceneId)
@@ -1513,11 +1545,11 @@ bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, S
             return false;
     }
 
-    NFScene* pEnterScene = NFSceneMgr::Instance(m_pObjPluginManager)->GetScene(sceneId);
+    NFScene *pEnterScene = NFSceneMgr::Instance(m_pObjPluginManager)->GetScene(sceneId);
     if (!pEnterScene)
         return false;
 
-    NFGrid* pGrid = pEnterScene->EnterScene(this, enterPos, transParam);
+    NFGrid *pGrid = pEnterScene->EnterScene(this, enterPos, transParam);
     if (!pGrid)
         return false;
 
@@ -1550,7 +1582,7 @@ bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, S
 
 bool NFCreature::LeaveScene()
 {
-    NFScene* pScene = GetScene();
+    NFScene *pScene = GetScene();
 
     //场景为空直接返回
     if (!pScene)
