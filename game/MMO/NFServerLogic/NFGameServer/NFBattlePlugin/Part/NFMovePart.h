@@ -21,6 +21,16 @@
 
 class NFMovePart : public NFBattlePart
 {
+    enum
+    {
+        TIMER_ID_LOAD_MAP_TIMEOUT = 2,	//加载地图超时定时器
+
+        INTERVAL_MOVE_TIME = 100,//模拟行走定时器间隔
+
+        INTERVAL_CLIENT_MOVE_TIMEOUT = 3000, //客户端移动同步超时时间
+
+        INTERVAL_LOAD_MAP_TIMEOUT = 20000, //加载地图超时时间
+    };
 public:
     NFMovePart();
 
@@ -55,6 +65,13 @@ public:
     static int RetisterServerMessage(NFIPluginManager *pPluginManager);
 public:
     int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
+public:
+    //设置客户端速度
+    void SetClientSpeed(const NFPoint3<float>& speed);
+    //广播移动
+    int BroadcastMove(uint64_t cid, const NFPoint3<float>& pos, const NFPoint3<float>& speed, const NFPoint3<float>& dir, bool selfFlag = false);
+    //传送(场景内传送、切场景传送,跨逻辑服传送)
+    int TransScene(uint64_t sceneId, const NFPoint3<float>& dstPos, uint64_t mapId, STransParam &transParam);
 private:
     /**
      * @brief 客户端最近一次发到服务器的坐标
@@ -98,11 +115,6 @@ private:
 
 
     /**
-     * @brief 移动的定时器是否已经启动
-     */
-    bool m_moveTimerFlag ;
-
-    /**
      * @brief 最近一次移动的时间点，模拟走用，单位：毫秒
      */
     uint64_t m_moveTick;
@@ -111,5 +123,7 @@ private:
      * @brief 等待客户端加载地图完成的消息
      */
     uint64_t m_waitLoadMapId;
+public:
+    int m_timerIdMove;
 DECLARE_IDCREATE(NFMovePart)
 };

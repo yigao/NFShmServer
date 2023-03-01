@@ -39,6 +39,7 @@ class Proto_DispInfo;
 class Proto_StoreInfo_CB;
 class Proto_StoreInfo;
 class Proto_EventInfo;
+class Proto_RedirectInfo;
 class Proto_SvrPkg;
 class ServerInfoReport;
 class ServerInfoReportList;
@@ -97,11 +98,12 @@ enum Proto_Kernel_CMD {
   NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC = 124,
   NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125,
   NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126,
-  NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 127
+  NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 127,
+  NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD = 128
 };
 bool Proto_Kernel_CMD_IsValid(int value);
 const Proto_Kernel_CMD Proto_Kernel_CMD_MIN = NF_GTM_KILL_ALL_SERVER_NTF;
-const Proto_Kernel_CMD Proto_Kernel_CMD_MAX = NF_SERVER_BROAD_EVENT_TO_SERVER_CMD;
+const Proto_Kernel_CMD Proto_Kernel_CMD_MAX = NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD;
 const int Proto_Kernel_CMD_ARRAYSIZE = Proto_Kernel_CMD_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_Kernel_CMD_descriptor();
@@ -834,6 +836,91 @@ class Proto_EventInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Proto_RedirectInfo : public ::google::protobuf::Message {
+ public:
+  Proto_RedirectInfo();
+  virtual ~Proto_RedirectInfo();
+
+  Proto_RedirectInfo(const Proto_RedirectInfo& from);
+
+  inline Proto_RedirectInfo& operator=(const Proto_RedirectInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_RedirectInfo& default_instance();
+
+  void Swap(Proto_RedirectInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_RedirectInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_RedirectInfo& from);
+  void MergeFrom(const Proto_RedirectInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint64 id = 1;
+  inline int id_size() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 id(int index) const;
+  inline void set_id(int index, ::google::protobuf::uint64 value);
+  inline void add_id(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_id();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_RedirectInfo)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
+  friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fkernel_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_RedirectInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class Proto_SvrPkg : public ::google::protobuf::Message {
  public:
   Proto_SvrPkg();
@@ -934,6 +1021,15 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   inline ::proto_ff::Proto_EventInfo* release_event_info();
   inline void set_allocated_event_info(::proto_ff::Proto_EventInfo* event_info);
 
+  // optional .proto_ff.Proto_RedirectInfo redirect_info = 6;
+  inline bool has_redirect_info() const;
+  inline void clear_redirect_info();
+  static const int kRedirectInfoFieldNumber = 6;
+  inline const ::proto_ff::Proto_RedirectInfo& redirect_info() const;
+  inline ::proto_ff::Proto_RedirectInfo* mutable_redirect_info();
+  inline ::proto_ff::Proto_RedirectInfo* release_redirect_info();
+  inline void set_allocated_redirect_info(::proto_ff::Proto_RedirectInfo* redirect_info);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_SvrPkg)
  private:
   inline void set_has_msg_id();
@@ -946,6 +1042,8 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   inline void clear_has_store_info();
   inline void set_has_event_info();
   inline void clear_has_event_info();
+  inline void set_has_redirect_info();
+  inline void clear_has_redirect_info();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -953,10 +1051,11 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   ::proto_ff::Proto_DispInfo* disp_info_;
   ::proto_ff::Proto_StoreInfo* store_info_;
   ::proto_ff::Proto_EventInfo* event_info_;
+  ::proto_ff::Proto_RedirectInfo* redirect_info_;
   ::google::protobuf::int32 msg_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -2969,6 +3068,35 @@ inline void Proto_EventInfo::set_allocated_full_message_name(::std::string* full
 
 // -------------------------------------------------------------------
 
+// Proto_RedirectInfo
+
+// repeated uint64 id = 1;
+inline int Proto_RedirectInfo::id_size() const {
+  return id_.size();
+}
+inline void Proto_RedirectInfo::clear_id() {
+  id_.Clear();
+}
+inline ::google::protobuf::uint64 Proto_RedirectInfo::id(int index) const {
+  return id_.Get(index);
+}
+inline void Proto_RedirectInfo::set_id(int index, ::google::protobuf::uint64 value) {
+  id_.Set(index, value);
+}
+inline void Proto_RedirectInfo::add_id(::google::protobuf::uint64 value) {
+  id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+Proto_RedirectInfo::id() const {
+  return id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+Proto_RedirectInfo::mutable_id() {
+  return &id_;
+}
+
+// -------------------------------------------------------------------
+
 // Proto_SvrPkg
 
 // optional int32 msg_id = 1;
@@ -3174,6 +3302,44 @@ inline void Proto_SvrPkg::set_allocated_event_info(::proto_ff::Proto_EventInfo* 
     set_has_event_info();
   } else {
     clear_has_event_info();
+  }
+}
+
+// optional .proto_ff.Proto_RedirectInfo redirect_info = 6;
+inline bool Proto_SvrPkg::has_redirect_info() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Proto_SvrPkg::set_has_redirect_info() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Proto_SvrPkg::clear_has_redirect_info() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Proto_SvrPkg::clear_redirect_info() {
+  if (redirect_info_ != NULL) redirect_info_->::proto_ff::Proto_RedirectInfo::Clear();
+  clear_has_redirect_info();
+}
+inline const ::proto_ff::Proto_RedirectInfo& Proto_SvrPkg::redirect_info() const {
+  return redirect_info_ != NULL ? *redirect_info_ : *default_instance_->redirect_info_;
+}
+inline ::proto_ff::Proto_RedirectInfo* Proto_SvrPkg::mutable_redirect_info() {
+  set_has_redirect_info();
+  if (redirect_info_ == NULL) redirect_info_ = new ::proto_ff::Proto_RedirectInfo;
+  return redirect_info_;
+}
+inline ::proto_ff::Proto_RedirectInfo* Proto_SvrPkg::release_redirect_info() {
+  clear_has_redirect_info();
+  ::proto_ff::Proto_RedirectInfo* temp = redirect_info_;
+  redirect_info_ = NULL;
+  return temp;
+}
+inline void Proto_SvrPkg::set_allocated_redirect_info(::proto_ff::Proto_RedirectInfo* redirect_info) {
+  delete redirect_info_;
+  redirect_info_ = redirect_info;
+  if (redirect_info) {
+    set_has_redirect_info();
+  } else {
+    clear_has_redirect_info();
   }
 }
 

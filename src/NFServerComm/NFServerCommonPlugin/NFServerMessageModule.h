@@ -29,6 +29,7 @@ public:
     virtual int SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t nParam1 = 0, uint64_t nParam2 = 0) override;
 public:
     ///////////////////////////other server send msg to proxy msg/////////////////////////////
+    virtual int SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t>& ids, uint32_t nMsgId, const google::protobuf::Message &xData);
     virtual int SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0) override;
     virtual int SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0) override;
     ///////////////////////////other server send msg to world msg/////////////////////////////

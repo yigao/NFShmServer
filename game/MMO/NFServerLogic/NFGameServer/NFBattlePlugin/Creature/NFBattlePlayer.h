@@ -40,17 +40,17 @@ public:
     virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &CvData);
 
 public:
-    virtual uint64_t GetUid() { return 0; }
+    virtual uint64_t GetUid() { return m_uid; }
 
-    virtual uint64_t GetRoleId() { return 0; }
+    virtual uint64_t GetRoleId() { return m_roleId; }
 
-    virtual uint32_t GetChannId() { return 0; }
+    virtual uint32_t GetChannId() { return m_channId; }
 
-    virtual uint64_t GetClientId() { return 0; }
+    virtual uint32_t GetZid() { return m_zid; }
 
-    virtual uint32_t GetZid() { return 0; }
+    virtual uint32_t GetGateId() { return m_gateId; }
 
-    virtual uint32_t GetGateId() { return 0; }
+    virtual uint32_t GetLogicId() { return m_logicId; }
 public:
     /**
      * @brief 强制传送(场景内传送、切场景传送)

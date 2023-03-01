@@ -57,6 +57,7 @@ enum Proto_Kernel_CMD {
   NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125;
   NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126;
   NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 127; //广播事件系统
+  NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD = 128; //其他业务服务器粘包消息发给网关
 }
 
 enum NFROUTER_ERRCODE {
@@ -155,6 +156,12 @@ message Proto_EventInfo
   optional string full_message_name = 5;
 }
 
+//粘包
+message Proto_RedirectInfo
+{
+  repeated uint64 id = 1;
+}
+
 message Proto_SvrPkg
 {
   optional int32          msg_id = 1;              //trans send msg id
@@ -162,6 +169,7 @@ message Proto_SvrPkg
   optional Proto_DispInfo disp_info = 3;              //trans send msg id
   optional Proto_StoreInfo store_info = 4;
   optional Proto_EventInfo event_info = 5; //
+  optional Proto_RedirectInfo redirect_info = 6;
 }
 
 enum EServerState

@@ -161,11 +161,11 @@ public:
 
     virtual uint32_t GetChannId() { return 0; }
 
-    virtual uint64_t GetClientId() { return 0; }
-
     virtual uint32_t GetZid() { return 0; }
 
     virtual uint32_t GetGateId() { return 0; }
+
+    virtual uint32_t GetLogicId() { return 0; }
 
     //获取怪物模型半径, 长度单位m
     virtual float GetModelRadius() { return m_fRadius; };
@@ -372,10 +372,17 @@ public:
 
 public:
     //****************消息发送接口*****************
-    bool BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
+    virtual int BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
 
-    bool SendClient(uint32_t nMsgId, const google::protobuf::Message &xData);
+    virtual int SendRedirectMsgToClient(uint32_t zid, uint32_t gateId, const std::unordered_set<uint64_t>& set, uint32_t nMsgId, const google::protobuf::Message &xData);
 
+    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
 protected:
     uint64_t m_cid;     //生物实例id
     uint32_t m_kind;     //实体类型

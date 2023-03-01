@@ -19,6 +19,8 @@
 #include "Scene/NFSceneMgr.h"
 #include "Event.pb.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "NFCreatureMgr.h"
+#include "NFBattlePlayer.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFCreature, EOT_GAME_CREATURE_ID, NFShmObj)
 
@@ -603,15 +605,15 @@ void NFCreature::SynAttrToClient()
 }
 
 
-bool NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself /*= false*/)
+int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself /*= false*/)
 {
-/*    if (CREATURE_PLAYER == m_kind && !IsCanSendMessage())
+    if (CREATURE_PLAYER == m_kind && !IsCanSendMessage())
     {
-        return false;
+        return -1;
     }
 
-    MAP_UINT32_MAP_UINT32_SET_UINT32 mapzid_gateclient;
-    uint32_t clientId = 0;
+    MAP_UINT32_MAP_UINT32_SET_UINT64 mapZidGateRoleId;
+    uint32_t uid = 0;
     uint32_t gateId = 0;
     uint32_t zid = 0;
 
@@ -620,75 +622,65 @@ bool NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDa
     {
         zid = GetZid();
         gateId = GetGateId();
-        clientId = GetClientId();
+        uid = GetUid();
         //
-        auto iter = mapzid_gateclient.find(zid);
-        if (iter != mapzid_gateclient.end())
+        auto iter = mapZidGateRoleId.find(zid);
+        if (iter != mapZidGateRoleId.end())
         {
-            MAP_UINT32_SET_UINT32 &mapgateclient = iter->second;
-            auto itergate = mapgateclient.find(gateId);
-            if (itergate != mapgateclient.end())
+            auto &mapGateRoleId = iter->second;
+            auto itergate = mapGateRoleId.find(gateId);
+            if (itergate != mapGateRoleId.end())
             {
-                itergate->second.insert(clientId);
+                itergate->second.insert(uid);
             }
             else
             {
-                SET_UINT32 setclient;
-                setclient.insert(clientId);
-                mapgateclient[gateId] = setclient;
+                mapGateRoleId[gateId].insert(uid);
             }
         }
         else
         {
-            SET_UINT32 setclient;
-            setclient.insert(clientId);
-            MAP_UINT32_SET_UINT32 mapgateclient;
-            mapgateclient[gateId] = setclient;
-            mapzid_gateclient[zid] = mapgateclient;
+            mapZidGateRoleId[zid][gateId].insert(uid);
         }
     }
 
     if (Kind() == CREATURE_PLAYER)
     {
-        for (DoubleNode *pNode = m_visionData.m_doublePVPSeeLst.Head(); pNode != nullptr; pNode = m_visionData.m_doublePVPSeeLst.Next(pNode))
+        for (auto iter = m_visionData.m_doublePVPSeeLst.begin(); iter != m_visionData.m_doublePVPSeeLst.end(); iter++)
         {
-            DoubleListViewData *pData = (DoubleListViewData *) pNode->GetHost();
+            NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                if (nullptr != m_pScene)
+                NFScene* pScene = GetScene();
+                if (nullptr != pScene)
                 {
-                    if (nullptr != pData->pCreature && pData->pCreature->Kind() == CREATURE_PLAYER)
+                    NFCreature* pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+                    if (nullptr != pCreature && pCreature->Kind() == CREATURE_PLAYER)
                     {
-                        Player *pPlayer = dynamic_cast<Player *>(pData->pCreature);
+                        NFBattlePlayer *pPlayer = dynamic_cast<NFBattlePlayer *>(pCreature);
                         if (pPlayer && pPlayer->IsCanSendMessage())
                         {
                             zid = pPlayer->GetZid();
                             gateId = pPlayer->GetGateId();
-                            clientId = pPlayer->GetClientId();
+                            uid= pPlayer->GetUid();
                             //
-                            auto iter = mapzid_gateclient.find(zid);
-                            if (iter != mapzid_gateclient.end())
+                            auto zid_iter = mapZidGateRoleId.find(zid);
+                            if (zid_iter != mapZidGateRoleId.end())
                             {
-                                MAP_UINT32_SET_UINT32 &mapgateclient = iter->second;
+                                auto &mapgateclient = zid_iter->second;
                                 auto itergate = mapgateclient.find(gateId);
                                 if (itergate != mapgateclient.end())
                                 {
-                                    itergate->second.insert(clientId);
+                                    itergate->second.insert(uid);
                                 }
                                 else
                                 {
-                                    SET_UINT32 setclient;
-                                    setclient.insert(clientId);
-                                    mapgateclient[gateId] = setclient;
+                                    mapgateclient[gateId].insert(uid);
                                 }
                             }
                             else
                             {
-                                SET_UINT32 setclient;
-                                setclient.insert(clientId);
-                                MAP_UINT32_SET_UINT32 mapgateclient;
-                                mapgateclient[gateId] = setclient;
-                                mapzid_gateclient[zid] = mapgateclient;
+                                mapZidGateRoleId[zid][gateId].insert(uid);
                             }
                         }
                     }
@@ -698,46 +690,41 @@ bool NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDa
     }
     else
     {
-
-        for (DoubleNode *pNode = m_visionData.m_doublePVMSeeLst.Head(); pNode != nullptr; pNode = m_visionData.m_doublePVMSeeLst.Next(pNode))
+        for (auto iter = m_visionData.m_doublePVMSeeLst.begin(); iter != m_visionData.m_doublePVMSeeLst.end(); iter++)
         {
-            DoubleListViewData *pData = (DoubleListViewData *) pNode->GetHost();
+            NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                if (nullptr != m_pScene)
+                NFScene* pScene = GetScene();
+                if (nullptr != pScene)
                 {
-                    if (nullptr != pData->pCreature)
+                    NFCreature* pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+                    if (nullptr != pCreature)
                     {
-                        Player *pPlayer = dynamic_cast<Player *>(pData->pCreature);
+                        NFBattlePlayer *pPlayer = dynamic_cast<NFBattlePlayer *>(pCreature);
                         if (pPlayer && pPlayer->IsCanSendMessage())
                         {
                             zid = pPlayer->GetZid();
                             gateId = pPlayer->GetGateId();
-                            clientId = pPlayer->GetClientId();
+                            uid = pPlayer->GetUid();
                             //
-                            auto iter = mapzid_gateclient.find(zid);
-                            if (iter != mapzid_gateclient.end())
+                            auto zid_iter = mapZidGateRoleId.find(zid);
+                            if (zid_iter != mapZidGateRoleId.end())
                             {
-                                MAP_UINT32_SET_UINT32 &mapgateclient = iter->second;
+                                auto &mapgateclient = zid_iter->second;
                                 auto itergate = mapgateclient.find(gateId);
                                 if (itergate != mapgateclient.end())
                                 {
-                                    itergate->second.insert(clientId);
+                                    itergate->second.insert(uid);
                                 }
                                 else
                                 {
-                                    SET_UINT32 setclient;
-                                    setclient.insert(clientId);
-                                    mapgateclient[gateId] = setclient;
+                                    mapgateclient[gateId].insert(uid);
                                 }
                             }
                             else
                             {
-                                SET_UINT32 setclient;
-                                setclient.insert(clientId);
-                                MAP_UINT32_SET_UINT32 mapgateclient;
-                                mapgateclient[gateId] = setclient;
-                                mapzid_gateclient[zid] = mapgateclient;
+                                mapZidGateRoleId[zid][gateId].insert(uid);
                             }
                         }
                     }
@@ -746,31 +733,58 @@ bool NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDa
         }
     }
 
-    if (mapzid_gateclient.empty())
+    if (mapZidGateRoleId.empty())
     {
-        return false;
+        return 0;
     }
-    for (auto &iter: mapzid_gateclient)
+
+    for (auto &iter: mapZidGateRoleId)
     {
         for (auto &itergate: iter.second)
         {
-            g_GetLogicService()->SendClientByClientId(iter.first, itergate.first, itergate.second, cmd, buf);
+            SendRedirectMsgToClient(iter.first, itergate.first, itergate.second, nMsgId, xData);
         }
-    }*/
+    }
 
-    return true;
+    return 0;
 }
 
-bool NFCreature::SendClient(uint32_t nMsgId, const google::protobuf::Message &xData)
+int NFCreature::SendRedirectMsgToClient(uint32_t zid, uint32_t gateId, const std::unordered_set<uint64_t>& set, uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    FindModule<NFIServerMessageModule>()->SendRedirectMsgToProxyServer(NF_ST_GAME_SERVER, gateId, set, nMsgId, xData);
+    return 0;
+}
+
+int NFCreature::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
     if (!IsCanSendMessage())
     {
-        return false;
+        return -1;
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetGateId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
                                                                GetRoleId());
-    return true;
+    return 0;
+}
+
+int NFCreature::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData, GetUid(), GetRoleId());
+    return 0;
+}
+
+int NFCreature::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, nMsgId, xData, GetUid(),
+                                                               GetRoleId());
+    return 0;
+}
+
+int NFCreature::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
+                                                               GetRoleId());
+    return 0;
 }
 
 void NFCreature::OnDead(uint64_t killerCid, bool isSync, int64_t lastDamage)
@@ -929,7 +943,7 @@ void NFCreature::ReplacePVPSeeList(int relation, NFCreature *pCreature, vector<N
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            NFCreature *pOther = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(pData->creatureGlobalId));
+            NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
             if (pOther && pOther != pCreature)
             {
                 float otherDict = point2LengthSquare(pCreature->GetPos(), pOther->GetPos());
@@ -947,18 +961,18 @@ void NFCreature::ReplacePVPSeeList(int relation, NFCreature *pCreature, vector<N
         NFCreatureVisionDataNode *pData = &(*replace);
         if (pData)
         {
-            NFCreature *pOther = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(pData->creatureGlobalId));
+            NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
             //这里先发送摧毁， 在摧毁， pOther可能不存在, pData可能被摧毁
             if (pOther)
             {
                 proto_ff::CreatureDestoryData CreatureDestoryData;
                 CreatureDestoryData.add_cids(pCreature->Cid());
-                pOther->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
+                pOther->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
 
 
                 CreatureDestoryData.Clear();
                 CreatureDestoryData.add_cids(pOther->Cid());
-                pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
+                pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
 
 
                 pCreature->DelPVPSeeLst(replace.base().m_node->m_self, pOther);
@@ -967,7 +981,7 @@ void NFCreature::ReplacePVPSeeList(int relation, NFCreature *pCreature, vector<N
                 notifyBeenSeeLst.push_back(pCreature);
                 proto_ff::CreatureCreateData CreatureCreatureData;
                 GetVisibleDataToClient(CreatureCreatureData);
-                pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, CreatureCreatureData);
+                pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, CreatureCreatureData);
             }
         }
     }
@@ -986,7 +1000,7 @@ void NFCreature::AddPVPSeeLst(int relation, NFCreature *pCreature, vector<NFCrea
         {
             proto_ff::CreatureCreateData CreatureCreatureData;
             GetVisibleDataToClient(CreatureCreatureData);
-            pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, CreatureCreatureData);
+            pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, CreatureCreatureData);
         }
     }
     else
@@ -1009,7 +1023,7 @@ void NFCreature::AddPVMSeeLst(NFCreature *pCreature, vector<NFCreature *> &vecBe
     {
         proto_ff::CreatureCreateData CreatureCreatureData;
         GetVisibleDataToClient(CreatureCreatureData);
-        pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, CreatureCreatureData);
+        pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, CreatureCreatureData);
     }
 }
 
@@ -1185,8 +1199,7 @@ void NFCreature::GetCreatureList(vector<NFCreature *> &vec)
     {
         for (auto iter = m_visionData.m_doublePVPSeeLst.begin(); iter != m_visionData.m_doublePVPSeeLst.end(); iter++)
         {
-            NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(
-                    iter->creatureGlobalId));
+            NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(iter->creatureGlobalId);
             if (pCreature)
             {
                 vec.push_back(pCreature);
@@ -1195,7 +1208,7 @@ void NFCreature::GetCreatureList(vector<NFCreature *> &vec)
     }
     for (auto iter = m_visionData.m_doublePVMSeeLst.begin(); iter != m_visionData.m_doublePVMSeeLst.end(); iter++)
     {
-        NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(iter->creatureGlobalId));
+        NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(iter->creatureGlobalId);
         if (pCreature)
         {
             vec.push_back(pCreature);
@@ -1231,7 +1244,7 @@ void NFCreature::UpdateSeeLst()
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(pData->creatureGlobalId));
+            pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
             if (pCreature)
             {
                 //这里是人跟怪的视野列表，人和怪以及怪和人是没有视野范围的，所以这里不需要计算距离
@@ -1248,7 +1261,7 @@ void NFCreature::UpdateSeeLst()
                     {
                         proto_ff::CreatureDestoryData CreatureDestoryData;
                         CreatureDestoryData.add_cids(m_cid);
-                        pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
+                        pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
                     }
                     int pos = DelPVMSeeLst(iter.m_node->m_self, pCreature);
                     iter = m_visionData.m_doublePVMSeeLst.GetIterator(pos);
@@ -1275,7 +1288,7 @@ void NFCreature::UpdateSeeLst()
             NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(pData->creatureGlobalId));
+                pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
                 if (pCreature && pCreature->Kind() == CREATURE_PLAYER)
                 {
                     float dict = point2LengthSquare(GetPos(), pCreature->GetPos());
@@ -1291,7 +1304,7 @@ void NFCreature::UpdateSeeLst()
                         {
                             proto_ff::CreatureDestoryData CreatureDestoryData;
                             CreatureDestoryData.add_cids(m_cid);
-                            pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
+                            pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, CreatureDestoryData);
                         }
 
                         int pos = DelPVPSeeLst(iter.m_node->m_self, pCreature);
@@ -1353,7 +1366,7 @@ void NFCreature::UpdateSeeLst()
     //这里通知客户端删除生物 并且做视野移除
     if (Kind() == CREATURE_PLAYER && destoryData.cids_size() > 0)
     {
-        SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, destoryData);
+        SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, destoryData);
     }
 
     //有新的生物进入视野
@@ -1377,7 +1390,7 @@ void NFCreature::UpdateSeeLst()
                 || (count >= g_constSendClientCreatureNum)
                     )
             {
-                SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
+                SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
                 createData.Clear();
                 count = 0;
             }
@@ -1393,7 +1406,7 @@ void NFCreature::UpdateSeeLst()
                            m_cid, m_kind, createDataSize);
             }
 
-            SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
+            SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
         }
     }
 }
@@ -1428,7 +1441,7 @@ void NFCreature::SendAllSeeCreatureListToClient()
                 || (count >= g_constSendClientCreatureNum)
                 )
         {
-            SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
+            SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
             createData.Clear();
             count = 0;
         }
@@ -1442,7 +1455,7 @@ void NFCreature::SendAllSeeCreatureListToClient()
                        m_cid, m_kind, createData.ByteSize());
         }
 
-        SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
+        SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_CREATE, createData);
     }
 }
 
@@ -1455,15 +1468,14 @@ void NFCreature::NoticeNineGridLeave()
             NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(
-                        pData->creatureGlobalId));
+                NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
                 if (pCreature)
                 {
                     pCreature->GetVisionData().DelPVPSeeList(pData->nMeInHisVisionPos);
                     //通知删除
                     proto_ff::CreatureDestoryData destoryData;
                     destoryData.add_cids(m_cid);
-                    pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, destoryData);
+                    pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, destoryData);
                 }
 
                 iter = m_visionData.m_doublePVPSeeLst.erase(iter);
@@ -1482,8 +1494,7 @@ void NFCreature::NoticeNineGridLeave()
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(
-                    pData->creatureGlobalId));
+            NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
             if (pCreature)
             {
                 pCreature->GetVisionData().DelPVMSeeList(pData->nMeInHisVisionPos);
@@ -1500,7 +1511,7 @@ void NFCreature::NoticeNineGridLeave()
                     //通知删除
                     proto_ff::CreatureDestoryData destoryData;
                     destoryData.add_cids(m_cid);
-                    pCreature->SendClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, destoryData);
+                    pCreature->SendMsgToClient(proto_ff::NOTIFY_CLIENT_CREATURE_DESTORY, destoryData);
                 }
 
             }
@@ -1565,7 +1576,7 @@ bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, S
     proto_ff::EnterSceneEvent enterEvent;
     enterEvent.set_cid(m_cid);
     enterEvent.set_uid(GetUid());
-    enterEvent.set_clientid(GetClientId());
+    enterEvent.set_clientid(0);
     enterEvent.set_mapid(m_mapId);
     enterEvent.set_x(enterPos.x * 1000);
     enterEvent.set_y(enterPos.y * 1000);

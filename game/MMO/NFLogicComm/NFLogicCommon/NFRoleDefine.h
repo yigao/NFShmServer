@@ -52,6 +52,13 @@ enum PartType
     PART_MAX,
 };
 
+enum BattlePartType
+{
+    BATTLE_PART_NONE = 0,
+    BATTLE_PART_MOVE,
+    BATTLE_PART_MAX,
+};
+
 enum
 {
     ROLE_DISCONN_FROM_CLIENT =1,         //client close connection

@@ -56,6 +56,8 @@ bool NFCProxyClientModule::Awake()
 
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::WORLD_TO_PROXY_SERVER_BUS_ID_CHANGE_NOTIFY);
 
+    RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD);
+
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig)
     {
@@ -640,7 +642,37 @@ int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
     }
     else
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "other server msg:{} not handle", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info, other server msg:{} not handle", playerId, packet.ToString());
+    }
+
+    return 0;
+}
+
+int NFCProxyClientModule::OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &packet)
+{
+    proto_ff::Proto_SvrPkg xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    const ::proto_ff::Proto_RedirectInfo& redirectInfo = xMsg.redirect_info();
+    for(int i = 0; i < (int)redirectInfo.id_size(); i++)
+    {
+        uint64_t playerId = redirectInfo.id(i);
+        NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
+        if (pPlayerInfo)
+        {
+            NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
+            if (pLinkInfo == NULL)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find player linkId, player disconnect:{}", unLinkId);
+                return -1;
+            }
+
+            FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, (uint32_t)xMsg.msg_id(), xMsg.msg_data());
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info, other server msg:{} not handle", playerId, packet.ToString());
+        }
     }
 
     return 0;

@@ -7,6 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
+
 #include "NFServerMessageModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -68,6 +69,22 @@ int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t n
     CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", nDstId);
 
     FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, msg, nLen, nParam1, nParam2, pConfig->BusId, nDstId);
+    return 0;
+}
+
+int NFServerMessageModule::SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t> &ids, uint32_t nMsgId,
+                                                        const google::protobuf::Message &xData)
+{
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(nMsgId);
+    svrPkg.set_msg_data(xData.SerializeAsString());
+
+    for (auto iter = ids.begin(); iter != ids.end(); iter++)
+    {
+        svrPkg.mutable_redirect_info()->add_id(*iter);
+    }
+
+    SendMsgToProxyServer(eType, nDstId, proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD, svrPkg);
     return 0;
 }
 

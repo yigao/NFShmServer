@@ -20,6 +20,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <unordered_set>
 
 //#define TEST_SERVER_SEND_MSG
 #define TEST_SERVER_SEND_MSG_FRAME_COUNT 10
@@ -46,6 +47,7 @@ public:
     virtual int SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t nParam1 = 0, uint64_t nParam2 = 0) = 0;
     virtual int SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const char *msg, uint32_t nLen, uint64_t nParam1 = 0, uint64_t nParam2 = 0) = 0;
     ///////////////////////////other server send msg to proxy server/////////////////////////////
+    virtual int SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t>& ids, uint32_t nMsgId, const google::protobuf::Message &xData) = 0;
     virtual int SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0) = 0;
     virtual int SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0, uint64_t nParam2 = 0) = 0;
     ///////////////////////////other server send msg to world server/////////////////////////////

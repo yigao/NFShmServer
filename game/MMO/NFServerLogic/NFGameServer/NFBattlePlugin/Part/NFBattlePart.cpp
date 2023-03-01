@@ -84,3 +84,43 @@ NFCreature *NFBattlePart::GetMaster()
 {
     return dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_masterCid, EOT_GAME_CREATURE_ID, 0));
 }
+
+int NFBattlePart::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself)
+{
+    NFCreature* pMaster = GetMaster();
+    CHECK_NULL(pMaster);
+
+    return pMaster->BroadCast(nMsgId, xData, IncludeMyself);
+}
+
+int NFBattlePart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    NFCreature* pMaster = GetMaster();
+    CHECK_NULL(pMaster);
+
+    return pMaster->SendMsgToClient(nMsgId, xData);
+}
+
+int NFBattlePart::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    NFCreature* pMaster = GetMaster();
+    CHECK_NULL(pMaster);
+
+    return pMaster->SendMsgToSnsServer(nMsgId, xData);
+}
+
+int NFBattlePart::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    NFCreature* pMaster = GetMaster();
+    CHECK_NULL(pMaster);
+
+    return pMaster->SendMsgToWorldServer(nMsgId, xData);
+}
+
+int NFBattlePart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
+    NFCreature* pMaster = GetMaster();
+    CHECK_NULL(pMaster);
+
+    return pMaster->SendMsgToLogicServer(nMsgId, xData);
+}

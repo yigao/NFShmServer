@@ -176,6 +176,7 @@ typedef std::unordered_map<uint32_t, MAP_UINT32_MAP_UINT32_INT8 > MAP_UINT32_MAP
 typedef std::unordered_map<uint32_t, MAP_INT32_SET_UINT32 > MAP_UINT32_MAP_INT32_SET_UINT32;
 typedef std::unordered_map<uint32_t, MAP_UINT32_MAP_INT32_SET_UINT32 > MAP_UINT32_MAP_UINT32_MAP_INT32_SET_UINT32;
 typedef std::unordered_map<uint32_t, MAP_UINT32_SET_UINT32 > MAP_UINT32_MAP_UINT32_SET_UINT32;
+typedef std::unordered_map<uint32_t, MAP_UINT32_SET_UINT64 > MAP_UINT32_MAP_UINT32_SET_UINT64;
 typedef std::unordered_map<int8_t, MAP_INT8_INT8 > MAP_INT8_MAP_INT8_INT8;
 typedef std::unordered_map<int8_t, MAP_UINT32_SET_UINT32 > MAP_INT8_MAP_UINT32_SET_UINT32;
 typedef std::unordered_map<uint32_t, MAP_INT8_INT32> MAP_UINT32_MAP_INT8_INT32;

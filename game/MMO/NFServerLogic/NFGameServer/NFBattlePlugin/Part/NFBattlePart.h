@@ -59,6 +59,16 @@ public:
 
     static int RetisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 public:
+    virtual int BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
+
+    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+public:
     /**
      * @brief 登陆入口
      * @return

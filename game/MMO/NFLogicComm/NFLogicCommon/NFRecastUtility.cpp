@@ -42,8 +42,6 @@ int NFRecastUtility::LoadNavMeshByJsonFile(const std::string& filePath, dtNavMes
 
 int NFRecastUtility::LoadNavMeshByJsonStream(const std::string& filePath, const std::string& jsonstr, dtNavMesh** navMesh)
 {
-    bool result = false;
-
     dtNavMesh* mesh = nullptr;
     NavMeshSetHeader header;
     char tileBuff[1024 * 200];
