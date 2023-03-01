@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFCSceneModule.h"
+#include "Part/NFBattlePartModule.h"
 
 #include "Map/NFMapMgr.h"
 #include "Map/NFMap.h"
@@ -22,6 +23,9 @@
 #include "Creature/NFCreature.h"
 #include "Creature/NFBattlePlayer.h"
 #include "Creature/NFCreatureMgr.h"
+
+#include "Part/NFBattlePart.h"
+#include "Part/NFMovePart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -54,11 +58,13 @@ std::string NFBattlePlugin::GetPluginName()
 void NFBattlePlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCSceneModule, NFCSceneModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFBattlePartModule, NFBattlePartModule);
 }
 
 void NFBattlePlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCSceneModule, NFCSceneModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFBattlePartModule, NFBattlePartModule);
 }
 
 bool NFBattlePlugin::InitShmObjectRegister()
@@ -79,5 +85,7 @@ bool NFBattlePlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFCreature, 1);
     REGISTER_SHM_OBJ_WITH_HASH(NFBattlePlayer, maxOnlinePlayerNum);
 
+    REGISTER_SHM_OBJ(NFBattlePart, 1);
+    REGISTER_SHM_OBJ(NFMovePart, maxOnlinePlayerNum);
 	return true;
 }

@@ -29,7 +29,32 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    virtual int Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data);
 
+    virtual int UnInit();
+public:
+    /**
+     * @brief 处理客户端消息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 处理来自服务器的信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+public:
+    static int RetisterClientMessage(NFIPluginManager *pPluginManager);
+
+    static int RetisterServerMessage(NFIPluginManager *pPluginManager);
+public:
+    int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
 private:
     /**
      * @brief 客户端最近一次发到服务器的坐标

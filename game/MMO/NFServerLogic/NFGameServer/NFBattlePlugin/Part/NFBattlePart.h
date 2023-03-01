@@ -17,10 +17,11 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "DBProto2.pb.h"
+#include "NFComm/NFShmCore/NFSeqOP.h"
 
 class NFCreature;
 
-class NFBattlePart : public NFShmObj
+class NFBattlePart : public NFShmObj, public NFSeqOP
 {
 public:
     NFBattlePart();
@@ -31,9 +32,32 @@ public:
 
     int ResumeInit();
 public:
-    virtual bool Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data);
+    virtual int Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data);
 
-    virtual void UnInit();
+    virtual int UnInit();
+
+public:
+    virtual uint32_t GetCurRoleDetailSeq() const;
+public:
+    /**
+     * @brief 处理客户端消息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief 处理来自服务器的信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+public:
+    static int RetisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+
+    static int RetisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 public:
     /**
      * @brief 登陆入口
@@ -96,29 +120,15 @@ public:
      */
     virtual int Update(uint64_t tick) { return 0; }
 
-public:
-    /**
-     * @brief 处理客户端消息
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet) { return 0; }
-
-    /**
-     * @brief 处理来自服务器的信息
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet) { return 0; }
 
 public:
     //部件类型
     uint32_t PartType() { return m_partType; }
 
+public:
+    NFCreature* GetMaster();
 protected:
-    NFShmPtr<NFCureature> m_pMaster;
+    int m_masterCid;
     uint32_t m_partType;
 
 private:

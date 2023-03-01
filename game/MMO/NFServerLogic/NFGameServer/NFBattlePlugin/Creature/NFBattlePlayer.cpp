@@ -47,15 +47,13 @@ int NFBattlePlayer::ResumeInit()
     return 0;
 }
 
-int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData& dbData)
+int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData& data)
 {
     m_isInited = true;
-    m_pFightAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeFightAttrObj(EAttrType::role);
-    m_pAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeAttrObj(EAttrType::role);
-    ReadBaseData(dbData.base());
-    m_roleId = dbData.cid();
-    m_zid = dbData.zid();
-    m_uid = dbData.uid();
+    ReadBaseData(data.base());
+    m_roleId = data.cid();
+    m_zid = data.zid();
+    m_uid = data.uid();
     m_gateId = gateId;
     m_logicId = logicId;
     ResetCurSeq();

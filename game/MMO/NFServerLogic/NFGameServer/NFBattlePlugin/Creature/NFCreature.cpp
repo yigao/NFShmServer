@@ -86,6 +86,8 @@ int NFCreature::ResumeInit()
 
 int NFCreature::Init()
 {
+    m_pFightAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeFightAttrObj(EAttrType::role);
+    m_pAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeAttrObj(EAttrType::role);
     return 0;
 }
 

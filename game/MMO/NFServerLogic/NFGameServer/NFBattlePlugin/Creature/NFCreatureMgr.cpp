@@ -64,6 +64,8 @@ NFCreature* NFCreatureMgr::CreateCreature(uint32_t kindType, uint64_t id)
 
             NFCreature* pGetCreature = GetBattlePlayer(id);
             NF_ASSERT_MSG(pGetCreature == pCreature, "pGetCreature != pCreature, id:{}", id);
+
+            pCreature->Init();
             break;
         }
         default:
@@ -76,6 +78,7 @@ NFCreature* NFCreatureMgr::CreateCreature(uint32_t kindType, uint64_t id)
 int NFCreatureMgr::DestroyCreature(NFCreature* pCreature)
 {
     CHECK_NULL(pCreature);
+    pCreature->UnInit();
     NFLogInfo(NF_LOG_SYSTEMLOG, pCreature->Cid(), "Destroy Creature, kind:{} cid:{} roleId:{} uid:{} ", pCreature->Kind(), pCreature->Cid(), pCreature->GetRoleId(), pCreature->GetUid());
     FindModule<NFISharedMemModule>()->DestroyObj(pCreature);
     return 0;
