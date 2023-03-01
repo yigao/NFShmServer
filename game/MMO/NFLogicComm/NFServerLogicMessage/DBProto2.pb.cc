@@ -114,7 +114,7 @@ void protobuf_AssignDesc_DBProto2_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, zid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, base_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, attributes_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleEnterSceneData, attr_),
   };
   RoleEnterSceneData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -185,10 +185,10 @@ void protobuf_AddDesc_DBProto2_2eproto() {
     "e\030\004 \001(\0132\030.proto_ff.RoleDBBaseData\"\016\n\014MyF"
     "riendInfo\"Q\n\017RoleDBSnsDetail\022\021\n\003cid\030\001 \001("
     "\004B\004\300\202\024\002\022+\n\013friend_info\030\002 \001(\0132\026.proto_ff."
-    "MyFriendInfo\"\215\001\n\022RoleEnterSceneData\022\013\n\003c"
+    "MyFriendInfo\"\207\001\n\022RoleEnterSceneData\022\013\n\003c"
     "id\030\001 \001(\004\022\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004ba"
-    "se\030\004 \001(\0132\030.proto_ff.RoleDBBaseData\022(\n\nat"
-    "tributes\030\005 \001(\0132\024.proto_ff.AttrDBData", 476);
+    "se\030\n \001(\0132\030.proto_ff.RoleDBBaseData\022\"\n\004at"
+    "tr\030\013 \001(\0132\024.proto_ff.AttrDBData", 470);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProto2.proto", &protobuf_RegisterTypes);
   GetRegisterNum_RoleDBData::default_instance_ = new GetRegisterNum_RoleDBData();
@@ -1171,7 +1171,7 @@ const int RoleEnterSceneData::kCidFieldNumber;
 const int RoleEnterSceneData::kZidFieldNumber;
 const int RoleEnterSceneData::kUidFieldNumber;
 const int RoleEnterSceneData::kBaseFieldNumber;
-const int RoleEnterSceneData::kAttributesFieldNumber;
+const int RoleEnterSceneData::kAttrFieldNumber;
 #endif  // !_MSC_VER
 
 RoleEnterSceneData::RoleEnterSceneData()
@@ -1181,7 +1181,7 @@ RoleEnterSceneData::RoleEnterSceneData()
 
 void RoleEnterSceneData::InitAsDefaultInstance() {
   base_ = const_cast< ::proto_ff::RoleDBBaseData*>(&::proto_ff::RoleDBBaseData::default_instance());
-  attributes_ = const_cast< ::proto_ff::AttrDBData*>(&::proto_ff::AttrDBData::default_instance());
+  attr_ = const_cast< ::proto_ff::AttrDBData*>(&::proto_ff::AttrDBData::default_instance());
 }
 
 RoleEnterSceneData::RoleEnterSceneData(const RoleEnterSceneData& from)
@@ -1196,7 +1196,7 @@ void RoleEnterSceneData::SharedCtor() {
   zid_ = 0u;
   uid_ = 0u;
   base_ = NULL;
-  attributes_ = NULL;
+  attr_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1207,7 +1207,7 @@ RoleEnterSceneData::~RoleEnterSceneData() {
 void RoleEnterSceneData::SharedDtor() {
   if (this != default_instance_) {
     delete base_;
-    delete attributes_;
+    delete attr_;
   }
 }
 
@@ -1240,8 +1240,8 @@ void RoleEnterSceneData::Clear() {
     if (has_base()) {
       if (base_ != NULL) base_->::proto_ff::RoleDBBaseData::Clear();
     }
-    if (has_attributes()) {
-      if (attributes_ != NULL) attributes_->::proto_ff::AttrDBData::Clear();
+    if (has_attr()) {
+      if (attr_ != NULL) attr_->::proto_ff::AttrDBData::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1297,12 +1297,12 @@ bool RoleEnterSceneData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_base;
+        if (input->ExpectTag(82)) goto parse_base;
         break;
       }
 
-      // optional .proto_ff.RoleDBBaseData base = 4;
-      case 4: {
+      // optional .proto_ff.RoleDBBaseData base = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_base:
@@ -1311,17 +1311,17 @@ bool RoleEnterSceneData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_attributes;
+        if (input->ExpectTag(90)) goto parse_attr;
         break;
       }
 
-      // optional .proto_ff.AttrDBData attributes = 5;
-      case 5: {
+      // optional .proto_ff.AttrDBData attr = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_attributes:
+         parse_attr:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_attributes()));
+               input, mutable_attr()));
         } else {
           goto handle_uninterpreted;
         }
@@ -1362,16 +1362,16 @@ void RoleEnterSceneData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->uid(), output);
   }
 
-  // optional .proto_ff.RoleDBBaseData base = 4;
+  // optional .proto_ff.RoleDBBaseData base = 10;
   if (has_base()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->base(), output);
+      10, this->base(), output);
   }
 
-  // optional .proto_ff.AttrDBData attributes = 5;
-  if (has_attributes()) {
+  // optional .proto_ff.AttrDBData attr = 11;
+  if (has_attr()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->attributes(), output);
+      11, this->attr(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1397,18 +1397,18 @@ void RoleEnterSceneData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->uid(), target);
   }
 
-  // optional .proto_ff.RoleDBBaseData base = 4;
+  // optional .proto_ff.RoleDBBaseData base = 10;
   if (has_base()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->base(), target);
+        10, this->base(), target);
   }
 
-  // optional .proto_ff.AttrDBData attributes = 5;
-  if (has_attributes()) {
+  // optional .proto_ff.AttrDBData attr = 11;
+  if (has_attr()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        5, this->attributes(), target);
+        11, this->attr(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1443,18 +1443,18 @@ int RoleEnterSceneData::ByteSize() const {
           this->uid());
     }
 
-    // optional .proto_ff.RoleDBBaseData base = 4;
+    // optional .proto_ff.RoleDBBaseData base = 10;
     if (has_base()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->base());
     }
 
-    // optional .proto_ff.AttrDBData attributes = 5;
-    if (has_attributes()) {
+    // optional .proto_ff.AttrDBData attr = 11;
+    if (has_attr()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->attributes());
+          this->attr());
     }
 
   }
@@ -1496,8 +1496,8 @@ void RoleEnterSceneData::MergeFrom(const RoleEnterSceneData& from) {
     if (from.has_base()) {
       mutable_base()->::proto_ff::RoleDBBaseData::MergeFrom(from.base());
     }
-    if (from.has_attributes()) {
-      mutable_attributes()->::proto_ff::AttrDBData::MergeFrom(from.attributes());
+    if (from.has_attr()) {
+      mutable_attr()->::proto_ff::AttrDBData::MergeFrom(from.attr());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1520,8 +1520,8 @@ bool RoleEnterSceneData::IsInitialized() const {
   if (has_base()) {
     if (!this->base().IsInitialized()) return false;
   }
-  if (has_attributes()) {
-    if (!this->attributes().IsInitialized()) return false;
+  if (has_attr()) {
+    if (!this->attr().IsInitialized()) return false;
   }
   return true;
 }
@@ -1532,7 +1532,7 @@ void RoleEnterSceneData::Swap(RoleEnterSceneData* other) {
     std::swap(zid_, other->zid_);
     std::swap(uid_, other->uid_);
     std::swap(base_, other->base_);
-    std::swap(attributes_, other->attributes_);
+    std::swap(attr_, other->attr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

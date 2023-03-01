@@ -16,6 +16,8 @@
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Base/NFTransPlayerBase.h"
+#include "Com_s.h"
+#include "NFLogicCommon/NFPoint3.h"
 
 class NFTransEnterScene : public NFTransPlayerBase
 {
@@ -50,6 +52,6 @@ public:
 private:
     uint64_t m_mapId;
     uint64_t m_sceneId;
-    uint64_t m_gameBusId;
+    NFPoint3<float> m_pos;
 DECLARE_IDCREATE(NFTransEnterScene)
 };

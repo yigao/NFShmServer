@@ -37,6 +37,6 @@ message RoleEnterSceneData
   optional uint64                 cid					= 1;	// role cid
   optional uint32                 zid					= 2;    // 区服ID
   optional uint32					        uid					= 3;    // UID
-  optional RoleDBBaseData         base				= 4;    // 基础数据
-  optional AttrDBData             attributes  = 5;
+  optional RoleDBBaseData         base				= 10;    // 基础数据
+  optional AttrDBData             attr        = 11;
 }

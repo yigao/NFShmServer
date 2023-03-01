@@ -95,13 +95,13 @@ bool NFAttrMgr::Init()
 
 
     //玩家视野数据中用到的属性
-    m_setPlayerViewAttr.PushBack(proto_ff::A_LEVEL);
-    m_setPlayerViewAttr.PushBack(proto_ff::A_PROF);
-    m_setPlayerViewAttr.PushBack(proto_ff::A_FIGHT);
-    m_setPlayerViewAttr.PushBack(proto_ff::A_CUR_HP);
-    m_setPlayerViewAttr.PushBack(proto_ff::A_MAX_HP);
-    m_setPlayerViewAttr.PushBack(proto_ff::A_SPEED);
-    m_setPlayerViewAttr.PushBack(proto_ff::A_TEAM_ID);
+    m_setPlayerViewAttr.insert(proto_ff::A_LEVEL);
+    m_setPlayerViewAttr.insert(proto_ff::A_PROF);
+    m_setPlayerViewAttr.insert(proto_ff::A_FIGHT);
+    m_setPlayerViewAttr.insert(proto_ff::A_CUR_HP);
+    m_setPlayerViewAttr.insert(proto_ff::A_MAX_HP);
+    m_setPlayerViewAttr.insert(proto_ff::A_SPEED);
+    m_setPlayerViewAttr.insert(proto_ff::A_TEAM_ID);
 
     /*
     m_setPlayerViewAttr.insert(A_USE_TITLE);
@@ -109,14 +109,14 @@ bool NFAttrMgr::Init()
     m_setPlayerViewAttr.insert(A_TEAM_ID);*/
 
     //怪物视野数据中用到的属性
-    m_setMonsViewAttr.PushBack(proto_ff::A_CUR_HP);
-    m_setMonsViewAttr.PushBack(proto_ff::A_MAX_HP);
-    m_setMonsViewAttr.PushBack(proto_ff::A_LEVEL);
-    m_setMonsViewAttr.PushBack(proto_ff::A_SPEED);
+    m_setMonsViewAttr.insert(proto_ff::A_CUR_HP);
+    m_setMonsViewAttr.insert(proto_ff::A_MAX_HP);
+    m_setMonsViewAttr.insert(proto_ff::A_LEVEL);
+    m_setMonsViewAttr.insert(proto_ff::A_SPEED);
 
     //伙伴视野中用到的属性
-    m_setPartnerViewAttr.PushBack(proto_ff::A_LEVEL);
-    m_setPartnerViewAttr.PushBack(proto_ff::A_SPEED);
+    m_setPartnerViewAttr.insert(proto_ff::A_LEVEL);
+    m_setPartnerViewAttr.insert(proto_ff::A_SPEED);
 
     return true;
 }
@@ -306,18 +306,18 @@ bool NFAttrMgr::IsBroadClient(uint32_t ANum)
 }
 
 //获取玩家视野数据中用到的属性ID
-const NFShmStaticList<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PlayerViewAttr()
+const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PlayerViewAttr()
 {
     return m_setPlayerViewAttr;
 }
 //获取怪物视野数据中用到的属性ID
-const NFShmStaticList<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::MonViewAttr()
+const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::MonViewAttr()
 {
     return m_setMonsViewAttr;
 }
 
 //获取怪物视野数据中用到的属性ID
-const NFShmStaticList<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PartnerViewAttr()
+const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PartnerViewAttr()
 {
     return m_setPartnerViewAttr;
 }

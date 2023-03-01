@@ -482,23 +482,23 @@ class RoleEnterSceneData : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 uid() const;
   inline void set_uid(::google::protobuf::uint32 value);
 
-  // optional .proto_ff.RoleDBBaseData base = 4;
+  // optional .proto_ff.RoleDBBaseData base = 10;
   inline bool has_base() const;
   inline void clear_base();
-  static const int kBaseFieldNumber = 4;
+  static const int kBaseFieldNumber = 10;
   inline const ::proto_ff::RoleDBBaseData& base() const;
   inline ::proto_ff::RoleDBBaseData* mutable_base();
   inline ::proto_ff::RoleDBBaseData* release_base();
   inline void set_allocated_base(::proto_ff::RoleDBBaseData* base);
 
-  // optional .proto_ff.AttrDBData attributes = 5;
-  inline bool has_attributes() const;
-  inline void clear_attributes();
-  static const int kAttributesFieldNumber = 5;
-  inline const ::proto_ff::AttrDBData& attributes() const;
-  inline ::proto_ff::AttrDBData* mutable_attributes();
-  inline ::proto_ff::AttrDBData* release_attributes();
-  inline void set_allocated_attributes(::proto_ff::AttrDBData* attributes);
+  // optional .proto_ff.AttrDBData attr = 11;
+  inline bool has_attr() const;
+  inline void clear_attr();
+  static const int kAttrFieldNumber = 11;
+  inline const ::proto_ff::AttrDBData& attr() const;
+  inline ::proto_ff::AttrDBData* mutable_attr();
+  inline ::proto_ff::AttrDBData* release_attr();
+  inline void set_allocated_attr(::proto_ff::AttrDBData* attr);
 
   // @@protoc_insertion_point(class_scope:proto_ff.RoleEnterSceneData)
  private:
@@ -510,8 +510,8 @@ class RoleEnterSceneData : public ::google::protobuf::Message {
   inline void clear_has_uid();
   inline void set_has_base();
   inline void clear_has_base();
-  inline void set_has_attributes();
-  inline void clear_has_attributes();
+  inline void set_has_attr();
+  inline void clear_has_attr();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -519,7 +519,7 @@ class RoleEnterSceneData : public ::google::protobuf::Message {
   ::google::protobuf::uint32 zid_;
   ::google::protobuf::uint32 uid_;
   ::proto_ff::RoleDBBaseData* base_;
-  ::proto_ff::AttrDBData* attributes_;
+  ::proto_ff::AttrDBData* attr_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -806,7 +806,7 @@ inline void RoleEnterSceneData::set_uid(::google::protobuf::uint32 value) {
   uid_ = value;
 }
 
-// optional .proto_ff.RoleDBBaseData base = 4;
+// optional .proto_ff.RoleDBBaseData base = 10;
 inline bool RoleEnterSceneData::has_base() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -844,41 +844,41 @@ inline void RoleEnterSceneData::set_allocated_base(::proto_ff::RoleDBBaseData* b
   }
 }
 
-// optional .proto_ff.AttrDBData attributes = 5;
-inline bool RoleEnterSceneData::has_attributes() const {
+// optional .proto_ff.AttrDBData attr = 11;
+inline bool RoleEnterSceneData::has_attr() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void RoleEnterSceneData::set_has_attributes() {
+inline void RoleEnterSceneData::set_has_attr() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void RoleEnterSceneData::clear_has_attributes() {
+inline void RoleEnterSceneData::clear_has_attr() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void RoleEnterSceneData::clear_attributes() {
-  if (attributes_ != NULL) attributes_->::proto_ff::AttrDBData::Clear();
-  clear_has_attributes();
+inline void RoleEnterSceneData::clear_attr() {
+  if (attr_ != NULL) attr_->::proto_ff::AttrDBData::Clear();
+  clear_has_attr();
 }
-inline const ::proto_ff::AttrDBData& RoleEnterSceneData::attributes() const {
-  return attributes_ != NULL ? *attributes_ : *default_instance_->attributes_;
+inline const ::proto_ff::AttrDBData& RoleEnterSceneData::attr() const {
+  return attr_ != NULL ? *attr_ : *default_instance_->attr_;
 }
-inline ::proto_ff::AttrDBData* RoleEnterSceneData::mutable_attributes() {
-  set_has_attributes();
-  if (attributes_ == NULL) attributes_ = new ::proto_ff::AttrDBData;
-  return attributes_;
+inline ::proto_ff::AttrDBData* RoleEnterSceneData::mutable_attr() {
+  set_has_attr();
+  if (attr_ == NULL) attr_ = new ::proto_ff::AttrDBData;
+  return attr_;
 }
-inline ::proto_ff::AttrDBData* RoleEnterSceneData::release_attributes() {
-  clear_has_attributes();
-  ::proto_ff::AttrDBData* temp = attributes_;
-  attributes_ = NULL;
+inline ::proto_ff::AttrDBData* RoleEnterSceneData::release_attr() {
+  clear_has_attr();
+  ::proto_ff::AttrDBData* temp = attr_;
+  attr_ = NULL;
   return temp;
 }
-inline void RoleEnterSceneData::set_allocated_attributes(::proto_ff::AttrDBData* attributes) {
-  delete attributes_;
-  attributes_ = attributes;
-  if (attributes) {
-    set_has_attributes();
+inline void RoleEnterSceneData::set_allocated_attr(::proto_ff::AttrDBData* attr) {
+  delete attr_;
+  attr_ = attr;
+  if (attr) {
+    set_has_attr();
   } else {
-    clear_has_attributes();
+    clear_has_attr();
   }
 }
 

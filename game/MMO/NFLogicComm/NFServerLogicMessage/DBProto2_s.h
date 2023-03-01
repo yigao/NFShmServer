@@ -84,7 +84,7 @@ namespace proto_ff_s {
 		uint32_t zid;
 		uint32_t uid;
 		struct RoleDBBaseData_s base;
-		struct AttrDBData_s attributes;
+		struct AttrDBData_s attr;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleEnterSceneData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleEnterSceneData & msg);

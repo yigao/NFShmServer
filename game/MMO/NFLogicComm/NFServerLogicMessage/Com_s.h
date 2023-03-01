@@ -154,7 +154,7 @@ namespace proto_ff_s {
 		virtual ~RoleFacadeProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct Attr64_s, 1> growFacade;
+		NFShmVector<struct Attr64_s, 30> growFacade;
 		int32_t color;
 		int32_t prof;
 

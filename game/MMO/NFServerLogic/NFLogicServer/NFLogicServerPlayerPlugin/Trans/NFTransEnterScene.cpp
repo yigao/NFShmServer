@@ -34,6 +34,8 @@ NFTransEnterScene::~NFTransEnterScene()
 
 int NFTransEnterScene::CreateInit()
 {
+    m_mapId = 0;
+    m_sceneId = 0;
     return 0;
 }
 
@@ -54,7 +56,7 @@ int NFTransEnterScene::InitStaticMapInfo()
 
     m_mapId = pPlayer->GetMapId();
     m_sceneId = pPlayer->GetSceneId();
-
+    m_pos = pPlayer->GetPos();
     return 0;
 }
 
@@ -67,6 +69,9 @@ int NFTransEnterScene::SendEnterScene()
     xMsg.set_cid(m_roleId);
     xMsg.set_map_id(m_mapId);
     xMsg.set_scene_id(m_sceneId);
+    xMsg.mutable_pos()->set_x(m_pos.x);
+    xMsg.mutable_pos()->set_y(m_pos.y);
+    xMsg.mutable_pos()->set_z(m_pos.z);
     xMsg.set_req_trans_id(GetGlobalID());
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 

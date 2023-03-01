@@ -142,8 +142,8 @@ void RoleEnterSceneData_s::write_to_pbmsg(::proto_ff::RoleEnterSceneData & msg) 
 	msg.set_uid((uint32_t)uid);
 	::proto_ff::RoleDBBaseData* temp_base = msg.mutable_base();
 	base.write_to_pbmsg(*temp_base);
-	::proto_ff::AttrDBData* temp_attributes = msg.mutable_attributes();
-	attributes.write_to_pbmsg(*temp_attributes);
+	::proto_ff::AttrDBData* temp_attr = msg.mutable_attr();
+	attr.write_to_pbmsg(*temp_attr);
 }
 
 void RoleEnterSceneData_s::read_from_pbmsg(const ::proto_ff::RoleEnterSceneData & msg) {
@@ -153,8 +153,8 @@ void RoleEnterSceneData_s::read_from_pbmsg(const ::proto_ff::RoleEnterSceneData 
 	uid = msg.uid();
 	const ::proto_ff::RoleDBBaseData & temp_base = msg.base();
 	base.read_from_pbmsg(temp_base);
-	const ::proto_ff::AttrDBData & temp_attributes = msg.attributes();
-	attributes.read_from_pbmsg(temp_attributes);
+	const ::proto_ff::AttrDBData & temp_attr = msg.attr();
+	attr.read_from_pbmsg(temp_attr);
 }
 
 }

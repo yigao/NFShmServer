@@ -68,7 +68,7 @@ message Attr64
 //角色外观信息
 message RoleFacadeProto
 {
-  repeated Attr64 growFacade = 1;		//养成部件对外观的影响
+  repeated Attr64 growFacade = 1[(yd_fieldoptions.field_arysize)=30];		//养成部件对外观的影响
   optional int32 color = 2;			//模型颜色，头发，衣服，皮肤的颜色
   optional int32 prof = 3;			//职业
   //repeated Attr64 facade = 3;		//外观部件对外观的影响, 根据FacadeType(定义在ComDefine里), 0：翅膀 1：宝具 2:神器系统 3:剑灵(伙伴)系统，

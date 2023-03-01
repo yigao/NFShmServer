@@ -146,8 +146,8 @@ message LogicToWorldEnterSceneReq
   optional uint64 cid = 1;
   optional uint64 map_id = 2;
   optional uint64 scene_id = 3;
-  optional uint32 req_trans_id = 4;
-  optional uint32 logic_id = 5;
+  optional Vector3PB pos = 4;
+  optional uint32 req_trans_id = 5;
   optional RoleEnterSceneData data = 6;
 }
 
@@ -156,8 +156,10 @@ message WorldToGameEnterSceneReq
   optional uint64 cid = 1;
   optional uint64 map_id = 2;
   optional uint64 scene_id = 3;
-  optional uint32 req_trans_id = 4;
-  optional uint32 logic_id = 5;
-  optional RoleEnterSceneData data = 6;
+  optional Vector3PB pos = 4;
+  optional uint32 req_trans_id = 5;
+  optional uint32 gate_id = 6;
+  optional uint32 logic_id = 7;
+  optional RoleEnterSceneData data = 8;
 }
 

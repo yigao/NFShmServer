@@ -185,6 +185,11 @@ int NFSceneMgr::EnterScene(const proto_ff::WorldToGameEnterSceneReq& xMsg)
     uint64_t mapId = xMsg.map_id();
     uint64_t sceneId = xMsg.scene_id();
     uint64_t roleId = xMsg.cid();
+    NFPoint3<float> pos;
+    pos.x = xMsg.pos().x();
+    pos.y = xMsg.pos().y();
+    pos.z = xMsg.pos().z();
+
     NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     if (pMap == NULL)
     {
@@ -207,9 +212,8 @@ int NFSceneMgr::EnterScene(const proto_ff::WorldToGameEnterSceneReq& xMsg)
         }
     }
 
-    pPlayer->Init(xMsg.data());
+    pPlayer->Init(xMsg.gate_id(), xMsg.logic_id(), xMsg.data());
 
-    NFPoint3<float> pos(xMsg.data().base().enterposx(), xMsg.data().base().enterposy(), xMsg.data().base().enterposz());
     STransParam param;
     pScene->EnterScene(pPlayer, pos, param);
     return 0;

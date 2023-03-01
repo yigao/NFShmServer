@@ -292,7 +292,7 @@ void RoleFacadeProto_s::write_to_pbmsg(::proto_ff::RoleFacadeProto & msg) const 
 
 void RoleFacadeProto_s::read_from_pbmsg(const ::proto_ff::RoleFacadeProto & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleFacadeProto_s));
-	growFacade.resize(msg.growfacade_size());
+	growFacade.resize((int)msg.growfacade_size() > (int)growFacade.max_size() ? growFacade.max_size() : msg.growfacade_size());
 	for(int32_t i = 0; i < (int32_t)growFacade.size(); ++i) {
 		const ::proto_ff::Attr64 & temp_growfacade = msg.growfacade(i);
 		growFacade[i].read_from_pbmsg(temp_growfacade);

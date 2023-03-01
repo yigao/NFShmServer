@@ -1959,19 +1959,21 @@ class LogicToWorldEnterSceneReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 scene_id() const;
   inline void set_scene_id(::google::protobuf::uint64 value);
 
-  // optional uint32 req_trans_id = 4;
+  // optional .proto_ff.Vector3PB pos = 4;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 4;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 req_trans_id = 5;
   inline bool has_req_trans_id() const;
   inline void clear_req_trans_id();
-  static const int kReqTransIdFieldNumber = 4;
+  static const int kReqTransIdFieldNumber = 5;
   inline ::google::protobuf::uint32 req_trans_id() const;
   inline void set_req_trans_id(::google::protobuf::uint32 value);
-
-  // optional uint32 logic_id = 5;
-  inline bool has_logic_id() const;
-  inline void clear_logic_id();
-  static const int kLogicIdFieldNumber = 5;
-  inline ::google::protobuf::uint32 logic_id() const;
-  inline void set_logic_id(::google::protobuf::uint32 value);
 
   // optional .proto_ff.RoleEnterSceneData data = 6;
   inline bool has_data() const;
@@ -1990,10 +1992,10 @@ class LogicToWorldEnterSceneReq : public ::google::protobuf::Message {
   inline void clear_has_map_id();
   inline void set_has_scene_id();
   inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
   inline void set_has_req_trans_id();
   inline void clear_has_req_trans_id();
-  inline void set_has_logic_id();
-  inline void clear_has_logic_id();
   inline void set_has_data();
   inline void clear_has_data();
 
@@ -2002,9 +2004,9 @@ class LogicToWorldEnterSceneReq : public ::google::protobuf::Message {
   ::google::protobuf::uint64 cid_;
   ::google::protobuf::uint64 map_id_;
   ::google::protobuf::uint64 scene_id_;
-  ::google::protobuf::uint32 req_trans_id_;
-  ::google::protobuf::uint32 logic_id_;
+  ::proto_ff::Vector3PB* pos_;
   ::proto_ff::RoleEnterSceneData* data_;
+  ::google::protobuf::uint32 req_trans_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
@@ -2093,24 +2095,40 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 scene_id() const;
   inline void set_scene_id(::google::protobuf::uint64 value);
 
-  // optional uint32 req_trans_id = 4;
+  // optional .proto_ff.Vector3PB pos = 4;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 4;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 req_trans_id = 5;
   inline bool has_req_trans_id() const;
   inline void clear_req_trans_id();
-  static const int kReqTransIdFieldNumber = 4;
+  static const int kReqTransIdFieldNumber = 5;
   inline ::google::protobuf::uint32 req_trans_id() const;
   inline void set_req_trans_id(::google::protobuf::uint32 value);
 
-  // optional uint32 logic_id = 5;
+  // optional uint32 gate_id = 6;
+  inline bool has_gate_id() const;
+  inline void clear_gate_id();
+  static const int kGateIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 gate_id() const;
+  inline void set_gate_id(::google::protobuf::uint32 value);
+
+  // optional uint32 logic_id = 7;
   inline bool has_logic_id() const;
   inline void clear_logic_id();
-  static const int kLogicIdFieldNumber = 5;
+  static const int kLogicIdFieldNumber = 7;
   inline ::google::protobuf::uint32 logic_id() const;
   inline void set_logic_id(::google::protobuf::uint32 value);
 
-  // optional .proto_ff.RoleEnterSceneData data = 6;
+  // optional .proto_ff.RoleEnterSceneData data = 8;
   inline bool has_data() const;
   inline void clear_data();
-  static const int kDataFieldNumber = 6;
+  static const int kDataFieldNumber = 8;
   inline const ::proto_ff::RoleEnterSceneData& data() const;
   inline ::proto_ff::RoleEnterSceneData* mutable_data();
   inline ::proto_ff::RoleEnterSceneData* release_data();
@@ -2124,8 +2142,12 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
   inline void clear_has_map_id();
   inline void set_has_scene_id();
   inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
   inline void set_has_req_trans_id();
   inline void clear_has_req_trans_id();
+  inline void set_has_gate_id();
+  inline void clear_has_gate_id();
   inline void set_has_logic_id();
   inline void clear_has_logic_id();
   inline void set_has_data();
@@ -2136,12 +2158,14 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
   ::google::protobuf::uint64 cid_;
   ::google::protobuf::uint64 map_id_;
   ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
   ::google::protobuf::uint32 req_trans_id_;
-  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint32 gate_id_;
   ::proto_ff::RoleEnterSceneData* data_;
+  ::google::protobuf::uint32 logic_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal2_2eproto();
   friend void protobuf_AssignDesc_ServerInternal2_2eproto();
@@ -3839,15 +3863,53 @@ inline void LogicToWorldEnterSceneReq::set_scene_id(::google::protobuf::uint64 v
   scene_id_ = value;
 }
 
-// optional uint32 req_trans_id = 4;
-inline bool LogicToWorldEnterSceneReq::has_req_trans_id() const {
+// optional .proto_ff.Vector3PB pos = 4;
+inline bool LogicToWorldEnterSceneReq::has_pos() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void LogicToWorldEnterSceneReq::set_has_req_trans_id() {
+inline void LogicToWorldEnterSceneReq::set_has_pos() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void LogicToWorldEnterSceneReq::clear_has_req_trans_id() {
+inline void LogicToWorldEnterSceneReq::clear_has_pos() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void LogicToWorldEnterSceneReq::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& LogicToWorldEnterSceneReq::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* LogicToWorldEnterSceneReq::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* LogicToWorldEnterSceneReq::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void LogicToWorldEnterSceneReq::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 req_trans_id = 5;
+inline bool LogicToWorldEnterSceneReq::has_req_trans_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LogicToWorldEnterSceneReq::set_has_req_trans_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LogicToWorldEnterSceneReq::clear_has_req_trans_id() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void LogicToWorldEnterSceneReq::clear_req_trans_id() {
   req_trans_id_ = 0u;
@@ -3859,28 +3921,6 @@ inline ::google::protobuf::uint32 LogicToWorldEnterSceneReq::req_trans_id() cons
 inline void LogicToWorldEnterSceneReq::set_req_trans_id(::google::protobuf::uint32 value) {
   set_has_req_trans_id();
   req_trans_id_ = value;
-}
-
-// optional uint32 logic_id = 5;
-inline bool LogicToWorldEnterSceneReq::has_logic_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void LogicToWorldEnterSceneReq::set_has_logic_id() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void LogicToWorldEnterSceneReq::clear_has_logic_id() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void LogicToWorldEnterSceneReq::clear_logic_id() {
-  logic_id_ = 0u;
-  clear_has_logic_id();
-}
-inline ::google::protobuf::uint32 LogicToWorldEnterSceneReq::logic_id() const {
-  return logic_id_;
-}
-inline void LogicToWorldEnterSceneReq::set_logic_id(::google::protobuf::uint32 value) {
-  set_has_logic_id();
-  logic_id_ = value;
 }
 
 // optional .proto_ff.RoleEnterSceneData data = 6;
@@ -3991,15 +4031,53 @@ inline void WorldToGameEnterSceneReq::set_scene_id(::google::protobuf::uint64 va
   scene_id_ = value;
 }
 
-// optional uint32 req_trans_id = 4;
-inline bool WorldToGameEnterSceneReq::has_req_trans_id() const {
+// optional .proto_ff.Vector3PB pos = 4;
+inline bool WorldToGameEnterSceneReq::has_pos() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void WorldToGameEnterSceneReq::set_has_req_trans_id() {
+inline void WorldToGameEnterSceneReq::set_has_pos() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void WorldToGameEnterSceneReq::clear_has_req_trans_id() {
+inline void WorldToGameEnterSceneReq::clear_has_pos() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void WorldToGameEnterSceneReq::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& WorldToGameEnterSceneReq::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToGameEnterSceneReq::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToGameEnterSceneReq::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void WorldToGameEnterSceneReq::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 req_trans_id = 5;
+inline bool WorldToGameEnterSceneReq::has_req_trans_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WorldToGameEnterSceneReq::set_has_req_trans_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WorldToGameEnterSceneReq::clear_has_req_trans_id() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void WorldToGameEnterSceneReq::clear_req_trans_id() {
   req_trans_id_ = 0u;
@@ -4013,15 +4091,37 @@ inline void WorldToGameEnterSceneReq::set_req_trans_id(::google::protobuf::uint3
   req_trans_id_ = value;
 }
 
-// optional uint32 logic_id = 5;
+// optional uint32 gate_id = 6;
+inline bool WorldToGameEnterSceneReq::has_gate_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WorldToGameEnterSceneReq::set_has_gate_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WorldToGameEnterSceneReq::clear_has_gate_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WorldToGameEnterSceneReq::clear_gate_id() {
+  gate_id_ = 0u;
+  clear_has_gate_id();
+}
+inline ::google::protobuf::uint32 WorldToGameEnterSceneReq::gate_id() const {
+  return gate_id_;
+}
+inline void WorldToGameEnterSceneReq::set_gate_id(::google::protobuf::uint32 value) {
+  set_has_gate_id();
+  gate_id_ = value;
+}
+
+// optional uint32 logic_id = 7;
 inline bool WorldToGameEnterSceneReq::has_logic_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void WorldToGameEnterSceneReq::set_has_logic_id() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void WorldToGameEnterSceneReq::clear_has_logic_id() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void WorldToGameEnterSceneReq::clear_logic_id() {
   logic_id_ = 0u;
@@ -4035,15 +4135,15 @@ inline void WorldToGameEnterSceneReq::set_logic_id(::google::protobuf::uint32 va
   logic_id_ = value;
 }
 
-// optional .proto_ff.RoleEnterSceneData data = 6;
+// optional .proto_ff.RoleEnterSceneData data = 8;
 inline bool WorldToGameEnterSceneReq::has_data() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void WorldToGameEnterSceneReq::set_has_data() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void WorldToGameEnterSceneReq::clear_has_data() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void WorldToGameEnterSceneReq::clear_data() {
   if (data_ != NULL) data_->::proto_ff::RoleEnterSceneData::Clear();
