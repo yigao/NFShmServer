@@ -1553,18 +1553,18 @@ int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, ST
     if (pScene)
     {
         if (pScene->GetSceneId() == sceneId)
-            return -1;
-        if (!pScene->LeaveScene(this))
-            return -1;
+            return proto_ff::RET_FAIL;
+        if (pScene->LeaveScene(this) != proto_ff::RET_SUCCESS)
+            return proto_ff::RET_FAIL;
     }
 
     NFScene *pEnterScene = NFSceneMgr::Instance(m_pObjPluginManager)->GetScene(sceneId);
     if (!pEnterScene)
-        return -1;
+        return proto_ff::RET_FAIL;
 
     NFGrid *pGrid = pEnterScene->EnterScene(this, enterPos, transParam);
     if (!pGrid)
-        return -1;
+        return proto_ff::RET_FAIL;
 
     m_pos = enterPos;
     SetSceneId(sceneId);
@@ -1590,7 +1590,7 @@ int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, ST
     chgEvent.set_enterflag(true);
     FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, m_cid, chgEvent);
 
-    return 0;
+    return proto_ff::RET_SUCCESS;
 }
 
 int NFCreature::LeaveScene()

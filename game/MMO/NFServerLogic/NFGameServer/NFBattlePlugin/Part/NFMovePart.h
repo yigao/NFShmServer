@@ -20,12 +20,11 @@
 #include "NFPath.h"
 #include "Move.pb.h"
 
+class NFScene;
 class NFMovePart : public NFBattlePart
 {
     enum
     {
-        TIMER_ID_LOAD_MAP_TIMEOUT = 2,	//加载地图超时定时器
-
         INTERVAL_MOVE_TIME = 100,//模拟行走定时器间隔
 
         INTERVAL_CLIENT_MOVE_TIMEOUT = 3000, //客户端移动同步超时时间
@@ -44,6 +43,8 @@ public:
     virtual int Init(const proto_ff::RoleEnterSceneData &data);
 
     virtual int UnInit();
+
+    virtual int OnTimer(int timeId, int callcount);
 public:
     /**
      * @brief 处理客户端消息
@@ -82,6 +83,8 @@ public:
     //传送成功的处理
     int OnTransSuccess(STransParam& transParam);
 
+    //同一个逻辑服之间的场景传送
+    int TransSceneInLogic(NFScene* pDstScene, NFPoint3<float> transPos, STransParam& transParam);
 private:
     /**
      * @brief 客户端最近一次发到服务器的坐标
@@ -135,5 +138,6 @@ private:
     uint64_t m_waitLoadMapId;
 public:
     int m_timerIdMove;
+    int m_timerIdLoadMapTimeout;
 DECLARE_IDCREATE(NFMovePart)
 };

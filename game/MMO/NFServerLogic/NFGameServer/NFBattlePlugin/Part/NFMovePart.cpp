@@ -19,6 +19,7 @@
 #include "Map/NFMapMgr.h"
 #include "Scene/NFSceneMgr.h"
 #include "Scene/NFScene.h"
+#include "Scene.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFMovePart_ID, NFBattlePart)
 
@@ -44,6 +45,7 @@ int NFMovePart::CreateInit()
     m_moveTick = 0;
     m_waitLoadMapId = 0;
     m_timerIdMove = INVALID_ID;
+    m_timerIdLoadMapTimeout = INVALID_ID;
     return 0;
 }
 
@@ -284,6 +286,7 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
 
+    int ret = proto_ff::RET_SUCCESS;
     {
         uint64_t curSceneId = pMaster->GetSceneId();
         uint64_t curMapId = pMaster->GetMapId();
@@ -326,7 +329,8 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
 
                 //当前场景内，直接瞬移，上面已经校验过坐标，这里就不再校验了
                 int32_t teleType = 0;
-                if (Teleporting(dstPos, teleType, false) != 0)
+                ret = Teleporting(dstPos, teleType, false);
+                if (ret != proto_ff::RET_SUCCESS)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "TransScene same scene failed  cid={},sceneid={},despos({},{},{}),outpos:{},{},{}",
                                pMaster->Cid(), sceneId, dstPos.x, dstPos.y, dstPos.z, outPos.x, outPos.y, outPos.z);
@@ -338,9 +342,9 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
             }
             else
             {
-                int ret = pMaster->CanTrans(sceneId, mapId, dstPos, outPos, transParam)
+                ret = pMaster->CanTrans(sceneId, mapId, dstPos, outPos, transParam);
                 //检查玩家是否能从当前场景切换到其他场景去
-                if (ret != proto_ff::RET_SUCCESS;
+                if (ret != proto_ff::RET_SUCCESS)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
                                "TransScene..... CanTrans() Fail....sceneid:{}, mapid:{}, curscene:{}, cid:{},ret:{},outpos:{},{},{} ",
@@ -349,7 +353,8 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
                 }
 
                 //传送不同场景，则需要走下面流程
-                if (!TransSceneInLogic(pScene, dstPos, transParam))
+                ret = TransSceneInLogic(pScene, dstPos, transParam);
+                if (ret != proto_ff::RET_SUCCESS)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
                                "TransScene..... TransSceneInLogic Fail....sceneid:{}, mapid:{}, curscene:{}, cid:{},ret:{},outpos:{},{},{} ",
@@ -432,14 +437,14 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
     } // end of ERetCode ret = RET_SUCCESS;
     //
 
-    return proto_ff::RET_SUCCESS;
+    return ret;
 }
 
 int
 NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t) proto_ff::MoveTeleportRsp_Type_common*/, bool checkpos /*= true*/)
 {
     NFCreature *pMaster = GetMaster();
-    CHECK_EXPR(pMaster, -1, "pMaster == NULL");
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
 
     //校验坐标的正确性
     NFPoint3<float> pos = dstPos;
@@ -453,14 +458,14 @@ NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "Teleporting pMap->FindNearestPos failed...cid:{}, mapid:{}, type:{},pos:[{},{},{}] ",
                            pMaster->Cid(), mapId, (int32_t) type, pos.x, pos.y, pos.z);
-                return -1;
+                return proto_ff::RET_FAIL;
             }
         }
         else
         {
             NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "Teleporting can not find map cfg...cid:{}, mapid:{}, type:{},pos:[{},{},{}] ",
                        pMaster->Cid(), mapId, (int32_t) type, pos.x, pos.y, pos.z);
-            return -1;
+            return proto_ff::RET_FAIL;
         }
     }
 
@@ -497,7 +502,7 @@ NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t)
         FireExecute(NF_ST_GAME_SERVER, EVENT_TELEPORT_MOVE, pMaster->Kind(), pMaster->Cid(), event);
     }
 
-    return 0;
+    return proto_ff::RET_SUCCESS;
 }
 
 int NFMovePart::OnTransSuccess(STransParam &transParam)
@@ -537,5 +542,81 @@ int NFMovePart::OnTransSuccess(STransParam &transParam)
         //在传送地图的时候已经判断过背包，这里直接扣除
         pPackage->RemoveItem(lstItem, src);
     }*/
+    return 0;
+}
+
+int NFMovePart::TransSceneInLogic(NFScene* pDstScene, NFPoint3<float> transPos, STransParam& transParam)
+{
+    CHECK_NULL(pDstScene);
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    //
+    if (CREATURE_PLAYER == pMaster->Kind())
+    {
+        pMaster->SetCanBeSeenFlag(false);
+    }
+
+    //这里先通知客户端加载，再发送场景其它数据
+    proto_ff::NotifyLoadMap notifyLoad;
+    notifyLoad.set_mapid(pDstScene->GetMapId());
+    proto_ff::Vector3PB *prtopos = notifyLoad.mutable_pos();
+    prtopos->set_x(transPos.x);
+    prtopos->set_y(transPos.y);
+    prtopos->set_z(transPos.z);
+    pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_LOAD_MAP, notifyLoad);
+    //
+
+    if (pMaster->EnterScene(pDstScene->GetSceneId(), transPos, transParam) != proto_ff::RET_SUCCESS)  //到这里是已经进场景了，如果进入失败，则说明玩家信息有误。
+    {
+        if (CREATURE_PLAYER == pMaster->Kind())
+        {
+            pMaster->SetCanBeSeenFlag(true);
+        }
+
+        //通知前端切场景失败
+        proto_ff::TransSceneRsp transRsp;
+        transRsp.set_retcode(proto_ff::RET_SCENE_DST_NOT_EXIST);
+        transRsp.set_mapid(pDstScene->GetMapId());
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, notifyLoad);
+        NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "TransSceneInLogic failed....cid:{} ,cursceneid:{}, curmapid:{}, dstsceneid:{} ,dstmapid:{} ", pMaster->Cid(), pMaster->GetSceneId(), pMaster->GetMapId(), pDstScene->GetSceneId(), pDstScene->GetMapId());
+        return proto_ff::RET_FAIL;
+    }
+    else
+    {
+        if (m_timerIdLoadMapTimeout != INVALID_ID)
+        {
+            DeleteTimer(m_timerIdLoadMapTimeout);
+        }
+
+        m_waitLoadMapId = pDstScene->GetMapId();
+        m_timerIdLoadMapTimeout = SetTimer(INTERVAL_LOAD_MAP_TIMEOUT, 1, 0, 0, 0, 0);
+    }
+
+    return  proto_ff::RET_SUCCESS;
+}
+
+int NFMovePart::OnTimer(int timeId, int callcount)
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    if (timeId == m_timerIdMove)
+    {
+
+    }
+    else if (timeId == m_timerIdLoadMapTimeout)
+    {
+        if (m_waitLoadMapId > 0)
+        {
+            m_waitLoadMapId = 0;
+            m_timerIdLoadMapTimeout = INVALID_ID;
+            if (!pMaster->GetCanBeSeenFlag())
+            {
+                pMaster->SetCanBeSeenFlag(true);
+                pMaster->UpdateNineGridLst();
+            }
+        }
+    }
     return 0;
 }

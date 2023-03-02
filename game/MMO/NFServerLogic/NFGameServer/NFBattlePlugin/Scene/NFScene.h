@@ -83,7 +83,7 @@ public:
      * @param pCreature
      * @return
      */
-    virtual bool LeaveScene(NFCreature *pCreature);
+    virtual int LeaveScene(NFCreature *pCreature);
 
 public:
     bool BroadCast(uint32_t cmd, const google::protobuf::Message &msg);

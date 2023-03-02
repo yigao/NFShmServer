@@ -150,8 +150,8 @@ NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, S
     uint32_t gridX = uint32_t(pos.x / GRID_LENGTH);
     uint32_t gridZ = uint32_t(pos.z / GRID_LENGTH);
 
-    CHECK_EXPR(gridX >= m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
-    CHECK_EXPR(gridZ >= m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
+    CHECK_EXPR(gridX < m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
+    CHECK_EXPR(gridZ < m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
 
     if (NFSceneMgr::Instance(m_pObjPluginManager)->IsClosed(m_sceneId))
     {
@@ -247,8 +247,8 @@ NFGrid *NFScene::MoveInScene(NFCreature *pCreature, const NFPoint3<float> &pos, 
 
     uint32_t gridX = uint32_t(pos.x / GRID_LENGTH);
     uint32_t gridZ = uint32_t(pos.z / GRID_LENGTH);
-    CHECK_EXPR(gridX >= m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
-    CHECK_EXPR(gridZ >= m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
+    CHECK_EXPR(gridX < m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
+    CHECK_EXPR(gridZ < m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
     NFGrid *pGrid = pCreature->GetGrid();
     CHECK_EXPR(pGrid, NULL, "pCreature->GetGrid() == NULL");
 
@@ -267,11 +267,11 @@ NFGrid *NFScene::MoveInScene(NFCreature *pCreature, const NFPoint3<float> &pos, 
     return pNewGrid;
 }
 
-bool NFScene::LeaveScene(NFCreature *pCreature)
+int NFScene::LeaveScene(NFCreature *pCreature)
 {
-    CHECK_EXPR(pCreature, false, "pCreature == NULL");
+    CHECK_EXPR(pCreature, proto_ff::RET_FAIL, "pCreature == NULL");
     NFGrid *pGrid = pCreature->GetGrid();
-    CHECK_EXPR(pGrid, false, "pCreature->GetGrid() == NULL");
+    CHECK_EXPR(pGrid, proto_ff::RET_FAIL, "pCreature->GetGrid() == NULL");
 
     //先通知九宫格玩家离开
     pCreature->NoticeNineGridLeave();
@@ -291,7 +291,7 @@ bool NFScene::LeaveScene(NFCreature *pCreature)
     chgEvent.set_enterflag(false);
     FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, pCreature->Cid(), chgEvent);
 
-    return true;
+    return proto_ff::RET_SUCCESS;
 }
 
 bool BroadCast(uint32_t cmd, const google::protobuf::Message &msg)
@@ -400,7 +400,7 @@ int NFScene::FindDoubleSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature
     uint8_t srcCreatureKind = pSrc->Kind();
     std::vector<NFGrid *> vecGrid;
     GetNineGrid(srcPos, vecGrid);
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         auto &gridCidlst = vecGrid[i]->GetCidList();
 
@@ -445,7 +445,7 @@ int NFScene::FindSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature *> *c
     uint32_t nMax = MAX_SEE_CREATURE_COUNT_IN_THE_VISION - pSrc->GetVisionData().m_doublePVPSeeLst.size();
     float sixteenOfSightDictSquare = MAX_CHARACTER_SINGLERANGE_SQUARE / 16;
     float fourOfSightDictSquare = MAX_CHARACTER_SINGLERANGE_SQUARE / 4;
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         auto &gridCidlst = vecGrid[i]->GetCidList();
 
@@ -505,7 +505,7 @@ int NFScene::FindCreatureInCircle(LIST_UINT64 &clist, const NFPoint3<float> &src
 
     GetLayerGrid(srcPos, flength, vecGrid);
 
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
 
@@ -542,7 +542,7 @@ int NFScene::FindCreatureInCircle(SET_Creature &setcreature, const NFPoint3<floa
 
     GetLayerGrid(srcPos, flength, vecGrid);
 
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
 
@@ -583,7 +583,7 @@ int NFScene::FindCreatureInSector(LIST_UINT64 &clist, const NFPoint3<float> &cen
 
     GetLayerGrid(center, sectorR, vecGrid);
 
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
 
@@ -712,7 +712,7 @@ int NFScene::FindCreatureInRect(LIST_UINT64 &clist, const NFPoint3<float> &cente
     uint32_t maxLength = flength > fwidth ? flength : fwidth;
     GetLayerGrid(searchpos, maxLength, vecGrid);
 
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
 
@@ -733,7 +733,7 @@ int NFScene::FindCreatureInRect(SET_Creature &setcreature, const NFPoint3<float>
     uint32_t maxLength = flength > fwidth ? flength : fwidth;
     GetLayerGrid(srcPos, maxLength, vecGrid);
 
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
 
@@ -792,7 +792,7 @@ int NFScene::FindEnemyInCircle(NFCreature *psrc, SET_Creature &setcreature, floa
     std::vector<NFGrid *> vecGrid;
     GetLayerGrid(srcPos, fradius, vecGrid);
 
-    for (size_t i = 0; i <= vecGrid.size(); i++)
+    for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
 
