@@ -133,7 +133,27 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
     proto_ff::WorldToGameEnterSceneReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-    NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(xMsg);
+    uint64_t mapId = xMsg.map_id();
+    uint64_t sceneId = xMsg.scene_id();
+    uint64_t roleId = xMsg.cid();
+    NFPoint3<float> pos;
+    pos.x = xMsg.pos().x();
+    pos.y = xMsg.pos().y();
+    pos.z = xMsg.pos().z();
+
+    NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
+    if (pPlayer == NULL)
+    {
+        pPlayer = dynamic_cast<NFBattlePlayer*>(NFCreatureMgr::Instance(m_pObjPluginManager)->CreateCreature(CREATURE_PLAYER, roleId));
+        if (pPlayer == NULL)
+        {
+            return -1;
+        }
+
+        pPlayer->Init(xMsg.gate_id(), xMsg.logic_id(), xMsg.data());
+    }
+
+    NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(roleId, mapId, sceneId, pos);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     return 0;

@@ -79,8 +79,11 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\tvirtual ~" + excel_name.capitalize() + sheet_name.capitalize() + "Desc();\n")
 	desc_file.write("\tint CreateInit();\n")
 	desc_file.write("\tint ResumeInit();\n")
-	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int id) const;\n");
-	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int id);\n");
+	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int64_t id) const;\n");
+	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDesc(int64_t id);\n");
+	desc_file.write("\tint GetDescIndex(int id) const;\n");
+	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index) const;\n");
+	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index);\n");
 	desc_file.write("public:\n")
 	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, E_" + excel_name.capitalize() + sheet_name.capitalize() + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
 	desc_file.write("DECLARE_IDCREATE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc);\n")
@@ -201,7 +204,7 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\treturn 0;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
-	desc_file.write("const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id) const\n")
+	desc_file.write("const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int64_t id) const\n")
 	desc_file.write("{\n")
 	desc_file.write("\tif (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)\n")
 	desc_file.write("\t{\n")
@@ -224,10 +227,34 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\treturn NULL;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////
-	desc_file.write("proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int id)\n")
+	desc_file.write("proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDesc(int64_t id)\n")
 	desc_file.write("{\n")
 	desc_file.write("\treturn const_cast<proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s *>((static_cast<const " + excel_name.capitalize() + sheet_name.capitalize() + "Desc*>(this))->GetDesc(id));\n")
 	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescIndex(int id) const\n")
+	desc_file.write("{\n")
+	desc_file.write("\tauto iter = m_astDescMap.find(id);\n")
+	desc_file.write("\tif (iter != m_astDescMap.end())\n")
+	desc_file.write("\t{\n")
+	desc_file.write("\t\treturn iter->second;\n")
+	desc_file.write("\t}\n")
+	desc_file.write("\n")
+	desc_file.write("\treturn -1;\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
+	desc_file.write("const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescByIndex(int index) const\n")
+	desc_file.write("{\n")
+	desc_file.write("\tCHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, \"the index:{} exist error, than the m_astDesc max index:{}\", index, m_astDesc.size());\n")
+	desc_file.write("\treturn &m_astDesc[index];\n")
+	desc_file.write("}\n\n")
+
+	desc_file.write("proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s * " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescByIndex(int index)\n")
+	desc_file.write("{\n")
+	desc_file.write("\tCHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, \"the index:{} exist error, than the m_astDesc max index:{}\", index, m_astDesc.size());\n")
+	desc_file.write("\treturn &m_astDesc[index];\n")
+	desc_file.write("}\n\n")
+#////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////
 	desc_file.close()
 	#移动到指定路径

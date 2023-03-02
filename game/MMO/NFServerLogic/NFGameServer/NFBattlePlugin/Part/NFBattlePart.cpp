@@ -40,11 +40,16 @@ int NFBattlePart::ResumeInit()
     return 0;
 }
 
-int NFBattlePart::Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data)
+int NFBattlePart::InitBase(NFCreature *pMaster, uint32_t partType)
 {
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
     m_masterCid = pMaster->Cid();
     m_partType = partType;
+    return 0;
+}
+
+int NFBattlePart::Init(const proto_ff::RoleEnterSceneData &data)
+{
     return 0;
 }
 

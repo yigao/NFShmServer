@@ -101,7 +101,7 @@ int MallMalltype_tabDesc::CheckWhenAllDataLoaded()
 	return 0;
 }
 
-const proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDesc(int id) const
+const proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDesc(int64_t id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -124,8 +124,31 @@ const proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDesc(int id) c
 	return NULL;
 }
 
-proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDesc(int id)
+proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDesc(int64_t id)
 {
 	return const_cast<proto_ff_s::E_MallMalltype_tab_s *>((static_cast<const MallMalltype_tabDesc*>(this))->GetDesc(id));
+}
+
+int MallMalltype_tabDesc::GetDescIndex(int id) const
+{
+	auto iter = m_astDescMap.find(id);
+	if (iter != m_astDescMap.end())
+	{
+		return iter->second;
+	}
+
+	return -1;
+}
+
+const proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDescByIndex(int index) const
+{
+	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
+	return &m_astDesc[index];
+}
+
+proto_ff_s::E_MallMalltype_tab_s * MallMalltype_tabDesc::GetDescByIndex(int index)
+{
+	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
+	return &m_astDesc[index];
 }
 

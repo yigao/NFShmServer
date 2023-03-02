@@ -18,6 +18,7 @@
 #include "NFBattlePart.h"
 #include "NFLogicCommon/NFPoint3.h"
 #include "NFPath.h"
+#include "Move.pb.h"
 
 class NFMovePart : public NFBattlePart
 {
@@ -40,7 +41,7 @@ public:
 
     int ResumeInit();
 public:
-    virtual int Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data);
+    virtual int Init(const proto_ff::RoleEnterSceneData &data);
 
     virtual int UnInit();
 public:
@@ -68,10 +69,19 @@ public:
 public:
     //设置客户端速度
     void SetClientSpeed(const NFPoint3<float>& speed);
+
     //广播移动
     int BroadcastMove(uint64_t cid, const NFPoint3<float>& pos, const NFPoint3<float>& speed, const NFPoint3<float>& dir, bool selfFlag = false);
+
     //传送(场景内传送、切场景传送,跨逻辑服传送)
     int TransScene(uint64_t sceneId, const NFPoint3<float>& dstPos, uint64_t mapId, STransParam &transParam);
+
+    //瞬间移动，只限于当前地图之内 dstPos:目标坐标  type:瞬移类型  checkpos:是否需要校验坐标，如果外部可以保证坐标的有效性可以不用校验，外部不能保证坐标的有效性，必须要校验
+    int Teleporting(const NFPoint3<float> dstPos,  int32_t type = (int32_t)proto_ff::MoveTeleportRsp_Type_common, bool checkpos = true);
+
+    //传送成功的处理
+    int OnTransSuccess(STransParam& transParam);
+
 private:
     /**
      * @brief 客户端最近一次发到服务器的坐标

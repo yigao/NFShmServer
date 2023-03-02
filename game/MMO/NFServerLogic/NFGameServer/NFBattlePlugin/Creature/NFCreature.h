@@ -111,10 +111,14 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
 public:
     virtual int Init();
+
     virtual int UnInit();
+
     virtual int Update(uint64_t tick);
+
 public:
     virtual bool IsDestory() { return m_destory; }
 
@@ -127,33 +131,33 @@ public:
     virtual uint64_t GetCfgId() { return 0; } //获取生物对应实例配置表Id
     void SetPos(const NFPoint3<float> &pos);
 
-    inline NFPoint3<float> &GetPos() { return m_pos; }
+    NFPoint3<float> &GetPos() { return m_pos; }
 
     void SetDir(const NFPoint3<float> &point);
 
-    inline NFPoint3<float> &GetDir() { return m_dir; }
+    NFPoint3<float> &GetDir() { return m_dir; }
 
     NFGrid *GetGrid();
 
-    inline void SetGrid(NFGrid *pGrid);
+    void SetGrid(NFGrid *pGrid);
 
-    inline NFScene *GetScene();
+    NFScene *GetScene();
 
-    inline uint64_t GetSceneId() const { return m_sceneId; };
+    uint64_t GetSceneId() const { return m_sceneId; };
 
-    inline void SetSceneId(uint64_t sceneId) { m_sceneId = sceneId; }
+    void SetSceneId(uint64_t sceneId) { m_sceneId = sceneId; }
 
-    inline uint64_t GetMapId() const { return m_mapId; }
+    uint64_t GetMapId() const { return m_mapId; }
 
-    inline void SetMapId(uint64_t mapId) { m_mapId = mapId; }
+    void SetMapId(uint64_t mapId) { m_mapId = mapId; }
 
     virtual uint8_t Kind() const { return m_kind; };
 
-    inline uint64_t Cid() const { return m_cid; }
+    uint64_t Cid() const { return m_cid; }
 
     float GetSpeed();
 
-    inline float GetSightRange() const { return m_sightRange; }
+    float GetSightRange() const { return m_sightRange; }
 
     virtual uint64_t GetUid() { return 0; }
 
@@ -178,14 +182,15 @@ public:
      * @param transParam 传送参数
      * @return
      */
-    virtual bool TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam) { return true; }
+    virtual int TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam) { return 0; }
 
     //进入场景(这个接口只给移动部件和生物内部自身调用，其他请调用transScene)
-    virtual bool EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam);
+    virtual int EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam);
 
     //离开场景
-    virtual bool LeaveScene();
+    virtual int LeaveScene();
 
+    virtual int CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam, bool checkPosFlag = true) { return 0; }
 public:
     //状态
     virtual bool EnterNormalState();
@@ -374,7 +379,8 @@ public:
     //****************消息发送接口*****************
     virtual int BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
 
-    virtual int SendRedirectMsgToClient(uint32_t zid, uint32_t gateId, const std::unordered_set<uint64_t>& set, uint32_t nMsgId, const google::protobuf::Message &xData);
+    virtual int SendRedirectMsgToClient(uint32_t zid, uint32_t gateId, const std::unordered_set<uint64_t> &set, uint32_t nMsgId,
+                                        const google::protobuf::Message &xData);
 
     virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
 
@@ -383,6 +389,7 @@ public:
     virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
 
     virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
 protected:
     uint64_t m_cid;     //生物实例id
     uint32_t m_kind;     //实体类型

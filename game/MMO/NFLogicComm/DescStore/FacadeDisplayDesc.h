@@ -14,8 +14,11 @@ public:
 	virtual ~FacadeDisplayDesc();
 	int CreateInit();
 	int ResumeInit();
-	const proto_ff_s::E_FacadeDisplay_s* GetDesc(int id) const;
-	proto_ff_s::E_FacadeDisplay_s* GetDesc(int id);
+	const proto_ff_s::E_FacadeDisplay_s* GetDesc(int64_t id) const;
+	proto_ff_s::E_FacadeDisplay_s* GetDesc(int64_t id);
+	int GetDescIndex(int id) const;
+	const proto_ff_s::E_FacadeDisplay_s* GetDescByIndex(int index) const;
+	proto_ff_s::E_FacadeDisplay_s* GetDescByIndex(int index);
 public:
 IMPL_RES_HASH_DESC(proto_ff_s::E_FacadeDisplay_s, E_FacadeDisplay, MAX_FACADE_DISPLAY_NUM);
 DECLARE_IDCREATE(FacadeDisplayDesc);

@@ -180,41 +180,30 @@ const NFSceneMgr::OneLayer* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
     return &m_nineGridLayer[nlayer];
 }
 
-int NFSceneMgr::EnterScene(const proto_ff::WorldToGameEnterSceneReq& xMsg)
+int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
 {
-    uint64_t mapId = xMsg.map_id();
-    uint64_t sceneId = xMsg.scene_id();
-    uint64_t roleId = xMsg.cid();
-    NFPoint3<float> pos;
-    pos.x = xMsg.pos().x();
-    pos.y = xMsg.pos().y();
-    pos.z = xMsg.pos().z();
-
     NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     if (pMap == NULL)
     {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find mapId data, mapId:{}, sceneId:{}", mapId, sceneId);
         return -1;
     }
 
     NFScene* pScene = GetScene(sceneId);
     if (pScene == NULL)
     {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find scene data, mapId:{}, sceneId:{}", mapId, sceneId);
         return -1;
     }
 
     NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
     if (pPlayer == NULL)
     {
-        pPlayer = dynamic_cast<NFBattlePlayer*>(NFCreatureMgr::Instance(m_pObjPluginManager)->CreateCreature(CREATURE_PLAYER, roleId));
-        if (pPlayer == NULL)
-        {
-            return -1;
-        }
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find player data, mapId:{}, sceneId:{}", mapId, sceneId);
+        return -1;
     }
 
-    pPlayer->Init(xMsg.gate_id(), xMsg.logic_id(), xMsg.data());
-
     STransParam param;
-    pPlayer->EnterScene(sceneId, pos, param);
+    pPlayer->TransScene(sceneId, pos, mapId, param);
     return 0;
 }

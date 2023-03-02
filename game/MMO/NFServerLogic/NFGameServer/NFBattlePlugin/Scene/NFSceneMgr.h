@@ -18,6 +18,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFPoint2.h"
+#include "NFLogicCommon/NFPoint3.h"
 #include "ServerInternal2.pb.h"
 
 #define GAME_SERVER_MAX_BATTLE_SCENE_SIZE 1000
@@ -80,7 +81,7 @@ public:
     //获取层数对应格子计算数组
     const OneLayer* GetLayerPoint(uint32_t nlayer);
 public:
-    int EnterScene(const proto_ff::WorldToGameEnterSceneReq& xMsg);
+    int EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos);
 private:
     //场景销毁缓存表 sceneid - tick
     NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;

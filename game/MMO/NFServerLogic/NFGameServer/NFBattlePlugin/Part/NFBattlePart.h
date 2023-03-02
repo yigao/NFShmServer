@@ -31,8 +31,10 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
+    int InitBase(NFCreature *pMaster, uint32_t partType);
 public:
-    virtual int Init(NFCreature *pMaster, uint32_t partType, const proto_ff::RoleEnterSceneData &data);
+    virtual int Init(const proto_ff::RoleEnterSceneData &data);
 
     virtual int UnInit();
 

@@ -1547,24 +1547,24 @@ bool NFCreature::CanAddSeeNewCreature(NFCreature *pCreature, int64_t hateValue)
     return true;
 }
 
-bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam)
+int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam)
 {
     NFScene *pScene = GetScene();
     if (pScene)
     {
         if (pScene->GetSceneId() == sceneId)
-            return false;
+            return -1;
         if (!pScene->LeaveScene(this))
-            return false;
+            return -1;
     }
 
     NFScene *pEnterScene = NFSceneMgr::Instance(m_pObjPluginManager)->GetScene(sceneId);
     if (!pEnterScene)
-        return false;
+        return -1;
 
     NFGrid *pGrid = pEnterScene->EnterScene(this, enterPos, transParam);
     if (!pGrid)
-        return false;
+        return -1;
 
     m_pos = enterPos;
     SetSceneId(sceneId);
@@ -1590,22 +1590,22 @@ bool NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, S
     chgEvent.set_enterflag(true);
     FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, m_cid, chgEvent);
 
-    return true;
+    return 0;
 }
 
-bool NFCreature::LeaveScene()
+int NFCreature::LeaveScene()
 {
     NFScene *pScene = GetScene();
 
     //场景为空直接返回
     if (!pScene)
-        return false;
+        return -1;
     if (!pScene->LeaveScene(this))
-        return false;
+        return -1;
 
     SetSceneId(0);
     SetMapId(0);
     SetGrid(NULL);
 
-    return true;
+    return 0;
 }

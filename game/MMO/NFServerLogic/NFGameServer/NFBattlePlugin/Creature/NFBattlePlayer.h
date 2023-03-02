@@ -60,7 +60,17 @@ public:
      * @param transParam 传送参数
      * @return
      */
-    virtual bool TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam);
+    virtual int TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam);
+
+    virtual int CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam, bool checkPosFlag = true);
+public:
+    NFBattlePart *CreatePart(uint32_t partType, const ::proto_ff::RoleEnterSceneData &data);
+    int RecylePart(NFBattlePart *pPart);
+    //获取对应部件指针
+    virtual NFBattlePart *GetPart(uint32_t partType);
+public:
+    //是否处于疲劳状态
+    bool IsTired() { return false; }
 private:
     /**
      * @brief 玩家数据是否初始化
@@ -111,6 +121,7 @@ private:
      * @brief 玩家头顶显示掉落归属标记
      */
     int8_t m_headFlag;
-
+public:
+    NFShmVector<int, BATTLE_PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFBattlePlayer)
 };

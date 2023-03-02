@@ -9,6 +9,10 @@
 
 #include "NFBattlePlayer.h"
 #include "NFLogicCommon/NFAttrMgr.h"
+#include "Part/NFMovePart.h"
+#include "Map/NFMapMgr.h"
+#include "Map/NFMap.h"
+#include "DescStore/MapMapDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature)
 
@@ -39,6 +43,7 @@ int NFBattlePlayer::CreateInit()
     m_gateId = 0;
     m_logicId = 0;
     m_headFlag = 0;
+    m_pPart.resize(m_pPart.max_size());
     return 0;
 }
 
@@ -47,7 +52,7 @@ int NFBattlePlayer::ResumeInit()
     return 0;
 }
 
-int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData& data)
+int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data)
 {
     m_isInited = true;
     ReadBaseData(data.base());
@@ -57,7 +62,68 @@ int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::Role
     m_gateId = gateId;
     m_logicId = logicId;
     ResetCurSeq();
+
+    for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
+    {
+        NFBattlePart *pPart = CreatePart(i, data);
+        if (nullptr == pPart)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Player Init, Create Part Failed, roleId:{} uid:{} part:{}", m_cid, m_uid, i);
+            return -1;
+        }
+
+        m_pPart[i] = pPart->GetGlobalID();
+    }
     return 0;
+}
+
+NFBattlePart *NFBattlePlayer::CreatePart(uint32_t partType, const ::proto_ff::RoleEnterSceneData &data)
+{
+    NFBattlePart *pPart = NULL;
+    switch (partType)
+    {
+        case BATTLE_PART_MOVE:
+        {
+            pPart = dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_NFMovePart_ID));
+            break;
+        }
+        default:
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Create Part Failed, partType Not Handle:{}", partType);
+            break;
+        }
+    }
+
+    if (pPart)
+    {
+        pPart->InitBase(this, partType);
+        int iRet = pPart->Init(data);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{}::Init Failed", pPart->GetClassName());
+            FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+            return NULL;
+        }
+    }
+    return pPart;
+}
+
+int NFBattlePlayer::RecylePart(NFBattlePart *pPart)
+{
+    CHECK_NULL(pPart);
+    pPart->UnInit();
+    FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+    return 0;
+}
+
+NFBattlePart *NFBattlePlayer::GetPart(uint32_t partType)
+{
+    if (partType <= 0 || partType >= m_pPart.size())
+    {
+        return nullptr;
+    }
+
+    return dynamic_cast<NFBattlePart*>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_pPart[partType], EOT_NFBattlePart_ID,0));
 }
 
 int NFBattlePlayer::ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData)
@@ -71,18 +137,12 @@ int NFBattlePlayer::ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData)
     m_pAttr->SetAttr(proto_ff::A_VIP_LEVEL, dbData.vip_level());
     m_pAttr->SetAttr(proto_ff::A_HANGUP_TIME, dbData.hanguptime());
     //
-    m_sceneId = dbData.enter_scene_id();
-    m_mapId = dbData.enter_map_id();
-    m_pos.x = dbData.enterposx();
-    m_pos.y = dbData.enterposy();
-    m_pos.z = dbData.enterposz();
-
     m_facade.read_from_pbmsg(dbData.facade());
     return 0;
 }
 
 //视野数据
-void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData& cvData)
+void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData &cvData)
 {
     proto_ff::CreatureCreateData::Player *pPlayerVinfo = cvData.add_players();
     if (nullptr == pPlayerVinfo)
@@ -92,7 +152,7 @@ void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData& cvData
 
     pPlayerVinfo->set_cid(m_cid);
     pPlayerVinfo->set_name(m_name.ToString());
-    proto_ff::Vector3PB* protopos = pPlayerVinfo->mutable_pos();
+    proto_ff::Vector3PB *protopos = pPlayerVinfo->mutable_pos();
     if (nullptr != protopos)
     {
         protopos->set_x(m_pos.x);
@@ -134,8 +194,47 @@ void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData& cvData
     }*/
 }
 
-bool NFBattlePlayer::TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
+int NFBattlePlayer::TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
 {
+    NFMovePart *pMove = dynamic_cast<NFMovePart *>(GetPart(BATTLE_PART_MOVE));
+    CHECK_NULL(pMove);
+    return pMove->TransScene(scenceId, dstPos, mapId, transParam);
+}
 
-    return true;
+int NFBattlePlayer::CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam, bool checkPosFlag)
+{
+    NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(dstMapId);
+    if (nullptr == pMap)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, Cid(), "CanTrans... nullptr == pMap..cid:{}, dstscene:{}, dstmap:{}, pos:{},{},{}, transtype:{}, transval:{} ",Cid(), dstSceneId, dstMapId, dstPos.x, dstPos.y, dstPos.z, transParam.transType, transParam.transVal);
+        return proto_ff::RET_FAIL;
+    }
+    if (checkPosFlag)
+    {
+        if (!pMap->FindNearestPos(dstPos.x, dstPos.z, dstPos.y, &outPos.x, &outPos.z, &outPos.y, nullptr))
+        {
+            //坐标无效
+            NFLogError(NF_LOG_SYSTEMLOG, Cid(), "CanTrans FindNearestPos failed..cid:{}, dstscene:{}, dstmap:{}, pos:{},{},{}, transtype:{}, transval:{} ", Cid(), dstSceneId, dstMapId, dstPos.x, dstPos.y, dstPos.z, transParam.transType, transParam.transVal);
+            return proto_ff::RET_SCENE_INVALID_DST_POS;
+        }
+    }
+
+    auto pMapCfgInfo = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(dstMapId);
+    if (nullptr == pMapCfgInfo)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, Cid(), "CanTrans Find Map Cfg failed..cid:{}, dstscene:{}, dstmap:{}, pos:{},{},{}, transtype:{}, transval:{} ", Cid(), dstSceneId, dstMapId, dstPos.x, dstPos.y, dstPos.z, transParam.transType, transParam.transVal);
+        return proto_ff::RET_CONFIG_ERROR;
+    }
+
+    if (GetAttr(proto_ff::A_LEVEL) < (int64_t)pMapCfgInfo->m_levellimit)
+    {
+        return proto_ff::RET_LEVEL_LACK;
+    }
+
+    if (dstMapId != m_mapId && IsTired())
+    {
+        return proto_ff::RET_PLAYER_TIRED_STATE;
+    }
+
+    return proto_ff::RET_SUCCESS;
 }
