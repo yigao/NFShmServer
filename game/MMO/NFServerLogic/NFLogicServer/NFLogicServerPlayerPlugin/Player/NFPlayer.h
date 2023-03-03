@@ -88,6 +88,8 @@ public:
 public:
     virtual uint32_t GetCurRoleDetailSeq() const override;
 public:
+    int OnLoad(bool isLoadDB);
+
     int OnLogin(bool isLoadDB);
 
     int OnLogout();

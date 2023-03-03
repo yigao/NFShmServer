@@ -148,9 +148,14 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
     return 0;
 }
 
-int NFPlayerMgr::OnLogin(NFPlayer *pPlayer, bool isLoadDB)
+int NFPlayerMgr::OnLoad(NFPlayer *pPlayer, bool isLoadDB)
 {
     OnHandleLoginRoleRsp(pPlayer, proto_ff::RET_SUCCESS);
+    return 0;
+}
+
+int NFPlayerMgr::OnLogin(NFPlayer *pPlayer, bool isLoadDB)
+{
     OnEventLogLogin(pPlayer, isLoadDB);
     return 0;
 }

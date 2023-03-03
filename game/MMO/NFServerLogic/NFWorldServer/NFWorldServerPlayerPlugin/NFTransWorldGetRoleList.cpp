@@ -83,8 +83,7 @@ int NFTransWorldGetRoleList::HandleDispSvrRes(uint32_t nMsgId, const NFDataPacka
     {
         case proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP:
         {
-            OnHandleLogicGetRoleListRsp(nMsgId, packet, reqTransId, rspTransId);
-            break;
+            return OnHandleLogicGetRoleListRsp(nMsgId, packet, reqTransId, rspTransId);
         }
         default:break;
     }
@@ -192,6 +191,9 @@ int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const 
 
         pPlayer->SetCharNum(xData.role_info_list_size());
 
+        pSession->SetState(EAccountState::loading);
+        pSession->SetStateTick(NFServerTime::Instance()->Tick());
+
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "client login  account ok, playerId:{}, bornzid:{}", uid, pPlayer->GetZid());
     }
     else
@@ -200,6 +202,7 @@ int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const 
     }
 
     pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_LOGIN_RSP, loginrsp);
+    SetFinished(0);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
@@ -213,6 +216,26 @@ int NFTransWorldGetRoleList::OnTransFinished(int iRunLogicRetCode)
         CHECK_EXPR(pPlayer, -1,
                    "OnTransFinished, NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(playerId) return NULL, playerId:{}",
                    m_uid);
+
+        uint64_t newClientId = pPlayer->GetClientId();
+        if (newClientId > 0 && m_clientId != newClientId)
+        {
+            //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
+            //直接把旧的连接断开
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
+            return 0;
+        }
+
+        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+        if (pSession == NULL)
+        {
+            return 0;
+        }
+
+        if (pSession->IsDisconnect())
+        {
+            return 0;
+        }
 
         proto_ff::ClientLoginRsp loginrsp;
         loginrsp.set_unix_sec(NFTime::Now().UnixSec());
@@ -232,32 +255,6 @@ int NFTransWorldGetRoleList::OnTimeOut()
                "OnTransFinished, NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(playerId) return NULL, playerId:{}",
                m_uid);
 
-    uint64_t newClientId = pPlayer->GetClientId();
-    if (newClientId > 0 && m_clientId != newClientId)
-    {
-        //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
-        //直接把旧的连接断开
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
-        return 0;
-    }
-
-    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
-    if (pSession == NULL)
-    {
-        return 0;
-    }
-
-    if (pSession->IsDisconnect())
-    {
-        return 0;
-    }
-
-    proto_ff::ClientLoginRsp loginrsp;
-    loginrsp.set_ret(proto_ff::RET_FAIL);
-    loginrsp.set_unix_sec(NFTime::Now().UnixSec());
-    loginrsp.set_unix_msec(NFTime::Now().UnixMSec());
-    loginrsp.set_time_zone(NFServerTime::Instance()->CurTimeZone());
-    pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_LOGIN_RSP, loginrsp);
-
+    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
     return 0;
 }

@@ -31,12 +31,13 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransCreateRole, EOT_TRANS_LOGIC_CREATE_ROLE, NFTransBase)
 
-NFTransCreateRole::NFTransCreateRole():NFTransPlayerBase()
+NFTransCreateRole::NFTransCreateRole() : NFTransPlayerBase()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
         CreateInit();
-    } else
+    }
+    else
     {
         ResumeInit();
     }
@@ -58,7 +59,7 @@ int NFTransCreateRole::ResumeInit()
 
 int NFTransCreateRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
 {
-    const proto_ff::WorldToLogicCreateRoleReq* pCreateRole = dynamic_cast<const proto_ff::WorldToLogicCreateRoleReq*>(pCSMsgReq);
+    const proto_ff::WorldToLogicCreateRoleReq *pCreateRole = dynamic_cast<const proto_ff::WorldToLogicCreateRoleReq *>(pCSMsgReq);
     CHECK_EXPR(pCreateRole, -1, "dynamic_cast<proto_ff::WorldToLogicCreateRoleReq*>(pCSMsgReq) Failed");
 
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
@@ -75,10 +76,10 @@ int NFTransCreateRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
     xData.set_cid(m_roleId);
     xData.set_uid(m_uid);
     xData.set_zid(pCreateRole->zid());
-    
+
     auto protobase = xData.mutable_base();
     protobase->set_level(pCreateRole->level());
-    protobase->set_prof(pCreateRole->prof()) ;
+    protobase->set_prof(pCreateRole->prof());
     protobase->set_createtime(NFTime::Now().UnixSec());
     protobase->set_name(pCreateRole->name());
     protobase->set_exp(0);
@@ -100,16 +101,16 @@ int NFTransCreateRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
     protobase->set_lastposx(pCreateRole->lastposx());
     protobase->set_lastposy(pCreateRole->lastposy());
     protobase->set_lastposz(pCreateRole->lastposz());
-    
+
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::E_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBData", xData,GetGlobalID(), 0, m_roleId);
+                                                                 "RoleDBData", xData, GetGlobalID(), 0, m_roleId);
     return 0;
 }
 
 int NFTransCreateRole::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                                       uint32_t seq, uint32_t err_code)
+                                      uint32_t seq, uint32_t err_code)
 {
     if (cmd == proto_ff::E_STORESVR_S2C_INSERT)
     {
@@ -127,10 +128,11 @@ int NFTransCreateRole::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes
             return -1;
         }
 
-        NFTransGetRole* pTrans = dynamic_cast<NFTransGetRole *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_GET_ROLE));
+        NFTransGetRole *pTrans = dynamic_cast<NFTransGetRole *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_GET_ROLE));
         CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
 
-        pTrans->Init( m_roleId, m_uid, m_cmd, 0);
+        pTrans->Init(m_roleId, m_uid, m_cmd, 0, m_reqTransId);
+        pTrans->HandleCSMsgReq(NULL);
 
         SetFinished(0);
     }

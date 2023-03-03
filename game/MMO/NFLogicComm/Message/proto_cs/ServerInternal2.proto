@@ -98,6 +98,12 @@ message WorldToLogicLoginReq
   optional uint64 uid = 1;
   optional uint64 cid = 2;
   optional uint32 proxy_id = 3;
+  optional uint64 client_id = 4;
+  optional uint32 zid = 5;
+  optional uint32 channel_id = 6;
+  optional uint64 map_id = 7;
+  optional uint64 scene_id = 8;
+  optional Vector3PB pos = 9;
 }
 
 message LogicToWorldLoginRsp

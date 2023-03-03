@@ -1246,6 +1246,50 @@ class WorldToLogicLoginReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 proxy_id() const;
   inline void set_proxy_id(::google::protobuf::uint32 value);
 
+  // optional uint64 client_id = 4;
+  inline bool has_client_id() const;
+  inline void clear_client_id();
+  static const int kClientIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 client_id() const;
+  inline void set_client_id(::google::protobuf::uint64 value);
+
+  // optional uint32 zid = 5;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 5;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // optional uint32 channel_id = 6;
+  inline bool has_channel_id() const;
+  inline void clear_channel_id();
+  static const int kChannelIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 channel_id() const;
+  inline void set_channel_id(::google::protobuf::uint32 value);
+
+  // optional uint64 map_id = 7;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 7;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 8;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 8;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 9;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 9;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
   // @@protoc_insertion_point(class_scope:proto_ff.WorldToLogicLoginReq)
  private:
   inline void set_has_uid();
@@ -1254,15 +1298,33 @@ class WorldToLogicLoginReq : public ::google::protobuf::Message {
   inline void clear_has_cid();
   inline void set_has_proxy_id();
   inline void clear_has_proxy_id();
+  inline void set_has_client_id();
+  inline void clear_has_client_id();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+  inline void set_has_channel_id();
+  inline void clear_has_channel_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 uid_;
   ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 client_id_;
   ::google::protobuf::uint32 proxy_id_;
+  ::google::protobuf::uint32 zid_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+  ::google::protobuf::uint32 channel_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal2_2eproto();
   friend void protobuf_AssignDesc_ServerInternal2_2eproto();
@@ -3342,6 +3404,154 @@ inline ::google::protobuf::uint32 WorldToLogicLoginReq::proxy_id() const {
 inline void WorldToLogicLoginReq::set_proxy_id(::google::protobuf::uint32 value) {
   set_has_proxy_id();
   proxy_id_ = value;
+}
+
+// optional uint64 client_id = 4;
+inline bool WorldToLogicLoginReq::has_client_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WorldToLogicLoginReq::set_has_client_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WorldToLogicLoginReq::clear_has_client_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WorldToLogicLoginReq::clear_client_id() {
+  client_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_client_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicLoginReq::client_id() const {
+  return client_id_;
+}
+inline void WorldToLogicLoginReq::set_client_id(::google::protobuf::uint64 value) {
+  set_has_client_id();
+  client_id_ = value;
+}
+
+// optional uint32 zid = 5;
+inline bool WorldToLogicLoginReq::has_zid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WorldToLogicLoginReq::set_has_zid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WorldToLogicLoginReq::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WorldToLogicLoginReq::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 WorldToLogicLoginReq::zid() const {
+  return zid_;
+}
+inline void WorldToLogicLoginReq::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// optional uint32 channel_id = 6;
+inline bool WorldToLogicLoginReq::has_channel_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WorldToLogicLoginReq::set_has_channel_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WorldToLogicLoginReq::clear_has_channel_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WorldToLogicLoginReq::clear_channel_id() {
+  channel_id_ = 0u;
+  clear_has_channel_id();
+}
+inline ::google::protobuf::uint32 WorldToLogicLoginReq::channel_id() const {
+  return channel_id_;
+}
+inline void WorldToLogicLoginReq::set_channel_id(::google::protobuf::uint32 value) {
+  set_has_channel_id();
+  channel_id_ = value;
+}
+
+// optional uint64 map_id = 7;
+inline bool WorldToLogicLoginReq::has_map_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void WorldToLogicLoginReq::set_has_map_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void WorldToLogicLoginReq::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void WorldToLogicLoginReq::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicLoginReq::map_id() const {
+  return map_id_;
+}
+inline void WorldToLogicLoginReq::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 8;
+inline bool WorldToLogicLoginReq::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void WorldToLogicLoginReq::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void WorldToLogicLoginReq::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void WorldToLogicLoginReq::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicLoginReq::scene_id() const {
+  return scene_id_;
+}
+inline void WorldToLogicLoginReq::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 9;
+inline bool WorldToLogicLoginReq::has_pos() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void WorldToLogicLoginReq::set_has_pos() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void WorldToLogicLoginReq::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void WorldToLogicLoginReq::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& WorldToLogicLoginReq::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToLogicLoginReq::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToLogicLoginReq::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void WorldToLogicLoginReq::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
 }
 
 // -------------------------------------------------------------------

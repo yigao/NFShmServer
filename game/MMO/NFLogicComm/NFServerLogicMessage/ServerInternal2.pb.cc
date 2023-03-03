@@ -256,10 +256,16 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WorldToOtherServerDisconnectNotify));
   WorldToLogicLoginReq_descriptor_ = file->message_type(9);
-  static const int WorldToLogicLoginReq_offsets_[3] = {
+  static const int WorldToLogicLoginReq_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, proxy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, client_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, zid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, channel_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, scene_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLoginReq, pos_),
   };
   WorldToLogicLoginReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -551,31 +557,34 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
     "rverBusId\0221\n\013server_info\030\001 \003(\0132\034.proto_f"
     "f.ProxyServerBusInfo\"D\n\"WorldToOtherServ"
     "erDisconnectNotify\022\016\n\006roleId\030\001 \001(\004\022\016\n\006re"
-    "ason\030\002 \001(\r\"B\n\024WorldToLogicLoginReq\022\013\n\003ui"
-    "d\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010proxy_id\030\003 \001(\r\"Y"
-    "\n\024LogicToWorldLoginRsp\022\020\n\010ret_code\030\001 \001(\r"
-    "\022/\n\013simple_data\030\002 \001(\0132\032.proto_ff.RoleDBS"
-    "impleData\"i\n\022WorldToSnsLoginReq\022\020\n\010proxy"
-    "_id\030\001 \001(\r\022\020\n\010logic_id\030\002 \001(\r\022/\n\013simple_da"
-    "ta\030\003 \001(\0132\032.proto_ff.RoleDBSimpleData\"@\n\022"
-    "SnsToWorldLoginRsp\022\020\n\010ret_code\030\001 \001(\r\022\013\n\003"
-    "uid\030\002 \001(\004\022\013\n\003cid\030\003 \001(\004\"=\n\031GameToWorldReg"
-    "isterMapReq\022\020\n\010game_bus\030\001 \001(\r\022\016\n\006map_id\030"
-    "\002 \003(\004\"-\n\031WorldToGameRegisterMapRsp\022\020\n\010re"
-    "t_code\030\001 \001(\r\"\217\001\n\035WorldToLogicLoginFinish"
-    "Notify\022\013\n\003uid\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010prox"
-    "y_id\030\003 \001(\r\022\016\n\006map_id\030\004 \001(\004\022\020\n\010scene_id\030\005"
-    " \001(\004\022 \n\003pos\030\006 \001(\0132\023.proto_ff.Vector3PB\"\256"
-    "\001\n\031LogicToWorldEnterSceneReq\022\013\n\003cid\030\001 \001("
-    "\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003p"
-    "os\030\004 \001(\0132\023.proto_ff.Vector3PB\022\024\n\014req_tra"
-    "ns_id\030\005 \001(\r\022*\n\004data\030\006 \001(\0132\034.proto_ff.Rol"
-    "eEnterSceneData\"\320\001\n\030WorldToGameEnterScen"
-    "eReq\022\013\n\003cid\030\001 \001(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010sce"
-    "ne_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023.proto_ff.Vect"
-    "or3PB\022\024\n\014req_trans_id\030\005 \001(\r\022\017\n\007gate_id\030\006"
-    " \001(\r\022\020\n\010logic_id\030\007 \001(\r\022*\n\004data\030\010 \001(\0132\034.p"
-    "roto_ff.RoleEnterSceneData", 2266);
+    "ason\030\002 \001(\r\"\272\001\n\024WorldToLogicLoginReq\022\013\n\003u"
+    "id\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010proxy_id\030\003 \001(\r\022"
+    "\021\n\tclient_id\030\004 \001(\004\022\013\n\003zid\030\005 \001(\r\022\022\n\nchann"
+    "el_id\030\006 \001(\r\022\016\n\006map_id\030\007 \001(\004\022\020\n\010scene_id\030"
+    "\010 \001(\004\022 \n\003pos\030\t \001(\0132\023.proto_ff.Vector3PB\""
+    "Y\n\024LogicToWorldLoginRsp\022\020\n\010ret_code\030\001 \001("
+    "\r\022/\n\013simple_data\030\002 \001(\0132\032.proto_ff.RoleDB"
+    "SimpleData\"i\n\022WorldToSnsLoginReq\022\020\n\010prox"
+    "y_id\030\001 \001(\r\022\020\n\010logic_id\030\002 \001(\r\022/\n\013simple_d"
+    "ata\030\003 \001(\0132\032.proto_ff.RoleDBSimpleData\"@\n"
+    "\022SnsToWorldLoginRsp\022\020\n\010ret_code\030\001 \001(\r\022\013\n"
+    "\003uid\030\002 \001(\004\022\013\n\003cid\030\003 \001(\004\"=\n\031GameToWorldRe"
+    "gisterMapReq\022\020\n\010game_bus\030\001 \001(\r\022\016\n\006map_id"
+    "\030\002 \003(\004\"-\n\031WorldToGameRegisterMapRsp\022\020\n\010r"
+    "et_code\030\001 \001(\r\"\217\001\n\035WorldToLogicLoginFinis"
+    "hNotify\022\013\n\003uid\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010pro"
+    "xy_id\030\003 \001(\r\022\016\n\006map_id\030\004 \001(\004\022\020\n\010scene_id\030"
+    "\005 \001(\004\022 \n\003pos\030\006 \001(\0132\023.proto_ff.Vector3PB\""
+    "\256\001\n\031LogicToWorldEnterSceneReq\022\013\n\003cid\030\001 \001"
+    "(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003"
+    "pos\030\004 \001(\0132\023.proto_ff.Vector3PB\022\024\n\014req_tr"
+    "ans_id\030\005 \001(\r\022*\n\004data\030\006 \001(\0132\034.proto_ff.Ro"
+    "leEnterSceneData\"\320\001\n\030WorldToGameEnterSce"
+    "neReq\022\013\n\003cid\030\001 \001(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010sc"
+    "ene_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023.proto_ff.Vec"
+    "tor3PB\022\024\n\014req_trans_id\030\005 \001(\r\022\017\n\007gate_id\030"
+    "\006 \001(\r\022\020\n\010logic_id\030\007 \001(\r\022*\n\004data\030\010 \001(\0132\034."
+    "proto_ff.RoleEnterSceneData", 2387);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal2.proto", &protobuf_RegisterTypes);
   WorldToLogicGetRoleList::default_instance_ = new WorldToLogicGetRoleList();
@@ -3971,6 +3980,12 @@ void WorldToOtherServerDisconnectNotify::Swap(WorldToOtherServerDisconnectNotify
 const int WorldToLogicLoginReq::kUidFieldNumber;
 const int WorldToLogicLoginReq::kCidFieldNumber;
 const int WorldToLogicLoginReq::kProxyIdFieldNumber;
+const int WorldToLogicLoginReq::kClientIdFieldNumber;
+const int WorldToLogicLoginReq::kZidFieldNumber;
+const int WorldToLogicLoginReq::kChannelIdFieldNumber;
+const int WorldToLogicLoginReq::kMapIdFieldNumber;
+const int WorldToLogicLoginReq::kSceneIdFieldNumber;
+const int WorldToLogicLoginReq::kPosFieldNumber;
 #endif  // !_MSC_VER
 
 WorldToLogicLoginReq::WorldToLogicLoginReq()
@@ -3979,6 +3994,7 @@ WorldToLogicLoginReq::WorldToLogicLoginReq()
 }
 
 void WorldToLogicLoginReq::InitAsDefaultInstance() {
+  pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
 }
 
 WorldToLogicLoginReq::WorldToLogicLoginReq(const WorldToLogicLoginReq& from)
@@ -3992,6 +4008,12 @@ void WorldToLogicLoginReq::SharedCtor() {
   uid_ = GOOGLE_ULONGLONG(0);
   cid_ = GOOGLE_ULONGLONG(0);
   proxy_id_ = 0u;
+  client_id_ = GOOGLE_ULONGLONG(0);
+  zid_ = 0u;
+  channel_id_ = 0u;
+  map_id_ = GOOGLE_ULONGLONG(0);
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  pos_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4001,6 +4023,7 @@ WorldToLogicLoginReq::~WorldToLogicLoginReq() {
 
 void WorldToLogicLoginReq::SharedDtor() {
   if (this != default_instance_) {
+    delete pos_;
   }
 }
 
@@ -4030,6 +4053,16 @@ void WorldToLogicLoginReq::Clear() {
     uid_ = GOOGLE_ULONGLONG(0);
     cid_ = GOOGLE_ULONGLONG(0);
     proxy_id_ = 0u;
+    client_id_ = GOOGLE_ULONGLONG(0);
+    zid_ = 0u;
+    channel_id_ = 0u;
+    map_id_ = GOOGLE_ULONGLONG(0);
+    scene_id_ = GOOGLE_ULONGLONG(0);
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (has_pos()) {
+      if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4084,6 +4117,100 @@ bool WorldToLogicLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_client_id;
+        break;
+      }
+
+      // optional uint64 client_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_client_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &client_id_)));
+          set_has_client_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_zid;
+        break;
+      }
+
+      // optional uint32 zid = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_zid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &zid_)));
+          set_has_zid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_channel_id;
+        break;
+      }
+
+      // optional uint32 channel_id = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_channel_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &channel_id_)));
+          set_has_channel_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_map_id;
+        break;
+      }
+
+      // optional uint64 map_id = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &map_id_)));
+          set_has_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_scene_id;
+        break;
+      }
+
+      // optional uint64 scene_id = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_scene_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &scene_id_)));
+          set_has_scene_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(74)) goto parse_pos;
+        break;
+      }
+
+      // optional .proto_ff.Vector3PB pos = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_pos:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_pos()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4121,6 +4248,37 @@ void WorldToLogicLoginReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->proxy_id(), output);
   }
 
+  // optional uint64 client_id = 4;
+  if (has_client_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->client_id(), output);
+  }
+
+  // optional uint32 zid = 5;
+  if (has_zid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->zid(), output);
+  }
+
+  // optional uint32 channel_id = 6;
+  if (has_channel_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->channel_id(), output);
+  }
+
+  // optional uint64 map_id = 7;
+  if (has_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->map_id(), output);
+  }
+
+  // optional uint64 scene_id = 8;
+  if (has_scene_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(8, this->scene_id(), output);
+  }
+
+  // optional .proto_ff.Vector3PB pos = 9;
+  if (has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->pos(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4142,6 +4300,38 @@ void WorldToLogicLoginReq::SerializeWithCachedSizes(
   // optional uint32 proxy_id = 3;
   if (has_proxy_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->proxy_id(), target);
+  }
+
+  // optional uint64 client_id = 4;
+  if (has_client_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->client_id(), target);
+  }
+
+  // optional uint32 zid = 5;
+  if (has_zid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->zid(), target);
+  }
+
+  // optional uint32 channel_id = 6;
+  if (has_channel_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->channel_id(), target);
+  }
+
+  // optional uint64 map_id = 7;
+  if (has_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->map_id(), target);
+  }
+
+  // optional uint64 scene_id = 8;
+  if (has_scene_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(8, this->scene_id(), target);
+  }
+
+  // optional .proto_ff.Vector3PB pos = 9;
+  if (has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->pos(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4174,6 +4364,50 @@ int WorldToLogicLoginReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->proxy_id());
+    }
+
+    // optional uint64 client_id = 4;
+    if (has_client_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->client_id());
+    }
+
+    // optional uint32 zid = 5;
+    if (has_zid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->zid());
+    }
+
+    // optional uint32 channel_id = 6;
+    if (has_channel_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->channel_id());
+    }
+
+    // optional uint64 map_id = 7;
+    if (has_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->map_id());
+    }
+
+    // optional uint64 scene_id = 8;
+    if (has_scene_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->scene_id());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional .proto_ff.Vector3PB pos = 9;
+    if (has_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->pos());
     }
 
   }
@@ -4212,6 +4446,26 @@ void WorldToLogicLoginReq::MergeFrom(const WorldToLogicLoginReq& from) {
     if (from.has_proxy_id()) {
       set_proxy_id(from.proxy_id());
     }
+    if (from.has_client_id()) {
+      set_client_id(from.client_id());
+    }
+    if (from.has_zid()) {
+      set_zid(from.zid());
+    }
+    if (from.has_channel_id()) {
+      set_channel_id(from.channel_id());
+    }
+    if (from.has_map_id()) {
+      set_map_id(from.map_id());
+    }
+    if (from.has_scene_id()) {
+      set_scene_id(from.scene_id());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_pos()) {
+      mutable_pos()->::proto_ff::Vector3PB::MergeFrom(from.pos());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4230,6 +4484,9 @@ void WorldToLogicLoginReq::CopyFrom(const WorldToLogicLoginReq& from) {
 
 bool WorldToLogicLoginReq::IsInitialized() const {
 
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -4238,6 +4495,12 @@ void WorldToLogicLoginReq::Swap(WorldToLogicLoginReq* other) {
     std::swap(uid_, other->uid_);
     std::swap(cid_, other->cid_);
     std::swap(proxy_id_, other->proxy_id_);
+    std::swap(client_id_, other->client_id_);
+    std::swap(zid_, other->zid_);
+    std::swap(channel_id_, other->channel_id_);
+    std::swap(map_id_, other->map_id_);
+    std::swap(scene_id_, other->scene_id_);
+    std::swap(pos_, other->pos_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -86,16 +86,6 @@ public:
      */
 
     /**
-     * @brief 处理逻辑服务器创建角色返回
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandleLogicCreateRoleRsp(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
-
-    /**
      * @brief 处理逻辑登陆返回
      * @param msgId
      * @param packet
@@ -135,7 +125,6 @@ public:
      */
     int OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
 public:
-
 
     //添加离线uid和clientid的映射
     void AddLogoutClientId(uint32_t uid, uint32_t clientid);

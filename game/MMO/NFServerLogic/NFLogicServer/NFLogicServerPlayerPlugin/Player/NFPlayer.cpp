@@ -308,6 +308,12 @@ void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
     }
 }
 
+int NFPlayer::OnLoad(bool isLoadDB)
+{
+    NFPlayerMgr::Instance(m_pObjPluginManager)->OnLoad(this, isLoadDB);
+    return 0;
+}
+
 int NFPlayer::OnLogin(bool isLoadDB)
 {
     for (size_t i = 0; i < PART_MAX; i++)
@@ -317,8 +323,6 @@ int NFPlayer::OnLogin(bool isLoadDB)
             m_pPart[i]->OnLogin();
         }
     }
-
-    NFPlayerMgr::Instance(m_pObjPluginManager)->OnLogin(this, isLoadDB);
     return 0;
 }
 

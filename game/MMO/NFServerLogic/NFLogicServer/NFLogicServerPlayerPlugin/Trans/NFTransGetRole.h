@@ -12,6 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "Base/NFTransPlayerBase.h"
 #include "DBProto.pb.h"
+#include "NFLogicCommon/NFPoint3.h"
 
 class NFTransGetRole : public NFTransPlayerBase
 {
@@ -65,5 +66,10 @@ public:
     int HandleGetRoleDBRsp(proto_ff::RoleDBData& dbData);
 private:
     uint32_t m_proxyId;
+    uint64_t m_clientId;
+    uint32_t m_mapId;
+    uint32_t m_sceneId;
+    NFPoint3<float> m_pos;
+    bool m_isLoad;
 DECLARE_IDCREATE(NFTransGetRole)
 };

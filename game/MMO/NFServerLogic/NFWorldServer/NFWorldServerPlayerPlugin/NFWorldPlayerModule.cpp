@@ -40,6 +40,7 @@
 #include "NFLogicCommon/NFRoleDefine.h"
 #include "NFWorldSceneMgr.h"
 #include "NFTransWorldGetRoleList.h"
+#include "NFTransWorldCreateRole.h"
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -61,7 +62,6 @@ bool NFCWorldPlayerModule::Awake()
 
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NOTIFY_CENTER_DISCONNECT);
     ///////////logic msg//////////////////////////////////////////////////////////
-    RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP);
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_LOGIN_RSP);
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::SNS_TO_WORLD_LOGIN_RSP);
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ);
@@ -144,11 +144,6 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
         case proto_ff::NOTIFY_CENTER_DISCONNECT:
         {
             OnHandleClientDisconnect(msgId, packet, param1, param2);
-            break;
-        }
-        case proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP:
-        {
-            OnHandleLogicCreateRoleRsp(msgId, packet, param1, param2);
             break;
         }
         case proto_ff::LOGIC_TO_WORLD_LOGIN_RSP:
@@ -456,7 +451,7 @@ void NFCWorldPlayerModule::DelLogoutClientId(uint32_t uid)
 
 
 
-int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t param2)
+int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::ClientCreateRoleReq xData;
@@ -464,6 +459,23 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
 
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(uid);
     CHECK_EXPR(pPlayer, -1, "OnHandleCreateRole, GetPlayerByUid return NULL, uid:{}", uid);
+
+    uint64_t clientId = pPlayer->GetClientId();
+
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
+    if (pSession == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "can't find the session from clientId:{}", clientId);
+        return 0;
+    }
+
+    //创建角色的账号必须处于拉取角色列表完毕状态
+    if (pSession->GetState() != EAccountState::loading)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "create role faild, account state error, uid:{}, state:{}, clientId:{},account_clientid:{}, gateid:{}", uid, (int)pSession->GetState(), clientId, pSession->GetClientId(), pSession->GetProxyId());
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_KICK_OUT);
+        return 0;
+    }
 
     uint32_t prof = xData.prof();
     const string &name = xData.name();
@@ -532,22 +544,19 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
     createRoleReq.set_lastposz(pPoscfg->z);
 
     NF_SHARE_PTR<NFServerData> pLogicServer = NULL;
-    if (pPlayer->GetLogicId() <= 0)
-    {
-        pLogicServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
-                                                                                 pPlayer->GetUid());
-    }
-    else
+    if (pPlayer->GetLogicId() > 0)
     {
         pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, pPlayer->GetLogicId());
     }
 
     if (pLogicServer)
     {
-        pPlayer->SetRoleId(cid);
-        pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_LOGIC_SERVER, pLogicServer->mServerInfo.bus_id());
-        pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ, createRoleReq);
+
+        NFTransWorldCreateRole* pTrans = dynamic_cast<NFTransWorldCreateRole *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldCreateRole_ID));
+        CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
+        pTrans->Init(uid, cid, pSession->GetProxyId(), clientId, pPlayer->GetZid());
+        pTrans->SendCreateRoleInfo(createRoleReq);
     }
     else
     {
@@ -556,53 +565,6 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
         clientRsp.set_result(proto_ff::RET_LOGIN_CHARACTER_CREATE_FAILED);
         pPlayer->SendMsgToClient(proto_ff::CLIENT_CREATE_ROLE_RSP, clientRsp);
     }
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFCWorldPlayerModule::OnHandleLogicCreateRoleRsp(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    proto_ff::LogicToWorldCreateRoleRsp xData;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
-
-    uint64_t uid = xData.uid();
-    uint64_t cid = xData.cid();
-
-    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(uid);
-    CHECK_EXPR(pPlayer, -1, "OnHandleLogicCreateRoleRsp, GetPlayerByUid return NULL, playerId:{}", uid);
-
-    proto_ff::ClientCreateRoleRsp xDataRsp;
-    xDataRsp.set_result(xData.ret_code());
-
-    if (xData.ret_code() == proto_ff::RET_SUCCESS)
-    {
-        if (pPlayer->GetRoleId() == cid)
-        {
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CharDBToCharSimpleDB(xData.role_info(), *xDataRsp.mutable_info());
-            auto pRoleInfo = pPlayer->GetRoleInfo(cid);
-            CHECK_EXPR_ASSERT(pRoleInfo == NULL, -1, "role:{} exist", cid);
-            pRoleInfo = pPlayer->CreateRoleInfo(cid);
-            CHECK_EXPR_ASSERT(pRoleInfo != NULL, -1, "CreateRoleInfo Failed:{}", cid);
-            pRoleInfo->m_logicId = pPlayer->GetLogicId();
-            pRoleInfo->SetRoleInfo(xData.role_info());
-
-            auto pTempPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CreateCidIndexToUid(cid, uid);
-            CHECK_EXPR_ASSERT(pPlayer == pTempPlayer, -1, "CreateCidIndexToUid Error");
-        }
-        else
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateRoleInfo Error..........., the create roleId:{} not equal return roleId:{}", pPlayer->GetRoleId(),
-                       cid);
-            pPlayer->SetRoleId(0);
-            //强制断开之前的客户端session
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId(), proto_ff::LOGOUT_REPLACE);
-            return 0;
-        }
-    }
-
-    pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_CREATE_ROLE_RSP, xDataRsp);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
@@ -635,8 +597,6 @@ int NFCWorldPlayerModule::OnHandleClientDisconnect(uint32_t msgId, NFDataPackage
     return 0;
 }
 
-
-
 int NFCWorldPlayerModule::OnHandleEnterGame(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
@@ -651,6 +611,15 @@ int NFCWorldPlayerModule::OnHandleEnterGame(uint32_t msgId, NFDataPackage &packe
 
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(uid);
     CHECK_EXPR(pPlayer, -1, "can't find player info, uid:{}", uid);
+
+    uint64_t clientId = pPlayer->GetClientId();
+
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
+    if (pSession == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "can't find the session from clientId:{}", clientId);
+        return 0;
+    }
 
     proto_ff::ClientEnterGameRsp xDataRsp;
     xDataRsp.set_ret(proto_ff::RET_SUCCESS);
@@ -696,32 +665,71 @@ int NFCWorldPlayerModule::OnHandleEnterGame(uint32_t msgId, NFDataPackage &packe
         return 0;
     }
 
-/*    uint64_t dstmapid = pRoleInfo->m_mapId;
-    uint64_t dstsceneid = pRoleInfo->m_sceneId;
-    NFPoint3<float> dstpos = pRoleInfo->m_pos;*/
+    //保证登录的账号处于 已经加载DB角色列表返回的状态  并且该该号没有角色登录中， 这种情况直接断开网络
+    if (pSession->GetState() != EAccountState::loading || pSession->GetRoleId() != 0)
+    {
+        uint64_t curtick = NFServerTime::Instance()->Tick();
+        if (EAccountState::enter == pSession->GetState() && pSession->GetRoleId() != 0)
+        {
+            if (curtick - pSession->GetStateTick() <= 3000)
+            {
+                //客户端如果网络不好的话，可能会出现玩家连续点击两次进入游戏按钮，这里做一个容错
+                //服务器这时候正在登录进入场景的过程中，玩家在3秒内又点击进入游戏按钮了，这时不做任何处理
+                NFLogError(NF_LOG_SYSTEMLOG, uid, "EnterGameReq... EAccountState::enter == pAccount->state && pAccount->roleCid > 0...uid:{}, cid:{}, oldClientId:{}, newClientId:{}, state:{} , rolecid:{}, logicId:{}, curtick:%{}, stateTick:{} ",
+                           uid, roleId, clientId, clientId, (int)pSession->GetState(), pSession->GetRoleId(), pSession->GetLogicId(), curtick, pSession->GetStateTick());
+                xDataRsp.set_ret(proto_ff::RET_REPEATED_OPERATE);
+                pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp);
+                return true;
+            }
+        }
 
-    auto pLogicServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
-                                                                                  roleId);
+        //
+        xDataRsp.set_ret(proto_ff::RET_FAIL);
+        pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp);
+        //
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId());
+        //
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "EnterGameReq... enter game fail because EAccountState::loading != pAccount->state || pAccount->roleCid != 0, uid:{}, cid:{}, oldClientId:{}, newClientId:{}, state:{} , rolecid:{}, logicId:{}, curtick:%{}, stateTick:{} ",
+                   uid, roleId, clientId, clientId, (int)pSession->GetState(), pSession->GetRoleId(), pSession->GetLogicId(), curtick, pSession->GetStateTick());
+        return 0;
+    }
+
+    NF_SHARE_PTR<NFServerData> pLogicServer = NULL;
+    if (pPlayer->GetLogicId() > 0)
+    {
+        pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, pPlayer->GetLogicId());
+    }
+
     if (pLogicServer)
     {
-        pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
+        pPlayer->SetRoleId(roleId);
+        pSession->SetRoleId(roleId);
+
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_LOGIC_SERVER, pLogicServer->mServerInfo.bus_id());
 
         proto_ff::WorldToLogicLoginReq loginLogicReq;
         loginLogicReq.set_cid(roleId);
         loginLogicReq.set_uid(uid);
         loginLogicReq.set_proxy_id(pPlayer->GetProxyId());
-/*        loginlogicReq.set_sceneid(dstsceneid);
-        loginlogicReq.set_mapid(dstmapid);
-        proto_ff::Vector3PB *protopos = loginlogicReq.mutable_pos();
+        loginLogicReq.set_client_id(pPlayer->GetClientId());
+        loginLogicReq.set_scene_id(pRoleInfo->m_sceneId);
+        loginLogicReq.set_map_id(pRoleInfo->m_mapId);
+        proto_ff::Vector3PB *protopos = loginLogicReq.mutable_pos();
         if (nullptr != protopos)
         {
-            protopos->set_x(dstpos.x);
-            protopos->set_y(dstpos.y);
-            protopos->set_z(dstpos.z);
-        }*/
+            protopos->set_x(pRoleInfo->m_pos.x);
+            protopos->set_y(pRoleInfo->m_pos.y);
+            protopos->set_z(pRoleInfo->m_pos.z);
+        }
 
         pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_LOGIC_LOGIN_REQ, loginLogicReq);
+    }
+    else {
+        //
+        xDataRsp.set_ret(proto_ff::RET_FAIL);
+        pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp);
+        //
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId());
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

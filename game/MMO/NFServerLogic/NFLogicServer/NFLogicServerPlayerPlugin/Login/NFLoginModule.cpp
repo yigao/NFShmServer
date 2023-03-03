@@ -158,7 +158,7 @@ int NFLoginModule::OnHandleGetRoleList(uint32_t msgId, NFDataPackage &packet, ui
     return 0;
 }
 
-int NFLoginModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+int NFLoginModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::WorldToLogicCreateRoleReq xMsg;
@@ -166,7 +166,7 @@ int NFLoginModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uin
 
     NFTransCreateRole* pTrans = dynamic_cast<NFTransCreateRole *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_CREATE_ROLE));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-    pTrans->Init(xMsg.cid(), xMsg.uid(), packet.nMsgId);
+    pTrans->Init(xMsg.cid(), xMsg.uid(), packet.nMsgId, 0, reqTransId);
     int iRetCode = pTrans->HandleCSMsgReq(&xMsg);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->HandleCSMsgReq(&clogin) failed");
 
@@ -184,7 +184,7 @@ int NFLoginModule::OnHandleLoginRole(uint32_t msgId, NFDataPackage &packet, uint
     if (pPlayer)
     {
         pPlayer->SetProxyId(xMsg.proxy_id());
-        pPlayer->OnLogin(false);
+        pPlayer->OnLoad(false);
     }
     else {
         NFTransGetRole* pTrans = dynamic_cast<NFTransGetRole *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_GET_ROLE));

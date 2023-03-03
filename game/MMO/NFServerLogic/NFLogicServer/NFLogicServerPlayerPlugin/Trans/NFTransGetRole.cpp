@@ -49,6 +49,10 @@ NFTransGetRole::~NFTransGetRole()
 int NFTransGetRole::CreateInit()
 {
     m_proxyId = 0;
+    m_clientId = 0;
+    m_mapId = 0;
+    m_sceneId = 0;
+    m_isLoad = false;
     return 0;
 }
 
@@ -60,7 +64,6 @@ int NFTransGetRole::ResumeInit()
 int NFTransGetRole::Init(uint64_t roleId, uint64_t uid, uint32_t cmd, uint32_t fromBusId, uint32_t reqTransId)
 {
     NFTransPlayerBase::Init(roleId, uid, cmd, fromBusId, reqTransId);
-    SendGetRoleInfo();
     return 0;
 }
 
@@ -72,6 +75,17 @@ int NFTransGetRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
         CHECK_EXPR(pEnterGameReq, -1, "dynamic_cast<proto_ff::NotifyLogicEnterGameReq*>(pCSMsgReq) Failed");
 
         m_proxyId = pEnterGameReq->proxy_id();
+        m_clientId = pEnterGameReq->client_id();
+        m_mapId = pEnterGameReq->map_id();
+        m_sceneId = pEnterGameReq->scene_id();
+        m_pos.x = pEnterGameReq->pos().x();
+        m_pos.y = pEnterGameReq->pos().y();
+        m_pos.z = pEnterGameReq->pos().z();
+        SendGetRoleInfo();
+    }
+    else if (m_cmd == proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ)
+    {
+        SendGetRoleInfo();
     }
     return 0;
 }
@@ -93,13 +107,14 @@ int NFTransGetRole::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, u
         ::proto_ff::RoleDBData dbData;
         dbData.ParsePartialFromString(pRes->sel_record());
 
-        NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(dbData.cid(), dbData.uid(), dbData);
-        CHECK_EXPR(pPlayer, -1, "CreatePlayerByUid Failed! roleId:{} uid:{}", dbData.cid(), dbData.uid());
-
         if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_REQ)
         {
+            m_isLoad = true;
+
+            NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(dbData.cid(), dbData.uid(), dbData);
+            CHECK_EXPR(pPlayer, -1, "CreatePlayerByUid Failed! roleId:{} uid:{}", dbData.cid(), dbData.uid());
             pPlayer->SetProxyId(m_proxyId);
-            pPlayer->OnLogin(true);
+            pPlayer->OnLoad(true);
         }
 
         HandleGetRoleDBRsp(dbData);
@@ -118,7 +133,7 @@ int NFTransGetRole::HandleGetRoleDBRsp(proto_ff::RoleDBData& dbData)
         xData.mutable_role_info()->CopyFrom(dbData);
         CHECK_EXPR_ASSERT(xData.mutable_role_info()->cid() == m_roleId, -1, "xData.mutable_role_info()->cid():{} != m_roleId:{}", xData.mutable_role_info()->cid(), m_roleId);
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", xData.DebugString());
-        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, m_uid);
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, GetGlobalID(), m_reqTransId);
     }
 
     SetFinished(0);
@@ -127,13 +142,16 @@ int NFTransGetRole::HandleGetRoleDBRsp(proto_ff::RoleDBData& dbData)
 
 int NFTransGetRole::HandleTransFinished(int iRunLogicRetCode)
 {
-    if (m_cmd == proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ)
+    if (iRunLogicRetCode != 0)
     {
-        proto_ff::LogicToWorldCreateRoleRsp xData;
-        xData.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_CREATE_FAILED);
-        xData.set_uid(m_uid);
-        xData.set_cid(m_roleId);
-        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, m_uid);
+        if (m_cmd == proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ)
+        {
+            proto_ff::LogicToWorldCreateRoleRsp xData;
+            xData.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_CREATE_FAILED);
+            xData.set_uid(m_uid);
+            xData.set_cid(m_roleId);
+            FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, GetGlobalID(), m_reqTransId);
+        }
     }
 
     return 0;

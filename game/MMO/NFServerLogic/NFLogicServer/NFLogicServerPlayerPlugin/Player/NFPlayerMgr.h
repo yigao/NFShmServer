@@ -56,6 +56,8 @@ public:
      * @param isLoadDB
      * @return
      */
+    int OnLoad(NFPlayer *pPlayer, bool isLoadDB);
+
     int OnLogin(NFPlayer *pPlayer, bool isLoadDB);
 
     /**

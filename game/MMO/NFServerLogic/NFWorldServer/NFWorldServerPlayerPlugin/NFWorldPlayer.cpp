@@ -351,7 +351,7 @@ int NFWorldPlayer::DeleteRoleInfo(uint64_t roleId)
 
 void NFWorldPlayer::ClearRoleInfo()
 {
-    m_roleInfo.CreateInit();
+    m_roleInfo.clear();
 }
 
 uint32_t NFWorldPlayer::GetGameId() const
