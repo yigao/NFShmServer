@@ -57,6 +57,7 @@ public:
      * @param xData
      */
     void SendMsgToLogicServer(uint32_t msgId, const google::protobuf::Message &xData);
+    void SendTransToLogicServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     /**
      * @brief
@@ -65,6 +66,7 @@ public:
      * @param xData
      */
     void SendMsgToSnsServer(uint32_t msgId, const google::protobuf::Message &xData);
+    void SendTransToSnsServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     /**
      * @brief
@@ -72,6 +74,7 @@ public:
      * @param xData
      */
     void SendMsgToGameServer(uint32_t msgId, const google::protobuf::Message &xData);
+    void SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 public:
     /**
      * @brief

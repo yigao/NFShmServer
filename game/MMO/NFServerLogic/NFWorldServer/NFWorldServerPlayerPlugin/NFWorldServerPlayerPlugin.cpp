@@ -18,6 +18,7 @@
 #include "NFWorldSessionMgr.h"
 #include "NFWorldSceneMgr.h"
 #include "NFWorldGMModule.h"
+#include "NFTransWorldGetRoleList.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -76,6 +77,8 @@ bool NFWorldServerPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ_WITH_HASH(NFWorldSession, maxOnlinePlayerNum * 2);//
     REGISTER_SINGLETON_SHM_OBJ(NFWorldSessionMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFWorldSceneMgr);//
+
+    REGISTER_SHM_OBJ(NFTransWorldGetRoleList, maxOnlinePlayerNum);
 
 	return true;
 }

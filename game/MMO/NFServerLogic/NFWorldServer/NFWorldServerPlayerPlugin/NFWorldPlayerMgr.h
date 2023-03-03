@@ -16,6 +16,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFWorldCommonDefine.h"
 #include "NFLoginQueue.h"
+#include "DBProto.pb.h"
 #include <vector>
 
 enum
@@ -151,7 +152,49 @@ public:
      */
     int DeleteLoginQueue(uint64_t playerId);
 public:
+    /**
+     * @brief
+     * @param charDBBaseInfo
+     * @param charSimpleInfo
+     * @return
+     */
+    int CharDBToCharSimpleDB(const proto_ff::RoleDBData& charDBBaseInfo, proto_ff::LoginRoleProto& charSimpleInfo);
 
+    /**
+     * @brief 通知网关离开游戏
+     * @param pPlayer
+     * @param flag
+     * @return
+     */
+    int NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto_ff::LOGOUT_TYPE flag = proto_ff::LOGOUT_NONE);
+
+    /**
+     * @brief
+     * @param cid
+     * @param uid
+     * @param clientId
+     * @param logicId
+     * @param type
+     * @return
+     */
+    int NotifyLogicLeave(uint64_t cid, uint64_t uid, uint32_t clientId, uint32_t logicId, proto_ff::LOGOUT_TYPE type);
+
+    /**
+     * @brief 通知ProxyServer玩家服务器的busId改变
+     * @param pPlayer
+     * @param serverType
+     * @param busId
+     * @return
+     */
+    int NotifyGateChangeServerBusId(NFWorldPlayer* pPlayer, uint32_t serverType, uint32_t busId);
+
+    /**
+     * @brief 通知LogicServer玩家掉线
+     * @param pPlayer
+     * @param reason
+     * @return
+     */
+    int NotifyOtherServerPlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t reason);
 private:
     /**
      * @brief 玩家ticker定时

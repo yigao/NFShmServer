@@ -14,6 +14,15 @@
 #include <map>
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFComm/NFCore/NFServerTime.h"
+#include "NFWorldSession.h"
+#include "NFWorldSessionMgr.h"
+#include "CSLogin.pb.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "ClientServerCmd.pb.h"
+#include "ServerInternal.pb.h"
+#include "ServerInternalCmd.pb.h"
+#include "ServerInternal2.pb.h"
+#include "ServerInternalCmd2.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
 
@@ -260,4 +269,83 @@ int NFWorldPlayerMgr::DeleteCidIndex(uint64_t cid)
     CHECK_RET(ret, "DelIndexKey Failed, cid:{}", cid);
 
     return ret;
+}
+
+int NFWorldPlayerMgr::CharDBToCharSimpleDB(const proto_ff::RoleDBData &dbproto, proto_ff::LoginRoleProto &outproto)
+{
+    outproto.set_cid(dbproto.cid());
+    outproto.set_name(dbproto.base().name());
+    outproto.set_prof(dbproto.base().prof());
+    outproto.set_level(dbproto.base().level());
+    outproto.set_fight(dbproto.base().fight());
+    outproto.set_createtime(dbproto.base().createtime());
+    outproto.mutable_facade()->CopyFrom(dbproto.base().facade());
+
+    return 0;
+}
+
+int NFWorldPlayerMgr::NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto_ff::LOGOUT_TYPE flag)
+{
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
+    if (pSession == NULL)
+    {
+        return 0;
+    }
+
+    if (pSession->IsDisconnect())
+    {
+        return 0;
+    }
+
+    pSession->SetDisconnect(true);
+
+    if (proto_ff::LOGOUT_REPLACE == flag)
+    {
+        proto_ff::ClientLogoutNotify rsp;
+        rsp.set_reason(flag);
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_SERVER,
+                                                                   proto_ff::CLIENT_LOGOUT_NOTIFY, rsp, clientId);
+    }
+
+    //通知客户端强制断线
+    //路由管理器移除对应的标识
+    proto_ff::NotifyGateLeaveGame notify;
+    notify.set_leave_flag(flag);
+
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_SERVER,
+                                                               proto_ff::NOTIFY_GATE_LEAVE_GAME, notify, clientId);
+
+    return 0;
+}
+
+int NFWorldPlayerMgr::NotifyLogicLeave(uint64_t cid, uint64_t uid, uint32_t clientId, uint32_t logicId, proto_ff::LOGOUT_TYPE type/* = proto_ff::LOGOUT_NONE*/)
+{
+    return 0;
+}
+
+int NFWorldPlayerMgr::NotifyGateChangeServerBusId(NFWorldPlayer *pPlayer, uint32_t serverType, uint32_t busId)
+{
+    proto_ff::WroldToProxyChangeServerBusId xMsg;
+    auto pServerInfo = xMsg.add_server_info();
+    pServerInfo->set_server_type(serverType);
+    pServerInfo->set_bus_id(busId);
+
+    if (pPlayer)
+    {
+        pPlayer->SendMsgToProxyServer(proto_ff::WORLD_TO_PROXY_SERVER_BUS_ID_CHANGE_NOTIFY, xMsg);
+    }
+    return 0;
+}
+
+int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(NFWorldPlayer *pPlayer, uint32_t reason)
+{
+    CHECK_NULL(pPlayer);
+
+    proto_ff::WorldToOtherServerDisconnectNotify xMsg;
+    xMsg.set_roleid(pPlayer->GetRoleId());
+    xMsg.set_reason(reason);
+
+    pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+    pPlayer->SendMsgToSnsServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+    return 0;
 }

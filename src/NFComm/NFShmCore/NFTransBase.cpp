@@ -249,14 +249,14 @@ NFTransBase::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t
     return -1;
 }
 
-int NFTransBase::ProcessDispSvrRes(uint64_t unLinkId, const NFDataPackage &packet, const proto_ff::Proto_SvrPkg &svrPkg)
+int NFTransBase::ProcessDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
     int iRetCode = 0;
     iRetCode = RunCommLogic();
     CHECK_RET(iRetCode, "RunCommLogic Failed RunedTimes:{}", m_wRunedTimes);
-    iRetCode = HandleDispSvrRes(unLinkId, packet, svrPkg);
+    iRetCode = HandleDispSvrRes(nMsgId, packet, reqTransId, rspTransId);
 
-    if (iRetCode)
+    if (iRetCode != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "HandleDispSvrRes Failed");
         SetFinished(iRetCode);
@@ -267,9 +267,9 @@ int NFTransBase::ProcessDispSvrRes(uint64_t unLinkId, const NFDataPackage &packe
     return 0;
 }
 
-int NFTransBase::HandleDispSvrRes(uint64_t unLinkId, const NFDataPackage &packet, const proto_ff::Proto_SvrPkg &svrPkg)
+int NFTransBase::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Fatal Err Calling the Method");
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "the msg not handle, nMsgId:{} reqTransId:{} rspTransId:{}", nMsgId, reqTransId, rspTransId);
     NF_ASSERT(false);
     return -1;
 }

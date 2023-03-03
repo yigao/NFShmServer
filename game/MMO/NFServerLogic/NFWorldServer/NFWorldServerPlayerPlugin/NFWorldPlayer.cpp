@@ -276,14 +276,29 @@ void NFWorldPlayer::SendMsgToLogicServer(uint32_t msgId, const google::protobuf:
     FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, m_uid, m_roleId);
 }
 
+void NFWorldPlayer::SendTransToLogicServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, req_trans_id, rsp_trans_id);
+}
+
 void NFWorldPlayer::SendMsgToGameServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
     FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, m_uid, m_roleId);
 }
 
+void NFWorldPlayer::SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, req_trans_id, rsp_trans_id);
+}
+
 void NFWorldPlayer::SendMsgToSnsServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, msgId, xData, m_uid, m_roleId);
+}
+
+void NFWorldPlayer::SendTransToSnsServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToSnsServer(NF_ST_WORLD_SERVER, msgId, xData, req_trans_id, rsp_trans_id);
 }
 
 void NFWorldPlayer::SendMsgToClient(uint32_t msgId, const google::protobuf::Message &xData)

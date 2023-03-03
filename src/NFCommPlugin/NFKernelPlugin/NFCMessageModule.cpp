@@ -680,7 +680,15 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     NFTransBase *pTrans = FindModule<NFISharedMemModule>()->GetTrans(svrPkg.disp_info().rsp_trans_id());
                     if (pTrans && !pTrans->IsFinished())
                     {
-                        pTrans->ProcessDispSvrRes(objectLinkId, packet, svrPkg);
+                        NFDataPackage transPacket;
+                        transPacket.nParam1 = svrPkg.disp_info().req_trans_id();
+                        transPacket.nParam2 = svrPkg.disp_info().rsp_trans_id();
+                        transPacket.mModuleId = 0;
+                        transPacket.nMsgId = svrPkg.msg_id();
+                        transPacket.nBuffer = (char *) svrPkg.msg_data().data();
+                        transPacket.nMsgLen = svrPkg.msg_data().length();
+
+                        pTrans->ProcessDispSvrRes(svrPkg.msg_id(), transPacket, svrPkg.disp_info().req_trans_id(), svrPkg.disp_info().rsp_trans_id());
                         uint64_t useTime = NFGetMicroSecondTime() - startTime;
                         if (useTime / 1000 > 33)
                         {
@@ -702,7 +710,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 {
                     NFDataPackage transPacket;
                     transPacket.nParam1 = svrPkg.disp_info().req_trans_id();
-                    transPacket.nParam2 = svrPkg.disp_info().req_trans_id();
+                    transPacket.nParam2 = svrPkg.disp_info().rsp_trans_id();
                     transPacket.mModuleId = 0;
                     transPacket.nMsgId = svrPkg.msg_id();
                     transPacket.nBuffer = (char *) svrPkg.msg_data().data();

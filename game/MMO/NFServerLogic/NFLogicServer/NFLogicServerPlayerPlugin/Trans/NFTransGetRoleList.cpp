@@ -165,7 +165,7 @@ int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRe
             xData.set_ret_code(err_code);
         }
 
-        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, xData);
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, xData, GetGlobalID(), m_reqTransId);
         SetFinished(0);
     }
     return 0;

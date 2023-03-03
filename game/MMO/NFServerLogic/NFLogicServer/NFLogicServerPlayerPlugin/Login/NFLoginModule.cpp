@@ -150,7 +150,7 @@ int NFLoginModule::OnHandleGetRoleList(uint32_t msgId, NFDataPackage &packet, ui
 
     NFTransGetRoleList* pTrans = dynamic_cast<NFTransGetRoleList *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_GET_ROLE_LIST));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransGetRoleList failed!");
-    pTrans->Init(0, clogin.uid(), packet.nMsgId);
+    pTrans->Init(0, clogin.uid(), packet.nMsgId, 0, param1);
     int iRetCode = pTrans->HandleCSMsgReq(&clogin);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->HandleCSMsgReq(&clogin) failed");
 

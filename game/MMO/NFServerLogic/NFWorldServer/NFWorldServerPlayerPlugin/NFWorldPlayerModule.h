@@ -86,22 +86,6 @@ public:
      */
 
     /**
-     * @brief 获取角色列表
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    int OnHandleLogicGetRoleListRsp(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
-
-    /**
-     * @brief
-     * @param charDBBaseInfo
-     * @param charSimpleInfo
-     * @return
-     */
-    int CharDBToCharSimpleDB(const proto_ff::RoleDBData& charDBBaseInfo, proto_ff::LoginRoleProto& charSimpleInfo);
-
-    /**
      * @brief 处理逻辑服务器创建角色返回
      * @param msgId
      * @param packet
@@ -151,41 +135,7 @@ public:
      */
     int OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
 public:
-      /**
-       * @brief 通知网关离开游戏
-       * @param pPlayer
-       * @param flag
-       * @return
-       */
-    int NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto_ff::LOGOUT_TYPE flag);
 
-    /**
-     * @brief
-     * @param cid
-     * @param uid
-     * @param clientId
-     * @param logicId
-     * @param type
-     * @return
-     */
-    int NotifyLogicLeave(uint64_t cid, uint64_t uid, uint32_t clientId, uint32_t logicId, proto_ff::LOGOUT_TYPE type = proto_ff::LOGOUT_NONE);
-
-    /**
-     * @brief 通知ProxyServer玩家服务器的busId改变
-     * @param pPlayer
-     * @param serverType
-     * @param busId
-     * @return
-     */
-    int NotifyGateChangeServerBusId(NFWorldPlayer* pPlayer, uint32_t serverType, uint32_t busId);
-
-    /**
-     * @brief 通知LogicServer玩家掉线
-     * @param pPlayer
-     * @param reason
-     * @return
-     */
-    int NotifyOtherServerPlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t reason);
 
     //添加离线uid和clientid的映射
     void AddLogoutClientId(uint32_t uid, uint32_t clientid);
