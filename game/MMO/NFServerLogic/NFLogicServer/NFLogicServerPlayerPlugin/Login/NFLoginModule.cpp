@@ -228,6 +228,7 @@ int NFLoginModule::OnHandleLoginFinishNotify(uint32_t msgId, NFDataPackage &pack
     //
     loginInfo.uid = xMsg.uid();
     loginInfo.gateId = xMsg.proxy_id();
+    loginInfo.clientId = xMsg.client_id();
     //
     loginInfo.transParam.transType = ETransType_Born;
     loginInfo.transParam.srcMapId = loginInfo.lastMapId;

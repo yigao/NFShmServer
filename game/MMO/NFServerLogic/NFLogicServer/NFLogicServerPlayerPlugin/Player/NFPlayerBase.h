@@ -300,6 +300,11 @@ protected:
     /**
      * @brief
      */
+    uint64_t m_clientId;
+
+    /**
+     * @brief
+     */
     uint32_t m_gameId;
 
     /**

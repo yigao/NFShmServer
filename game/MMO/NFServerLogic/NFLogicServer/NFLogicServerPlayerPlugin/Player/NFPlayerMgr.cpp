@@ -234,40 +234,7 @@ int NFPlayerMgr::EnterGame(uint64_t roleId, const CharLoginInfo &loginInfo)
     NFPlayer *pPlayer = GetPlayer(roleId);
     CHECK_NULL(pPlayer);
 
-    return pPlayer->EnterGame(loginInfo, true);
-
-
-
-    //这里先通知客户端加载，再发送场景其它数据
-    proto_ff::NotifyLoadMap notifyLoad;
-    notifyLoad.set_mapid(pPlayer->GetMapId());
-    NFPoint3<float> pos = pPlayer->GetPos();
-    proto_ff::Vector3PB *prtopos = notifyLoad.mutable_pos();
-    prtopos->set_x(pos.x);
-    prtopos->set_y(pos.y);
-    prtopos->set_z(pos.z);
-    pPlayer->SendMsgToClient(proto_ff::NOTIFY_CLIENT_LOAD_MAP, notifyLoad);
-
-    //广播通知
-    proto_ff::MoveTeleportRsp notify;
-    notify.set_type(proto_ff::MoveTeleportRsp_Type_common);
-    notify.set_cid(roleId);
-    proto_ff::Vector3PB* proto = notify.mutable_pos();
-    if (nullptr != proto)
-    {
-        proto->set_x(pos.x);
-        proto->set_y(pos.y);
-        proto->set_z(pos.z);
-    }
-    pPlayer->SendMsgToClient(proto_ff::MOVE_TELEPORT_RSP, notify);
-
-    proto_ff::TransSceneRsp transRsp;
-    transRsp.set_retcode(proto_ff::RET_SUCCESS);
-    transRsp.set_mapid(pPlayer->GetMapId());
-    pPlayer->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-
-
-    return 0;
+    return pPlayer->LoginGame(loginInfo, true);
 }
 
 int NFPlayerMgr::DailyUpdate(uint64_t unixSec)

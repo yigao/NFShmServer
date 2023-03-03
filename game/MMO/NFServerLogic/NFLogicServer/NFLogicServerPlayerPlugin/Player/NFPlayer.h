@@ -129,7 +129,7 @@ public:
      * @param change
      * @return
      */
-    int EnterGame(const CharLoginInfo& loginInfo, bool change);
+    int LoginGame(const CharLoginInfo& loginInfo, bool change);
 public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性

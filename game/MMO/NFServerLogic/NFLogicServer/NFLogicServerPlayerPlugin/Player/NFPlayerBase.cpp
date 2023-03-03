@@ -34,6 +34,7 @@ int NFPlayerBase::CreateInit()
     m_uid = 0;
     m_cid = 0;
     m_proxyId = 0;
+    m_clientId = 0;
 
     m_status = PLAYER_STATUS_NONE;
     m_curObjCreateTime = NFTime::Now().UnixSec();

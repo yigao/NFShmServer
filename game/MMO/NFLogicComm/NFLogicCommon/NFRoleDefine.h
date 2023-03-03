@@ -111,8 +111,8 @@ struct CharLoginInfo
 
     int32_t last_state = 0;
 
-    uint32_t uid = 0;
-    uint32_t clientId = 0;
+    uint64_t uid = 0;
+    uint64_t clientId = 0;
     uint32_t gateId = 0;
     uint32_t channelId = 0;
     uint32_t zid = 0;

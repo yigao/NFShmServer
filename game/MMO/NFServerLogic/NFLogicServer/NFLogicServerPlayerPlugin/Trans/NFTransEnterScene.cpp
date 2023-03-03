@@ -76,5 +76,6 @@ int NFTransEnterScene::SendEnterScene()
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
     pPlayer->SendMsgToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg);
+    SetFinished(0);
     return 0;
 }

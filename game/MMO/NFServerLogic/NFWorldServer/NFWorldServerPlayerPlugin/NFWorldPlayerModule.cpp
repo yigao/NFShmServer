@@ -804,6 +804,7 @@ int NFCWorldPlayerModule::OnHandleSnsLoginRsp(uint32_t msgId, NFDataPackage &pac
     notify.set_uid(uid);
     notify.set_cid(cid);
     notify.set_proxy_id(pPlayer->GetProxyId());
+    notify.set_client_id(pPlayer->GetClientId());
     notify.set_map_id(dstmapid);
     notify.set_scene_id(dstsceneid);
     auto pPos = notify.mutable_pos();

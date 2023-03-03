@@ -161,7 +161,7 @@ struct NFDataPackage
 
     std::string ToString() const
     {
-        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{} nConnectLinkId:{} nObjectLinkId:{} nMsgLen:{})", mModuleId, nMsgId, nParam1, nParam2, nConnectLinkId, nObjectLinkId, nMsgLen);
+        return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{} nMsgLen:{})", mModuleId, nMsgId, nParam1, nParam2, nMsgLen);
     }
 
     virtual void Clear()

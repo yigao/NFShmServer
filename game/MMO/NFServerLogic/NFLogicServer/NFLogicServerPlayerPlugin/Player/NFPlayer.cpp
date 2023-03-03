@@ -323,6 +323,8 @@ int NFPlayer::OnLogin(bool isLoadDB)
             m_pPart[i]->OnLogin();
         }
     }
+
+    NFPlayerMgr::Instance(m_pObjPluginManager)->OnLogin(this, isLoadDB);
     return 0;
 }
 
@@ -1362,7 +1364,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
     }
 }
 
-int NFPlayer::EnterGame(const CharLoginInfo& loginInfo, bool change)
+int NFPlayer::LoginGame(const CharLoginInfo& loginInfo, bool change)
 {
     NFPoint3<float> enterpos = loginInfo.pos;
     //先设置坐标和场景
@@ -1382,10 +1384,13 @@ int NFPlayer::EnterGame(const CharLoginInfo& loginInfo, bool change)
     m_channelId = loginInfo.channelId;
     m_uid = loginInfo.uid;
     m_zid = loginInfo.zid;
+    m_clientId = loginInfo.clientId;
 
     MarkDirty();
 
     NotifyPlayerInfo();
+
+    OnLogin(true);
 
     NFTransEnterScene* pTrans = dynamic_cast<NFTransEnterScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_ENTER_SCENE));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
