@@ -153,7 +153,10 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
         pPlayer->Init(xMsg.gate_id(), xMsg.logic_id(), xMsg.data());
     }
 
-    NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(roleId, mapId, sceneId, pos);
+    int ret = NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(roleId, mapId, sceneId, pos);
+    if (ret != proto_ff::RET_SUCCESS)
+    {
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     return 0;

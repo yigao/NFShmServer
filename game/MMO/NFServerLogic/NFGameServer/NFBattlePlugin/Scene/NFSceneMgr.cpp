@@ -186,24 +186,23 @@ int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, co
     if (pMap == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find mapId data, mapId:{}, sceneId:{}", mapId, sceneId);
-        return -1;
+        return proto_ff::RET_FAIL;
     }
 
     NFScene* pScene = GetScene(sceneId);
     if (pScene == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find scene data, mapId:{}, sceneId:{}", mapId, sceneId);
-        return -1;
+        return proto_ff::RET_FAIL;
     }
 
     NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
     if (pPlayer == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find player data, mapId:{}, sceneId:{}", mapId, sceneId);
-        return -1;
+        return proto_ff::RET_FAIL;
     }
 
     STransParam param;
-    pPlayer->TransScene(sceneId, pos, mapId, param);
-    return 0;
+    return pPlayer->TransScene(sceneId, pos, mapId, param);
 }

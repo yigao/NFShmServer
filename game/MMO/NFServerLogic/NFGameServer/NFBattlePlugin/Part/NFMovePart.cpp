@@ -284,7 +284,7 @@ int NFMovePart::BroadcastMove(uint64_t cid, const NFPoint3<float> &pos, const NF
 int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
 {
     NFCreature *pMaster = GetMaster();
-    CHECK_EXPR(pMaster, -1, "pMaster == NULL");
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
 
     int ret = proto_ff::RET_SUCCESS;
     {
