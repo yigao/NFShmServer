@@ -121,3 +121,9 @@ message ClientPingRsp
   required uint64 unix_sec = 1;			//UTC时间，单位：秒
   required uint64 unix_msec = 2;			//UTC时间，单位：毫秒
 }
+
+//服务器通知客户端登出  CLIENT_LOGOUT_NOTIFY
+message ClientLogoutNotify
+{
+  required int32 reason = 1;  //登出原因,详见 ComDefine.proto LOGOUT_TYPE 枚举
+}

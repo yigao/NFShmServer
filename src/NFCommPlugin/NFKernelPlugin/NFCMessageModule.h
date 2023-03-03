@@ -94,6 +94,9 @@ public:
     SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId, uint32_t nMsgId,
                     const google::protobuf::Message &xData, uint64_t param1 = 0, uint64_t param2 = 0) override;
 
+    virtual int SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgID,
+                          const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0) override;
+
     virtual NF_SHARE_PTR<NFServerData> GetServerByServerId(NF_SERVER_TYPES eSendType, uint32_t busId) override;
 
     virtual NF_SHARE_PTR<NFServerData> GetServerByUnlinkId(NF_SERVER_TYPES eSendType, uint64_t unlinkId) override;
@@ -141,6 +144,7 @@ public:
     virtual std::vector<std::string> GetDBNames(NF_SERVER_TYPES eSendType) override;
 
     virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) override;
+
 public:
     /// @brief 设置通信驱动(通信库)，运行时只支持一种通信驱动，如rawudp，tbuspp或第3方网络库
     /// @param driver 对MessageDriver接口实现的网络库
@@ -209,9 +213,10 @@ public:
                          const std::map<std::string, std::string> &xHeaders = std::map<std::string, std::string>(),
                          int timeout = 3);
 
-    virtual int SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content) override;
+    virtual int SendEmail(NF_SERVER_TYPES serverType, const std::string &title, const std::string &subject, const string &content) override;
 
     virtual int SendWxWork(NF_SERVER_TYPES serverType, const string &content) override;
+
 protected:
     virtual bool AddHttpMsgCB(NF_SERVER_TYPES serverType, const std::string &strCommand, const NFHttpType eRequestType,
                               const HTTP_RECEIVE_FUNCTOR &cb);

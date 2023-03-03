@@ -13,6 +13,8 @@
 #include <unordered_map>
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "Com.pb.h"
+#include "NFPoint3.h"
 
 #pragma pack (push)
 #pragma pack(1)

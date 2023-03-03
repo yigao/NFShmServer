@@ -92,6 +92,7 @@
 
 
 class NFIDynamicModule;
+
 /// @brief 基于消息的通讯接口类
 class NFIMessageModule : public NFIModule
 {
@@ -194,7 +195,7 @@ public:
      * @return int			返回0错误
      */
     virtual uint64_t BindServer(NF_SERVER_TYPES eServerType, const std::string &url, uint32_t nNetThreadNum = 1, uint32_t nMaxConnectNum = 100,
-                               uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL, bool bSecurity = false) = 0;
+                                uint32_t nPacketParseType = PACKET_PARSE_TYPE_INTERNAL, bool bSecurity = false) = 0;
 
     /**
      * @brief 添加服务器
@@ -217,7 +218,7 @@ public:
 
     virtual void CloseServer(NF_SERVER_TYPES eServerType, NF_SERVER_TYPES destServer, uint32_t busId, uint64_t usLinkId) = 0;
 
-    virtual void TransPackage(uint64_t usLinkId, NFDataPackage& packet) = 0;
+    virtual void TransPackage(uint64_t usLinkId, NFDataPackage &packet) = 0;
 
     virtual void Send(uint64_t usLinkId, uint32_t nModuleId, uint32_t nMsgID, const std::string &strData, uint64_t param1 = 0, uint64_t param2 = 0,
                       uint64_t srcId = 0, uint64_t dstId = 0) = 0;
@@ -265,6 +266,9 @@ public:
     {
         return SendMsgToServer(eSendType, recvType, srcBusId, dstBusId, NF_MODULE_SERVER, nMsgId, xData, param1, param2);
     }
+
+    virtual int SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgID,
+                          const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0) = 0;
 
     virtual NF_SHARE_PTR<NFServerData> GetServerByServerId(NF_SERVER_TYPES eSendType, uint32_t busId) = 0;
 
@@ -315,6 +319,7 @@ public:
     virtual std::vector<std::string> GetDBNames(NF_SERVER_TYPES eSendType) = 0;
 
     virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) = 0;
+
 public:
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK") = 0;
@@ -332,9 +337,10 @@ public:
                          const std::map<std::string, std::string> &xHeaders = std::map<std::string, std::string>(),
                          int timeout = 3) = 0;
 
-    virtual int SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content) = 0;
+    virtual int SendEmail(NF_SERVER_TYPES serverType, const std::string &title, const std::string &subject, const string &content) = 0;
 
     virtual int SendWxWork(NF_SERVER_TYPES serverType, const string &content) = 0;
+
 public:
     virtual bool AddHttpMsgCB(NF_SERVER_TYPES serverType, const std::string &strCommand, const NFHttpType eRequestType,
                               const HTTP_RECEIVE_FUNCTOR &cb) = 0;

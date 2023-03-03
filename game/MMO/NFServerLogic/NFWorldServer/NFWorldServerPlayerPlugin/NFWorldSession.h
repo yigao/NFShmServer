@@ -16,6 +16,7 @@
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "NFWorldCommonDefine.h"
+#include "NFLogicCommon/NFAccountDefine.h"
 
 class NFWorldSession : public NFShmObj
 {
@@ -40,14 +41,39 @@ public:
 
     void SetUid(uint64_t playerId);
 
-    uint64_t GetCharId() const;
+    uint64_t GetRoleId() const;
 
-    void SetCharId(uint64_t charId);
+    void SetRoleId(uint64_t roleId);
+
+    bool IsDisconnect() const;
+
+    void SetDisconnect(bool disconnect);
+
+    EAccountState GetState() const;
+
+    void SetState(EAccountState state);
+
+    uint32_t GetLogicId() const;
+
+    void SetLogicId(uint32_t logicId);
+
+    uint32_t GetGameId() const;
+
+    void SetGameId(uint32_t gameId);
+
+    uint64_t GetStateTick() const;
+
+    void SetStateTick(uint64_t stateTick);
 private:
     uint64_t m_proxyId;
     uint64_t m_clientId;
     uint64_t m_uid;
-    uint64_t m_charId;
+    uint64_t m_roleId;
+    uint32_t m_logicId;
+    uint32_t m_gameId;
+    bool m_disconnect;
+    EAccountState m_state;
+    uint64_t m_stateTick;
 private:
 DECLARE_IDCREATE(NFWorldSession)
 };

@@ -65,7 +65,7 @@ int NFWorldSessionMgr::DeleteSession(NFWorldSession *pSession)
     CHECK_NULL(pSession);
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Session Info, proxyId:{} clientId:{}, playerId:{}, charId:{}", pSession->GetProxyId(), pSession->GetClientId(),
-              pSession->GetUid(), pSession->GetCharId());
+              pSession->GetUid(), pSession->GetRoleId());
 
     FindModule<NFISharedMemModule>()->DestroyObj(pSession);
 

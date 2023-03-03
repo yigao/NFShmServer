@@ -68,6 +68,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ClientPingRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ClientPingRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ClientLogoutNotify_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ClientLogoutNotify_reflection_ = NULL;
 
 }  // namespace
 
@@ -331,6 +334,21 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ClientPingRsp));
+  ClientLogoutNotify_descriptor_ = file->message_type(16);
+  static const int ClientLogoutNotify_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLogoutNotify, reason_),
+  };
+  ClientLogoutNotify_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ClientLogoutNotify_descriptor_,
+      ClientLogoutNotify::default_instance_,
+      ClientLogoutNotify_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLogoutNotify, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClientLogoutNotify, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ClientLogoutNotify));
 }
 
 namespace {
@@ -375,6 +393,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     ClientPingReq_descriptor_, &ClientPingReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ClientPingRsp_descriptor_, &ClientPingRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ClientLogoutNotify_descriptor_, &ClientLogoutNotify::default_instance());
 }
 
 }  // namespace
@@ -412,6 +432,8 @@ void protobuf_ShutdownFile_CSLogin_2eproto() {
   delete ClientPingReq_reflection_;
   delete ClientPingRsp::default_instance_;
   delete ClientPingRsp_reflection_;
+  delete ClientLogoutNotify::default_instance_;
+  delete ClientLogoutNotify_reflection_;
 }
 
 void protobuf_AddDesc_CSLogin_2eproto() {
@@ -447,7 +469,8 @@ void protobuf_AddDesc_CSLogin_2eproto() {
     "turnRoleListRsp\022\013\n\003ret\030\001 \002(\005\022*\n\010role_lst"
     "\030\002 \003(\0132\030.proto_ff.LoginRoleProto\"\017\n\rClie"
     "ntPingReq\"4\n\rClientPingRsp\022\020\n\010unix_sec\030\001"
-    " \002(\004\022\021\n\tunix_msec\030\002 \002(\004", 943);
+    " \002(\004\022\021\n\tunix_msec\030\002 \002(\004\"$\n\022ClientLogoutN"
+    "otify\022\016\n\006reason\030\001 \002(\005", 981);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSLogin.proto", &protobuf_RegisterTypes);
   ClientLoginReq::default_instance_ = new ClientLoginReq();
@@ -466,6 +489,7 @@ void protobuf_AddDesc_CSLogin_2eproto() {
   ReturnRoleListRsp::default_instance_ = new ReturnRoleListRsp();
   ClientPingReq::default_instance_ = new ClientPingReq();
   ClientPingRsp::default_instance_ = new ClientPingRsp();
+  ClientLogoutNotify::default_instance_ = new ClientLogoutNotify();
   ClientLoginReq::default_instance_->InitAsDefaultInstance();
   ClientLoginRsp::default_instance_->InitAsDefaultInstance();
   ClientCreateRoleReq::default_instance_->InitAsDefaultInstance();
@@ -482,6 +506,7 @@ void protobuf_AddDesc_CSLogin_2eproto() {
   ReturnRoleListRsp::default_instance_->InitAsDefaultInstance();
   ClientPingReq::default_instance_->InitAsDefaultInstance();
   ClientPingRsp::default_instance_->InitAsDefaultInstance();
+  ClientLogoutNotify::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_CSLogin_2eproto);
 }
 
@@ -4381,6 +4406,215 @@ void ClientPingRsp::Swap(ClientPingRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = ClientPingRsp_descriptor_;
   metadata.reflection = ClientPingRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ClientLogoutNotify::kReasonFieldNumber;
+#endif  // !_MSC_VER
+
+ClientLogoutNotify::ClientLogoutNotify()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ClientLogoutNotify::InitAsDefaultInstance() {
+}
+
+ClientLogoutNotify::ClientLogoutNotify(const ClientLogoutNotify& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ClientLogoutNotify::SharedCtor() {
+  _cached_size_ = 0;
+  reason_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ClientLogoutNotify::~ClientLogoutNotify() {
+  SharedDtor();
+}
+
+void ClientLogoutNotify::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ClientLogoutNotify::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ClientLogoutNotify::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ClientLogoutNotify_descriptor_;
+}
+
+const ClientLogoutNotify& ClientLogoutNotify::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_CSLogin_2eproto();
+  return *default_instance_;
+}
+
+ClientLogoutNotify* ClientLogoutNotify::default_instance_ = NULL;
+
+ClientLogoutNotify* ClientLogoutNotify::New() const {
+  return new ClientLogoutNotify;
+}
+
+void ClientLogoutNotify::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    reason_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ClientLogoutNotify::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 reason = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &reason_)));
+          set_has_reason();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void ClientLogoutNotify::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 reason = 1;
+  if (has_reason()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->reason(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ClientLogoutNotify::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 reason = 1;
+  if (has_reason()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->reason(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ClientLogoutNotify::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 reason = 1;
+    if (has_reason()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->reason());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ClientLogoutNotify::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ClientLogoutNotify* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ClientLogoutNotify*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ClientLogoutNotify::MergeFrom(const ClientLogoutNotify& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_reason()) {
+      set_reason(from.reason());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ClientLogoutNotify::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ClientLogoutNotify::CopyFrom(const ClientLogoutNotify& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ClientLogoutNotify::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void ClientLogoutNotify::Swap(ClientLogoutNotify* other) {
+  if (other != this) {
+    std::swap(reason_, other->reason_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ClientLogoutNotify::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ClientLogoutNotify_descriptor_;
+  metadata.reflection = ClientLogoutNotify_reflection_;
   return metadata;
 }
 

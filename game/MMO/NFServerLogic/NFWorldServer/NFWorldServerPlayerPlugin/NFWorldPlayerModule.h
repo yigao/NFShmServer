@@ -160,6 +160,17 @@ public:
     int NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto_ff::LOGOUT_TYPE flag);
 
     /**
+     * @brief
+     * @param cid
+     * @param uid
+     * @param clientId
+     * @param logicId
+     * @param type
+     * @return
+     */
+    int NotifyLogicLeave(uint64_t cid, uint64_t uid, uint32_t clientId, uint32_t logicId, proto_ff::LOGOUT_TYPE type = proto_ff::LOGOUT_NONE);
+
+    /**
      * @brief 通知ProxyServer玩家服务器的busId改变
      * @param pPlayer
      * @param serverType
@@ -175,6 +186,12 @@ public:
      * @return
      */
     int NotifyOtherServerPlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t reason);
+
+    //添加离线uid和clientid的映射
+    void AddLogoutClientId(uint32_t uid, uint32_t clientid);
+
+    //移除离线uid和clientid的映射
+    void DelLogoutClientId(uint32_t uid);
 private:
     /**
      * @brief NFILuaModule
