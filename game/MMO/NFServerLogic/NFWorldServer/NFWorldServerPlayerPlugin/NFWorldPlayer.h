@@ -237,13 +237,13 @@ public:
      * @brief
      * @return
      */
-    uint32_t GetZid() const;
+    uint32_t GetLoginZid() const;
 
     /**
      * @brief
      * @param zid
      */
-    void SetZid(uint32_t zid);
+    void SetLoginZid(uint32_t zid);
 
     /**
      * @brief
@@ -352,7 +352,7 @@ private:
     /**
      * @brief
      */
-    uint32_t m_zid;
+    uint32_t m_loginZid;
 
     /**
      * @brief

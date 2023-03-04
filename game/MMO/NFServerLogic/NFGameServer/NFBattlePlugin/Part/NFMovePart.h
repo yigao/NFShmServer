@@ -21,6 +21,7 @@
 #include "Move.pb.h"
 
 class NFScene;
+
 class NFMovePart : public NFBattlePart
 {
     enum
@@ -39,12 +40,26 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
 public:
     virtual int Init(const proto_ff::RoleEnterSceneData &data);
 
     virtual int UnInit();
 
     virtual int OnTimer(int timeId, int callcount);
+
+public:
+    //移动定时器
+    int OnMoveTimer();
+
+    //通过路径移动 intertick: 间隔时间，单位：毫秒
+    int MoveByPath(int64_t intertick, bool stopFlag = false);
+
+    //模拟客户端移动(玩家移动) intertick: 间隔时间，单位：毫秒,  stopFlag:是否停止移动
+    int MoveBySimulate(int64_t intertick, bool stopFlag = false);
+
+    //计算朝向
+    NFPoint3<float> CalDir(const NFPoint3<float>& dstpos, const NFPoint3<float>& srcpos);
 public:
     /**
      * @brief 处理客户端消息
@@ -61,30 +76,34 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+
 public:
     static int RetisterClientMessage(NFIPluginManager *pPluginManager);
 
     static int RetisterServerMessage(NFIPluginManager *pPluginManager);
+
 public:
     int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
+
 public:
     //设置客户端速度
-    void SetClientSpeed(const NFPoint3<float>& speed);
+    void SetClientSpeed(const NFPoint3<float> &speed);
 
     //广播移动
-    int BroadcastMove(uint64_t cid, const NFPoint3<float>& pos, const NFPoint3<float>& speed, const NFPoint3<float>& dir, bool selfFlag = false);
+    int BroadcastMove(uint64_t cid, const NFPoint3<float> &pos, const NFPoint3<float> &speed, const NFPoint3<float> &dir, bool selfFlag = false);
 
     //传送(场景内传送、切场景传送,跨逻辑服传送)
-    int TransScene(uint64_t sceneId, const NFPoint3<float>& dstPos, uint64_t mapId, STransParam &transParam);
+    int TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam);
 
     //瞬间移动，只限于当前地图之内 dstPos:目标坐标  type:瞬移类型  checkpos:是否需要校验坐标，如果外部可以保证坐标的有效性可以不用校验，外部不能保证坐标的有效性，必须要校验
-    int Teleporting(const NFPoint3<float> dstPos,  int32_t type = (int32_t)proto_ff::MoveTeleportRsp_Type_common, bool checkpos = true);
+    int Teleporting(const NFPoint3<float> dstPos, int32_t type = (int32_t) proto_ff::MoveTeleportRsp_Type_common, bool checkpos = true);
 
     //传送成功的处理
-    int OnTransSuccess(STransParam& transParam);
+    int OnTransSuccess(STransParam &transParam);
 
     //同一个逻辑服之间的场景传送
-    int TransSceneInLogic(NFScene* pDstScene, NFPoint3<float> transPos, STransParam& transParam);
+    int TransSceneInLogic(NFScene *pDstScene, NFPoint3<float> transPos, STransParam &transParam);
+
 private:
     /**
      * @brief 客户端最近一次发到服务器的坐标

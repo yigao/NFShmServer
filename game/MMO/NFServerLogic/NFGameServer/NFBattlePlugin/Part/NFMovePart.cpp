@@ -89,6 +89,7 @@ int NFMovePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 
 int NFMovePart::RetisterClientMessage(NFIPluginManager *pPluginManager)
 {
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
     return 0;
 }
 
@@ -148,7 +149,7 @@ int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
     else
     {
         //启动模拟移动定时器
-        if (m_timerIdMove != INVALID_ID)
+        if (m_timerIdMove == INVALID_ID)
         {
             m_timerIdMove = SetTimer(INTERVAL_MOVE_TIME, 0, 0, 0, 0, 0);
             if (m_timerIdMove != INVALID_ID)
@@ -545,7 +546,7 @@ int NFMovePart::OnTransSuccess(STransParam &transParam)
     return 0;
 }
 
-int NFMovePart::TransSceneInLogic(NFScene* pDstScene, NFPoint3<float> transPos, STransParam& transParam)
+int NFMovePart::TransSceneInLogic(NFScene *pDstScene, NFPoint3<float> transPos, STransParam &transParam)
 {
     CHECK_NULL(pDstScene);
     NFCreature *pMaster = GetMaster();
@@ -579,7 +580,8 @@ int NFMovePart::TransSceneInLogic(NFScene* pDstScene, NFPoint3<float> transPos, 
         transRsp.set_retcode(proto_ff::RET_SCENE_DST_NOT_EXIST);
         transRsp.set_mapid(pDstScene->GetMapId());
         pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, notifyLoad);
-        NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "TransSceneInLogic failed....cid:{} ,cursceneid:{}, curmapid:{}, dstsceneid:{} ,dstmapid:{} ", pMaster->Cid(), pMaster->GetSceneId(), pMaster->GetMapId(), pDstScene->GetSceneId(), pDstScene->GetMapId());
+        NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "TransSceneInLogic failed....cid:{} ,cursceneid:{}, curmapid:{}, dstsceneid:{} ,dstmapid:{} ",
+                   pMaster->Cid(), pMaster->GetSceneId(), pMaster->GetMapId(), pDstScene->GetSceneId(), pDstScene->GetMapId());
         return proto_ff::RET_FAIL;
     }
     else
@@ -593,7 +595,7 @@ int NFMovePart::TransSceneInLogic(NFScene* pDstScene, NFPoint3<float> transPos, 
         m_timerIdLoadMapTimeout = SetTimer(INTERVAL_LOAD_MAP_TIMEOUT, 1, 0, 0, 0, 0);
     }
 
-    return  proto_ff::RET_SUCCESS;
+    return proto_ff::RET_SUCCESS;
 }
 
 int NFMovePart::OnTimer(int timeId, int callcount)
@@ -603,7 +605,7 @@ int NFMovePart::OnTimer(int timeId, int callcount)
 
     if (timeId == m_timerIdMove)
     {
-
+        OnMoveTimer();
     }
     else if (timeId == m_timerIdLoadMapTimeout)
     {
@@ -618,5 +620,137 @@ int NFMovePart::OnTimer(int timeId, int callcount)
             }
         }
     }
+    return 0;
+}
+
+int NFMovePart::OnMoveTimer()
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    uint64_t curtick = NFTime::Now().UnixMSec();
+    int64_t intertick = curtick - m_moveTick;
+    //
+    if (CREATURE_PLAYER == pMaster->Kind())
+    {
+        bool stopFlag = false;
+        uint64_t interMSec = curtick - m_lastclientMoveTick;
+        //超过6秒还没收到的客户端移动的消息消息，自动停止
+        //避免客户端没有发停止过来，服务器一直走下去
+        if (interMSec >= INTERVAL_CLIENT_MOVE_TIMEOUT)
+        {
+            stopFlag = true;
+            NFLogError(NF_LOG_SYSTEMLOG, m_masterCid,
+                       "MovePart::ClientMoveTimer...move timeout...auto stop move cid:{},m_clientMoveTime:{},tick:{},interMSec:{},intertick:{}",
+                       pMaster->Cid(), m_lastclientMoveTick, curtick, interMSec, intertick);
+        }
+        //
+        MoveBySimulate(intertick, stopFlag);
+    }
+    else
+    {
+
+        MoveByPath(intertick);
+    }
+
+    //设置服务器移动时间
+    m_moveTick = curtick;
+    //停止移动的话，需要发送事件
+    if (m_timerIdMove == INVALID_ID)
+    {
+        //发送停止移动事件
+        proto_ff::NFEventNoneData event;
+        FireExecute(NF_ST_GAME_SERVER, EVENT_END_MOVE, pMaster->Kind(), pMaster->Cid(), event);
+    }
+
+    return 0;
+}
+
+//模拟客户端移动(玩家移动) intertick: 间隔时间，单位：毫秒,  stopFlag:是否停止移动
+int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    //间隔时间
+    float ftick = intertick / 1000.0f;
+    //坐标
+    NFPoint3<float> curpos = pMaster->GetPos();
+    NFPoint3<float> oldpos = curpos;
+    //
+    if (stopFlag)
+    {
+        DeleteTimer(m_timerIdMove);
+        m_timerIdMove = INVALID_ID;
+        m_curMovePath.Clear();
+    }
+    //
+    if (intertick > 0)
+    {
+        curpos = curpos + m_clientUnitVector * ftick * pMaster->GetSpeed();
+    }
+
+    NFLogDebug(NF_LOG_SYSTEMLOG, pMaster->Cid(), "[logic] MovePart::MoveBySimulate..ftick:{},stopFlag:{},oldpos:[{},{},{}],curpos:[{},{},{}]", ftick, stopFlag,oldpos.x, oldpos.y, oldpos.z, curpos.x, curpos.y, curpos.z);
+    //
+    if (stopFlag) //如果是停止移动，服务器需要校验下最终的坐标
+    {
+        NFPoint3<float> zerospeed(0.0f, 0.0f, 0.0f);
+        NFPoint3<float> newpos = curpos;
+        uint64_t mapid = pMaster->GetMapId();
+        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapid);
+        if (nullptr != pMap)
+        {
+            if (!pMap->FindNearestPos(curpos.x, curpos.z, curpos.y, &curpos.x, &curpos.z, &curpos.y, nullptr))
+            {
+                //找不到可行走的点，直接设置为上一次客户端正确的坐标
+                NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
+                           "MoveBySimulate  FindNearestPos failed cid:{},intertick:{},ftick:{},oldpos:{},{},{}, newpos:{},{},{},  curpos:{},{},{}, m_clientUnitVector:{},{},{},fspeed:{},rightpos:{},{},{}",
+                           pMaster->Cid(), intertick, ftick, oldpos.x, oldpos.y, oldpos.z, newpos.x, newpos.y, newpos.z, curpos.x, curpos.y, curpos.z,
+                           m_clientUnitVector.x, m_clientUnitVector.y, m_clientUnitVector.z, pMaster->GetSpeed(), m_lastrightpos.x,
+                           m_lastrightpos.y, m_lastrightpos.z);
+                curpos = m_lastrightpos;
+            }
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
+                    "[logic] MoveBySimulate  not find map cfg cid:{}, mapid:{}, intertick:{},ftick:{},oldpos:{},{},{}, curpos:{},{},{}, m_clientUnitVector:{},{},{},fspeed:{}, rightpos:[{},{},{}]",
+                    pMaster->Cid(), mapid, intertick, ftick, oldpos.x, oldpos.y, oldpos.z, curpos.x, curpos.y, curpos.z, m_clientUnitVector.x,
+                    m_clientUnitVector.y, m_clientUnitVector.z, pMaster->GetSpeed(), m_lastrightpos.x, m_lastrightpos.y, m_lastrightpos.z);
+            curpos = m_lastClientPos;
+        }
+
+        if (intertick > 0) //有移动间隔才会计算朝向
+        {
+            //计算朝向
+            m_lastDir = CalDir(curpos, oldpos);
+        }
+
+        //广播通知停止移动
+        BroadcastMove(pMaster->Cid(), curpos, zerospeed, m_lastDir, true);
+        //停止移动时的坐标是校验过的，肯定是正确的，把上一次客户端正确的坐标设置为当前坐标
+        m_lastrightpos = curpos;
+        //设置坐标
+        pMaster->SetPos(curpos);
+    }
+    else if (intertick > 0) //有移动间隔才会设置当前坐标
+    {
+        pMaster->SetPos(curpos);
+    }
+
+    return 0;
+}
+
+//计算朝向
+NFPoint3<float> NFMovePart::CalDir(const NFPoint3<float>& dstpos, const NFPoint3<float>& srcpos)
+{
+    NFPoint3<float> dir = dstpos - srcpos;
+    dir.y = 0;
+    return dir;
+}
+
+//通过路径移动 intertick: 间隔时间，单位：毫秒
+int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
+{
     return 0;
 }

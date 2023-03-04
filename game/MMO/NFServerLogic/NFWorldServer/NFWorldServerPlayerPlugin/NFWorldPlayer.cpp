@@ -44,7 +44,7 @@ int NFWorldPlayer::CreateInit()
     m_tokenTimeStamp = 0;
     m_roleId = 0;
     m_channelId = 0;
-    m_zid = 0;
+    m_loginZid = 0;
     m_isWhite = false;
     m_charNum = 0;
     m_gameId = 0;
@@ -240,14 +240,14 @@ void NFWorldPlayer::SetChannelId(uint32_t channelId)
     m_channelId = channelId;
 }
 
-uint32_t NFWorldPlayer::GetZid() const
+uint32_t NFWorldPlayer::GetLoginZid() const
 {
-    return m_zid;
+    return m_loginZid;
 }
 
-void NFWorldPlayer::SetZid(uint32_t zid)
+void NFWorldPlayer::SetLoginZid(uint32_t zid)
 {
-    m_zid = zid;
+    m_loginZid = zid;
 }
 
 bool NFWorldPlayer::IsWhite() const

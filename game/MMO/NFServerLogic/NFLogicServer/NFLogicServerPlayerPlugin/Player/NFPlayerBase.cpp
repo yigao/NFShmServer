@@ -228,6 +228,7 @@ int NFPlayerBase::ReadBaseData(const ::proto_ff::RoleDBData &dbData)
 {
     m_cid = dbData.cid();
     m_zid = dbData.zid();
+    m_uid = dbData.uid();
     //
     m_createTime = dbData.base().createtime();
     m_logoutTime = dbData.base().logouttime();

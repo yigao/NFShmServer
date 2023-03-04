@@ -213,6 +213,10 @@ public:
 
     virtual void SetAppID(const int nAppID) = 0;
 
+    virtual int GetWorldID() const = 0;
+
+    virtual int GetZoneID() const = 0;
+
     virtual const std::string &GetConfigPath() const = 0;
 
     virtual void SetConfigPath(const std::string &strPath) = 0;

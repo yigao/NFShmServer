@@ -97,6 +97,10 @@ public:
 
     virtual void SetAppID(const int nAppID) override;
 
+    virtual int GetWorldID() const override;
+
+    virtual int GetZoneID() const override;
+
     virtual const std::string &GetConfigPath() const override;
 
     virtual void SetConfigPath(const std::string &strPath) override;

@@ -194,7 +194,7 @@ int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const 
         pSession->SetState(EAccountState::loading);
         pSession->SetStateTick(NFServerTime::Instance()->Tick());
 
-        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "client login  account ok, playerId:{}, bornzid:{}", uid, pPlayer->GetZid());
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "client login  account ok, playerId:{}, bornzid:{}", uid, pPlayer->GetLoginZid());
     }
     else
     {

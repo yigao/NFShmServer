@@ -107,28 +107,25 @@ int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFD
 
     if (xData.ret_code() == proto_ff::RET_SUCCESS)
     {
-        if (pPlayer->GetRoleId() == m_roleId)
-        {
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CharDBToCharSimpleDB(xData.role_info(), *xDataRsp.mutable_info());
-            auto pRoleInfo = pPlayer->GetRoleInfo(cid);
-            CHECK_EXPR_ASSERT(pRoleInfo == NULL, -1, "role:{} exist", cid);
-            pRoleInfo = pPlayer->CreateRoleInfo(cid);
-            CHECK_EXPR_ASSERT(pRoleInfo != NULL, -1, "CreateRoleInfo Failed:{}", cid);
-            pRoleInfo->m_logicId = pPlayer->GetLogicId();
-            pRoleInfo->SetRoleInfo(xData.role_info());
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CharDBToCharSimpleDB(xData.role_info(), *xDataRsp.mutable_info());
+        auto pRoleInfo = pPlayer->GetRoleInfo(cid);
+        CHECK_EXPR_ASSERT(pRoleInfo == NULL, -1, "role:{} exist", cid);
+        pRoleInfo = pPlayer->CreateRoleInfo(cid);
+        CHECK_EXPR_ASSERT(pRoleInfo != NULL, -1, "CreateRoleInfo Failed:{}", cid);
+        pRoleInfo->m_logicId = pPlayer->GetLogicId();
+        pRoleInfo->SetRoleInfo(xData.role_info());
 
-            auto pTempPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CreateCidIndexToUid(cid, uid);
-            CHECK_EXPR_ASSERT(pPlayer == pTempPlayer, -1, "CreateCidIndexToUid Error");
-        }
-        else
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateRoleInfo Error..........., the create roleId:{} not equal return roleId:{}", pPlayer->GetRoleId(),
-                       cid);
-            pPlayer->SetRoleId(0);
-            //强制断开之前的客户端session
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId(), proto_ff::LOGOUT_REPLACE);
-        }
+        auto pTempPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CreateCidIndexToUid(cid, uid);
+        CHECK_EXPR_ASSERT(pPlayer == pTempPlayer, -1, "CreateCidIndexToUid Error");
     }
+
+    if (pPlayer->GetRoleId() > 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateRoleInfo Error..........., the create roleId:{} not equal return roleId:{}", pPlayer->GetRoleId(),
+                   cid);
+    }
+
+    pPlayer->SetRoleId(m_roleId);
 
     uint64_t newClientId = pPlayer->GetClientId();
     if (newClientId > 0 && m_clientId != newClientId)
@@ -150,6 +147,13 @@ int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFD
     if (pSession->IsDisconnect())
     {
         NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession IsDisconnect, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        return 0;
+    }
+
+    //创建角色的账号必须处于登录状态
+    if (EAccountState::loading != pSession->GetState())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession state error, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
         return 0;
     }
 

@@ -1242,7 +1242,7 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::string &w
         }
         query << ";";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
         query.execute();
         query.reset();
     NFMYSQLTRYEND("modify error")
@@ -1295,7 +1295,7 @@ int NFCMysqlDriver::Modify(const std::string &strTableName, const std::map<std::
         }
         query << ";";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
         query.execute();
         query.reset();
     NFMYSQLTRYEND("modify error")
@@ -1348,7 +1348,7 @@ int NFCMysqlDriver::Insert(const std::string &strTableName, const std::map<std::
 
         query << ");";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
         query.execute();
         query.reset();
     NFMYSQLTRYEND("error")
@@ -1384,7 +1384,7 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
         }
         query << " limit 1;";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
         //query.execute(); // 官网例子不需要execute
         mysqlpp::StoreQueryResult xResult = query.store();
         query.reset();
@@ -1452,7 +1452,7 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
         }
         query << " limit 1;";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
 
         //query.execute(); // 官网例子不需要execute
         mysqlpp::StoreQueryResult xResult = query.store();
@@ -1521,7 +1521,7 @@ int NFCMysqlDriver::QueryMore(const std::string &strTableName, const std::map<st
         }
         query << ";";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
 
         //query.execute(); // 官网例子不需要execute
         mysqlpp::StoreQueryResult xResult = query.store();
@@ -1576,7 +1576,7 @@ int NFCMysqlDriver::Delete(const std::string &strTableName, const std::map<std::
         }
         query << ";";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
         query.execute();
         query.reset();
 
@@ -1600,7 +1600,7 @@ int NFCMysqlDriver::Delete(const std::string &strTableName, const std::string &s
         query << "DELETE FROM " << strTableName << " WHERE " << strKeyColName << " = " << mysqlpp::quote << strKey <<
               ";";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
 
         query.execute();
         query.reset();
@@ -1626,7 +1626,7 @@ int NFCMysqlDriver::Delete(const std::string &sql, std::string &errormsg)
         mysqlpp::Query query = pConnection->query();
         query << sql << ";";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
         query.execute();
         query.reset();
 
@@ -1696,7 +1696,7 @@ int NFCMysqlDriver::Exists(const std::string &strTableName, const std::map<std::
         }
         query << " limit 1;";
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "query:{}", query.str());
 
         //query.execute();
         mysqlpp::StoreQueryResult result = query.store();

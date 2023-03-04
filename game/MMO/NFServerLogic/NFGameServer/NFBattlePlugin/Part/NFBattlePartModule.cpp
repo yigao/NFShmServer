@@ -14,6 +14,7 @@
 #include "NFBattlePart.h"
 #include "Creature/NFBattlePlayer.h"
 #include "Creature/NFCreatureMgr.h"
+#include "NFMovePart.h"
 
 NFBattlePartModule::NFBattlePartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -28,6 +29,8 @@ NFBattlePartModule::~NFBattlePartModule()
 
 bool NFBattlePartModule::Awake()
 {
+    //move part
+    NFMovePart::RetisterClientMessage(m_pObjPluginManager);
     return true;
 }
 

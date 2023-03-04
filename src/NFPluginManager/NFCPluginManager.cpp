@@ -50,6 +50,8 @@ int sigar_net_address_to_string(sigar_t *sigar,
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #elif NF_PLATFORM == NF_PLATFORM_LINUX
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFCore/NFServerIDUtil.h"
+
 #endif
 
 NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
@@ -439,6 +441,19 @@ void NFCPluginManager::SetAppID(const int nAppID)
 {
 	m_nAppID = nAppID;
 }
+
+int NFCPluginManager::GetWorldID() const
+{
+    return NFServerIDUtil::GetWorldID(m_nAppID);
+}
+
+
+int NFCPluginManager::GetZoneID() const
+{
+    return NFServerIDUtil::GetZoneID(m_nAppID);
+}
+
+
 
 const std::string& NFCPluginManager::GetConfigPath() const
 {

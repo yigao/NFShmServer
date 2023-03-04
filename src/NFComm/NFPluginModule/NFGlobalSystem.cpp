@@ -88,7 +88,7 @@ void NFGlobalSystem::SetHotfixServer(bool hotfixExitApp)
 }
 
 /**
- * @brief ÊÍ·Åsingleton×ÊÔ´
+ * @brief é‡Šæ”¾singletonèµ„æº
  */
 void NFGlobalSystem::ReleaseSingleton()
 {
@@ -97,6 +97,6 @@ void NFGlobalSystem::ReleaseSingleton()
     NFServerTime::Instance()->ReleaseInstance();
     NFLogMgr::Instance()->ReleaseInstance();
     NFShmMgr::Instance()->ReleaseInstance();
-    //×îºóÊÍ·Å
+    //æœ€åŽé‡Šæ”¾
     NFGlobalSystem::Instance()->ReleaseInstance();
 }

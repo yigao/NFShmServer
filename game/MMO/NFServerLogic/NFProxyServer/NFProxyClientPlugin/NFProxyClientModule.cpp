@@ -353,6 +353,22 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
                 //FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
             }
         }
+        else if (serverType == NF_ST_GAME_SERVER)
+        {
+            if (pPlayerInfo->GetGameBusId() > 0)
+            {
+                NFLogTrace(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to game server", packet.ToString());
+                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetGameBusId(), NF_MODULE_CLIENT, packet.nMsgId,
+                                                                          packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
+                                                                          pPlayerInfo->GetRoleId());
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv nMsgId = {}, not transfer to game server", packet.ToString());
+
+                //FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
+            }
+        }
         else
         {
             NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "no server handle the msg, drop msg:{}", packet.ToString());

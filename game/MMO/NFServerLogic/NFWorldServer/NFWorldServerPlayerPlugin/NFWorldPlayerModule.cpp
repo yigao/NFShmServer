@@ -343,7 +343,7 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
     pPlayer->SetStatus(PLAYER_STATUS_ONLINE);
     pPlayer->SetProxyId(proxyId);
     pPlayer->SetClientId(clientId);
-    pPlayer->SetZid(loginzid);
+    pPlayer->SetLoginZid(loginzid);
     pPlayer->SetChannelId(chanid);
     pPlayer->SetRoleId(0);
 
@@ -400,6 +400,8 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
         {
             pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
             pSession->SetLogicId(pLogicServer->mServerInfo.bus_id());
+
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_LOGIC_SERVER, pLogicServer->mServerInfo.bus_id());
 
             NFTransWorldGetRoleList* pTrans = dynamic_cast<NFTransWorldGetRoleList *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldSendGetRoleList_ID));
             CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
@@ -524,8 +526,8 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
     proto_ff::WorldToLogicCreateRoleReq createRoleReq;
     createRoleReq.set_uid(pPlayer->GetUid());
     createRoleReq.set_cid(cid);
-    createRoleReq.set_zid(pPlayer->GetZid());
-    createRoleReq.set_born_zid(pPlayer->GetZid());
+    createRoleReq.set_zid(m_pObjPluginManager->GetZoneID());
+    createRoleReq.set_born_zid(pPlayer->GetLoginZid());
     createRoleReq.set_name(name);
     createRoleReq.set_prof(prof);
     createRoleReq.set_level(pBornProf->m_bornlevel);
@@ -551,11 +553,9 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
 
     if (pLogicServer)
     {
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_LOGIC_SERVER, pLogicServer->mServerInfo.bus_id());
-
         NFTransWorldCreateRole* pTrans = dynamic_cast<NFTransWorldCreateRole *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldCreateRole_ID));
         CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-        pTrans->Init(uid, cid, pSession->GetProxyId(), clientId, pPlayer->GetZid());
+        pTrans->Init(uid, cid, pSession->GetProxyId(), clientId, pPlayer->GetLoginZid());
         pTrans->SendCreateRoleInfo(createRoleReq);
     }
     else
@@ -851,6 +851,8 @@ int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &p
         CHECK_EXPR(gameId > 0, -1, "GetStaticMapGameId Failed, mapId:{}", mapId);
 
         pPlayer->SetGameId(gameId);
+
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_GAME_SERVER, gameId);
 
         proto_ff::WorldToGameEnterSceneReq reqMsg;
         reqMsg.set_cid(cid);

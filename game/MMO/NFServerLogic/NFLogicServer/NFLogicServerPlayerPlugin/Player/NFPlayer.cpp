@@ -1382,8 +1382,6 @@ int NFPlayer::LoginGame(const CharLoginInfo& loginInfo, bool change)
 
     m_proxyId = loginInfo.gateId;
     m_channelId = loginInfo.channelId;
-    m_uid = loginInfo.uid;
-    m_zid = loginInfo.zid;
     m_clientId = loginInfo.clientId;
 
     MarkDirty();
