@@ -56,6 +56,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldCreateRole.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldCreateRole.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerMgr.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -633,14 +635,8 @@
       <workItem from="1677641365640" duration="25592000" />
       <workItem from="1677738990329" duration="12968000" />
       <workItem from="1677804377201" duration="27030000" />
-      <workItem from="1677837825973" duration="1000" />
-    </task>
-    <task id="LOCAL-00416" summary="shm stl">
-      <created>1676337638394</created>
-      <option name="number" value="00416" />
-      <option name="presentableId" value="LOCAL-00416" />
-      <option name="project" value="LOCAL" />
-      <updated>1676337638395</updated>
+      <workItem from="1677837825973" duration="4278000" />
+      <workItem from="1677893806780" duration="1055000" />
     </task>
     <task id="LOCAL-00417" summary="shm stl">
       <created>1676375716193</created>
@@ -978,7 +974,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677837737191</updated>
     </task>
-    <option name="localTasksCounter" value="465" />
+    <task id="LOCAL-00465" summary="login">
+      <created>1677843242654</created>
+      <option name="number" value="00465" />
+      <option name="presentableId" value="LOCAL-00465" />
+      <option name="project" value="LOCAL" />
+      <updated>1677843242654</updated>
+    </task>
+    <option name="localTasksCounter" value="466" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1232,54 +1235,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldCreateRole.cpp</url>
-          <line>67</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp</url>
+          <line>146</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>455</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransCreateRole.cpp</url>
-          <line>62</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>601</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransCreateRole.cpp</url>
-          <line>130</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRole.cpp</url>
-          <line>97</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.cpp</url>
-          <line>178</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRole.cpp</url>
-          <line>71</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransGetRole.cpp</url>
-          <line>65</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldGetRoleList.cpp</url>
-          <line>157</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.cpp</url>
+          <line>169</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

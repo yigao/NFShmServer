@@ -127,7 +127,6 @@ int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFD
             pPlayer->SetRoleId(0);
             //强制断开之前的客户端session
             NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId(), proto_ff::LOGOUT_REPLACE);
-            return 0;
         }
     }
 

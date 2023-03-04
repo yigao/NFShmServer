@@ -309,7 +309,8 @@ int NFWorldPlayerMgr::NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto
 
     //通知客户端强制断线
     //路由管理器移除对应的标识
-    proto_ff::NotifyGateLeaveGame notify;
+    proto_ff::NotifyGateLeaveGame2 notify;
+    notify.set_clientid(clientId);
     notify.set_leave_flag(flag);
 
     FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_SERVER,
