@@ -17,6 +17,8 @@
 
 #define NF_MAX_DESC_STORE_INDEX_SIZE 10000
 
+#define CHECK_DESC_RELOADING(DESCSTORENAME) if (DESCSTORENAME::Instance(m_pObjPluginManager)->IsReloading()) return true;
+
 //proto_ff_s::RoleInitInfoDesc_s, RoleInitInfoDesc, MAX_ROLE_INIT_INFO_RECORD_NUM
 #define IMPL_RES_ARRAY_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
@@ -147,15 +149,14 @@
 
 #define IMPL_RES_SIMPLE_DESC(DESCSTORENAME) \
     private:\
-	int GetResNum() const {return 0;}\
-    int Initialize()\
+	virtual int GetResNum() const  override {return 0;}  \
+    virtual int Initialize() override\
     {\
         return 0;\
     }\
-    int Reload(NFResDB *pDB)\
+    virtual int Reload(NFResDB *pDB) override\
     {\
         PrepareReload();\
-        Initialize();\
         int iRetCode = Load( pDB );\
         return iRetCode;\
     }\
@@ -163,13 +164,13 @@
     {\
         return std::string(#DESCSTORENAME);\
     }\
-    int Load(NFResDB* pDB);\
-    int CheckWhenAllDataLoaded();\
-    int CalcUseRatio()\
+    virtual int Load(NFResDB* pDB) override;\
+    virtual int CheckWhenAllDataLoaded() override;\
+    virtual int CalcUseRatio() override\
     {\
         return 0;\
-    }                                       \
-    int SaveDescStore()\
+    }\
+    int SaveDescStore() override\
     {\
         return 0;\
     }\

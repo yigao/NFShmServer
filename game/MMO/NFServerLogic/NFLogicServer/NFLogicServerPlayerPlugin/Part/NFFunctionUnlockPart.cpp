@@ -283,9 +283,9 @@ void NFFunctionUnlockPart::checkUnlock(uint32_t nType, int64_t nValue)
     //是否有功能是从开启列表中移除的标记
     bool delFlag = false;
     //
-    for(auto iter = pList->Begin(); iter != pList->End(); iter++)
+    for(auto iter = pList->begin(); iter != pList->end(); iter++)
     {
-        uint32_t m_functionid = *(iter->first);
+        uint32_t m_functionid = *(iter);
         auto pUnlockCfg = FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetDesc(m_functionid);
         if (nullptr == pUnlockCfg)
         {

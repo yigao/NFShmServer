@@ -323,6 +323,13 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
                 return 0;
             }
         }
+        else
+        {
+            if (!pDescStore->IsNeedReload())
+            {
+                return 0;
+            }
+        }
 
 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "File {}.bin Changed, Reload.", pDescStore->GetFileName());
         pDescStore->SetReLoading(true);

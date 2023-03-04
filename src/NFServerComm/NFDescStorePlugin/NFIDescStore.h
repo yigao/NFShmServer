@@ -88,6 +88,11 @@ public:
         return false;
     }
 
+    virtual bool IsNeedReload()
+    {
+        return false;
+    }
+
     void SetValid()
     {
         m_bValid = true;

@@ -42,7 +42,6 @@ int DailyCultivateDesc::Load(NFResDB *pDB)
 	int iRet = 0;
 	iRet = pResTable->FindAllRecord(GetDBName(), &table);
 	CHECK_EXPR(iRet == 0, -1, "FindAllRecord Error:{}", GetFileName());
-	Initialize();
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
@@ -52,12 +51,6 @@ int DailyCultivateDesc::Load(NFResDB *pDB)
 		return -2;
 	}
 
-	m_astDesc.resize(table.e_dailycultivate_list_size());
-	m_astDescIndex.resize(m_astDescIndex.max_size());
-	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
-	{
-		m_astDescIndex[i] = -1;
-	}
 	for (int i = 0; i < (int)table.e_dailycultivate_list_size(); i++)
 	{
 		const proto_ff::E_DailyCultivate& desc = table.e_dailycultivate_list(i);
@@ -67,10 +60,26 @@ int DailyCultivateDesc::Load(NFResDB *pDB)
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
-		auto pDesc = &m_astDesc[i];
+		if (m_astDescMap.find(desc.m_id()) != m_astDescMap.end())
+		{
+			if (IsReloading())
+			{
+				auto pDesc = GetDesc(desc.m_id());
+				NF_ASSERT_MSG(pDesc, "the desc:{} Reload, GetDesc Failed!, id:{}", GetClassName(), desc.m_id());
+				pDesc->read_from_pbmsg(desc);
+			}
+			else
+			{
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc:{} id:{} exist", GetClassName(), desc.m_id());
+			}
+			continue;
+		}
+		m_astDesc.push_back();
+		auto pDesc = &m_astDesc.back();
+		int curIndex = m_astDesc.size() - 1;
 		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.m_id(), i);
+		auto iter = m_astDescMap.emplace_hint(desc.m_id(), curIndex);
 		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
 		uint64_t hashKey = desc.m_id();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
@@ -82,13 +91,14 @@ int DailyCultivateDesc::Load(NFResDB *pDB)
 			}
 			else
 			{
-				m_astDescIndex[hashKey] = i;
+				m_astDescIndex[hashKey] = curIndex;
 			}
 		}
 		else
 		{
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist key:{} than the max index:{}", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);
+			//NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist key:{} than the max index:{}", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);
 		}
+		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_dailycultivate_list_size());

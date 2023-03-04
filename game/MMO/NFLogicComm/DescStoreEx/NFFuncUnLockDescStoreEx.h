@@ -13,7 +13,8 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
@@ -34,12 +35,16 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
+    virtual bool IsNeedReload();
+
+    virtual int PrepareReload();
 public:
     //根据解锁类型和解锁值 获取对应的功能列表
-    NFShmOldHashMap<uint64_t, bool, MAX_FUNC_UNLOCK_OPEN_VAL_FUNC_NUM>* GetUnlockFunctionList(uint32_t nType, uint64_t nValue, bool externFlag = false);
+    NFShmHashSet<uint64_t, MAX_FUNC_UNLOCK_OPEN_VAL_FUNC_NUM>* GetUnlockFunctionList(uint32_t nType, uint64_t nValue, bool externFlag = false);
 private:
     //任务解锁的 分类数据  map<解锁类型，map<解锁值，set<功能ID> > >
-    NFShmOldHashMap<uint32_t, NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, bool, MAX_FUNC_UNLOCK_OPEN_VAL_FUNC_NUM>, MAX_FUNC_UNLOCK_OPEN_VAL_NUMBER>, MAX_FUNC_UNLOCK_OPEN_TYPE_NUMBER> m_mapUnlockCfg;
+    NFShmHashMap<uint32_t, NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_FUNC_UNLOCK_OPEN_VAL_FUNC_NUM>, MAX_FUNC_UNLOCK_OPEN_VAL_NUMBER>, MAX_FUNC_UNLOCK_OPEN_TYPE_NUMBER> m_mapUnlockCfg;
 DECLARE_IDCREATE(NFFuncUnLockDescStoreEx)
 IMPL_RES_SIMPLE_DESC(NFFuncUnLockDescStoreEx);
 };
