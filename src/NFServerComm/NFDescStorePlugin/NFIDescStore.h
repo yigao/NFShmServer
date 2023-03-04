@@ -108,6 +108,16 @@ public:
         return m_bIsLoaded;
     }
 
+    void SetReLoading(bool bIsLoaded)
+    {
+        m_bIsReLoading = bIsLoaded;
+    }
+
+    bool IsReloading()
+    {
+        return m_bIsReLoading;
+    }
+
     void SetChecked(bool bIsChecked)
     {
         m_bIsChecked = bIsChecked;
@@ -157,6 +167,7 @@ protected:
     bool m_bValid;
     bool m_bIsLoaded;
     bool m_bIsChecked;
+    bool m_bIsReLoading;
     int m_bSaveTimer;
     NFShmString<MAX_MD5_STR_LEN> m_szMD5;
     NFShmString<MAX_DESC_FILE_PATH_STR_LEN> m_filePathName;

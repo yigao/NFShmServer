@@ -325,6 +325,7 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
         }
 
 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "File {}.bin Changed, Reload.", pDescStore->GetFileName());
+        pDescStore->SetReLoading(true);
 		iRet = pDescStore->Reload(m_pResFileDB);
 		CHECK_EXPR(iRet == 0, iRet, "Desc Store Reload table:{} error", pDescStore->GetFileName());
 
@@ -341,6 +342,7 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
 	}
 	else {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "db table:{} Changed, Reload.", pDescStore->GetFileName());
+        pDescStore->SetReLoading(true);
         iRet = pDescStore->Reload(m_pResSqlDB);
         CHECK_EXPR(iRet == 0, iRet, "Desc Store:{} Reload Failed!", pDescStore->GetFileName());
 
@@ -354,10 +356,13 @@ int NFCDescStoreModule::ReLoadDescStore(NFIDescStore *pDescStore)
 
 int NFCDescStoreModule::Reload() {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++) {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin Reload:{}", iter->first);
-        NFIDescStore *pDescStore = iter->second;
+    for(int i = 0; i < (int)mDescStoreRegisterList.size(); i++)
+    {
+        const std::string &name = mDescStoreRegisterList[i];
+        NFIDescStore *pDescStore = mDescStoreMap[name];
         assert(pDescStore);
+
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin Reload:{}", name);
 
         if (pDescStore->IsFileLoad()) {
             int ret = ReLoadDescStore(pDescStore);
@@ -369,6 +374,13 @@ int NFCDescStoreModule::Reload() {
                 NF_ASSERT_MSG(ret == 0, "ReLoad Desc Store Failed!");
             });
         }
+    }
+
+    for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++)
+    {
+        NFIDescStore *pDescStore = iter->second;
+        assert(pDescStore);
+        pDescStore->SetReLoading(false);
     }
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

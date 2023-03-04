@@ -178,4 +178,5 @@ REGISTER_DESCSTORE(OccupationAttributeDesc);\
 REGISTER_DESCSTORE(OccupationSoulDesc);\
 REGISTER_DESCSTORE(GodvalleyBattleDesc);\
 REGISTER_DESCSTORE(RechargeRechargeDesc);\
+REGISTER_DESCSTORE(AiAiDesc);\
 

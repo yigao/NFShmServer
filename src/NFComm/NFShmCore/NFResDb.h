@@ -91,6 +91,11 @@
     const NFShmVector<DESCCLASSNAME, DESCNUM>* GetResDescPtr() const { return &m_astDesc; }\
     virtual int Initialize() override\
     {\
+        m_astDescIndex.resize(m_astDescIndex.max_size());\
+        for(int i = 0; i < (int)m_astDescIndex.size(); i++)\
+        {\
+            m_astDescIndex[i] = -1;\
+        }\
         return 0;\
     }\
     virtual int Reload(NFResDB *pDB) override\
