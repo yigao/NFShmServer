@@ -60,6 +60,12 @@ public:
 
     //计算朝向
     NFPoint3<float> CalDir(const NFPoint3<float>& dstpos, const NFPoint3<float>& srcpos);
+
+    //根据计算单位朝向
+    NFPoint3<float> CalDotByDir(const NFPoint3<float>& dir);
+
+    //根据朝向点计算速度  dot:朝向点， fsec:间隔时间，单位：秒，  fspeed：速度，单位：m/s
+    NFPoint3<float> CalSpeedByDot(const NFPoint3<float>& dot, float fsec, float fspeed);
 public:
     /**
      * @brief 处理客户端消息
@@ -84,7 +90,8 @@ public:
 
 public:
     int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
-
+    int ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet);
+    int ClientTransSceneReq(uint32_t msgId, NFDataPackage &packet);
 public:
     //设置客户端速度
     void SetClientSpeed(const NFPoint3<float> &speed);

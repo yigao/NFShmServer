@@ -71,7 +71,7 @@ enum EMapAreaType
 enum ETransMapType
 {
     ETransMapType_None = 0,			//无,默认出生点传送
-    ETransMapType_Path = 1,			//路径点传送
+    ETransMapType_Point = 1,		//路径点传送
     ETransMapType_Area = 2,			//区域传送
     ETransMapType_Teleport = 3,		//传送门传送
 };

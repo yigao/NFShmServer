@@ -19,7 +19,8 @@
 #include "common_logic_s.h"
 #include "NFLogicCommon/NFPoint3.h"
 
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 
 #define NF_MAP_DESC_BORN_MAX_SIZE 40
 #define NF_MAP_DESC_AREA_MAX_POS_SIZE 10
@@ -56,8 +57,16 @@ public:
     float m_dir;
 };
 
-typedef NFArray<NFPosCfg, NF_MAP_DESC_BORN_MAX_SIZE> VecPosCfg;
-typedef NFArray<NFPoint3<float>, NF_MAP_DESC_PATH_MAX_POS_SIZE> VecPathPosCfg;
+typedef NFShmVector<NFPosCfg, NF_MAP_DESC_BORN_MAX_SIZE> VecPosCfg;
+typedef NFShmVector<NFPoint3<float>, NF_MAP_DESC_PATH_MAX_POS_SIZE> VecPathPosCfg;
+
+//各类坐标点配置
+struct NFPointCfg
+{
+    int64_t mapid = 0;		//地图ID
+    int64_t  id = 0;		//坐标点ID
+    VecPosCfg vecposcfg;	//坐标配置列表
+};
 
 class NFPathCfg
 {
@@ -169,6 +178,9 @@ public:
 
     int ResumeInit();
 
+    virtual bool IsNeedReload();
+
+    virtual int PrepareReload();
 public:
     int LoadBornCfg(uint64_t mapId, const std::string &file);
 
@@ -185,7 +197,7 @@ public:
      * @param id
      * @return
      */
-    const VecPosCfg* GetPointCfg(int64_t id);
+    const NFPointCfg* GetPointCfg(int64_t id);
 
     /**
      * @brief 获取路径配置
@@ -219,12 +231,12 @@ public:
 
 
 private:
-    NFShmOldHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM> m_bornPosMap;
-    NFShmOldHashMap<uint64_t, uint64_t, 10> m_bornProfMap;
+    NFShmHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM> m_bornPosMap;
+    NFShmHashMap<uint64_t, uint64_t, 10> m_bornProfMap;
 private:
-    NFShmOldHashMap<uint64_t, VecPosCfg, MAX_MAP_MAP_NUM * 10> m_pointMap;
-    NFShmOldHashMap<uint64_t, NFAreaCfg, MAX_MAP_MAP_NUM * 10> m_areaMap;
-    NFShmOldHashMap<uint64_t, NFPathCfg, MAX_MAP_MAP_NUM * 10> m_pathMap;
+    NFShmHashMap<uint64_t, NFPointCfg, MAX_MAP_MAP_NUM * 10> m_pointMap;
+    NFShmHashMap<uint64_t, NFAreaCfg, MAX_MAP_MAP_NUM * 10> m_areaMap;
+    NFShmHashMap<uint64_t, NFPathCfg, MAX_MAP_MAP_NUM * 10> m_pathMap;
 private:
 DECLARE_IDCREATE(NFMapDescStoreEx);
 IMPL_RES_SIMPLE_DESC(NFMapDescStoreEx);

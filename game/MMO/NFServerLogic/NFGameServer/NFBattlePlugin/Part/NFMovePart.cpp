@@ -20,6 +20,9 @@
 #include "Scene/NFSceneMgr.h"
 #include "Scene/NFScene.h"
 #include "Scene.pb.h"
+#include "DescStoreEx/NFMapDescStoreEx.h"
+#include "DescStore/AreaAreaDesc.h"
+#include "Creature/NFBattlePlayer.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFMovePart_ID, NFBattlePart)
 
@@ -73,6 +76,16 @@ int NFMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
             ClientMoveReq(msgId, packet);
             break;
         }
+        case proto_ff::CLIENT_LOAD_MAP_FINISH:
+        {
+            ClientLoadMapFinshReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_SCENE_TRANS_REQ:
+        {
+            ClientTransSceneReq(msgId, packet);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_masterCid, "msgId:{} Not Handle", msgId);
@@ -90,6 +103,8 @@ int NFMovePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 int NFMovePart::RetisterClientMessage(NFIPluginManager *pPluginManager)
 {
     RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_LOAD_MAP_FINISH, BATTLE_PART_MOVE);
+    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_SCENE_TRANS_REQ, BATTLE_PART_MOVE);
     return 0;
 }
 
@@ -369,44 +384,36 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
         }
         else
         {
-
 /*            //检查玩家是否能从当前场景切换到其他场景去
-            if (!pMaster->CanTrans(ret, sceneId, mapId, dstPos, outPos, transParam))
+            ret = pMaster->CanTrans(sceneId, mapId, dstPos, outPos, transParam);
+            if (ret != proto_ff::RET_SUCCESS)
             {
-                LogErrFmtPrint("[logic] MovePart::TransScene..... change logic !m_pMaster->CanTrans()....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%u, cid:%lu,ret:%d ,outpos:%f,%f,%f ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret, outPos.x, outPos.y, outPos.z);
-                goto Exit0;
+                NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "[logic] MovePart::TransScene..... change logic !m_pMaster->CanTrans()....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%u, cid:%lu,ret:%d ,outpos:%f,%f,%f ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret, outPos.x, outPos.y, outPos.z);
+                return proto_ff::RET_FAIL;
             }
             //
-            LogicCreatureTransSceneReq req;
+            proto_ff::LogicCreatureTransSceneReq req;
             req.set_cursceneid(curSceneId);
             req.set_dstsceneid(sceneId);
-            req.set_srclogicid(g_GetLogicService()->GetID());
-            CreatureTransParam *protoParam = req.mutable_param();
-            if (nullptr == protoParam)
-            {
-                LogErrFmtPrint("[logic] MovePart::TransScene..... nullptr == protoParam....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%lu, cid:%lu,ret:%d ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret);
-                return false;
-            }
-            SceneTransParam *protoTypeParam = protoParam->mutable_trans_param();
-            if (nullptr == protoTypeParam)
-            {
-                LogErrFmtPrint("[logic] MovePart::TransScene..... nullptr == protoParam....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%lu, cid:%lu,ret:%d ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret);
-                return false;
-            }
-            protoParam->set_kind(m_pMaster->Kind());
-            protoParam->set_cid(m_pMaster->Cid());
+            req.set_srclogicid(pMaster->);
+            proto_ff::CreatureTransParam *protoParam = req.mutable_param();
+            NF_ASSERT(protoParam);
+            proto_ff::SceneTransParam *protoTypeParam = protoParam->mutable_trans_param();
+            NF_ASSERT(protoTypeParam);
+            protoParam->set_kind(pMaster->Kind());
+            protoParam->set_cid(pMaster->Cid());
             protoTypeParam->set_trans_val(transParam.transVal);
             protoTypeParam->set_src_map(transParam.srcMapId);
             protoTypeParam->set_trans_type(transParam.transType);
 
-            if (!m_pMaster->ChangeLogic(sceneId, mapId, dstPos, *protoParam))
+            if (!pMaster->ChangeLogic(sceneId, mapId, dstPos, *protoParam))
             {
                 LogErrFmtPrint("[logic] MovePart::TransScene..... m_pMaster->ChangeLogic failed....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%lu, cid:%lu,ret:%d ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret);
                 return false;
             }
-            if (CREATURE_PLAYER == m_pMaster->Kind())
+            if (CREATURE_PLAYER == pMaster->Kind())
             {
-                CreatureTransLogicDBReq dbReq;
+                proto_ff::CreatureTransLogicDBReq dbReq;
                 string strData = req.SerializeAsString();
                 if (strData.empty())
                 {
@@ -433,7 +440,6 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
                 }
                 MMOLOG_PROCESS_ERROR(retCode);
             }*/
-
         } // end of if (nullptr != pScene)
     } // end of ERetCode ret = RET_SUCCESS;
     //
@@ -690,7 +696,8 @@ int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
         curpos = curpos + m_clientUnitVector * ftick * pMaster->GetSpeed();
     }
 
-    NFLogDebug(NF_LOG_SYSTEMLOG, pMaster->Cid(), "[logic] MovePart::MoveBySimulate..ftick:{},stopFlag:{},oldpos:[{},{},{}],curpos:[{},{},{}]", ftick, stopFlag,oldpos.x, oldpos.y, oldpos.z, curpos.x, curpos.y, curpos.z);
+    NFLogDebug(NF_LOG_SYSTEMLOG, pMaster->Cid(), "[logic] MovePart::MoveBySimulate..ftick:{},stopFlag:{},oldpos:[{},{},{}],curpos:[{},{},{}]", ftick,
+               stopFlag, oldpos.x, oldpos.y, oldpos.z, curpos.x, curpos.y, curpos.z);
     //
     if (stopFlag) //如果是停止移动，服务器需要校验下最终的坐标
     {
@@ -714,9 +721,9 @@ int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
         else
         {
             NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
-                    "[logic] MoveBySimulate  not find map cfg cid:{}, mapid:{}, intertick:{},ftick:{},oldpos:{},{},{}, curpos:{},{},{}, m_clientUnitVector:{},{},{},fspeed:{}, rightpos:[{},{},{}]",
-                    pMaster->Cid(), mapid, intertick, ftick, oldpos.x, oldpos.y, oldpos.z, curpos.x, curpos.y, curpos.z, m_clientUnitVector.x,
-                    m_clientUnitVector.y, m_clientUnitVector.z, pMaster->GetSpeed(), m_lastrightpos.x, m_lastrightpos.y, m_lastrightpos.z);
+                       "[logic] MoveBySimulate  not find map cfg cid:{}, mapid:{}, intertick:{},ftick:{},oldpos:{},{},{}, curpos:{},{},{}, m_clientUnitVector:{},{},{},fspeed:{}, rightpos:[{},{},{}]",
+                       pMaster->Cid(), mapid, intertick, ftick, oldpos.x, oldpos.y, oldpos.z, curpos.x, curpos.y, curpos.z, m_clientUnitVector.x,
+                       m_clientUnitVector.y, m_clientUnitVector.z, pMaster->GetSpeed(), m_lastrightpos.x, m_lastrightpos.y, m_lastrightpos.z);
             curpos = m_lastClientPos;
         }
 
@@ -742,7 +749,7 @@ int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
 }
 
 //计算朝向
-NFPoint3<float> NFMovePart::CalDir(const NFPoint3<float>& dstpos, const NFPoint3<float>& srcpos)
+NFPoint3<float> NFMovePart::CalDir(const NFPoint3<float> &dstpos, const NFPoint3<float> &srcpos)
 {
     NFPoint3<float> dir = dstpos - srcpos;
     dir.y = 0;
@@ -752,5 +759,287 @@ NFPoint3<float> NFMovePart::CalDir(const NFPoint3<float>& dstpos, const NFPoint3
 //通过路径移动 intertick: 间隔时间，单位：毫秒
 int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
 {
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    NFPoint3<float> oldpos = pMaster->GetPos();
+
+    //通过移动距离确定路径上的坐标
+    if (intertick > 0)
+    {
+        //间隔时间
+        float fsec = intertick / 1000.0f;
+        //间隔时间内移动的距离
+        float fdis = fsec * pMaster->GetSpeed();
+        NFPoint3<float> retpos;
+        //
+        bool reachFlag = m_curMovePath.MapPathDistanceToPoint(fdis, retpos);
+
+        //新的朝向和朝向点
+        NFPoint3<float> newdir = CalDir(retpos, oldpos);
+        NFPoint3<float> newdot = CalDotByDir(newdir);
+        bool broadFlag = false;//是否需要广播客户端
+        //这里是计算生物朝向是否有改变，具体的计算方式保持和客户端一致
+        float fdiff = newdot.x * m_lastDirDot.x + newdot.z * m_lastDirDot.z;
+        if (fdiff < 1.0f)
+        {
+            //朝向有改变，需要广播通知给客户端
+            broadFlag = true;
+        }
+        //计算新的速度
+        NFPoint3<float> newspeed(0.0f, 0.0f, 0.0f);
+        if (reachFlag || stopFlag)
+        {
+            broadFlag = true; //停止移动或者已达到目标点，需要广播
+            DeleteTimer(m_timerIdMove);
+            m_timerIdMove = INVALID_ID;
+            //清空路径
+            m_curMovePath.Clear();
+        }
+        else
+        {
+            //新速度
+            newspeed = CalSpeedByDot(newdot, 1.0f, pMaster->GetSpeed());
+        }
+
+        //广播通知
+        if (broadFlag)
+        {
+            BroadcastMove(pMaster->Cid(), retpos, newspeed, newdir, true);
+        }
+
+        //LogDebugFmtPrint("[logic] MovePart::MoveByPath....cid:%lu,intertick:%ld, newspeed:%f,%f,%f, retpos:%f,%f,%f",m_pMaster->Cid(), intertick,newspeed.x,newspeed.y,newspeed.z,retpos.x,retpos.y,retpos.z);
+        //设置新的朝向
+        m_lastDir = newdir;
+        //设置新的朝向点
+        m_lastDirDot = newdot;
+        //设置新的速度
+        SetClientSpeed(newspeed);
+        //设置坐标
+        pMaster->SetPos(retpos);
+    }
+    else if (stopFlag)
+    {
+        DeleteTimer(m_timerIdMove);
+        m_timerIdMove = INVALID_ID;
+        //清空路径
+        m_curMovePath.Clear();
+
+        //间隔时间为0，表示没有移动，直接广播停止即可
+        NFPoint3<float> zerospeed(0.0f, 0.0f, 0.0f);
+        BroadcastMove(pMaster->Cid(), oldpos, zerospeed, m_lastDir, true);
+        //
+        //LogDebugFmtPrint("[logic] MovePart::MoveByPath 111....cid:%lu,intertick:%ld, newspeed:%f,%f,%f, retpos:%f,%f,%f", m_pMaster->Cid(), intertick, zerospeed.x, zerospeed.y, zerospeed.z, oldpos.x, oldpos.y, oldpos.z);
+    }
+
+    return 0;
+}
+
+//根据计算单位朝向
+NFPoint3<float> NFMovePart::CalDotByDir(const NFPoint3<float> &dir)
+{
+    float flen = CarmackSqrt((dir.x * dir.x + dir.z * dir.z));
+    NFPoint3<float> dot; //新的朝向点
+    if (flen > EPS)
+    {
+        dot = dir / flen;
+    }
+    return dot;
+}
+
+//根据朝向点计算速度  dot:朝向点， fsec:间隔时间，单位：秒，  fspeed：速度，单位：m/s
+NFPoint3<float> NFMovePart::CalSpeedByDot(const NFPoint3<float> &dot, float fsec, float fspeed)
+{
+    return (dot * fsec * fspeed);
+}
+
+int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    if (m_waitLoadMapId <= 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
+                   "ClientLoadMapFinshReq.... m_waitLoadMapId <= 0....cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ", pMaster->Cid(),
+                   m_waitLoadMapId, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->GetCanBeSeenFlag());
+        return -1;
+    }
+
+    NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "ClientLoadMapFinshReq... cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ",
+               pMaster->Cid(), m_waitLoadMapId, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->GetCanBeSeenFlag());
+    //
+    m_waitLoadMapId = 0;
+    if (m_timerIdLoadMapTimeout != INVALID_ID)
+    {
+        DeleteTimer(m_timerIdLoadMapTimeout);
+        m_timerIdLoadMapTimeout = INVALID_ID;
+    }
+
+    if (!pMaster->GetCanBeSeenFlag())
+    {
+        pMaster->SetCanBeSeenFlag(true);
+        pMaster->UpdateNineGridLst();
+    }
+
+    return 0;
+}
+
+int NFMovePart::ClientTransSceneReq(uint32_t msgId, NFDataPackage &packet)
+{
+    proto_ff::TransSceneReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    uint64_t cid = pMaster->Cid();
+    int32_t transType = req.type(); //传送类型
+    uint64_t transId = req.id();	//传送ID，针对路径点传送和区域传送
+    uint64_t dstMapId = 0; //目标地图ID
+    NFPoint3<float> dstPos; //目标传送点
+    //
+    STransParam transParam;
+    transParam.srcMapId = pMaster->GetMapId();
+    transParam.transType = ETransType_Scene;
+
+    proto_ff::TransSceneRsp transRsp;
+    transRsp.set_mapid(dstMapId);
+
+    //
+    if (ETransMapType_None == transType) //出生点传送
+    {
+        dstMapId = req.dst_mapid();
+        //随机出生点
+        const NFPoint3<float>* pBornCfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandBornPoint(dstMapId);
+        if (nullptr == pBornCfg)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq..RandBornPoint failed...cid:{}, mapid:{} ", cid, dstMapId);
+
+            //不能传送
+            transRsp.set_retcode(proto_ff::RET_SCENE_CAN_NOT_TRAN);
+            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+            return -1;
+        }
+        dstPos.x = pBornCfg->x;
+        dstPos.y = pBornCfg->y;
+        dstPos.z = pBornCfg->z;
+        //
+        dstPos = NFMapMgr::Instance(m_pObjPluginManager)->RandPosAroundPos(dstMapId, dstPos, 5);
+    }
+    else if (ETransMapType_Point == transType)
+    {
+        auto pPointLoc = NFMapDescStoreEx::Instance(m_pObjPluginManager)->GetPointCfg(transId);
+        if (nullptr == pPointLoc)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid, "[logic] MovePart::ClientTransSceneReq...nullptr == pPointLoc..cid:{}, transId:{} ", cid, transId);
+
+            //传送参数错误
+            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
+            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+            return -1;
+        }
+
+        if (pPointLoc->vecposcfg.size() <= 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq...pPathLoc->vecposcfg.size() <= 0..cid:{},m_mapId:{}, transId:{} ", cid, pPointLoc->mapid, transId);
+            //传送参数错误
+            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
+            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+            return -1;
+        }
+        uint32_t isize = (uint32_t)pPointLoc->vecposcfg.size();
+        uint32_t idx = NFRandInt((uint32_t)0, isize);
+        dstPos = pPointLoc->vecposcfg.at(idx).m_pos;
+        //
+        dstMapId = pPointLoc->mapid;
+    }
+    else if (ETransMapType_Area == transType)
+    {
+        auto pAreaCfg = AreaAreaDesc::Instance(m_pObjPluginManager)->GetDesc(transId);
+        if (nullptr == pAreaCfg)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq...nullptr == pAreaCfg..cid:{},transId:{} ", cid, transId);
+            //传送参数错误
+            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
+            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+            return -1;
+        }
+
+        dstMapId = pAreaCfg->m_belongtosceneid;
+
+        //区域内随机一个坐标
+        if (!NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandPosInArea(transId, dstPos))
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid, "[logic] MovePart::ClientTransSceneReq...RandPosInArea failed..cid:%lu, mapid:%lu, transId:%lu ", cid, dstMapId, transId);
+
+            //传送参数错误
+            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
+            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+            return -1;
+        }
+    }
+    else
+    {
+        //传送参数错误
+        transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+
+    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(dstMapId);
+    if (nullptr == pMapCfg)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq..nullptr == pMapCfg...cid:{}, mapid:{} ", cid, dstMapId);
+        //动态地图不能传送
+        transRsp.set_retcode(proto_ff::RET_SCENE_DST_NOT_EXIST);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+
+    if (pMaster->GetAttr(proto_ff::A_LEVEL) < pMapCfg->m_levellimit)
+    {
+        transRsp.set_retcode(proto_ff::RET_LEVEL_LACK);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+
+    NFBattlePlayer* pPlayer = dynamic_cast<NFBattlePlayer*>(pMaster);
+    if (nullptr != pPlayer && dstMapId != pPlayer->GetMapId() && pPlayer->IsTired())
+    {
+        transRsp.set_retcode(proto_ff::RET_PLAYER_TIRED_STATE);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+    //
+    if (NFMapDescStoreEx::Instance(m_pObjPluginManager)->IsDynamic(pMapCfg->m_mapid)) //动态地图不允许用这个协议传送
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "[logic] MovePart::ClientTransSceneReq..dstmap is dynamic...cid:%lu, mapid:%lu ", cid, dstMapId);
+
+        //动态地图不能传送
+        transRsp.set_retcode(proto_ff::RET_SCENE_CAN_NOT_TRAN);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+
+    //特殊的活动的静态地图只能通过活动那边进入，不允许通过普通的切换地图协议传送地图
+    if (NFMapDescStoreEx::Instance(m_pObjPluginManager)->IsActSpecMap(pMapCfg->m_mapid))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq..dstmap is special act map...cid:{}, mapid:{},maptype:{} ", cid, dstMapId, pMapCfg->m_maptype);
+        //不能传送
+        transRsp.set_retcode(proto_ff::RET_SCENE_CAN_NOT_TRAN);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+    //
+    int ret = TransScene(dstMapId, dstPos, dstMapId, transParam);
+    if (ret != proto_ff::RET_SUCCESS)
+    {
+        //通知前端切场景失败
+        transRsp.set_retcode(ret);
+        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+        return -1;
+    }
+
     return 0;
 }
