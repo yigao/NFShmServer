@@ -158,7 +158,7 @@ int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRe
             {
                 auto pRoleInfo = xData.add_role_info_list();
                 pRoleInfo->ParsePartialFromString(pRes->sel_records(i));
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", pRoleInfo->DebugString());
+                NFLogDebug(NF_LOG_SYSTEMLOG, 0, "{}", pRoleInfo->DebugString());
             }
         }
         else {
