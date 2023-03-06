@@ -860,10 +860,15 @@ int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
 
     if (m_waitLoadMapId <= 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
-                   "ClientLoadMapFinshReq.... m_waitLoadMapId <= 0....cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ", pMaster->Cid(),
-                   m_waitLoadMapId, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->GetCanBeSeenFlag());
-        return -1;
+        if (m_timerIdLoadMapTimeout != INVALID_ID)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
+                       "ClientLoadMapFinshReq.... m_waitLoadMapId <= 0....cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ", pMaster->Cid(),
+                       m_waitLoadMapId, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->GetCanBeSeenFlag());
+            return -1;
+        }
+
+        return 0;
     }
 
     NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "ClientLoadMapFinshReq... cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ",

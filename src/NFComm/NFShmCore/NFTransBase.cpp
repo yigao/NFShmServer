@@ -278,8 +278,8 @@ bool NFTransBase::CanRelease()
 {
     if (IsFinished())
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "This Trans can release, GloabID:{}, type:{}, return code:{}", GetGlobalID(),
-                  GetClassType(), m_iRunLogicRetCode);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "This Trans can release, GloabID:{}, type:{}, name:{} return code:{}", GetGlobalID(),
+                  GetClassType(), GetClassName(), m_iRunLogicRetCode);
         return true;
     }
     return false;
