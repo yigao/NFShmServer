@@ -267,8 +267,6 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
             return 0;
         }
 
-
-
         //掉线重登或者被挤, 通知逻辑服退出
         //如果旧角色处于进入游戏 游戏中 切换场景中 断线中 四种状态
         //那么需要通知旧角色从逻辑服退出 并且需要将 pOldAccount 作移除操作
@@ -287,6 +285,8 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
         }
         else if (EAccountState::login == pOldSession->GetState() ||
                  EAccountState::loading == pOldSession->GetState() ||
+                EAccountState::loadrole == pOldSession->GetState() ||
+                 EAccountState::createrole == pOldSession->GetState() ||
                  EAccountState::queue == pOldSession->GetState())
         {
             //如果旧账号处于 登录或者向DB请求角色列表或者排队状态，删除账号

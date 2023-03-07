@@ -114,6 +114,21 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
     if (pSession == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
+        return 0;
+    }
+
+    if (newClientId > 0 && m_clientId != newClientId)
+    {
+        //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
+        //直接把旧的连接断开
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
+        return 0;
+    }
+
+    if (pSession->GetState() != EAccountState::loadrole)
+    {
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
         return 0;
     }
 
@@ -149,6 +164,32 @@ int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPacka
     CHECK_EXPR(uid == m_uid, -1, "uid:{} != m_uid:{}", uid, m_uid);
     CHECK_EXPR(cid == m_roleId, -1, "cid:{} != m_roleId:{}", cid, m_roleId);
 
+    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(uid);
+    CHECK_EXPR(pPlayer, -1, "can't find player info, uid:{}", uid);
+
+    uint64_t newClientId = pPlayer->GetClientId();
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+    if (pSession == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
+        return 0;
+    }
+
+    if (newClientId > 0 && m_clientId != newClientId)
+    {
+        //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
+        //直接把旧的连接断开
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
+        return 0;
+    }
+
+    if (pSession->GetState() != EAccountState::loadrole)
+    {
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
+        return 0;
+    }
+
     if (retCode == proto_ff::RET_SUCCESS)
     {
         m_loadSns = true;
@@ -172,8 +213,8 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
         NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
         if (pSession == NULL)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId,
-                       m_proxyId);
+            NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId, m_proxyId);
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
             return 0;
         }
 
@@ -181,7 +222,7 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
         {
             //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
             //直接把旧的连接断开
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
             return 0;
         }
 
@@ -206,8 +247,8 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
             NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
             if (pSession == NULL)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId,
-                           m_proxyId);
+                NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId, m_proxyId);
+                NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
                 return 0;
             }
 
@@ -215,12 +256,14 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
             {
                 //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
                 //直接把旧的连接断开
-                NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
+                NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
                 return 0;
             }
 
             pPlayer->SetRoleId(m_roleId);
             pSession->SetRoleId(m_roleId);
+
+            pSession->SetState(EAccountState::enter);
 
             NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_LOGIC_SERVER, pPlayer->GetLogicId());
             proto_ff::ClientEnterGameRsp xDataRsp;
