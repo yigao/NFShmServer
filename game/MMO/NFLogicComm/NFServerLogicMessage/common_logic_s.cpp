@@ -63,7 +63,11 @@ void ServerPacketMsg_s::read_from_pbmsg(const ::proto_ff::ServerPacketMsg & msg)
 }
 
 WorldExternalConfig_s::WorldExternalConfig_s() {
-	CreateInit();
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
 }
 
 int WorldExternalConfig_s::CreateInit() {
@@ -81,12 +85,20 @@ void WorldExternalConfig_s::write_to_pbmsg(::proto_ff::WorldExternalConfig & msg
 	msg.set_tokentimecheck((bool)TokenTimeCheck);
 	msg.set_whiteliststate((bool)WhiteListState);
 	msg.set_maxregisternum((uint32_t)MaxRegisterNum);
+	for(int32_t i = 0; i < (int32_t)WhiteList.size(); ++i) {
+		msg.add_whitelist((uint64_t)WhiteList[i]);
+	}
 }
 
 void WorldExternalConfig_s::read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct WorldExternalConfig_s));
 	TokenTimeCheck = msg.tokentimecheck();
 	WhiteListState = msg.whiteliststate();
 	MaxRegisterNum = msg.maxregisternum();
+	WhiteList.resize((int)msg.whitelist_size() > (int)WhiteList.max_size() ? WhiteList.max_size() : msg.whitelist_size());
+	for(int32_t i = 0; i < (int32_t)WhiteList.size(); ++i) {
+		WhiteList[i] = msg.whitelist(i);
+	}
 }
 
 GameExternalConfig_s::GameExternalConfig_s() {

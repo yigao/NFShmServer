@@ -21,9 +21,10 @@ message ServerPacketMsg {
 }
 
 message WorldExternalConfig {
-  optional bool TokenTimeCheck = 1[(yd_fieldoptions.field_use_stl) = true];
+  optional bool TokenTimeCheck = 1;
   optional bool WhiteListState = 2;
   optional uint32 MaxRegisterNum = 3;
+  repeated uint64 WhiteList = 4[(yd_fieldoptions.field_arysize)=100];
 }
 
 message GameExternalConfig {

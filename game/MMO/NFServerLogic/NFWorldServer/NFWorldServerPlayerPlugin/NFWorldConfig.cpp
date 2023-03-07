@@ -79,8 +79,16 @@ int NFWorldConfig::LoadConfig(NFILuaLoader luaMgr)
 
     //to struct
     m_config.read_from_pbmsg(serverMsg);
+
+    m_config.WhiteList.sort();
     return 0;
 }
+
+bool NFWorldConfig::IsWhiteAccount(uint64_t uid)
+{
+    return m_config.WhiteList.binary_search(uid) != m_config.WhiteList.end();
+}
+
 
 const proto_ff_s::WorldExternalConfig_s* NFWorldConfig::GetConfig() const
 {

@@ -350,6 +350,18 @@ class WorldExternalConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 maxregisternum() const;
   inline void set_maxregisternum(::google::protobuf::uint32 value);
 
+  // repeated uint64 WhiteList = 4;
+  inline int whitelist_size() const;
+  inline void clear_whitelist();
+  static const int kWhiteListFieldNumber = 4;
+  inline ::google::protobuf::uint64 whitelist(int index) const;
+  inline void set_whitelist(int index, ::google::protobuf::uint64 value);
+  inline void add_whitelist(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      whitelist() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_whitelist();
+
   // @@protoc_insertion_point(class_scope:proto_ff.WorldExternalConfig)
  private:
   inline void set_has_tokentimecheck();
@@ -364,9 +376,10 @@ class WorldExternalConfig : public ::google::protobuf::Message {
   bool tokentimecheck_;
   bool whiteliststate_;
   ::google::protobuf::uint32 maxregisternum_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > whitelist_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_common_5flogic_2eproto();
   friend void protobuf_AssignDesc_common_5flogic_2eproto();
@@ -1360,6 +1373,31 @@ inline ::google::protobuf::uint32 WorldExternalConfig::maxregisternum() const {
 inline void WorldExternalConfig::set_maxregisternum(::google::protobuf::uint32 value) {
   set_has_maxregisternum();
   maxregisternum_ = value;
+}
+
+// repeated uint64 WhiteList = 4;
+inline int WorldExternalConfig::whitelist_size() const {
+  return whitelist_.size();
+}
+inline void WorldExternalConfig::clear_whitelist() {
+  whitelist_.Clear();
+}
+inline ::google::protobuf::uint64 WorldExternalConfig::whitelist(int index) const {
+  return whitelist_.Get(index);
+}
+inline void WorldExternalConfig::set_whitelist(int index, ::google::protobuf::uint64 value) {
+  whitelist_.Set(index, value);
+}
+inline void WorldExternalConfig::add_whitelist(::google::protobuf::uint64 value) {
+  whitelist_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+WorldExternalConfig::whitelist() const {
+  return whitelist_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+WorldExternalConfig::mutable_whitelist() {
+  return &whitelist_;
 }
 
 // -------------------------------------------------------------------

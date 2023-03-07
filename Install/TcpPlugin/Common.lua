@@ -73,7 +73,7 @@ NF_MYSQL_USER="root"
 NF_MYSQL_PASSWORD="cg2016"
 
 ----开服时间,单位秒
-GlobalOpenTime = 1598234400
+GlobalOpenTime = 1678204800
 
 ---客户端版本号
 NF_CLIENT_VERSION = 0

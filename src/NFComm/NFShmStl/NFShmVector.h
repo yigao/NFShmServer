@@ -509,7 +509,7 @@ public:
         {
             return pair_iter.first;
         }
-        return NULL;
+        return end();
     }
 
     std::vector<iterator> binary_search_array(const Tp &val)

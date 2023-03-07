@@ -49,7 +49,7 @@ public:
      */
     const proto_ff_s::WorldExternalConfig_s *GetConfig() const;
 
-    bool IsWhiteAccount(uint64_t playerId) { return false; }
+    bool IsWhiteAccount(uint64_t uid);
 private:
     /**
      * @brief 世界服务器额外配置

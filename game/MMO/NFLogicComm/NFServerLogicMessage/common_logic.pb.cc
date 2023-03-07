@@ -99,10 +99,11 @@ void protobuf_AssignDesc_common_5flogic_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ServerPacketMsg));
   WorldExternalConfig_descriptor_ = file->message_type(2);
-  static const int WorldExternalConfig_offsets_[3] = {
+  static const int WorldExternalConfig_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, tokentimecheck_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, whiteliststate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, maxregisternum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, whitelist_),
   };
   WorldExternalConfig_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -321,28 +322,28 @@ void protobuf_AddDesc_common_5flogic_2eproto() {
     "\004\240\301\024\001\022\022\n\nserverType\030\002 \001(\r\022\023\n\013upper_limit"
     "\030\003 \001(\r\022\024\n\014min_interval\030\004 \001(\r\022\024\n\014control_"
     "time\030\005 \001(\r\"\?\n\017ServerPacketMsg\022,\n\tPacketM"
-    "sg\030\001 \003(\0132\023.proto_ff.PacketMsgB\004\240\301\024\001\"c\n\023W"
-    "orldExternalConfig\022\034\n\016TokenTimeCheck\030\001 \001"
-    "(\010B\004\240\301\024\001\022\026\n\016WhiteListState\030\002 \001(\010\022\026\n\016MaxR"
-    "egisterNum\030\003 \001(\r\"\'\n\022GameExternalConfig\022\021"
-    "\n\003map\030\001 \003(\004B\004\240\301\024\001\"3\n\nMapPosInfo\022\017\n\001x\030\001 \001"
-    "(\001B\004\240\301\024\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"L\n\024MapJso"
-    "nConfigObjsPos\022\'\n\003pos\030\001 \001(\0132\024.proto_ff.M"
-    "apPosInfoB\004\240\301\024\001\022\013\n\003rot\030\002 \001(\001\"R\n\021MapJsonC"
-    "onfigObjs\022\020\n\002id\030\001 \001(\004B\004\240\301\024\001\022+\n\003pos\030\002 \003(\013"
-    "2\036.proto_ff.MapJsonConfigObjsPos\"R\n\027MapJ"
-    "sonConfigAreaDetail\022\024\n\006radius\030\001 \001(\001B\004\240\301\024"
-    "\001\022!\n\003pos\030\002 \001(\0132\024.proto_ff.MapPosInfo\"X\n\021"
-    "MapJsonConfigArea\022\020\n\002id\030\001 \001(\004B\004\240\301\024\001\0221\n\006d"
-    "etail\030\002 \003(\0132!.proto_ff.MapJsonConfigArea"
-    "Detail\"H\n\021MapJsonConfigPath\022\020\n\002id\030\001 \001(\004B"
-    "\004\240\301\024\001\022!\n\003pos\030\002 \003(\0132\024.proto_ff.MapPosInfo"
-    "\"\230\001\n\rMapJsonConfig\022/\n\004objs\030\001 \003(\0132\033.proto"
-    "_ff.MapJsonConfigObjsB\004\240\301\024\001\022*\n\005areas\030\002 \003"
-    "(\0132\033.proto_ff.MapJsonConfigArea\022*\n\005paths"
-    "\030\003 \003(\0132\033.proto_ff.MapJsonConfigPath*5\n\007T"
-    "ableID\022\020\n\014E_TABLE_NONE\020\000\022\030\n\024E_TABLE_ROLE"
-    "_DB_DATA\020\001", 1050);
+    "sg\030\001 \003(\0132\023.proto_ff.PacketMsgB\004\240\301\024\001\"v\n\023W"
+    "orldExternalConfig\022\026\n\016TokenTimeCheck\030\001 \001"
+    "(\010\022\026\n\016WhiteListState\030\002 \001(\010\022\026\n\016MaxRegiste"
+    "rNum\030\003 \001(\r\022\027\n\tWhiteList\030\004 \003(\004B\004\210\301\024d\"\'\n\022G"
+    "ameExternalConfig\022\021\n\003map\030\001 \003(\004B\004\240\301\024\001\"3\n\n"
+    "MapPosInfo\022\017\n\001x\030\001 \001(\001B\004\240\301\024\001\022\t\n\001y\030\002 \001(\001\022\t"
+    "\n\001z\030\003 \001(\001\"L\n\024MapJsonConfigObjsPos\022\'\n\003pos"
+    "\030\001 \001(\0132\024.proto_ff.MapPosInfoB\004\240\301\024\001\022\013\n\003ro"
+    "t\030\002 \001(\001\"R\n\021MapJsonConfigObjs\022\020\n\002id\030\001 \001(\004"
+    "B\004\240\301\024\001\022+\n\003pos\030\002 \003(\0132\036.proto_ff.MapJsonCo"
+    "nfigObjsPos\"R\n\027MapJsonConfigAreaDetail\022\024"
+    "\n\006radius\030\001 \001(\001B\004\240\301\024\001\022!\n\003pos\030\002 \001(\0132\024.prot"
+    "o_ff.MapPosInfo\"X\n\021MapJsonConfigArea\022\020\n\002"
+    "id\030\001 \001(\004B\004\240\301\024\001\0221\n\006detail\030\002 \003(\0132!.proto_f"
+    "f.MapJsonConfigAreaDetail\"H\n\021MapJsonConf"
+    "igPath\022\020\n\002id\030\001 \001(\004B\004\240\301\024\001\022!\n\003pos\030\002 \003(\0132\024."
+    "proto_ff.MapPosInfo\"\230\001\n\rMapJsonConfig\022/\n"
+    "\004objs\030\001 \003(\0132\033.proto_ff.MapJsonConfigObjs"
+    "B\004\240\301\024\001\022*\n\005areas\030\002 \003(\0132\033.proto_ff.MapJson"
+    "ConfigArea\022*\n\005paths\030\003 \003(\0132\033.proto_ff.Map"
+    "JsonConfigPath*5\n\007TableID\022\020\n\014E_TABLE_NON"
+    "E\020\000\022\030\n\024E_TABLE_ROLE_DB_DATA\020\001", 1069);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common_logic.proto", &protobuf_RegisterTypes);
   PacketMsg::default_instance_ = new PacketMsg();
@@ -968,6 +969,7 @@ void ServerPacketMsg::Swap(ServerPacketMsg* other) {
 const int WorldExternalConfig::kTokenTimeCheckFieldNumber;
 const int WorldExternalConfig::kWhiteListStateFieldNumber;
 const int WorldExternalConfig::kMaxRegisterNumFieldNumber;
+const int WorldExternalConfig::kWhiteListFieldNumber;
 #endif  // !_MSC_VER
 
 WorldExternalConfig::WorldExternalConfig()
@@ -1028,6 +1030,7 @@ void WorldExternalConfig::Clear() {
     whiteliststate_ = false;
     maxregisternum_ = 0u;
   }
+  whitelist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1081,6 +1084,28 @@ bool WorldExternalConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_WhiteList;
+        break;
+      }
+
+      // repeated uint64 WhiteList = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_WhiteList:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 1, 32, input, this->mutable_whitelist())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, this->mutable_whitelist())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_WhiteList;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1118,6 +1143,12 @@ void WorldExternalConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->maxregisternum(), output);
   }
 
+  // repeated uint64 WhiteList = 4;
+  for (int i = 0; i < this->whitelist_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(
+      4, this->whitelist(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1139,6 +1170,12 @@ void WorldExternalConfig::SerializeWithCachedSizes(
   // optional uint32 MaxRegisterNum = 3;
   if (has_maxregisternum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->maxregisternum(), target);
+  }
+
+  // repeated uint64 WhiteList = 4;
+  for (int i = 0; i < this->whitelist_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt64ToArray(4, this->whitelist(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1170,6 +1207,16 @@ int WorldExternalConfig::ByteSize() const {
     }
 
   }
+  // repeated uint64 WhiteList = 4;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->whitelist_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt64Size(this->whitelist(i));
+    }
+    total_size += 1 * this->whitelist_size() + data_size;
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1195,6 +1242,7 @@ void WorldExternalConfig::MergeFrom(const ::google::protobuf::Message& from) {
 
 void WorldExternalConfig::MergeFrom(const WorldExternalConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
+  whitelist_.MergeFrom(from.whitelist_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_tokentimecheck()) {
       set_tokentimecheck(from.tokentimecheck());
@@ -1231,6 +1279,7 @@ void WorldExternalConfig::Swap(WorldExternalConfig* other) {
     std::swap(tokentimecheck_, other->tokentimecheck_);
     std::swap(whiteliststate_, other->whiteliststate_);
     std::swap(maxregisternum_, other->maxregisternum_);
+    whitelist_.Swap(&other->whitelist_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

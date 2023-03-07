@@ -42,7 +42,7 @@ namespace proto_ff_s {
 	};
 	typedef struct ServerPacketMsg_s ServerPacketMsg_t;
 
-	struct WorldExternalConfig_s {
+	struct WorldExternalConfig_s : public NFDescStoreSeqOP {
 		WorldExternalConfig_s();
 		virtual ~WorldExternalConfig_s(){}
 		int CreateInit();
@@ -50,6 +50,7 @@ namespace proto_ff_s {
 		bool TokenTimeCheck;
 		bool WhiteListState;
 		uint32_t MaxRegisterNum;
+		NFShmVector<uint64_t, 100> WhiteList;
 
 		virtual void write_to_pbmsg(::proto_ff::WorldExternalConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg);
