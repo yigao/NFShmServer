@@ -83,10 +83,13 @@ public:
     int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
 
     int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+    int SendTransToLogicServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+    int SendTransToWorldServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+    int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
 private:
     /**

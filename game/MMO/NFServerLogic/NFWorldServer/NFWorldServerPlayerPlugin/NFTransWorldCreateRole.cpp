@@ -68,6 +68,11 @@ int NFTransWorldCreateRole::SendCreateRoleInfo(const proto_ff::WorldToLogicCreat
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
     CHECK_EXPR(pPlayer, -1, "OnHandleCreateRole, GetPlayerByUid return NULL, uid:{}", m_uid);
 
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+    CHECK_EXPR(pSession, -1, "GetSession, GetSession return NULL, clientId:{}", m_clientId);
+
+    pSession->SetState(EAccountState::createrole);
+
     pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ, createRoleReq, GetGlobalID());
 
     return 0;
@@ -112,22 +117,27 @@ int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFD
         CHECK_EXPR_ASSERT(pRoleInfo == NULL, -1, "role:{} exist", cid);
         pRoleInfo = pPlayer->CreateRoleInfo(cid);
         CHECK_EXPR_ASSERT(pRoleInfo != NULL, -1, "CreateRoleInfo Failed:{}", cid);
-        pRoleInfo->m_logicId = pPlayer->GetLogicId();
         pRoleInfo->SetRoleInfo(xData.role_info());
-
-        auto pTempPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CreateCidIndexToUid(cid, uid);
-        CHECK_EXPR_ASSERT(pPlayer == pTempPlayer, -1, "CreateCidIndexToUid Error");
     }
-
-    if (pPlayer->GetRoleId() > 0)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateRoleInfo Error..........., the create roleId:{} not equal return roleId:{}", pPlayer->GetRoleId(),
-                   cid);
-    }
-
-    pPlayer->SetRoleId(m_roleId);
 
     uint64_t newClientId = pPlayer->GetClientId();
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+    if (pSession == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        return 0;
+    }
+
+    //创建角色的账号必须处于登录状态
+    if (EAccountState::createrole != pSession->GetState())
+    {
+        //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
+        //直接把旧的连接断开
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession state error, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        return 0;
+    }
+
     if (newClientId > 0 && m_clientId != newClientId)
     {
         //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
@@ -137,25 +147,7 @@ int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFD
         return 0;
     }
 
-    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
-    if (pSession == NULL)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
-        return 0;
-    }
-
-    if (pSession->IsDisconnect())
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession IsDisconnect, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
-        return 0;
-    }
-
-    //创建角色的账号必须处于登录状态
-    if (EAccountState::loading != pSession->GetState())
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession state error, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
-        return 0;
-    }
+    pSession->SetState(EAccountState::loading);
 
     pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_CREATE_ROLE_RSP, xDataRsp);
 
@@ -173,6 +165,14 @@ int NFTransWorldCreateRole::OnTransFinished(int iRunLogicRetCode)
                    m_uid);
 
         uint64_t newClientId = pPlayer->GetClientId();
+        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+        if (pSession == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId,
+                       m_proxyId);
+            return 0;
+        }
+
         if (newClientId > 0 && m_clientId != newClientId)
         {
             //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
@@ -181,16 +181,7 @@ int NFTransWorldCreateRole::OnTransFinished(int iRunLogicRetCode)
             return 0;
         }
 
-        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
-        if (pSession == NULL)
-        {
-            return 0;
-        }
-
-        if (pSession->IsDisconnect())
-        {
-            return 0;
-        }
+        pSession->SetState(EAccountState::loading);
 
         proto_ff::ClientCreateRoleRsp xDataRsp;
         xDataRsp.set_result(iRunLogicRetCode);
@@ -202,11 +193,5 @@ int NFTransWorldCreateRole::OnTransFinished(int iRunLogicRetCode)
 
 int NFTransWorldCreateRole::OnTimeOut()
 {
-    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
-    CHECK_EXPR(pPlayer, -1,
-               "OnTransFinished, NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(playerId) return NULL, playerId:{}",
-               m_uid);
-
-    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
     return 0;
 }

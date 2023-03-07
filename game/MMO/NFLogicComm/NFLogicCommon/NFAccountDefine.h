@@ -115,6 +115,8 @@ enum class EAccountState
     login,			// 登录游戏
     queue,			// 排队状态
     loading,		// 从DB加载角色数据
+    createrole,		// 从DB加载角色数据
+    loadrole,
     enter,			// 进入游戏
     gaming,			// 游戏状态
     switch_scene,	// 切换场景

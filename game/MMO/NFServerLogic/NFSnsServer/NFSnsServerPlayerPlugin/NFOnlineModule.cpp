@@ -154,7 +154,7 @@ int NFCOnlineModule::OnHandleRoleReconnect(uint32_t msgId, NFDataPackage &packet
     return 0;
 }
 
-int NFCOnlineModule::OnHandleRoleLogin(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+int NFCOnlineModule::OnHandleRoleLogin(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::WorldToSnsLoginReq xData;
@@ -162,6 +162,7 @@ int NFCOnlineModule::OnHandleRoleLogin(uint32_t msgId, NFDataPackage &packet, ui
 
     NFTransRoleLogin* pTrans = dynamic_cast<NFTransRoleLogin *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_ROLE_LOGIN_ID));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransRoleLogin failed!");
+    pTrans->Init(reqTransId);
     int iRetCode = pTrans->OnRoleLogin(xData);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->OnRoleLogin failed");
 

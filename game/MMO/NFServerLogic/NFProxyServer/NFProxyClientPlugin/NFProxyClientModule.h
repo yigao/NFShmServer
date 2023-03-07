@@ -70,10 +70,7 @@ public:
     int HandleProxyClientTick();
     int HandlePlayerTick();
 
-    /*
-     * 踢掉玩家
-     * */
-    int KickPlayer(uint64_t unLinkId, uint32_t flag);
+
 
     /**
      * @brief 处理其他服务器发给客户的 信息
@@ -120,14 +117,6 @@ public:
      * @param packet
      * @return
      */
-    int OnHandleCreateRoleRsp(uint64_t unLinkId, NFDataPackage &packet);
-
-    /**
-     * @brief
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
     int OnHandleChangeServerBusId(uint64_t unLinkId, NFDataPackage &packet);
 
     /**
@@ -157,7 +146,28 @@ public:
      * @param flag
      * @return
      */
-    int LeaveGame(uint64_t clientId, proto_ff::LOGOUT_TYPE flag);
+    int LeaveGame(NF_SHARE_PTR<NFProxySession> pLinkInfo, proto_ff::LOGOUT_TYPE flag);
+
+    /**
+     * @brief 强制玩家掉线，先通知别的服务器玩家掉线，在关闭网络链接(关闭网络链接时异步的)
+     * @param clientId
+     * @param flag
+     * @return
+     */
+    int ForceDisconnect(NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo, NF_SHARE_PTR<NFProxySession> pLinkInfo, proto_ff::LOGOUT_TYPE flag);
+
+    /*
+     * 踢掉玩家
+     * */
+    int KickPlayer(NF_SHARE_PTR<NFProxySession> pLinkInfo, uint32_t flag);
+
+    /**
+     * @brief 通知中心服玩家掉线
+     * @param unLinkId
+     * @param pPlayerInfo
+     * @return
+     */
+    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo) const;
 private:
     /*
         对外部客户端监听唯一ID
@@ -167,5 +177,4 @@ private:
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;
 
-    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo) const;
 };

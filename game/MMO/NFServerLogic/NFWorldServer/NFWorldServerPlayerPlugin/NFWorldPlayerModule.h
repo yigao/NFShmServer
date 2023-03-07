@@ -86,26 +86,6 @@ public:
      */
 
     /**
-     * @brief 处理逻辑登陆返回
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandleLogicLoginRsp(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
-
-    /**
-     * @brief 处理Sns服务器登陆返回
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandleSnsLoginRsp(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
-
-    /**
      * @brief
      * @param msgId
      * @param packet
@@ -124,13 +104,6 @@ public:
      * @return
      */
     int OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
-public:
-
-    //添加离线uid和clientid的映射
-    void AddLogoutClientId(uint32_t uid, uint32_t clientid);
-
-    //移除离线uid和clientid的映射
-    void DelLogoutClientId(uint32_t uid);
 private:
     /**
      * @brief NFILuaModule

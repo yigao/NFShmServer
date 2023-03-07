@@ -150,7 +150,6 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 
 int NFPlayerMgr::OnLoad(NFPlayer *pPlayer, bool isLoadDB)
 {
-    OnHandleLoginRoleRsp(pPlayer, proto_ff::RET_SUCCESS);
     return 0;
 }
 
@@ -211,21 +210,6 @@ int NFPlayerMgr::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll)
         m_iLastTickIndex++;
     }
 
-    return 0;
-}
-
-int NFPlayerMgr::OnHandleLoginRoleRsp(NFPlayer *pPlayer, uint32_t ret_code)
-{
-    CHECK_NULL(pPlayer);
-    proto_ff::LogicToWorldLoginRsp xMsg;
-    xMsg.set_ret_code(ret_code);
-    auto pData = xMsg.mutable_simple_data();
-    pData->set_uid(pPlayer->GetUid());
-    pData->set_cid(pPlayer->GetCid());
-    pData->set_zid(pPlayer->GetZid());
-    auto pBase = pData->mutable_base();
-    pPlayer->SetBaseData(pBase);
-    pPlayer->SendMsgToWorldServer(proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg);
     return 0;
 }
 

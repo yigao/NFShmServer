@@ -287,25 +287,11 @@ int NFWorldPlayerMgr::CharDBToCharSimpleDB(const proto_ff::RoleDBData &dbproto, 
 int NFWorldPlayerMgr::NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto_ff::LOGOUT_TYPE flag)
 {
     NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
-    if (pSession == NULL)
+    if (pSession)
     {
-        return 0;
+        NFWorldSessionMgr::Instance(m_pObjPluginManager)->DeleteSession(pSession);
     }
 
-    if (pSession->IsDisconnect())
-    {
-        return 0;
-    }
-
-    pSession->SetDisconnect(true);
-
-    if (proto_ff::LOGOUT_REPLACE == flag)
-    {
-        proto_ff::ClientLogoutNotify rsp;
-        rsp.set_reason(flag);
-        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_SERVER,
-                                                                   proto_ff::CLIENT_LOGOUT_NOTIFY, rsp, clientId);
-    }
 
     //通知客户端强制断线
     //路由管理器移除对应的标识
@@ -319,8 +305,14 @@ int NFWorldPlayerMgr::NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto
     return 0;
 }
 
-int NFWorldPlayerMgr::NotifyLogicLeave(uint64_t cid, uint64_t uid, uint32_t clientId, uint32_t logicId, proto_ff::LOGOUT_TYPE type/* = proto_ff::LOGOUT_NONE*/)
+int NFWorldPlayerMgr::NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type)
 {
+    CHECK_EXPR(pPlayer, -1, "pPlayer == NULL");
+    CHECK_EXPR(pSession, -1, "pSession == NULL");
+
+    //强制断开之前的客户端session
+    NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_REPLACE);
+    NotifyOtherServerPlayerDisconnect(pPlayer, type);
     return 0;
 }
 
@@ -342,11 +334,15 @@ int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(NFWorldPlayer *pPlayer, 
 {
     CHECK_NULL(pPlayer);
 
-    proto_ff::WorldToOtherServerDisconnectNotify xMsg;
-    xMsg.set_roleid(pPlayer->GetRoleId());
-    xMsg.set_reason(reason);
+    if (pPlayer->GetRoleId() > 0)
+    {
+        proto_ff::WorldToOtherServerDisconnectNotify xMsg;
+        xMsg.set_roleid(pPlayer->GetRoleId());
+        xMsg.set_reason(reason);
 
-    pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
-    pPlayer->SendMsgToSnsServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+        pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+        pPlayer->SendMsgToSnsServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+    }
+
     return 0;
 }

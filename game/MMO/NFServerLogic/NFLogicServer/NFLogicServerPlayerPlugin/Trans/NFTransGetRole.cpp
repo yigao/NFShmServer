@@ -81,7 +81,17 @@ int NFTransGetRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
         m_pos.x = pEnterGameReq->pos().x();
         m_pos.y = pEnterGameReq->pos().y();
         m_pos.z = pEnterGameReq->pos().z();
-        SendGetRoleInfo();
+
+        NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(m_roleId);
+        if (pPlayer)
+        {
+            pPlayer->SetProxyId(m_proxyId);
+            pPlayer->OnLoad(false);
+            SetFinished(0);
+        }
+        else {
+            SendGetRoleInfo();
+        }
     }
     else if (m_cmd == proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ)
     {
@@ -107,16 +117,6 @@ int NFTransGetRole::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, u
         ::proto_ff::RoleDBData dbData;
         dbData.ParsePartialFromString(pRes->sel_record());
 
-        if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_REQ)
-        {
-            m_isLoad = true;
-
-            NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(dbData.cid(), dbData.uid(), dbData);
-            CHECK_EXPR(pPlayer, -1, "CreatePlayerByUid Failed! roleId:{} uid:{}", dbData.cid(), dbData.uid());
-            pPlayer->SetProxyId(m_proxyId);
-            pPlayer->OnLoad(true);
-        }
-
         HandleGetRoleDBRsp(dbData);
     }
     return 0;
@@ -124,7 +124,22 @@ int NFTransGetRole::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, u
 
 int NFTransGetRole::HandleGetRoleDBRsp(proto_ff::RoleDBData& dbData)
 {
-    if (m_cmd == proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ)
+    if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_REQ)
+    {
+        m_isLoad = true;
+        NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(m_roleId);
+        if (pPlayer == NULL)
+        {
+            pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(dbData.cid(), dbData.uid(), dbData);
+            CHECK_EXPR(pPlayer, -1, "CreatePlayerByUid Failed! roleId:{} uid:{}", dbData.cid(), dbData.uid());
+            pPlayer->SetProxyId(m_proxyId);
+            pPlayer->OnLoad(true);
+        }
+        else {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "HandleGetRoleDBRsp Fail! Get Role Load From DB, but mem has role data");
+        }
+    }
+    else if (m_cmd == proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ)
     {
         proto_ff::LogicToWorldCreateRoleRsp xData;
         xData.set_ret_code(proto_ff::RET_SUCCESS);
@@ -150,7 +165,32 @@ int NFTransGetRole::HandleTransFinished(int iRunLogicRetCode)
             xData.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_CREATE_FAILED);
             xData.set_uid(m_uid);
             xData.set_cid(m_roleId);
-            FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, GetGlobalID(), m_reqTransId);
+            FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, GetGlobalID(), m_reqTransId);
+        }
+        else if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_REQ)
+        {
+            proto_ff::LogicToWorldLoginRsp xMsg;
+            xMsg.set_ret_code(iRunLogicRetCode);
+            FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg, GetGlobalID(), m_reqTransId);
+            return 0;
+        }
+    }
+    else {
+        if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_REQ)
+        {
+            NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(m_roleId);
+            CHECK_NULL(pPlayer);
+
+            proto_ff::LogicToWorldLoginRsp xMsg;
+            xMsg.set_ret_code(proto_ff::RET_SUCCESS);
+            auto pData = xMsg.mutable_simple_data();
+            pData->set_uid(pPlayer->GetUid());
+            pData->set_cid(pPlayer->GetCid());
+            pData->set_zid(pPlayer->GetZid());
+            auto pBase = pData->mutable_base();
+            pPlayer->SetBaseData(pBase);
+            pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg, GetGlobalID(), m_reqTransId);
+            return 0;
         }
     }
 

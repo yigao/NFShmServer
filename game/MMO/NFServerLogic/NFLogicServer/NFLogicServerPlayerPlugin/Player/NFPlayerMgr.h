@@ -153,9 +153,6 @@ public:
      * @return
      */
     virtual int DoTick(uint32_t dwCurRunIndex, bool bIsTickAll = false);
-
-public:
-    int OnHandleLoginRoleRsp(NFPlayer *pPlayer, uint32_t ret_code);
 private:
     int m_dayZeroTimer;
     int m_weekZeroTimer;

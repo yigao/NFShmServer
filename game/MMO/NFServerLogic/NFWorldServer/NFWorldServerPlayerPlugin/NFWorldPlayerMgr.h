@@ -29,6 +29,7 @@ enum
 };
 
 class NFWorldPlayer;
+class NFWorldSession;
 class NFWorldPlayerMgr : public NFShmObj {
 public:
     NFWorldPlayerMgr();
@@ -177,7 +178,7 @@ public:
      * @param type
      * @return
      */
-    int NotifyLogicLeave(uint64_t cid, uint64_t uid, uint32_t clientId, uint32_t logicId, proto_ff::LOGOUT_TYPE type);
+    int NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type);
 
     /**
      * @brief 通知ProxyServer玩家服务器的busId改变

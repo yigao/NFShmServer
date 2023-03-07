@@ -159,7 +159,7 @@ int NFTransRoleLogin::OnRoleLoginRes(int iRunLogicRetCode)
     rspMsg.set_uid(m_simpleInfo.uid);
     if (iRunLogicRetCode != 0)
     {
-        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_SNS_SERVER, proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg);
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_SNS_SERVER, proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalID(), m_reqTrans);
         return 0;
     }
 
@@ -171,7 +171,7 @@ int NFTransRoleLogin::OnRoleLoginRes(int iRunLogicRetCode)
     pRoleSimple->SetLogicId(m_logicId);
     pRoleSimple->SetProxyId(m_proxyId);
 
-    pRoleSimple->SendMsgToWorldServer(proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg);
+    pRoleSimple->SendTransToWorldServer(proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalID(), m_reqTrans);
     return 0;
 }
 
