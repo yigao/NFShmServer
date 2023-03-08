@@ -114,22 +114,19 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
     if (pSession == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
-        return 0;
+        return -1;
     }
 
     if (newClientId > 0 && m_clientId != newClientId)
     {
         //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
         //直接把旧的连接断开
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
-        return 0;
+        return -1;
     }
 
     if (pSession->GetState() != EAccountState::loadrole)
     {
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
-        return 0;
+        return -1;
     }
 
     if (retCode == proto_ff::RET_SUCCESS)
@@ -172,22 +169,20 @@ int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPacka
     if (pSession == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
-        return 0;
+        return -1;
     }
 
     if (newClientId > 0 && m_clientId != newClientId)
     {
         //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
         //直接把旧的连接断开
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
-        return 0;
+        return -1;
     }
 
     if (pSession->GetState() != EAccountState::loadrole)
     {
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_REPLACE);
-        return 0;
+        return -1;
     }
 
     if (retCode == proto_ff::RET_SUCCESS)

@@ -48,6 +48,8 @@ public:
      * @return
      */
     int DeleteSession(NFWorldSession *pSession);
+
+    int DeleteSession(uint64_t ClientId);
 private:
 DECLARE_IDCREATE(NFWorldSessionMgr)
 };

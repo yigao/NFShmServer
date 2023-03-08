@@ -122,24 +122,22 @@ int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const 
     if (pSession == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, clientId, proxyId);
-        return 0;
+        return -1;
     }
 
     if (newClientId > 0 && m_clientId != newClientId)
     {
         //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
         //直接把旧的连接断开
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
         NFLogError(NF_LOG_SYSTEMLOG, uid, "clientId != newClientId....uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, clientId, proxyId);
-        return 0;
+        return -1;
     }
 
     //再加一下状态判断 状态出错直接断开连接
     if (pSession->GetState() != EAccountState::login)
     {
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
         NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession->GetState() != EAccountState::login, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, clientId, proxyId);
-        return 0;
+        return -1;
     }
 
     proto_ff::ClientLoginRsp loginrsp;

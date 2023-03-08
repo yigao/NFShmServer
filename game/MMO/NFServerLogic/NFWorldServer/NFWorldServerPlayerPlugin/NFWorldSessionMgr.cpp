@@ -72,3 +72,14 @@ int NFWorldSessionMgr::DeleteSession(NFWorldSession *pSession)
     return 0;
 }
 
+int NFWorldSessionMgr::DeleteSession(uint64_t ClientId)
+{
+    auto pSession = GetSession(ClientId);
+    if (pSession)
+    {
+        DeleteSession(pSession);
+    }
+
+    return NULL;
+}
+

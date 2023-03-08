@@ -97,7 +97,7 @@ int NFWorldPlayerMgr::PlayerTick()
     }
 
     //处理排队直接进去
-    if (!IsNeedLoginQueue())
+    if (!IsNeedLoginQueue() && m_loginQueueMap.size() > 0)
     {
         auto iterQueue = m_loginQueueMap.begin();
         uint32_t uid = iterQueue->first;
@@ -170,6 +170,11 @@ int NFWorldPlayerMgr::SessionTick()
             willRemoveSession.push_back(pSession->GetClientId());
         }
         pSession = dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->GetNextObj(EOT_WORLD_SESSION_ID, pSession));
+    }
+
+    for(int i = 0; i < (int)willRemoveSession.size(); i++)
+    {
+        NFWorldSessionMgr::Instance(m_pObjPluginManager)->DeleteSession(willRemoveSession[i]);
     }
 
     NFWorldPlayer* pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_WORLD_PLAYER_ID));
