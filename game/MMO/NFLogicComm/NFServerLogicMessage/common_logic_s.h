@@ -51,6 +51,8 @@ namespace proto_ff_s {
 		bool WhiteListState;
 		uint32_t MaxRegisterNum;
 		NFShmVector<uint64_t, 100> WhiteList;
+		uint32_t StartQueueNum;
+		uint32_t MaxQueueNum;
 
 		virtual void write_to_pbmsg(::proto_ff::WorldExternalConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg);

@@ -94,11 +94,6 @@ public:
     /**
      * @brief 排队
      */
-
-    uint32_t GetCurrentLoginNum() const;
-
-    void SetCurrentLoginNum(uint32_t currentLoginNum);
-
     uint32_t GetMaxQueueNum() const;
 
     void SetMaxQueueNum(uint32_t maxQueueNum);
@@ -152,6 +147,8 @@ public:
      * @return
      */
     int DeleteLoginQueue(uint64_t playerId);
+
+    int HandleLoginQueue(NFWorldPlayer* pPlayer);
 public:
     /**
      * @brief
@@ -210,11 +207,6 @@ private:
      * @brief 记录排队uid表列
      */
     NFShmHashMap<uint64_t, NFLoginQueue, WORLD_SERVER_MAX_ONLINE_COUNT> m_loginQueueMap;
-
-    /**
-     * @brief 计算已经进入的登陆的人数  包含在选角色界面和进入游戏的
-     */
-    uint32_t m_currentLoginNum;
 
     /**
      * @brief 最多排队的人数

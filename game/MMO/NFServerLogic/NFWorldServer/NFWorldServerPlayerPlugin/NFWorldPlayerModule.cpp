@@ -56,6 +56,12 @@ bool NFCWorldPlayerModule::Awake()
 {
     NFWorldConfig::Instance(m_pObjPluginManager)->LoadConfig(m_luaModule);
 
+    auto pWorldConfig = NFWorldConfig::Instance(m_pObjPluginManager)->GetConfig();
+    CHECK_EXPR(pWorldConfig, false, "");
+
+    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->SetStartQueueNum(pWorldConfig->StartQueueNum);
+    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->SetMaxQueueNum(pWorldConfig->MaxQueueNum);
+
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
     RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::CLIENT_LOGIN_REQ);
     RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::CLIENT_CREATE_ROLE_REQ);
@@ -198,35 +204,30 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
 
     uint64_t tick = NFServerTime::Instance()->Tick();
 
-    //没到开服时间，不让进去,白名单无视这个条件
-    if (pConfig->ServerOpenTime > NFServerTime::Instance()->UnixSec())
+    if (pExternalConfig->WhiteListState)
     {
         if (!NFWorldConfig::Instance(m_pObjPluginManager)->IsWhiteAccount(uid))
+        {
+            xMsgRsp.set_ret(proto_ff::RET_DISALLOW_ENTER_GAME);
+            FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_CLIENT, proto_ff::CLIENT_LOGIN_RSP,
+                                                                       xMsgRsp, uid);
+            return 0;
+        }
+    }
+    else {
+        //没到开服时间，不让进去,白名单无视这个条件
+        if (pConfig->ServerOpenTime > NFServerTime::Instance()->UnixSec())
         {
             xMsgRsp.set_ret(proto_ff::RET_NOT_OPEN_TIME);
             FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_CLIENT, proto_ff::CLIENT_LOGIN_RSP,
                                                                        xMsgRsp, uid);
             return 0;
         }
-    }
 
-    //超过排队人数，则直接通知不能排队，返回消息
-    if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
-    {
-        if (!NFWorldConfig::Instance(m_pObjPluginManager)->IsWhiteAccount(uid))
+        //超过排队人数，则直接通知不能排队，返回消息
+        if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
         {
             xMsgRsp.set_ret(proto_ff::RET_LOGIN_QUEUE_ENOUGHT_NUM);
-            FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_CLIENT, proto_ff::CLIENT_LOGIN_RSP,
-                                                                       xMsgRsp, uid);
-            return 0;
-        }
-    }
-
-    if (pExternalConfig->WhiteListState)
-    {
-        if (!NFWorldConfig::Instance(m_pObjPluginManager)->IsWhiteAccount(uid))
-        {
-            xMsgRsp.set_ret(proto_ff::RET_DISALLOW_ENTER_GAME);
             FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, proxyId, NF_MODULE_CLIENT, proto_ff::CLIENT_LOGIN_RSP,
                                                                        xMsgRsp, uid);
             return 0;
@@ -337,33 +338,7 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
     //如果到了排队为数，直接加进排队人数列表，返回排队消息
     if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsNeedLoginQueue())
     {
-        proto_ff::ClientQueuePosRsp xQueueRsp;
-
-        //超过排队人数，则直接通知不能排队，返回消息
-        if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
-        {
-            xQueueRsp.set_ret(proto_ff::RET_LOGIN_QUEUE_ENOUGHT_NUM);
-            pPlayer->SendMsgToClient(proto_ff::CLIENT_QUEUE_POS_RSP, xQueueRsp);
-
-            pPlayer->SetProxyId(0);
-            pPlayer->SetClientId(0);
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_LOGOUT);
-            return 0;
-        }
-        else
-        {
-            //如果不在排队列表中，加入到排队列表中
-            if (!NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsInLoginQueue(uid))
-            {
-                bool ret = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid);
-                CHECK_EXPR(ret, -1, "NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid) Failed");
-            }
-
-            xQueueRsp.set_ret(proto_ff::RET_SUCCESS);
-            xQueueRsp.set_num(NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetLoginQueueNum());
-
-            pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_QUEUE_POS_RSP, xQueueRsp);
-        }
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->HandleLoginQueue(pPlayer);
     }
     else
     {

@@ -362,6 +362,20 @@ class WorldExternalConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
       mutable_whitelist();
 
+  // optional uint32 StartQueueNum = 6;
+  inline bool has_startqueuenum() const;
+  inline void clear_startqueuenum();
+  static const int kStartQueueNumFieldNumber = 6;
+  inline ::google::protobuf::uint32 startqueuenum() const;
+  inline void set_startqueuenum(::google::protobuf::uint32 value);
+
+  // optional uint32 MaxQueueNum = 7;
+  inline bool has_maxqueuenum() const;
+  inline void clear_maxqueuenum();
+  static const int kMaxQueueNumFieldNumber = 7;
+  inline ::google::protobuf::uint32 maxqueuenum() const;
+  inline void set_maxqueuenum(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.WorldExternalConfig)
  private:
   inline void set_has_tokentimecheck();
@@ -370,6 +384,10 @@ class WorldExternalConfig : public ::google::protobuf::Message {
   inline void clear_has_whiteliststate();
   inline void set_has_maxregisternum();
   inline void clear_has_maxregisternum();
+  inline void set_has_startqueuenum();
+  inline void clear_has_startqueuenum();
+  inline void set_has_maxqueuenum();
+  inline void clear_has_maxqueuenum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -377,9 +395,11 @@ class WorldExternalConfig : public ::google::protobuf::Message {
   bool whiteliststate_;
   ::google::protobuf::uint32 maxregisternum_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > whitelist_;
+  ::google::protobuf::uint32 startqueuenum_;
+  ::google::protobuf::uint32 maxqueuenum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_common_5flogic_2eproto();
   friend void protobuf_AssignDesc_common_5flogic_2eproto();
@@ -1398,6 +1418,50 @@ WorldExternalConfig::whitelist() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
 WorldExternalConfig::mutable_whitelist() {
   return &whitelist_;
+}
+
+// optional uint32 StartQueueNum = 6;
+inline bool WorldExternalConfig::has_startqueuenum() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WorldExternalConfig::set_has_startqueuenum() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WorldExternalConfig::clear_has_startqueuenum() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WorldExternalConfig::clear_startqueuenum() {
+  startqueuenum_ = 0u;
+  clear_has_startqueuenum();
+}
+inline ::google::protobuf::uint32 WorldExternalConfig::startqueuenum() const {
+  return startqueuenum_;
+}
+inline void WorldExternalConfig::set_startqueuenum(::google::protobuf::uint32 value) {
+  set_has_startqueuenum();
+  startqueuenum_ = value;
+}
+
+// optional uint32 MaxQueueNum = 7;
+inline bool WorldExternalConfig::has_maxqueuenum() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WorldExternalConfig::set_has_maxqueuenum() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WorldExternalConfig::clear_has_maxqueuenum() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WorldExternalConfig::clear_maxqueuenum() {
+  maxqueuenum_ = 0u;
+  clear_has_maxqueuenum();
+}
+inline ::google::protobuf::uint32 WorldExternalConfig::maxqueuenum() const {
+  return maxqueuenum_;
+}
+inline void WorldExternalConfig::set_maxqueuenum(::google::protobuf::uint32 value) {
+  set_has_maxqueuenum();
+  maxqueuenum_ = value;
 }
 
 // -------------------------------------------------------------------

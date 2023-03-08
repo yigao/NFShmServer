@@ -25,6 +25,8 @@ message WorldExternalConfig {
   optional bool WhiteListState = 2;
   optional uint32 MaxRegisterNum = 3;
   repeated uint64 WhiteList = 4[(yd_fieldoptions.field_arysize)=100];
+  optional uint32 StartQueueNum = 6;
+  optional uint32 MaxQueueNum = 7;
 }
 
 message GameExternalConfig {

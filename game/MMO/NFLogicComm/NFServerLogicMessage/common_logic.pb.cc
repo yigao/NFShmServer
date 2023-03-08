@@ -99,11 +99,13 @@ void protobuf_AssignDesc_common_5flogic_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ServerPacketMsg));
   WorldExternalConfig_descriptor_ = file->message_type(2);
-  static const int WorldExternalConfig_offsets_[4] = {
+  static const int WorldExternalConfig_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, tokentimecheck_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, whiteliststate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, maxregisternum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, whitelist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, startqueuenum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldExternalConfig, maxqueuenum_),
   };
   WorldExternalConfig_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -322,28 +324,29 @@ void protobuf_AddDesc_common_5flogic_2eproto() {
     "\004\240\301\024\001\022\022\n\nserverType\030\002 \001(\r\022\023\n\013upper_limit"
     "\030\003 \001(\r\022\024\n\014min_interval\030\004 \001(\r\022\024\n\014control_"
     "time\030\005 \001(\r\"\?\n\017ServerPacketMsg\022,\n\tPacketM"
-    "sg\030\001 \003(\0132\023.proto_ff.PacketMsgB\004\240\301\024\001\"v\n\023W"
-    "orldExternalConfig\022\026\n\016TokenTimeCheck\030\001 \001"
-    "(\010\022\026\n\016WhiteListState\030\002 \001(\010\022\026\n\016MaxRegiste"
-    "rNum\030\003 \001(\r\022\027\n\tWhiteList\030\004 \003(\004B\004\210\301\024d\"\'\n\022G"
-    "ameExternalConfig\022\021\n\003map\030\001 \003(\004B\004\240\301\024\001\"3\n\n"
-    "MapPosInfo\022\017\n\001x\030\001 \001(\001B\004\240\301\024\001\022\t\n\001y\030\002 \001(\001\022\t"
-    "\n\001z\030\003 \001(\001\"L\n\024MapJsonConfigObjsPos\022\'\n\003pos"
-    "\030\001 \001(\0132\024.proto_ff.MapPosInfoB\004\240\301\024\001\022\013\n\003ro"
-    "t\030\002 \001(\001\"R\n\021MapJsonConfigObjs\022\020\n\002id\030\001 \001(\004"
-    "B\004\240\301\024\001\022+\n\003pos\030\002 \003(\0132\036.proto_ff.MapJsonCo"
-    "nfigObjsPos\"R\n\027MapJsonConfigAreaDetail\022\024"
-    "\n\006radius\030\001 \001(\001B\004\240\301\024\001\022!\n\003pos\030\002 \001(\0132\024.prot"
-    "o_ff.MapPosInfo\"X\n\021MapJsonConfigArea\022\020\n\002"
-    "id\030\001 \001(\004B\004\240\301\024\001\0221\n\006detail\030\002 \003(\0132!.proto_f"
-    "f.MapJsonConfigAreaDetail\"H\n\021MapJsonConf"
-    "igPath\022\020\n\002id\030\001 \001(\004B\004\240\301\024\001\022!\n\003pos\030\002 \003(\0132\024."
-    "proto_ff.MapPosInfo\"\230\001\n\rMapJsonConfig\022/\n"
-    "\004objs\030\001 \003(\0132\033.proto_ff.MapJsonConfigObjs"
-    "B\004\240\301\024\001\022*\n\005areas\030\002 \003(\0132\033.proto_ff.MapJson"
-    "ConfigArea\022*\n\005paths\030\003 \003(\0132\033.proto_ff.Map"
-    "JsonConfigPath*5\n\007TableID\022\020\n\014E_TABLE_NON"
-    "E\020\000\022\030\n\024E_TABLE_ROLE_DB_DATA\020\001", 1069);
+    "sg\030\001 \003(\0132\023.proto_ff.PacketMsgB\004\240\301\024\001\"\242\001\n\023"
+    "WorldExternalConfig\022\026\n\016TokenTimeCheck\030\001 "
+    "\001(\010\022\026\n\016WhiteListState\030\002 \001(\010\022\026\n\016MaxRegist"
+    "erNum\030\003 \001(\r\022\027\n\tWhiteList\030\004 \003(\004B\004\210\301\024d\022\025\n\r"
+    "StartQueueNum\030\006 \001(\r\022\023\n\013MaxQueueNum\030\007 \001(\r"
+    "\"\'\n\022GameExternalConfig\022\021\n\003map\030\001 \003(\004B\004\240\301\024"
+    "\001\"3\n\nMapPosInfo\022\017\n\001x\030\001 \001(\001B\004\240\301\024\001\022\t\n\001y\030\002 "
+    "\001(\001\022\t\n\001z\030\003 \001(\001\"L\n\024MapJsonConfigObjsPos\022\'"
+    "\n\003pos\030\001 \001(\0132\024.proto_ff.MapPosInfoB\004\240\301\024\001\022"
+    "\013\n\003rot\030\002 \001(\001\"R\n\021MapJsonConfigObjs\022\020\n\002id\030"
+    "\001 \001(\004B\004\240\301\024\001\022+\n\003pos\030\002 \003(\0132\036.proto_ff.MapJ"
+    "sonConfigObjsPos\"R\n\027MapJsonConfigAreaDet"
+    "ail\022\024\n\006radius\030\001 \001(\001B\004\240\301\024\001\022!\n\003pos\030\002 \001(\0132\024"
+    ".proto_ff.MapPosInfo\"X\n\021MapJsonConfigAre"
+    "a\022\020\n\002id\030\001 \001(\004B\004\240\301\024\001\0221\n\006detail\030\002 \003(\0132!.pr"
+    "oto_ff.MapJsonConfigAreaDetail\"H\n\021MapJso"
+    "nConfigPath\022\020\n\002id\030\001 \001(\004B\004\240\301\024\001\022!\n\003pos\030\002 \003"
+    "(\0132\024.proto_ff.MapPosInfo\"\230\001\n\rMapJsonConf"
+    "ig\022/\n\004objs\030\001 \003(\0132\033.proto_ff.MapJsonConfi"
+    "gObjsB\004\240\301\024\001\022*\n\005areas\030\002 \003(\0132\033.proto_ff.Ma"
+    "pJsonConfigArea\022*\n\005paths\030\003 \003(\0132\033.proto_f"
+    "f.MapJsonConfigPath*5\n\007TableID\022\020\n\014E_TABL"
+    "E_NONE\020\000\022\030\n\024E_TABLE_ROLE_DB_DATA\020\001", 1114);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common_logic.proto", &protobuf_RegisterTypes);
   PacketMsg::default_instance_ = new PacketMsg();
@@ -970,6 +973,8 @@ const int WorldExternalConfig::kTokenTimeCheckFieldNumber;
 const int WorldExternalConfig::kWhiteListStateFieldNumber;
 const int WorldExternalConfig::kMaxRegisterNumFieldNumber;
 const int WorldExternalConfig::kWhiteListFieldNumber;
+const int WorldExternalConfig::kStartQueueNumFieldNumber;
+const int WorldExternalConfig::kMaxQueueNumFieldNumber;
 #endif  // !_MSC_VER
 
 WorldExternalConfig::WorldExternalConfig()
@@ -991,6 +996,8 @@ void WorldExternalConfig::SharedCtor() {
   tokentimecheck_ = false;
   whiteliststate_ = false;
   maxregisternum_ = 0u;
+  startqueuenum_ = 0u;
+  maxqueuenum_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1029,6 +1036,8 @@ void WorldExternalConfig::Clear() {
     tokentimecheck_ = false;
     whiteliststate_ = false;
     maxregisternum_ = 0u;
+    startqueuenum_ = 0u;
+    maxqueuenum_ = 0u;
   }
   whitelist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1106,6 +1115,38 @@ bool WorldExternalConfig::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(32)) goto parse_WhiteList;
+        if (input->ExpectTag(48)) goto parse_StartQueueNum;
+        break;
+      }
+
+      // optional uint32 StartQueueNum = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_StartQueueNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &startqueuenum_)));
+          set_has_startqueuenum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_MaxQueueNum;
+        break;
+      }
+
+      // optional uint32 MaxQueueNum = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_MaxQueueNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &maxqueuenum_)));
+          set_has_maxqueuenum();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1149,6 +1190,16 @@ void WorldExternalConfig::SerializeWithCachedSizes(
       4, this->whitelist(i), output);
   }
 
+  // optional uint32 StartQueueNum = 6;
+  if (has_startqueuenum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->startqueuenum(), output);
+  }
+
+  // optional uint32 MaxQueueNum = 7;
+  if (has_maxqueuenum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->maxqueuenum(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1178,6 +1229,16 @@ void WorldExternalConfig::SerializeWithCachedSizes(
       WriteUInt64ToArray(4, this->whitelist(i), target);
   }
 
+  // optional uint32 StartQueueNum = 6;
+  if (has_startqueuenum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->startqueuenum(), target);
+  }
+
+  // optional uint32 MaxQueueNum = 7;
+  if (has_maxqueuenum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->maxqueuenum(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1204,6 +1265,20 @@ int WorldExternalConfig::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->maxregisternum());
+    }
+
+    // optional uint32 StartQueueNum = 6;
+    if (has_startqueuenum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->startqueuenum());
+    }
+
+    // optional uint32 MaxQueueNum = 7;
+    if (has_maxqueuenum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->maxqueuenum());
     }
 
   }
@@ -1253,6 +1328,12 @@ void WorldExternalConfig::MergeFrom(const WorldExternalConfig& from) {
     if (from.has_maxregisternum()) {
       set_maxregisternum(from.maxregisternum());
     }
+    if (from.has_startqueuenum()) {
+      set_startqueuenum(from.startqueuenum());
+    }
+    if (from.has_maxqueuenum()) {
+      set_maxqueuenum(from.maxqueuenum());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1280,6 +1361,8 @@ void WorldExternalConfig::Swap(WorldExternalConfig* other) {
     std::swap(whiteliststate_, other->whiteliststate_);
     std::swap(maxregisternum_, other->maxregisternum_);
     whitelist_.Swap(&other->whitelist_);
+    std::swap(startqueuenum_, other->startqueuenum_);
+    std::swap(maxqueuenum_, other->maxqueuenum_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

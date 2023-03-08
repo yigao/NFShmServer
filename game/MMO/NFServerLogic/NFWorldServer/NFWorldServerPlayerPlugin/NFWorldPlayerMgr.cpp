@@ -49,7 +49,6 @@ NFWorldPlayerMgr::~NFWorldPlayerMgr()
 
 int NFWorldPlayerMgr::CreateInit()
 {
-    m_currentLoginNum = 0;
     m_maxQueueNum = 2000;    //排队总人数
     m_startQueueNum = 2000; //开始排队人数
     m_playerTickTimer = SetTimer(1000, 0, 0, 0, 1, 0);
@@ -135,16 +134,6 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
 }
 
 
-uint32_t NFWorldPlayerMgr::GetCurrentLoginNum() const
-{
-    return m_currentLoginNum;
-}
-
-void NFWorldPlayerMgr::SetCurrentLoginNum(uint32_t currentLoginNum)
-{
-    m_currentLoginNum = currentLoginNum;
-}
-
 uint32_t NFWorldPlayerMgr::GetMaxQueueNum() const
 {
     return m_maxQueueNum;
@@ -167,7 +156,7 @@ void NFWorldPlayerMgr::SetStartQueueNum(uint32_t startQueueNum)
 
 bool NFWorldPlayerMgr::IsNeedLoginQueue() const
 {
-    if (m_currentLoginNum >= m_startQueueNum)
+    if (NFWorldPlayer::GetUsedCount(m_pObjPluginManager) >= (int)m_startQueueNum)
     {
         return true;
     }
@@ -210,7 +199,7 @@ bool NFWorldPlayerMgr::InsertLoginQueue(uint64_t playerId)
     auto iter = m_loginQueueMap.emplace_hint(playerId, NFLoginQueue());
     if (iter != m_loginQueueMap.end())
     {
-        iter->second.SetPlayerId(playerId);
+        iter->second.SetUid(playerId);
         iter->second.SetLastReqTime(NFServerTime::Instance()->UnixSec());
         return true;
     }
@@ -345,4 +334,45 @@ int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(NFWorldPlayer *pPlayer, 
     }
 
     return 0;
+}
+
+int NFWorldPlayerMgr::HandleLoginQueue(NFWorldPlayer* pPlayer)
+{
+    CHECK_NULL(pPlayer);
+
+    //如果到了排队为数，直接加进排队人数列表，返回排队消息
+    if (IsNeedLoginQueue())
+    {
+        proto_ff::ClientQueuePosRsp xQueueRsp;
+
+        //超过排队人数，则直接通知不能排队，返回消息
+        if (IsLoginQueueFull())
+        {
+            xQueueRsp.set_ret(proto_ff::RET_LOGIN_QUEUE_ENOUGHT_NUM);
+            pPlayer->SendMsgToClient(proto_ff::CLIENT_QUEUE_POS_RSP, xQueueRsp);
+
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId(), proto_ff::LOGOUT_LOGOUT);
+
+            pPlayer->SetProxyId(0);
+            pPlayer->SetClientId(0);
+            return 0;
+        }
+        else
+        {
+            //如果不在排队列表中，加入到排队列表中
+            if (!NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsInLoginQueue(pPlayer->GetUid()))
+            {
+                bool ret = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(pPlayer->GetUid());
+                CHECK_EXPR(ret, -1, "NFWorldPlayerMgr::Instance(m_pObjPluginManager)->InsertLoginQueue(uid) Failed");
+            }
+
+            xQueueRsp.set_ret(proto_ff::RET_SUCCESS);
+            xQueueRsp.set_num(NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetLoginQueueNum());
+
+            pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_QUEUE_POS_RSP, xQueueRsp);
+            return 0;
+        }
+    }
+
+    return -1;
 }

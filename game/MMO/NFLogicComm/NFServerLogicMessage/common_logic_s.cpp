@@ -74,6 +74,8 @@ int WorldExternalConfig_s::CreateInit() {
 	TokenTimeCheck = (bool)0;
 	WhiteListState = (bool)0;
 	MaxRegisterNum = (uint32_t)0;
+	StartQueueNum = (uint32_t)0;
+	MaxQueueNum = (uint32_t)0;
 	return 0;
 }
 
@@ -88,6 +90,8 @@ void WorldExternalConfig_s::write_to_pbmsg(::proto_ff::WorldExternalConfig & msg
 	for(int32_t i = 0; i < (int32_t)WhiteList.size(); ++i) {
 		msg.add_whitelist((uint64_t)WhiteList[i]);
 	}
+	msg.set_startqueuenum((uint32_t)StartQueueNum);
+	msg.set_maxqueuenum((uint32_t)MaxQueueNum);
 }
 
 void WorldExternalConfig_s::read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg) {
@@ -99,6 +103,8 @@ void WorldExternalConfig_s::read_from_pbmsg(const ::proto_ff::WorldExternalConfi
 	for(int32_t i = 0; i < (int32_t)WhiteList.size(); ++i) {
 		WhiteList[i] = msg.whitelist(i);
 	}
+	StartQueueNum = msg.startqueuenum();
+	MaxQueueNum = msg.maxqueuenum();
 }
 
 GameExternalConfig_s::GameExternalConfig_s() {

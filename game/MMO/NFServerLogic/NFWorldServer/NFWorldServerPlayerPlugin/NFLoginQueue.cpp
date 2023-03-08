@@ -28,7 +28,7 @@ NFLoginQueue::~NFLoginQueue()
 
 int NFLoginQueue::CreateInit()
 {
-    m_playerId = 0;
+    m_uid = 0;
     m_lastReqTime = 0;
     return 0;
 }
@@ -38,14 +38,14 @@ int NFLoginQueue::ResumeInit()
     return 0;
 }
 
-uint64_t NFLoginQueue::GetPlayerId() const
+uint64_t NFLoginQueue::GetUid() const
 {
-    return m_playerId;
+    return m_uid;
 }
 
-void NFLoginQueue::SetPlayerId(uint64_t playerId)
+void NFLoginQueue::SetUid(uint64_t playerId)
 {
-    m_playerId = playerId;
+    m_uid = playerId;
 }
 
 uint64_t NFLoginQueue::GetLastReqTime() const
