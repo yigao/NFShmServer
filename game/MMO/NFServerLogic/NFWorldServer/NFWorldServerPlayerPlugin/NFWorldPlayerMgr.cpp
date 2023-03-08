@@ -23,6 +23,7 @@
 #include "ServerInternalCmd.pb.h"
 #include "ServerInternal2.pb.h"
 #include "ServerInternalCmd2.pb.h"
+#include "NFTransWorldGetRoleList.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
 
@@ -49,9 +50,10 @@ NFWorldPlayerMgr::~NFWorldPlayerMgr()
 
 int NFWorldPlayerMgr::CreateInit()
 {
+    m_currentLoginNum = 0;
     m_maxQueueNum = 2000;    //排队总人数
     m_startQueueNum = 2000; //开始排队人数
-    m_playerTickTimer = SetTimer(1000, 0, 0, 0, 1, 0);
+    m_playerTickTimer = SetTimer(100, 0, 0, 0, 1, 0);
     return 0;
 }
 
@@ -65,6 +67,7 @@ int NFWorldPlayerMgr::OnTimer(int timeId, int callcount)
     if (m_playerTickTimer == timeId)
     {
         PlayerTick();
+        SessionTick();
     }
     return 0;
 }
@@ -92,9 +95,107 @@ int NFWorldPlayerMgr::PlayerTick()
             DeletePlayer(pPlayer);
         }
     }
+
+    //处理排队直接进去
+    if (!IsNeedLoginQueue())
+    {
+        auto iterQueue = m_loginQueueMap.begin();
+        uint32_t uid = iterQueue->first;
+        NFWorldPlayer* pQueuePlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(uid);
+        if (pQueuePlayer)
+        {
+            NFWorldSession* pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(pQueuePlayer->GetClientId());
+            if (pSession && EAccountState::queue == pSession->GetState())
+            {
+                pSession->SetState(EAccountState::login);
+                pSession->SetStateTick(NFTime::Now().UnixMSec());
+
+                NF_SHARE_PTR<NFServerData> pLogicServer = NULL;
+                if (pPlayer->GetLogicId() > 0)
+                {
+                    pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, pPlayer->GetLogicId());
+                }
+                else {
+                    pLogicServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                             pPlayer->GetUid());
+                }
+
+                if (pLogicServer == NULL)
+                {
+                    pLogicServer = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER);
+                }
+
+                if (pLogicServer)
+                {
+                    pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
+                    pSession->SetLogicId(pLogicServer->mServerInfo.bus_id());
+
+                    NFTransWorldGetRoleList* pTrans = dynamic_cast<NFTransWorldGetRoleList *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldSendGetRoleList_ID));
+                    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
+                    pTrans->Init(uid, pSession->GetProxyId(), pSession->GetClientId(), pPlayer->GetLoginZid());
+                    pTrans->SendGetRoleList();
+                }
+                else
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, uid, "can not find suit logic server to player, the all logic server may be dump");
+                    pPlayer->SetProxyId(0);
+                    pPlayer->SetClientId(0);
+
+                    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_KICK_OUT);
+                }
+            }
+
+            m_loginQueueMap.erase(iterQueue);
+        }
+        else
+        {
+            //找不到排队的账号信息，直接从排队中移除
+            m_loginQueueMap.erase(iterQueue);
+        }
+    }
     return 0;
 }
 
+int NFWorldPlayerMgr::SessionTick()
+{
+    m_currentLoginNum = NFWorldSession::GetUsedCount(m_pObjPluginManager);
+
+    std::vector<uint64_t> willRemoveSession;
+    NFWorldSession* pSession = dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_WORLD_SESSION_ID));
+    while (pSession)
+    {
+        NFWorldPlayer* pPlayer = GetPlayerByUid(pSession->GetUid());
+        if (pPlayer == NULL || pPlayer->GetStatus() >= PLAYER_STATUS_OFFLINE || pPlayer->GetClientId() != pSession->GetClientId())
+        {
+            willRemoveSession.push_back(pSession->GetClientId());
+        }
+        pSession = dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->GetNextObj(EOT_WORLD_SESSION_ID, pSession));
+    }
+
+    NFWorldPlayer* pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_WORLD_PLAYER_ID));
+    while (pPlayer)
+    {
+        if (pPlayer->GetStatus() <= PLAYER_STATUS_ONLINE)
+        {
+            if (pPlayer->GetClientId() > 0)
+            {
+                NFWorldSession* pPlayerSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(pPlayer->GetClientId());
+                if (pPlayerSession == NULL)
+                {
+                    pPlayer->SetStatus(PLAYER_STATUS_OFFLINE);
+                    pPlayer->SetIsDisconnect(true);
+                }
+            }
+            else {
+                pPlayer->SetStatus(PLAYER_STATUS_OFFLINE);
+                pPlayer->SetIsDisconnect(true);
+            }
+        }
+        pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetNextObj(EOT_WORLD_PLAYER_ID, pPlayer));
+    }
+
+    return 0;
+}
 
 NFWorldPlayer *NFWorldPlayerMgr::GetPlayerByUid(uint64_t uid)
 {
@@ -134,6 +235,16 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
 }
 
 
+uint32_t NFWorldPlayerMgr::GetCurrentLoginNum() const
+{
+    return m_currentLoginNum;
+}
+
+void NFWorldPlayerMgr::SetCurrentLoginNum(uint32_t currentLoginNum)
+{
+    m_currentLoginNum = currentLoginNum;
+}
+
 uint32_t NFWorldPlayerMgr::GetMaxQueueNum() const
 {
     return m_maxQueueNum;
@@ -156,7 +267,7 @@ void NFWorldPlayerMgr::SetStartQueueNum(uint32_t startQueueNum)
 
 bool NFWorldPlayerMgr::IsNeedLoginQueue() const
 {
-    if (NFWorldPlayer::GetUsedCount(m_pObjPluginManager) >= (int)m_startQueueNum)
+    if (m_currentLoginNum >= m_startQueueNum)
     {
         return true;
     }
