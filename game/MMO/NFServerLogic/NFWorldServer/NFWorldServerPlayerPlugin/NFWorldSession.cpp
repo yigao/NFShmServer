@@ -144,3 +144,23 @@ void NFWorldSession::SetStateTick(uint64_t stateTick)
 {
     m_stateTick = stateTick;
 }
+
+uint32_t NFWorldSession::GetLoginZid() const
+{
+    return m_loginZid;
+}
+
+void NFWorldSession::SetLoginZid(uint32_t loginZid)
+{
+    m_loginZid = loginZid;
+}
+
+uint32_t NFWorldSession::GetChanId() const
+{
+    return m_chanId;
+}
+
+void NFWorldSession::SetChanId(uint32_t chanId)
+{
+    m_chanId = chanId;
+}

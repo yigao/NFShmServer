@@ -17,6 +17,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "ServerInternal2.pb.h"
+#include "CSLogin.pb.h"
 
 class NFTransWorldCreateRole : public NFTransBase
 {
@@ -30,6 +31,8 @@ public:
     int ResumeInit();
 public:
     int Init(uint64_t uid, uint64_t roleId, uint32_t proxyId, uint64_t clientId, uint32_t bornZid);
+
+    int OnHandleCreateRole(const proto_ff::ClientCreateRoleReq& msg);
 
     int SendCreateRoleInfo(const proto_ff::WorldToLogicCreateRoleReq& req);
 

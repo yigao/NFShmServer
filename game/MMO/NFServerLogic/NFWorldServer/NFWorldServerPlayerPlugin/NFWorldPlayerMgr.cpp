@@ -24,6 +24,7 @@
 #include "ServerInternal2.pb.h"
 #include "ServerInternalCmd2.pb.h"
 #include "NFTransWorldGetRoleList.h"
+#include "NFLogicCommon/NFRoleDefine.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
 
@@ -128,11 +129,10 @@ int NFWorldPlayerMgr::PlayerTick()
                 if (pLogicServer)
                 {
                     pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
-                    pSession->SetLogicId(pLogicServer->mServerInfo.bus_id());
 
                     NFTransWorldGetRoleList* pTrans = dynamic_cast<NFTransWorldGetRoleList *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldSendGetRoleList_ID));
                     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-                    pTrans->Init(uid, pSession->GetProxyId(), pSession->GetClientId(), pPlayer->GetLoginZid());
+                    pTrans->Init(uid, pSession->GetProxyId(), pSession->GetClientId(), pPlayer->GetLoginZid(), 0);
                     pTrans->SendGetRoleList();
                 }
                 else
@@ -412,12 +412,16 @@ int NFWorldPlayerMgr::NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto
 
 int NFWorldPlayerMgr::NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type)
 {
-    CHECK_EXPR(pPlayer, -1, "pPlayer == NULL");
-    CHECK_EXPR(pSession, -1, "pSession == NULL");
-
     //强制断开之前的客户端session
-    NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), proto_ff::LOGOUT_REPLACE);
-    NotifyOtherServerPlayerDisconnect(pPlayer, type);
+    if (pSession)
+    {
+        NotifyGateLeave(pSession->GetProxyId(), pSession->GetClientId(), type);
+    }
+
+    if (pPlayer)
+    {
+        OnHandlePlayerDisconnect(pPlayer, ROLE_DISCONN_FROM_SERVER);
+    }
     return 0;
 }
 
@@ -435,6 +439,19 @@ int NFWorldPlayerMgr::NotifyGateChangeServerBusId(NFWorldPlayer *pPlayer, uint32
     return 0;
 }
 
+int NFWorldPlayerMgr::OnHandlePlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t reason)
+{
+    CHECK_NULL(pPlayer);
+
+    pPlayer->SetProxyId(0);
+    pPlayer->SetClientId(0);
+    pPlayer->SetStatus(PLAYER_STATUS_OFFLINE);
+    pPlayer->SetLastDiconnectTime(NFTime::Now().UnixSec());
+
+    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, reason);
+    return 0;
+}
+
 int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(NFWorldPlayer *pPlayer, uint32_t reason)
 {
     CHECK_NULL(pPlayer);
@@ -447,6 +464,24 @@ int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(NFWorldPlayer *pPlayer, 
 
         pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
         pPlayer->SendMsgToSnsServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+    }
+
+    return 0;
+}
+
+int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(uint64_t uid, uint64_t roleId, uint32_t logicId, uint32_t reason)
+{
+    if (uid > 0 && roleId > 0)
+    {
+        proto_ff::WorldToOtherServerDisconnectNotify xMsg;
+        xMsg.set_roleid(roleId);
+        xMsg.set_reason(reason);
+
+        if (logicId > 0)
+        {
+            FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, logicId, proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg, uid, logicId);
+        }
+        FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg, uid, logicId);
     }
 
     return 0;
@@ -471,7 +506,6 @@ int NFWorldPlayerMgr::HandleLoginQueue(NFWorldPlayer* pPlayer)
 
             pPlayer->SetProxyId(0);
             pPlayer->SetClientId(0);
-            return 0;
         }
         else
         {
@@ -486,8 +520,9 @@ int NFWorldPlayerMgr::HandleLoginQueue(NFWorldPlayer* pPlayer)
             xQueueRsp.set_num(NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetLoginQueueNum());
 
             pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_QUEUE_POS_RSP, xQueueRsp);
-            return 0;
         }
+
+        return 0;
     }
 
     return -1;

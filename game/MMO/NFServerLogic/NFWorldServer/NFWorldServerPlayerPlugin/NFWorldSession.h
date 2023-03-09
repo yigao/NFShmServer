@@ -64,6 +64,15 @@ public:
     uint64_t GetStateTick() const;
 
     void SetStateTick(uint64_t stateTick);
+
+public:
+    uint32_t GetLoginZid() const;
+
+    void SetLoginZid(uint32_t loginZid);
+
+    uint32_t GetChanId() const;
+
+    void SetChanId(uint32_t chanId);
 private:
     uint64_t m_proxyId;
     uint64_t m_clientId;
@@ -74,6 +83,8 @@ private:
     bool m_disconnect;
     EAccountState m_state;
     uint64_t m_stateTick;
+    uint32_t m_loginZid;
+    uint32_t m_chanId;
 private:
 DECLARE_IDCREATE(NFWorldSession)
 };

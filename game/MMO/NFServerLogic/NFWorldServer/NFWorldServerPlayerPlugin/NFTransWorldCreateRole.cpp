@@ -19,6 +19,8 @@
 #include "NFTransWorldGetRoleList.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFCore/NFServerTime.h"
+#include "DescStoreEx/NFMapDescStoreEx.h"
+#include "NFComm/NFPluginModule/NFIKernelModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransWorldCreateRole, EOT_NFTransWorldCreateRole_ID, NFTransBase)
 
@@ -192,5 +194,103 @@ int NFTransWorldCreateRole::OnTransFinished(int iRunLogicRetCode)
 
 int NFTransWorldCreateRole::OnTimeOut()
 {
+    return 0;
+}
+
+int NFTransWorldCreateRole::OnHandleCreateRole(const proto_ff::ClientCreateRoleReq& xData)
+{
+    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+    CHECK_EXPR(pPlayer, -1, "OnHandleCreateRole, GetPlayerByUid return NULL, uid:{}", m_uid);
+
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+    if (pSession == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "can't find the session from clientId:{}", m_clientId);
+        return -1;
+    }
+
+    if (pPlayer->GetClientId() != m_clientId)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pPlayer->GetClientId():{} != m_clientId:{}", pPlayer->GetClientId(), m_clientId);
+        return -1;
+    }
+
+    //创建角色的账号必须处于拉取角色列表完毕状态
+    if (pSession->GetState() != EAccountState::loading)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "create role faild, account state error, uid:{}, state:{}, clientId:{},account_clientid:{}, gateid:{}", m_uid, (int)pSession->GetState(), m_clientId, pSession->GetClientId(), pSession->GetProxyId());
+        return -1;
+    }
+
+    uint32_t prof = xData.prof();
+    const string &name = xData.name();
+    int32_t color = xData.color();
+
+    if (pPlayer->GetCharNum() >= MAX_ROLE_NUM)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "the player role >= MAX_ROLE_NUM, some error happened, uid:{}", MAX_ROLE_NUM, m_uid);
+        return proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT;
+    }
+
+    int32_t name_len = (int32_t) name.length();
+    if (name_len < proto_ff::CHARACTER_NAME_MIN_LENGTH || name_len >= proto_ff::CHARACTER_NAME_MAX_LENGTH)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "create role, role name length error...uid:{},name_len:{}", m_uid, name_len);
+        return proto_ff::RET_LOGIN_CHARACTER_NAME_LEN_ERROR;
+    }
+
+    auto pBornProf = NFMapDescStoreEx::Instance(m_pObjPluginManager)->GetBornCfg(prof);
+    if (pBornProf == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "create role, prof error...uid:{},prof:{}", m_uid, prof);
+        return proto_ff::RET_LOGIN_CHARACTER_PROF_ERROR;
+    }
+
+    const NFPoint3<float> *pPoscfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandBornPoint(pBornProf->m_mapid);
+    if (nullptr == pPoscfg)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "create role, RandBornPoint error...uid:{},mapId:{}", m_uid, pBornProf->m_mapid);
+        return proto_ff::RET_LOGIN_CHARACTER_PROF_ERROR;
+    }
+
+    m_roleId = FindModule<NFIKernelModule>()->Get32UUID();
+    proto_ff::WorldToLogicCreateRoleReq createRoleReq;
+    createRoleReq.set_uid(m_uid);
+    createRoleReq.set_cid(m_roleId);
+    createRoleReq.set_zid(m_pObjPluginManager->GetZoneID());
+    createRoleReq.set_born_zid(m_bornZid);
+    createRoleReq.set_name(name);
+    createRoleReq.set_prof(prof);
+    createRoleReq.set_level(pBornProf->m_bornlevel);
+    createRoleReq.set_color(color);
+
+    createRoleReq.set_enter_scene_id(pBornProf->m_mapid);
+    createRoleReq.set_enter_map_id(pBornProf->m_mapid);
+    createRoleReq.set_enterposx(pPoscfg->x);
+    createRoleReq.set_enterposy(pPoscfg->y);
+    createRoleReq.set_enterposz(pPoscfg->z);
+
+    createRoleReq.set_lastsceneid(pBornProf->m_mapid);
+    createRoleReq.set_lastmapid(pBornProf->m_mapid);
+    createRoleReq.set_lastposx(pPoscfg->x);
+    createRoleReq.set_lastposy(pPoscfg->y);
+    createRoleReq.set_lastposz(pPoscfg->z);
+
+    NF_SHARE_PTR<NFServerData> pLogicServer = NULL;
+    if (pPlayer->GetLogicId() > 0)
+    {
+        pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, pPlayer->GetLogicId());
+    }
+
+    if (pLogicServer)
+    {
+        SendCreateRoleInfo(createRoleReq);
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "create role failed, can't find logic server");
+        return -1;
+    }
+
     return 0;
 }

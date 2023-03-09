@@ -29,25 +29,24 @@ public:
     int ResumeInit();
 
 public:
-    int Init(uint64_t uid, uint32_t proxyId, uint64_t clientId, uint32_t bornZid);
-
-    int SendGetRoleList();
+    int Init(uint64_t uid, uint32_t proxyId, uint64_t clientId, uint32_t bornZid, uint32_t chanId);
 
     virtual int HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
 
 public:
     int OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
-
+    int OnHandleClientLogin();
+    int SendGetRoleList();
 public:
     virtual int OnTimeOut();
 
     virtual int OnTransFinished(int iRunLogicRetCode);
-
 private:
     uint64_t m_uid;
     uint32_t m_proxyId;
     uint64_t m_clientId;
-    uint32_t m_bornZid;
+    uint32_t m_loginZid;
+    uint32_t m_chanId;
 private:
 DECLARE_IDCREATE(NFTransWorldGetRoleList)
 };

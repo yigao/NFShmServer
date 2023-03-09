@@ -46,6 +46,7 @@ bool NFCProxyClientModule::Awake()
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_PING_REQ);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_LOGIN_REQ);
 
+
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::NOTIFY_GATE_LEAVE_GAME);
@@ -345,9 +346,17 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
                                                                                                                 pPlayerInfo->GetUid());
             if (pWorldServer)
             {
-                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), NF_MODULE_CLIENT, packet.nMsgId,
-                                                                          packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
-                                                                          pPlayerInfo->GetRoleId());
+                if (pPlayerInfo->GetRoleId() > 0)
+                {
+                    FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), NF_MODULE_CLIENT, packet.nMsgId,
+                                                                              packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
+                                                                              pPlayerInfo->GetRoleId());
+                }
+                else {
+                    FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), NF_MODULE_CLIENT, packet.nMsgId,
+                                                                              packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
+                                                                              unLinkId);
+                }
             }
             else
             {

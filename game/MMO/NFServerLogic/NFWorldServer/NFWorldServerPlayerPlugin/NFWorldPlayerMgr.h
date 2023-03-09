@@ -200,6 +200,9 @@ public:
      * @return
      */
     int NotifyOtherServerPlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t reason);
+    int NotifyOtherServerPlayerDisconnect(uint64_t uid, uint64_t roleId, uint32_t logicId, uint32_t reason);
+
+    int OnHandlePlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t reason);
 private:
     /**
      * @brief 玩家ticker定时

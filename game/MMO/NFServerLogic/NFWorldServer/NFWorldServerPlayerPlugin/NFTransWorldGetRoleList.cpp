@@ -20,6 +20,8 @@
 #include "ClientServerCmd.pb.h"
 #include "NFWorldSessionMgr.h"
 #include "NFWorldSession.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFLogicCommon/NFRoleDefine.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransWorldGetRoleList, EOT_NFTransWorldSendGetRoleList_ID, NFTransBase)
 
@@ -44,7 +46,8 @@ int NFTransWorldGetRoleList::CreateInit()
     m_uid = 0;
     m_proxyId = 0;
     m_clientId = 0;
-    m_bornZid = 0;
+    m_loginZid = 0;
+    m_chanId = 0;
     return 0;
 }
 
@@ -53,12 +56,171 @@ int NFTransWorldGetRoleList::ResumeInit()
     return 0;
 }
 
-int NFTransWorldGetRoleList::Init(uint64_t uid, uint32_t proxyId, uint64_t clientId, uint32_t bornZid)
+int NFTransWorldGetRoleList::Init(uint64_t uid, uint32_t proxyId, uint64_t clientId, uint32_t loginZid, uint32_t chanId)
 {
     m_uid = uid;
     m_proxyId = proxyId;
     m_clientId = clientId;
-    m_bornZid = bornZid;
+    m_loginZid = loginZid;
+    m_chanId = chanId;
+    return 0;
+}
+
+int NFTransWorldGetRoleList::OnHandleClientLogin()
+{
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL, FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER)");
+    const proto_ff_s::WorldExternalConfig_s *pExternalConfig = NFWorldConfig::Instance(m_pObjPluginManager)->GetConfig();
+    CHECK_EXPR(pExternalConfig, -1, "pExternalConfig == NULL");
+
+    uint64_t tick = NFServerTime::Instance()->Tick();
+
+    if (pExternalConfig->WhiteListState)
+    {
+        if (!NFWorldConfig::Instance(m_pObjPluginManager)->IsWhiteAccount(m_uid))
+        {
+            return proto_ff::RET_DISALLOW_ENTER_GAME;
+        }
+    }
+    else {
+        //没到开服时间，不让进去,白名单无视这个条件
+        if (pConfig->ServerOpenTime > NFServerTime::Instance()->UnixSec())
+        {
+            return proto_ff::RET_NOT_OPEN_TIME;
+        }
+
+        //超过排队人数，则直接通知不能排队，返回消息
+        if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
+        {
+            return proto_ff::RET_LOGIN_QUEUE_ENOUGHT_NUM;
+        }
+    }
+
+    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+    if (pPlayer == NULL)
+    {
+        pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayerByUid(m_uid);
+        if (pPlayer == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_uid, "CreatePlayerByUid Failed, uid:{}", m_clientId, m_uid);
+            return -1;
+        }
+    }
+
+    uint64_t oldClientId = pPlayer->GetClientId();
+
+    NFWorldSession *pOldSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(oldClientId);
+
+    if (pOldSession != NULL)
+    {
+        if (oldClientId == m_clientId)
+        {
+            //如果是同一个连接在不断的请求发该协议 那么进行过滤
+            NFLogError(NF_LOG_SYSTEMLOG, m_uid,
+                       "LoginGateReq... same player login...clientid:{}, oldclientid:{}, gateid:{}, uid:{}, roleId:{}, logicid:{}, state:{}, oldgateid:{},loginzid:{}",
+                       m_clientId, oldClientId, m_proxyId, pPlayer->GetUid(), pPlayer->GetRoleId(), pPlayer->GetLogicId(), pPlayer->GetStatus(),
+                       pPlayer->GetProxyId(),
+                       m_loginZid);
+            SetFinished(0);
+        }
+
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid,
+                   "LoginGateReq...same account login, notify logic kick player logout.. uid:{}, kick_cid:{}, logicid:{}, clientid:{}, oldclientid:{},state:{},oldgateid:{},loginzid:{}"
+        , pOldSession->GetUid(), pOldSession->GetRoleId(), pOldSession->GetLogicId(), m_clientId, oldClientId, (int)pOldSession->GetState(),
+                   pOldSession->GetProxyId(), m_loginZid);
+
+        //掉线重登或者被挤, 通知逻辑服退出
+        //如果旧角色处于进入游戏 游戏中 切换场景中 断线中 四种状态
+        //那么需要通知旧角色从逻辑服退出 并且需要将 pOldAccount 作移除操作
+        if (pOldSession->GetRoleId() > 0)
+        {
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pOldSession, proto_ff::LOGOUT_REPLACE);
+        }
+        else
+        {
+            //如果旧账号处于 登录或者向DB请求角色列表或者排队状态，删除账号
+            //强制断开之前的客户端session
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pOldSession->GetProxyId(), pOldSession->GetClientId(), proto_ff::LOGOUT_REPLACE);
+        }
+
+        //删除 uid和 clientid的映射
+        pPlayer->SetProxyId(0);
+        pPlayer->SetClientId(0);
+        //如果在排队，需要从排队列表移除
+
+        if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsInLoginQueue(m_uid))
+        {
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->DeleteLoginQueue(m_uid);
+        }
+    }
+
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+    if (pSession == NULL)
+    {
+        pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->CreateSession(m_clientId);
+        if (pSession == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_clientId, "CreateSession Failed, clientId:{} uid:{}", m_clientId, m_uid);
+            return -1;
+        }
+    }
+
+    pSession->SetProxyId(m_proxyId);
+    pSession->SetUid(m_uid);
+    pSession->SetState(EAccountState::login);
+    pSession->SetStateTick(tick);
+    pSession->SetLoginZid(m_loginZid);
+    pSession->SetChanId(m_chanId);
+    pSession->SetRoleId(0);
+
+    pPlayer->SetTokenTimeStamp(tick);
+    pPlayer->SetStatus(PLAYER_STATUS_ONLINE);
+    pPlayer->SetProxyId(m_proxyId);
+    pPlayer->SetClientId(m_clientId);
+    pPlayer->SetLoginZid(m_loginZid);
+    pPlayer->SetChannelId(m_chanId);
+    pPlayer->SetRoleId(0);
+
+    //如果到了排队为数，直接加进排队人数列表，返回排队消息
+    if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsNeedLoginQueue())
+    {
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->HandleLoginQueue(pPlayer);
+        SetFinished(0);
+    }
+    else
+    {
+        NF_SHARE_PTR<NFServerData> pLogicServer = NULL;
+        if (pPlayer->GetLogicId() > 0)
+        {
+            pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, pPlayer->GetLogicId());
+        }
+        else {
+            pLogicServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                     pPlayer->GetUid());
+        }
+
+        if (pLogicServer == NULL)
+        {
+            pLogicServer = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER);
+        }
+
+        if (pLogicServer)
+        {
+            pPlayer->SetLogicId(pLogicServer->mServerInfo.bus_id());
+            pSession->SetLogicId(pLogicServer->mServerInfo.bus_id());
+
+            SendGetRoleList();
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_uid, "can not find suit logic server to player, the all logic server may be dump");
+            pPlayer->SetProxyId(0);
+            pPlayer->SetClientId(0);
+
+            return -1;
+        }
+    }
+
     return 0;
 }
 
@@ -69,7 +231,7 @@ int NFTransWorldGetRoleList::SendGetRoleList()
 
     proto_ff::WorldToLogicGetRoleList xData;
     xData.set_uid(m_uid);
-    xData.set_born_zone_id(m_bornZid);
+    xData.set_born_zone_id(m_loginZid);
     xData.set_proxy_id(m_proxyId);
     xData.set_client_id(m_clientId);
 
@@ -108,7 +270,7 @@ int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const 
     CHECK_EXPR(uid == m_uid, -1, "");
     CHECK_EXPR(clientId == m_clientId, -1, "");
     CHECK_EXPR(proxyId == m_proxyId, -1, "");
-    CHECK_EXPR(bornZid == m_bornZid, -1, "");
+    CHECK_EXPR(bornZid == m_loginZid, -1, "");
 
     int err_code = xData.ret_code();
 
@@ -204,18 +366,25 @@ int NFTransWorldGetRoleList::OnTransFinished(int iRunLogicRetCode)
 {
     if (iRunLogicRetCode != 0)
     {
-        NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
-        CHECK_EXPR(pPlayer, -1,
-                   "OnTransFinished, NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(playerId) return NULL, playerId:{}",
-                   m_uid);
-
-        uint64_t newClientId = pPlayer->GetClientId();
-
-        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
-        if (pSession == NULL)
+        if (iRunLogicRetCode < 0 || iRunLogicRetCode == proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT)
         {
+            NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+            NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_KICK_OUT);
             return 0;
         }
+
+        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+        if (pSession == NULL) return 0;
+
+        NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+        if (pPlayer == NULL)
+        {
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
+            return 0;
+        }
+
+        uint64_t newClientId = pPlayer->GetClientId();
 
         if (newClientId > 0 && m_clientId != newClientId)
         {
