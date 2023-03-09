@@ -92,12 +92,12 @@ void NFPlayerBase::DecreaseTransNum()
     }
 }
 
-uint64_t NFPlayerBase::GetCid() const
+uint64_t NFPlayerBase::GetRoleId() const
 {
     return m_cid;
 }
 
-uint64_t NFPlayerBase::Cid() const
+uint64_t NFPlayerBase::RoleId() const
 {
     return m_cid;
 }
@@ -316,7 +316,7 @@ void NFPlayerBase::SetFacadeProto(proto_ff::RoleFacadeProto& outproto)
 
 void NFPlayerBase::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
 {
-    outproto.set_cid(Cid());
+    outproto.set_cid(RoleId());
     outproto.set_uid(GetUid());
     outproto.set_zid(GetZid());
     SetBaseData(outproto.mutable_base());
@@ -369,6 +369,16 @@ uint32_t NFPlayerBase::GetProxyId() const
 void NFPlayerBase::SetProxyId(uint32_t proxyId)
 {
     m_proxyId = proxyId;
+}
+
+uint32_t NFPlayerBase::GetClientId() const
+{
+    return m_clientId;
+}
+
+void NFPlayerBase::SetClientId(uint32_t clientId)
+{
+    m_clientId = clientId;
 }
 
 uint64_t NFPlayerBase::GetMapId() const
@@ -472,7 +482,7 @@ void NFPlayerBase::OnChangeState(uint8_t curstate, uint8_t laststate)
 {
     //通知客户端状态改变
     proto_ff::CreatureStateBroadRsp rsp;
-    rsp.set_cid(GetCid());
+    rsp.set_cid(GetRoleId());
     rsp.set_curstate(curstate);
     rsp.set_beforestate(laststate);
     //BroadCast(proto_ff::CREATURE_STATE_BROAD, &rsp, true);

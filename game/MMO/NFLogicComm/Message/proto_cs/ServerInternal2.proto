@@ -115,8 +115,9 @@ message LogicToWorldLoginRsp
 message WorldToSnsLoginReq
 {
   optional uint32 proxy_id = 1;
-  optional uint32 logic_id = 2;
-  optional RoleDBSimpleData simple_data = 3;
+  optional uint64 client_id = 2;
+  optional uint32 logic_id = 3;
+  optional RoleDBSimpleData simple_data = 4;
 }
 
 message SnsToWorldLoginRsp

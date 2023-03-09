@@ -89,7 +89,7 @@ int NFBagPage::Init(const proto_ff::RoleDBUnitBagData &dbData)
                 auto pEquipCfg = EquipEquipDesc::Instance(m_pObjPluginManager)->GetDesc(protoItem.item_id());
                 if (nullptr == pEquipCfg)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[logic] PackageBag::Init..nullptr == pEquipCfg....cid:{},itemid:{} ", m_pMaster->GetCid(),
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "[logic] PackageBag::Init..nullptr == pEquipCfg....cid:{},itemid:{} ", m_pMaster->GetRoleId(),
                                protoItem.item_id());
                     continue;
                 }
@@ -2070,7 +2070,7 @@ bool NFBagPage::SortItem()
 
 bool NFBagPage::BagItemSort()
 {
-    uint64_t cid = m_pMaster->GetCid();
+    uint64_t cid = m_pMaster->GetRoleId();
     //装备>材料>杂物
     VEC_PACKAGE_ITEM vecMaterial;
     VEC_PACKAGE_ITEM vecSundry;

@@ -39,6 +39,7 @@ int NFTransRoleLogin::CreateInit()
     m_cmd = 0;
     m_logicId = 0;
     m_proxyId = 0;
+    m_clientId = 0;
     m_simpleInfo.CreateInit();
     m_lastLoginTime = 0;
     m_lastLogoutTime = 0;
@@ -93,6 +94,7 @@ int NFTransRoleLogin::OnRoleLogin(const proto_ff::WorldToSnsLoginReq& req)
     m_cmd = proto_ff::WORLD_TO_SNS_LOGIN_REQ;
     m_proxyId = req.proxy_id();
     m_logicId = req.logic_id();
+    m_clientId = req.client_id();
     m_simpleInfo.read_from_pbmsg(req.simple_data());
     m_roleId = m_simpleInfo.cid;
 
@@ -170,6 +172,7 @@ int NFTransRoleLogin::OnRoleLoginRes(int iRunLogicRetCode)
     pRoleSimple->SetBaseData(m_simpleInfo.base);
     pRoleSimple->SetLogicId(m_logicId);
     pRoleSimple->SetProxyId(m_proxyId);
+    pRoleSimple->SetClientId(m_clientId);
 
     pRoleSimple->SendTransToWorldServer(proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalID(), m_reqTrans);
     return 0;

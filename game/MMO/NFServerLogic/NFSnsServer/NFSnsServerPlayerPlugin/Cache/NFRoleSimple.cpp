@@ -33,6 +33,7 @@ int NFRoleSimple::CreateInit()
     m_uid = 0;
     m_roleId = 0;
     m_proxyId = 0;
+    m_clientId = 0;
     m_gameId = 0;
     m_isOnline = false;
     m_isInited = false;
@@ -82,6 +83,16 @@ uint32_t NFRoleSimple::GetProxyId() const
 void NFRoleSimple::SetProxyId(uint32_t proxyId)
 {
     m_proxyId = proxyId;
+}
+
+uint32_t NFRoleSimple::GetClientId() const
+{
+    return m_clientId;
+}
+
+void NFRoleSimple::SetClientId(uint32_t clientId)
+{
+    m_clientId = clientId;
 }
 
 uint32_t NFRoleSimple::GetLogicId() const
@@ -151,7 +162,7 @@ int NFRoleSimple::OnReconnect()
 
 int NFRoleSimple::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_uid, m_clientId);
     return 0;
 }
 

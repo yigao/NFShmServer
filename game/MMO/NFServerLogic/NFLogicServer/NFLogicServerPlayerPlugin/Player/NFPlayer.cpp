@@ -212,7 +212,7 @@ int NFPlayer::Tick()
             SetStatus(PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
             NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid(),
-                      GetCid());
+                      GetRoleId());
         }
             break;
         case PLAYER_STATUS_LOGOUT:
@@ -376,7 +376,7 @@ int NFPlayer::OnReconnect()
 
 int NFPlayer::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_uid, m_cid);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_uid, m_clientId);
     return 0;
 }
 
@@ -427,7 +427,7 @@ int NFPlayer::NotifyPlayerInfo()
     CHECK_NULL(pConfig);
 
     proto_ff::PlayerInfoRsp rsp;
-    rsp.set_cid(GetCid());
+    rsp.set_cid(GetRoleId());
     rsp.set_name(GetName());
     rsp.set_zid(GetZid());
     rsp.set_opentime(pConfig->ServerOpenTime);
@@ -750,7 +750,7 @@ void NFPlayer::SynAttrToClient()
     if (!m_attrCache.empty())
     {
         proto_ff::CreatureAttrSyn rsp;
-        rsp.set_cid(GetCid());
+        rsp.set_cid(GetRoleId());
         string strlog;
         for (auto &iter: m_attrCache)
         {
@@ -773,7 +773,7 @@ void NFPlayer::SynAttrToClient()
     if (!m_attrBroadCache.empty())
     {
         proto_ff::CreatureAttrBroadRsp rsp;
-        rsp.set_cid(GetCid());
+        rsp.set_cid(GetRoleId());
         for (auto &iter: m_attrBroadCache)
         {
             proto_ff::Attr64 *proto = rsp.add_attr();
@@ -923,8 +923,8 @@ bool NFPlayer::CanAddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSour
                 param1 = pSource->param1;
                 param2 = pSource->param2;
             }
-            NFLogError(NF_LOG_SYSTEMLOG, GetCid(), "[logic] Player::CanAddAttr..attrValue < 0..cid:{},attrValue:{},source:{},param1:{},param2:{}",
-                       GetCid(), attrValue, source, param1, param2);
+            NFLogError(NF_LOG_SYSTEMLOG, GetRoleId(), "[logic] Player::CanAddAttr..attrValue < 0..cid:{},attrValue:{},source:{},param1:{},param2:{}",
+                       GetRoleId(), attrValue, source, param1, param2);
 
             return false;
         }
@@ -1038,7 +1038,7 @@ bool NFPlayer::CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSour
                 param1 = pSource->param1;
                 param2 = pSource->param2;
             }
-            NFLogError(NF_LOG_SYSTEMLOG, GetCid(), "Player::CanSetAttr...cid:{},attrValue:{},source:{},param1:{},param2:{}", GetCid(),
+            NFLogError(NF_LOG_SYSTEMLOG, GetRoleId(), "Player::CanSetAttr...cid:{},attrValue:{},source:{},param1:{},param2:{}", GetRoleId(),
                        attrValue, source, param1, param2);
             //
             return false;
@@ -1184,9 +1184,9 @@ void NFPlayer::CheckExp(int64_t oldexp, SCommonSource *pSource)
             levFlag = true;
             //发送玩家升级事件
             proto_ff::PlayerLeveUpEvent levelupInfo;
-            levelupInfo.set_cid(GetCid());
+            levelupInfo.set_cid(GetRoleId());
             levelupInfo.set_level(level);
-            FireExecute(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, GetCid(), CREATURE_PLAYER, levelupInfo);
+            FireExecute(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, GetRoleId(), CREATURE_PLAYER, levelupInfo);
             //
             pExpCfg = RoleExpDesc::Instance(m_pObjPluginManager)->GetDesc(level);
         }

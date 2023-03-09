@@ -295,8 +295,9 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LogicToWorldLoginRsp));
   WorldToSnsLoginReq_descriptor_ = file->message_type(11);
-  static const int WorldToSnsLoginReq_offsets_[3] = {
+  static const int WorldToSnsLoginReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToSnsLoginReq, proxy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToSnsLoginReq, client_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToSnsLoginReq, logic_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToSnsLoginReq, simple_data_),
   };
@@ -565,28 +566,28 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
     "\010 \001(\004\022 \n\003pos\030\t \001(\0132\023.proto_ff.Vector3PB\""
     "Y\n\024LogicToWorldLoginRsp\022\020\n\010ret_code\030\001 \001("
     "\r\022/\n\013simple_data\030\002 \001(\0132\032.proto_ff.RoleDB"
-    "SimpleData\"i\n\022WorldToSnsLoginReq\022\020\n\010prox"
-    "y_id\030\001 \001(\r\022\020\n\010logic_id\030\002 \001(\r\022/\n\013simple_d"
-    "ata\030\003 \001(\0132\032.proto_ff.RoleDBSimpleData\"@\n"
-    "\022SnsToWorldLoginRsp\022\020\n\010ret_code\030\001 \001(\r\022\013\n"
-    "\003uid\030\002 \001(\004\022\013\n\003cid\030\003 \001(\004\"=\n\031GameToWorldRe"
-    "gisterMapReq\022\020\n\010game_bus\030\001 \001(\r\022\016\n\006map_id"
-    "\030\002 \003(\004\"-\n\031WorldToGameRegisterMapRsp\022\020\n\010r"
-    "et_code\030\001 \001(\r\"\242\001\n\035WorldToLogicLoginFinis"
-    "hNotify\022\013\n\003uid\030\001 \001(\004\022\013\n\003cid\030\002 \001(\004\022\020\n\010pro"
-    "xy_id\030\003 \001(\r\022\021\n\tclient_id\030\004 \001(\004\022\016\n\006map_id"
-    "\030\005 \001(\004\022\020\n\010scene_id\030\006 \001(\004\022 \n\003pos\030\007 \001(\0132\023."
-    "proto_ff.Vector3PB\"\256\001\n\031LogicToWorldEnter"
-    "SceneReq\022\013\n\003cid\030\001 \001(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n"
-    "\010scene_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023.proto_ff."
-    "Vector3PB\022\024\n\014req_trans_id\030\005 \001(\r\022*\n\004data\030"
-    "\006 \001(\0132\034.proto_ff.RoleEnterSceneData\"\320\001\n\030"
-    "WorldToGameEnterSceneReq\022\013\n\003cid\030\001 \001(\004\022\016\n"
-    "\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003pos\030\004"
-    " \001(\0132\023.proto_ff.Vector3PB\022\024\n\014req_trans_i"
-    "d\030\005 \001(\r\022\017\n\007gate_id\030\006 \001(\r\022\020\n\010logic_id\030\007 \001"
-    "(\r\022*\n\004data\030\010 \001(\0132\034.proto_ff.RoleEnterSce"
-    "neData", 2406);
+    "SimpleData\"|\n\022WorldToSnsLoginReq\022\020\n\010prox"
+    "y_id\030\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\020\n\010logic_i"
+    "d\030\003 \001(\r\022/\n\013simple_data\030\004 \001(\0132\032.proto_ff."
+    "RoleDBSimpleData\"@\n\022SnsToWorldLoginRsp\022\020"
+    "\n\010ret_code\030\001 \001(\r\022\013\n\003uid\030\002 \001(\004\022\013\n\003cid\030\003 \001"
+    "(\004\"=\n\031GameToWorldRegisterMapReq\022\020\n\010game_"
+    "bus\030\001 \001(\r\022\016\n\006map_id\030\002 \003(\004\"-\n\031WorldToGame"
+    "RegisterMapRsp\022\020\n\010ret_code\030\001 \001(\r\"\242\001\n\035Wor"
+    "ldToLogicLoginFinishNotify\022\013\n\003uid\030\001 \001(\004\022"
+    "\013\n\003cid\030\002 \001(\004\022\020\n\010proxy_id\030\003 \001(\r\022\021\n\tclient"
+    "_id\030\004 \001(\004\022\016\n\006map_id\030\005 \001(\004\022\020\n\010scene_id\030\006 "
+    "\001(\004\022 \n\003pos\030\007 \001(\0132\023.proto_ff.Vector3PB\"\256\001"
+    "\n\031LogicToWorldEnterSceneReq\022\013\n\003cid\030\001 \001(\004"
+    "\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003po"
+    "s\030\004 \001(\0132\023.proto_ff.Vector3PB\022\024\n\014req_tran"
+    "s_id\030\005 \001(\r\022*\n\004data\030\006 \001(\0132\034.proto_ff.Role"
+    "EnterSceneData\"\320\001\n\030WorldToGameEnterScene"
+    "Req\022\013\n\003cid\030\001 \001(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scen"
+    "e_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023.proto_ff.Vecto"
+    "r3PB\022\024\n\014req_trans_id\030\005 \001(\r\022\017\n\007gate_id\030\006 "
+    "\001(\r\022\020\n\010logic_id\030\007 \001(\r\022*\n\004data\030\010 \001(\0132\034.pr"
+    "oto_ff.RoleEnterSceneData", 2425);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal2.proto", &protobuf_RegisterTypes);
   WorldToLogicGetRoleList::default_instance_ = new WorldToLogicGetRoleList();
@@ -4778,6 +4779,7 @@ void LogicToWorldLoginRsp::Swap(LogicToWorldLoginRsp* other) {
 
 #ifndef _MSC_VER
 const int WorldToSnsLoginReq::kProxyIdFieldNumber;
+const int WorldToSnsLoginReq::kClientIdFieldNumber;
 const int WorldToSnsLoginReq::kLogicIdFieldNumber;
 const int WorldToSnsLoginReq::kSimpleDataFieldNumber;
 #endif  // !_MSC_VER
@@ -4800,6 +4802,7 @@ WorldToSnsLoginReq::WorldToSnsLoginReq(const WorldToSnsLoginReq& from)
 void WorldToSnsLoginReq::SharedCtor() {
   _cached_size_ = 0;
   proxy_id_ = 0u;
+  client_id_ = GOOGLE_ULONGLONG(0);
   logic_id_ = 0u;
   simple_data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -4839,6 +4842,7 @@ WorldToSnsLoginReq* WorldToSnsLoginReq::New() const {
 void WorldToSnsLoginReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     proxy_id_ = 0u;
+    client_id_ = GOOGLE_ULONGLONG(0);
     logic_id_ = 0u;
     if (has_simple_data()) {
       if (simple_data_ != NULL) simple_data_->::proto_ff::RoleDBSimpleData::Clear();
@@ -4865,12 +4869,28 @@ bool WorldToSnsLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_logic_id;
+        if (input->ExpectTag(16)) goto parse_client_id;
         break;
       }
 
-      // optional uint32 logic_id = 2;
+      // optional uint64 client_id = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_client_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &client_id_)));
+          set_has_client_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_logic_id;
+        break;
+      }
+
+      // optional uint32 logic_id = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_logic_id:
@@ -4881,12 +4901,12 @@ bool WorldToSnsLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_simple_data;
+        if (input->ExpectTag(34)) goto parse_simple_data;
         break;
       }
 
-      // optional .proto_ff.RoleDBSimpleData simple_data = 3;
-      case 3: {
+      // optional .proto_ff.RoleDBSimpleData simple_data = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_simple_data:
@@ -4922,15 +4942,20 @@ void WorldToSnsLoginReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->proxy_id(), output);
   }
 
-  // optional uint32 logic_id = 2;
-  if (has_logic_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->logic_id(), output);
+  // optional uint64 client_id = 2;
+  if (has_client_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->client_id(), output);
   }
 
-  // optional .proto_ff.RoleDBSimpleData simple_data = 3;
+  // optional uint32 logic_id = 3;
+  if (has_logic_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->logic_id(), output);
+  }
+
+  // optional .proto_ff.RoleDBSimpleData simple_data = 4;
   if (has_simple_data()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->simple_data(), output);
+      4, this->simple_data(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4946,16 +4971,21 @@ void WorldToSnsLoginReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->proxy_id(), target);
   }
 
-  // optional uint32 logic_id = 2;
-  if (has_logic_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->logic_id(), target);
+  // optional uint64 client_id = 2;
+  if (has_client_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->client_id(), target);
   }
 
-  // optional .proto_ff.RoleDBSimpleData simple_data = 3;
+  // optional uint32 logic_id = 3;
+  if (has_logic_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->logic_id(), target);
+  }
+
+  // optional .proto_ff.RoleDBSimpleData simple_data = 4;
   if (has_simple_data()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->simple_data(), target);
+        4, this->simple_data(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4976,14 +5006,21 @@ int WorldToSnsLoginReq::ByteSize() const {
           this->proxy_id());
     }
 
-    // optional uint32 logic_id = 2;
+    // optional uint64 client_id = 2;
+    if (has_client_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->client_id());
+    }
+
+    // optional uint32 logic_id = 3;
     if (has_logic_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->logic_id());
     }
 
-    // optional .proto_ff.RoleDBSimpleData simple_data = 3;
+    // optional .proto_ff.RoleDBSimpleData simple_data = 4;
     if (has_simple_data()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -5020,6 +5057,9 @@ void WorldToSnsLoginReq::MergeFrom(const WorldToSnsLoginReq& from) {
     if (from.has_proxy_id()) {
       set_proxy_id(from.proxy_id());
     }
+    if (from.has_client_id()) {
+      set_client_id(from.client_id());
+    }
     if (from.has_logic_id()) {
       set_logic_id(from.logic_id());
     }
@@ -5053,6 +5093,7 @@ bool WorldToSnsLoginReq::IsInitialized() const {
 void WorldToSnsLoginReq::Swap(WorldToSnsLoginReq* other) {
   if (other != this) {
     std::swap(proxy_id_, other->proxy_id_);
+    std::swap(client_id_, other->client_id_);
     std::swap(logic_id_, other->logic_id_);
     std::swap(simple_data_, other->simple_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

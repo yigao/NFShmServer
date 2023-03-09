@@ -77,7 +77,7 @@ int NFPlayerMgr::SavePlayerRoleDetail(NFPlayer *pPlayer, TRANS_SAVE_ROLE_DETAIL_
     pTrans->Init(pPlayer);
 
     iRetCode = pTrans->SaveRoleDetail(iReason);
-    CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "uid:{} roleId:{} SaveRoleDetail Failed", pPlayer->GetUid(), pPlayer->GetCid());
+    CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "uid:{} roleId:{} SaveRoleDetail Failed", pPlayer->GetUid(), pPlayer->GetRoleId());
 
     pPlayer->SetRoleDetailSavingDBTime(NFTime::Now().UnixSec());
     return 0;
@@ -138,7 +138,7 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 {
     CHECK_NULL(pPlayer);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, roleId:{}, uid:{}, gloablId:{}", pPlayer->GetCid(), pPlayer->GetUid(),
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, roleId:{}, uid:{}, gloablId:{}", pPlayer->GetRoleId(), pPlayer->GetUid(),
               pPlayer->GetGlobalID());
 
     FindModule<NFISharedMemModule>()->DelIndexKey(PLAYER_UID_INDEX, pPlayer->GetUid(), EOT_LOGIC_PLAYER_ID);
@@ -166,8 +166,8 @@ int NFPlayerMgr::OnEventLogLogin(NFPlayer *pPlayer, bool isLoadDB)
 
 int NFPlayerMgr::OnLogout(NFPlayer *pPlayer)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "player:{}, cid:{} status change to PLAYER_STATUS_LOGOUT, will be erase from memory", pPlayer->GetUid(),
-              pPlayer->GetCid());
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "player:{}, cid:{} status change to PLAYER_STATUS_LOGOUT, will be erase from memory", pPlayer->GetUid(),
+              pPlayer->GetRoleId());
 
     DeletePlayer(pPlayer);
 

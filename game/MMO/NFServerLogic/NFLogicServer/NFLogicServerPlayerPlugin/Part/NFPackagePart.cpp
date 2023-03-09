@@ -84,7 +84,7 @@ int NFPackagePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
         }
         default:
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "package:{} not handle", packet.ToString());
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "package:{} not handle", packet.ToString());
             break;
         }
     }
@@ -666,7 +666,7 @@ int32_t NFPackagePart::UseItem(NFGridItem *pItem, int64_t &nNum, proto_ff::UseIt
                 proto_ff::ItemUseEvent useEvent;
                 useEvent.set_itemid(pItemCfg->m_id);
                 useEvent.set_num(nNum);
-                FireExecute(NF_ST_LOGIC_SERVER, EVENT_ITEM_USE, m_pMaster->GetCid(), CREATURE_PLAYER, useEvent);
+                FireExecute(NF_ST_LOGIC_SERVER, EVENT_ITEM_USE, m_pMaster->GetRoleId(), CREATURE_PLAYER, useEvent);
             }
         }
     }

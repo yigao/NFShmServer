@@ -84,7 +84,7 @@ int NFTransPlayerBase::Init(NFPlayer *pPlayer, uint32_t cmd, uint32_t fromBusId,
     CHECK_NULL(pPlayer);
 
     m_uid = pPlayer->GetUid();
-    m_roleId = pPlayer->GetCid();
+    m_roleId = pPlayer->GetRoleId();
     m_cmd = cmd;
     m_fromBusId = fromBusId;
     m_reqTransId = reqTransId;

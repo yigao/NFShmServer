@@ -156,7 +156,7 @@ NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, S
     if (NFSceneMgr::Instance(m_pObjPluginManager)->IsClosed(m_sceneId))
     {
         NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(),
-                   "Scene::EnterScene, scene is destorying cannt enter, Cid:{}, dstpos({},{},{},), sceneId:{}, mapId:{},transType:{}",
+                   "Scene::EnterScene, scene is destorying cannt enter, RoleId:{}, dstpos({},{},{},), sceneId:{}, mapId:{},transType:{}",
                    pCreature->Cid(), pos.x, pos.y, pos.z, m_sceneId, m_mapId, transParam.transType);
         return NULL;
     }

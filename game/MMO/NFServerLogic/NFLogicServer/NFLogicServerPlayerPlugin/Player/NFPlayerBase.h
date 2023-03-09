@@ -119,8 +119,8 @@ public:
      * @brief 角色ID
      * @return
      */
-    virtual uint64_t GetCid() const;
-    virtual uint64_t Cid() const;
+    virtual uint64_t GetRoleId() const;
+    virtual uint64_t RoleId() const;
 
     /**
      * @brief
@@ -241,6 +241,18 @@ public:
      * @param proxyId
      */
     void SetProxyId(uint32_t proxyId);
+
+    /**
+     * @brief
+     * @return
+     */
+    uint32_t GetClientId() const;
+
+    /**
+     * @brief
+     * @param proxyId
+     */
+    void SetClientId(uint32_t clientId);
 
     uint64_t GetMapId() const;
     uint64_t GetSceneId() const;

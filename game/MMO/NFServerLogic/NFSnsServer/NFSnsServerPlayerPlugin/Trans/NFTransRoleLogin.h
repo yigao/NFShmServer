@@ -94,6 +94,7 @@ private:
     uint32_t m_cmd;
     uint32_t m_logicId;
     uint32_t m_proxyId;
+    uint64_t m_clientId;
     proto_ff_s::RoleDBSimpleData_s m_simpleInfo;
     uint32_t m_lastLoginTime;
     uint32_t m_lastLogoutTime;

@@ -162,7 +162,7 @@ int NFLogicGMModule::GetItem(NFPlayer *pPlayer, const vector<std::string> &args)
 
     SCommonSource sourceParam;
     sourceParam.src = S_GM;
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "[logic] GmMgr::GetItem 111...cid:{}, itemid:{}, num:{}", pPlayer->GetCid(), itemId,
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "[logic] GmMgr::GetItem 111...cid:{}, itemid:{}, num:{}", pPlayer->GetRoleId(), itemId,
               itemNum);
     pPart->AddItem(itemId, itemNum, sourceParam);
     return 0;
@@ -177,8 +177,8 @@ int NFLogicGMModule::UpgradeLevel(NFPlayer *pPlayer, const vector<std::string> &
     uint32_t curlevel = pPlayer->GetAttr(proto_ff::A_LEVEL);
     if (curlevel >= level)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "[logic] GmMgr::UpgradeLevel....curlevel >= level...cid:{} curlevel:{}, level:{} ",
-                   pPlayer->GetCid(), curlevel, level);
+        NFLogError(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "[logic] GmMgr::UpgradeLevel....curlevel >= level...cid:{} curlevel:{}, level:{} ",
+                   pPlayer->GetRoleId(), curlevel, level);
         return 0;
     }
     int64_t curexp = pPlayer->GetAttr(proto_ff::A_EXP);
@@ -219,7 +219,7 @@ int NFLogicGMModule::AddExp(NFPlayer *pPlayer, const vector<std::string> &args)
     SCommonSource src;
     src.src = S_GM;
     pPlayer->AddAttr(proto_ff::A_EXP, exp, &src, true);
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "GM AddExp:{}", exp);
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "GM AddExp:{}", exp);
     return 0;
 }
 
@@ -231,7 +231,7 @@ int NFLogicGMModule::AddGold(NFPlayer *pPlayer, const vector<std::string> &args)
     SCommonSource src;
     src.src = S_GM;
     pPlayer->AddAttr(proto_ff::A_GOLD, val, &src, true);
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "GM AddGold:{}", val);
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "GM AddGold:{}", val);
     return 0;
 }
 
@@ -243,7 +243,7 @@ int NFLogicGMModule::AddDia(NFPlayer *pPlayer, const vector<std::string> &args)
     SCommonSource src;
     src.src = S_GM;
     pPlayer->AddAttr(proto_ff::A_DIA, val, &src, true);
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "GM AddDia:{}", val);
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "GM AddDia:{}", val);
     return 0;
 }
 
@@ -255,7 +255,7 @@ int NFLogicGMModule::AddBdDia(NFPlayer *pPlayer, const vector<std::string> &args
     SCommonSource src;
     src.src = S_GM;
     pPlayer->AddAttr(proto_ff::A_BD_DIA, val, &src, true);
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "GM AddBdDia:{}", val);
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "GM AddBdDia:{}", val);
     return 0;
 }
 
@@ -267,7 +267,7 @@ int NFLogicGMModule::AddMagic(NFPlayer *pPlayer, const vector<std::string> &args
     SCommonSource src;
     src.src = S_GM;
     pPlayer->AddAttr(proto_ff::A_MAGIC, val, &src, true);
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "GM AddMagic:{}", val);
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "GM AddMagic:{}", val);
     return 0;
 }
 

@@ -713,8 +713,9 @@ int NFCProxyClientModule::LeaveGame(NF_SHARE_PTR<NFProxySession> pLinkInfo, prot
 int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     uint64_t playerId = packet.nParam1;
+    uint64_t clientId = packet.nParam2;
     NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
-    if (pPlayerInfo)
+    if (pPlayerInfo && clientId == pPlayerInfo->GetLinkId())
     {
         NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
         if (pLinkInfo == NULL)
@@ -727,7 +728,7 @@ int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
     }
     else
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info, other server msg:{} not handle", playerId, packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info or clientId change, other server msg:{} not handle", playerId, packet.ToString());
     }
 
     return 0;

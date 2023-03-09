@@ -86,6 +86,7 @@ int NFTransGetRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
         if (pPlayer)
         {
             pPlayer->SetProxyId(m_proxyId);
+            pPlayer->SetClientId(m_clientId);
             pPlayer->OnLoad(false);
             SetFinished(0);
         }
@@ -133,6 +134,7 @@ int NFTransGetRole::HandleGetRoleDBRsp(proto_ff::RoleDBData& dbData)
             pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(dbData.cid(), dbData.uid(), dbData);
             CHECK_EXPR(pPlayer, -1, "CreatePlayerByUid Failed! roleId:{} uid:{}", dbData.cid(), dbData.uid());
             pPlayer->SetProxyId(m_proxyId);
+            pPlayer->SetClientId(m_clientId);
             pPlayer->OnLoad(true);
         }
         else {
@@ -185,7 +187,7 @@ int NFTransGetRole::HandleTransFinished(int iRunLogicRetCode)
             xMsg.set_ret_code(proto_ff::RET_SUCCESS);
             auto pData = xMsg.mutable_simple_data();
             pData->set_uid(pPlayer->GetUid());
-            pData->set_cid(pPlayer->GetCid());
+            pData->set_cid(pPlayer->GetRoleId());
             pData->set_zid(pPlayer->GetZid());
             auto pBase = pData->mutable_base();
             pPlayer->SetBaseData(pBase);

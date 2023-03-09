@@ -139,6 +139,7 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
         proto_ff::WorldToSnsLoginReq snsLoginReq;
         snsLoginReq.set_proxy_id(pPlayer->GetProxyId());
         snsLoginReq.set_logic_id(pPlayer->GetLogicId());
+        snsLoginReq.set_client_id(pPlayer->GetClientId());
         snsLoginReq.mutable_simple_data()->CopyFrom(xData.simple_data());
 
         pPlayer->SendTransToSnsServer(proto_ff::WORLD_TO_SNS_LOGIN_REQ, snsLoginReq, GetGlobalID());

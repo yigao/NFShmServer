@@ -73,17 +73,17 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
 {
     NFPart::Init(pMaster, partType, dbData);
 
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ITEM_CHANGE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PASS_DUPLICATE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ARENA_JOIN, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ADD_FRIEND, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_STONE_INLAY, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_EQUP_STREN, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_GUILD_CHANGE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_WING_ADVANCE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_TREASURE_ADVANCE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PARTNER_ADVANCE, CREATURE_PLAYER, m_pMaster->Cid(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ITEM_CHANGE, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PASS_DUPLICATE, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ARENA_JOIN, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_ADD_FRIEND, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_STONE_INLAY, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_EQUP_STREN, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_LEVELUP, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_GUILD_CHANGE, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_WING_ADVANCE, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_TREASURE_ADVANCE, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_PARTNER_ADVANCE, CREATURE_PLAYER, m_pMaster->RoleId(), "MissionPart");
 
     if (dbData.has_task())
     {
@@ -96,7 +96,7 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
             const proto_ff::CharacterDBMissionTrack &missionDBTrack = missionDBData.missiontrack(i);
             if (_playerTrackMissionMap.size() >= _playerTrackMissionMap.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_playerTrackMissionMap Space Not Enough, need size:{}", nAccept);
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_playerTrackMissionMap Space Not Enough, need size:{}", nAccept);
                 continue;
             }
             MissionTrack *pMissionTrack = &_playerTrackMissionMap[missionDBTrack.dynamicid()];
@@ -171,7 +171,7 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
         {
             if (_setAlreadySubmit.size() >= _setAlreadySubmit.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_setAlreadySubmit Space Not Enough, need size:{}",
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_setAlreadySubmit Space Not Enough, need size:{}",
                            missionDBData.already_submit_size());
                 continue;
             }
@@ -186,7 +186,7 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
             const proto_ff::CharacterDBDyMissionInfo &dyInfo = missionDBData.dyinfo(n);
             if (_mapDyMissionTrack.size() >= _mapDyMissionTrack.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapDyMissionTrack Space Not Enough, need size:{}", nDyCnt);
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_mapDyMissionTrack Space Not Enough, need size:{}", nDyCnt);
                 continue;
             }
             DyMissionTrack &track = _mapDyMissionTrack[dyInfo.mission_type()];
@@ -207,7 +207,7 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
             {
                 if (iter->second.size() >= iter->second.max_size())
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapRecentSubmit mission_type Space Not Enough....");
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_mapRecentSubmit mission_type Space Not Enough....");
                     continue;
                 }
                 iter->second.insert(recent.mission_id());
@@ -216,7 +216,7 @@ int NFMissionPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Ro
             {
                 if (_mapRecentSubmit.size() >= _mapRecentSubmit.max_size())
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_mapRecentSubmit Space Not Enough....");
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_mapRecentSubmit Space Not Enough....");
                     continue;
                 }
                 _mapRecentSubmit[recent.mission_type()].insert(recent.mission_id());
@@ -413,8 +413,8 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                 MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionid);
                 if (nullptr == pMissionInfo)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "CheckTrunkMission 11 nullptr == pMissionInfo cid:{}, missionid:{} ",
-                               m_pMaster->GetCid(),
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "CheckTrunkMission 11 nullptr == pMissionInfo cid:{}, missionid:{} ",
+                               m_pMaster->GetRoleId(),
                                missionid);
                     continue;
                 }
@@ -431,16 +431,16 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                 {
                     if (MISSION_TYPE_ID_TRUNK == pMissionInfo->kind)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(),
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(),
                                    "CheckTrunkMission...OnAcceptType failed...cid:{} ,kind:{},mission:{},ret:{} ",
-                                   m_pMaster->Cid(),
+                                   m_pMaster->RoleId(),
                                    pMissionInfo->kind, missionid, ret);
                     }
                 }
                 else
                 {
-                    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(),
-                               "MissionPart::CheckTrunkMission...accept mission...cid:{},kind:{}, mission:{},ret:{} ", m_pMaster->Cid(),
+                    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(),
+                               "MissionPart::CheckTrunkMission...accept mission...cid:{},kind:{}, mission:{},ret:{} ", m_pMaster->RoleId(),
                                pMissionInfo->kind, missionid, ret);
                 }
             }
@@ -458,8 +458,8 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                 MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionid);
                 if (nullptr == pMissionInfo)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "CheckTrunkMission nullptr == pMissionInfo cid:{}, missionid:{} ",
-                               m_pMaster->Cid(),
+                    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "CheckTrunkMission nullptr == pMissionInfo cid:{}, missionid:{} ",
+                               m_pMaster->RoleId(),
                                missionid);
                     continue;
                 }
@@ -470,9 +470,9 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                     MissionInfo *pBackMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(backMissionid);
                     if (nullptr == pBackMissionInfo)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                                    "CheckTrunkMission nullptr == pBackMissionInfo cid:{}, missionid:{},backMissionid:{} ",
-                                   m_pMaster->Cid(), missionid, backMissionid);
+                                   m_pMaster->RoleId(), missionid, backMissionid);
                         continue;
                     }
 
@@ -499,15 +499,15 @@ void NFMissionPart::CheckTrunkMission(bool notify/* = true*/)
                     int32_t ret = OnAccept(backMissionid, notify);
                     if (proto_ff::RET_SUCCESS != ret)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                                    "CheckTrunkMission...OnAcceptType failed...cid:{},mission:{},backMissionid:{},ret:{} ",
-                                   m_pMaster->Cid(), missionid, backMissionid, ret);
+                                   m_pMaster->RoleId(), missionid, backMissionid, ret);
                     }
                     else
                     {
-                        NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                        NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                                    "MissionPart::CheckTrunkMission...accept mission...cid:{},kind:{}, mission:{},backMissionid:{},ret:{} ",
-                                   m_pMaster->Cid(), pBackMissionInfo->kind, missionid, backMissionid, ret);
+                                   m_pMaster->RoleId(), pBackMissionInfo->kind, missionid, backMissionid, ret);
                     }
                 }
             }
@@ -521,7 +521,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "OnAcceptType Have Not MissionID={} Config, Please Check Mission Config", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "OnAcceptType Have Not MissionID={} Config, Please Check Mission Config", missionId);
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
 
@@ -533,7 +533,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
 
     if (_playerTrackMissionMap.size() >= _playerTrackMissionMap.max_size())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "_playerTrackMissionMap Space Noet Enough.......");
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "_playerTrackMissionMap Space Noet Enough.......");
         return proto_ff::RET_FAIL;
     }
 
@@ -541,7 +541,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     MissionTrack *pMissionTrack = &_playerTrackMissionMap[missionId];
     if (nullptr == pMissionTrack)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAcceptType MissionID={}, Allcol MissionTrackObj is nullptr", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "[logic] OnAcceptType MissionID={}, Allcol MissionTrackObj is nullptr", missionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -557,7 +557,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     pMissionTrack->status = MISSION_E_ACCEPTED;
     if (proto_ff::RET_SUCCESS != OnExtractCond(pMissionInfo, pMissionTrack))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "[logic] OnAcceptType MissionID={}, OnExtractCond failed...", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "[logic] OnAcceptType MissionID={}, OnExtractCond failed...", missionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -571,10 +571,10 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
 
     //接取任务事件
     proto_ff::AcceptTaskEvent acceptEvent;
-    acceptEvent.set_cid(m_pMaster->Cid());
+    acceptEvent.set_cid(m_pMaster->RoleId());
     acceptEvent.set_taskid(missionId);
     acceptEvent.set_tasktype(pMissionInfo->kind);
-    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), acceptEvent);
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->RoleId(), acceptEvent);
 
     //判断任务是否完成
     bool isCompletedFlag = true;
@@ -640,7 +640,7 @@ void NFMissionPart::RegisterEvent(uint32_t eventType, uint64_t missionId, int32_
         {
             if (iterLv->second.size() >= iterLv->second.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_eventTabal iterLv->second Space Not Enough");
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_eventTabal iterLv->second Space Not Enough");
             }
             iterLv->second.insert(missionId);
         }
@@ -648,7 +648,7 @@ void NFMissionPart::RegisterEvent(uint32_t eventType, uint64_t missionId, int32_
         {
             if (iterLv->second.size() >= iterLv->second.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_eventTabal mapLevMission Space Not Enough");
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_eventTabal mapLevMission Space Not Enough");
             }
             mapLevMission[progressLev].insert(missionId);
         }
@@ -657,7 +657,7 @@ void NFMissionPart::RegisterEvent(uint32_t eventType, uint64_t missionId, int32_
     {
         if (_eventTabal.size() >= _eventTabal.max_size())
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_eventTabal Space Not Enough");
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_eventTabal Space Not Enough");
         }
         _eventTabal[eventType][progressLev].insert(missionId);
     }
@@ -748,9 +748,9 @@ int32_t NFMissionPart::OnAddMissionDrop(MissionTrack *pMissionTrack, int32_t pro
             //打怪收集		格式 302=物品id=物品数量=生物ID=宝箱id=追踪路径id
             if (!AddMissionDrop(dymissionId, cond.parma1, 0, cond.parma2, progressLev))
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                            "OnAddMissionDrop...pMissionPart->AddMissionDrop failed....cid:{}, missionid:{}, dymissionid:{}, condtype:{},itemid:{},finalvalue:{},param1:{},param2:{},param3:{} ",
-                           m_pMaster->Cid(), missionId, dymissionId, cond.type, cond.itemId, cond.finalValue, cond.parma1, cond.parma2, cond.parma3);
+                           m_pMaster->RoleId(), missionId, dymissionId, cond.type, cond.itemId, cond.finalValue, cond.parma1, cond.parma2, cond.parma3);
             }
         }
     }
@@ -776,7 +776,7 @@ bool NFMissionPart::AddMissionDrop(uint64_t dymissionId, uint64_t monsId, uint64
             stDrop.progressLv = progressLev;
             if (mapDrop.size() >= mapDrop.max_size())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapMissionAllDrop mapDrop Space Not Enough");
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_mapMissionAllDrop mapDrop Space Not Enough");
                 return false;
             }
             mapDrop[dymissionId] = stDrop;
@@ -790,7 +790,7 @@ bool NFMissionPart::AddMissionDrop(uint64_t dymissionId, uint64_t monsId, uint64
         stDrop.progressLv = progressLev;
         if (_mapMissionAllDrop.size() >= _mapMissionAllDrop.max_size())
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapMissionAllDrop Space Not Enough");
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_mapMissionAllDrop Space Not Enough");
             return false;
         }
         _mapMissionAllDrop[monsId][dymissionId] = stDrop;
@@ -1374,7 +1374,7 @@ bool NFMissionPart::CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
 
         if (!pPackage->CanAddItem(addItems))
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "missionId:{} add items failed.......", missionId);
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetRoleId(), "missionId:{} add items failed.......", missionId);
             return false;
         }
 
@@ -1589,14 +1589,14 @@ int NFMissionPart::HandleNpcAcceptMission(uint32_t msgId, NFDataPackage &packet)
     proto_ff::CGNpcAcceptMissionReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
-    uint64_t cid = m_pMaster->Cid();
+    uint64_t cid = m_pMaster->RoleId();
     int32_t missionType = req.missiontype();
     //
     int32_t ret = proto_ff::RET_MISSION_NOT_EXIST;
     ret = AcceptMissionByType(missionType, true);
     if (proto_ff::RET_SUCCESS != ret)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "HandleNpcAcceptMission....AcceptMissionByType failed...cid:{},missionType:{},ret:{} ", cid,
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "HandleNpcAcceptMission....AcceptMissionByType failed...cid:{},missionType:{},ret:{} ", cid,
                    missionType, ret);
     }
 
@@ -1665,8 +1665,8 @@ int NFMissionPart::HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet)
     PlayerTrackMissionMap::iterator it = _playerTrackMissionMap.find(dymissionId);
     if (it == _playerTrackMissionMap.end())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] CGTalkWithNpcReq but dymissionId = %lu not in playerTrackMissionMap...cid:%lu",
-                   dymissionId, m_pMaster->Cid());
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] CGTalkWithNpcReq but dymissionId = %lu not in playerTrackMissionMap...cid:%lu",
+                   dymissionId, m_pMaster->RoleId());
         return -1;
     }
 
@@ -1676,8 +1676,8 @@ int NFMissionPart::HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet)
         && type != MISSION_FINISH_TYPE_AREA
         && type != MISSION_FINISH_TYPE_FINISH_ACTION)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] CGTalkWithNpcReq...type error... cid:%lu, dymissionId:%lu, itemid:%lu , type:%d..",
-                   m_pMaster->Cid(), dymissionId, itemId, type);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] CGTalkWithNpcReq...type error... cid:%lu, dymissionId:%lu, itemid:%lu , type:%d..",
+                   m_pMaster->RoleId(), dymissionId, itemId, type);
         return -1;
     }
 
@@ -1782,8 +1782,8 @@ int32_t NFMissionPart::AcceptMissionByType(int32_t missionType, bool notify)
         if (nullptr == pDyMissionCfgInfo)
         {
             ret = proto_ff::RET_MISSION_NOT_EXIST;
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                       "AcceptMissionByType...can not find mission config....cid:{} ,missionType:{}, missionid:{}, notify:{}", m_pMaster->Cid(),
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                       "AcceptMissionByType...can not find mission config....cid:{} ,missionType:{}, missionid:{}, notify:{}", m_pMaster->RoleId(),
                        missionType, missionId, (int32_t) notify);
         }
         else
@@ -1791,9 +1791,9 @@ int32_t NFMissionPart::AcceptMissionByType(int32_t missionType, bool notify)
             ret = OnAcceptDy(missionId, notify);
             if (proto_ff::RET_SUCCESS != ret)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                            "AcceptMissionByType...OnAcceptDyType failed....cid:{} ,missionType:{}, missionid:{}, notify:{}, ret:{} ",
-                           m_pMaster->Cid(),
+                           m_pMaster->RoleId(),
                            missionType, missionId, (int32_t) notify, ret);
             }
         }
@@ -1808,8 +1808,8 @@ uint64_t NFMissionPart::DyRandMissionId(int32_t missionType)
     auto *pMissionLst = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionLstByType(missionType);
     if (nullptr == pMissionLst)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "DyRandMissionId...nullptr == pMissionLst...missionType:{} ,cid:{} ", missionType,
-                   m_pMaster->Cid());
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "DyRandMissionId...nullptr == pMissionLst...missionType:{} ,cid:{} ", missionType,
+                   m_pMaster->RoleId());
         return proto_ff::RET_FAIL;
     }
 
@@ -1830,7 +1830,7 @@ uint64_t NFMissionPart::DyRandMissionId(int32_t missionType)
     int32_t iszie = vecMission.size();
     if (iszie <= 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "DyRandMissionId....iszie <= 0....missionType:{}, cid:{} ", missionType, m_pMaster->Cid());
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "DyRandMissionId....iszie <= 0....missionType:{}, cid:{} ", missionType, m_pMaster->RoleId());
         return proto_ff::RET_FAIL;
     }
     int32_t rnd = NFRandInt(0, iszie);
@@ -1923,8 +1923,8 @@ int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
                     mapDelMissionEx[dymissionId] = missionId;
                     if (MISSION_TYPE_ID_TRUNK == pMissionCfgInfo->kind)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "ClearMissionByType..remove trunk mission..cid:{}, missionid:{} ",
-                                   m_pMaster->Cid(), missionId);
+                        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "ClearMissionByType..remove trunk mission..cid:{}, missionid:{} ",
+                                   m_pMaster->RoleId(), missionId);
                     }
                 }
             }
@@ -1939,9 +1939,9 @@ int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
         if (proto_ff::RET_SUCCESS != ret)
         {
             //这里必须打印日志，如果移除失败，很可能导致下面刷新阵营任务分配的动态ID有重复的
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                        "MissionPart::ClearMissionByType...RemoveDyMission failed....cid:%lu,missionType:{}, missionId:{}, dymissionid:{},ret:{} ",
-                       m_pMaster->Cid(),
+                       m_pMaster->RoleId(),
                        missionType, missionId, dymissionId, ret);
         }
         else
@@ -1961,8 +1961,9 @@ int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
             int32_t ret = RemoveMission(pMissionCfgInfo);
             if (proto_ff::RET_SUCCESS != ret)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                           "MissionPart::ClearMissionByType...RemoveMission failed....cid:{}, missionId:{}, dymissionid:{},ret:{} ", m_pMaster->Cid(),
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                           "MissionPart::ClearMissionByType...RemoveMission failed....cid:{}, missionId:{}, dymissionid:{},ret:{} ",
+                           m_pMaster->RoleId(),
                            missionId, dymissionId, ret);
             }
             else
@@ -1972,8 +1973,8 @@ int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                       "MissionPart::ClearMissionByType...pMissionCfgInfo is nullptr....cid:{}, missionId:{}, dymissionid:{} ", m_pMaster->Cid(),
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                       "MissionPart::ClearMissionByType...pMissionCfgInfo is nullptr....cid:{}, missionId:{}, dymissionid:{} ", m_pMaster->RoleId(),
                        missionId, dymissionId);
         }
     }
@@ -1993,7 +1994,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     const DyMissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType nullptr == pMissionInfo  cid:{}, missionid:{}", m_pMaster->Cid(),
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnAcceptDyType nullptr == pMissionInfo  cid:{}, missionid:{}", m_pMaster->RoleId(),
                    missionId);
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
@@ -2002,15 +2003,15 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     uint64_t dymissionId = AllocNewDyMisssionId();
     if (!ValidDyMissionId(dymissionId))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType AllocNewDyMisssionId failed... cid:{},missionid:{},dymissionId:{}",
-                   m_pMaster->Cid(), missionId, dymissionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnAcceptDyType AllocNewDyMisssionId failed... cid:{},missionid:{},dymissionId:{}",
+                   m_pMaster->RoleId(), missionId, dymissionId);
         return proto_ff::RET_FAIL;
     }
 
     if (_playerTrackMissionMap.size() >= _playerTrackMissionMap.max_size())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                   "[logic] OnAcceptDyType _playerTrackMissionMap Space Not Enough.. cid:{},missionid:{},dymissionId:{}", m_pMaster->Cid(), missionId,
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                   "[logic] OnAcceptDyType _playerTrackMissionMap Space Not Enough.. cid:{},missionid:{},dymissionId:{}", m_pMaster->RoleId(), missionId,
                    dymissionId);
         FreeDyMissionId(dymissionId);
         return proto_ff::RET_FAIL;
@@ -2020,8 +2021,8 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     MissionTrack *pMissionTrack = &_playerTrackMissionMap[dymissionId];
     if (nullptr == pMissionTrack)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType Allcol MissionTrackObj is nullptr cid:{},missionid:{},dymissionId:{}",
-                   m_pMaster->Cid(), missionId, dymissionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnAcceptDyType Allcol MissionTrackObj is nullptr cid:{},missionid:{},dymissionId:{}",
+                   m_pMaster->RoleId(), missionId, dymissionId);
         FreeDyMissionId(dymissionId);
         return proto_ff::RET_FAIL;
     }
@@ -2035,8 +2036,8 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     //填充完成条件信息 多任务条件
     if (proto_ff::RET_SUCCESS != OnExtractDyCond(pMissionInfo, pMissionTrack))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType OnExtractCond failed...cid:{},missionid:{},dymissionId:{}",
-                   m_pMaster->Cid(), missionId, dymissionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnAcceptDyType OnExtractCond failed...cid:{},missionid:{},dymissionId:{}",
+                   m_pMaster->RoleId(), missionId, dymissionId);
         return proto_ff::RET_FAIL;
     }
 
@@ -2056,10 +2057,10 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     //接取任务事件
     //接取任务事件
     proto_ff::AcceptTaskEvent acceptEvent;
-    acceptEvent.set_cid(m_pMaster->Cid());
+    acceptEvent.set_cid(m_pMaster->RoleId());
     acceptEvent.set_taskid(missionId);
     acceptEvent.set_tasktype(pMissionInfo->kind);
-    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), acceptEvent);
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->RoleId(), acceptEvent);
 
     //判断任务是否完成
     bool isCompletedFlag = true;
@@ -2115,7 +2116,7 @@ int32_t NFMissionPart::OnExtractDyCond(const DyMissionInfo *pDyMissionInfo, Miss
     //抽取一个动态条件ID
     if (pDyMissionInfo->setComplete.size() < 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnExtractDyCond pDyMissionInfo->setComplete.size() < 1  missionid:{} ",
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnExtractDyCond pDyMissionInfo->setComplete.size() < 1  missionid:{} ",
                    pDyMissionInfo->missionId);
         return proto_ff::RET_FAIL;
     }
@@ -2135,7 +2136,7 @@ int32_t NFMissionPart::OnExtractDyCond(const DyMissionInfo *pDyMissionInfo, Miss
     const DyConditionInfo *pDyConditionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyConditionCfgInfo(condId);
     if (nullptr == pDyConditionInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnExtractDyCond nullptr == pDyConditionInfo missionid:{}, condid:{} ",
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnExtractDyCond nullptr == pDyConditionInfo missionid:{}, condid:{} ",
                    pDyMissionInfo->missionId, condId);
         return proto_ff::RET_FAIL;
     }
@@ -2179,7 +2180,7 @@ int32_t NFMissionPart::OnGeneralCond(const DyMissionInfo *pDyMissionInfo, const 
     textId = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyTextId(pDyMissionInfo->kind, cond.type);
     if (textId <= 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                    "[logic] MissionManager::OnGeneralCond...can not find textid..... missionid:{} ,condid:{}, kind:{}, condType:{}",
                    pDyMissionInfo->missionId, pDyConditionInfo->condId, pDyMissionInfo->kind, cond.type);
     }
@@ -2242,7 +2243,7 @@ int32_t NFMissionPart::OnExtractDyAttrReward(MissionTrack *pNewMissinTrack)
 //接取任务(动态任务)
 void NFMissionPart::OnAcceptDyType(uint64_t dymissionId, int32_t missionType)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] MissionPart::OnAcceptDyType...cid:{}, missionType:{} ", m_pMaster->Cid(), missionType);
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] MissionPart::OnAcceptDyType...cid:{}, missionType:{} ", m_pMaster->RoleId(), missionType);
     OnAddAcceptDyCount(missionType, 1);
 }
 
@@ -2254,7 +2255,7 @@ void NFMissionPart::OnAddAcceptDyCount(int32_t missionType, uint32_t count)
     {
         if (_mapDyMissionTrack.size() >= _mapDyMissionTrack.max_size())
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapDyMissionTrack Space Not Enough");
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_mapDyMissionTrack Space Not Enough");
             return;
         }
 
@@ -2266,7 +2267,7 @@ void NFMissionPart::OnAddAcceptDyCount(int32_t missionType, uint32_t count)
         pDyTrack = GetDyMissionTrack(missionType);
         if (nullptr == pDyTrack)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapDyMissionTrack can't find mission type:{}", missionType);
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_mapDyMissionTrack can't find mission type:{}", missionType);
             return;
         }
     }
@@ -2286,8 +2287,8 @@ int32_t NFMissionPart::RemoveMission(MissionInfo *pMissionInfo)
     auto iter = _playerTrackMissionMap.find(pMissionInfo->missionId);
     if (iter == _playerTrackMissionMap.end())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] RemoveMission missionId={} can not find mission data , charId={}",
-                   pMissionInfo->missionId, m_pMaster->Cid());
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] RemoveMission missionId={} can not find mission data , charId={}",
+                   pMissionInfo->missionId, m_pMaster->RoleId());
         return proto_ff::RET_FAIL;
     }
 
@@ -2320,7 +2321,7 @@ int32_t NFMissionPart::RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pM
 void NFMissionPart::NotifyDelMission(uint64_t dymissionId)
 {
     proto_ff::GCDeleteMissionNotify notify;
-    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] Delete old DyMissionID={}, cid:{} ", dymissionId, m_pMaster->Cid());
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] Delete old DyMissionID={}, cid:{} ", dymissionId, m_pMaster->RoleId());
     notify.add_dynamicid(dymissionId);
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_GCDELETEMISSIONNOTIFY, notify);
 }
@@ -2395,9 +2396,9 @@ int32_t NFMissionPart::OnDelMissionDrop(MissionTrack *pMissionTrack)
             //打怪收集		格式 302=物品id=物品数量=生物ID=宝箱id=追踪路径id
             if (!DelMissionDrop(dymissionId, cond.parma1))
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                            "OnDelMissionDrop...pMissionPart->DelMissionDrop failed....cid:{}, missionid:{}, dymissionid:{}, condtype:{},itemid:{},finalvalue:{},param1:{},param2:{},param3:{} ",
-                           m_pMaster->Cid(), missionId, dymissionId, cond.type, cond.itemId, cond.finalValue, cond.parma1, cond.parma2, cond.parma3);
+                           m_pMaster->RoleId(), missionId, dymissionId, cond.type, cond.itemId, cond.finalValue, cond.parma1, cond.parma2, cond.parma3);
             }
         }
     }
@@ -2408,16 +2409,16 @@ int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
 {
     if (!ValidDyMissionId(dymissionId))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] RemoveDyMission  dymissionId:{} ValidDyMissionId failed, charId={}", dymissionId,
-                   m_pMaster->Cid());
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] RemoveDyMission  dymissionId:{} ValidDyMissionId failed, charId={}", dymissionId,
+                   m_pMaster->RoleId());
         return proto_ff::RET_FAIL;
     }
 
     auto iter = _playerTrackMissionMap.find(dymissionId);
     if (iter == _playerTrackMissionMap.end())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] RemoveDyMission dymissionId:{} can not find mission data , charId={}", dymissionId,
-                   m_pMaster->Cid());
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] RemoveDyMission dymissionId:{} can not find mission data , charId={}", dymissionId,
+                   m_pMaster->RoleId());
         return proto_ff::RET_FAIL;
     }
 
@@ -2425,9 +2426,9 @@ int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
     const DyMissionInfo *pDyMissionCfgInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetDyMissionCfgInfo(missionId);
     if (nullptr == pDyMissionCfgInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                    "[logic] RemoveDyMission dymissionId:{}, missionid:{}, can not find mission config , charId={}", dymissionId, missionId,
-                   m_pMaster->Cid());
+                   m_pMaster->RoleId());
         return proto_ff::RET_FAIL;
     }
 
@@ -2493,7 +2494,7 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
     MissionInfo *pMissionInfo = NFMissionDescStoreEx::Instance(m_pObjPluginManager)->GetMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnSubmit Have Not MissionID={} Config, Please Check Mission Config", missionId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "[logic] OnSubmit Have Not MissionID={} Config, Please Check Mission Config", missionId);
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
 
@@ -2531,8 +2532,8 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
     int32_t ret = RemoveMission(pSubmitMissionTrack, pMissionInfo);
     if (proto_ff::RET_SUCCESS != ret)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                   "MissionManager::OnSubmit...RemoveMission failed..cid:{},dynamic:{},missionid:{},backmission:{},ret:{}", m_pMaster->Cid(),
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                   "MissionManager::OnSubmit...RemoveMission failed..cid:{},dynamic:{},missionid:{},backmission:{},ret:{}", m_pMaster->RoleId(),
                    subdynamicId, pMissionInfo->missionId, pMissionInfo->backTaskId, ret);
         return ret;
     }
@@ -2542,8 +2543,8 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
     if (proto_ff::RET_SUCCESS != retReward)
     {
         //正常是不会到这里，打印日志方便后面定位问题
-        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                   "MissionManager::OnSubmit...AddReward failed..cid:{},dynamic:{},missionid:{},backmission:{},retReward:{}", m_pMaster->Cid(),
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                   "MissionManager::OnSubmit...AddReward failed..cid:{},dynamic:{},missionid:{},backmission:{},retReward:{}", m_pMaster->RoleId(),
                    subdynamicId, pMissionInfo->missionId, pMissionInfo->backTaskId, retReward);
     }
 
@@ -2561,11 +2562,11 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
     proto_ff::FinishTaskEvent taskEvent;
     taskEvent.set_taskid(missionId);
     taskEvent.set_tasktype(missionType);
-    taskEvent.set_cid(m_pMaster->Cid());
-    FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, CREATURE_PLAYER, m_pMaster->Cid(), taskEvent);
+    taskEvent.set_cid(m_pMaster->RoleId());
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, CREATURE_PLAYER, m_pMaster->RoleId(), taskEvent);
     //
-    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-               "MissionManager::OnSubmit...success cid:{},dynamic:{},missionid:{},premission:{},backmission:{},ret:{}", m_pMaster->Cid(),
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+               "MissionManager::OnSubmit...success cid:{},dynamic:{},missionid:{},premission:{},backmission:{},ret:{}", m_pMaster->RoleId(),
                subdynamicId, pMissionInfo->missionId, premissionid, pMissionInfo->backTaskId, ret);
     //
     if (pMissionInfo->backTaskId > 0)
@@ -2577,21 +2578,21 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
             int32_t retaccept = OnAccept(pMissionInfo->backTaskId, true);
             if (proto_ff::RET_SUCCESS != retaccept)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
+                NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
                            "MissionManager::OnSubmit...can not accept backtask...cid:{},missionid:{},backmission:{},retaccept:{}",
-                           m_pMaster->Cid(), pMissionInfo->missionId, pMissionInfo->backTaskId, retaccept);
+                           m_pMaster->RoleId(), pMissionInfo->missionId, pMissionInfo->backTaskId, retaccept);
             }
             else
             {
-                NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                           "MissionManager::OnSubmit...accept backtask success...cid:{},missionid:{},backmission:{} ", m_pMaster->Cid(),
+                NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                           "MissionManager::OnSubmit...accept backtask success...cid:{},missionid:{},backmission:{} ", m_pMaster->RoleId(),
                            pMissionInfo->missionId, pMissionInfo->backTaskId);
             }
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                       "MissionManager::OnSubmit...can not find backtask cfg...cid:{},missionid:{},backmission:{} ", m_pMaster->Cid(),
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                       "MissionManager::OnSubmit...can not find backtask cfg...cid:{},missionid:{},backmission:{} ", m_pMaster->RoleId(),
                        pMissionInfo->missionId, pMissionInfo->backTaskId);
         }
     }
@@ -2607,7 +2608,7 @@ void NFMissionPart::OnSubmit(uint64_t missionId, uint64_t premissionId, uint32_t
         iter->second.erase(premissionId);
         if (iter->second.size() >= iter->second.max_size())
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapRecentSubmit iter->second Space Not Enough");
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_mapRecentSubmit iter->second Space Not Enough");
             return;
         }
         iter->second.insert(missionId);
@@ -2616,7 +2617,7 @@ void NFMissionPart::OnSubmit(uint64_t missionId, uint64_t premissionId, uint32_t
     {
         if (_mapRecentSubmit.size() >= _mapRecentSubmit.max_size())
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "_mapRecentSubmit iter->second Space Not Enough");
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(), "_mapRecentSubmit iter->second Space Not Enough");
             return;
         }
         _mapRecentSubmit[kind].insert(missionId);
@@ -2668,14 +2669,14 @@ void NFMissionPart::CheckPreAcceptMission(uint64_t missionId, bool notify/* = tr
         int32_t ret = OnAccept(acceptId, notify);
         if (proto_ff::RET_SUCCESS != ret)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                       "MissionPart::CheckPreAcceptMission...OnAccept failed...cid:{},mission:{},acceptId:{},ret:{} ", m_pMaster->Cid(),
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                       "MissionPart::CheckPreAcceptMission...OnAccept failed...cid:{},mission:{},acceptId:{},ret:{} ", m_pMaster->RoleId(),
                        missionId, acceptId, ret);
         }
         else
         {
-            NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
-                       "MissionPart::CheckPreAcceptMission...accept mission...cid:{},mission:{},acceptId:{},ret:{}", m_pMaster->Cid(),
+            NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->RoleId(),
+                       "MissionPart::CheckPreAcceptMission...accept mission...cid:{},mission:{},acceptId:{},ret:{}", m_pMaster->RoleId(),
                        missionId, acceptId, ret);
         }
     }
@@ -2721,8 +2722,8 @@ int32_t NFMissionPart::OnSubmitDy(uint64_t dymissionId)
     proto_ff::FinishTaskEvent taskEvent;
     taskEvent.set_taskid(missionId);
     taskEvent.set_tasktype(missionType);
-    taskEvent.set_cid(m_pMaster->Cid());
-    FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, CREATURE_PLAYER, m_pMaster->Cid(), taskEvent);
+    taskEvent.set_cid(m_pMaster->RoleId());
+    FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, CREATURE_PLAYER, m_pMaster->RoleId(), taskEvent);
 
     //任务提交处理,要放到奖励后面，奖励中如果有经验会有升级的情况
     OnSubmitDy(dymissionId, missionType);
