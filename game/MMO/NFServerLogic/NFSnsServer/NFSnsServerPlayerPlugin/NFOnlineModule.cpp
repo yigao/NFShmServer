@@ -143,6 +143,7 @@ int NFCOnlineModule::OnHandleRoleDisconnect(uint32_t msgId, NFDataPackage &packe
     {
         pRoleInfo->SetIsOnline(false);
         pRoleInfo->SetProxyId(0);
+        pRoleInfo->SetClientId(0);
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

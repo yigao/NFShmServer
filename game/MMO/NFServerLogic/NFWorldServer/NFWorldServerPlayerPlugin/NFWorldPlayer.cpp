@@ -268,7 +268,7 @@ void NFWorldPlayer::SetIsWhite(bool isWhite)
  */
 void NFWorldPlayer::SendMsgToProxyServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, msgId, xData, m_uid, m_roleId);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, msgId, xData, m_uid, m_clientId);
 }
 
 void NFWorldPlayer::SendMsgToLogicServer(uint32_t msgId, const google::protobuf::Message &xData)

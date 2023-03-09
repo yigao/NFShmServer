@@ -16,6 +16,10 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "CSLogin.pb.h"
 #include "ClientServerCmd.pb.h"
+#include "NFComm/NFPluginModule/NFConfigDefine.h"
+#include "NFWorldConfig.h"
+#include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFComm/NFCore/NFServerTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransWorldEnterGame, EOT_NFTransWorldEnterGame_ID, NFTransBase)
 
@@ -60,7 +64,121 @@ int NFTransWorldEnterGame::Init(uint64_t uid, uint64_t roleId, uint32_t proxyId,
     return 0;
 }
 
-int NFTransWorldEnterGame::SendLoadRoleInfo(const proto_ff::WorldToLogicLoginReq& req)
+int NFTransWorldEnterGame::OnHandleEnterGame(const proto_ff::ClientEnterGameReq &req)
+{
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL, FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER)");
+    const proto_ff_s::WorldExternalConfig_s *pExternalConfig = NFWorldConfig::Instance(m_pObjPluginManager)->GetConfig();
+    CHECK_EXPR(pExternalConfig, -1, "pExternalConfig == NULL");
+
+    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+    CHECK_EXPR(pPlayer, -1, "can't find player info, uid:{}", m_uid);
+
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+    if (pSession == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid, "can't find the session from clientId:{}", m_clientId);
+        return -1;
+    }
+
+    if (pPlayer->GetClientId() != m_clientId)
+    {
+        return -1;
+    }
+
+    if (pExternalConfig->WhiteListState)
+    {
+        if (!NFWorldConfig::Instance(m_pObjPluginManager)->IsWhiteAccount(m_uid))
+        {
+            return proto_ff::RET_DISALLOW_ENTER_GAME;
+        }
+    }
+    else
+    {
+        //没到开服时间，不让进去,白名单无视这个条件
+        if (pConfig->ServerOpenTime > NFServerTime::Instance()->UnixSec())
+        {
+            return proto_ff::RET_NOT_OPEN_TIME;
+        }
+
+        //超过排队人数，则直接通知不能排队，返回消息
+        if (NFWorldPlayerMgr::Instance(m_pObjPluginManager)->IsLoginQueueFull())
+        {
+            return proto_ff::RET_LOGIN_QUEUE_ENOUGHT_NUM;
+        }
+    }
+
+    auto pRoleInfo = pPlayer->GetRoleInfo(m_roleId);
+    if (pRoleInfo == NULL)
+    {
+        return proto_ff::RET_FAIL;
+    }
+
+    //保证登录的账号处于 已经加载DB角色列表返回的状态  并且该该号没有角色登录中， 这种情况直接断开网络
+    if (pSession->GetState() != EAccountState::loading)
+    {
+        uint64_t curtick = NFServerTime::Instance()->Tick();
+        if (pSession->GetState() == EAccountState::createrole || pSession->GetState() == EAccountState::loadrole)
+        {
+            return proto_ff::RET_REPEATED_OPERATE;
+        }
+        else if (EAccountState::enter == pSession->GetState() && pSession->GetRoleId() != 0)
+        {
+            if (curtick - pSession->GetStateTick() <= 3000)
+            {
+                //客户端如果网络不好的话，可能会出现玩家连续点击两次进入游戏按钮，这里做一个容错
+                //服务器这时候正在登录进入场景的过程中，玩家在3秒内又点击进入游戏按钮了，这时不做任何处理
+                NFLogError(NF_LOG_SYSTEMLOG, m_uid,
+                           "EnterGameReq... EAccountState::enter == pAccount->state && pAccount->roleCid > 0...uid:{}, cid:{}, oldClientId:{}, newClientId:{}, state:{} , rolecid:{}, logicId:{}, curtick:%{}, stateTick:{} ",
+                           m_uid, m_roleId, m_clientId, m_clientId, (int) pSession->GetState(), pSession->GetRoleId(), pSession->GetLogicId(), curtick,
+                           pSession->GetStateTick());
+                return proto_ff::RET_REPEATED_OPERATE;
+            }
+        }
+
+        NFLogError(NF_LOG_SYSTEMLOG, m_uid,
+                   "EnterGameReq... enter game fail because EAccountState::loading != pAccount->state || pAccount->roleCid != 0, uid:{}, cid:{}, oldClientId:{}, newClientId:{}, state:{} , rolecid:{}, logicId:{}, curtick:%{}, stateTick:{} ",
+                   m_uid, m_roleId, m_clientId, m_clientId, (int) pSession->GetState(), pSession->GetRoleId(), pSession->GetLogicId(), curtick,
+                   pSession->GetStateTick());
+
+        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(pPlayer->GetProxyId(), pPlayer->GetClientId());
+        return -1;
+    }
+
+    NF_SHARE_PTR<NFServerData> pLogicServer = NULL;
+    if (pPlayer->GetLogicId() > 0)
+    {
+        pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, pPlayer->GetLogicId());
+    }
+
+    if (pLogicServer)
+    {
+        proto_ff::WorldToLogicLoginReq loginLogicReq;
+        loginLogicReq.set_cid(m_roleId);
+        loginLogicReq.set_uid(m_uid);
+        loginLogicReq.set_proxy_id(pPlayer->GetProxyId());
+        loginLogicReq.set_client_id(pPlayer->GetClientId());
+        loginLogicReq.set_scene_id(pRoleInfo->m_sceneId);
+        loginLogicReq.set_map_id(pRoleInfo->m_mapId);
+        proto_ff::Vector3PB *protopos = loginLogicReq.mutable_pos();
+        if (nullptr != protopos)
+        {
+            protopos->set_x(pRoleInfo->m_pos.x);
+            protopos->set_y(pRoleInfo->m_pos.y);
+            protopos->set_z(pRoleInfo->m_pos.z);
+        }
+
+        SendLoadRoleInfo(loginLogicReq);
+    }
+    else
+    {
+        return -1;
+    }
+
+    return 0;
+}
+
+int NFTransWorldEnterGame::SendLoadRoleInfo(const proto_ff::WorldToLogicLoginReq &req)
 {
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
     CHECK_EXPR(pPlayer, -1, "OnHandleCreateRole, GetPlayerByUid return NULL, uid:{}", m_uid);
@@ -77,7 +195,7 @@ int NFTransWorldEnterGame::SendLoadRoleInfo(const proto_ff::WorldToLogicLoginReq
 
 int NFTransWorldEnterGame::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    switch(nMsgId)
+    switch (nMsgId)
     {
         case proto_ff::LOGIC_TO_WORLD_LOGIN_RSP:
         {
@@ -87,13 +205,14 @@ int NFTransWorldEnterGame::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage
         {
             return OnHandleSnsLoginRsp(nMsgId, packet, reqTransId, rspTransId);
         }
-        default:break;
+        default:
+            break;
     }
 
     return 0;
 }
 
-int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPackage& packet, uint32_t reqTransId, uint32_t rspTransId)
+int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::LogicToWorldLoginRsp xData;
@@ -113,7 +232,8 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
     NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
     if (pSession == NULL)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId,
+                   m_proxyId);
         return -1;
     }
 
@@ -149,7 +269,7 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
     return retCode;
 }
 
-int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPackage& packet, uint32_t reqTransId, uint32_t rspTransId)
+int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::SnsToWorldLoginRsp xData;
@@ -169,7 +289,8 @@ int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPacka
     NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
     if (pSession == NULL)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId, m_proxyId);
+        NFLogError(NF_LOG_SYSTEMLOG, uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", uid, newClientId, m_clientId,
+                   m_proxyId);
         return -1;
     }
 
@@ -200,20 +321,25 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
 {
     if (iRunLogicRetCode != 0)
     {
-        NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
-        CHECK_EXPR(pPlayer, -1,
-                   "OnTransFinished, NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(playerId) return NULL, playerId:{}",
-                   m_uid);
-
-        uint64_t newClientId = pPlayer->GetClientId();
-        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
-        if (pSession == NULL)
+        if (iRunLogicRetCode < 0 || iRunLogicRetCode == proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId, m_proxyId);
-            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
+            NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+            NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_KICK_OUT);
             return 0;
         }
 
+        NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
+        if (pSession == NULL) return 0;
+
+        NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
+        if (pPlayer == NULL)
+        {
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateLeave(m_proxyId, m_clientId);
+            return 0;
+        }
+
+        uint64_t newClientId = pPlayer->GetClientId();
         if (newClientId > 0 && m_clientId != newClientId)
         {
             //有新的角色登录上来准备进行挤号操作了 这种情况直接返回 客户端不会收到任何跟账号相关的角色摘要数据
@@ -230,7 +356,8 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
 
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_KICK_OUT);
     }
-    else {
+    else
+    {
         if (m_loadLogic && m_loadSns)
         {
             NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
@@ -243,7 +370,8 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
             NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
             if (pSession == NULL)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId, m_clientId, m_proxyId);
+                NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pSession == NULL, uid:{} ,clientid:{}, reqClientId:{}, reqgateid:{} ", m_uid, newClientId,
+                           m_clientId, m_proxyId);
                 NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, proto_ff::LOGOUT_KICK_OUT);
                 return 0;
             }

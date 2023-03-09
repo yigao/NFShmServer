@@ -1,8 +1,8 @@
 require "Common"
 
 WorldServer = {
-    TokenTimeCheck = 1;
-    WhiteListState = 0;
+    TokenTimeCheck = true;
+    WhiteListState = false;
     MaxRegisterNum = 20000;
     StartQueueNum = 2000;
     MaxQueueNum = 2000;

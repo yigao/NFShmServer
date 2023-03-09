@@ -73,7 +73,7 @@ int NFWorldConfig::LoadConfig(NFILuaLoader luaMgr)
 
     proto_ff::WorldExternalConfig serverMsg;
     NFProtobufCommon::LuaToProtoMessage(serverRef, &serverMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load world server config:\n{}", serverMsg.DebugString());
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "load world server config:\n{}", serverMsg.DebugString());
 
     //check
 

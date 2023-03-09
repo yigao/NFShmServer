@@ -348,6 +348,7 @@ int NFPlayer::OnDisconnect(uint32_t reason)
     SetIsDisconnect(true);
     SetDisconnectType(reason);
     SetProxyId(0);
+    SetClientId(0);
     for (size_t i = 0; i < PART_MAX; i++)
     {
         if (m_pPart[i])

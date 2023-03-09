@@ -223,6 +223,10 @@ int NFTransWorldCreateRole::OnHandleCreateRole(const proto_ff::ClientCreateRoleR
     //创建角色的账号必须处于拉取角色列表完毕状态
     if (pSession->GetState() != EAccountState::loading)
     {
+        if (pSession->GetState() == EAccountState::loadrole || pSession->GetState() == EAccountState::createrole)
+        {
+            return proto_ff::RET_REPEATED_OPERATE;
+        }
         NFLogError(NF_LOG_SYSTEMLOG, m_uid, "create role faild, account state error, uid:{}, state:{}, clientId:{},account_clientid:{}, gateid:{}", m_uid, (int)pSession->GetState(), m_clientId, pSession->GetClientId(), pSession->GetProxyId());
         return -1;
     }
