@@ -448,6 +448,7 @@ int NFCProxyClientModule::NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR
     pPlayerInfo->SetLinkId(0);
     pPlayerInfo->SetOnline(false);
     pPlayerInfo->SetDisconnectTime(NFTime::Now().UnixSec());
+    pPlayerInfo->SetRoleId(0);
 
     NF_SHARE_PTR<NFServerData> pWorldServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER,
                                                                           pPlayerInfo->GetUid());
