@@ -795,7 +795,6 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
 
                 if (pEventInfo->server_type() > 0 && !pEventInfo->full_message_name().empty())
                 {
-
                     ::google::protobuf::Message *pMessage = NFProtobufCommon::CreateMessageByName(pEventInfo->full_message_name());
                     if (pMessage == NULL)
                     {
@@ -803,6 +802,12 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                                    pEventInfo->full_message_name());
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "Broadcst Event To Server Failed, message:{}", pEventInfo->Utf8DebugString());
                         return 0;
+                    }
+
+                    if (!pMessage->ParseFromArray(svrPkg.msg_data().data(), svrPkg.msg_data().length()))
+                    {
+                        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, FireBorad Failed packet name:{}", pEventInfo->full_message_name());
+                        return -1;
                     }
 
                     if (m_pObjPluginManager->FindModule<NFISharedMemModule>())
@@ -1230,4 +1235,39 @@ int NFCMessageModule::SendWxWork(NF_SERVER_TYPES serverType, const string &conte
     return 0;
 }
 
+int NFCMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t dstBusId, uint32_t nEventID,
+                                             uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+{
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(0);
+    auto pEventInfo = svrPkg.mutable_event_info();
+    NF_ASSERT(pEventInfo);
 
+    pEventInfo->set_server_type(recvType);
+    pEventInfo->set_event_id(nEventID);
+    pEventInfo->set_src_type(bySrcType);
+    pEventInfo->set_src_id(nSrcID);
+    pEventInfo->set_full_message_name(message.GetTypeName());
+
+    svrPkg.set_msg_data(message.SerializeAsString());
+
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, recvType, 0, dstBusId, NF_MODULE_SERVER,
+                                                           proto_ff::NF_SERVER_BROAD_EVENT_TO_SERVER_CMD, svrPkg);
+}
+
+int
+NFCMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+                                         const google::protobuf::Message &message)
+{
+    return BroadcastEventToServer(eType, recvType, 0, nEventID, bySrcType, nSrcID, message);
+}
+
+int NFCMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+                                             const google::protobuf::Message &message)
+{
+    BroadcastEventToServer(eType, NF_ST_SNS_SERVER, nEventID, bySrcType, nSrcID, message);
+    BroadcastEventToServer(eType, NF_ST_WORLD_SERVER, nEventID, bySrcType, nSrcID, message);
+    BroadcastEventToServer(eType, NF_ST_LOGIC_SERVER, nEventID, bySrcType, nSrcID, message);
+    BroadcastEventToServer(eType, NF_ST_GAME_SERVER, nEventID, bySrcType, nSrcID, message);
+    return 0;
+}

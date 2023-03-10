@@ -355,7 +355,7 @@ int NFMap::FindNearestPos(float posX, float posY, float posH, float *rsPosX, flo
     float nearPoint[3] = {0.0f};
 
     polyRef = GetNearestPoly(posX, posY, posH, extents, nearPoint);
-    CHECK_EXPR(polyRef != proto_ff::INVALID_NAVMESH_POLYREF, -1, "GetNearestPoly Failed");
+    CHECK_EXPR(polyRef != proto_ff::INVALID_NAVMESH_POLYREF, false, "GetNearestPoly Failed");
 
     if (rsPosX != nullptr)
     {

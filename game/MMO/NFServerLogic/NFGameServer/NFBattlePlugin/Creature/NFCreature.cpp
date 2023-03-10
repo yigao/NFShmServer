@@ -1606,7 +1606,7 @@ int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, ST
     proto_ff::ChgSceneEvent chgEvent;
     chgEvent.set_cid(Cid());
     chgEvent.set_enterflag(true);
-    FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, m_cid, chgEvent);
+    FireBroadcast(NF_ST_GAME_SERVER, NF_ST_LOGIC_SERVER, GetLogicId(), EVENT_CHANGE_SCENE, Kind(), GetRoleId(), chgEvent);
 
     return proto_ff::RET_SUCCESS;
 }

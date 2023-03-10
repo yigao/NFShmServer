@@ -84,10 +84,7 @@ int NFTransEnterScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataP
         pPlayer->SetGameId(xData.game_id());
         pPlayer->SetMapId(xData.map_id());
         pPlayer->SetSceneId(xData.scene_id());
-        NFPoint3<float> pos;
-        pos.x = xData.pos().x();
-        pos.y = xData.pos().y();
-        pos.z = xData.pos().z();
+        NFPoint3<float> pos(xData.pos());
         pPlayer->SetPos(pos);
     }
 

@@ -12,6 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "Com.pb.h"
 #include <math.h>
 
 template<typename TYPE = int>
@@ -49,6 +50,11 @@ public:
     inline NFPoint3(const NFPoint3& value):x(value.x), y(value.y), z(value.z)
     {
 
+    }
+
+    NFPoint3(const ::proto_ff::Vector3PB& pb)
+    {
+        FromProto(pb);
     }
 
     inline NFPoint3(const TYPE& ValueX, const TYPE& ValueY, const TYPE& ValueZ)
@@ -264,6 +270,20 @@ public:
     inline operator const TYPE* () const
     {
         return &x;
+    }
+
+    void FromProto(const ::proto_ff::Vector3PB& pb)
+    {
+        x = pb.x();
+        y = pb.y();
+        z = pb.z();
+    }
+
+    void ToProto(::proto_ff::Vector3PB& pb)
+    {
+        pb.set_x(x);
+        pb.set_y(x);
+        pb.set_z(x);
     }
 };
 

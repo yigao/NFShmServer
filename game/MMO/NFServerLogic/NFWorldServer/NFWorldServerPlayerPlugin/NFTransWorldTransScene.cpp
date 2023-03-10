@@ -124,6 +124,7 @@ int NFTransWorldTransScene::OnHandleGameEnterSceneRsp(uint32_t nMsgId, const NFD
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_GAME_SERVER, 0);
     }
     else {
+        m_pos.FromProto(xData.pos());
         pPlayer->SetGameId(m_gameId);
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_GAME_SERVER, m_gameId);
     }
@@ -150,9 +151,7 @@ int NFTransWorldTransScene::OnTransFinished(int iRunLogicRetCode)
     rspMsg.set_map_id(m_mapId);
     rspMsg.set_scene_id(m_sceneId);
     rspMsg.set_game_id(m_gameId);
-    rspMsg.mutable_pos()->set_x(m_pos.x);
-    rspMsg.mutable_pos()->set_y(m_pos.y);
-    rspMsg.mutable_pos()->set_z(m_pos.z);
+    m_pos.ToProto(*rspMsg.mutable_pos());
 
     pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP, rspMsg, GetGlobalID(), m_reqTransId);
     return 0;

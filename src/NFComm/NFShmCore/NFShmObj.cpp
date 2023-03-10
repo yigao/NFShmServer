@@ -13,6 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFIEventModule.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
 
@@ -108,6 +109,24 @@ int NFShmObj::FireExecute(uint32_t nServerType, uint32_t nEventID, uint32_t bySr
 
     m_pObjPluginManager->FindModule<NFIEventModule>()->FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
     return retCode;
+}
+
+int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+{
+    m_pObjPluginManager->FindModule<NFIMessageModule>()->BroadcastEventToServer((NF_SERVER_TYPES)nServerType, (NF_SERVER_TYPES)nRecvServerType, nEventID, bySrcType, nSrcID, message);
+    return FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+}
+
+int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t busId, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+{
+    m_pObjPluginManager->FindModule<NFIMessageModule>()->BroadcastEventToServer((NF_SERVER_TYPES)nServerType, (NF_SERVER_TYPES)nRecvServerType, busId, nEventID, bySrcType, nSrcID, message);
+    return FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+}
+
+int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+{
+    m_pObjPluginManager->FindModule<NFIMessageModule>()->BroadcastEventToServer((NF_SERVER_TYPES)nServerType, nEventID, bySrcType, nSrcID, message);
+    return FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
 }
 
 //订阅执行事件

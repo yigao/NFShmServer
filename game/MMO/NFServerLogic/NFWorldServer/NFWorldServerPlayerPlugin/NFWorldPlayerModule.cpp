@@ -300,7 +300,7 @@ int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &p
     uint64_t roleId = xData.role_id();
     uint64_t mapId = xData.map_id();
     uint64_t sceneId = xData.scene_id();
-    NFPoint3<float> pos;
+    NFPoint3<float> pos(xData.pos());
 
     NFTransWorldTransScene* pTrans = dynamic_cast<NFTransWorldTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldTransScene_ID));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransWorldEnterGame failed!");

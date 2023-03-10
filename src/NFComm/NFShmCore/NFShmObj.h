@@ -124,6 +124,20 @@ public:
     virtual int FireExecute(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message);
 
     /**
+     * @brief 事件将在先在本服务器执行，然后被广播至别的服务器执行
+     * @param nServerType
+     * @param nRecvServerType
+     * @param nEventID
+     * @param bySrcType
+     * @param nSrcID
+     * @param message
+     * @return
+     */
+    virtual int FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message);
+    virtual int FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t busId, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message);
+    virtual int FireBroadcast(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message);
+
+    /**
     * @brief 订阅事件
     *
     * @param nEventID	事件ID

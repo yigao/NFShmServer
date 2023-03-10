@@ -136,17 +136,13 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
     uint64_t mapId = xMsg.map_id();
     uint64_t sceneId = xMsg.scene_id();
     uint64_t roleId = xMsg.role_id();
-    NFPoint3<float> pos;
-    pos.x = xMsg.pos().x();
-    pos.y = xMsg.pos().y();
-    pos.z = xMsg.pos().z();
+    NFPoint3<float> pos(xMsg.pos());
 
     proto_ff::GameToWorldEnterSceneRsp rspMsg;
     rspMsg.set_ret_code(proto_ff::RET_SUCCESS);
     rspMsg.set_role_id(roleId);
     rspMsg.set_map_id(mapId);
     rspMsg.set_scene_id(sceneId);
-    rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
 
     NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
     if (pPlayer == NULL)
@@ -164,9 +160,11 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
     int ret = NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(roleId, mapId, sceneId, pos);
     if (ret != proto_ff::RET_SUCCESS)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Enter Scene Failed, mapId:{} sceneId:{}");
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Enter Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
     }
 
+    pos = pPlayer->GetPos();
+    rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
     rspMsg.set_ret_code(ret);
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_ENTER_SCENE_RSP, rspMsg, 0, reqTransId);
 

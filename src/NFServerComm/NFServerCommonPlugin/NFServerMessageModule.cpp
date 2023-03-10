@@ -72,8 +72,9 @@ int NFServerMessageModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t n
     return 0;
 }
 
-int NFServerMessageModule::SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t> &ids, uint32_t nMsgId,
-                                                        const google::protobuf::Message &xData)
+int
+NFServerMessageModule::SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t> &ids, uint32_t nMsgId,
+                                                    const google::protobuf::Message &xData)
 {
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(nMsgId);
@@ -125,7 +126,9 @@ int NFServerMessageModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t 
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
-int NFServerMessageModule::SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+int
+NFServerMessageModule::SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id,
+                                              uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_WORLD_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -142,7 +145,8 @@ int NFServerMessageModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nM
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
-int NFServerMessageModule::SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+int NFServerMessageModule::SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id,
+                                                uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_SNS_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -159,7 +163,8 @@ int NFServerMessageModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t n
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_GAME_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
-int NFServerMessageModule::SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+int NFServerMessageModule::SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData,
+                                                 uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_GAME_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -176,7 +181,8 @@ int NFServerMessageModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t 
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
-int NFServerMessageModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+int NFServerMessageModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData,
+                                                  uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -674,42 +680,4 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER,
                                                            proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
-}
-
-
-int NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t dstBusId, uint32_t nEventID,
-                                                  uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
-{
-    proto_ff::Proto_SvrPkg svrPkg;
-    svrPkg.set_msg_id(0);
-    auto pEventInfo = svrPkg.mutable_event_info();
-    NF_ASSERT(pEventInfo);
-
-    pEventInfo->set_server_type(recvType);
-    pEventInfo->set_event_id(nEventID);
-    pEventInfo->set_src_type(bySrcType);
-    pEventInfo->set_src_id(nSrcID);
-    pEventInfo->set_full_message_name(message.GetTypeName());
-
-    svrPkg.set_msg_data(message.SerializeAsString());
-
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, recvType, 0, dstBusId, NF_MODULE_SERVER,
-                                                           proto_ff::NF_SERVER_BROAD_EVENT_TO_SERVER_CMD, svrPkg);
-}
-
-int
-NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
-                                              const google::protobuf::Message &message)
-{
-    return BroadcastEventToServer(eType, recvType, 0, nEventID, bySrcType, nSrcID, message);
-}
-
-int NFServerMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
-                                                  const google::protobuf::Message &message)
-{
-    BroadcastEventToServer(eType, NF_ST_SNS_SERVER, nEventID, bySrcType, nSrcID, message);
-    BroadcastEventToServer(eType, NF_ST_WORLD_SERVER, nEventID, bySrcType, nSrcID, message);
-    BroadcastEventToServer(eType, NF_ST_LOGIC_SERVER, nEventID, bySrcType, nSrcID, message);
-    BroadcastEventToServer(eType, NF_ST_GAME_SERVER, nEventID, bySrcType, nSrcID, message);
-    return 0;
 }
