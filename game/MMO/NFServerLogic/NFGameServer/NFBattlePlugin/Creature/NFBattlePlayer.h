@@ -32,7 +32,9 @@ public:
     int ResumeInit();
 
 public:
-    virtual int Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data);
+    virtual int Init(const proto_ff::RoleEnterSceneData &data);
+
+    virtual int Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data);
 
     virtual int ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData);
 
@@ -49,6 +51,8 @@ public:
     virtual uint32_t GetZid() { return m_zid; }
 
     virtual uint32_t GetGateId() { return m_gateId; }
+
+    virtual uint64_t GetClientId() { return m_clientId; }
 
     virtual uint32_t GetLogicId() { return m_logicId; }
 public:
@@ -106,6 +110,8 @@ private:
      * @brief
      */
     uint32_t m_gateId;
+
+    uint64_t m_clientId;
 
     /**
      * @brief

@@ -52,11 +52,13 @@ enum ServerInternalCmd2 {
   WORLD_TO_GAME_RESITER_MAP_RSP = 5012,
   WORLD_TO_LOGIC_LOGIN_FINISH_NOTIFY = 5013,
   LOGIC_TO_WORLD_ENTER_SCENE_REQ = 5014,
-  WORLD_TO_GAME_ENTER_SCENE_REQ = 5016
+  WORLD_TO_LOGIC_ENTER_SCENE_RSP = 5015,
+  WORLD_TO_GAME_ENTER_SCENE_REQ = 5016,
+  GAME_TO_WORLD_ENTER_SCENE_RSP = 5017
 };
 bool ServerInternalCmd2_IsValid(int value);
 const ServerInternalCmd2 ServerInternalCmd2_MIN = SERVER_INTERNAL2_BEGIN;
-const ServerInternalCmd2 ServerInternalCmd2_MAX = WORLD_TO_GAME_ENTER_SCENE_REQ;
+const ServerInternalCmd2 ServerInternalCmd2_MAX = GAME_TO_WORLD_ENTER_SCENE_RSP;
 const int ServerInternalCmd2_ARRAYSIZE = ServerInternalCmd2_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ServerInternalCmd2_descriptor();

@@ -135,13 +135,13 @@ message GameToWorldRegisterMapReq
 
 message WorldToGameRegisterMapRsp
 {
-  optional uint32 ret_code = 1;
+  optional int32 ret_code = 1;
 }
 
 message WorldToLogicLoginFinishNotify
 {
   optional uint64 uid = 1;
-  optional uint64 cid = 2;
+  optional uint64 role_id = 2;
   optional uint32 proxy_id = 3;
   optional uint64 client_id = 4;
   optional uint64 map_id = 5;
@@ -151,23 +151,40 @@ message WorldToLogicLoginFinishNotify
 
 message LogicToWorldEnterSceneReq
 {
-  optional uint64 cid = 1;
+  optional uint64 role_id = 1;
   optional uint64 map_id = 2;
   optional uint64 scene_id = 3;
   optional Vector3PB pos = 4;
-  optional uint32 req_trans_id = 5;
   optional RoleEnterSceneData data = 6;
 }
 
 message WorldToGameEnterSceneReq
 {
-  optional uint64 cid = 1;
+  optional uint64 role_id = 1;
   optional uint64 map_id = 2;
   optional uint64 scene_id = 3;
   optional Vector3PB pos = 4;
-  optional uint32 req_trans_id = 5;
   optional uint32 gate_id = 6;
-  optional uint32 logic_id = 7;
-  optional RoleEnterSceneData data = 8;
+  optional uint64 client_id = 7;
+  optional uint32 logic_id = 8;
+  optional RoleEnterSceneData data = 9;
 }
 
+message GameToWorldEnterSceneRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 role_id = 2;
+  optional uint64 map_id = 3;
+  optional uint64 scene_id = 4;
+  optional Vector3PB pos = 5;
+}
+
+message WorldToLogicEnterSceneRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 role_id = 2;
+  optional uint64 map_id = 3;
+  optional uint64 scene_id = 4;
+  optional Vector3PB pos = 5;
+  optional uint32 game_id = 6;
+}

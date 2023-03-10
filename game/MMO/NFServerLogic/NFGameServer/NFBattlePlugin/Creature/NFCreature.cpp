@@ -763,13 +763,19 @@ int NFCreature::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetGateId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
-                                                               GetRoleId());
+                                                               GetClientId());
     return 0;
 }
 
 int NFCreature::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData, GetUid(), GetRoleId());
+    return 0;
+}
+
+int NFCreature::SendTransToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId, uint32_t rspTransId)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData, reqTransId, rspTransId);
     return 0;
 }
 
@@ -780,10 +786,22 @@ int NFCreature::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Me
     return 0;
 }
 
+int NFCreature::SendTransToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId, uint32_t rspTransId)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_GAME_SERVER, nMsgId, xData, reqTransId, rspTransId);
+    return 0;
+}
+
 int NFCreature::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), nMsgId, xData, GetUid(),
                                                                GetRoleId());
+    return 0;
+}
+
+int NFCreature::SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId, uint32_t rspTransId)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), nMsgId, xData, reqTransId, rspTransId);
     return 0;
 }
 

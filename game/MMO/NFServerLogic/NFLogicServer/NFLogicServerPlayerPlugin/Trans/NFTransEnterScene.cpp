@@ -49,6 +49,53 @@ int NFTransEnterScene::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
     return 0;
 }
 
+int NFTransEnterScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
+{
+    switch(nMsgId)
+    {
+        case proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP:
+        {
+            return OnHandleWorldEnterSceneRsp(nMsgId, packet, reqTransId, rspTransId);
+        }
+        default:break;
+    }
+
+    return 0;
+}
+
+int NFTransEnterScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::WorldToLogicEnterSceneRsp xData;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
+
+    auto pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+    CHECK_EXPR(m_mapId == xData.map_id(), -1, "");
+
+    if (xData.ret_code() != proto_ff::RET_SUCCESS)
+    {
+        pPlayer->SetGameId(0);
+        pPlayer->SetMapId(pPlayer->GetLastMapId());
+        pPlayer->SetSceneId(pPlayer->GetLastSceneId());
+        pPlayer->SetPos(pPlayer->GetLastPos());
+    }
+    else {
+        pPlayer->SetGameId(xData.game_id());
+        pPlayer->SetMapId(xData.map_id());
+        pPlayer->SetSceneId(xData.scene_id());
+        NFPoint3<float> pos;
+        pos.x = xData.pos().x();
+        pos.y = xData.pos().y();
+        pos.z = xData.pos().z();
+        pPlayer->SetPos(pos);
+    }
+
+    SetFinished(0);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
 int NFTransEnterScene::InitStaticMapInfo()
 {
     auto pPlayer = GetPlayer();
@@ -60,22 +107,29 @@ int NFTransEnterScene::InitStaticMapInfo()
     return 0;
 }
 
+int NFTransEnterScene::TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
+{
+    m_mapId = mapId;
+    m_sceneId = sceneId;
+    m_pos = pos;
+
+    return SendEnterScene();
+}
+
 int NFTransEnterScene::SendEnterScene()
 {
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
 
     proto_ff::LogicToWorldEnterSceneReq xMsg;
-    xMsg.set_cid(m_roleId);
+    xMsg.set_role_id(m_roleId);
     xMsg.set_map_id(m_mapId);
     xMsg.set_scene_id(m_sceneId);
     xMsg.mutable_pos()->set_x(m_pos.x);
     xMsg.mutable_pos()->set_y(m_pos.y);
     xMsg.mutable_pos()->set_z(m_pos.z);
-    xMsg.set_req_trans_id(GetGlobalID());
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
-    pPlayer->SendMsgToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg);
-    SetFinished(0);
+    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg, GetGlobalID());
     return 0;
 }

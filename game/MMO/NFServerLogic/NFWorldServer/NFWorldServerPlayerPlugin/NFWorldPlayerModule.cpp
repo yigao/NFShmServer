@@ -42,6 +42,7 @@
 #include "NFTransWorldGetRoleList.h"
 #include "NFTransWorldCreateRole.h"
 #include "NFTransWorldEnterGame.h"
+#include "NFTransWorldTransScene.h"
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -290,40 +291,24 @@ int NFCWorldPlayerModule::OnHandleGameRegisterMapReq(uint32_t msgId, NFDataPacka
     return 0;
 }
 
-int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::LogicToWorldEnterSceneReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
-    uint64_t cid = xData.cid();
+    uint64_t roleId = xData.role_id();
     uint64_t mapId = xData.map_id();
     uint64_t sceneId = xData.scene_id();
+    NFPoint3<float> pos;
 
-    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(cid);
-    CHECK_EXPR(pPlayer, -1, "can't find player info, cid:{}", cid);
-
-    bool ret = NFWorldSceneMgr::Instance(m_pObjPluginManager)->IsStaticMapId(mapId);
-    if (ret)
+    NFTransWorldTransScene* pTrans = dynamic_cast<NFTransWorldTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldTransScene_ID));
+    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransWorldEnterGame failed!");
+    pTrans->Init(roleId, mapId, sceneId, pos, reqTransId);
+    int iRetCode = pTrans->OnHandleTransScene(xData);
+    if (iRetCode != 0)
     {
-        uint32_t gameId = NFWorldSceneMgr::Instance(m_pObjPluginManager)->GetStaticMapGameId(mapId);
-        CHECK_EXPR(gameId > 0, -1, "GetStaticMapGameId Failed, mapId:{}", mapId);
-
-        pPlayer->SetGameId(gameId);
-
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_GAME_SERVER, gameId);
-
-        proto_ff::WorldToGameEnterSceneReq reqMsg;
-        reqMsg.set_cid(cid);
-        reqMsg.set_map_id(mapId);
-        reqMsg.set_scene_id(sceneId);
-        reqMsg.set_req_trans_id(xData.req_trans_id());
-        reqMsg.set_gate_id(pPlayer->GetProxyId());
-        reqMsg.set_logic_id(pPlayer->GetLogicId());
-        reqMsg.mutable_pos()->CopyFrom(xData.pos());
-        reqMsg.mutable_data()->CopyFrom(xData.data());
-
-        pPlayer->SendMsgToGameServer(proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ, reqMsg);
+        pTrans->SetFinished(iRetCode);
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

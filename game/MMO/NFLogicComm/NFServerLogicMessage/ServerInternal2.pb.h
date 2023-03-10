@@ -57,6 +57,8 @@ class WorldToGameRegisterMapRsp;
 class WorldToLogicLoginFinishNotify;
 class LogicToWorldEnterSceneReq;
 class WorldToGameEnterSceneReq;
+class GameToWorldEnterSceneRsp;
+class WorldToLogicEnterSceneRsp;
 
 // ===================================================================
 
@@ -1794,12 +1796,12 @@ class WorldToGameRegisterMapRsp : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional uint32 ret_code = 1;
+  // optional int32 ret_code = 1;
   inline bool has_ret_code() const;
   inline void clear_ret_code();
   static const int kRetCodeFieldNumber = 1;
-  inline ::google::protobuf::uint32 ret_code() const;
-  inline void set_ret_code(::google::protobuf::uint32 value);
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.WorldToGameRegisterMapRsp)
  private:
@@ -1808,7 +1810,7 @@ class WorldToGameRegisterMapRsp : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint32 ret_code_;
+  ::google::protobuf::int32 ret_code_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -1883,12 +1885,12 @@ class WorldToLogicLoginFinishNotify : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 uid() const;
   inline void set_uid(::google::protobuf::uint64 value);
 
-  // optional uint64 cid = 2;
-  inline bool has_cid() const;
-  inline void clear_cid();
-  static const int kCidFieldNumber = 2;
-  inline ::google::protobuf::uint64 cid() const;
-  inline void set_cid(::google::protobuf::uint64 value);
+  // optional uint64 role_id = 2;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
 
   // optional uint32 proxy_id = 3;
   inline bool has_proxy_id() const;
@@ -1931,8 +1933,8 @@ class WorldToLogicLoginFinishNotify : public ::google::protobuf::Message {
  private:
   inline void set_has_uid();
   inline void clear_has_uid();
-  inline void set_has_cid();
-  inline void clear_has_cid();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
   inline void set_has_proxy_id();
   inline void clear_has_proxy_id();
   inline void set_has_client_id();
@@ -1947,7 +1949,7 @@ class WorldToLogicLoginFinishNotify : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 uid_;
-  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 role_id_;
   ::google::protobuf::uint64 client_id_;
   ::google::protobuf::uint64 map_id_;
   ::google::protobuf::uint64 scene_id_;
@@ -2020,12 +2022,12 @@ class LogicToWorldEnterSceneReq : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional uint64 cid = 1;
-  inline bool has_cid() const;
-  inline void clear_cid();
-  static const int kCidFieldNumber = 1;
-  inline ::google::protobuf::uint64 cid() const;
-  inline void set_cid(::google::protobuf::uint64 value);
+  // optional uint64 role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
 
   // optional uint64 map_id = 2;
   inline bool has_map_id() const;
@@ -2050,13 +2052,6 @@ class LogicToWorldEnterSceneReq : public ::google::protobuf::Message {
   inline ::proto_ff::Vector3PB* release_pos();
   inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
 
-  // optional uint32 req_trans_id = 5;
-  inline bool has_req_trans_id() const;
-  inline void clear_req_trans_id();
-  static const int kReqTransIdFieldNumber = 5;
-  inline ::google::protobuf::uint32 req_trans_id() const;
-  inline void set_req_trans_id(::google::protobuf::uint32 value);
-
   // optional .proto_ff.RoleEnterSceneData data = 6;
   inline bool has_data() const;
   inline void clear_data();
@@ -2068,30 +2063,27 @@ class LogicToWorldEnterSceneReq : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:proto_ff.LogicToWorldEnterSceneReq)
  private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
   inline void set_has_map_id();
   inline void clear_has_map_id();
   inline void set_has_scene_id();
   inline void clear_has_scene_id();
   inline void set_has_pos();
   inline void clear_has_pos();
-  inline void set_has_req_trans_id();
-  inline void clear_has_req_trans_id();
   inline void set_has_data();
   inline void clear_has_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 role_id_;
   ::google::protobuf::uint64 map_id_;
   ::google::protobuf::uint64 scene_id_;
   ::proto_ff::Vector3PB* pos_;
   ::proto_ff::RoleEnterSceneData* data_;
-  ::google::protobuf::uint32 req_trans_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal2_2eproto();
   friend void protobuf_AssignDesc_ServerInternal2_2eproto();
@@ -2156,12 +2148,12 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional uint64 cid = 1;
-  inline bool has_cid() const;
-  inline void clear_cid();
-  static const int kCidFieldNumber = 1;
-  inline ::google::protobuf::uint64 cid() const;
-  inline void set_cid(::google::protobuf::uint64 value);
+  // optional uint64 role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
 
   // optional uint64 map_id = 2;
   inline bool has_map_id() const;
@@ -2186,13 +2178,6 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
   inline ::proto_ff::Vector3PB* release_pos();
   inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
 
-  // optional uint32 req_trans_id = 5;
-  inline bool has_req_trans_id() const;
-  inline void clear_req_trans_id();
-  static const int kReqTransIdFieldNumber = 5;
-  inline ::google::protobuf::uint32 req_trans_id() const;
-  inline void set_req_trans_id(::google::protobuf::uint32 value);
-
   // optional uint32 gate_id = 6;
   inline bool has_gate_id() const;
   inline void clear_gate_id();
@@ -2200,17 +2185,24 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 gate_id() const;
   inline void set_gate_id(::google::protobuf::uint32 value);
 
-  // optional uint32 logic_id = 7;
+  // optional uint64 client_id = 7;
+  inline bool has_client_id() const;
+  inline void clear_client_id();
+  static const int kClientIdFieldNumber = 7;
+  inline ::google::protobuf::uint64 client_id() const;
+  inline void set_client_id(::google::protobuf::uint64 value);
+
+  // optional uint32 logic_id = 8;
   inline bool has_logic_id() const;
   inline void clear_logic_id();
-  static const int kLogicIdFieldNumber = 7;
+  static const int kLogicIdFieldNumber = 8;
   inline ::google::protobuf::uint32 logic_id() const;
   inline void set_logic_id(::google::protobuf::uint32 value);
 
-  // optional .proto_ff.RoleEnterSceneData data = 8;
+  // optional .proto_ff.RoleEnterSceneData data = 9;
   inline bool has_data() const;
   inline void clear_data();
-  static const int kDataFieldNumber = 8;
+  static const int kDataFieldNumber = 9;
   inline const ::proto_ff::RoleEnterSceneData& data() const;
   inline ::proto_ff::RoleEnterSceneData* mutable_data();
   inline ::proto_ff::RoleEnterSceneData* release_data();
@@ -2218,18 +2210,18 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:proto_ff.WorldToGameEnterSceneReq)
  private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
   inline void set_has_map_id();
   inline void clear_has_map_id();
   inline void set_has_scene_id();
   inline void clear_has_scene_id();
   inline void set_has_pos();
   inline void clear_has_pos();
-  inline void set_has_req_trans_id();
-  inline void clear_has_req_trans_id();
   inline void set_has_gate_id();
   inline void clear_has_gate_id();
+  inline void set_has_client_id();
+  inline void clear_has_client_id();
   inline void set_has_logic_id();
   inline void clear_has_logic_id();
   inline void set_has_data();
@@ -2237,14 +2229,14 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 role_id_;
   ::google::protobuf::uint64 map_id_;
   ::google::protobuf::uint64 scene_id_;
   ::proto_ff::Vector3PB* pos_;
-  ::google::protobuf::uint32 req_trans_id_;
+  ::google::protobuf::uint64 client_id_;
   ::google::protobuf::uint32 gate_id_;
-  ::proto_ff::RoleEnterSceneData* data_;
   ::google::protobuf::uint32 logic_id_;
+  ::proto_ff::RoleEnterSceneData* data_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
@@ -2255,6 +2247,264 @@ class WorldToGameEnterSceneReq : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static WorldToGameEnterSceneReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GameToWorldEnterSceneRsp : public ::google::protobuf::Message {
+ public:
+  GameToWorldEnterSceneRsp();
+  virtual ~GameToWorldEnterSceneRsp();
+
+  GameToWorldEnterSceneRsp(const GameToWorldEnterSceneRsp& from);
+
+  inline GameToWorldEnterSceneRsp& operator=(const GameToWorldEnterSceneRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameToWorldEnterSceneRsp& default_instance();
+
+  void Swap(GameToWorldEnterSceneRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GameToWorldEnterSceneRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GameToWorldEnterSceneRsp& from);
+  void MergeFrom(const GameToWorldEnterSceneRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 role_id = 2;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
+
+  // optional uint64 map_id = 3;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 4;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 5;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 5;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GameToWorldEnterSceneRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 role_id_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static GameToWorldEnterSceneRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WorldToLogicEnterSceneRsp : public ::google::protobuf::Message {
+ public:
+  WorldToLogicEnterSceneRsp();
+  virtual ~WorldToLogicEnterSceneRsp();
+
+  WorldToLogicEnterSceneRsp(const WorldToLogicEnterSceneRsp& from);
+
+  inline WorldToLogicEnterSceneRsp& operator=(const WorldToLogicEnterSceneRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WorldToLogicEnterSceneRsp& default_instance();
+
+  void Swap(WorldToLogicEnterSceneRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  WorldToLogicEnterSceneRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WorldToLogicEnterSceneRsp& from);
+  void MergeFrom(const WorldToLogicEnterSceneRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 role_id = 2;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
+
+  // optional uint64 map_id = 3;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 4;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 5;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 5;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 game_id = 6;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WorldToLogicEnterSceneRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 role_id_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static WorldToLogicEnterSceneRsp* default_instance_;
 };
 // ===================================================================
 
@@ -3871,7 +4121,7 @@ GameToWorldRegisterMapReq::mutable_map_id() {
 
 // WorldToGameRegisterMapRsp
 
-// optional uint32 ret_code = 1;
+// optional int32 ret_code = 1;
 inline bool WorldToGameRegisterMapRsp::has_ret_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3882,13 +4132,13 @@ inline void WorldToGameRegisterMapRsp::clear_has_ret_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void WorldToGameRegisterMapRsp::clear_ret_code() {
-  ret_code_ = 0u;
+  ret_code_ = 0;
   clear_has_ret_code();
 }
-inline ::google::protobuf::uint32 WorldToGameRegisterMapRsp::ret_code() const {
+inline ::google::protobuf::int32 WorldToGameRegisterMapRsp::ret_code() const {
   return ret_code_;
 }
-inline void WorldToGameRegisterMapRsp::set_ret_code(::google::protobuf::uint32 value) {
+inline void WorldToGameRegisterMapRsp::set_ret_code(::google::protobuf::int32 value) {
   set_has_ret_code();
   ret_code_ = value;
 }
@@ -3919,26 +4169,26 @@ inline void WorldToLogicLoginFinishNotify::set_uid(::google::protobuf::uint64 va
   uid_ = value;
 }
 
-// optional uint64 cid = 2;
-inline bool WorldToLogicLoginFinishNotify::has_cid() const {
+// optional uint64 role_id = 2;
+inline bool WorldToLogicLoginFinishNotify::has_role_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void WorldToLogicLoginFinishNotify::set_has_cid() {
+inline void WorldToLogicLoginFinishNotify::set_has_role_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void WorldToLogicLoginFinishNotify::clear_has_cid() {
+inline void WorldToLogicLoginFinishNotify::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void WorldToLogicLoginFinishNotify::clear_cid() {
-  cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
+inline void WorldToLogicLoginFinishNotify::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
 }
-inline ::google::protobuf::uint64 WorldToLogicLoginFinishNotify::cid() const {
-  return cid_;
+inline ::google::protobuf::uint64 WorldToLogicLoginFinishNotify::role_id() const {
+  return role_id_;
 }
-inline void WorldToLogicLoginFinishNotify::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
-  cid_ = value;
+inline void WorldToLogicLoginFinishNotify::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
 }
 
 // optional uint32 proxy_id = 3;
@@ -4071,26 +4321,26 @@ inline void WorldToLogicLoginFinishNotify::set_allocated_pos(::proto_ff::Vector3
 
 // LogicToWorldEnterSceneReq
 
-// optional uint64 cid = 1;
-inline bool LogicToWorldEnterSceneReq::has_cid() const {
+// optional uint64 role_id = 1;
+inline bool LogicToWorldEnterSceneReq::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LogicToWorldEnterSceneReq::set_has_cid() {
+inline void LogicToWorldEnterSceneReq::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LogicToWorldEnterSceneReq::clear_has_cid() {
+inline void LogicToWorldEnterSceneReq::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LogicToWorldEnterSceneReq::clear_cid() {
-  cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
+inline void LogicToWorldEnterSceneReq::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
 }
-inline ::google::protobuf::uint64 LogicToWorldEnterSceneReq::cid() const {
-  return cid_;
+inline ::google::protobuf::uint64 LogicToWorldEnterSceneReq::role_id() const {
+  return role_id_;
 }
-inline void LogicToWorldEnterSceneReq::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
-  cid_ = value;
+inline void LogicToWorldEnterSceneReq::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
 }
 
 // optional uint64 map_id = 2;
@@ -4175,37 +4425,15 @@ inline void LogicToWorldEnterSceneReq::set_allocated_pos(::proto_ff::Vector3PB* 
   }
 }
 
-// optional uint32 req_trans_id = 5;
-inline bool LogicToWorldEnterSceneReq::has_req_trans_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void LogicToWorldEnterSceneReq::set_has_req_trans_id() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void LogicToWorldEnterSceneReq::clear_has_req_trans_id() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void LogicToWorldEnterSceneReq::clear_req_trans_id() {
-  req_trans_id_ = 0u;
-  clear_has_req_trans_id();
-}
-inline ::google::protobuf::uint32 LogicToWorldEnterSceneReq::req_trans_id() const {
-  return req_trans_id_;
-}
-inline void LogicToWorldEnterSceneReq::set_req_trans_id(::google::protobuf::uint32 value) {
-  set_has_req_trans_id();
-  req_trans_id_ = value;
-}
-
 // optional .proto_ff.RoleEnterSceneData data = 6;
 inline bool LogicToWorldEnterSceneReq::has_data() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void LogicToWorldEnterSceneReq::set_has_data() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void LogicToWorldEnterSceneReq::clear_has_data() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void LogicToWorldEnterSceneReq::clear_data() {
   if (data_ != NULL) data_->::proto_ff::RoleEnterSceneData::Clear();
@@ -4239,26 +4467,26 @@ inline void LogicToWorldEnterSceneReq::set_allocated_data(::proto_ff::RoleEnterS
 
 // WorldToGameEnterSceneReq
 
-// optional uint64 cid = 1;
-inline bool WorldToGameEnterSceneReq::has_cid() const {
+// optional uint64 role_id = 1;
+inline bool WorldToGameEnterSceneReq::has_role_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void WorldToGameEnterSceneReq::set_has_cid() {
+inline void WorldToGameEnterSceneReq::set_has_role_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void WorldToGameEnterSceneReq::clear_has_cid() {
+inline void WorldToGameEnterSceneReq::clear_has_role_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void WorldToGameEnterSceneReq::clear_cid() {
-  cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
+inline void WorldToGameEnterSceneReq::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
 }
-inline ::google::protobuf::uint64 WorldToGameEnterSceneReq::cid() const {
-  return cid_;
+inline ::google::protobuf::uint64 WorldToGameEnterSceneReq::role_id() const {
+  return role_id_;
 }
-inline void WorldToGameEnterSceneReq::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
-  cid_ = value;
+inline void WorldToGameEnterSceneReq::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
 }
 
 // optional uint64 map_id = 2;
@@ -4343,37 +4571,15 @@ inline void WorldToGameEnterSceneReq::set_allocated_pos(::proto_ff::Vector3PB* p
   }
 }
 
-// optional uint32 req_trans_id = 5;
-inline bool WorldToGameEnterSceneReq::has_req_trans_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void WorldToGameEnterSceneReq::set_has_req_trans_id() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void WorldToGameEnterSceneReq::clear_has_req_trans_id() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void WorldToGameEnterSceneReq::clear_req_trans_id() {
-  req_trans_id_ = 0u;
-  clear_has_req_trans_id();
-}
-inline ::google::protobuf::uint32 WorldToGameEnterSceneReq::req_trans_id() const {
-  return req_trans_id_;
-}
-inline void WorldToGameEnterSceneReq::set_req_trans_id(::google::protobuf::uint32 value) {
-  set_has_req_trans_id();
-  req_trans_id_ = value;
-}
-
 // optional uint32 gate_id = 6;
 inline bool WorldToGameEnterSceneReq::has_gate_id() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void WorldToGameEnterSceneReq::set_has_gate_id() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void WorldToGameEnterSceneReq::clear_has_gate_id() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void WorldToGameEnterSceneReq::clear_gate_id() {
   gate_id_ = 0u;
@@ -4387,7 +4593,29 @@ inline void WorldToGameEnterSceneReq::set_gate_id(::google::protobuf::uint32 val
   gate_id_ = value;
 }
 
-// optional uint32 logic_id = 7;
+// optional uint64 client_id = 7;
+inline bool WorldToGameEnterSceneReq::has_client_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WorldToGameEnterSceneReq::set_has_client_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WorldToGameEnterSceneReq::clear_has_client_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WorldToGameEnterSceneReq::clear_client_id() {
+  client_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_client_id();
+}
+inline ::google::protobuf::uint64 WorldToGameEnterSceneReq::client_id() const {
+  return client_id_;
+}
+inline void WorldToGameEnterSceneReq::set_client_id(::google::protobuf::uint64 value) {
+  set_has_client_id();
+  client_id_ = value;
+}
+
+// optional uint32 logic_id = 8;
 inline bool WorldToGameEnterSceneReq::has_logic_id() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4409,7 +4637,7 @@ inline void WorldToGameEnterSceneReq::set_logic_id(::google::protobuf::uint32 va
   logic_id_ = value;
 }
 
-// optional .proto_ff.RoleEnterSceneData data = 8;
+// optional .proto_ff.RoleEnterSceneData data = 9;
 inline bool WorldToGameEnterSceneReq::has_data() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4445,6 +4673,288 @@ inline void WorldToGameEnterSceneReq::set_allocated_data(::proto_ff::RoleEnterSc
   } else {
     clear_has_data();
   }
+}
+
+// -------------------------------------------------------------------
+
+// GameToWorldEnterSceneRsp
+
+// optional int32 ret_code = 1;
+inline bool GameToWorldEnterSceneRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GameToWorldEnterSceneRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GameToWorldEnterSceneRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GameToWorldEnterSceneRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GameToWorldEnterSceneRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GameToWorldEnterSceneRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 role_id = 2;
+inline bool GameToWorldEnterSceneRsp::has_role_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GameToWorldEnterSceneRsp::set_has_role_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GameToWorldEnterSceneRsp::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GameToWorldEnterSceneRsp::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
+}
+inline ::google::protobuf::uint64 GameToWorldEnterSceneRsp::role_id() const {
+  return role_id_;
+}
+inline void GameToWorldEnterSceneRsp::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
+}
+
+// optional uint64 map_id = 3;
+inline bool GameToWorldEnterSceneRsp::has_map_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GameToWorldEnterSceneRsp::set_has_map_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GameToWorldEnterSceneRsp::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GameToWorldEnterSceneRsp::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 GameToWorldEnterSceneRsp::map_id() const {
+  return map_id_;
+}
+inline void GameToWorldEnterSceneRsp::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 4;
+inline bool GameToWorldEnterSceneRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GameToWorldEnterSceneRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GameToWorldEnterSceneRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GameToWorldEnterSceneRsp::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 GameToWorldEnterSceneRsp::scene_id() const {
+  return scene_id_;
+}
+inline void GameToWorldEnterSceneRsp::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 5;
+inline bool GameToWorldEnterSceneRsp::has_pos() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GameToWorldEnterSceneRsp::set_has_pos() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GameToWorldEnterSceneRsp::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GameToWorldEnterSceneRsp::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& GameToWorldEnterSceneRsp::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* GameToWorldEnterSceneRsp::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* GameToWorldEnterSceneRsp::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void GameToWorldEnterSceneRsp::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// WorldToLogicEnterSceneRsp
+
+// optional int32 ret_code = 1;
+inline bool WorldToLogicEnterSceneRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WorldToLogicEnterSceneRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 WorldToLogicEnterSceneRsp::ret_code() const {
+  return ret_code_;
+}
+inline void WorldToLogicEnterSceneRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 role_id = 2;
+inline bool WorldToLogicEnterSceneRsp::has_role_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WorldToLogicEnterSceneRsp::set_has_role_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicEnterSceneRsp::role_id() const {
+  return role_id_;
+}
+inline void WorldToLogicEnterSceneRsp::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
+}
+
+// optional uint64 map_id = 3;
+inline bool WorldToLogicEnterSceneRsp::has_map_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WorldToLogicEnterSceneRsp::set_has_map_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicEnterSceneRsp::map_id() const {
+  return map_id_;
+}
+inline void WorldToLogicEnterSceneRsp::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 4;
+inline bool WorldToLogicEnterSceneRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WorldToLogicEnterSceneRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicEnterSceneRsp::scene_id() const {
+  return scene_id_;
+}
+inline void WorldToLogicEnterSceneRsp::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 5;
+inline bool WorldToLogicEnterSceneRsp::has_pos() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WorldToLogicEnterSceneRsp::set_has_pos() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& WorldToLogicEnterSceneRsp::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToLogicEnterSceneRsp::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToLogicEnterSceneRsp::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void WorldToLogicEnterSceneRsp::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 game_id = 6;
+inline bool WorldToLogicEnterSceneRsp::has_game_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WorldToLogicEnterSceneRsp::set_has_game_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WorldToLogicEnterSceneRsp::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 WorldToLogicEnterSceneRsp::game_id() const {
+  return game_id_;
+}
+inline void WorldToLogicEnterSceneRsp::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
 }
 
 

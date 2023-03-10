@@ -169,6 +169,8 @@ public:
 
     virtual uint32_t GetGateId() { return 0; }
 
+    virtual uint64_t GetClientId() { return 0; }
+
     virtual uint32_t GetLogicId() { return 0; }
 
     //获取怪物模型半径, 长度单位m
@@ -385,10 +387,13 @@ public:
     virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
 
     virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+    virtual int SendTransToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
 
     virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+    virtual int SendTransToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
 
     virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+    virtual int SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
 
 protected:
     uint64_t m_cid;     //生物实例id

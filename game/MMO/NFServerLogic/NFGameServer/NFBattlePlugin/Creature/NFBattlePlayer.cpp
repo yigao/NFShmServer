@@ -41,6 +41,7 @@ int NFBattlePlayer::CreateInit()
     m_channId = 0;
     m_zid = 0;
     m_gateId = 0;
+    m_clientId = 0;
     m_logicId = 0;
     m_headFlag = 0;
     m_pPart.resize(m_pPart.max_size());
@@ -52,15 +53,9 @@ int NFBattlePlayer::ResumeInit()
     return 0;
 }
 
-int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data)
+int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
 {
-    m_isInited = true;
-    ReadBaseData(data.base());
-    m_roleId = data.cid();
-    m_zid = data.zid();
-    m_uid = data.uid();
-    m_gateId = gateId;
-    m_logicId = logicId;
+    NFCreature::Init();
     ResetCurSeq();
 
     for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
@@ -73,6 +68,30 @@ int NFBattlePlayer::Init(uint32_t gateId, uint32_t logicId, const proto_ff::Role
         }
 
         m_pPart[i] = pPart->GetGlobalID();
+    }
+    return 0;
+}
+
+int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data)
+{
+    m_isInited = true;
+    ReadBaseData(data.base());
+    m_roleId = data.cid();
+    m_zid = data.zid();
+    m_uid = data.uid();
+    m_gateId = gateId;
+    m_clientId = clientId;
+    m_logicId = logicId;
+    for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
+    {
+        NFBattlePart *pPart = GetPart(i);
+        if (nullptr == pPart)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Player Init, Get Part Failed, roleId:{} uid:{} part:{}", m_cid, m_uid, i);
+            return -1;
+        }
+
+        pPart->Init(data);
     }
     return 0;
 }

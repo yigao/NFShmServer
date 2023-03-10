@@ -36,6 +36,8 @@ public:
      * @return
      */
     virtual int HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq);
+    virtual int HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
+    int OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
 public:
     /**
      * @brief
@@ -49,6 +51,15 @@ public:
      * @return
      */
     int SendEnterScene();
+
+    /**
+     * @brief
+     * @param mapId
+     * @param sceneId
+     * @param pos
+     * @return
+     */
+    int TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos);
 private:
     uint64_t m_mapId;
     uint64_t m_sceneId;

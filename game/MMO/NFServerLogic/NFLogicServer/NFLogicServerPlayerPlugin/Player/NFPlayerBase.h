@@ -126,7 +126,7 @@ public:
      * @brief
      * @param roleId
      */
-    virtual void SetCid(uint64_t roleId);
+    virtual void SetRoleId(uint64_t roleId);
 
     /**
      * @brief 玩家ID
@@ -253,6 +253,10 @@ public:
      * @param proxyId
      */
     void SetClientId(uint32_t clientId);
+
+    uint32_t GetGameId() const;
+
+    void SetGameId(uint32_t gameId);
 
     uint64_t GetMapId() const;
     uint64_t GetSceneId() const;

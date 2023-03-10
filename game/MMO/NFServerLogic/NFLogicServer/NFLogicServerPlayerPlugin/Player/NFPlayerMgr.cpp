@@ -101,7 +101,7 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t roleId, uint64_t uid, const ::proto
     pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(roleId, EOT_LOGIC_PLAYER_ID));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, roleId:{}", roleId);
 
-    pPlayer->SetCid(roleId);
+    pPlayer->SetRoleId(roleId);
     pPlayer->SetUid(uid);
 
     NFPlayer *pUidPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateIndexToHashKey(PLAYER_UID_INDEX, uid, roleId,

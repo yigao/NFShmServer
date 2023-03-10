@@ -49,7 +49,7 @@ int NFPlayerBase::CreateInit()
     m_roleDetailSavingDBTime = 0;
     m_disonnectType = 0;
 
-    m_color = 0;		//模型颜色
+    m_color = 0;        //模型颜色
     m_sceneId = 0;      //场景id
     m_mapId = 0;       //地图模板id
     m_pos.CreateInit();
@@ -86,7 +86,7 @@ void NFPlayerBase::IncreaseTransNum()
 void NFPlayerBase::DecreaseTransNum()
 {
     m_transNum--;
-    if(m_transNum < 0)
+    if (m_transNum < 0)
     {
         m_transNum = 0;
     }
@@ -102,7 +102,7 @@ uint64_t NFPlayerBase::RoleId() const
     return m_cid;
 }
 
-void NFPlayerBase::SetCid(uint64_t roleId)
+void NFPlayerBase::SetRoleId(uint64_t roleId)
 {
     m_cid = roleId;
 }
@@ -214,7 +214,7 @@ uint64_t NFPlayerBase::GetLastDiconnectTime() const
     return m_diconnectTime;
 }
 
-int NFPlayerBase::Init(NFIPluginManager* pPluginManager, const ::proto_ff::RoleDBData &dbData)
+int NFPlayerBase::Init(NFIPluginManager *pPluginManager, const ::proto_ff::RoleDBData &dbData)
 {
     m_isInited = true;
     m_pFightAttr = NFAttrMgr::Instance(pPluginManager)->MakeFightAttrObj(EAttrType::role);
@@ -262,7 +262,7 @@ int NFPlayerBase::ReadBaseData(const ::proto_ff::RoleDBData &dbData)
     return 0;
 }
 
-void NFPlayerBase::SetBaseData(proto_ff::RoleDBBaseData* protobase)
+void NFPlayerBase::SetBaseData(proto_ff::RoleDBBaseData *protobase)
 {
     if (protobase == NULL) return;
 
@@ -292,29 +292,29 @@ void NFPlayerBase::SetBaseData(proto_ff::RoleDBBaseData* protobase)
     protobase->set_lastposz(m_pos.z);
 
     //填充基础数据外观
-    proto_ff::RoleFacadeProto* pFacadeProto = protobase->mutable_facade();
+    proto_ff::RoleFacadeProto *pFacadeProto = protobase->mutable_facade();
     if (nullptr != pFacadeProto)
     {
         SetFacadeProto(*pFacadeProto);
     }
 }
 
-void NFPlayerBase::SetBaseData(proto_ff::RoleDBData& proto)
+void NFPlayerBase::SetBaseData(proto_ff::RoleDBData &proto)
 {
-    proto_ff::RoleDBBaseData *protobase =  proto.mutable_base();
+    proto_ff::RoleDBBaseData *protobase = proto.mutable_base();
     if (nullptr != protobase)
     {
         SetBaseData(protobase);
     }
 }
 
-void NFPlayerBase::SetFacadeProto(proto_ff::RoleFacadeProto& outproto)
+void NFPlayerBase::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
 {
     outproto.set_color(m_color);
     return;
 }
 
-void NFPlayerBase::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
+void NFPlayerBase::SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto)
 {
     outproto.set_cid(RoleId());
     outproto.set_uid(GetUid());
@@ -322,7 +322,7 @@ void NFPlayerBase::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
     SetBaseData(outproto.mutable_base());
 }
 
-int NFPlayerBase::UnInit(NFIPluginManager* pPluginManager)
+int NFPlayerBase::UnInit(NFIPluginManager *pPluginManager)
 {
     NFAttrMgr::Instance(pPluginManager)->FreeFightAttrObj(m_pFightAttr);
     NFAttrMgr::Instance(pPluginManager)->FreeAttrObj(m_pAttr);
@@ -381,6 +381,16 @@ void NFPlayerBase::SetClientId(uint32_t clientId)
     m_clientId = clientId;
 }
 
+uint32_t NFPlayerBase::GetGameId() const
+{
+    return m_gameId;
+}
+
+void NFPlayerBase::SetGameId(uint32_t gameId)
+{
+    m_gameId = gameId;
+}
+
 uint64_t NFPlayerBase::GetMapId() const
 {
     return m_mapId;
@@ -423,7 +433,7 @@ void NFPlayerBase::SetName(const string &name)
 
 uint64_t NFPlayerBase::GetLastMapId() const
 {
-   return m_lastMapId;
+    return m_lastMapId;
 }
 
 uint64_t NFPlayerBase::GetLastSceneId() const
@@ -488,16 +498,16 @@ void NFPlayerBase::OnChangeState(uint8_t curstate, uint8_t laststate)
     //BroadCast(proto_ff::CREATURE_STATE_BROAD, &rsp, true);
 }
 
-void NFPlayerBase::SetAttrData(proto_ff::RoleDBData& proto)
+void NFPlayerBase::SetAttrData(proto_ff::RoleDBData &proto)
 {
-    proto_ff::AttrDBData* protoattr = proto.mutable_attr();
+    proto_ff::AttrDBData *protoattr = proto.mutable_attr();
     if (nullptr != protoattr)
     {
         for (uint32_t i = proto_ff::A_NONE + 1; i < proto_ff::A_FIGHT_END; ++i)
         {
             int64_t val = m_pFightAttr->GetAttr(i);
             if (0 == val) continue;
-            proto_ff::Attr64* protoinfo = protoattr->add_attr_lst();
+            proto_ff::Attr64 *protoinfo = protoattr->add_attr_lst();
             if (nullptr != protoinfo)
             {
                 protoinfo->set_id(i);

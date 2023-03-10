@@ -400,7 +400,7 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
 
             proto_ff::WorldToLogicLoginFinishNotify notify;
             notify.set_uid(m_uid);
-            notify.set_cid(m_roleId);
+            notify.set_role_id(m_roleId);
             notify.set_proxy_id(pPlayer->GetProxyId());
             notify.set_client_id(pPlayer->GetClientId());
             notify.set_map_id(dstmapid);

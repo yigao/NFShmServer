@@ -140,7 +140,19 @@ public:
 
     virtual NFShmObj *GetHeadObj(int iType) = 0;
 
+    template<typename ShmObjType>
+    ShmObjType *GetHeadObj()
+    {
+        return dynamic_cast<ShmObjType*>(GetHeadObj(ShmObjType::GetClassType(m_pObjPluginManager)));
+    }
+
     virtual NFShmObj *GetNextObj(int iType, NFShmObj *pObj) = 0;
+
+    template<typename ShmObjType>
+    ShmObjType *GetNextObj(NFShmObj *pObj)
+    {
+        return dynamic_cast<ShmObjType*>(GetNextObj(ShmObjType::GetClassType(m_pObjPluginManager), pObj));
+    }
 
     virtual void DestroyObj(NFShmObj *pObj) = 0;
 
@@ -162,7 +174,19 @@ public:
 
     virtual NFTransBase *CreateTrans(int iType) = 0;
 
+    template<typename ShmObjType>
+    ShmObjType *CreateTrans()
+    {
+        return dynamic_cast<ShmObjType*>(CreateTrans(ShmObjType::GetClassType(m_pObjPluginManager)));
+    }
+
     virtual NFTransBase *GetTrans(uint64_t ullTransId) = 0;
+
+    template<typename ShmObjType>
+    ShmObjType *GetTrans(uint64_t ullTransId)
+    {
+        return dynamic_cast<ShmObjType*>(GetTrans(ullTransId));
+    }
 
     /**
     * 共享内存创建对象模式

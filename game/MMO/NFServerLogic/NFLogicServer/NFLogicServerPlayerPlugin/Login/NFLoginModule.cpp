@@ -225,7 +225,7 @@ int NFLoginModule::OnHandleLoginFinishNotify(uint32_t msgId, NFDataPackage &pack
     loginInfo.transParam.transType = ETransType_Born;
     loginInfo.transParam.srcMapId = loginInfo.lastMapId;
 
-    NFPlayerMgr::Instance(m_pObjPluginManager)->EnterGame(xMsg.cid(), loginInfo);
+    NFPlayerMgr::Instance(m_pObjPluginManager)->EnterGame(xMsg.role_id(), loginInfo);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

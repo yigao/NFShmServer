@@ -73,6 +73,7 @@ typedef enum
     EOT_NFTransWorldSendGetRoleList_ID,
     EOT_NFTransWorldCreateRole_ID,
     EOT_NFTransWorldEnterGame_ID,
+    EOT_NFTransWorldTransScene_ID,
     ////////////////////////////world server trans/////////////////////////////
 	////////////////////////////world server/////////////////////////////
 
