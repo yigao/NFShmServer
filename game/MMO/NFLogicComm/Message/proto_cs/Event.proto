@@ -67,3 +67,11 @@ message EnterSceneEvent
   optional int32 z = 7;
   //optional STransParam transParam;	//切换地图参数
 };
+
+//同步位置
+message SyncScenePos
+{
+  optional uint64 map_id = 1;
+  optional uint64 scene_id = 2;
+  optional Vector3PB pos = 3;
+}

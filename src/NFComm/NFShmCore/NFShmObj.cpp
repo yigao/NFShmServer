@@ -111,22 +111,34 @@ int NFShmObj::FireExecute(uint32_t nServerType, uint32_t nEventID, uint32_t bySr
     return retCode;
 }
 
-int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self/* = false*/)
 {
     m_pObjPluginManager->FindModule<NFIMessageModule>()->BroadcastEventToServer((NF_SERVER_TYPES)nServerType, (NF_SERVER_TYPES)nRecvServerType, nEventID, bySrcType, nSrcID, message);
-    return FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+    if (self)
+    {
+        FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+    }
+    return 0;
 }
 
-int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t busId, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nRecvServerType, uint32_t busId, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self/* = false*/)
 {
     m_pObjPluginManager->FindModule<NFIMessageModule>()->BroadcastEventToServer((NF_SERVER_TYPES)nServerType, (NF_SERVER_TYPES)nRecvServerType, busId, nEventID, bySrcType, nSrcID, message);
-    return FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+    if (self)
+    {
+        FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+    }
+    return 0;
 }
 
-int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
+int NFShmObj::FireBroadcast(uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self/* = false*/)
 {
     m_pObjPluginManager->FindModule<NFIMessageModule>()->BroadcastEventToServer((NF_SERVER_TYPES)nServerType, nEventID, bySrcType, nSrcID, message);
-    return FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+    if (self)
+    {
+        FireExecute(nServerType, nEventID, bySrcType, nSrcID, message);
+    }
+    return 0;
 }
 
 //订阅执行事件

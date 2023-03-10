@@ -44,6 +44,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* EnterSceneEvent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EnterSceneEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SyncScenePos_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SyncScenePos_reflection_ = NULL;
 
 }  // namespace
 
@@ -190,6 +193,23 @@ void protobuf_AssignDesc_Event_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EnterSceneEvent));
+  SyncScenePos_descriptor_ = file->message_type(8);
+  static const int SyncScenePos_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncScenePos, map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncScenePos, scene_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncScenePos, pos_),
+  };
+  SyncScenePos_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SyncScenePos_descriptor_,
+      SyncScenePos::default_instance_,
+      SyncScenePos_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncScenePos, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncScenePos, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SyncScenePos));
 }
 
 namespace {
@@ -218,6 +238,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     ChgSceneEvent_descriptor_, &ChgSceneEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     EnterSceneEvent_descriptor_, &EnterSceneEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SyncScenePos_descriptor_, &SyncScenePos::default_instance());
 }
 
 }  // namespace
@@ -239,6 +261,8 @@ void protobuf_ShutdownFile_Event_2eproto() {
   delete ChgSceneEvent_reflection_;
   delete EnterSceneEvent::default_instance_;
   delete EnterSceneEvent_reflection_;
+  delete SyncScenePos::default_instance_;
+  delete SyncScenePos_reflection_;
 }
 
 void protobuf_AddDesc_Event_2eproto() {
@@ -265,7 +289,9 @@ void protobuf_AddDesc_Event_2eproto() {
     "Event\022\013\n\003cid\030\001 \001(\004\022\021\n\tenterflag\030\002 \001(\010\"m\n"
     "\017EnterSceneEvent\022\013\n\003cid\030\001 \001(\004\022\013\n\003uid\030\002 \001"
     "(\r\022\020\n\010clientid\030\003 \001(\004\022\r\n\005mapid\030\004 \001(\004\022\t\n\001x"
-    "\030\005 \001(\005\022\t\n\001y\030\006 \001(\005\022\t\n\001z\030\007 \001(\005", 588);
+    "\030\005 \001(\005\022\t\n\001y\030\006 \001(\005\022\t\n\001z\030\007 \001(\005\"R\n\014SyncScen"
+    "ePos\022\016\n\006map_id\030\001 \001(\004\022\020\n\010scene_id\030\002 \001(\004\022 "
+    "\n\003pos\030\003 \001(\0132\023.proto_ff.Vector3PB", 672);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -276,6 +302,7 @@ void protobuf_AddDesc_Event_2eproto() {
   LeaveSceneEvent::default_instance_ = new LeaveSceneEvent();
   ChgSceneEvent::default_instance_ = new ChgSceneEvent();
   EnterSceneEvent::default_instance_ = new EnterSceneEvent();
+  SyncScenePos::default_instance_ = new SyncScenePos();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -284,6 +311,7 @@ void protobuf_AddDesc_Event_2eproto() {
   LeaveSceneEvent::default_instance_->InitAsDefaultInstance();
   ChgSceneEvent::default_instance_->InitAsDefaultInstance();
   EnterSceneEvent::default_instance_->InitAsDefaultInstance();
+  SyncScenePos::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Event_2eproto);
 }
 
@@ -2592,6 +2620,302 @@ void EnterSceneEvent::Swap(EnterSceneEvent* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = EnterSceneEvent_descriptor_;
   metadata.reflection = EnterSceneEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SyncScenePos::kMapIdFieldNumber;
+const int SyncScenePos::kSceneIdFieldNumber;
+const int SyncScenePos::kPosFieldNumber;
+#endif  // !_MSC_VER
+
+SyncScenePos::SyncScenePos()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SyncScenePos::InitAsDefaultInstance() {
+  pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
+}
+
+SyncScenePos::SyncScenePos(const SyncScenePos& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SyncScenePos::SharedCtor() {
+  _cached_size_ = 0;
+  map_id_ = GOOGLE_ULONGLONG(0);
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  pos_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SyncScenePos::~SyncScenePos() {
+  SharedDtor();
+}
+
+void SyncScenePos::SharedDtor() {
+  if (this != default_instance_) {
+    delete pos_;
+  }
+}
+
+void SyncScenePos::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SyncScenePos::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SyncScenePos_descriptor_;
+}
+
+const SyncScenePos& SyncScenePos::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Event_2eproto();
+  return *default_instance_;
+}
+
+SyncScenePos* SyncScenePos::default_instance_ = NULL;
+
+SyncScenePos* SyncScenePos::New() const {
+  return new SyncScenePos;
+}
+
+void SyncScenePos::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    map_id_ = GOOGLE_ULONGLONG(0);
+    scene_id_ = GOOGLE_ULONGLONG(0);
+    if (has_pos()) {
+      if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SyncScenePos::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 map_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &map_id_)));
+          set_has_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_scene_id;
+        break;
+      }
+
+      // optional uint64 scene_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_scene_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &scene_id_)));
+          set_has_scene_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_pos;
+        break;
+      }
+
+      // optional .proto_ff.Vector3PB pos = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_pos:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_pos()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SyncScenePos::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 map_id = 1;
+  if (has_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->map_id(), output);
+  }
+
+  // optional uint64 scene_id = 2;
+  if (has_scene_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->scene_id(), output);
+  }
+
+  // optional .proto_ff.Vector3PB pos = 3;
+  if (has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SyncScenePos::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 map_id = 1;
+  if (has_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->map_id(), target);
+  }
+
+  // optional uint64 scene_id = 2;
+  if (has_scene_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->scene_id(), target);
+  }
+
+  // optional .proto_ff.Vector3PB pos = 3;
+  if (has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SyncScenePos::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 map_id = 1;
+    if (has_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->map_id());
+    }
+
+    // optional uint64 scene_id = 2;
+    if (has_scene_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->scene_id());
+    }
+
+    // optional .proto_ff.Vector3PB pos = 3;
+    if (has_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SyncScenePos::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SyncScenePos* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SyncScenePos*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SyncScenePos::MergeFrom(const SyncScenePos& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_map_id()) {
+      set_map_id(from.map_id());
+    }
+    if (from.has_scene_id()) {
+      set_scene_id(from.scene_id());
+    }
+    if (from.has_pos()) {
+      mutable_pos()->::proto_ff::Vector3PB::MergeFrom(from.pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SyncScenePos::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SyncScenePos::CopyFrom(const SyncScenePos& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SyncScenePos::IsInitialized() const {
+
+  if (has_pos()) {
+    if (!this->pos().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void SyncScenePos::Swap(SyncScenePos* other) {
+  if (other != this) {
+    std::swap(map_id_, other->map_id_);
+    std::swap(scene_id_, other->scene_id_);
+    std::swap(pos_, other->pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SyncScenePos::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SyncScenePos_descriptor_;
+  metadata.reflection = SyncScenePos_reflection_;
   return metadata;
 }
 

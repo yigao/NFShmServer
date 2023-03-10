@@ -139,9 +139,11 @@ void NFCreature::SetPos(const NFPoint3<float> &pos)
         m_pos = pos;
         //
         m_lastUpdateNineTime = NFTime::Now().UnixSec();
+        bool needSyncPos = false;
         if (!isSameGrid)
         {
             UpdateNineGridLst();
+            needSyncPos = true;
         }
         else
         {
@@ -149,14 +151,22 @@ void NFCreature::SetPos(const NFPoint3<float> &pos)
             {
                 m_littleGrid = newLittleGrid;
                 UpdateSeeLst();
+                needSyncPos = true;
             }
+        }
+
+        if (needSyncPos && Kind() == CREATURE_PLAYER)
+        {
+            proto_ff::SyncScenePos syncPos;
+            syncPos.set_map_id(m_mapId);
+            syncPos.set_scene_id(m_sceneId);
+            m_pos.ToProto(*syncPos.mutable_pos());
+            FireBroadcast(NF_ST_GAME_SERVER, NF_ST_LOGIC_SERVER, GetLogicId(), EVENT_SYNC_SCENE_POS, Kind(), GetRoleId(), syncPos);
         }
     }
     else
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "[logic] Creature::SetPos can not find pGrid..cid:{},pos:{},{},{},  curpos:{},{},{}  ", m_cid, pos.x, pos.y,
-                   pos.z, m_pos.x,
-                   m_pos.y, m_pos.z);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "[logic] Creature::SetPos can not find pGrid..cid:{},pos:{}, curpos:{}  ", m_cid, pos.ToString(), m_pos.ToString());
     }
 }
 
@@ -1606,7 +1616,7 @@ int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, ST
     proto_ff::ChgSceneEvent chgEvent;
     chgEvent.set_cid(Cid());
     chgEvent.set_enterflag(true);
-    FireBroadcast(NF_ST_GAME_SERVER, NF_ST_LOGIC_SERVER, GetLogicId(), EVENT_CHANGE_SCENE, Kind(), GetRoleId(), chgEvent);
+    FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, Cid(), chgEvent);
 
     return proto_ff::RET_SUCCESS;
 }

@@ -44,6 +44,7 @@ class FinishTaskEvent;
 class LeaveSceneEvent;
 class ChgSceneEvent;
 class EnterSceneEvent;
+class SyncScenePos;
 
 // ===================================================================
 
@@ -861,6 +862,110 @@ class EnterSceneEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static EnterSceneEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class SyncScenePos : public ::google::protobuf::Message {
+ public:
+  SyncScenePos();
+  virtual ~SyncScenePos();
+
+  SyncScenePos(const SyncScenePos& from);
+
+  inline SyncScenePos& operator=(const SyncScenePos& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SyncScenePos& default_instance();
+
+  void Swap(SyncScenePos* other);
+
+  // implements Message ----------------------------------------------
+
+  SyncScenePos* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SyncScenePos& from);
+  void MergeFrom(const SyncScenePos& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 map_id = 1;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 2;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 3;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 3;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SyncScenePos)
+ private:
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static SyncScenePos* default_instance_;
+};
 // ===================================================================
 
 
@@ -1422,6 +1527,92 @@ inline ::google::protobuf::int32 EnterSceneEvent::z() const {
 inline void EnterSceneEvent::set_z(::google::protobuf::int32 value) {
   set_has_z();
   z_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SyncScenePos
+
+// optional uint64 map_id = 1;
+inline bool SyncScenePos::has_map_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SyncScenePos::set_has_map_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SyncScenePos::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SyncScenePos::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 SyncScenePos::map_id() const {
+  return map_id_;
+}
+inline void SyncScenePos::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 2;
+inline bool SyncScenePos::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SyncScenePos::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SyncScenePos::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SyncScenePos::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 SyncScenePos::scene_id() const {
+  return scene_id_;
+}
+inline void SyncScenePos::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 3;
+inline bool SyncScenePos::has_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SyncScenePos::set_has_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SyncScenePos::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SyncScenePos::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& SyncScenePos::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* SyncScenePos::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* SyncScenePos::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void SyncScenePos::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
 }
 
 

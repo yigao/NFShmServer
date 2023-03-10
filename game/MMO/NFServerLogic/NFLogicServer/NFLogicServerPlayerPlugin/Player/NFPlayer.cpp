@@ -83,18 +83,22 @@ int NFPlayer::Init(const proto_ff::RoleDBData &dbData)
         }
     }
 
-    Subscribe(NF_ST_LOGIC_SERVER, EVENT_CHANGE_SCENE, CREATURE_PLAYER, GetRoleId(), __FUNCTION__);
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_SYNC_SCENE_POS, CREATURE_PLAYER, GetRoleId(), __FUNCTION__);
     return 0;
 }
 
 int NFPlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
-    if (nEventID == EVENT_CHANGE_SCENE)
+    if (nEventID == EVENT_SYNC_SCENE_POS)
     {
-        const proto_ff::ChgSceneEvent* pChgEvent = dynamic_cast<const proto_ff::ChgSceneEvent*>(pMessage);
-        if (pChgEvent)
+        const proto_ff::SyncScenePos* pEvent = dynamic_cast<const proto_ff::SyncScenePos*>(pMessage);
+        if (pEvent)
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetRoleId(), "ChgSceneEvent:{}", pChgEvent->DebugString());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetRoleId(), "SyncScenePos Event:{}", pEvent->DebugString());
+            if (pEvent->map_id() == m_mapId && pEvent->scene_id() == m_sceneId)
+            {
+                SetPos(NFPoint3<float>(pEvent->pos()));
+            }
         }
     }
     return 0;

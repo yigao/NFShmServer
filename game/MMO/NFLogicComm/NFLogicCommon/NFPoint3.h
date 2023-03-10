@@ -279,11 +279,16 @@ public:
         z = pb.z();
     }
 
-    void ToProto(::proto_ff::Vector3PB& pb)
+    void ToProto(::proto_ff::Vector3PB& pb) const
     {
         pb.set_x(x);
-        pb.set_y(x);
-        pb.set_z(x);
+        pb.set_y(y);
+        pb.set_z(z);
+    }
+
+    std::string ToString() const
+    {
+        return NF_FORMAT("(x:{},y:{},z:{})", x, y, z);
     }
 };
 
