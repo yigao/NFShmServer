@@ -163,12 +163,14 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
 
     pPlayer->Init(xMsg.gate_id(), xMsg.client_id(), xMsg.logic_id(), xMsg.data());
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, roleId, "recv enter scene from world server, mapId:{} sceneId:{}", mapId, sceneId);
     int ret = NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(roleId, mapId, sceneId, pos);
     if (ret != proto_ff::RET_SUCCESS)
     {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Enter Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
     }
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, roleId, "send enter scene to world server, mapId:{} sceneId:{}", mapId, sceneId);
     rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
     rspMsg.set_ret_code(ret);
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_ENTER_SCENE_RSP, rspMsg, 0, reqTransId);
@@ -201,12 +203,14 @@ int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet
         return 0;
     }
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, roleId, "recv enter scene from world server, mapId:{} sceneId:{}", mapId, sceneId);
     int ret = NFSceneMgr::Instance(m_pObjPluginManager)->LeaveScene(roleId, mapId, sceneId);
     if (ret != proto_ff::RET_SUCCESS)
     {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Leave Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
     }
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, roleId, "send leave scene to world server, mapId:{} sceneId:{}", mapId, sceneId);
     rspMsg.set_ret_code(ret);
     rspMsg.set_logic_id(pPlayer->GetLogicId());
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_LEAVE_SCENE_RSP, rspMsg, 0, reqTransId);

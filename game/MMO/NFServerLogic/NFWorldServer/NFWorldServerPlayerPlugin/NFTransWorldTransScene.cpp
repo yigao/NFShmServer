@@ -73,6 +73,7 @@ int NFTransWorldTransScene::OnHandleTransScene(const proto_ff::LogicToWorldEnter
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(m_roleId);
     CHECK_EXPR(pPlayer, -1, "can't find player info, roleId:{}", m_roleId);
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv enter scene from logic server, mapId:{} sceneId:{} ", m_mapId, m_sceneId);
     bool ret = NFWorldSceneMgr::Instance(m_pObjPluginManager)->IsStaticMapId(m_mapId);
     if (ret)
     {
@@ -99,6 +100,7 @@ int NFTransWorldTransScene::OnHandleTransScene(const proto_ff::LogicToWorldEnter
         reqMsg.set_src_scene_id(m_srcSceneId);
         reqMsg.set_trans_type(m_transType);
 
+        NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send enter scene to game server, mapId:{} sceneId:{} gameId:{}", m_mapId, m_sceneId, m_gameId);
         pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ, reqMsg, GetGlobalID());
     }
     else {
@@ -113,6 +115,7 @@ int NFTransWorldTransScene::OnHandleLeaveScene(const proto_ff::LogicToWorldLeave
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(m_roleId);
     CHECK_EXPR(pPlayer, -1, "can't find player info, roleId:{}", m_roleId);
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv leave scene from logic server, mapId:{} sceneId:{} ", m_mapId, m_sceneId);
     bool ret = NFWorldSceneMgr::Instance(m_pObjPluginManager)->IsStaticMapId(m_mapId);
     if (ret)
     {
@@ -131,6 +134,7 @@ int NFTransWorldTransScene::OnHandleLeaveScene(const proto_ff::LogicToWorldLeave
         reqMsg.set_map_id(m_mapId);
         reqMsg.set_scene_id(m_sceneId);
 
+        NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send leave scene to game server, mapId:{} sceneId:{} gameId:{}", m_mapId, m_sceneId, gameId);
         pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_LEAVE_SCENE_REQ, reqMsg, GetGlobalID());
     }
     else {
@@ -167,6 +171,7 @@ int NFTransWorldTransScene::OnHandleGameEnterSceneRsp(uint32_t nMsgId, const NFD
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(m_roleId);
     CHECK_EXPR(pPlayer, -1, "can't find player info, roleId:{}", m_roleId);
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv enter scene from game server, mapId:{} sceneId:{} retCode:{}", m_mapId, m_sceneId, xData.ret_code());
     if (xData.ret_code() != proto_ff::RET_SUCCESS)
     {
         pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
@@ -194,6 +199,7 @@ int NFTransWorldTransScene::OnHandleGameLeaveSceneRsp(uint32_t nMsgId, const NFD
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(m_roleId);
     CHECK_EXPR(pPlayer, -1, "can't find player info, roleId:{}", m_roleId);
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv leave scene from game server, mapId:{} sceneId:{} retCode:{}", m_mapId, m_sceneId, xData.ret_code());
     if (xData.ret_code() != proto_ff::RET_SUCCESS)
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "roleId:{} leave scene rsp err:{}, ", m_roleId, xData.ret_code());
@@ -231,6 +237,7 @@ int NFTransWorldTransScene::OnTransFinished(int iRunLogicRetCode)
         rspMsg.set_game_id(m_gameId);
         m_pos.ToProto(*rspMsg.mutable_pos());
 
+        NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send enter scene to logic server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
         pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP, rspMsg, GetGlobalID(), m_reqTransId);
     }
     else if (m_cmd == proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ)
@@ -241,6 +248,7 @@ int NFTransWorldTransScene::OnTransFinished(int iRunLogicRetCode)
         rspMsg.set_map_id(m_mapId);
         rspMsg.set_scene_id(m_sceneId);
 
+        NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send leave scene to logic server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
         pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_LEAVE_SCENE_RSP, rspMsg, GetGlobalID(), m_reqTransId);
     }
 

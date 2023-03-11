@@ -89,6 +89,8 @@ int NFTransTransScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataP
     CHECK_NULL(pPlayer);
     CHECK_EXPR(m_mapId == xData.map_id(), -1, "");
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv enter scene from world server, mapId:{} sceneId:{} retCode:{}", m_mapId, m_sceneId, xData.ret_code());
+
     if (xData.ret_code() != proto_ff::RET_SUCCESS)
     {
         pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
@@ -123,6 +125,7 @@ int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataP
     pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
     pPlayer->SetGameId(0);
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv leave scene from world server, mapId:{} sceneId:{} retCode:{}", m_mapId, m_sceneId, xData.ret_code());
     if (m_reqTransId > 0)
     {
         proto_ff::NotifyLogicLeaveGameRsp2 rspMsg;
@@ -161,6 +164,7 @@ int NFTransTransScene::OnHandleGetMapInfoRsp(uint32_t nMsgId, const NFDataPackag
     uint32_t dstGameId = xData.dst_game_id();
     uint32_t curGameId = xData.cur_game_id();
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "recv get map info from world server, mapId:{} sceneId:{} dstGameId:{}", m_mapId, m_sceneId, dstGameId);
     if (m_cmd == proto_ff::CLIENT_SCENE_TRANS_REQ)
     {
         if (curGameId != pPlayer->GetGameId())
@@ -173,6 +177,7 @@ int NFTransTransScene::OnHandleGetMapInfoRsp(uint32_t nMsgId, const NFDataPackag
             NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "world server role game id:{} != the game id:{} of role map:{}", curGameId, pPlayer->GetGameId(), srcMapId);
         }
 
+        NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "trans scene to world server, mapId:{} sceneId:{} dstGameId:{}", m_mapId, m_sceneId, dstGameId);
         if (pPlayer->GetGameId() <= 0)
         {
             SendEnterScene();
@@ -325,6 +330,7 @@ int NFTransTransScene::SendGetMapInfoReq()
     xMsg.set_src_map_id(pPlayer->GetMapId());
     xMsg.set_role_id(m_roleId);
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send get map info to world server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
     pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_GET_MAP_INFO_REQ, xMsg, GetGlobalID());
     return 0;
 }
@@ -351,7 +357,9 @@ int NFTransTransScene::SendEnterScene()
     xMsg.set_trans_type(m_transType);
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send enter scene to world server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
     pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg, GetGlobalID());
+
     return 0;
 }
 
@@ -374,6 +382,7 @@ int NFTransTransScene::SendLeaveScene()
     xMsg.set_game_id(pPlayer->GetGameId());
     m_pos.ToProto(*xMsg.mutable_pos());
 
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send leave scene to world server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
     pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ, xMsg, GetGlobalID());
     return 0;
 }
