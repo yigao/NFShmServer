@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/taskdynamic_s.h"
 
-#define MAX_TASKDYNAMIC_TASKTEXT_NUM 20
+#define MAX_TASKDYNAMIC_TASKTEXT_NUM 60
 
 class TaskdynamicTasktextDesc : public NFIDescStore
 {

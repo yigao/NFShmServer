@@ -30,7 +30,7 @@ message E_SkillBuff
 
 message Sheet_SkillBuff
 {
-	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=180];
+	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=200];
 }
 
 message E_SkillSkillAdvancetype1buffDesc

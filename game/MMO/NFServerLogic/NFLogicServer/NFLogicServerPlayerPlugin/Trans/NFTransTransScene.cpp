@@ -11,9 +11,14 @@
 #include "ServerInternalCmd2.pb.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "Player/NFPlayer.h"
+#include "Player/NFPlayerMgr.h"
 #include "ServerInternal2.pb.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "ServerInternalCmd.pb.h"
+#include "Scene.pb.h"
+#include "DescStoreEx/NFMapDescStoreEx.h"
+#include "ClientServerCmd.pb.h"
+#include "DescStore/AreaAreaDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransTransScene, EOT_TRANS_LOGIC_TRANS_SCENE, NFTransBase)
 
@@ -37,6 +42,8 @@ int NFTransTransScene::CreateInit()
 {
     m_mapId = 0;
     m_sceneId = 0;
+    m_transType = 0;
+    m_transId = 0;
     return 0;
 }
 
@@ -52,7 +59,6 @@ int NFTransTransScene::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
 
 int NFTransTransScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    m_cmd = nMsgId;
     switch(nMsgId)
     {
         case proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP:
@@ -62,6 +68,10 @@ int NFTransTransScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &pa
         case proto_ff::WORLD_TO_LOGIC_LEAVE_SCENE_RSP:
         {
             return OnHandleWorldLeaveSceneRsp(nMsgId, packet, reqTransId, rspTransId);
+        }
+        case proto_ff::WORLD_TO_LOGIC_GET_MAP_INFO_RSP:
+        {
+            return OnHandleGetMapInfoRsp(nMsgId, packet, reqTransId, rspTransId);
         }
         default:break;
     }
@@ -119,7 +129,62 @@ int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataP
         pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalID(), m_reqTransId);
     }
 
-    SetFinished(0);
+    if (m_cmd == proto_ff::CLIENT_SCENE_TRANS_REQ)
+    {
+        SendEnterScene();
+    }
+    else if (m_cmd == proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ){
+        pPlayer->OnLogout();
+        SetFinished(0);
+    }
+    else {
+        SetFinished(0);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFTransTransScene::OnHandleGetMapInfoRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::LogicToWorldGetMapInfoRsp xData;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
+
+    auto pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+
+    uint64_t srcMapId = xData.src_map_id();
+    uint32_t srcGameId = xData.src_game_id();
+    uint32_t dstGameId = xData.dst_game_id();
+    uint32_t curGameId = xData.cur_game_id();
+
+    if (m_cmd == proto_ff::CLIENT_SCENE_TRANS_REQ)
+    {
+        if (curGameId != pPlayer->GetGameId())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "world server role game id:{} != logic server role game id:{}", curGameId, pPlayer->GetGameId());
+        }
+
+        if (curGameId > 0 && curGameId != srcGameId)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "world server role game id:{} != the game id:{} of role map:{}", curGameId, pPlayer->GetGameId(), srcMapId);
+        }
+
+        if (pPlayer->GetGameId() <= 0)
+        {
+            SendEnterScene();
+        }
+        else if (pPlayer->GetGameId() > 0 && pPlayer->GetGameId() == dstGameId)
+        {
+            SendEnterScene();
+        }
+        else if (pPlayer->GetGameId() > 0 && pPlayer->GetGameId() != dstGameId)
+        {
+            SendLeaveScene();
+        }
+    }
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
@@ -135,13 +200,126 @@ int NFTransTransScene::InitStaticMapInfo(uint64_t mapId, uint64_t scenceId, cons
     return 0;
 }
 
-int NFTransTransScene::TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
+int NFTransTransScene::TransScene(uint64_t mapId, uint32_t transType, uint64_t dstId)
 {
     m_mapId = mapId;
-    m_sceneId = sceneId;
-    m_pos = pos;
+    m_transType = transType;
+    m_transId = dstId;
 
-    return SendEnterScene();
+    NFPlayer *pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+    //
+    if (ETransMapType_None == transType) //出生点传送
+    {
+        //随机出生点
+        const NFPoint3<float>* pBornCfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandBornPoint(m_mapId);
+        if (nullptr == pBornCfg)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "ClientTransSceneReq..RandBornPoint failed...cid:{}, mapid:{} ", m_roleId, m_mapId);
+
+            return proto_ff::RET_SCENE_CAN_NOT_TRAN;
+        }
+
+        m_pos = *pBornCfg;
+    }
+    else if (ETransMapType_Point == transType)
+    {
+        auto pPointLoc = NFMapDescStoreEx::Instance(m_pObjPluginManager)->GetPointCfg(m_transId);
+        if (nullptr == pPointLoc)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "[logic] MovePart::ClientTransSceneReq...nullptr == pPointLoc..cid:{}, transId:{} ", m_roleId, m_transId);
+
+            //传送参数错误
+            return proto_ff::RET_SCENE_TRANS_PARAM_ERROR;
+        }
+
+        if (pPointLoc->vecposcfg.size() <= 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "ClientTransSceneReq...pPathLoc->vecposcfg.size() <= 0..cid:{},m_mapId:{}, transId:{} ", m_roleId, pPointLoc->mapid, m_transId);
+            //传送参数错误
+            return proto_ff::RET_SCENE_TRANS_PARAM_ERROR;
+        }
+
+        uint32_t isize = (uint32_t)pPointLoc->vecposcfg.size();
+        uint32_t idx = NFRandInt((uint32_t)0, isize);
+        m_pos = pPointLoc->vecposcfg.at(idx).m_pos;
+        //
+        m_mapId = pPointLoc->mapid;
+    }
+    else if (ETransMapType_Area == transType)
+    {
+        auto pAreaCfg = AreaAreaDesc::Instance(m_pObjPluginManager)->GetDesc(m_transId);
+        if (nullptr == pAreaCfg)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "ClientTransSceneReq...nullptr == pAreaCfg..cid:{},transId:{} ", m_roleId, m_transId);
+            //传送参数错误
+            return proto_ff::RET_SCENE_TRANS_PARAM_ERROR;
+        }
+
+        m_mapId = pAreaCfg->m_belongtosceneid;
+
+        //区域内随机一个坐标
+        if (!NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandPosInArea(m_transId, m_pos))
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "[logic] MovePart::ClientTransSceneReq...RandPosInArea failed..cid:%lu, mapid:%lu, transId:%lu ", m_roleId, m_mapId, m_transId);
+
+            return proto_ff::RET_SCENE_TRANS_PARAM_ERROR;
+        }
+    }
+    else
+    {
+        //传送参数错误
+        return proto_ff::RET_SCENE_TRANS_PARAM_ERROR;
+    }
+
+    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(m_mapId);
+    if (nullptr == pMapCfg)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "ClientTransSceneReq..nullptr == pMapCfg...cid:{}, mapid:{} ", m_roleId, m_mapId);
+        //动态地图不能传送
+        return proto_ff::RET_SCENE_DST_NOT_EXIST;
+    }
+
+    if (pPlayer->GetAttr(proto_ff::A_LEVEL) < pMapCfg->m_levellimit)
+    {
+        return proto_ff::RET_LEVEL_LACK;
+    }
+
+    //
+    if (NFMapDescStoreEx::Instance(m_pObjPluginManager)->IsDynamic(pMapCfg->m_mapid)) //动态地图不允许用这个协议传送
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "[logic] MovePart::ClientTransSceneReq..dstmap is dynamic...cid:%lu, mapid:%lu ", m_roleId, m_mapId);
+
+        //动态地图不能传送
+        return proto_ff::RET_SCENE_CAN_NOT_TRAN;
+    }
+
+    //特殊的活动的静态地图只能通过活动那边进入，不允许通过普通的切换地图协议传送地图
+    if (NFMapDescStoreEx::Instance(m_pObjPluginManager)->IsActSpecMap(pMapCfg->m_mapid))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "ClientTransSceneReq..dstmap is special act map...cid:{}, mapid:{},maptype:{} ", m_roleId, m_mapId, pMapCfg->m_maptype);
+        //不能传送
+        return proto_ff::RET_SCENE_CAN_NOT_TRAN;
+    }
+
+    m_sceneId = m_mapId;
+
+    SendGetMapInfoReq();
+    return 0;
+}
+
+int NFTransTransScene::SendGetMapInfoReq()
+{
+    auto pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+
+    proto_ff::LogicToWorldGetMapInfoReq xMsg;
+    xMsg.set_dst_map_id(m_mapId);
+    xMsg.set_src_map_id(pPlayer->GetMapId());
+    xMsg.set_role_id(m_roleId);
+
+    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_GET_MAP_INFO_REQ, xMsg, GetGlobalID());
+    return 0;
 }
 
 int NFTransTransScene::SendEnterScene()
@@ -154,6 +332,9 @@ int NFTransTransScene::SendEnterScene()
     xMsg.set_map_id(m_mapId);
     xMsg.set_scene_id(m_sceneId);
     m_pos.ToProto(*xMsg.mutable_pos());
+    xMsg.set_src_map_id(pPlayer->GetMapId());
+    xMsg.set_src_scene_id(pPlayer->GetSceneId());
+    xMsg.set_trans_type(m_transType);
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
     pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg, GetGlobalID());
@@ -173,5 +354,23 @@ int NFTransTransScene::SendLeaveScene()
     m_pos.ToProto(*xMsg.mutable_pos());
 
     pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ, xMsg, GetGlobalID());
+    return 0;
+}
+
+int NFTransTransScene::HandleTransFinished(int iRunLogicRetCode)
+{
+    auto pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+
+    if (m_cmd == proto_ff::CLIENT_SCENE_TRANS_REQ)
+    {
+        //
+        proto_ff::TransSceneRsp transRsp;
+        transRsp.set_mapid(m_mapId);
+
+        //不能传送
+        transRsp.set_retcode(iRunLogicRetCode);
+        pPlayer->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
+    }
     return 0;
 }

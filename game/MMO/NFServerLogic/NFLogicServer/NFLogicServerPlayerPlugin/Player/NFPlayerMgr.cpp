@@ -230,6 +230,15 @@ int NFPlayerMgr::LogoutGame(uint64_t uid, uint64_t roleId, uint32_t type, uint32
     return 0;
 }
 
+int NFPlayerMgr::TransScene(uint64_t uid, uint64_t roleId, uint64_t mapId, uint32_t transType, uint64_t dstId)
+{
+    NFPlayer *pPlayer = GetPlayer(roleId);
+    CHECK_NULL(pPlayer);
+
+    pPlayer->TransScene(mapId, transType, dstId);
+    return 0;
+}
+
 int NFPlayerMgr::DailyUpdate(uint64_t unixSec)
 {
     NFPlayer *pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_LOGIC_PLAYER_ID));

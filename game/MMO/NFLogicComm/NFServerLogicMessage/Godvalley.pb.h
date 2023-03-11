@@ -36,6 +36,9 @@ void protobuf_ShutdownFile_Godvalley_2eproto();
 
 class E_GodvalleyBattle;
 class Sheet_GodvalleyBattle;
+class E_GodvalleyRewardsRewardDesc;
+class E_GodvalleyRewards;
+class Sheet_GodvalleyRewards;
 
 // ===================================================================
 
@@ -124,73 +127,120 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_team2n();
   inline void set_allocated_m_team2n(::std::string* m_team2n);
 
-  // optional int32 m_killscore = 4;
+  // optional int32 m_winscore = 4;
+  inline bool has_m_winscore() const;
+  inline void clear_m_winscore();
+  static const int kMWinscoreFieldNumber = 4;
+  inline ::google::protobuf::int32 m_winscore() const;
+  inline void set_m_winscore(::google::protobuf::int32 value);
+
+  // optional int32 m_timescore = 5;
+  inline bool has_m_timescore() const;
+  inline void clear_m_timescore();
+  static const int kMTimescoreFieldNumber = 5;
+  inline ::google::protobuf::int32 m_timescore() const;
+  inline void set_m_timescore(::google::protobuf::int32 value);
+
+  // optional int32 m_killscore = 6;
   inline bool has_m_killscore() const;
   inline void clear_m_killscore();
-  static const int kMKillscoreFieldNumber = 4;
+  static const int kMKillscoreFieldNumber = 6;
   inline ::google::protobuf::int32 m_killscore() const;
   inline void set_m_killscore(::google::protobuf::int32 value);
 
-  // optional int32 m_killkeepscore = 5;
+  // optional int32 m_killkeepscore = 7;
   inline bool has_m_killkeepscore() const;
   inline void clear_m_killkeepscore();
-  static const int kMKillkeepscoreFieldNumber = 5;
+  static const int kMKillkeepscoreFieldNumber = 7;
   inline ::google::protobuf::int32 m_killkeepscore() const;
   inline void set_m_killkeepscore(::google::protobuf::int32 value);
 
-  // optional int32 m_breakkillkeepscore = 6;
+  // optional int32 m_breakkillkeepscore = 8;
   inline bool has_m_breakkillkeepscore() const;
   inline void clear_m_breakkillkeepscore();
-  static const int kMBreakkillkeepscoreFieldNumber = 6;
+  static const int kMBreakkillkeepscoreFieldNumber = 8;
   inline ::google::protobuf::int32 m_breakkillkeepscore() const;
   inline void set_m_breakkillkeepscore(::google::protobuf::int32 value);
 
-  // optional int32 m_killmonsterscore = 7;
+  // optional int32 m_killmonsterscore = 9;
   inline bool has_m_killmonsterscore() const;
   inline void clear_m_killmonsterscore();
-  static const int kMKillmonsterscoreFieldNumber = 7;
+  static const int kMKillmonsterscoreFieldNumber = 9;
   inline ::google::protobuf::int32 m_killmonsterscore() const;
   inline void set_m_killmonsterscore(::google::protobuf::int32 value);
 
-  // optional int32 m_crystalscore = 8;
+  // optional int32 m_crystalpoints = 10;
+  inline bool has_m_crystalpoints() const;
+  inline void clear_m_crystalpoints();
+  static const int kMCrystalpointsFieldNumber = 10;
+  inline ::google::protobuf::int32 m_crystalpoints() const;
+  inline void set_m_crystalpoints(::google::protobuf::int32 value);
+
+  // optional int32 m_crystalscore = 11;
   inline bool has_m_crystalscore() const;
   inline void clear_m_crystalscore();
-  static const int kMCrystalscoreFieldNumber = 8;
+  static const int kMCrystalscoreFieldNumber = 11;
   inline ::google::protobuf::int32 m_crystalscore() const;
   inline void set_m_crystalscore(::google::protobuf::int32 value);
 
-  // optional int32 m_crystalreborntime = 9;
+  // optional int32 m_interceptpoints = 12;
+  inline bool has_m_interceptpoints() const;
+  inline void clear_m_interceptpoints();
+  static const int kMInterceptpointsFieldNumber = 12;
+  inline ::google::protobuf::int32 m_interceptpoints() const;
+  inline void set_m_interceptpoints(::google::protobuf::int32 value);
+
+  // optional int32 m_interceptscore = 13;
+  inline bool has_m_interceptscore() const;
+  inline void clear_m_interceptscore();
+  static const int kMInterceptscoreFieldNumber = 13;
+  inline ::google::protobuf::int32 m_interceptscore() const;
+  inline void set_m_interceptscore(::google::protobuf::int32 value);
+
+  // optional int32 m_crystalreborntime = 14;
   inline bool has_m_crystalreborntime() const;
   inline void clear_m_crystalreborntime();
-  static const int kMCrystalreborntimeFieldNumber = 9;
+  static const int kMCrystalreborntimeFieldNumber = 14;
   inline ::google::protobuf::int32 m_crystalreborntime() const;
   inline void set_m_crystalreborntime(::google::protobuf::int32 value);
 
-  // optional int32 m_match_s = 10;
+  // optional string m_crystalpos = 15;
+  inline bool has_m_crystalpos() const;
+  inline void clear_m_crystalpos();
+  static const int kMCrystalposFieldNumber = 15;
+  inline const ::std::string& m_crystalpos() const;
+  inline void set_m_crystalpos(const ::std::string& value);
+  inline void set_m_crystalpos(const char* value);
+  inline void set_m_crystalpos(const char* value, size_t size);
+  inline ::std::string* mutable_m_crystalpos();
+  inline ::std::string* release_m_crystalpos();
+  inline void set_allocated_m_crystalpos(::std::string* m_crystalpos);
+
+  // optional int32 m_match_s = 16;
   inline bool has_m_match_s() const;
   inline void clear_m_match_s();
-  static const int kMMatchSFieldNumber = 10;
+  static const int kMMatchSFieldNumber = 16;
   inline ::google::protobuf::int32 m_match_s() const;
   inline void set_m_match_s(::google::protobuf::int32 value);
 
-  // optional int32 m_duration_s = 11;
+  // optional int32 m_duration_s = 17;
   inline bool has_m_duration_s() const;
   inline void clear_m_duration_s();
-  static const int kMDurationSFieldNumber = 11;
+  static const int kMDurationSFieldNumber = 17;
   inline ::google::protobuf::int32 m_duration_s() const;
   inline void set_m_duration_s(::google::protobuf::int32 value);
 
-  // optional int64 m_matchmapid = 12;
+  // optional int64 m_matchmapid = 18;
   inline bool has_m_matchmapid() const;
   inline void clear_m_matchmapid();
-  static const int kMMatchmapidFieldNumber = 12;
+  static const int kMMatchmapidFieldNumber = 18;
   inline ::google::protobuf::int64 m_matchmapid() const;
   inline void set_m_matchmapid(::google::protobuf::int64 value);
 
-  // optional string m_matchmapentry = 13;
+  // optional string m_matchmapentry = 19;
   inline bool has_m_matchmapentry() const;
   inline void clear_m_matchmapentry();
-  static const int kMMatchmapentryFieldNumber = 13;
+  static const int kMMatchmapentryFieldNumber = 19;
   inline const ::std::string& m_matchmapentry() const;
   inline void set_m_matchmapentry(const ::std::string& value);
   inline void set_m_matchmapentry(const char* value);
@@ -199,17 +249,17 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_matchmapentry();
   inline void set_allocated_m_matchmapentry(::std::string* m_matchmapentry);
 
-  // optional int64 m_mapid = 14;
+  // optional int64 m_mapid = 20;
   inline bool has_m_mapid() const;
   inline void clear_m_mapid();
-  static const int kMMapidFieldNumber = 14;
+  static const int kMMapidFieldNumber = 20;
   inline ::google::protobuf::int64 m_mapid() const;
   inline void set_m_mapid(::google::protobuf::int64 value);
 
-  // optional string m_mapentry1 = 15;
+  // optional string m_mapentry1 = 21;
   inline bool has_m_mapentry1() const;
   inline void clear_m_mapentry1();
-  static const int kMMapentry1FieldNumber = 15;
+  static const int kMMapentry1FieldNumber = 21;
   inline const ::std::string& m_mapentry1() const;
   inline void set_m_mapentry1(const ::std::string& value);
   inline void set_m_mapentry1(const char* value);
@@ -218,10 +268,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_mapentry1();
   inline void set_allocated_m_mapentry1(::std::string* m_mapentry1);
 
-  // optional string m_mapentry2 = 16;
+  // optional string m_mapentry2 = 22;
   inline bool has_m_mapentry2() const;
   inline void clear_m_mapentry2();
-  static const int kMMapentry2FieldNumber = 16;
+  static const int kMMapentry2FieldNumber = 22;
   inline const ::std::string& m_mapentry2() const;
   inline void set_m_mapentry2(const ::std::string& value);
   inline void set_m_mapentry2(const char* value);
@@ -230,10 +280,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_mapentry2();
   inline void set_allocated_m_mapentry2(::std::string* m_mapentry2);
 
-  // optional string m_monster1 = 17;
+  // optional string m_monster1 = 23;
   inline bool has_m_monster1() const;
   inline void clear_m_monster1();
-  static const int kMMonster1FieldNumber = 17;
+  static const int kMMonster1FieldNumber = 23;
   inline const ::std::string& m_monster1() const;
   inline void set_m_monster1(const ::std::string& value);
   inline void set_m_monster1(const char* value);
@@ -242,10 +292,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_monster1();
   inline void set_allocated_m_monster1(::std::string* m_monster1);
 
-  // optional string m_monster2 = 18;
+  // optional string m_monster2 = 24;
   inline bool has_m_monster2() const;
   inline void clear_m_monster2();
-  static const int kMMonster2FieldNumber = 18;
+  static const int kMMonster2FieldNumber = 24;
   inline const ::std::string& m_monster2() const;
   inline void set_m_monster2(const ::std::string& value);
   inline void set_m_monster2(const char* value);
@@ -254,10 +304,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_monster2();
   inline void set_allocated_m_monster2(::std::string* m_monster2);
 
-  // optional string m_monster3 = 19;
+  // optional string m_monster3 = 25;
   inline bool has_m_monster3() const;
   inline void clear_m_monster3();
-  static const int kMMonster3FieldNumber = 19;
+  static const int kMMonster3FieldNumber = 25;
   inline const ::std::string& m_monster3() const;
   inline void set_m_monster3(const ::std::string& value);
   inline void set_m_monster3(const char* value);
@@ -266,10 +316,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_monster3();
   inline void set_allocated_m_monster3(::std::string* m_monster3);
 
-  // optional string m_npc1pos = 20;
+  // optional string m_npc1pos = 26;
   inline bool has_m_npc1pos() const;
   inline void clear_m_npc1pos();
-  static const int kMNpc1PosFieldNumber = 20;
+  static const int kMNpc1PosFieldNumber = 26;
   inline const ::std::string& m_npc1pos() const;
   inline void set_m_npc1pos(const ::std::string& value);
   inline void set_m_npc1pos(const char* value);
@@ -278,10 +328,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline ::std::string* release_m_npc1pos();
   inline void set_allocated_m_npc1pos(::std::string* m_npc1pos);
 
-  // optional string m_npc2pos = 21;
+  // optional string m_npc2pos = 27;
   inline bool has_m_npc2pos() const;
   inline void clear_m_npc2pos();
-  static const int kMNpc2PosFieldNumber = 21;
+  static const int kMNpc2PosFieldNumber = 27;
   inline const ::std::string& m_npc2pos() const;
   inline void set_m_npc2pos(const ::std::string& value);
   inline void set_m_npc2pos(const char* value);
@@ -298,6 +348,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline void clear_has_m_team1n();
   inline void set_has_m_team2n();
   inline void clear_has_m_team2n();
+  inline void set_has_m_winscore();
+  inline void clear_has_m_winscore();
+  inline void set_has_m_timescore();
+  inline void clear_has_m_timescore();
   inline void set_has_m_killscore();
   inline void clear_has_m_killscore();
   inline void set_has_m_killkeepscore();
@@ -306,10 +360,18 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   inline void clear_has_m_breakkillkeepscore();
   inline void set_has_m_killmonsterscore();
   inline void clear_has_m_killmonsterscore();
+  inline void set_has_m_crystalpoints();
+  inline void clear_has_m_crystalpoints();
   inline void set_has_m_crystalscore();
   inline void clear_has_m_crystalscore();
+  inline void set_has_m_interceptpoints();
+  inline void clear_has_m_interceptpoints();
+  inline void set_has_m_interceptscore();
+  inline void clear_has_m_interceptscore();
   inline void set_has_m_crystalreborntime();
   inline void clear_has_m_crystalreborntime();
+  inline void set_has_m_crystalpos();
+  inline void clear_has_m_crystalpos();
   inline void set_has_m_match_s();
   inline void clear_has_m_match_s();
   inline void set_has_m_duration_s();
@@ -340,14 +402,19 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   ::google::protobuf::int64 m_id_;
   ::std::string* m_team1n_;
   ::std::string* m_team2n_;
+  ::google::protobuf::int32 m_winscore_;
+  ::google::protobuf::int32 m_timescore_;
   ::google::protobuf::int32 m_killscore_;
   ::google::protobuf::int32 m_killkeepscore_;
   ::google::protobuf::int32 m_breakkillkeepscore_;
   ::google::protobuf::int32 m_killmonsterscore_;
+  ::google::protobuf::int32 m_crystalpoints_;
   ::google::protobuf::int32 m_crystalscore_;
+  ::google::protobuf::int32 m_interceptpoints_;
+  ::google::protobuf::int32 m_interceptscore_;
   ::google::protobuf::int32 m_crystalreborntime_;
   ::google::protobuf::int32 m_match_s_;
-  ::google::protobuf::int32 m_duration_s_;
+  ::std::string* m_crystalpos_;
   ::google::protobuf::int64 m_matchmapid_;
   ::std::string* m_matchmapentry_;
   ::google::protobuf::int64 m_mapid_;
@@ -358,9 +425,10 @@ class E_GodvalleyBattle : public ::google::protobuf::Message {
   ::std::string* m_monster3_;
   ::std::string* m_npc1pos_;
   ::std::string* m_npc2pos_;
+  ::google::protobuf::int32 m_duration_s_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(21 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(27 + 31) / 32];
 
   friend void  protobuf_AddDesc_Godvalley_2eproto();
   friend void protobuf_AssignDesc_Godvalley_2eproto();
@@ -453,6 +521,288 @@ class Sheet_GodvalleyBattle : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_GodvalleyBattle* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GodvalleyRewardsRewardDesc : public ::google::protobuf::Message {
+ public:
+  E_GodvalleyRewardsRewardDesc();
+  virtual ~E_GodvalleyRewardsRewardDesc();
+
+  E_GodvalleyRewardsRewardDesc(const E_GodvalleyRewardsRewardDesc& from);
+
+  inline E_GodvalleyRewardsRewardDesc& operator=(const E_GodvalleyRewardsRewardDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GodvalleyRewardsRewardDesc& default_instance();
+
+  void Swap(E_GodvalleyRewardsRewardDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GodvalleyRewardsRewardDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GodvalleyRewardsRewardDesc& from);
+  void MergeFrom(const E_GodvalleyRewardsRewardDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int64 m_id = 2;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 2;
+  inline ::google::protobuf::int64 m_id() const;
+  inline void set_m_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GodvalleyRewardsRewardDesc)
+ private:
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 m_id_;
+  ::google::protobuf::int32 m_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Godvalley_2eproto();
+  friend void protobuf_AssignDesc_Godvalley_2eproto();
+  friend void protobuf_ShutdownFile_Godvalley_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GodvalleyRewardsRewardDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GodvalleyRewards : public ::google::protobuf::Message {
+ public:
+  E_GodvalleyRewards();
+  virtual ~E_GodvalleyRewards();
+
+  E_GodvalleyRewards(const E_GodvalleyRewards& from);
+
+  inline E_GodvalleyRewards& operator=(const E_GodvalleyRewards& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GodvalleyRewards& default_instance();
+
+  void Swap(E_GodvalleyRewards* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GodvalleyRewards* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GodvalleyRewards& from);
+  void MergeFrom(const E_GodvalleyRewards& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_score = 2;
+  inline bool has_m_score() const;
+  inline void clear_m_score();
+  static const int kMScoreFieldNumber = 2;
+  inline ::google::protobuf::int32 m_score() const;
+  inline void set_m_score(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_GodvalleyRewardsRewardDesc m_reward = 3;
+  inline int m_reward_size() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 3;
+  inline const ::proto_ff::E_GodvalleyRewardsRewardDesc& m_reward(int index) const;
+  inline ::proto_ff::E_GodvalleyRewardsRewardDesc* mutable_m_reward(int index);
+  inline ::proto_ff::E_GodvalleyRewardsRewardDesc* add_m_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewardsRewardDesc >&
+      m_reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewardsRewardDesc >*
+      mutable_m_reward();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GodvalleyRewards)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_score();
+  inline void clear_has_m_score();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_score_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewardsRewardDesc > m_reward_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Godvalley_2eproto();
+  friend void protobuf_AssignDesc_Godvalley_2eproto();
+  friend void protobuf_ShutdownFile_Godvalley_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GodvalleyRewards* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GodvalleyRewards : public ::google::protobuf::Message {
+ public:
+  Sheet_GodvalleyRewards();
+  virtual ~Sheet_GodvalleyRewards();
+
+  Sheet_GodvalleyRewards(const Sheet_GodvalleyRewards& from);
+
+  inline Sheet_GodvalleyRewards& operator=(const Sheet_GodvalleyRewards& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GodvalleyRewards& default_instance();
+
+  void Swap(Sheet_GodvalleyRewards* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GodvalleyRewards* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GodvalleyRewards& from);
+  void MergeFrom(const Sheet_GodvalleyRewards& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GodvalleyRewards E_GodvalleyRewards_List = 1;
+  inline int e_godvalleyrewards_list_size() const;
+  inline void clear_e_godvalleyrewards_list();
+  static const int kEGodvalleyRewardsListFieldNumber = 1;
+  inline const ::proto_ff::E_GodvalleyRewards& e_godvalleyrewards_list(int index) const;
+  inline ::proto_ff::E_GodvalleyRewards* mutable_e_godvalleyrewards_list(int index);
+  inline ::proto_ff::E_GodvalleyRewards* add_e_godvalleyrewards_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewards >&
+      e_godvalleyrewards_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewards >*
+      mutable_e_godvalleyrewards_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GodvalleyRewards)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewards > e_godvalleyrewards_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Godvalley_2eproto();
+  friend void protobuf_AssignDesc_Godvalley_2eproto();
+  friend void protobuf_ShutdownFile_Godvalley_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GodvalleyRewards* default_instance_;
 };
 // ===================================================================
 
@@ -623,15 +973,59 @@ inline void E_GodvalleyBattle::set_allocated_m_team2n(::std::string* m_team2n) {
   }
 }
 
-// optional int32 m_killscore = 4;
-inline bool E_GodvalleyBattle::has_m_killscore() const {
+// optional int32 m_winscore = 4;
+inline bool E_GodvalleyBattle::has_m_winscore() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_GodvalleyBattle::set_has_m_killscore() {
+inline void E_GodvalleyBattle::set_has_m_winscore() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_GodvalleyBattle::clear_has_m_killscore() {
+inline void E_GodvalleyBattle::clear_has_m_winscore() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_GodvalleyBattle::clear_m_winscore() {
+  m_winscore_ = 0;
+  clear_has_m_winscore();
+}
+inline ::google::protobuf::int32 E_GodvalleyBattle::m_winscore() const {
+  return m_winscore_;
+}
+inline void E_GodvalleyBattle::set_m_winscore(::google::protobuf::int32 value) {
+  set_has_m_winscore();
+  m_winscore_ = value;
+}
+
+// optional int32 m_timescore = 5;
+inline bool E_GodvalleyBattle::has_m_timescore() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_GodvalleyBattle::set_has_m_timescore() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_GodvalleyBattle::clear_has_m_timescore() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_GodvalleyBattle::clear_m_timescore() {
+  m_timescore_ = 0;
+  clear_has_m_timescore();
+}
+inline ::google::protobuf::int32 E_GodvalleyBattle::m_timescore() const {
+  return m_timescore_;
+}
+inline void E_GodvalleyBattle::set_m_timescore(::google::protobuf::int32 value) {
+  set_has_m_timescore();
+  m_timescore_ = value;
+}
+
+// optional int32 m_killscore = 6;
+inline bool E_GodvalleyBattle::has_m_killscore() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_GodvalleyBattle::set_has_m_killscore() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_GodvalleyBattle::clear_has_m_killscore() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_GodvalleyBattle::clear_m_killscore() {
   m_killscore_ = 0;
@@ -645,15 +1039,15 @@ inline void E_GodvalleyBattle::set_m_killscore(::google::protobuf::int32 value) 
   m_killscore_ = value;
 }
 
-// optional int32 m_killkeepscore = 5;
+// optional int32 m_killkeepscore = 7;
 inline bool E_GodvalleyBattle::has_m_killkeepscore() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_killkeepscore() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_GodvalleyBattle::clear_has_m_killkeepscore() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_GodvalleyBattle::clear_m_killkeepscore() {
   m_killkeepscore_ = 0;
@@ -667,15 +1061,15 @@ inline void E_GodvalleyBattle::set_m_killkeepscore(::google::protobuf::int32 val
   m_killkeepscore_ = value;
 }
 
-// optional int32 m_breakkillkeepscore = 6;
+// optional int32 m_breakkillkeepscore = 8;
 inline bool E_GodvalleyBattle::has_m_breakkillkeepscore() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_breakkillkeepscore() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_GodvalleyBattle::clear_has_m_breakkillkeepscore() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_GodvalleyBattle::clear_m_breakkillkeepscore() {
   m_breakkillkeepscore_ = 0;
@@ -689,15 +1083,15 @@ inline void E_GodvalleyBattle::set_m_breakkillkeepscore(::google::protobuf::int3
   m_breakkillkeepscore_ = value;
 }
 
-// optional int32 m_killmonsterscore = 7;
+// optional int32 m_killmonsterscore = 9;
 inline bool E_GodvalleyBattle::has_m_killmonsterscore() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_killmonsterscore() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void E_GodvalleyBattle::clear_has_m_killmonsterscore() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_GodvalleyBattle::clear_m_killmonsterscore() {
   m_killmonsterscore_ = 0;
@@ -711,15 +1105,37 @@ inline void E_GodvalleyBattle::set_m_killmonsterscore(::google::protobuf::int32 
   m_killmonsterscore_ = value;
 }
 
-// optional int32 m_crystalscore = 8;
+// optional int32 m_crystalpoints = 10;
+inline bool E_GodvalleyBattle::has_m_crystalpoints() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void E_GodvalleyBattle::set_has_m_crystalpoints() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void E_GodvalleyBattle::clear_has_m_crystalpoints() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void E_GodvalleyBattle::clear_m_crystalpoints() {
+  m_crystalpoints_ = 0;
+  clear_has_m_crystalpoints();
+}
+inline ::google::protobuf::int32 E_GodvalleyBattle::m_crystalpoints() const {
+  return m_crystalpoints_;
+}
+inline void E_GodvalleyBattle::set_m_crystalpoints(::google::protobuf::int32 value) {
+  set_has_m_crystalpoints();
+  m_crystalpoints_ = value;
+}
+
+// optional int32 m_crystalscore = 11;
 inline bool E_GodvalleyBattle::has_m_crystalscore() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_crystalscore() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_GodvalleyBattle::clear_has_m_crystalscore() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_GodvalleyBattle::clear_m_crystalscore() {
   m_crystalscore_ = 0;
@@ -733,15 +1149,59 @@ inline void E_GodvalleyBattle::set_m_crystalscore(::google::protobuf::int32 valu
   m_crystalscore_ = value;
 }
 
-// optional int32 m_crystalreborntime = 9;
+// optional int32 m_interceptpoints = 12;
+inline bool E_GodvalleyBattle::has_m_interceptpoints() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void E_GodvalleyBattle::set_has_m_interceptpoints() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void E_GodvalleyBattle::clear_has_m_interceptpoints() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void E_GodvalleyBattle::clear_m_interceptpoints() {
+  m_interceptpoints_ = 0;
+  clear_has_m_interceptpoints();
+}
+inline ::google::protobuf::int32 E_GodvalleyBattle::m_interceptpoints() const {
+  return m_interceptpoints_;
+}
+inline void E_GodvalleyBattle::set_m_interceptpoints(::google::protobuf::int32 value) {
+  set_has_m_interceptpoints();
+  m_interceptpoints_ = value;
+}
+
+// optional int32 m_interceptscore = 13;
+inline bool E_GodvalleyBattle::has_m_interceptscore() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void E_GodvalleyBattle::set_has_m_interceptscore() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void E_GodvalleyBattle::clear_has_m_interceptscore() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void E_GodvalleyBattle::clear_m_interceptscore() {
+  m_interceptscore_ = 0;
+  clear_has_m_interceptscore();
+}
+inline ::google::protobuf::int32 E_GodvalleyBattle::m_interceptscore() const {
+  return m_interceptscore_;
+}
+inline void E_GodvalleyBattle::set_m_interceptscore(::google::protobuf::int32 value) {
+  set_has_m_interceptscore();
+  m_interceptscore_ = value;
+}
+
+// optional int32 m_crystalreborntime = 14;
 inline bool E_GodvalleyBattle::has_m_crystalreborntime() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_crystalreborntime() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_crystalreborntime() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_GodvalleyBattle::clear_m_crystalreborntime() {
   m_crystalreborntime_ = 0;
@@ -755,15 +1215,85 @@ inline void E_GodvalleyBattle::set_m_crystalreborntime(::google::protobuf::int32
   m_crystalreborntime_ = value;
 }
 
-// optional int32 m_match_s = 10;
+// optional string m_crystalpos = 15;
+inline bool E_GodvalleyBattle::has_m_crystalpos() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void E_GodvalleyBattle::set_has_m_crystalpos() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void E_GodvalleyBattle::clear_has_m_crystalpos() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void E_GodvalleyBattle::clear_m_crystalpos() {
+  if (m_crystalpos_ != &::google::protobuf::internal::kEmptyString) {
+    m_crystalpos_->clear();
+  }
+  clear_has_m_crystalpos();
+}
+inline const ::std::string& E_GodvalleyBattle::m_crystalpos() const {
+  return *m_crystalpos_;
+}
+inline void E_GodvalleyBattle::set_m_crystalpos(const ::std::string& value) {
+  set_has_m_crystalpos();
+  if (m_crystalpos_ == &::google::protobuf::internal::kEmptyString) {
+    m_crystalpos_ = new ::std::string;
+  }
+  m_crystalpos_->assign(value);
+}
+inline void E_GodvalleyBattle::set_m_crystalpos(const char* value) {
+  set_has_m_crystalpos();
+  if (m_crystalpos_ == &::google::protobuf::internal::kEmptyString) {
+    m_crystalpos_ = new ::std::string;
+  }
+  m_crystalpos_->assign(value);
+}
+inline void E_GodvalleyBattle::set_m_crystalpos(const char* value, size_t size) {
+  set_has_m_crystalpos();
+  if (m_crystalpos_ == &::google::protobuf::internal::kEmptyString) {
+    m_crystalpos_ = new ::std::string;
+  }
+  m_crystalpos_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_GodvalleyBattle::mutable_m_crystalpos() {
+  set_has_m_crystalpos();
+  if (m_crystalpos_ == &::google::protobuf::internal::kEmptyString) {
+    m_crystalpos_ = new ::std::string;
+  }
+  return m_crystalpos_;
+}
+inline ::std::string* E_GodvalleyBattle::release_m_crystalpos() {
+  clear_has_m_crystalpos();
+  if (m_crystalpos_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_crystalpos_;
+    m_crystalpos_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_GodvalleyBattle::set_allocated_m_crystalpos(::std::string* m_crystalpos) {
+  if (m_crystalpos_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_crystalpos_;
+  }
+  if (m_crystalpos) {
+    set_has_m_crystalpos();
+    m_crystalpos_ = m_crystalpos;
+  } else {
+    clear_has_m_crystalpos();
+    m_crystalpos_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_match_s = 16;
 inline bool E_GodvalleyBattle::has_m_match_s() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_match_s() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_match_s() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void E_GodvalleyBattle::clear_m_match_s() {
   m_match_s_ = 0;
@@ -777,15 +1307,15 @@ inline void E_GodvalleyBattle::set_m_match_s(::google::protobuf::int32 value) {
   m_match_s_ = value;
 }
 
-// optional int32 m_duration_s = 11;
+// optional int32 m_duration_s = 17;
 inline bool E_GodvalleyBattle::has_m_duration_s() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_duration_s() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_duration_s() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void E_GodvalleyBattle::clear_m_duration_s() {
   m_duration_s_ = 0;
@@ -799,15 +1329,15 @@ inline void E_GodvalleyBattle::set_m_duration_s(::google::protobuf::int32 value)
   m_duration_s_ = value;
 }
 
-// optional int64 m_matchmapid = 12;
+// optional int64 m_matchmapid = 18;
 inline bool E_GodvalleyBattle::has_m_matchmapid() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_matchmapid() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_matchmapid() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void E_GodvalleyBattle::clear_m_matchmapid() {
   m_matchmapid_ = GOOGLE_LONGLONG(0);
@@ -821,15 +1351,15 @@ inline void E_GodvalleyBattle::set_m_matchmapid(::google::protobuf::int64 value)
   m_matchmapid_ = value;
 }
 
-// optional string m_matchmapentry = 13;
+// optional string m_matchmapentry = 19;
 inline bool E_GodvalleyBattle::has_m_matchmapentry() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_matchmapentry() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_matchmapentry() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void E_GodvalleyBattle::clear_m_matchmapentry() {
   if (m_matchmapentry_ != &::google::protobuf::internal::kEmptyString) {
@@ -891,15 +1421,15 @@ inline void E_GodvalleyBattle::set_allocated_m_matchmapentry(::std::string* m_ma
   }
 }
 
-// optional int64 m_mapid = 14;
+// optional int64 m_mapid = 20;
 inline bool E_GodvalleyBattle::has_m_mapid() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_mapid() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_mapid() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void E_GodvalleyBattle::clear_m_mapid() {
   m_mapid_ = GOOGLE_LONGLONG(0);
@@ -913,15 +1443,15 @@ inline void E_GodvalleyBattle::set_m_mapid(::google::protobuf::int64 value) {
   m_mapid_ = value;
 }
 
-// optional string m_mapentry1 = 15;
+// optional string m_mapentry1 = 21;
 inline bool E_GodvalleyBattle::has_m_mapentry1() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_mapentry1() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_mapentry1() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void E_GodvalleyBattle::clear_m_mapentry1() {
   if (m_mapentry1_ != &::google::protobuf::internal::kEmptyString) {
@@ -983,15 +1513,15 @@ inline void E_GodvalleyBattle::set_allocated_m_mapentry1(::std::string* m_mapent
   }
 }
 
-// optional string m_mapentry2 = 16;
+// optional string m_mapentry2 = 22;
 inline bool E_GodvalleyBattle::has_m_mapentry2() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_mapentry2() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00200000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_mapentry2() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void E_GodvalleyBattle::clear_m_mapentry2() {
   if (m_mapentry2_ != &::google::protobuf::internal::kEmptyString) {
@@ -1053,15 +1583,15 @@ inline void E_GodvalleyBattle::set_allocated_m_mapentry2(::std::string* m_mapent
   }
 }
 
-// optional string m_monster1 = 17;
+// optional string m_monster1 = 23;
 inline bool E_GodvalleyBattle::has_m_monster1() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_monster1() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_monster1() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void E_GodvalleyBattle::clear_m_monster1() {
   if (m_monster1_ != &::google::protobuf::internal::kEmptyString) {
@@ -1123,15 +1653,15 @@ inline void E_GodvalleyBattle::set_allocated_m_monster1(::std::string* m_monster
   }
 }
 
-// optional string m_monster2 = 18;
+// optional string m_monster2 = 24;
 inline bool E_GodvalleyBattle::has_m_monster2() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_monster2() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_monster2() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void E_GodvalleyBattle::clear_m_monster2() {
   if (m_monster2_ != &::google::protobuf::internal::kEmptyString) {
@@ -1193,15 +1723,15 @@ inline void E_GodvalleyBattle::set_allocated_m_monster2(::std::string* m_monster
   }
 }
 
-// optional string m_monster3 = 19;
+// optional string m_monster3 = 25;
 inline bool E_GodvalleyBattle::has_m_monster3() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_monster3() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_monster3() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void E_GodvalleyBattle::clear_m_monster3() {
   if (m_monster3_ != &::google::protobuf::internal::kEmptyString) {
@@ -1263,15 +1793,15 @@ inline void E_GodvalleyBattle::set_allocated_m_monster3(::std::string* m_monster
   }
 }
 
-// optional string m_npc1pos = 20;
+// optional string m_npc1pos = 26;
 inline bool E_GodvalleyBattle::has_m_npc1pos() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_npc1pos() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_npc1pos() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void E_GodvalleyBattle::clear_m_npc1pos() {
   if (m_npc1pos_ != &::google::protobuf::internal::kEmptyString) {
@@ -1333,15 +1863,15 @@ inline void E_GodvalleyBattle::set_allocated_m_npc1pos(::std::string* m_npc1pos)
   }
 }
 
-// optional string m_npc2pos = 21;
+// optional string m_npc2pos = 27;
 inline bool E_GodvalleyBattle::has_m_npc2pos() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void E_GodvalleyBattle::set_has_m_npc2pos() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void E_GodvalleyBattle::clear_has_m_npc2pos() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void E_GodvalleyBattle::clear_m_npc2pos() {
   if (m_npc2pos_ != &::google::protobuf::internal::kEmptyString) {
@@ -1430,6 +1960,156 @@ Sheet_GodvalleyBattle::e_godvalleybattle_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyBattle >*
 Sheet_GodvalleyBattle::mutable_e_godvalleybattle_list() {
   return &e_godvalleybattle_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GodvalleyRewardsRewardDesc
+
+// optional int32 m_num = 1;
+inline bool E_GodvalleyRewardsRewardDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GodvalleyRewardsRewardDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GodvalleyRewardsRewardDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GodvalleyRewardsRewardDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_GodvalleyRewardsRewardDesc::m_num() const {
+  return m_num_;
+}
+inline void E_GodvalleyRewardsRewardDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int64 m_id = 2;
+inline bool E_GodvalleyRewardsRewardDesc::has_m_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GodvalleyRewardsRewardDesc::set_has_m_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GodvalleyRewardsRewardDesc::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GodvalleyRewardsRewardDesc::clear_m_id() {
+  m_id_ = GOOGLE_LONGLONG(0);
+  clear_has_m_id();
+}
+inline ::google::protobuf::int64 E_GodvalleyRewardsRewardDesc::m_id() const {
+  return m_id_;
+}
+inline void E_GodvalleyRewardsRewardDesc::set_m_id(::google::protobuf::int64 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_GodvalleyRewards
+
+// optional int32 m_id = 1;
+inline bool E_GodvalleyRewards::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GodvalleyRewards::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GodvalleyRewards::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GodvalleyRewards::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GodvalleyRewards::m_id() const {
+  return m_id_;
+}
+inline void E_GodvalleyRewards::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_score = 2;
+inline bool E_GodvalleyRewards::has_m_score() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GodvalleyRewards::set_has_m_score() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GodvalleyRewards::clear_has_m_score() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GodvalleyRewards::clear_m_score() {
+  m_score_ = 0;
+  clear_has_m_score();
+}
+inline ::google::protobuf::int32 E_GodvalleyRewards::m_score() const {
+  return m_score_;
+}
+inline void E_GodvalleyRewards::set_m_score(::google::protobuf::int32 value) {
+  set_has_m_score();
+  m_score_ = value;
+}
+
+// repeated .proto_ff.E_GodvalleyRewardsRewardDesc m_reward = 3;
+inline int E_GodvalleyRewards::m_reward_size() const {
+  return m_reward_.size();
+}
+inline void E_GodvalleyRewards::clear_m_reward() {
+  m_reward_.Clear();
+}
+inline const ::proto_ff::E_GodvalleyRewardsRewardDesc& E_GodvalleyRewards::m_reward(int index) const {
+  return m_reward_.Get(index);
+}
+inline ::proto_ff::E_GodvalleyRewardsRewardDesc* E_GodvalleyRewards::mutable_m_reward(int index) {
+  return m_reward_.Mutable(index);
+}
+inline ::proto_ff::E_GodvalleyRewardsRewardDesc* E_GodvalleyRewards::add_m_reward() {
+  return m_reward_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewardsRewardDesc >&
+E_GodvalleyRewards::m_reward() const {
+  return m_reward_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewardsRewardDesc >*
+E_GodvalleyRewards::mutable_m_reward() {
+  return &m_reward_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GodvalleyRewards
+
+// repeated .proto_ff.E_GodvalleyRewards E_GodvalleyRewards_List = 1;
+inline int Sheet_GodvalleyRewards::e_godvalleyrewards_list_size() const {
+  return e_godvalleyrewards_list_.size();
+}
+inline void Sheet_GodvalleyRewards::clear_e_godvalleyrewards_list() {
+  e_godvalleyrewards_list_.Clear();
+}
+inline const ::proto_ff::E_GodvalleyRewards& Sheet_GodvalleyRewards::e_godvalleyrewards_list(int index) const {
+  return e_godvalleyrewards_list_.Get(index);
+}
+inline ::proto_ff::E_GodvalleyRewards* Sheet_GodvalleyRewards::mutable_e_godvalleyrewards_list(int index) {
+  return e_godvalleyrewards_list_.Mutable(index);
+}
+inline ::proto_ff::E_GodvalleyRewards* Sheet_GodvalleyRewards::add_e_godvalleyrewards_list() {
+  return e_godvalleyrewards_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewards >&
+Sheet_GodvalleyRewards::e_godvalleyrewards_list() const {
+  return e_godvalleyrewards_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GodvalleyRewards >*
+Sheet_GodvalleyRewards::mutable_e_godvalleyrewards_list() {
+  return &e_godvalleyrewards_list_;
 }
 
 

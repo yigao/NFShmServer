@@ -61,7 +61,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MapMap_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MapMap_s, 60> E_MapMap_List;
+		NFShmVector<struct E_MapMap_s, 100> E_MapMap_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MapMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapMap & msg);

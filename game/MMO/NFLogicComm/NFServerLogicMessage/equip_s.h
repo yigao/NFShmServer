@@ -514,14 +514,15 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;
-		NFShmString<60> m_profession;
+		int32_t m_type;
 		int32_t m_suitlv;
-		int32_t m_level;
+		int32_t m_wearquality;
 		int32_t m_colour;
 		NFShmString<60> m_aftername;
 		int32_t m_suitevalue;
 		NFShmVector<struct E_EquipSuitAttributeDesc_s, 3> m_attribute;
-		NFShmVector<NFShmString<60>, 10> m_position;
+		NFShmVector<NFShmString<60>, 10> m_maleposition;
+		NFShmVector<NFShmString<60>, 10> m_femaleposition;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg);
@@ -535,7 +536,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipSuit_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipSuit_s, 120> E_EquipSuit_List;
+		NFShmVector<struct E_EquipSuit_s, 80> E_EquipSuit_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipSuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipSuit & msg);

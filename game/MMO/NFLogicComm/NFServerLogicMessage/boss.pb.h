@@ -333,38 +333,45 @@ class E_BossBoss : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_pointid() const;
   inline void set_m_pointid(::google::protobuf::int32 value);
 
-  // optional int32 m_group_type = 9;
+  // optional int32 m_flashnum = 9;
+  inline bool has_m_flashnum() const;
+  inline void clear_m_flashnum();
+  static const int kMFlashnumFieldNumber = 9;
+  inline ::google::protobuf::int32 m_flashnum() const;
+  inline void set_m_flashnum(::google::protobuf::int32 value);
+
+  // optional int32 m_group_type = 10;
   inline bool has_m_group_type() const;
   inline void clear_m_group_type();
-  static const int kMGroupTypeFieldNumber = 9;
+  static const int kMGroupTypeFieldNumber = 10;
   inline ::google::protobuf::int32 m_group_type() const;
   inline void set_m_group_type(::google::protobuf::int32 value);
 
-  // optional int32 m_flashtime = 10;
+  // optional int32 m_flashtime = 11;
   inline bool has_m_flashtime() const;
   inline void clear_m_flashtime();
-  static const int kMFlashtimeFieldNumber = 10;
+  static const int kMFlashtimeFieldNumber = 11;
   inline ::google::protobuf::int32 m_flashtime() const;
   inline void set_m_flashtime(::google::protobuf::int32 value);
 
-  // optional int32 m_retrievegiftid = 11;
+  // optional int32 m_retrievegiftid = 12;
   inline bool has_m_retrievegiftid() const;
   inline void clear_m_retrievegiftid();
-  static const int kMRetrievegiftidFieldNumber = 11;
+  static const int kMRetrievegiftidFieldNumber = 12;
   inline ::google::protobuf::int32 m_retrievegiftid() const;
   inline void set_m_retrievegiftid(::google::protobuf::int32 value);
 
-  // optional int32 m_notimes = 12;
+  // optional int32 m_notimes = 13;
   inline bool has_m_notimes() const;
   inline void clear_m_notimes();
-  static const int kMNotimesFieldNumber = 12;
+  static const int kMNotimesFieldNumber = 13;
   inline ::google::protobuf::int32 m_notimes() const;
   inline void set_m_notimes(::google::protobuf::int32 value);
 
-  // optional int32 m_assistprestige = 13;
+  // optional int32 m_assistprestige = 14;
   inline bool has_m_assistprestige() const;
   inline void clear_m_assistprestige();
-  static const int kMAssistprestigeFieldNumber = 13;
+  static const int kMAssistprestigeFieldNumber = 14;
   inline ::google::protobuf::int32 m_assistprestige() const;
   inline void set_m_assistprestige(::google::protobuf::int32 value);
 
@@ -386,6 +393,8 @@ class E_BossBoss : public ::google::protobuf::Message {
   inline void clear_has_m_peacemask();
   inline void set_has_m_pointid();
   inline void clear_has_m_pointid();
+  inline void set_has_m_flashnum();
+  inline void clear_has_m_flashnum();
   inline void set_has_m_group_type();
   inline void clear_has_m_group_type();
   inline void set_has_m_flashtime();
@@ -407,6 +416,7 @@ class E_BossBoss : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_duplicateid_;
   ::google::protobuf::int32 m_peacemask_;
   ::google::protobuf::int32 m_pointid_;
+  ::google::protobuf::int32 m_flashnum_;
   ::google::protobuf::int32 m_group_type_;
   ::google::protobuf::int32 m_flashtime_;
   ::google::protobuf::int32 m_retrievegiftid_;
@@ -414,7 +424,7 @@ class E_BossBoss : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_assistprestige_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
 
   friend void  protobuf_AddDesc_boss_2eproto();
   friend void protobuf_AssignDesc_boss_2eproto();
@@ -1002,17 +1012,12 @@ class E_BossLayer : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_order() const;
   inline void set_m_order(::google::protobuf::int32 value);
 
-  // optional string m_name = 4;
-  inline bool has_m_name() const;
-  inline void clear_m_name();
-  static const int kMNameFieldNumber = 4;
-  inline const ::std::string& m_name() const;
-  inline void set_m_name(const ::std::string& value);
-  inline void set_m_name(const char* value);
-  inline void set_m_name(const char* value, size_t size);
-  inline ::std::string* mutable_m_name();
-  inline ::std::string* release_m_name();
-  inline void set_allocated_m_name(::std::string* m_name);
+  // optional int32 m_bosstypearg = 4;
+  inline bool has_m_bosstypearg() const;
+  inline void clear_m_bosstypearg();
+  static const int kMBosstypeargFieldNumber = 4;
+  inline ::google::protobuf::int32 m_bosstypearg() const;
+  inline void set_m_bosstypearg(::google::protobuf::int32 value);
 
   // optional string m_entercondition = 5;
   inline bool has_m_entercondition() const;
@@ -1053,8 +1058,8 @@ class E_BossLayer : public ::google::protobuf::Message {
   inline void clear_has_m_bosstype();
   inline void set_has_m_order();
   inline void clear_has_m_order();
-  inline void set_has_m_name();
-  inline void clear_has_m_name();
+  inline void set_has_m_bosstypearg();
+  inline void clear_has_m_bosstypearg();
   inline void set_has_m_entercondition();
   inline void clear_has_m_entercondition();
   inline void set_has_m_unlockcondition();
@@ -1066,11 +1071,11 @@ class E_BossLayer : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_bosstype_;
-  ::std::string* m_name_;
-  ::std::string* m_entercondition_;
   ::google::protobuf::int32 m_order_;
-  ::google::protobuf::int32 m_mapid_;
+  ::google::protobuf::int32 m_bosstypearg_;
+  ::std::string* m_entercondition_;
   ::std::string* m_unlockcondition_;
+  ::google::protobuf::int32 m_mapid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -1427,15 +1432,37 @@ inline void E_BossBoss::set_m_pointid(::google::protobuf::int32 value) {
   m_pointid_ = value;
 }
 
-// optional int32 m_group_type = 9;
-inline bool E_BossBoss::has_m_group_type() const {
+// optional int32 m_flashnum = 9;
+inline bool E_BossBoss::has_m_flashnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void E_BossBoss::set_has_m_group_type() {
+inline void E_BossBoss::set_has_m_flashnum() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void E_BossBoss::clear_has_m_group_type() {
+inline void E_BossBoss::clear_has_m_flashnum() {
   _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_BossBoss::clear_m_flashnum() {
+  m_flashnum_ = 0;
+  clear_has_m_flashnum();
+}
+inline ::google::protobuf::int32 E_BossBoss::m_flashnum() const {
+  return m_flashnum_;
+}
+inline void E_BossBoss::set_m_flashnum(::google::protobuf::int32 value) {
+  set_has_m_flashnum();
+  m_flashnum_ = value;
+}
+
+// optional int32 m_group_type = 10;
+inline bool E_BossBoss::has_m_group_type() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void E_BossBoss::set_has_m_group_type() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void E_BossBoss::clear_has_m_group_type() {
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_BossBoss::clear_m_group_type() {
   m_group_type_ = 0;
@@ -1449,15 +1476,15 @@ inline void E_BossBoss::set_m_group_type(::google::protobuf::int32 value) {
   m_group_type_ = value;
 }
 
-// optional int32 m_flashtime = 10;
+// optional int32 m_flashtime = 11;
 inline bool E_BossBoss::has_m_flashtime() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_BossBoss::set_has_m_flashtime() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_BossBoss::clear_has_m_flashtime() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_BossBoss::clear_m_flashtime() {
   m_flashtime_ = 0;
@@ -1471,15 +1498,15 @@ inline void E_BossBoss::set_m_flashtime(::google::protobuf::int32 value) {
   m_flashtime_ = value;
 }
 
-// optional int32 m_retrievegiftid = 11;
+// optional int32 m_retrievegiftid = 12;
 inline bool E_BossBoss::has_m_retrievegiftid() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_BossBoss::set_has_m_retrievegiftid() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_BossBoss::clear_has_m_retrievegiftid() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_BossBoss::clear_m_retrievegiftid() {
   m_retrievegiftid_ = 0;
@@ -1493,15 +1520,15 @@ inline void E_BossBoss::set_m_retrievegiftid(::google::protobuf::int32 value) {
   m_retrievegiftid_ = value;
 }
 
-// optional int32 m_notimes = 12;
+// optional int32 m_notimes = 13;
 inline bool E_BossBoss::has_m_notimes() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void E_BossBoss::set_has_m_notimes() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void E_BossBoss::clear_has_m_notimes() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void E_BossBoss::clear_m_notimes() {
   m_notimes_ = 0;
@@ -1515,15 +1542,15 @@ inline void E_BossBoss::set_m_notimes(::google::protobuf::int32 value) {
   m_notimes_ = value;
 }
 
-// optional int32 m_assistprestige = 13;
+// optional int32 m_assistprestige = 14;
 inline bool E_BossBoss::has_m_assistprestige() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_BossBoss::set_has_m_assistprestige() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_BossBoss::clear_has_m_assistprestige() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_BossBoss::clear_m_assistprestige() {
   m_assistprestige_ = 0;
@@ -2120,74 +2147,26 @@ inline void E_BossLayer::set_m_order(::google::protobuf::int32 value) {
   m_order_ = value;
 }
 
-// optional string m_name = 4;
-inline bool E_BossLayer::has_m_name() const {
+// optional int32 m_bosstypearg = 4;
+inline bool E_BossLayer::has_m_bosstypearg() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_BossLayer::set_has_m_name() {
+inline void E_BossLayer::set_has_m_bosstypearg() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_BossLayer::clear_has_m_name() {
+inline void E_BossLayer::clear_has_m_bosstypearg() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void E_BossLayer::clear_m_name() {
-  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
-    m_name_->clear();
-  }
-  clear_has_m_name();
+inline void E_BossLayer::clear_m_bosstypearg() {
+  m_bosstypearg_ = 0;
+  clear_has_m_bosstypearg();
 }
-inline const ::std::string& E_BossLayer::m_name() const {
-  return *m_name_;
+inline ::google::protobuf::int32 E_BossLayer::m_bosstypearg() const {
+  return m_bosstypearg_;
 }
-inline void E_BossLayer::set_m_name(const ::std::string& value) {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  m_name_->assign(value);
-}
-inline void E_BossLayer::set_m_name(const char* value) {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  m_name_->assign(value);
-}
-inline void E_BossLayer::set_m_name(const char* value, size_t size) {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  m_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_BossLayer::mutable_m_name() {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  return m_name_;
-}
-inline ::std::string* E_BossLayer::release_m_name() {
-  clear_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_name_;
-    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_BossLayer::set_allocated_m_name(::std::string* m_name) {
-  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_name_;
-  }
-  if (m_name) {
-    set_has_m_name();
-    m_name_ = m_name;
-  } else {
-    clear_has_m_name();
-    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void E_BossLayer::set_m_bosstypearg(::google::protobuf::int32 value) {
+  set_has_m_bosstypearg();
+  m_bosstypearg_ = value;
 }
 
 // optional string m_entercondition = 5;

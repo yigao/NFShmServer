@@ -41,6 +41,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_DailyCultivate_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_DailyCultivate_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_DailySports_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_DailySports_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_DailySports_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_DailySports_reflection_ = NULL;
 
 }  // namespace
 
@@ -174,6 +180,41 @@ void protobuf_AssignDesc_daily_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_DailyCultivate));
+  E_DailySports_descriptor_ = file->message_type(7);
+  static const int E_DailySports_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, m_functionid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, m_peractivityid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, m_des_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, m_linkid_),
+  };
+  E_DailySports_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_DailySports_descriptor_,
+      E_DailySports::default_instance_,
+      E_DailySports_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailySports, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_DailySports));
+  Sheet_DailySports_descriptor_ = file->message_type(8);
+  static const int Sheet_DailySports_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailySports, e_dailysports_list_),
+  };
+  Sheet_DailySports_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_DailySports_descriptor_,
+      Sheet_DailySports::default_instance_,
+      Sheet_DailySports_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailySports, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_DailySports, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_DailySports));
 }
 
 namespace {
@@ -200,6 +241,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_DailyCultivate_descriptor_, &E_DailyCultivate::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_DailyCultivate_descriptor_, &Sheet_DailyCultivate::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_DailySports_descriptor_, &E_DailySports::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_DailySports_descriptor_, &Sheet_DailySports::default_instance());
 }
 
 }  // namespace
@@ -219,6 +264,10 @@ void protobuf_ShutdownFile_daily_2eproto() {
   delete E_DailyCultivate_reflection_;
   delete Sheet_DailyCultivate::default_instance_;
   delete Sheet_DailyCultivate_reflection_;
+  delete E_DailySports::default_instance_;
+  delete E_DailySports_reflection_;
+  delete Sheet_DailySports::default_instance_;
+  delete Sheet_DailySports_reflection_;
 }
 
 void protobuf_AddDesc_daily_2eproto() {
@@ -258,7 +307,14 @@ void protobuf_AddDesc_daily_2eproto() {
     "ltivateAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"W\n\024"
     "Sheet_DailyCultivate\022\?\n\025E_DailyCultivate"
     "_List\030\001 \003(\0132\032.proto_ff.E_DailyCultivateB"
-    "\004\210\301\024P", 1165);
+    "\004\210\301\024P\"\325\001\n\rE_DailySports\022\030\n\004m_id\030\001 \001(\005B\n\302"
+    "\377\024\006\345\272\217\345\217\267\022\036\n\006m_name\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024"
+    "<\022(\n\014m_functionid\030\003 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274\200\346\224"
+    "\276ID\022%\n\017m_peractivityid\030\004 \001(\005B\014\302\377\024\010\346\264\273\345\212\250"
+    "id\022\033\n\005m_des\030\005 \001(\005B\014\302\377\024\010ui\350\257\264\346\230\216\022\034\n\010m_lin"
+    "kid\030\006 \001(\005B\n\302\377\024\006linkID\"N\n\021Sheet_DailySpor"
+    "ts\0229\n\022E_DailySports_List\030\001 \003(\0132\027.proto_f"
+    "f.E_DailySportsB\004\210\301\024\024", 1461);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "daily.proto", &protobuf_RegisterTypes);
   E_DailyDaily::default_instance_ = new E_DailyDaily();
@@ -268,6 +324,8 @@ void protobuf_AddDesc_daily_2eproto() {
   E_DailyCultivateAttributeDesc::default_instance_ = new E_DailyCultivateAttributeDesc();
   E_DailyCultivate::default_instance_ = new E_DailyCultivate();
   Sheet_DailyCultivate::default_instance_ = new Sheet_DailyCultivate();
+  E_DailySports::default_instance_ = new E_DailySports();
+  Sheet_DailySports::default_instance_ = new Sheet_DailySports();
   E_DailyDaily::default_instance_->InitAsDefaultInstance();
   Sheet_DailyDaily::default_instance_->InitAsDefaultInstance();
   E_DailyReward::default_instance_->InitAsDefaultInstance();
@@ -275,6 +333,8 @@ void protobuf_AddDesc_daily_2eproto() {
   E_DailyCultivateAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_DailyCultivate::default_instance_->InitAsDefaultInstance();
   Sheet_DailyCultivate::default_instance_->InitAsDefaultInstance();
+  E_DailySports::default_instance_->InitAsDefaultInstance();
+  Sheet_DailySports::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_daily_2eproto);
 }
 
@@ -2465,6 +2525,634 @@ void Sheet_DailyCultivate::Swap(Sheet_DailyCultivate* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_DailyCultivate_descriptor_;
   metadata.reflection = Sheet_DailyCultivate_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_DailySports::kMIdFieldNumber;
+const int E_DailySports::kMNameFieldNumber;
+const int E_DailySports::kMFunctionidFieldNumber;
+const int E_DailySports::kMPeractivityidFieldNumber;
+const int E_DailySports::kMDesFieldNumber;
+const int E_DailySports::kMLinkidFieldNumber;
+#endif  // !_MSC_VER
+
+E_DailySports::E_DailySports()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_DailySports::InitAsDefaultInstance() {
+}
+
+E_DailySports::E_DailySports(const E_DailySports& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_DailySports::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_functionid_ = 0;
+  m_peractivityid_ = 0;
+  m_des_ = 0;
+  m_linkid_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_DailySports::~E_DailySports() {
+  SharedDtor();
+}
+
+void E_DailySports::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_DailySports::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_DailySports::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_DailySports_descriptor_;
+}
+
+const E_DailySports& E_DailySports::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
+  return *default_instance_;
+}
+
+E_DailySports* E_DailySports::default_instance_ = NULL;
+
+E_DailySports* E_DailySports::New() const {
+  return new E_DailySports;
+}
+
+void E_DailySports::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
+      }
+    }
+    m_functionid_ = 0;
+    m_peractivityid_ = 0;
+    m_des_ = 0;
+    m_linkid_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_DailySports::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_m_name;
+        break;
+      }
+
+      // optional string m_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_name().data(), this->m_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_functionid;
+        break;
+      }
+
+      // optional int32 m_functionid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_functionid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_functionid_)));
+          set_has_m_functionid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_peractivityid;
+        break;
+      }
+
+      // optional int32 m_peractivityid = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_peractivityid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_peractivityid_)));
+          set_has_m_peractivityid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_des;
+        break;
+      }
+
+      // optional int32 m_des = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_des:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_des_)));
+          set_has_m_des();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_linkid;
+        break;
+      }
+
+      // optional int32 m_linkid = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_linkid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_linkid_)));
+          set_has_m_linkid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_DailySports::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional string m_name = 2;
+  if (has_m_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_name().data(), this->m_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->m_name(), output);
+  }
+
+  // optional int32 m_functionid = 3;
+  if (has_m_functionid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_functionid(), output);
+  }
+
+  // optional int32 m_peractivityid = 4;
+  if (has_m_peractivityid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_peractivityid(), output);
+  }
+
+  // optional int32 m_des = 5;
+  if (has_m_des()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_des(), output);
+  }
+
+  // optional int32 m_linkid = 6;
+  if (has_m_linkid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_linkid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_DailySports::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional string m_name = 2;
+  if (has_m_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_name().data(), this->m_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->m_name(), target);
+  }
+
+  // optional int32 m_functionid = 3;
+  if (has_m_functionid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_functionid(), target);
+  }
+
+  // optional int32 m_peractivityid = 4;
+  if (has_m_peractivityid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_peractivityid(), target);
+  }
+
+  // optional int32 m_des = 5;
+  if (has_m_des()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_des(), target);
+  }
+
+  // optional int32 m_linkid = 6;
+  if (has_m_linkid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_linkid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_DailySports::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional string m_name = 2;
+    if (has_m_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_name());
+    }
+
+    // optional int32 m_functionid = 3;
+    if (has_m_functionid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_functionid());
+    }
+
+    // optional int32 m_peractivityid = 4;
+    if (has_m_peractivityid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_peractivityid());
+    }
+
+    // optional int32 m_des = 5;
+    if (has_m_des()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_des());
+    }
+
+    // optional int32 m_linkid = 6;
+    if (has_m_linkid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_linkid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_DailySports::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_DailySports* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_DailySports*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_DailySports::MergeFrom(const E_DailySports& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
+    }
+    if (from.has_m_functionid()) {
+      set_m_functionid(from.m_functionid());
+    }
+    if (from.has_m_peractivityid()) {
+      set_m_peractivityid(from.m_peractivityid());
+    }
+    if (from.has_m_des()) {
+      set_m_des(from.m_des());
+    }
+    if (from.has_m_linkid()) {
+      set_m_linkid(from.m_linkid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_DailySports::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_DailySports::CopyFrom(const E_DailySports& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_DailySports::IsInitialized() const {
+
+  return true;
+}
+
+void E_DailySports::Swap(E_DailySports* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_name_, other->m_name_);
+    std::swap(m_functionid_, other->m_functionid_);
+    std::swap(m_peractivityid_, other->m_peractivityid_);
+    std::swap(m_des_, other->m_des_);
+    std::swap(m_linkid_, other->m_linkid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_DailySports::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_DailySports_descriptor_;
+  metadata.reflection = E_DailySports_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_DailySports::kEDailySportsListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_DailySports::Sheet_DailySports()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_DailySports::InitAsDefaultInstance() {
+}
+
+Sheet_DailySports::Sheet_DailySports(const Sheet_DailySports& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_DailySports::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_DailySports::~Sheet_DailySports() {
+  SharedDtor();
+}
+
+void Sheet_DailySports::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_DailySports::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_DailySports::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_DailySports_descriptor_;
+}
+
+const Sheet_DailySports& Sheet_DailySports::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_daily_2eproto();
+  return *default_instance_;
+}
+
+Sheet_DailySports* Sheet_DailySports::default_instance_ = NULL;
+
+Sheet_DailySports* Sheet_DailySports::New() const {
+  return new Sheet_DailySports;
+}
+
+void Sheet_DailySports::Clear() {
+  e_dailysports_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_DailySports::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_DailySports E_DailySports_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_DailySports_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_dailysports_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_DailySports_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_DailySports::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_DailySports E_DailySports_List = 1;
+  for (int i = 0; i < this->e_dailysports_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_dailysports_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_DailySports::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_DailySports E_DailySports_List = 1;
+  for (int i = 0; i < this->e_dailysports_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_dailysports_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_DailySports::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_DailySports E_DailySports_List = 1;
+  total_size += 1 * this->e_dailysports_list_size();
+  for (int i = 0; i < this->e_dailysports_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_dailysports_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_DailySports::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_DailySports* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_DailySports*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_DailySports::MergeFrom(const Sheet_DailySports& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_dailysports_list_.MergeFrom(from.e_dailysports_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_DailySports::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_DailySports::CopyFrom(const Sheet_DailySports& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_DailySports::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_DailySports::Swap(Sheet_DailySports* other) {
+  if (other != this) {
+    e_dailysports_list_.Swap(&other->e_dailysports_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_DailySports::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_DailySports_descriptor_;
+  metadata.reflection = Sheet_DailySports_reflection_;
   return metadata;
 }
 

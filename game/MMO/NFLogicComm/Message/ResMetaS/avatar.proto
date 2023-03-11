@@ -81,28 +81,29 @@ message E_AvatarChangeMaterialDesc
 message E_AvatarChange
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_uplvtype = 2[(yd_fieldoptions.field_cname) = "升级参考类型"];
-	optional int64 m_avatarskill = 3[(yd_fieldoptions.field_cname) = "变身技能"];
-	optional int32 m_avatarcd = 4[(yd_fieldoptions.field_cname) = "变身cd"];
-	optional int32 m_avatartime = 5[(yd_fieldoptions.field_cname) = "变身时长"];
-	optional int32 m_avatarshield = 6[(yd_fieldoptions.field_cname) = "变身护盾效率"];
-	optional string m_skillid = 7[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_starmax = 8[(yd_fieldoptions.field_cname) = "星星上限"];
-	optional int32 m_lvmax = 9[(yd_fieldoptions.field_cname) = "等级上限"];
-	optional int32 m_modelid = 10[(yd_fieldoptions.field_cname) = "模型id"];
-	optional int32 m_advance = 11[(yd_fieldoptions.field_cname) = "进阶类型"];
-	optional int32 m_activationitem = 12[(yd_fieldoptions.field_cname) = "激活需要的道具"];
-	optional int32 m_activationnum = 13[(yd_fieldoptions.field_cname) = "激活需要的道具数量"];
-	optional int32 m_starid = 14[(yd_fieldoptions.field_cname) = "升星需要道具ID"];
-	optional string m_starnum = 15[(yd_fieldoptions.field_cname) = "升星需要数量", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_starupattributeid = 16[(yd_fieldoptions.field_cname) = "星级属性类型"];
-	optional int32 m_fununlock = 17[(yd_fieldoptions.field_cname) = "天神解锁条件"];
-	optional int32 m_maxequip = 18[(yd_fieldoptions.field_cname) = "最高装备品质"];
-	optional int32 m_equipsuit = 19[(yd_fieldoptions.field_cname) = "套装id"];
-	optional int32 m_starber = 20[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
-	repeated E_AvatarChangeAttributeDesc m_attribute = 21[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
-	repeated E_AvatarChangeMaterialDesc m_material = 22[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
-	repeated int64 m_initiativeskill = 23[(yd_fieldoptions.field_cname) = "主动技能", (yd_fieldoptions.field_arysize) = 4];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_uplvtype = 3[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional int64 m_avatarskill = 4[(yd_fieldoptions.field_cname) = "变身技能"];
+	optional int32 m_avatarcd = 5[(yd_fieldoptions.field_cname) = "变身cd"];
+	optional int32 m_avatartime = 6[(yd_fieldoptions.field_cname) = "变身时长"];
+	optional int32 m_avatarshield = 7[(yd_fieldoptions.field_cname) = "变身护盾效率"];
+	optional string m_skillid = 8[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_starmax = 9[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_lvmax = 10[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_modelid = 11[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 m_advance = 12[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_activationitem = 13[(yd_fieldoptions.field_cname) = "激活需要的道具"];
+	optional int32 m_activationnum = 14[(yd_fieldoptions.field_cname) = "激活需要的道具数量"];
+	optional int32 m_starid = 15[(yd_fieldoptions.field_cname) = "升星需要道具ID"];
+	optional string m_starnum = 16[(yd_fieldoptions.field_cname) = "升星需要数量", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_starupattributeid = 17[(yd_fieldoptions.field_cname) = "星级属性类型"];
+	optional int32 m_fununlock = 18[(yd_fieldoptions.field_cname) = "天神解锁条件"];
+	optional int32 m_maxequip = 19[(yd_fieldoptions.field_cname) = "最高装备品质"];
+	optional int32 m_equipsuit = 20[(yd_fieldoptions.field_cname) = "套装id"];
+	optional int32 m_starber = 21[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
+	repeated E_AvatarChangeAttributeDesc m_attribute = 22[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated E_AvatarChangeMaterialDesc m_material = 23[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 m_initiativeskill = 24[(yd_fieldoptions.field_cname) = "主动技能", (yd_fieldoptions.field_arysize) = 4];
 }
 
 

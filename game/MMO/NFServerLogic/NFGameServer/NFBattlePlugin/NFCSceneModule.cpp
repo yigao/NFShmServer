@@ -169,7 +169,6 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Enter Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
     }
 
-    pos = pPlayer->GetPos();
     rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
     rspMsg.set_ret_code(ret);
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_ENTER_SCENE_RSP, rspMsg, 0, reqTransId);
@@ -187,7 +186,6 @@ int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet
     uint64_t mapId = xMsg.map_id();
     uint64_t sceneId = xMsg.scene_id();
     uint64_t roleId = xMsg.role_id();
-    NFPoint3<float> pos(xMsg.pos());
 
     proto_ff::GameToWorldLeaveSceneRsp rspMsg;
     rspMsg.set_ret_code(proto_ff::RET_SUCCESS);
@@ -209,7 +207,6 @@ int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Leave Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
     }
 
-    rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
     rspMsg.set_ret_code(ret);
     rspMsg.set_logic_id(pPlayer->GetLogicId());
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_LEAVE_SCENE_RSP, rspMsg, 0, reqTransId);

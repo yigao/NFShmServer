@@ -26,6 +26,7 @@
 #include "DescStore/TaskrewardTaskrewardDesc.h"
 #include "DescStore/TaskdynamicTaskcomcondDesc.h"
 #include "DescStore/TaskTaskDesc.h"
+#include "DescStore/TaskdynamicTasktextDesc.h"
 
 //通过移位组合动态任务text表条件 text 表中 目标场景(最多11位十进制数字，对应的二进制位是 37bit)+任务类型(6bit)+完成条件(20bit)
 #define DY_MISSION_TEXT_KEY(type, cond) ((type << 20) | cond )
@@ -118,7 +119,7 @@ private:
     NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAndAcceptMap;                //任务配置中的前置任务与条件
     NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAcceptMap;                    //接取条件中前置任务完成可接取的任务
 
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, 5> _dymissionTextMap;                    //动态任务前端显示配置
+    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, MAX_TASKDYNAMIC_TASKTEXT_NUM> _dymissionTextMap;                    //动态任务前端显示配置
 private:
 DECLARE_IDCREATE(NFMissionDescStoreEx)
 

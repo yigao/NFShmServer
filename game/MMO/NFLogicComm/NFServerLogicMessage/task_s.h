@@ -24,7 +24,7 @@ namespace proto_ff_s {
 		NFShmString<60> m_name;
 		NFShmString<60> m_rececond;
 		NFShmString<60> m_receadd;
-		NFShmString<60> m_comcond;
+		NFShmString<80> m_comcond;
 		int32_t m_nexttask;
 		NFShmString<60> m_tracker;
 		NFShmString<60> m_subtype;

@@ -41,6 +41,8 @@ class Sheet_DailyReward;
 class E_DailyCultivateAttributeDesc;
 class E_DailyCultivate;
 class Sheet_DailyCultivate;
+class E_DailySports;
+class Sheet_DailySports;
 
 // ===================================================================
 
@@ -813,6 +815,228 @@ class Sheet_DailyCultivate : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Sheet_DailyCultivate* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class E_DailySports : public ::google::protobuf::Message {
+ public:
+  E_DailySports();
+  virtual ~E_DailySports();
+
+  E_DailySports(const E_DailySports& from);
+
+  inline E_DailySports& operator=(const E_DailySports& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_DailySports& default_instance();
+
+  void Swap(E_DailySports* other);
+
+  // implements Message ----------------------------------------------
+
+  E_DailySports* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_DailySports& from);
+  void MergeFrom(const E_DailySports& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
+
+  // optional int32 m_functionid = 3;
+  inline bool has_m_functionid() const;
+  inline void clear_m_functionid();
+  static const int kMFunctionidFieldNumber = 3;
+  inline ::google::protobuf::int32 m_functionid() const;
+  inline void set_m_functionid(::google::protobuf::int32 value);
+
+  // optional int32 m_peractivityid = 4;
+  inline bool has_m_peractivityid() const;
+  inline void clear_m_peractivityid();
+  static const int kMPeractivityidFieldNumber = 4;
+  inline ::google::protobuf::int32 m_peractivityid() const;
+  inline void set_m_peractivityid(::google::protobuf::int32 value);
+
+  // optional int32 m_des = 5;
+  inline bool has_m_des() const;
+  inline void clear_m_des();
+  static const int kMDesFieldNumber = 5;
+  inline ::google::protobuf::int32 m_des() const;
+  inline void set_m_des(::google::protobuf::int32 value);
+
+  // optional int32 m_linkid = 6;
+  inline bool has_m_linkid() const;
+  inline void clear_m_linkid();
+  static const int kMLinkidFieldNumber = 6;
+  inline ::google::protobuf::int32 m_linkid() const;
+  inline void set_m_linkid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_DailySports)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_functionid();
+  inline void clear_has_m_functionid();
+  inline void set_has_m_peractivityid();
+  inline void clear_has_m_peractivityid();
+  inline void set_has_m_des();
+  inline void clear_has_m_des();
+  inline void set_has_m_linkid();
+  inline void clear_has_m_linkid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_functionid_;
+  ::google::protobuf::int32 m_peractivityid_;
+  ::google::protobuf::int32 m_des_;
+  ::google::protobuf::int32 m_linkid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_daily_2eproto();
+  friend void protobuf_AssignDesc_daily_2eproto();
+  friend void protobuf_ShutdownFile_daily_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_DailySports* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_DailySports : public ::google::protobuf::Message {
+ public:
+  Sheet_DailySports();
+  virtual ~Sheet_DailySports();
+
+  Sheet_DailySports(const Sheet_DailySports& from);
+
+  inline Sheet_DailySports& operator=(const Sheet_DailySports& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_DailySports& default_instance();
+
+  void Swap(Sheet_DailySports* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_DailySports* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_DailySports& from);
+  void MergeFrom(const Sheet_DailySports& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_DailySports E_DailySports_List = 1;
+  inline int e_dailysports_list_size() const;
+  inline void clear_e_dailysports_list();
+  static const int kEDailySportsListFieldNumber = 1;
+  inline const ::proto_ff::E_DailySports& e_dailysports_list(int index) const;
+  inline ::proto_ff::E_DailySports* mutable_e_dailysports_list(int index);
+  inline ::proto_ff::E_DailySports* add_e_dailysports_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailySports >&
+      e_dailysports_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailySports >*
+      mutable_e_dailysports_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_DailySports)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailySports > e_dailysports_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_daily_2eproto();
+  friend void protobuf_AssignDesc_daily_2eproto();
+  friend void protobuf_ShutdownFile_daily_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_DailySports* default_instance_;
+};
 // ===================================================================
 
 
@@ -1452,6 +1676,219 @@ Sheet_DailyCultivate::e_dailycultivate_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailyCultivate >*
 Sheet_DailyCultivate::mutable_e_dailycultivate_list() {
   return &e_dailycultivate_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_DailySports
+
+// optional int32 m_id = 1;
+inline bool E_DailySports::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_DailySports::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_DailySports::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_DailySports::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_DailySports::m_id() const {
+  return m_id_;
+}
+inline void E_DailySports::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional string m_name = 2;
+inline bool E_DailySports::has_m_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_DailySports::set_has_m_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_DailySports::clear_has_m_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_DailySports::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
+  }
+  clear_has_m_name();
+}
+inline const ::std::string& E_DailySports::m_name() const {
+  return *m_name_;
+}
+inline void E_DailySports::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_DailySports::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_DailySports::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_DailySports::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  return m_name_;
+}
+inline ::std::string* E_DailySports::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_DailySports::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
+  } else {
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_functionid = 3;
+inline bool E_DailySports::has_m_functionid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_DailySports::set_has_m_functionid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_DailySports::clear_has_m_functionid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_DailySports::clear_m_functionid() {
+  m_functionid_ = 0;
+  clear_has_m_functionid();
+}
+inline ::google::protobuf::int32 E_DailySports::m_functionid() const {
+  return m_functionid_;
+}
+inline void E_DailySports::set_m_functionid(::google::protobuf::int32 value) {
+  set_has_m_functionid();
+  m_functionid_ = value;
+}
+
+// optional int32 m_peractivityid = 4;
+inline bool E_DailySports::has_m_peractivityid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_DailySports::set_has_m_peractivityid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_DailySports::clear_has_m_peractivityid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_DailySports::clear_m_peractivityid() {
+  m_peractivityid_ = 0;
+  clear_has_m_peractivityid();
+}
+inline ::google::protobuf::int32 E_DailySports::m_peractivityid() const {
+  return m_peractivityid_;
+}
+inline void E_DailySports::set_m_peractivityid(::google::protobuf::int32 value) {
+  set_has_m_peractivityid();
+  m_peractivityid_ = value;
+}
+
+// optional int32 m_des = 5;
+inline bool E_DailySports::has_m_des() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_DailySports::set_has_m_des() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_DailySports::clear_has_m_des() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_DailySports::clear_m_des() {
+  m_des_ = 0;
+  clear_has_m_des();
+}
+inline ::google::protobuf::int32 E_DailySports::m_des() const {
+  return m_des_;
+}
+inline void E_DailySports::set_m_des(::google::protobuf::int32 value) {
+  set_has_m_des();
+  m_des_ = value;
+}
+
+// optional int32 m_linkid = 6;
+inline bool E_DailySports::has_m_linkid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_DailySports::set_has_m_linkid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_DailySports::clear_has_m_linkid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_DailySports::clear_m_linkid() {
+  m_linkid_ = 0;
+  clear_has_m_linkid();
+}
+inline ::google::protobuf::int32 E_DailySports::m_linkid() const {
+  return m_linkid_;
+}
+inline void E_DailySports::set_m_linkid(::google::protobuf::int32 value) {
+  set_has_m_linkid();
+  m_linkid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_DailySports
+
+// repeated .proto_ff.E_DailySports E_DailySports_List = 1;
+inline int Sheet_DailySports::e_dailysports_list_size() const {
+  return e_dailysports_list_.size();
+}
+inline void Sheet_DailySports::clear_e_dailysports_list() {
+  e_dailysports_list_.Clear();
+}
+inline const ::proto_ff::E_DailySports& Sheet_DailySports::e_dailysports_list(int index) const {
+  return e_dailysports_list_.Get(index);
+}
+inline ::proto_ff::E_DailySports* Sheet_DailySports::mutable_e_dailysports_list(int index) {
+  return e_dailysports_list_.Mutable(index);
+}
+inline ::proto_ff::E_DailySports* Sheet_DailySports::add_e_dailysports_list() {
+  return e_dailysports_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailySports >&
+Sheet_DailySports::e_dailysports_list() const {
+  return e_dailysports_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DailySports >*
+Sheet_DailySports::mutable_e_dailysports_list() {
+  return &e_dailysports_list_;
 }
 
 

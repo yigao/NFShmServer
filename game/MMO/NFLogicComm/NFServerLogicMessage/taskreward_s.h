@@ -68,7 +68,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskrewardTaskreward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskrewardTaskreward_s, 700> E_TaskrewardTaskreward_List;
+		NFShmVector<struct E_TaskrewardTaskreward_s, 5000> E_TaskrewardTaskreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskrewardTaskreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskrewardTaskreward & msg);

@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/equip_s.h"
 
-#define MAX_EQUIP_SUIT_NUM 120
+#define MAX_EQUIP_SUIT_NUM 80
 
 class EquipSuitDesc : public NFIDescStore
 {

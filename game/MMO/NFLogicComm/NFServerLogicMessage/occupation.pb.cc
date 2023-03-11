@@ -316,38 +316,38 @@ void protobuf_AddDesc_occupation_2eproto() {
     "\212\261\345\245\226\345\212\261\220\301\024<\"i\n\032Sheet_OccupationOccupati"
     "on\022K\n\033E_OccupationOccupation_List\030\001 \003(\0132"
     " .proto_ff.E_OccupationOccupationB\004\210\301\024\024\""
-    "\321\003\n\021E_OccupationStage\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
+    "\315\003\n\021E_OccupationStage\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
     "\002id\022!\n\007m_grade\030\002 \001(\005B\020\302\377\024\014\350\201\214\344\270\232\347\255\211\347\272\247\022\037"
     "\n\007m_stgae\030\003 \001(\tB\016\302\377\024\006\351\230\266\346\256\265\220\301\024<\022\036\n\004m_lv\030"
     "\004 \001(\005B\020\302\377\024\014\350\246\201\346\261\202\347\255\211\347\272\247\0221\n\016m_stgaeattsho"
     "w\030\005 \001(\005B\031\302\377\024\025\345\261\236\346\200\247\346\230\257\345\220\246\345\261\225\347\244\272\347\224\250\022$\n\nm_"
-    "stgaeatt\030\006 \001(\005B\020\302\377\024\014\351\230\266\346\256\265\345\261\236\346\200\247\022(\n\010m_ta"
-    "skid\030\007 \001(\tB\026\302\377\024\016\351\230\266\346\256\265\344\273\273\345\212\241ID\220\301\024<\022\"\n\010m_"
-    "battle\030\010 \001(\005B\020\302\377\024\014\346\216\250\350\215\220\346\210\230\345\212\233\022#\n\tm_skil"
-    "lid\030\t \001(\005B\020\302\377\024\014\346\277\200\346\264\273\346\212\200\350\203\275\022)\n\013m_lightso"
-    "ul\030\n \001(\tB\024\302\377\024\014\347\202\271\344\272\256\351\276\231\351\255\202\220\301\024<\022$\n\nm_soul"
-    "tpye\030\013 \001(\005B\020\302\377\024\014\351\276\231\351\255\202\347\261\273\345\236\213\022%\n\010m_itemid"
-    "\030\014 \001(\005B\023\302\377\024\017\347\202\271\344\272\256\347\232\204\351\201\223\345\205\267\"Z\n\025Sheet_Occ"
-    "upationStage\022A\n\026E_OccupationStage_List\030\001"
-    " \003(\0132\033.proto_ff.E_OccupationStageB\004\210\301\024(\""
-    "Y\n\"E_OccupationAttributeAttributeDesc\022\026\n"
-    "\006m_item\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_value\030\002 \001(\005B\n"
-    "\302\377\024\006\346\225\260\351\207\217\"\214\001\n\025E_OccupationAttribute\022\032\n\004"
-    "m_id\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247id\022W\n\013m_attribute\030"
-    "\002 \003(\0132,.proto_ff.E_OccupationAttributeAt"
-    "tributeDescB\024\302\377\024\014\345\261\236\346\200\247\351\201\223\345\205\267\210\301\024\006\"f\n\031She"
-    "et_OccupationAttribute\022I\n\032E_OccupationAt"
-    "tribute_List\030\001 \003(\0132\037.proto_ff.E_Occupati"
-    "onAttributeB\004\210\301\024\024\"Q\n\035E_OccupationSoulAtt"
-    "ributeDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_"
-    "value\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\310\001\n\020E_OccupationSou"
-    "l\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247id\022$\n\nm_soult"
-    "pye\030\002 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\347\261\273\345\236\213\022\036\n\nm_positio"
-    "n\030\003 \001(\005B\n\302\377\024\006\344\275\215\347\275\256\022R\n\013m_attribute\030\004 \003(\013"
-    "2\'.proto_ff.E_OccupationSoulAttributeDes"
-    "cB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\"W\n\024Sheet_Occupat"
-    "ionSoul\022\?\n\025E_OccupationSoul_List\030\001 \003(\0132\032"
-    ".proto_ff.E_OccupationSoulB\004\210\301\024<", 1832);
+    "stgaeatt\030\006 \001(\005B\020\302\377\024\014\351\230\266\346\256\265\345\261\236\346\200\247\022$\n\010m_ta"
+    "skid\030\007 \001(\005B\022\302\377\024\016\351\230\266\346\256\265\344\273\273\345\212\241ID\022\"\n\010m_batt"
+    "le\030\010 \001(\005B\020\302\377\024\014\346\216\250\350\215\220\346\210\230\345\212\233\022#\n\tm_skillid\030"
+    "\t \001(\005B\020\302\377\024\014\346\277\200\346\264\273\346\212\200\350\203\275\022)\n\013m_lightsoul\030\n"
+    " \001(\tB\024\302\377\024\014\347\202\271\344\272\256\351\276\231\351\255\202\220\301\024<\022$\n\nm_soultpye"
+    "\030\013 \001(\005B\020\302\377\024\014\351\276\231\351\255\202\347\261\273\345\236\213\022%\n\010m_itemid\030\014 \001"
+    "(\005B\023\302\377\024\017\347\202\271\344\272\256\347\232\204\351\201\223\345\205\267\"Z\n\025Sheet_Occupat"
+    "ionStage\022A\n\026E_OccupationStage_List\030\001 \003(\013"
+    "2\033.proto_ff.E_OccupationStageB\004\210\301\024(\"Y\n\"E"
+    "_OccupationAttributeAttributeDesc\022\026\n\006m_i"
+    "tem\030\001 \001(\005B\006\302\377\024\002ID\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006"
+    "\346\225\260\351\207\217\"\214\001\n\025E_OccupationAttribute\022\032\n\004m_id"
+    "\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247id\022W\n\013m_attribute\030\002 \003("
+    "\0132,.proto_ff.E_OccupationAttributeAttrib"
+    "uteDescB\024\302\377\024\014\345\261\236\346\200\247\351\201\223\345\205\267\210\301\024\006\"f\n\031Sheet_O"
+    "ccupationAttribute\022I\n\032E_OccupationAttrib"
+    "ute_List\030\001 \003(\0132\037.proto_ff.E_OccupationAt"
+    "tributeB\004\210\301\024\024\"Q\n\035E_OccupationSoulAttribu"
+    "teDesc\022\026\n\006m_type\030\001 \001(\005B\006\302\377\024\002ID\022\030\n\007m_valu"
+    "e\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\310\001\n\020E_OccupationSoul\022\032\n"
+    "\004m_id\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247id\022$\n\nm_soultpye\030"
+    "\002 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\347\261\273\345\236\213\022\036\n\nm_position\030\003 "
+    "\001(\005B\n\302\377\024\006\344\275\215\347\275\256\022R\n\013m_attribute\030\004 \003(\0132\'.p"
+    "roto_ff.E_OccupationSoulAttributeDescB\024\302"
+    "\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\"W\n\024Sheet_OccupationS"
+    "oul\022\?\n\025E_OccupationSoul_List\030\001 \003(\0132\032.pro"
+    "to_ff.E_OccupationSoulB\004\210\301\024<", 1828);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "occupation.proto", &protobuf_RegisterTypes);
   E_OccupationOccupation::default_instance_ = new E_OccupationOccupation();
@@ -1224,7 +1224,7 @@ void E_OccupationStage::SharedCtor() {
   m_lv_ = 0;
   m_stgaeattshow_ = 0;
   m_stgaeatt_ = 0;
-  m_taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_taskid_ = 0;
   m_battle_ = 0;
   m_skillid_ = 0;
   m_lightsoul_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -1240,9 +1240,6 @@ E_OccupationStage::~E_OccupationStage() {
 void E_OccupationStage::SharedDtor() {
   if (m_stgae_ != &::google::protobuf::internal::kEmptyString) {
     delete m_stgae_;
-  }
-  if (m_taskid_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_taskid_;
   }
   if (m_lightsoul_ != &::google::protobuf::internal::kEmptyString) {
     delete m_lightsoul_;
@@ -1284,11 +1281,7 @@ void E_OccupationStage::Clear() {
     m_lv_ = 0;
     m_stgaeattshow_ = 0;
     m_stgaeatt_ = 0;
-    if (has_m_taskid()) {
-      if (m_taskid_ != &::google::protobuf::internal::kEmptyString) {
-        m_taskid_->clear();
-      }
-    }
+    m_taskid_ = 0;
     m_battle_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
@@ -1403,20 +1396,19 @@ bool E_OccupationStage::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_taskid;
+        if (input->ExpectTag(56)) goto parse_m_taskid;
         break;
       }
 
-      // optional string m_taskid = 7;
+      // optional int32 m_taskid = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_taskid:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_m_taskid()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->m_taskid().data(), this->m_taskid().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_taskid_)));
+          set_has_m_taskid();
         } else {
           goto handle_uninterpreted;
         }
@@ -1557,13 +1549,9 @@ void E_OccupationStage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_stgaeatt(), output);
   }
 
-  // optional string m_taskid = 7;
+  // optional int32 m_taskid = 7;
   if (has_m_taskid()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_taskid().data(), this->m_taskid().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      7, this->m_taskid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_taskid(), output);
   }
 
   // optional int32 m_battle = 8;
@@ -1638,14 +1626,9 @@ void E_OccupationStage::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_stgaeatt(), target);
   }
 
-  // optional string m_taskid = 7;
+  // optional int32 m_taskid = 7;
   if (has_m_taskid()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_taskid().data(), this->m_taskid().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->m_taskid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_taskid(), target);
   }
 
   // optional int32 m_battle = 8;
@@ -1731,10 +1714,10 @@ int E_OccupationStage::ByteSize() const {
           this->m_stgaeatt());
     }
 
-    // optional string m_taskid = 7;
+    // optional int32 m_taskid = 7;
     if (has_m_taskid()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_taskid());
     }
 

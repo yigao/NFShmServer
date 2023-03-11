@@ -122,7 +122,22 @@ public:
      */
     int EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& dstPos);
 
+    /**
+     * @brief
+     * @param type
+     * @param reqTransId
+     * @return
+     */
     int LeaveScene(int type, uint32_t reqTransId);
+
+    /**
+     * @brief 请求场景传送
+     * @param mapId 目标地图ID
+     * @param transType 传送类型 0-无，1-传送到指定路径点(path),2-传送到区域
+     * @param dstId 目标坐标(传送类型为 1 的时候表示路径点ID，为2的时候表示区域ID)
+     * @return
+     */
+    int TransScene(uint64_t mapId, uint32_t transType, uint64_t dstId);
 
     /**
      * @brief

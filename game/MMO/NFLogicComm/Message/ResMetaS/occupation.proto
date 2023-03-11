@@ -30,7 +30,7 @@ message E_OccupationStage
 	optional int32 m_lv = 4[(yd_fieldoptions.field_cname) = "要求等级"];
 	optional int32 m_stgaeattshow = 5[(yd_fieldoptions.field_cname) = "属性是否展示用"];
 	optional int32 m_stgaeatt = 6[(yd_fieldoptions.field_cname) = "阶段属性"];
-	optional string m_taskid = 7[(yd_fieldoptions.field_cname) = "阶段任务ID", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_taskid = 7[(yd_fieldoptions.field_cname) = "阶段任务ID"];
 	optional int32 m_battle = 8[(yd_fieldoptions.field_cname) = "推荐战力"];
 	optional int32 m_skillid = 9[(yd_fieldoptions.field_cname) = "激活技能"];
 	optional string m_lightsoul = 10[(yd_fieldoptions.field_cname) = "点亮龙魂", (yd_fieldoptions.field_bufsize) = 60];

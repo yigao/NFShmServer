@@ -156,6 +156,9 @@ message LogicToWorldEnterSceneReq
   optional uint64 scene_id = 3;
   optional Vector3PB pos = 4;
   optional RoleEnterSceneData data = 6;
+  optional uint64 src_map_id = 7;
+  optional uint64 src_scene_id = 8;
+  optional uint64 trans_type = 9;
 }
 
 message WorldToGameEnterSceneReq
@@ -168,6 +171,9 @@ message WorldToGameEnterSceneReq
   optional uint64 client_id = 7;
   optional uint32 logic_id = 8;
   optional RoleEnterSceneData data = 9;
+  optional uint64 src_map_id = 10;
+  optional uint64 src_scene_id = 11;
+  optional uint64 trans_type = 12;
 }
 
 message GameToWorldEnterSceneRsp
@@ -219,7 +225,6 @@ message WorldToGameLeaveSceneReq
   optional uint64 role_id = 1;
   optional uint64 map_id = 2;
   optional uint64 scene_id = 3;
-  optional Vector3PB pos = 4;
 }
 
 message GameToWorldLeaveSceneRsp
@@ -228,7 +233,6 @@ message GameToWorldLeaveSceneRsp
   optional uint64 role_id = 2;
   optional uint64 map_id = 3;
   optional uint64 scene_id = 4;
-  optional Vector3PB pos = 5;
   optional uint32 logic_id = 6;
 }
 
@@ -238,6 +242,25 @@ message WorldToLogicLeaveSceneRsp
   optional uint64 role_id = 2;
   optional uint64 map_id = 3;
   optional uint64 scene_id = 4;
-  optional Vector3PB pos = 5;
   optional uint32 logic_id = 6;
+}
+
+//LOGIC_TO_WORLD_GET_MAP_INFO_REQ = 5022;
+message LogicToWorldGetMapInfoReq
+{
+  optional uint64 role_id = 1;
+  optional uint64 src_map_id = 2;
+  optional uint64 dst_map_id = 3;
+}
+
+//WORLD_TO_LOGIC_GET_MAP_INFO_RSP = 5023;
+message LogicToWorldGetMapInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 role_id = 2;
+  optional uint64 src_map_id = 3;
+  optional uint32 src_game_id = 4;
+  optional uint64 dst_map_id = 5;
+  optional uint32 dst_game_id = 6;
+  optional uint32 cur_game_id = 7;
 }

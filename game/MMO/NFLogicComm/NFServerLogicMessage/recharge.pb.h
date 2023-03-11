@@ -409,19 +409,19 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_fristpresent = 16;
+  // optional int32 m_presentid = 16;
+  inline bool has_m_presentid() const;
+  inline void clear_m_presentid();
+  static const int kMPresentidFieldNumber = 16;
+  inline ::google::protobuf::int32 m_presentid() const;
+  inline void set_m_presentid(::google::protobuf::int32 value);
+
+  // optional int32 m_fristpresent = 17;
   inline bool has_m_fristpresent() const;
   inline void clear_m_fristpresent();
-  static const int kMFristpresentFieldNumber = 16;
+  static const int kMFristpresentFieldNumber = 17;
   inline ::google::protobuf::int32 m_fristpresent() const;
   inline void set_m_fristpresent(::google::protobuf::int32 value);
-
-  // optional int32 m_presenttype = 17;
-  inline bool has_m_presenttype() const;
-  inline void clear_m_presenttype();
-  static const int kMPresenttypeFieldNumber = 17;
-  inline ::google::protobuf::int32 m_presenttype() const;
-  inline void set_m_presenttype(::google::protobuf::int32 value);
 
   // optional string m_icon = 18;
   inline bool has_m_icon() const;
@@ -491,10 +491,10 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   inline void clear_has_m_activitycount();
   inline void set_has_m_price();
   inline void clear_has_m_price();
+  inline void set_has_m_presentid();
+  inline void clear_has_m_presentid();
   inline void set_has_m_fristpresent();
   inline void clear_has_m_fristpresent();
-  inline void set_has_m_presenttype();
-  inline void clear_has_m_presenttype();
   inline void set_has_m_icon();
   inline void clear_has_m_icon();
 
@@ -515,8 +515,8 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_vipexplimit_;
   ::google::protobuf::int32 m_activitycount_;
   ::google::protobuf::int32 m_price_;
+  ::google::protobuf::int32 m_presentid_;
   ::google::protobuf::int32 m_fristpresent_;
-  ::google::protobuf::int32 m_presenttype_;
   ::std::string* m_icon_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RechargeRechargeItemDesc > m_item_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_RechargeRechargeChannelDesc > m_channel_;
@@ -1289,15 +1289,37 @@ inline void E_RechargeRecharge::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_fristpresent = 16;
-inline bool E_RechargeRecharge::has_m_fristpresent() const {
+// optional int32 m_presentid = 16;
+inline bool E_RechargeRecharge::has_m_presentid() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
-inline void E_RechargeRecharge::set_has_m_fristpresent() {
+inline void E_RechargeRecharge::set_has_m_presentid() {
   _has_bits_[0] |= 0x00008000u;
 }
-inline void E_RechargeRecharge::clear_has_m_fristpresent() {
+inline void E_RechargeRecharge::clear_has_m_presentid() {
   _has_bits_[0] &= ~0x00008000u;
+}
+inline void E_RechargeRecharge::clear_m_presentid() {
+  m_presentid_ = 0;
+  clear_has_m_presentid();
+}
+inline ::google::protobuf::int32 E_RechargeRecharge::m_presentid() const {
+  return m_presentid_;
+}
+inline void E_RechargeRecharge::set_m_presentid(::google::protobuf::int32 value) {
+  set_has_m_presentid();
+  m_presentid_ = value;
+}
+
+// optional int32 m_fristpresent = 17;
+inline bool E_RechargeRecharge::has_m_fristpresent() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void E_RechargeRecharge::set_has_m_fristpresent() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void E_RechargeRecharge::clear_has_m_fristpresent() {
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void E_RechargeRecharge::clear_m_fristpresent() {
   m_fristpresent_ = 0;
@@ -1309,28 +1331,6 @@ inline ::google::protobuf::int32 E_RechargeRecharge::m_fristpresent() const {
 inline void E_RechargeRecharge::set_m_fristpresent(::google::protobuf::int32 value) {
   set_has_m_fristpresent();
   m_fristpresent_ = value;
-}
-
-// optional int32 m_presenttype = 17;
-inline bool E_RechargeRecharge::has_m_presenttype() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
-}
-inline void E_RechargeRecharge::set_has_m_presenttype() {
-  _has_bits_[0] |= 0x00010000u;
-}
-inline void E_RechargeRecharge::clear_has_m_presenttype() {
-  _has_bits_[0] &= ~0x00010000u;
-}
-inline void E_RechargeRecharge::clear_m_presenttype() {
-  m_presenttype_ = 0;
-  clear_has_m_presenttype();
-}
-inline ::google::protobuf::int32 E_RechargeRecharge::m_presenttype() const {
-  return m_presenttype_;
-}
-inline void E_RechargeRecharge::set_m_presenttype(::google::protobuf::int32 value) {
-  set_has_m_presenttype();
-  m_presenttype_ = value;
 }
 
 // optional string m_icon = 18;

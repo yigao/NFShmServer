@@ -623,7 +623,7 @@ int NFItemDescStoreEx::ProcessItem()
             {
                 VEC_INT64 vecParam;
                 vecParam.clear();
-                NFCommonApi::SplitStrToVecInt(strsmelt, ",", &vecParam);
+                NFCommonApi::SplitStrToVecInt(strsmelt, ";", &vecParam);
                 //
                 int32_t isize = (int32_t) vecParam.size();
                 if ((isize % 2) != 0)

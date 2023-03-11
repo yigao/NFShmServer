@@ -48,5 +48,5 @@ message E_TaskdynamicTasktext
 
 message Sheet_TaskdynamicTasktext
 {
-	repeated E_TaskdynamicTasktext E_TaskdynamicTasktext_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_TaskdynamicTasktext E_TaskdynamicTasktext_List = 1[(yd_fieldoptions.field_arysize)=60];
 }

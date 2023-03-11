@@ -79,8 +79,8 @@ int E_RechargeRecharge_s::CreateInit() {
 	m_vipexplimit = (int32_t)0;
 	m_activitycount = (int32_t)0;
 	m_price = (int32_t)0;
+	m_presentid = (int32_t)0;
 	m_fristpresent = (int32_t)0;
-	m_presenttype = (int32_t)0;
 	return 0;
 }
 
@@ -104,8 +104,8 @@ void E_RechargeRecharge_s::write_to_pbmsg(::proto_ff::E_RechargeRecharge & msg) 
 	msg.set_m_vipexplimit((int32_t)m_vipexplimit);
 	msg.set_m_activitycount((int32_t)m_activitycount);
 	msg.set_m_price((int32_t)m_price);
+	msg.set_m_presentid((int32_t)m_presentid);
 	msg.set_m_fristpresent((int32_t)m_fristpresent);
-	msg.set_m_presenttype((int32_t)m_presenttype);
 	msg.set_m_icon((const char*)m_icon.data());
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
 		::proto_ff::E_RechargeRechargeItemDesc* temp_m_item = msg.add_m_item();
@@ -134,8 +134,8 @@ void E_RechargeRecharge_s::read_from_pbmsg(const ::proto_ff::E_RechargeRecharge 
 	m_vipexplimit = msg.m_vipexplimit();
 	m_activitycount = msg.m_activitycount();
 	m_price = msg.m_price();
+	m_presentid = msg.m_presentid();
 	m_fristpresent = msg.m_fristpresent();
-	m_presenttype = msg.m_presenttype();
 	m_icon = msg.m_icon();
 	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {

@@ -216,6 +216,13 @@ int NFSceneMgr::LeaveScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId)
         return proto_ff::RET_FAIL;
     }
 
-    pPlayer->LeaveScene();
-    return 0;
+    if (pPlayer->GetMapId() > 0)
+    {
+        if (pPlayer->GetMapId() != mapId || pPlayer->GetSceneId() != sceneId)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "LeaveScene mapId:{} sceneId:{}, but player mapId:{} sceneId:{}", mapId, sceneId, pPlayer->GetMapId(), pPlayer->GetSceneId());
+        }
+    }
+
+    return pPlayer->LeaveScene();
 }

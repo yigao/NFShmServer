@@ -187,6 +187,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;
+		int32_t m_quality;
 		int32_t m_uplvtype;
 		int64_t m_avatarskill;
 		int32_t m_avatarcd;

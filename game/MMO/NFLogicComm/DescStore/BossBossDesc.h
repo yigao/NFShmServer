@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/boss_s.h"
 
-#define MAX_BOSS_BOSS_NUM 200
+#define MAX_BOSS_BOSS_NUM 300
 
 class BossBossDesc : public NFIDescStore
 {

@@ -144,6 +144,7 @@ enum MISSION_ACCEPT_TYPE
     M_ACCEPT_TYPE_PRE_OR_CHAPTER = 1,            //前置任务（或关系）			1=章节ID=章节ID=章节ID=章节ID=章节ID
     M_ACCEPT_TYPE_PROFESSION = 2,                //职业限制					2=职业=0=0=0=0
     M_ACCEPT_TYPE_SEX = 3,                        //性别限制					3=性别=0=0=0=0
+    M_ACCEPT_TYPE_FUNCTION_ID = 4,                //功能开放                 4=功能开放ID=0=0=0=0
     M_ACCEPT_TYPE_PRE_AND_CHAPTER = 7,            //前置任务（与关系）			7=章节ID=章节ID=章节ID=章节ID=章节ID
 };
 

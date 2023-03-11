@@ -261,4 +261,76 @@ void Sheet_DailyCultivate_s::read_from_pbmsg(const ::proto_ff::Sheet_DailyCultiv
 	}
 }
 
+E_DailySports_s::E_DailySports_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_DailySports_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_functionid = (int32_t)0;
+	m_peractivityid = (int32_t)0;
+	m_des = (int32_t)0;
+	m_linkid = (int32_t)0;
+	return 0;
+}
+
+int E_DailySports_s::ResumeInit() {
+	return 0;
+}
+
+void E_DailySports_s::write_to_pbmsg(::proto_ff::E_DailySports & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_peractivityid((int32_t)m_peractivityid);
+	msg.set_m_des((int32_t)m_des);
+	msg.set_m_linkid((int32_t)m_linkid);
+}
+
+void E_DailySports_s::read_from_pbmsg(const ::proto_ff::E_DailySports & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_DailySports_s));
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_functionid = msg.m_functionid();
+	m_peractivityid = msg.m_peractivityid();
+	m_des = msg.m_des();
+	m_linkid = msg.m_linkid();
+}
+
+Sheet_DailySports_s::Sheet_DailySports_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_DailySports_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_DailySports_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_DailySports_s::write_to_pbmsg(::proto_ff::Sheet_DailySports & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_DailySports_List.size(); ++i) {
+		::proto_ff::E_DailySports* temp_e_dailysports_list = msg.add_e_dailysports_list();
+		E_DailySports_List[i].write_to_pbmsg(*temp_e_dailysports_list);
+	}
+}
+
+void Sheet_DailySports_s::read_from_pbmsg(const ::proto_ff::Sheet_DailySports & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_DailySports_s));
+	E_DailySports_List.resize((int)msg.e_dailysports_list_size() > (int)E_DailySports_List.max_size() ? E_DailySports_List.max_size() : msg.e_dailysports_list_size());
+	for(int32_t i = 0; i < (int32_t)E_DailySports_List.size(); ++i) {
+		const ::proto_ff::E_DailySports & temp_e_dailysports_list = msg.e_dailysports_list(i);
+		E_DailySports_List[i].read_from_pbmsg(temp_e_dailysports_list);
+	}
+}
+
 }

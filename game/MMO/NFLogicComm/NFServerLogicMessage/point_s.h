@@ -30,7 +30,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PointPoint_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PointPoint_s, 200> E_PointPoint_List;
+		NFShmVector<struct E_PointPoint_s, 400> E_PointPoint_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PointPoint & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PointPoint & msg);

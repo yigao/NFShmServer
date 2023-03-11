@@ -34,6 +34,8 @@
 #include "DescStore/RoleTaidaofemaleDesc.h"
 #include "DescStoreEx/NFMapDescStoreEx.h"
 #include "Trans/NFTransTransScene.h"
+#include "ServerInternalCmd.pb.h"
+#include "ServerInternalCmd2.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -226,7 +228,7 @@ int NFPlayer::Tick()
                 break;
             }
 
-            OnLogout();
+            LogoutGame(0, 0);
         }
             break;
         case PLAYER_STATUS_LOGOUT:
@@ -249,7 +251,7 @@ int NFPlayer::Tick()
                 }
             }
         }
-            break;
+        break;
     }
     return 0;
 }
@@ -444,7 +446,7 @@ int NFPlayer::EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>
 {
     NFTransTransScene *pTrans = dynamic_cast<NFTransTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_TRANS_SCENE));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-    pTrans->Init(this, 0);
+    pTrans->Init(this, proto_ff::WORLD_TO_LOGIC_LOGIN_FINISH_NOTIFY);
     pTrans->InitStaticMapInfo(mapId, sceneId, dstPos);
     pTrans->SendEnterScene();
     return 0;
@@ -454,10 +456,23 @@ int NFPlayer::LeaveScene(int type, uint32_t reqTransId)
 {
     NFTransTransScene *pTrans = dynamic_cast<NFTransTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_TRANS_SCENE));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-    pTrans->Init(this, 0, 0, reqTransId);
+    pTrans->Init(this, proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ, 0, reqTransId);
     pTrans->InitStaticMapInfo(m_mapId, m_sceneId, m_pos);
     pTrans->SendLeaveScene();
     return 0;
+}
+
+int NFPlayer::TransScene(uint64_t mapId, uint32_t transType, uint64_t dstId)
+{
+    NFTransTransScene *pTrans = dynamic_cast<NFTransTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_TRANS_SCENE));
+    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
+    pTrans->Init(this, proto_ff::CLIENT_SCENE_TRANS_REQ, 0, 0);
+    int iRet = pTrans->TransScene(mapId, transType, dstId);
+    if (iRet != 0)
+    {
+        pTrans->SetFinished(iRet);
+    }
+    return iRet;
 }
 
 int NFPlayer::NotifyPlayerInfo()
@@ -1453,9 +1468,14 @@ int NFPlayer::LoginGame(const CharLoginInfo &loginInfo, bool change)
 
 int NFPlayer::LogoutGame(int type, uint32_t reqTransId)
 {
-    OnLogout();
+    if (GetGameId() == 0)
+    {
+        OnLogout();
+    }
+    else {
+        LeaveScene(type, reqTransId);
+    }
 
-    LeaveScene(type, reqTransId);
     return 0;
 }
 

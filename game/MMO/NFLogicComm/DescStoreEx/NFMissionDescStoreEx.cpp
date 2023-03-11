@@ -958,7 +958,7 @@ bool NFMissionDescStoreEx::ParseAcceptCond(AcceptInfo &accept, const std::string
     for (uint32_t i = 0; i < vecStr.size(); i++)
     {
         std::vector<std::string> sonVecStr;
-        NFCommonApi::SplitStr(vecStr[i], "=", &sonVecStr);
+        NFCommonApi::SplitStr(vecStr[i], ";", &sonVecStr);
         int32_t isize = sonVecStr.size();
         if (isize != 6)
         {
@@ -1064,6 +1064,10 @@ bool NFMissionDescStoreEx::ParseAcceptCond(AcceptInfo &accept, const std::string
                     }
                 }
             }
+        }
+        else if (type == M_ACCEPT_TYPE_FUNCTION_ID)
+        {
+
         }
         else
         {
@@ -1353,7 +1357,7 @@ bool NFMissionDescStoreEx::ProcessDyText()    //处理动态任务前端显示
                 {
                     if (_dymissionTextMap.size() >= _dymissionTextMap.max_size())
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "_dymissionTextMap set Space Not Enough");
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "_dymissionTextMap Space Not Enough");
                         return false;
                     }
                     _dymissionTextMap[keyA].insert(info.m_textid);

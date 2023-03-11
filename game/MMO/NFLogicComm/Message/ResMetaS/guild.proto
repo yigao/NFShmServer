@@ -15,6 +15,18 @@ message E_GuildConstant
 	optional int32 m_territory = 8[(yd_fieldoptions.field_cname) = "公会领地场景id"];
 	optional int32 m_autominlv = 9[(yd_fieldoptions.field_cname) = "自动审批最低等级"];
 	optional int32 m_autominbp = 10[(yd_fieldoptions.field_cname) = "自动审批最低战力"];
+	optional int32 m_donatetimes = 11[(yd_fieldoptions.field_cname) = "捐款次数"];
+	optional int32 m_packetmaxd = 12[(yd_fieldoptions.field_cname) = "红包绑钻每日限制"];
+	optional int32 m_packetmaxbd = 13[(yd_fieldoptions.field_cname) = "红包魔晶每日限制"];
+	optional int32 m_packetmaxsend = 14[(yd_fieldoptions.field_cname) = "自费红包限制"];
+	optional int32 m_packetvip = 15[(yd_fieldoptions.field_cname) = "红包加成的vip等级"];
+	optional int32 m_packetadd = 16[(yd_fieldoptions.field_cname) = "红包加成比例"];
+	optional int32 m_prestigetasonekeyvip = 17[(yd_fieldoptions.field_cname) = "声望任务一键vip"];
+	optional int32 m_prestigetasonekeylv = 18[(yd_fieldoptions.field_cname) = "声望任务一键vip"];
+	optional int32 m_prestigetaskprivage = 19[(yd_fieldoptions.field_cname) = "声望任务特权id"];
+	optional int32 m_prestigetaskflash = 20[(yd_fieldoptions.field_cname) = "声望任务免费刷新次数"];
+	optional int32 m_prestigetaskflashprice = 21[(yd_fieldoptions.field_cname) = "声望任务付费刷新价格"];
+	optional int32 m_prestigetasktimes = 22[(yd_fieldoptions.field_cname) = "声望任务每日次数"];
 }
 
 
@@ -58,10 +70,86 @@ message E_GuildPosition
 	optional int32 m_dissolveassignguild = 15[(yd_fieldoptions.field_cname) = "解散/转让公会"];
 	optional int32 m_changename = 16[(yd_fieldoptions.field_cname) = "改名权限"];
 	optional int32 m_recruitchat = 17[(yd_fieldoptions.field_cname) = "发布招贤纳士"];
+	optional int32 m_guildpacket = 18[(yd_fieldoptions.field_cname) = "发送公会玩法红包"];
 }
 
 
 message Sheet_GuildPosition
 {
 	repeated E_GuildPosition E_GuildPosition_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_GuildSalaryRewardDesc
+{
+	optional int32 m_item = 1[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+message E_GuildSalary
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_typearg = 3[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional int32 m_times = 4[(yd_fieldoptions.field_cname) = "次数参数"];
+	repeated E_GuildSalaryRewardDesc m_reward = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_GuildSalary
+{
+	repeated E_GuildSalary E_GuildSalary_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_GuildDonateRewardDesc
+{
+	optional int32 m_item = 1[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "数量"];
+}
+
+message E_GuildDonate
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_costitem = 2[(yd_fieldoptions.field_cname) = "花费物品id"];
+	optional int32 m_costnum = 3[(yd_fieldoptions.field_cname) = "花费物品数量"];
+	repeated E_GuildDonateRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_GuildDonate
+{
+	repeated E_GuildDonate E_GuildDonate_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_GuildPacket
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "红包ID"];
+	optional int32 m_belongtype = 2[(yd_fieldoptions.field_cname) = "红包归属类型"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "红包触发类型"];
+	optional int32 m_typearg = 4[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "红包领取类型"];
+	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "红包金额"];
+	optional int32 m_num = 7[(yd_fieldoptions.field_cname) = "红包份数"];
+	optional int32 m_pre = 8[(yd_fieldoptions.field_cname) = "前置红包"];
+	optional int32 m_daily = 9[(yd_fieldoptions.field_cname) = "每日限制触发次数"];
+}
+
+
+message Sheet_GuildPacket
+{
+	repeated E_GuildPacket E_GuildPacket_List = 1[(yd_fieldoptions.field_arysize)=80];
+}
+
+message E_GuildPrestigetask
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_level = 2[(yd_fieldoptions.field_cname) = "任务分级"];
+	optional int32 m_weight = 3[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 m_taskpool = 4[(yd_fieldoptions.field_cname) = "随机的任务池id"];
+	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "任务奖励类型id"];
+}
+
+
+message Sheet_GuildPrestigetask
+{
+	repeated E_GuildPrestigetask E_GuildPrestigetask_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

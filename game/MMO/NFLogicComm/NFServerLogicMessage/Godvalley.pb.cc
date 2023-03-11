@@ -26,6 +26,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_GodvalleyBattle_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_GodvalleyBattle_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_GodvalleyRewardsRewardDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_GodvalleyRewardsRewardDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_GodvalleyRewards_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_GodvalleyRewards_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_GodvalleyRewards_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_GodvalleyRewards_reflection_ = NULL;
 
 }  // namespace
 
@@ -37,16 +46,22 @@ void protobuf_AssignDesc_Godvalley_2eproto() {
       "Godvalley.proto");
   GOOGLE_CHECK(file != NULL);
   E_GodvalleyBattle_descriptor_ = file->message_type(0);
-  static const int E_GodvalleyBattle_offsets_[21] = {
+  static const int E_GodvalleyBattle_offsets_[27] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_team1n_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_team2n_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_winscore_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_timescore_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_killscore_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_killkeepscore_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_breakkillkeepscore_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_killmonsterscore_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_crystalpoints_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_crystalscore_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_interceptpoints_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_interceptscore_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_crystalreborntime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_crystalpos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_match_s_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_duration_s_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyBattle, m_matchmapid_),
@@ -86,6 +101,54 @@ void protobuf_AssignDesc_Godvalley_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_GodvalleyBattle));
+  E_GodvalleyRewardsRewardDesc_descriptor_ = file->message_type(2);
+  static const int E_GodvalleyRewardsRewardDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewardsRewardDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewardsRewardDesc, m_id_),
+  };
+  E_GodvalleyRewardsRewardDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_GodvalleyRewardsRewardDesc_descriptor_,
+      E_GodvalleyRewardsRewardDesc::default_instance_,
+      E_GodvalleyRewardsRewardDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewardsRewardDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewardsRewardDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_GodvalleyRewardsRewardDesc));
+  E_GodvalleyRewards_descriptor_ = file->message_type(3);
+  static const int E_GodvalleyRewards_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewards, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewards, m_score_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewards, m_reward_),
+  };
+  E_GodvalleyRewards_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_GodvalleyRewards_descriptor_,
+      E_GodvalleyRewards::default_instance_,
+      E_GodvalleyRewards_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewards, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodvalleyRewards, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_GodvalleyRewards));
+  Sheet_GodvalleyRewards_descriptor_ = file->message_type(4);
+  static const int Sheet_GodvalleyRewards_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GodvalleyRewards, e_godvalleyrewards_list_),
+  };
+  Sheet_GodvalleyRewards_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_GodvalleyRewards_descriptor_,
+      Sheet_GodvalleyRewards::default_instance_,
+      Sheet_GodvalleyRewards_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GodvalleyRewards, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GodvalleyRewards, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_GodvalleyRewards));
 }
 
 namespace {
@@ -102,6 +165,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_GodvalleyBattle_descriptor_, &E_GodvalleyBattle::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_GodvalleyBattle_descriptor_, &Sheet_GodvalleyBattle::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_GodvalleyRewardsRewardDesc_descriptor_, &E_GodvalleyRewardsRewardDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_GodvalleyRewards_descriptor_, &E_GodvalleyRewards::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_GodvalleyRewards_descriptor_, &Sheet_GodvalleyRewards::default_instance());
 }
 
 }  // namespace
@@ -111,6 +180,12 @@ void protobuf_ShutdownFile_Godvalley_2eproto() {
   delete E_GodvalleyBattle_reflection_;
   delete Sheet_GodvalleyBattle::default_instance_;
   delete Sheet_GodvalleyBattle_reflection_;
+  delete E_GodvalleyRewardsRewardDesc::default_instance_;
+  delete E_GodvalleyRewardsRewardDesc_reflection_;
+  delete E_GodvalleyRewards::default_instance_;
+  delete E_GodvalleyRewards_reflection_;
+  delete Sheet_GodvalleyRewards::default_instance_;
+  delete Sheet_GodvalleyRewards_reflection_;
 }
 
 void protobuf_AddDesc_Godvalley_2eproto() {
@@ -122,38 +197,60 @@ void protobuf_AddDesc_Godvalley_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017Godvalley.proto\022\010proto_ff\032\025yd_fieldopt"
-    "ions.proto\"\216\007\n\021E_GodvalleyBattle\022\030\n\004m_id"
+    "ions.proto\"\307\t\n\021E_GodvalleyBattle\022\030\n\004m_id"
     "\030\001 \001(\003B\n\302\377\024\006\345\272\217\345\217\267\022 \n\010m_team1n\030\002 \001(\tB\016\302\377"
     "\024\006\347\273\204\345\220\215\220\301\024<\022 \n\010m_team2n\030\003 \001(\tB\016\302\377\024\006\347\273\204\345"
-    "\220\215\220\301\024<\022(\n\013m_killscore\030\004 \001(\005B\023\302\377\024\017\346\235\200\344\272\272\345"
-    "\276\227\347\247\257\345\210\206\022,\n\017m_killkeepscore\030\005 \001(\005B\023\302\377\024\017\350"
-    "\277\236\346\235\200\345\276\227\347\247\257\345\210\206\022=\n\024m_breakkillkeepscore\030\006"
-    " \001(\005B\037\302\377\024\033\346\211\223\346\226\255\345\210\253\344\272\272\350\277\236\346\235\200\345\276\227\347\247\257\345\210\206\022/\n"
-    "\022m_killmonsterscore\030\007 \001(\005B\023\302\377\024\017\346\235\200\346\200\252\345\276\227"
-    "\347\247\257\345\210\206\022.\n\016m_crystalscore\030\010 \001(\005B\026\302\377\024\022\350\277\220\346"
-    "\260\264\346\231\266\345\212\240\347\247\257\345\210\206\0229\n\023m_crystalreborntime\030\t "
-    "\001(\005B\034\302\377\024\030\346\260\264\346\231\266\345\210\267\346\226\260\346\227\266\351\227\264\357\274\210\347\247\222\022#\n\tm_m"
-    "atch_s\030\n \001(\005B\020\302\377\024\014\345\214\271\351\205\215\346\227\266\351\227\264\022#\n\014m_dura"
-    "tion_s\030\013 \001(\005B\r\302\377\024\t\346\211\223\345\244\232\344\271\205\022&\n\014m_matchma"
-    "pid\030\014 \001(\003B\020\302\377\024\014\345\214\271\351\205\215\345\234\260\345\233\276\0229\n\017m_matchma"
-    "pentry\030\r \001(\tB \302\377\024\030\345\214\271\351\205\215\345\234\260\345\233\276\345\207\272\347\224\237\344\275\215\347"
-    "\275\256\220\301\024<\022!\n\007m_mapid\030\016 \001(\003B\020\302\377\024\014\346\211\200\345\234\250\345\234\260\345\233"
-    "\276\022/\n\013m_mapentry1\030\017 \001(\tB\032\302\377\024\022\351\230\237\344\270\200\350\265\267\345\247\213"
-    "\344\275\215\347\275\256\220\301\024<\022/\n\013m_mapentry2\030\020 \001(\tB\032\302\377\024\022\351\230\237"
-    "\344\272\214\350\265\267\345\247\213\344\275\215\347\275\256\220\301\024<\022\"\n\nm_monster1\030\021 \001(\tB"
-    "\016\302\377\024\006\346\200\252\347\211\251\220\301\024<\022\"\n\nm_monster2\030\022 \001(\tB\016\302\377\024"
-    "\006\346\200\252\347\211\251\220\301\024<\022\"\n\nm_monster3\030\023 \001(\tB\016\302\377\024\006\346\200\252"
-    "\347\211\251\220\301\024<\022$\n\tm_npc1pos\030\024 \001(\tB\021\302\377\024\tNPC\344\275\215\347\275"
-    "\256\220\301\024<\022$\n\tm_npc2pos\030\025 \001(\tB\021\302\377\024\tNPC\344\275\215\347\275\256\220"
-    "\301\024<\"Z\n\025Sheet_GodvalleyBattle\022A\n\026E_Godval"
-    "leyBattle_List\030\001 \003(\0132\033.proto_ff.E_Godval"
-    "leyBattleB\004\210\301\024\024", 1055);
+    "\220\215\220\301\024<\022*\n\nm_winscore\030\004 \001(\005B\026\302\377\024\022\350\203\234\345\210\251\347\232"
+    "\204\350\265\204\346\272\220\347\202\271\022+\n\013m_timescore\030\005 \001(\005B\026\302\377\024\022\346\227\266"
+    "\351\227\264\345\242\236\345\212\240\347\247\257\345\210\206\022(\n\013m_killscore\030\006 \001(\005B\023\302\377"
+    "\024\017\346\235\200\344\272\272\345\276\227\347\247\257\345\210\206\022,\n\017m_killkeepscore\030\007 \001"
+    "(\005B\023\302\377\024\017\350\277\236\346\235\200\345\276\227\347\247\257\345\210\206\022=\n\024m_breakkillke"
+    "epscore\030\010 \001(\005B\037\302\377\024\033\346\211\223\346\226\255\345\210\253\344\272\272\350\277\236\346\235\200\345\276\227"
+    "\347\247\257\345\210\206\022/\n\022m_killmonsterscore\030\t \001(\005B\023\302\377\024\017"
+    "\346\235\200\346\200\252\345\276\227\347\247\257\345\210\206\0222\n\017m_crystalpoints\030\n \001(\005"
+    "B\031\302\377\024\025\350\277\220\346\260\264\346\231\266\345\212\240\350\265\204\346\272\220\347\202\271\0224\n\016m_crystal"
+    "score\030\013 \001(\005B\034\302\377\024\030\350\277\220\346\260\264\346\231\266\345\212\240\344\270\252\344\272\272\347\247\257\345\210"
+    "\206\022:\n\021m_interceptpoints\030\014 \001(\005B\037\302\377\024\033\346\213\246\346\210\252"
+    "\346\260\264\346\231\266\345\242\236\345\212\240\350\265\204\346\272\220\347\202\271\022<\n\020m_interceptscor"
+    "e\030\r \001(\005B\"\302\377\024\036\346\213\246\346\210\252\346\260\264\346\231\266\345\242\236\345\212\240\344\270\252\344\272\272\347\247\257"
+    "\345\210\206\0229\n\023m_crystalreborntime\030\016 \001(\005B\034\302\377\024\030\346\260"
+    "\264\346\231\266\345\210\267\346\226\260\346\227\266\351\227\264\357\274\210\347\247\222\022*\n\014m_crystalpos\030\017"
+    " \001(\tB\024\302\377\024\014\346\260\264\346\231\266\344\275\215\347\275\256\220\301\024<\022#\n\tm_match_s\030"
+    "\020 \001(\005B\020\302\377\024\014\345\214\271\351\205\215\346\227\266\351\227\264\022#\n\014m_duration_s\030"
+    "\021 \001(\005B\r\302\377\024\t\346\211\223\345\244\232\344\271\205\022&\n\014m_matchmapid\030\022 \001"
+    "(\003B\020\302\377\024\014\345\214\271\351\205\215\345\234\260\345\233\276\0229\n\017m_matchmapentry\030"
+    "\023 \001(\tB \302\377\024\030\345\214\271\351\205\215\345\234\260\345\233\276\345\207\272\347\224\237\344\275\215\347\275\256\220\301\024<\022"
+    "!\n\007m_mapid\030\024 \001(\003B\020\302\377\024\014\346\211\200\345\234\250\345\234\260\345\233\276\022/\n\013m_"
+    "mapentry1\030\025 \001(\tB\032\302\377\024\022\351\230\237\344\270\200\350\265\267\345\247\213\344\275\215\347\275\256\220"
+    "\301\024<\022/\n\013m_mapentry2\030\026 \001(\tB\032\302\377\024\022\351\230\237\344\272\214\350\265\267\345"
+    "\247\213\344\275\215\347\275\256\220\301\024<\022\"\n\nm_monster1\030\027 \001(\tB\016\302\377\024\006\346\200"
+    "\252\347\211\251\220\301\024<\022\"\n\nm_monster2\030\030 \001(\tB\016\302\377\024\006\346\200\252\347\211\251"
+    "\220\301\024<\022\"\n\nm_monster3\030\031 \001(\tB\016\302\377\024\006\346\200\252\347\211\251\220\301\024<"
+    "\022$\n\tm_npc1pos\030\032 \001(\tB\021\302\377\024\tNPC\344\275\215\347\275\256\220\301\024<\022$"
+    "\n\tm_npc2pos\030\033 \001(\tB\021\302\377\024\tNPC\344\275\215\347\275\256\220\301\024<\"Z\n\025"
+    "Sheet_GodvalleyBattle\022A\n\026E_GodvalleyBatt"
+    "le_List\030\001 \003(\0132\033.proto_ff.E_GodvalleyBatt"
+    "leB\004\210\301\024\024\"O\n\034E_GodvalleyRewardsRewardDesc"
+    "\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001("
+    "\003B\006\302\377\024\002ID\"\233\001\n\022E_GodvalleyRewards\022\030\n\004m_id"
+    "\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022!\n\007m_score\030\002 \001(\005B\020\302\377\024"
+    "\014\347\247\257\345\210\206\346\225\260\351\207\217\022H\n\010m_reward\030\003 \003(\0132&.proto_"
+    "ff.E_GodvalleyRewardsRewardDescB\016\302\377\024\006\345\245\226"
+    "\345\212\261\210\301\024\004\"]\n\026Sheet_GodvalleyRewards\022C\n\027E_G"
+    "odvalleyRewards_List\030\001 \003(\0132\034.proto_ff.E_"
+    "GodvalleyRewardsB\004\210\301\024\024", 1702);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Godvalley.proto", &protobuf_RegisterTypes);
   E_GodvalleyBattle::default_instance_ = new E_GodvalleyBattle();
   Sheet_GodvalleyBattle::default_instance_ = new Sheet_GodvalleyBattle();
+  E_GodvalleyRewardsRewardDesc::default_instance_ = new E_GodvalleyRewardsRewardDesc();
+  E_GodvalleyRewards::default_instance_ = new E_GodvalleyRewards();
+  Sheet_GodvalleyRewards::default_instance_ = new Sheet_GodvalleyRewards();
   E_GodvalleyBattle::default_instance_->InitAsDefaultInstance();
   Sheet_GodvalleyBattle::default_instance_->InitAsDefaultInstance();
+  E_GodvalleyRewardsRewardDesc::default_instance_->InitAsDefaultInstance();
+  E_GodvalleyRewards::default_instance_->InitAsDefaultInstance();
+  Sheet_GodvalleyRewards::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Godvalley_2eproto);
 }
 
@@ -170,12 +267,18 @@ struct StaticDescriptorInitializer_Godvalley_2eproto {
 const int E_GodvalleyBattle::kMIdFieldNumber;
 const int E_GodvalleyBattle::kMTeam1NFieldNumber;
 const int E_GodvalleyBattle::kMTeam2NFieldNumber;
+const int E_GodvalleyBattle::kMWinscoreFieldNumber;
+const int E_GodvalleyBattle::kMTimescoreFieldNumber;
 const int E_GodvalleyBattle::kMKillscoreFieldNumber;
 const int E_GodvalleyBattle::kMKillkeepscoreFieldNumber;
 const int E_GodvalleyBattle::kMBreakkillkeepscoreFieldNumber;
 const int E_GodvalleyBattle::kMKillmonsterscoreFieldNumber;
+const int E_GodvalleyBattle::kMCrystalpointsFieldNumber;
 const int E_GodvalleyBattle::kMCrystalscoreFieldNumber;
+const int E_GodvalleyBattle::kMInterceptpointsFieldNumber;
+const int E_GodvalleyBattle::kMInterceptscoreFieldNumber;
 const int E_GodvalleyBattle::kMCrystalreborntimeFieldNumber;
+const int E_GodvalleyBattle::kMCrystalposFieldNumber;
 const int E_GodvalleyBattle::kMMatchSFieldNumber;
 const int E_GodvalleyBattle::kMDurationSFieldNumber;
 const int E_GodvalleyBattle::kMMatchmapidFieldNumber;
@@ -209,12 +312,18 @@ void E_GodvalleyBattle::SharedCtor() {
   m_id_ = GOOGLE_LONGLONG(0);
   m_team1n_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_team2n_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_winscore_ = 0;
+  m_timescore_ = 0;
   m_killscore_ = 0;
   m_killkeepscore_ = 0;
   m_breakkillkeepscore_ = 0;
   m_killmonsterscore_ = 0;
+  m_crystalpoints_ = 0;
   m_crystalscore_ = 0;
+  m_interceptpoints_ = 0;
+  m_interceptscore_ = 0;
   m_crystalreborntime_ = 0;
+  m_crystalpos_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_match_s_ = 0;
   m_duration_s_ = 0;
   m_matchmapid_ = GOOGLE_LONGLONG(0);
@@ -240,6 +349,9 @@ void E_GodvalleyBattle::SharedDtor() {
   }
   if (m_team2n_ != &::google::protobuf::internal::kEmptyString) {
     delete m_team2n_;
+  }
+  if (m_crystalpos_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_crystalpos_;
   }
   if (m_matchmapentry_ != &::google::protobuf::internal::kEmptyString) {
     delete m_matchmapentry_;
@@ -303,15 +415,27 @@ void E_GodvalleyBattle::Clear() {
         m_team2n_->clear();
       }
     }
+    m_winscore_ = 0;
+    m_timescore_ = 0;
     m_killscore_ = 0;
     m_killkeepscore_ = 0;
     m_breakkillkeepscore_ = 0;
-    m_killmonsterscore_ = 0;
-    m_crystalscore_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_killmonsterscore_ = 0;
+    m_crystalpoints_ = 0;
+    m_crystalscore_ = 0;
+    m_interceptpoints_ = 0;
+    m_interceptscore_ = 0;
     m_crystalreborntime_ = 0;
+    if (has_m_crystalpos()) {
+      if (m_crystalpos_ != &::google::protobuf::internal::kEmptyString) {
+        m_crystalpos_->clear();
+      }
+    }
     m_match_s_ = 0;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     m_duration_s_ = 0;
     m_matchmapid_ = GOOGLE_LONGLONG(0);
     if (has_m_matchmapentry()) {
@@ -330,8 +454,6 @@ void E_GodvalleyBattle::Clear() {
         m_mapentry2_->clear();
       }
     }
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (has_m_monster1()) {
       if (m_monster1_ != &::google::protobuf::internal::kEmptyString) {
         m_monster1_->clear();
@@ -342,6 +464,8 @@ void E_GodvalleyBattle::Clear() {
         m_monster2_->clear();
       }
     }
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (has_m_monster3()) {
       if (m_monster3_ != &::google::protobuf::internal::kEmptyString) {
         m_monster3_->clear();
@@ -413,12 +537,44 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_killscore;
+        if (input->ExpectTag(32)) goto parse_m_winscore;
         break;
       }
 
-      // optional int32 m_killscore = 4;
+      // optional int32 m_winscore = 4;
       case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_winscore:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_winscore_)));
+          set_has_m_winscore();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_timescore;
+        break;
+      }
+
+      // optional int32 m_timescore = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_timescore:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_timescore_)));
+          set_has_m_timescore();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_killscore;
+        break;
+      }
+
+      // optional int32 m_killscore = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_killscore:
@@ -429,12 +585,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_killkeepscore;
+        if (input->ExpectTag(56)) goto parse_m_killkeepscore;
         break;
       }
 
-      // optional int32 m_killkeepscore = 5;
-      case 5: {
+      // optional int32 m_killkeepscore = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_killkeepscore:
@@ -445,12 +601,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_breakkillkeepscore;
+        if (input->ExpectTag(64)) goto parse_m_breakkillkeepscore;
         break;
       }
 
-      // optional int32 m_breakkillkeepscore = 6;
-      case 6: {
+      // optional int32 m_breakkillkeepscore = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_breakkillkeepscore:
@@ -461,12 +617,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_killmonsterscore;
+        if (input->ExpectTag(72)) goto parse_m_killmonsterscore;
         break;
       }
 
-      // optional int32 m_killmonsterscore = 7;
-      case 7: {
+      // optional int32 m_killmonsterscore = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_killmonsterscore:
@@ -477,12 +633,28 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_crystalscore;
+        if (input->ExpectTag(80)) goto parse_m_crystalpoints;
         break;
       }
 
-      // optional int32 m_crystalscore = 8;
-      case 8: {
+      // optional int32 m_crystalpoints = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_crystalpoints:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_crystalpoints_)));
+          set_has_m_crystalpoints();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(88)) goto parse_m_crystalscore;
+        break;
+      }
+
+      // optional int32 m_crystalscore = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_crystalscore:
@@ -493,12 +665,44 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_crystalreborntime;
+        if (input->ExpectTag(96)) goto parse_m_interceptpoints;
         break;
       }
 
-      // optional int32 m_crystalreborntime = 9;
-      case 9: {
+      // optional int32 m_interceptpoints = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_interceptpoints:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_interceptpoints_)));
+          set_has_m_interceptpoints();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(104)) goto parse_m_interceptscore;
+        break;
+      }
+
+      // optional int32 m_interceptscore = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_interceptscore:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_interceptscore_)));
+          set_has_m_interceptscore();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(112)) goto parse_m_crystalreborntime;
+        break;
+      }
+
+      // optional int32 m_crystalreborntime = 14;
+      case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_crystalreborntime:
@@ -509,12 +713,29 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_match_s;
+        if (input->ExpectTag(122)) goto parse_m_crystalpos;
         break;
       }
 
-      // optional int32 m_match_s = 10;
-      case 10: {
+      // optional string m_crystalpos = 15;
+      case 15: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_crystalpos:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_crystalpos()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_crystalpos().data(), this->m_crystalpos().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(128)) goto parse_m_match_s;
+        break;
+      }
+
+      // optional int32 m_match_s = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_match_s:
@@ -525,12 +746,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_duration_s;
+        if (input->ExpectTag(136)) goto parse_m_duration_s;
         break;
       }
 
-      // optional int32 m_duration_s = 11;
-      case 11: {
+      // optional int32 m_duration_s = 17;
+      case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_duration_s:
@@ -541,12 +762,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_matchmapid;
+        if (input->ExpectTag(144)) goto parse_m_matchmapid;
         break;
       }
 
-      // optional int64 m_matchmapid = 12;
-      case 12: {
+      // optional int64 m_matchmapid = 18;
+      case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_matchmapid:
@@ -557,12 +778,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_m_matchmapentry;
+        if (input->ExpectTag(154)) goto parse_m_matchmapentry;
         break;
       }
 
-      // optional string m_matchmapentry = 13;
-      case 13: {
+      // optional string m_matchmapentry = 19;
+      case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_matchmapentry:
@@ -574,12 +795,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_mapid;
+        if (input->ExpectTag(160)) goto parse_m_mapid;
         break;
       }
 
-      // optional int64 m_mapid = 14;
-      case 14: {
+      // optional int64 m_mapid = 20;
+      case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_mapid:
@@ -590,12 +811,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(122)) goto parse_m_mapentry1;
+        if (input->ExpectTag(170)) goto parse_m_mapentry1;
         break;
       }
 
-      // optional string m_mapentry1 = 15;
-      case 15: {
+      // optional string m_mapentry1 = 21;
+      case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_mapentry1:
@@ -607,12 +828,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_m_mapentry2;
+        if (input->ExpectTag(178)) goto parse_m_mapentry2;
         break;
       }
 
-      // optional string m_mapentry2 = 16;
-      case 16: {
+      // optional string m_mapentry2 = 22;
+      case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_mapentry2:
@@ -624,12 +845,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(138)) goto parse_m_monster1;
+        if (input->ExpectTag(186)) goto parse_m_monster1;
         break;
       }
 
-      // optional string m_monster1 = 17;
-      case 17: {
+      // optional string m_monster1 = 23;
+      case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_monster1:
@@ -641,12 +862,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(146)) goto parse_m_monster2;
+        if (input->ExpectTag(194)) goto parse_m_monster2;
         break;
       }
 
-      // optional string m_monster2 = 18;
-      case 18: {
+      // optional string m_monster2 = 24;
+      case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_monster2:
@@ -658,12 +879,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(154)) goto parse_m_monster3;
+        if (input->ExpectTag(202)) goto parse_m_monster3;
         break;
       }
 
-      // optional string m_monster3 = 19;
-      case 19: {
+      // optional string m_monster3 = 25;
+      case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_monster3:
@@ -675,12 +896,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(162)) goto parse_m_npc1pos;
+        if (input->ExpectTag(210)) goto parse_m_npc1pos;
         break;
       }
 
-      // optional string m_npc1pos = 20;
-      case 20: {
+      // optional string m_npc1pos = 26;
+      case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_npc1pos:
@@ -692,12 +913,12 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(170)) goto parse_m_npc2pos;
+        if (input->ExpectTag(218)) goto parse_m_npc2pos;
         break;
       }
 
-      // optional string m_npc2pos = 21;
-      case 21: {
+      // optional string m_npc2pos = 27;
+      case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_npc2pos:
@@ -754,126 +975,160 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       3, this->m_team2n(), output);
   }
 
-  // optional int32 m_killscore = 4;
+  // optional int32 m_winscore = 4;
+  if (has_m_winscore()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_winscore(), output);
+  }
+
+  // optional int32 m_timescore = 5;
+  if (has_m_timescore()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_timescore(), output);
+  }
+
+  // optional int32 m_killscore = 6;
   if (has_m_killscore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_killscore(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_killscore(), output);
   }
 
-  // optional int32 m_killkeepscore = 5;
+  // optional int32 m_killkeepscore = 7;
   if (has_m_killkeepscore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_killkeepscore(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_killkeepscore(), output);
   }
 
-  // optional int32 m_breakkillkeepscore = 6;
+  // optional int32 m_breakkillkeepscore = 8;
   if (has_m_breakkillkeepscore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_breakkillkeepscore(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_breakkillkeepscore(), output);
   }
 
-  // optional int32 m_killmonsterscore = 7;
+  // optional int32 m_killmonsterscore = 9;
   if (has_m_killmonsterscore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_killmonsterscore(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_killmonsterscore(), output);
   }
 
-  // optional int32 m_crystalscore = 8;
+  // optional int32 m_crystalpoints = 10;
+  if (has_m_crystalpoints()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_crystalpoints(), output);
+  }
+
+  // optional int32 m_crystalscore = 11;
   if (has_m_crystalscore()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_crystalscore(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_crystalscore(), output);
   }
 
-  // optional int32 m_crystalreborntime = 9;
+  // optional int32 m_interceptpoints = 12;
+  if (has_m_interceptpoints()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_interceptpoints(), output);
+  }
+
+  // optional int32 m_interceptscore = 13;
+  if (has_m_interceptscore()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_interceptscore(), output);
+  }
+
+  // optional int32 m_crystalreborntime = 14;
   if (has_m_crystalreborntime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_crystalreborntime(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_crystalreborntime(), output);
   }
 
-  // optional int32 m_match_s = 10;
+  // optional string m_crystalpos = 15;
+  if (has_m_crystalpos()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_crystalpos().data(), this->m_crystalpos().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      15, this->m_crystalpos(), output);
+  }
+
+  // optional int32 m_match_s = 16;
   if (has_m_match_s()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_match_s(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_match_s(), output);
   }
 
-  // optional int32 m_duration_s = 11;
+  // optional int32 m_duration_s = 17;
   if (has_m_duration_s()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_duration_s(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_duration_s(), output);
   }
 
-  // optional int64 m_matchmapid = 12;
+  // optional int64 m_matchmapid = 18;
   if (has_m_matchmapid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->m_matchmapid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->m_matchmapid(), output);
   }
 
-  // optional string m_matchmapentry = 13;
+  // optional string m_matchmapentry = 19;
   if (has_m_matchmapentry()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_matchmapentry().data(), this->m_matchmapentry().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      13, this->m_matchmapentry(), output);
+      19, this->m_matchmapentry(), output);
   }
 
-  // optional int64 m_mapid = 14;
+  // optional int64 m_mapid = 20;
   if (has_m_mapid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(14, this->m_mapid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(20, this->m_mapid(), output);
   }
 
-  // optional string m_mapentry1 = 15;
+  // optional string m_mapentry1 = 21;
   if (has_m_mapentry1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry1().data(), this->m_mapentry1().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      15, this->m_mapentry1(), output);
+      21, this->m_mapentry1(), output);
   }
 
-  // optional string m_mapentry2 = 16;
+  // optional string m_mapentry2 = 22;
   if (has_m_mapentry2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry2().data(), this->m_mapentry2().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      16, this->m_mapentry2(), output);
+      22, this->m_mapentry2(), output);
   }
 
-  // optional string m_monster1 = 17;
+  // optional string m_monster1 = 23;
   if (has_m_monster1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_monster1().data(), this->m_monster1().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      17, this->m_monster1(), output);
+      23, this->m_monster1(), output);
   }
 
-  // optional string m_monster2 = 18;
+  // optional string m_monster2 = 24;
   if (has_m_monster2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_monster2().data(), this->m_monster2().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      18, this->m_monster2(), output);
+      24, this->m_monster2(), output);
   }
 
-  // optional string m_monster3 = 19;
+  // optional string m_monster3 = 25;
   if (has_m_monster3()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_monster3().data(), this->m_monster3().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      19, this->m_monster3(), output);
+      25, this->m_monster3(), output);
   }
 
-  // optional string m_npc1pos = 20;
+  // optional string m_npc1pos = 26;
   if (has_m_npc1pos()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_npc1pos().data(), this->m_npc1pos().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      20, this->m_npc1pos(), output);
+      26, this->m_npc1pos(), output);
   }
 
-  // optional string m_npc2pos = 21;
+  // optional string m_npc2pos = 27;
   if (has_m_npc2pos()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_npc2pos().data(), this->m_npc2pos().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      21, this->m_npc2pos(), output);
+      27, this->m_npc2pos(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -909,134 +1164,169 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         3, this->m_team2n(), target);
   }
 
-  // optional int32 m_killscore = 4;
+  // optional int32 m_winscore = 4;
+  if (has_m_winscore()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_winscore(), target);
+  }
+
+  // optional int32 m_timescore = 5;
+  if (has_m_timescore()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_timescore(), target);
+  }
+
+  // optional int32 m_killscore = 6;
   if (has_m_killscore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_killscore(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_killscore(), target);
   }
 
-  // optional int32 m_killkeepscore = 5;
+  // optional int32 m_killkeepscore = 7;
   if (has_m_killkeepscore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_killkeepscore(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_killkeepscore(), target);
   }
 
-  // optional int32 m_breakkillkeepscore = 6;
+  // optional int32 m_breakkillkeepscore = 8;
   if (has_m_breakkillkeepscore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_breakkillkeepscore(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_breakkillkeepscore(), target);
   }
 
-  // optional int32 m_killmonsterscore = 7;
+  // optional int32 m_killmonsterscore = 9;
   if (has_m_killmonsterscore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_killmonsterscore(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_killmonsterscore(), target);
   }
 
-  // optional int32 m_crystalscore = 8;
+  // optional int32 m_crystalpoints = 10;
+  if (has_m_crystalpoints()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_crystalpoints(), target);
+  }
+
+  // optional int32 m_crystalscore = 11;
   if (has_m_crystalscore()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_crystalscore(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_crystalscore(), target);
   }
 
-  // optional int32 m_crystalreborntime = 9;
+  // optional int32 m_interceptpoints = 12;
+  if (has_m_interceptpoints()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_interceptpoints(), target);
+  }
+
+  // optional int32 m_interceptscore = 13;
+  if (has_m_interceptscore()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_interceptscore(), target);
+  }
+
+  // optional int32 m_crystalreborntime = 14;
   if (has_m_crystalreborntime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_crystalreborntime(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_crystalreborntime(), target);
   }
 
-  // optional int32 m_match_s = 10;
+  // optional string m_crystalpos = 15;
+  if (has_m_crystalpos()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_crystalpos().data(), this->m_crystalpos().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        15, this->m_crystalpos(), target);
+  }
+
+  // optional int32 m_match_s = 16;
   if (has_m_match_s()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_match_s(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_match_s(), target);
   }
 
-  // optional int32 m_duration_s = 11;
+  // optional int32 m_duration_s = 17;
   if (has_m_duration_s()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_duration_s(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_duration_s(), target);
   }
 
-  // optional int64 m_matchmapid = 12;
+  // optional int64 m_matchmapid = 18;
   if (has_m_matchmapid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->m_matchmapid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->m_matchmapid(), target);
   }
 
-  // optional string m_matchmapentry = 13;
+  // optional string m_matchmapentry = 19;
   if (has_m_matchmapentry()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_matchmapentry().data(), this->m_matchmapentry().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        13, this->m_matchmapentry(), target);
+        19, this->m_matchmapentry(), target);
   }
 
-  // optional int64 m_mapid = 14;
+  // optional int64 m_mapid = 20;
   if (has_m_mapid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(14, this->m_mapid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(20, this->m_mapid(), target);
   }
 
-  // optional string m_mapentry1 = 15;
+  // optional string m_mapentry1 = 21;
   if (has_m_mapentry1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry1().data(), this->m_mapentry1().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        15, this->m_mapentry1(), target);
+        21, this->m_mapentry1(), target);
   }
 
-  // optional string m_mapentry2 = 16;
+  // optional string m_mapentry2 = 22;
   if (has_m_mapentry2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry2().data(), this->m_mapentry2().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        16, this->m_mapentry2(), target);
+        22, this->m_mapentry2(), target);
   }
 
-  // optional string m_monster1 = 17;
+  // optional string m_monster1 = 23;
   if (has_m_monster1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_monster1().data(), this->m_monster1().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        17, this->m_monster1(), target);
+        23, this->m_monster1(), target);
   }
 
-  // optional string m_monster2 = 18;
+  // optional string m_monster2 = 24;
   if (has_m_monster2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_monster2().data(), this->m_monster2().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        18, this->m_monster2(), target);
+        24, this->m_monster2(), target);
   }
 
-  // optional string m_monster3 = 19;
+  // optional string m_monster3 = 25;
   if (has_m_monster3()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_monster3().data(), this->m_monster3().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        19, this->m_monster3(), target);
+        25, this->m_monster3(), target);
   }
 
-  // optional string m_npc1pos = 20;
+  // optional string m_npc1pos = 26;
   if (has_m_npc1pos()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_npc1pos().data(), this->m_npc1pos().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        20, this->m_npc1pos(), target);
+        26, this->m_npc1pos(), target);
   }
 
-  // optional string m_npc2pos = 21;
+  // optional string m_npc2pos = 27;
   if (has_m_npc2pos()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_npc2pos().data(), this->m_npc2pos().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        21, this->m_npc2pos(), target);
+        27, this->m_npc2pos(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1071,130 +1361,174 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_team2n());
     }
 
-    // optional int32 m_killscore = 4;
+    // optional int32 m_winscore = 4;
+    if (has_m_winscore()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_winscore());
+    }
+
+    // optional int32 m_timescore = 5;
+    if (has_m_timescore()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_timescore());
+    }
+
+    // optional int32 m_killscore = 6;
     if (has_m_killscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killscore());
     }
 
-    // optional int32 m_killkeepscore = 5;
+    // optional int32 m_killkeepscore = 7;
     if (has_m_killkeepscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killkeepscore());
     }
 
-    // optional int32 m_breakkillkeepscore = 6;
+    // optional int32 m_breakkillkeepscore = 8;
     if (has_m_breakkillkeepscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_breakkillkeepscore());
     }
 
-    // optional int32 m_killmonsterscore = 7;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_killmonsterscore = 9;
     if (has_m_killmonsterscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killmonsterscore());
     }
 
-    // optional int32 m_crystalscore = 8;
+    // optional int32 m_crystalpoints = 10;
+    if (has_m_crystalpoints()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_crystalpoints());
+    }
+
+    // optional int32 m_crystalscore = 11;
     if (has_m_crystalscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_crystalscore());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_crystalreborntime = 9;
+    // optional int32 m_interceptpoints = 12;
+    if (has_m_interceptpoints()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_interceptpoints());
+    }
+
+    // optional int32 m_interceptscore = 13;
+    if (has_m_interceptscore()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_interceptscore());
+    }
+
+    // optional int32 m_crystalreborntime = 14;
     if (has_m_crystalreborntime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_crystalreborntime());
     }
 
-    // optional int32 m_match_s = 10;
-    if (has_m_match_s()) {
+    // optional string m_crystalpos = 15;
+    if (has_m_crystalpos()) {
       total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_crystalpos());
+    }
+
+    // optional int32 m_match_s = 16;
+    if (has_m_match_s()) {
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_match_s());
     }
 
-    // optional int32 m_duration_s = 11;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional int32 m_duration_s = 17;
     if (has_m_duration_s()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_duration_s());
     }
 
-    // optional int64 m_matchmapid = 12;
+    // optional int64 m_matchmapid = 18;
     if (has_m_matchmapid()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_matchmapid());
     }
 
-    // optional string m_matchmapentry = 13;
+    // optional string m_matchmapentry = 19;
     if (has_m_matchmapentry()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_matchmapentry());
     }
 
-    // optional int64 m_mapid = 14;
+    // optional int64 m_mapid = 20;
     if (has_m_mapid()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_mapid());
     }
 
-    // optional string m_mapentry1 = 15;
+    // optional string m_mapentry1 = 21;
     if (has_m_mapentry1()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_mapentry1());
     }
 
-    // optional string m_mapentry2 = 16;
+    // optional string m_mapentry2 = 22;
     if (has_m_mapentry2()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_mapentry2());
     }
 
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional string m_monster1 = 17;
+    // optional string m_monster1 = 23;
     if (has_m_monster1()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_monster1());
     }
 
-    // optional string m_monster2 = 18;
+    // optional string m_monster2 = 24;
     if (has_m_monster2()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_monster2());
     }
 
-    // optional string m_monster3 = 19;
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    // optional string m_monster3 = 25;
     if (has_m_monster3()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_monster3());
     }
 
-    // optional string m_npc1pos = 20;
+    // optional string m_npc1pos = 26;
     if (has_m_npc1pos()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_npc1pos());
     }
 
-    // optional string m_npc2pos = 21;
+    // optional string m_npc2pos = 27;
     if (has_m_npc2pos()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1237,6 +1571,12 @@ void E_GodvalleyBattle::MergeFrom(const E_GodvalleyBattle& from) {
     if (from.has_m_team2n()) {
       set_m_team2n(from.m_team2n());
     }
+    if (from.has_m_winscore()) {
+      set_m_winscore(from.m_winscore());
+    }
+    if (from.has_m_timescore()) {
+      set_m_timescore(from.m_timescore());
+    }
     if (from.has_m_killscore()) {
       set_m_killscore(from.m_killscore());
     }
@@ -1246,20 +1586,34 @@ void E_GodvalleyBattle::MergeFrom(const E_GodvalleyBattle& from) {
     if (from.has_m_breakkillkeepscore()) {
       set_m_breakkillkeepscore(from.m_breakkillkeepscore());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_killmonsterscore()) {
       set_m_killmonsterscore(from.m_killmonsterscore());
+    }
+    if (from.has_m_crystalpoints()) {
+      set_m_crystalpoints(from.m_crystalpoints());
     }
     if (from.has_m_crystalscore()) {
       set_m_crystalscore(from.m_crystalscore());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_interceptpoints()) {
+      set_m_interceptpoints(from.m_interceptpoints());
+    }
+    if (from.has_m_interceptscore()) {
+      set_m_interceptscore(from.m_interceptscore());
+    }
     if (from.has_m_crystalreborntime()) {
       set_m_crystalreborntime(from.m_crystalreborntime());
+    }
+    if (from.has_m_crystalpos()) {
+      set_m_crystalpos(from.m_crystalpos());
     }
     if (from.has_m_match_s()) {
       set_m_match_s(from.m_match_s());
     }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_m_duration_s()) {
       set_m_duration_s(from.m_duration_s());
     }
@@ -1278,14 +1632,14 @@ void E_GodvalleyBattle::MergeFrom(const E_GodvalleyBattle& from) {
     if (from.has_m_mapentry2()) {
       set_m_mapentry2(from.m_mapentry2());
     }
-  }
-  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_m_monster1()) {
       set_m_monster1(from.m_monster1());
     }
     if (from.has_m_monster2()) {
       set_m_monster2(from.m_monster2());
     }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_m_monster3()) {
       set_m_monster3(from.m_monster3());
     }
@@ -1321,12 +1675,18 @@ void E_GodvalleyBattle::Swap(E_GodvalleyBattle* other) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_team1n_, other->m_team1n_);
     std::swap(m_team2n_, other->m_team2n_);
+    std::swap(m_winscore_, other->m_winscore_);
+    std::swap(m_timescore_, other->m_timescore_);
     std::swap(m_killscore_, other->m_killscore_);
     std::swap(m_killkeepscore_, other->m_killkeepscore_);
     std::swap(m_breakkillkeepscore_, other->m_breakkillkeepscore_);
     std::swap(m_killmonsterscore_, other->m_killmonsterscore_);
+    std::swap(m_crystalpoints_, other->m_crystalpoints_);
     std::swap(m_crystalscore_, other->m_crystalscore_);
+    std::swap(m_interceptpoints_, other->m_interceptpoints_);
+    std::swap(m_interceptscore_, other->m_interceptscore_);
     std::swap(m_crystalreborntime_, other->m_crystalreborntime_);
+    std::swap(m_crystalpos_, other->m_crystalpos_);
     std::swap(m_match_s_, other->m_match_s_);
     std::swap(m_duration_s_, other->m_duration_s_);
     std::swap(m_matchmapid_, other->m_matchmapid_);
@@ -1553,6 +1913,745 @@ void Sheet_GodvalleyBattle::Swap(Sheet_GodvalleyBattle* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_GodvalleyBattle_descriptor_;
   metadata.reflection = Sheet_GodvalleyBattle_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_GodvalleyRewardsRewardDesc::kMNumFieldNumber;
+const int E_GodvalleyRewardsRewardDesc::kMIdFieldNumber;
+#endif  // !_MSC_VER
+
+E_GodvalleyRewardsRewardDesc::E_GodvalleyRewardsRewardDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_GodvalleyRewardsRewardDesc::InitAsDefaultInstance() {
+}
+
+E_GodvalleyRewardsRewardDesc::E_GodvalleyRewardsRewardDesc(const E_GodvalleyRewardsRewardDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_GodvalleyRewardsRewardDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_num_ = 0;
+  m_id_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_GodvalleyRewardsRewardDesc::~E_GodvalleyRewardsRewardDesc() {
+  SharedDtor();
+}
+
+void E_GodvalleyRewardsRewardDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_GodvalleyRewardsRewardDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_GodvalleyRewardsRewardDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_GodvalleyRewardsRewardDesc_descriptor_;
+}
+
+const E_GodvalleyRewardsRewardDesc& E_GodvalleyRewardsRewardDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Godvalley_2eproto();
+  return *default_instance_;
+}
+
+E_GodvalleyRewardsRewardDesc* E_GodvalleyRewardsRewardDesc::default_instance_ = NULL;
+
+E_GodvalleyRewardsRewardDesc* E_GodvalleyRewardsRewardDesc::New() const {
+  return new E_GodvalleyRewardsRewardDesc;
+}
+
+void E_GodvalleyRewardsRewardDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_num_ = 0;
+    m_id_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_GodvalleyRewardsRewardDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_id;
+        break;
+      }
+
+      // optional int64 m_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_GodvalleyRewardsRewardDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
+  }
+
+  // optional int64 m_id = 2;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_GodvalleyRewardsRewardDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
+  }
+
+  // optional int64 m_id = 2;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_GodvalleyRewardsRewardDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int64 m_id = 2;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->m_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_GodvalleyRewardsRewardDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_GodvalleyRewardsRewardDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_GodvalleyRewardsRewardDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_GodvalleyRewardsRewardDesc::MergeFrom(const E_GodvalleyRewardsRewardDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_GodvalleyRewardsRewardDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_GodvalleyRewardsRewardDesc::CopyFrom(const E_GodvalleyRewardsRewardDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_GodvalleyRewardsRewardDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_GodvalleyRewardsRewardDesc::Swap(E_GodvalleyRewardsRewardDesc* other) {
+  if (other != this) {
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_GodvalleyRewardsRewardDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_GodvalleyRewardsRewardDesc_descriptor_;
+  metadata.reflection = E_GodvalleyRewardsRewardDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_GodvalleyRewards::kMIdFieldNumber;
+const int E_GodvalleyRewards::kMScoreFieldNumber;
+const int E_GodvalleyRewards::kMRewardFieldNumber;
+#endif  // !_MSC_VER
+
+E_GodvalleyRewards::E_GodvalleyRewards()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_GodvalleyRewards::InitAsDefaultInstance() {
+}
+
+E_GodvalleyRewards::E_GodvalleyRewards(const E_GodvalleyRewards& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_GodvalleyRewards::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_score_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_GodvalleyRewards::~E_GodvalleyRewards() {
+  SharedDtor();
+}
+
+void E_GodvalleyRewards::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_GodvalleyRewards::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_GodvalleyRewards::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_GodvalleyRewards_descriptor_;
+}
+
+const E_GodvalleyRewards& E_GodvalleyRewards::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Godvalley_2eproto();
+  return *default_instance_;
+}
+
+E_GodvalleyRewards* E_GodvalleyRewards::default_instance_ = NULL;
+
+E_GodvalleyRewards* E_GodvalleyRewards::New() const {
+  return new E_GodvalleyRewards;
+}
+
+void E_GodvalleyRewards::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_score_ = 0;
+  }
+  m_reward_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_GodvalleyRewards::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_score;
+        break;
+      }
+
+      // optional int32 m_score = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_score:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_score_)));
+          set_has_m_score();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_reward;
+        break;
+      }
+
+      // repeated .proto_ff.E_GodvalleyRewardsRewardDesc m_reward = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_reward:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_reward()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_reward;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_GodvalleyRewards::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_score = 2;
+  if (has_m_score()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_score(), output);
+  }
+
+  // repeated .proto_ff.E_GodvalleyRewardsRewardDesc m_reward = 3;
+  for (int i = 0; i < this->m_reward_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->m_reward(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_GodvalleyRewards::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_score = 2;
+  if (has_m_score()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_score(), target);
+  }
+
+  // repeated .proto_ff.E_GodvalleyRewardsRewardDesc m_reward = 3;
+  for (int i = 0; i < this->m_reward_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->m_reward(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_GodvalleyRewards::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_score = 2;
+    if (has_m_score()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_score());
+    }
+
+  }
+  // repeated .proto_ff.E_GodvalleyRewardsRewardDesc m_reward = 3;
+  total_size += 1 * this->m_reward_size();
+  for (int i = 0; i < this->m_reward_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_reward(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_GodvalleyRewards::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_GodvalleyRewards* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_GodvalleyRewards*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_GodvalleyRewards::MergeFrom(const E_GodvalleyRewards& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_reward_.MergeFrom(from.m_reward_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_score()) {
+      set_m_score(from.m_score());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_GodvalleyRewards::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_GodvalleyRewards::CopyFrom(const E_GodvalleyRewards& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_GodvalleyRewards::IsInitialized() const {
+
+  return true;
+}
+
+void E_GodvalleyRewards::Swap(E_GodvalleyRewards* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_score_, other->m_score_);
+    m_reward_.Swap(&other->m_reward_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_GodvalleyRewards::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_GodvalleyRewards_descriptor_;
+  metadata.reflection = E_GodvalleyRewards_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_GodvalleyRewards::kEGodvalleyRewardsListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_GodvalleyRewards::Sheet_GodvalleyRewards()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_GodvalleyRewards::InitAsDefaultInstance() {
+}
+
+Sheet_GodvalleyRewards::Sheet_GodvalleyRewards(const Sheet_GodvalleyRewards& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_GodvalleyRewards::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_GodvalleyRewards::~Sheet_GodvalleyRewards() {
+  SharedDtor();
+}
+
+void Sheet_GodvalleyRewards::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_GodvalleyRewards::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_GodvalleyRewards::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_GodvalleyRewards_descriptor_;
+}
+
+const Sheet_GodvalleyRewards& Sheet_GodvalleyRewards::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Godvalley_2eproto();
+  return *default_instance_;
+}
+
+Sheet_GodvalleyRewards* Sheet_GodvalleyRewards::default_instance_ = NULL;
+
+Sheet_GodvalleyRewards* Sheet_GodvalleyRewards::New() const {
+  return new Sheet_GodvalleyRewards;
+}
+
+void Sheet_GodvalleyRewards::Clear() {
+  e_godvalleyrewards_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_GodvalleyRewards::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_GodvalleyRewards E_GodvalleyRewards_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_GodvalleyRewards_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_godvalleyrewards_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_GodvalleyRewards_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_GodvalleyRewards::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_GodvalleyRewards E_GodvalleyRewards_List = 1;
+  for (int i = 0; i < this->e_godvalleyrewards_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_godvalleyrewards_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_GodvalleyRewards::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_GodvalleyRewards E_GodvalleyRewards_List = 1;
+  for (int i = 0; i < this->e_godvalleyrewards_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_godvalleyrewards_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_GodvalleyRewards::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_GodvalleyRewards E_GodvalleyRewards_List = 1;
+  total_size += 1 * this->e_godvalleyrewards_list_size();
+  for (int i = 0; i < this->e_godvalleyrewards_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_godvalleyrewards_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_GodvalleyRewards::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_GodvalleyRewards* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_GodvalleyRewards*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_GodvalleyRewards::MergeFrom(const Sheet_GodvalleyRewards& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_godvalleyrewards_list_.MergeFrom(from.e_godvalleyrewards_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_GodvalleyRewards::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_GodvalleyRewards::CopyFrom(const Sheet_GodvalleyRewards& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_GodvalleyRewards::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_GodvalleyRewards::Swap(Sheet_GodvalleyRewards* other) {
+  if (other != this) {
+    e_godvalleyrewards_list_.Swap(&other->e_godvalleyrewards_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_GodvalleyRewards::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_GodvalleyRewards_descriptor_;
+  metadata.reflection = Sheet_GodvalleyRewards_reflection_;
   return metadata;
 }
 

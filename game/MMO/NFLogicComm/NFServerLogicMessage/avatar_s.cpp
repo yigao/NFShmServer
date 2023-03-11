@@ -388,6 +388,7 @@ E_AvatarChange_s::E_AvatarChange_s() {
 
 int E_AvatarChange_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_quality = (int32_t)0;
 	m_uplvtype = (int32_t)0;
 	m_avatarskill = (int64_t)0;
 	m_avatarcd = (int32_t)0;
@@ -414,6 +415,7 @@ int E_AvatarChange_s::ResumeInit() {
 
 void E_AvatarChange_s::write_to_pbmsg(::proto_ff::E_AvatarChange & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_uplvtype((int32_t)m_uplvtype);
 	msg.set_m_avatarskill((int64_t)m_avatarskill);
 	msg.set_m_avatarcd((int32_t)m_avatarcd);
@@ -449,6 +451,7 @@ void E_AvatarChange_s::write_to_pbmsg(::proto_ff::E_AvatarChange & msg) const {
 void E_AvatarChange_s::read_from_pbmsg(const ::proto_ff::E_AvatarChange & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_AvatarChange_s));
 	m_id = msg.m_id();
+	m_quality = msg.m_quality();
 	m_uplvtype = msg.m_uplvtype();
 	m_avatarskill = msg.m_avatarskill();
 	m_avatarcd = msg.m_avatarcd();

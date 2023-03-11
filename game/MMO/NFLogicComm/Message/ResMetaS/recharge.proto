@@ -32,8 +32,8 @@ message E_RechargeRecharge
 	optional int32 m_vipexplimit = 13[(yd_fieldoptions.field_cname) = "vip经验限制"];
 	optional int32 m_activitycount = 14[(yd_fieldoptions.field_cname) = "运营活动计数"];
 	optional int32 m_price = 15[(yd_fieldoptions.field_cname) = "售价"];
-	optional int32 m_fristpresent = 16[(yd_fieldoptions.field_cname) = "首充赠送数量"];
-	optional int32 m_presenttype = 17[(yd_fieldoptions.field_cname) = "赠送类型"];
+	optional int32 m_presentid = 16[(yd_fieldoptions.field_cname) = "首充赠送物品id"];
+	optional int32 m_fristpresent = 17[(yd_fieldoptions.field_cname) = "首充赠送数量"];
 	optional string m_icon = 18[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 60];
 	repeated E_RechargeRechargeItemDesc m_item = 19[(yd_fieldoptions.field_cname) = "充值赠送物品", (yd_fieldoptions.field_arysize) = 2];
 	repeated E_RechargeRechargeChannelDesc m_channel = 20[(yd_fieldoptions.field_cname) = "渠道", (yd_fieldoptions.field_arysize) = 4];

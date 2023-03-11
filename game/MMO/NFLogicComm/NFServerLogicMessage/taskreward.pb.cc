@@ -218,7 +218,7 @@ void protobuf_AddDesc_taskreward_2eproto() {
     "ff.E_TaskrewardTaskrewardAttrDescB\016\302\377\024\006\345"
     "\261\236\346\200\247\210\301\024\005\"j\n\032Sheet_TaskrewardTaskreward\022"
     "L\n\033E_TaskrewardTaskreward_List\030\001 \003(\0132 .p"
-    "roto_ff.E_TaskrewardTaskrewardB\005\210\301\024\274\005\"<\n"
+    "roto_ff.E_TaskrewardTaskrewardB\005\210\301\024\210\'\"<\n"
     "\024E_TaskrewardTasktype\022$\n\nm_tasktype\030\001 \001("
     "\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\"c\n\030Sheet_TaskrewardT"
     "asktype\022G\n\031E_TaskrewardTasktype_List\030\001 \003"

@@ -388,3 +388,9 @@ ${PROTOCGEN_FILE_PATH}/recharge.proto ${PROTOCGEN_FILE_PATH}/recharge_gen.makefi
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/recharge.proto ${PROTOCGEN_FILE_PATH}/recharge_gen.makefile" --dst=${RESDB_META_PATH}/
 
 
+${PROTOCGEN_FILE_PATH}/shenequip.proto ${PROTOCGEN_FILE_PATH}/shenequip_gen.makefile:${RESDB_EXCELMMO_PATH}/shenequip.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/shenequip.proto ${PROTOCGEN_FILE_PATH}/shenequip_gen.makefile" --dst=${RESDB_META_PATH}/
+
+

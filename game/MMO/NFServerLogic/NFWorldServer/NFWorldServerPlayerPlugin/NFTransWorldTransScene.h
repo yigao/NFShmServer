@@ -46,5 +46,8 @@ private:
     NFPoint3<float> m_pos;
     uint32_t m_cmd;
     int m_reqTransId;
+    uint64_t m_srcMapId;
+    uint64_t m_srcSceneId;
+    uint32_t m_transType;
 DECLARE_IDCREATE(NFTransWorldTransScene)
 };

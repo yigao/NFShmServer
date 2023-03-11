@@ -114,6 +114,7 @@ REGISTER_DESCSTORE(PeractivityWeekDesc);\
 REGISTER_DESCSTORE(DailyDailyDesc);\
 REGISTER_DESCSTORE(DailyRewardDesc);\
 REGISTER_DESCSTORE(DailyCultivateDesc);\
+REGISTER_DESCSTORE(DailySportsDesc);\
 REGISTER_DESCSTORE(BackBackDesc);\
 REGISTER_DESCSTORE(TeamTeamDesc);\
 REGISTER_DESCSTORE(BoxBoxDesc);\
@@ -164,6 +165,10 @@ REGISTER_DESCSTORE(EscortConstDesc);\
 REGISTER_DESCSTORE(GuildConstantDesc);\
 REGISTER_DESCSTORE(GuildLevelDesc);\
 REGISTER_DESCSTORE(GuildPositionDesc);\
+REGISTER_DESCSTORE(GuildSalaryDesc);\
+REGISTER_DESCSTORE(GuildDonateDesc);\
+REGISTER_DESCSTORE(GuildPacketDesc);\
+REGISTER_DESCSTORE(GuildPrestigetaskDesc);\
 REGISTER_DESCSTORE(CollectCollectDesc);\
 REGISTER_DESCSTORE(CollectAttributetpyeDesc);\
 REGISTER_DESCSTORE(CollectConstDesc);\
@@ -177,5 +182,13 @@ REGISTER_DESCSTORE(OccupationStageDesc);\
 REGISTER_DESCSTORE(OccupationAttributeDesc);\
 REGISTER_DESCSTORE(OccupationSoulDesc);\
 REGISTER_DESCSTORE(GodvalleyBattleDesc);\
+REGISTER_DESCSTORE(GodvalleyRewardsDesc);\
 REGISTER_DESCSTORE(RechargeRechargeDesc);\
+REGISTER_DESCSTORE(ShenequipEquipDesc);\
+REGISTER_DESCSTORE(ShenequipAttDesc);\
+REGISTER_DESCSTORE(ShenequipLvupDesc);\
+REGISTER_DESCSTORE(ShenequipClearDesc);\
+REGISTER_DESCSTORE(ShenequipAwakenDesc);\
+REGISTER_DESCSTORE(ShenequipStarupDesc);\
+REGISTER_DESCSTORE(ShenequipPreposeDesc);\
 

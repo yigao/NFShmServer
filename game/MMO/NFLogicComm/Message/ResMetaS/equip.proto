@@ -245,20 +245,21 @@ message E_EquipSuitAttributeDesc
 message E_EquipSuit
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "套装ID"];
-	optional string m_profession = 2[(yd_fieldoptions.field_cname) = "职业", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_suitlv = 3[(yd_fieldoptions.field_cname) = "套装等级"];
-	optional int32 m_level = 4[(yd_fieldoptions.field_cname) = "套装打造等级"];
+	optional int32 m_wearquality = 4[(yd_fieldoptions.field_cname) = "装备品阶"];
 	optional int32 m_colour = 5[(yd_fieldoptions.field_cname) = "套装打造品质"];
 	optional string m_aftername = 6[(yd_fieldoptions.field_cname) = "套装命前缀", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 m_suitevalue = 7[(yd_fieldoptions.field_cname) = "套装套件数量"];
 	repeated E_EquipSuitAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "套件激活属性", (yd_fieldoptions.field_arysize) = 3];
-	repeated string m_position = 9[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_arysize) = 10, (yd_fieldoptions.field_bufsize) = 60];
+	repeated string m_maleposition = 9[(yd_fieldoptions.field_cname) = "男部位", (yd_fieldoptions.field_arysize) = 10, (yd_fieldoptions.field_bufsize) = 60];
+	repeated string m_femaleposition = 10[(yd_fieldoptions.field_cname) = "女部位", (yd_fieldoptions.field_arysize) = 10, (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_EquipSuit
 {
-	repeated E_EquipSuit E_EquipSuit_List = 1[(yd_fieldoptions.field_arysize)=120];
+	repeated E_EquipSuit E_EquipSuit_List = 1[(yd_fieldoptions.field_arysize)=80];
 }
 
 message E_EquipBreakBreakDesc

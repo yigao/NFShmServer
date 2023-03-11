@@ -324,3 +324,8 @@ ${PROTOCGEN_FILE_PATH}/recharge.pb.h ${PROTOCGEN_FILE_PATH}/recharge.pb.cc ${PRO
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/recharge.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/recharge.proto.ds  --proto_fname=recharge.proto --out_path=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/recharge.pb.h ${PROTOCGEN_FILE_PATH}/recharge.pb.cc ${PROTOCGEN_FILE_PATH}/recharge_s.h ${PROTOCGEN_FILE_PATH}/recharge_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/shenequip.pb.h ${PROTOCGEN_FILE_PATH}/shenequip.pb.cc ${PROTOCGEN_FILE_PATH}/shenequip_s.h ${PROTOCGEN_FILE_PATH}/shenequip_s.cpp ${PROTOCGEN_FILE_PATH}/shenequip.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/shenequip.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/shenequip.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/shenequip.proto.ds  --proto_fname=shenequip.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/shenequip.pb.h ${PROTOCGEN_FILE_PATH}/shenequip.pb.cc ${PROTOCGEN_FILE_PATH}/shenequip_s.h ${PROTOCGEN_FILE_PATH}/shenequip_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/

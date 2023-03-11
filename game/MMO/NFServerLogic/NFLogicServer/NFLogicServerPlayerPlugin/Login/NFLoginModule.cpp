@@ -28,6 +28,8 @@
 #include "Player/NFPlayer.h"
 #include "Trans/NFTransTransScene.h"
 #include "NFLogicCommon/NFSceneDefine.h"
+#include "DescStoreEx/NFMapDescStoreEx.h"
+#include "DescStore/AreaAreaDesc.h"
 
 
 NFLoginModule::NFLoginModule(NFIPluginManager *p) : NFIDynamicModule(p)
@@ -42,6 +44,8 @@ NFLoginModule::~NFLoginModule()
 
 bool NFLoginModule::Awake()
 {
+    RegisterClientMessage(NF_ST_LOGIC_SERVER, proto_ff::CLIENT_SCENE_TRANS_REQ);
+
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST_REQ);
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ);
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::WORLD_TO_LOGIC_LOGIN_REQ);
@@ -83,13 +87,18 @@ int NFLoginModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, 
 
     switch (msgId)
     {
+        case proto_ff::CLIENT_SCENE_TRANS_REQ:
+        {
+            OnHandleTransSceneReq(msgId, packet, param1, param2);
+            break;
+        }
         default:
         {
             break;
         }
     }
 
-    return true;
+    return 0;
 }
 
 int NFLoginModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
@@ -248,6 +257,22 @@ int NFLoginModule::OnHandleLeaveGameReq(uint32_t msgId, NFDataPackage &packet, u
     uint32_t type = xMsg.type();
 
     NFPlayerMgr::Instance(m_pObjPluginManager)->LogoutGame(uid, roleId, type, reqTransId);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFLoginModule::OnHandleTransSceneReq(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::TransSceneReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+
+    int32_t transType = req.type(); //传送类型
+    uint64_t transId = req.id();	//传送ID，针对路径点传送和区域传送
+    uint64_t dstMapId = req.dst_mapid(); //目标地图ID
+
+    NFPlayerMgr::Instance(m_pObjPluginManager)->TransScene(uid, roleId, dstMapId, transType, transId);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

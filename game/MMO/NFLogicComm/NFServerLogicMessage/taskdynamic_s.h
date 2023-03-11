@@ -100,7 +100,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskdynamicTasktext_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskdynamicTasktext_s, 20> E_TaskdynamicTasktext_List;
+		NFShmVector<struct E_TaskdynamicTasktext_s, 60> E_TaskdynamicTasktext_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTasktext & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTasktext & msg);

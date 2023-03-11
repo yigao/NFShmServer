@@ -12,5 +12,5 @@ message E_PointPoint
 
 message Sheet_PointPoint
 {
-	repeated E_PointPoint E_PointPoint_List = 1[(yd_fieldoptions.field_arysize)=200];
+	repeated E_PointPoint E_PointPoint_List = 1[(yd_fieldoptions.field_arysize)=400];
 }

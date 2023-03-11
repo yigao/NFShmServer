@@ -1116,8 +1116,9 @@ E_EquipSuit_s::E_EquipSuit_s() {
 
 int E_EquipSuit_s::CreateInit() {
 	m_id = (int64_t)0;
+	m_type = (int32_t)0;
 	m_suitlv = (int32_t)0;
-	m_level = (int32_t)0;
+	m_wearquality = (int32_t)0;
 	m_colour = (int32_t)0;
 	m_suitevalue = (int32_t)0;
 	return 0;
@@ -1129,9 +1130,9 @@ int E_EquipSuit_s::ResumeInit() {
 
 void E_EquipSuit_s::write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_profession((const char*)m_profession.data());
+	msg.set_m_type((int32_t)m_type);
 	msg.set_m_suitlv((int32_t)m_suitlv);
-	msg.set_m_level((int32_t)m_level);
+	msg.set_m_wearquality((int32_t)m_wearquality);
 	msg.set_m_colour((int32_t)m_colour);
 	msg.set_m_aftername((const char*)m_aftername.data());
 	msg.set_m_suitevalue((int32_t)m_suitevalue);
@@ -1139,17 +1140,20 @@ void E_EquipSuit_s::write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const {
 		::proto_ff::E_EquipSuitAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_position.size(); ++i) {
-		msg.add_m_position((const char*)m_position[i].data());
+	for(int32_t i = 0; i < (int32_t)m_maleposition.size(); ++i) {
+		msg.add_m_maleposition((const char*)m_maleposition[i].data());
+	}
+	for(int32_t i = 0; i < (int32_t)m_femaleposition.size(); ++i) {
+		msg.add_m_femaleposition((const char*)m_femaleposition[i].data());
 	}
 }
 
 void E_EquipSuit_s::read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_EquipSuit_s));
 	m_id = msg.m_id();
-	m_profession = msg.m_profession();
+	m_type = msg.m_type();
 	m_suitlv = msg.m_suitlv();
-	m_level = msg.m_level();
+	m_wearquality = msg.m_wearquality();
 	m_colour = msg.m_colour();
 	m_aftername = msg.m_aftername();
 	m_suitevalue = msg.m_suitevalue();
@@ -1158,9 +1162,13 @@ void E_EquipSuit_s::read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg) {
 		const ::proto_ff::E_EquipSuitAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_position.resize((int)msg.m_position_size() > (int)m_position.max_size() ? m_position.max_size() : msg.m_position_size());
-	for(int32_t i = 0; i < (int32_t)m_position.size(); ++i) {
-		m_position[i] = msg.m_position(i);
+	m_maleposition.resize((int)msg.m_maleposition_size() > (int)m_maleposition.max_size() ? m_maleposition.max_size() : msg.m_maleposition_size());
+	for(int32_t i = 0; i < (int32_t)m_maleposition.size(); ++i) {
+		m_maleposition[i] = msg.m_maleposition(i);
+	}
+	m_femaleposition.resize((int)msg.m_femaleposition_size() > (int)m_femaleposition.max_size() ? m_femaleposition.max_size() : msg.m_femaleposition_size());
+	for(int32_t i = 0; i < (int32_t)m_femaleposition.size(); ++i) {
+		m_femaleposition[i] = msg.m_femaleposition(i);
 	}
 }
 

@@ -664,16 +664,17 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_EquipSuitAttributeDesc));
   E_EquipSuit_descriptor_ = file->message_type(30);
-  static const int E_EquipSuit_offsets_[9] = {
+  static const int E_EquipSuit_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_profession_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_suitlv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_wearquality_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_colour_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_aftername_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_suitevalue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_attribute_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_position_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_maleposition_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EquipSuit, m_femaleposition_),
   };
   E_EquipSuit_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1060,30 +1061,32 @@ void protobuf_AddDesc_equip_2eproto() {
     "Clear_List\030\001 \003(\0132\026.proto_ff.E_EquipClear"
     "B\004\210\301\024\024\"W\n\030E_EquipSuitAttributeDesc\022\032\n\014m_"
     "sctivation\030\001 \001(\005B\004\302\377\024\000\022\037\n\007m_value\030\002 \001(\tB"
-    "\016\302\377\024\006\346\225\260\345\200\274\220\301\024<\"\237\003\n\013E_EquipSuit\022\032\n\004m_id\030"
-    "\001 \001(\003B\014\302\377\024\010\345\245\227\350\243\205ID\022$\n\014m_profession\030\002 \001("
-    "\tB\016\302\377\024\006\350\201\214\344\270\232\220\301\024<\022\"\n\010m_suitlv\030\003 \001(\005B\020\302\377\024"
-    "\014\345\245\227\350\243\205\347\255\211\347\272\247\022\'\n\007m_level\030\004 \001(\005B\026\302\377\024\022\345\245\227\350"
-    "\243\205\346\211\223\351\200\240\347\255\211\347\272\247\022(\n\010m_colour\030\005 \001(\005B\026\302\377\024\022\345\245"
-    "\227\350\243\205\346\211\223\351\200\240\345\223\201\350\264\250\022,\n\013m_aftername\030\006 \001(\tB\027\302"
-    "\377\024\017\345\245\227\350\243\205\345\221\275\345\211\215\347\274\200\220\301\024<\022,\n\014m_suitevalue\030\007"
-    " \001(\005B\026\302\377\024\022\345\245\227\350\243\205\345\245\227\344\273\266\346\225\260\351\207\217\022S\n\013m_attrib"
-    "ute\030\010 \003(\0132\".proto_ff.E_EquipSuitAttribut"
-    "eDescB\032\302\377\024\022\345\245\227\344\273\266\346\277\200\346\264\273\345\261\236\346\200\247\210\301\024\003\022&\n\nm_p"
-    "osition\030\t \003(\tB\022\302\377\024\006\351\203\250\344\275\215\210\301\024\n\220\301\024<\"H\n\017She"
-    "et_EquipSuit\0225\n\020E_EquipSuit_List\030\001 \003(\0132\025"
-    ".proto_ff.E_EquipSuitB\004\210\301\024x\"Z\n\025E_EquipBr"
-    "eakBreakDesc\022 \n\006m_item\030\001 \001(\005B\020\302\377\024\014\346\266\210\350\200\227"
-    "\351\201\223\345\205\267\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\""
-    "\231\002\n\014E_EquipBreak\022\024\n\004m_lv\030\001 \001(\005B\006\302\377\024\002id\022\032"
-    "\n\006m_step\030\002 \001(\005B\n\302\377\024\006\351\230\266\346\225\260\022,\n\016m_position"
-    "type\030\003 \001(\tB\024\302\377\024\014\351\203\250\344\275\215\347\261\273\345\236\213\220\301\024<\0220\n\007m_ba"
-    "sic\030\004 \001(\005B\037\302\377\024\033\346\217\220\345\215\207\345\237\272\347\241\200\345\261\236\346\200\247\344\270\207\345\210\206\346"
-    "\257\224\022/\n\006m_star\030\005 \001(\005B\037\302\377\024\033\346\217\220\345\215\207\346\230\237\347\272\247\345\261\236\346"
-    "\200\247\344\270\207\345\210\206\346\257\224\022F\n\007m_break\030\006 \003(\0132\037.proto_ff."
-    "E_EquipBreakBreakDescB\024\302\377\024\014\347\252\201\347\240\264\346\266\210\350\200\227\210"
-    "\301\024\002\"K\n\020Sheet_EquipBreak\0227\n\021E_EquipBreak_"
-    "List\030\001 \003(\0132\026.proto_ff.E_EquipBreakB\004\210\301\024<", 6600);
+    "\016\302\377\024\006\346\225\260\345\200\274\220\301\024<\"\315\003\n\013E_EquipSuit\022\032\n\004m_id\030"
+    "\001 \001(\003B\014\302\377\024\010\345\245\227\350\243\205ID\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024"
+    "\006\347\261\273\345\236\213\022\"\n\010m_suitlv\030\003 \001(\005B\020\302\377\024\014\345\245\227\350\243\205\347\255\211"
+    "\347\272\247\022\'\n\rm_wearquality\030\004 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\345\223"
+    "\201\351\230\266\022(\n\010m_colour\030\005 \001(\005B\026\302\377\024\022\345\245\227\350\243\205\346\211\223\351\200\240"
+    "\345\223\201\350\264\250\022,\n\013m_aftername\030\006 \001(\tB\027\302\377\024\017\345\245\227\350\243\205\345"
+    "\221\275\345\211\215\347\274\200\220\301\024<\022,\n\014m_suitevalue\030\007 \001(\005B\026\302\377\024\022"
+    "\345\245\227\350\243\205\345\245\227\344\273\266\346\225\260\351\207\217\022S\n\013m_attribute\030\010 \003(\0132"
+    "\".proto_ff.E_EquipSuitAttributeDescB\032\302\377\024"
+    "\022\345\245\227\344\273\266\346\277\200\346\264\273\345\261\236\346\200\247\210\301\024\003\022-\n\016m_malepositio"
+    "n\030\t \003(\tB\025\302\377\024\t\347\224\267\351\203\250\344\275\215\210\301\024\n\220\301\024<\022/\n\020m_fema"
+    "leposition\030\n \003(\tB\025\302\377\024\t\345\245\263\351\203\250\344\275\215\210\301\024\n\220\301\024<\""
+    "H\n\017Sheet_EquipSuit\0225\n\020E_EquipSuit_List\030\001"
+    " \003(\0132\025.proto_ff.E_EquipSuitB\004\210\301\024P\"Z\n\025E_E"
+    "quipBreakBreakDesc\022 \n\006m_item\030\001 \001(\005B\020\302\377\024\014"
+    "\346\266\210\350\200\227\351\201\223\345\205\267\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346"
+    "\225\260\351\207\217\"\231\002\n\014E_EquipBreak\022\024\n\004m_lv\030\001 \001(\005B\006\302\377"
+    "\024\002id\022\032\n\006m_step\030\002 \001(\005B\n\302\377\024\006\351\230\266\346\225\260\022,\n\016m_po"
+    "sitiontype\030\003 \001(\tB\024\302\377\024\014\351\203\250\344\275\215\347\261\273\345\236\213\220\301\024<\0220"
+    "\n\007m_basic\030\004 \001(\005B\037\302\377\024\033\346\217\220\345\215\207\345\237\272\347\241\200\345\261\236\346\200\247\344"
+    "\270\207\345\210\206\346\257\224\022/\n\006m_star\030\005 \001(\005B\037\302\377\024\033\346\217\220\345\215\207\346\230\237\347"
+    "\272\247\345\261\236\346\200\247\344\270\207\345\210\206\346\257\224\022F\n\007m_break\030\006 \003(\0132\037.pro"
+    "to_ff.E_EquipBreakBreakDescB\024\302\377\024\014\347\252\201\347\240\264\346"
+    "\266\210\350\200\227\210\301\024\002\"K\n\020Sheet_EquipBreak\0227\n\021E_Equip"
+    "Break_List\030\001 \003(\0132\026.proto_ff.E_EquipBreak"
+    "B\004\210\301\024<", 6646);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "equip.proto", &protobuf_RegisterTypes);
   E_EquipEquip::default_instance_ = new E_EquipEquip();
@@ -11027,14 +11030,15 @@ void E_EquipSuitAttributeDesc::Swap(E_EquipSuitAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_EquipSuit::kMIdFieldNumber;
-const int E_EquipSuit::kMProfessionFieldNumber;
+const int E_EquipSuit::kMTypeFieldNumber;
 const int E_EquipSuit::kMSuitlvFieldNumber;
-const int E_EquipSuit::kMLevelFieldNumber;
+const int E_EquipSuit::kMWearqualityFieldNumber;
 const int E_EquipSuit::kMColourFieldNumber;
 const int E_EquipSuit::kMAfternameFieldNumber;
 const int E_EquipSuit::kMSuitevalueFieldNumber;
 const int E_EquipSuit::kMAttributeFieldNumber;
-const int E_EquipSuit::kMPositionFieldNumber;
+const int E_EquipSuit::kMMalepositionFieldNumber;
+const int E_EquipSuit::kMFemalepositionFieldNumber;
 #endif  // !_MSC_VER
 
 E_EquipSuit::E_EquipSuit()
@@ -11054,9 +11058,9 @@ E_EquipSuit::E_EquipSuit(const E_EquipSuit& from)
 void E_EquipSuit::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = GOOGLE_LONGLONG(0);
-  m_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_type_ = 0;
   m_suitlv_ = 0;
-  m_level_ = 0;
+  m_wearquality_ = 0;
   m_colour_ = 0;
   m_aftername_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_suitevalue_ = 0;
@@ -11068,9 +11072,6 @@ E_EquipSuit::~E_EquipSuit() {
 }
 
 void E_EquipSuit::SharedDtor() {
-  if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_profession_;
-  }
   if (m_aftername_ != &::google::protobuf::internal::kEmptyString) {
     delete m_aftername_;
   }
@@ -11102,13 +11103,9 @@ E_EquipSuit* E_EquipSuit::New() const {
 void E_EquipSuit::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = GOOGLE_LONGLONG(0);
-    if (has_m_profession()) {
-      if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
-        m_profession_->clear();
-      }
-    }
+    m_type_ = 0;
     m_suitlv_ = 0;
-    m_level_ = 0;
+    m_wearquality_ = 0;
     m_colour_ = 0;
     if (has_m_aftername()) {
       if (m_aftername_ != &::google::protobuf::internal::kEmptyString) {
@@ -11118,7 +11115,8 @@ void E_EquipSuit::Clear() {
     m_suitevalue_ = 0;
   }
   m_attribute_.Clear();
-  m_position_.Clear();
+  m_maleposition_.Clear();
+  m_femaleposition_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -11140,20 +11138,19 @@ bool E_EquipSuit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_profession;
+        if (input->ExpectTag(16)) goto parse_m_type;
         break;
       }
 
-      // optional string m_profession = 2;
+      // optional int32 m_type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_profession:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_m_profession()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->m_profession().data(), this->m_profession().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
         } else {
           goto handle_uninterpreted;
         }
@@ -11173,19 +11170,19 @@ bool E_EquipSuit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_level;
+        if (input->ExpectTag(32)) goto parse_m_wearquality;
         break;
       }
 
-      // optional int32 m_level = 4;
+      // optional int32 m_wearquality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_level:
+         parse_m_wearquality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_level_)));
-          set_has_m_level();
+                 input, &m_wearquality_)));
+          set_has_m_wearquality();
         } else {
           goto handle_uninterpreted;
         }
@@ -11253,25 +11250,44 @@ bool E_EquipSuit::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(66)) goto parse_m_attribute;
-        if (input->ExpectTag(74)) goto parse_m_position;
+        if (input->ExpectTag(74)) goto parse_m_maleposition;
         break;
       }
 
-      // repeated string m_position = 9;
+      // repeated string m_maleposition = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_position:
+         parse_m_maleposition:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_m_position()));
+                input, this->add_m_maleposition()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->m_position(this->m_position_size() - 1).data(),
-            this->m_position(this->m_position_size() - 1).length(),
+            this->m_maleposition(this->m_maleposition_size() - 1).data(),
+            this->m_maleposition(this->m_maleposition_size() - 1).length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_position;
+        if (input->ExpectTag(74)) goto parse_m_maleposition;
+        if (input->ExpectTag(82)) goto parse_m_femaleposition;
+        break;
+      }
+
+      // repeated string m_femaleposition = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_femaleposition:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_m_femaleposition()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_femaleposition(this->m_femaleposition_size() - 1).data(),
+            this->m_femaleposition(this->m_femaleposition_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(82)) goto parse_m_femaleposition;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -11299,13 +11315,9 @@ void E_EquipSuit::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional string m_profession = 2;
-  if (has_m_profession()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_profession().data(), this->m_profession().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->m_profession(), output);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
   // optional int32 m_suitlv = 3;
@@ -11313,9 +11325,9 @@ void E_EquipSuit::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_suitlv(), output);
   }
 
-  // optional int32 m_level = 4;
-  if (has_m_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_level(), output);
+  // optional int32 m_wearquality = 4;
+  if (has_m_wearquality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_wearquality(), output);
   }
 
   // optional int32 m_colour = 5;
@@ -11343,13 +11355,22 @@ void E_EquipSuit::SerializeWithCachedSizes(
       8, this->m_attribute(i), output);
   }
 
-  // repeated string m_position = 9;
-  for (int i = 0; i < this->m_position_size(); i++) {
+  // repeated string m_maleposition = 9;
+  for (int i = 0; i < this->m_maleposition_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-    this->m_position(i).data(), this->m_position(i).length(),
+    this->m_maleposition(i).data(), this->m_maleposition(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->m_position(i), output);
+      9, this->m_maleposition(i), output);
+  }
+
+  // repeated string m_femaleposition = 10;
+  for (int i = 0; i < this->m_femaleposition_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->m_femaleposition(i).data(), this->m_femaleposition(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      10, this->m_femaleposition(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -11365,14 +11386,9 @@ void E_EquipSuit::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional string m_profession = 2;
-  if (has_m_profession()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_profession().data(), this->m_profession().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->m_profession(), target);
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
   // optional int32 m_suitlv = 3;
@@ -11380,9 +11396,9 @@ void E_EquipSuit::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_suitlv(), target);
   }
 
-  // optional int32 m_level = 4;
-  if (has_m_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_level(), target);
+  // optional int32 m_wearquality = 4;
+  if (has_m_wearquality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_wearquality(), target);
   }
 
   // optional int32 m_colour = 5;
@@ -11412,13 +11428,22 @@ void E_EquipSuit::SerializeWithCachedSizes(
         8, this->m_attribute(i), target);
   }
 
-  // repeated string m_position = 9;
-  for (int i = 0; i < this->m_position_size(); i++) {
+  // repeated string m_maleposition = 9;
+  for (int i = 0; i < this->m_maleposition_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->m_position(i).data(), this->m_position(i).length(),
+      this->m_maleposition(i).data(), this->m_maleposition(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(9, this->m_position(i), target);
+      WriteStringToArray(9, this->m_maleposition(i), target);
+  }
+
+  // repeated string m_femaleposition = 10;
+  for (int i = 0; i < this->m_femaleposition_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_femaleposition(i).data(), this->m_femaleposition(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(10, this->m_femaleposition(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -11439,11 +11464,11 @@ int E_EquipSuit::ByteSize() const {
           this->m_id());
     }
 
-    // optional string m_profession = 2;
-    if (has_m_profession()) {
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->m_profession());
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
     }
 
     // optional int32 m_suitlv = 3;
@@ -11453,11 +11478,11 @@ int E_EquipSuit::ByteSize() const {
           this->m_suitlv());
     }
 
-    // optional int32 m_level = 4;
-    if (has_m_level()) {
+    // optional int32 m_wearquality = 4;
+    if (has_m_wearquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_level());
+          this->m_wearquality());
     }
 
     // optional int32 m_colour = 5;
@@ -11490,11 +11515,18 @@ int E_EquipSuit::ByteSize() const {
         this->m_attribute(i));
   }
 
-  // repeated string m_position = 9;
-  total_size += 1 * this->m_position_size();
-  for (int i = 0; i < this->m_position_size(); i++) {
+  // repeated string m_maleposition = 9;
+  total_size += 1 * this->m_maleposition_size();
+  for (int i = 0; i < this->m_maleposition_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->m_position(i));
+      this->m_maleposition(i));
+  }
+
+  // repeated string m_femaleposition = 10;
+  total_size += 1 * this->m_femaleposition_size();
+  for (int i = 0; i < this->m_femaleposition_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->m_femaleposition(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -11523,19 +11555,20 @@ void E_EquipSuit::MergeFrom(const ::google::protobuf::Message& from) {
 void E_EquipSuit::MergeFrom(const E_EquipSuit& from) {
   GOOGLE_CHECK_NE(&from, this);
   m_attribute_.MergeFrom(from.m_attribute_);
-  m_position_.MergeFrom(from.m_position_);
+  m_maleposition_.MergeFrom(from.m_maleposition_);
+  m_femaleposition_.MergeFrom(from.m_femaleposition_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
     }
-    if (from.has_m_profession()) {
-      set_m_profession(from.m_profession());
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
     }
     if (from.has_m_suitlv()) {
       set_m_suitlv(from.m_suitlv());
     }
-    if (from.has_m_level()) {
-      set_m_level(from.m_level());
+    if (from.has_m_wearquality()) {
+      set_m_wearquality(from.m_wearquality());
     }
     if (from.has_m_colour()) {
       set_m_colour(from.m_colour());
@@ -11570,14 +11603,15 @@ bool E_EquipSuit::IsInitialized() const {
 void E_EquipSuit::Swap(E_EquipSuit* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
-    std::swap(m_profession_, other->m_profession_);
+    std::swap(m_type_, other->m_type_);
     std::swap(m_suitlv_, other->m_suitlv_);
-    std::swap(m_level_, other->m_level_);
+    std::swap(m_wearquality_, other->m_wearquality_);
     std::swap(m_colour_, other->m_colour_);
     std::swap(m_aftername_, other->m_aftername_);
     std::swap(m_suitevalue_, other->m_suitevalue_);
     m_attribute_.Swap(&other->m_attribute_);
-    m_position_.Swap(&other->m_position_);
+    m_maleposition_.Swap(&other->m_maleposition_);
+    m_femaleposition_.Swap(&other->m_femaleposition_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

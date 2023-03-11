@@ -72,6 +72,8 @@ bool NFCWorldPlayerModule::Awake()
     ///////////logic msg//////////////////////////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ);
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ);
+    RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_GET_MAP_INFO_REQ);
+
     //////////game msg///////////////////////////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::GAME_TO_WORLD_REGISTER_MAP_REQ);
     return true;
@@ -165,6 +167,11 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
         case proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ:
         {
             OnHandleLeaveSceneReq(msgId, packet, param1, param2);
+            break;
+        }
+        case proto_ff::LOGIC_TO_WORLD_GET_MAP_INFO_REQ:
+        {
+            OnHandleWorldGetMapInfoReq(msgId, packet, param1, param2);
             break;
         }
         default:
@@ -340,6 +347,41 @@ int NFCWorldPlayerModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage& p
         pTrans->SetFinished(iRetCode);
     }
 
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnHandleWorldGetMapInfoReq(uint32_t msgId, NFDataPackage& packet, uint64_t reqTransId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::LogicToWorldGetMapInfoReq xData;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
+
+    uint64_t roleId = xData.role_id();
+    uint64_t srcMapId = xData.src_map_id();
+    uint64_t dstMapId = xData.dst_map_id();
+
+    uint32_t srcGameId = NFWorldSceneMgr::Instance(m_pObjPluginManager)->GetStaticMapGameId(srcMapId);
+    uint32_t dstGameId = NFWorldSceneMgr::Instance(m_pObjPluginManager)->GetStaticMapGameId(dstMapId);
+
+    proto_ff::LogicToWorldGetMapInfoRsp rspMsg;
+    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(roleId);
+    if (pPlayer)
+    {
+        rspMsg.set_ret_code(proto_ff::RET_SUCCESS);
+        rspMsg.set_cur_game_id(pPlayer->GetGameId());
+    }
+    else {
+        rspMsg.set_ret_code(proto_ff::RET_FAIL);
+    }
+
+    rspMsg.set_role_id(roleId);
+    rspMsg.set_src_map_id(srcMapId);
+    rspMsg.set_src_game_id(srcGameId);
+    rspMsg.set_dst_map_id(dstMapId);
+    rspMsg.set_dst_game_id(dstGameId);
+
+    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_GET_MAP_INFO_RSP, rspMsg, 0, reqTransId);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

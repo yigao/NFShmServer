@@ -1583,7 +1583,7 @@ int NFCreature::LeaveScene()
 
     //场景为空直接返回
     if (!pScene)
-        return -1;
+        return 0;
 
     int iRet = pScene->LeaveScene(this);
     if (iRet != proto_ff::RET_SUCCESS)

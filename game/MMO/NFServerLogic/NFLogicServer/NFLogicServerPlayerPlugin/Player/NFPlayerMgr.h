@@ -146,6 +146,7 @@ public:
 public:
     int LoginGame(uint64_t roleId, const CharLoginInfo& loginInfo);
     int LogoutGame(uint64_t uid, uint64_t roleId, uint32_t type, uint32_t reqTransId);
+    int TransScene(uint64_t uid, uint64_t roleId, uint64_t mapId, uint32_t transType, uint64_t dstId);
 public:
     /**
      * @brief 继承自NFTickByRunIndexOP， 用来平衡处理每一帧应该处理的玩家数

@@ -16,5 +16,5 @@ message E_LinkLink
 
 message Sheet_LinkLink
 {
-	repeated E_LinkLink E_LinkLink_List = 1[(yd_fieldoptions.field_arysize)=140];
+	repeated E_LinkLink E_LinkLink_List = 1[(yd_fieldoptions.field_arysize)=160];
 }

@@ -80,6 +80,7 @@ int E_BossBoss_s::CreateInit() {
 	m_duplicateid = (int32_t)0;
 	m_peacemask = (int32_t)0;
 	m_pointid = (int32_t)0;
+	m_flashnum = (int32_t)0;
 	m_group_type = (int32_t)0;
 	m_flashtime = (int32_t)0;
 	m_retrievegiftid = (int32_t)0;
@@ -101,6 +102,7 @@ void E_BossBoss_s::write_to_pbmsg(::proto_ff::E_BossBoss & msg) const {
 	msg.set_m_duplicateid((int32_t)m_duplicateid);
 	msg.set_m_peacemask((int32_t)m_peacemask);
 	msg.set_m_pointid((int32_t)m_pointid);
+	msg.set_m_flashnum((int32_t)m_flashnum);
 	msg.set_m_group_type((int32_t)m_group_type);
 	msg.set_m_flashtime((int32_t)m_flashtime);
 	msg.set_m_retrievegiftid((int32_t)m_retrievegiftid);
@@ -118,6 +120,7 @@ void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
 	m_duplicateid = msg.m_duplicateid();
 	m_peacemask = msg.m_peacemask();
 	m_pointid = msg.m_pointid();
+	m_flashnum = msg.m_flashnum();
 	m_group_type = msg.m_group_type();
 	m_flashtime = msg.m_flashtime();
 	m_retrievegiftid = msg.m_retrievegiftid();
@@ -306,6 +309,7 @@ int E_BossLayer_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_bosstype = (int32_t)0;
 	m_order = (int32_t)0;
+	m_bosstypearg = (int32_t)0;
 	m_mapid = (int32_t)0;
 	return 0;
 }
@@ -318,7 +322,7 @@ void E_BossLayer_s::write_to_pbmsg(::proto_ff::E_BossLayer & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_bosstype((int32_t)m_bosstype);
 	msg.set_m_order((int32_t)m_order);
-	msg.set_m_name((const char*)m_name.data());
+	msg.set_m_bosstypearg((int32_t)m_bosstypearg);
 	msg.set_m_entercondition((const char*)m_entercondition.data());
 	msg.set_m_unlockcondition((const char*)m_unlockcondition.data());
 	msg.set_m_mapid((int32_t)m_mapid);
@@ -329,7 +333,7 @@ void E_BossLayer_s::read_from_pbmsg(const ::proto_ff::E_BossLayer & msg) {
 	m_id = msg.m_id();
 	m_bosstype = msg.m_bosstype();
 	m_order = msg.m_order();
-	m_name = msg.m_name();
+	m_bosstypearg = msg.m_bosstypearg();
 	m_entercondition = msg.m_entercondition();
 	m_unlockcondition = msg.m_unlockcondition();
 	m_mapid = msg.m_mapid();

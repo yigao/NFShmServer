@@ -40,6 +40,16 @@ class E_GuildLevel;
 class Sheet_GuildLevel;
 class E_GuildPosition;
 class Sheet_GuildPosition;
+class E_GuildSalaryRewardDesc;
+class E_GuildSalary;
+class Sheet_GuildSalary;
+class E_GuildDonateRewardDesc;
+class E_GuildDonate;
+class Sheet_GuildDonate;
+class E_GuildPacket;
+class Sheet_GuildPacket;
+class E_GuildPrestigetask;
+class Sheet_GuildPrestigetask;
 
 // ===================================================================
 
@@ -167,6 +177,90 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_autominbp() const;
   inline void set_m_autominbp(::google::protobuf::int32 value);
 
+  // optional int32 m_donatetimes = 11;
+  inline bool has_m_donatetimes() const;
+  inline void clear_m_donatetimes();
+  static const int kMDonatetimesFieldNumber = 11;
+  inline ::google::protobuf::int32 m_donatetimes() const;
+  inline void set_m_donatetimes(::google::protobuf::int32 value);
+
+  // optional int32 m_packetmaxd = 12;
+  inline bool has_m_packetmaxd() const;
+  inline void clear_m_packetmaxd();
+  static const int kMPacketmaxdFieldNumber = 12;
+  inline ::google::protobuf::int32 m_packetmaxd() const;
+  inline void set_m_packetmaxd(::google::protobuf::int32 value);
+
+  // optional int32 m_packetmaxbd = 13;
+  inline bool has_m_packetmaxbd() const;
+  inline void clear_m_packetmaxbd();
+  static const int kMPacketmaxbdFieldNumber = 13;
+  inline ::google::protobuf::int32 m_packetmaxbd() const;
+  inline void set_m_packetmaxbd(::google::protobuf::int32 value);
+
+  // optional int32 m_packetmaxsend = 14;
+  inline bool has_m_packetmaxsend() const;
+  inline void clear_m_packetmaxsend();
+  static const int kMPacketmaxsendFieldNumber = 14;
+  inline ::google::protobuf::int32 m_packetmaxsend() const;
+  inline void set_m_packetmaxsend(::google::protobuf::int32 value);
+
+  // optional int32 m_packetvip = 15;
+  inline bool has_m_packetvip() const;
+  inline void clear_m_packetvip();
+  static const int kMPacketvipFieldNumber = 15;
+  inline ::google::protobuf::int32 m_packetvip() const;
+  inline void set_m_packetvip(::google::protobuf::int32 value);
+
+  // optional int32 m_packetadd = 16;
+  inline bool has_m_packetadd() const;
+  inline void clear_m_packetadd();
+  static const int kMPacketaddFieldNumber = 16;
+  inline ::google::protobuf::int32 m_packetadd() const;
+  inline void set_m_packetadd(::google::protobuf::int32 value);
+
+  // optional int32 m_prestigetasonekeyvip = 17;
+  inline bool has_m_prestigetasonekeyvip() const;
+  inline void clear_m_prestigetasonekeyvip();
+  static const int kMPrestigetasonekeyvipFieldNumber = 17;
+  inline ::google::protobuf::int32 m_prestigetasonekeyvip() const;
+  inline void set_m_prestigetasonekeyvip(::google::protobuf::int32 value);
+
+  // optional int32 m_prestigetasonekeylv = 18;
+  inline bool has_m_prestigetasonekeylv() const;
+  inline void clear_m_prestigetasonekeylv();
+  static const int kMPrestigetasonekeylvFieldNumber = 18;
+  inline ::google::protobuf::int32 m_prestigetasonekeylv() const;
+  inline void set_m_prestigetasonekeylv(::google::protobuf::int32 value);
+
+  // optional int32 m_prestigetaskprivage = 19;
+  inline bool has_m_prestigetaskprivage() const;
+  inline void clear_m_prestigetaskprivage();
+  static const int kMPrestigetaskprivageFieldNumber = 19;
+  inline ::google::protobuf::int32 m_prestigetaskprivage() const;
+  inline void set_m_prestigetaskprivage(::google::protobuf::int32 value);
+
+  // optional int32 m_prestigetaskflash = 20;
+  inline bool has_m_prestigetaskflash() const;
+  inline void clear_m_prestigetaskflash();
+  static const int kMPrestigetaskflashFieldNumber = 20;
+  inline ::google::protobuf::int32 m_prestigetaskflash() const;
+  inline void set_m_prestigetaskflash(::google::protobuf::int32 value);
+
+  // optional int32 m_prestigetaskflashprice = 21;
+  inline bool has_m_prestigetaskflashprice() const;
+  inline void clear_m_prestigetaskflashprice();
+  static const int kMPrestigetaskflashpriceFieldNumber = 21;
+  inline ::google::protobuf::int32 m_prestigetaskflashprice() const;
+  inline void set_m_prestigetaskflashprice(::google::protobuf::int32 value);
+
+  // optional int32 m_prestigetasktimes = 22;
+  inline bool has_m_prestigetasktimes() const;
+  inline void clear_m_prestigetasktimes();
+  static const int kMPrestigetasktimesFieldNumber = 22;
+  inline ::google::protobuf::int32 m_prestigetasktimes() const;
+  inline void set_m_prestigetasktimes(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_GuildConstant)
  private:
   inline void set_has_m_constantid();
@@ -189,6 +283,30 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline void clear_has_m_autominlv();
   inline void set_has_m_autominbp();
   inline void clear_has_m_autominbp();
+  inline void set_has_m_donatetimes();
+  inline void clear_has_m_donatetimes();
+  inline void set_has_m_packetmaxd();
+  inline void clear_has_m_packetmaxd();
+  inline void set_has_m_packetmaxbd();
+  inline void clear_has_m_packetmaxbd();
+  inline void set_has_m_packetmaxsend();
+  inline void clear_has_m_packetmaxsend();
+  inline void set_has_m_packetvip();
+  inline void clear_has_m_packetvip();
+  inline void set_has_m_packetadd();
+  inline void clear_has_m_packetadd();
+  inline void set_has_m_prestigetasonekeyvip();
+  inline void clear_has_m_prestigetasonekeyvip();
+  inline void set_has_m_prestigetasonekeylv();
+  inline void clear_has_m_prestigetasonekeylv();
+  inline void set_has_m_prestigetaskprivage();
+  inline void clear_has_m_prestigetaskprivage();
+  inline void set_has_m_prestigetaskflash();
+  inline void clear_has_m_prestigetaskflash();
+  inline void set_has_m_prestigetaskflashprice();
+  inline void clear_has_m_prestigetaskflashprice();
+  inline void set_has_m_prestigetasktimes();
+  inline void clear_has_m_prestigetasktimes();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -202,9 +320,21 @@ class E_GuildConstant : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_territory_;
   ::google::protobuf::int32 m_autominlv_;
   ::google::protobuf::int32 m_autominbp_;
+  ::google::protobuf::int32 m_donatetimes_;
+  ::google::protobuf::int32 m_packetmaxd_;
+  ::google::protobuf::int32 m_packetmaxbd_;
+  ::google::protobuf::int32 m_packetmaxsend_;
+  ::google::protobuf::int32 m_packetvip_;
+  ::google::protobuf::int32 m_packetadd_;
+  ::google::protobuf::int32 m_prestigetasonekeyvip_;
+  ::google::protobuf::int32 m_prestigetasonekeylv_;
+  ::google::protobuf::int32 m_prestigetaskprivage_;
+  ::google::protobuf::int32 m_prestigetaskflash_;
+  ::google::protobuf::int32 m_prestigetaskflashprice_;
+  ::google::protobuf::int32 m_prestigetasktimes_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(22 + 31) / 32];
 
   friend void  protobuf_AddDesc_guild_2eproto();
   friend void protobuf_AssignDesc_guild_2eproto();
@@ -690,6 +820,13 @@ class E_GuildPosition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_recruitchat() const;
   inline void set_m_recruitchat(::google::protobuf::int32 value);
 
+  // optional int32 m_guildpacket = 18;
+  inline bool has_m_guildpacket() const;
+  inline void clear_m_guildpacket();
+  static const int kMGuildpacketFieldNumber = 18;
+  inline ::google::protobuf::int32 m_guildpacket() const;
+  inline void set_m_guildpacket(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_GuildPosition)
  private:
   inline void set_has_m_positionid();
@@ -726,6 +863,8 @@ class E_GuildPosition : public ::google::protobuf::Message {
   inline void clear_has_m_changename();
   inline void set_has_m_recruitchat();
   inline void clear_has_m_recruitchat();
+  inline void set_has_m_guildpacket();
+  inline void clear_has_m_guildpacket();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -746,9 +885,10 @@ class E_GuildPosition : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_dissolveassignguild_;
   ::google::protobuf::int32 m_changename_;
   ::google::protobuf::int32 m_recruitchat_;
+  ::google::protobuf::int32 m_guildpacket_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(18 + 31) / 32];
 
   friend void  protobuf_AddDesc_guild_2eproto();
   friend void protobuf_AssignDesc_guild_2eproto();
@@ -841,6 +981,1054 @@ class Sheet_GuildPosition : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_GuildPosition* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildSalaryRewardDesc : public ::google::protobuf::Message {
+ public:
+  E_GuildSalaryRewardDesc();
+  virtual ~E_GuildSalaryRewardDesc();
+
+  E_GuildSalaryRewardDesc(const E_GuildSalaryRewardDesc& from);
+
+  inline E_GuildSalaryRewardDesc& operator=(const E_GuildSalaryRewardDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildSalaryRewardDesc& default_instance();
+
+  void Swap(E_GuildSalaryRewardDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildSalaryRewardDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildSalaryRewardDesc& from);
+  void MergeFrom(const E_GuildSalaryRewardDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_item = 1;
+  inline bool has_m_item() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 1;
+  inline ::google::protobuf::int32 m_item() const;
+  inline void set_m_item(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 2;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 2;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildSalaryRewardDesc)
+ private:
+  inline void set_has_m_item();
+  inline void clear_has_m_item();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_item_;
+  ::google::protobuf::int32 m_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildSalaryRewardDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildSalary : public ::google::protobuf::Message {
+ public:
+  E_GuildSalary();
+  virtual ~E_GuildSalary();
+
+  E_GuildSalary(const E_GuildSalary& from);
+
+  inline E_GuildSalary& operator=(const E_GuildSalary& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildSalary& default_instance();
+
+  void Swap(E_GuildSalary* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildSalary* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildSalary& from);
+  void MergeFrom(const E_GuildSalary& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_typearg = 3;
+  inline bool has_m_typearg() const;
+  inline void clear_m_typearg();
+  static const int kMTypeargFieldNumber = 3;
+  inline ::google::protobuf::int32 m_typearg() const;
+  inline void set_m_typearg(::google::protobuf::int32 value);
+
+  // optional int32 m_times = 4;
+  inline bool has_m_times() const;
+  inline void clear_m_times();
+  static const int kMTimesFieldNumber = 4;
+  inline ::google::protobuf::int32 m_times() const;
+  inline void set_m_times(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_GuildSalaryRewardDesc m_reward = 5;
+  inline int m_reward_size() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 5;
+  inline const ::proto_ff::E_GuildSalaryRewardDesc& m_reward(int index) const;
+  inline ::proto_ff::E_GuildSalaryRewardDesc* mutable_m_reward(int index);
+  inline ::proto_ff::E_GuildSalaryRewardDesc* add_m_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalaryRewardDesc >&
+      m_reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalaryRewardDesc >*
+      mutable_m_reward();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildSalary)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_typearg();
+  inline void clear_has_m_typearg();
+  inline void set_has_m_times();
+  inline void clear_has_m_times();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_typearg_;
+  ::google::protobuf::int32 m_times_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalaryRewardDesc > m_reward_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildSalary* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GuildSalary : public ::google::protobuf::Message {
+ public:
+  Sheet_GuildSalary();
+  virtual ~Sheet_GuildSalary();
+
+  Sheet_GuildSalary(const Sheet_GuildSalary& from);
+
+  inline Sheet_GuildSalary& operator=(const Sheet_GuildSalary& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GuildSalary& default_instance();
+
+  void Swap(Sheet_GuildSalary* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GuildSalary* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GuildSalary& from);
+  void MergeFrom(const Sheet_GuildSalary& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GuildSalary E_GuildSalary_List = 1;
+  inline int e_guildsalary_list_size() const;
+  inline void clear_e_guildsalary_list();
+  static const int kEGuildSalaryListFieldNumber = 1;
+  inline const ::proto_ff::E_GuildSalary& e_guildsalary_list(int index) const;
+  inline ::proto_ff::E_GuildSalary* mutable_e_guildsalary_list(int index);
+  inline ::proto_ff::E_GuildSalary* add_e_guildsalary_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalary >&
+      e_guildsalary_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalary >*
+      mutable_e_guildsalary_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GuildSalary)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalary > e_guildsalary_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GuildSalary* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildDonateRewardDesc : public ::google::protobuf::Message {
+ public:
+  E_GuildDonateRewardDesc();
+  virtual ~E_GuildDonateRewardDesc();
+
+  E_GuildDonateRewardDesc(const E_GuildDonateRewardDesc& from);
+
+  inline E_GuildDonateRewardDesc& operator=(const E_GuildDonateRewardDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildDonateRewardDesc& default_instance();
+
+  void Swap(E_GuildDonateRewardDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildDonateRewardDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildDonateRewardDesc& from);
+  void MergeFrom(const E_GuildDonateRewardDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_item = 1;
+  inline bool has_m_item() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 1;
+  inline ::google::protobuf::int32 m_item() const;
+  inline void set_m_item(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 2;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 2;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildDonateRewardDesc)
+ private:
+  inline void set_has_m_item();
+  inline void clear_has_m_item();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_item_;
+  ::google::protobuf::int32 m_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildDonateRewardDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildDonate : public ::google::protobuf::Message {
+ public:
+  E_GuildDonate();
+  virtual ~E_GuildDonate();
+
+  E_GuildDonate(const E_GuildDonate& from);
+
+  inline E_GuildDonate& operator=(const E_GuildDonate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildDonate& default_instance();
+
+  void Swap(E_GuildDonate* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildDonate* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildDonate& from);
+  void MergeFrom(const E_GuildDonate& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_costitem = 2;
+  inline bool has_m_costitem() const;
+  inline void clear_m_costitem();
+  static const int kMCostitemFieldNumber = 2;
+  inline ::google::protobuf::int32 m_costitem() const;
+  inline void set_m_costitem(::google::protobuf::int32 value);
+
+  // optional int32 m_costnum = 3;
+  inline bool has_m_costnum() const;
+  inline void clear_m_costnum();
+  static const int kMCostnumFieldNumber = 3;
+  inline ::google::protobuf::int32 m_costnum() const;
+  inline void set_m_costnum(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_GuildDonateRewardDesc m_reward = 4;
+  inline int m_reward_size() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 4;
+  inline const ::proto_ff::E_GuildDonateRewardDesc& m_reward(int index) const;
+  inline ::proto_ff::E_GuildDonateRewardDesc* mutable_m_reward(int index);
+  inline ::proto_ff::E_GuildDonateRewardDesc* add_m_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonateRewardDesc >&
+      m_reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonateRewardDesc >*
+      mutable_m_reward();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildDonate)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_costitem();
+  inline void clear_has_m_costitem();
+  inline void set_has_m_costnum();
+  inline void clear_has_m_costnum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_costitem_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonateRewardDesc > m_reward_;
+  ::google::protobuf::int32 m_costnum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildDonate* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GuildDonate : public ::google::protobuf::Message {
+ public:
+  Sheet_GuildDonate();
+  virtual ~Sheet_GuildDonate();
+
+  Sheet_GuildDonate(const Sheet_GuildDonate& from);
+
+  inline Sheet_GuildDonate& operator=(const Sheet_GuildDonate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GuildDonate& default_instance();
+
+  void Swap(Sheet_GuildDonate* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GuildDonate* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GuildDonate& from);
+  void MergeFrom(const Sheet_GuildDonate& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GuildDonate E_GuildDonate_List = 1;
+  inline int e_guilddonate_list_size() const;
+  inline void clear_e_guilddonate_list();
+  static const int kEGuildDonateListFieldNumber = 1;
+  inline const ::proto_ff::E_GuildDonate& e_guilddonate_list(int index) const;
+  inline ::proto_ff::E_GuildDonate* mutable_e_guilddonate_list(int index);
+  inline ::proto_ff::E_GuildDonate* add_e_guilddonate_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonate >&
+      e_guilddonate_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonate >*
+      mutable_e_guilddonate_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GuildDonate)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonate > e_guilddonate_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GuildDonate* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildPacket : public ::google::protobuf::Message {
+ public:
+  E_GuildPacket();
+  virtual ~E_GuildPacket();
+
+  E_GuildPacket(const E_GuildPacket& from);
+
+  inline E_GuildPacket& operator=(const E_GuildPacket& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildPacket& default_instance();
+
+  void Swap(E_GuildPacket* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildPacket* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildPacket& from);
+  void MergeFrom(const E_GuildPacket& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_belongtype = 2;
+  inline bool has_m_belongtype() const;
+  inline void clear_m_belongtype();
+  static const int kMBelongtypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_belongtype() const;
+  inline void set_m_belongtype(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 3;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_typearg = 4;
+  inline bool has_m_typearg() const;
+  inline void clear_m_typearg();
+  static const int kMTypeargFieldNumber = 4;
+  inline ::google::protobuf::int32 m_typearg() const;
+  inline void set_m_typearg(::google::protobuf::int32 value);
+
+  // optional int32 m_itemid = 5;
+  inline bool has_m_itemid() const;
+  inline void clear_m_itemid();
+  static const int kMItemidFieldNumber = 5;
+  inline ::google::protobuf::int32 m_itemid() const;
+  inline void set_m_itemid(::google::protobuf::int32 value);
+
+  // optional int32 m_itemnum = 6;
+  inline bool has_m_itemnum() const;
+  inline void clear_m_itemnum();
+  static const int kMItemnumFieldNumber = 6;
+  inline ::google::protobuf::int32 m_itemnum() const;
+  inline void set_m_itemnum(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 7;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 7;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int32 m_pre = 8;
+  inline bool has_m_pre() const;
+  inline void clear_m_pre();
+  static const int kMPreFieldNumber = 8;
+  inline ::google::protobuf::int32 m_pre() const;
+  inline void set_m_pre(::google::protobuf::int32 value);
+
+  // optional int32 m_daily = 9;
+  inline bool has_m_daily() const;
+  inline void clear_m_daily();
+  static const int kMDailyFieldNumber = 9;
+  inline ::google::protobuf::int32 m_daily() const;
+  inline void set_m_daily(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildPacket)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_belongtype();
+  inline void clear_has_m_belongtype();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_typearg();
+  inline void clear_has_m_typearg();
+  inline void set_has_m_itemid();
+  inline void clear_has_m_itemid();
+  inline void set_has_m_itemnum();
+  inline void clear_has_m_itemnum();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_pre();
+  inline void clear_has_m_pre();
+  inline void set_has_m_daily();
+  inline void clear_has_m_daily();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_belongtype_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_typearg_;
+  ::google::protobuf::int32 m_itemid_;
+  ::google::protobuf::int32 m_itemnum_;
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_pre_;
+  ::google::protobuf::int32 m_daily_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildPacket* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GuildPacket : public ::google::protobuf::Message {
+ public:
+  Sheet_GuildPacket();
+  virtual ~Sheet_GuildPacket();
+
+  Sheet_GuildPacket(const Sheet_GuildPacket& from);
+
+  inline Sheet_GuildPacket& operator=(const Sheet_GuildPacket& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GuildPacket& default_instance();
+
+  void Swap(Sheet_GuildPacket* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GuildPacket* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GuildPacket& from);
+  void MergeFrom(const Sheet_GuildPacket& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GuildPacket E_GuildPacket_List = 1;
+  inline int e_guildpacket_list_size() const;
+  inline void clear_e_guildpacket_list();
+  static const int kEGuildPacketListFieldNumber = 1;
+  inline const ::proto_ff::E_GuildPacket& e_guildpacket_list(int index) const;
+  inline ::proto_ff::E_GuildPacket* mutable_e_guildpacket_list(int index);
+  inline ::proto_ff::E_GuildPacket* add_e_guildpacket_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPacket >&
+      e_guildpacket_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPacket >*
+      mutable_e_guildpacket_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GuildPacket)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPacket > e_guildpacket_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GuildPacket* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildPrestigetask : public ::google::protobuf::Message {
+ public:
+  E_GuildPrestigetask();
+  virtual ~E_GuildPrestigetask();
+
+  E_GuildPrestigetask(const E_GuildPrestigetask& from);
+
+  inline E_GuildPrestigetask& operator=(const E_GuildPrestigetask& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildPrestigetask& default_instance();
+
+  void Swap(E_GuildPrestigetask* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildPrestigetask* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildPrestigetask& from);
+  void MergeFrom(const E_GuildPrestigetask& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_level = 2;
+  inline bool has_m_level() const;
+  inline void clear_m_level();
+  static const int kMLevelFieldNumber = 2;
+  inline ::google::protobuf::int32 m_level() const;
+  inline void set_m_level(::google::protobuf::int32 value);
+
+  // optional int32 m_weight = 3;
+  inline bool has_m_weight() const;
+  inline void clear_m_weight();
+  static const int kMWeightFieldNumber = 3;
+  inline ::google::protobuf::int32 m_weight() const;
+  inline void set_m_weight(::google::protobuf::int32 value);
+
+  // optional int32 m_taskpool = 4;
+  inline bool has_m_taskpool() const;
+  inline void clear_m_taskpool();
+  static const int kMTaskpoolFieldNumber = 4;
+  inline ::google::protobuf::int32 m_taskpool() const;
+  inline void set_m_taskpool(::google::protobuf::int32 value);
+
+  // optional int32 m_reward = 5;
+  inline bool has_m_reward() const;
+  inline void clear_m_reward();
+  static const int kMRewardFieldNumber = 5;
+  inline ::google::protobuf::int32 m_reward() const;
+  inline void set_m_reward(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildPrestigetask)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_level();
+  inline void clear_has_m_level();
+  inline void set_has_m_weight();
+  inline void clear_has_m_weight();
+  inline void set_has_m_taskpool();
+  inline void clear_has_m_taskpool();
+  inline void set_has_m_reward();
+  inline void clear_has_m_reward();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_level_;
+  ::google::protobuf::int32 m_weight_;
+  ::google::protobuf::int32 m_taskpool_;
+  ::google::protobuf::int32 m_reward_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildPrestigetask* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GuildPrestigetask : public ::google::protobuf::Message {
+ public:
+  Sheet_GuildPrestigetask();
+  virtual ~Sheet_GuildPrestigetask();
+
+  Sheet_GuildPrestigetask(const Sheet_GuildPrestigetask& from);
+
+  inline Sheet_GuildPrestigetask& operator=(const Sheet_GuildPrestigetask& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GuildPrestigetask& default_instance();
+
+  void Swap(Sheet_GuildPrestigetask* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GuildPrestigetask* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GuildPrestigetask& from);
+  void MergeFrom(const Sheet_GuildPrestigetask& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GuildPrestigetask E_GuildPrestigetask_List = 1;
+  inline int e_guildprestigetask_list_size() const;
+  inline void clear_e_guildprestigetask_list();
+  static const int kEGuildPrestigetaskListFieldNumber = 1;
+  inline const ::proto_ff::E_GuildPrestigetask& e_guildprestigetask_list(int index) const;
+  inline ::proto_ff::E_GuildPrestigetask* mutable_e_guildprestigetask_list(int index);
+  inline ::proto_ff::E_GuildPrestigetask* add_e_guildprestigetask_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPrestigetask >&
+      e_guildprestigetask_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPrestigetask >*
+      mutable_e_guildprestigetask_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GuildPrestigetask)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPrestigetask > e_guildprestigetask_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_guild_2eproto();
+  friend void protobuf_AssignDesc_guild_2eproto();
+  friend void protobuf_ShutdownFile_guild_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GuildPrestigetask* default_instance_;
 };
 // ===================================================================
 
@@ -1067,6 +2255,270 @@ inline ::google::protobuf::int32 E_GuildConstant::m_autominbp() const {
 inline void E_GuildConstant::set_m_autominbp(::google::protobuf::int32 value) {
   set_has_m_autominbp();
   m_autominbp_ = value;
+}
+
+// optional int32 m_donatetimes = 11;
+inline bool E_GuildConstant::has_m_donatetimes() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void E_GuildConstant::set_has_m_donatetimes() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void E_GuildConstant::clear_has_m_donatetimes() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void E_GuildConstant::clear_m_donatetimes() {
+  m_donatetimes_ = 0;
+  clear_has_m_donatetimes();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_donatetimes() const {
+  return m_donatetimes_;
+}
+inline void E_GuildConstant::set_m_donatetimes(::google::protobuf::int32 value) {
+  set_has_m_donatetimes();
+  m_donatetimes_ = value;
+}
+
+// optional int32 m_packetmaxd = 12;
+inline bool E_GuildConstant::has_m_packetmaxd() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void E_GuildConstant::set_has_m_packetmaxd() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void E_GuildConstant::clear_has_m_packetmaxd() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void E_GuildConstant::clear_m_packetmaxd() {
+  m_packetmaxd_ = 0;
+  clear_has_m_packetmaxd();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_packetmaxd() const {
+  return m_packetmaxd_;
+}
+inline void E_GuildConstant::set_m_packetmaxd(::google::protobuf::int32 value) {
+  set_has_m_packetmaxd();
+  m_packetmaxd_ = value;
+}
+
+// optional int32 m_packetmaxbd = 13;
+inline bool E_GuildConstant::has_m_packetmaxbd() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_packetmaxbd() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void E_GuildConstant::clear_has_m_packetmaxbd() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void E_GuildConstant::clear_m_packetmaxbd() {
+  m_packetmaxbd_ = 0;
+  clear_has_m_packetmaxbd();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_packetmaxbd() const {
+  return m_packetmaxbd_;
+}
+inline void E_GuildConstant::set_m_packetmaxbd(::google::protobuf::int32 value) {
+  set_has_m_packetmaxbd();
+  m_packetmaxbd_ = value;
+}
+
+// optional int32 m_packetmaxsend = 14;
+inline bool E_GuildConstant::has_m_packetmaxsend() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_packetmaxsend() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void E_GuildConstant::clear_has_m_packetmaxsend() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void E_GuildConstant::clear_m_packetmaxsend() {
+  m_packetmaxsend_ = 0;
+  clear_has_m_packetmaxsend();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_packetmaxsend() const {
+  return m_packetmaxsend_;
+}
+inline void E_GuildConstant::set_m_packetmaxsend(::google::protobuf::int32 value) {
+  set_has_m_packetmaxsend();
+  m_packetmaxsend_ = value;
+}
+
+// optional int32 m_packetvip = 15;
+inline bool E_GuildConstant::has_m_packetvip() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_packetvip() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void E_GuildConstant::clear_has_m_packetvip() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void E_GuildConstant::clear_m_packetvip() {
+  m_packetvip_ = 0;
+  clear_has_m_packetvip();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_packetvip() const {
+  return m_packetvip_;
+}
+inline void E_GuildConstant::set_m_packetvip(::google::protobuf::int32 value) {
+  set_has_m_packetvip();
+  m_packetvip_ = value;
+}
+
+// optional int32 m_packetadd = 16;
+inline bool E_GuildConstant::has_m_packetadd() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_packetadd() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void E_GuildConstant::clear_has_m_packetadd() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void E_GuildConstant::clear_m_packetadd() {
+  m_packetadd_ = 0;
+  clear_has_m_packetadd();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_packetadd() const {
+  return m_packetadd_;
+}
+inline void E_GuildConstant::set_m_packetadd(::google::protobuf::int32 value) {
+  set_has_m_packetadd();
+  m_packetadd_ = value;
+}
+
+// optional int32 m_prestigetasonekeyvip = 17;
+inline bool E_GuildConstant::has_m_prestigetasonekeyvip() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_prestigetasonekeyvip() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void E_GuildConstant::clear_has_m_prestigetasonekeyvip() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void E_GuildConstant::clear_m_prestigetasonekeyvip() {
+  m_prestigetasonekeyvip_ = 0;
+  clear_has_m_prestigetasonekeyvip();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_prestigetasonekeyvip() const {
+  return m_prestigetasonekeyvip_;
+}
+inline void E_GuildConstant::set_m_prestigetasonekeyvip(::google::protobuf::int32 value) {
+  set_has_m_prestigetasonekeyvip();
+  m_prestigetasonekeyvip_ = value;
+}
+
+// optional int32 m_prestigetasonekeylv = 18;
+inline bool E_GuildConstant::has_m_prestigetasonekeylv() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_prestigetasonekeylv() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void E_GuildConstant::clear_has_m_prestigetasonekeylv() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void E_GuildConstant::clear_m_prestigetasonekeylv() {
+  m_prestigetasonekeylv_ = 0;
+  clear_has_m_prestigetasonekeylv();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_prestigetasonekeylv() const {
+  return m_prestigetasonekeylv_;
+}
+inline void E_GuildConstant::set_m_prestigetasonekeylv(::google::protobuf::int32 value) {
+  set_has_m_prestigetasonekeylv();
+  m_prestigetasonekeylv_ = value;
+}
+
+// optional int32 m_prestigetaskprivage = 19;
+inline bool E_GuildConstant::has_m_prestigetaskprivage() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_prestigetaskprivage() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void E_GuildConstant::clear_has_m_prestigetaskprivage() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void E_GuildConstant::clear_m_prestigetaskprivage() {
+  m_prestigetaskprivage_ = 0;
+  clear_has_m_prestigetaskprivage();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_prestigetaskprivage() const {
+  return m_prestigetaskprivage_;
+}
+inline void E_GuildConstant::set_m_prestigetaskprivage(::google::protobuf::int32 value) {
+  set_has_m_prestigetaskprivage();
+  m_prestigetaskprivage_ = value;
+}
+
+// optional int32 m_prestigetaskflash = 20;
+inline bool E_GuildConstant::has_m_prestigetaskflash() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_prestigetaskflash() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void E_GuildConstant::clear_has_m_prestigetaskflash() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void E_GuildConstant::clear_m_prestigetaskflash() {
+  m_prestigetaskflash_ = 0;
+  clear_has_m_prestigetaskflash();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_prestigetaskflash() const {
+  return m_prestigetaskflash_;
+}
+inline void E_GuildConstant::set_m_prestigetaskflash(::google::protobuf::int32 value) {
+  set_has_m_prestigetaskflash();
+  m_prestigetaskflash_ = value;
+}
+
+// optional int32 m_prestigetaskflashprice = 21;
+inline bool E_GuildConstant::has_m_prestigetaskflashprice() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_prestigetaskflashprice() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void E_GuildConstant::clear_has_m_prestigetaskflashprice() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void E_GuildConstant::clear_m_prestigetaskflashprice() {
+  m_prestigetaskflashprice_ = 0;
+  clear_has_m_prestigetaskflashprice();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_prestigetaskflashprice() const {
+  return m_prestigetaskflashprice_;
+}
+inline void E_GuildConstant::set_m_prestigetaskflashprice(::google::protobuf::int32 value) {
+  set_has_m_prestigetaskflashprice();
+  m_prestigetaskflashprice_ = value;
+}
+
+// optional int32 m_prestigetasktimes = 22;
+inline bool E_GuildConstant::has_m_prestigetasktimes() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void E_GuildConstant::set_has_m_prestigetasktimes() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void E_GuildConstant::clear_has_m_prestigetasktimes() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void E_GuildConstant::clear_m_prestigetasktimes() {
+  m_prestigetasktimes_ = 0;
+  clear_has_m_prestigetasktimes();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_prestigetasktimes() const {
+  return m_prestigetasktimes_;
+}
+inline void E_GuildConstant::set_m_prestigetasktimes(::google::protobuf::int32 value) {
+  set_has_m_prestigetasktimes();
+  m_prestigetasktimes_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1641,6 +3093,28 @@ inline void E_GuildPosition::set_m_recruitchat(::google::protobuf::int32 value) 
   m_recruitchat_ = value;
 }
 
+// optional int32 m_guildpacket = 18;
+inline bool E_GuildPosition::has_m_guildpacket() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void E_GuildPosition::set_has_m_guildpacket() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void E_GuildPosition::clear_has_m_guildpacket() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void E_GuildPosition::clear_m_guildpacket() {
+  m_guildpacket_ = 0;
+  clear_has_m_guildpacket();
+}
+inline ::google::protobuf::int32 E_GuildPosition::m_guildpacket() const {
+  return m_guildpacket_;
+}
+inline void E_GuildPosition::set_m_guildpacket(::google::protobuf::int32 value) {
+  set_has_m_guildpacket();
+  m_guildpacket_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Sheet_GuildPosition
@@ -1668,6 +3142,746 @@ Sheet_GuildPosition::e_guildposition_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPosition >*
 Sheet_GuildPosition::mutable_e_guildposition_list() {
   return &e_guildposition_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildSalaryRewardDesc
+
+// optional int32 m_item = 1;
+inline bool E_GuildSalaryRewardDesc::has_m_item() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildSalaryRewardDesc::set_has_m_item() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildSalaryRewardDesc::clear_has_m_item() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildSalaryRewardDesc::clear_m_item() {
+  m_item_ = 0;
+  clear_has_m_item();
+}
+inline ::google::protobuf::int32 E_GuildSalaryRewardDesc::m_item() const {
+  return m_item_;
+}
+inline void E_GuildSalaryRewardDesc::set_m_item(::google::protobuf::int32 value) {
+  set_has_m_item();
+  m_item_ = value;
+}
+
+// optional int32 m_num = 2;
+inline bool E_GuildSalaryRewardDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildSalaryRewardDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildSalaryRewardDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildSalaryRewardDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_GuildSalaryRewardDesc::m_num() const {
+  return m_num_;
+}
+inline void E_GuildSalaryRewardDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildSalary
+
+// optional int32 m_id = 1;
+inline bool E_GuildSalary::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildSalary::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildSalary::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildSalary::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GuildSalary::m_id() const {
+  return m_id_;
+}
+inline void E_GuildSalary::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_GuildSalary::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildSalary::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildSalary::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildSalary::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_GuildSalary::m_type() const {
+  return m_type_;
+}
+inline void E_GuildSalary::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_typearg = 3;
+inline bool E_GuildSalary::has_m_typearg() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_GuildSalary::set_has_m_typearg() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_GuildSalary::clear_has_m_typearg() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildSalary::clear_m_typearg() {
+  m_typearg_ = 0;
+  clear_has_m_typearg();
+}
+inline ::google::protobuf::int32 E_GuildSalary::m_typearg() const {
+  return m_typearg_;
+}
+inline void E_GuildSalary::set_m_typearg(::google::protobuf::int32 value) {
+  set_has_m_typearg();
+  m_typearg_ = value;
+}
+
+// optional int32 m_times = 4;
+inline bool E_GuildSalary::has_m_times() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_GuildSalary::set_has_m_times() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_GuildSalary::clear_has_m_times() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_GuildSalary::clear_m_times() {
+  m_times_ = 0;
+  clear_has_m_times();
+}
+inline ::google::protobuf::int32 E_GuildSalary::m_times() const {
+  return m_times_;
+}
+inline void E_GuildSalary::set_m_times(::google::protobuf::int32 value) {
+  set_has_m_times();
+  m_times_ = value;
+}
+
+// repeated .proto_ff.E_GuildSalaryRewardDesc m_reward = 5;
+inline int E_GuildSalary::m_reward_size() const {
+  return m_reward_.size();
+}
+inline void E_GuildSalary::clear_m_reward() {
+  m_reward_.Clear();
+}
+inline const ::proto_ff::E_GuildSalaryRewardDesc& E_GuildSalary::m_reward(int index) const {
+  return m_reward_.Get(index);
+}
+inline ::proto_ff::E_GuildSalaryRewardDesc* E_GuildSalary::mutable_m_reward(int index) {
+  return m_reward_.Mutable(index);
+}
+inline ::proto_ff::E_GuildSalaryRewardDesc* E_GuildSalary::add_m_reward() {
+  return m_reward_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalaryRewardDesc >&
+E_GuildSalary::m_reward() const {
+  return m_reward_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalaryRewardDesc >*
+E_GuildSalary::mutable_m_reward() {
+  return &m_reward_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GuildSalary
+
+// repeated .proto_ff.E_GuildSalary E_GuildSalary_List = 1;
+inline int Sheet_GuildSalary::e_guildsalary_list_size() const {
+  return e_guildsalary_list_.size();
+}
+inline void Sheet_GuildSalary::clear_e_guildsalary_list() {
+  e_guildsalary_list_.Clear();
+}
+inline const ::proto_ff::E_GuildSalary& Sheet_GuildSalary::e_guildsalary_list(int index) const {
+  return e_guildsalary_list_.Get(index);
+}
+inline ::proto_ff::E_GuildSalary* Sheet_GuildSalary::mutable_e_guildsalary_list(int index) {
+  return e_guildsalary_list_.Mutable(index);
+}
+inline ::proto_ff::E_GuildSalary* Sheet_GuildSalary::add_e_guildsalary_list() {
+  return e_guildsalary_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalary >&
+Sheet_GuildSalary::e_guildsalary_list() const {
+  return e_guildsalary_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildSalary >*
+Sheet_GuildSalary::mutable_e_guildsalary_list() {
+  return &e_guildsalary_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildDonateRewardDesc
+
+// optional int32 m_item = 1;
+inline bool E_GuildDonateRewardDesc::has_m_item() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildDonateRewardDesc::set_has_m_item() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildDonateRewardDesc::clear_has_m_item() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildDonateRewardDesc::clear_m_item() {
+  m_item_ = 0;
+  clear_has_m_item();
+}
+inline ::google::protobuf::int32 E_GuildDonateRewardDesc::m_item() const {
+  return m_item_;
+}
+inline void E_GuildDonateRewardDesc::set_m_item(::google::protobuf::int32 value) {
+  set_has_m_item();
+  m_item_ = value;
+}
+
+// optional int32 m_num = 2;
+inline bool E_GuildDonateRewardDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildDonateRewardDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildDonateRewardDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildDonateRewardDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_GuildDonateRewardDesc::m_num() const {
+  return m_num_;
+}
+inline void E_GuildDonateRewardDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildDonate
+
+// optional int32 m_id = 1;
+inline bool E_GuildDonate::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildDonate::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildDonate::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildDonate::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GuildDonate::m_id() const {
+  return m_id_;
+}
+inline void E_GuildDonate::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_costitem = 2;
+inline bool E_GuildDonate::has_m_costitem() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildDonate::set_has_m_costitem() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildDonate::clear_has_m_costitem() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildDonate::clear_m_costitem() {
+  m_costitem_ = 0;
+  clear_has_m_costitem();
+}
+inline ::google::protobuf::int32 E_GuildDonate::m_costitem() const {
+  return m_costitem_;
+}
+inline void E_GuildDonate::set_m_costitem(::google::protobuf::int32 value) {
+  set_has_m_costitem();
+  m_costitem_ = value;
+}
+
+// optional int32 m_costnum = 3;
+inline bool E_GuildDonate::has_m_costnum() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_GuildDonate::set_has_m_costnum() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_GuildDonate::clear_has_m_costnum() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildDonate::clear_m_costnum() {
+  m_costnum_ = 0;
+  clear_has_m_costnum();
+}
+inline ::google::protobuf::int32 E_GuildDonate::m_costnum() const {
+  return m_costnum_;
+}
+inline void E_GuildDonate::set_m_costnum(::google::protobuf::int32 value) {
+  set_has_m_costnum();
+  m_costnum_ = value;
+}
+
+// repeated .proto_ff.E_GuildDonateRewardDesc m_reward = 4;
+inline int E_GuildDonate::m_reward_size() const {
+  return m_reward_.size();
+}
+inline void E_GuildDonate::clear_m_reward() {
+  m_reward_.Clear();
+}
+inline const ::proto_ff::E_GuildDonateRewardDesc& E_GuildDonate::m_reward(int index) const {
+  return m_reward_.Get(index);
+}
+inline ::proto_ff::E_GuildDonateRewardDesc* E_GuildDonate::mutable_m_reward(int index) {
+  return m_reward_.Mutable(index);
+}
+inline ::proto_ff::E_GuildDonateRewardDesc* E_GuildDonate::add_m_reward() {
+  return m_reward_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonateRewardDesc >&
+E_GuildDonate::m_reward() const {
+  return m_reward_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonateRewardDesc >*
+E_GuildDonate::mutable_m_reward() {
+  return &m_reward_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GuildDonate
+
+// repeated .proto_ff.E_GuildDonate E_GuildDonate_List = 1;
+inline int Sheet_GuildDonate::e_guilddonate_list_size() const {
+  return e_guilddonate_list_.size();
+}
+inline void Sheet_GuildDonate::clear_e_guilddonate_list() {
+  e_guilddonate_list_.Clear();
+}
+inline const ::proto_ff::E_GuildDonate& Sheet_GuildDonate::e_guilddonate_list(int index) const {
+  return e_guilddonate_list_.Get(index);
+}
+inline ::proto_ff::E_GuildDonate* Sheet_GuildDonate::mutable_e_guilddonate_list(int index) {
+  return e_guilddonate_list_.Mutable(index);
+}
+inline ::proto_ff::E_GuildDonate* Sheet_GuildDonate::add_e_guilddonate_list() {
+  return e_guilddonate_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonate >&
+Sheet_GuildDonate::e_guilddonate_list() const {
+  return e_guilddonate_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildDonate >*
+Sheet_GuildDonate::mutable_e_guilddonate_list() {
+  return &e_guilddonate_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildPacket
+
+// optional int32 m_id = 1;
+inline bool E_GuildPacket::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildPacket::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildPacket::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildPacket::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_id() const {
+  return m_id_;
+}
+inline void E_GuildPacket::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_belongtype = 2;
+inline bool E_GuildPacket::has_m_belongtype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildPacket::set_has_m_belongtype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildPacket::clear_has_m_belongtype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildPacket::clear_m_belongtype() {
+  m_belongtype_ = 0;
+  clear_has_m_belongtype();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_belongtype() const {
+  return m_belongtype_;
+}
+inline void E_GuildPacket::set_m_belongtype(::google::protobuf::int32 value) {
+  set_has_m_belongtype();
+  m_belongtype_ = value;
+}
+
+// optional int32 m_type = 3;
+inline bool E_GuildPacket::has_m_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_GuildPacket::set_has_m_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_GuildPacket::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildPacket::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_type() const {
+  return m_type_;
+}
+inline void E_GuildPacket::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_typearg = 4;
+inline bool E_GuildPacket::has_m_typearg() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_GuildPacket::set_has_m_typearg() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_GuildPacket::clear_has_m_typearg() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_GuildPacket::clear_m_typearg() {
+  m_typearg_ = 0;
+  clear_has_m_typearg();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_typearg() const {
+  return m_typearg_;
+}
+inline void E_GuildPacket::set_m_typearg(::google::protobuf::int32 value) {
+  set_has_m_typearg();
+  m_typearg_ = value;
+}
+
+// optional int32 m_itemid = 5;
+inline bool E_GuildPacket::has_m_itemid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_GuildPacket::set_has_m_itemid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_GuildPacket::clear_has_m_itemid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_GuildPacket::clear_m_itemid() {
+  m_itemid_ = 0;
+  clear_has_m_itemid();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_itemid() const {
+  return m_itemid_;
+}
+inline void E_GuildPacket::set_m_itemid(::google::protobuf::int32 value) {
+  set_has_m_itemid();
+  m_itemid_ = value;
+}
+
+// optional int32 m_itemnum = 6;
+inline bool E_GuildPacket::has_m_itemnum() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_GuildPacket::set_has_m_itemnum() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_GuildPacket::clear_has_m_itemnum() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_GuildPacket::clear_m_itemnum() {
+  m_itemnum_ = 0;
+  clear_has_m_itemnum();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_itemnum() const {
+  return m_itemnum_;
+}
+inline void E_GuildPacket::set_m_itemnum(::google::protobuf::int32 value) {
+  set_has_m_itemnum();
+  m_itemnum_ = value;
+}
+
+// optional int32 m_num = 7;
+inline bool E_GuildPacket::has_m_num() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_GuildPacket::set_has_m_num() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_GuildPacket::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_GuildPacket::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_num() const {
+  return m_num_;
+}
+inline void E_GuildPacket::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int32 m_pre = 8;
+inline bool E_GuildPacket::has_m_pre() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void E_GuildPacket::set_has_m_pre() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void E_GuildPacket::clear_has_m_pre() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_GuildPacket::clear_m_pre() {
+  m_pre_ = 0;
+  clear_has_m_pre();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_pre() const {
+  return m_pre_;
+}
+inline void E_GuildPacket::set_m_pre(::google::protobuf::int32 value) {
+  set_has_m_pre();
+  m_pre_ = value;
+}
+
+// optional int32 m_daily = 9;
+inline bool E_GuildPacket::has_m_daily() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_GuildPacket::set_has_m_daily() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_GuildPacket::clear_has_m_daily() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_GuildPacket::clear_m_daily() {
+  m_daily_ = 0;
+  clear_has_m_daily();
+}
+inline ::google::protobuf::int32 E_GuildPacket::m_daily() const {
+  return m_daily_;
+}
+inline void E_GuildPacket::set_m_daily(::google::protobuf::int32 value) {
+  set_has_m_daily();
+  m_daily_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GuildPacket
+
+// repeated .proto_ff.E_GuildPacket E_GuildPacket_List = 1;
+inline int Sheet_GuildPacket::e_guildpacket_list_size() const {
+  return e_guildpacket_list_.size();
+}
+inline void Sheet_GuildPacket::clear_e_guildpacket_list() {
+  e_guildpacket_list_.Clear();
+}
+inline const ::proto_ff::E_GuildPacket& Sheet_GuildPacket::e_guildpacket_list(int index) const {
+  return e_guildpacket_list_.Get(index);
+}
+inline ::proto_ff::E_GuildPacket* Sheet_GuildPacket::mutable_e_guildpacket_list(int index) {
+  return e_guildpacket_list_.Mutable(index);
+}
+inline ::proto_ff::E_GuildPacket* Sheet_GuildPacket::add_e_guildpacket_list() {
+  return e_guildpacket_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPacket >&
+Sheet_GuildPacket::e_guildpacket_list() const {
+  return e_guildpacket_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPacket >*
+Sheet_GuildPacket::mutable_e_guildpacket_list() {
+  return &e_guildpacket_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildPrestigetask
+
+// optional int32 m_id = 1;
+inline bool E_GuildPrestigetask::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildPrestigetask::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildPrestigetask::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_id() const {
+  return m_id_;
+}
+inline void E_GuildPrestigetask::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_level = 2;
+inline bool E_GuildPrestigetask::has_m_level() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_level() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildPrestigetask::clear_has_m_level() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildPrestigetask::clear_m_level() {
+  m_level_ = 0;
+  clear_has_m_level();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_level() const {
+  return m_level_;
+}
+inline void E_GuildPrestigetask::set_m_level(::google::protobuf::int32 value) {
+  set_has_m_level();
+  m_level_ = value;
+}
+
+// optional int32 m_weight = 3;
+inline bool E_GuildPrestigetask::has_m_weight() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_weight() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_GuildPrestigetask::clear_has_m_weight() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildPrestigetask::clear_m_weight() {
+  m_weight_ = 0;
+  clear_has_m_weight();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_weight() const {
+  return m_weight_;
+}
+inline void E_GuildPrestigetask::set_m_weight(::google::protobuf::int32 value) {
+  set_has_m_weight();
+  m_weight_ = value;
+}
+
+// optional int32 m_taskpool = 4;
+inline bool E_GuildPrestigetask::has_m_taskpool() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_taskpool() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_GuildPrestigetask::clear_has_m_taskpool() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_GuildPrestigetask::clear_m_taskpool() {
+  m_taskpool_ = 0;
+  clear_has_m_taskpool();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_taskpool() const {
+  return m_taskpool_;
+}
+inline void E_GuildPrestigetask::set_m_taskpool(::google::protobuf::int32 value) {
+  set_has_m_taskpool();
+  m_taskpool_ = value;
+}
+
+// optional int32 m_reward = 5;
+inline bool E_GuildPrestigetask::has_m_reward() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_reward() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_GuildPrestigetask::clear_has_m_reward() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_GuildPrestigetask::clear_m_reward() {
+  m_reward_ = 0;
+  clear_has_m_reward();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_reward() const {
+  return m_reward_;
+}
+inline void E_GuildPrestigetask::set_m_reward(::google::protobuf::int32 value) {
+  set_has_m_reward();
+  m_reward_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GuildPrestigetask
+
+// repeated .proto_ff.E_GuildPrestigetask E_GuildPrestigetask_List = 1;
+inline int Sheet_GuildPrestigetask::e_guildprestigetask_list_size() const {
+  return e_guildprestigetask_list_.size();
+}
+inline void Sheet_GuildPrestigetask::clear_e_guildprestigetask_list() {
+  e_guildprestigetask_list_.Clear();
+}
+inline const ::proto_ff::E_GuildPrestigetask& Sheet_GuildPrestigetask::e_guildprestigetask_list(int index) const {
+  return e_guildprestigetask_list_.Get(index);
+}
+inline ::proto_ff::E_GuildPrestigetask* Sheet_GuildPrestigetask::mutable_e_guildprestigetask_list(int index) {
+  return e_guildprestigetask_list_.Mutable(index);
+}
+inline ::proto_ff::E_GuildPrestigetask* Sheet_GuildPrestigetask::add_e_guildprestigetask_list() {
+  return e_guildprestigetask_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPrestigetask >&
+Sheet_GuildPrestigetask::e_guildprestigetask_list() const {
+  return e_guildprestigetask_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildPrestigetask >*
+Sheet_GuildPrestigetask::mutable_e_guildprestigetask_list() {
+  return &e_guildprestigetask_list_;
 }
 
 

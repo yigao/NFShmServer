@@ -91,8 +91,8 @@ void protobuf_AssignDesc_recharge_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_vipexplimit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_activitycount_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_presentid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_fristpresent_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_presenttype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_icon_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_item_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RechargeRecharge, m_channel_),
@@ -171,7 +171,7 @@ void protobuf_AddDesc_recharge_2eproto() {
     "\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\003"
     "B\006\302\377\024\002id\"Y\n\035E_RechargeRechargeChannelDes"
     "c\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\007m_point\030\002 \001(\t"
-    "B\021\302\377\024\t\350\256\241\350\264\271\347\202\271\220\301\024<\"\346\006\n\022E_RechargeRechar"
+    "B\021\302\377\024\t\350\256\241\350\264\271\347\202\271\220\301\024<\"\354\006\n\022E_RechargeRechar"
     "ge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\006m_name\030\002 \001(\t"
     "B\016\302\377\024\006\345\220\215\347\247\260\220\301\024<\022/\n\016m_defaultpoint\030\003 \001(\t"
     "B\027\302\377\024\017\351\273\230\350\256\244\350\256\241\350\264\271\347\202\271\220\301\024<\022 \n\006m_type\030\004 \001("
@@ -186,16 +186,16 @@ void protobuf_AddDesc_recharge_2eproto() {
     "\024\tvip\347\273\217\351\252\214\022*\n\rm_vipexplimit\030\r \001(\005B\023\302\377\024\017"
     "vip\347\273\217\351\252\214\351\231\220\345\210\266\022/\n\017m_activitycount\030\016 \001(\005"
     "B\026\302\377\024\022\350\277\220\350\220\245\346\264\273\345\212\250\350\256\241\346\225\260\022\033\n\007m_price\030\017 \001("
-    "\005B\n\302\377\024\006\345\224\256\344\273\267\022.\n\016m_fristpresent\030\020 \001(\005B\026\302"
-    "\377\024\022\351\246\226\345\205\205\350\265\240\351\200\201\346\225\260\351\207\217\022\'\n\rm_presenttype\030\021"
-    " \001(\005B\020\302\377\024\014\350\265\240\351\200\201\347\261\273\345\236\213\022\036\n\006m_icon\030\022 \001(\tB\016"
-    "\302\377\024\006\345\233\276\346\240\207\220\301\024<\022P\n\006m_item\030\023 \003(\0132$.proto_f"
-    "f.E_RechargeRechargeItemDescB\032\302\377\024\022\345\205\205\345\200\274"
-    "\350\265\240\351\200\201\347\211\251\345\223\201\210\301\024\002\022J\n\tm_channel\030\024 \003(\0132\'.pr"
-    "oto_ff.E_RechargeRechargeChannelDescB\016\302\377"
-    "\024\006\346\270\240\351\201\223\210\301\024\004\"^\n\026Sheet_RechargeRecharge\022D"
-    "\n\027E_RechargeRecharge_List\030\001 \003(\0132\034.proto_"
-    "ff.E_RechargeRechargeB\005\210\301\024\320\017", 1188);
+    "\005B\n\302\377\024\006\345\224\256\344\273\267\022-\n\013m_presentid\030\020 \001(\005B\030\302\377\024\024"
+    "\351\246\226\345\205\205\350\265\240\351\200\201\347\211\251\345\223\201id\022.\n\016m_fristpresent\030\021"
+    " \001(\005B\026\302\377\024\022\351\246\226\345\205\205\350\265\240\351\200\201\346\225\260\351\207\217\022\036\n\006m_icon\030\022"
+    " \001(\tB\016\302\377\024\006\345\233\276\346\240\207\220\301\024<\022P\n\006m_item\030\023 \003(\0132$.p"
+    "roto_ff.E_RechargeRechargeItemDescB\032\302\377\024\022"
+    "\345\205\205\345\200\274\350\265\240\351\200\201\347\211\251\345\223\201\210\301\024\002\022J\n\tm_channel\030\024 \003("
+    "\0132\'.proto_ff.E_RechargeRechargeChannelDe"
+    "scB\016\302\377\024\006\346\270\240\351\201\223\210\301\024\004\"^\n\026Sheet_RechargeRech"
+    "arge\022D\n\027E_RechargeRecharge_List\030\001 \003(\0132\034."
+    "proto_ff.E_RechargeRechargeB\005\210\301\024\320\017", 1194);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "recharge.proto", &protobuf_RegisterTypes);
   E_RechargeRechargeItemDesc::default_instance_ = new E_RechargeRechargeItemDesc();
@@ -747,8 +747,8 @@ const int E_RechargeRecharge::kMVipexpFieldNumber;
 const int E_RechargeRecharge::kMVipexplimitFieldNumber;
 const int E_RechargeRecharge::kMActivitycountFieldNumber;
 const int E_RechargeRecharge::kMPriceFieldNumber;
+const int E_RechargeRecharge::kMPresentidFieldNumber;
 const int E_RechargeRecharge::kMFristpresentFieldNumber;
-const int E_RechargeRecharge::kMPresenttypeFieldNumber;
 const int E_RechargeRecharge::kMIconFieldNumber;
 const int E_RechargeRecharge::kMItemFieldNumber;
 const int E_RechargeRecharge::kMChannelFieldNumber;
@@ -785,8 +785,8 @@ void E_RechargeRecharge::SharedCtor() {
   m_vipexplimit_ = 0;
   m_activitycount_ = 0;
   m_price_ = 0;
+  m_presentid_ = 0;
   m_fristpresent_ = 0;
-  m_presenttype_ = 0;
   m_icon_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -871,10 +871,10 @@ void E_RechargeRecharge::Clear() {
     m_vipexplimit_ = 0;
     m_activitycount_ = 0;
     m_price_ = 0;
-    m_fristpresent_ = 0;
+    m_presentid_ = 0;
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    m_presenttype_ = 0;
+    m_fristpresent_ = 0;
     if (has_m_icon()) {
       if (m_icon_ != &::google::protobuf::internal::kEmptyString) {
         m_icon_->clear();
@@ -1132,12 +1132,28 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_fristpresent;
+        if (input->ExpectTag(128)) goto parse_m_presentid;
         break;
       }
 
-      // optional int32 m_fristpresent = 16;
+      // optional int32 m_presentid = 16;
       case 16: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_presentid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_presentid_)));
+          set_has_m_presentid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(136)) goto parse_m_fristpresent;
+        break;
+      }
+
+      // optional int32 m_fristpresent = 17;
+      case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_fristpresent:
@@ -1145,22 +1161,6 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fristpresent_)));
           set_has_m_fristpresent();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(136)) goto parse_m_presenttype;
-        break;
-      }
-
-      // optional int32 m_presenttype = 17;
-      case 17: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_presenttype:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_presenttype_)));
-          set_has_m_presenttype();
         } else {
           goto handle_uninterpreted;
         }
@@ -1324,14 +1324,14 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_price(), output);
   }
 
-  // optional int32 m_fristpresent = 16;
-  if (has_m_fristpresent()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_fristpresent(), output);
+  // optional int32 m_presentid = 16;
+  if (has_m_presentid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_presentid(), output);
   }
 
-  // optional int32 m_presenttype = 17;
-  if (has_m_presenttype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_presenttype(), output);
+  // optional int32 m_fristpresent = 17;
+  if (has_m_fristpresent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_fristpresent(), output);
   }
 
   // optional string m_icon = 18;
@@ -1458,14 +1458,14 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_price(), target);
   }
 
-  // optional int32 m_fristpresent = 16;
-  if (has_m_fristpresent()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_fristpresent(), target);
+  // optional int32 m_presentid = 16;
+  if (has_m_presentid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_presentid(), target);
   }
 
-  // optional int32 m_presenttype = 17;
-  if (has_m_presenttype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_presenttype(), target);
+  // optional int32 m_fristpresent = 17;
+  if (has_m_fristpresent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_fristpresent(), target);
   }
 
   // optional string m_icon = 18;
@@ -1610,20 +1610,20 @@ int E_RechargeRecharge::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_fristpresent = 16;
-    if (has_m_fristpresent()) {
+    // optional int32 m_presentid = 16;
+    if (has_m_presentid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_fristpresent());
+          this->m_presentid());
     }
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_presenttype = 17;
-    if (has_m_presenttype()) {
+    // optional int32 m_fristpresent = 17;
+    if (has_m_fristpresent()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_presenttype());
+          this->m_fristpresent());
     }
 
     // optional string m_icon = 18;
@@ -1725,13 +1725,13 @@ void E_RechargeRecharge::MergeFrom(const E_RechargeRecharge& from) {
     if (from.has_m_price()) {
       set_m_price(from.m_price());
     }
-    if (from.has_m_fristpresent()) {
-      set_m_fristpresent(from.m_fristpresent());
+    if (from.has_m_presentid()) {
+      set_m_presentid(from.m_presentid());
     }
   }
   if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (from.has_m_presenttype()) {
-      set_m_presenttype(from.m_presenttype());
+    if (from.has_m_fristpresent()) {
+      set_m_fristpresent(from.m_fristpresent());
     }
     if (from.has_m_icon()) {
       set_m_icon(from.m_icon());
@@ -1774,8 +1774,8 @@ void E_RechargeRecharge::Swap(E_RechargeRecharge* other) {
     std::swap(m_vipexplimit_, other->m_vipexplimit_);
     std::swap(m_activitycount_, other->m_activitycount_);
     std::swap(m_price_, other->m_price_);
+    std::swap(m_presentid_, other->m_presentid_);
     std::swap(m_fristpresent_, other->m_fristpresent_);
-    std::swap(m_presenttype_, other->m_presenttype_);
     std::swap(m_icon_, other->m_icon_);
     m_item_.Swap(&other->m_item_);
     m_channel_.Swap(&other->m_channel_);

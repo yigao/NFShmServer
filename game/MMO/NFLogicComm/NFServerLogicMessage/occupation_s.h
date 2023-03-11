@@ -57,7 +57,7 @@ namespace proto_ff_s {
 		int32_t m_lv;
 		int32_t m_stgaeattshow;
 		int32_t m_stgaeatt;
-		NFShmString<60> m_taskid;
+		int32_t m_taskid;
 		int32_t m_battle;
 		int32_t m_skillid;
 		NFShmString<60> m_lightsoul;

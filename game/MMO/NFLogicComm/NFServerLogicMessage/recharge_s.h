@@ -60,8 +60,8 @@ namespace proto_ff_s {
 		int32_t m_vipexplimit;
 		int32_t m_activitycount;
 		int32_t m_price;
+		int32_t m_presentid;
 		int32_t m_fristpresent;
-		int32_t m_presenttype;
 		NFShmString<60> m_icon;
 		NFShmVector<struct E_RechargeRechargeItemDesc_s, 2> m_item;
 		NFShmVector<struct E_RechargeRechargeChannelDesc_s, 4> m_channel;

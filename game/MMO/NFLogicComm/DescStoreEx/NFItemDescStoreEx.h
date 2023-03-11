@@ -19,19 +19,21 @@
 #include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
+#include "DescStore/EquipEquipDesc.h"
+#include "DescStore/ItemItemDesc.h"
 
-typedef NFShmOldHashMap<uint64_t, NFArray<int64_t, 10>, 2000>  ITEM_FUNC_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, 1000>  ITEM_PROF_LIMIT_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  ITEM_MAP_LIMIT_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, 1000>  ITEM_CD_GROUP_MAP;
-typedef NFShmOldHashMap<uint64_t, bool, 1000>  SET_NATURAL_MAP;
-typedef NFShmOldHashMap<uint64_t, int32_t, 1000>  MAP_VIRTUAL_ITEM_ATTR_MAP;
-typedef NFShmOldHashMap<int32_t, uint64_t, 1000>  MAP_ATTR_ITEM_VIRTUAL_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, uint64_t, 10>, 1000>  MAP_FIX_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  MAP_ITEM_USE_COND_ITEM;
-typedef NFShmOldHashMap<uint64_t, int64_t, 1000>  ITEM_ADD_MISSION_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, 1000>  MAP_DECOMPOSE_MAP;
-typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, uint64_t, 10>, 1000>  MAP_EQUIP_SMELT;
+typedef NFShmOldHashMap<uint64_t, NFArray<int64_t, 10>, MAX_ITEM_ITEM_NUM>  ITEM_FUNC_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, MAX_EQUIP_EQUIP_NUM>  ITEM_PROF_LIMIT_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, MAX_ITEM_ITEM_NUM>  ITEM_MAP_LIMIT_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, MAX_ITEM_ITEM_NUM>  ITEM_CD_GROUP_MAP;
+typedef NFShmOldHashMap<uint64_t, bool, MAX_ITEM_ITEM_NUM>  SET_NATURAL_MAP;
+typedef NFShmOldHashMap<uint64_t, int32_t, MAX_ITEM_ITEM_NUM>  MAP_VIRTUAL_ITEM_ATTR_MAP;
+typedef NFShmOldHashMap<int32_t, uint64_t, MAX_ITEM_ITEM_NUM>  MAP_ATTR_ITEM_VIRTUAL_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, uint64_t, 10>, MAX_ITEM_ITEM_NUM>  MAP_FIX_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, MAX_ITEM_ITEM_NUM>  MAP_ITEM_USE_COND_ITEM;
+typedef NFShmOldHashMap<uint64_t, int64_t, MAX_ITEM_ITEM_NUM>  ITEM_ADD_MISSION_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int64_t, bool, 10>, MAX_EQUIP_EQUIP_NUM*5>  MAP_DECOMPOSE_MAP;
+typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<uint64_t, uint64_t, 10>, MAX_EQUIP_EQUIP_NUM>  MAP_EQUIP_SMELT;
 
 class NFItemDescStoreEx : public NFIDescStore
 {

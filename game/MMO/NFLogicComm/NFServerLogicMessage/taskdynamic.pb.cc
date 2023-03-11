@@ -233,7 +233,7 @@ void protobuf_AddDesc_taskdynamic_2eproto() {
     "\022\345\256\214\346\210\220\346\235\241\344\273\266\347\261\273\345\236\213\"f\n\031Sheet_Taskdynamic"
     "Tasktext\022I\n\032E_TaskdynamicTasktext_List\030\001"
     " \003(\0132\037.proto_ff.E_TaskdynamicTasktextB\004\210"
-    "\301\024\024", 1163);
+    "\301\024<", 1163);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "taskdynamic.proto", &protobuf_RegisterTypes);
   E_TaskdynamicTaskdynamic::default_instance_ = new E_TaskdynamicTaskdynamic();

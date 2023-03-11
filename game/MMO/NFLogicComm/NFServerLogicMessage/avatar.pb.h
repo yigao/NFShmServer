@@ -1221,45 +1221,52 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_uplvtype = 2;
+  // optional int32 m_quality = 2;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 2;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
+
+  // optional int32 m_uplvtype = 3;
   inline bool has_m_uplvtype() const;
   inline void clear_m_uplvtype();
-  static const int kMUplvtypeFieldNumber = 2;
+  static const int kMUplvtypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_uplvtype() const;
   inline void set_m_uplvtype(::google::protobuf::int32 value);
 
-  // optional int64 m_avatarskill = 3;
+  // optional int64 m_avatarskill = 4;
   inline bool has_m_avatarskill() const;
   inline void clear_m_avatarskill();
-  static const int kMAvatarskillFieldNumber = 3;
+  static const int kMAvatarskillFieldNumber = 4;
   inline ::google::protobuf::int64 m_avatarskill() const;
   inline void set_m_avatarskill(::google::protobuf::int64 value);
 
-  // optional int32 m_avatarcd = 4;
+  // optional int32 m_avatarcd = 5;
   inline bool has_m_avatarcd() const;
   inline void clear_m_avatarcd();
-  static const int kMAvatarcdFieldNumber = 4;
+  static const int kMAvatarcdFieldNumber = 5;
   inline ::google::protobuf::int32 m_avatarcd() const;
   inline void set_m_avatarcd(::google::protobuf::int32 value);
 
-  // optional int32 m_avatartime = 5;
+  // optional int32 m_avatartime = 6;
   inline bool has_m_avatartime() const;
   inline void clear_m_avatartime();
-  static const int kMAvatartimeFieldNumber = 5;
+  static const int kMAvatartimeFieldNumber = 6;
   inline ::google::protobuf::int32 m_avatartime() const;
   inline void set_m_avatartime(::google::protobuf::int32 value);
 
-  // optional int32 m_avatarshield = 6;
+  // optional int32 m_avatarshield = 7;
   inline bool has_m_avatarshield() const;
   inline void clear_m_avatarshield();
-  static const int kMAvatarshieldFieldNumber = 6;
+  static const int kMAvatarshieldFieldNumber = 7;
   inline ::google::protobuf::int32 m_avatarshield() const;
   inline void set_m_avatarshield(::google::protobuf::int32 value);
 
-  // optional string m_skillid = 7;
+  // optional string m_skillid = 8;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 7;
+  static const int kMSkillidFieldNumber = 8;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -1268,59 +1275,59 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional int32 m_starmax = 8;
+  // optional int32 m_starmax = 9;
   inline bool has_m_starmax() const;
   inline void clear_m_starmax();
-  static const int kMStarmaxFieldNumber = 8;
+  static const int kMStarmaxFieldNumber = 9;
   inline ::google::protobuf::int32 m_starmax() const;
   inline void set_m_starmax(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmax = 9;
+  // optional int32 m_lvmax = 10;
   inline bool has_m_lvmax() const;
   inline void clear_m_lvmax();
-  static const int kMLvmaxFieldNumber = 9;
+  static const int kMLvmaxFieldNumber = 10;
   inline ::google::protobuf::int32 m_lvmax() const;
   inline void set_m_lvmax(::google::protobuf::int32 value);
 
-  // optional int32 m_modelid = 10;
+  // optional int32 m_modelid = 11;
   inline bool has_m_modelid() const;
   inline void clear_m_modelid();
-  static const int kMModelidFieldNumber = 10;
+  static const int kMModelidFieldNumber = 11;
   inline ::google::protobuf::int32 m_modelid() const;
   inline void set_m_modelid(::google::protobuf::int32 value);
 
-  // optional int32 m_advance = 11;
+  // optional int32 m_advance = 12;
   inline bool has_m_advance() const;
   inline void clear_m_advance();
-  static const int kMAdvanceFieldNumber = 11;
+  static const int kMAdvanceFieldNumber = 12;
   inline ::google::protobuf::int32 m_advance() const;
   inline void set_m_advance(::google::protobuf::int32 value);
 
-  // optional int32 m_activationitem = 12;
+  // optional int32 m_activationitem = 13;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 12;
+  static const int kMActivationitemFieldNumber = 13;
   inline ::google::protobuf::int32 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int32 value);
 
-  // optional int32 m_activationnum = 13;
+  // optional int32 m_activationnum = 14;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 13;
+  static const int kMActivationnumFieldNumber = 14;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int32 m_starid = 14;
+  // optional int32 m_starid = 15;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 14;
+  static const int kMStaridFieldNumber = 15;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional string m_starnum = 15;
+  // optional string m_starnum = 16;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 15;
+  static const int kMStarnumFieldNumber = 16;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -1329,45 +1336,45 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 m_starupattributeid = 16;
+  // optional int32 m_starupattributeid = 17;
   inline bool has_m_starupattributeid() const;
   inline void clear_m_starupattributeid();
-  static const int kMStarupattributeidFieldNumber = 16;
+  static const int kMStarupattributeidFieldNumber = 17;
   inline ::google::protobuf::int32 m_starupattributeid() const;
   inline void set_m_starupattributeid(::google::protobuf::int32 value);
 
-  // optional int32 m_fununlock = 17;
+  // optional int32 m_fununlock = 18;
   inline bool has_m_fununlock() const;
   inline void clear_m_fununlock();
-  static const int kMFununlockFieldNumber = 17;
+  static const int kMFununlockFieldNumber = 18;
   inline ::google::protobuf::int32 m_fununlock() const;
   inline void set_m_fununlock(::google::protobuf::int32 value);
 
-  // optional int32 m_maxequip = 18;
+  // optional int32 m_maxequip = 19;
   inline bool has_m_maxequip() const;
   inline void clear_m_maxequip();
-  static const int kMMaxequipFieldNumber = 18;
+  static const int kMMaxequipFieldNumber = 19;
   inline ::google::protobuf::int32 m_maxequip() const;
   inline void set_m_maxequip(::google::protobuf::int32 value);
 
-  // optional int32 m_equipsuit = 19;
+  // optional int32 m_equipsuit = 20;
   inline bool has_m_equipsuit() const;
   inline void clear_m_equipsuit();
-  static const int kMEquipsuitFieldNumber = 19;
+  static const int kMEquipsuitFieldNumber = 20;
   inline ::google::protobuf::int32 m_equipsuit() const;
   inline void set_m_equipsuit(::google::protobuf::int32 value);
 
-  // optional int32 m_starber = 20;
+  // optional int32 m_starber = 21;
   inline bool has_m_starber() const;
   inline void clear_m_starber();
-  static const int kMStarberFieldNumber = 20;
+  static const int kMStarberFieldNumber = 21;
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_attribute = 21;
+  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_attribute = 22;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 21;
+  static const int kMAttributeFieldNumber = 22;
   inline const ::proto_ff::E_AvatarChangeAttributeDesc& m_attribute(int index) const;
   inline ::proto_ff::E_AvatarChangeAttributeDesc* mutable_m_attribute(int index);
   inline ::proto_ff::E_AvatarChangeAttributeDesc* add_m_attribute();
@@ -1376,10 +1383,10 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 23;
   inline int m_material_size() const;
   inline void clear_m_material();
-  static const int kMMaterialFieldNumber = 22;
+  static const int kMMaterialFieldNumber = 23;
   inline const ::proto_ff::E_AvatarChangeMaterialDesc& m_material(int index) const;
   inline ::proto_ff::E_AvatarChangeMaterialDesc* mutable_m_material(int index);
   inline ::proto_ff::E_AvatarChangeMaterialDesc* add_m_material();
@@ -1388,10 +1395,10 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeMaterialDesc >*
       mutable_m_material();
 
-  // repeated int64 m_initiativeskill = 23;
+  // repeated int64 m_initiativeskill = 24;
   inline int m_initiativeskill_size() const;
   inline void clear_m_initiativeskill();
-  static const int kMInitiativeskillFieldNumber = 23;
+  static const int kMInitiativeskillFieldNumber = 24;
   inline ::google::protobuf::int64 m_initiativeskill(int index) const;
   inline void set_m_initiativeskill(int index, ::google::protobuf::int64 value);
   inline void add_m_initiativeskill(::google::protobuf::int64 value);
@@ -1404,6 +1411,8 @@ class E_AvatarChange : public ::google::protobuf::Message {
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
   inline void set_has_m_uplvtype();
   inline void clear_has_m_uplvtype();
   inline void set_has_m_avatarskill();
@@ -1446,31 +1455,32 @@ class E_AvatarChange : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 m_id_;
-  ::google::protobuf::int32 m_uplvtype_;
+  ::google::protobuf::int32 m_quality_;
   ::google::protobuf::int64 m_avatarskill_;
+  ::google::protobuf::int32 m_uplvtype_;
   ::google::protobuf::int32 m_avatarcd_;
   ::google::protobuf::int32 m_avatartime_;
-  ::std::string* m_skillid_;
   ::google::protobuf::int32 m_avatarshield_;
+  ::std::string* m_skillid_;
   ::google::protobuf::int32 m_starmax_;
   ::google::protobuf::int32 m_lvmax_;
   ::google::protobuf::int32 m_modelid_;
   ::google::protobuf::int32 m_advance_;
   ::google::protobuf::int32 m_activationitem_;
   ::google::protobuf::int32 m_activationnum_;
-  ::google::protobuf::int32 m_starid_;
   ::std::string* m_starnum_;
+  ::google::protobuf::int32 m_starid_;
   ::google::protobuf::int32 m_starupattributeid_;
   ::google::protobuf::int32 m_fununlock_;
   ::google::protobuf::int32 m_maxequip_;
   ::google::protobuf::int32 m_equipsuit_;
+  ::google::protobuf::int32 m_starber_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeAttributeDesc > m_attribute_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeMaterialDesc > m_material_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > m_initiativeskill_;
-  ::google::protobuf::int32 m_starber_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(23 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(24 + 31) / 32];
 
   friend void  protobuf_AddDesc_avatar_2eproto();
   friend void protobuf_AssignDesc_avatar_2eproto();
@@ -3482,15 +3492,37 @@ inline void E_AvatarChange::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_uplvtype = 2;
-inline bool E_AvatarChange::has_m_uplvtype() const {
+// optional int32 m_quality = 2;
+inline bool E_AvatarChange::has_m_quality() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_AvatarChange::set_has_m_uplvtype() {
+inline void E_AvatarChange::set_has_m_quality() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_AvatarChange::clear_has_m_uplvtype() {
+inline void E_AvatarChange::clear_has_m_quality() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarChange::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
+}
+inline ::google::protobuf::int32 E_AvatarChange::m_quality() const {
+  return m_quality_;
+}
+inline void E_AvatarChange::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
+}
+
+// optional int32 m_uplvtype = 3;
+inline bool E_AvatarChange::has_m_uplvtype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_AvatarChange::set_has_m_uplvtype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_AvatarChange::clear_has_m_uplvtype() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_AvatarChange::clear_m_uplvtype() {
   m_uplvtype_ = 0;
@@ -3504,15 +3536,15 @@ inline void E_AvatarChange::set_m_uplvtype(::google::protobuf::int32 value) {
   m_uplvtype_ = value;
 }
 
-// optional int64 m_avatarskill = 3;
+// optional int64 m_avatarskill = 4;
 inline bool E_AvatarChange::has_m_avatarskill() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void E_AvatarChange::set_has_m_avatarskill() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void E_AvatarChange::clear_has_m_avatarskill() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_AvatarChange::clear_m_avatarskill() {
   m_avatarskill_ = GOOGLE_LONGLONG(0);
@@ -3526,15 +3558,15 @@ inline void E_AvatarChange::set_m_avatarskill(::google::protobuf::int64 value) {
   m_avatarskill_ = value;
 }
 
-// optional int32 m_avatarcd = 4;
+// optional int32 m_avatarcd = 5;
 inline bool E_AvatarChange::has_m_avatarcd() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_AvatarChange::set_has_m_avatarcd() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_AvatarChange::clear_has_m_avatarcd() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_AvatarChange::clear_m_avatarcd() {
   m_avatarcd_ = 0;
@@ -3548,15 +3580,15 @@ inline void E_AvatarChange::set_m_avatarcd(::google::protobuf::int32 value) {
   m_avatarcd_ = value;
 }
 
-// optional int32 m_avatartime = 5;
+// optional int32 m_avatartime = 6;
 inline bool E_AvatarChange::has_m_avatartime() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void E_AvatarChange::set_has_m_avatartime() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void E_AvatarChange::clear_has_m_avatartime() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_AvatarChange::clear_m_avatartime() {
   m_avatartime_ = 0;
@@ -3570,15 +3602,15 @@ inline void E_AvatarChange::set_m_avatartime(::google::protobuf::int32 value) {
   m_avatartime_ = value;
 }
 
-// optional int32 m_avatarshield = 6;
+// optional int32 m_avatarshield = 7;
 inline bool E_AvatarChange::has_m_avatarshield() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_AvatarChange::set_has_m_avatarshield() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_AvatarChange::clear_has_m_avatarshield() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_AvatarChange::clear_m_avatarshield() {
   m_avatarshield_ = 0;
@@ -3592,15 +3624,15 @@ inline void E_AvatarChange::set_m_avatarshield(::google::protobuf::int32 value) 
   m_avatarshield_ = value;
 }
 
-// optional string m_skillid = 7;
+// optional string m_skillid = 8;
 inline bool E_AvatarChange::has_m_skillid() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_AvatarChange::set_has_m_skillid() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_AvatarChange::clear_has_m_skillid() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_AvatarChange::clear_m_skillid() {
   if (m_skillid_ != &::google::protobuf::internal::kEmptyString) {
@@ -3662,15 +3694,15 @@ inline void E_AvatarChange::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional int32 m_starmax = 8;
+// optional int32 m_starmax = 9;
 inline bool E_AvatarChange::has_m_starmax() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void E_AvatarChange::set_has_m_starmax() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void E_AvatarChange::clear_has_m_starmax() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_AvatarChange::clear_m_starmax() {
   m_starmax_ = 0;
@@ -3684,15 +3716,15 @@ inline void E_AvatarChange::set_m_starmax(::google::protobuf::int32 value) {
   m_starmax_ = value;
 }
 
-// optional int32 m_lvmax = 9;
+// optional int32 m_lvmax = 10;
 inline bool E_AvatarChange::has_m_lvmax() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_AvatarChange::set_has_m_lvmax() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_AvatarChange::clear_has_m_lvmax() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_AvatarChange::clear_m_lvmax() {
   m_lvmax_ = 0;
@@ -3706,15 +3738,15 @@ inline void E_AvatarChange::set_m_lvmax(::google::protobuf::int32 value) {
   m_lvmax_ = value;
 }
 
-// optional int32 m_modelid = 10;
+// optional int32 m_modelid = 11;
 inline bool E_AvatarChange::has_m_modelid() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_AvatarChange::set_has_m_modelid() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_AvatarChange::clear_has_m_modelid() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_AvatarChange::clear_m_modelid() {
   m_modelid_ = 0;
@@ -3728,15 +3760,15 @@ inline void E_AvatarChange::set_m_modelid(::google::protobuf::int32 value) {
   m_modelid_ = value;
 }
 
-// optional int32 m_advance = 11;
+// optional int32 m_advance = 12;
 inline bool E_AvatarChange::has_m_advance() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_AvatarChange::set_has_m_advance() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_AvatarChange::clear_has_m_advance() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_AvatarChange::clear_m_advance() {
   m_advance_ = 0;
@@ -3750,15 +3782,15 @@ inline void E_AvatarChange::set_m_advance(::google::protobuf::int32 value) {
   m_advance_ = value;
 }
 
-// optional int32 m_activationitem = 12;
+// optional int32 m_activationitem = 13;
 inline bool E_AvatarChange::has_m_activationitem() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_activationitem() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void E_AvatarChange::clear_has_m_activationitem() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void E_AvatarChange::clear_m_activationitem() {
   m_activationitem_ = 0;
@@ -3772,15 +3804,15 @@ inline void E_AvatarChange::set_m_activationitem(::google::protobuf::int32 value
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 13;
+// optional int32 m_activationnum = 14;
 inline bool E_AvatarChange::has_m_activationnum() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_activationnum() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_AvatarChange::clear_has_m_activationnum() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_AvatarChange::clear_m_activationnum() {
   m_activationnum_ = 0;
@@ -3794,15 +3826,15 @@ inline void E_AvatarChange::set_m_activationnum(::google::protobuf::int32 value)
   m_activationnum_ = value;
 }
 
-// optional int32 m_starid = 14;
+// optional int32 m_starid = 15;
 inline bool E_AvatarChange::has_m_starid() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_starid() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void E_AvatarChange::clear_has_m_starid() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void E_AvatarChange::clear_m_starid() {
   m_starid_ = 0;
@@ -3816,15 +3848,15 @@ inline void E_AvatarChange::set_m_starid(::google::protobuf::int32 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 15;
+// optional string m_starnum = 16;
 inline bool E_AvatarChange::has_m_starnum() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_starnum() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void E_AvatarChange::clear_has_m_starnum() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void E_AvatarChange::clear_m_starnum() {
   if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
@@ -3886,15 +3918,15 @@ inline void E_AvatarChange::set_allocated_m_starnum(::std::string* m_starnum) {
   }
 }
 
-// optional int32 m_starupattributeid = 16;
+// optional int32 m_starupattributeid = 17;
 inline bool E_AvatarChange::has_m_starupattributeid() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_starupattributeid() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void E_AvatarChange::clear_has_m_starupattributeid() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void E_AvatarChange::clear_m_starupattributeid() {
   m_starupattributeid_ = 0;
@@ -3908,15 +3940,15 @@ inline void E_AvatarChange::set_m_starupattributeid(::google::protobuf::int32 va
   m_starupattributeid_ = value;
 }
 
-// optional int32 m_fununlock = 17;
+// optional int32 m_fununlock = 18;
 inline bool E_AvatarChange::has_m_fununlock() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_fununlock() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void E_AvatarChange::clear_has_m_fununlock() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void E_AvatarChange::clear_m_fununlock() {
   m_fununlock_ = 0;
@@ -3930,15 +3962,15 @@ inline void E_AvatarChange::set_m_fununlock(::google::protobuf::int32 value) {
   m_fununlock_ = value;
 }
 
-// optional int32 m_maxequip = 18;
+// optional int32 m_maxequip = 19;
 inline bool E_AvatarChange::has_m_maxequip() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_maxequip() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void E_AvatarChange::clear_has_m_maxequip() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void E_AvatarChange::clear_m_maxequip() {
   m_maxequip_ = 0;
@@ -3952,15 +3984,15 @@ inline void E_AvatarChange::set_m_maxequip(::google::protobuf::int32 value) {
   m_maxequip_ = value;
 }
 
-// optional int32 m_equipsuit = 19;
+// optional int32 m_equipsuit = 20;
 inline bool E_AvatarChange::has_m_equipsuit() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_equipsuit() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void E_AvatarChange::clear_has_m_equipsuit() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void E_AvatarChange::clear_m_equipsuit() {
   m_equipsuit_ = 0;
@@ -3974,15 +4006,15 @@ inline void E_AvatarChange::set_m_equipsuit(::google::protobuf::int32 value) {
   m_equipsuit_ = value;
 }
 
-// optional int32 m_starber = 20;
+// optional int32 m_starber = 21;
 inline bool E_AvatarChange::has_m_starber() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void E_AvatarChange::set_has_m_starber() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void E_AvatarChange::clear_has_m_starber() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void E_AvatarChange::clear_m_starber() {
   m_starber_ = 0;
@@ -3996,7 +4028,7 @@ inline void E_AvatarChange::set_m_starber(::google::protobuf::int32 value) {
   m_starber_ = value;
 }
 
-// repeated .proto_ff.E_AvatarChangeAttributeDesc m_attribute = 21;
+// repeated .proto_ff.E_AvatarChangeAttributeDesc m_attribute = 22;
 inline int E_AvatarChange::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -4021,7 +4053,7 @@ E_AvatarChange::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+// repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 23;
 inline int E_AvatarChange::m_material_size() const {
   return m_material_.size();
 }
@@ -4046,7 +4078,7 @@ E_AvatarChange::mutable_m_material() {
   return &m_material_;
 }
 
-// repeated int64 m_initiativeskill = 23;
+// repeated int64 m_initiativeskill = 24;
 inline int E_AvatarChange::m_initiativeskill_size() const {
   return m_initiativeskill_.size();
 }

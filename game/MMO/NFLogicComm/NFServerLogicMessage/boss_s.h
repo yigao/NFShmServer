@@ -52,6 +52,7 @@ namespace proto_ff_s {
 		int32_t m_duplicateid;
 		int32_t m_peacemask;
 		int32_t m_pointid;
+		int32_t m_flashnum;
 		int32_t m_group_type;
 		int32_t m_flashtime;
 		int32_t m_retrievegiftid;
@@ -70,7 +71,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossBoss_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossBoss_s, 200> E_BossBoss_List;
+		NFShmVector<struct E_BossBoss_s, 300> E_BossBoss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg);
@@ -145,7 +146,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_bosstype;
 		int32_t m_order;
-		NFShmString<60> m_name;
+		int32_t m_bosstypearg;
 		NFShmString<60> m_entercondition;
 		NFShmString<60> m_unlockcondition;
 		int32_t m_mapid;
@@ -162,7 +163,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossLayer_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossLayer_s, 20> E_BossLayer_List;
+		NFShmVector<struct E_BossLayer_s, 40> E_BossLayer_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossLayer & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossLayer & msg);

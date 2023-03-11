@@ -126,5 +126,38 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_DailyCultivate_s Sheet_DailyCultivate_t;
 
+	struct E_DailySports_s : public NFDescStoreSeqOP {
+		E_DailySports_s();
+		virtual ~E_DailySports_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		NFShmString<60> m_name;
+		int32_t m_functionid;
+		int32_t m_peractivityid;
+		int32_t m_des;
+		int32_t m_linkid;
+
+		virtual void write_to_pbmsg(::proto_ff::E_DailySports & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_DailySports & msg);
+		static ::proto_ff::E_DailySports* new_pbmsg(){ return new ::proto_ff::E_DailySports(); }
+		static ::proto_ff::E_DailySports make_pbmsg(){ return ::proto_ff::E_DailySports(); }
+	};
+	typedef struct E_DailySports_s E_DailySports_t;
+
+	struct Sheet_DailySports_s : public NFDescStoreSeqOP {
+		Sheet_DailySports_s();
+		virtual ~Sheet_DailySports_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_DailySports_s, 20> E_DailySports_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_DailySports & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailySports & msg);
+		static ::proto_ff::Sheet_DailySports* new_pbmsg(){ return new ::proto_ff::Sheet_DailySports(); }
+		static ::proto_ff::Sheet_DailySports make_pbmsg(){ return ::proto_ff::Sheet_DailySports(); }
+	};
+	typedef struct Sheet_DailySports_s Sheet_DailySports_t;
+
 }
 

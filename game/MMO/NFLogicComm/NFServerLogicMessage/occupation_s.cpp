@@ -94,6 +94,7 @@ int E_OccupationStage_s::CreateInit() {
 	m_lv = (int32_t)0;
 	m_stgaeattshow = (int32_t)0;
 	m_stgaeatt = (int32_t)0;
+	m_taskid = (int32_t)0;
 	m_battle = (int32_t)0;
 	m_skillid = (int32_t)0;
 	m_soultpye = (int32_t)0;
@@ -112,7 +113,7 @@ void E_OccupationStage_s::write_to_pbmsg(::proto_ff::E_OccupationStage & msg) co
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_stgaeattshow((int32_t)m_stgaeattshow);
 	msg.set_m_stgaeatt((int32_t)m_stgaeatt);
-	msg.set_m_taskid((const char*)m_taskid.data());
+	msg.set_m_taskid((int32_t)m_taskid);
 	msg.set_m_battle((int32_t)m_battle);
 	msg.set_m_skillid((int32_t)m_skillid);
 	msg.set_m_lightsoul((const char*)m_lightsoul.data());

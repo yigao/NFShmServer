@@ -39,6 +39,7 @@ public:
     virtual int HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
     int OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
     int OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
+    int OnHandleGetMapInfoRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
 public:
     /**
      * @brief
@@ -66,10 +67,21 @@ public:
      * @param pos
      * @return
      */
-    int TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos);
+    int TransScene(uint64_t mapId, uint32_t transType, uint64_t dstId);
+
+    int SendGetMapInfoReq();
+public:
+    /**
+     * @brief
+     * @param iRunLogicRetCode
+     * @return
+     */
+    int HandleTransFinished(int iRunLogicRetCode);
 private:
     uint64_t m_mapId;
     uint64_t m_sceneId;
     NFPoint3<float> m_pos;
+    uint32_t m_transType;
+    uint64_t m_transId;
 DECLARE_IDCREATE(NFTransTransScene)
 };

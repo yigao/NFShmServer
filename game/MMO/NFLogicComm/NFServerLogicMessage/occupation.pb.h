@@ -415,17 +415,12 @@ class E_OccupationStage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_stgaeatt() const;
   inline void set_m_stgaeatt(::google::protobuf::int32 value);
 
-  // optional string m_taskid = 7;
+  // optional int32 m_taskid = 7;
   inline bool has_m_taskid() const;
   inline void clear_m_taskid();
   static const int kMTaskidFieldNumber = 7;
-  inline const ::std::string& m_taskid() const;
-  inline void set_m_taskid(const ::std::string& value);
-  inline void set_m_taskid(const char* value);
-  inline void set_m_taskid(const char* value, size_t size);
-  inline ::std::string* mutable_m_taskid();
-  inline ::std::string* release_m_taskid();
-  inline void set_allocated_m_taskid(::std::string* m_taskid);
+  inline ::google::protobuf::int32 m_taskid() const;
+  inline void set_m_taskid(::google::protobuf::int32 value);
 
   // optional int32 m_battle = 8;
   inline bool has_m_battle() const;
@@ -501,11 +496,11 @@ class E_OccupationStage : public ::google::protobuf::Message {
   ::std::string* m_stgae_;
   ::google::protobuf::int32 m_lv_;
   ::google::protobuf::int32 m_stgaeattshow_;
-  ::std::string* m_taskid_;
   ::google::protobuf::int32 m_stgaeatt_;
+  ::google::protobuf::int32 m_taskid_;
   ::google::protobuf::int32 m_battle_;
-  ::std::string* m_lightsoul_;
   ::google::protobuf::int32 m_skillid_;
+  ::std::string* m_lightsoul_;
   ::google::protobuf::int32 m_soultpye_;
   ::google::protobuf::int32 m_itemid_;
 
@@ -1778,7 +1773,7 @@ inline void E_OccupationStage::set_m_stgaeatt(::google::protobuf::int32 value) {
   m_stgaeatt_ = value;
 }
 
-// optional string m_taskid = 7;
+// optional int32 m_taskid = 7;
 inline bool E_OccupationStage::has_m_taskid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1789,63 +1784,15 @@ inline void E_OccupationStage::clear_has_m_taskid() {
   _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_OccupationStage::clear_m_taskid() {
-  if (m_taskid_ != &::google::protobuf::internal::kEmptyString) {
-    m_taskid_->clear();
-  }
+  m_taskid_ = 0;
   clear_has_m_taskid();
 }
-inline const ::std::string& E_OccupationStage::m_taskid() const {
-  return *m_taskid_;
-}
-inline void E_OccupationStage::set_m_taskid(const ::std::string& value) {
-  set_has_m_taskid();
-  if (m_taskid_ == &::google::protobuf::internal::kEmptyString) {
-    m_taskid_ = new ::std::string;
-  }
-  m_taskid_->assign(value);
-}
-inline void E_OccupationStage::set_m_taskid(const char* value) {
-  set_has_m_taskid();
-  if (m_taskid_ == &::google::protobuf::internal::kEmptyString) {
-    m_taskid_ = new ::std::string;
-  }
-  m_taskid_->assign(value);
-}
-inline void E_OccupationStage::set_m_taskid(const char* value, size_t size) {
-  set_has_m_taskid();
-  if (m_taskid_ == &::google::protobuf::internal::kEmptyString) {
-    m_taskid_ = new ::std::string;
-  }
-  m_taskid_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_OccupationStage::mutable_m_taskid() {
-  set_has_m_taskid();
-  if (m_taskid_ == &::google::protobuf::internal::kEmptyString) {
-    m_taskid_ = new ::std::string;
-  }
+inline ::google::protobuf::int32 E_OccupationStage::m_taskid() const {
   return m_taskid_;
 }
-inline ::std::string* E_OccupationStage::release_m_taskid() {
-  clear_has_m_taskid();
-  if (m_taskid_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_taskid_;
-    m_taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_OccupationStage::set_allocated_m_taskid(::std::string* m_taskid) {
-  if (m_taskid_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_taskid_;
-  }
-  if (m_taskid) {
-    set_has_m_taskid();
-    m_taskid_ = m_taskid;
-  } else {
-    clear_has_m_taskid();
-    m_taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void E_OccupationStage::set_m_taskid(::google::protobuf::int32 value) {
+  set_has_m_taskid();
+  m_taskid_ = value;
 }
 
 // optional int32 m_battle = 8;

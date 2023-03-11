@@ -25,17 +25,18 @@ message E_BossBoss
 	optional int32 m_duplicateid = 6[(yd_fieldoptions.field_cname) = "副本ID"];
 	optional int32 m_peacemask = 7[(yd_fieldoptions.field_cname) = "和平标记"];
 	optional int32 m_pointid = 8[(yd_fieldoptions.field_cname) = "位置点"];
-	optional int32 m_group_type = 9[(yd_fieldoptions.field_cname) = "组类型"];
-	optional int32 m_flashtime = 10[(yd_fieldoptions.field_cname) = "刷新间隔"];
-	optional int32 m_retrievegiftid = 11[(yd_fieldoptions.field_cname) = "找回礼包id"];
-	optional int32 m_notimes = 12[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
-	optional int32 m_assistprestige = 13[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
+	optional int32 m_flashnum = 9[(yd_fieldoptions.field_cname) = "刷新数量"];
+	optional int32 m_group_type = 10[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_flashtime = 11[(yd_fieldoptions.field_cname) = "刷新间隔"];
+	optional int32 m_retrievegiftid = 12[(yd_fieldoptions.field_cname) = "找回礼包id"];
+	optional int32 m_notimes = 13[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
+	optional int32 m_assistprestige = 14[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
 }
 
 
 message Sheet_BossBoss
 {
-	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=200];
+	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=300];
 }
 
 message E_BossBosstypeGroupDesc
@@ -75,7 +76,7 @@ message E_BossLayer
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_bosstype = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_order = 3[(yd_fieldoptions.field_cname) = "排序"];
-	optional string m_name = 4[(yd_fieldoptions.field_cname) = "命名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_bosstypearg = 4[(yd_fieldoptions.field_cname) = "类型"];
 	optional string m_entercondition = 5[(yd_fieldoptions.field_cname) = "进入条件", (yd_fieldoptions.field_bufsize) = 60];
 	optional string m_unlockcondition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 60];
 	optional int32 m_mapid = 7[(yd_fieldoptions.field_cname) = "地图ID"];
@@ -84,5 +85,5 @@ message E_BossLayer
 
 message Sheet_BossLayer
 {
-	repeated E_BossLayer E_BossLayer_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_BossLayer E_BossLayer_List = 1[(yd_fieldoptions.field_arysize)=40];
 }

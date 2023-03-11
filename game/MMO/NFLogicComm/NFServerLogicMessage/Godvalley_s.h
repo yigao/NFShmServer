@@ -18,12 +18,18 @@ namespace proto_ff_s {
 		int64_t m_id;
 		NFShmString<60> m_team1n;
 		NFShmString<60> m_team2n;
+		int32_t m_winscore;
+		int32_t m_timescore;
 		int32_t m_killscore;
 		int32_t m_killkeepscore;
 		int32_t m_breakkillkeepscore;
 		int32_t m_killmonsterscore;
+		int32_t m_crystalpoints;
 		int32_t m_crystalscore;
+		int32_t m_interceptpoints;
+		int32_t m_interceptscore;
 		int32_t m_crystalreborntime;
+		NFShmString<60> m_crystalpos;
 		int32_t m_match_s;
 		int32_t m_duration_s;
 		int64_t m_matchmapid;
@@ -57,6 +63,51 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_GodvalleyBattle make_pbmsg(){ return ::proto_ff::Sheet_GodvalleyBattle(); }
 	};
 	typedef struct Sheet_GodvalleyBattle_s Sheet_GodvalleyBattle_t;
+
+	struct E_GodvalleyRewardsRewardDesc_s : public NFDescStoreSeqOP {
+		E_GodvalleyRewardsRewardDesc_s();
+		virtual ~E_GodvalleyRewardsRewardDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;
+		int64_t m_id;
+
+		virtual void write_to_pbmsg(::proto_ff::E_GodvalleyRewardsRewardDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_GodvalleyRewardsRewardDesc & msg);
+		static ::proto_ff::E_GodvalleyRewardsRewardDesc* new_pbmsg(){ return new ::proto_ff::E_GodvalleyRewardsRewardDesc(); }
+		static ::proto_ff::E_GodvalleyRewardsRewardDesc make_pbmsg(){ return ::proto_ff::E_GodvalleyRewardsRewardDesc(); }
+	};
+	typedef struct E_GodvalleyRewardsRewardDesc_s E_GodvalleyRewardsRewardDesc_t;
+
+	struct E_GodvalleyRewards_s : public NFDescStoreSeqOP {
+		E_GodvalleyRewards_s();
+		virtual ~E_GodvalleyRewards_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;
+		int32_t m_score;
+		NFShmVector<struct E_GodvalleyRewardsRewardDesc_s, 4> m_reward;
+
+		virtual void write_to_pbmsg(::proto_ff::E_GodvalleyRewards & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_GodvalleyRewards & msg);
+		static ::proto_ff::E_GodvalleyRewards* new_pbmsg(){ return new ::proto_ff::E_GodvalleyRewards(); }
+		static ::proto_ff::E_GodvalleyRewards make_pbmsg(){ return ::proto_ff::E_GodvalleyRewards(); }
+	};
+	typedef struct E_GodvalleyRewards_s E_GodvalleyRewards_t;
+
+	struct Sheet_GodvalleyRewards_s : public NFDescStoreSeqOP {
+		Sheet_GodvalleyRewards_s();
+		virtual ~Sheet_GodvalleyRewards_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_GodvalleyRewards_s, 20> E_GodvalleyRewards_List;
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_GodvalleyRewards & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GodvalleyRewards & msg);
+		static ::proto_ff::Sheet_GodvalleyRewards* new_pbmsg(){ return new ::proto_ff::Sheet_GodvalleyRewards(); }
+		static ::proto_ff::Sheet_GodvalleyRewards make_pbmsg(){ return ::proto_ff::Sheet_GodvalleyRewards(); }
+	};
+	typedef struct Sheet_GodvalleyRewards_s Sheet_GodvalleyRewards_t;
 
 }
 

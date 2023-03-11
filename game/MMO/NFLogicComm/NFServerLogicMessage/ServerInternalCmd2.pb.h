@@ -58,11 +58,13 @@ enum ServerInternalCmd2 {
   LOGIC_TO_WORLD_LEAVE_SCENE_REQ = 5018,
   WORLD_TO_LOGIC_LEAVE_SCENE_RSP = 5019,
   WORLD_TO_GAME_LEAVE_SCENE_REQ = 5020,
-  GAME_TO_WORLD_LEAVE_SCENE_RSP = 5021
+  GAME_TO_WORLD_LEAVE_SCENE_RSP = 5021,
+  LOGIC_TO_WORLD_GET_MAP_INFO_REQ = 5022,
+  WORLD_TO_LOGIC_GET_MAP_INFO_RSP = 5023
 };
 bool ServerInternalCmd2_IsValid(int value);
 const ServerInternalCmd2 ServerInternalCmd2_MIN = SERVER_INTERNAL2_BEGIN;
-const ServerInternalCmd2 ServerInternalCmd2_MAX = GAME_TO_WORLD_LEAVE_SCENE_RSP;
+const ServerInternalCmd2 ServerInternalCmd2_MAX = WORLD_TO_LOGIC_GET_MAP_INFO_RSP;
 const int ServerInternalCmd2_ARRAYSIZE = ServerInternalCmd2_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ServerInternalCmd2_descriptor();

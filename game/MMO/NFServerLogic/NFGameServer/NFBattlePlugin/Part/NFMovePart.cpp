@@ -81,11 +81,6 @@ int NFMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
             ClientLoadMapFinshReq(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_SCENE_TRANS_REQ:
-        {
-            ClientTransSceneReq(msgId, packet);
-            break;
-        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_masterCid, "msgId:{} Not Handle", msgId);
@@ -104,7 +99,6 @@ int NFMovePart::RetisterClientMessage(NFIPluginManager *pPluginManager)
 {
     RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
     RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_LOAD_MAP_FINISH, BATTLE_PART_MOVE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_SCENE_TRANS_REQ, BATTLE_PART_MOVE);
     return 0;
 }
 

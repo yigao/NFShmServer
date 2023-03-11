@@ -42,6 +42,9 @@ int NFTransWorldTransScene::CreateInit()
     m_gameId = 0;
     m_logicId = 0;
     m_cmd = 0;
+    m_srcMapId = 0;
+    m_srcSceneId = 0;
+    m_transType = 0;
     return 0;
 }
 
@@ -63,6 +66,10 @@ int NFTransWorldTransScene::Init(uint64_t roleId, uint64_t mapId, uint64_t scene
 
 int NFTransWorldTransScene::OnHandleTransScene(const proto_ff::LogicToWorldEnterSceneReq& xData)
 {
+    m_srcMapId = xData.src_map_id();
+    m_srcSceneId = xData.src_scene_id();
+    m_transType = xData.trans_type();
+
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(m_roleId);
     CHECK_EXPR(pPlayer, -1, "can't find player info, roleId:{}", m_roleId);
 
@@ -87,6 +94,9 @@ int NFTransWorldTransScene::OnHandleTransScene(const proto_ff::LogicToWorldEnter
         reqMsg.set_client_id(pPlayer->GetClientId());
         reqMsg.mutable_pos()->CopyFrom(xData.pos());
         reqMsg.mutable_data()->CopyFrom(xData.data());
+        reqMsg.set_src_map_id(m_srcMapId);
+        reqMsg.set_src_scene_id(m_srcSceneId);
+        reqMsg.set_trans_type(m_transType);
 
         pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ, reqMsg, GetGlobalID());
     }
@@ -117,7 +127,6 @@ int NFTransWorldTransScene::OnHandleLeaveScene(const proto_ff::LogicToWorldLeave
         reqMsg.set_role_id(m_roleId);
         reqMsg.set_map_id(m_mapId);
         reqMsg.set_scene_id(m_sceneId);
-        reqMsg.mutable_pos()->CopyFrom(xData.pos());
 
         pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_LEAVE_SCENE_REQ, reqMsg, GetGlobalID());
     }
@@ -182,12 +191,12 @@ int NFTransWorldTransScene::OnHandleGameLeaveSceneRsp(uint32_t nMsgId, const NFD
 
     if (xData.ret_code() != proto_ff::RET_SUCCESS)
     {
+        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "roleId:{} leave scene rsp err:{}, ", m_roleId, xData.ret_code());
+    }
 
-    }
-    else {
-        pPlayer->SetGameId(0);
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_GAME_SERVER, 0);
-    }
+    pPlayer->SetGameId(0);
+    NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_GAME_SERVER, 0);
+
 
     SetFinished(xData.ret_code());
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -224,7 +233,6 @@ int NFTransWorldTransScene::OnTransFinished(int iRunLogicRetCode)
         rspMsg.set_role_id(m_roleId);
         rspMsg.set_map_id(m_mapId);
         rspMsg.set_scene_id(m_sceneId);
-        m_pos.ToProto(*rspMsg.mutable_pos());
 
         pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_LEAVE_SCENE_RSP, rspMsg, GetGlobalID(), m_reqTransId);
     }

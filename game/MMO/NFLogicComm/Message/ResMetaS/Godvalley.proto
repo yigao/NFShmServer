@@ -8,28 +8,53 @@ message E_GodvalleyBattle
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
 	optional string m_team1n = 2[(yd_fieldoptions.field_cname) = "组名", (yd_fieldoptions.field_bufsize) = 60];
 	optional string m_team2n = 3[(yd_fieldoptions.field_cname) = "组名", (yd_fieldoptions.field_bufsize) = 60];
-	optional int32 m_killscore = 4[(yd_fieldoptions.field_cname) = "杀人得积分"];
-	optional int32 m_killkeepscore = 5[(yd_fieldoptions.field_cname) = "连杀得积分"];
-	optional int32 m_breakkillkeepscore = 6[(yd_fieldoptions.field_cname) = "打断别人连杀得积分"];
-	optional int32 m_killmonsterscore = 7[(yd_fieldoptions.field_cname) = "杀怪得积分"];
-	optional int32 m_crystalscore = 8[(yd_fieldoptions.field_cname) = "运水晶加积分"];
-	optional int32 m_crystalreborntime = 9[(yd_fieldoptions.field_cname) = "水晶刷新时间（秒"];
-	optional int32 m_match_s = 10[(yd_fieldoptions.field_cname) = "匹配时间"];
-	optional int32 m_duration_s = 11[(yd_fieldoptions.field_cname) = "打多久"];
-	optional int64 m_matchmapid = 12[(yd_fieldoptions.field_cname) = "匹配地图"];
-	optional string m_matchmapentry = 13[(yd_fieldoptions.field_cname) = "匹配地图出生位置", (yd_fieldoptions.field_bufsize) = 60];
-	optional int64 m_mapid = 14[(yd_fieldoptions.field_cname) = "所在地图"];
-	optional string m_mapentry1 = 15[(yd_fieldoptions.field_cname) = "队一起始位置", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_mapentry2 = 16[(yd_fieldoptions.field_cname) = "队二起始位置", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_monster1 = 17[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_monster2 = 18[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_monster3 = 19[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_npc1pos = 20[(yd_fieldoptions.field_cname) = "NPC位置", (yd_fieldoptions.field_bufsize) = 60];
-	optional string m_npc2pos = 21[(yd_fieldoptions.field_cname) = "NPC位置", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_winscore = 4[(yd_fieldoptions.field_cname) = "胜利的资源点"];
+	optional int32 m_timescore = 5[(yd_fieldoptions.field_cname) = "时间增加积分"];
+	optional int32 m_killscore = 6[(yd_fieldoptions.field_cname) = "杀人得积分"];
+	optional int32 m_killkeepscore = 7[(yd_fieldoptions.field_cname) = "连杀得积分"];
+	optional int32 m_breakkillkeepscore = 8[(yd_fieldoptions.field_cname) = "打断别人连杀得积分"];
+	optional int32 m_killmonsterscore = 9[(yd_fieldoptions.field_cname) = "杀怪得积分"];
+	optional int32 m_crystalpoints = 10[(yd_fieldoptions.field_cname) = "运水晶加资源点"];
+	optional int32 m_crystalscore = 11[(yd_fieldoptions.field_cname) = "运水晶加个人积分"];
+	optional int32 m_interceptpoints = 12[(yd_fieldoptions.field_cname) = "拦截水晶增加资源点"];
+	optional int32 m_interceptscore = 13[(yd_fieldoptions.field_cname) = "拦截水晶增加个人积分"];
+	optional int32 m_crystalreborntime = 14[(yd_fieldoptions.field_cname) = "水晶刷新时间（秒"];
+	optional string m_crystalpos = 15[(yd_fieldoptions.field_cname) = "水晶位置", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_match_s = 16[(yd_fieldoptions.field_cname) = "匹配时间"];
+	optional int32 m_duration_s = 17[(yd_fieldoptions.field_cname) = "打多久"];
+	optional int64 m_matchmapid = 18[(yd_fieldoptions.field_cname) = "匹配地图"];
+	optional string m_matchmapentry = 19[(yd_fieldoptions.field_cname) = "匹配地图出生位置", (yd_fieldoptions.field_bufsize) = 60];
+	optional int64 m_mapid = 20[(yd_fieldoptions.field_cname) = "所在地图"];
+	optional string m_mapentry1 = 21[(yd_fieldoptions.field_cname) = "队一起始位置", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_mapentry2 = 22[(yd_fieldoptions.field_cname) = "队二起始位置", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_monster1 = 23[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_monster2 = 24[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_monster3 = 25[(yd_fieldoptions.field_cname) = "怪物", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_npc1pos = 26[(yd_fieldoptions.field_cname) = "NPC位置", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_npc2pos = 27[(yd_fieldoptions.field_cname) = "NPC位置", (yd_fieldoptions.field_bufsize) = 60];
 }
 
 
 message Sheet_GodvalleyBattle
 {
 	repeated E_GodvalleyBattle E_GodvalleyBattle_List = 1[(yd_fieldoptions.field_arysize)=20];
+}
+
+message E_GodvalleyRewardsRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_GodvalleyRewards
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_score = 2[(yd_fieldoptions.field_cname) = "积分数量"];
+	repeated E_GodvalleyRewardsRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_GodvalleyRewards
+{
+	repeated E_GodvalleyRewards E_GodvalleyRewards_List = 1[(yd_fieldoptions.field_arysize)=20];
 }

@@ -98,6 +98,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* WorldToLogicLeaveSceneRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   WorldToLogicLeaveSceneRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LogicToWorldGetMapInfoReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LogicToWorldGetMapInfoReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LogicToWorldGetMapInfoRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LogicToWorldGetMapInfoRsp_reflection_ = NULL;
 
 }  // namespace
 
@@ -406,12 +412,15 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WorldToLogicLoginFinishNotify));
   LogicToWorldEnterSceneReq_descriptor_ = file->message_type(16);
-  static const int LogicToWorldEnterSceneReq_offsets_[5] = {
+  static const int LogicToWorldEnterSceneReq_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, map_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, scene_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, data_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, src_map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, src_scene_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldEnterSceneReq, trans_type_),
   };
   LogicToWorldEnterSceneReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -425,7 +434,7 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LogicToWorldEnterSceneReq));
   WorldToGameEnterSceneReq_descriptor_ = file->message_type(17);
-  static const int WorldToGameEnterSceneReq_offsets_[8] = {
+  static const int WorldToGameEnterSceneReq_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, map_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, scene_id_),
@@ -434,6 +443,9 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, client_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, logic_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, data_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, src_map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, src_scene_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameEnterSceneReq, trans_type_),
   };
   WorldToGameEnterSceneReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -539,12 +551,10 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LogicToWorldLeaveSceneReq));
   WorldToGameLeaveSceneReq_descriptor_ = file->message_type(23);
-  static const int WorldToGameLeaveSceneReq_offsets_[5] = {
+  static const int WorldToGameLeaveSceneReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameLeaveSceneReq, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameLeaveSceneReq, map_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameLeaveSceneReq, scene_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameLeaveSceneReq, pos_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToGameLeaveSceneReq, game_id_),
   };
   WorldToGameLeaveSceneReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -558,12 +568,11 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WorldToGameLeaveSceneReq));
   GameToWorldLeaveSceneRsp_descriptor_ = file->message_type(24);
-  static const int GameToWorldLeaveSceneRsp_offsets_[6] = {
+  static const int GameToWorldLeaveSceneRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameToWorldLeaveSceneRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameToWorldLeaveSceneRsp, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameToWorldLeaveSceneRsp, map_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameToWorldLeaveSceneRsp, scene_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameToWorldLeaveSceneRsp, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameToWorldLeaveSceneRsp, logic_id_),
   };
   GameToWorldLeaveSceneRsp_reflection_ =
@@ -578,12 +587,11 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GameToWorldLeaveSceneRsp));
   WorldToLogicLeaveSceneRsp_descriptor_ = file->message_type(25);
-  static const int WorldToLogicLeaveSceneRsp_offsets_[6] = {
+  static const int WorldToLogicLeaveSceneRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLeaveSceneRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLeaveSceneRsp, role_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLeaveSceneRsp, map_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLeaveSceneRsp, scene_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLeaveSceneRsp, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WorldToLogicLeaveSceneRsp, logic_id_),
   };
   WorldToLogicLeaveSceneRsp_reflection_ =
@@ -597,6 +605,44 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WorldToLogicLeaveSceneRsp));
+  LogicToWorldGetMapInfoReq_descriptor_ = file->message_type(26);
+  static const int LogicToWorldGetMapInfoReq_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoReq, role_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoReq, src_map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoReq, dst_map_id_),
+  };
+  LogicToWorldGetMapInfoReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LogicToWorldGetMapInfoReq_descriptor_,
+      LogicToWorldGetMapInfoReq::default_instance_,
+      LogicToWorldGetMapInfoReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LogicToWorldGetMapInfoReq));
+  LogicToWorldGetMapInfoRsp_descriptor_ = file->message_type(27);
+  static const int LogicToWorldGetMapInfoRsp_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, role_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, src_map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, src_game_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, dst_map_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, dst_game_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, cur_game_id_),
+  };
+  LogicToWorldGetMapInfoRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LogicToWorldGetMapInfoRsp_descriptor_,
+      LogicToWorldGetMapInfoRsp::default_instance_,
+      LogicToWorldGetMapInfoRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogicToWorldGetMapInfoRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LogicToWorldGetMapInfoRsp));
 }
 
 namespace {
@@ -661,6 +707,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     GameToWorldLeaveSceneRsp_descriptor_, &GameToWorldLeaveSceneRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     WorldToLogicLeaveSceneRsp_descriptor_, &WorldToLogicLeaveSceneRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LogicToWorldGetMapInfoReq_descriptor_, &LogicToWorldGetMapInfoReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LogicToWorldGetMapInfoRsp_descriptor_, &LogicToWorldGetMapInfoRsp::default_instance());
 }
 
 }  // namespace
@@ -718,6 +768,10 @@ void protobuf_ShutdownFile_ServerInternal2_2eproto() {
   delete GameToWorldLeaveSceneRsp_reflection_;
   delete WorldToLogicLeaveSceneRsp::default_instance_;
   delete WorldToLogicLeaveSceneRsp_reflection_;
+  delete LogicToWorldGetMapInfoReq::default_instance_;
+  delete LogicToWorldGetMapInfoReq_reflection_;
+  delete LogicToWorldGetMapInfoRsp::default_instance_;
+  delete LogicToWorldGetMapInfoRsp_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal2_2eproto() {
@@ -784,41 +838,47 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
     "\017\n\007role_id\030\002 \001(\004\022\020\n\010proxy_id\030\003 \001(\r\022\021\n\tcl"
     "ient_id\030\004 \001(\004\022\016\n\006map_id\030\005 \001(\004\022\020\n\010scene_i"
     "d\030\006 \001(\004\022 \n\003pos\030\007 \001(\0132\023.proto_ff.Vector3P"
-    "B\"\234\001\n\031LogicToWorldEnterSceneReq\022\017\n\007role_"
+    "B\"\332\001\n\031LogicToWorldEnterSceneReq\022\017\n\007role_"
     "id\030\001 \001(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001"
     "(\004\022 \n\003pos\030\004 \001(\0132\023.proto_ff.Vector3PB\022*\n\004"
     "data\030\006 \001(\0132\034.proto_ff.RoleEnterSceneData"
-    "\"\321\001\n\030WorldToGameEnterSceneReq\022\017\n\007role_id"
-    "\030\001 \001(\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004"
-    "\022 \n\003pos\030\004 \001(\0132\023.proto_ff.Vector3PB\022\017\n\007ga"
-    "te_id\030\006 \001(\r\022\021\n\tclient_id\030\007 \001(\004\022\020\n\010logic_"
-    "id\030\010 \001(\r\022*\n\004data\030\t \001(\0132\034.proto_ff.RoleEn"
-    "terSceneData\"\201\001\n\030GameToWorldEnterSceneRs"
-    "p\022\020\n\010ret_code\030\001 \001(\005\022\017\n\007role_id\030\002 \001(\004\022\016\n\006"
-    "map_id\030\003 \001(\004\022\020\n\010scene_id\030\004 \001(\004\022 \n\003pos\030\005 "
-    "\001(\0132\023.proto_ff.Vector3PB\"\223\001\n\031WorldToLogi"
-    "cEnterSceneRsp\022\020\n\010ret_code\030\001 \001(\005\022\017\n\007role"
-    "_id\030\002 \001(\004\022\016\n\006map_id\030\003 \001(\004\022\020\n\010scene_id\030\004 "
-    "\001(\004\022 \n\003pos\030\005 \001(\0132\023.proto_ff.Vector3PB\022\017\n"
-    "\007game_id\030\006 \001(\r\"Y\n\030NotifyLogicLeaveGameRe"
-    "q2\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\004\022#\n\004type\030\003 \001"
-    "(\0162\025.proto_ff.LOGOUT_TYPE\"I\n\030NotifyLogic"
-    "LeaveGameRsp2\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\004\022"
-    "\023\n\013logout_type\030\003 \001(\005\"\201\001\n\031LogicToWorldLea"
-    "veSceneReq\022\017\n\007role_id\030\001 \001(\004\022\016\n\006map_id\030\002 "
-    "\001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023.pro"
-    "to_ff.Vector3PB\022\017\n\007game_id\030\005 \001(\r\"\200\001\n\030Wor"
-    "ldToGameLeaveSceneReq\022\017\n\007role_id\030\001 \001(\004\022\016"
-    "\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003pos\030"
-    "\004 \001(\0132\023.proto_ff.Vector3PB\022\017\n\007game_id\030\005 "
-    "\001(\r\"\223\001\n\030GameToWorldLeaveSceneRsp\022\020\n\010ret_"
-    "code\030\001 \001(\005\022\017\n\007role_id\030\002 \001(\004\022\016\n\006map_id\030\003 "
-    "\001(\004\022\020\n\010scene_id\030\004 \001(\004\022 \n\003pos\030\005 \001(\0132\023.pro"
-    "to_ff.Vector3PB\022\020\n\010logic_id\030\006 \001(\r\"\224\001\n\031Wo"
-    "rldToLogicLeaveSceneRsp\022\020\n\010ret_code\030\001 \001("
+    "\022\022\n\nsrc_map_id\030\007 \001(\004\022\024\n\014src_scene_id\030\010 \001"
+    "(\004\022\022\n\ntrans_type\030\t \001(\004\"\217\002\n\030WorldToGameEn"
+    "terSceneReq\022\017\n\007role_id\030\001 \001(\004\022\016\n\006map_id\030\002"
+    " \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023.pr"
+    "oto_ff.Vector3PB\022\017\n\007gate_id\030\006 \001(\r\022\021\n\tcli"
+    "ent_id\030\007 \001(\004\022\020\n\010logic_id\030\010 \001(\r\022*\n\004data\030\t"
+    " \001(\0132\034.proto_ff.RoleEnterSceneData\022\022\n\nsr"
+    "c_map_id\030\n \001(\004\022\024\n\014src_scene_id\030\013 \001(\004\022\022\n\n"
+    "trans_type\030\014 \001(\004\"\201\001\n\030GameToWorldEnterSce"
+    "neRsp\022\020\n\010ret_code\030\001 \001(\005\022\017\n\007role_id\030\002 \001(\004"
+    "\022\016\n\006map_id\030\003 \001(\004\022\020\n\010scene_id\030\004 \001(\004\022 \n\003po"
+    "s\030\005 \001(\0132\023.proto_ff.Vector3PB\"\223\001\n\031WorldTo"
+    "LogicEnterSceneRsp\022\020\n\010ret_code\030\001 \001(\005\022\017\n\007"
+    "role_id\030\002 \001(\004\022\016\n\006map_id\030\003 \001(\004\022\020\n\010scene_i"
+    "d\030\004 \001(\004\022 \n\003pos\030\005 \001(\0132\023.proto_ff.Vector3P"
+    "B\022\017\n\007game_id\030\006 \001(\r\"Y\n\030NotifyLogicLeaveGa"
+    "meReq2\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\004\022#\n\004type"
+    "\030\003 \001(\0162\025.proto_ff.LOGOUT_TYPE\"I\n\030NotifyL"
+    "ogicLeaveGameRsp2\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 "
+    "\002(\004\022\023\n\013logout_type\030\003 \001(\005\"\201\001\n\031LogicToWorl"
+    "dLeaveSceneReq\022\017\n\007role_id\030\001 \001(\004\022\016\n\006map_i"
+    "d\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\022 \n\003pos\030\004 \001(\0132\023"
+    ".proto_ff.Vector3PB\022\017\n\007game_id\030\005 \001(\r\"M\n\030"
+    "WorldToGameLeaveSceneReq\022\017\n\007role_id\030\001 \001("
+    "\004\022\016\n\006map_id\030\002 \001(\004\022\020\n\010scene_id\030\003 \001(\004\"q\n\030G"
+    "ameToWorldLeaveSceneRsp\022\020\n\010ret_code\030\001 \001("
     "\005\022\017\n\007role_id\030\002 \001(\004\022\016\n\006map_id\030\003 \001(\004\022\020\n\010sc"
-    "ene_id\030\004 \001(\004\022 \n\003pos\030\005 \001(\0132\023.proto_ff.Vec"
-    "tor3PB\022\020\n\010logic_id\030\006 \001(\r", 3424);
+    "ene_id\030\004 \001(\004\022\020\n\010logic_id\030\006 \001(\r\"r\n\031WorldT"
+    "oLogicLeaveSceneRsp\022\020\n\010ret_code\030\001 \001(\005\022\017\n"
+    "\007role_id\030\002 \001(\004\022\016\n\006map_id\030\003 \001(\004\022\020\n\010scene_"
+    "id\030\004 \001(\004\022\020\n\010logic_id\030\006 \001(\r\"T\n\031LogicToWor"
+    "ldGetMapInfoReq\022\017\n\007role_id\030\001 \001(\004\022\022\n\nsrc_"
+    "map_id\030\002 \001(\004\022\022\n\ndst_map_id\030\003 \001(\004\"\245\001\n\031Log"
+    "icToWorldGetMapInfoRsp\022\020\n\010ret_code\030\001 \001(\005"
+    "\022\017\n\007role_id\030\002 \001(\004\022\022\n\nsrc_map_id\030\003 \001(\004\022\023\n"
+    "\013src_game_id\030\004 \001(\r\022\022\n\ndst_map_id\030\005 \001(\004\022\023"
+    "\n\013dst_game_id\030\006 \001(\r\022\023\n\013cur_game_id\030\007 \001(\r", 3680);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal2.proto", &protobuf_RegisterTypes);
   WorldToLogicGetRoleList::default_instance_ = new WorldToLogicGetRoleList();
@@ -847,6 +907,8 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
   WorldToGameLeaveSceneReq::default_instance_ = new WorldToGameLeaveSceneReq();
   GameToWorldLeaveSceneRsp::default_instance_ = new GameToWorldLeaveSceneRsp();
   WorldToLogicLeaveSceneRsp::default_instance_ = new WorldToLogicLeaveSceneRsp();
+  LogicToWorldGetMapInfoReq::default_instance_ = new LogicToWorldGetMapInfoReq();
+  LogicToWorldGetMapInfoRsp::default_instance_ = new LogicToWorldGetMapInfoRsp();
   WorldToLogicGetRoleList::default_instance_->InitAsDefaultInstance();
   LogicToWorldGetRoleListRsp::default_instance_->InitAsDefaultInstance();
   NotifyGateLeaveGame2::default_instance_->InitAsDefaultInstance();
@@ -873,6 +935,8 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
   WorldToGameLeaveSceneReq::default_instance_->InitAsDefaultInstance();
   GameToWorldLeaveSceneRsp::default_instance_->InitAsDefaultInstance();
   WorldToLogicLeaveSceneRsp::default_instance_->InitAsDefaultInstance();
+  LogicToWorldGetMapInfoReq::default_instance_->InitAsDefaultInstance();
+  LogicToWorldGetMapInfoRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal2_2eproto);
 }
 
@@ -6574,6 +6638,9 @@ const int LogicToWorldEnterSceneReq::kMapIdFieldNumber;
 const int LogicToWorldEnterSceneReq::kSceneIdFieldNumber;
 const int LogicToWorldEnterSceneReq::kPosFieldNumber;
 const int LogicToWorldEnterSceneReq::kDataFieldNumber;
+const int LogicToWorldEnterSceneReq::kSrcMapIdFieldNumber;
+const int LogicToWorldEnterSceneReq::kSrcSceneIdFieldNumber;
+const int LogicToWorldEnterSceneReq::kTransTypeFieldNumber;
 #endif  // !_MSC_VER
 
 LogicToWorldEnterSceneReq::LogicToWorldEnterSceneReq()
@@ -6599,6 +6666,9 @@ void LogicToWorldEnterSceneReq::SharedCtor() {
   scene_id_ = GOOGLE_ULONGLONG(0);
   pos_ = NULL;
   data_ = NULL;
+  src_map_id_ = GOOGLE_ULONGLONG(0);
+  src_scene_id_ = GOOGLE_ULONGLONG(0);
+  trans_type_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6645,6 +6715,9 @@ void LogicToWorldEnterSceneReq::Clear() {
     if (has_data()) {
       if (data_ != NULL) data_->::proto_ff::RoleEnterSceneData::Clear();
     }
+    src_map_id_ = GOOGLE_ULONGLONG(0);
+    src_scene_id_ = GOOGLE_ULONGLONG(0);
+    trans_type_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -6727,6 +6800,54 @@ bool LogicToWorldEnterSceneReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(56)) goto parse_src_map_id;
+        break;
+      }
+
+      // optional uint64 src_map_id = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_map_id_)));
+          set_has_src_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_src_scene_id;
+        break;
+      }
+
+      // optional uint64 src_scene_id = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_scene_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_scene_id_)));
+          set_has_src_scene_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_trans_type;
+        break;
+      }
+
+      // optional uint64 trans_type = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_trans_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &trans_type_)));
+          set_has_trans_type();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6776,6 +6897,21 @@ void LogicToWorldEnterSceneReq::SerializeWithCachedSizes(
       6, this->data(), output);
   }
 
+  // optional uint64 src_map_id = 7;
+  if (has_src_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->src_map_id(), output);
+  }
+
+  // optional uint64 src_scene_id = 8;
+  if (has_src_scene_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(8, this->src_scene_id(), output);
+  }
+
+  // optional uint64 trans_type = 9;
+  if (has_trans_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(9, this->trans_type(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6811,6 +6947,21 @@ void LogicToWorldEnterSceneReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         6, this->data(), target);
+  }
+
+  // optional uint64 src_map_id = 7;
+  if (has_src_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->src_map_id(), target);
+  }
+
+  // optional uint64 src_scene_id = 8;
+  if (has_src_scene_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(8, this->src_scene_id(), target);
+  }
+
+  // optional uint64 trans_type = 9;
+  if (has_trans_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(9, this->trans_type(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6859,6 +7010,27 @@ int LogicToWorldEnterSceneReq::ByteSize() const {
           this->data());
     }
 
+    // optional uint64 src_map_id = 7;
+    if (has_src_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_map_id());
+    }
+
+    // optional uint64 src_scene_id = 8;
+    if (has_src_scene_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_scene_id());
+    }
+
+    // optional uint64 trans_type = 9;
+    if (has_trans_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->trans_type());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -6901,6 +7073,15 @@ void LogicToWorldEnterSceneReq::MergeFrom(const LogicToWorldEnterSceneReq& from)
     if (from.has_data()) {
       mutable_data()->::proto_ff::RoleEnterSceneData::MergeFrom(from.data());
     }
+    if (from.has_src_map_id()) {
+      set_src_map_id(from.src_map_id());
+    }
+    if (from.has_src_scene_id()) {
+      set_src_scene_id(from.src_scene_id());
+    }
+    if (from.has_trans_type()) {
+      set_trans_type(from.trans_type());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -6935,6 +7116,9 @@ void LogicToWorldEnterSceneReq::Swap(LogicToWorldEnterSceneReq* other) {
     std::swap(scene_id_, other->scene_id_);
     std::swap(pos_, other->pos_);
     std::swap(data_, other->data_);
+    std::swap(src_map_id_, other->src_map_id_);
+    std::swap(src_scene_id_, other->src_scene_id_);
+    std::swap(trans_type_, other->trans_type_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -6961,6 +7145,9 @@ const int WorldToGameEnterSceneReq::kGateIdFieldNumber;
 const int WorldToGameEnterSceneReq::kClientIdFieldNumber;
 const int WorldToGameEnterSceneReq::kLogicIdFieldNumber;
 const int WorldToGameEnterSceneReq::kDataFieldNumber;
+const int WorldToGameEnterSceneReq::kSrcMapIdFieldNumber;
+const int WorldToGameEnterSceneReq::kSrcSceneIdFieldNumber;
+const int WorldToGameEnterSceneReq::kTransTypeFieldNumber;
 #endif  // !_MSC_VER
 
 WorldToGameEnterSceneReq::WorldToGameEnterSceneReq()
@@ -6989,6 +7176,9 @@ void WorldToGameEnterSceneReq::SharedCtor() {
   client_id_ = GOOGLE_ULONGLONG(0);
   logic_id_ = 0u;
   data_ = NULL;
+  src_map_id_ = GOOGLE_ULONGLONG(0);
+  src_scene_id_ = GOOGLE_ULONGLONG(0);
+  trans_type_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7038,6 +7228,11 @@ void WorldToGameEnterSceneReq::Clear() {
     if (has_data()) {
       if (data_ != NULL) data_->::proto_ff::RoleEnterSceneData::Clear();
     }
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    src_map_id_ = GOOGLE_ULONGLONG(0);
+    src_scene_id_ = GOOGLE_ULONGLONG(0);
+    trans_type_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -7168,6 +7363,54 @@ bool WorldToGameEnterSceneReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(80)) goto parse_src_map_id;
+        break;
+      }
+
+      // optional uint64 src_map_id = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_map_id_)));
+          set_has_src_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(88)) goto parse_src_scene_id;
+        break;
+      }
+
+      // optional uint64 src_scene_id = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_scene_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_scene_id_)));
+          set_has_src_scene_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(96)) goto parse_trans_type;
+        break;
+      }
+
+      // optional uint64 trans_type = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_trans_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &trans_type_)));
+          set_has_trans_type();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7232,6 +7475,21 @@ void WorldToGameEnterSceneReq::SerializeWithCachedSizes(
       9, this->data(), output);
   }
 
+  // optional uint64 src_map_id = 10;
+  if (has_src_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->src_map_id(), output);
+  }
+
+  // optional uint64 src_scene_id = 11;
+  if (has_src_scene_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(11, this->src_scene_id(), output);
+  }
+
+  // optional uint64 trans_type = 12;
+  if (has_trans_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(12, this->trans_type(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -7282,6 +7540,21 @@ void WorldToGameEnterSceneReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         9, this->data(), target);
+  }
+
+  // optional uint64 src_map_id = 10;
+  if (has_src_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->src_map_id(), target);
+  }
+
+  // optional uint64 src_scene_id = 11;
+  if (has_src_scene_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(11, this->src_scene_id(), target);
+  }
+
+  // optional uint64 trans_type = 12;
+  if (has_trans_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(12, this->trans_type(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7352,6 +7625,29 @@ int WorldToGameEnterSceneReq::ByteSize() const {
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional uint64 src_map_id = 10;
+    if (has_src_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_map_id());
+    }
+
+    // optional uint64 src_scene_id = 11;
+    if (has_src_scene_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_scene_id());
+    }
+
+    // optional uint64 trans_type = 12;
+    if (has_trans_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->trans_type());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -7403,6 +7699,17 @@ void WorldToGameEnterSceneReq::MergeFrom(const WorldToGameEnterSceneReq& from) {
       mutable_data()->::proto_ff::RoleEnterSceneData::MergeFrom(from.data());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_src_map_id()) {
+      set_src_map_id(from.src_map_id());
+    }
+    if (from.has_src_scene_id()) {
+      set_src_scene_id(from.src_scene_id());
+    }
+    if (from.has_trans_type()) {
+      set_trans_type(from.trans_type());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -7439,6 +7746,9 @@ void WorldToGameEnterSceneReq::Swap(WorldToGameEnterSceneReq* other) {
     std::swap(client_id_, other->client_id_);
     std::swap(logic_id_, other->logic_id_);
     std::swap(data_, other->data_);
+    std::swap(src_map_id_, other->src_map_id_);
+    std::swap(src_scene_id_, other->src_scene_id_);
+    std::swap(trans_type_, other->trans_type_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9212,8 +9522,6 @@ void LogicToWorldLeaveSceneReq::Swap(LogicToWorldLeaveSceneReq* other) {
 const int WorldToGameLeaveSceneReq::kRoleIdFieldNumber;
 const int WorldToGameLeaveSceneReq::kMapIdFieldNumber;
 const int WorldToGameLeaveSceneReq::kSceneIdFieldNumber;
-const int WorldToGameLeaveSceneReq::kPosFieldNumber;
-const int WorldToGameLeaveSceneReq::kGameIdFieldNumber;
 #endif  // !_MSC_VER
 
 WorldToGameLeaveSceneReq::WorldToGameLeaveSceneReq()
@@ -9222,7 +9530,6 @@ WorldToGameLeaveSceneReq::WorldToGameLeaveSceneReq()
 }
 
 void WorldToGameLeaveSceneReq::InitAsDefaultInstance() {
-  pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
 }
 
 WorldToGameLeaveSceneReq::WorldToGameLeaveSceneReq(const WorldToGameLeaveSceneReq& from)
@@ -9236,8 +9543,6 @@ void WorldToGameLeaveSceneReq::SharedCtor() {
   role_id_ = GOOGLE_ULONGLONG(0);
   map_id_ = GOOGLE_ULONGLONG(0);
   scene_id_ = GOOGLE_ULONGLONG(0);
-  pos_ = NULL;
-  game_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -9247,7 +9552,6 @@ WorldToGameLeaveSceneReq::~WorldToGameLeaveSceneReq() {
 
 void WorldToGameLeaveSceneReq::SharedDtor() {
   if (this != default_instance_) {
-    delete pos_;
   }
 }
 
@@ -9277,10 +9581,6 @@ void WorldToGameLeaveSceneReq::Clear() {
     role_id_ = GOOGLE_ULONGLONG(0);
     map_id_ = GOOGLE_ULONGLONG(0);
     scene_id_ = GOOGLE_ULONGLONG(0);
-    if (has_pos()) {
-      if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
-    }
-    game_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -9335,36 +9635,6 @@ bool WorldToGameLeaveSceneReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_pos;
-        break;
-      }
-
-      // optional .proto_ff.Vector3PB pos = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_pos:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_pos()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_game_id;
-        break;
-      }
-
-      // optional uint32 game_id = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_game_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &game_id_)));
-          set_has_game_id();
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9402,17 +9672,6 @@ void WorldToGameLeaveSceneReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->scene_id(), output);
   }
 
-  // optional .proto_ff.Vector3PB pos = 4;
-  if (has_pos()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->pos(), output);
-  }
-
-  // optional uint32 game_id = 5;
-  if (has_game_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->game_id(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -9434,18 +9693,6 @@ void WorldToGameLeaveSceneReq::SerializeWithCachedSizes(
   // optional uint64 scene_id = 3;
   if (has_scene_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->scene_id(), target);
-  }
-
-  // optional .proto_ff.Vector3PB pos = 4;
-  if (has_pos()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, this->pos(), target);
-  }
-
-  // optional uint32 game_id = 5;
-  if (has_game_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->game_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9478,20 +9725,6 @@ int WorldToGameLeaveSceneReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->scene_id());
-    }
-
-    // optional .proto_ff.Vector3PB pos = 4;
-    if (has_pos()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->pos());
-    }
-
-    // optional uint32 game_id = 5;
-    if (has_game_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->game_id());
     }
 
   }
@@ -9530,12 +9763,6 @@ void WorldToGameLeaveSceneReq::MergeFrom(const WorldToGameLeaveSceneReq& from) {
     if (from.has_scene_id()) {
       set_scene_id(from.scene_id());
     }
-    if (from.has_pos()) {
-      mutable_pos()->::proto_ff::Vector3PB::MergeFrom(from.pos());
-    }
-    if (from.has_game_id()) {
-      set_game_id(from.game_id());
-    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -9554,9 +9781,6 @@ void WorldToGameLeaveSceneReq::CopyFrom(const WorldToGameLeaveSceneReq& from) {
 
 bool WorldToGameLeaveSceneReq::IsInitialized() const {
 
-  if (has_pos()) {
-    if (!this->pos().IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -9565,8 +9789,6 @@ void WorldToGameLeaveSceneReq::Swap(WorldToGameLeaveSceneReq* other) {
     std::swap(role_id_, other->role_id_);
     std::swap(map_id_, other->map_id_);
     std::swap(scene_id_, other->scene_id_);
-    std::swap(pos_, other->pos_);
-    std::swap(game_id_, other->game_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9589,7 +9811,6 @@ const int GameToWorldLeaveSceneRsp::kRetCodeFieldNumber;
 const int GameToWorldLeaveSceneRsp::kRoleIdFieldNumber;
 const int GameToWorldLeaveSceneRsp::kMapIdFieldNumber;
 const int GameToWorldLeaveSceneRsp::kSceneIdFieldNumber;
-const int GameToWorldLeaveSceneRsp::kPosFieldNumber;
 const int GameToWorldLeaveSceneRsp::kLogicIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -9599,7 +9820,6 @@ GameToWorldLeaveSceneRsp::GameToWorldLeaveSceneRsp()
 }
 
 void GameToWorldLeaveSceneRsp::InitAsDefaultInstance() {
-  pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
 }
 
 GameToWorldLeaveSceneRsp::GameToWorldLeaveSceneRsp(const GameToWorldLeaveSceneRsp& from)
@@ -9614,7 +9834,6 @@ void GameToWorldLeaveSceneRsp::SharedCtor() {
   role_id_ = GOOGLE_ULONGLONG(0);
   map_id_ = GOOGLE_ULONGLONG(0);
   scene_id_ = GOOGLE_ULONGLONG(0);
-  pos_ = NULL;
   logic_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -9625,7 +9844,6 @@ GameToWorldLeaveSceneRsp::~GameToWorldLeaveSceneRsp() {
 
 void GameToWorldLeaveSceneRsp::SharedDtor() {
   if (this != default_instance_) {
-    delete pos_;
   }
 }
 
@@ -9656,9 +9874,6 @@ void GameToWorldLeaveSceneRsp::Clear() {
     role_id_ = GOOGLE_ULONGLONG(0);
     map_id_ = GOOGLE_ULONGLONG(0);
     scene_id_ = GOOGLE_ULONGLONG(0);
-    if (has_pos()) {
-      if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
-    }
     logic_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -9730,20 +9945,6 @@ bool GameToWorldLeaveSceneRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_pos;
-        break;
-      }
-
-      // optional .proto_ff.Vector3PB pos = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_pos:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_pos()));
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectTag(48)) goto parse_logic_id;
         break;
       }
@@ -9802,12 +10003,6 @@ void GameToWorldLeaveSceneRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->scene_id(), output);
   }
 
-  // optional .proto_ff.Vector3PB pos = 5;
-  if (has_pos()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->pos(), output);
-  }
-
   // optional uint32 logic_id = 6;
   if (has_logic_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->logic_id(), output);
@@ -9839,13 +10034,6 @@ void GameToWorldLeaveSceneRsp::SerializeWithCachedSizes(
   // optional uint64 scene_id = 4;
   if (has_scene_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->scene_id(), target);
-  }
-
-  // optional .proto_ff.Vector3PB pos = 5;
-  if (has_pos()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->pos(), target);
   }
 
   // optional uint32 logic_id = 6;
@@ -9890,13 +10078,6 @@ int GameToWorldLeaveSceneRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->scene_id());
-    }
-
-    // optional .proto_ff.Vector3PB pos = 5;
-    if (has_pos()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->pos());
     }
 
     // optional uint32 logic_id = 6;
@@ -9945,9 +10126,6 @@ void GameToWorldLeaveSceneRsp::MergeFrom(const GameToWorldLeaveSceneRsp& from) {
     if (from.has_scene_id()) {
       set_scene_id(from.scene_id());
     }
-    if (from.has_pos()) {
-      mutable_pos()->::proto_ff::Vector3PB::MergeFrom(from.pos());
-    }
     if (from.has_logic_id()) {
       set_logic_id(from.logic_id());
     }
@@ -9969,9 +10147,6 @@ void GameToWorldLeaveSceneRsp::CopyFrom(const GameToWorldLeaveSceneRsp& from) {
 
 bool GameToWorldLeaveSceneRsp::IsInitialized() const {
 
-  if (has_pos()) {
-    if (!this->pos().IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -9981,7 +10156,6 @@ void GameToWorldLeaveSceneRsp::Swap(GameToWorldLeaveSceneRsp* other) {
     std::swap(role_id_, other->role_id_);
     std::swap(map_id_, other->map_id_);
     std::swap(scene_id_, other->scene_id_);
-    std::swap(pos_, other->pos_);
     std::swap(logic_id_, other->logic_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -10005,7 +10179,6 @@ const int WorldToLogicLeaveSceneRsp::kRetCodeFieldNumber;
 const int WorldToLogicLeaveSceneRsp::kRoleIdFieldNumber;
 const int WorldToLogicLeaveSceneRsp::kMapIdFieldNumber;
 const int WorldToLogicLeaveSceneRsp::kSceneIdFieldNumber;
-const int WorldToLogicLeaveSceneRsp::kPosFieldNumber;
 const int WorldToLogicLeaveSceneRsp::kLogicIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -10015,7 +10188,6 @@ WorldToLogicLeaveSceneRsp::WorldToLogicLeaveSceneRsp()
 }
 
 void WorldToLogicLeaveSceneRsp::InitAsDefaultInstance() {
-  pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
 }
 
 WorldToLogicLeaveSceneRsp::WorldToLogicLeaveSceneRsp(const WorldToLogicLeaveSceneRsp& from)
@@ -10030,7 +10202,6 @@ void WorldToLogicLeaveSceneRsp::SharedCtor() {
   role_id_ = GOOGLE_ULONGLONG(0);
   map_id_ = GOOGLE_ULONGLONG(0);
   scene_id_ = GOOGLE_ULONGLONG(0);
-  pos_ = NULL;
   logic_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -10041,7 +10212,6 @@ WorldToLogicLeaveSceneRsp::~WorldToLogicLeaveSceneRsp() {
 
 void WorldToLogicLeaveSceneRsp::SharedDtor() {
   if (this != default_instance_) {
-    delete pos_;
   }
 }
 
@@ -10072,9 +10242,6 @@ void WorldToLogicLeaveSceneRsp::Clear() {
     role_id_ = GOOGLE_ULONGLONG(0);
     map_id_ = GOOGLE_ULONGLONG(0);
     scene_id_ = GOOGLE_ULONGLONG(0);
-    if (has_pos()) {
-      if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
-    }
     logic_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -10146,20 +10313,6 @@ bool WorldToLogicLeaveSceneRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_pos;
-        break;
-      }
-
-      // optional .proto_ff.Vector3PB pos = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_pos:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_pos()));
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectTag(48)) goto parse_logic_id;
         break;
       }
@@ -10218,12 +10371,6 @@ void WorldToLogicLeaveSceneRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->scene_id(), output);
   }
 
-  // optional .proto_ff.Vector3PB pos = 5;
-  if (has_pos()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->pos(), output);
-  }
-
   // optional uint32 logic_id = 6;
   if (has_logic_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->logic_id(), output);
@@ -10255,13 +10402,6 @@ void WorldToLogicLeaveSceneRsp::SerializeWithCachedSizes(
   // optional uint64 scene_id = 4;
   if (has_scene_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->scene_id(), target);
-  }
-
-  // optional .proto_ff.Vector3PB pos = 5;
-  if (has_pos()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->pos(), target);
   }
 
   // optional uint32 logic_id = 6;
@@ -10306,13 +10446,6 @@ int WorldToLogicLeaveSceneRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->scene_id());
-    }
-
-    // optional .proto_ff.Vector3PB pos = 5;
-    if (has_pos()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->pos());
     }
 
     // optional uint32 logic_id = 6;
@@ -10361,9 +10494,6 @@ void WorldToLogicLeaveSceneRsp::MergeFrom(const WorldToLogicLeaveSceneRsp& from)
     if (from.has_scene_id()) {
       set_scene_id(from.scene_id());
     }
-    if (from.has_pos()) {
-      mutable_pos()->::proto_ff::Vector3PB::MergeFrom(from.pos());
-    }
     if (from.has_logic_id()) {
       set_logic_id(from.logic_id());
     }
@@ -10385,9 +10515,6 @@ void WorldToLogicLeaveSceneRsp::CopyFrom(const WorldToLogicLeaveSceneRsp& from) 
 
 bool WorldToLogicLeaveSceneRsp::IsInitialized() const {
 
-  if (has_pos()) {
-    if (!this->pos().IsInitialized()) return false;
-  }
   return true;
 }
 
@@ -10397,7 +10524,6 @@ void WorldToLogicLeaveSceneRsp::Swap(WorldToLogicLeaveSceneRsp* other) {
     std::swap(role_id_, other->role_id_);
     std::swap(map_id_, other->map_id_);
     std::swap(scene_id_, other->scene_id_);
-    std::swap(pos_, other->pos_);
     std::swap(logic_id_, other->logic_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -10410,6 +10536,742 @@ void WorldToLogicLeaveSceneRsp::Swap(WorldToLogicLeaveSceneRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = WorldToLogicLeaveSceneRsp_descriptor_;
   metadata.reflection = WorldToLogicLeaveSceneRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int LogicToWorldGetMapInfoReq::kRoleIdFieldNumber;
+const int LogicToWorldGetMapInfoReq::kSrcMapIdFieldNumber;
+const int LogicToWorldGetMapInfoReq::kDstMapIdFieldNumber;
+#endif  // !_MSC_VER
+
+LogicToWorldGetMapInfoReq::LogicToWorldGetMapInfoReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void LogicToWorldGetMapInfoReq::InitAsDefaultInstance() {
+}
+
+LogicToWorldGetMapInfoReq::LogicToWorldGetMapInfoReq(const LogicToWorldGetMapInfoReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LogicToWorldGetMapInfoReq::SharedCtor() {
+  _cached_size_ = 0;
+  role_id_ = GOOGLE_ULONGLONG(0);
+  src_map_id_ = GOOGLE_ULONGLONG(0);
+  dst_map_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LogicToWorldGetMapInfoReq::~LogicToWorldGetMapInfoReq() {
+  SharedDtor();
+}
+
+void LogicToWorldGetMapInfoReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void LogicToWorldGetMapInfoReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LogicToWorldGetMapInfoReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LogicToWorldGetMapInfoReq_descriptor_;
+}
+
+const LogicToWorldGetMapInfoReq& LogicToWorldGetMapInfoReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal2_2eproto();
+  return *default_instance_;
+}
+
+LogicToWorldGetMapInfoReq* LogicToWorldGetMapInfoReq::default_instance_ = NULL;
+
+LogicToWorldGetMapInfoReq* LogicToWorldGetMapInfoReq::New() const {
+  return new LogicToWorldGetMapInfoReq;
+}
+
+void LogicToWorldGetMapInfoReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    role_id_ = GOOGLE_ULONGLONG(0);
+    src_map_id_ = GOOGLE_ULONGLONG(0);
+    dst_map_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool LogicToWorldGetMapInfoReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 role_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &role_id_)));
+          set_has_role_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_src_map_id;
+        break;
+      }
+
+      // optional uint64 src_map_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_map_id_)));
+          set_has_src_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_dst_map_id;
+        break;
+      }
+
+      // optional uint64 dst_map_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dst_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &dst_map_id_)));
+          set_has_dst_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void LogicToWorldGetMapInfoReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 role_id = 1;
+  if (has_role_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->role_id(), output);
+  }
+
+  // optional uint64 src_map_id = 2;
+  if (has_src_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->src_map_id(), output);
+  }
+
+  // optional uint64 dst_map_id = 3;
+  if (has_dst_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->dst_map_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LogicToWorldGetMapInfoReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 role_id = 1;
+  if (has_role_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->role_id(), target);
+  }
+
+  // optional uint64 src_map_id = 2;
+  if (has_src_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->src_map_id(), target);
+  }
+
+  // optional uint64 dst_map_id = 3;
+  if (has_dst_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->dst_map_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int LogicToWorldGetMapInfoReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 role_id = 1;
+    if (has_role_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->role_id());
+    }
+
+    // optional uint64 src_map_id = 2;
+    if (has_src_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_map_id());
+    }
+
+    // optional uint64 dst_map_id = 3;
+    if (has_dst_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->dst_map_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LogicToWorldGetMapInfoReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LogicToWorldGetMapInfoReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LogicToWorldGetMapInfoReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void LogicToWorldGetMapInfoReq::MergeFrom(const LogicToWorldGetMapInfoReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_role_id()) {
+      set_role_id(from.role_id());
+    }
+    if (from.has_src_map_id()) {
+      set_src_map_id(from.src_map_id());
+    }
+    if (from.has_dst_map_id()) {
+      set_dst_map_id(from.dst_map_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LogicToWorldGetMapInfoReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LogicToWorldGetMapInfoReq::CopyFrom(const LogicToWorldGetMapInfoReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LogicToWorldGetMapInfoReq::IsInitialized() const {
+
+  return true;
+}
+
+void LogicToWorldGetMapInfoReq::Swap(LogicToWorldGetMapInfoReq* other) {
+  if (other != this) {
+    std::swap(role_id_, other->role_id_);
+    std::swap(src_map_id_, other->src_map_id_);
+    std::swap(dst_map_id_, other->dst_map_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata LogicToWorldGetMapInfoReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LogicToWorldGetMapInfoReq_descriptor_;
+  metadata.reflection = LogicToWorldGetMapInfoReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int LogicToWorldGetMapInfoRsp::kRetCodeFieldNumber;
+const int LogicToWorldGetMapInfoRsp::kRoleIdFieldNumber;
+const int LogicToWorldGetMapInfoRsp::kSrcMapIdFieldNumber;
+const int LogicToWorldGetMapInfoRsp::kSrcGameIdFieldNumber;
+const int LogicToWorldGetMapInfoRsp::kDstMapIdFieldNumber;
+const int LogicToWorldGetMapInfoRsp::kDstGameIdFieldNumber;
+const int LogicToWorldGetMapInfoRsp::kCurGameIdFieldNumber;
+#endif  // !_MSC_VER
+
+LogicToWorldGetMapInfoRsp::LogicToWorldGetMapInfoRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void LogicToWorldGetMapInfoRsp::InitAsDefaultInstance() {
+}
+
+LogicToWorldGetMapInfoRsp::LogicToWorldGetMapInfoRsp(const LogicToWorldGetMapInfoRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LogicToWorldGetMapInfoRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  role_id_ = GOOGLE_ULONGLONG(0);
+  src_map_id_ = GOOGLE_ULONGLONG(0);
+  src_game_id_ = 0u;
+  dst_map_id_ = GOOGLE_ULONGLONG(0);
+  dst_game_id_ = 0u;
+  cur_game_id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LogicToWorldGetMapInfoRsp::~LogicToWorldGetMapInfoRsp() {
+  SharedDtor();
+}
+
+void LogicToWorldGetMapInfoRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void LogicToWorldGetMapInfoRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LogicToWorldGetMapInfoRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LogicToWorldGetMapInfoRsp_descriptor_;
+}
+
+const LogicToWorldGetMapInfoRsp& LogicToWorldGetMapInfoRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal2_2eproto();
+  return *default_instance_;
+}
+
+LogicToWorldGetMapInfoRsp* LogicToWorldGetMapInfoRsp::default_instance_ = NULL;
+
+LogicToWorldGetMapInfoRsp* LogicToWorldGetMapInfoRsp::New() const {
+  return new LogicToWorldGetMapInfoRsp;
+}
+
+void LogicToWorldGetMapInfoRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    role_id_ = GOOGLE_ULONGLONG(0);
+    src_map_id_ = GOOGLE_ULONGLONG(0);
+    src_game_id_ = 0u;
+    dst_map_id_ = GOOGLE_ULONGLONG(0);
+    dst_game_id_ = 0u;
+    cur_game_id_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool LogicToWorldGetMapInfoRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_role_id;
+        break;
+      }
+
+      // optional uint64 role_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_role_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &role_id_)));
+          set_has_role_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_src_map_id;
+        break;
+      }
+
+      // optional uint64 src_map_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_map_id_)));
+          set_has_src_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_src_game_id;
+        break;
+      }
+
+      // optional uint32 src_game_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_game_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &src_game_id_)));
+          set_has_src_game_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_dst_map_id;
+        break;
+      }
+
+      // optional uint64 dst_map_id = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dst_map_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &dst_map_id_)));
+          set_has_dst_map_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_dst_game_id;
+        break;
+      }
+
+      // optional uint32 dst_game_id = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dst_game_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &dst_game_id_)));
+          set_has_dst_game_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_cur_game_id;
+        break;
+      }
+
+      // optional uint32 cur_game_id = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cur_game_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cur_game_id_)));
+          set_has_cur_game_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void LogicToWorldGetMapInfoRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 role_id = 2;
+  if (has_role_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->role_id(), output);
+  }
+
+  // optional uint64 src_map_id = 3;
+  if (has_src_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->src_map_id(), output);
+  }
+
+  // optional uint32 src_game_id = 4;
+  if (has_src_game_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->src_game_id(), output);
+  }
+
+  // optional uint64 dst_map_id = 5;
+  if (has_dst_map_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(5, this->dst_map_id(), output);
+  }
+
+  // optional uint32 dst_game_id = 6;
+  if (has_dst_game_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->dst_game_id(), output);
+  }
+
+  // optional uint32 cur_game_id = 7;
+  if (has_cur_game_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->cur_game_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LogicToWorldGetMapInfoRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 role_id = 2;
+  if (has_role_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->role_id(), target);
+  }
+
+  // optional uint64 src_map_id = 3;
+  if (has_src_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->src_map_id(), target);
+  }
+
+  // optional uint32 src_game_id = 4;
+  if (has_src_game_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->src_game_id(), target);
+  }
+
+  // optional uint64 dst_map_id = 5;
+  if (has_dst_map_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(5, this->dst_map_id(), target);
+  }
+
+  // optional uint32 dst_game_id = 6;
+  if (has_dst_game_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->dst_game_id(), target);
+  }
+
+  // optional uint32 cur_game_id = 7;
+  if (has_cur_game_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->cur_game_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int LogicToWorldGetMapInfoRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 role_id = 2;
+    if (has_role_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->role_id());
+    }
+
+    // optional uint64 src_map_id = 3;
+    if (has_src_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_map_id());
+    }
+
+    // optional uint32 src_game_id = 4;
+    if (has_src_game_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->src_game_id());
+    }
+
+    // optional uint64 dst_map_id = 5;
+    if (has_dst_map_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->dst_map_id());
+    }
+
+    // optional uint32 dst_game_id = 6;
+    if (has_dst_game_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->dst_game_id());
+    }
+
+    // optional uint32 cur_game_id = 7;
+    if (has_cur_game_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cur_game_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LogicToWorldGetMapInfoRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LogicToWorldGetMapInfoRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LogicToWorldGetMapInfoRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void LogicToWorldGetMapInfoRsp::MergeFrom(const LogicToWorldGetMapInfoRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_role_id()) {
+      set_role_id(from.role_id());
+    }
+    if (from.has_src_map_id()) {
+      set_src_map_id(from.src_map_id());
+    }
+    if (from.has_src_game_id()) {
+      set_src_game_id(from.src_game_id());
+    }
+    if (from.has_dst_map_id()) {
+      set_dst_map_id(from.dst_map_id());
+    }
+    if (from.has_dst_game_id()) {
+      set_dst_game_id(from.dst_game_id());
+    }
+    if (from.has_cur_game_id()) {
+      set_cur_game_id(from.cur_game_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LogicToWorldGetMapInfoRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LogicToWorldGetMapInfoRsp::CopyFrom(const LogicToWorldGetMapInfoRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LogicToWorldGetMapInfoRsp::IsInitialized() const {
+
+  return true;
+}
+
+void LogicToWorldGetMapInfoRsp::Swap(LogicToWorldGetMapInfoRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(role_id_, other->role_id_);
+    std::swap(src_map_id_, other->src_map_id_);
+    std::swap(src_game_id_, other->src_game_id_);
+    std::swap(dst_map_id_, other->dst_map_id_);
+    std::swap(dst_game_id_, other->dst_game_id_);
+    std::swap(cur_game_id_, other->cur_game_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata LogicToWorldGetMapInfoRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LogicToWorldGetMapInfoRsp_descriptor_;
+  metadata.reflection = LogicToWorldGetMapInfoRsp_reflection_;
   return metadata;
 }
 

@@ -58,3 +58,19 @@ message Sheet_DailyCultivate
 {
 	repeated E_DailyCultivate E_DailyCultivate_List = 1[(yd_fieldoptions.field_arysize)=80];
 }
+
+message E_DailySports
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_functionid = 3[(yd_fieldoptions.field_cname) = "功能开放ID"];
+	optional int32 m_peractivityid = 4[(yd_fieldoptions.field_cname) = "活动id"];
+	optional int32 m_des = 5[(yd_fieldoptions.field_cname) = "ui说明"];
+	optional int32 m_linkid = 6[(yd_fieldoptions.field_cname) = "linkID"];
+}
+
+
+message Sheet_DailySports
+{
+	repeated E_DailySports E_DailySports_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

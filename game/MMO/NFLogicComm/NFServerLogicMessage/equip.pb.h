@@ -3594,17 +3594,12 @@ class E_EquipSuit : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional string m_profession = 2;
-  inline bool has_m_profession() const;
-  inline void clear_m_profession();
-  static const int kMProfessionFieldNumber = 2;
-  inline const ::std::string& m_profession() const;
-  inline void set_m_profession(const ::std::string& value);
-  inline void set_m_profession(const char* value);
-  inline void set_m_profession(const char* value, size_t size);
-  inline ::std::string* mutable_m_profession();
-  inline ::std::string* release_m_profession();
-  inline void set_allocated_m_profession(::std::string* m_profession);
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
 
   // optional int32 m_suitlv = 3;
   inline bool has_m_suitlv() const;
@@ -3613,12 +3608,12 @@ class E_EquipSuit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_suitlv() const;
   inline void set_m_suitlv(::google::protobuf::int32 value);
 
-  // optional int32 m_level = 4;
-  inline bool has_m_level() const;
-  inline void clear_m_level();
-  static const int kMLevelFieldNumber = 4;
-  inline ::google::protobuf::int32 m_level() const;
-  inline void set_m_level(::google::protobuf::int32 value);
+  // optional int32 m_wearquality = 4;
+  inline bool has_m_wearquality() const;
+  inline void clear_m_wearquality();
+  static const int kMWearqualityFieldNumber = 4;
+  inline ::google::protobuf::int32 m_wearquality() const;
+  inline void set_m_wearquality(::google::protobuf::int32 value);
 
   // optional int32 m_colour = 5;
   inline bool has_m_colour() const;
@@ -3658,32 +3653,48 @@ class E_EquipSuit : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipSuitAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated string m_position = 9;
-  inline int m_position_size() const;
-  inline void clear_m_position();
-  static const int kMPositionFieldNumber = 9;
-  inline const ::std::string& m_position(int index) const;
-  inline ::std::string* mutable_m_position(int index);
-  inline void set_m_position(int index, const ::std::string& value);
-  inline void set_m_position(int index, const char* value);
-  inline void set_m_position(int index, const char* value, size_t size);
-  inline ::std::string* add_m_position();
-  inline void add_m_position(const ::std::string& value);
-  inline void add_m_position(const char* value);
-  inline void add_m_position(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_position() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_position();
+  // repeated string m_maleposition = 9;
+  inline int m_maleposition_size() const;
+  inline void clear_m_maleposition();
+  static const int kMMalepositionFieldNumber = 9;
+  inline const ::std::string& m_maleposition(int index) const;
+  inline ::std::string* mutable_m_maleposition(int index);
+  inline void set_m_maleposition(int index, const ::std::string& value);
+  inline void set_m_maleposition(int index, const char* value);
+  inline void set_m_maleposition(int index, const char* value, size_t size);
+  inline ::std::string* add_m_maleposition();
+  inline void add_m_maleposition(const ::std::string& value);
+  inline void add_m_maleposition(const char* value);
+  inline void add_m_maleposition(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_maleposition() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_maleposition();
+
+  // repeated string m_femaleposition = 10;
+  inline int m_femaleposition_size() const;
+  inline void clear_m_femaleposition();
+  static const int kMFemalepositionFieldNumber = 10;
+  inline const ::std::string& m_femaleposition(int index) const;
+  inline ::std::string* mutable_m_femaleposition(int index);
+  inline void set_m_femaleposition(int index, const ::std::string& value);
+  inline void set_m_femaleposition(int index, const char* value);
+  inline void set_m_femaleposition(int index, const char* value, size_t size);
+  inline ::std::string* add_m_femaleposition();
+  inline void add_m_femaleposition(const ::std::string& value);
+  inline void add_m_femaleposition(const char* value);
+  inline void add_m_femaleposition(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_femaleposition() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_femaleposition();
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_EquipSuit)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
-  inline void set_has_m_profession();
-  inline void clear_has_m_profession();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
   inline void set_has_m_suitlv();
   inline void clear_has_m_suitlv();
-  inline void set_has_m_level();
-  inline void clear_has_m_level();
+  inline void set_has_m_wearquality();
+  inline void clear_has_m_wearquality();
   inline void set_has_m_colour();
   inline void clear_has_m_colour();
   inline void set_has_m_aftername();
@@ -3694,17 +3705,18 @@ class E_EquipSuit : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 m_id_;
-  ::std::string* m_profession_;
+  ::google::protobuf::int32 m_type_;
   ::google::protobuf::int32 m_suitlv_;
-  ::google::protobuf::int32 m_level_;
-  ::std::string* m_aftername_;
+  ::google::protobuf::int32 m_wearquality_;
   ::google::protobuf::int32 m_colour_;
-  ::google::protobuf::int32 m_suitevalue_;
+  ::std::string* m_aftername_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipSuitAttributeDesc > m_attribute_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> m_position_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> m_maleposition_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> m_femaleposition_;
+  ::google::protobuf::int32 m_suitevalue_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_equip_2eproto();
   friend void protobuf_AssignDesc_equip_2eproto();
@@ -8181,74 +8193,26 @@ inline void E_EquipSuit::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional string m_profession = 2;
-inline bool E_EquipSuit::has_m_profession() const {
+// optional int32 m_type = 2;
+inline bool E_EquipSuit::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_EquipSuit::set_has_m_profession() {
+inline void E_EquipSuit::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_EquipSuit::clear_has_m_profession() {
+inline void E_EquipSuit::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_EquipSuit::clear_m_profession() {
-  if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
-    m_profession_->clear();
-  }
-  clear_has_m_profession();
+inline void E_EquipSuit::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
 }
-inline const ::std::string& E_EquipSuit::m_profession() const {
-  return *m_profession_;
+inline ::google::protobuf::int32 E_EquipSuit::m_type() const {
+  return m_type_;
 }
-inline void E_EquipSuit::set_m_profession(const ::std::string& value) {
-  set_has_m_profession();
-  if (m_profession_ == &::google::protobuf::internal::kEmptyString) {
-    m_profession_ = new ::std::string;
-  }
-  m_profession_->assign(value);
-}
-inline void E_EquipSuit::set_m_profession(const char* value) {
-  set_has_m_profession();
-  if (m_profession_ == &::google::protobuf::internal::kEmptyString) {
-    m_profession_ = new ::std::string;
-  }
-  m_profession_->assign(value);
-}
-inline void E_EquipSuit::set_m_profession(const char* value, size_t size) {
-  set_has_m_profession();
-  if (m_profession_ == &::google::protobuf::internal::kEmptyString) {
-    m_profession_ = new ::std::string;
-  }
-  m_profession_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipSuit::mutable_m_profession() {
-  set_has_m_profession();
-  if (m_profession_ == &::google::protobuf::internal::kEmptyString) {
-    m_profession_ = new ::std::string;
-  }
-  return m_profession_;
-}
-inline ::std::string* E_EquipSuit::release_m_profession() {
-  clear_has_m_profession();
-  if (m_profession_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_profession_;
-    m_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_EquipSuit::set_allocated_m_profession(::std::string* m_profession) {
-  if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_profession_;
-  }
-  if (m_profession) {
-    set_has_m_profession();
-    m_profession_ = m_profession;
-  } else {
-    clear_has_m_profession();
-    m_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
+inline void E_EquipSuit::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
 }
 
 // optional int32 m_suitlv = 3;
@@ -8273,26 +8237,26 @@ inline void E_EquipSuit::set_m_suitlv(::google::protobuf::int32 value) {
   m_suitlv_ = value;
 }
 
-// optional int32 m_level = 4;
-inline bool E_EquipSuit::has_m_level() const {
+// optional int32 m_wearquality = 4;
+inline bool E_EquipSuit::has_m_wearquality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_EquipSuit::set_has_m_level() {
+inline void E_EquipSuit::set_has_m_wearquality() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_EquipSuit::clear_has_m_level() {
+inline void E_EquipSuit::clear_has_m_wearquality() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void E_EquipSuit::clear_m_level() {
-  m_level_ = 0;
-  clear_has_m_level();
+inline void E_EquipSuit::clear_m_wearquality() {
+  m_wearquality_ = 0;
+  clear_has_m_wearquality();
 }
-inline ::google::protobuf::int32 E_EquipSuit::m_level() const {
-  return m_level_;
+inline ::google::protobuf::int32 E_EquipSuit::m_wearquality() const {
+  return m_wearquality_;
 }
-inline void E_EquipSuit::set_m_level(::google::protobuf::int32 value) {
-  set_has_m_level();
-  m_level_ = value;
+inline void E_EquipSuit::set_m_wearquality(::google::protobuf::int32 value) {
+  set_has_m_wearquality();
+  m_wearquality_ = value;
 }
 
 // optional int32 m_colour = 5;
@@ -8434,48 +8398,92 @@ E_EquipSuit::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated string m_position = 9;
-inline int E_EquipSuit::m_position_size() const {
-  return m_position_.size();
+// repeated string m_maleposition = 9;
+inline int E_EquipSuit::m_maleposition_size() const {
+  return m_maleposition_.size();
 }
-inline void E_EquipSuit::clear_m_position() {
-  m_position_.Clear();
+inline void E_EquipSuit::clear_m_maleposition() {
+  m_maleposition_.Clear();
 }
-inline const ::std::string& E_EquipSuit::m_position(int index) const {
-  return m_position_.Get(index);
+inline const ::std::string& E_EquipSuit::m_maleposition(int index) const {
+  return m_maleposition_.Get(index);
 }
-inline ::std::string* E_EquipSuit::mutable_m_position(int index) {
-  return m_position_.Mutable(index);
+inline ::std::string* E_EquipSuit::mutable_m_maleposition(int index) {
+  return m_maleposition_.Mutable(index);
 }
-inline void E_EquipSuit::set_m_position(int index, const ::std::string& value) {
-  m_position_.Mutable(index)->assign(value);
+inline void E_EquipSuit::set_m_maleposition(int index, const ::std::string& value) {
+  m_maleposition_.Mutable(index)->assign(value);
 }
-inline void E_EquipSuit::set_m_position(int index, const char* value) {
-  m_position_.Mutable(index)->assign(value);
+inline void E_EquipSuit::set_m_maleposition(int index, const char* value) {
+  m_maleposition_.Mutable(index)->assign(value);
 }
-inline void E_EquipSuit::set_m_position(int index, const char* value, size_t size) {
-  m_position_.Mutable(index)->assign(
+inline void E_EquipSuit::set_m_maleposition(int index, const char* value, size_t size) {
+  m_maleposition_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* E_EquipSuit::add_m_position() {
-  return m_position_.Add();
+inline ::std::string* E_EquipSuit::add_m_maleposition() {
+  return m_maleposition_.Add();
 }
-inline void E_EquipSuit::add_m_position(const ::std::string& value) {
-  m_position_.Add()->assign(value);
+inline void E_EquipSuit::add_m_maleposition(const ::std::string& value) {
+  m_maleposition_.Add()->assign(value);
 }
-inline void E_EquipSuit::add_m_position(const char* value) {
-  m_position_.Add()->assign(value);
+inline void E_EquipSuit::add_m_maleposition(const char* value) {
+  m_maleposition_.Add()->assign(value);
 }
-inline void E_EquipSuit::add_m_position(const char* value, size_t size) {
-  m_position_.Add()->assign(reinterpret_cast<const char*>(value), size);
+inline void E_EquipSuit::add_m_maleposition(const char* value, size_t size) {
+  m_maleposition_.Add()->assign(reinterpret_cast<const char*>(value), size);
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-E_EquipSuit::m_position() const {
-  return m_position_;
+E_EquipSuit::m_maleposition() const {
+  return m_maleposition_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-E_EquipSuit::mutable_m_position() {
-  return &m_position_;
+E_EquipSuit::mutable_m_maleposition() {
+  return &m_maleposition_;
+}
+
+// repeated string m_femaleposition = 10;
+inline int E_EquipSuit::m_femaleposition_size() const {
+  return m_femaleposition_.size();
+}
+inline void E_EquipSuit::clear_m_femaleposition() {
+  m_femaleposition_.Clear();
+}
+inline const ::std::string& E_EquipSuit::m_femaleposition(int index) const {
+  return m_femaleposition_.Get(index);
+}
+inline ::std::string* E_EquipSuit::mutable_m_femaleposition(int index) {
+  return m_femaleposition_.Mutable(index);
+}
+inline void E_EquipSuit::set_m_femaleposition(int index, const ::std::string& value) {
+  m_femaleposition_.Mutable(index)->assign(value);
+}
+inline void E_EquipSuit::set_m_femaleposition(int index, const char* value) {
+  m_femaleposition_.Mutable(index)->assign(value);
+}
+inline void E_EquipSuit::set_m_femaleposition(int index, const char* value, size_t size) {
+  m_femaleposition_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_EquipSuit::add_m_femaleposition() {
+  return m_femaleposition_.Add();
+}
+inline void E_EquipSuit::add_m_femaleposition(const ::std::string& value) {
+  m_femaleposition_.Add()->assign(value);
+}
+inline void E_EquipSuit::add_m_femaleposition(const char* value) {
+  m_femaleposition_.Add()->assign(value);
+}
+inline void E_EquipSuit::add_m_femaleposition(const char* value, size_t size) {
+  m_femaleposition_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+E_EquipSuit::m_femaleposition() const {
+  return m_femaleposition_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+E_EquipSuit::mutable_m_femaleposition() {
+  return &m_femaleposition_;
 }
 
 // -------------------------------------------------------------------

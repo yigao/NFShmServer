@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/boss_s.h"
 
-#define MAX_BOSS_LAYER_NUM 20
+#define MAX_BOSS_LAYER_NUM 40
 
 class BossLayerDesc : public NFIDescStore
 {

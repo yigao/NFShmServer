@@ -48,7 +48,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillBuff_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillBuff_s, 180> E_SkillBuff_List;
+		NFShmVector<struct E_SkillBuff_s, 200> E_SkillBuff_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillBuff & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillBuff & msg);
