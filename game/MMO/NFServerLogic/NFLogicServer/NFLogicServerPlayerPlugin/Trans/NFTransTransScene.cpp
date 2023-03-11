@@ -91,12 +91,14 @@ int NFTransTransScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataP
 
     if (xData.ret_code() != proto_ff::RET_SUCCESS)
     {
+        pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
         pPlayer->SetGameId(0);
         pPlayer->SetMapId(pPlayer->GetLastMapId());
         pPlayer->SetSceneId(pPlayer->GetLastSceneId());
         pPlayer->SetPos(pPlayer->GetLastPos());
     }
     else {
+        pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_Gameing);
         pPlayer->SetGameId(xData.game_id());
         pPlayer->SetMapId(xData.map_id());
         pPlayer->SetSceneId(xData.scene_id());
@@ -118,6 +120,7 @@ int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataP
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
 
+    pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
     pPlayer->SetGameId(0);
 
     if (m_reqTransId > 0)
@@ -134,7 +137,6 @@ int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataP
         SendEnterScene();
     }
     else if (m_cmd == proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ){
-        pPlayer->OnLogout();
         SetFinished(0);
     }
     else {
@@ -313,6 +315,11 @@ int NFTransTransScene::SendGetMapInfoReq()
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
 
+    if (pPlayer->IsInTransSceneing())
+    {
+        return proto_ff::RET_FAIL;
+    }
+
     proto_ff::LogicToWorldGetMapInfoReq xMsg;
     xMsg.set_dst_map_id(m_mapId);
     xMsg.set_src_map_id(pPlayer->GetMapId());
@@ -326,6 +333,13 @@ int NFTransTransScene::SendEnterScene()
 {
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
+
+    if (pPlayer->IsInTransSceneing())
+    {
+        return proto_ff::RET_FAIL;
+    }
+
+    pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_Entering);
 
     proto_ff::LogicToWorldEnterSceneReq xMsg;
     xMsg.set_role_id(m_roleId);
@@ -346,6 +360,13 @@ int NFTransTransScene::SendLeaveScene()
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
 
+    if (pPlayer->IsInTransSceneing())
+    {
+        return proto_ff::RET_FAIL;
+    }
+
+    pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_Leaveing);
+
     proto_ff::LogicToWorldLeaveSceneReq xMsg;
     xMsg.set_role_id(m_roleId);
     xMsg.set_map_id(m_mapId);
@@ -362,15 +383,43 @@ int NFTransTransScene::HandleTransFinished(int iRunLogicRetCode)
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
 
+    //超时了，对方服务器可以崩溃了，或服务器异常了
+    if (iRunLogicRetCode < 0)
+    {
+        pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
+        pPlayer->SetGameId(0);
+    }
+
     if (m_cmd == proto_ff::CLIENT_SCENE_TRANS_REQ)
     {
-        //
         proto_ff::TransSceneRsp transRsp;
         transRsp.set_mapid(m_mapId);
-
-        //不能传送
         transRsp.set_retcode(iRunLogicRetCode);
         pPlayer->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
     }
+    else if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_FINISH_NOTIFY)
+    {
+        if (iRunLogicRetCode > 0)
+        {
+            pPlayer->SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
+            pPlayer->SetGameId(0);
+        }
+    }
+    else if (m_cmd == proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ)
+    {
+        if (iRunLogicRetCode > 0)
+        {
+            if (m_reqTransId > 0)
+            {
+                proto_ff::NotifyLogicLeaveGameRsp2 rspMsg;
+                rspMsg.set_cid(pPlayer->GetRoleId());
+                rspMsg.set_uid(pPlayer->GetUid());
+
+                pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalID(), m_reqTransId);
+            }
+        }
+    }
+
+
     return 0;
 }

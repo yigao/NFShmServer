@@ -37,6 +37,7 @@ int NFPlayerBase::CreateInit()
     m_clientId = 0;
 
     m_status = PLAYER_STATUS_NONE;
+    m_sceneState = PLAYER_SCENE_STATUS_NONE;
     m_curObjCreateTime = NFTime::Now().UnixSec();
     m_createTime = 0;
     m_diconnectTime = 0;
@@ -183,6 +184,34 @@ PLAYER_STATUS NFPlayerBase::GetStatus() const
 void NFPlayerBase::SetStatus(PLAYER_STATUS status)
 {
     m_status = status;
+}
+
+/**
+ * @brief
+ * @return
+ */
+PLAYER_SCENE_STATE NFPlayerBase::GetSceneStatus() const
+{
+    return m_sceneState;
+}
+
+/**
+ * @brief
+ * @param status
+ */
+void NFPlayerBase::SetSceneStatus(PLAYER_SCENE_STATE status)
+{
+    m_sceneState = status;
+}
+
+bool NFPlayerBase::IsInBattle()
+{
+    return m_sceneState == PLAYER_SCENE_STATUS_Fighting;
+}
+
+bool NFPlayerBase::IsInTransSceneing()
+{
+    return m_sceneState == PLAYER_SCENE_STATUS_Entering || m_sceneState == PLAYER_SCENE_STATUS_Leaveing;
 }
 
 uint64_t NFPlayerBase::GetLastLogoutTime() const

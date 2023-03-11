@@ -37,6 +37,7 @@ int NFWorldPlayer::CreateInit()
     m_clientId = 0;
     m_logicId = 0;
     m_status = PLAYER_STATUS_NONE;
+    m_sceneState = PLAYER_SCENE_STATUS_NONE;
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
     m_lastLogoutTime = 0;
@@ -160,6 +161,34 @@ void NFWorldPlayer::SetStatus(PLAYER_STATUS status)
     m_status = status;
 }
 
+/**
+ * @brief
+ * @return
+ */
+PLAYER_SCENE_STATE NFWorldPlayer::GetSceneStatus() const
+{
+    return m_sceneState;
+}
+
+/**
+ * @brief
+ * @param status
+ */
+void NFWorldPlayer::SetSceneStatus(PLAYER_SCENE_STATE status)
+{
+    m_sceneState = status;
+}
+
+bool NFWorldPlayer::IsInBattle()
+{
+    return m_sceneState == PLAYER_SCENE_STATUS_Fighting;
+}
+
+bool NFWorldPlayer::IsInTransSceneing()
+{
+    return m_sceneState == PLAYER_SCENE_STATUS_Entering || m_sceneState == PLAYER_SCENE_STATUS_Leaveing;
+}
+
 uint64_t NFWorldPlayer::GetCreateTime() const
 {
     return m_createTime;
@@ -268,27 +297,57 @@ void NFWorldPlayer::SetIsWhite(bool isWhite)
  */
 void NFWorldPlayer::SendMsgToProxyServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, msgId, xData, m_uid, m_clientId);
+    if (m_proxyId > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, msgId, xData, m_uid, m_clientId);
+    }
+    else {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "SendMsgToProxyServer Failed! nMsgId:{}", msgId);
+    }
 }
 
 void NFWorldPlayer::SendMsgToLogicServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, m_uid, m_roleId);
+    if (m_logicId > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, m_uid, m_roleId);
+    }
+    else {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "SendMsgToLogicServer Failed! nMsgId:{}", msgId);
+    }
 }
 
 void NFWorldPlayer::SendTransToLogicServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
-    FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, req_trans_id, rsp_trans_id);
+    if (m_logicId > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_WORLD_SERVER, m_logicId, msgId, xData, req_trans_id, rsp_trans_id);
+    }
+    else {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "SendTransToLogicServer Failed! nMsgId:{}", msgId);
+    }
 }
 
 void NFWorldPlayer::SendMsgToGameServer(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, m_uid, m_roleId);
+    if (m_gameId > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, m_uid, m_roleId);
+    }
+    else {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "SendMsgToGameServer Failed! nMsgId:{}", msgId);
+    }
 }
 
 void NFWorldPlayer::SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
-    FindModule<NFIServerMessageModule>()->SendTransToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, req_trans_id, rsp_trans_id);
+    if (m_gameId > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendTransToGameServer(NF_ST_WORLD_SERVER, m_gameId, msgId, xData, req_trans_id, rsp_trans_id);
+    }
+    else {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "SendTransToGameServer Failed! nMsgId:{}", msgId);
+    }
 }
 
 void NFWorldPlayer::SendMsgToSnsServer(uint32_t msgId, const google::protobuf::Message &xData)

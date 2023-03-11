@@ -148,8 +148,15 @@ int NFTransWorldGetRoleList::OnHandleClientLogin()
 
     if (pPlayer->GetRoleId() > 0)
     {
-        NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, NULL, proto_ff::LOGOUT_REPLACE, GetGlobalID());
-        isNeedLeaveScene = true;
+        if (!pPlayer->IsInTransSceneing())
+        {
+            NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, NULL, proto_ff::LOGOUT_REPLACE, GetGlobalID());
+            isNeedLeaveScene = true;
+        }
+        else {
+            SetFinished(0);
+            return 0;
+        }
     }
 
     NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
@@ -419,7 +426,7 @@ int NFTransWorldGetRoleList::OnTransFinished(int iRunLogicRetCode)
 {
     if (iRunLogicRetCode != 0)
     {
-        if (iRunLogicRetCode < 0 || iRunLogicRetCode == proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT)
+        if (iRunLogicRetCode < 0)
         {
             NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
             NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
@@ -463,10 +470,5 @@ int NFTransWorldGetRoleList::OnTransFinished(int iRunLogicRetCode)
         pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_LOGIN_RSP, loginrsp);
     }
 
-    return 0;
-}
-
-int NFTransWorldGetRoleList::OnTimeOut()
-{
     return 0;
 }

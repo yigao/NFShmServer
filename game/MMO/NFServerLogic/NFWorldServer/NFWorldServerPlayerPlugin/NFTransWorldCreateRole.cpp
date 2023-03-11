@@ -160,7 +160,7 @@ int NFTransWorldCreateRole::OnTransFinished(int iRunLogicRetCode)
 {
     if (iRunLogicRetCode != 0)
     {
-        if (iRunLogicRetCode < 0 || iRunLogicRetCode == proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT)
+        if (iRunLogicRetCode < 0)
         {
             NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
             NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
@@ -197,11 +197,6 @@ int NFTransWorldCreateRole::OnTransFinished(int iRunLogicRetCode)
     return 0;
 }
 
-int NFTransWorldCreateRole::OnTimeOut()
-{
-    return 0;
-}
-
 int NFTransWorldCreateRole::OnHandleCreateRole(const proto_ff::ClientCreateRoleReq& xData)
 {
     NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
@@ -218,6 +213,12 @@ int NFTransWorldCreateRole::OnHandleCreateRole(const proto_ff::ClientCreateRoleR
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_uid, "pPlayer->GetClientId():{} != m_clientId:{}", pPlayer->GetClientId(), m_clientId);
         return -1;
+    }
+
+    if (pPlayer->IsInTransSceneing())
+    {
+        SetFinished(0);
+        return 0;
     }
 
     //创建角色的账号必须处于拉取角色列表完毕状态

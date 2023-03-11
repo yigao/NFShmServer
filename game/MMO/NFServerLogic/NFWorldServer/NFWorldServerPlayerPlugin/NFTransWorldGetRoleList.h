@@ -39,8 +39,6 @@ public:
     int OnHandleClientLogin();
     int SendGetRoleList();
 public:
-    virtual int OnTimeOut();
-
     virtual int OnTransFinished(int iRunLogicRetCode);
 private:
     uint64_t m_uid;

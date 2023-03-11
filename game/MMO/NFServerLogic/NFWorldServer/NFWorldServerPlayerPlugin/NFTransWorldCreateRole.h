@@ -48,7 +48,6 @@ public:
      */
     int OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFDataPackage& packet, uint32_t reqTransId, uint32_t rspTransId);
 public:
-    virtual int OnTimeOut();
 
     virtual int OnTransFinished(int iRunLogicRetCode);
 private:

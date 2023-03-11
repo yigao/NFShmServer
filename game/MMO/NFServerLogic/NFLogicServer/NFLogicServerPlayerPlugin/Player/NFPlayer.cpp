@@ -74,7 +74,7 @@ int NFPlayer::ResumeInit()
 int NFPlayer::Init(const proto_ff::RoleDBData &dbData)
 {
     NFPlayerBase::Init(m_pObjPluginManager, dbData);
-    SetStatus(PLAYER_STATUS_ONLINE);
+    SetStatus(PLAYER_STATUS_NONE);
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
         m_pPart[i] = CreatePart(i, dbData);
@@ -217,18 +217,28 @@ int NFPlayer::Tick()
                     break;
                 }
             }
-            else if (m_transNum > 0 && !m_pObjPluginManager->IsServerStopping())
-            {
-                if ((uint64_t) NFTime::Now().UnixSec() - GetLastDiconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
-                    break;
-            }
 
             if (IsInBattle() && !m_pObjPluginManager->IsServerStopping())
             {
                 break;
             }
 
-            LogoutGame(0, 0);
+            if (GetGameId() != 0 && !m_pObjPluginManager->IsServerStopping())
+            {
+                if (!IsInTransSceneing())
+                {
+                    LeaveScene(0, 0);
+                }
+                break;
+            }
+
+            if (m_transNum > 0 && !m_pObjPluginManager->IsServerStopping())
+            {
+                if ((uint64_t) NFTime::Now().UnixSec() - GetLastDiconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
+                    break;
+            }
+
+            OnLogout();
         }
             break;
         case PLAYER_STATUS_LOGOUT:
@@ -332,6 +342,7 @@ int NFPlayer::OnLoad(bool isLoadDB)
 
 int NFPlayer::OnLogin(bool isLoadDB)
 {
+    SetStatus(PLAYER_STATUS_ONLINE);
     for (size_t i = 0; i < PART_MAX; i++)
     {
         if (m_pPart[i])
@@ -351,7 +362,6 @@ int NFPlayer::OnLogout()
     SetStatus(PLAYER_STATUS_LOGOUT);
     SetLastLogoutTime(NFTime::Now().UnixSec());
 
-
     for (size_t i = 0; i < PART_MAX; i++)
     {
         if (m_pPart[i])
@@ -367,6 +377,11 @@ int NFPlayer::OnLogout()
 
 int NFPlayer::OnDisconnect(uint32_t reason)
 {
+    if (GetStatus() == PLAYER_STATUS_OFFLINE)
+    {
+        return 0;
+    }
+
     NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{} status:{} change to PLAYER_STATUS_OFFLINE", GetUid(), GetStatus());
 
     SetStatus(PLAYER_STATUS_OFFLINE);
@@ -381,6 +396,7 @@ int NFPlayer::OnDisconnect(uint32_t reason)
             m_pPart[i]->OnDisconnect();
         }
     }
+    MarkDirty();
 
     NFPlayerMgr::Instance(m_pObjPluginManager)->OnDisconnect(this);
     return 0;
@@ -448,7 +464,11 @@ int NFPlayer::EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
     pTrans->Init(this, proto_ff::WORLD_TO_LOGIC_LOGIN_FINISH_NOTIFY);
     pTrans->InitStaticMapInfo(mapId, sceneId, dstPos);
-    pTrans->SendEnterScene();
+    int iRet = pTrans->SendEnterScene();
+    if (iRet != 0)
+    {
+        pTrans->SetFinished(iRet);
+    }
     return 0;
 }
 
@@ -458,7 +478,11 @@ int NFPlayer::LeaveScene(int type, uint32_t reqTransId)
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
     pTrans->Init(this, proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ, 0, reqTransId);
     pTrans->InitStaticMapInfo(m_mapId, m_sceneId, m_pos);
-    pTrans->SendLeaveScene();
+    int iRet = pTrans->SendLeaveScene();
+    if (iRet != 0)
+    {
+        pTrans->SetFinished(iRet);
+    }
     return 0;
 }
 
@@ -1468,11 +1492,9 @@ int NFPlayer::LoginGame(const CharLoginInfo &loginInfo, bool change)
 
 int NFPlayer::LogoutGame(int type, uint32_t reqTransId)
 {
-    if (GetGameId() == 0)
+    OnDisconnect(ROLE_DISCONN_FROM_SERVER);
+    if (GetGameId() > 0)
     {
-        OnLogout();
-    }
-    else {
         LeaveScene(type, reqTransId);
     }
 

@@ -168,6 +168,26 @@ public:
      * @brief
      * @return
      */
+    virtual PLAYER_SCENE_STATE GetSceneStatus() const;
+
+    /**
+     * @brief
+     * @param status
+     */
+    virtual void SetSceneStatus(PLAYER_SCENE_STATE status);
+
+    /**
+     * @brief
+     * @return
+     */
+    virtual bool IsInBattle();
+
+    virtual bool IsInTransSceneing();
+
+    /**
+     * @brief
+     * @return
+     */
     virtual bool IsDisconnect() const;
 
     /**
@@ -395,6 +415,7 @@ protected:
     uint64_t m_lastMapId;               //上个地图ID
     uint8_t m_curstate;
     uint8_t m_laststate;
+    PLAYER_SCENE_STATE m_sceneState;
 protected:
     NFShmPtr<IFightAttr> m_pFightAttr;		//战斗属性
     NFShmPtr<IAttr> m_pAttr;				//普通属性

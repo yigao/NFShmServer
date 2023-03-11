@@ -140,6 +140,26 @@ public:
      * @brief
      * @return
      */
+    virtual PLAYER_SCENE_STATE GetSceneStatus() const;
+
+    /**
+     * @brief
+     * @param status
+     */
+    virtual void SetSceneStatus(PLAYER_SCENE_STATE status);
+
+    /**
+     * @brief
+     * @return
+     */
+    virtual bool IsInBattle();
+
+    virtual bool IsInTransSceneing();
+
+    /**
+     * @brief
+     * @return
+     */
     uint64_t GetCreateTime() const;
 
     /**
@@ -363,6 +383,11 @@ private:
      * @brief
      */
     uint32_t m_charNum;
+
+    /**
+     * @brief
+     */
+    PLAYER_SCENE_STATE m_sceneState;
 private:
     NFShmHashMap<uint64_t, NFWorldRoleInfo, MAX_ROLE_NUM> m_roleInfo;
 private:

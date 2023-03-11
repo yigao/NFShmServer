@@ -84,7 +84,7 @@ public:
 
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
-    bool IsInBattle() { return false; }
+
     NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData);
     int RecylePart(NFPart *pPart);
 public:

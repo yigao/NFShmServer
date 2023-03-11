@@ -378,62 +378,7 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
         }
         else
         {
-/*            //检查玩家是否能从当前场景切换到其他场景去
-            ret = pMaster->CanTrans(sceneId, mapId, dstPos, outPos, transParam);
-            if (ret != proto_ff::RET_SUCCESS)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(), "[logic] MovePart::TransScene..... change logic !m_pMaster->CanTrans()....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%u, cid:%lu,ret:%d ,outpos:%f,%f,%f ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret, outPos.x, outPos.y, outPos.z);
-                return proto_ff::RET_FAIL;
-            }
-            //
-            proto_ff::LogicCreatureTransSceneReq req;
-            req.set_cursceneid(curSceneId);
-            req.set_dstsceneid(sceneId);
-            req.set_srclogicid(pMaster->);
-            proto_ff::CreatureTransParam *protoParam = req.mutable_param();
-            NF_ASSERT(protoParam);
-            proto_ff::SceneTransParam *protoTypeParam = protoParam->mutable_trans_param();
-            NF_ASSERT(protoTypeParam);
-            protoParam->set_kind(pMaster->Kind());
-            protoParam->set_cid(pMaster->Cid());
-            protoTypeParam->set_trans_val(transParam.transVal);
-            protoTypeParam->set_src_map(transParam.srcMapId);
-            protoTypeParam->set_trans_type(transParam.transType);
-
-            if (!pMaster->ChangeLogic(sceneId, mapId, dstPos, *protoParam))
-            {
-                LogErrFmtPrint("[logic] MovePart::TransScene..... m_pMaster->ChangeLogic failed....sceneid:%lu, mapid:%lu, curscene:%lu,curMapId:%lu, cid:%lu,ret:%d ", sceneId, mapId, curSceneId, curMapId, m_pMaster->Cid(), ret);
-                return false;
-            }
-            if (CREATURE_PLAYER == pMaster->Kind())
-            {
-                proto_ff::CreatureTransLogicDBReq dbReq;
-                string strData = req.SerializeAsString();
-                if (strData.empty())
-                {
-                    //出错LogicCreatureTransSceneReq
-                    m_pMaster->ChangeLogicFail();
-                    goto Exit0;
-                }
-                dbReq.set_trans_data(strData);
-                retCode = g_GetLogicService()->SendDB(DB_CREATURE_TRANS_SCENE_REQ, &dbReq,m_pMaster->GetZid());
-                if (!retCode)
-                {
-                    //出错
-                    m_pMaster->ChangeLogicFail();
-                    goto Exit0;
-                }
-            }
-            else
-            {
-                //非玩家，直接发送到中心服
-                retCode = g_GetLogicService()->SendCenter(LOGIC_CREATURE_TRANS_SCENE_REQ_CENTER, &req, m_pMaster->GetZid());
-                if (!retCode)
-                {
-                    m_pMaster->ChangeLogicFail();
-                }
-                MMOLOG_PROCESS_ERROR(retCode);
-            }*/
+            return proto_ff::RET_FAIL;
         } // end of if (nullptr != pScene)
     } // end of ERetCode ret = RET_SUCCESS;
     //

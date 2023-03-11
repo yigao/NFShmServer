@@ -55,3 +55,12 @@ typedef enum
     PLAYER_STATUS_LOGOUT = 3,
     PLAYER_STATUS_DEAD = 4,
 } PLAYER_STATUS;
+
+typedef enum
+{
+    PLAYER_SCENE_STATUS_NONE = 0,
+    PLAYER_SCENE_STATUS_Entering = 1,
+    PLAYER_SCENE_STATUS_Leaveing = 2,
+    PLAYER_SCENE_STATUS_Gameing = 3,
+    PLAYER_SCENE_STATUS_Fighting = 4,
+} PLAYER_SCENE_STATE;

@@ -86,6 +86,12 @@ int NFTransWorldEnterGame::OnHandleEnterGame(const proto_ff::ClientEnterGameReq 
         return -1;
     }
 
+    if (pPlayer->IsInTransSceneing())
+    {
+        SetFinished(0);
+        return 0;
+    }
+
     if (pExternalConfig->WhiteListState)
     {
         if (!NFWorldConfig::Instance(m_pObjPluginManager)->IsWhiteAccount(m_uid))
@@ -321,7 +327,7 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
 {
     if (iRunLogicRetCode != 0)
     {
-        if (iRunLogicRetCode < 0 || iRunLogicRetCode == proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT)
+        if (iRunLogicRetCode < 0)
         {
             NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(m_clientId);
             NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByUid(m_uid);
