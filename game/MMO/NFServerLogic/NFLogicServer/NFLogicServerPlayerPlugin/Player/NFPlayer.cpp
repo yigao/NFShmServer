@@ -33,7 +33,7 @@
 #include "DescStore/RoleTaidaomaleDesc.h"
 #include "DescStore/RoleTaidaofemaleDesc.h"
 #include "DescStoreEx/NFMapDescStoreEx.h"
-#include "Trans/NFTransEnterScene.h"
+#include "Trans/NFTransTransScene.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -87,11 +87,11 @@ int NFPlayer::Init(const proto_ff::RoleDBData &dbData)
     return 0;
 }
 
-int NFPlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+int NFPlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
     if (nEventID == EVENT_SYNC_SCENE_POS)
     {
-        const proto_ff::SyncScenePos* pEvent = dynamic_cast<const proto_ff::SyncScenePos*>(pMessage);
+        const proto_ff::SyncScenePos *pEvent = dynamic_cast<const proto_ff::SyncScenePos *>(pMessage);
         if (pEvent)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, GetRoleId(), "SyncScenePos Event:{}", pEvent->DebugString());
@@ -196,9 +196,7 @@ int NFPlayer::Tick()
         {
             if (m_curObjCreateTime + LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME < (uint64_t) NFTime::Now().UnixSec())
             {
-                SetStatus(PLAYER_STATUS_OFFLINE);
-                SetIsDisconnect(true);
-                NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_OFFLINE", GetUid());
+                OnDisconnect(ROLE_DISCONN_FROM_SERVER);
             }
         }
             break;
@@ -228,10 +226,7 @@ int NFPlayer::Tick()
                 break;
             }
 
-            SetStatus(PLAYER_STATUS_LOGOUT);
-            SetLastLogoutTime(NFTime::Now().UnixSec());
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid(),
-                      GetRoleId());
+            OnLogout();
         }
             break;
         case PLAYER_STATUS_LOGOUT:
@@ -315,7 +310,7 @@ void NFPlayer::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
     }
 }
 
-void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto)
+void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto)
 {
     NFPlayerBase::SetEnterSceneProto(outproto);
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
@@ -349,6 +344,12 @@ int NFPlayer::OnLogin(bool isLoadDB)
 
 int NFPlayer::OnLogout()
 {
+    NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:{} change to PLAYER_STATUS_LOGOUT", GetStatus(), GetUid(), GetRoleId());
+
+    SetStatus(PLAYER_STATUS_LOGOUT);
+    SetLastLogoutTime(NFTime::Now().UnixSec());
+
+
     for (size_t i = 0; i < PART_MAX; i++)
     {
         if (m_pPart[i])
@@ -357,12 +358,13 @@ int NFPlayer::OnLogout()
         }
     }
 
-    NFPlayerMgr::Instance(m_pObjPluginManager)->OnLogout(this);
     return 0;
 }
 
 int NFPlayer::OnDisconnect(uint32_t reason)
 {
+    NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{} status:{} change to PLAYER_STATUS_OFFLINE", GetStatus(), GetUid());
+
     SetStatus(PLAYER_STATUS_OFFLINE);
     SetIsDisconnect(true);
     SetDisconnectType(reason);
@@ -436,8 +438,23 @@ int NFPlayer::SendTransToGameServer(uint32_t msgId, const google::protobuf::Mess
     return 0;
 }
 
-int NFPlayer::EnterScene(uint64_t mapId, uint64_t scenceId, const NFPoint3<float> &dstPos)
+int NFPlayer::EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float> &dstPos)
 {
+    NFTransTransScene *pTrans = dynamic_cast<NFTransTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_TRANS_SCENE));
+    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
+    pTrans->Init(this, 0);
+    pTrans->InitStaticMapInfo(mapId, sceneId, dstPos);
+    pTrans->SendEnterScene();
+    return 0;
+}
+
+int NFPlayer::LeaveScene(int type, uint32_t reqTransId)
+{
+    NFTransTransScene *pTrans = dynamic_cast<NFTransTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_TRANS_SCENE));
+    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
+    pTrans->Init(this, 0, 0, reqTransId);
+    pTrans->InitStaticMapInfo(m_mapId, m_sceneId, m_pos);
+    pTrans->SendLeaveScene();
     return 0;
 }
 
@@ -484,7 +501,7 @@ int NFPlayer::NotifyPlayerInfo()
     }
 
     //外观的数据获取要放到 m_pPart[i]->OnLogin(rsp) 后面
-    proto_ff::RoleFacadeProto* protofacade = rsp.mutable_facade();
+    proto_ff::RoleFacadeProto *protofacade = rsp.mutable_facade();
     if (nullptr != protofacade)
     {
         SetFacadeProto(*protofacade);
@@ -1261,7 +1278,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleMastermaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1277,7 +1294,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleMasterfemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1293,7 +1310,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSicklemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1309,7 +1326,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSicklefemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1325,7 +1342,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSwordmaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1341,7 +1358,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleSwordfemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1357,7 +1374,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleTaidaomaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1373,7 +1390,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
             auto pcfg = RoleTaidaofemaleDesc::Instance(m_pObjPluginManager)->GetDesc(level);
             if (nullptr != pcfg)
             {
-                for (int i = 0; i < (int)pcfg->m_attribute.size(); i++)
+                for (int i = 0; i < (int) pcfg->m_attribute.size(); i++)
                 {
                     auto pInfo = &pcfg->m_attribute.at(i);
                     if (pInfo->m_type > 0 && pInfo->m_value > 0)
@@ -1402,7 +1419,7 @@ void NFPlayer::CalcLevelAttr(bool sync)
     }
 }
 
-int NFPlayer::LoginGame(const CharLoginInfo& loginInfo, bool change)
+int NFPlayer::LoginGame(const CharLoginInfo &loginInfo, bool change)
 {
     NFPoint3<float> enterpos = loginInfo.pos;
     //先设置坐标和场景
@@ -1428,11 +1445,15 @@ int NFPlayer::LoginGame(const CharLoginInfo& loginInfo, bool change)
 
     OnLogin(true);
 
-    NFTransEnterScene* pTrans = dynamic_cast<NFTransEnterScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_LOGIC_ENTER_SCENE));
-    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransCreateRole failed!");
-    pTrans->Init(this, 0);
-    pTrans->InitStaticMapInfo();
-    pTrans->SendEnterScene();
+    EnterScene(m_mapId, m_sceneId, m_pos);
+    return 0;
+}
+
+int NFPlayer::LogoutGame(int type, uint32_t reqTransId)
+{
+    OnLogout();
+
+    LeaveScene(type, reqTransId);
     return 0;
 }
 

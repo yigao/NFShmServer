@@ -623,7 +623,8 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
     }
 
     MAP_UINT32_MAP_UINT32_SET_UINT64 mapZidGateRoleId;
-    uint32_t uid = 0;
+    uint64_t uid = 0;
+    uint64_t clientId =0;
     uint32_t gateId = 0;
     uint32_t zid = 0;
 
@@ -633,25 +634,10 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
         zid = GetZid();
         gateId = GetGateId();
         uid = GetUid();
+        clientId = GetClientId();
         //
-        auto iter = mapZidGateRoleId.find(zid);
-        if (iter != mapZidGateRoleId.end())
-        {
-            auto &mapGateRoleId = iter->second;
-            auto itergate = mapGateRoleId.find(gateId);
-            if (itergate != mapGateRoleId.end())
-            {
-                itergate->second.insert(uid);
-            }
-            else
-            {
-                mapGateRoleId[gateId].insert(uid);
-            }
-        }
-        else
-        {
+        if (gateId > 0 && clientId > 0)
             mapZidGateRoleId[zid][gateId].insert(uid);
-        }
     }
 
     if (Kind() == CREATURE_PLAYER)
@@ -673,25 +659,10 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                             zid = pPlayer->GetZid();
                             gateId = pPlayer->GetGateId();
                             uid= pPlayer->GetUid();
-                            //
-                            auto zid_iter = mapZidGateRoleId.find(zid);
-                            if (zid_iter != mapZidGateRoleId.end())
-                            {
-                                auto &mapgateclient = zid_iter->second;
-                                auto itergate = mapgateclient.find(gateId);
-                                if (itergate != mapgateclient.end())
-                                {
-                                    itergate->second.insert(uid);
-                                }
-                                else
-                                {
-                                    mapgateclient[gateId].insert(uid);
-                                }
-                            }
-                            else
-                            {
+                            clientId = pPlayer->GetClientId();
+
+                            if (gateId > 0 && clientId > 0)
                                 mapZidGateRoleId[zid][gateId].insert(uid);
-                            }
                         }
                     }
                 }
@@ -717,25 +688,10 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                             zid = pPlayer->GetZid();
                             gateId = pPlayer->GetGateId();
                             uid = pPlayer->GetUid();
-                            //
-                            auto zid_iter = mapZidGateRoleId.find(zid);
-                            if (zid_iter != mapZidGateRoleId.end())
-                            {
-                                auto &mapgateclient = zid_iter->second;
-                                auto itergate = mapgateclient.find(gateId);
-                                if (itergate != mapgateclient.end())
-                                {
-                                    itergate->second.insert(uid);
-                                }
-                                else
-                                {
-                                    mapgateclient[gateId].insert(uid);
-                                }
-                            }
-                            else
-                            {
+                            clientId = pPlayer->GetClientId();
+
+                            if (gateId > 0 && clientId > 0)
                                 mapZidGateRoleId[zid][gateId].insert(uid);
-                            }
                         }
                     }
                 }
@@ -1628,8 +1584,12 @@ int NFCreature::LeaveScene()
     //场景为空直接返回
     if (!pScene)
         return -1;
-    if (!pScene->LeaveScene(this))
-        return -1;
+
+    int iRet = pScene->LeaveScene(this);
+    if (iRet != proto_ff::RET_SUCCESS)
+    {
+        return iRet;
+    }
 
     SetSceneId(0);
     SetMapId(0);

@@ -7,16 +7,17 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFTransEnterScene.h"
+#include "NFTransTransScene.h"
 #include "ServerInternalCmd2.pb.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "Player/NFPlayer.h"
 #include "ServerInternal2.pb.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "ServerInternalCmd.pb.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransEnterScene, EOT_TRANS_LOGIC_ENTER_SCENE, NFTransBase)
+IMPLEMENT_IDCREATE_WITHTYPE(NFTransTransScene, EOT_TRANS_LOGIC_TRANS_SCENE, NFTransBase)
 
-NFTransEnterScene::NFTransEnterScene() : NFTransPlayerBase()
+NFTransTransScene::NFTransTransScene() : NFTransPlayerBase()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -28,34 +29,39 @@ NFTransEnterScene::NFTransEnterScene() : NFTransPlayerBase()
     }
 }
 
-NFTransEnterScene::~NFTransEnterScene()
+NFTransTransScene::~NFTransTransScene()
 {
 }
 
-int NFTransEnterScene::CreateInit()
+int NFTransTransScene::CreateInit()
 {
     m_mapId = 0;
     m_sceneId = 0;
     return 0;
 }
 
-int NFTransEnterScene::ResumeInit()
+int NFTransTransScene::ResumeInit()
 {
     return 0;
 }
 
-int NFTransEnterScene::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
+int NFTransTransScene::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
 {
     return 0;
 }
 
-int NFTransEnterScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
+int NFTransTransScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
+    m_cmd = nMsgId;
     switch(nMsgId)
     {
         case proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP:
         {
             return OnHandleWorldEnterSceneRsp(nMsgId, packet, reqTransId, rspTransId);
+        }
+        case proto_ff::WORLD_TO_LOGIC_LEAVE_SCENE_RSP:
+        {
+            return OnHandleWorldLeaveSceneRsp(nMsgId, packet, reqTransId, rspTransId);
         }
         default:break;
     }
@@ -63,7 +69,7 @@ int NFTransEnterScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &pa
     return 0;
 }
 
-int NFTransEnterScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
+int NFTransTransScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::WorldToLogicEnterSceneRsp xData;
@@ -93,18 +99,43 @@ int NFTransEnterScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataP
     return 0;
 }
 
-int NFTransEnterScene::InitStaticMapInfo()
+int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::WorldToLogicLeaveSceneRsp xData;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
+
+    auto pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+
+    pPlayer->SetGameId(0);
+
+    if (m_reqTransId > 0)
+    {
+        proto_ff::NotifyLogicLeaveGameRsp2 rspMsg;
+        rspMsg.set_cid(pPlayer->GetRoleId());
+        rspMsg.set_uid(pPlayer->GetUid());
+
+        pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalID(), m_reqTransId);
+    }
+
+    SetFinished(0);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFTransTransScene::InitStaticMapInfo(uint64_t mapId, uint64_t scenceId, const NFPoint3<float> &dstPos)
 {
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
 
-    m_mapId = pPlayer->GetMapId();
-    m_sceneId = pPlayer->GetSceneId();
-    m_pos = pPlayer->GetPos();
+    m_mapId = mapId;
+    m_sceneId = scenceId;
+    m_pos = dstPos;
     return 0;
 }
 
-int NFTransEnterScene::TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
+int NFTransTransScene::TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
 {
     m_mapId = mapId;
     m_sceneId = sceneId;
@@ -113,7 +144,7 @@ int NFTransEnterScene::TransScene(uint64_t mapId, uint64_t sceneId, const NFPoin
     return SendEnterScene();
 }
 
-int NFTransEnterScene::SendEnterScene()
+int NFTransTransScene::SendEnterScene()
 {
     auto pPlayer = GetPlayer();
     CHECK_NULL(pPlayer);
@@ -122,11 +153,25 @@ int NFTransEnterScene::SendEnterScene()
     xMsg.set_role_id(m_roleId);
     xMsg.set_map_id(m_mapId);
     xMsg.set_scene_id(m_sceneId);
-    xMsg.mutable_pos()->set_x(m_pos.x);
-    xMsg.mutable_pos()->set_y(m_pos.y);
-    xMsg.mutable_pos()->set_z(m_pos.z);
+    m_pos.ToProto(*xMsg.mutable_pos());
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
     pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg, GetGlobalID());
+    return 0;
+}
+
+int NFTransTransScene::SendLeaveScene()
+{
+    auto pPlayer = GetPlayer();
+    CHECK_NULL(pPlayer);
+
+    proto_ff::LogicToWorldLeaveSceneReq xMsg;
+    xMsg.set_role_id(m_roleId);
+    xMsg.set_map_id(m_mapId);
+    xMsg.set_scene_id(m_sceneId);
+    xMsg.set_game_id(pPlayer->GetGameId());
+    m_pos.ToProto(*xMsg.mutable_pos());
+
+    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ, xMsg, GetGlobalID());
     return 0;
 }

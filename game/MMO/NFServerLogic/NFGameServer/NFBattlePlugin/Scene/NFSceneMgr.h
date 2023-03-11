@@ -82,6 +82,7 @@ public:
     const OneLayer* GetLayerPoint(uint32_t nlayer);
 public:
     int EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos);
+    int LeaveScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId);
 private:
     //场景销毁缓存表 sceneid - tick
     NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;

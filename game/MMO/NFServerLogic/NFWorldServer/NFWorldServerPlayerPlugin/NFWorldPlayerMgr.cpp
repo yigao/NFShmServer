@@ -410,7 +410,7 @@ int NFWorldPlayerMgr::NotifyGateLeave(uint64_t proxyId, uint64_t clientId, proto
     return 0;
 }
 
-int NFWorldPlayerMgr::NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type)
+int NFWorldPlayerMgr::NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type, int reqTransId/* = 0*/)
 {
     //强制断开之前的客户端session
     if (pSession)
@@ -421,7 +421,16 @@ int NFWorldPlayerMgr::NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* p
     if (pPlayer)
     {
         OnHandlePlayerDisconnect(pPlayer, ROLE_DISCONN_FROM_SERVER);
+        if (pPlayer->GetRoleId() > 0)
+        {
+            proto_ff::NotifyLogicLeaveGameReq2 req;
+            req.set_cid(pPlayer->GetRoleId());
+            req.set_uid(pPlayer->GetUid());
+            req.set_type(type);
+            pPlayer->SendTransToLogicServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ, req, reqTransId);
+        }
     }
+
     return 0;
 }
 

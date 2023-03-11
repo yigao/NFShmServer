@@ -19,12 +19,12 @@
 #include "Com_s.h"
 #include "NFLogicCommon/NFPoint3.h"
 
-class NFTransEnterScene : public NFTransPlayerBase
+class NFTransTransScene : public NFTransPlayerBase
 {
 public:
-    NFTransEnterScene();
+    NFTransTransScene();
 
-    virtual ~NFTransEnterScene();
+    virtual ~NFTransTransScene();
 
     int CreateInit();
 
@@ -38,12 +38,13 @@ public:
     virtual int HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq);
     virtual int HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
     int OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
+    int OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
 public:
     /**
      * @brief
      * @return
      */
-    int InitStaticMapInfo();
+    int InitStaticMapInfo(uint64_t mapId, uint64_t scenceId, const NFPoint3<float> &dstPos);
 
 public:
     /**
@@ -51,6 +52,12 @@ public:
      * @return
      */
     int SendEnterScene();
+
+    /**
+     * @brief
+     * @return
+     */
+    int SendLeaveScene();
 
     /**
      * @brief
@@ -64,5 +71,5 @@ private:
     uint64_t m_mapId;
     uint64_t m_sceneId;
     NFPoint3<float> m_pos;
-DECLARE_IDCREATE(NFTransEnterScene)
+DECLARE_IDCREATE(NFTransTransScene)
 };

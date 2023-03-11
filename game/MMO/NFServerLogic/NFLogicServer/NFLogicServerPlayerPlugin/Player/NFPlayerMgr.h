@@ -144,7 +144,8 @@ public:
     int DeletePlayer(NFPlayer *pPlayer);
 
 public:
-    int EnterGame(uint64_t roleId, const CharLoginInfo& loginInfo);
+    int LoginGame(uint64_t roleId, const CharLoginInfo& loginInfo);
+    int LogoutGame(uint64_t uid, uint64_t roleId, uint32_t type, uint32_t reqTransId);
 public:
     /**
      * @brief 继承自NFTickByRunIndexOP， 用来平衡处理每一帧应该处理的玩家数

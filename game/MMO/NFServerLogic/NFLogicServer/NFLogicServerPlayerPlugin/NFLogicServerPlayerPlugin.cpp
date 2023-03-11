@@ -25,7 +25,7 @@
 #include "Part/NFMiniPart.h"
 #include "Part/NFPackagePart.h"
 #include "Part/NFChatPart.h"
-#include "Trans/NFTransEnterScene.h"
+#include "Trans/NFTransTransScene.h"
 #include "Part/NFMissionPart.h"
 #include "Part/NFTitlePart.h"
 
@@ -105,7 +105,7 @@ bool NFLogicServerPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFTransCreateRole, maxOnlinePlayerNum/5);
     REGISTER_SHM_OBJ(NFTransGetRole, maxOnlinePlayerNum/5);
     REGISTER_SHM_OBJ(NFTransSaveRoleDetail, maxOnlinePlayerNum/5);
-    REGISTER_SHM_OBJ(NFTransEnterScene, maxOnlinePlayerNum/10);
+    REGISTER_SHM_OBJ(NFTransTransScene, maxOnlinePlayerNum / 10);
 /*
     REGISTER_SINGLETON_SHM_OBJ(NFUserDetailMgr, EOT_USER_DETAIL_HASH_TABLE_ID, 1);
     REGISTER_SHM_OBJ(NFTransGetUserDetail, EOT_TRANS_GET_USER_DETAIL, maxOnlinePlayerNum);

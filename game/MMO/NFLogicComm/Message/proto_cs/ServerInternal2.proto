@@ -188,3 +188,56 @@ message WorldToLogicEnterSceneRsp
   optional Vector3PB pos = 5;
   optional uint32 game_id = 6;
 }
+
+//中心服通知逻辑服退出游戏      NOTIFY_LOGIC_LEAVE_GAME_REQ
+message NotifyLogicLeaveGameReq2
+{
+  required uint64 cid = 1;
+  required uint64 uid = 2;
+  optional LOGOUT_TYPE  type = 3;
+}
+
+//逻辑服返回中心服退出游戏结果   NOTIFY_LOGIC_LEAVE_GAME_RSP
+message NotifyLogicLeaveGameRsp2
+{
+  required uint64 cid = 1;
+  required uint64 uid = 2;
+  optional int32 logout_type = 3;	//登出类型
+}
+
+message LogicToWorldLeaveSceneReq
+{
+  optional uint64 role_id = 1;
+  optional uint64 map_id = 2;
+  optional uint64 scene_id = 3;
+  optional Vector3PB pos = 4;
+  optional uint32 game_id = 5;
+}
+
+message WorldToGameLeaveSceneReq
+{
+  optional uint64 role_id = 1;
+  optional uint64 map_id = 2;
+  optional uint64 scene_id = 3;
+  optional Vector3PB pos = 4;
+}
+
+message GameToWorldLeaveSceneRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 role_id = 2;
+  optional uint64 map_id = 3;
+  optional uint64 scene_id = 4;
+  optional Vector3PB pos = 5;
+  optional uint32 logic_id = 6;
+}
+
+message WorldToLogicLeaveSceneRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 role_id = 2;
+  optional uint64 map_id = 3;
+  optional uint64 scene_id = 4;
+  optional Vector3PB pos = 5;
+  optional uint32 logic_id = 6;
+}

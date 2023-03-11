@@ -71,7 +71,7 @@ bool NFCWorldPlayerModule::Awake()
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NOTIFY_CENTER_DISCONNECT);
     ///////////logic msg//////////////////////////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ);
-
+    RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ);
     //////////game msg///////////////////////////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::GAME_TO_WORLD_REGISTER_MAP_REQ);
     return true;
@@ -160,6 +160,11 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
         case proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ:
         {
             OnHandleEnterSceneReq(msgId, packet, param1, param2);
+            break;
+        }
+        case proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ:
+        {
+            OnHandleLeaveSceneReq(msgId, packet, param1, param2);
             break;
         }
         default:
@@ -304,8 +309,32 @@ int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &p
 
     NFTransWorldTransScene* pTrans = dynamic_cast<NFTransWorldTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldTransScene_ID));
     CHECK_EXPR(pTrans, -1, "CreateTrans NFTransWorldEnterGame failed!");
-    pTrans->Init(roleId, mapId, sceneId, pos, reqTransId);
+    pTrans->Init(roleId, mapId, sceneId, pos, reqTransId, msgId);
     int iRetCode = pTrans->OnHandleTransScene(xData);
+    if (iRetCode != 0)
+    {
+        pTrans->SetFinished(iRetCode);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage& packet, uint64_t reqTransId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::LogicToWorldLeaveSceneReq xData;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
+
+    uint64_t roleId = xData.role_id();
+    uint64_t mapId = xData.map_id();
+    uint64_t sceneId = xData.scene_id();
+    NFPoint3<float> pos(xData.pos());
+
+    NFTransWorldTransScene* pTrans = dynamic_cast<NFTransWorldTransScene *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_NFTransWorldTransScene_ID));
+    CHECK_EXPR(pTrans, -1, "CreateTrans NFTransWorldEnterGame failed!");
+    pTrans->Init(roleId, mapId, sceneId, pos, reqTransId, msgId);
+    int iRetCode = pTrans->OnHandleLeaveScene(xData);
     if (iRetCode != 0)
     {
         pTrans->SetFinished(iRetCode);

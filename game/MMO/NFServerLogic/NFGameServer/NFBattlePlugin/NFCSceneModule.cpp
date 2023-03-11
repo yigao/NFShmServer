@@ -37,6 +37,7 @@ bool NFCSceneModule::Awake()
 
     RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::WORLD_TO_GAME_RESITER_MAP_RSP);
     RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ);
+    RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::WORLD_TO_GAME_LEAVE_SCENE_REQ);
 
     m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
                                          NF_FORMAT("{} {}", pConfig->ServerName, "Register GameServer Map Info To WorldServer"));
@@ -106,6 +107,11 @@ int NFCSceneModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet,
             OnHandleEnterSceneReq(msgId, packet, param1, param2);
             break;
         }
+        case proto_ff::WORLD_TO_GAME_LEAVE_SCENE_REQ:
+        {
+            OnHandleLeaveSceneReq(msgId, packet, param1, param2);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Server Internal MsgId:{} Register, But Not Handle, Package:{}", msgId, packet.ToString());
@@ -167,6 +173,46 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
     rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
     rspMsg.set_ret_code(ret);
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_ENTER_SCENE_RSP, rspMsg, 0, reqTransId);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    return 0;
+}
+
+int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet, uint64_t reqTransId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::WorldToGameLeaveSceneReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    uint64_t mapId = xMsg.map_id();
+    uint64_t sceneId = xMsg.scene_id();
+    uint64_t roleId = xMsg.role_id();
+    NFPoint3<float> pos(xMsg.pos());
+
+    proto_ff::GameToWorldLeaveSceneRsp rspMsg;
+    rspMsg.set_ret_code(proto_ff::RET_SUCCESS);
+    rspMsg.set_role_id(roleId);
+    rspMsg.set_map_id(mapId);
+    rspMsg.set_scene_id(sceneId);
+
+    NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
+    if (pPlayer == NULL)
+    {
+        rspMsg.set_ret_code(proto_ff::RET_FAIL);
+        pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_LEAVE_SCENE_RSP, rspMsg, 0, reqTransId);
+        return 0;
+    }
+
+    int ret = NFSceneMgr::Instance(m_pObjPluginManager)->LeaveScene(roleId, mapId, sceneId);
+    if (ret != proto_ff::RET_SUCCESS)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Leave Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
+    }
+
+    rspMsg.mutable_pos()->CopyFrom(xMsg.pos());
+    rspMsg.set_ret_code(ret);
+    rspMsg.set_logic_id(pPlayer->GetLogicId());
+    pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_LEAVE_SCENE_RSP, rspMsg, 0, reqTransId);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     return 0;

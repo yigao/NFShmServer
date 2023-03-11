@@ -63,7 +63,7 @@ void protobuf_AddDesc_ServerInternalCmd2_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\030ServerInternalCmd2.proto\022\010proto_ff\032\025yd"
     "_fieldoptions.proto\032\022common_logic.proto\032"
-    "\tCom.proto*\265\005\n\022ServerInternalCmd2\022\033\n\026SER"
+    "\tCom.proto*\307\006\n\022ServerInternalCmd2\022\033\n\026SER"
     "VER_INTERNAL2_BEGIN\020\210\'\022%\n WORLD_TO_LOGIC"
     "_GET_ROLE_LIST_REQ\020\211\'\022%\n LOGIC_TO_WORLD_"
     "GET_ROLE_LIST_RSP\020\212\'\022(\n#WORLD_TO_LOGIC_C"
@@ -80,7 +80,11 @@ void protobuf_AddDesc_ServerInternalCmd2_2eproto() {
     "\022#\n\036LOGIC_TO_WORLD_ENTER_SCENE_REQ\020\226\'\022#\n"
     "\036WORLD_TO_LOGIC_ENTER_SCENE_RSP\020\227\'\022\"\n\035WO"
     "RLD_TO_GAME_ENTER_SCENE_REQ\020\230\'\022\"\n\035GAME_T"
-    "O_WORLD_ENTER_SCENE_RSP\020\231\'", 786);
+    "O_WORLD_ENTER_SCENE_RSP\020\231\'\022#\n\036LOGIC_TO_W"
+    "ORLD_LEAVE_SCENE_REQ\020\232\'\022#\n\036WORLD_TO_LOGI"
+    "C_LEAVE_SCENE_RSP\020\233\'\022\"\n\035WORLD_TO_GAME_LE"
+    "AVE_SCENE_REQ\020\234\'\022\"\n\035GAME_TO_WORLD_LEAVE_"
+    "SCENE_RSP\020\235\'", 932);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd2.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd2_2eproto);
@@ -116,6 +120,10 @@ bool ServerInternalCmd2_IsValid(int value) {
     case 5015:
     case 5016:
     case 5017:
+    case 5018:
+    case 5019:
+    case 5020:
+    case 5021:
       return true;
     default:
       return false;

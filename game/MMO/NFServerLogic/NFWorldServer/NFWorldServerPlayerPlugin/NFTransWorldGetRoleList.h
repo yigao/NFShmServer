@@ -35,6 +35,7 @@ public:
 
 public:
     int OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
+    int OnHandleLogicLeaveGameRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
     int OnHandleClientLogin();
     int SendGetRoleList();
 public:

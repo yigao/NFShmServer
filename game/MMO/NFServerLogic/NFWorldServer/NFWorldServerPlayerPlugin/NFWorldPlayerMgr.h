@@ -182,7 +182,7 @@ public:
      * @param type
      * @return
      */
-    int NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type);
+    int NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* pSession, proto_ff::LOGOUT_TYPE type, int reqTransId = 0);
 
     /**
      * @brief 通知ProxyServer玩家服务器的busId改变

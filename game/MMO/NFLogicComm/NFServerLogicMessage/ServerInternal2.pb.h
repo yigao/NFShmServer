@@ -59,6 +59,12 @@ class LogicToWorldEnterSceneReq;
 class WorldToGameEnterSceneReq;
 class GameToWorldEnterSceneRsp;
 class WorldToLogicEnterSceneRsp;
+class NotifyLogicLeaveGameReq2;
+class NotifyLogicLeaveGameRsp2;
+class LogicToWorldLeaveSceneReq;
+class WorldToGameLeaveSceneReq;
+class GameToWorldLeaveSceneRsp;
+class WorldToLogicLeaveSceneRsp;
 
 // ===================================================================
 
@@ -2505,6 +2511,726 @@ class WorldToLogicEnterSceneRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static WorldToLogicEnterSceneRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyLogicLeaveGameReq2 : public ::google::protobuf::Message {
+ public:
+  NotifyLogicLeaveGameReq2();
+  virtual ~NotifyLogicLeaveGameReq2();
+
+  NotifyLogicLeaveGameReq2(const NotifyLogicLeaveGameReq2& from);
+
+  inline NotifyLogicLeaveGameReq2& operator=(const NotifyLogicLeaveGameReq2& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyLogicLeaveGameReq2& default_instance();
+
+  void Swap(NotifyLogicLeaveGameReq2* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyLogicLeaveGameReq2* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyLogicLeaveGameReq2& from);
+  void MergeFrom(const NotifyLogicLeaveGameReq2& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required uint64 uid = 2;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 2;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.LOGOUT_TYPE type = 3;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 3;
+  inline ::proto_ff::LOGOUT_TYPE type() const;
+  inline void set_type(::proto_ff::LOGOUT_TYPE value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyLogicLeaveGameReq2)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 uid_;
+  int type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyLogicLeaveGameReq2* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyLogicLeaveGameRsp2 : public ::google::protobuf::Message {
+ public:
+  NotifyLogicLeaveGameRsp2();
+  virtual ~NotifyLogicLeaveGameRsp2();
+
+  NotifyLogicLeaveGameRsp2(const NotifyLogicLeaveGameRsp2& from);
+
+  inline NotifyLogicLeaveGameRsp2& operator=(const NotifyLogicLeaveGameRsp2& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyLogicLeaveGameRsp2& default_instance();
+
+  void Swap(NotifyLogicLeaveGameRsp2* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyLogicLeaveGameRsp2* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyLogicLeaveGameRsp2& from);
+  void MergeFrom(const NotifyLogicLeaveGameRsp2& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required uint64 uid = 2;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 2;
+  inline ::google::protobuf::uint64 uid() const;
+  inline void set_uid(::google::protobuf::uint64 value);
+
+  // optional int32 logout_type = 3;
+  inline bool has_logout_type() const;
+  inline void clear_logout_type();
+  static const int kLogoutTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 logout_type() const;
+  inline void set_logout_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyLogicLeaveGameRsp2)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_logout_type();
+  inline void clear_has_logout_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 uid_;
+  ::google::protobuf::int32 logout_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyLogicLeaveGameRsp2* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LogicToWorldLeaveSceneReq : public ::google::protobuf::Message {
+ public:
+  LogicToWorldLeaveSceneReq();
+  virtual ~LogicToWorldLeaveSceneReq();
+
+  LogicToWorldLeaveSceneReq(const LogicToWorldLeaveSceneReq& from);
+
+  inline LogicToWorldLeaveSceneReq& operator=(const LogicToWorldLeaveSceneReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogicToWorldLeaveSceneReq& default_instance();
+
+  void Swap(LogicToWorldLeaveSceneReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LogicToWorldLeaveSceneReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LogicToWorldLeaveSceneReq& from);
+  void MergeFrom(const LogicToWorldLeaveSceneReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
+
+  // optional uint64 map_id = 2;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 3;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 4;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 4;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 game_id = 5;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LogicToWorldLeaveSceneReq)
+ private:
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 role_id_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+  ::google::protobuf::uint32 game_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static LogicToWorldLeaveSceneReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WorldToGameLeaveSceneReq : public ::google::protobuf::Message {
+ public:
+  WorldToGameLeaveSceneReq();
+  virtual ~WorldToGameLeaveSceneReq();
+
+  WorldToGameLeaveSceneReq(const WorldToGameLeaveSceneReq& from);
+
+  inline WorldToGameLeaveSceneReq& operator=(const WorldToGameLeaveSceneReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WorldToGameLeaveSceneReq& default_instance();
+
+  void Swap(WorldToGameLeaveSceneReq* other);
+
+  // implements Message ----------------------------------------------
+
+  WorldToGameLeaveSceneReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WorldToGameLeaveSceneReq& from);
+  void MergeFrom(const WorldToGameLeaveSceneReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 role_id = 1;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
+
+  // optional uint64 map_id = 2;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 3;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 4;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 4;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 game_id = 5;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WorldToGameLeaveSceneReq)
+ private:
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 role_id_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+  ::google::protobuf::uint32 game_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static WorldToGameLeaveSceneReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GameToWorldLeaveSceneRsp : public ::google::protobuf::Message {
+ public:
+  GameToWorldLeaveSceneRsp();
+  virtual ~GameToWorldLeaveSceneRsp();
+
+  GameToWorldLeaveSceneRsp(const GameToWorldLeaveSceneRsp& from);
+
+  inline GameToWorldLeaveSceneRsp& operator=(const GameToWorldLeaveSceneRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameToWorldLeaveSceneRsp& default_instance();
+
+  void Swap(GameToWorldLeaveSceneRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GameToWorldLeaveSceneRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GameToWorldLeaveSceneRsp& from);
+  void MergeFrom(const GameToWorldLeaveSceneRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 role_id = 2;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
+
+  // optional uint64 map_id = 3;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 4;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 5;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 5;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 logic_id = 6;
+  inline bool has_logic_id() const;
+  inline void clear_logic_id();
+  static const int kLogicIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 logic_id() const;
+  inline void set_logic_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GameToWorldLeaveSceneRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_logic_id();
+  inline void clear_has_logic_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 role_id_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static GameToWorldLeaveSceneRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WorldToLogicLeaveSceneRsp : public ::google::protobuf::Message {
+ public:
+  WorldToLogicLeaveSceneRsp();
+  virtual ~WorldToLogicLeaveSceneRsp();
+
+  WorldToLogicLeaveSceneRsp(const WorldToLogicLeaveSceneRsp& from);
+
+  inline WorldToLogicLeaveSceneRsp& operator=(const WorldToLogicLeaveSceneRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WorldToLogicLeaveSceneRsp& default_instance();
+
+  void Swap(WorldToLogicLeaveSceneRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  WorldToLogicLeaveSceneRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WorldToLogicLeaveSceneRsp& from);
+  void MergeFrom(const WorldToLogicLeaveSceneRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 role_id = 2;
+  inline bool has_role_id() const;
+  inline void clear_role_id();
+  static const int kRoleIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 role_id() const;
+  inline void set_role_id(::google::protobuf::uint64 value);
+
+  // optional uint64 map_id = 3;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 4;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 5;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 5;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // optional uint32 logic_id = 6;
+  inline bool has_logic_id() const;
+  inline void clear_logic_id();
+  static const int kLogicIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 logic_id() const;
+  inline void set_logic_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WorldToLogicLeaveSceneRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_role_id();
+  inline void clear_has_role_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_logic_id();
+  inline void clear_has_logic_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 role_id_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static WorldToLogicLeaveSceneRsp* default_instance_;
 };
 // ===================================================================
 
@@ -4955,6 +5681,711 @@ inline ::google::protobuf::uint32 WorldToLogicEnterSceneRsp::game_id() const {
 inline void WorldToLogicEnterSceneRsp::set_game_id(::google::protobuf::uint32 value) {
   set_has_game_id();
   game_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyLogicLeaveGameReq2
+
+// required uint64 cid = 1;
+inline bool NotifyLogicLeaveGameReq2::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyLogicLeaveGameReq2::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyLogicLeaveGameReq2::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyLogicLeaveGameReq2::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NotifyLogicLeaveGameReq2::cid() const {
+  return cid_;
+}
+inline void NotifyLogicLeaveGameReq2::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint64 uid = 2;
+inline bool NotifyLogicLeaveGameReq2::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyLogicLeaveGameReq2::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyLogicLeaveGameReq2::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyLogicLeaveGameReq2::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 NotifyLogicLeaveGameReq2::uid() const {
+  return uid_;
+}
+inline void NotifyLogicLeaveGameReq2::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional .proto_ff.LOGOUT_TYPE type = 3;
+inline bool NotifyLogicLeaveGameReq2::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyLogicLeaveGameReq2::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyLogicLeaveGameReq2::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyLogicLeaveGameReq2::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::proto_ff::LOGOUT_TYPE NotifyLogicLeaveGameReq2::type() const {
+  return static_cast< ::proto_ff::LOGOUT_TYPE >(type_);
+}
+inline void NotifyLogicLeaveGameReq2::set_type(::proto_ff::LOGOUT_TYPE value) {
+  assert(::proto_ff::LOGOUT_TYPE_IsValid(value));
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyLogicLeaveGameRsp2
+
+// required uint64 cid = 1;
+inline bool NotifyLogicLeaveGameRsp2::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyLogicLeaveGameRsp2::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyLogicLeaveGameRsp2::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyLogicLeaveGameRsp2::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NotifyLogicLeaveGameRsp2::cid() const {
+  return cid_;
+}
+inline void NotifyLogicLeaveGameRsp2::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint64 uid = 2;
+inline bool NotifyLogicLeaveGameRsp2::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyLogicLeaveGameRsp2::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyLogicLeaveGameRsp2::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyLogicLeaveGameRsp2::clear_uid() {
+  uid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uid();
+}
+inline ::google::protobuf::uint64 NotifyLogicLeaveGameRsp2::uid() const {
+  return uid_;
+}
+inline void NotifyLogicLeaveGameRsp2::set_uid(::google::protobuf::uint64 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional int32 logout_type = 3;
+inline bool NotifyLogicLeaveGameRsp2::has_logout_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyLogicLeaveGameRsp2::set_has_logout_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyLogicLeaveGameRsp2::clear_has_logout_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyLogicLeaveGameRsp2::clear_logout_type() {
+  logout_type_ = 0;
+  clear_has_logout_type();
+}
+inline ::google::protobuf::int32 NotifyLogicLeaveGameRsp2::logout_type() const {
+  return logout_type_;
+}
+inline void NotifyLogicLeaveGameRsp2::set_logout_type(::google::protobuf::int32 value) {
+  set_has_logout_type();
+  logout_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LogicToWorldLeaveSceneReq
+
+// optional uint64 role_id = 1;
+inline bool LogicToWorldLeaveSceneReq::has_role_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogicToWorldLeaveSceneReq::set_has_role_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
+}
+inline ::google::protobuf::uint64 LogicToWorldLeaveSceneReq::role_id() const {
+  return role_id_;
+}
+inline void LogicToWorldLeaveSceneReq::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
+}
+
+// optional uint64 map_id = 2;
+inline bool LogicToWorldLeaveSceneReq::has_map_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogicToWorldLeaveSceneReq::set_has_map_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 LogicToWorldLeaveSceneReq::map_id() const {
+  return map_id_;
+}
+inline void LogicToWorldLeaveSceneReq::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 3;
+inline bool LogicToWorldLeaveSceneReq::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LogicToWorldLeaveSceneReq::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 LogicToWorldLeaveSceneReq::scene_id() const {
+  return scene_id_;
+}
+inline void LogicToWorldLeaveSceneReq::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 4;
+inline bool LogicToWorldLeaveSceneReq::has_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LogicToWorldLeaveSceneReq::set_has_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& LogicToWorldLeaveSceneReq::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* LogicToWorldLeaveSceneReq::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* LogicToWorldLeaveSceneReq::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void LogicToWorldLeaveSceneReq::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 game_id = 5;
+inline bool LogicToWorldLeaveSceneReq::has_game_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LogicToWorldLeaveSceneReq::set_has_game_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LogicToWorldLeaveSceneReq::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 LogicToWorldLeaveSceneReq::game_id() const {
+  return game_id_;
+}
+inline void LogicToWorldLeaveSceneReq::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WorldToGameLeaveSceneReq
+
+// optional uint64 role_id = 1;
+inline bool WorldToGameLeaveSceneReq::has_role_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WorldToGameLeaveSceneReq::set_has_role_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WorldToGameLeaveSceneReq::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WorldToGameLeaveSceneReq::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
+}
+inline ::google::protobuf::uint64 WorldToGameLeaveSceneReq::role_id() const {
+  return role_id_;
+}
+inline void WorldToGameLeaveSceneReq::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
+}
+
+// optional uint64 map_id = 2;
+inline bool WorldToGameLeaveSceneReq::has_map_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WorldToGameLeaveSceneReq::set_has_map_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WorldToGameLeaveSceneReq::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WorldToGameLeaveSceneReq::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 WorldToGameLeaveSceneReq::map_id() const {
+  return map_id_;
+}
+inline void WorldToGameLeaveSceneReq::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 3;
+inline bool WorldToGameLeaveSceneReq::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WorldToGameLeaveSceneReq::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WorldToGameLeaveSceneReq::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WorldToGameLeaveSceneReq::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 WorldToGameLeaveSceneReq::scene_id() const {
+  return scene_id_;
+}
+inline void WorldToGameLeaveSceneReq::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 4;
+inline bool WorldToGameLeaveSceneReq::has_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WorldToGameLeaveSceneReq::set_has_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WorldToGameLeaveSceneReq::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WorldToGameLeaveSceneReq::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& WorldToGameLeaveSceneReq::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToGameLeaveSceneReq::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToGameLeaveSceneReq::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void WorldToGameLeaveSceneReq::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 game_id = 5;
+inline bool WorldToGameLeaveSceneReq::has_game_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WorldToGameLeaveSceneReq::set_has_game_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WorldToGameLeaveSceneReq::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WorldToGameLeaveSceneReq::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 WorldToGameLeaveSceneReq::game_id() const {
+  return game_id_;
+}
+inline void WorldToGameLeaveSceneReq::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GameToWorldLeaveSceneRsp
+
+// optional int32 ret_code = 1;
+inline bool GameToWorldLeaveSceneRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GameToWorldLeaveSceneRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GameToWorldLeaveSceneRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GameToWorldLeaveSceneRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 role_id = 2;
+inline bool GameToWorldLeaveSceneRsp::has_role_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GameToWorldLeaveSceneRsp::set_has_role_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
+}
+inline ::google::protobuf::uint64 GameToWorldLeaveSceneRsp::role_id() const {
+  return role_id_;
+}
+inline void GameToWorldLeaveSceneRsp::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
+}
+
+// optional uint64 map_id = 3;
+inline bool GameToWorldLeaveSceneRsp::has_map_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GameToWorldLeaveSceneRsp::set_has_map_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 GameToWorldLeaveSceneRsp::map_id() const {
+  return map_id_;
+}
+inline void GameToWorldLeaveSceneRsp::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 4;
+inline bool GameToWorldLeaveSceneRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GameToWorldLeaveSceneRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 GameToWorldLeaveSceneRsp::scene_id() const {
+  return scene_id_;
+}
+inline void GameToWorldLeaveSceneRsp::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 5;
+inline bool GameToWorldLeaveSceneRsp::has_pos() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GameToWorldLeaveSceneRsp::set_has_pos() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& GameToWorldLeaveSceneRsp::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* GameToWorldLeaveSceneRsp::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* GameToWorldLeaveSceneRsp::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void GameToWorldLeaveSceneRsp::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 logic_id = 6;
+inline bool GameToWorldLeaveSceneRsp::has_logic_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GameToWorldLeaveSceneRsp::set_has_logic_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_has_logic_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GameToWorldLeaveSceneRsp::clear_logic_id() {
+  logic_id_ = 0u;
+  clear_has_logic_id();
+}
+inline ::google::protobuf::uint32 GameToWorldLeaveSceneRsp::logic_id() const {
+  return logic_id_;
+}
+inline void GameToWorldLeaveSceneRsp::set_logic_id(::google::protobuf::uint32 value) {
+  set_has_logic_id();
+  logic_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WorldToLogicLeaveSceneRsp
+
+// optional int32 ret_code = 1;
+inline bool WorldToLogicLeaveSceneRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WorldToLogicLeaveSceneRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 WorldToLogicLeaveSceneRsp::ret_code() const {
+  return ret_code_;
+}
+inline void WorldToLogicLeaveSceneRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 role_id = 2;
+inline bool WorldToLogicLeaveSceneRsp::has_role_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WorldToLogicLeaveSceneRsp::set_has_role_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_has_role_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_role_id() {
+  role_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_role_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicLeaveSceneRsp::role_id() const {
+  return role_id_;
+}
+inline void WorldToLogicLeaveSceneRsp::set_role_id(::google::protobuf::uint64 value) {
+  set_has_role_id();
+  role_id_ = value;
+}
+
+// optional uint64 map_id = 3;
+inline bool WorldToLogicLeaveSceneRsp::has_map_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WorldToLogicLeaveSceneRsp::set_has_map_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicLeaveSceneRsp::map_id() const {
+  return map_id_;
+}
+inline void WorldToLogicLeaveSceneRsp::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 4;
+inline bool WorldToLogicLeaveSceneRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WorldToLogicLeaveSceneRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 WorldToLogicLeaveSceneRsp::scene_id() const {
+  return scene_id_;
+}
+inline void WorldToLogicLeaveSceneRsp::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 5;
+inline bool WorldToLogicLeaveSceneRsp::has_pos() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WorldToLogicLeaveSceneRsp::set_has_pos() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& WorldToLogicLeaveSceneRsp::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToLogicLeaveSceneRsp::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* WorldToLogicLeaveSceneRsp::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void WorldToLogicLeaveSceneRsp::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+}
+
+// optional uint32 logic_id = 6;
+inline bool WorldToLogicLeaveSceneRsp::has_logic_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void WorldToLogicLeaveSceneRsp::set_has_logic_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_has_logic_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void WorldToLogicLeaveSceneRsp::clear_logic_id() {
+  logic_id_ = 0u;
+  clear_has_logic_id();
+}
+inline ::google::protobuf::uint32 WorldToLogicLeaveSceneRsp::logic_id() const {
+  return logic_id_;
+}
+inline void WorldToLogicLeaveSceneRsp::set_logic_id(::google::protobuf::uint32 value) {
+  set_has_logic_id();
+  logic_id_ = value;
 }
 
 

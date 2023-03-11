@@ -206,3 +206,16 @@ int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, co
     STransParam param;
     return pPlayer->TransScene(sceneId, pos, mapId, param);
 }
+
+int NFSceneMgr::LeaveScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId)
+{
+    NFBattlePlayer* pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
+    if (pPlayer == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find player data, mapId:{}, sceneId:{}", mapId, sceneId);
+        return proto_ff::RET_FAIL;
+    }
+
+    pPlayer->LeaveScene();
+    return 0;
+}

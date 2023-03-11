@@ -120,7 +120,9 @@ public:
      * @param dstPos
      * @return
      */
-    int EnterScene(uint64_t mapId, uint64_t scenceId, const NFPoint3<float>& dstPos);
+    int EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& dstPos);
+
+    int LeaveScene(int type, uint32_t reqTransId);
 
     /**
      * @brief
@@ -135,6 +137,14 @@ public:
      * @return
      */
     int LoginGame(const CharLoginInfo& loginInfo, bool change);
+
+    /**
+     * @brief
+     * @param type
+     * @return
+     */
+    int LogoutGame(int type, uint32_t reqTransId);
+
 public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性

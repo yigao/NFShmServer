@@ -70,6 +70,16 @@ public:
      * @return
      */
     virtual int OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage & packet, uint64_t param1, uint64_t param2);
+
+    /**
+     * @brief
+     * @param msgId
+     * @param packet
+     * @param param1
+     * @param param2
+     * @return
+     */
+    virtual int OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet, uint64_t param1, uint64_t param2);
 private:
     /**
      * @brief NFILuaModule

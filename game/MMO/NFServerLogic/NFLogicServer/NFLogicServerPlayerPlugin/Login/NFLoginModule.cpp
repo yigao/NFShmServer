@@ -26,7 +26,7 @@
 #include "Trans/NFTransGetRole.h"
 #include "Player/NFPlayerMgr.h"
 #include "Player/NFPlayer.h"
-#include "Trans/NFTransEnterScene.h"
+#include "Trans/NFTransTransScene.h"
 #include "NFLogicCommon/NFSceneDefine.h"
 
 
@@ -47,6 +47,7 @@ bool NFLoginModule::Awake()
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::WORLD_TO_LOGIC_LOGIN_REQ);
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT);
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::WORLD_TO_LOGIC_LOGIN_FINISH_NOTIFY);
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ);
 
     /**
      * @brief 一帧处理200个玩家的tick
@@ -132,6 +133,11 @@ int NFLoginModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, 
             OnHandleLoginFinishNotify(msgId, packet, param1, param2);
             break;
         }
+        case proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ:
+        {
+            OnHandleLeaveGameReq(msgId, packet, param1, param2);
+            break;
+        }
         default:
         {
             break;
@@ -197,7 +203,7 @@ int NFLoginModule::OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage &packe
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(xMsg.roleid());
-    if (pPlayer)
+    if (pPlayer && pPlayer->GetStatus() < PLAYER_STATUS_OFFLINE)
     {
         pPlayer->OnDisconnect(xMsg.reason());
     }
@@ -225,7 +231,23 @@ int NFLoginModule::OnHandleLoginFinishNotify(uint32_t msgId, NFDataPackage &pack
     loginInfo.transParam.transType = ETransType_Born;
     loginInfo.transParam.srcMapId = loginInfo.lastMapId;
 
-    NFPlayerMgr::Instance(m_pObjPluginManager)->EnterGame(xMsg.role_id(), loginInfo);
+    NFPlayerMgr::Instance(m_pObjPluginManager)->LoginGame(xMsg.role_id(), loginInfo);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFLoginModule::OnHandleLeaveGameReq(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::NotifyLogicLeaveGameReq2 xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    uint64_t uid = xMsg.uid();
+    uint64_t roleId = xMsg.cid();
+    uint32_t type = xMsg.type();
+
+    NFPlayerMgr::Instance(m_pObjPluginManager)->LogoutGame(uid, roleId, type, reqTransId);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

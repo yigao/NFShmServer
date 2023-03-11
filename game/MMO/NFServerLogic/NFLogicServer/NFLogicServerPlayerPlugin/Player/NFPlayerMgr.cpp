@@ -20,7 +20,7 @@
 #include "Scene.pb.h"
 #include "ClientServerCmd.pb.h"
 #include "Move.pb.h"
-#include "Trans/NFTransEnterScene.h"
+#include "Trans/NFTransTransScene.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj)
 
@@ -213,12 +213,21 @@ int NFPlayerMgr::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll)
     return 0;
 }
 
-int NFPlayerMgr::EnterGame(uint64_t roleId, const CharLoginInfo &loginInfo)
+int NFPlayerMgr::LoginGame(uint64_t roleId, const CharLoginInfo &loginInfo)
 {
     NFPlayer *pPlayer = GetPlayer(roleId);
     CHECK_NULL(pPlayer);
 
     return pPlayer->LoginGame(loginInfo, true);
+}
+
+int NFPlayerMgr::LogoutGame(uint64_t uid, uint64_t roleId, uint32_t type, uint32_t reqTransId)
+{
+    NFPlayer *pPlayer = GetPlayer(roleId);
+    CHECK_NULL(pPlayer);
+
+    pPlayer->LogoutGame(type, reqTransId);
+    return 0;
 }
 
 int NFPlayerMgr::DailyUpdate(uint64_t unixSec)

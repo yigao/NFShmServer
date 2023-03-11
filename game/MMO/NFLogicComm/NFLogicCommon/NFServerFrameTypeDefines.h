@@ -57,7 +57,7 @@ typedef enum
     EOT_TRANS_LOGIC_CREATE_ROLE,
     EOT_TRANS_LOGIC_GET_ROLE,
     EOT_TRANS_LOGIC_SAVE_ROLE,
-    EOT_TRANS_LOGIC_ENTER_SCENE,
+    EOT_TRANS_LOGIC_TRANS_SCENE,
 	////////////////////////////logic server/////////////////////////////
 
 	////////////////////////////login server/////////////////////////////
