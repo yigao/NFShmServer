@@ -18,6 +18,7 @@
 #include "NFLogicCommon/NFICommLogicModule.h"
 #include "Player/NFPlayer.h"
 #include "Player/NFPlayerMgr.h"
+#include "ServerInternalCmd2.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransPlayerBase, EOT_TRANS_LOGIC_PLAYER_BASE, NFTransBase)
 
@@ -123,7 +124,12 @@ int NFTransPlayerBase::OnTransFinished(int iRunLogicRetCode)
     NFPlayer *pPlayer = GetPlayer();
     if (!pPlayer)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, m_uid, "GetPlayerByUid, this player may off line! cmd:{}", m_cmd);
+        if (m_cmd != proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST_REQ &&
+            m_cmd != proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ &&
+            m_cmd != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, m_uid, "GetPlayerByUid, this player may off line! cmd:{}", m_cmd);
+        }
         return 0;
     }
 

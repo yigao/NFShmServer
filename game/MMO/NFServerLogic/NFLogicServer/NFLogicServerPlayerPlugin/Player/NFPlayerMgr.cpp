@@ -166,7 +166,7 @@ int NFPlayerMgr::OnEventLogLogin(NFPlayer *pPlayer, bool isLoadDB)
 
 int NFPlayerMgr::OnLogout(NFPlayer *pPlayer)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "player:{}, cid:{} status change to PLAYER_STATUS_LOGOUT, will be erase from memory", pPlayer->GetUid(),
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetRoleId(), "player:{}, cid:{} status PLAYER_STATUS_LOGOUT, all data save to db, will be erase from memory", pPlayer->GetUid(),
               pPlayer->GetRoleId());
 
     DeletePlayer(pPlayer);

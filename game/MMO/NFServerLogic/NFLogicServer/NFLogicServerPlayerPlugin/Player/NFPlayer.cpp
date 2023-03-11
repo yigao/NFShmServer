@@ -344,7 +344,7 @@ int NFPlayer::OnLogin(bool isLoadDB)
 
 int NFPlayer::OnLogout()
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:{} change to PLAYER_STATUS_LOGOUT", GetStatus(), GetUid(), GetRoleId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:{} change to PLAYER_STATUS_LOGOUT",  GetUid(), GetRoleId(), GetStatus());
 
     SetStatus(PLAYER_STATUS_LOGOUT);
     SetLastLogoutTime(NFTime::Now().UnixSec());
@@ -358,12 +358,14 @@ int NFPlayer::OnLogout()
         }
     }
 
+    MarkDirty();
+
     return 0;
 }
 
 int NFPlayer::OnDisconnect(uint32_t reason)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{} status:{} change to PLAYER_STATUS_OFFLINE", GetStatus(), GetUid());
+    NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{} status:{} change to PLAYER_STATUS_OFFLINE", GetUid(), GetStatus());
 
     SetStatus(PLAYER_STATUS_OFFLINE);
     SetIsDisconnect(true);
