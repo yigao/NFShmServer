@@ -150,10 +150,12 @@ int NFTransWorldGetRoleList::OnHandleClientLogin()
     {
         if (!pPlayer->IsInTransSceneing())
         {
+            NFLogInfo(NF_LOG_SYSTEMLOG, m_uid, "player role > 0 and not in trans scene, NotifyLogicLeave");
             NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, NULL, proto_ff::LOGOUT_REPLACE, GetGlobalID());
             isNeedLeaveScene = true;
         }
         else {
+            NFLogInfo(NF_LOG_SYSTEMLOG, m_uid, "player role > 0, but in trans scene, get role list fail! wait....");
             SetFinished(0);
             return 0;
         }

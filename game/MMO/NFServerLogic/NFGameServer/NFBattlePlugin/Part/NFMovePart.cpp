@@ -23,6 +23,7 @@
 #include "DescStoreEx/NFMapDescStoreEx.h"
 #include "DescStore/AreaAreaDesc.h"
 #include "Creature/NFBattlePlayer.h"
+#include "ClientServer.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFMovePart_ID, NFBattlePart)
 
@@ -81,6 +82,12 @@ int NFMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
             ClientLoadMapFinshReq(msgId, packet);
             break;
         }
+            ////////////////////////////////////冥想数据///////////////////////////////////////
+        case proto_ff::CLIENT_TO_LOGIC_PLAYER_SEAT_REQ:
+        {
+            ClientSeatReq(msgId, packet);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_masterCid, "msgId:{} Not Handle", msgId);
@@ -95,10 +102,13 @@ int NFMovePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
     return NFBattlePart::OnHandleServerMessage(msgId, packet);
 }
 
-int NFMovePart::RetisterClientMessage(NFIPluginManager *pPluginManager)
+int NFMovePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
 {
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_LOAD_MAP_FINISH, BATTLE_PART_MOVE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_LOAD_MAP_FINISH, BATTLE_PART_MOVE);
+
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_PLAYER_SEAT_REQ, BATTLE_PART_MOVE);
+
     return 0;
 }
 
@@ -829,161 +839,76 @@ int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-int NFMovePart::ClientTransSceneReq(uint32_t msgId, NFDataPackage &packet)
+int NFMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
 {
-    proto_ff::TransSceneReq req;
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::PlayerSeatReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
 
-    uint64_t cid = pMaster->Cid();
-    int32_t transType = req.type(); //传送类型
-    uint64_t transId = req.id();	//传送ID，针对路径点传送和区域传送
-    uint64_t dstMapId = 0; //目标地图ID
-    NFPoint3<float> dstPos; //目标传送点
-    //
-    STransParam transParam;
-    transParam.srcMapId = pMaster->GetMapId();
-    transParam.transType = ETransType_Scene;
+    int32_t opt = req.opt();
 
-    proto_ff::TransSceneRsp transRsp;
-    transRsp.set_mapid(dstMapId);
+    proto_ff::PlayerSeatRsp rsp;
+    rsp.set_opt(opt);
 
-    //
-    if (ETransMapType_None == transType) //出生点传送
+    if (opt == 1 && !pMaster->BState(proto_ff::state_normal))
     {
-        dstMapId = req.dst_mapid();
-        //随机出生点
-        const NFPoint3<float>* pBornCfg = NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandBornPoint(dstMapId);
-        if (nullptr == pBornCfg)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq..RandBornPoint failed...cid:{}, mapid:{} ", cid, dstMapId);
-
-            //不能传送
-            transRsp.set_retcode(proto_ff::RET_SCENE_CAN_NOT_TRAN);
-            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-            return -1;
-        }
-        dstPos.x = pBornCfg->x;
-        dstPos.y = pBornCfg->y;
-        dstPos.z = pBornCfg->z;
-        //
-        dstPos = NFMapMgr::Instance(m_pObjPluginManager)->RandPosAroundPos(dstMapId, dstPos, 5);
+        rsp.set_ret(proto_ff::RET_PLAYER_SEAT_STATE_ERROR);
+        pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
+        return -1;
     }
-    else if (ETransMapType_Point == transType)
+
+    if (opt != 1 && !pMaster->BState(proto_ff::state_seat))
     {
-        auto pPointLoc = NFMapDescStoreEx::Instance(m_pObjPluginManager)->GetPointCfg(transId);
-        if (nullptr == pPointLoc)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, cid, "[logic] MovePart::ClientTransSceneReq...nullptr == pPointLoc..cid:{}, transId:{} ", cid, transId);
-
-            //传送参数错误
-            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
-            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-            return -1;
-        }
-
-        if (pPointLoc->vecposcfg.size() <= 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq...pPathLoc->vecposcfg.size() <= 0..cid:{},m_mapId:{}, transId:{} ", cid, pPointLoc->mapid, transId);
-            //传送参数错误
-            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
-            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-            return -1;
-        }
-        uint32_t isize = (uint32_t)pPointLoc->vecposcfg.size();
-        uint32_t idx = NFRandInt((uint32_t)0, isize);
-        dstPos = pPointLoc->vecposcfg.at(idx).m_pos;
-        //
-        dstMapId = pPointLoc->mapid;
+        rsp.set_ret(proto_ff::RET_PLAYER_SEAT_STATE_ERROR);
+        pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
+        return -1;
     }
-    else if (ETransMapType_Area == transType)
+
+    NFScene *pScene = pMaster->GetScene();
+    if (nullptr == pScene)
     {
-        auto pAreaCfg = AreaAreaDesc::Instance(m_pObjPluginManager)->GetDesc(transId);
-        if (nullptr == pAreaCfg)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq...nullptr == pAreaCfg..cid:{},transId:{} ", cid, transId);
-            //传送参数错误
-            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
-            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-            return -1;
-        }
+        rsp.set_ret(proto_ff::RET_FAIL);
+        pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
+        return -1;
+    }
 
-        dstMapId = pAreaCfg->m_belongtosceneid;
+    uint64_t map_id = pScene->GetMapId();
+    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(map_id);
+    if (!pMapCfg)
+    {
+        rsp.set_ret(proto_ff::RET_FAIL);
+        pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
+        return -1;
+    }
 
-        //区域内随机一个坐标
-        if (!NFMapDescStoreEx::Instance(m_pObjPluginManager)->RandPosInArea(transId, dstPos))
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, cid, "[logic] MovePart::ClientTransSceneReq...RandPosInArea failed..cid:%lu, mapid:%lu, transId:%lu ", cid, dstMapId, transId);
+    if (opt == 1 && pMapCfg->m_maptype != 1)
+    {
+        rsp.set_ret(proto_ff::RET_PLAYER_SEAT_MAP_NOT_SEAT);
+        pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
+        return -1;
+    }
 
-            //传送参数错误
-            transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
-            pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-            return -1;
-        }
+    bool bOpt = true;
+    if (opt == 1)
+    {
+        bOpt = pMaster->EnterSeatState();
     }
     else
     {
-        //传送参数错误
-        transRsp.set_retcode(proto_ff::RET_SCENE_TRANS_PARAM_ERROR);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
+        bOpt = pMaster->LeaveSeatState();
     }
 
-    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(dstMapId);
-    if (nullptr == pMapCfg)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq..nullptr == pMapCfg...cid:{}, mapid:{} ", cid, dstMapId);
-        //动态地图不能传送
-        transRsp.set_retcode(proto_ff::RET_SCENE_DST_NOT_EXIST);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
-    }
+    int32_t ret = bOpt ? proto_ff::RET_SUCCESS : proto_ff::RET_FAIL;
+    rsp.set_ret(ret);
 
-    if (pMaster->GetAttr(proto_ff::A_LEVEL) < pMapCfg->m_levellimit)
-    {
-        transRsp.set_retcode(proto_ff::RET_LEVEL_LACK);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
-    }
+    rsp.set_exp(0);
+    rsp.set_online_hangup_time(0);
+    rsp.set_online_all_exp(0);
 
-    NFBattlePlayer* pPlayer = dynamic_cast<NFBattlePlayer*>(pMaster);
-    if (nullptr != pPlayer && dstMapId != pPlayer->GetMapId() && pPlayer->IsTired())
-    {
-        transRsp.set_retcode(proto_ff::RET_PLAYER_TIRED_STATE);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
-    }
-    //
-    if (NFMapDescStoreEx::Instance(m_pObjPluginManager)->IsDynamic(pMapCfg->m_mapid)) //动态地图不允许用这个协议传送
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, cid, "[logic] MovePart::ClientTransSceneReq..dstmap is dynamic...cid:%lu, mapid:%lu ", cid, dstMapId);
-
-        //动态地图不能传送
-        transRsp.set_retcode(proto_ff::RET_SCENE_CAN_NOT_TRAN);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
-    }
-
-    //特殊的活动的静态地图只能通过活动那边进入，不允许通过普通的切换地图协议传送地图
-    if (NFMapDescStoreEx::Instance(m_pObjPluginManager)->IsActSpecMap(pMapCfg->m_mapid))
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, cid, "ClientTransSceneReq..dstmap is special act map...cid:{}, mapid:{},maptype:{} ", cid, dstMapId, pMapCfg->m_maptype);
-        //不能传送
-        transRsp.set_retcode(proto_ff::RET_SCENE_CAN_NOT_TRAN);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
-    }
-    //
-    int ret = TransScene(dstMapId, dstPos, dstMapId, transParam);
-    if (ret != proto_ff::RET_SUCCESS)
-    {
-        //通知前端切场景失败
-        transRsp.set_retcode(ret);
-        pMaster->SendMsgToClient(proto_ff::NOTIFY_CLIENT_TRANS_SCENE_RSP, transRsp);
-        return -1;
-    }
-
+    pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

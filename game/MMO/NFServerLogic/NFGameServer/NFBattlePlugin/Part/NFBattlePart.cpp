@@ -63,14 +63,14 @@ uint32_t NFBattlePart::GetCurRoleDetailSeq() const
     return GetCurSeq();
 }
 
-int NFBattlePart::RetisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFBattlePart::RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
 {
-    return pPluginManager->FindModule<NFBattlePartModule>()->RetisterClientPartMsg(nMsgID, partType);
+    return pPluginManager->FindModule<NFBattlePartModule>()->RegisterClientPartMsg(nMsgID, partType);
 }
 
-int NFBattlePart::RetisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFBattlePart::RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
 {
-    return pPluginManager->FindModule<NFBattlePartModule>()->RetisterServerPartMsg(nMsgID, partType);
+    return pPluginManager->FindModule<NFBattlePartModule>()->RegisterServerPartMsg(nMsgID, partType);
 }
 
 int NFBattlePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)

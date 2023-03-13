@@ -278,8 +278,7 @@ bool NFTransBase::CanRelease()
 {
     if (IsFinished())
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "This Trans can release, GloabID:{}, type:{}, name:{} return code:{}", GetGlobalID(),
-                  GetClassType(), GetClassName(), m_iRunLogicRetCode);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "This Trans can release, {} return code:{}", DebugString(), m_iRunLogicRetCode);
         return true;
     }
     return false;
@@ -287,7 +286,8 @@ bool NFTransBase::CanRelease()
 
 std::string NFTransBase::DebugString() const
 {
-    std::string str = NF_FORMAT("This GlobalID:{} CurState:{} StartTime:{} RunedTimes:{}", GetGlobalID(), m_wCurState,
+    std::string str = NF_FORMAT("GlobalID:{} Type:{} ClassName:{} ItemCount:{} UsedCount:{} FreeCount:{} CurState:{} StartTime:{} RunedTimes:{}",
+                                GetGlobalID(), GetClassType(), GetClassName(), GetItemCount(), GetUsedCount(), GetFreeCount(), m_wCurState,
                                 DateTimeToStr((int) m_dwStartTime), m_wRunedTimes);
     return str;
 }
@@ -296,8 +296,7 @@ bool NFTransBase::IsTimeOut()
 {
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + TRANS_ACTIVE_TIMEOUT)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Name:{} Type:{} Info:{}", GetClassName(), GetClassType(),
-                   DebugString());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Info:{}", DebugString());
         OnTimeOut();
         return true;
     }

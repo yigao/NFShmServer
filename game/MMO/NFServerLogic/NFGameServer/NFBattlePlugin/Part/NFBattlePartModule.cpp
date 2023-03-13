@@ -30,7 +30,7 @@ NFBattlePartModule::~NFBattlePartModule()
 bool NFBattlePartModule::Awake()
 {
     //move part
-    NFMovePart::RetisterClientMessage(m_pObjPluginManager);
+    NFMovePart::RegisterClientMessage(m_pObjPluginManager);
     return true;
 }
 
@@ -78,7 +78,7 @@ int NFBattlePartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     return 0;
 }
 
-int NFBattlePartModule::RetisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFBattlePartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_clientMsgToPartMap.size(), -1, "");
     RegisterClientMessage(NF_ST_GAME_SERVER, nMsgID);
@@ -86,7 +86,7 @@ int NFBattlePartModule::RetisterClientPartMsg(uint32_t nMsgID, uint32_t partType
     return 0;
 }
 
-int NFBattlePartModule::RetisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFBattlePartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
     RegisterServerMessage(NF_ST_GAME_SERVER, nMsgID);

@@ -84,14 +84,14 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    static int RetisterClientMessage(NFIPluginManager *pPluginManager);
+    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
     static int RetisterServerMessage(NFIPluginManager *pPluginManager);
 
 public:
     int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
     int ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet);
-    int ClientTransSceneReq(uint32_t msgId, NFDataPackage &packet);
+    int ClientSeatReq(uint32_t msgId, NFDataPackage &packet);
 public:
     //设置客户端速度
     void SetClientSpeed(const NFPoint3<float> &speed);

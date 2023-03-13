@@ -27,8 +27,11 @@
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
     static int GetClassType(NFIPluginManager* pPluginManager);      \
-    virtual std::string GetClassName();\
-    virtual int GetClassType() const;\
+    virtual std::string GetClassName() const;\
+    virtual int GetClassType() const;     \
+    virtual int GetItemCount() const;\
+    virtual int GetUsedCount() const;\
+    virtual int GetFreeCount() const;\
     virtual int GetObjectID();\
     virtual int GetHashID();\
     virtual void SetHashID(int Id);\
@@ -61,7 +64,7 @@
 	{\
         return pPluginManager->FindModule<NFISharedMemModule>()->GetFreeHead(type);\
 	}                                                 \
-	std::string class_name::GetClassName() \
+	std::string class_name::GetClassName() const\
 	{\
         return FindModule<NFISharedMemModule>()->GetClassName(type);\
 	}                                                 \
@@ -73,7 +76,19 @@
 	{\
         return FindModule<NFISharedMemModule>()->GetClassType(type);\
 	}\
-	void* class_name::operator new( size_t nSize,void *pBuffer ) throw()\
+    int class_name::GetItemCount() const\
+    {\
+        return FindModule<NFISharedMemModule>()->GetItemCount(type);\
+    }\
+    int class_name::GetUsedCount() const\
+    {\
+        return FindModule<NFISharedMemModule>()->GetUsedCount(type);\
+    }\
+    int class_name::GetFreeCount() const\
+    {\
+        return FindModule<NFISharedMemModule>()->GetFreeCount(type);\
+    }\
+    void* class_name::operator new( size_t nSize,void *pBuffer ) throw()\
 	{\
 		return  pBuffer;\
 	}\

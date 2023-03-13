@@ -53,7 +53,6 @@ bool NFCProxyClientModule::Awake()
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_QUEUE_POS_RSP);
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_LOGIN_RSP);
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_ENTER_GAME_RSP);
-    RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_ENTER_GAME_RSP);
 
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::WORLD_TO_PROXY_SERVER_BUS_ID_CHANGE_NOTIFY);
 
@@ -346,6 +345,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
                                                                                                                 pPlayerInfo->GetUid());
             if (pWorldServer)
             {
+                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to world server", packet.ToString());
                 if (pPlayerInfo->GetRoleId() > 0)
                 {
                     FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(), NF_MODULE_CLIENT, packet.nMsgId,
@@ -369,7 +369,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         {
             if (pPlayerInfo->GetLogicBusId() > 0)
             {
-                NFLogTrace(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to logic server", packet.ToString());
+                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to logic server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetLogicBusId(), NF_MODULE_CLIENT, packet.nMsgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
                                                                           pPlayerInfo->GetRoleId());
@@ -383,7 +383,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         {
             if (pPlayerInfo->GetGameBusId() > 0)
             {
-                NFLogTrace(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to game server", packet.ToString());
+                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to game server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetGameBusId(), NF_MODULE_CLIENT, packet.nMsgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
                                                                           pPlayerInfo->GetRoleId());
@@ -400,6 +400,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
                                                                                                                 pPlayerInfo->GetUid());
             if (pSnsServer)
             {
+                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to sns server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pSnsServer->mServerInfo.bus_id(), NF_MODULE_CLIENT, packet.nMsgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
                                                                           pPlayerInfo->GetRoleId());

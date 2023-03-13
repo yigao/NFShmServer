@@ -20,6 +20,7 @@
 #include "NFWorldConfig.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFCore/NFServerTime.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransWorldEnterGame, EOT_NFTransWorldEnterGame_ID, NFTransBase)
 
@@ -358,7 +359,10 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
 
         proto_ff::ClientEnterGameRsp xDataRsp;
         xDataRsp.set_ret(iRunLogicRetCode);
-        pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp);
+        if (m_proxyId > 0)
+        {
+            FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp, m_uid, m_roleId);
+        }
 
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, pSession, proto_ff::LOGOUT_KICK_OUT);
     }
@@ -398,7 +402,10 @@ int NFTransWorldEnterGame::OnTransFinished(int iRunLogicRetCode)
             NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyGateChangeServerBusId(pPlayer, NF_ST_LOGIC_SERVER, pPlayer->GetLogicId());
             proto_ff::ClientEnterGameRsp xDataRsp;
             xDataRsp.set_ret(proto_ff::RET_SUCCESS);
-            pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp);
+            if (m_proxyId > 0)
+            {
+                FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, proto_ff::CLIENT_ENTER_GAME_RSP, xDataRsp, m_uid, m_roleId);
+            }
 
             uint64_t dstmapid = pRoleInfo->m_mapId;
             uint64_t dstsceneid = pRoleInfo->m_sceneId;

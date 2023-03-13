@@ -53,8 +53,8 @@ NFTransBase *NFTransMng::CreateTrans(uint32_t bTransObjType) {
     m_aiTransObjIDList[m_iTotalTransNum] = pTransBase->GetGlobalID();
     m_apTransObjList[m_iTotalTransNum] = pTransBase;
     m_iTotalTransNum++;
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Create Trans End TotalNum:{} Type:{} GlobalID:{} Pointer:{}", m_iTotalTransNum,
-               bTransObjType, pTransBase->GetGlobalID(), (void *) pTransBase);
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Create Trans TotalNum:{} Info:{} Pointer:{}", m_iTotalTransNum,
+               pTransBase->DebugString(), (void *) pTransBase);
 
     return pTransBase;
 }
@@ -146,11 +146,8 @@ int NFTransMng::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll) {
 
                 if (pTransBase->CanRelease()) {
                     bIsDestroiedTrans = true;
-                    NFLogTrace(NF_LOG_SYSTEMLOG, 0,
-                               "Free Trans END Index: {} Type:{} GlobalID:{} Pointer:{}", m_iLastTickIndex,
-                               pTransBase->GetClassType(),
-                               pTransBase->GetGlobalID(),
-                               (void *) pTransBase);
+                    NFLogDebug(NF_LOG_SYSTEMLOG, 0,
+                               "Free Trans Index: {} Pointer:{} Info:{}", m_iLastTickIndex, (void *) pTransBase, pTransBase->DebugString());
                     FindModule<NFISharedMemModule>()->DestroyObj(pTransBase);
                     //mark dirty
                     m_aiTransObjIDList[m_iLastTickIndex] = 0;
