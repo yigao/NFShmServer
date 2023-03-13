@@ -59,13 +59,27 @@ public:
     int MoveBySimulate(int64_t intertick, bool stopFlag = false);
 
     //计算朝向
-    NFPoint3<float> CalDir(const NFPoint3<float>& dstpos, const NFPoint3<float>& srcpos);
+    NFPoint3<float> CalDir(const NFPoint3<float> &dstpos, const NFPoint3<float> &srcpos);
 
     //根据计算单位朝向
-    NFPoint3<float> CalDotByDir(const NFPoint3<float>& dir);
+    NFPoint3<float> CalDotByDir(const NFPoint3<float> &dir);
 
     //根据朝向点计算速度  dot:朝向点， fsec:间隔时间，单位：秒，  fspeed：速度，单位：m/s
-    NFPoint3<float> CalSpeedByDot(const NFPoint3<float>& dot, float fsec, float fspeed);
+    NFPoint3<float> CalSpeedByDot(const NFPoint3<float> &dot, float fsec, float fspeed);
+
+public:
+    //能否移动
+    int CanMove();
+
+    //移动到目标坐标，注意：这个接口只允许人物以外的生物调用，人物的移动是前端驱动的
+    int MoveTo(const NFPoint3<float> &dstPos);
+
+    //是否正在移动
+    int IsMoving() const;
+
+    //停止移动
+    int StopMove();
+
 public:
     /**
      * @brief 处理客户端消息
@@ -90,8 +104,11 @@ public:
 
 public:
     int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
+
     int ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet);
+
     int ClientSeatReq(uint32_t msgId, NFDataPackage &packet);
+
 public:
     //设置客户端速度
     void SetClientSpeed(const NFPoint3<float> &speed);

@@ -24,7 +24,7 @@
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "NFLogicCommon/NFSkillDefine.h"
 
-#define NF_SCENE_MAX_GRID_NUM 100
+#define NF_SCENE_MAX_GRID_NUM 200
 #define NF_SCENE_MAX_CREATURE_NUM 1000
 
 class NFMap;

@@ -480,7 +480,7 @@ int NFMovePart::OnTransSuccess(STransParam &transParam)
         PackagePart *pPackage = dynamic_cast<PackagePart*>(m_pMaster->GetPart(PART_PACKAGE));
         if (nullptr == pPackage)
         {
-            LogErrFmtPrint("[logic] MovePart::OnTransSuccess...cid:%lu, transtype:%d, transval:%ld", m_pMaster->GetCid(), transParam.transType,transParam.transVal);
+            LogErrFmtPrint("[logic] MovePart::OnTransSuccess...cid:{}, transtype:{}, transval:%ld", m_pMaster->GetCid(), transParam.transType,transParam.transVal);
             return;
         }
         LIST_ITEM lstItem;
@@ -757,7 +757,7 @@ int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
             BroadcastMove(pMaster->Cid(), retpos, newspeed, newdir, true);
         }
 
-        //LogDebugFmtPrint("[logic] MovePart::MoveByPath....cid:%lu,intertick:%ld, newspeed:%f,%f,%f, retpos:%f,%f,%f",m_pMaster->Cid(), intertick,newspeed.x,newspeed.y,newspeed.z,retpos.x,retpos.y,retpos.z);
+        //LogDebugFmtPrint("[logic] MovePart::MoveByPath....cid:{},intertick:%ld, newspeed:{},{},{}, retpos:{},{},{}",m_pMaster->Cid(), intertick,newspeed.x,newspeed.y,newspeed.z,retpos.x,retpos.y,retpos.z);
         //设置新的朝向
         m_lastDir = newdir;
         //设置新的朝向点
@@ -778,7 +778,7 @@ int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
         NFPoint3<float> zerospeed(0.0f, 0.0f, 0.0f);
         BroadcastMove(pMaster->Cid(), oldpos, zerospeed, m_lastDir, true);
         //
-        //LogDebugFmtPrint("[logic] MovePart::MoveByPath 111....cid:%lu,intertick:%ld, newspeed:%f,%f,%f, retpos:%f,%f,%f", m_pMaster->Cid(), intertick, zerospeed.x, zerospeed.y, zerospeed.z, oldpos.x, oldpos.y, oldpos.z);
+        //LogDebugFmtPrint("[logic] MovePart::MoveByPath 111....cid:{},intertick:%ld, newspeed:{},{},{}, retpos:{},{},{}", m_pMaster->Cid(), intertick, zerospeed.x, zerospeed.y, zerospeed.z, oldpos.x, oldpos.y, oldpos.z);
     }
 
     return 0;
@@ -812,7 +812,8 @@ int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
         if (m_timerIdLoadMapTimeout != INVALID_ID)
         {
             NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
-                       "ClientLoadMapFinshReq.... m_waitLoadMapId <= 0....cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ", pMaster->Cid(),
+                       "ClientLoadMapFinshReq.... m_waitLoadMapId <= 0....cid:{},m_waitLoadMapId:{},curmap:{},curscene:{},beensee:{} ",
+                       pMaster->Cid(),
                        m_waitLoadMapId, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->GetCanBeSeenFlag());
             return -1;
         }
@@ -910,5 +911,195 @@ int NFMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
 
     pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+//能否移动
+int NFMovePart::CanMove()
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    uint64_t cid = pMaster->Cid();
+    //是否死亡
+    if (pMaster->IsDead())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "MovePart::CanMove  cid={}, already dead ", cid);
+        return proto_ff::RET_FAIL;
+    }
+
+    //检查是否有禁止移动的buff
+/*    BuffPart* pBuff = dynamic_cast<BuffPart*>(m_pMaster->GetPart(PART_MOVE));
+    if (nullptr != pBuff && !pBuff->CanMove())
+    {
+        return proto_ff::RET_FAIL;
+    }*/
+
+    //正在传送，不接收移动消息，主要是为了处理传送过种中，客户端还会发移动消息，此时，客户端在加载，会跑到不合法点上
+    if (!pMaster->GetCanBeSeenFlag())
+    {
+        return proto_ff::RET_FAIL;
+    }
+
+    //移动速度为0，也不需移动
+    float fspeed = pMaster->GetSpeed();
+    if (fspeed <= EPS)
+    {
+        return proto_ff::RET_FAIL;
+    }
+
+    return proto_ff::RET_SUCCESS;
+}
+
+//移动到目标坐标，注意：这个接口只允许人物以外的生物调用，人物的移动是前端驱动的
+int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    uint64_t cid = pMaster->Cid();
+    NFPoint3<float> startPos = pMaster->GetPos();
+    NFPoint3<float> srcPos(startPos.x, startPos.y, startPos.z);
+    //
+    if (srcPos == dstPos)
+    {
+        //当前坐标已经在目标点了
+        NFLogError(NF_LOG_SYSTEMLOG, cid,
+                   "MovePart::MoveTo already in position cid={}, kind:{}, cfgid:{}, scene:{}, map:{}, speed={},distance={}", cid, pMaster->Kind(),
+                   pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), pMaster->GetSpeed(), point3Length(srcPos, dstPos));
+        return 0;
+    }
+    //
+    if (!CanMove())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "MovePart::MoveTo can not move cid={}, kind:{}, cfgid:{}, scene:{}, map:{}, speed={},distance={}", cid,
+                   pMaster->Kind(), pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), pMaster->GetSpeed(),
+                   point3Length(srcPos, dstPos));
+        return proto_ff::RET_FAIL;
+    }
+
+    //
+    NFMap *map = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pMaster->GetMapId());
+    if (!map)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "MovePart::MoveTo can not find map cfg cid={}, kind:{}, cfgid:{}, scene:{}, map:{}", cid,
+                   pMaster->Kind(), pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId());
+        return proto_ff::RET_FAIL;
+    }
+
+    VEC_FLAGS flgs;
+    flgs.clear();
+    VEC_POINT3 path;
+    path.clear();
+    float vSrcPos[] = {srcPos.x, srcPos.y, srcPos.z};
+    float vDstPos[] = {dstPos.x, dstPos.y, dstPos.z};
+    if (!map->GetNavPath(vSrcPos, vDstPos, path, flgs))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid,
+                   "MovePart::MoveTo GetNavPath failed...cid={},mapid-={},sceneid={},cid={},cfgid:{}, speed={},distance={},startpos:{},{},{}  dstpos:{},{},{} ",
+                   cid, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->Cid(), pMaster->GetCfgId(), pMaster->GetSpeed(),
+                   point3Length(startPos, dstPos), startPos.x, startPos.y, startPos.z, dstPos.x, dstPos.y, dstPos.z);
+        return proto_ff::RET_FAIL;
+    }
+
+    //找路点的方法好像有问题，会找出来一个和起点一样的点，然后返回true,暂时在这里作个处理，后续再验证todo.
+    if (1 == path.size() && path[0] == startPos)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid,
+                   "MovePart::MoveTo  path.size() <= 1 && path[0] == startPos... cid={},cfgid:{}, scene:{}, map:{}, srcpos:[{},{},{}], dstpos:[{},{},{}],path[0]:[{},{},{}] ",
+                   cid, pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), srcPos.x, srcPos.y, srcPos.z, dstPos.x, dstPos.y,
+                   dstPos.z, path[0].x, path[0].y, path[0].z);
+        //return false;
+        //由于起始点和目标点比较进的时候，会出现寻路插件寻找到的目标路径和起始点一样
+        //这里做一个兼容处理，如果寻路插件寻找到的目标路径和起始点一样，在目标坐标附近找一个可行走的坐标点 放到目标路径中
+        path[0].x = srcPos.x;
+        path[0].y = srcPos.y;
+        path[0].z = srcPos.z;
+        //
+        NFPoint3<float> tmpDstPos = dstPos;
+        if (!map->FindNearestPos(dstPos.x, dstPos.z, dstPos.y, &tmpDstPos.x, &tmpDstPos.z, &tmpDstPos.y, nullptr))
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid,
+                       "MovePart::MoveTo path.size() <= 1 && path[0] == startPos, FindNearestPos failed... cid={},cfgid:{}, scene:{}, map:{}, srcpos:[{},{},{}], dstpos:[{},{},{}],path[0]:[{},{},{}] ",
+                       cid, pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), srcPos.x, srcPos.y, srcPos.z, dstPos.x, dstPos.y,
+                       dstPos.z, path[0].x, path[0].y, path[0].z);
+            //
+            path.push_back(srcPos);
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, cid,
+                       "MovePart::MoveTo path.size() <= 1 && path[0] == startPos, FindNearestPos success... cid={},cfgid:{}, scene:{}, map:{}, srcpos:[{},{},{}], dstpos:[{},{},{}],path[0]:[{},{},{}],tmpDstPos:[{},{},{}] ",
+                       cid, pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), srcPos.x, srcPos.y, srcPos.z, dstPos.x, dstPos.y,
+                       dstPos.z, path[0].x, path[0].y, path[0].z, tmpDstPos.x, tmpDstPos.y, tmpDstPos.z);
+            path.push_back(tmpDstPos);
+        }
+    }
+
+    if (m_curMovePath.Init(path, startPos))
+    {
+        if (m_timerIdMove == INVALID_ID)
+        {
+            m_timerIdMove = SetTimer(INTERVAL_MOVE_TIME, 0, 0, 0, 0, 0);
+            if (m_timerIdMove == INVALID_ID)
+            {
+                m_curMovePath.Clear();
+                NFLogError(NF_LOG_SYSTEMLOG, cid,
+                           "MovePart::MoveTo g_GetTimerAxis()->SetTimer failed... cid={},cfgid:{}, scene:{}, map:{}, srcpos:[{},{},{}], dstpos:[{},{},{}] ",
+                           cid, pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), srcPos.x, srcPos.y, srcPos.z, dstPos.x, dstPos.y,
+                           dstPos.z);
+                return proto_ff::RET_FAIL;
+            }
+            //
+            m_moveTick = NFTime::Now().UnixMSec();
+            //
+            m_lastDir = CalDir(dstPos, srcPos);
+            m_lastDirDot = CalDotByDir(m_lastDir);
+            NFPoint3<float> speed = CalSpeedByDot(m_lastDirDot, 1.0f, pMaster->GetSpeed());
+            SetClientSpeed(speed);
+            //开始移动广播
+            BroadcastMove(pMaster->Cid(), srcPos/*pos*/, m_clientSpeed, m_lastDir, true);
+        }
+
+        return 0;
+    }
+    //
+    m_curMovePath.Clear();
+    NFLogError(NF_LOG_SYSTEMLOG, cid,
+               "MovePart::MoveTo m_curMovePath.Init failed... cid={},cfgid:{}, scene:{}, map:{}, pathsize:{}, srcpos:[{},{},{}], dstpos:[{},{},{}] ",
+               cid, pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), (int32_t) path.size(), srcPos.x, srcPos.y, srcPos.z, dstPos.x,
+               dstPos.y, dstPos.z);
+
+    return proto_ff::RET_FAIL;
+}
+
+//是否正在移动
+int NFMovePart::IsMoving() const
+{
+    if (m_timerIdMove != INVALID_ID) return 0;
+    return proto_ff::RET_FAIL;
+}
+
+//停止移动
+int NFMovePart::StopMove()
+{
+    NFCreature *pMaster = GetMaster();
+    CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
+
+    if (m_timerIdMove == INVALID_ID)
+    {
+        return 0;
+    }
+    //
+    uint64_t intertick = NFTime::Now().UnixMSec() - m_moveTick;
+    if (CREATURE_PLAYER == pMaster->Kind())
+    {
+        MoveBySimulate(intertick, true);
+    }
+    else
+    {
+        MoveByPath(intertick, true);
+    }
+
     return 0;
 }

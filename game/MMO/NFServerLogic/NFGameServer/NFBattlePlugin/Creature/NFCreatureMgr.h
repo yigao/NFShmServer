@@ -29,6 +29,10 @@ public:
 
     int ResumeInit();
 public:
+    int OnTimer(int timeId, int callcount);
+
+    int Update();
+public:
     /**
      * @brief 需要查找NFShmObj之间继承关系， 只有NFCreature的子类才能获得对象
      * @param cid
@@ -58,5 +62,6 @@ public:
      */
     NFBattlePlayer* GetBattlePlayer(uint64_t roleId);
 private:
+    int m_creatureTickTimer;
 DECLARE_IDCREATE(NFCreatureMgr)
 };

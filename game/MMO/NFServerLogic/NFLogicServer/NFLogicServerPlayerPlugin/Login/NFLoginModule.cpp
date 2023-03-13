@@ -30,6 +30,7 @@
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "DescStoreEx/NFMapDescStoreEx.h"
 #include "DescStore/AreaAreaDesc.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 
 NFLoginModule::NFLoginModule(NFIPluginManager *p) : NFIDynamicModule(p)
@@ -255,6 +256,16 @@ int NFLoginModule::OnHandleLeaveGameReq(uint32_t msgId, NFDataPackage &packet, u
     uint64_t uid = xMsg.uid();
     uint64_t roleId = xMsg.cid();
     uint32_t type = xMsg.type();
+
+    NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(roleId);
+    if (pPlayer == NULL || pPlayer->GetGameId() <= 0)
+    {
+        proto_ff::NotifyLogicLeaveGameRsp2 rspMsg;
+        rspMsg.set_cid(roleId);
+        rspMsg.set_uid(uid);
+
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, 0, reqTransId);
+    }
 
     NFPlayerMgr::Instance(m_pObjPluginManager)->LogoutGame(uid, roleId, type, reqTransId);
 

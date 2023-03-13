@@ -428,10 +428,11 @@ int NFWorldPlayerMgr::NotifyLogicLeave(NFWorldPlayer* pPlayer, NFWorldSession* p
             req.set_uid(pPlayer->GetUid());
             req.set_type(type);
             pPlayer->SendTransToLogicServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_REQ, req, reqTransId);
+            return 0;
         }
     }
 
-    return 0;
+    return -1;
 }
 
 int NFWorldPlayerMgr::NotifyGateChangeServerBusId(NFWorldPlayer *pPlayer, uint32_t serverType, uint32_t busId)
@@ -473,6 +474,10 @@ int NFWorldPlayerMgr::NotifyOtherServerPlayerDisconnect(NFWorldPlayer *pPlayer, 
 
         pPlayer->SendMsgToLogicServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
         pPlayer->SendMsgToSnsServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+        if (pPlayer->GetRoleId() > 0 && pPlayer->GetGameId() > 0)
+        {
+            pPlayer->SendMsgToGameServer(proto_ff::WORLD_TO_OTHER_SERVER_NOTIFY_PLAYER_DISCONNECT, xMsg);
+        }
     }
 
     return 0;

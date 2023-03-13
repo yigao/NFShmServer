@@ -75,7 +75,7 @@ int NFCreatureVisionData::AddPVPSeeList(NFCreature *pCreature)
         return -1;
     }
 
-    iter->creatureCid = pCreature->GetGlobalID();
+    iter->creatureCid = pCreature->Cid();
     NF_ASSERT(iter.m_node);
     return iter.m_node->m_self;
 }
@@ -89,7 +89,7 @@ int NFCreatureVisionData::AddPVMSeeList(NFCreature *pCreature)
         return -1;
     }
 
-    iter->creatureCid = pCreature->GetGlobalID();
+    iter->creatureCid = pCreature->Cid();
     NF_ASSERT(iter.m_node);
     return iter.m_node->m_self;
 }
@@ -98,8 +98,8 @@ bool NFCreatureVisionData::DelPVMSeeList(int pos)
 {
     if (pos >= 0)
     {
-        auto iter = m_doublePVPSeeLst.GetIterator(pos);
-        m_doublePVPSeeLst.erase(iter);
+        auto iter = m_doublePVMSeeLst.GetIterator(pos);
+        m_doublePVMSeeLst.erase(iter);
         return true;
     }
     return false;
@@ -109,8 +109,8 @@ bool NFCreatureVisionData::DelPVPSeeList(int pos)
 {
     if (pos >= 0)
     {
-        auto iter = m_doublePVMSeeLst.GetIterator(pos);
-        m_doublePVMSeeLst.erase(iter);
+        auto iter = m_doublePVPSeeLst.GetIterator(pos);
+        m_doublePVPSeeLst.erase(iter);
         return true;
     }
     return false;

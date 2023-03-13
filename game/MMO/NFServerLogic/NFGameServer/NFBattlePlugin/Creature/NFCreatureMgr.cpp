@@ -10,6 +10,7 @@
 #include "NFCreatureMgr.h"
 #include "NFCreature.h"
 #include "NFBattlePlayer.h"
+#include "NFComm/NFCore/NFTime.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFCreatureMgr, EOT_GAME_CREATURE_MGR_ID, NFShmObj)
 
@@ -31,6 +32,7 @@ NFCreatureMgr::~NFCreatureMgr()
 
 int NFCreatureMgr::CreateInit()
 {
+    m_creatureTickTimer = SetTimer(100, 0, 0, 0, 0, 0);
     return 0;
 }
 
@@ -93,4 +95,55 @@ int NFCreatureMgr::DestroyCreature(NFCreature* pCreature)
 NFBattlePlayer* NFCreatureMgr::GetBattlePlayer(uint64_t roleId)
 {
     return FindModule<NFISharedMemModule>()->GetObjByHashKey<NFBattlePlayer>(roleId);
+}
+
+int NFCreatureMgr::OnTimer(int timeId, int callcount)
+{
+    if (m_creatureTickTimer == timeId)
+    {
+        Update();
+    }
+
+    return 0;
+}
+
+int NFCreatureMgr::Update()
+{
+    uint64_t tick = NFTime::Now().UnixMSec();
+    std::vector<int> vecKind;
+
+    std::vector<uint64_t> willRemove;
+    for(int i = 0; i < (int)vecKind.size(); i++)
+    {
+        int type = vecKind[i];
+        NFCreature* pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetHeadObj(type));
+        while (pCreature)
+        {
+            pCreature->Update(tick);
+            if (pCreature->Kind() == CREATURE_PLAYER)
+            {
+                NFBattlePlayer* pPlayer = dynamic_cast<NFBattlePlayer*>(pCreature);
+                if (pPlayer)
+                {
+                    if (pPlayer->GetPlayerStatus() == PLAYER_STATUS_DEAD)
+                    {
+                        willRemove.push_back(pPlayer->Cid());
+                    }
+                }
+            }
+            pCreature = dynamic_cast<NFBattlePlayer *>(FindModule<NFISharedMemModule>()->GetNextObj(type, pCreature));
+        }
+    }
+
+    for(int i = 0; i < (int)willRemove.size(); i++)
+    {
+        NFCreature* pCreature = GetCreature(willRemove[i]);
+        if (pCreature)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, pCreature->Cid(), "Creature Cid:{} ClassName:{} be erase from memory", pCreature->Cid(), pCreature->GetClassName());
+            DestroyCreature(pCreature);
+        }
+    }
+
+    return 0;
 }

@@ -167,7 +167,7 @@ public:
 
     virtual uint32_t GetZid() { return 0; }
 
-    virtual uint32_t GetGateId() { return 0; }
+    virtual uint32_t GetProxyId() { return 0; }
 
     virtual uint64_t GetClientId() { return 0; }
 

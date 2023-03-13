@@ -144,13 +144,13 @@ int NFTransPlayerBase::OnTransFinished(int iRunLogicRetCode)
         return 0;
     }
 
-    NFLogDebug(NF_LOG_SYSTEMLOG, m_uid, "playerId:{} roleId:{} failed errcode={}, msgid={} globalid={} classtype:{}", m_uid, m_roleId,
-               iRunLogicRetCode, m_cmd, GetGlobalID(), GetClassType());
+    NFLogDebug(NF_LOG_SYSTEMLOG, m_uid, "playerId:{} roleId:{} failed errcode={}, msgid={} info:{}", m_uid, m_roleId,
+               iRunLogicRetCode, m_cmd, DebugString());
 
     if (0 == m_cmd)
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_uid,
-                   "Server should not call this function because request head uninitialized, playerId:{} roleId:{}", m_uid, m_roleId);
+                   "Server should not call this function because request head uninitialized, playerId:{} roleId:{} info:{}", m_uid, m_roleId, DebugString());
 
         return -1;
     }

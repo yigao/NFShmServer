@@ -19,6 +19,8 @@
 #include "DBProto2.pb.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "Com_s.h"
+#include "NFLogicCommon/NFLogicCommonDefine.h"
+#include "Move.pb.h"
 
 class NFBattlePlayer : public NFCreature, public NFSeqOP
 {
@@ -36,12 +38,18 @@ public:
 
     virtual int Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data);
 
+    virtual int Update(uint64_t tick);
+
     virtual int ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData);
 
     //视野数据
     virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &CvData);
 
     virtual int OnTimer(int timeId, int callcount);
+public:
+    int OnDisconnect();
+
+    int OnLogout();
 public:
     virtual uint64_t GetUid() { return m_uid; }
 
@@ -51,11 +59,65 @@ public:
 
     virtual uint32_t GetZid() { return m_zid; }
 
-    virtual uint32_t GetGateId() { return m_gateId; }
+    virtual uint32_t GetProxyId() { return m_proxyId; }
 
     virtual uint64_t GetClientId() { return m_clientId; }
 
     virtual uint32_t GetLogicId() { return m_logicId; }
+
+    PLAYER_STATUS GetPlayerStatus() const { return m_playerStatus; }
+
+    void SetPlayerStatus(PLAYER_STATUS status) { m_playerStatus = status; }
+
+    /**
+     * @brief
+     * @return
+     */
+    uint64_t GetCreateTime() const;
+
+    /**
+     * @brief
+     * @param createTime
+     */
+    void SetCreateTime(uint64_t createTime);
+
+    /**
+     * @brief
+     * @return
+     */
+    uint64_t GetLastDiconnectTime() const;
+
+    /**
+     * @brief
+     * @param lastDiconnectTime
+     */
+    void SetLastDiconnectTime(uint64_t lastDiconnectTime);
+
+    /**
+     * @brief
+     * @return
+     */
+    uint64_t GetLastLogoutTime() const;
+
+    /**
+     * @brief
+     * @param lastLogoutTime
+     */
+    void SetLastLogoutTime(uint64_t lastLogoutTime);
+
+public:
+    /**
+     * @brief
+     * @return
+     */
+    bool IsDisconnect() const;
+
+    /**
+     * @brief
+     * @param isDisConnect
+     */
+    void SetIsDisconnect(bool isDisConnect);
+
 public:
     /**
      * @brief 强制传送(场景内传送、切场景传送)
@@ -68,6 +130,13 @@ public:
     virtual int TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam);
 
     virtual int CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam, bool checkPosFlag = true);
+public:
+    //移动到目标坐标
+    virtual int MoveTo(const NFPoint3<float>& dstPos);
+    //停止当前移动
+    virtual int StopMove();
+    //瞬间移动
+    virtual int Teleporting(const NFPoint3<float>& dstPos, int32_t type = proto_ff::MoveTeleportRsp_Type_common);
 public:
     //进入战斗状态
     virtual bool EnterFightState();
@@ -119,7 +188,7 @@ private:
     /**
      * @brief
      */
-    uint32_t m_gateId;
+    uint32_t m_proxyId;
 
     uint64_t m_clientId;
 
@@ -137,6 +206,31 @@ private:
      * @brief 玩家头顶显示掉落归属标记
      */
     int8_t m_headFlag;
+public:
+    /**
+     * @brief
+     */
+    PLAYER_STATUS m_playerStatus;
+
+    /**
+     * @brief
+     */
+    uint64_t m_createTime;
+
+    /**
+     * @brief
+     */
+    uint64_t m_lastDiconnectTime;
+
+    /**
+     * @brief
+     */
+    uint64_t m_lastLogoutTime;
+
+    /**
+     * @brief
+     */
+    bool m_isDisconnect;
 public:
     int m_timerId_FightState;
 public:

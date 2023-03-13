@@ -1025,6 +1025,7 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
                 int iHashID = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashAlloc(hashKey, iID);
                 if (iHashID < 0)
                 {
+                    NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iID);
                     assert(false);
                     m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
                     pObj = NULL;
@@ -1033,17 +1034,24 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
                 {
                     pObj->SetHashID(iHashID);
                 }
+
+                NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Success! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iID);
             }
             else
             {
+                NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iID);
             }
         }
         else
         {
+            NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iID);
             assert(false);
             m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
             pObj = NULL;
         }
+    }
+    else {
+        NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName);
     }
 
     return pObj;
@@ -1079,6 +1087,10 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
             pObj = NULL;
         }
 
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "CreateObj Success! type:{} className:{} GlobalID:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName, iID);
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateObj Failed! type:{} className:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName);
     }
 
     return pObj;
@@ -1481,7 +1493,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "HashErase:{} Failed!", iHashID);
                 }
-                NFLogTrace(NF_LOG_SYSTEMLOG, key, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{}", className, key, iID, iType, iIndex,
+                NFLogDebug(NF_LOG_SYSTEMLOG, key, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{}", className, key, iID, iType, iIndex,
                            iHashID);
             }
             else
@@ -1489,11 +1501,13 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "iHashID:{} < 0 error", iHashID);
             }
         }
+        else {
+            NFLogDebug(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{}", className, iID, iType, iIndex);
+        }
 
         m_pGlobalID->ReleaseID(iID);
 
         m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{}", className, iID, iType, iIndex);
     }
 
     return;

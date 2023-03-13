@@ -640,7 +640,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
     if (IncludeMyself && m_kind == CREATURE_PLAYER)
     {
         zid = GetZid();
-        gateId = GetGateId();
+        gateId = GetProxyId();
         uid = GetUid();
         clientId = GetClientId();
         //
@@ -665,7 +665,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                         if (pPlayer && pPlayer->IsCanSendMessage())
                         {
                             zid = pPlayer->GetZid();
-                            gateId = pPlayer->GetGateId();
+                            gateId = pPlayer->GetProxyId();
                             uid= pPlayer->GetUid();
                             clientId = pPlayer->GetClientId();
 
@@ -694,7 +694,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                         if (pPlayer && pPlayer->IsCanSendMessage())
                         {
                             zid = pPlayer->GetZid();
-                            gateId = pPlayer->GetGateId();
+                            gateId = pPlayer->GetProxyId();
                             uid = pPlayer->GetUid();
                             clientId = pPlayer->GetClientId();
 
@@ -736,7 +736,7 @@ int NFCreature::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message
         return -1;
     }
 
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetGateId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetProxyId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
                                                                GetClientId());
     return 0;
 }
@@ -1041,7 +1041,7 @@ int NFCreature::DelPVMSeeLst(int delpos, NFCreature *pOther)
             {
                 auto pOtherIter = pOther->GetVisionData().m_doublePVMSeeLst.GetIterator(pData->nMeInHisVisionPos);
                 if (pOtherIter != pOther->GetVisionData().m_doublePVMSeeLst.end()
-                    && pOtherIter->creatureCid == GetGlobalID()
+                    && pOtherIter->creatureCid == Cid()
                     && pOtherIter->nMeInHisVisionPos == delpos
                     && pOther->GetVisionData().DelPVMSeeList(pData->nMeInHisVisionPos))
                 {
@@ -1103,7 +1103,7 @@ int NFCreature::DelPVPSeeLst(int delpos, NFCreature *pOther)
             {
                 auto pOtherIter = pOther->GetVisionData().m_doublePVPSeeLst.GetIterator(pData->nMeInHisVisionPos);
                 if (pOtherIter != pOther->GetVisionData().m_doublePVPSeeLst.end()
-                    && pOtherIter->creatureCid == GetGlobalID()
+                    && pOtherIter->creatureCid == Cid()
                     && pOtherIter->nMeInHisVisionPos == delpos
                     && pOther->GetVisionData().DelPVPSeeList(pData->nMeInHisVisionPos))
                 {
@@ -1267,7 +1267,7 @@ void NFCreature::UpdateSeeLst()
             }
             else
             {
-                NFLogError(NF_LOG_SYSTEMLOG, Cid(), "m_visionData.m_doubleSeeLst can't find the creature global id:{} in the scene!",
+                NFLogError(NF_LOG_SYSTEMLOG, Cid(), "m_visionData.m_doubleSeeLst can't find the creature cid:{} in the scene!",
                            pData->creatureCid);
                 int pos = DelPVMSeeLst(iter.m_node->m_self, pCreature);
                 iter = m_visionData.m_doublePVMSeeLst.GetIterator(pos);
