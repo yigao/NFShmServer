@@ -635,6 +635,13 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
     else
     {
         pCounter->m_pidRuntimeClass.m_pParent = GetIDRuntimeClass(parentType);
+        NFIDRuntimeClass *pParentClass = pCounter->m_pidRuntimeClass.m_pParent;
+        while (pParentClass)
+        {
+            pParentClass->m_childrenObjType.insert(bType);
+            pCounter->m_pidRuntimeClass.m_parentObjType.insert(pParentClass->m_iSelfType);
+            pParentClass = pParentClass->m_pParent;
+        }
     }
     pCounter->m_pidRuntimeClass.m_pObjSeg = NULL;
     pCounter->m_pidRuntimeClass.m_pszName = pszClassName;
@@ -1098,7 +1105,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 
 NFShmObj *NFCSharedMemModule::GetObjByHashKey(uint64_t hashKey, int iType)
 {
-    assert(IsTypeValid(iType));
+    NF_ASSERT(IsTypeValid(iType));
     if (!m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj not use hash, get obj use GetObjFromGlobalID");
@@ -1112,6 +1119,13 @@ NFShmObj *NFCSharedMemModule::GetObjFromGlobalIDWithNoCheck(int iGlobalID)
 {
     NFShmObj *pObj = m_pGlobalID->GetObj(iGlobalID);
     return pObj;
+}
+
+const std::unordered_set<int>& NFCSharedMemModule::GetChildrenType(int iType)
+{
+    NF_ASSERT(IsTypeValid(iType));
+
+    return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_childrenObjType;
 }
 
 NFShmObj *NFCSharedMemModule::GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType)
@@ -1140,10 +1154,6 @@ NFShmObj *NFCSharedMemModule::GetObjFromGlobalID(int iGlobalID, int iType, int i
 
     if ((iRealType != iType))
     {
-#ifdef _DEBUG_DETAIL_
-        LOGSVR_DEBUG("Want Type:" << iType << " GetType:" << pObj->GetClassType());
-#endif
-
         if (iStrongType)
         {
             return NULL;
@@ -1159,23 +1169,12 @@ NFShmObj *NFCSharedMemModule::GetObjFromGlobalID(int iGlobalID, int iType, int i
 
     if (pRuntimeClass->m_iSelfType == iType)
     {
-#ifdef _DEBUG_DETAIL_
-        LOGSVR_DEBUG("Want Type:" << iType << " Real Type: " << pRuntimeClass->m_iSelfType);
-#endif
         return pObj;
     }
 
-    while (pRuntimeClass->m_pParent)
+    if (pRuntimeClass->m_parentObjType.find(iType) != pRuntimeClass->m_parentObjType.end())
     {
-        if (pRuntimeClass->m_pParent->m_iSelfType == iType)
-        {
-#ifdef _DEBUG_DETAIL_
-            LOGSVR_DEBUG("Want Type:" << iType << " Real Type:" << pRuntimeClass->m_pParent->m_iSelfType);
-#endif
-            return pObj;
-        }
-
-        pRuntimeClass = pRuntimeClass->m_pParent;
+        return pObj;
     }
 
     return NULL;

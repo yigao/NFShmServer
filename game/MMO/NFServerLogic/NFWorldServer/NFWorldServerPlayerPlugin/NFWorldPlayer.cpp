@@ -54,13 +54,6 @@ int NFWorldPlayer::CreateInit()
 
 int NFWorldPlayer::ResumeInit()
 {
-    if (m_pObjPluginManager->IsLoadAllServer())
-    {
-        m_isDisconnect = true;
-        m_lastDiconnectTime = NFTime::Now().UnixSec();
-        m_clientId = 0;
-        m_proxyId = 0;
-    }
     return 0;
 }
 
@@ -423,3 +416,11 @@ void NFWorldPlayer::SetGameId(uint32_t gameId)
     m_gameId = gameId;
 }
 
+int NFWorldPlayer::OnDisconnect()
+{
+    SetProxyId(0);
+    SetClientId(0);
+    SetStatus(PLAYER_STATUS_OFFLINE);
+    SetLastDiconnectTime(NFTime::Now().UnixSec());
+    return 0;
+}

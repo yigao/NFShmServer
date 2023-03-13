@@ -110,12 +110,12 @@ int NFCreatureMgr::OnTimer(int timeId, int callcount)
 int NFCreatureMgr::Update()
 {
     uint64_t tick = NFTime::Now().UnixMSec();
-    std::vector<int> vecKind;
+    const std::unordered_set<int>& setKind = FindModule<NFISharedMemModule>()->GetChildrenType(EOT_GAME_CREATURE_ID);
 
     std::vector<uint64_t> willRemove;
-    for(int i = 0; i < (int)vecKind.size(); i++)
+    for(auto iter = setKind.begin(); iter != setKind.end(); iter++)
     {
-        int type = vecKind[i];
+        int type = *iter;
         NFCreature* pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetHeadObj(type));
         while (pCreature)
         {

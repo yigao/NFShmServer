@@ -217,6 +217,7 @@ int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Leave Scene Failed, mapId:{} sceneId:{}", roleId, mapId, sceneId);
     }
     else {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "role:{} Leave Scene Success, mapId:{} sceneId:{}", roleId, mapId, sceneId);
         pPlayer->SetPlayerStatus(PLAYER_STATUS_DEAD);
     }
 

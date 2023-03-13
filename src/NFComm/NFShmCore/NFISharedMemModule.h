@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include <unordered_set>
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFShmDefine.h"
 #include "NFTypeDefines.h"
@@ -89,6 +90,8 @@ public:
     virtual NFShmObj *CreateObjByHashKey(uint64_t hashKey, int iType) = 0;
 
     virtual NFShmObj *GetObjByHashKey(uint64_t hashKey, int iType) = 0;
+
+    virtual const std::unordered_set<int>& GetChildrenType(int iType) = 0;
 
     virtual NFShmObj *CreateIndexToHashKey(uint32_t indexId, uint64_t indexKey, uint64_t hashKey, int iType) = 0;
 

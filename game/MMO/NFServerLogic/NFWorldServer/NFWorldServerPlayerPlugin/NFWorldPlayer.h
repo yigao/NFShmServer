@@ -295,6 +295,8 @@ public:
     void ClearRoleInfo();
 
     NFShmHashMap<uint64_t, NFWorldRoleInfo, MAX_ROLE_NUM>& GetAllRoleInfo() { return m_roleInfo; }
+public:
+    int OnDisconnect();
 private:
     /**
      * @brief

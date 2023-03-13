@@ -9,6 +9,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include <unordered_set>
 
 class NFIDRuntimeClass;
 class NFShmObj;
@@ -30,6 +31,8 @@ public:
 	bool m_iUseHash;
 	int m_iIndexCount;
     int m_iIndexTime;
+    std::unordered_set<int> m_childrenObjType;
+    std::unordered_set<int> m_parentObjType;
 };
 
 

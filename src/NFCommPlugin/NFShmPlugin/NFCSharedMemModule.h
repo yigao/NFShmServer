@@ -12,6 +12,7 @@
 
 #include "NFComm/NFShmCore/NFCSharedMem.h"
 #include <unordered_map>
+
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 #include "NFIDRuntimeClass.h"
@@ -271,6 +272,8 @@ public:
     virtual void DestroyObj(NFShmObj *pObj) override;
 
     virtual void ClearAllObj(int iType) override;;
+
+    const std::unordered_set<int>& GetChildrenType(int iType) override;
 
     virtual int DestroyObjAutoErase(int iType, int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL) override;
 

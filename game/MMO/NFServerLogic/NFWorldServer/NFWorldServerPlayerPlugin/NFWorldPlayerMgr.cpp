@@ -453,10 +453,7 @@ int NFWorldPlayerMgr::OnHandlePlayerDisconnect(NFWorldPlayer* pPlayer, uint32_t 
 {
     CHECK_NULL(pPlayer);
 
-    pPlayer->SetProxyId(0);
-    pPlayer->SetClientId(0);
-    pPlayer->SetStatus(PLAYER_STATUS_OFFLINE);
-    pPlayer->SetLastDiconnectTime(NFTime::Now().UnixSec());
+    pPlayer->OnDisconnect();
 
     NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyOtherServerPlayerDisconnect(pPlayer, reason);
     return 0;

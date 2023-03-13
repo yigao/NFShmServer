@@ -470,6 +470,9 @@ int NFMovePart::OnTransSuccess(STransParam &transParam)
     {
         return -1;
     }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, pMaster->Cid(), "Trans Scene Success, roleId:{} mapId:{} sceneId:{}", pMaster->Cid(), pMaster->GetMapId(),
+              pMaster->GetSceneId());
     /*if (ETransType_Teleport ==  transParam.transType)
     {
         const STeleCfg *pTeleCfg = g_GetMapCfg()->GetTeleCfg(transParam.transVal);
