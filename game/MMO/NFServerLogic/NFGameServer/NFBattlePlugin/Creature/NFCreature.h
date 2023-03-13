@@ -395,6 +395,8 @@ public:
     virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     virtual int SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
 
+    virtual int FireLogic(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self = false);
+
 protected:
     uint64_t m_cid;     //生物实例id
     uint32_t m_kind;     //实体类型

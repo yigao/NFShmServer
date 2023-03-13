@@ -35,12 +35,12 @@ bool CreatureState::EnterState(NFCreature *pCreature, proto_ff::ECState state)
     m_curstate = state;
     if (CREATURE_PLAYER == pCreature->Kind())
     {
-        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "[logic] CreatureState::EnterState...cid:{}, m_curstate:{}, m_laststate:{} ", pCreature->Cid(),
+        NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(), "[logic] CreatureState::EnterState...cid:{}, m_curstate:{}, m_laststate:{} ", pCreature->Cid(),
                    m_curstate, m_laststate);
     }
     else if (CREATURE_PET == pCreature->Kind())
     {
-        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "[logic] CreatureState::EnterState pet ...cid:{}, m_curstate:{}, m_laststate:{} ", pCreature->Cid(),
+        NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(), "[logic] CreatureState::EnterState pet ...cid:{}, m_curstate:{}, m_laststate:{} ", pCreature->Cid(),
                    m_curstate, m_laststate);
     }
     pCreature->OnChangeState(m_curstate, m_laststate);
@@ -161,12 +161,12 @@ void NFCreature::SetPos(const NFPoint3<float> &pos)
             syncPos.set_map_id(m_mapId);
             syncPos.set_scene_id(m_sceneId);
             m_pos.ToProto(*syncPos.mutable_pos());
-            FireBroadcast(NF_ST_GAME_SERVER, NF_ST_LOGIC_SERVER, GetLogicId(), EVENT_SYNC_SCENE_POS, Kind(), GetRoleId(), syncPos);
+            FireLogic(EVENT_SYNC_SCENE_POS, Kind(), GetRoleId(), syncPos);
         }
     }
     else
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "[logic] Creature::SetPos can not find pGrid..cid:{},pos:{}, curpos:{}  ", m_cid, pos.ToString(), m_pos.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, m_cid, "[logic] Creature::SetPos can not find pGrid..cid:{},pos:{}, curpos:{}  ", m_cid, pos.ToString(), m_pos.ToString());
     }
 }
 
@@ -288,6 +288,14 @@ void NFCreature::OnChangeState(uint8_t curstate, uint8_t laststate)
     rsp.set_curstate(curstate);
     rsp.set_beforestate(laststate);
     BroadCast(proto_ff::CREATURE_STATE_BROAD, rsp, true);
+
+    if (Kind() == CREATURE_PLAYER)
+    {
+        proto_ff::SyncSceneState syncState;
+        syncState.set_cur_state(curstate);
+        syncState.set_last_state(laststate);
+        FireLogic(EVENT_SYNC_SCENE_STATE, Kind(), Cid(), syncState, false);
+    }
 }
 
 
@@ -650,7 +658,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                 NFScene* pScene = GetScene();
                 if (nullptr != pScene)
                 {
-                    NFCreature* pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+                    NFCreature* pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
                     if (nullptr != pCreature && pCreature->Kind() == CREATURE_PLAYER)
                     {
                         NFBattlePlayer *pPlayer = dynamic_cast<NFBattlePlayer *>(pCreature);
@@ -679,7 +687,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                 NFScene* pScene = GetScene();
                 if (nullptr != pScene)
                 {
-                    NFCreature* pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+                    NFCreature* pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
                     if (nullptr != pCreature)
                     {
                         NFBattlePlayer *pPlayer = dynamic_cast<NFBattlePlayer *>(pCreature);
@@ -769,6 +777,11 @@ int NFCreature::SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::
 {
     FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), nMsgId, xData, reqTransId, rspTransId);
     return 0;
+}
+
+int NFCreature::FireLogic(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self/* = false*/)
+{
+    return FireBroadcast(NF_ST_GAME_SERVER, NF_ST_LOGIC_SERVER, GetLogicId(), nEventID, bySrcType, nSrcID, message, self);
 }
 
 void NFCreature::OnDead(uint64_t killerCid, bool isSync, int64_t lastDamage)
@@ -927,7 +940,7 @@ void NFCreature::ReplacePVPSeeList(int relation, NFCreature *pCreature, vector<N
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+            NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
             if (pOther && pOther != pCreature)
             {
                 float otherDict = point2LengthSquare(pCreature->GetPos(), pOther->GetPos());
@@ -945,7 +958,7 @@ void NFCreature::ReplacePVPSeeList(int relation, NFCreature *pCreature, vector<N
         NFCreatureVisionDataNode *pData = &(*replace);
         if (pData)
         {
-            NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+            NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
             //这里先发送摧毁， 在摧毁， pOther可能不存在, pData可能被摧毁
             if (pOther)
             {
@@ -1028,7 +1041,7 @@ int NFCreature::DelPVMSeeLst(int delpos, NFCreature *pOther)
             {
                 auto pOtherIter = pOther->GetVisionData().m_doublePVMSeeLst.GetIterator(pData->nMeInHisVisionPos);
                 if (pOtherIter != pOther->GetVisionData().m_doublePVMSeeLst.end()
-                    && pOtherIter->creatureGlobalId == GetGlobalID()
+                    && pOtherIter->creatureCid == GetGlobalID()
                     && pOtherIter->nMeInHisVisionPos == delpos
                     && pOther->GetVisionData().DelPVMSeeList(pData->nMeInHisVisionPos))
                 {
@@ -1090,7 +1103,7 @@ int NFCreature::DelPVPSeeLst(int delpos, NFCreature *pOther)
             {
                 auto pOtherIter = pOther->GetVisionData().m_doublePVPSeeLst.GetIterator(pData->nMeInHisVisionPos);
                 if (pOtherIter != pOther->GetVisionData().m_doublePVPSeeLst.end()
-                    && pOtherIter->creatureGlobalId == GetGlobalID()
+                    && pOtherIter->creatureCid == GetGlobalID()
                     && pOtherIter->nMeInHisVisionPos == delpos
                     && pOther->GetVisionData().DelPVPSeeList(pData->nMeInHisVisionPos))
                 {
@@ -1168,12 +1181,12 @@ void NFCreature::GetSeeLst(vector<uint64_t> &vec)
     {
         for (auto iter = m_visionData.m_doublePVPSeeLst.begin(); iter != m_visionData.m_doublePVPSeeLst.end(); iter++)
         {
-            vec.push_back(iter->creatureGlobalId);
+            vec.push_back(iter->creatureCid);
         }
     }
     for (auto iter = m_visionData.m_doublePVMSeeLst.begin(); iter != m_visionData.m_doublePVMSeeLst.end(); iter++)
     {
-        vec.push_back(iter->creatureGlobalId);
+        vec.push_back(iter->creatureCid);
     }
 }
 
@@ -1183,7 +1196,7 @@ void NFCreature::GetCreatureList(vector<NFCreature *> &vec)
     {
         for (auto iter = m_visionData.m_doublePVPSeeLst.begin(); iter != m_visionData.m_doublePVPSeeLst.end(); iter++)
         {
-            NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(iter->creatureGlobalId);
+            NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(iter->creatureCid);
             if (pCreature)
             {
                 vec.push_back(pCreature);
@@ -1192,7 +1205,7 @@ void NFCreature::GetCreatureList(vector<NFCreature *> &vec)
     }
     for (auto iter = m_visionData.m_doublePVMSeeLst.begin(); iter != m_visionData.m_doublePVMSeeLst.end(); iter++)
     {
-        NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(iter->creatureGlobalId);
+        NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(iter->creatureCid);
         if (pCreature)
         {
             vec.push_back(pCreature);
@@ -1228,7 +1241,7 @@ void NFCreature::UpdateSeeLst()
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+            pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
             if (pCreature)
             {
                 //这里是人跟怪的视野列表，人和怪以及怪和人是没有视野范围的，所以这里不需要计算距离
@@ -1255,7 +1268,7 @@ void NFCreature::UpdateSeeLst()
             else
             {
                 NFLogError(NF_LOG_SYSTEMLOG, Cid(), "m_visionData.m_doubleSeeLst can't find the creature global id:{} in the scene!",
-                           pData->creatureGlobalId);
+                           pData->creatureCid);
                 int pos = DelPVMSeeLst(iter.m_node->m_self, pCreature);
                 iter = m_visionData.m_doublePVMSeeLst.GetIterator(pos);
                 continue;
@@ -1272,7 +1285,7 @@ void NFCreature::UpdateSeeLst()
             NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+                pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
                 if (pCreature && pCreature->Kind() == CREATURE_PLAYER)
                 {
                     float dict = point2LengthSquare(GetPos(), pCreature->GetPos());
@@ -1452,7 +1465,7 @@ void NFCreature::NoticeNineGridLeave()
             NFCreatureVisionDataNode *pData = &(*iter);
             if (pData)
             {
-                NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+                NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
                 if (pCreature)
                 {
                     pCreature->GetVisionData().DelPVPSeeList(pData->nMeInHisVisionPos);
@@ -1478,7 +1491,7 @@ void NFCreature::NoticeNineGridLeave()
         NFCreatureVisionDataNode *pData = &(*iter);
         if (pData)
         {
-            NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureGlobalId);
+            NFCreature *pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
             if (pCreature)
             {
                 pCreature->GetVisionData().DelPVMSeeList(pData->nMeInHisVisionPos);

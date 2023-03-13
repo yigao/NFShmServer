@@ -13,6 +13,8 @@
 #include "Map/NFMapMgr.h"
 #include "Map/NFMap.h"
 #include "DescStore/MapMapDesc.h"
+#include "NFLogicCommon/NFEventDefine.h"
+#include "Event.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature)
 
@@ -45,6 +47,8 @@ int NFBattlePlayer::CreateInit()
     m_logicId = 0;
     m_headFlag = 0;
     m_pPart.resize(m_pPart.max_size());
+
+    m_timerId_FightState = INVALID_ID;
     return 0;
 }
 
@@ -63,7 +67,7 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
         NFBattlePart *pPart = CreatePart(i, data);
         if (nullptr == pPart)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "Player Init, Create Part Failed, roleId:{} uid:{} part:{}", m_cid, m_uid, i);
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, roleId:{} uid:{} part:{}", m_cid, m_uid, i);
             return -1;
         }
 
@@ -77,6 +81,7 @@ int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, c
     m_isInited = true;
     ReadBaseData(data.base());
     m_roleId = data.cid();
+    m_cid = m_roleId;
     m_zid = data.zid();
     m_uid = data.uid();
     m_gateId = gateId;
@@ -87,7 +92,7 @@ int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, c
         NFBattlePart *pPart = GetPart(i);
         if (nullptr == pPart)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "Player Init, Get Part Failed, roleId:{} uid:{} part:{}", m_cid, m_uid, i);
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Get Part Failed, roleId:{} uid:{} part:{}", m_cid, m_uid, i);
             return -1;
         }
 
@@ -143,6 +148,16 @@ NFBattlePart *NFBattlePlayer::GetPart(uint32_t partType)
     }
 
     return dynamic_cast<NFBattlePart*>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_pPart[partType], EOT_NFBattlePart_ID,0));
+}
+
+int NFBattlePlayer::OnTimer(int timeId, int callcount)
+{
+    if (m_timerId_FightState == timeId)
+    {
+        LeaveFigthState();
+    }
+
+    return 0;
 }
 
 int NFBattlePlayer::ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData)
@@ -256,4 +271,49 @@ int NFBattlePlayer::CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoi
     }
 
     return proto_ff::RET_SUCCESS;
+}
+
+bool NFBattlePlayer::EnterFightState()
+{
+    if (BState(proto_ff::state_seat)) LeaveSeatState();
+    NFCreature::EnterFightState();
+    if (BState(proto_ff::state_fight))
+    {
+        if (m_timerId_FightState != INVALID_ID)
+        {
+            DeleteTimer(m_timerId_FightState);
+        }
+
+        m_timerId_FightState = SetTimer(5000, 1, 0, 0, 0, 0);
+        return true;
+    }
+    return false;
+}
+
+bool NFBattlePlayer::LeaveFigthState()
+{
+    return NFCreature::LeaveFigthState();
+}
+
+bool NFBattlePlayer::EnterSeatState()
+{
+    if (BState(proto_ff::state_normal))
+    {
+        NFCreature::EnterSeatState();
+    }
+    else {
+        return false;
+    }
+    return true;
+}
+
+bool NFBattlePlayer::LeaveSeatState()
+{
+    if (BState(proto_ff::state_seat))
+    {
+        return NFCreature::LeaveSeatState();
+    }
+    else {
+        return false;
+    }
 }

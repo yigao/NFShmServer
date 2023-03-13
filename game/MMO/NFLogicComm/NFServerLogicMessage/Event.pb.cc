@@ -47,6 +47,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SyncScenePos_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SyncScenePos_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SyncSceneState_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SyncSceneState_reflection_ = NULL;
 
 }  // namespace
 
@@ -210,6 +213,22 @@ void protobuf_AssignDesc_Event_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SyncScenePos));
+  SyncSceneState_descriptor_ = file->message_type(9);
+  static const int SyncSceneState_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncSceneState, last_state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncSceneState, cur_state_),
+  };
+  SyncSceneState_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SyncSceneState_descriptor_,
+      SyncSceneState::default_instance_,
+      SyncSceneState_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncSceneState, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SyncSceneState, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SyncSceneState));
 }
 
 namespace {
@@ -240,6 +259,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     EnterSceneEvent_descriptor_, &EnterSceneEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SyncScenePos_descriptor_, &SyncScenePos::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SyncSceneState_descriptor_, &SyncSceneState::default_instance());
 }
 
 }  // namespace
@@ -263,6 +284,8 @@ void protobuf_ShutdownFile_Event_2eproto() {
   delete EnterSceneEvent_reflection_;
   delete SyncScenePos::default_instance_;
   delete SyncScenePos_reflection_;
+  delete SyncSceneState::default_instance_;
+  delete SyncSceneState_reflection_;
 }
 
 void protobuf_AddDesc_Event_2eproto() {
@@ -291,7 +314,9 @@ void protobuf_AddDesc_Event_2eproto() {
     "(\r\022\020\n\010clientid\030\003 \001(\004\022\r\n\005mapid\030\004 \001(\004\022\t\n\001x"
     "\030\005 \001(\005\022\t\n\001y\030\006 \001(\005\022\t\n\001z\030\007 \001(\005\"R\n\014SyncScen"
     "ePos\022\016\n\006map_id\030\001 \001(\004\022\020\n\010scene_id\030\002 \001(\004\022 "
-    "\n\003pos\030\003 \001(\0132\023.proto_ff.Vector3PB", 672);
+    "\n\003pos\030\003 \001(\0132\023.proto_ff.Vector3PB\"7\n\016Sync"
+    "SceneState\022\022\n\nlast_state\030\001 \001(\r\022\021\n\tcur_st"
+    "ate\030\002 \001(\r", 729);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -303,6 +328,7 @@ void protobuf_AddDesc_Event_2eproto() {
   ChgSceneEvent::default_instance_ = new ChgSceneEvent();
   EnterSceneEvent::default_instance_ = new EnterSceneEvent();
   SyncScenePos::default_instance_ = new SyncScenePos();
+  SyncSceneState::default_instance_ = new SyncSceneState();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -312,6 +338,7 @@ void protobuf_AddDesc_Event_2eproto() {
   ChgSceneEvent::default_instance_->InitAsDefaultInstance();
   EnterSceneEvent::default_instance_->InitAsDefaultInstance();
   SyncScenePos::default_instance_->InitAsDefaultInstance();
+  SyncSceneState::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Event_2eproto);
 }
 
@@ -2916,6 +2943,254 @@ void SyncScenePos::Swap(SyncScenePos* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SyncScenePos_descriptor_;
   metadata.reflection = SyncScenePos_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SyncSceneState::kLastStateFieldNumber;
+const int SyncSceneState::kCurStateFieldNumber;
+#endif  // !_MSC_VER
+
+SyncSceneState::SyncSceneState()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SyncSceneState::InitAsDefaultInstance() {
+}
+
+SyncSceneState::SyncSceneState(const SyncSceneState& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SyncSceneState::SharedCtor() {
+  _cached_size_ = 0;
+  last_state_ = 0u;
+  cur_state_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SyncSceneState::~SyncSceneState() {
+  SharedDtor();
+}
+
+void SyncSceneState::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SyncSceneState::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SyncSceneState::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SyncSceneState_descriptor_;
+}
+
+const SyncSceneState& SyncSceneState::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Event_2eproto();
+  return *default_instance_;
+}
+
+SyncSceneState* SyncSceneState::default_instance_ = NULL;
+
+SyncSceneState* SyncSceneState::New() const {
+  return new SyncSceneState;
+}
+
+void SyncSceneState::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    last_state_ = 0u;
+    cur_state_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SyncSceneState::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 last_state = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &last_state_)));
+          set_has_last_state();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cur_state;
+        break;
+      }
+
+      // optional uint32 cur_state = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cur_state:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cur_state_)));
+          set_has_cur_state();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SyncSceneState::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 last_state = 1;
+  if (has_last_state()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->last_state(), output);
+  }
+
+  // optional uint32 cur_state = 2;
+  if (has_cur_state()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->cur_state(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SyncSceneState::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 last_state = 1;
+  if (has_last_state()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->last_state(), target);
+  }
+
+  // optional uint32 cur_state = 2;
+  if (has_cur_state()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->cur_state(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SyncSceneState::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 last_state = 1;
+    if (has_last_state()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->last_state());
+    }
+
+    // optional uint32 cur_state = 2;
+    if (has_cur_state()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cur_state());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SyncSceneState::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SyncSceneState* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SyncSceneState*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SyncSceneState::MergeFrom(const SyncSceneState& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_last_state()) {
+      set_last_state(from.last_state());
+    }
+    if (from.has_cur_state()) {
+      set_cur_state(from.cur_state());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SyncSceneState::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SyncSceneState::CopyFrom(const SyncSceneState& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SyncSceneState::IsInitialized() const {
+
+  return true;
+}
+
+void SyncSceneState::Swap(SyncSceneState* other) {
+  if (other != this) {
+    std::swap(last_state_, other->last_state_);
+    std::swap(cur_state_, other->cur_state_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SyncSceneState::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SyncSceneState_descriptor_;
+  metadata.reflection = SyncSceneState_reflection_;
   return metadata;
 }
 

@@ -29,7 +29,7 @@ NFCreatureVisionDataNode::~NFCreatureVisionDataNode()
 
 int NFCreatureVisionDataNode::CreateInit()
 {
-    creatureGlobalId = -1;
+    creatureCid = -1;
     nMeInHisVisionPos = -1;
     return 0;
 }
@@ -75,7 +75,7 @@ int NFCreatureVisionData::AddPVPSeeList(NFCreature *pCreature)
         return -1;
     }
 
-    iter->creatureGlobalId = pCreature->GetGlobalID();
+    iter->creatureCid = pCreature->GetGlobalID();
     NF_ASSERT(iter.m_node);
     return iter.m_node->m_self;
 }
@@ -89,7 +89,7 @@ int NFCreatureVisionData::AddPVMSeeList(NFCreature *pCreature)
         return -1;
     }
 
-    iter->creatureGlobalId = pCreature->GetGlobalID();
+    iter->creatureCid = pCreature->GetGlobalID();
     NF_ASSERT(iter.m_node);
     return iter.m_node->m_self;
 }

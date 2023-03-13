@@ -64,7 +64,7 @@ public:
     int ResumeInit();
 
 public:
-    int creatureGlobalId;
+    int creatureCid;
     int nMeInHisVisionPos;
 };
 

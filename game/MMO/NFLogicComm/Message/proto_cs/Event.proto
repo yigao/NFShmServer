@@ -75,3 +75,10 @@ message SyncScenePos
   optional uint64 scene_id = 2;
   optional Vector3PB pos = 3;
 }
+
+//
+message SyncSceneState
+{
+  optional uint32 last_state = 1;
+  optional uint32 cur_state = 2;
+}

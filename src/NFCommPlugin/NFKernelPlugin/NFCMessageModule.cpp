@@ -1238,6 +1238,8 @@ int NFCMessageModule::SendWxWork(NF_SERVER_TYPES serverType, const string &conte
 int NFCMessageModule::BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t dstBusId, uint32_t nEventID,
                                              uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message)
 {
+    if (dstBusId <= 0) return -1;
+
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
     auto pEventInfo = svrPkg.mutable_event_info();

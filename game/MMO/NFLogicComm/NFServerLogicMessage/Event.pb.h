@@ -45,6 +45,7 @@ class LeaveSceneEvent;
 class ChgSceneEvent;
 class EnterSceneEvent;
 class SyncScenePos;
+class SyncSceneState;
 
 // ===================================================================
 
@@ -966,6 +967,98 @@ class SyncScenePos : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SyncScenePos* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class SyncSceneState : public ::google::protobuf::Message {
+ public:
+  SyncSceneState();
+  virtual ~SyncSceneState();
+
+  SyncSceneState(const SyncSceneState& from);
+
+  inline SyncSceneState& operator=(const SyncSceneState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SyncSceneState& default_instance();
+
+  void Swap(SyncSceneState* other);
+
+  // implements Message ----------------------------------------------
+
+  SyncSceneState* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SyncSceneState& from);
+  void MergeFrom(const SyncSceneState& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 last_state = 1;
+  inline bool has_last_state() const;
+  inline void clear_last_state();
+  static const int kLastStateFieldNumber = 1;
+  inline ::google::protobuf::uint32 last_state() const;
+  inline void set_last_state(::google::protobuf::uint32 value);
+
+  // optional uint32 cur_state = 2;
+  inline bool has_cur_state() const;
+  inline void clear_cur_state();
+  static const int kCurStateFieldNumber = 2;
+  inline ::google::protobuf::uint32 cur_state() const;
+  inline void set_cur_state(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SyncSceneState)
+ private:
+  inline void set_has_last_state();
+  inline void clear_has_last_state();
+  inline void set_has_cur_state();
+  inline void clear_has_cur_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 last_state_;
+  ::google::protobuf::uint32 cur_state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static SyncSceneState* default_instance_;
+};
 // ===================================================================
 
 
@@ -1613,6 +1706,54 @@ inline void SyncScenePos::set_allocated_pos(::proto_ff::Vector3PB* pos) {
   } else {
     clear_has_pos();
   }
+}
+
+// -------------------------------------------------------------------
+
+// SyncSceneState
+
+// optional uint32 last_state = 1;
+inline bool SyncSceneState::has_last_state() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SyncSceneState::set_has_last_state() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SyncSceneState::clear_has_last_state() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SyncSceneState::clear_last_state() {
+  last_state_ = 0u;
+  clear_has_last_state();
+}
+inline ::google::protobuf::uint32 SyncSceneState::last_state() const {
+  return last_state_;
+}
+inline void SyncSceneState::set_last_state(::google::protobuf::uint32 value) {
+  set_has_last_state();
+  last_state_ = value;
+}
+
+// optional uint32 cur_state = 2;
+inline bool SyncSceneState::has_cur_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SyncSceneState::set_has_cur_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SyncSceneState::clear_has_cur_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SyncSceneState::clear_cur_state() {
+  cur_state_ = 0u;
+  clear_has_cur_state();
+}
+inline ::google::protobuf::uint32 SyncSceneState::cur_state() const {
+  return cur_state_;
+}
+inline void SyncSceneState::set_cur_state(::google::protobuf::uint32 value) {
+  set_has_cur_state();
+  cur_state_ = value;
 }
 
 

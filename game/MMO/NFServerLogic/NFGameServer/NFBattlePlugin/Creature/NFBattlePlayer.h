@@ -41,6 +41,7 @@ public:
     //视野数据
     virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &CvData);
 
+    virtual int OnTimer(int timeId, int callcount);
 public:
     virtual uint64_t GetUid() { return m_uid; }
 
@@ -67,6 +68,15 @@ public:
     virtual int TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam);
 
     virtual int CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam, bool checkPosFlag = true);
+public:
+    //进入战斗状态
+    virtual bool EnterFightState();
+    //离开战斗状态
+    virtual bool LeaveFigthState();
+
+    //取消打坐状态
+    virtual bool EnterSeatState();
+    virtual bool LeaveSeatState();
 public:
     NFBattlePart *CreatePart(uint32_t partType, const ::proto_ff::RoleEnterSceneData &data);
     int RecylePart(NFBattlePart *pPart);
@@ -127,6 +137,8 @@ private:
      * @brief 玩家头顶显示掉落归属标记
      */
     int8_t m_headFlag;
+public:
+    int m_timerId_FightState;
 public:
     NFShmVector<int, BATTLE_PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFBattlePlayer)

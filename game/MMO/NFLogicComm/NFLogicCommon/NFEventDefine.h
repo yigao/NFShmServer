@@ -72,6 +72,7 @@ enum EventId
     EVENT_TRANS_SUCCESS,				//传送成功（跨逻辑节点传送 目标逻辑节点成功收到传送参数信息）
     EVENT_CHANGE_SCENE,					//生物场景改变
     EVENT_SYNC_SCENE_POS,               //场景位置同步
+    EVENT_SYNC_SCENE_STATE,             //场景状态同步事件
 
     ////////////////////////任务事件/////////////////////////
     EVENT_ACCEPT_TASK,					//接取任务
