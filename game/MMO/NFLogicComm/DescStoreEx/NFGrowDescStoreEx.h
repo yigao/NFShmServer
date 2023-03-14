@@ -19,6 +19,13 @@
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "fashion_s.h"
+#include "DescStore/FashionFashionDesc.h"
+#include "headPortrait_s.h"
+#include "DescStore/HeadportraitHeadDesc.h"
+#include "DescStore/DecorateDecorateDesc.h"
+#include "DescStore/FootprintFootprintDesc.h"
+#include "DescStore/MeditationMeditationDesc.h"
+#include "DescStore/HaloHaloDesc.h"
 
 //养成配置信息
 struct GrowInfoCfg
@@ -59,14 +66,14 @@ struct GrowInfoCfg
     int32_t startItem;			//升星道具id
     NFShmHashMap<int32_t, int32_t, 100> lvMap;			//升星消耗道具数量
     int32_t starBar;			//每次升星属性增加的百分比值
-    NFShmHashMap<int32_t, int32_t, DEFINE_E_FASHIONFASHION_M_ATTRIBUTE_MAX_NUM> attrsMap;		//属性加成 key->value attrid->attrvalue
+    NFShmHashMap<int32_t, int32_t, DEFINE_E_HEADPORTRAITHEAD_M_ATTRIBUTE_MAX_NUM> attrsMap;		//属性加成 key->value attrid->attrvalue
     NFShmHashMap<int32_t, int32_t, DEFINE_E_FASHIONFASHION_M_ACTIVEATTRIBUTE_MAX_NUM> activeAttrMap;	//激活加成的属性
     bool LimitProf(int32_t prof);
     int32_t GetStarLvNum(int32_t lv);
 };
 
 typedef NFShmHashMap<int64_t, GrowInfoCfg, 100> GrowCfgMap;
-typedef NFShmHashMap<int32_t, GrowCfgMap, 20> GrowTypeMap;
+typedef NFShmHashMap<int32_t, GrowCfgMap, proto_ff::GrowType_MAX> GrowTypeMap;
 
 class NFGrowDescStoreEx : public NFIDescStore
 {
@@ -98,7 +105,7 @@ private:
     bool addId(int64_t id, int32_t type); //对ID处理
 private:
     GrowTypeMap		m_typeGrowMap;
-    MAP_INT64_INT32 m_id2typeMap;	//所有配置表ID不能重复
+    NFShmHashMap<int64_t, int32_t, MAX_FASHION_FASHION_NUM+MAX_HEADPORTRAIT_HEAD_NUM+MAX_DECORATE_DECORATE_NUM+MAX_FOOTPRINT_FOOTPRINT_NUM+MAX_MEDITATION_MEDITATION_NUM+MAX_HALO_HALO_NUM> m_id2typeMap;	//所有配置表ID不能重复
 private:
 DECLARE_IDCREATE(NFGrowDescStoreEx)
 IMPL_RES_SIMPLE_DESC(NFGrowDescStoreEx);
