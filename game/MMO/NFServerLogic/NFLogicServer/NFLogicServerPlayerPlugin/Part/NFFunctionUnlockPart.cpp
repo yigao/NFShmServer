@@ -83,13 +83,13 @@ int NFFunctionUnlockPart::UnInit()
 }
 
 
-int NFFunctionUnlockPart::RetisterClientMessage(NFIPluginManager *pPluginManager)
+int NFFunctionUnlockPart::RegisterClientMessage(NFIPluginManager *pPluginManager)
 {
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_SERVER_FUNCTIONUNLOCK_GET_REWARD_REQ, PART_FUNCTIONUNLOCK);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_SERVER_FUNCTIONUNLOCK_GET_REWARD_REQ, PART_FUNCTIONUNLOCK);
     return 0;
 }
 
-int NFFunctionUnlockPart::RetisterServerMessage(NFIPluginManager *pPluginManager)
+int NFFunctionUnlockPart::RegisterServerMessage(NFIPluginManager *pPluginManager)
 {
     return 0;
 }

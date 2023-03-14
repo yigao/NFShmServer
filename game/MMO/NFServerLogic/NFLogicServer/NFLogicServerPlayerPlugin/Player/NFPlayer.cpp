@@ -86,22 +86,48 @@ int NFPlayer::Init(const proto_ff::RoleDBData &dbData)
     }
 
     Subscribe(NF_ST_LOGIC_SERVER, EVENT_SYNC_SCENE_POS, CREATURE_PLAYER, GetRoleId(), __FUNCTION__);
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_SYNC_SCENE_STATE, CREATURE_PLAYER, GetRoleId(), __FUNCTION__);
+
     return 0;
 }
 
 int NFPlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
-    if (nEventID == EVENT_SYNC_SCENE_POS)
+    switch(nEventID)
     {
-        const proto_ff::SyncScenePos *pEvent = dynamic_cast<const proto_ff::SyncScenePos *>(pMessage);
-        if (pEvent)
+        case EVENT_SYNC_SCENE_POS:
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetRoleId(), "SyncScenePos Event:{}", pEvent->DebugString());
-            if (pEvent->map_id() == m_mapId && pEvent->scene_id() == m_sceneId)
+            const proto_ff::SyncScenePos *pEvent = dynamic_cast<const proto_ff::SyncScenePos *>(pMessage);
+            if (pEvent)
             {
-                SetPos(NFPoint3<float>(pEvent->pos()));
+                NFLogInfo(NF_LOG_SYSTEMLOG, GetRoleId(), "SyncScenePos Event:{}", pEvent->DebugString());
+                if (pEvent->map_id() == m_mapId && pEvent->scene_id() == m_sceneId)
+                {
+                    SetPos(NFPoint3<float>(pEvent->pos()));
+                }
             }
+            break;
         }
+        case EVENT_SYNC_SCENE_STATE:
+        {
+            const proto_ff::SyncSceneState *pEvent = dynamic_cast<const proto_ff::SyncSceneState *>(pMessage);
+            if (pEvent)
+            {
+                NFLogInfo(NF_LOG_SYSTEMLOG, GetRoleId(), "SyncSceneState Event:{}", pEvent->DebugString());
+                m_curstate = pEvent->cur_state();
+                m_laststate = pEvent->last_state();
+                if (pEvent->cur_state() == proto_ff::state_fight)
+                {
+
+                }
+                else if (pEvent->cur_state() == proto_ff::state_seat)
+                {
+
+                }
+            }
+            break;
+        }
+        default:break;
     }
     return 0;
 }

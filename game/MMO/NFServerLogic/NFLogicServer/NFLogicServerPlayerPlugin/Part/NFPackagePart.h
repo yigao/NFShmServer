@@ -31,9 +31,9 @@ public:
     int ResumeInit();
 
 public:
-    static int RetisterClientMessage(NFIPluginManager *pPluginManager);
+    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
-    static int RetisterServerMessage(NFIPluginManager *pPluginManager);
+    static int RegisterServerMessage(NFIPluginManager *pPluginManager);
 public:
     //******************part调用生物接口******************
     //生物init调用

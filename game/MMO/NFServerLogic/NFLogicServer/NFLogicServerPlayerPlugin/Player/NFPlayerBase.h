@@ -295,8 +295,6 @@ public:
     bool BState(proto_ff::ECState state);
     uint8_t GetState();
     void SetState(proto_ff::ECState state);
-    bool EnterState(proto_ff::ECState state);
-    void OnChangeState(uint8_t curstate, uint8_t laststate);
 protected:
     /**
      * @brief 玩家数据是否初始化

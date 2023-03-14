@@ -45,16 +45,16 @@ int NFPackagePart::ResumeInit()
     return 0;
 }
 
-int NFPackagePart::RetisterClientMessage(NFIPluginManager *pPluginManager)
+int NFPackagePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
 {
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_PACKAGE_INFO_REQ, PART_PACKAGE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_PACKAGE_USE, PART_PACKAGE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_PACKAGE_SORT_REQ, PART_PACKAGE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_STORAGE_OPERATE_REQ, PART_PACKAGE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_PACKAGE_INFO_REQ, PART_PACKAGE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_PACKAGE_USE, PART_PACKAGE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_PACKAGE_SORT_REQ, PART_PACKAGE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_STORAGE_OPERATE_REQ, PART_PACKAGE);
     return 0;
 }
 
-int NFPackagePart::RetisterServerMessage(NFIPluginManager *pPluginManager)
+int NFPackagePart::RegisterServerMessage(NFIPluginManager *pPluginManager)
 {
     return 0;
 }

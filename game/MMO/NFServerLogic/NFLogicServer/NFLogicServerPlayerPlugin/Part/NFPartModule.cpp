@@ -32,20 +32,20 @@ NFPartModule::~NFPartModule()
 bool NFPartModule::Awake()
 {
     //package msg
-    NFPackagePart::RetisterClientMessage(m_pObjPluginManager);
-    NFPackagePart::RetisterServerMessage(m_pObjPluginManager);
+    NFPackagePart::RegisterClientMessage(m_pObjPluginManager);
+    NFPackagePart::RegisterServerMessage(m_pObjPluginManager);
 
     //function part msg
-    NFFunctionUnlockPart::RetisterClientMessage(m_pObjPluginManager);
-    NFFunctionUnlockPart::RetisterServerMessage(m_pObjPluginManager);
+    NFFunctionUnlockPart::RegisterClientMessage(m_pObjPluginManager);
+    NFFunctionUnlockPart::RegisterServerMessage(m_pObjPluginManager);
 
     //title part msg
-    NFTitlePart::RetisterClientMessage(m_pObjPluginManager);
-    NFTitlePart::RetisterServerMessage(m_pObjPluginManager);
+    NFTitlePart::RegisterClientMessage(m_pObjPluginManager);
+    NFTitlePart::RegisterServerMessage(m_pObjPluginManager);
 
     //mission part msg
-    NFMissionPart::RetisterClientMessage(m_pObjPluginManager);
-    NFMissionPart::RetisterServerMessage(m_pObjPluginManager);
+    NFMissionPart::RegisterClientMessage(m_pObjPluginManager);
+    NFMissionPart::RegisterServerMessage(m_pObjPluginManager);
     return true;
 }
 
@@ -73,6 +73,9 @@ int NFPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, u
             }
         }
     }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "can' find the player role:{}", roleId);
+    }
     return 0;
 }
 
@@ -93,7 +96,7 @@ int NFPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, u
     return 0;
 }
 
-int NFPartModule::RetisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_clientMsgToPartMap.size(), -1, "");
     RegisterClientMessage(NF_ST_LOGIC_SERVER, nMsgID);
@@ -101,7 +104,7 @@ int NFPartModule::RetisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
     return 0;
 }
 
-int NFPartModule::RetisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
     RegisterServerMessage(NF_ST_LOGIC_SERVER, nMsgID);

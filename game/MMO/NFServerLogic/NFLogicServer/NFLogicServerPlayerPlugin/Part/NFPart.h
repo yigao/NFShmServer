@@ -149,9 +149,9 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    static int RetisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 
-    static int RetisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 
 public:
     //部件类型

@@ -55,14 +55,14 @@ int NFPart::UnInit()
     return 0;
 }
 
-int NFPart::RetisterClientPartMsg(NFIPluginManager* pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFPart::RegisterClientPartMsg(NFIPluginManager* pPluginManager, uint32_t nMsgID, uint32_t partType)
 {
-    return pPluginManager->FindModule<NFPartModule>()->RetisterClientPartMsg(nMsgID, partType);
+    return pPluginManager->FindModule<NFPartModule>()->RegisterClientPartMsg(nMsgID, partType);
 }
 
-int NFPart::RetisterServerPartMsg(NFIPluginManager* pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFPart::RegisterServerPartMsg(NFIPluginManager* pPluginManager, uint32_t nMsgID, uint32_t partType)
 {
-    return pPluginManager->FindModule<NFPartModule>()->RetisterServerPartMsg(nMsgID, partType);
+    return pPluginManager->FindModule<NFPartModule>()->RegisterServerPartMsg(nMsgID, partType);
 }
 
 int NFPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)

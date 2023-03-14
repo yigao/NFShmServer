@@ -172,11 +172,6 @@ void NFWorldPlayer::SetSceneStatus(PLAYER_SCENE_STATE status)
     m_sceneState = status;
 }
 
-bool NFWorldPlayer::IsInBattle()
-{
-    return m_sceneState == PLAYER_SCENE_STATUS_Fighting;
-}
-
 bool NFWorldPlayer::IsInTransSceneing()
 {
     return m_sceneState == PLAYER_SCENE_STATUS_Entering || m_sceneState == PLAYER_SCENE_STATUS_Leaveing;

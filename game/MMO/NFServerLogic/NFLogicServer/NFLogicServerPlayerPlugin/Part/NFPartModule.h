@@ -41,8 +41,8 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2) override;
 public:
-    virtual int RetisterClientPartMsg(uint32_t nMsgID, uint32_t partType);
-    virtual int RetisterServerPartMsg(uint32_t nMsgID, uint32_t partType);
+    virtual int RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType);
+    virtual int RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType);
 private:
     std::vector<uint32_t> m_clientMsgToPartMap;
     std::vector<uint32_t> m_serverMsgToPartMap;

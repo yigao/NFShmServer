@@ -79,9 +79,9 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    static int RetisterClientMessage(NFIPluginManager *pPluginManager);
+    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
-    static int RetisterServerMessage(NFIPluginManager *pPluginManager);
+    static int RegisterServerMessage(NFIPluginManager *pPluginManager);
 
 public:
     int OnHandleGetReward(uint32_t msgId, NFDataPackage &packet);

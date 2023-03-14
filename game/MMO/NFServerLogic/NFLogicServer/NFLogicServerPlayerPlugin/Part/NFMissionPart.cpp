@@ -50,21 +50,21 @@ int NFMissionPart::ResumeInit()
     return 0;
 }
 
-int NFMissionPart::RetisterClientMessage(NFIPluginManager *pPluginManager)
+int NFMissionPart::RegisterClientMessage(NFIPluginManager *pPluginManager)
 {
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_QUERY_MiSSIONLIST, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_NPC_ACCEPTMISSION, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_ABANDONMISSION, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_SUBMITMISSION, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TALKWITHNPC, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_SUBMITMISSIONGOODS, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_ONEKEY_FINISH, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_ONCE_FINISH, PART_MISSION);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_QUERY_MiSSIONLIST, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_NPC_ACCEPTMISSION, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_ABANDONMISSION, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_SUBMITMISSION, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TALKWITHNPC, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_SUBMITMISSIONGOODS, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_ONEKEY_FINISH, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_ONCE_FINISH, PART_MISSION);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD, PART_MISSION);
     return 0;
 }
 
-int NFMissionPart::RetisterServerMessage(NFIPluginManager *pPluginManager)
+int NFMissionPart::RegisterServerMessage(NFIPluginManager *pPluginManager)
 {
     return 0;
 }

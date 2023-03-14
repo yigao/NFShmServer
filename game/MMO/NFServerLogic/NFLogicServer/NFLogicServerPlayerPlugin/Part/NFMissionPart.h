@@ -45,9 +45,9 @@ public:
     int ResumeInit();
 
 public:
-    static int RetisterClientMessage(NFIPluginManager *pPluginManager);
+    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
-    static int RetisterServerMessage(NFIPluginManager *pPluginManager);
+    static int RegisterServerMessage(NFIPluginManager *pPluginManager);
 
 public:
 public:

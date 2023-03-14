@@ -148,12 +148,6 @@ public:
      */
     virtual void SetSceneStatus(PLAYER_SCENE_STATE status);
 
-    /**
-     * @brief
-     * @return
-     */
-    virtual bool IsInBattle();
-
     virtual bool IsInTransSceneing();
 
     /**

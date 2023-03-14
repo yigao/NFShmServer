@@ -44,17 +44,17 @@ int NFTitlePart::ResumeInit()
     return 0;
 }
 
-int NFTitlePart::RetisterClientMessage(NFIPluginManager *pPluginManager)
+int NFTitlePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
 {
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_INFO_REQ, PART_TITLE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_ACTIVE_REQ, PART_TITLE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_STAR_LV_REQ, PART_TITLE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_DRESS_REQ, PART_TITLE);
-    RetisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_UNDRESS_REQ, PART_TITLE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_INFO_REQ, PART_TITLE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_ACTIVE_REQ, PART_TITLE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_STAR_LV_REQ, PART_TITLE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_DRESS_REQ, PART_TITLE);
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_TITLE_UNDRESS_REQ, PART_TITLE);
     return 0;
 }
 
-int NFTitlePart::RetisterServerMessage(NFIPluginManager *pPluginManager)
+int NFTitlePart::RegisterServerMessage(NFIPluginManager *pPluginManager)
 {
     return 0;
 }

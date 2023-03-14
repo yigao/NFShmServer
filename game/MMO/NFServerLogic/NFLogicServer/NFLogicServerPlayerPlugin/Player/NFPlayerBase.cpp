@@ -206,7 +206,7 @@ void NFPlayerBase::SetSceneStatus(PLAYER_SCENE_STATE status)
 
 bool NFPlayerBase::IsInBattle()
 {
-    return m_sceneState == PLAYER_SCENE_STATUS_Fighting;
+    return BState(proto_ff::state_fight);
 }
 
 bool NFPlayerBase::IsInTransSceneing()
@@ -503,28 +503,6 @@ uint8_t NFPlayerBase::GetState()
 void NFPlayerBase::SetState(proto_ff::ECState state)
 {
     m_curstate = state;
-}
-
-bool NFPlayerBase::EnterState(proto_ff::ECState state)
-{
-    if (!ECState_IsValid(state)) return false;
-    if (BState(state)) return false;
-    m_laststate = m_curstate;
-    m_curstate = state;
-    NFLogInfo(NF_LOG_SYSTEMLOG, m_cid, "Player EnterState...m_curstate:{}, m_laststate:{} ", m_curstate, m_laststate);
-    OnChangeState(m_curstate, m_laststate);
-    return true;
-}
-
-//状态改变
-void NFPlayerBase::OnChangeState(uint8_t curstate, uint8_t laststate)
-{
-    //通知客户端状态改变
-    proto_ff::CreatureStateBroadRsp rsp;
-    rsp.set_cid(GetRoleId());
-    rsp.set_curstate(curstate);
-    rsp.set_beforestate(laststate);
-    //BroadCast(proto_ff::CREATURE_STATE_BROAD, &rsp, true);
 }
 
 void NFPlayerBase::SetAttrData(proto_ff::RoleDBData &proto)
