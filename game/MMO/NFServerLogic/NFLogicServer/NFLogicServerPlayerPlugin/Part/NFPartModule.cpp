@@ -17,6 +17,7 @@
 #include "NFFunctionUnlockPart.h"
 #include "NFTitlePart.h"
 #include "NFMissionPart.h"
+#include "NFGrowPart.h"
 
 NFPartModule::NFPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -46,6 +47,10 @@ bool NFPartModule::Awake()
     //mission part msg
     NFMissionPart::RegisterClientMessage(m_pObjPluginManager);
     NFMissionPart::RegisterServerMessage(m_pObjPluginManager);
+
+    //grow part msg
+    NFGrowPart::RegisterClientMessage(m_pObjPluginManager);
+    NFGrowPart::RegisterServerMessage(m_pObjPluginManager);
     return true;
 }
 

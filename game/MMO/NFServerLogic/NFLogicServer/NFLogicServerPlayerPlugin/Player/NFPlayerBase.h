@@ -53,6 +53,8 @@ public:
     virtual void SetFacadeProto(proto_ff::RoleFacadeProto& outproto);
     virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto);
     virtual void SetAttrData(proto_ff::RoleDBData& proto);
+    //同步外观
+    virtual void SyncFacade() {};
 public:
     /**
      * @brief 保存DB相关

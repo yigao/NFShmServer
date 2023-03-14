@@ -46,6 +46,9 @@ class ChgSceneEvent;
 class EnterSceneEvent;
 class SyncScenePos;
 class SyncSceneState;
+class GrowPartActiveEvent;
+class GrowPartLvUpEvent;
+class GrowPartDressEvent;
 
 // ===================================================================
 
@@ -1059,6 +1062,312 @@ class SyncSceneState : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SyncSceneState* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class GrowPartActiveEvent : public ::google::protobuf::Message {
+ public:
+  GrowPartActiveEvent();
+  virtual ~GrowPartActiveEvent();
+
+  GrowPartActiveEvent(const GrowPartActiveEvent& from);
+
+  inline GrowPartActiveEvent& operator=(const GrowPartActiveEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GrowPartActiveEvent& default_instance();
+
+  void Swap(GrowPartActiveEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  GrowPartActiveEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GrowPartActiveEvent& from);
+  void MergeFrom(const GrowPartActiveEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 curLv = 3;
+  inline bool has_curlv() const;
+  inline void clear_curlv();
+  static const int kCurLvFieldNumber = 3;
+  inline ::google::protobuf::int32 curlv() const;
+  inline void set_curlv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GrowPartActiveEvent)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_curlv();
+  inline void clear_has_curlv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 curlv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static GrowPartActiveEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GrowPartLvUpEvent : public ::google::protobuf::Message {
+ public:
+  GrowPartLvUpEvent();
+  virtual ~GrowPartLvUpEvent();
+
+  GrowPartLvUpEvent(const GrowPartLvUpEvent& from);
+
+  inline GrowPartLvUpEvent& operator=(const GrowPartLvUpEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GrowPartLvUpEvent& default_instance();
+
+  void Swap(GrowPartLvUpEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  GrowPartLvUpEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GrowPartLvUpEvent& from);
+  void MergeFrom(const GrowPartLvUpEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 curLv = 3;
+  inline bool has_curlv() const;
+  inline void clear_curlv();
+  static const int kCurLvFieldNumber = 3;
+  inline ::google::protobuf::int32 curlv() const;
+  inline void set_curlv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GrowPartLvUpEvent)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_curlv();
+  inline void clear_has_curlv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 curlv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static GrowPartLvUpEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GrowPartDressEvent : public ::google::protobuf::Message {
+ public:
+  GrowPartDressEvent();
+  virtual ~GrowPartDressEvent();
+
+  GrowPartDressEvent(const GrowPartDressEvent& from);
+
+  inline GrowPartDressEvent& operator=(const GrowPartDressEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GrowPartDressEvent& default_instance();
+
+  void Swap(GrowPartDressEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  GrowPartDressEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GrowPartDressEvent& from);
+  void MergeFrom(const GrowPartDressEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 curLv = 3;
+  inline bool has_curlv() const;
+  inline void clear_curlv();
+  static const int kCurLvFieldNumber = 3;
+  inline ::google::protobuf::int32 curlv() const;
+  inline void set_curlv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GrowPartDressEvent)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_curlv();
+  inline void clear_has_curlv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 curlv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Event_2eproto();
+  friend void protobuf_AssignDesc_Event_2eproto();
+  friend void protobuf_ShutdownFile_Event_2eproto();
+
+  void InitAsDefaultInstance();
+  static GrowPartDressEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -1754,6 +2063,216 @@ inline ::google::protobuf::uint32 SyncSceneState::cur_state() const {
 inline void SyncSceneState::set_cur_state(::google::protobuf::uint32 value) {
   set_has_cur_state();
   cur_state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GrowPartActiveEvent
+
+// optional int32 type = 1;
+inline bool GrowPartActiveEvent::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GrowPartActiveEvent::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GrowPartActiveEvent::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GrowPartActiveEvent::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 GrowPartActiveEvent::type() const {
+  return type_;
+}
+inline void GrowPartActiveEvent::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 id = 2;
+inline bool GrowPartActiveEvent::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GrowPartActiveEvent::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GrowPartActiveEvent::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GrowPartActiveEvent::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 GrowPartActiveEvent::id() const {
+  return id_;
+}
+inline void GrowPartActiveEvent::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 curLv = 3;
+inline bool GrowPartActiveEvent::has_curlv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GrowPartActiveEvent::set_has_curlv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GrowPartActiveEvent::clear_has_curlv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GrowPartActiveEvent::clear_curlv() {
+  curlv_ = 0;
+  clear_has_curlv();
+}
+inline ::google::protobuf::int32 GrowPartActiveEvent::curlv() const {
+  return curlv_;
+}
+inline void GrowPartActiveEvent::set_curlv(::google::protobuf::int32 value) {
+  set_has_curlv();
+  curlv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GrowPartLvUpEvent
+
+// optional int32 type = 1;
+inline bool GrowPartLvUpEvent::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GrowPartLvUpEvent::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GrowPartLvUpEvent::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GrowPartLvUpEvent::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 GrowPartLvUpEvent::type() const {
+  return type_;
+}
+inline void GrowPartLvUpEvent::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 id = 2;
+inline bool GrowPartLvUpEvent::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GrowPartLvUpEvent::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GrowPartLvUpEvent::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GrowPartLvUpEvent::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 GrowPartLvUpEvent::id() const {
+  return id_;
+}
+inline void GrowPartLvUpEvent::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 curLv = 3;
+inline bool GrowPartLvUpEvent::has_curlv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GrowPartLvUpEvent::set_has_curlv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GrowPartLvUpEvent::clear_has_curlv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GrowPartLvUpEvent::clear_curlv() {
+  curlv_ = 0;
+  clear_has_curlv();
+}
+inline ::google::protobuf::int32 GrowPartLvUpEvent::curlv() const {
+  return curlv_;
+}
+inline void GrowPartLvUpEvent::set_curlv(::google::protobuf::int32 value) {
+  set_has_curlv();
+  curlv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GrowPartDressEvent
+
+// optional int32 type = 1;
+inline bool GrowPartDressEvent::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GrowPartDressEvent::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GrowPartDressEvent::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GrowPartDressEvent::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 GrowPartDressEvent::type() const {
+  return type_;
+}
+inline void GrowPartDressEvent::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 id = 2;
+inline bool GrowPartDressEvent::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GrowPartDressEvent::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GrowPartDressEvent::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GrowPartDressEvent::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 GrowPartDressEvent::id() const {
+  return id_;
+}
+inline void GrowPartDressEvent::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 curLv = 3;
+inline bool GrowPartDressEvent::has_curlv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GrowPartDressEvent::set_has_curlv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GrowPartDressEvent::clear_has_curlv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GrowPartDressEvent::clear_curlv() {
+  curlv_ = 0;
+  clear_has_curlv();
+}
+inline ::google::protobuf::int32 GrowPartDressEvent::curlv() const {
+  return curlv_;
+}
+inline void GrowPartDressEvent::set_curlv(::google::protobuf::int32 value) {
+  set_has_curlv();
+  curlv_ = value;
 }
 
 

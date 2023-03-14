@@ -73,6 +73,7 @@ enum EventId
     EVENT_CHANGE_SCENE,					//生物场景改变
     EVENT_SYNC_SCENE_POS,               //场景位置同步
     EVENT_SYNC_SCENE_STATE,             //场景状态同步事件
+    EVENT_SYNC_SCENE_FACADE,            //同步场景外观
 
     ////////////////////////任务事件/////////////////////////
     EVENT_ACCEPT_TASK,					//接取任务

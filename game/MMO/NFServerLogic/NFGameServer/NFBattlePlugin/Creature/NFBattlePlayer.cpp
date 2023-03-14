@@ -16,6 +16,7 @@
 #include "NFLogicCommon/NFEventDefine.h"
 #include "Event.pb.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "ClientServerCmd.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature)
 
@@ -66,8 +67,14 @@ int NFBattlePlayer::ResumeInit()
 
 int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
 {
+    m_roleId = data.cid();
+    m_cid = m_roleId;
+    m_zid = data.zid();
+    m_uid = data.uid();
+
     NFCreature::Init();
     ResetCurSeq();
+    m_isInited = true;
 
     for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
     {
@@ -80,17 +87,15 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
 
         m_pPart[i] = pPart->GetGlobalID();
     }
+
+    Subscribe(NF_ST_GAME_SERVER, EVENT_SYNC_SCENE_FACADE, CREATURE_PLAYER, Cid(), __FUNCTION__);
     return 0;
 }
 
 int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data)
 {
-    m_isInited = true;
     ReadBaseData(data.base());
-    m_roleId = data.cid();
-    m_cid = m_roleId;
-    m_zid = data.zid();
-    m_uid = data.uid();
+
     m_proxyId = gateId;
     m_clientId = clientId;
     m_logicId = logicId;
@@ -162,6 +167,44 @@ int NFBattlePlayer::OnTimer(int timeId, int callcount)
     if (m_timerId_FightState == timeId)
     {
         LeaveFigthState();
+    }
+
+    return 0;
+}
+
+int NFBattlePlayer::SyncFacade(const proto_ff::RoleFacadeProto* pEvent)
+{
+    CHECK_NULL(pEvent);
+
+    m_facade.read_from_pbmsg(*pEvent);
+
+    //广播外观
+    proto_ff::NotifyRoleFacadeCastRsp rsp;
+    rsp.set_roleid(Cid());
+    proto_ff::RoleFacadeProto* pProto = rsp.mutable_facade();
+    m_facade.write_to_pbmsg(*pProto);
+    BroadCast(proto_ff::NOTIFY_FACADE_CAST_RSP, rsp, true);
+
+    return 0;
+}
+
+int NFBattlePlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+{
+    switch(nEventID)
+    {
+        case EVENT_SYNC_SCENE_FACADE:
+        {
+            const proto_ff::RoleFacadeProto* pEvent = dynamic_cast<const proto_ff::RoleFacadeProto*>(pMessage);
+            if (pEvent)
+            {
+                SyncFacade(pEvent);
+            }
+            break;
+        }
+        default:
+        {
+            break;
+        }
     }
 
     return 0;

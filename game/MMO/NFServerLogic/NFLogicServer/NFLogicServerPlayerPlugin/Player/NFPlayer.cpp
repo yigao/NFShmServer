@@ -348,6 +348,14 @@ void NFPlayer::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
     }
 }
 
+void NFPlayer::SyncFacade()
+{
+    proto_ff::RoleFacadeProto syncFacade;
+    SetFacadeProto(syncFacade);
+    m_lastFacade.read_from_pbmsg(syncFacade);
+    FireGame(EVENT_SYNC_SCENE_FACADE, CREATURE_PLAYER, GetRoleId(), syncFacade);
+}
+
 void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto)
 {
     NFPlayerBase::SetEnterSceneProto(outproto);
@@ -481,6 +489,15 @@ int NFPlayer::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Messa
 int NFPlayer::SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
     FindModule<NFIServerMessageModule>()->SendTransToGameServer(NF_ST_LOGIC_SERVER, m_gameId, msgId, xData, req_trans_id, rsp_trans_id);
+    return 0;
+}
+
+int NFPlayer::FireGame(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self/* = false*/)
+{
+    if (GetGameId() > 0)
+    {
+        FireBroadcast(NF_ST_LOGIC_SERVER, NF_ST_GAME_SERVER, GetGameId(), nEventID, bySrcType, nSrcID, message, self);
+    }
     return 0;
 }
 

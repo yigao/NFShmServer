@@ -55,7 +55,8 @@ public:
     virtual int SaveDB(proto_ff::RoleDBData &dbData) override;
     virtual void SetFacadeProto(proto_ff::RoleFacadeProto& outproto) override;
     virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto) override;
-
+    //同步外观
+    virtual void SyncFacade() override;
     //////////////////////////////每日每周刷新接口///////////////////////////////
     /**
      * @brief 每日每周刷新接口 策划配置，几点
@@ -112,6 +113,7 @@ public:
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
+    virtual int FireGame(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self = false);
 public:
     /**
      * @brief

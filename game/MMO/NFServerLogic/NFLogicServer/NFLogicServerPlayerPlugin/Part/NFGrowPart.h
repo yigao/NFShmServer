@@ -23,7 +23,7 @@ class NFGrowPart : public NFPart
 public:
 public:
     //部件元素
-    struct  GrowPartEntry
+    struct GrowPartEntry
     {
         GrowPartEntry()
         {
@@ -52,7 +52,9 @@ public:
         int64_t id = 0;
         int32_t lv = 0;
     };
+
     typedef NFShmHashMap<int64_t, GrowPartEntry, 10> GrowPartEntryMap;
+
     //养成部件
     struct GrowPartData
     {
@@ -83,9 +85,12 @@ public:
         int32_t type;
         GrowPartEntryMap entryMap;
         int64_t curId;
-        GrowPartEntry* GetPartEntry(int64_t id);
-        void SetPartEntry(GrowPartEntry& entry);
+
+        GrowPartEntry *GetPartEntry(int64_t id);
+
+        void SetPartEntry(GrowPartEntry &entry);
     };
+
     typedef NFShmHashMap<int32_t, GrowPartData, proto_ff::GrowType_MAX> GrowPartMap;
 public:
     NFGrowPart();
@@ -95,6 +100,7 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
 public:
     //******************part调用生物接口******************
     //生物init调用
@@ -152,7 +158,7 @@ public:
      * @brief 进入场景携带的数据
      * @param outproto
      */
-    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto);
+    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto);
 
     ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
     /**
@@ -208,24 +214,38 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
-    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterServerMessage(NFIPluginManager *pPluginManager);
+
 public:
-    int FillProto(const GrowPartData& part, proto_ff::GrowSubInfo& proto);
-    GrowPartData* getPart(int32_t type);
+    int HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet);        //升级
+    int HanlderDressReq(uint32_t msgId, NFDataPackage &packet);        //穿戴
+    int HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet);        //卸载
 public:
-    int SendAllGrowData();										//发送全部数据
-    int SendGrowPartData(int32_t type);						//发送某个部件数据
+    int OnActivePartEntry(int64_t id);                            //处理激活
+    int OnLvupPartEntry(int64_t id);                            //处理升级
+public:
+    int FillProto(const GrowPartData &part, proto_ff::GrowSubInfo &proto);
+
+    GrowPartData *getPart(int32_t type);
+
+public:
+    int SendAllGrowData();                                        //发送全部数据
+    int SendGrowPartData(int32_t type);                        //发送某个部件数据
 public:
     void calcAttr(bool sync);
-    void calcAttr(int32_t type, MAP_INT32_INT64& outAttr);		//计算养成部件属性
-    void MergeAttr(MAP_INT32_INT64& src, MAP_INT32_INT64& dst);
-    void PrintAttr(int32_t type, MAP_INT32_INT64& attr);
+
+    void calcAttr(int32_t type, MAP_INT32_INT64 &outAttr);        //计算养成部件属性
+    void MergeAttr(MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst);
+
+    void PrintAttr(int32_t type, MAP_INT32_INT64 &attr);
+
 private:
     void initParts();
+
 protected:
-    GrowPartMap m_partsMap;					//所有养成的部件
+    GrowPartMap m_partsMap;                    //所有养成的部件
 private:
 DECLARE_IDCREATE(NFGrowPart)
 };
