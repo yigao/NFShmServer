@@ -18,6 +18,16 @@
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGrowPart, EOT_LOGIC_GROW_PART_ID, NFPart)
 
+NFGrowPart::GrowPartEntry*  NFGrowPart::GrowPartData::GetPartEntry(int64_t id)
+{
+    auto iter = entryMap.find(id);
+    return iter != entryMap.end() ? &(iter->second) : nullptr;
+}
+void NFGrowPart::GrowPartData::SetPartEntry(NFGrowPart::GrowPartEntry& entry)
+{
+    entryMap[entry.id] = entry;
+}
+
 NFGrowPart::NFGrowPart() : NFPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

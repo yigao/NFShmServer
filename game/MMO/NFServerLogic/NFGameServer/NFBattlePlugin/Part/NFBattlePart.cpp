@@ -9,6 +9,7 @@
 
 #include "NFBattlePart.h"
 #include "Creature/NFCreature.h"
+#include "Creature/NFCreatureMgr.h"
 #include "NFBattlePartModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePart, EOT_NFBattlePart_ID, NFShmObj)
@@ -87,7 +88,7 @@ int NFBattlePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 
 NFCreature *NFBattlePart::GetMaster()
 {
-    return dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_masterCid, EOT_GAME_CREATURE_ID, 0));
+    return dynamic_cast<NFCreature *>(NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(m_masterCid));
 }
 
 int NFBattlePart::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself)
