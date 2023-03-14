@@ -338,7 +338,8 @@ int NFPlayer::SaveDB(proto_ff::RoleDBData &dbData)
 
 void NFPlayer::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
 {
-    NFPlayerBase::SetFacadeProto(outproto);
+    outproto.set_color(m_color);
+    outproto.set_prof(GetAttr(proto_ff::A_PROF));
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
         if (m_pPart[i])
@@ -366,6 +367,18 @@ void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto)
             m_pPart[i]->SetEnterSceneProto(outproto);
         }
     }
+
+    auto &setAttr = NFAttrMgr::Instance(m_pObjPluginManager)->PlayerViewAttr();
+    for (auto iter = setAttr.begin(); iter != setAttr.end(); ++iter)
+    {
+        uint32_t attrid = (*iter);
+        proto_ff::Attr64 *pAttr = outproto.mutable_attr()->add_attr_lst();
+        if (nullptr != pAttr)
+        {
+            pAttr->set_id(attrid);
+            pAttr->set_value(GetAttr(attrid));
+        }
+    }
 }
 
 int NFPlayer::OnLoad(bool isLoadDB)
@@ -377,6 +390,7 @@ int NFPlayer::OnLoad(bool isLoadDB)
 int NFPlayer::OnLogin(bool isLoadDB)
 {
     SetStatus(PLAYER_STATUS_ONLINE);
+    SetState(proto_ff::state_normal);
     for (size_t i = 0; i < PART_MAX; i++)
     {
         if (m_pPart[i])

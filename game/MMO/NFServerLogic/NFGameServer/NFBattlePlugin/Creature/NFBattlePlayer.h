@@ -42,6 +42,8 @@ public:
 
     virtual int ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData);
 
+    virtual int ReadViewAttrData(const ::proto_ff::AttrDBData &dbData);
+
     //视野数据
     virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &CvData);
 

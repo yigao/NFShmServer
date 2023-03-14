@@ -88,6 +88,8 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
         m_pPart[i] = pPart->GetGlobalID();
     }
 
+    SetState(proto_ff::state_normal);
+
     Subscribe(NF_ST_GAME_SERVER, EVENT_SYNC_SCENE_FACADE, CREATURE_PLAYER, Cid(), __FUNCTION__);
     return 0;
 }
@@ -95,6 +97,7 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
 int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data)
 {
     ReadBaseData(data.base());
+    ReadViewAttrData(data.attr());
 
     m_proxyId = gateId;
     m_clientId = clientId;
@@ -110,6 +113,7 @@ int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, c
 
         pPart->Init(data);
     }
+
     return 0;
 }
 
@@ -261,15 +265,18 @@ int NFBattlePlayer::Update(uint64_t tick)
 int NFBattlePlayer::ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData)
 {
     m_name = dbData.name();
-    m_pAttr->SetAttr(proto_ff::A_PROF, dbData.prof());
-    m_pAttr->SetAttr(proto_ff::A_LEVEL, dbData.level());
-    m_pAttr->SetAttr(proto_ff::A_EXP, dbData.exp());
-    m_pAttr->SetAttr(proto_ff::A_CUR_HP, dbData.hp());
-    m_pAttr->SetAttr(proto_ff::A_FIGHT, dbData.fight());
-    m_pAttr->SetAttr(proto_ff::A_VIP_LEVEL, dbData.vip_level());
-    m_pAttr->SetAttr(proto_ff::A_HANGUP_TIME, dbData.hanguptime());
-    //
     m_facade.read_from_pbmsg(dbData.facade());
+    SetState((proto_ff::ECState)dbData.state());
+    return 0;
+}
+
+int NFBattlePlayer::ReadViewAttrData(const ::proto_ff::AttrDBData &dbData)
+{
+    for(int i = 0; i < (int)dbData.attr_lst_size(); i++)
+    {
+        const ::proto_ff::Attr64& attr = dbData.attr_lst(i);
+        SetAttr(attr.id(), attr.value());
+    }
     return 0;
 }
 

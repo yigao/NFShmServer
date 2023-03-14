@@ -288,6 +288,8 @@ int NFPlayerBase::ReadBaseData(const ::proto_ff::RoleDBData &dbData)
     m_lastPos.x = dbData.base().lastposx();
     m_lastPos.y = dbData.base().lastposy();
     m_lastPos.z = dbData.base().lastposz();
+
+    SetState((proto_ff::ECState)dbData.base().state());
     return 0;
 }
 
@@ -339,7 +341,6 @@ void NFPlayerBase::SetBaseData(proto_ff::RoleDBData &proto)
 
 void NFPlayerBase::SetFacadeProto(proto_ff::RoleFacadeProto &outproto)
 {
-    outproto.set_color(m_color);
     return;
 }
 
