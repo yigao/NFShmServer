@@ -8,6 +8,10 @@
 #include "taskreward.pb.h"
 #include "taskreward_s.h"
 
+#define DEFINE_E_TASKREWARDTASKREWARD_M_ITEM_MAX_NUM 5
+#define DEFINE_E_TASKREWARDTASKREWARD_M_ATTR_MAX_NUM 5
+#define DEFINE_SHEET_TASKREWARDTASKREWARD_E_TASKREWARDTASKREWARD_LIST_MAX_NUM 5000
+#define DEFINE_SHEET_TASKREWARDTASKTYPE_E_TASKREWARDTASKTYPE_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_TaskrewardTaskrewardItemDesc_s : public NFDescStoreSeqOP {
@@ -53,8 +57,8 @@ namespace proto_ff_s {
 		int32_t m_guildexp;
 		int32_t m_guildpoint;
 		int32_t m_skillid;
-		NFShmVector<struct E_TaskrewardTaskrewardItemDesc_s, 5> m_item;
-		NFShmVector<struct E_TaskrewardTaskrewardAttrDesc_s, 5> m_attr;
+		NFShmVector<struct E_TaskrewardTaskrewardItemDesc_s, DEFINE_E_TASKREWARDTASKREWARD_M_ITEM_MAX_NUM> m_item;
+		NFShmVector<struct E_TaskrewardTaskrewardAttrDesc_s, DEFINE_E_TASKREWARDTASKREWARD_M_ATTR_MAX_NUM> m_attr;
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskrewardTaskreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskrewardTaskreward & msg);
@@ -68,7 +72,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskrewardTaskreward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskrewardTaskreward_s, 5000> E_TaskrewardTaskreward_List;
+		NFShmVector<struct E_TaskrewardTaskreward_s, DEFINE_SHEET_TASKREWARDTASKREWARD_E_TASKREWARDTASKREWARD_LIST_MAX_NUM> E_TaskrewardTaskreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskrewardTaskreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskrewardTaskreward & msg);
@@ -96,7 +100,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskrewardTasktype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskrewardTasktype_s, 20> E_TaskrewardTasktype_List;
+		NFShmVector<struct E_TaskrewardTasktype_s, DEFINE_SHEET_TASKREWARDTASKTYPE_E_TASKREWARDTASKTYPE_LIST_MAX_NUM> E_TaskrewardTasktype_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskrewardTasktype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskrewardTasktype & msg);

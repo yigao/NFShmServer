@@ -8,6 +8,14 @@
 #include "dup.pb.h"
 #include "dup_s.h"
 
+#define DEFINE_E_DUPBPLEVEL_M_BGDUPSWEEP_MAX_NUM 5
+#define DEFINE_E_DUPBPLEVEL_M_BGDUP_MAX_NUM 5
+#define DEFINE_SHEET_DUPBPLEVEL_E_DUPBPLEVEL_LIST_MAX_NUM 1100
+#define DEFINE_E_DUPDUP_M_BOX_MAX_NUM 3
+#define DEFINE_SHEET_DUPDUP_E_DUPDUP_LIST_MAX_NUM 200
+#define DEFINE_SHEET_DUPTOWERREWARD_E_DUPTOWERREWARD_LIST_MAX_NUM 20
+#define DEFINE_SHEET_DUPGROUP_E_DUPGROUP_LIST_MAX_NUM 20
+#define DEFINE_SHEET_DUPSWEEPMONSTERNUM_E_DUPSWEEPMONSTERNUM_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_DupBplevel_s : public NFDescStoreSeqOP {
@@ -16,8 +24,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;
-		NFShmVector<int64_t, 5> m_bgdupsweep;
-		NFShmVector<int64_t, 5> m_bgdup;
+		NFShmVector<int64_t, DEFINE_E_DUPBPLEVEL_M_BGDUPSWEEP_MAX_NUM> m_bgdupsweep;
+		NFShmVector<int64_t, DEFINE_E_DUPBPLEVEL_M_BGDUP_MAX_NUM> m_bgdup;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupBplevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupBplevel & msg);
@@ -31,7 +39,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DupBplevel_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DupBplevel_s, 1100> E_DupBplevel_List;
+		NFShmVector<struct E_DupBplevel_s, DEFINE_SHEET_DUPBPLEVEL_E_DUPBPLEVEL_LIST_MAX_NUM> E_DupBplevel_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DupBplevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupBplevel & msg);
@@ -70,7 +78,7 @@ namespace proto_ff_s {
 		NFShmString<60> m_trackpoint;
 		NFShmString<60> m_pathofmonster;
 		int32_t m_ispatrol;
-		NFShmVector<int32_t, 3> m_box;
+		NFShmVector<int32_t, DEFINE_E_DUPDUP_M_BOX_MAX_NUM> m_box;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupDup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupDup & msg);
@@ -84,7 +92,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DupDup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DupDup_s, 200> E_DupDup_List;
+		NFShmVector<struct E_DupDup_s, DEFINE_SHEET_DUPDUP_E_DUPDUP_LIST_MAX_NUM> E_DupDup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DupDup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupDup & msg);
@@ -115,7 +123,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DupTowerreward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DupTowerreward_s, 20> E_DupTowerreward_List;
+		NFShmVector<struct E_DupTowerreward_s, DEFINE_SHEET_DUPTOWERREWARD_E_DUPTOWERREWARD_LIST_MAX_NUM> E_DupTowerreward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DupTowerreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupTowerreward & msg);
@@ -163,7 +171,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DupGroup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DupGroup_s, 20> E_DupGroup_List;
+		NFShmVector<struct E_DupGroup_s, DEFINE_SHEET_DUPGROUP_E_DUPGROUP_LIST_MAX_NUM> E_DupGroup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DupGroup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupGroup & msg);
@@ -196,7 +204,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DupSweepmonsternum_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DupSweepmonsternum_s, 60> E_DupSweepmonsternum_List;
+		NFShmVector<struct E_DupSweepmonsternum_s, DEFINE_SHEET_DUPSWEEPMONSTERNUM_E_DUPSWEEPMONSTERNUM_LIST_MAX_NUM> E_DupSweepmonsternum_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DupSweepmonsternum & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DupSweepmonsternum & msg);

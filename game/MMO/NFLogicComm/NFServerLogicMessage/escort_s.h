@@ -8,6 +8,12 @@
 #include "escort.pb.h"
 #include "escort_s.h"
 
+#define DEFINE_SHEET_ESCORTESCORT_E_ESCORTESCORT_LIST_MAX_NUM 20
+#define DEFINE_E_ESCORTCHANCE_M_ESCORT_MAX_NUM 4
+#define DEFINE_SHEET_ESCORTCHANCE_E_ESCORTCHANCE_LIST_MAX_NUM 20
+#define DEFINE_E_ESCORTREWARD_M_REWARD_MAX_NUM 12
+#define DEFINE_SHEET_ESCORTREWARD_E_ESCORTREWARD_LIST_MAX_NUM 2000
+#define DEFINE_SHEET_ESCORTCONST_E_ESCORTCONST_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_EscortEscort_s : public NFDescStoreSeqOP {
@@ -35,7 +41,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EscortEscort_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EscortEscort_s, 20> E_EscortEscort_List;
+		NFShmVector<struct E_EscortEscort_s, DEFINE_SHEET_ESCORTESCORT_E_ESCORTESCORT_LIST_MAX_NUM> E_EscortEscort_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EscortEscort & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EscortEscort & msg);
@@ -65,7 +71,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_convoyid;
-		NFShmVector<struct E_EscortChanceEscortDesc_s, 4> m_escort;
+		NFShmVector<struct E_EscortChanceEscortDesc_s, DEFINE_E_ESCORTCHANCE_M_ESCORT_MAX_NUM> m_escort;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortChance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EscortChance & msg);
@@ -79,7 +85,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EscortChance_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EscortChance_s, 20> E_EscortChance_List;
+		NFShmVector<struct E_EscortChance_s, DEFINE_SHEET_ESCORTCHANCE_E_ESCORTCHANCE_LIST_MAX_NUM> E_EscortChance_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EscortChance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EscortChance & msg);
@@ -111,7 +117,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int64_t m_exp;
-		NFShmVector<struct E_EscortRewardRewardDesc_s, 12> m_reward;
+		NFShmVector<struct E_EscortRewardRewardDesc_s, DEFINE_E_ESCORTREWARD_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EscortReward & msg);
@@ -125,7 +131,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EscortReward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EscortReward_s, 2000> E_EscortReward_List;
+		NFShmVector<struct E_EscortReward_s, DEFINE_SHEET_ESCORTREWARD_E_ESCORTREWARD_LIST_MAX_NUM> E_EscortReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EscortReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EscortReward & msg);
@@ -167,7 +173,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EscortConst_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EscortConst_s, 20> E_EscortConst_List;
+		NFShmVector<struct E_EscortConst_s, DEFINE_SHEET_ESCORTCONST_E_ESCORTCONST_LIST_MAX_NUM> E_EscortConst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EscortConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EscortConst & msg);

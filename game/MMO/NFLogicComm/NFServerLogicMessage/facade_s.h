@@ -8,6 +8,30 @@
 #include "facade.pb.h"
 #include "facade_s.h"
 
+#define DEFINE_E_FACADEDISPLAY_M_MATERIAL_MAX_NUM 3
+#define DEFINE_E_FACADEDISPLAY_M_FRAGMENTID_MAX_NUM 3
+#define DEFINE_SHEET_FACADEDISPLAY_E_FACADEDISPLAY_LIST_MAX_NUM 20
+#define DEFINE_E_FACADEVALUE_M_TREASUREATTRIBUTE_MAX_NUM 5
+#define DEFINE_E_FACADEVALUE_M_ARTIFACTATTRIBUTE_MAX_NUM 6
+#define DEFINE_E_FACADEVALUE_M_BLADEATTRIBUTE_MAX_NUM 6
+#define DEFINE_E_FACADEVALUE_M_WINGATTRIBUTE_MAX_NUM 4
+#define DEFINE_SHEET_FACADEVALUE_E_FACADEVALUE_LIST_MAX_NUM 500
+#define DEFINE_SHEET_FACADETYPE_E_FACADETYPE_LIST_MAX_NUM 20
+#define DEFINE_E_FACADEFRAGMENT_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_FACADEFRAGMENT_E_FACADEFRAGMENT_LIST_MAX_NUM 20
+#define DEFINE_E_FACADECHANGE_M_ATTRIBUTE_MAX_NUM 5
+#define DEFINE_E_FACADECHANGE_M_ACTIVEATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_FACADECHANGE_E_FACADECHANGE_LIST_MAX_NUM 60
+#define DEFINE_E_FACADESTARUP_M_UPATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_FACADESTARUP_E_FACADESTARUP_LIST_MAX_NUM 40
+#define DEFINE_E_FACADESOUL_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_E_FACADESOUL_M_MINORSKILL_MAX_NUM 8
+#define DEFINE_SHEET_FACADESOUL_E_FACADESOUL_LIST_MAX_NUM 20
+#define DEFINE_E_FACADESOULACTIVE_M_UNLOCK_MAX_NUM 2
+#define DEFINE_SHEET_FACADESOULACTIVE_E_FACADESOULACTIVE_LIST_MAX_NUM 40
+#define DEFINE_E_FACADESOULLV_M_ATTRIBUTE_MAX_NUM 7
+#define DEFINE_SHEET_FACADESOULLV_E_FACADESOULLV_LIST_MAX_NUM 140
+#define DEFINE_SHEET_FACADESOULACHIEVEMENT_E_FACADESOULACHIEVEMENT_LIST_MAX_NUM 160
 namespace proto_ff_s {
 
 	struct E_FacadeDisplayMaterialDesc_s : public NFDescStoreSeqOP {
@@ -38,8 +62,8 @@ namespace proto_ff_s {
 		NFShmString<60> m_professionid;
 		NFShmString<80> m_skillid;
 		int32_t m_souliid;
-		NFShmVector<struct E_FacadeDisplayMaterialDesc_s, 3> m_material;
-		NFShmVector<int64_t, 3> m_fragmentid;
+		NFShmVector<struct E_FacadeDisplayMaterialDesc_s, DEFINE_E_FACADEDISPLAY_M_MATERIAL_MAX_NUM> m_material;
+		NFShmVector<int64_t, DEFINE_E_FACADEDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentid;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeDisplay & msg);
@@ -53,7 +77,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeDisplay_s, 20> E_FacadeDisplay_List;
+		NFShmVector<struct E_FacadeDisplay_s, DEFINE_SHEET_FACADEDISPLAY_E_FACADEDISPLAY_LIST_MAX_NUM> E_FacadeDisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeDisplay & msg);
@@ -132,10 +156,10 @@ namespace proto_ff_s {
 		int64_t m_treasureexp;
 		int64_t m_artifactexp;
 		int64_t m_bladeexp;
-		NFShmVector<struct E_FacadeValueTreasureattributeDesc_s, 5> m_treasureattribute;
-		NFShmVector<struct E_FacadeValueArtifactattributeDesc_s, 6> m_artifactattribute;
-		NFShmVector<struct E_FacadeValueBladeattributeDesc_s, 6> m_bladeattribute;
-		NFShmVector<struct E_FacadeValueWingattributeDesc_s, 4> m_wingattribute;
+		NFShmVector<struct E_FacadeValueTreasureattributeDesc_s, DEFINE_E_FACADEVALUE_M_TREASUREATTRIBUTE_MAX_NUM> m_treasureattribute;
+		NFShmVector<struct E_FacadeValueArtifactattributeDesc_s, DEFINE_E_FACADEVALUE_M_ARTIFACTATTRIBUTE_MAX_NUM> m_artifactattribute;
+		NFShmVector<struct E_FacadeValueBladeattributeDesc_s, DEFINE_E_FACADEVALUE_M_BLADEATTRIBUTE_MAX_NUM> m_bladeattribute;
+		NFShmVector<struct E_FacadeValueWingattributeDesc_s, DEFINE_E_FACADEVALUE_M_WINGATTRIBUTE_MAX_NUM> m_wingattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValue & msg);
@@ -149,7 +173,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeValue_s, 500> E_FacadeValue_List;
+		NFShmVector<struct E_FacadeValue_s, DEFINE_SHEET_FACADEVALUE_E_FACADEVALUE_LIST_MAX_NUM> E_FacadeValue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeValue & msg);
@@ -178,7 +202,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeType_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeType_s, 20> E_FacadeType_List;
+		NFShmVector<struct E_FacadeType_s, DEFINE_SHEET_FACADETYPE_E_FACADETYPE_LIST_MAX_NUM> E_FacadeType_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeType & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeType & msg);
@@ -210,7 +234,7 @@ namespace proto_ff_s {
 		int64_t m_fragmentid;
 		int64_t m_item;
 		int32_t m_itemnum;
-		NFShmVector<struct E_FacadeFragmentAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_FacadeFragmentAttributeDesc_s, DEFINE_E_FACADEFRAGMENT_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeFragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeFragment & msg);
@@ -224,7 +248,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeFragment_s, 20> E_FacadeFragment_List;
+		NFShmVector<struct E_FacadeFragment_s, DEFINE_SHEET_FACADEFRAGMENT_E_FACADEFRAGMENT_LIST_MAX_NUM> E_FacadeFragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeFragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeFragment & msg);
@@ -283,8 +307,8 @@ namespace proto_ff_s {
 		int32_t m_starber;
 		int64_t m_upattributeid;
 		int32_t m_activeskill;
-		NFShmVector<struct E_FacadeChangeAttributeDesc_s, 5> m_attribute;
-		NFShmVector<struct E_FacadeChangeActiveattributeDesc_s, 6> m_activeattribute;
+		NFShmVector<struct E_FacadeChangeAttributeDesc_s, DEFINE_E_FACADECHANGE_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_FacadeChangeActiveattributeDesc_s, DEFINE_E_FACADECHANGE_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeChange & msg);
@@ -298,7 +322,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeChange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeChange_s, 60> E_FacadeChange_List;
+		NFShmVector<struct E_FacadeChange_s, DEFINE_SHEET_FACADECHANGE_E_FACADECHANGE_LIST_MAX_NUM> E_FacadeChange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeChange & msg);
@@ -331,7 +355,7 @@ namespace proto_ff_s {
 		int64_t m_upattributeid;
 		int32_t m_starid;
 		int32_t m_skillid;
-		NFShmVector<struct E_FacadeStarupUpattributeDesc_s, 3> m_upattribute;
+		NFShmVector<struct E_FacadeStarupUpattributeDesc_s, DEFINE_E_FACADESTARUP_M_UPATTRIBUTE_MAX_NUM> m_upattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeStarup & msg);
@@ -345,7 +369,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeStarup_s, 40> E_FacadeStarup_List;
+		NFShmVector<struct E_FacadeStarup_s, DEFINE_SHEET_FACADESTARUP_E_FACADESTARUP_LIST_MAX_NUM> E_FacadeStarup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeStarup & msg);
@@ -378,8 +402,8 @@ namespace proto_ff_s {
 		int32_t m_rechargeid;
 		int32_t m_mainskill;
 		NFShmString<60> m_attributetype;
-		NFShmVector<struct E_FacadeSoulAttributeDesc_s, 4> m_attribute;
-		NFShmVector<int32_t, 8> m_minorskill;
+		NFShmVector<struct E_FacadeSoulAttributeDesc_s, DEFINE_E_FACADESOUL_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<int32_t, DEFINE_E_FACADESOUL_M_MINORSKILL_MAX_NUM> m_minorskill;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoul & msg);
@@ -393,7 +417,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeSoul_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeSoul_s, 20> E_FacadeSoul_List;
+		NFShmVector<struct E_FacadeSoul_s, DEFINE_SHEET_FACADESOUL_E_FACADESOUL_LIST_MAX_NUM> E_FacadeSoul_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoul & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoul & msg);
@@ -423,7 +447,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;
-		NFShmVector<struct E_FacadeSoulactiveUnlockDesc_s, 2> m_unlock;
+		NFShmVector<struct E_FacadeSoulactiveUnlockDesc_s, DEFINE_E_FACADESOULACTIVE_M_UNLOCK_MAX_NUM> m_unlock;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulactive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoulactive & msg);
@@ -437,7 +461,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeSoulactive_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeSoulactive_s, 40> E_FacadeSoulactive_List;
+		NFShmVector<struct E_FacadeSoulactive_s, DEFINE_SHEET_FACADESOULACTIVE_E_FACADESOULACTIVE_LIST_MAX_NUM> E_FacadeSoulactive_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoulactive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoulactive & msg);
@@ -473,7 +497,7 @@ namespace proto_ff_s {
 		int32_t m_num;
 		int32_t m_successrate;
 		int32_t m_downlv;
-		NFShmVector<struct E_FacadeSoullvAttributeDesc_s, 7> m_attribute;
+		NFShmVector<struct E_FacadeSoullvAttributeDesc_s, DEFINE_E_FACADESOULLV_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeSoullv & msg);
@@ -487,7 +511,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeSoullv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeSoullv_s, 140> E_FacadeSoullv_List;
+		NFShmVector<struct E_FacadeSoullv_s, DEFINE_SHEET_FACADESOULLV_E_FACADESOULLV_LIST_MAX_NUM> E_FacadeSoullv_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoullv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoullv & msg);
@@ -520,7 +544,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FacadeSoulachievement_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FacadeSoulachievement_s, 160> E_FacadeSoulachievement_List;
+		NFShmVector<struct E_FacadeSoulachievement_s, DEFINE_SHEET_FACADESOULACHIEVEMENT_E_FACADESOULACHIEVEMENT_LIST_MAX_NUM> E_FacadeSoulachievement_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FacadeSoulachievement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FacadeSoulachievement & msg);

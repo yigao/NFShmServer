@@ -8,6 +8,7 @@
 #include "path.pb.h"
 #include "path_s.h"
 
+#define DEFINE_SHEET_PATHPATH_E_PATHPATH_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_PathPath_s : public NFDescStoreSeqOP {
@@ -30,7 +31,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PathPath_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PathPath_s, 20> E_PathPath_List;
+		NFShmVector<struct E_PathPath_s, DEFINE_SHEET_PATHPATH_E_PATHPATH_LIST_MAX_NUM> E_PathPath_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PathPath & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PathPath & msg);

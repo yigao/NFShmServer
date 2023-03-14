@@ -8,6 +8,8 @@
 #include "sensitiveword.pb.h"
 #include "sensitiveword_s.h"
 
+#define DEFINE_SHEET_SENSITIVEWORDSENSITIVE_WORD_E_SENSITIVEWORDSENSITIVE_WORD_LIST_MAX_NUM 6000
+#define DEFINE_SHEET_SENSITIVEWORDROLESENSITIVE_E_SENSITIVEWORDROLESENSITIVE_LIST_MAX_NUM 300
 namespace proto_ff_s {
 
 	struct E_SensitivewordSensitive_word_s : public NFDescStoreSeqOP {
@@ -30,7 +32,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SensitivewordSensitive_word_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SensitivewordSensitive_word_s, 6000> E_SensitivewordSensitive_word_List;
+		NFShmVector<struct E_SensitivewordSensitive_word_s, DEFINE_SHEET_SENSITIVEWORDSENSITIVE_WORD_E_SENSITIVEWORDSENSITIVE_WORD_LIST_MAX_NUM> E_SensitivewordSensitive_word_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SensitivewordSensitive_word & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SensitivewordSensitive_word & msg);
@@ -59,7 +61,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SensitivewordRolesensitive_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SensitivewordRolesensitive_s, 300> E_SensitivewordRolesensitive_List;
+		NFShmVector<struct E_SensitivewordRolesensitive_s, DEFINE_SHEET_SENSITIVEWORDROLESENSITIVE_E_SENSITIVEWORDROLESENSITIVE_LIST_MAX_NUM> E_SensitivewordRolesensitive_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SensitivewordRolesensitive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SensitivewordRolesensitive & msg);

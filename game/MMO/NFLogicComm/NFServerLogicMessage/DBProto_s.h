@@ -12,6 +12,84 @@
 #include "ComDefine.pb.h"
 #include "ComDefine_s.h"
 
+#define DEFINE_BAGITEMSDBDATA_DATA_MAX_NUM 1
+#define DEFINE_ROLEDBUNITBAGDATA_PARTS_MAX_NUM 1
+#define DEFINE_ROLEDBBAGDATA_BAGS_MAX_NUM 1
+#define DEFINE_ROLEDBEQUIPDATA_INFOS_MAX_NUM 1
+#define DEFINE_ROLEDBEQUIPDATA_LV_ATTR_MAX_NUM 1
+#define DEFINE_GROWPARTDBDATA_ENTRYS_MAX_NUM 1
+#define DEFINE_GROWDBDATA_PARTS_MAX_NUM 1
+#define DEFINE_DAYUSEITEMDATA_INFO_MAX_NUM 1
+#define DEFINE_CHARACTERARENADATA_RESULT_MAX_NUM 1
+#define DEFINE_CHARACTERARENADATA_CHALL_REWARD_MAX_NUM 1
+#define DEFINE_FACADEDATAINFO_FANTASY_MAP_MAX_NUM 1
+#define DEFINE_FACADEDATAINFO_FRAGMENT_MAP_MAX_NUM 1
+#define DEFINE_FACADEDATAINFO_SKILL_DATA_MAX_NUM 1
+#define DEFINE_MOUNTDATAINFO_FANTASY_MAP_MAX_NUM 1
+#define DEFINE_MOUNTDATAINFO_FRAGMENT_MAP_MAX_NUM 1
+#define DEFINE_MOUNTDATAINFO_SKILL_DATA_MAX_NUM 1
+#define DEFINE_MOUNTDATAINFO_KUN_DATA_MAX_NUM 1
+#define DEFINE_MOUNTDATAINFO_BLOOD_DATA_MAX_NUM 1
+#define DEFINE_MOUNTDATAINFO_BABY_SLOT_DATA_MAX_NUM 1
+#define DEFINE_DEITYDATAINFO_FANTASY_MAP_MAX_NUM 1
+#define DEFINE_DEITYDATAINFO_FRAGMENT_MAP_MAX_NUM 1
+#define DEFINE_DEITYDATAINFO_SKILL_DATA_MAX_NUM 1
+#define DEFINE_DEITYDATAINFO_BATTLE_DATA_MAX_NUM 1
+#define DEFINE_FACADEDBDATA_DATA_MAX_NUM 1
+#define DEFINE_SKILLDBGROUP_POS_LST_MAX_NUM 1
+#define DEFINE_SKILLDBDATA_INFO_LST_MAX_NUM 1
+#define DEFINE_SKILLDBDATA_GROUP_LST_MAX_NUM 1
+#define DEFINE_SKILLDBDATA_ADV_POS_MAX_NUM 1
+#define DEFINE_SKILLDBDATA_ADV_INFO_MAX_NUM 1
+#define DEFINE_SKILLDBDATA_PET_CD_MAX_NUM 1
+#define DEFINE_GODRELICSACTIVITYDATA_GROUP_DATA_MAX_NUM 1
+#define DEFINE_DUPTOWERDBRECORD_ENTRYS_MAX_NUM 1
+#define DEFINE_DUPTOWERDBDATA_IDS_MAX_NUM 1
+#define DEFINE_DUPDBDATA_RECORD_MAX_NUM 1
+#define DEFINE_DUPDBDATA_GROUPS_MAX_NUM 1
+#define DEFINE_BUFFDBDATA_INFO_LST_MAX_NUM 1
+#define DEFINE_BUFFDBDATA_CD_LST_MAX_NUM 1
+#define DEFINE_BOSSDBDATA_INFOS_MAX_NUM 1
+#define DEFINE_BOSSDBDATA_ATTENTS_MAX_NUM 1
+#define DEFINE_ATTRDBDATA_ATTR_LST_MAX_NUM 1
+#define DEFINE_PETDBRECORD_COSTITEM_MAX_NUM 1
+#define DEFINE_PETDBRECORD_COSTPET_MAX_NUM 1
+#define DEFINE_PETDBDATA_FETTER_MAX_NUM 1
+#define DEFINE_PETDBDATA_PETS_MAX_NUM 1
+#define DEFINE_PETDBDATA_HATCHS_MAX_NUM 1
+#define DEFINE_PETDBDATA_RECORDS_MAX_NUM 1
+#define DEFINE_PETDBDATA_CFGIDS_MAX_NUM 1
+#define DEFINE_MALLDBDATA_DAY_MAX_NUM 1
+#define DEFINE_MALLDBDATA_WEEK_MAX_NUM 1
+#define DEFINE_MALLDBDATA_FOREVER_MAX_NUM 1
+#define DEFINE_ARMORDBDATA_INFOS_MAX_NUM 1
+#define DEFINE_TITLEDBDATA_DATA_MAX_NUM 1
+#define DEFINE_GODEVILMULTCONDDBPROTO_LST_MAX_NUM 1
+#define DEFINE_FACTIONMULTMEMDBPROTO_MEM_LST_MAX_NUM 1
+#define DEFINE_FACTIONMULTAPPLYDBPROTO_APPLY_LST_MAX_NUM 1
+#define DEFINE_FACTIONMUTRECORDDBPROTO_RECORD_LST_MAX_NUM 1
+#define DEFINE_ROLELISTDBRSP_ROLE_LST_MAX_NUM 1
+#define DEFINE_ROLESIMPLELISTDBRSP_INFO_MAX_NUM 1
+#define DEFINE_NEWMAILDBINFO_DATA_MAX_NUM 1
+#define DEFINE_MAILDBOPERATEINFO_MID_LST_MAX_NUM 1
+#define DEFINE_CHARACTERMAILDBRESPONSE_INFO_MAX_NUM 1
+#define DEFINE_ZONEMAILTRANSCHARACTERMAILRSP_DATA_MAX_NUM 1
+#define DEFINE_WEBMAILDBDATAREQ_ID_LST_MAX_NUM 1
+#define DEFINE_WEBMAILDBDATARSP_ID_LST_MAX_NUM 1
+#define DEFINE_WEBMAILDBDATARSP_INFO_LST_MAX_NUM 1
+#define DEFINE_FRIENDDBREQUEST_DSTID_LST_MAX_NUM 1
+#define DEFINE_FRIENDDBRESPONSE_INFO_LST_MAX_NUM 1
+#define DEFINE_FRIENDDBRESPONSE_LAST_LST_MAX_NUM 1
+#define DEFINE_ALLFRIENDDBRESPONSE_INFO_MAX_NUM 1
+#define DEFINE_SAVEFRIENDDBREQUEST_INFO_MAX_NUM 1
+#define DEFINE_GLOBALDBRESPONSE_ENTRY_MAX_NUM 1
+#define DEFINE_GLOBALCOMDATA_TOWERDUPREWARD_MAX_NUM 1
+#define DEFINE_ACTDBRSP_LST_MAX_NUM 1
+#define DEFINE_ACTSAVEDBREQ_LST_MAX_NUM 1
+#define DEFINE_ARENAMOREDBINFO_INFO_MAX_NUM 1
+#define DEFINE_ALLARENADBRESPONSE_INFO_MAX_NUM 1
+#define DEFINE_SAVEARENADBREQUEST_INFO_MAX_NUM 1
+#define DEFINE_FACTIONDATADBRSP_DATA_LST_MAX_NUM 1
 namespace proto_ff_s {
 
 	struct RoleReliveProto_s : public NFDescStoreSeqOP {
@@ -83,7 +161,7 @@ namespace proto_ff_s {
 		virtual ~BagItemsDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ItemProtoInfo_s, 1> data;
+		NFShmVector<struct ItemProtoInfo_s, DEFINE_BAGITEMSDBDATA_DATA_MAX_NUM> data;
 		int32_t offset;
 
 		virtual void write_to_pbmsg(::proto_ff::BagItemsDBData & msg) const;
@@ -115,7 +193,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		NFShmString<32> table_name;
 		struct BagDBSimpleData_s simple;
-		NFShmVector<struct BagItemsDBData_s, 1> parts;
+		NFShmVector<struct BagItemsDBData_s, DEFINE_ROLEDBUNITBAGDATA_PARTS_MAX_NUM> parts;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBUnitBagData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBUnitBagData & msg);
@@ -129,7 +207,7 @@ namespace proto_ff_s {
 		virtual ~RoleDBBagData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct RoleDBUnitBagData_s, 1> bags;
+		NFShmVector<struct RoleDBUnitBagData_s, DEFINE_ROLEDBBAGDATA_BAGS_MAX_NUM> bags;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBBagData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBBagData & msg);
@@ -143,8 +221,8 @@ namespace proto_ff_s {
 		virtual ~RoleDBEquipData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct EquipInfo_s, 1> infos;
-		NFShmVector<struct EquipLvAttrInfo_s, 1> lv_attr;
+		NFShmVector<struct EquipInfo_s, DEFINE_ROLEDBEQUIPDATA_INFOS_MAX_NUM> infos;
+		NFShmVector<struct EquipLvAttrInfo_s, DEFINE_ROLEDBEQUIPDATA_LV_ATTR_MAX_NUM> lv_attr;
 		uint32_t stove_level;
 		uint64_t stove_exp;
 
@@ -189,7 +267,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t type;
-		NFShmVector<struct GrowPartEntryDBInfo_s, 1> entrys;
+		NFShmVector<struct GrowPartEntryDBInfo_s, DEFINE_GROWPARTDBDATA_ENTRYS_MAX_NUM> entrys;
 		int64_t curId;
 
 		virtual void write_to_pbmsg(::proto_ff::GrowPartDBData & msg) const;
@@ -204,7 +282,7 @@ namespace proto_ff_s {
 		virtual ~GrowDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct GrowPartDBData_s, 1> parts;
+		NFShmVector<struct GrowPartDBData_s, DEFINE_GROWDBDATA_PARTS_MAX_NUM> parts;
 
 		virtual void write_to_pbmsg(::proto_ff::GrowDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GrowDBData & msg);
@@ -218,7 +296,7 @@ namespace proto_ff_s {
 		virtual ~DayUseItemData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ComPair64_s, 1> info;
+		NFShmVector<struct ComPair64_s, DEFINE_DAYUSEITEMDATA_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::DayUseItemData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DayUseItemData & msg);
@@ -236,8 +314,8 @@ namespace proto_ff_s {
 		uint64_t updateTime;
 		uint32_t historyRankId;
 		uint32_t buyChallengeTimes;
-		NFShmVector<struct ArenaChallResult_s, 1> result;
-		NFShmVector<struct ChallArenaReward_s, 1> chall_reward;
+		NFShmVector<struct ArenaChallResult_s, DEFINE_CHARACTERARENADATA_RESULT_MAX_NUM> result;
+		NFShmVector<struct ChallArenaReward_s, DEFINE_CHARACTERARENADATA_CHALL_REWARD_MAX_NUM> chall_reward;
 		int32_t allChallengeTimes;
 		int32_t rank_id;
 
@@ -276,9 +354,9 @@ namespace proto_ff_s {
 		bool use_soul_item;
 		bool use_facade;
 		uint64_t equip_fantasy_id;
-		NFShmVector<struct FacadeFantasyData_s, 1> fantasy_map;
-		NFShmVector<struct FacadeFragmentData_s, 1> fragment_map;
-		NFShmVector<struct FacadeSkillData_s, 1> skill_data;
+		NFShmVector<struct FacadeFantasyData_s, DEFINE_FACADEDATAINFO_FANTASY_MAP_MAX_NUM> fantasy_map;
+		NFShmVector<struct FacadeFragmentData_s, DEFINE_FACADEDATAINFO_FRAGMENT_MAP_MAX_NUM> fragment_map;
+		NFShmVector<struct FacadeSkillData_s, DEFINE_FACADEDATAINFO_SKILL_DATA_MAX_NUM> skill_data;
 		struct FacadeSoulData_s soul_data;
 
 		virtual void write_to_pbmsg(::proto_ff::FacadeDataInfo & msg) const;
@@ -298,12 +376,12 @@ namespace proto_ff_s {
 		uint64_t mount_exp;
 		bool use_facade;
 		uint64_t equip_fantasy_id;
-		NFShmVector<struct MountFantasyData_s, 1> fantasy_map;
-		NFShmVector<struct MountFragmentData_s, 1> fragment_map;
-		NFShmVector<struct MountSkillData_s, 1> skill_data;
-		NFShmVector<struct MountKunData_s, 1> kun_data;
-		NFShmVector<struct MountBloodData_s, 1> blood_data;
-		NFShmVector<struct MountBabySlotData_s, 1> baby_slot_data;
+		NFShmVector<struct MountFantasyData_s, DEFINE_MOUNTDATAINFO_FANTASY_MAP_MAX_NUM> fantasy_map;
+		NFShmVector<struct MountFragmentData_s, DEFINE_MOUNTDATAINFO_FRAGMENT_MAP_MAX_NUM> fragment_map;
+		NFShmVector<struct MountSkillData_s, DEFINE_MOUNTDATAINFO_SKILL_DATA_MAX_NUM> skill_data;
+		NFShmVector<struct MountKunData_s, DEFINE_MOUNTDATAINFO_KUN_DATA_MAX_NUM> kun_data;
+		NFShmVector<struct MountBloodData_s, DEFINE_MOUNTDATAINFO_BLOOD_DATA_MAX_NUM> blood_data;
+		NFShmVector<struct MountBabySlotData_s, DEFINE_MOUNTDATAINFO_BABY_SLOT_DATA_MAX_NUM> baby_slot_data;
 		uint32_t ride_state;
 		uint64_t mount_model_id;
 		uint64_t last_mount_model_id;
@@ -323,10 +401,10 @@ namespace proto_ff_s {
 		uint64_t deity_id;
 		uint32_t deity_lev;
 		uint64_t deity_exp;
-		NFShmVector<struct DeityFantasyData_s, 1> fantasy_map;
-		NFShmVector<struct DeityFragmentData_s, 1> fragment_map;
-		NFShmVector<struct DeitySkillData_s, 1> skill_data;
-		NFShmVector<struct DeityBattleSlotData_s, 1> battle_data;
+		NFShmVector<struct DeityFantasyData_s, DEFINE_DEITYDATAINFO_FANTASY_MAP_MAX_NUM> fantasy_map;
+		NFShmVector<struct DeityFragmentData_s, DEFINE_DEITYDATAINFO_FRAGMENT_MAP_MAX_NUM> fragment_map;
+		NFShmVector<struct DeitySkillData_s, DEFINE_DEITYDATAINFO_SKILL_DATA_MAX_NUM> skill_data;
+		NFShmVector<struct DeityBattleSlotData_s, DEFINE_DEITYDATAINFO_BATTLE_DATA_MAX_NUM> battle_data;
 
 		virtual void write_to_pbmsg(::proto_ff::DeityDataInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DeityDataInfo & msg);
@@ -340,7 +418,7 @@ namespace proto_ff_s {
 		virtual ~FacadeDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FacadeDataInfo_s, 1> data;
+		NFShmVector<struct FacadeDataInfo_s, DEFINE_FACADEDBDATA_DATA_MAX_NUM> data;
 
 		virtual void write_to_pbmsg(::proto_ff::FacadeDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FacadeDBData & msg);
@@ -420,7 +498,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint32_t group;
 		int32_t chg;
-		NFShmVector<struct SkillDBPos_s, 1> pos_lst;
+		NFShmVector<struct SkillDBPos_s, DEFINE_SKILLDBGROUP_POS_LST_MAX_NUM> pos_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillDBGroup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillDBGroup & msg);
@@ -450,14 +528,14 @@ namespace proto_ff_s {
 		virtual ~SkillDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct SkillDBInfo_s, 1> info_lst;
-		NFShmVector<struct SkillDBGroup_s, 1> group_lst;
+		NFShmVector<struct SkillDBInfo_s, DEFINE_SKILLDBDATA_INFO_LST_MAX_NUM> info_lst;
+		NFShmVector<struct SkillDBGroup_s, DEFINE_SKILLDBDATA_GROUP_LST_MAX_NUM> group_lst;
 		uint32_t group;
 		uint64_t last_group;
-		NFShmVector<struct SkillDBAdvPos_s, 1> adv_pos;
-		NFShmVector<struct SkillDBAdvInfo_s, 1> adv_info;
+		NFShmVector<struct SkillDBAdvPos_s, DEFINE_SKILLDBDATA_ADV_POS_MAX_NUM> adv_pos;
+		NFShmVector<struct SkillDBAdvInfo_s, DEFINE_SKILLDBDATA_ADV_INFO_MAX_NUM> adv_info;
 		uint32_t cur_advpos;
-		NFShmVector<struct PetSkillCdDB_s, 1> pet_cd;
+		NFShmVector<struct PetSkillCdDB_s, DEFINE_SKILLDBDATA_PET_CD_MAX_NUM> pet_cd;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillDBData & msg);
@@ -471,7 +549,7 @@ namespace proto_ff_s {
 		virtual ~GodRelicsActivityData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct GodRelicsTaskGroupEntry_s, 1> group_data;
+		NFShmVector<struct GodRelicsTaskGroupEntry_s, DEFINE_GODRELICSACTIVITYDATA_GROUP_DATA_MAX_NUM> group_data;
 		int64_t cur_group_id;
 
 		virtual void write_to_pbmsg(::proto_ff::GodRelicsActivityData & msg) const;
@@ -551,7 +629,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t id;
-		NFShmVector<struct DupTowerDBRecordEntry_s, 1> entrys;
+		NFShmVector<struct DupTowerDBRecordEntry_s, DEFINE_DUPTOWERDBRECORD_ENTRYS_MAX_NUM> entrys;
 
 		virtual void write_to_pbmsg(::proto_ff::DupTowerDBRecord & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DupTowerDBRecord & msg);
@@ -565,7 +643,7 @@ namespace proto_ff_s {
 		virtual ~DupTowerDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<uint64_t, 1> ids;
+		NFShmVector<uint64_t, DEFINE_DUPTOWERDBDATA_IDS_MAX_NUM> ids;
 
 		virtual void write_to_pbmsg(::proto_ff::DupTowerDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DupTowerDBData & msg);
@@ -579,8 +657,8 @@ namespace proto_ff_s {
 		virtual ~DupDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct DupRecord_s, 1> record;
-		NFShmVector<struct DupGroupData_s, 1> groups;
+		NFShmVector<struct DupRecord_s, DEFINE_DUPDBDATA_RECORD_MAX_NUM> record;
+		NFShmVector<struct DupGroupData_s, DEFINE_DUPDBDATA_GROUPS_MAX_NUM> groups;
 		struct DupTowerDBData_s tower;
 
 		virtual void write_to_pbmsg(::proto_ff::DupDBData & msg) const;
@@ -634,8 +712,8 @@ namespace proto_ff_s {
 		virtual ~BuffDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct BuffDBInfo_s, 1> info_lst;
-		NFShmVector<struct BuffDBCdInfo_s, 1> cd_lst;
+		NFShmVector<struct BuffDBInfo_s, DEFINE_BUFFDBDATA_INFO_LST_MAX_NUM> info_lst;
+		NFShmVector<struct BuffDBCdInfo_s, DEFINE_BUFFDBDATA_CD_LST_MAX_NUM> cd_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::BuffDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BuffDBData & msg);
@@ -668,9 +746,9 @@ namespace proto_ff_s {
 		virtual ~BossDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct BossSimpleInfoDB_s, 1> infos;
+		NFShmVector<struct BossSimpleInfoDB_s, DEFINE_BOSSDBDATA_INFOS_MAX_NUM> infos;
 		uint64_t lastTime;
-		NFShmVector<int64_t, 1> attents;
+		NFShmVector<int64_t, DEFINE_BOSSDBDATA_ATTENTS_MAX_NUM> attents;
 
 		virtual void write_to_pbmsg(::proto_ff::BossDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BossDBData & msg);
@@ -699,7 +777,7 @@ namespace proto_ff_s {
 		virtual ~AttrDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct Attr64_s, 1> attr_lst;
+		NFShmVector<struct Attr64_s, DEFINE_ATTRDBDATA_ATTR_LST_MAX_NUM> attr_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::AttrDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::AttrDBData & msg);
@@ -714,8 +792,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t instId;
-		NFShmVector<struct ComPair64_s, 1> costItem;
-		NFShmVector<struct ComPair64_s, 1> costPet;
+		NFShmVector<struct ComPair64_s, DEFINE_PETDBRECORD_COSTITEM_MAX_NUM> costItem;
+		NFShmVector<struct ComPair64_s, DEFINE_PETDBRECORD_COSTPET_MAX_NUM> costPet;
 
 		virtual void write_to_pbmsg(::proto_ff::PetDBRecord & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::PetDBRecord & msg);
@@ -729,11 +807,11 @@ namespace proto_ff_s {
 		virtual ~PetDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<int32_t, 1> fetter;
-		NFShmVector<struct PetInfo_s, 1> pets;
-		NFShmVector<struct PetHatchInfo_s, 1> hatchs;
-		NFShmVector<struct PetDBRecord_s, 1> records;
-		NFShmVector<int64_t, 1> cfgids;
+		NFShmVector<int32_t, DEFINE_PETDBDATA_FETTER_MAX_NUM> fetter;
+		NFShmVector<struct PetInfo_s, DEFINE_PETDBDATA_PETS_MAX_NUM> pets;
+		NFShmVector<struct PetHatchInfo_s, DEFINE_PETDBDATA_HATCHS_MAX_NUM> hatchs;
+		NFShmVector<struct PetDBRecord_s, DEFINE_PETDBDATA_RECORDS_MAX_NUM> records;
+		NFShmVector<int64_t, DEFINE_PETDBDATA_CFGIDS_MAX_NUM> cfgids;
 
 		virtual void write_to_pbmsg(::proto_ff::PetDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::PetDBData & msg);
@@ -763,9 +841,9 @@ namespace proto_ff_s {
 		virtual ~MallDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct MallDBInfo_s, 1> day;
-		NFShmVector<struct MallDBInfo_s, 1> week;
-		NFShmVector<struct MallDBInfo_s, 1> forever;
+		NFShmVector<struct MallDBInfo_s, DEFINE_MALLDBDATA_DAY_MAX_NUM> day;
+		NFShmVector<struct MallDBInfo_s, DEFINE_MALLDBDATA_WEEK_MAX_NUM> week;
+		NFShmVector<struct MallDBInfo_s, DEFINE_MALLDBDATA_FOREVER_MAX_NUM> forever;
 
 		virtual void write_to_pbmsg(::proto_ff::MallDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MallDBData & msg);
@@ -798,7 +876,7 @@ namespace proto_ff_s {
 		virtual ~ArmorDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ArmorInfo_s, 1> infos;
+		NFShmVector<struct ArmorInfo_s, DEFINE_ARMORDBDATA_INFOS_MAX_NUM> infos;
 
 		virtual void write_to_pbmsg(::proto_ff::ArmorDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ArmorDBData & msg);
@@ -832,7 +910,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cur_wearing_title;
-		NFShmVector<struct TitleInfo_s, 1> data;
+		NFShmVector<struct TitleInfo_s, DEFINE_TITLEDBDATA_DATA_MAX_NUM> data;
 
 		virtual void write_to_pbmsg(::proto_ff::TitleDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::TitleDBData & msg);
@@ -862,7 +940,7 @@ namespace proto_ff_s {
 		virtual ~GodEvilMultCondDBProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct GodEvilCondDBProto_s, 1> lst;
+		NFShmVector<struct GodEvilCondDBProto_s, DEFINE_GODEVILMULTCONDDBPROTO_LST_MAX_NUM> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::GodEvilMultCondDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GodEvilMultCondDBProto & msg);
@@ -985,7 +1063,7 @@ namespace proto_ff_s {
 		virtual ~FactionMultMemDBProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FactionMemDBProto_s, 1> mem_lst;
+		NFShmVector<struct FactionMemDBProto_s, DEFINE_FACTIONMULTMEMDBPROTO_MEM_LST_MAX_NUM> mem_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::FactionMultMemDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FactionMultMemDBProto & msg);
@@ -1014,7 +1092,7 @@ namespace proto_ff_s {
 		virtual ~FactionMultApplyDBProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FactionApplyDBProto_s, 1> apply_lst;
+		NFShmVector<struct FactionApplyDBProto_s, DEFINE_FACTIONMULTAPPLYDBPROTO_APPLY_LST_MAX_NUM> apply_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::FactionMultApplyDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FactionMultApplyDBProto & msg);
@@ -1045,7 +1123,7 @@ namespace proto_ff_s {
 		virtual ~FactionMutRecordDBProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FactionRecordDBProto_s, 1> record_lst;
+		NFShmVector<struct FactionRecordDBProto_s, DEFINE_FACTIONMUTRECORDDBPROTO_RECORD_LST_MAX_NUM> record_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::FactionMutRecordDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FactionMutRecordDBProto & msg);
@@ -1137,7 +1215,7 @@ namespace proto_ff_s {
 		uint64_t reqid;
 		uint32_t uid;
 		uint32_t gateid;
-		NFShmVector<struct RoleListDBProto_s, 1> role_lst;
+		NFShmVector<struct RoleListDBProto_s, DEFINE_ROLELISTDBRSP_ROLE_LST_MAX_NUM> role_lst;
 		uint32_t regnum;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleListDBRsp & msg) const;
@@ -1288,7 +1366,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t ret;
-		NFShmVector<struct CenterRoleProto_s, 1> info;
+		NFShmVector<struct CenterRoleProto_s, DEFINE_ROLESIMPLELISTDBRSP_INFO_MAX_NUM> info;
 		int32_t finish_flag;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleSimpleListDBRsp & msg) const;
@@ -1332,7 +1410,7 @@ namespace proto_ff_s {
 		virtual ~NewMailDBInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct MailInfo_s, 1> data;
+		NFShmVector<struct MailInfo_s, DEFINE_NEWMAILDBINFO_DATA_MAX_NUM> data;
 		int32_t result;
 
 		virtual void write_to_pbmsg(::proto_ff::NewMailDBInfo & msg) const;
@@ -1347,7 +1425,7 @@ namespace proto_ff_s {
 		virtual ~MailDBOperateInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<uint32_t, 1> mid_lst;
+		NFShmVector<uint32_t, DEFINE_MAILDBOPERATEINFO_MID_LST_MAX_NUM> mid_lst;
 		int32_t result;
 
 		virtual void write_to_pbmsg(::proto_ff::MailDBOperateInfo & msg) const;
@@ -1418,7 +1496,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t charID;
-		NFShmVector<struct MailInfo_s, 1> info;
+		NFShmVector<struct MailInfo_s, DEFINE_CHARACTERMAILDBRESPONSE_INFO_MAX_NUM> info;
 		uint32_t zoneMailId;
 		int32_t offset;
 		uint32_t reqid;
@@ -1507,7 +1585,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;
-		NFShmVector<struct MailInfo_s, 1> data;
+		NFShmVector<struct MailInfo_s, DEFINE_ZONEMAILTRANSCHARACTERMAILRSP_DATA_MAX_NUM> data;
 
 		virtual void write_to_pbmsg(::proto_ff::ZoneMailTransCharacterMailRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ZoneMailTransCharacterMailRsp & msg);
@@ -1525,7 +1603,7 @@ namespace proto_ff_s {
 		uint64_t cid;
 		uint32_t pernum;
 		uint32_t curpage;
-		NFShmVector<uint32_t, 1> id_lst;
+		NFShmVector<uint32_t, DEFINE_WEBMAILDBDATAREQ_ID_LST_MAX_NUM> id_lst;
 		NFShmString<32> webId;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDBDataReq & msg) const;
@@ -1544,8 +1622,8 @@ namespace proto_ff_s {
 		uint64_t cid;
 		uint32_t curpage;
 		uint32_t totalcount;
-		NFShmVector<uint32_t, 1> id_lst;
-		NFShmVector<struct WebMailDataProto_s, 1> info_lst;
+		NFShmVector<uint32_t, DEFINE_WEBMAILDBDATARSP_ID_LST_MAX_NUM> id_lst;
+		NFShmVector<struct WebMailDataProto_s, DEFINE_WEBMAILDBDATARSP_INFO_LST_MAX_NUM> info_lst;
 		NFShmString<32> webId;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDBDataRsp & msg) const;
@@ -1576,7 +1654,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t charid;
-		NFShmVector<uint64_t, 1> dstid_lst;
+		NFShmVector<uint64_t, DEFINE_FRIENDDBREQUEST_DSTID_LST_MAX_NUM> dstid_lst;
 		uint32_t operate_type;
 		NFShmString<32> data;
 		uint32_t query_times;
@@ -1596,8 +1674,8 @@ namespace proto_ff_s {
 		int32_t retcode;
 		uint64_t charid;
 		uint32_t operate_type;
-		NFShmVector<struct FriendDBInfo_s, 1> info_lst;
-		NFShmVector<uint64_t, 1> last_lst;
+		NFShmVector<struct FriendDBInfo_s, DEFINE_FRIENDDBRESPONSE_INFO_LST_MAX_NUM> info_lst;
+		NFShmVector<uint64_t, DEFINE_FRIENDDBRESPONSE_LAST_LST_MAX_NUM> last_lst;
 		NFShmString<32> data;
 		uint32_t query_times;
 
@@ -1629,7 +1707,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t retcode;
 		int32_t offset;
-		NFShmVector<struct FriendDBInfo_s, 1> info;
+		NFShmVector<struct FriendDBInfo_s, DEFINE_ALLFRIENDDBRESPONSE_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::AllFriendDBResponse & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::AllFriendDBResponse & msg);
@@ -1643,7 +1721,7 @@ namespace proto_ff_s {
 		virtual ~SaveFriendDBRequest_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FriendDBInfo_s, 1> info;
+		NFShmVector<struct FriendDBInfo_s, DEFINE_SAVEFRIENDDBREQUEST_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::SaveFriendDBRequest & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SaveFriendDBRequest & msg);
@@ -1699,7 +1777,7 @@ namespace proto_ff_s {
 		virtual ~GlobalDBResponse_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct GlobalDBEntry_s, 1> entry;
+		NFShmVector<struct GlobalDBEntry_s, DEFINE_GLOBALDBRESPONSE_ENTRY_MAX_NUM> entry;
 		int32_t isfinish;
 
 		virtual void write_to_pbmsg(::proto_ff::GlobalDBResponse & msg) const;
@@ -1744,7 +1822,7 @@ namespace proto_ff_s {
 		virtual ~GlobalComData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct DupTowerDBRecord_s, 1> towerDupReward;
+		NFShmVector<struct DupTowerDBRecord_s, DEFINE_GLOBALCOMDATA_TOWERDUPREWARD_MAX_NUM> towerDupReward;
 
 		virtual void write_to_pbmsg(::proto_ff::GlobalComData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GlobalComData & msg);
@@ -1787,7 +1865,7 @@ namespace proto_ff_s {
 		virtual ~ActDBRsp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ActDBProto_s, 1> lst;
+		NFShmVector<struct ActDBProto_s, DEFINE_ACTDBRSP_LST_MAX_NUM> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::ActDBRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ActDBRsp & msg);
@@ -1801,7 +1879,7 @@ namespace proto_ff_s {
 		virtual ~ActSaveDBReq_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ActDBProto_s, 1> lst;
+		NFShmVector<struct ActDBProto_s, DEFINE_ACTSAVEDBREQ_LST_MAX_NUM> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::ActSaveDBReq & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ActSaveDBReq & msg);
@@ -1845,7 +1923,7 @@ namespace proto_ff_s {
 		virtual ~ArenaMoreDBInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ArenaDBInfo_s, 1> info;
+		NFShmVector<struct ArenaDBInfo_s, DEFINE_ARENAMOREDBINFO_INFO_MAX_NUM> info;
 		uint32_t day;
 		uint32_t giveReward;
 		uint32_t max_rank;
@@ -1864,7 +1942,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t retcode;
 		int32_t offset;
-		NFShmVector<struct ArenaDBInfo_s, 1> info;
+		NFShmVector<struct ArenaDBInfo_s, DEFINE_ALLARENADBRESPONSE_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::AllArenaDBResponse & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::AllArenaDBResponse & msg);
@@ -1878,7 +1956,7 @@ namespace proto_ff_s {
 		virtual ~SaveArenaDBRequest_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ArenaDBInfo_s, 1> info;
+		NFShmVector<struct ArenaDBInfo_s, DEFINE_SAVEARENADBREQUEST_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::SaveArenaDBRequest & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SaveArenaDBRequest & msg);
@@ -1955,7 +2033,7 @@ namespace proto_ff_s {
 		virtual ~FactionDataDBRsp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FactionAllDBData_s, 1> data_lst;
+		NFShmVector<struct FactionAllDBData_s, DEFINE_FACTIONDATADBRSP_DATA_LST_MAX_NUM> data_lst;
 		int32_t finish;
 
 		virtual void write_to_pbmsg(::proto_ff::FactionDataDBRsp & msg) const;

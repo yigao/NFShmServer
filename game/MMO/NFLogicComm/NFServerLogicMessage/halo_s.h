@@ -8,6 +8,9 @@
 #include "halo.pb.h"
 #include "halo_s.h"
 
+#define DEFINE_E_HALOHALO_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_E_HALOHALO_M_ACTIVEATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_HALOHALO_E_HALOHALO_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_HaloHaloAttributeDesc_s : public NFDescStoreSeqOP {
@@ -56,8 +59,8 @@ namespace proto_ff_s {
 		NFShmString<300> m_starnum;
 		int32_t m_starup;
 		int32_t m_starber;
-		NFShmVector<struct E_HaloHaloAttributeDesc_s, 6> m_attribute;
-		NFShmVector<struct E_HaloHaloActiveattributeDesc_s, 6> m_activeattribute;
+		NFShmVector<struct E_HaloHaloAttributeDesc_s, DEFINE_E_HALOHALO_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_HaloHaloActiveattributeDesc_s, DEFINE_E_HALOHALO_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_HaloHalo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_HaloHalo & msg);
@@ -71,7 +74,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_HaloHalo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_HaloHalo_s, 20> E_HaloHalo_List;
+		NFShmVector<struct E_HaloHalo_s, DEFINE_SHEET_HALOHALO_E_HALOHALO_LIST_MAX_NUM> E_HaloHalo_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_HaloHalo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_HaloHalo & msg);

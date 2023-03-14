@@ -8,6 +8,24 @@
 #include "avatar.pb.h"
 #include "avatar_s.h"
 
+#define DEFINE_E_AVATARFRAGMENT_M_ATTRIBUTE_MAX_NUM 5
+#define DEFINE_SHEET_AVATARFRAGMENT_E_AVATARFRAGMENT_LIST_MAX_NUM 20
+#define DEFINE_E_AVATARVALUE_M_ATTRIBUTE_MAX_NUM 9
+#define DEFINE_SHEET_AVATARVALUE_E_AVATARVALUE_LIST_MAX_NUM 400
+#define DEFINE_E_AVATARDISPLAY_M_MATERIAL_MAX_NUM 3
+#define DEFINE_E_AVATARDISPLAY_M_FRAGMENTID_MAX_NUM 3
+#define DEFINE_SHEET_AVATARDISPLAY_E_AVATARDISPLAY_LIST_MAX_NUM 20
+#define DEFINE_E_AVATARCHANGE_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_E_AVATARCHANGE_M_MATERIAL_MAX_NUM 3
+#define DEFINE_E_AVATARCHANGE_M_INITIATIVESKILL_MAX_NUM 4
+#define DEFINE_SHEET_AVATARCHANGE_E_AVATARCHANGE_LIST_MAX_NUM 20
+#define DEFINE_SHEET_AVATARCHANGETAB_E_AVATARCHANGETAB_LIST_MAX_NUM 20
+#define DEFINE_SHEET_AVATARBATTLESLOT_E_AVATARBATTLESLOT_LIST_MAX_NUM 20
+#define DEFINE_E_AVATARADVANCE_M_UPATTRIBUTE_MAX_NUM 5
+#define DEFINE_SHEET_AVATARADVANCE_E_AVATARADVANCE_LIST_MAX_NUM 20
+#define DEFINE_SHEET_AVATARSKILL_E_AVATARSKILL_LIST_MAX_NUM 20
+#define DEFINE_E_AVATAREQUIPSUIT_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_AVATAREQUIPSUIT_E_AVATAREQUIPSUIT_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_AvatarFragmentAttributeDesc_s : public NFDescStoreSeqOP {
@@ -33,7 +51,7 @@ namespace proto_ff_s {
 		int64_t m_fragmentid;
 		int64_t m_item;
 		int32_t m_itemnum;
-		NFShmVector<struct E_AvatarFragmentAttributeDesc_s, 5> m_attribute;
+		NFShmVector<struct E_AvatarFragmentAttributeDesc_s, DEFINE_E_AVATARFRAGMENT_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AvatarFragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarFragment & msg);
@@ -47,7 +65,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarFragment_s, 20> E_AvatarFragment_List;
+		NFShmVector<struct E_AvatarFragment_s, DEFINE_SHEET_AVATARFRAGMENT_E_AVATARFRAGMENT_LIST_MAX_NUM> E_AvatarFragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarFragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarFragment & msg);
@@ -81,7 +99,7 @@ namespace proto_ff_s {
 		int32_t m_lv;
 		int32_t m_cost;
 		int32_t m_exp;
-		NFShmVector<struct E_AvatarValueAttributeDesc_s, 9> m_attribute;
+		NFShmVector<struct E_AvatarValueAttributeDesc_s, DEFINE_E_AVATARVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AvatarValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarValue & msg);
@@ -95,7 +113,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarValue_s, 400> E_AvatarValue_List;
+		NFShmVector<struct E_AvatarValue_s, DEFINE_SHEET_AVATARVALUE_E_AVATARVALUE_LIST_MAX_NUM> E_AvatarValue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarValue & msg);
@@ -127,8 +145,8 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_uplvtype;
 		NFShmString<60> m_skillid;
-		NFShmVector<struct E_AvatarDisplayMaterialDesc_s, 3> m_material;
-		NFShmVector<int64_t, 3> m_fragmentid;
+		NFShmVector<struct E_AvatarDisplayMaterialDesc_s, DEFINE_E_AVATARDISPLAY_M_MATERIAL_MAX_NUM> m_material;
+		NFShmVector<int64_t, DEFINE_E_AVATARDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentid;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AvatarDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarDisplay & msg);
@@ -142,7 +160,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarDisplay_s, 20> E_AvatarDisplay_List;
+		NFShmVector<struct E_AvatarDisplay_s, DEFINE_SHEET_AVATARDISPLAY_E_AVATARDISPLAY_LIST_MAX_NUM> E_AvatarDisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarDisplay & msg);
@@ -207,9 +225,9 @@ namespace proto_ff_s {
 		int32_t m_maxequip;
 		int32_t m_equipsuit;
 		int32_t m_starber;
-		NFShmVector<struct E_AvatarChangeAttributeDesc_s, 4> m_attribute;
-		NFShmVector<struct E_AvatarChangeMaterialDesc_s, 3> m_material;
-		NFShmVector<int64_t, 4> m_initiativeskill;
+		NFShmVector<struct E_AvatarChangeAttributeDesc_s, DEFINE_E_AVATARCHANGE_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_AvatarChangeMaterialDesc_s, DEFINE_E_AVATARCHANGE_M_MATERIAL_MAX_NUM> m_material;
+		NFShmVector<int64_t, DEFINE_E_AVATARCHANGE_M_INITIATIVESKILL_MAX_NUM> m_initiativeskill;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AvatarChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarChange & msg);
@@ -223,7 +241,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarChange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarChange_s, 20> E_AvatarChange_List;
+		NFShmVector<struct E_AvatarChange_s, DEFINE_SHEET_AVATARCHANGE_E_AVATARCHANGE_LIST_MAX_NUM> E_AvatarChange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarChange & msg);
@@ -251,7 +269,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarChangetab_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarChangetab_s, 20> E_AvatarChangetab_List;
+		NFShmVector<struct E_AvatarChangetab_s, DEFINE_SHEET_AVATARCHANGETAB_E_AVATARCHANGETAB_LIST_MAX_NUM> E_AvatarChangetab_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarChangetab & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarChangetab & msg);
@@ -281,7 +299,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarBattleslot_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarBattleslot_s, 20> E_AvatarBattleslot_List;
+		NFShmVector<struct E_AvatarBattleslot_s, DEFINE_SHEET_AVATARBATTLESLOT_E_AVATARBATTLESLOT_LIST_MAX_NUM> E_AvatarBattleslot_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarBattleslot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarBattleslot & msg);
@@ -314,7 +332,7 @@ namespace proto_ff_s {
 		int32_t m_upattributeid;
 		int32_t m_starid;
 		int32_t m_skillid;
-		NFShmVector<struct E_AvatarAdvanceUpattributeDesc_s, 5> m_upattribute;
+		NFShmVector<struct E_AvatarAdvanceUpattributeDesc_s, DEFINE_E_AVATARADVANCE_M_UPATTRIBUTE_MAX_NUM> m_upattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AvatarAdvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarAdvance & msg);
@@ -328,7 +346,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarAdvance_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarAdvance_s, 20> E_AvatarAdvance_List;
+		NFShmVector<struct E_AvatarAdvance_s, DEFINE_SHEET_AVATARADVANCE_E_AVATARADVANCE_LIST_MAX_NUM> E_AvatarAdvance_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarAdvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarAdvance & msg);
@@ -359,7 +377,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarSkill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarSkill_s, 20> E_AvatarSkill_List;
+		NFShmVector<struct E_AvatarSkill_s, DEFINE_SHEET_AVATARSKILL_E_AVATARSKILL_LIST_MAX_NUM> E_AvatarSkill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarSkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarSkill & msg);
@@ -392,7 +410,7 @@ namespace proto_ff_s {
 		int32_t m_groupid;
 		int32_t m_quality;
 		int32_t m_star;
-		NFShmVector<struct E_AvatarEquipsuitAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_AvatarEquipsuitAttributeDesc_s, DEFINE_E_AVATAREQUIPSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AvatarEquipsuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarEquipsuit & msg);
@@ -406,7 +424,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AvatarEquipsuit_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AvatarEquipsuit_s, 20> E_AvatarEquipsuit_List;
+		NFShmVector<struct E_AvatarEquipsuit_s, DEFINE_SHEET_AVATAREQUIPSUIT_E_AVATAREQUIPSUIT_LIST_MAX_NUM> E_AvatarEquipsuit_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarEquipsuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarEquipsuit & msg);

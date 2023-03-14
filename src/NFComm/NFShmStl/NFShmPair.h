@@ -37,6 +37,17 @@ struct NFShmPair {
 
     }
 
+    template <class _U1, class _U2>
+    NFShmPair(const std::pair<_U1, _U2>& __p) : first(__p.first), second(__p.second)
+    {
+
+    }
+
+    NFShmPair(const std::pair<T1, T2>& __p) : first(__p.first), second(__p.second)
+    {
+
+    }
+
 
     template <class _U1, class _U2>
     NFShmPair(const NFShmPair<_U1, _U2>& __p) : first(__p.first), second(__p.second)

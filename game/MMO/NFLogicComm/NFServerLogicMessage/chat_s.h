@@ -8,6 +8,8 @@
 #include "chat.pb.h"
 #include "chat_s.h"
 
+#define DEFINE_SHEET_CHATCHAT_E_CHATCHAT_LIST_MAX_NUM 40
+#define DEFINE_SHEET_CHATSPECIALCHAT_E_CHATSPECIALCHAT_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_ChatChat_s : public NFDescStoreSeqOP {
@@ -34,7 +36,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ChatChat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ChatChat_s, 40> E_ChatChat_List;
+		NFShmVector<struct E_ChatChat_s, DEFINE_SHEET_CHATCHAT_E_CHATCHAT_LIST_MAX_NUM> E_ChatChat_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ChatChat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ChatChat & msg);
@@ -65,7 +67,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ChatSpecialchat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ChatSpecialchat_s, 20> E_ChatSpecialchat_List;
+		NFShmVector<struct E_ChatSpecialchat_s, DEFINE_SHEET_CHATSPECIALCHAT_E_CHATSPECIALCHAT_LIST_MAX_NUM> E_ChatSpecialchat_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ChatSpecialchat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ChatSpecialchat & msg);

@@ -8,6 +8,12 @@
 #include "randomname.pb.h"
 #include "randomname_s.h"
 
+#define DEFINE_SHEET_RANDOMNAMEMANFIRST_E_RANDOMNAMEMANFIRST_LIST_MAX_NUM 100
+#define DEFINE_SHEET_RANDOMNAMEMANSECOND_E_RANDOMNAMEMANSECOND_LIST_MAX_NUM 60
+#define DEFINE_SHEET_RANDOMNAMEMANTHIRD_E_RANDOMNAMEMANTHIRD_LIST_MAX_NUM 500
+#define DEFINE_SHEET_RANDOMNAMEWOMANFIRST_E_RANDOMNAMEWOMANFIRST_LIST_MAX_NUM 300
+#define DEFINE_SHEET_RANDOMNAMEWOMANSECOND_E_RANDOMNAMEWOMANSECOND_LIST_MAX_NUM 40
+#define DEFINE_SHEET_RANDOMNAMEWOMANTHIRD_E_RANDOMNAMEWOMANTHIRD_LIST_MAX_NUM 400
 namespace proto_ff_s {
 
 	struct E_RandomnameManfirst_s : public NFDescStoreSeqOP {
@@ -30,7 +36,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RandomnameManfirst_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RandomnameManfirst_s, 100> E_RandomnameManfirst_List;
+		NFShmVector<struct E_RandomnameManfirst_s, DEFINE_SHEET_RANDOMNAMEMANFIRST_E_RANDOMNAMEMANFIRST_LIST_MAX_NUM> E_RandomnameManfirst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RandomnameManfirst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RandomnameManfirst & msg);
@@ -59,7 +65,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RandomnameMansecond_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RandomnameMansecond_s, 60> E_RandomnameMansecond_List;
+		NFShmVector<struct E_RandomnameMansecond_s, DEFINE_SHEET_RANDOMNAMEMANSECOND_E_RANDOMNAMEMANSECOND_LIST_MAX_NUM> E_RandomnameMansecond_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RandomnameMansecond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RandomnameMansecond & msg);
@@ -88,7 +94,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RandomnameManthird_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RandomnameManthird_s, 500> E_RandomnameManthird_List;
+		NFShmVector<struct E_RandomnameManthird_s, DEFINE_SHEET_RANDOMNAMEMANTHIRD_E_RANDOMNAMEMANTHIRD_LIST_MAX_NUM> E_RandomnameManthird_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RandomnameManthird & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RandomnameManthird & msg);
@@ -117,7 +123,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RandomnameWomanfirst_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RandomnameWomanfirst_s, 300> E_RandomnameWomanfirst_List;
+		NFShmVector<struct E_RandomnameWomanfirst_s, DEFINE_SHEET_RANDOMNAMEWOMANFIRST_E_RANDOMNAMEWOMANFIRST_LIST_MAX_NUM> E_RandomnameWomanfirst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RandomnameWomanfirst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RandomnameWomanfirst & msg);
@@ -146,7 +152,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RandomnameWomansecond_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RandomnameWomansecond_s, 40> E_RandomnameWomansecond_List;
+		NFShmVector<struct E_RandomnameWomansecond_s, DEFINE_SHEET_RANDOMNAMEWOMANSECOND_E_RANDOMNAMEWOMANSECOND_LIST_MAX_NUM> E_RandomnameWomansecond_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RandomnameWomansecond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RandomnameWomansecond & msg);
@@ -175,7 +181,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RandomnameWomanthird_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RandomnameWomanthird_s, 400> E_RandomnameWomanthird_List;
+		NFShmVector<struct E_RandomnameWomanthird_s, DEFINE_SHEET_RANDOMNAMEWOMANTHIRD_E_RANDOMNAMEWOMANTHIRD_LIST_MAX_NUM> E_RandomnameWomanthird_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RandomnameWomanthird & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RandomnameWomanthird & msg);

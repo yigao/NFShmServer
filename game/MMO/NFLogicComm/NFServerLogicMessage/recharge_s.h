@@ -8,6 +8,9 @@
 #include "recharge.pb.h"
 #include "recharge_s.h"
 
+#define DEFINE_E_RECHARGERECHARGE_M_ITEM_MAX_NUM 2
+#define DEFINE_E_RECHARGERECHARGE_M_CHANNEL_MAX_NUM 4
+#define DEFINE_SHEET_RECHARGERECHARGE_E_RECHARGERECHARGE_LIST_MAX_NUM 2000
 namespace proto_ff_s {
 
 	struct E_RechargeRechargeItemDesc_s : public NFDescStoreSeqOP {
@@ -63,8 +66,8 @@ namespace proto_ff_s {
 		int32_t m_presentid;
 		int32_t m_fristpresent;
 		NFShmString<60> m_icon;
-		NFShmVector<struct E_RechargeRechargeItemDesc_s, 2> m_item;
-		NFShmVector<struct E_RechargeRechargeChannelDesc_s, 4> m_channel;
+		NFShmVector<struct E_RechargeRechargeItemDesc_s, DEFINE_E_RECHARGERECHARGE_M_ITEM_MAX_NUM> m_item;
+		NFShmVector<struct E_RechargeRechargeChannelDesc_s, DEFINE_E_RECHARGERECHARGE_M_CHANNEL_MAX_NUM> m_channel;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RechargeRecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RechargeRecharge & msg);
@@ -78,7 +81,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RechargeRecharge_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RechargeRecharge_s, 2000> E_RechargeRecharge_List;
+		NFShmVector<struct E_RechargeRecharge_s, DEFINE_SHEET_RECHARGERECHARGE_E_RECHARGERECHARGE_LIST_MAX_NUM> E_RechargeRecharge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RechargeRecharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RechargeRecharge & msg);

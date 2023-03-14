@@ -8,6 +8,17 @@
 #include "skill.pb.h"
 #include "skill_s.h"
 
+#define DEFINE_SHEET_SKILLBUFF_E_SKILLBUFF_LIST_MAX_NUM 200
+#define DEFINE_E_SKILLSKILL_M_ADVANCETYPE1BUFF_MAX_NUM 3
+#define DEFINE_E_SKILLSKILL_M_ADVANCETYPE2BUFF_MAX_NUM 3
+#define DEFINE_E_SKILLSKILL_M_AWAKEBUFF_MAX_NUM 5
+#define DEFINE_E_SKILLSKILL_M_ADVANCETYPE3BUFF_MAX_NUM 3
+#define DEFINE_E_SKILLSKILL_M_BUFF_MAX_NUM 8
+#define DEFINE_SHEET_SKILLSKILL_E_SKILLSKILL_LIST_MAX_NUM 300
+#define DEFINE_SHEET_SKILLBUFFUP_E_SKILLBUFFUP_LIST_MAX_NUM 60
+#define DEFINE_SHEET_SKILLSKILLUP_E_SKILLSKILLUP_LIST_MAX_NUM 400
+#define DEFINE_SHEET_SKILLSKILLAWAKE_E_SKILLSKILLAWAKE_LIST_MAX_NUM 20
+#define DEFINE_SHEET_SKILLSKILLADVANCE_E_SKILLSKILLADVANCE_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_SkillBuff_s : public NFDescStoreSeqOP {
@@ -48,7 +59,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillBuff_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillBuff_s, 200> E_SkillBuff_List;
+		NFShmVector<struct E_SkillBuff_s, DEFINE_SHEET_SKILLBUFF_E_SKILLBUFF_LIST_MAX_NUM> E_SkillBuff_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillBuff & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillBuff & msg);
@@ -183,11 +194,11 @@ namespace proto_ff_s {
 		int32_t m_damagevalue;
 		float m_damageparama;
 		int32_t m_addhitrate;
-		NFShmVector<struct E_SkillSkillAdvancetype1buffDesc_s, 3> m_advancetype1buff;
-		NFShmVector<struct E_SkillSkillAdvancetype2buffDesc_s, 3> m_advancetype2buff;
-		NFShmVector<struct E_SkillSkillAwakebuffDesc_s, 5> m_awakebuff;
-		NFShmVector<struct E_SkillSkillAdvancetype3buffDesc_s, 3> m_advancetype3buff;
-		NFShmVector<struct E_SkillSkillBuffDesc_s, 8> m_buff;
+		NFShmVector<struct E_SkillSkillAdvancetype1buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE1BUFF_MAX_NUM> m_advancetype1buff;
+		NFShmVector<struct E_SkillSkillAdvancetype2buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE2BUFF_MAX_NUM> m_advancetype2buff;
+		NFShmVector<struct E_SkillSkillAwakebuffDesc_s, DEFINE_E_SKILLSKILL_M_AWAKEBUFF_MAX_NUM> m_awakebuff;
+		NFShmVector<struct E_SkillSkillAdvancetype3buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE3BUFF_MAX_NUM> m_advancetype3buff;
+		NFShmVector<struct E_SkillSkillBuffDesc_s, DEFINE_E_SKILLSKILL_M_BUFF_MAX_NUM> m_buff;
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg);
@@ -201,7 +212,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillSkill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillSkill_s, 300> E_SkillSkill_List;
+		NFShmVector<struct E_SkillSkill_s, DEFINE_SHEET_SKILLSKILL_E_SKILLSKILL_LIST_MAX_NUM> E_SkillSkill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkill & msg);
@@ -232,7 +243,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillBuffup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillBuffup_s, 60> E_SkillBuffup_List;
+		NFShmVector<struct E_SkillBuffup_s, DEFINE_SHEET_SKILLBUFFUP_E_SKILLBUFFUP_LIST_MAX_NUM> E_SkillBuffup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillBuffup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillBuffup & msg);
@@ -266,7 +277,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillSkillup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillSkillup_s, 400> E_SkillSkillup_List;
+		NFShmVector<struct E_SkillSkillup_s, DEFINE_SHEET_SKILLSKILLUP_E_SKILLSKILLUP_LIST_MAX_NUM> E_SkillSkillup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkillup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkillup & msg);
@@ -296,7 +307,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillSkillawake_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillSkillawake_s, 20> E_SkillSkillawake_List;
+		NFShmVector<struct E_SkillSkillawake_s, DEFINE_SHEET_SKILLSKILLAWAKE_E_SKILLSKILLAWAKE_LIST_MAX_NUM> E_SkillSkillawake_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkillawake & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkillawake & msg);
@@ -329,7 +340,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_SkillSkilladvance_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_SkillSkilladvance_s, 20> E_SkillSkilladvance_List;
+		NFShmVector<struct E_SkillSkilladvance_s, DEFINE_SHEET_SKILLSKILLADVANCE_E_SKILLSKILLADVANCE_LIST_MAX_NUM> E_SkillSkilladvance_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_SkillSkilladvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SkillSkilladvance & msg);

@@ -8,6 +8,8 @@
 #include "functionunlock.pb.h"
 #include "functionunlock_s.h"
 
+#define DEFINE_SHEET_FUNCTIONUNLOCKFUNCTIONUNLOCK_E_FUNCTIONUNLOCKFUNCTIONUNLOCK_LIST_MAX_NUM 200
+#define DEFINE_SHEET_FUNCTIONUNLOCKPREVIEW_E_FUNCTIONUNLOCKPREVIEW_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_FunctionunlockFunctionunlock_s : public NFDescStoreSeqOP {
@@ -35,7 +37,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FunctionunlockFunctionunlock_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FunctionunlockFunctionunlock_s, 200> E_FunctionunlockFunctionunlock_List;
+		NFShmVector<struct E_FunctionunlockFunctionunlock_s, DEFINE_SHEET_FUNCTIONUNLOCKFUNCTIONUNLOCK_E_FUNCTIONUNLOCKFUNCTIONUNLOCK_LIST_MAX_NUM> E_FunctionunlockFunctionunlock_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FunctionunlockFunctionunlock & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FunctionunlockFunctionunlock & msg);
@@ -65,7 +67,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FunctionunlockPreview_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FunctionunlockPreview_s, 20> E_FunctionunlockPreview_List;
+		NFShmVector<struct E_FunctionunlockPreview_s, DEFINE_SHEET_FUNCTIONUNLOCKPREVIEW_E_FUNCTIONUNLOCKPREVIEW_LIST_MAX_NUM> E_FunctionunlockPreview_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FunctionunlockPreview & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FunctionunlockPreview & msg);

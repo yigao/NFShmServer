@@ -8,6 +8,29 @@
 #include "equip.pb.h"
 #include "equip_s.h"
 
+#define DEFINE_SHEET_EQUIPEQUIP_E_EQUIPEQUIP_LIST_MAX_NUM 11000
+#define DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_EQUIPATTRIBUTE_E_EQUIPATTRIBUTE_LIST_MAX_NUM 11000
+#define DEFINE_E_EQUIPSTRONG_M_TYPE_MAX_NUM 2
+#define DEFINE_SHEET_EQUIPSTRONG_E_EQUIPSTRONG_LIST_MAX_NUM 500
+#define DEFINE_E_EQUIPSTRONGEXP_M_COST_MAX_NUM 3
+#define DEFINE_SHEET_EQUIPSTRONGEXP_E_EQUIPSTRONGEXP_LIST_MAX_NUM 800
+#define DEFINE_E_EQUIPSTRONGTOTAL_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_SHEET_EQUIPSTRONGTOTAL_E_EQUIPSTRONGTOTAL_LIST_MAX_NUM 200
+#define DEFINE_E_EQUIPGEM_M_GEMUNLOCK_MAX_NUM 4
+#define DEFINE_SHEET_EQUIPGEM_E_EQUIPGEM_LIST_MAX_NUM 20
+#define DEFINE_SHEET_EQUIPGEMLV_E_EQUIPGEMLV_LIST_MAX_NUM 300
+#define DEFINE_E_EQUIPSTOVEATT_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_SHEET_EQUIPSTOVEATT_E_EQUIPSTOVEATT_LIST_MAX_NUM 2000
+#define DEFINE_SHEET_EQUIPSTOVEEXP_E_EQUIPSTOVEEXP_LIST_MAX_NUM 200
+#define DEFINE_SHEET_EQUIPGRADE_E_EQUIPGRADE_LIST_MAX_NUM 40
+#define DEFINE_E_EQUIPCLEAR_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_E_EQUIPCLEAR_M_SECTION_MAX_NUM 6
+#define DEFINE_SHEET_EQUIPCLEAR_E_EQUIPCLEAR_LIST_MAX_NUM 20
+#define DEFINE_E_EQUIPSUIT_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_EQUIPSUIT_E_EQUIPSUIT_LIST_MAX_NUM 80
+#define DEFINE_E_EQUIPBREAK_M_BREAK_MAX_NUM 2
+#define DEFINE_SHEET_EQUIPBREAK_E_EQUIPBREAK_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_EquipEquip_s : public NFDescStoreSeqOP {
@@ -47,7 +70,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipEquip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipEquip_s, 11000> E_EquipEquip_List;
+		NFShmVector<struct E_EquipEquip_s, DEFINE_SHEET_EQUIPEQUIP_E_EQUIPEQUIP_LIST_MAX_NUM> E_EquipEquip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipEquip & msg);
@@ -90,7 +113,7 @@ namespace proto_ff_s {
 		NFShmString<60> m_godattribute_type;
 		NFShmString<60> m_godattribute_valuemin;
 		NFShmString<60> m_godattribute_valuemax;
-		NFShmVector<struct E_EquipAttributeAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_EquipAttributeAttributeDesc_s, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 		NFShmVector<NFShmString<60>, 7> m_star_library;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) const;
@@ -105,7 +128,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipAttribute_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipAttribute_s, 11000> E_EquipAttribute_List;
+		NFShmVector<struct E_EquipAttribute_s, DEFINE_SHEET_EQUIPATTRIBUTE_E_EQUIPATTRIBUTE_LIST_MAX_NUM> E_EquipAttribute_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipAttribute & msg);
@@ -138,7 +161,7 @@ namespace proto_ff_s {
 		int32_t m_position;
 		int32_t m_wearquality;
 		int32_t m_srtongup;
-		NFShmVector<struct E_EquipStrongTypeDesc_s, 2> m_type;
+		NFShmVector<struct E_EquipStrongTypeDesc_s, DEFINE_E_EQUIPSTRONG_M_TYPE_MAX_NUM> m_type;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrong & msg);
@@ -152,7 +175,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStrong_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStrong_s, 500> E_EquipStrong_List;
+		NFShmVector<struct E_EquipStrong_s, DEFINE_SHEET_EQUIPSTRONG_E_EQUIPSTRONG_LIST_MAX_NUM> E_EquipStrong_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrong & msg);
@@ -183,7 +206,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_gold;
-		NFShmVector<struct E_EquipStrongexpCostDesc_s, 3> m_cost;
+		NFShmVector<struct E_EquipStrongexpCostDesc_s, DEFINE_E_EQUIPSTRONGEXP_M_COST_MAX_NUM> m_cost;
 		NFShmVector<NFShmString<60>, 3> m_positiontype;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const;
@@ -198,7 +221,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStrongexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStrongexp_s, 800> E_EquipStrongexp_List;
+		NFShmVector<struct E_EquipStrongexp_s, DEFINE_SHEET_EQUIPSTRONGEXP_E_EQUIPSTRONGEXP_LIST_MAX_NUM> E_EquipStrongexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrongexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrongexp & msg);
@@ -230,7 +253,7 @@ namespace proto_ff_s {
 		int64_t m_id;
 		int32_t m_idtype;
 		int32_t m_idnum;
-		NFShmVector<struct E_EquipStrongtotalAttributeDesc_s, 4> m_attribute;
+		NFShmVector<struct E_EquipStrongtotalAttributeDesc_s, DEFINE_E_EQUIPSTRONGTOTAL_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongtotal & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongtotal & msg);
@@ -244,7 +267,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStrongtotal_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStrongtotal_s, 200> E_EquipStrongtotal_List;
+		NFShmVector<struct E_EquipStrongtotal_s, DEFINE_SHEET_EQUIPSTRONGTOTAL_E_EQUIPSTRONGTOTAL_LIST_MAX_NUM> E_EquipStrongtotal_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStrongtotal & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStrongtotal & msg);
@@ -265,7 +288,7 @@ namespace proto_ff_s {
 		int32_t m_payunlocknnm;
 		NFShmString<60> m_commongembuy;
 		NFShmString<60> m_speciallygembuy;
-		NFShmVector<int32_t, 4> m_gemunlock;
+		NFShmVector<int32_t, DEFINE_E_EQUIPGEM_M_GEMUNLOCK_MAX_NUM> m_gemunlock;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipGem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGem & msg);
@@ -279,7 +302,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipGem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipGem_s, 20> E_EquipGem_List;
+		NFShmVector<struct E_EquipGem_s, DEFINE_SHEET_EQUIPGEM_E_EQUIPGEM_LIST_MAX_NUM> E_EquipGem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipGem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipGem & msg);
@@ -311,7 +334,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipGemlv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipGemlv_s, 300> E_EquipGemlv_List;
+		NFShmVector<struct E_EquipGemlv_s, DEFINE_SHEET_EQUIPGEMLV_E_EQUIPGEMLV_LIST_MAX_NUM> E_EquipGemlv_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipGemlv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipGemlv & msg);
@@ -342,7 +365,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int64_t m_exp;
-		NFShmVector<struct E_EquipStoveattAttributeDesc_s, 4> m_attribute;
+		NFShmVector<struct E_EquipStoveattAttributeDesc_s, DEFINE_E_EQUIPSTOVEATT_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStoveatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStoveatt & msg);
@@ -356,7 +379,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStoveatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStoveatt_s, 2000> E_EquipStoveatt_List;
+		NFShmVector<struct E_EquipStoveatt_s, DEFINE_SHEET_EQUIPSTOVEATT_E_EQUIPSTOVEATT_LIST_MAX_NUM> E_EquipStoveatt_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStoveatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStoveatt & msg);
@@ -387,7 +410,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipStoveexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipStoveexp_s, 200> E_EquipStoveexp_List;
+		NFShmVector<struct E_EquipStoveexp_s, DEFINE_SHEET_EQUIPSTOVEEXP_E_EQUIPSTOVEEXP_LIST_MAX_NUM> E_EquipStoveexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipStoveexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipStoveexp & msg);
@@ -415,7 +438,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipGrade_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipGrade_s, 40> E_EquipGrade_List;
+		NFShmVector<struct E_EquipGrade_s, DEFINE_SHEET_EQUIPGRADE_E_EQUIPGRADE_LIST_MAX_NUM> E_EquipGrade_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipGrade & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipGrade & msg);
@@ -469,8 +492,8 @@ namespace proto_ff_s {
 		NFShmString<60> m_consumenum;
 		NFShmString<60> m_lockingid;
 		NFShmString<60> m_lockingnum;
-		NFShmVector<struct E_EquipClearAttributeDesc_s, 3> m_attribute;
-		NFShmVector<struct E_EquipClearSectionDesc_s, 6> m_section;
+		NFShmVector<struct E_EquipClearAttributeDesc_s, DEFINE_E_EQUIPCLEAR_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_EquipClearSectionDesc_s, DEFINE_E_EQUIPCLEAR_M_SECTION_MAX_NUM> m_section;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipClear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipClear & msg);
@@ -484,7 +507,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipClear_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipClear_s, 20> E_EquipClear_List;
+		NFShmVector<struct E_EquipClear_s, DEFINE_SHEET_EQUIPCLEAR_E_EQUIPCLEAR_LIST_MAX_NUM> E_EquipClear_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipClear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipClear & msg);
@@ -520,7 +543,7 @@ namespace proto_ff_s {
 		int32_t m_colour;
 		NFShmString<60> m_aftername;
 		int32_t m_suitevalue;
-		NFShmVector<struct E_EquipSuitAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_EquipSuitAttributeDesc_s, DEFINE_E_EQUIPSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;
 		NFShmVector<NFShmString<60>, 10> m_maleposition;
 		NFShmVector<NFShmString<60>, 10> m_femaleposition;
 
@@ -536,7 +559,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipSuit_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipSuit_s, 80> E_EquipSuit_List;
+		NFShmVector<struct E_EquipSuit_s, DEFINE_SHEET_EQUIPSUIT_E_EQUIPSUIT_LIST_MAX_NUM> E_EquipSuit_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipSuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipSuit & msg);
@@ -570,7 +593,7 @@ namespace proto_ff_s {
 		NFShmString<60> m_positiontype;
 		int32_t m_basic;
 		int32_t m_star;
-		NFShmVector<struct E_EquipBreakBreakDesc_s, 2> m_break;
+		NFShmVector<struct E_EquipBreakBreakDesc_s, DEFINE_E_EQUIPBREAK_M_BREAK_MAX_NUM> m_break;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipBreak & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipBreak & msg);
@@ -584,7 +607,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_EquipBreak_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_EquipBreak_s, 60> E_EquipBreak_List;
+		NFShmVector<struct E_EquipBreak_s, DEFINE_SHEET_EQUIPBREAK_E_EQUIPBREAK_LIST_MAX_NUM> E_EquipBreak_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_EquipBreak & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EquipBreak & msg);

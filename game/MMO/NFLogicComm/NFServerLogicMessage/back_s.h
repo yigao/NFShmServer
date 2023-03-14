@@ -8,6 +8,8 @@
 #include "back.pb.h"
 #include "back_s.h"
 
+#define DEFINE_E_BACKBACK_M_PARAM_MAX_NUM 2
+#define DEFINE_SHEET_BACKBACK_E_BACKBACK_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_BackBack_s : public NFDescStoreSeqOP {
@@ -31,7 +33,7 @@ namespace proto_ff_s {
 		int32_t m_pcostnum;
 		int32_t m_acostitemid;
 		int32_t m_acostnum;
-		NFShmVector<int32_t, 2> m_param;
+		NFShmVector<int32_t, DEFINE_E_BACKBACK_M_PARAM_MAX_NUM> m_param;
 
 		virtual void write_to_pbmsg(::proto_ff::E_BackBack & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BackBack & msg);
@@ -45,7 +47,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BackBack_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BackBack_s, 20> E_BackBack_List;
+		NFShmVector<struct E_BackBack_s, DEFINE_SHEET_BACKBACK_E_BACKBACK_LIST_MAX_NUM> E_BackBack_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BackBack & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BackBack & msg);

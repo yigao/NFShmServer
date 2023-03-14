@@ -8,6 +8,8 @@
 #include "vip.pb.h"
 #include "vip_s.h"
 
+#define DEFINE_SHEET_VIPVIP_E_VIPVIP_LIST_MAX_NUM 20
+#define DEFINE_SHEET_VIPPRIVILEGE_E_VIPPRIVILEGE_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_VipVip_s : public NFDescStoreSeqOP {
@@ -32,7 +34,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_VipVip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_VipVip_s, 20> E_VipVip_List;
+		NFShmVector<struct E_VipVip_s, DEFINE_SHEET_VIPVIP_E_VIPVIP_LIST_MAX_NUM> E_VipVip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_VipVip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_VipVip & msg);
@@ -64,7 +66,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_VipPrivilege_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_VipPrivilege_s, 60> E_VipPrivilege_List;
+		NFShmVector<struct E_VipPrivilege_s, DEFINE_SHEET_VIPPRIVILEGE_E_VIPPRIVILEGE_LIST_MAX_NUM> E_VipPrivilege_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_VipPrivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_VipPrivilege & msg);

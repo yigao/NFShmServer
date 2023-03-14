@@ -8,6 +8,15 @@
 #include "guild.pb.h"
 #include "guild_s.h"
 
+#define DEFINE_SHEET_GUILDCONSTANT_E_GUILDCONSTANT_LIST_MAX_NUM 20
+#define DEFINE_SHEET_GUILDLEVEL_E_GUILDLEVEL_LIST_MAX_NUM 20
+#define DEFINE_SHEET_GUILDPOSITION_E_GUILDPOSITION_LIST_MAX_NUM 20
+#define DEFINE_E_GUILDSALARY_M_REWARD_MAX_NUM 3
+#define DEFINE_SHEET_GUILDSALARY_E_GUILDSALARY_LIST_MAX_NUM 20
+#define DEFINE_E_GUILDDONATE_M_REWARD_MAX_NUM 3
+#define DEFINE_SHEET_GUILDDONATE_E_GUILDDONATE_LIST_MAX_NUM 20
+#define DEFINE_SHEET_GUILDPACKET_E_GUILDPACKET_LIST_MAX_NUM 80
+#define DEFINE_SHEET_GUILDPRESTIGETASK_E_GUILDPRESTIGETASK_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_GuildConstant_s : public NFDescStoreSeqOP {
@@ -50,7 +59,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildConstant_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildConstant_s, 20> E_GuildConstant_List;
+		NFShmVector<struct E_GuildConstant_s, DEFINE_SHEET_GUILDCONSTANT_E_GUILDCONSTANT_LIST_MAX_NUM> E_GuildConstant_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildConstant & msg);
@@ -83,7 +92,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildLevel_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildLevel_s, 20> E_GuildLevel_List;
+		NFShmVector<struct E_GuildLevel_s, DEFINE_SHEET_GUILDLEVEL_E_GUILDLEVEL_LIST_MAX_NUM> E_GuildLevel_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildLevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildLevel & msg);
@@ -128,7 +137,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildPosition_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildPosition_s, 20> E_GuildPosition_List;
+		NFShmVector<struct E_GuildPosition_s, DEFINE_SHEET_GUILDPOSITION_E_GUILDPOSITION_LIST_MAX_NUM> E_GuildPosition_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildPosition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildPosition & msg);
@@ -161,7 +170,7 @@ namespace proto_ff_s {
 		int32_t m_type;
 		int32_t m_typearg;
 		int32_t m_times;
-		NFShmVector<struct E_GuildSalaryRewardDesc_s, 3> m_reward;
+		NFShmVector<struct E_GuildSalaryRewardDesc_s, DEFINE_E_GUILDSALARY_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildSalary & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildSalary & msg);
@@ -175,7 +184,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildSalary_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildSalary_s, 20> E_GuildSalary_List;
+		NFShmVector<struct E_GuildSalary_s, DEFINE_SHEET_GUILDSALARY_E_GUILDSALARY_LIST_MAX_NUM> E_GuildSalary_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildSalary & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildSalary & msg);
@@ -207,7 +216,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_costitem;
 		int32_t m_costnum;
-		NFShmVector<struct E_GuildDonateRewardDesc_s, 3> m_reward;
+		NFShmVector<struct E_GuildDonateRewardDesc_s, DEFINE_E_GUILDDONATE_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildDonate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildDonate & msg);
@@ -221,7 +230,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildDonate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildDonate_s, 20> E_GuildDonate_List;
+		NFShmVector<struct E_GuildDonate_s, DEFINE_SHEET_GUILDDONATE_E_GUILDDONATE_LIST_MAX_NUM> E_GuildDonate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildDonate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildDonate & msg);
@@ -257,7 +266,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildPacket_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildPacket_s, 80> E_GuildPacket_List;
+		NFShmVector<struct E_GuildPacket_s, DEFINE_SHEET_GUILDPACKET_E_GUILDPACKET_LIST_MAX_NUM> E_GuildPacket_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildPacket & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildPacket & msg);
@@ -289,7 +298,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GuildPrestigetask_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GuildPrestigetask_s, 20> E_GuildPrestigetask_List;
+		NFShmVector<struct E_GuildPrestigetask_s, DEFINE_SHEET_GUILDPRESTIGETASK_E_GUILDPRESTIGETASK_LIST_MAX_NUM> E_GuildPrestigetask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildPrestigetask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildPrestigetask & msg);

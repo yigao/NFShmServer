@@ -8,6 +8,7 @@
 #include "GMCommand.pb.h"
 #include "GMCommand_s.h"
 
+#define DEFINE_SHEET_GMCOMMANDGMCOMMAND_E_GMCOMMANDGMCOMMAND_LIST_MAX_NUM 40
 namespace proto_ff_s {
 
 	struct E_GmcommandGmcommand_s : public NFDescStoreSeqOP {
@@ -32,7 +33,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GmcommandGmcommand_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GmcommandGmcommand_s, 40> E_GmcommandGmcommand_List;
+		NFShmVector<struct E_GmcommandGmcommand_s, DEFINE_SHEET_GMCOMMANDGMCOMMAND_E_GMCOMMANDGMCOMMAND_LIST_MAX_NUM> E_GmcommandGmcommand_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GmcommandGmcommand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GmcommandGmcommand & msg);

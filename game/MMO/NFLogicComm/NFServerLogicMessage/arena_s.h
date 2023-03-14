@@ -8,6 +8,17 @@
 #include "arena.pb.h"
 #include "arena_s.h"
 
+#define DEFINE_E_ARENAROBOT_M_ATTR_MAX_NUM 70
+#define DEFINE_SHEET_ARENAROBOT_E_ARENAROBOT_LIST_MAX_NUM 6000
+#define DEFINE_E_ARENAROBOTFACADE_M_FACADE_MAX_NUM 17
+#define DEFINE_SHEET_ARENAROBOTFACADE_E_ARENAROBOTFACADE_LIST_MAX_NUM 20
+#define DEFINE_E_ARENAARENAWARD_M_REWARD_MAX_NUM 5
+#define DEFINE_SHEET_ARENAARENAWARD_E_ARENAARENAWARD_LIST_MAX_NUM 2000
+#define DEFINE_E_ARENARANKAWARD_M_REWARD_MAX_NUM 5
+#define DEFINE_SHEET_ARENARANKAWARD_E_ARENARANKAWARD_LIST_MAX_NUM 20
+#define DEFINE_E_ARENAFIRSTRANK_M_REWARD_MAX_NUM 5
+#define DEFINE_SHEET_ARENAFIRSTRANK_E_ARENAFIRSTRANK_LIST_MAX_NUM 20
+#define DEFINE_SHEET_ARENABUYCHALLENGE_E_ARENABUYCHALLENGE_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_ArenaRobotAttrDesc_s : public NFDescStoreSeqOP {
@@ -39,7 +50,7 @@ namespace proto_ff_s {
 		int32_t m_sword;
 		int32_t m_facadeid;
 		int32_t m_occupationid;
-		NFShmVector<struct E_ArenaRobotAttrDesc_s, 70> m_attr;
+		NFShmVector<struct E_ArenaRobotAttrDesc_s, DEFINE_E_ARENAROBOT_M_ATTR_MAX_NUM> m_attr;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRobot & msg);
@@ -53,7 +64,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ArenaRobot_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ArenaRobot_s, 6000> E_ArenaRobot_List;
+		NFShmVector<struct E_ArenaRobot_s, DEFINE_SHEET_ARENAROBOT_E_ARENAROBOT_LIST_MAX_NUM> E_ArenaRobot_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaRobot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaRobot & msg);
@@ -84,7 +95,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		int32_t m_color;
-		NFShmVector<struct E_ArenaRobotfacadeFacadeDesc_s, 17> m_facade;
+		NFShmVector<struct E_ArenaRobotfacadeFacadeDesc_s, DEFINE_E_ARENAROBOTFACADE_M_FACADE_MAX_NUM> m_facade;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobotfacade & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRobotfacade & msg);
@@ -98,7 +109,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ArenaRobotfacade_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ArenaRobotfacade_s, 20> E_ArenaRobotfacade_List;
+		NFShmVector<struct E_ArenaRobotfacade_s, DEFINE_SHEET_ARENAROBOTFACADE_E_ARENAROBOTFACADE_LIST_MAX_NUM> E_ArenaRobotfacade_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaRobotfacade & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaRobotfacade & msg);
@@ -130,7 +141,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_lvdown;
 		int32_t m_lvup;
-		NFShmVector<struct E_ArenaArenawardRewardDesc_s, 5> m_reward;
+		NFShmVector<struct E_ArenaArenawardRewardDesc_s, DEFINE_E_ARENAARENAWARD_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaArenaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaArenaward & msg);
@@ -144,7 +155,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ArenaArenaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ArenaArenaward_s, 2000> E_ArenaArenaward_List;
+		NFShmVector<struct E_ArenaArenaward_s, DEFINE_SHEET_ARENAARENAWARD_E_ARENAARENAWARD_LIST_MAX_NUM> E_ArenaArenaward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaArenaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaArenaward & msg);
@@ -176,7 +187,7 @@ namespace proto_ff_s {
 		int32_t m_prizeid;
 		int32_t m_arenadown;
 		int32_t m_arenaup;
-		NFShmVector<struct E_ArenaRankawardRewardDesc_s, 5> m_reward;
+		NFShmVector<struct E_ArenaRankawardRewardDesc_s, DEFINE_E_ARENARANKAWARD_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaRankaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRankaward & msg);
@@ -190,7 +201,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ArenaRankaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ArenaRankaward_s, 20> E_ArenaRankaward_List;
+		NFShmVector<struct E_ArenaRankaward_s, DEFINE_SHEET_ARENARANKAWARD_E_ARENARANKAWARD_LIST_MAX_NUM> E_ArenaRankaward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaRankaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaRankaward & msg);
@@ -222,7 +233,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_rankdown;
 		int32_t m_rankup;
-		NFShmVector<struct E_ArenaFirstrankRewardDesc_s, 5> m_reward;
+		NFShmVector<struct E_ArenaFirstrankRewardDesc_s, DEFINE_E_ARENAFIRSTRANK_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaFirstrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaFirstrank & msg);
@@ -236,7 +247,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ArenaFirstrank_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ArenaFirstrank_s, 20> E_ArenaFirstrank_List;
+		NFShmVector<struct E_ArenaFirstrank_s, DEFINE_SHEET_ARENAFIRSTRANK_E_ARENAFIRSTRANK_LIST_MAX_NUM> E_ArenaFirstrank_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaFirstrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaFirstrank & msg);
@@ -266,7 +277,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ArenaBuychallenge_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ArenaBuychallenge_s, 20> E_ArenaBuychallenge_List;
+		NFShmVector<struct E_ArenaBuychallenge_s, DEFINE_SHEET_ARENABUYCHALLENGE_E_ARENABUYCHALLENGE_LIST_MAX_NUM> E_ArenaBuychallenge_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ArenaBuychallenge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ArenaBuychallenge & msg);

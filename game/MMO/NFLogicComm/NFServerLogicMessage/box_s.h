@@ -8,6 +8,11 @@
 #include "box.pb.h"
 #include "box_s.h"
 
+#define DEFINE_E_BOXBOX_M_BOXDATA_MAX_NUM 8
+#define DEFINE_SHEET_BOXBOX_E_BOXBOX_LIST_MAX_NUM 60
+#define DEFINE_E_BOXBOXDATA_M_EQUIP_MAX_NUM 8
+#define DEFINE_E_BOXBOXDATA_M_ITEM_MAX_NUM 50
+#define DEFINE_SHEET_BOXBOXDATA_E_BOXBOXDATA_LIST_MAX_NUM 80
 namespace proto_ff_s {
 
 	struct E_BoxBoxBoxdataDesc_s : public NFDescStoreSeqOP {
@@ -38,7 +43,7 @@ namespace proto_ff_s {
 		int32_t m_mask;
 		int32_t m_mintimes;
 		int32_t m_maxtimes;
-		NFShmVector<struct E_BoxBoxBoxdataDesc_s, 8> m_boxdata;
+		NFShmVector<struct E_BoxBoxBoxdataDesc_s, DEFINE_E_BOXBOX_M_BOXDATA_MAX_NUM> m_boxdata;
 
 		virtual void write_to_pbmsg(::proto_ff::E_BoxBox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBox & msg);
@@ -52,7 +57,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BoxBox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BoxBox_s, 60> E_BoxBox_List;
+		NFShmVector<struct E_BoxBox_s, DEFINE_SHEET_BOXBOX_E_BOXBOX_LIST_MAX_NUM> E_BoxBox_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BoxBox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BoxBox & msg);
@@ -115,8 +120,8 @@ namespace proto_ff_s {
 		int32_t m_jewelmaxnum;
 		int32_t m_jewelrand;
 		NFShmString<60> m_eq_profession;
-		NFShmVector<struct E_BoxBoxdataEquipDesc_s, 8> m_equip;
-		NFShmVector<struct E_BoxBoxdataItemDesc_s, 50> m_item;
+		NFShmVector<struct E_BoxBoxdataEquipDesc_s, DEFINE_E_BOXBOXDATA_M_EQUIP_MAX_NUM> m_equip;
+		NFShmVector<struct E_BoxBoxdataItemDesc_s, DEFINE_E_BOXBOXDATA_M_ITEM_MAX_NUM> m_item;
 
 		virtual void write_to_pbmsg(::proto_ff::E_BoxBoxdata & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BoxBoxdata & msg);
@@ -130,7 +135,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BoxBoxdata_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BoxBoxdata_s, 80> E_BoxBoxdata_List;
+		NFShmVector<struct E_BoxBoxdata_s, DEFINE_SHEET_BOXBOXDATA_E_BOXBOXDATA_LIST_MAX_NUM> E_BoxBoxdata_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BoxBoxdata & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BoxBoxdata & msg);

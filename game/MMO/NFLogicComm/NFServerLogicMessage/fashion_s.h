@@ -8,6 +8,9 @@
 #include "fashion.pb.h"
 #include "fashion_s.h"
 
+#define DEFINE_E_FASHIONFASHION_M_ATTRIBUTE_MAX_NUM 5
+#define DEFINE_E_FASHIONFASHION_M_ACTIVEATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_FASHIONFASHION_E_FASHIONFASHION_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_FashionFashionAttributeDesc_s : public NFDescStoreSeqOP {
@@ -56,8 +59,8 @@ namespace proto_ff_s {
 		NFShmString<300> m_starnum;
 		int32_t m_starup;
 		int32_t m_starber;
-		NFShmVector<struct E_FashionFashionAttributeDesc_s, 5> m_attribute;
-		NFShmVector<struct E_FashionFashionActiveattributeDesc_s, 6> m_activeattribute;
+		NFShmVector<struct E_FashionFashionAttributeDesc_s, DEFINE_E_FASHIONFASHION_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_FashionFashionActiveattributeDesc_s, DEFINE_E_FASHIONFASHION_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FashionFashion & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FashionFashion & msg);
@@ -71,7 +74,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FashionFashion_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FashionFashion_s, 20> E_FashionFashion_List;
+		NFShmVector<struct E_FashionFashion_s, DEFINE_SHEET_FASHIONFASHION_E_FASHIONFASHION_LIST_MAX_NUM> E_FashionFashion_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FashionFashion & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FashionFashion & msg);

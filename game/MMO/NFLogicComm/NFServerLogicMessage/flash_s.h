@@ -8,6 +8,10 @@
 #include "flash.pb.h"
 #include "flash_s.h"
 
+#define DEFINE_E_FLASHFLASH_M_MONSTER_MAX_NUM 5
+#define DEFINE_SHEET_FLASHFLASH_E_FLASHFLASH_LIST_MAX_NUM 60
+#define DEFINE_E_FLASHITEMFLASH_M_MONSTER_MAX_NUM 10
+#define DEFINE_SHEET_FLASHITEMFLASH_E_FLASHITEMFLASH_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_FlashFlashMonsterDesc_s : public NFDescStoreSeqOP {
@@ -37,7 +41,7 @@ namespace proto_ff_s {
 		int64_t m_pointid;
 		int32_t m_monster_type;
 		int32_t m_monsterrefreshtime;
-		NFShmVector<struct E_FlashFlashMonsterDesc_s, 5> m_monster;
+		NFShmVector<struct E_FlashFlashMonsterDesc_s, DEFINE_E_FLASHFLASH_M_MONSTER_MAX_NUM> m_monster;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FlashFlash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FlashFlash & msg);
@@ -51,7 +55,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FlashFlash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FlashFlash_s, 60> E_FlashFlash_List;
+		NFShmVector<struct E_FlashFlash_s, DEFINE_SHEET_FLASHFLASH_E_FLASHFLASH_LIST_MAX_NUM> E_FlashFlash_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FlashFlash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FlashFlash & msg);
@@ -85,7 +89,7 @@ namespace proto_ff_s {
 		int32_t m_live;
 		int32_t m_levelwave;
 		int32_t m_flashnum;
-		NFShmVector<struct E_FlashItemflashMonsterDesc_s, 10> m_monster;
+		NFShmVector<struct E_FlashItemflashMonsterDesc_s, DEFINE_E_FLASHITEMFLASH_M_MONSTER_MAX_NUM> m_monster;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FlashItemflash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FlashItemflash & msg);
@@ -99,7 +103,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FlashItemflash_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FlashItemflash_s, 20> E_FlashItemflash_List;
+		NFShmVector<struct E_FlashItemflash_s, DEFINE_SHEET_FLASHITEMFLASH_E_FLASHITEMFLASH_LIST_MAX_NUM> E_FlashItemflash_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FlashItemflash & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FlashItemflash & msg);

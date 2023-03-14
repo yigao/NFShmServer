@@ -8,6 +8,7 @@
 #include "team.pb.h"
 #include "team_s.h"
 
+#define DEFINE_SHEET_TEAMTEAM_E_TEAMTEAM_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_TeamTeam_s : public NFDescStoreSeqOP {
@@ -38,7 +39,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TeamTeam_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TeamTeam_s, 20> E_TeamTeam_List;
+		NFShmVector<struct E_TeamTeam_s, DEFINE_SHEET_TEAMTEAM_E_TEAMTEAM_LIST_MAX_NUM> E_TeamTeam_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TeamTeam & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TeamTeam & msg);

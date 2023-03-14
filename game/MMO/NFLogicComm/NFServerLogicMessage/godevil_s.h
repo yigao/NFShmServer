@@ -8,6 +8,10 @@
 #include "godevil.pb.h"
 #include "godevil_s.h"
 
+#define DEFINE_SHEET_GODEVILPREPOSETASK_E_GODEVILPREPOSETASK_LIST_MAX_NUM 20
+#define DEFINE_E_GODEVILGODEVILLV_M_ATTRIBUTE_MAX_NUM 7
+#define DEFINE_SHEET_GODEVILGODEVILLV_E_GODEVILGODEVILLV_LIST_MAX_NUM 40
+#define DEFINE_SHEET_GODEVILGODEVILPRIVILEGE_E_GODEVILGODEVILPRIVILEGE_LIST_MAX_NUM 40
 namespace proto_ff_s {
 
 	struct E_GodevilPreposetask_s : public NFDescStoreSeqOP {
@@ -36,7 +40,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GodevilPreposetask_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GodevilPreposetask_s, 20> E_GodevilPreposetask_List;
+		NFShmVector<struct E_GodevilPreposetask_s, DEFINE_SHEET_GODEVILPREPOSETASK_E_GODEVILPREPOSETASK_LIST_MAX_NUM> E_GodevilPreposetask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GodevilPreposetask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GodevilPreposetask & msg);
@@ -70,7 +74,7 @@ namespace proto_ff_s {
 		int64_t m_explimit;
 		int32_t m_itemid;
 		int32_t m_num;
-		NFShmVector<struct E_GodevilGodevillvAttributeDesc_s, 7> m_attribute;
+		NFShmVector<struct E_GodevilGodevillvAttributeDesc_s, DEFINE_E_GODEVILGODEVILLV_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilGodevillv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilGodevillv & msg);
@@ -84,7 +88,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GodevilGodevillv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GodevilGodevillv_s, 40> E_GodevilGodevillv_List;
+		NFShmVector<struct E_GodevilGodevillv_s, DEFINE_SHEET_GODEVILGODEVILLV_E_GODEVILGODEVILLV_LIST_MAX_NUM> E_GodevilGodevillv_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GodevilGodevillv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GodevilGodevillv & msg);
@@ -120,7 +124,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GodevilGodevilprivilege_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GodevilGodevilprivilege_s, 40> E_GodevilGodevilprivilege_List;
+		NFShmVector<struct E_GodevilGodevilprivilege_s, DEFINE_SHEET_GODEVILGODEVILPRIVILEGE_E_GODEVILGODEVILPRIVILEGE_LIST_MAX_NUM> E_GodevilGodevilprivilege_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GodevilGodevilprivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GodevilGodevilprivilege & msg);

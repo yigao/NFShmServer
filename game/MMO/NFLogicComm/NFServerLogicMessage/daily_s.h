@@ -8,6 +8,11 @@
 #include "daily.pb.h"
 #include "daily_s.h"
 
+#define DEFINE_SHEET_DAILYDAILY_E_DAILYDAILY_LIST_MAX_NUM 60
+#define DEFINE_SHEET_DAILYREWARD_E_DAILYREWARD_LIST_MAX_NUM 20
+#define DEFINE_E_DAILYCULTIVATE_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_SHEET_DAILYCULTIVATE_E_DAILYCULTIVATE_LIST_MAX_NUM 80
+#define DEFINE_SHEET_DAILYSPORTS_E_DAILYSPORTS_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_DailyDaily_s : public NFDescStoreSeqOP {
@@ -39,7 +44,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DailyDaily_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DailyDaily_s, 60> E_DailyDaily_List;
+		NFShmVector<struct E_DailyDaily_s, DEFINE_SHEET_DAILYDAILY_E_DAILYDAILY_LIST_MAX_NUM> E_DailyDaily_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyDaily & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyDaily & msg);
@@ -71,7 +76,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DailyReward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DailyReward_s, 20> E_DailyReward_List;
+		NFShmVector<struct E_DailyReward_s, DEFINE_SHEET_DAILYREWARD_E_DAILYREWARD_LIST_MAX_NUM> E_DailyReward_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyReward & msg);
@@ -103,7 +108,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_lv;
 		int32_t m_exp;
-		NFShmVector<struct E_DailyCultivateAttributeDesc_s, 4> m_attribute;
+		NFShmVector<struct E_DailyCultivateAttributeDesc_s, DEFINE_E_DAILYCULTIVATE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DailyCultivate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DailyCultivate & msg);
@@ -117,7 +122,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DailyCultivate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DailyCultivate_s, 80> E_DailyCultivate_List;
+		NFShmVector<struct E_DailyCultivate_s, DEFINE_SHEET_DAILYCULTIVATE_E_DAILYCULTIVATE_LIST_MAX_NUM> E_DailyCultivate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DailyCultivate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailyCultivate & msg);
@@ -150,7 +155,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DailySports_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DailySports_s, 20> E_DailySports_List;
+		NFShmVector<struct E_DailySports_s, DEFINE_SHEET_DAILYSPORTS_E_DAILYSPORTS_LIST_MAX_NUM> E_DailySports_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DailySports & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DailySports & msg);

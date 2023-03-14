@@ -8,6 +8,31 @@
 #include "role.pb.h"
 #include "role_s.h"
 
+#define DEFINE_E_ROLEBORN_M_ACTBUFF_MAX_NUM 4
+#define DEFINE_E_ROLEBORN_M_ITEM_MAX_NUM 35
+#define DEFINE_E_ROLEBORN_M_ACTSKILL_MAX_NUM 12
+#define DEFINE_E_ROLEBORN_M_MAIL_MAX_NUM 1
+#define DEFINE_SHEET_ROLEBORN_E_ROLEBORN_LIST_MAX_NUM 20
+#define DEFINE_E_ROLEMASTERMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLEMASTERMALE_E_ROLEMASTERMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLEMASTERFEMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLEMASTERFEMALE_E_ROLEMASTERFEMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLESICKLEMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLESICKLEMALE_E_ROLESICKLEMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLESICKLEFEMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLESICKLEFEMALE_E_ROLESICKLEFEMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLESWORDMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLESWORDMALE_E_ROLESWORDMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLESWORDFEMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLESWORDFEMALE_E_ROLESWORDFEMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLETAIDAOMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLETAIDAOMALE_E_ROLETAIDAOMALE_LIST_MAX_NUM 2000
+#define DEFINE_E_ROLETAIDAOFEMALE_M_ATTRIBUTE_MAX_NUM 70
+#define DEFINE_SHEET_ROLETAIDAOFEMALE_E_ROLETAIDAOFEMALE_LIST_MAX_NUM 2000
+#define DEFINE_SHEET_ROLEEXP_E_ROLEEXP_LIST_MAX_NUM 2000
+#define DEFINE_SHEET_ROLESKILLTYPE_E_ROLESKILLTYPE_LIST_MAX_NUM 200
+#define DEFINE_SHEET_ROLEADDSKILL_E_ROLEADDSKILL_LIST_MAX_NUM 20
+#define DEFINE_SHEET_ROLEWORLDEXP_E_ROLEWORLDEXP_LIST_MAX_NUM 600
 namespace proto_ff_s {
 
 	struct E_RoleBornItemDesc_s : public NFDescStoreSeqOP {
@@ -83,10 +108,10 @@ namespace proto_ff_s {
 		int32_t m_group;
 		int64_t m_sheny;
 		int64_t m_shenw;
-		NFShmVector<int32_t, 4> m_actbuff;
-		NFShmVector<struct E_RoleBornItemDesc_s, 35> m_item;
-		NFShmVector<int64_t, 12> m_actskill;
-		NFShmVector<struct E_RoleBornMailDesc_s, 1> m_mail;
+		NFShmVector<int32_t, DEFINE_E_ROLEBORN_M_ACTBUFF_MAX_NUM> m_actbuff;
+		NFShmVector<struct E_RoleBornItemDesc_s, DEFINE_E_ROLEBORN_M_ITEM_MAX_NUM> m_item;
+		NFShmVector<int64_t, DEFINE_E_ROLEBORN_M_ACTSKILL_MAX_NUM> m_actskill;
+		NFShmVector<struct E_RoleBornMailDesc_s, DEFINE_E_ROLEBORN_M_MAIL_MAX_NUM> m_mail;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleBorn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleBorn & msg);
@@ -100,7 +125,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleBorn_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleBorn_s, 20> E_RoleBorn_List;
+		NFShmVector<struct E_RoleBorn_s, DEFINE_SHEET_ROLEBORN_E_ROLEBORN_LIST_MAX_NUM> E_RoleBorn_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleBorn & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleBorn & msg);
@@ -131,7 +156,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleMastermaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleMastermaleAttributeDesc_s, DEFINE_E_ROLEMASTERMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMastermale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMastermale & msg);
@@ -145,7 +170,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleMastermale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleMastermale_s, 2000> E_RoleMastermale_List;
+		NFShmVector<struct E_RoleMastermale_s, DEFINE_SHEET_ROLEMASTERMALE_E_ROLEMASTERMALE_LIST_MAX_NUM> E_RoleMastermale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleMastermale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleMastermale & msg);
@@ -176,7 +201,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleMasterfemaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleMasterfemaleAttributeDesc_s, DEFINE_E_ROLEMASTERFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMasterfemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMasterfemale & msg);
@@ -190,7 +215,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleMasterfemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleMasterfemale_s, 2000> E_RoleMasterfemale_List;
+		NFShmVector<struct E_RoleMasterfemale_s, DEFINE_SHEET_ROLEMASTERFEMALE_E_ROLEMASTERFEMALE_LIST_MAX_NUM> E_RoleMasterfemale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleMasterfemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleMasterfemale & msg);
@@ -221,7 +246,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSicklemaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleSicklemaleAttributeDesc_s, DEFINE_E_ROLESICKLEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklemale & msg);
@@ -235,7 +260,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleSicklemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleSicklemale_s, 2000> E_RoleSicklemale_List;
+		NFShmVector<struct E_RoleSicklemale_s, DEFINE_SHEET_ROLESICKLEMALE_E_ROLESICKLEMALE_LIST_MAX_NUM> E_RoleSicklemale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSicklemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSicklemale & msg);
@@ -266,7 +291,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSicklefemaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleSicklefemaleAttributeDesc_s, DEFINE_E_ROLESICKLEFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklefemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklefemale & msg);
@@ -280,7 +305,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleSicklefemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleSicklefemale_s, 2000> E_RoleSicklefemale_List;
+		NFShmVector<struct E_RoleSicklefemale_s, DEFINE_SHEET_ROLESICKLEFEMALE_E_ROLESICKLEFEMALE_LIST_MAX_NUM> E_RoleSicklefemale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSicklefemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSicklefemale & msg);
@@ -311,7 +336,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSwordmaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleSwordmaleAttributeDesc_s, DEFINE_E_ROLESWORDMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordmale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordmale & msg);
@@ -325,7 +350,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleSwordmale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleSwordmale_s, 2000> E_RoleSwordmale_List;
+		NFShmVector<struct E_RoleSwordmale_s, DEFINE_SHEET_ROLESWORDMALE_E_ROLESWORDMALE_LIST_MAX_NUM> E_RoleSwordmale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSwordmale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSwordmale & msg);
@@ -356,7 +381,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleSwordfemaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleSwordfemaleAttributeDesc_s, DEFINE_E_ROLESWORDFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordfemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordfemale & msg);
@@ -370,7 +395,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleSwordfemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleSwordfemale_s, 2000> E_RoleSwordfemale_List;
+		NFShmVector<struct E_RoleSwordfemale_s, DEFINE_SHEET_ROLESWORDFEMALE_E_ROLESWORDFEMALE_LIST_MAX_NUM> E_RoleSwordfemale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSwordfemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSwordfemale & msg);
@@ -401,7 +426,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleTaidaomaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleTaidaomaleAttributeDesc_s, DEFINE_E_ROLETAIDAOMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaomale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaomale & msg);
@@ -415,7 +440,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleTaidaomale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleTaidaomale_s, 2000> E_RoleTaidaomale_List;
+		NFShmVector<struct E_RoleTaidaomale_s, DEFINE_SHEET_ROLETAIDAOMALE_E_ROLETAIDAOMALE_LIST_MAX_NUM> E_RoleTaidaomale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleTaidaomale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleTaidaomale & msg);
@@ -446,7 +471,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;
 		int32_t m_upgradepoint;
-		NFShmVector<struct E_RoleTaidaofemaleAttributeDesc_s, 70> m_attribute;
+		NFShmVector<struct E_RoleTaidaofemaleAttributeDesc_s, DEFINE_E_ROLETAIDAOFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaofemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemale & msg);
@@ -460,7 +485,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleTaidaofemale_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleTaidaofemale_s, 2000> E_RoleTaidaofemale_List;
+		NFShmVector<struct E_RoleTaidaofemale_s, DEFINE_SHEET_ROLETAIDAOFEMALE_E_ROLETAIDAOFEMALE_LIST_MAX_NUM> E_RoleTaidaofemale_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleTaidaofemale & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleTaidaofemale & msg);
@@ -490,7 +515,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleExp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleExp_s, 2000> E_RoleExp_List;
+		NFShmVector<struct E_RoleExp_s, DEFINE_SHEET_ROLEEXP_E_ROLEEXP_LIST_MAX_NUM> E_RoleExp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleExp & msg);
@@ -519,7 +544,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleSkilltype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleSkilltype_s, 200> E_RoleSkilltype_List;
+		NFShmVector<struct E_RoleSkilltype_s, DEFINE_SHEET_ROLESKILLTYPE_E_ROLESKILLTYPE_LIST_MAX_NUM> E_RoleSkilltype_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleSkilltype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleSkilltype & msg);
@@ -548,7 +573,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleAddskill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleAddskill_s, 20> E_RoleAddskill_List;
+		NFShmVector<struct E_RoleAddskill_s, DEFINE_SHEET_ROLEADDSKILL_E_ROLEADDSKILL_LIST_MAX_NUM> E_RoleAddskill_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleAddskill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleAddskill & msg);
@@ -577,7 +602,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_RoleWorldexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_RoleWorldexp_s, 600> E_RoleWorldexp_List;
+		NFShmVector<struct E_RoleWorldexp_s, DEFINE_SHEET_ROLEWORLDEXP_E_ROLEWORLDEXP_LIST_MAX_NUM> E_RoleWorldexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_RoleWorldexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_RoleWorldexp & msg);

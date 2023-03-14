@@ -8,6 +8,7 @@
 #include "ui.pb.h"
 #include "ui_s.h"
 
+#define DEFINE_SHEET_UIEFFECT_E_UIEFFECT_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_UiEffect_s : public NFDescStoreSeqOP {
@@ -30,7 +31,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_UiEffect_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_UiEffect_s, 20> E_UiEffect_List;
+		NFShmVector<struct E_UiEffect_s, DEFINE_SHEET_UIEFFECT_E_UIEFFECT_LIST_MAX_NUM> E_UiEffect_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_UiEffect & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_UiEffect & msg);

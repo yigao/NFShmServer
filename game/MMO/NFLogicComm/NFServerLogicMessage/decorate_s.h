@@ -8,6 +8,9 @@
 #include "decorate.pb.h"
 #include "decorate_s.h"
 
+#define DEFINE_E_DECORATEDECORATE_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_E_DECORATEDECORATE_M_ACTIVEATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_DECORATEDECORATE_E_DECORATEDECORATE_LIST_MAX_NUM 40
 namespace proto_ff_s {
 
 	struct E_DecorateDecorateAttributeDesc_s : public NFDescStoreSeqOP {
@@ -56,8 +59,8 @@ namespace proto_ff_s {
 		NFShmString<200> m_starnum;
 		int32_t m_starup;
 		int32_t m_starber;
-		NFShmVector<struct E_DecorateDecorateAttributeDesc_s, 6> m_attribute;
-		NFShmVector<struct E_DecorateDecorateActiveattributeDesc_s, 6> m_activeattribute;
+		NFShmVector<struct E_DecorateDecorateAttributeDesc_s, DEFINE_E_DECORATEDECORATE_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_DecorateDecorateActiveattributeDesc_s, DEFINE_E_DECORATEDECORATE_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_DecorateDecorate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DecorateDecorate & msg);
@@ -71,7 +74,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_DecorateDecorate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_DecorateDecorate_s, 40> E_DecorateDecorate_List;
+		NFShmVector<struct E_DecorateDecorate_s, DEFINE_SHEET_DECORATEDECORATE_E_DECORATEDECORATE_LIST_MAX_NUM> E_DecorateDecorate_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_DecorateDecorate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_DecorateDecorate & msg);

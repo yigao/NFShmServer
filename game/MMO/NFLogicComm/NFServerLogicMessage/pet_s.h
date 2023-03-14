@@ -8,6 +8,23 @@
 #include "pet.pb.h"
 #include "pet_s.h"
 
+#define DEFINE_E_PETDISPLAY_M_MATERIAL_MAX_NUM 3
+#define DEFINE_SHEET_PETDISPLAY_E_PETDISPLAY_LIST_MAX_NUM 20
+#define DEFINE_E_PETATTRIBUTETPYE_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_PETATTRIBUTETPYE_E_PETATTRIBUTETPYE_LIST_MAX_NUM 40
+#define DEFINE_SHEET_PETLVEXP_E_PETLVEXP_LIST_MAX_NUM 500
+#define DEFINE_E_PETADVANCELV_M_ADVANCE_MAX_NUM 2
+#define DEFINE_SHEET_PETADVANCELV_E_PETADVANCELV_LIST_MAX_NUM 200
+#define DEFINE_E_PETSTARUP_M_UPATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_PETSTARUP_E_PETSTARUP_LIST_MAX_NUM 40
+#define DEFINE_E_PETEGG_M_PET_MAX_NUM 10
+#define DEFINE_SHEET_PETEGG_E_PETEGG_LIST_MAX_NUM 20
+#define DEFINE_E_PETDECOMPOSE_M_DECOMPOSE_MAX_NUM 4
+#define DEFINE_SHEET_PETDECOMPOSE_E_PETDECOMPOSE_LIST_MAX_NUM 20
+#define DEFINE_E_PETFETTERS_M_PETID_MAX_NUM 3
+#define DEFINE_E_PETFETTERS_M_ATCTIVE_SKILLID_MAX_NUM 4
+#define DEFINE_E_PETFETTERS_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_PETFETTERS_E_PETFETTERS_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_PetDisplayMaterialDesc_s : public NFDescStoreSeqOP {
@@ -62,7 +79,7 @@ namespace proto_ff_s {
 		int32_t m_weapon;
 		int64_t m_upattributeid;
 		int32_t m_fettersid;
-		NFShmVector<struct E_PetDisplayMaterialDesc_s, 3> m_material;
+		NFShmVector<struct E_PetDisplayMaterialDesc_s, DEFINE_E_PETDISPLAY_M_MATERIAL_MAX_NUM> m_material;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetDisplay & msg);
@@ -76,7 +93,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetDisplay_s, 20> E_PetDisplay_List;
+		NFShmVector<struct E_PetDisplay_s, DEFINE_SHEET_PETDISPLAY_E_PETDISPLAY_LIST_MAX_NUM> E_PetDisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetDisplay & msg);
@@ -107,7 +124,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;
 		int32_t m_tpye;
-		NFShmVector<struct E_PetAttributetpyeAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_PetAttributetpyeAttributeDesc_s, DEFINE_E_PETATTRIBUTETPYE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetAttributetpye & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetAttributetpye & msg);
@@ -121,7 +138,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetAttributetpye_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetAttributetpye_s, 40> E_PetAttributetpye_List;
+		NFShmVector<struct E_PetAttributetpye_s, DEFINE_SHEET_PETATTRIBUTETPYE_E_PETATTRIBUTETPYE_LIST_MAX_NUM> E_PetAttributetpye_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetAttributetpye & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetAttributetpye & msg);
@@ -150,7 +167,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetLvexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetLvexp_s, 500> E_PetLvexp_List;
+		NFShmVector<struct E_PetLvexp_s, DEFINE_SHEET_PETLVEXP_E_PETLVEXP_LIST_MAX_NUM> E_PetLvexp_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetLvexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetLvexp & msg);
@@ -182,7 +199,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_advanceitem;
 		int32_t m_advancenum;
-		NFShmVector<struct E_PetAdvancelvAdvanceDesc_s, 2> m_advance;
+		NFShmVector<struct E_PetAdvancelvAdvanceDesc_s, DEFINE_E_PETADVANCELV_M_ADVANCE_MAX_NUM> m_advance;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetAdvancelv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetAdvancelv & msg);
@@ -196,7 +213,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetAdvancelv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetAdvancelv_s, 200> E_PetAdvancelv_List;
+		NFShmVector<struct E_PetAdvancelv_s, DEFINE_SHEET_PETADVANCELV_E_PETADVANCELV_LIST_MAX_NUM> E_PetAdvancelv_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetAdvancelv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetAdvancelv & msg);
@@ -230,7 +247,7 @@ namespace proto_ff_s {
 		int32_t m_starid;
 		int32_t m_skillid;
 		int32_t m_activeskillidlv;
-		NFShmVector<struct E_PetStarupUpattributeDesc_s, 6> m_upattribute;
+		NFShmVector<struct E_PetStarupUpattributeDesc_s, DEFINE_E_PETSTARUP_M_UPATTRIBUTE_MAX_NUM> m_upattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetStarup & msg);
@@ -244,7 +261,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetStarup_s, 40> E_PetStarup_List;
+		NFShmVector<struct E_PetStarup_s, DEFINE_SHEET_PETSTARUP_E_PETSTARUP_LIST_MAX_NUM> E_PetStarup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetStarup & msg);
@@ -275,7 +292,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		int32_t m_time;
-		NFShmVector<struct E_PetEggPetDesc_s, 10> m_pet;
+		NFShmVector<struct E_PetEggPetDesc_s, DEFINE_E_PETEGG_M_PET_MAX_NUM> m_pet;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetEgg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetEgg & msg);
@@ -289,7 +306,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetEgg_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetEgg_s, 20> E_PetEgg_List;
+		NFShmVector<struct E_PetEgg_s, DEFINE_SHEET_PETEGG_E_PETEGG_LIST_MAX_NUM> E_PetEgg_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetEgg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetEgg & msg);
@@ -320,7 +337,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		int32_t m_quality;
-		NFShmVector<struct E_PetDecomposeDecomposeDesc_s, 4> m_decompose;
+		NFShmVector<struct E_PetDecomposeDecomposeDesc_s, DEFINE_E_PETDECOMPOSE_M_DECOMPOSE_MAX_NUM> m_decompose;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetDecompose & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetDecompose & msg);
@@ -334,7 +351,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetDecompose_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetDecompose_s, 20> E_PetDecompose_List;
+		NFShmVector<struct E_PetDecompose_s, DEFINE_SHEET_PETDECOMPOSE_E_PETDECOMPOSE_LIST_MAX_NUM> E_PetDecompose_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetDecompose & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetDecompose & msg);
@@ -365,9 +382,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		int32_t m_quality;
-		NFShmVector<int32_t, 3> m_petid;
-		NFShmVector<int32_t, 4> m_atctive_skillid;
-		NFShmVector<struct E_PetFettersAttributeDesc_s, 6> m_attribute;
+		NFShmVector<int32_t, DEFINE_E_PETFETTERS_M_PETID_MAX_NUM> m_petid;
+		NFShmVector<int32_t, DEFINE_E_PETFETTERS_M_ATCTIVE_SKILLID_MAX_NUM> m_atctive_skillid;
+		NFShmVector<struct E_PetFettersAttributeDesc_s, DEFINE_E_PETFETTERS_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetFetters & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetFetters & msg);
@@ -381,7 +398,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PetFetters_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PetFetters_s, 20> E_PetFetters_List;
+		NFShmVector<struct E_PetFetters_s, DEFINE_SHEET_PETFETTERS_E_PETFETTERS_LIST_MAX_NUM> E_PetFetters_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PetFetters & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetFetters & msg);

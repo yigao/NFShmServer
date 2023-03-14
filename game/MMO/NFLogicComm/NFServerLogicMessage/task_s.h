@@ -8,6 +8,7 @@
 #include "task.pb.h"
 #include "task_s.h"
 
+#define DEFINE_SHEET_TASKTASK_E_TASKTASK_LIST_MAX_NUM 200
 namespace proto_ff_s {
 
 	struct E_TaskTask_s : public NFDescStoreSeqOP {
@@ -45,7 +46,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskTask_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskTask_s, 200> E_TaskTask_List;
+		NFShmVector<struct E_TaskTask_s, DEFINE_SHEET_TASKTASK_E_TASKTASK_LIST_MAX_NUM> E_TaskTask_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskTask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskTask & msg);

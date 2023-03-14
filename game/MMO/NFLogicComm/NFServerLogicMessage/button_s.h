@@ -8,6 +8,7 @@
 #include "button.pb.h"
 #include "button_s.h"
 
+#define DEFINE_SHEET_BUTTONBUTTON_E_BUTTONBUTTON_LIST_MAX_NUM 80
 namespace proto_ff_s {
 
 	struct E_ButtonButton_s : public NFDescStoreSeqOP {
@@ -30,7 +31,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ButtonButton_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ButtonButton_s, 80> E_ButtonButton_List;
+		NFShmVector<struct E_ButtonButton_s, DEFINE_SHEET_BUTTONBUTTON_E_BUTTONBUTTON_LIST_MAX_NUM> E_ButtonButton_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ButtonButton & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ButtonButton & msg);

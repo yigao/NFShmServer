@@ -8,6 +8,27 @@
 #include "mount.pb.h"
 #include "mount_s.h"
 
+#define DEFINE_E_MOUNTFRAGMENT_M_ATTRIBUTE_MAX_NUM 5
+#define DEFINE_SHEET_MOUNTFRAGMENT_E_MOUNTFRAGMENT_LIST_MAX_NUM 20
+#define DEFINE_E_MOUNTVALUE_M_ATTRIBUTE_MAX_NUM 9
+#define DEFINE_SHEET_MOUNTVALUE_E_MOUNTVALUE_LIST_MAX_NUM 300
+#define DEFINE_E_MOUNTDISPLAY_M_MATERIAL_MAX_NUM 2
+#define DEFINE_E_MOUNTDISPLAY_M_FRAGMENTID_MAX_NUM 3
+#define DEFINE_SHEET_MOUNTDISPLAY_E_MOUNTDISPLAY_LIST_MAX_NUM 20
+#define DEFINE_SHEET_MOUNTUNLOCK_E_MOUNTUNLOCK_LIST_MAX_NUM 20
+#define DEFINE_E_MOUNTCHANGE_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_E_MOUNTCHANGE_M_MATERIAL_MAX_NUM 2
+#define DEFINE_SHEET_MOUNTCHANGE_E_MOUNTCHANGE_LIST_MAX_NUM 20
+#define DEFINE_E_MOUNTADVANCE_M_UPATTRIBUTE_MAX_NUM 5
+#define DEFINE_SHEET_MOUNTADVANCE_E_MOUNTADVANCE_LIST_MAX_NUM 20
+#define DEFINE_E_MOUNTHUAKUN_M_MATERIAL_MAX_NUM 3
+#define DEFINE_E_MOUNTHUAKUN_M_UPSTARITEM_MAX_NUM 2
+#define DEFINE_SHEET_MOUNTHUAKUN_E_MOUNTHUAKUN_LIST_MAX_NUM 20
+#define DEFINE_E_MOUNTHUAKUN_ADVANCEVALUE_M_ITEM_MAX_NUM 3
+#define DEFINE_SHEET_MOUNTHUAKUN_ADVANCEVALUE_E_MOUNTHUAKUN_ADVANCEVALUE_LIST_MAX_NUM 20
+#define DEFINE_E_MOUNTBLOOD_M_ATTRIBUTE_MAX_NUM 2
+#define DEFINE_SHEET_MOUNTBLOOD_E_MOUNTBLOOD_LIST_MAX_NUM 300
+#define DEFINE_SHEET_MOUNTBABY_EGG_E_MOUNTBABY_EGG_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_MountFragmentAttributeDesc_s : public NFDescStoreSeqOP {
@@ -33,7 +54,7 @@ namespace proto_ff_s {
 		int64_t m_fragmentid;
 		int64_t m_item;
 		int32_t m_itemnum;
-		NFShmVector<struct E_MountFragmentAttributeDesc_s, 5> m_attribute;
+		NFShmVector<struct E_MountFragmentAttributeDesc_s, DEFINE_E_MOUNTFRAGMENT_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountFragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountFragment & msg);
@@ -47,7 +68,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountFragment_s, 20> E_MountFragment_List;
+		NFShmVector<struct E_MountFragment_s, DEFINE_SHEET_MOUNTFRAGMENT_E_MOUNTFRAGMENT_LIST_MAX_NUM> E_MountFragment_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountFragment & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountFragment & msg);
@@ -81,7 +102,7 @@ namespace proto_ff_s {
 		int32_t m_lv;
 		int32_t m_exp;
 		int32_t m_speed;
-		NFShmVector<struct E_MountValueAttributeDesc_s, 9> m_attribute;
+		NFShmVector<struct E_MountValueAttributeDesc_s, DEFINE_E_MOUNTVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountValue & msg);
@@ -95,7 +116,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountValue_s, 300> E_MountValue_List;
+		NFShmVector<struct E_MountValue_s, DEFINE_SHEET_MOUNTVALUE_E_MOUNTVALUE_LIST_MAX_NUM> E_MountValue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountValue & msg);
@@ -131,8 +152,8 @@ namespace proto_ff_s {
 		NFShmString<60> m_fxid;
 		int32_t m_starup;
 		int32_t m_lvmax;
-		NFShmVector<struct E_MountDisplayMaterialDesc_s, 2> m_material;
-		NFShmVector<int64_t, 3> m_fragmentid;
+		NFShmVector<struct E_MountDisplayMaterialDesc_s, DEFINE_E_MOUNTDISPLAY_M_MATERIAL_MAX_NUM> m_material;
+		NFShmVector<int64_t, DEFINE_E_MOUNTDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentid;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountDisplay & msg);
@@ -146,7 +167,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountDisplay_s, 20> E_MountDisplay_List;
+		NFShmVector<struct E_MountDisplay_s, DEFINE_SHEET_MOUNTDISPLAY_E_MOUNTDISPLAY_LIST_MAX_NUM> E_MountDisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountDisplay & msg);
@@ -176,7 +197,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountUnlock_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountUnlock_s, 20> E_MountUnlock_List;
+		NFShmVector<struct E_MountUnlock_s, DEFINE_SHEET_MOUNTUNLOCK_E_MOUNTUNLOCK_LIST_MAX_NUM> E_MountUnlock_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountUnlock & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountUnlock & msg);
@@ -235,8 +256,8 @@ namespace proto_ff_s {
 		NFShmString<60> m_starnum;
 		int32_t m_starber;
 		int32_t m_upattributeid;
-		NFShmVector<struct E_MountChangeAttributeDesc_s, 4> m_attribute;
-		NFShmVector<struct E_MountChangeMaterialDesc_s, 2> m_material;
+		NFShmVector<struct E_MountChangeAttributeDesc_s, DEFINE_E_MOUNTCHANGE_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_MountChangeMaterialDesc_s, DEFINE_E_MOUNTCHANGE_M_MATERIAL_MAX_NUM> m_material;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountChange & msg);
@@ -250,7 +271,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountChange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountChange_s, 20> E_MountChange_List;
+		NFShmVector<struct E_MountChange_s, DEFINE_SHEET_MOUNTCHANGE_E_MOUNTCHANGE_LIST_MAX_NUM> E_MountChange_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountChange & msg);
@@ -283,7 +304,7 @@ namespace proto_ff_s {
 		int32_t m_upattributeid;
 		int32_t m_starid;
 		int32_t m_skillid;
-		NFShmVector<struct E_MountAdvanceUpattributeDesc_s, 5> m_upattribute;
+		NFShmVector<struct E_MountAdvanceUpattributeDesc_s, DEFINE_E_MOUNTADVANCE_M_UPATTRIBUTE_MAX_NUM> m_upattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountAdvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountAdvance & msg);
@@ -297,7 +318,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountAdvance_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountAdvance_s, 20> E_MountAdvance_List;
+		NFShmVector<struct E_MountAdvance_s, DEFINE_SHEET_MOUNTADVANCE_E_MOUNTADVANCE_LIST_MAX_NUM> E_MountAdvance_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountAdvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountAdvance & msg);
@@ -340,8 +361,8 @@ namespace proto_ff_s {
 		int32_t m_activateitemnum;
 		NFShmString<60> m_skill_lg;
 		NFShmString<60> m_skill_bd;
-		NFShmVector<struct E_MountHuakunMaterialDesc_s, 3> m_material;
-		NFShmVector<int32_t, 2> m_upstaritem;
+		NFShmVector<struct E_MountHuakunMaterialDesc_s, DEFINE_E_MOUNTHUAKUN_M_MATERIAL_MAX_NUM> m_material;
+		NFShmVector<int32_t, DEFINE_E_MOUNTHUAKUN_M_UPSTARITEM_MAX_NUM> m_upstaritem;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun & msg);
@@ -355,7 +376,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountHuakun_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountHuakun_s, 20> E_MountHuakun_List;
+		NFShmVector<struct E_MountHuakun_s, DEFINE_SHEET_MOUNTHUAKUN_E_MOUNTHUAKUN_LIST_MAX_NUM> E_MountHuakun_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountHuakun & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountHuakun & msg);
@@ -389,7 +410,7 @@ namespace proto_ff_s {
 		int32_t m_lvtype;
 		int32_t m_advancetype;
 		int32_t m_winprob;
-		NFShmVector<struct E_MountHuakun_advancevalueItemDesc_s, 3> m_item;
+		NFShmVector<struct E_MountHuakun_advancevalueItemDesc_s, DEFINE_E_MOUNTHUAKUN_ADVANCEVALUE_M_ITEM_MAX_NUM> m_item;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_advancevalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun_advancevalue & msg);
@@ -403,7 +424,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountHuakun_advancevalue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountHuakun_advancevalue_s, 20> E_MountHuakun_advancevalue_List;
+		NFShmVector<struct E_MountHuakun_advancevalue_s, DEFINE_SHEET_MOUNTHUAKUN_ADVANCEVALUE_E_MOUNTHUAKUN_ADVANCEVALUE_LIST_MAX_NUM> E_MountHuakun_advancevalue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountHuakun_advancevalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountHuakun_advancevalue & msg);
@@ -433,7 +454,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_num;
-		NFShmVector<struct E_MountBloodAttributeDesc_s, 2> m_attribute;
+		NFShmVector<struct E_MountBloodAttributeDesc_s, DEFINE_E_MOUNTBLOOD_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountBlood & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountBlood & msg);
@@ -447,7 +468,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountBlood_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountBlood_s, 300> E_MountBlood_List;
+		NFShmVector<struct E_MountBlood_s, DEFINE_SHEET_MOUNTBLOOD_E_MOUNTBLOOD_LIST_MAX_NUM> E_MountBlood_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountBlood & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountBlood & msg);
@@ -478,7 +499,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MountBaby_egg_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountBaby_egg_s, 20> E_MountBaby_egg_List;
+		NFShmVector<struct E_MountBaby_egg_s, DEFINE_SHEET_MOUNTBABY_EGG_E_MOUNTBABY_EGG_LIST_MAX_NUM> E_MountBaby_egg_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MountBaby_egg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountBaby_egg & msg);

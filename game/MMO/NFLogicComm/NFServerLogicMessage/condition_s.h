@@ -8,6 +8,8 @@
 #include "condition.pb.h"
 #include "condition_s.h"
 
+#define DEFINE_E_CONDITIONCONDITION_M_CONDITION_MAX_NUM 3
+#define DEFINE_SHEET_CONDITIONCONDITION_E_CONDITIONCONDITION_LIST_MAX_NUM 40
 namespace proto_ff_s {
 
 	struct E_ConditionConditionConditionDesc_s : public NFDescStoreSeqOP {
@@ -31,7 +33,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;
-		NFShmVector<struct E_ConditionConditionConditionDesc_s, 3> m_condition;
+		NFShmVector<struct E_ConditionConditionConditionDesc_s, DEFINE_E_CONDITIONCONDITION_M_CONDITION_MAX_NUM> m_condition;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConditionCondition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ConditionCondition & msg);
@@ -45,7 +47,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ConditionCondition_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ConditionCondition_s, 40> E_ConditionCondition_List;
+		NFShmVector<struct E_ConditionCondition_s, DEFINE_SHEET_CONDITIONCONDITION_E_CONDITIONCONDITION_LIST_MAX_NUM> E_ConditionCondition_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ConditionCondition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ConditionCondition & msg);

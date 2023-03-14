@@ -8,6 +8,11 @@
 #include "CommonClass.pb.h"
 #include "CommonClass_s.h"
 
+#define DEFINE_EQUIPEXT_BASE_ATTR_MAX_NUM 10
+#define DEFINE_EQUIPEXT_STAR_ATTR_MAX_NUM 10
+#define DEFINE_EQUIPEXT_BLUE_ATTR_MAX_NUM 10
+#define DEFINE_EQUIPEXT_GOD_ATTR_MAX_NUM 10
+#define DEFINE_EQUIPEXT_SPECIAL_ATTR_MAX_NUM 10
 namespace proto_ff_s {
 
 	struct GridItemBase_s : public NFDescStoreSeqOP {
@@ -35,11 +40,11 @@ namespace proto_ff_s {
 		virtual ~EquipExt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<int32_t, 10> base_attr;
-		NFShmVector<int32_t, 10> star_attr;
-		NFShmVector<int32_t, 10> blue_attr;
-		NFShmVector<int32_t, 10> god_attr;
-		NFShmVector<int32_t, 10> special_attr;
+		NFShmVector<int32_t, DEFINE_EQUIPEXT_BASE_ATTR_MAX_NUM> base_attr;
+		NFShmVector<int32_t, DEFINE_EQUIPEXT_STAR_ATTR_MAX_NUM> star_attr;
+		NFShmVector<int32_t, DEFINE_EQUIPEXT_BLUE_ATTR_MAX_NUM> blue_attr;
+		NFShmVector<int32_t, DEFINE_EQUIPEXT_GOD_ATTR_MAX_NUM> god_attr;
+		NFShmVector<int32_t, DEFINE_EQUIPEXT_SPECIAL_ATTR_MAX_NUM> special_attr;
 
 		virtual void write_to_pbmsg(::proto_ff::EquipExt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::EquipExt & msg);

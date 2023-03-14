@@ -8,6 +8,13 @@
 #include "monster.pb.h"
 #include "monster_s.h"
 
+#define DEFINE_SHEET_MONSTERMONSTER_E_MONSTERMONSTER_LIST_MAX_NUM 400
+#define DEFINE_E_MONSTERDISPLAY_M_SKILL_MAX_NUM 7
+#define DEFINE_SHEET_MONSTERDISPLAY_E_MONSTERDISPLAY_LIST_MAX_NUM 100
+#define DEFINE_SHEET_MONSTERVALUE_E_MONSTERVALUE_LIST_MAX_NUM 2000
+#define DEFINE_SHEET_MONSTERVALUEPARAM_E_MONSTERVALUEPARAM_LIST_MAX_NUM 20
+#define DEFINE_E_MONSTERDROP_M_BOXID_MAX_NUM 5
+#define DEFINE_SHEET_MONSTERDROP_E_MONSTERDROP_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_MonsterMonster_s : public NFDescStoreSeqOP {
@@ -54,7 +61,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterMonster_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterMonster_s, 400> E_MonsterMonster_List;
+		NFShmVector<struct E_MonsterMonster_s, DEFINE_SHEET_MONSTERMONSTER_E_MONSTERMONSTER_LIST_MAX_NUM> E_MonsterMonster_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterMonster & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterMonster & msg);
@@ -90,7 +97,7 @@ namespace proto_ff_s {
 		int32_t m_pathradius;
 		int32_t m_collisionradius;
 		int32_t m_rspeed;
-		NFShmVector<struct E_MonsterDisplaySkillDesc_s, 7> m_skill;
+		NFShmVector<struct E_MonsterDisplaySkillDesc_s, DEFINE_E_MONSTERDISPLAY_M_SKILL_MAX_NUM> m_skill;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MonsterDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MonsterDisplay & msg);
@@ -104,7 +111,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterDisplay_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterDisplay_s, 100> E_MonsterDisplay_List;
+		NFShmVector<struct E_MonsterDisplay_s, DEFINE_SHEET_MONSTERDISPLAY_E_MONSTERDISPLAY_LIST_MAX_NUM> E_MonsterDisplay_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterDisplay & msg);
@@ -206,7 +213,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterValue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterValue_s, 2000> E_MonsterValue_List;
+		NFShmVector<struct E_MonsterValue_s, DEFINE_SHEET_MONSTERVALUE_E_MONSTERVALUE_LIST_MAX_NUM> E_MonsterValue_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterValue & msg);
@@ -305,7 +312,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterValueparam_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterValueparam_s, 20> E_MonsterValueparam_List;
+		NFShmVector<struct E_MonsterValueparam_s, DEFINE_SHEET_MONSTERVALUEPARAM_E_MONSTERVALUEPARAM_LIST_MAX_NUM> E_MonsterValueparam_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterValueparam & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterValueparam & msg);
@@ -323,7 +330,7 @@ namespace proto_ff_s {
 		int32_t m_group;
 		int32_t m_own;
 		int32_t m_type;
-		NFShmVector<int64_t, 5> m_boxid;
+		NFShmVector<int64_t, DEFINE_E_MONSTERDROP_M_BOXID_MAX_NUM> m_boxid;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MonsterDrop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MonsterDrop & msg);
@@ -337,7 +344,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MonsterDrop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MonsterDrop_s, 20> E_MonsterDrop_List;
+		NFShmVector<struct E_MonsterDrop_s, DEFINE_SHEET_MONSTERDROP_E_MONSTERDROP_LIST_MAX_NUM> E_MonsterDrop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MonsterDrop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MonsterDrop & msg);

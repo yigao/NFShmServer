@@ -12,6 +12,50 @@
 #include "ComDefine.pb.h"
 #include "ComDefine_s.h"
 
+#define DEFINE_ROLEFACADEPROTO_GROWFACADE_MAX_NUM 30
+#define DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM 1
+#define DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM 1
+#define DEFINE_ITEMPROTOINFO_BASE_MAX_NUM 1
+#define DEFINE_ITEMPROTOINFO_REFINE_MAX_NUM 1
+#define DEFINE_ITEMPROTOINFO_BLUE_MAX_NUM 1
+#define DEFINE_ITEMPROTOINFO_GOD_MAX_NUM 1
+#define DEFINE_ITEMPROTOINFO_SPECIAL_MAX_NUM 1
+#define DEFINE_EQUIPSLOTINFO_STONES_MAX_NUM 1
+#define DEFINE_MULTITEMSIMPLEPROTO_INFO_MAX_NUM 1
+#define DEFINE_MAILPARAMPROTO_INT_PARAM_MAX_NUM 1
+#define DEFINE_MAILATTACHMENTLIST_ITEMINFO_MAX_NUM 1
+#define DEFINE_WEBMAILDATAPROTO_ITEMLIST_MAX_NUM 1
+#define DEFINE_USEITEMARGPROTO_ITEM_LST_MAX_NUM 1
+#define DEFINE_FUNCTIONUNLOCKINFO_DATA_MAX_NUM 1
+#define DEFINE_RELATIONDBINFO_FRIENDLIST_MAX_NUM 1
+#define DEFINE_RELATIONDBINFO_BLACKLIST_MAX_NUM 1
+#define DEFINE_RELATIONDBINFO_HATELIST_MAX_NUM 1
+#define DEFINE_RELATIONDBINFO_APPLYLIST_MAX_NUM 1
+#define DEFINE_RELATIONDBINFO_GIFTRECORDS_MAX_NUM 1
+#define DEFINE_BUFFLISTPROTO_INFO_MAX_NUM 1
+#define DEFINE_SKILLGROUPPROTO_LST_MAX_NUM 1
+#define DEFINE_SKILLGROUPLISTPROTO_INFO_MAX_NUM 1
+#define DEFINE_GODEVILTASKLISTPROTO_LST_MAX_NUM 1
+#define DEFINE_GODRELICSTASKGROUPENTRY_ENTRYS_MAX_NUM 1
+#define DEFINE_DAILYTASKBACKENTRY_DAY_DATA_MAX_NUM 1
+#define DEFINE_DAILYTASKALLDATA_TASK_DATA_MAX_NUM 1
+#define DEFINE_DAILYTASKALLDATA_TASK_LIMIT_DATA_MAX_NUM 1
+#define DEFINE_DAILYTASKALLDATA_BACK_DATA_MAX_NUM 1
+#define DEFINE_DAILYTASKALLDATA_REWARD_DATA_MAX_NUM 1
+#define DEFINE_CHARACTERDBMISSIONTRACK_ITEMINFO_MAX_NUM 1
+#define DEFINE_CHARACTERDBTASKDATA_MISSIONTRACK_MAX_NUM 1
+#define DEFINE_CHARACTERDBTASKDATA_DYINFO_MAX_NUM 1
+#define DEFINE_CHARACTERDBTASKDATA_ALREADY_SUBMIT_MAX_NUM 1
+#define DEFINE_CHARACTERDBTASKDATA_RECENT_SUBMIT_MAX_NUM 1
+#define DEFINE_NOTIFYVIPDATARSP_IDS_MAX_NUM 1
+#define DEFINE_ARENACHALLRESULT_ITEMS_MAX_NUM 1
+#define DEFINE_FACADESOULDATA_SKILL_DATA_MAX_NUM 1
+#define DEFINE_FACADESOULDATA_ACVIITY_DATA_MAX_NUM 1
+#define DEFINE_DEITYEQUIPDATA_INFOS_MAX_NUM 1
+#define DEFINE_DEITYEQUIPDATA_LV_ATTR_MAX_NUM 1
+#define DEFINE_DEITYFANTASYDATA_SKILL_DATA_MAX_NUM 1
+#define DEFINE_DEITYFANTASYDATA_EQUIP_SUIT_DATA_MAX_NUM 1
+#define DEFINE_ARMORINFO_SUITS_MAX_NUM 1
 namespace proto_ff_s {
 
 	struct EmptyMessage_s : public NFDescStoreSeqOP {
@@ -154,7 +198,7 @@ namespace proto_ff_s {
 		virtual ~RoleFacadeProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct Attr64_s, 30> growFacade;
+		NFShmVector<struct Attr64_s, DEFINE_ROLEFACADEPROTO_GROWFACADE_MAX_NUM> growFacade;
 		int32_t color;
 		int32_t prof;
 
@@ -326,8 +370,8 @@ namespace proto_ff_s {
 		int32_t steplv;
 		int32_t starlv;
 		int32_t activeSkillLv;
-		NFShmVector<int32_t, 1> exclusiveSkillLvVec;
-		NFShmVector<int32_t, 1> passiveSkillLvVec;
+		NFShmVector<int32_t, DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM> exclusiveSkillLvVec;
+		NFShmVector<int32_t, DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM> passiveSkillLvVec;
 		float initgrow;
 		int32_t slot;
 		int32_t lvexp;
@@ -366,11 +410,11 @@ namespace proto_ff_s {
 		int64_t item_num;
 		int32_t bind;
 		int32_t level;
-		NFShmVector<struct Attr_s, 1> base;
-		NFShmVector<struct Attr_s, 1> refine;
-		NFShmVector<struct BlueStarAttr_s, 1> blue;
-		NFShmVector<struct Attr_s, 1> god;
-		NFShmVector<struct Attr_s, 1> special;
+		NFShmVector<struct Attr_s, DEFINE_ITEMPROTOINFO_BASE_MAX_NUM> base;
+		NFShmVector<struct Attr_s, DEFINE_ITEMPROTOINFO_REFINE_MAX_NUM> refine;
+		NFShmVector<struct BlueStarAttr_s, DEFINE_ITEMPROTOINFO_BLUE_MAX_NUM> blue;
+		NFShmVector<struct Attr_s, DEFINE_ITEMPROTOINFO_GOD_MAX_NUM> god;
+		NFShmVector<struct Attr_s, DEFINE_ITEMPROTOINFO_SPECIAL_MAX_NUM> special;
 		uint64_t expireTime;
 		int32_t strong_lv;
 		int32_t strong_wear_quality;
@@ -405,7 +449,7 @@ namespace proto_ff_s {
 		int32_t slot_pos;
 		int64_t total_score;
 		int32_t stronglv;
-		NFShmVector<struct StoneSlotInfo_s, 1> stones;
+		NFShmVector<struct StoneSlotInfo_s, DEFINE_EQUIPSLOTINFO_STONES_MAX_NUM> stones;
 		int32_t stone_pay_slot_open;
 
 		virtual void write_to_pbmsg(::proto_ff::EquipSlotInfo & msg) const;
@@ -467,7 +511,7 @@ namespace proto_ff_s {
 		virtual ~MultItemSimpleProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ItemSimpleProto_s, 1> info;
+		NFShmVector<struct ItemSimpleProto_s, DEFINE_MULTITEMSIMPLEPROTO_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::MultItemSimpleProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MultItemSimpleProto & msg);
@@ -483,7 +527,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t cfgid;
 		NFShmVector<NFShmString<32>, 1> str_param;
-		NFShmVector<uint64_t, 1> int_param;
+		NFShmVector<uint64_t, DEFINE_MAILPARAMPROTO_INT_PARAM_MAX_NUM> int_param;
 
 		virtual void write_to_pbmsg(::proto_ff::MailParamProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MailParamProto & msg);
@@ -512,7 +556,7 @@ namespace proto_ff_s {
 		virtual ~MailAttachmentList_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct ItemProtoInfo_s, 1> itemInfo;
+		NFShmVector<struct ItemProtoInfo_s, DEFINE_MAILATTACHMENTLIST_ITEMINFO_MAX_NUM> itemInfo;
 
 		virtual void write_to_pbmsg(::proto_ff::MailAttachmentList & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MailAttachmentList & msg);
@@ -600,7 +644,7 @@ namespace proto_ff_s {
 		uint64_t arenaScore;
 		uint64_t magiccrystal;
 		uint64_t prestige;
-		NFShmVector<struct WebMailItemProto_s, 1> itemList;
+		NFShmVector<struct WebMailItemProto_s, DEFINE_WEBMAILDATAPROTO_ITEMLIST_MAX_NUM> itemList;
 
 		virtual void write_to_pbmsg(::proto_ff::WebMailDataProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::WebMailDataProto & msg);
@@ -616,7 +660,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t int_param;
 		NFShmString<32> str_param;
-		NFShmVector<uint64_t, 1> item_lst;
+		NFShmVector<uint64_t, DEFINE_USEITEMARGPROTO_ITEM_LST_MAX_NUM> item_lst;
 
 		virtual void write_to_pbmsg(::proto_ff::UseItemArgProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::UseItemArgProto & msg);
@@ -660,7 +704,7 @@ namespace proto_ff_s {
 		virtual ~FunctionUnlockInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FunctionUnlockInfoData_s, 1> data;
+		NFShmVector<struct FunctionUnlockInfoData_s, DEFINE_FUNCTIONUNLOCKINFO_DATA_MAX_NUM> data;
 
 		virtual void write_to_pbmsg(::proto_ff::FunctionUnlockInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FunctionUnlockInfo & msg);
@@ -768,12 +812,12 @@ namespace proto_ff_s {
 		virtual ~RelationDBInfo_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct FriendInfo_s, 1> friendList;
-		NFShmVector<uint64_t, 1> blackList;
-		NFShmVector<struct RelationHateInfo_s, 1> hateList;
-		NFShmVector<struct FriendApplyInfo_s, 1> applyList;
+		NFShmVector<struct FriendInfo_s, DEFINE_RELATIONDBINFO_FRIENDLIST_MAX_NUM> friendList;
+		NFShmVector<uint64_t, DEFINE_RELATIONDBINFO_BLACKLIST_MAX_NUM> blackList;
+		NFShmVector<struct RelationHateInfo_s, DEFINE_RELATIONDBINFO_HATELIST_MAX_NUM> hateList;
+		NFShmVector<struct FriendApplyInfo_s, DEFINE_RELATIONDBINFO_APPLYLIST_MAX_NUM> applyList;
 		uint32_t friends_add;
-		NFShmVector<struct RelationGiftRecord_s, 1> giftRecords;
+		NFShmVector<struct RelationGiftRecord_s, DEFINE_RELATIONDBINFO_GIFTRECORDS_MAX_NUM> giftRecords;
 
 		virtual void write_to_pbmsg(::proto_ff::RelationDBInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RelationDBInfo & msg);
@@ -823,7 +867,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;
-		NFShmVector<struct BuffProto_s, 1> info;
+		NFShmVector<struct BuffProto_s, DEFINE_BUFFLISTPROTO_INFO_MAX_NUM> info;
 
 		virtual void write_to_pbmsg(::proto_ff::BuffListProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::BuffListProto & msg);
@@ -855,7 +899,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint32_t group;
-		NFShmVector<struct SkillPosProto_s, 1> lst;
+		NFShmVector<struct SkillPosProto_s, DEFINE_SKILLGROUPPROTO_LST_MAX_NUM> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillGroupProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SkillGroupProto & msg);
@@ -869,7 +913,7 @@ namespace proto_ff_s {
 		virtual ~SkillGroupListProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct SkillGroupProto_s, 1> info;
+		NFShmVector<struct SkillGroupProto_s, DEFINE_SKILLGROUPLISTPROTO_INFO_MAX_NUM> info;
 		uint32_t cur_skill_group;
 
 		virtual void write_to_pbmsg(::proto_ff::SkillGroupListProto & msg) const;
@@ -900,7 +944,7 @@ namespace proto_ff_s {
 		virtual ~GodEvilTaskListProto_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct GodEvilTaskProto_s, 1> lst;
+		NFShmVector<struct GodEvilTaskProto_s, DEFINE_GODEVILTASKLISTPROTO_LST_MAX_NUM> lst;
 
 		virtual void write_to_pbmsg(::proto_ff::GodEvilTaskListProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GodEvilTaskListProto & msg);
@@ -1123,7 +1167,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t group_cfg_id;
-		NFShmVector<struct GodRelicsTaskEntry_s, 1> entrys;
+		NFShmVector<struct GodRelicsTaskEntry_s, DEFINE_GODRELICSTASKGROUPENTRY_ENTRYS_MAX_NUM> entrys;
 		int32_t normal_reward_state;
 		uint64_t create_time;
 
@@ -1195,7 +1239,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t task_cfg_id;
 		int32_t task_state;
-		NFShmVector<struct DailyTaskBackDayEntry_s, 1> day_data;
+		NFShmVector<struct DailyTaskBackDayEntry_s, DEFINE_DAILYTASKBACKENTRY_DAY_DATA_MAX_NUM> day_data;
 		int32_t left_num;
 		int32_t external_left_num;
 
@@ -1226,10 +1270,10 @@ namespace proto_ff_s {
 		virtual ~DailyTaskAllData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct DailyTaskEntry_s, 1> task_data;
-		NFShmVector<struct DailyTaskLimitEntry_s, 1> task_limit_data;
-		NFShmVector<struct DailyTaskBackEntry_s, 1> back_data;
-		NFShmVector<struct DailyTaskRewardEntry_s, 1> reward_data;
+		NFShmVector<struct DailyTaskEntry_s, DEFINE_DAILYTASKALLDATA_TASK_DATA_MAX_NUM> task_data;
+		NFShmVector<struct DailyTaskLimitEntry_s, DEFINE_DAILYTASKALLDATA_TASK_LIMIT_DATA_MAX_NUM> task_limit_data;
+		NFShmVector<struct DailyTaskBackEntry_s, DEFINE_DAILYTASKALLDATA_BACK_DATA_MAX_NUM> back_data;
+		NFShmVector<struct DailyTaskRewardEntry_s, DEFINE_DAILYTASKALLDATA_REWARD_DATA_MAX_NUM> reward_data;
 		uint32_t daily_score;
 		uint32_t daily_level;
 		uint64_t create_time;
@@ -1287,7 +1331,7 @@ namespace proto_ff_s {
 		uint64_t dynamicid;
 		uint32_t status;
 		uint64_t acceptMissionTime;
-		NFShmVector<struct CharacterDBMissionItemInfo_s, 1> itemInfo;
+		NFShmVector<struct CharacterDBMissionItemInfo_s, DEFINE_CHARACTERDBMISSIONTRACK_ITEMINFO_MAX_NUM> itemInfo;
 		uint64_t textid;
 		uint32_t missionType;
 
@@ -1335,10 +1379,10 @@ namespace proto_ff_s {
 		virtual ~CharacterDBTaskData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct CharacterDBMissionTrack_s, 1> missionTrack;
-		NFShmVector<struct CharacterDBDyMissionInfo_s, 1> dyinfo;
-		NFShmVector<uint64_t, 1> already_submit;
-		NFShmVector<struct CharacterDBRecentSubmitMission_s, 1> recent_submit;
+		NFShmVector<struct CharacterDBMissionTrack_s, DEFINE_CHARACTERDBTASKDATA_MISSIONTRACK_MAX_NUM> missionTrack;
+		NFShmVector<struct CharacterDBDyMissionInfo_s, DEFINE_CHARACTERDBTASKDATA_DYINFO_MAX_NUM> dyinfo;
+		NFShmVector<uint64_t, DEFINE_CHARACTERDBTASKDATA_ALREADY_SUBMIT_MAX_NUM> already_submit;
+		NFShmVector<struct CharacterDBRecentSubmitMission_s, DEFINE_CHARACTERDBTASKDATA_RECENT_SUBMIT_MAX_NUM> recent_submit;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBTaskData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBTaskData & msg);
@@ -1353,7 +1397,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t exp;
-		NFShmVector<int32_t, 1> ids;
+		NFShmVector<int32_t, DEFINE_NOTIFYVIPDATARSP_IDS_MAX_NUM> ids;
 
 		virtual void write_to_pbmsg(::proto_ff::NotifyVipDataRsp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::NotifyVipDataRsp & msg);
@@ -1373,7 +1417,7 @@ namespace proto_ff_s {
 		NFShmString<32> dst_name;
 		int32_t src_rank_id;
 		int32_t dst_rank_id;
-		NFShmVector<struct ComItem_s, 1> items;
+		NFShmVector<struct ComItem_s, DEFINE_ARENACHALLRESULT_ITEMS_MAX_NUM> items;
 		int64_t dup_id;
 
 		virtual void write_to_pbmsg(::proto_ff::ArenaChallResult & msg) const;
@@ -1465,8 +1509,8 @@ namespace proto_ff_s {
 		uint32_t soul_id;
 		bool soul_active;
 		uint32_t soul_level;
-		NFShmVector<struct FacadeSoulSkillData_s, 1> skill_data;
-		NFShmVector<struct FacadeSoulActivityData_s, 1> acviity_data;
+		NFShmVector<struct FacadeSoulSkillData_s, DEFINE_FACADESOULDATA_SKILL_DATA_MAX_NUM> skill_data;
+		NFShmVector<struct FacadeSoulActivityData_s, DEFINE_FACADESOULDATA_ACVIITY_DATA_MAX_NUM> acviity_data;
 
 		virtual void write_to_pbmsg(::proto_ff::FacadeSoulData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FacadeSoulData & msg);
@@ -1510,8 +1554,8 @@ namespace proto_ff_s {
 		virtual ~DeityEquipData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct EquipInfo_s, 1> infos;
-		NFShmVector<struct EquipLvAttrInfo_s, 1> lv_attr;
+		NFShmVector<struct EquipInfo_s, DEFINE_DEITYEQUIPDATA_INFOS_MAX_NUM> infos;
+		NFShmVector<struct EquipLvAttrInfo_s, DEFINE_DEITYEQUIPDATA_LV_ATTR_MAX_NUM> lv_attr;
 
 		virtual void write_to_pbmsg(::proto_ff::DeityEquipData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DeityEquipData & msg);
@@ -1544,10 +1588,10 @@ namespace proto_ff_s {
 		uint32_t fantasy_lev;
 		uint64_t fantasy_lev_exp;
 		uint32_t fantasy_star;
-		NFShmVector<struct DeityFantasySkillData_s, 1> skill_data;
+		NFShmVector<struct DeityFantasySkillData_s, DEFINE_DEITYFANTASYDATA_SKILL_DATA_MAX_NUM> skill_data;
 		uint64_t fantasy_fight;
 		struct DeityEquipData_s equip_data;
-		NFShmVector<struct DeityEquipSuitData_s, 1> equip_suit_data;
+		NFShmVector<struct DeityEquipSuitData_s, DEFINE_DEITYFANTASYDATA_EQUIP_SUIT_DATA_MAX_NUM> equip_suit_data;
 
 		virtual void write_to_pbmsg(::proto_ff::DeityFantasyData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DeityFantasyData & msg);
@@ -1624,7 +1668,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t id;
-		NFShmVector<struct ArmorSuitState_s, 1> suits;
+		NFShmVector<struct ArmorSuitState_s, DEFINE_ARMORINFO_SUITS_MAX_NUM> suits;
 
 		virtual void write_to_pbmsg(::proto_ff::ArmorInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ArmorInfo & msg);

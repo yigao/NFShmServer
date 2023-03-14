@@ -8,6 +8,7 @@
 #include "item.pb.h"
 #include "item_s.h"
 
+#define DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM 2000
 namespace proto_ff_s {
 
 	struct E_ItemItem_s : public NFDescStoreSeqOP {
@@ -54,7 +55,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ItemItem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ItemItem_s, 2000> E_ItemItem_List;
+		NFShmVector<struct E_ItemItem_s, DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM> E_ItemItem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ItemItem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ItemItem & msg);

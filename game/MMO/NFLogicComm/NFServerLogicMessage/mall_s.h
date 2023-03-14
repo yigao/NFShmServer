@@ -8,6 +8,9 @@
 #include "mall.pb.h"
 #include "mall_s.h"
 
+#define DEFINE_SHEET_MALLMALL_E_MALLMALL_LIST_MAX_NUM 60
+#define DEFINE_SHEET_MALLMALLTYPE_E_MALLMALLTYPE_LIST_MAX_NUM 20
+#define DEFINE_SHEET_MALLMALLTYPE_TAB_E_MALLMALLTYPE_TAB_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_MallMall_s : public NFDescStoreSeqOP {
@@ -44,7 +47,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MallMall_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MallMall_s, 60> E_MallMall_List;
+		NFShmVector<struct E_MallMall_s, DEFINE_SHEET_MALLMALL_E_MALLMALL_LIST_MAX_NUM> E_MallMall_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MallMall & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MallMall & msg);
@@ -76,7 +79,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MallMalltype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MallMalltype_s, 20> E_MallMalltype_List;
+		NFShmVector<struct E_MallMalltype_s, DEFINE_SHEET_MALLMALLTYPE_E_MALLMALLTYPE_LIST_MAX_NUM> E_MallMalltype_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MallMalltype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MallMalltype & msg);
@@ -105,7 +108,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MallMalltype_tab_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MallMalltype_tab_s, 20> E_MallMalltype_tab_List;
+		NFShmVector<struct E_MallMalltype_tab_s, DEFINE_SHEET_MALLMALLTYPE_TAB_E_MALLMALLTYPE_TAB_LIST_MAX_NUM> E_MallMalltype_tab_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MallMalltype_tab & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MallMalltype_tab & msg);

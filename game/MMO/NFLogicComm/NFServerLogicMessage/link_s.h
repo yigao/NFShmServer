@@ -8,6 +8,7 @@
 #include "link.pb.h"
 #include "link_s.h"
 
+#define DEFINE_SHEET_LINKLINK_E_LINKLINK_LIST_MAX_NUM 160
 namespace proto_ff_s {
 
 	struct E_LinkLink_s : public NFDescStoreSeqOP {
@@ -34,7 +35,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_LinkLink_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_LinkLink_s, 160> E_LinkLink_List;
+		NFShmVector<struct E_LinkLink_s, DEFINE_SHEET_LINKLINK_E_LINKLINK_LIST_MAX_NUM> E_LinkLink_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_LinkLink & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_LinkLink & msg);

@@ -8,6 +8,9 @@
 #include "intimacy.pb.h"
 #include "intimacy_s.h"
 
+#define DEFINE_E_INTIMACYINTIMACY_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_INTIMACYINTIMACY_E_INTIMACYINTIMACY_LIST_MAX_NUM 20
+#define DEFINE_SHEET_INTIMACYGIFT_E_INTIMACYGIFT_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_IntimacyIntimacyAttributeDesc_s : public NFDescStoreSeqOP {
@@ -33,7 +36,7 @@ namespace proto_ff_s {
 		int32_t m_lv;
 		int32_t m_intimacymin;
 		int32_t m_intimacymax;
-		NFShmVector<struct E_IntimacyIntimacyAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_IntimacyIntimacyAttributeDesc_s, DEFINE_E_INTIMACYINTIMACY_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_IntimacyIntimacy & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_IntimacyIntimacy & msg);
@@ -47,7 +50,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_IntimacyIntimacy_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_IntimacyIntimacy_s, 20> E_IntimacyIntimacy_List;
+		NFShmVector<struct E_IntimacyIntimacy_s, DEFINE_SHEET_INTIMACYINTIMACY_E_INTIMACYINTIMACY_LIST_MAX_NUM> E_IntimacyIntimacy_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_IntimacyIntimacy & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_IntimacyIntimacy & msg);
@@ -78,7 +81,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_IntimacyGift_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_IntimacyGift_s, 20> E_IntimacyGift_List;
+		NFShmVector<struct E_IntimacyGift_s, DEFINE_SHEET_INTIMACYGIFT_E_INTIMACYGIFT_LIST_MAX_NUM> E_IntimacyGift_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_IntimacyGift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_IntimacyGift & msg);

@@ -8,6 +8,8 @@
 #include "godRelics.pb.h"
 #include "godRelics_s.h"
 
+#define DEFINE_SHEET_GODRELICSGODRELICS_E_GODRELICSGODRELICS_LIST_MAX_NUM 20
+#define DEFINE_SHEET_GODRELICSCONDITION_E_GODRELICSCONDITION_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_GodrelicsGodrelics_s : public NFDescStoreSeqOP {
@@ -32,7 +34,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GodrelicsGodrelics_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GodrelicsGodrelics_s, 20> E_GodrelicsGodrelics_List;
+		NFShmVector<struct E_GodrelicsGodrelics_s, DEFINE_SHEET_GODRELICSGODRELICS_E_GODRELICSGODRELICS_LIST_MAX_NUM> E_GodrelicsGodrelics_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GodrelicsGodrelics & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GodrelicsGodrelics & msg);
@@ -66,7 +68,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_GodrelicsCondition_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_GodrelicsCondition_s, 20> E_GodrelicsCondition_List;
+		NFShmVector<struct E_GodrelicsCondition_s, DEFINE_SHEET_GODRELICSCONDITION_E_GODRELICSCONDITION_LIST_MAX_NUM> E_GodrelicsCondition_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_GodrelicsCondition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GodrelicsCondition & msg);

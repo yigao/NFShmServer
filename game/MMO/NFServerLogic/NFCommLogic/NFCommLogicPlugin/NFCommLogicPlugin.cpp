@@ -24,6 +24,7 @@
 #include "DescStoreEx/NFMissionDescStoreEx.h"
 
 #include "NFTestMgr.h"
+#include "DescStoreEx/NFGrowDescStoreEx.h"
 
 
 #ifdef NF_DYNAMIC_PLUGIN
@@ -78,6 +79,8 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     REGISTER_DESCSTORE(NFFuncUnLockDescStoreEx);
     REGISTER_DESCSTORE(NFItemDescStoreEx);
     REGISTER_DESCSTORE(NFMissionDescStoreEx);
+    REGISTER_DESCSTORE(NFGrowDescStoreEx);
+
 
     /////////////////////////////////////Server Common////////////////////////////////////////////
     REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);

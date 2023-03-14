@@ -8,6 +8,9 @@
 #include "taskdynamic.pb.h"
 #include "taskdynamic_s.h"
 
+#define DEFINE_SHEET_TASKDYNAMICTASKDYNAMIC_E_TASKDYNAMICTASKDYNAMIC_LIST_MAX_NUM 20
+#define DEFINE_SHEET_TASKDYNAMICTASKCOMCOND_E_TASKDYNAMICTASKCOMCOND_LIST_MAX_NUM 20
+#define DEFINE_SHEET_TASKDYNAMICTASKTEXT_E_TASKDYNAMICTASKTEXT_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_TaskdynamicTaskdynamic_s : public NFDescStoreSeqOP {
@@ -35,7 +38,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskdynamicTaskdynamic_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskdynamicTaskdynamic_s, 20> E_TaskdynamicTaskdynamic_List;
+		NFShmVector<struct E_TaskdynamicTaskdynamic_s, DEFINE_SHEET_TASKDYNAMICTASKDYNAMIC_E_TASKDYNAMICTASKDYNAMIC_LIST_MAX_NUM> E_TaskdynamicTaskdynamic_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTaskdynamic & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTaskdynamic & msg);
@@ -70,7 +73,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskdynamicTaskcomcond_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskdynamicTaskcomcond_s, 20> E_TaskdynamicTaskcomcond_List;
+		NFShmVector<struct E_TaskdynamicTaskcomcond_s, DEFINE_SHEET_TASKDYNAMICTASKCOMCOND_E_TASKDYNAMICTASKCOMCOND_LIST_MAX_NUM> E_TaskdynamicTaskcomcond_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTaskcomcond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTaskcomcond & msg);
@@ -100,7 +103,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TaskdynamicTasktext_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TaskdynamicTasktext_s, 60> E_TaskdynamicTasktext_List;
+		NFShmVector<struct E_TaskdynamicTasktext_s, DEFINE_SHEET_TASKDYNAMICTASKTEXT_E_TASKDYNAMICTASKTEXT_LIST_MAX_NUM> E_TaskdynamicTasktext_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TaskdynamicTasktext & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TaskdynamicTasktext & msg);

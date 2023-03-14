@@ -8,6 +8,8 @@
 #include "perActivity.pb.h"
 #include "perActivity_s.h"
 
+#define DEFINE_SHEET_PERACTIVITYPERACTIVITY_E_PERACTIVITYPERACTIVITY_LIST_MAX_NUM 20
+#define DEFINE_SHEET_PERACTIVITYWEEK_E_PERACTIVITYWEEK_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_PeractivityPeractivity_s : public NFDescStoreSeqOP {
@@ -40,7 +42,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PeractivityPeractivity_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PeractivityPeractivity_s, 20> E_PeractivityPeractivity_List;
+		NFShmVector<struct E_PeractivityPeractivity_s, DEFINE_SHEET_PERACTIVITYPERACTIVITY_E_PERACTIVITYPERACTIVITY_LIST_MAX_NUM> E_PeractivityPeractivity_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PeractivityPeractivity & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PeractivityPeractivity & msg);
@@ -70,7 +72,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_PeractivityWeek_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_PeractivityWeek_s, 20> E_PeractivityWeek_List;
+		NFShmVector<struct E_PeractivityWeek_s, DEFINE_SHEET_PERACTIVITYWEEK_E_PERACTIVITYWEEK_LIST_MAX_NUM> E_PeractivityWeek_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_PeractivityWeek & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PeractivityWeek & msg);

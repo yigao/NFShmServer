@@ -8,6 +8,9 @@
 #include "meditation.pb.h"
 #include "meditation_s.h"
 
+#define DEFINE_E_MEDITATIONMEDITATION_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_E_MEDITATIONMEDITATION_M_ACTIVEATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_MEDITATIONMEDITATION_E_MEDITATIONMEDITATION_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_MeditationMeditationAttributeDesc_s : public NFDescStoreSeqOP {
@@ -56,8 +59,8 @@ namespace proto_ff_s {
 		NFShmString<300> m_starnum;
 		int32_t m_starup;
 		int32_t m_starber;
-		NFShmVector<struct E_MeditationMeditationAttributeDesc_s, 6> m_attribute;
-		NFShmVector<struct E_MeditationMeditationActiveattributeDesc_s, 6> m_activeattribute;
+		NFShmVector<struct E_MeditationMeditationAttributeDesc_s, DEFINE_E_MEDITATIONMEDITATION_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_MeditationMeditationActiveattributeDesc_s, DEFINE_E_MEDITATIONMEDITATION_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_MeditationMeditation & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MeditationMeditation & msg);
@@ -71,7 +74,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MeditationMeditation_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MeditationMeditation_s, 20> E_MeditationMeditation_List;
+		NFShmVector<struct E_MeditationMeditation_s, DEFINE_SHEET_MEDITATIONMEDITATION_E_MEDITATIONMEDITATION_LIST_MAX_NUM> E_MeditationMeditation_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MeditationMeditation & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MeditationMeditation & msg);

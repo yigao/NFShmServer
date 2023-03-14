@@ -8,6 +8,7 @@
 #include "tasktracker.pb.h"
 #include "tasktracker_s.h"
 
+#define DEFINE_SHEET_TASKTRACKERTASKTRACKER_E_TASKTRACKERTASKTRACKER_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_TasktrackerTasktracker_s : public NFDescStoreSeqOP {
@@ -30,7 +31,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_TasktrackerTasktracker_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_TasktrackerTasktracker_s, 60> E_TasktrackerTasktracker_List;
+		NFShmVector<struct E_TasktrackerTasktracker_s, DEFINE_SHEET_TASKTRACKERTASKTRACKER_E_TASKTRACKERTASKTRACKER_LIST_MAX_NUM> E_TasktrackerTasktracker_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_TasktrackerTasktracker & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TasktrackerTasktracker & msg);

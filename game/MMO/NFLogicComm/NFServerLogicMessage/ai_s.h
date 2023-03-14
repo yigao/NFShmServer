@@ -8,6 +8,8 @@
 #include "ai.pb.h"
 #include "ai_s.h"
 
+#define DEFINE_E_AIAI_M_HP_MAX_NUM 2
+#define DEFINE_SHEET_AIAI_E_AIAI_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_AiAiHpDesc_s : public NFDescStoreSeqOP {
@@ -45,7 +47,7 @@ namespace proto_ff_s {
 		int32_t m_isaiworkwhennobody;
 		int32_t m_borneffectaidelay;
 		NFShmString<60> m_initskills;
-		NFShmVector<struct E_AiAiHpDesc_s, 2> m_hp;
+		NFShmVector<struct E_AiAiHpDesc_s, DEFINE_E_AIAI_M_HP_MAX_NUM> m_hp;
 
 		virtual void write_to_pbmsg(::proto_ff::E_AiAi & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AiAi & msg);
@@ -59,7 +61,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AiAi_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AiAi_s, 20> E_AiAi_List;
+		NFShmVector<struct E_AiAi_s, DEFINE_SHEET_AIAI_E_AIAI_LIST_MAX_NUM> E_AiAi_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AiAi & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AiAi & msg);

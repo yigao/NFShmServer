@@ -99,6 +99,7 @@ def write_hfile():
 	#创建h文件
 	h_file = open(g_filedesc.name + ".h", "w")
 
+	define_max_num = ""
 	h_file.write("#pragma once\n\n")
 
 	h_file.write("#include <stdint.h>\n")
@@ -110,8 +111,9 @@ def write_hfile():
 		h_file.write("#include \"%s\"\n" % include_file)
 	h_file.write("\n")
 
+	line_struct = ""
 	#写入名字空间
-	h_file.write("namespace %s_s {\n\n" % g_filedesc.namespace)
+	line_struct += "namespace %s_s {\n\n" % g_filedesc.namespace
 
 	#写入所有枚举对象
 	#不用写入，protoc生成的h文件可以直接使用
@@ -126,14 +128,14 @@ def write_hfile():
 	#写入所有struct
 	for message_desc in g_filedesc.message_lst:
 		if message_desc.use_stl == True:
-			h_file.write("\tstruct %s_s {\n" % message_desc.name)
+			line_struct += "\tstruct %s_s {\n" % message_desc.name
 		else:
-			h_file.write("\tstruct %s_s : public NFDescStoreSeqOP {\n" % message_desc.name)
+			line_struct += "\tstruct %s_s : public NFDescStoreSeqOP {\n" % message_desc.name
 
-		h_file.write("\t\t%s_s();\n" % message_desc.name)
-		h_file.write("\t\tvirtual ~%s_s(){}\n" % message_desc.name)
-		h_file.write("\t\tint CreateInit();\n")
-		h_file.write("\t\tint ResumeInit();\n")
+		line_struct += "\t\t%s_s();\n" % message_desc.name
+		line_struct += "\t\tvirtual ~%s_s(){}\n" % message_desc.name
+		line_struct += "\t\tint CreateInit();\n"
+		line_struct += "\t\tint ResumeInit();\n"
 		for msg_field in message_desc.field_lst:
 			line = ""
 
@@ -147,14 +149,16 @@ def write_hfile():
 							line += "\t\tstd::vector<%s> %s" % (msg_field.c_type,  msg_field.name)
 							line += ";\n"
 						else:
-							line += "\t\tNFShmVector<%s, %d> %s" % (msg_field.c_type,  msg_field.array_size,  msg_field.name)
+							define_max_num += "#define DEFINE_%s_MAX_NUM %d\n" % (message_desc.name.upper() + "_" + msg_field.name.upper(),  msg_field.array_size)
+							line += "\t\tNFShmVector<%s, DEFINE_%s_MAX_NUM> %s" % (msg_field.c_type,  message_desc.name.upper() + "_" + msg_field.name.upper(),  msg_field.name)
 							line += ";\n"
 					else:
 						if message_desc.use_stl == True:
 							line += "\t\tstd::vector<%s> %s" % (msg_field.c_type,  msg_field.name)
 							line += ";\n"
 						else:
-							line += "\t\tNFShmVector<%s, %d> %s" % (msg_field.c_type,  1,  msg_field.name)
+							define_max_num += "#define DEFINE_%s_MAX_NUM %d\n" % (message_desc.name.upper() + "_" + msg_field.name.upper(),  1)
+							line += "\t\tNFShmVector<%s, DEFINE_%s_MAX_NUM> %s" % (msg_field.c_type,  message_desc.name.upper() + "_" + msg_field.name.upper(),  msg_field.name)
 							line += ";\n"
 
 				elif msg_field.is_array == False and msg_field.is_buffer == True:
@@ -229,23 +233,26 @@ def write_hfile():
 				line += "\t\t%s %s" % (msg_field.c_type, msg_field.name)
 				line += ";\n"
 
-			h_file.write(line)
+			line_struct += line
 
 		#写入转换函数
-		h_file.write("\n")
+		line_struct += "\n"
 		message_desc.func_write_to_pbmsg = "write_to_pbmsg(%s & msg) const" % (message_desc.pb_msgname)
 		message_desc.func_read_from_pbmsg = "read_from_pbmsg(const %s & msg)" % (message_desc.pb_msgname)
 		message_desc.func_new_proto = "new_pbmsg()"
 		message_desc.func_make_proto = "make_pbmsg()"
 
-		h_file.write("\t\tvirtual void %s;\n" % (message_desc.func_write_to_pbmsg))
-		h_file.write("\t\tvirtual void %s;\n" % (message_desc.func_read_from_pbmsg))
-		h_file.write("\t\tstatic %s* %s{ return new %s(); }\n" % (message_desc.pb_msgname, message_desc.func_new_proto, message_desc.pb_msgname))
-		h_file.write("\t\tstatic %s %s{ return %s(); }\n" % (message_desc.pb_msgname, message_desc.func_make_proto, message_desc.pb_msgname))
-		h_file.write("\t};\n")
-		h_file.write("\ttypedef struct %s_s %s_t;\n\n" % (message_desc.name, message_desc.name))
+		line_struct += "\t\tvirtual void %s;\n" % (message_desc.func_write_to_pbmsg)
+		line_struct += "\t\tvirtual void %s;\n" % (message_desc.func_read_from_pbmsg)
+		line_struct += "\t\tstatic %s* %s{ return new %s(); }\n" % (message_desc.pb_msgname, message_desc.func_new_proto, message_desc.pb_msgname)
+		line_struct += "\t\tstatic %s %s{ return %s(); }\n" % (message_desc.pb_msgname, message_desc.func_make_proto, message_desc.pb_msgname)
+		line_struct += "\t};\n"
+		line_struct += "\ttypedef struct %s_s %s_t;\n\n" % (message_desc.name, message_desc.name)
 
-	h_file.write("}\n\n")
+	line_struct += "}\n\n"
+
+	h_file.write(define_max_num)
+	h_file.write(line_struct)
 	h_file.close()
 
 def write_cppfile():

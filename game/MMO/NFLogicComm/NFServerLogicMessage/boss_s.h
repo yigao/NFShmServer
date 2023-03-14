@@ -8,6 +8,11 @@
 #include "boss.pb.h"
 #include "boss_s.h"
 
+#define DEFINE_SHEET_BOSSRAREITEM_E_BOSSRAREITEM_LIST_MAX_NUM 600
+#define DEFINE_SHEET_BOSSBOSS_E_BOSSBOSS_LIST_MAX_NUM 300
+#define DEFINE_E_BOSSBOSSTYPE_M_GROUP_MAX_NUM 3
+#define DEFINE_SHEET_BOSSBOSSTYPE_E_BOSSBOSSTYPE_LIST_MAX_NUM 20
+#define DEFINE_SHEET_BOSSLAYER_E_BOSSLAYER_LIST_MAX_NUM 40
 namespace proto_ff_s {
 
 	struct E_BossRareitem_s : public NFDescStoreSeqOP {
@@ -30,7 +35,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossRareitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossRareitem_s, 600> E_BossRareitem_List;
+		NFShmVector<struct E_BossRareitem_s, DEFINE_SHEET_BOSSRAREITEM_E_BOSSRAREITEM_LIST_MAX_NUM> E_BossRareitem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossRareitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossRareitem & msg);
@@ -71,7 +76,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossBoss_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossBoss_s, 300> E_BossBoss_List;
+		NFShmVector<struct E_BossBoss_s, DEFINE_SHEET_BOSSBOSS_E_BOSSBOSS_LIST_MAX_NUM> E_BossBoss_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg);
@@ -115,7 +120,7 @@ namespace proto_ff_s {
 		int32_t m_qkill;
 		int32_t m_retrieveddays;
 		int32_t m_skill;
-		NFShmVector<struct E_BossBosstypeGroupDesc_s, 3> m_group;
+		NFShmVector<struct E_BossBosstypeGroupDesc_s, DEFINE_E_BOSSBOSSTYPE_M_GROUP_MAX_NUM> m_group;
 
 		virtual void write_to_pbmsg(::proto_ff::E_BossBosstype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BossBosstype & msg);
@@ -129,7 +134,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossBosstype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossBosstype_s, 20> E_BossBosstype_List;
+		NFShmVector<struct E_BossBosstype_s, DEFINE_SHEET_BOSSBOSSTYPE_E_BOSSBOSSTYPE_LIST_MAX_NUM> E_BossBosstype_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBosstype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBosstype & msg);
@@ -163,7 +168,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_BossLayer_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_BossLayer_s, 40> E_BossLayer_List;
+		NFShmVector<struct E_BossLayer_s, DEFINE_SHEET_BOSSLAYER_E_BOSSLAYER_LIST_MAX_NUM> E_BossLayer_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_BossLayer & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossLayer & msg);

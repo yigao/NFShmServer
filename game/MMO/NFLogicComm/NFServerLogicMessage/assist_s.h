@@ -8,6 +8,9 @@
 #include "assist.pb.h"
 #include "assist_s.h"
 
+#define DEFINE_SHEET_ASSISTBOX_E_ASSISTBOX_LIST_MAX_NUM 20
+#define DEFINE_SHEET_ASSISTTHANK_E_ASSISTTHANK_LIST_MAX_NUM 20
+#define DEFINE_SHEET_ASSISTCONST_E_ASSISTCONST_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_AssistBox_s : public NFDescStoreSeqOP {
@@ -31,7 +34,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AssistBox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AssistBox_s, 20> E_AssistBox_List;
+		NFShmVector<struct E_AssistBox_s, DEFINE_SHEET_ASSISTBOX_E_ASSISTBOX_LIST_MAX_NUM> E_AssistBox_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AssistBox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AssistBox & msg);
@@ -60,7 +63,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AssistThank_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AssistThank_s, 20> E_AssistThank_List;
+		NFShmVector<struct E_AssistThank_s, DEFINE_SHEET_ASSISTTHANK_E_ASSISTTHANK_LIST_MAX_NUM> E_AssistThank_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AssistThank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AssistThank & msg);
@@ -94,7 +97,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_AssistConst_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_AssistConst_s, 20> E_AssistConst_List;
+		NFShmVector<struct E_AssistConst_s, DEFINE_SHEET_ASSISTCONST_E_ASSISTCONST_LIST_MAX_NUM> E_AssistConst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_AssistConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AssistConst & msg);

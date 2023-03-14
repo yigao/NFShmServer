@@ -8,6 +8,9 @@
 #include "headPortrait.pb.h"
 #include "headPortrait_s.h"
 
+#define DEFINE_E_HEADPORTRAITHEAD_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_E_HEADPORTRAITHEAD_M_ACTIVEATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_HEADPORTRAITHEAD_E_HEADPORTRAITHEAD_LIST_MAX_NUM 100
 namespace proto_ff_s {
 
 	struct E_HeadportraitHeadAttributeDesc_s : public NFDescStoreSeqOP {
@@ -56,8 +59,8 @@ namespace proto_ff_s {
 		NFShmString<300> m_starnum;
 		int32_t m_starup;
 		int32_t m_starber;
-		NFShmVector<struct E_HeadportraitHeadAttributeDesc_s, 6> m_attribute;
-		NFShmVector<struct E_HeadportraitHeadActiveattributeDesc_s, 6> m_activeattribute;
+		NFShmVector<struct E_HeadportraitHeadAttributeDesc_s, DEFINE_E_HEADPORTRAITHEAD_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_HeadportraitHeadActiveattributeDesc_s, DEFINE_E_HEADPORTRAITHEAD_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_HeadportraitHead & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_HeadportraitHead & msg);
@@ -71,7 +74,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_HeadportraitHead_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_HeadportraitHead_s, 100> E_HeadportraitHead_List;
+		NFShmVector<struct E_HeadportraitHead_s, DEFINE_SHEET_HEADPORTRAITHEAD_E_HEADPORTRAITHEAD_LIST_MAX_NUM> E_HeadportraitHead_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_HeadportraitHead & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_HeadportraitHead & msg);

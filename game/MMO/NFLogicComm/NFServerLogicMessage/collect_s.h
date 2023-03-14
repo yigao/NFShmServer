@@ -8,6 +8,11 @@
 #include "collect.pb.h"
 #include "collect_s.h"
 
+#define DEFINE_E_COLLECTCOLLECT_M_ATTRIBUT_MAX_NUM 4
+#define DEFINE_SHEET_COLLECTCOLLECT_E_COLLECTCOLLECT_LIST_MAX_NUM 60
+#define DEFINE_E_COLLECTATTRIBUTETPYE_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_COLLECTATTRIBUTETPYE_E_COLLECTATTRIBUTETPYE_LIST_MAX_NUM 200
+#define DEFINE_SHEET_COLLECTCONST_E_COLLECTCONST_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_CollectCollectAttributDesc_s : public NFDescStoreSeqOP {
@@ -40,7 +45,7 @@ namespace proto_ff_s {
 		int32_t m_quality;
 		int32_t m_star;
 		int32_t m_skillid;
-		NFShmVector<struct E_CollectCollectAttributDesc_s, 4> m_attribut;
+		NFShmVector<struct E_CollectCollectAttributDesc_s, DEFINE_E_COLLECTCOLLECT_M_ATTRIBUT_MAX_NUM> m_attribut;
 
 		virtual void write_to_pbmsg(::proto_ff::E_CollectCollect & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_CollectCollect & msg);
@@ -54,7 +59,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_CollectCollect_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_CollectCollect_s, 60> E_CollectCollect_List;
+		NFShmVector<struct E_CollectCollect_s, DEFINE_SHEET_COLLECTCOLLECT_E_COLLECTCOLLECT_LIST_MAX_NUM> E_CollectCollect_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_CollectCollect & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_CollectCollect & msg);
@@ -84,7 +89,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;
-		NFShmVector<struct E_CollectAttributetpyeAttributeDesc_s, 3> m_attribute;
+		NFShmVector<struct E_CollectAttributetpyeAttributeDesc_s, DEFINE_E_COLLECTATTRIBUTETPYE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_CollectAttributetpye & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_CollectAttributetpye & msg);
@@ -98,7 +103,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_CollectAttributetpye_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_CollectAttributetpye_s, 200> E_CollectAttributetpye_List;
+		NFShmVector<struct E_CollectAttributetpye_s, DEFINE_SHEET_COLLECTATTRIBUTETPYE_E_COLLECTATTRIBUTETPYE_LIST_MAX_NUM> E_CollectAttributetpye_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_CollectAttributetpye & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_CollectAttributetpye & msg);
@@ -126,7 +131,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_CollectConst_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_CollectConst_s, 20> E_CollectConst_List;
+		NFShmVector<struct E_CollectConst_s, DEFINE_SHEET_COLLECTCONST_E_COLLECTCONST_LIST_MAX_NUM> E_CollectConst_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_CollectConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_CollectConst & msg);

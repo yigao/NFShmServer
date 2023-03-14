@@ -8,6 +8,9 @@
 #include "map.pb.h"
 #include "map_s.h"
 
+#define DEFINE_SHEET_MAPMAP_E_MAPMAP_LIST_MAX_NUM 100
+#define DEFINE_SHEET_MAPITEMDROP_E_MAPITEMDROP_LIST_MAX_NUM 40
+#define DEFINE_SHEET_MAPDESTROYITEM_E_MAPDESTROYITEM_LIST_MAX_NUM 200
 namespace proto_ff_s {
 
 	struct E_MapMap_s : public NFDescStoreSeqOP {
@@ -61,7 +64,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MapMap_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MapMap_s, 100> E_MapMap_List;
+		NFShmVector<struct E_MapMap_s, DEFINE_SHEET_MAPMAP_E_MAPMAP_LIST_MAX_NUM> E_MapMap_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MapMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapMap & msg);
@@ -97,7 +100,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MapItemdrop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MapItemdrop_s, 40> E_MapItemdrop_List;
+		NFShmVector<struct E_MapItemdrop_s, DEFINE_SHEET_MAPITEMDROP_E_MAPITEMDROP_LIST_MAX_NUM> E_MapItemdrop_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MapItemdrop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapItemdrop & msg);
@@ -125,7 +128,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_MapDestroyitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MapDestroyitem_s, 200> E_MapDestroyitem_List;
+		NFShmVector<struct E_MapDestroyitem_s, DEFINE_SHEET_MAPDESTROYITEM_E_MAPDESTROYITEM_LIST_MAX_NUM> E_MapDestroyitem_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_MapDestroyitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MapDestroyitem & msg);

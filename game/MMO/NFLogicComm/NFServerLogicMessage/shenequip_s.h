@@ -8,6 +8,19 @@
 #include "shenequip.pb.h"
 #include "shenequip_s.h"
 
+#define DEFINE_SHEET_SHENEQUIPEQUIP_E_SHENEQUIPEQUIP_LIST_MAX_NUM 20
+#define DEFINE_E_SHENEQUIPATT_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_E_SHENEQUIPATT_M_STAR_MAX_NUM 7
+#define DEFINE_SHEET_SHENEQUIPATT_E_SHENEQUIPATT_LIST_MAX_NUM 11000
+#define DEFINE_SHEET_SHENEQUIPLVUP_E_SHENEQUIPLVUP_LIST_MAX_NUM 40
+#define DEFINE_E_SHENEQUIPCLEAR_M_PERCENT_MAX_NUM 2
+#define DEFINE_SHEET_SHENEQUIPCLEAR_E_SHENEQUIPCLEAR_LIST_MAX_NUM 140
+#define DEFINE_E_SHENEQUIPAWAKEN_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_SHENEQUIPAWAKEN_E_SHENEQUIPAWAKEN_LIST_MAX_NUM 20
+#define DEFINE_E_SHENEQUIPSTARUP_M_MATERIAL_MAX_NUM 2
+#define DEFINE_SHEET_SHENEQUIPSTARUP_E_SHENEQUIPSTARUP_LIST_MAX_NUM 80
+#define DEFINE_E_SHENEQUIPPREPOSE_M_REWARD_MAX_NUM 5
+#define DEFINE_SHEET_SHENEQUIPPREPOSE_E_SHENEQUIPPREPOSE_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
 	struct E_ShenequipEquip_s : public NFDescStoreSeqOP {
@@ -46,7 +59,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipEquip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipEquip_s, 20> E_ShenequipEquip_List;
+		NFShmVector<struct E_ShenequipEquip_s, DEFINE_SHEET_SHENEQUIPEQUIP_E_SHENEQUIPEQUIP_LIST_MAX_NUM> E_ShenequipEquip_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipEquip & msg);
@@ -91,8 +104,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;
-		NFShmVector<struct E_ShenequipAttAttributeDesc_s, 4> m_attribute;
-		NFShmVector<struct E_ShenequipAttStarDesc_s, 7> m_star;
+		NFShmVector<struct E_ShenequipAttAttributeDesc_s, DEFINE_E_SHENEQUIPATT_M_ATTRIBUTE_MAX_NUM> m_attribute;
+		NFShmVector<struct E_ShenequipAttStarDesc_s, DEFINE_E_SHENEQUIPATT_M_STAR_MAX_NUM> m_star;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipAtt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipAtt & msg);
@@ -106,7 +119,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipAtt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipAtt_s, 11000> E_ShenequipAtt_List;
+		NFShmVector<struct E_ShenequipAtt_s, DEFINE_SHEET_SHENEQUIPATT_E_SHENEQUIPATT_LIST_MAX_NUM> E_ShenequipAtt_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipAtt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipAtt & msg);
@@ -140,7 +153,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipLvup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipLvup_s, 40> E_ShenequipLvup_List;
+		NFShmVector<struct E_ShenequipLvup_s, DEFINE_SHEET_SHENEQUIPLVUP_E_SHENEQUIPLVUP_LIST_MAX_NUM> E_ShenequipLvup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipLvup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipLvup & msg);
@@ -165,7 +178,7 @@ namespace proto_ff_s {
 		int32_t m_randomcounts;
 		int32_t m_minus;
 		int32_t m_nextid;
-		NFShmVector<int32_t, 2> m_percent;
+		NFShmVector<int32_t, DEFINE_E_SHENEQUIPCLEAR_M_PERCENT_MAX_NUM> m_percent;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipClear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipClear & msg);
@@ -179,7 +192,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipClear_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipClear_s, 140> E_ShenequipClear_List;
+		NFShmVector<struct E_ShenequipClear_s, DEFINE_SHEET_SHENEQUIPCLEAR_E_SHENEQUIPCLEAR_LIST_MAX_NUM> E_ShenequipClear_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipClear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipClear & msg);
@@ -214,7 +227,7 @@ namespace proto_ff_s {
 		int32_t m_itemid;
 		int32_t m_num;
 		int32_t m_awakeskillid;
-		NFShmVector<struct E_ShenequipAwakenAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_ShenequipAwakenAttributeDesc_s, DEFINE_E_SHENEQUIPAWAKEN_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipAwaken & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipAwaken & msg);
@@ -228,7 +241,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipAwaken_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipAwaken_s, 20> E_ShenequipAwaken_List;
+		NFShmVector<struct E_ShenequipAwaken_s, DEFINE_SHEET_SHENEQUIPAWAKEN_E_SHENEQUIPAWAKEN_LIST_MAX_NUM> E_ShenequipAwaken_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipAwaken & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipAwaken & msg);
@@ -267,7 +280,7 @@ namespace proto_ff_s {
 		int32_t m_nextid;
 		int32_t m_lastid;
 		int32_t m_percent;
-		NFShmVector<struct E_ShenequipStarupMaterialDesc_s, 2> m_material;
+		NFShmVector<struct E_ShenequipStarupMaterialDesc_s, DEFINE_E_SHENEQUIPSTARUP_M_MATERIAL_MAX_NUM> m_material;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipStarup & msg);
@@ -281,7 +294,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipStarup_s, 80> E_ShenequipStarup_List;
+		NFShmVector<struct E_ShenequipStarup_s, DEFINE_SHEET_SHENEQUIPSTARUP_E_SHENEQUIPSTARUP_LIST_MAX_NUM> E_ShenequipStarup_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipStarup & msg);
@@ -313,7 +326,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_condition;
 		int32_t m_value;
-		NFShmVector<struct E_ShenequipPreposeRewardDesc_s, 5> m_reward;
+		NFShmVector<struct E_ShenequipPreposeRewardDesc_s, DEFINE_E_SHENEQUIPPREPOSE_M_REWARD_MAX_NUM> m_reward;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipPrepose & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipPrepose & msg);
@@ -327,7 +340,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ShenequipPrepose_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ShenequipPrepose_s, 20> E_ShenequipPrepose_List;
+		NFShmVector<struct E_ShenequipPrepose_s, DEFINE_SHEET_SHENEQUIPPREPOSE_E_SHENEQUIPPREPOSE_LIST_MAX_NUM> E_ShenequipPrepose_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ShenequipPrepose & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ShenequipPrepose & msg);

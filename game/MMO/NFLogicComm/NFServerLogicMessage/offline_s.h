@@ -8,6 +8,9 @@
 #include "offline.pb.h"
 #include "offline_s.h"
 
+#define DEFINE_SHEET_OFFLINEOFFLINE_E_OFFLINEOFFLINE_LIST_MAX_NUM 2000
+#define DEFINE_E_OFFLINEITEMLIST_M_ITEM_MAX_NUM 22
+#define DEFINE_SHEET_OFFLINEITEMLIST_E_OFFLINEITEMLIST_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_OfflineOffline_s : public NFDescStoreSeqOP {
@@ -30,7 +33,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_OfflineOffline_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_OfflineOffline_s, 2000> E_OfflineOffline_List;
+		NFShmVector<struct E_OfflineOffline_s, DEFINE_SHEET_OFFLINEOFFLINE_E_OFFLINEOFFLINE_LIST_MAX_NUM> E_OfflineOffline_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_OfflineOffline & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OfflineOffline & msg);
@@ -64,7 +67,7 @@ namespace proto_ff_s {
 		int32_t m_lvdown;
 		int32_t m_lvup;
 		int32_t m_daoju;
-		NFShmVector<struct E_OfflineItemlistItemDesc_s, 22> m_item;
+		NFShmVector<struct E_OfflineItemlistItemDesc_s, DEFINE_E_OFFLINEITEMLIST_M_ITEM_MAX_NUM> m_item;
 
 		virtual void write_to_pbmsg(::proto_ff::E_OfflineItemlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OfflineItemlist & msg);
@@ -78,7 +81,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_OfflineItemlist_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_OfflineItemlist_s, 60> E_OfflineItemlist_List;
+		NFShmVector<struct E_OfflineItemlist_s, DEFINE_SHEET_OFFLINEITEMLIST_E_OFFLINEITEMLIST_LIST_MAX_NUM> E_OfflineItemlist_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_OfflineItemlist & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OfflineItemlist & msg);

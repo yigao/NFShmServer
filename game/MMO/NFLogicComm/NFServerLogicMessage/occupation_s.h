@@ -8,6 +8,12 @@
 #include "occupation.pb.h"
 #include "occupation_s.h"
 
+#define DEFINE_SHEET_OCCUPATIONOCCUPATION_E_OCCUPATIONOCCUPATION_LIST_MAX_NUM 20
+#define DEFINE_SHEET_OCCUPATIONSTAGE_E_OCCUPATIONSTAGE_LIST_MAX_NUM 40
+#define DEFINE_E_OCCUPATIONATTRIBUTE_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_OCCUPATIONATTRIBUTE_E_OCCUPATIONATTRIBUTE_LIST_MAX_NUM 20
+#define DEFINE_E_OCCUPATIONSOUL_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_OCCUPATIONSOUL_E_OCCUPATIONSOUL_LIST_MAX_NUM 60
 namespace proto_ff_s {
 
 	struct E_OccupationOccupation_s : public NFDescStoreSeqOP {
@@ -37,7 +43,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_OccupationOccupation_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_OccupationOccupation_s, 20> E_OccupationOccupation_List;
+		NFShmVector<struct E_OccupationOccupation_s, DEFINE_SHEET_OCCUPATIONOCCUPATION_E_OCCUPATIONOCCUPATION_LIST_MAX_NUM> E_OccupationOccupation_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_OccupationOccupation & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OccupationOccupation & msg);
@@ -76,7 +82,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_OccupationStage_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_OccupationStage_s, 40> E_OccupationStage_List;
+		NFShmVector<struct E_OccupationStage_s, DEFINE_SHEET_OCCUPATIONSTAGE_E_OCCUPATIONSTAGE_LIST_MAX_NUM> E_OccupationStage_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_OccupationStage & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OccupationStage & msg);
@@ -106,7 +112,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;
-		NFShmVector<struct E_OccupationAttributeAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_OccupationAttributeAttributeDesc_s, DEFINE_E_OCCUPATIONATTRIBUTE_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_OccupationAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OccupationAttribute & msg);
@@ -120,7 +126,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_OccupationAttribute_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_OccupationAttribute_s, 20> E_OccupationAttribute_List;
+		NFShmVector<struct E_OccupationAttribute_s, DEFINE_SHEET_OCCUPATIONATTRIBUTE_E_OCCUPATIONATTRIBUTE_LIST_MAX_NUM> E_OccupationAttribute_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_OccupationAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OccupationAttribute & msg);
@@ -152,7 +158,7 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_soultpye;
 		int32_t m_position;
-		NFShmVector<struct E_OccupationSoulAttributeDesc_s, 6> m_attribute;
+		NFShmVector<struct E_OccupationSoulAttributeDesc_s, DEFINE_E_OCCUPATIONSOUL_M_ATTRIBUTE_MAX_NUM> m_attribute;
 
 		virtual void write_to_pbmsg(::proto_ff::E_OccupationSoul & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OccupationSoul & msg);
@@ -166,7 +172,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_OccupationSoul_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_OccupationSoul_s, 60> E_OccupationSoul_List;
+		NFShmVector<struct E_OccupationSoul_s, DEFINE_SHEET_OCCUPATIONSOUL_E_OCCUPATIONSOUL_LIST_MAX_NUM> E_OccupationSoul_List;
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_OccupationSoul & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_OccupationSoul & msg);

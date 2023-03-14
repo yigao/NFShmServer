@@ -8,6 +8,7 @@
 #include "common_logic.pb.h"
 #include "common_logic_s.h"
 
+#define DEFINE_WORLDEXTERNALCONFIG_WHITELIST_MAX_NUM 100
 namespace proto_ff_s {
 
 	struct PacketMsg_s {
@@ -50,7 +51,7 @@ namespace proto_ff_s {
 		bool TokenTimeCheck;
 		bool WhiteListState;
 		uint32_t MaxRegisterNum;
-		NFShmVector<uint64_t, 100> WhiteList;
+		NFShmVector<uint64_t, DEFINE_WORLDEXTERNALCONFIG_WHITELIST_MAX_NUM> WhiteList;
 		uint32_t StartQueueNum;
 		uint32_t MaxQueueNum;
 
