@@ -56,13 +56,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="attr">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttrMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttrMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttrMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttrMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -651,21 +646,7 @@
       <workItem from="1678323004058" duration="35358000" />
       <workItem from="1678418797150" duration="51201000" />
       <workItem from="1678669760792" duration="29634000" />
-      <workItem from="1678753919750" duration="42931000" />
-    </task>
-    <task id="LOCAL-00454" summary="scene">
-      <created>1677585730804</created>
-      <option name="number" value="00454" />
-      <option name="presentableId" value="LOCAL-00454" />
-      <option name="project" value="LOCAL" />
-      <updated>1677585730805</updated>
-    </task>
-    <task id="LOCAL-00455" summary="scene">
-      <created>1677641746668</created>
-      <option name="number" value="00455" />
-      <option name="presentableId" value="LOCAL-00455" />
-      <option name="project" value="LOCAL" />
-      <updated>1677641746668</updated>
+      <workItem from="1678753919750" duration="47672000" />
     </task>
     <task id="LOCAL-00456" summary="scene">
       <created>1677651068333</created>
@@ -996,7 +977,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678842223066</updated>
     </task>
-    <option name="localTasksCounter" value="503" />
+    <task id="LOCAL-00503" summary="attr">
+      <created>1678859208927</created>
+      <option name="number" value="00503" />
+      <option name="presentableId" value="LOCAL-00503" />
+      <option name="project" value="LOCAL" />
+      <updated>1678859208927</updated>
+    </task>
+    <task id="LOCAL-00504" summary="attr">
+      <created>1678859238546</created>
+      <option name="number" value="00504" />
+      <option name="presentableId" value="LOCAL-00504" />
+      <option name="project" value="LOCAL" />
+      <updated>1678859238546</updated>
+    </task>
+    <option name="localTasksCounter" value="505" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1248,28 +1243,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp</url>
-          <line>332</line>
-          <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp</url>
-          <line>321</line>
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp</url>
-          <line>212</line>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp</url>
-          <line>201</line>
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

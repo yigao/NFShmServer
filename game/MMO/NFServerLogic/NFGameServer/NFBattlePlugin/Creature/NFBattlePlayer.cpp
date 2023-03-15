@@ -217,7 +217,7 @@ int NFBattlePlayer::SyncBroadAttr(const proto_ff::CreatureAttrBroadRsp* pEvent)
         SetAttr(attr.id(), attr.value());
     }
 
-    BroadCast(proto_ff::CREATURE_ATTR_BROAD, *pEvent);
+    BroadCast(proto_ff::CREATURE_ATTR_BROAD, *pEvent, true);
     return 0;
 }
 
