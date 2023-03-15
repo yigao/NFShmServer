@@ -17,6 +17,7 @@
 #include "Event.pb.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "ClientServerCmd.pb.h"
+#include "CSPlayer.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature)
 
@@ -91,6 +92,10 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
     SetState(proto_ff::state_normal);
 
     Subscribe(NF_ST_GAME_SERVER, EVENT_SYNC_SCENE_FACADE, CREATURE_PLAYER, Cid(), __FUNCTION__);
+    Subscribe(NF_ST_GAME_SERVER, EVENT_SYNC_CREATURE_ATTR, CREATURE_PLAYER, Cid(), __FUNCTION__);
+    Subscribe(NF_ST_GAME_SERVER, EVENT_SYNC_CREATURE_BROADCAST_ATTR, CREATURE_PLAYER, Cid(), __FUNCTION__);
+
+
     return 0;
 }
 
@@ -192,6 +197,30 @@ int NFBattlePlayer::SyncFacade(const proto_ff::RoleFacadeProto* pEvent)
     return 0;
 }
 
+int NFBattlePlayer::SyncAttr(const proto_ff::CreatureAttrSyn* pEvent)
+{
+    CHECK_NULL(pEvent);
+    for(int i = 0; i < (int)pEvent->attr_size(); i++)
+    {
+        const ::proto_ff::Attr64& attr = pEvent->attr(i);
+        SetAttr(attr.id(), attr.value());
+    }
+    return 0;
+}
+
+int NFBattlePlayer::SyncBroadAttr(const proto_ff::CreatureAttrBroadRsp* pEvent)
+{
+    CHECK_NULL(pEvent);
+    for(int i = 0; i < (int)pEvent->attr_size(); i++)
+    {
+        const ::proto_ff::Attr64& attr = pEvent->attr(i);
+        SetAttr(attr.id(), attr.value());
+    }
+
+    BroadCast(proto_ff::CREATURE_ATTR_BROAD, *pEvent);
+    return 0;
+}
+
 int NFBattlePlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
     switch(nEventID)
@@ -202,6 +231,24 @@ int NFBattlePlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t b
             if (pEvent)
             {
                 SyncFacade(pEvent);
+            }
+            break;
+        }
+        case EVENT_SYNC_CREATURE_ATTR:
+        {
+            const proto_ff::CreatureAttrSyn* pEvent = dynamic_cast<const proto_ff::CreatureAttrSyn*>(pMessage);
+            if (pEvent)
+            {
+                SyncAttr(pEvent);
+            }
+            break;
+        }
+        case EVENT_SYNC_CREATURE_BROADCAST_ATTR:
+        {
+            const proto_ff::CreatureAttrBroadRsp* pEvent = dynamic_cast<const proto_ff::CreatureAttrBroadRsp*>(pMessage);
+            if (pEvent)
+            {
+                SyncBroadAttr(pEvent);
             }
             break;
         }

@@ -110,6 +110,8 @@ public:
     //伙伴视野数据中用到的属性ID
     const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &PartnerViewAttr();
 
+    //需要同步给的战斗服务器属性用到的 属性ID
+    const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &GameSyncAttr();
 public:
     //初始化战斗属性和索引之间的映射
     bool InitFightAttrToIndex();
@@ -127,6 +129,8 @@ protected:
     NFShmHashSet<int32_t, proto_ff::A_COMMON_END> m_setMonsViewAttr;
     //伙伴视野数据中用到的 属性ID
     NFShmHashSet<int32_t, proto_ff::A_COMMON_END> m_setPartnerViewAttr;
+    //需要同步给的战斗服务器属性用到的 属性ID
+    NFShmHashSet<int32_t, proto_ff::A_COMMON_END> m_setGameSyncAttr;
 
     //通用的 配置表中的 战斗属性ID 和 程序中使用的 通用战斗属性数组的索引 之间的映射
     uint8_t m_comIdToIndex[proto_ff::A_FIGHT_END];

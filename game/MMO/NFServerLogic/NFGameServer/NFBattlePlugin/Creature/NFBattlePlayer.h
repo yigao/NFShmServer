@@ -21,6 +21,7 @@
 #include "Com_s.h"
 #include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "Move.pb.h"
+#include "CSPlayer.pb.h"
 
 class NFBattlePlayer : public NFCreature, public NFSeqOP
 {
@@ -52,6 +53,8 @@ public:
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
     int SyncFacade(const proto_ff::RoleFacadeProto* pEvent);
+    int SyncAttr(const proto_ff::CreatureAttrSyn* pEvent);
+    int SyncBroadAttr(const proto_ff::CreatureAttrBroadRsp* pEvent);
 public:
     int OnDisconnect();
 

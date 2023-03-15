@@ -36,6 +36,8 @@
 #include "Trans/NFTransTransScene.h"
 #include "ServerInternalCmd.pb.h"
 #include "ServerInternalCmd2.pb.h"
+#include "DescStore/AttributeAttributeDesc.h"
+#include "NFLogicCommon/NFGameMath.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -61,7 +63,7 @@ int NFPlayer::CreateInit()
     m_color = 0;
     m_lastFacade.CreateInit();
     m_pPart.resize(m_pPart.max_size());
-
+    m_calcfight = false;
     return 0;
 }
 
@@ -368,7 +370,7 @@ void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto)
         }
     }
 
-    auto &setAttr = NFAttrMgr::Instance(m_pObjPluginManager)->PlayerViewAttr();
+    auto &setAttr = NFAttrMgr::Instance(m_pObjPluginManager)->GameSyncAttr();
     for (auto iter = setAttr.begin(); iter != setAttr.end(); ++iter)
     {
         uint32_t attrid = (*iter);
@@ -512,6 +514,12 @@ int NFPlayer::FireGame(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, c
     {
         FireBroadcast(NF_ST_LOGIC_SERVER, NF_ST_GAME_SERVER, GetGameId(), nEventID, bySrcType, nSrcID, message, self);
     }
+    return 0;
+}
+
+int NFPlayer::FireSns(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self/* = false*/)
+{
+    FireBroadcast(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, nEventID, bySrcType, nSrcID, message, self);
     return 0;
 }
 
@@ -903,6 +911,8 @@ void NFPlayer::SynAttrToClient()
         }
         SendMsgToClient(proto_ff::CREATURE_ATTR_SYN, rsp);
         m_attrCache.clear();
+
+        FireGame(EVENT_SYNC_CREATURE_ATTR, CREATURE_PLAYER, GetRoleId(), rsp);
     }
 
     if (!m_attrBroadCache.empty())
@@ -918,9 +928,14 @@ void NFPlayer::SynAttrToClient()
                 proto->set_value(iter.second);
             }
         }
-        //BroadCast(proto_ff::CREATURE_ATTR_BROAD, &rsp, true);
         m_attrBroadCache.clear();
+        FireGame(EVENT_SYNC_CREATURE_BROADCAST_ATTR, CREATURE_PLAYER, GetRoleId(), rsp);
     }
+}
+
+void NFPlayer::SynAttrToSns(const proto_ff::CenterRoleProto& proto)
+{
+    FireSns(EVENT_SYNC_SNS_ATTR, CREATURE_PLAYER, GetRoleId(), proto);
 }
 
 NFPart *NFPlayer::GetPart(uint32_t partType)
@@ -1087,17 +1102,7 @@ void NFPlayer::OnAddAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64
     }
     else if (proto_ff::A_CUR_HP == ANum)
     {
-        if (GetAttr(proto_ff::A_CUR_HP) <= 0)
-        {
-            //玩家死亡
-            uint64_t killerCid = 0;
-            if (nullptr != pSource)
-            {
-                killerCid = pSource->killerCid;
-            }
-            //
-            //OnDead(killerCid, true, oldVal);
-        }
+
     }
     else if (proto_ff::A_GOLD == ANum)
     {
@@ -1196,89 +1201,68 @@ void NFPlayer::OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64
     }
     else if (proto_ff::A_VIP_LEVEL == ANum)
     {
-        /*if (oldVal != m_attrs[A_VIP_LEVEL])
+        if (oldVal != newVal)
         {
-            SyncToCenter(A_VIP_LEVEL);
-        }*/
+            proto_ff::CenterRoleProto proto;
+            proto.set_vip_level(newVal);
+            SynAttrToSns(proto);
+        }
     }
     else if (proto_ff::A_CUR_HP == ANum)
     {
-        if (m_pAttr->GetAttr(proto_ff::A_CUR_HP) <= 0)
-        {
-            //玩家死亡
-            uint64_t killerCid = 0;
-            if (nullptr != pSource)
-            {
-                killerCid = pSource->killerCid;
-            }
-            //
-            //OnDead(killerCid, true, oldVal);
-        }
+
     }
 }
 
 void NFPlayer::OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource *pSource)
 {
-    //LogDebugFmtPrint("Player::OnAttrChange,attrID=%d,oldVal=%lu,newVal=%lu", ANum, oldVal, newVal);
-    /*int64_t attrValue = newVal - oldVal;
-
-    //判断属性改变引起的称号
-    TitlePart * pPart = dynamic_cast<TitlePart*>(m_pPart[PART_TITLE]);
-    if (pPart)
-    {
-        pPart->DoAttrChange(ANum, newVal, attrValue, pSource);
-    }
-    //判断属性改变引起的成就
-    AchievementPart * pAchPart = dynamic_cast<AchievementPart*>(m_pPart[PART_ACHIEVEMENT]);
-    if (pAchPart)
-    {
-        pAchPart->DoAttrChange(ANum, newVal, attrValue, pSource);
-    }
+//    int64_t attrValue = newVal - oldVal;
     //判断属性改变引起的vip变化
-    / *VipPart * pVipPart = dynamic_cast<VipPart*>(m_pPart[PART_VIP]);
+/*    VipPart * pVipPart = dynamic_cast<VipPart*>(m_pPart[PART_VIP]);
     if (pVipPart)
     {
         pVipPart->DoAttrChange(ANum, newVal, attrValue, pSource);
-    }* /
-    //判断属性改变引起的开服活动变化
-    ServerOpenActivePart * pSOAPart = dynamic_cast<ServerOpenActivePart*>(m_pPart[PART_SERVEROPENACTIVE]);
-    if (pSOAPart)
+    }*/
+    if (ANum > proto_ff::A_NONE && ANum < proto_ff::A_FIGHT_END && m_pFightAttr->GetFightChg())
     {
-        pSOAPart->DoAttrChange(ANum, newVal, attrValue, pSource);
-    }
-
-    //判断属性改变引起的开服活动变化
-    OperationActivePart * pOPActivePart = dynamic_cast<OperationActivePart*>(m_pPart[PART_OPERATIONACTIVE]);
-    if (pOPActivePart)
-    {
-        pOPActivePart->DoAttrChange(ANum, newVal, attrValue, pSource);
-    }
-
-    //战力需要同步到中心服
-    if (A_FIGHT == ANum)
-    {
-        SyncToCenter(ANum);
-    }
-    else if (A_SPEED == ANum)
-    {
-        //玩家移动速度改变了，需要修改伙伴的移动速度
-        PartnerPart *pPartnerPart = dynamic_cast<PartnerPart*>(GetPart(PART_PARTNER));
-        if (nullptr != pPartnerPart)
+        auto pcfg = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(ANum);
+        if (nullptr != pcfg && pcfg->m_power > EPS)
         {
-            pPartnerPart->OnOwnerSpeedChange();
+            SetCalcFight(true);
         }
     }
-    else if (A_CUR_HP == ANum)
+    if (proto_ff::A_CUR_HP == ANum)
     {
-        PlayerHpChangeEvent stEvent;
-        stEvent.oldHp = oldVal;
-        stEvent.newHp = newVal;
-        g_GetEvent()->FireExecute(EVENT_HP_CHANGE, GetCid(), 0, (PlayerHpChangeEvent*)&stEvent, sizeof(PlayerHpChangeEvent));
+/*        uint64_t nowTick = Time::Tick();
+        if (m_lastHpTick == 0 || (nowTick - m_lastHpTick) > (2 * 1000))
+        {
+            if (GetAttr(proto_ff::A_TEAM_ID) > 0)
+            {
+                proto_ff::CenterRoleProto proto;
+                proto.set_hp(GetAttr(proto_ff::A_CUR_HP));
+                SynAttrToSns(proto);
+            }
+        }*/
+/*        BuffPart* pbuffpart = dynamic_cast<BuffPart*>(GetPart(PART_BUFF));
+        if (nullptr != pbuffpart) pbuffpart->OnHpChange(newVal,GetAttr(A_MAX_HP));*/
     }
-    else if (A_EXP_ADD == ANum)
+    if (proto_ff::A_MAX_HP == ANum)
     {
-        CalcExpAdd(true);
-    }*/
+        if (GetAttr(proto_ff::A_TEAM_ID) > 0)
+        {
+            proto_ff::CenterRoleProto proto;
+            proto.set_max_hp(GetAttr(proto_ff::A_MAX_HP));
+            SynAttrToSns(proto);
+        }
+    }
+    if (proto_ff::A_ATK == ANum )
+    {
+/*        PetPart* pPetPart = dynamic_cast<PetPart*>(GetPart(PART_PET));
+        if (pPetPart)
+        {
+            pPetPart->OnChgAttr();
+        }*/
+    }
 }
 
 //检查经验值
@@ -1558,5 +1542,39 @@ int NFPlayer::LogoutGame(int type, uint32_t reqTransId)
     return 0;
 }
 
+//计算战力
+void NFPlayer::CalcFight(bool sync)
+{
+    int64_t fight = 0;
+/*    BuffPart* pbuffpart = dynamic_cast<BuffPart*>(GetPart(PART_BUFF));
+    SkillPart* pskillpart = dynamic_cast<SkillPart*>(GetPart(PART_SKILL));
+    MAP_UINT32_INT64 mapattr;
+    m_pFightAttr->GetFightAttr(mapattr);
+    //
+    for (auto &iter : mapattr)
+    {
+        const AttributeAttributeCfgInfo* pcfg = g_GetAttributeAttributeCfgTable()->GetAttributeAttributeCfgInfo(iter.first);
+        if (nullptr == pcfg || pcfg->power <= EPS) continue;
+        int64_t value = iter.second;
+        if (nullptr != pbuffpart) value += pbuffpart->GetFightAttr(iter.first);
+        fight += (int64_t)(pcfg->power * value);
+    }
+    if (nullptr != pskillpart) fight += pskillpart->SkillFight();
+    //
+    if (fight != m_pAttr->GetAttr(A_FIGHT))
+    {
+        //LogDebugFmtPrint("[logic] Player::CalcFight....cid:%lu, old:%lu, new:%lu, sync:%d ", Cid(), GetAttr(A_FIGHT), fight, sync);
+        SetAttr(A_FIGHT, fight, nullptr, sync);
+        if (sync)
+        {
+            //同步到中心服
+            CenterRoleProto proto;
+            proto.set_fight(GetAttr(A_FIGHT));
+            SynAttrToCenter(proto);
+        }
+    }*/
+    m_pFightAttr->ClearFightChg();
+    SetCalcFight(false);
+}
 
 

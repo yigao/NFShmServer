@@ -82,14 +82,25 @@ bool NFAttrMgr::Init()
     m_arySynClient[proto_ff::A_LEVEL] = 1;
     m_arySynClient[proto_ff::A_VIP_LEVEL] = 1;
     m_arySynClient[proto_ff::A_HANGUP_TIME] = 1;
-
+    m_arySynClient[proto_ff::A_ARENA_COIN] = 1;
+    m_arySynClient[proto_ff::A_CAMP_ID] = 1;
+    m_arySynClient[proto_ff::A_CONTRI] = 1;
+    m_arySynClient[proto_ff::A_ESCORT_ID] = 1;
+    m_arySynClient[proto_ff::A_TITLE_ID] = 1;
+    m_arySynClient[proto_ff::A_GODEVIL_EXP] = 1;
+    m_arySynClient[proto_ff::A_GODEVIL_LEV] = 1;
+    m_arySynClient[proto_ff::A_BEST_AQ] = 1;
+    m_arySynClient[proto_ff::A_BEST_LJ] = 1;
 
     //需要广播的属性
     m_aryBroadClient[proto_ff::A_CUR_HP] = 1;
     m_aryBroadClient[proto_ff::A_MAX_HP] = 1;
     m_aryBroadClient[proto_ff::A_SPEED] = 1;
     m_aryBroadClient[proto_ff::A_TEAM_ID] = 1;
-
+    m_aryBroadClient[proto_ff::A_VIP_LEVEL] = 1;
+    m_aryBroadClient[proto_ff::A_CAMP_ID] = 1;
+    m_aryBroadClient[proto_ff::A_ESCORT_ID] = 1;
+    m_aryBroadClient[proto_ff::A_TITLE_ID] = 1;
 
     //玩家视野数据中用到的属性
     m_setPlayerViewAttr.insert(proto_ff::A_LEVEL);
@@ -99,7 +110,10 @@ bool NFAttrMgr::Init()
     m_setPlayerViewAttr.insert(proto_ff::A_MAX_HP);
     m_setPlayerViewAttr.insert(proto_ff::A_SPEED);
     m_setPlayerViewAttr.insert(proto_ff::A_TEAM_ID);
-
+    m_setPlayerViewAttr.insert(proto_ff::A_VIP_LEVEL);
+    m_setPlayerViewAttr.insert(proto_ff::A_FACTION_ID);
+    m_setPlayerViewAttr.insert(proto_ff::A_ESCORT_ID);
+    m_setPlayerViewAttr.insert(proto_ff::A_TITLE_ID);
     /*
     m_setPlayerViewAttr.insert(A_USE_TITLE);
     m_setPlayerViewAttr.insert(A_UNION_ID);
@@ -110,11 +124,30 @@ bool NFAttrMgr::Init()
     m_setMonsViewAttr.insert(proto_ff::A_MAX_HP);
     m_setMonsViewAttr.insert(proto_ff::A_LEVEL);
     m_setMonsViewAttr.insert(proto_ff::A_SPEED);
+    m_setMonsViewAttr.insert(proto_ff::A_CAMP_ID);
 
     //伙伴视野中用到的属性
     m_setPartnerViewAttr.insert(proto_ff::A_LEVEL);
     m_setPartnerViewAttr.insert(proto_ff::A_SPEED);
 
+
+    for(int i = 0; i < proto_ff::A_COMMON_END; i++)
+    {
+        if (m_arySynClient[i] == 1)
+        {
+            m_setGameSyncAttr.insert(i);
+        }
+    }
+
+    for(int i = 0; i < proto_ff::A_COMMON_END; i++)
+    {
+        if (m_aryBroadClient[i] == 1)
+        {
+            m_setGameSyncAttr.insert(i);
+        }
+    }
+
+    m_setGameSyncAttr.insert(m_setPlayerViewAttr.begin(), m_setPlayerViewAttr.end());
     return true;
 }
 
@@ -328,6 +361,11 @@ const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &NFAttrMgr::MonViewAttr()
 const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &NFAttrMgr::PartnerViewAttr()
 {
     return m_setPartnerViewAttr;
+}
+
+const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &NFAttrMgr::GameSyncAttr()
+{
+    return m_setGameSyncAttr;
 }
 
 //初始化战斗属性和索引之间的映射

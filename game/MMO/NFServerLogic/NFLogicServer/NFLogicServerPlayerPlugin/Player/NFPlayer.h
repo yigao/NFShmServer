@@ -53,8 +53,11 @@ public:
 
     //存储DB部件入口
     virtual int SaveDB(proto_ff::RoleDBData &dbData) override;
-    virtual void SetFacadeProto(proto_ff::RoleFacadeProto& outproto) override;
-    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto) override;
+
+    virtual void SetFacadeProto(proto_ff::RoleFacadeProto &outproto) override;
+
+    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto) override;
+
     //同步外观
     virtual void SyncFacade() override;
     //////////////////////////////每日每周刷新接口///////////////////////////////
@@ -83,13 +86,17 @@ public:
      */
     int WeekZeroUpdate(uint64_t unixSec);
 
-    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage);
+
 public:
 
     NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData);
+
     int RecylePart(NFPart *pPart);
+
 public:
     virtual uint32_t GetCurRoleDetailSeq() const override;
+
 public:
     int OnLoad(bool isLoadDB);
 
@@ -105,15 +112,21 @@ public:
     int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
 
     int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
     int SendTransToSnsServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
     int SendTransToWorldServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
     int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
     virtual int FireGame(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self = false);
+
+    virtual int FireSns(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self = false);
+
 public:
     /**
      * @brief
@@ -122,7 +135,7 @@ public:
      * @param dstPos
      * @return
      */
-    int EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& dstPos);
+    int EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float> &dstPos);
 
     /**
      * @brief
@@ -153,7 +166,7 @@ public:
      * @param change
      * @return
      */
-    int LoginGame(const CharLoginInfo& loginInfo, bool change);
+    int LoginGame(const CharLoginInfo &loginInfo, bool change);
 
     /**
      * @brief
@@ -166,63 +179,94 @@ public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性
     virtual void AddVirAttr(MAP_UINT32_INT64 &mapAttr, bool costFlag = false, SCommonSource *pSource = nullptr, bool syn = false);
+
     //属性是否足够，主要是为了属性虚拟物品的判断
     virtual bool EnoughVirAttr(MAP_UINT32_INT64 &mapAttr);
 
     //增加属性
-    virtual bool AddAttr(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr, bool syn = false);
+    virtual bool AddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr, bool syn = false);
+
     //增加属性 不同步到客户端
     virtual bool AddAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
+
     //能否增加属性
     virtual bool CanAddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
+
     //增加属性处理
     virtual void OnAddAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource *pSource = nullptr);
+
     //设置属性
     virtual bool SetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr, bool syn = false);
+
     //设置属性 不同步客户端
     virtual bool SetAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
+
     //能否设置属性
-    virtual bool CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr);
+    virtual bool CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
+
     //设置属性处理
-    virtual void OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource* pSource = nullptr);
+    virtual void OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource *pSource = nullptr);
 
 
     //获取该组属性值
     virtual int64_t GetAttrGroup(uint32_t attrGroup, uint32_t ANum);
+
     //清除某一组属性
     virtual bool ClearAttrGroup(uint32_t attrGroup, SCommonSource *pSource = nullptr, bool syn = false);
-    virtual bool ClearAttrGroupCache(uint32_t attrGroup, SCommonSource* pSource = nullptr);
+
+    virtual bool ClearAttrGroupCache(uint32_t attrGroup, SCommonSource *pSource = nullptr);
+
     //增加属性组属性
-    virtual bool AddAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr, bool syn = false);
-    virtual bool AddAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr);
+    virtual bool AddAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr, bool syn = false);
+
+    virtual bool AddAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr);
+
     //设置属性组属性
-    virtual bool SetAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr, bool syn = false);
-    virtual bool SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr);
+    virtual bool SetAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr, bool syn = false);
+
+    virtual bool SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr);
 
 
     //计算属性
     virtual void CalcAttr(uint32_t ANum);
+
     //计算属性组属性 主要是把属性组中的属性汇总到总属性中 ANum:属性组中的属性ID
     virtual void CalcAttrGroup(uint32_t attrgroup, uint32_t ANum, MAP_UINT32_INT64 &mapchg);
+
     //获取属性值
     virtual int64_t GetAttr(uint32_t ANum);
 
     //属性改变
-    virtual void OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource* pSource = nullptr);
+    virtual void OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource *pSource = nullptr);
+
     void CheckExp(int64_t oldexp, SCommonSource *pSource);
+
     void CalcLevelAttr(bool sync);
 
 public:
+    //设置是否需要计算战力
+    virtual void SetCalcFight(bool calc) { m_calcfight = calc; }
+
+    //计算战力
+    virtual void CalcFight(bool sync);
+
+public:
     void SynAttrToClient();
+
+    //同步属性到Sns
+    void SynAttrToSns(const proto_ff::CenterRoleProto &proto);
+
 public:
     template<typename PART>
-    PART* GetPart(uint32_t partType)
+    PART *GetPart(uint32_t partType)
     {
-        return dynamic_cast<PART*>(GetPart(partType));
+        return dynamic_cast<PART *>(GetPart(partType));
     }
 
-    NFPart* GetPart(uint32_t partType);
+    NFPart *GetPart(uint32_t partType);
+
 private:
+    bool m_calcfight;        //是否需要计算战力
     NFShmVector<NFShmPtr<NFPart>, PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFPlayer)
 };
