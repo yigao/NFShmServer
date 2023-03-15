@@ -1545,7 +1545,7 @@ int NFPlayer::LogoutGame(int type, uint32_t reqTransId)
 //计算战力
 void NFPlayer::CalcFight(bool sync)
 {
-    int64_t fight = 0;
+//    int64_t fight = 0;
 /*    BuffPart* pbuffpart = dynamic_cast<BuffPart*>(GetPart(PART_BUFF));
     SkillPart* pskillpart = dynamic_cast<SkillPart*>(GetPart(PART_SKILL));
     MAP_UINT32_INT64 mapattr;
